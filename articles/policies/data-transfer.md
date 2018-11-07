@@ -1,5 +1,13 @@
 ---
 description: Describes the Data Transfer Policy which governs requests for transfer of data from one Auth0 tenant to another.
+topics:
+    - auth0-policies
+    - data
+    - data-transfer
+contentType:
+  - reference
+useCase:
+  - support
 ---
 
 # Data Transfer Policy
@@ -14,5 +22,6 @@ If you are opting to move out from our service, then you might want to check [th
 
 * Transfer data from a non-production tenant to a production tenant
 * Rename a tenant
+* Re-use the name of a previously deleted tenant
 * Rename a connection
 * Migrate a tenant from one region to another (for example, from US to EU)

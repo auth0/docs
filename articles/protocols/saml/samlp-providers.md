@@ -1,5 +1,11 @@
 ---
 description: List of Identity Provider services known to support the SAML protocol.
+topics:
+  - saml
+contentType:
+  - reference
+useCase:
+  - add-idp
 ---
 # List of SAML-P Identity Providers
 

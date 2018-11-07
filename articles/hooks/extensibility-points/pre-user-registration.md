@@ -3,13 +3,19 @@ title: Using the Pre-User Registration Extensibility Point
 description: The pre-user-registration extensibility point for use with Hooks
 toc: true
 beta: true
+topics:
+    - hooks
+    - extensibility-points
+contentType:
+  - how-to
+useCase: extensibility-hooks
 ---
 
-# Extensibility Point: Pre-User Registration
+# Pre-User Registration
 
-For [Database Connections](/connections/database), the `pre-user-registration` extensibility point allows you to add custom `app_metadata` or `user_metadata` to a newly-created user.
+For [Database Connections](/connections/database), the Pre-User Registration extensibility point allows you to add custom data points to a newly-created user's profile.
 
-This allows you to implement scenarios such as setting conditional [metadata](/metadata) on users that do not exist yet.
+This allows you to implement scenarios such as setting conditional information (in the form of [metadata](/metadata) on users that do not exist yet.
 
 ## How to Implement This
 
@@ -19,7 +25,7 @@ You can implement a [Hook](/hooks#work-with-hooks) using this extensibility poin
 
 After you've created a new Hook that uses the Pre-User Registration extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
 
-The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. For example, the `client` object comes with the following parameters: application name, client ID, the Auth0 tenant name with which the application is associated, and application metadata. 
+The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function.
 
 ```js
 /**
@@ -28,7 +34,7 @@ The parameters listed in the comment at the top of the code indicate the Auth0 o
 @param {string} user.username - user name
 @param {string} user.password - user's password
 @param {string} user.email - email
-@param {boolean} user.emailVerified - is e-mail verified?
+@param {boolean} user.emailVerified - is email verified?
 @param {string} user.phoneNumber - phone number
 @param {boolean} user.phoneNumberVerified - is phone number verified?
 @param {object} context - Auth0 connection and other context info

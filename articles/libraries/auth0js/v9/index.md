@@ -3,12 +3,21 @@ section: libraries
 toc: true
 title: Auth0.js v9 Reference
 description: How to install, initialize and use auth0.js v9
+topics:
+  - libraries
+  - auth0js
+contentType:
+  - index
+  - how-to
+useCase: add-login
 ---
 # Auth0.js v9 Reference
 
-Auth0.js is a client-side library for Auth0. It is recommended for use in single page apps, and auth0.js in your SPA makes it easier to do authentication and authorization with Auth0. 
+Auth0.js is a client-side library for Auth0. It is recommended for use in single page apps, and auth0.js in your SPA makes it easier to do authentication and authorization with Auth0.
 
 The full API documentation for the library is [here](https://auth0.github.io/auth0.js/index.html).
+
+<%= include('../../../_includes/_embedded_login_warning') %>
 
 ## Ready-to-go example
 
@@ -66,21 +75,21 @@ There are two required parameters that must be passed in the `options` object wh
 | --- | --- | --- |
 | `domain` | required | (String) Your Auth0 account domain (ex. myaccount.auth0.com) |
 | `clientID` | required | (String) Your Auth0 client ID |
-| `redirectUri` | optional | (String)  The default `redirectUri` used. Defaults to an empty string (none). |
+| `redirectUri` | optional* | (String)  The default `redirectUri` used. Defaults to an empty string (none). **If you do not provide a global `redirectUri` value here, you will need to provide a redirectUri value for *each* method you use.** |
 | `scope` | optional | (String)  The default scope(s) used by the application. Using scopes can allow you to return specific claims for specific fields in your request. You should read our [documentation on scopes](/scopes) for further details. |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
-| `responseType` | optional | (String)  The default `responseType` used. It can be any space separated list of the values `code`, `token`, `id_token`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
+| `responseType` | optional* | (String)  The default `responseType` used. It can be any space separated list of the values `code`, `token`, `id_token`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. **If you do not provide a global `responseType` value, you will need to provide a `responseType` value for *each* method you use.** |
 | `responseMode` | optional | (String)  This option is omitted by default. Can be set to `'form_post'` in order to send the token or code to the `'redirectUri'` via POST. Supported values are `query`, `fragment` and `form_post`. |
 | `leeway` | optional | (Integer) A value in seconds; leeway to allow for clock skew with regard to JWT expiration times. |
 | `_disableDeprecationWarnings` | optional | (Boolean)  Disables the deprecation warnings, defaults to `false`. |
 
 ::: note
-Because of clock skew issues, you may occasionally encounter the error `The token was issued in the future`. The `leeway` parameter can be used to allow a few seconds of leeway to JWT expiration times, to prevent that from occuring.
+Because of clock skew issues, you may occasionally encounter the error `The token was issued in the future`. The `leeway` parameter can be used to allow a few seconds of leeway to JWT expiration times, to prevent that from occurring.
 :::
 
 ##### Scope
 
-The default `scope` value in Auth0.js v9 is `openid profile email`. 
+The default `scope` value in Auth0.js v9 is `openid profile email`.
 
 ::: panel Running Auth0.js Locally
 If you don't specify at least the above scope when initializing Auth0.js, and you are running your website from `http://localhost` or `http://127.0.0.1`, calling the `getSSOData()` method will result in the following error in the browser console:
@@ -107,6 +116,7 @@ The `authorize()` method can be used for logging in users via [Universal Login](
 | `clientID` | optional | (String)  Your Auth0 client ID. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
 | `state` | optional | (String)  An arbitrary value that should be maintained across redirects. It is useful to mitigate CSRF attacks and for any contextual information (for example, a return URL) that you might need after the authentication process is finished. For more information, see the [state parameter documentation](/protocols/oauth2/oauth-state). |
+| `prompt` | optional | (String) A value of `login` will force the login page to show regardless of current session. A value of `none` will attempt to bypass the login prompts if a session already exists (see the [silent authentication](/sso/current/single-page-apps#silent-authentication) documentation for more details). |
 
 For hosted login, one must call the `authorize()` method.
 
@@ -134,7 +144,7 @@ Hosted login with popup:
 webAuth.popup.authorize({
   //Any additional options can go here
 }, function(err, authResult) {
-  //do something 
+  //do something
 });
 ```
 
@@ -144,7 +154,7 @@ And for social login with popup using `authorize`:
 webAuth.popup.authorize({
   connection: 'twitter'
 }, function(err, authResult) {
-  //do something 
+  //do something
 });
 ```
 
@@ -273,7 +283,7 @@ The `parseHash` method takes an `options` object that contains the following par
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `state` | optional | (String) An opaque value the application adds to the initial request that Auth0 includes when redirecting back to the application. This value is used by auth0.js to prevent CSRF attacks. |
-| `nonce` | optional | (String) Used to verify the `id_token`
+| `nonce` | optional | (String) Used to verify the ID Token
 | `hash` | optional | (String) The URL hash (if not provided, `window.location.hash` will be used by default) |
 
 The contents of the authResult object returned by `parseHash` depend upon which authentication parameters were used. It can include:
@@ -332,7 +342,7 @@ webAuth.checkSession({
 });
 ```
 
-The `webAuth.checkSession` method will automatically verify that the returned `id_token`'s `nonce` claim is the same as the option.
+The `webAuth.checkSession` method will automatically verify that the returned ID Token's `nonce` claim is the same as the option.
 
 <%= include('../../../_includes/_co_authenticate_errors', { library : 'Auth0.js v9'}) %>
 
@@ -365,6 +375,7 @@ To sign up a user, use the `signup` method. This method accepts an options objec
 | --- | --- | --- |
 | `email` | required | (String) User's email address |
 | `password` | required | (String) User's desired password |
+| `username` | required\* | (String) User's desired username. </br>\*Required if you use a database connection and you have enabled **Requires Username** |
 | `connection` | required | (String) The database connection name on your application upon which to attempt user account creation |
 | `user_metadata` | optional | (JSON object) Additional attributes used for user information. Will be stored in [user_metadata](/metadata) |
 
@@ -393,7 +404,7 @@ Signups should be for database connections. Here is an example of the `signup` m
 
 ## Using checkSession to acquire new tokens
 
-The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against Auth0 for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`. If you omit them, it will use the ones provided when initializing Auth0. 
+The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against Auth0 for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`. If you omit them, it will use the ones provided when initializing Auth0.
 
 The call to `checkSession` can use get a new token for the API that was specified as the audience when `webAuth` was initialized:
 
@@ -423,11 +434,17 @@ Note that `checkSession()` triggers any [rules](/rules) you may have set up, so 
 
 The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it.
 
+However, the browser **must** have third-party cookies enabled. Otherwise, **checkSession()** is unable to access the current user's session (making it impossible to obtain a new token without displaying anything to the user). The same will happen if users have [Safari's ITP enabled](/api-auth/token-renewal-in-safari).
+
 Remember to add the URL where the authorization request originates from, to the **Allowed Web Origins** list of your Auth0 application in the [Dashboard](${manage_url}) under your application's **Settings**.
 
 ::: warning
 If the connection is a social connection and you are using Auth0 dev keys, the `checkSession` call will always return `login_required`.
 :::
+
+### Polling with checkSession()
+
+<%= include('../../../_includes/_checksession_polling') %>
 
 ## Password reset requests
 
@@ -454,7 +471,7 @@ The user will then receive an email which will contain a link that they can foll
 
 The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 
-To get started, you first need to obtain a an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/˜` audience when initializing Auth0.js, in which case you will get the Access Token as part of the authentication flow.
+To get started, you first need to obtain a an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/` audience when initializing Auth0.js, in which case you will get the Access Token as part of the authentication flow.
 
 ::: note
 If you use [custom domains](/custom-domains), you will need to instantiate a new copy of `webAuth` using your Auth0 domain rather than your custom one, for use with the Management API calls, as it only works with Auth0 domains.
@@ -465,7 +482,7 @@ var webAuth = new auth0.WebAuth({
   clientID: '${account.clientId}',
   domain: '${account.namespace}',
   redirectUri: 'http://example.com',
-  audience: `https://${account.namespace}/api/v2/˜`,
+  audience: `https://${account.namespace}/api/v2/`,
   scope: 'read:current_user',
   responseType: 'token id_token'
 });
@@ -476,9 +493,9 @@ You can also do so by using `checkSession()`:
 ```
 webAuth.checkSession(
   {
-    audience: `https://${account.namespace}/api/v2/˜`,
+    audience: `https://${account.namespace}/api/v2/`,
     scope: 'read:current_user'
-  }, function(err, result) { 
+  }, function(err, result) {
      // use result.accessToken
   }
 );
@@ -523,7 +540,7 @@ auth0Manage.patchUserMetadata(userId, userMetadata, cb);
 
 Linking user accounts will allow a user to authenticate from any of their accounts and no matter which one they use, still pull up the same profile upon login. Auth0 treats all of these accounts as separate profiles by default, so if you wish a user's accounts to be linked, this is the way to go.
 
-The `linkUser` method accepts two parameters, the primary `userId` and the secondary user's `id_token` (the token obtained after login with this identity). The user id in question is the unique identifier for this user account. If the id is in the format `facebook|1234567890`, the id required is the portion after the delimiting pipe. Visit the [Linking Accounts](/link-accounts) documentation for more details on linking accounts.
+The `linkUser` method accepts two parameters, the primary `userId` and the secondary user's ID Token (the token obtained after login with this identity). The user id in question is the unique identifier for this user account. If the id is in the format `facebook|1234567890`, the id required is the portion after the delimiting pipe. Visit the [Linking Accounts](/link-accounts) documentation for more details on linking accounts.
 
 ```js
 auth0Manage.linkUser(userId, secondaryUserToken, cb);

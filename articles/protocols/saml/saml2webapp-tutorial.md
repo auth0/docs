@@ -1,5 +1,12 @@
 ---
 description: How to use Auth0 in a SAML2 web application.
+topics:
+  - saml
+  - web-apps
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Using Auth0 with a SAML2 Web App
@@ -69,3 +76,7 @@ Click **Save** when done.
 While the specific steps for providing your Auth0 Application details to your SAML2 Web App will vary, you can get the configuration information you need from the *Usage* tab after you have set up the Addon from the Auth0 side.
 
   ![](/media/articles/protocols/saml/saml2-web-app/usage.png)
+
+## Passive SAML Requests
+
+Currently, the SAML2 Web App addon does *not* support passive SAML requests (e.g. where `isPassive=true`).

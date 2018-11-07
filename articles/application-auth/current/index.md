@@ -2,11 +2,19 @@
 classes: topic-page
 title: Application Authentication
 description: Introduction to the various application authentication flows.
+topics:
+  - authentication
+  - oauth2
+contentType: index
+useCase:
+  - add-login
 ---
 
 # Application Authentication
 
-Auth0 uses the OAuth 2.0 protocol for authentication and authorization. We support common OAuth 2.0 scenarios for Mobile Applications, Desktop Applications, Server-side web applications or Client-side Web Applications.
+Auth0 uses [OpenID Connect](/protocols/oidc) and [OAuth 2.0](/protocols/oauth2) to authenticate users and get their authorization to access protected resources. 
+
+We support scenarios for mobile, desktop, server-side, or client-side applications.
 
 You can get more details on implementing these flows by following one of the following links:
 

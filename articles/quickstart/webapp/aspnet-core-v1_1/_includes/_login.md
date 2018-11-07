@@ -1,4 +1,4 @@
-## Add Authentication with Auth0
+## Configure your application to use Auth0
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET Core application.
 
@@ -6,7 +6,16 @@
 You can also create a custom login for prompting the user for their username and password. To learn how to do this in your application, follow the [Custom Login sample](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/v1/Samples/custom-login).
 :::
 
-## Configure OpenID Connect Middleware
+### Install dependencies
+
+To integrate Auth0 with ASP.NET Core you will use the Cookie and OpenID Connect (OIDC) Middleware. Add the `Microsoft.AspNetCore.Authentication.Cookies` and `Microsoft.AspNetCore.Authentication.OpenIdConnect` packages to your application.
+
+```bash
+Install-Package Microsoft.AspNetCore.Authentication.Cookies
+Install-Package Microsoft.AspNetCore.Authentication.OpenIdConnect
+```
+
+### Configure the OpenID Connect middleware
 
 The easiest way to enable authentication with Auth0 in your ASP.NET Core application is to use the OpenID Connect middleware. First, go to the `ConfigureServices` method of your `Startup` class and add the authentication services by calling the `AddAuthentication` method:
 
@@ -98,7 +107,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-Also note above that the list of scopes is cleared and only the `openid` scope is requested. By default the OIDC middleware will request both the `openid` and the `profile` scopes and can result in a large `id_token` being returned. It is suggested that you be more explicit about the scopes you want to be returned and not ask for the entire profile to be returned. Requesting additional scopes is discussed later in the [User Profile step](/quickstart/webapp/aspnet-core/04-user-profile).
+Also note above that the list of scopes is cleared and only the `openid` scope is requested. By default the OIDC middleware will request both the `openid` and the `profile` scopes and can result in a large ID Token being returned. It is suggested that you be more explicit about the scopes you want to be returned and not ask for the entire profile to be returned. Requesting additional scopes is discussed later in the [User Profile step](/quickstart/webapp/aspnet-core/04-user-profile).
 
 ### Obtaining an Access Token for calling an API
 
@@ -123,7 +132,9 @@ var options = new OpenIdConnectOptions("Auth0")
 };
 ```
 
-## Add Login and Logout Methods
+## Trigger authentication
+
+### Add Login and Logout Methods
 
 Next, you will need to add `Login` and `Logout` actions to the `AccountController`.
 
@@ -195,7 +206,7 @@ This will ensure that when `SignOutAsync` is called for the OIDC Middleware, tha
 
 It will also pass along the Redirect URL (when specified) in the `returnTo` parameter. You must therefore ensure that you have specified this URL in the **Allowed Logout URLs** for your application in the Auth0 Dashboard.
 
-## Add Login and Logout Links
+### Add Login and Logout Links
 
 Lastly, add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:  
 
@@ -232,22 +243,22 @@ Lastly, add Login and Logout links to the navigation bar. To do that, head over 
 </div>
 ```
 
-## Run the Application
+### Run the Application
 
 Now, when you run the application you can select the Login link to log into the application. This will challenge the OIDC middleware which will subsequently redirect you to the hosted version of Lock on your Auth0 domain.
 
 ::: panel Understanding the Login Flow
 
 1. The user clicks on the Login link and is directed to the `Login` route
-2. This returns a `ChallengeResult` which instructs the ASP.NET Authentication middleware to issue a challenge to the Authentication middleware which is registered with the `authenticationScheme` of `Auth0`. (When we created the instance of `OpenIdConnectOptions` in the `Startup` class we passed a value of **Auth0** to the constructor. This is the authentication scheme, so that is why the authentication middleware knows to challege this OIDC middleware to authenticate the user.)
+2. This returns a `ChallengeResult` which instructs the ASP.NET Authentication middleware to issue a challenge to the Authentication middleware which is registered with the `authenticationScheme` of `Auth0`. (When we created the instance of `OpenIdConnectOptions` in the `Startup` class we passed a value of **Auth0** to the constructor. This is the authentication scheme, so that is why the authentication middleware knows to challenge this OIDC middleware to authenticate the user.)
 3. At this point the OIDC middleware is challenged, and it will redirect the user to the Auth0 `/authorize` endpoint, which will display Lock and require the user to log in - whether it be with username/password, social provider or any other Identity Provider.
 4. Once the user has logged in, Auth0 will call back to the `/signin-auth0` endpoint in your application and pass along an authorization code.
-5. The OIDC middleware will "listen" for any request made to the `/signin-auth0` path and intercept it. It will look for the authorization code which Auth0 sent in the query string and then call the `/oauth/token` endpoint to exchange the authorization code for an `id_token` and Access Token.
-6. The OIDC middleware will look at the `id_token` and extract the user information from the claims on the token.
+5. The OIDC middleware will "listen" for any request made to the `/signin-auth0` path and intercept it. It will look for the authorization code which Auth0 sent in the query string and then call the `/oauth/token` endpoint to exchange the authorization code for an ID Token and Access Token.
+6. The OIDC middleware will look at the ID Token and extract the user information from the claims on the token.
 7. Finally the OIDC middleware will return a successful authentication response, which will result in a cookie being stored indicating that the user is authenticated, and the cookie will also contain claims with the user's information. This means that on all subsequent requests the cookie middleware will automatically authenticate the user, and no further requests will be made to the OIDC middleware (unless explicitly challenged).
 :::
 
-## Storing the Tokens
+### Storing the Tokens
 
 The OIDC middleware in ASP.NET Core will automatically Decode the ID Token returned from Auth0 and will automatically add the claims contained in the ID Token as claims on the `ClaimsIdentity`. This means that inside any of the actions in your controllers you can simply use `User.Claims.FirstOrDefault("<claim type>").Value` to obtain the value of a particular claim.
 

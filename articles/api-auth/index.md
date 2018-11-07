@@ -3,6 +3,13 @@ url: /api-auth
 section: articles
 classes: topic-page
 title: API Authorization
+topics:
+  - api-authentication
+  - oidc
+contentType: index
+useCase:
+  - secure-api
+  - call-api
 ---
 
 <div class="topic-page-header">
@@ -14,30 +21,16 @@ title: API Authorization
 </div>
 
 ::: note
-<strong>Heads up!</strong> As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. For an overview of these changes, and details on how you adopt them, refer to <a href="/api-auth/intro">Introducing OIDC Conformant Authentication</a>.
+**Heads up!** As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. For an overview of these changes, and details on how you adopt them, refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
-At some point, your APIs will need to allow limited access to users, servers, or servers on behalf of users.
+At some point, your custom APIs will need to allow limited access to users, servers, or servers on behalf of users. With Auth0 you can manage the authorization requirements for server-to-server and application-to-server applications.
 
-Auth0's API authorization features allow you to manage the authorization requirements for server-to-server and application-to-server applications.
+By using the OAuth 2.0 authorization framework, you can give your own applications or third-party applications limited access to your APIs on behalf of the application itself. With Auth0, you can easily support different flows in your own APIs without worrying about the OAuth 2.0/OpenID Connect specification, or the many other technical aspects of API authorization.
 
-By using the OAuth 2.0 authorization framework, you can give your own applications or third-party applications limited access to your APIs on behalf of the application itself.
-
-Using Auth0, you can easily support different flows in your own APIs without worrying about the OAuth 2.0/OpenID Connect specification, or the many other technical aspects of API authorization.
+In this page you can find a list of resources that can help you secure your APIs and access them in a secure manner.
 
 <ul class="topic-links">
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/intro">Introducing OIDC Conformant Authentication</a>
-    <p>
-      This document presents an overview of the latest new features and changes in our authentication flows, explain why they were made and points to other detailed tutorials to help you adopt these changes.
-    </p>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/tutorials/adoption">OIDC Conformant Authentication Adoption Guide</a>
-    <p>
-      This guide details all the latest new features and changes and provides suggestions on how to adapt your existing applications.
-    </p>
-  </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/api-auth/which-oauth-flow-to-use">Which OAuth 2.0 flow should I use?</a>
     <p>
@@ -105,10 +98,10 @@ Using Auth0, you can easily support different flows in your own APIs without wor
         <i class="icon icon-budicon-695"></i><a href="/api-auth/grant/client-credentials">Overview of the flow</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/api-auth/config/using-the-auth0-dashboard">How to set up a Client Credentials Grant using the Dashboard</a>
+        <i class="icon icon-budicon-695"></i><a href="/api-auth/config/using-the-auth0-dashboard">How to set up a Client Grant using the Dashboard</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/api-auth/config/using-the-management-api">How to set up a Client Credentials Grant using the Management API</a>
+        <i class="icon icon-budicon-695"></i><a href="/api-auth/config/using-the-management-api">How to set up a Client Grant using the Management API</a>
       </li>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/api-auth/config/asking-for-access-tokens">How to execute a Client Credentials Grant</a>

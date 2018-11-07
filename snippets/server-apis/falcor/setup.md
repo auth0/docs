@@ -9,11 +9,11 @@ const falcorExpress = require('falcor-express');
 const Router = require('falcor-router');
 
 // Authentication middleware. When used, the
-// access token must exist and be verified against
+// Access Token must exist and be verified against
 // the Auth0 JSON Web Key Set
 const authenticate = jwt({
   // Dynamically provide a signing key
-  // based on the kid in the header and 
+  // based on the kid in the header and
   // the singing keys provided by the JWKS endpoint.
   secret: jwksRsa.expressJwtSecret({
     cache: true,

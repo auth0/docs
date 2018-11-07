@@ -1,6 +1,18 @@
 ---
 description: Auth0 Configuration for the Mobile + API architecture scenario
 toc: true
+topics:
+    - architecture
+    - mobile-apps
+    - api-auth
+    - authorization-code
+    - pkce
+contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - enable-mobile-auth
+  - build-an-app
 ---
 
 # Mobile + API: Auth0 Configuration
@@ -28,11 +40,11 @@ Fill in the required information and click the __Create__ button.
 
 ## Create the Application
 
-There are four application types in Auth0: __Native__ (used by mobile or desktop apps), __Single Page Web Applications__, __Regular Web Applications__ and __Machine to Machine Application__ (used by CLIs, Daemons, or services running on your backend). For this scenario we want to create a new Application for our mobile application, hence we will use Native as the application type.
+There are four application types in Auth0: __Native App__ (used by mobile or desktop apps), __Single Page Web App__, __Regular Web App__, and __Machine to Machine App__ (used by CLIs, Daemons, or services running on your backend). For this scenario we want to create a new Application for our mobile application, hence we will use Native as the application type.
 
 To create a new Application, navigate to the [dashboard](${manage_url}) and click on the [Applications](${manage_url}/#/applications}) menu option on the left. Click the __+ Create Application__ button.
 
-Set a name for your Application (we will use `Timesheets Mobile`) and select `Native` as the type.
+Set a name for your Application (we will use `Timesheets Mobile`) and select `Native App` as the type.
 
 Click __Create__.
 
@@ -64,7 +76,7 @@ Next, follow the same process to create a **Manager** role, and ensure that you 
 
 ### Assign Users to Roles
 
-You will need to assign all users to either the Manager or the User role. You can do this by going to the _Users_ tab in the Authorization Extension and selecting a user. On the user information screen, go to the _Roles_ tab. You can add a role to the user by clicking the **Add Role to User** button, and selecting the approproate role for the user.
+You will need to assign all users to either the Manager or the User role. You can do this by going to the _Users_ tab in the Authorization Extension and selecting a user. On the user information screen, go to the _Roles_ tab. You can add a role to the user by clicking the **Add Role to User** button, and selecting the appropriate role for the user.
 
 ![Add User to Role](/media/articles/architecture-scenarios/mobile-api/add-user-role.png)
 

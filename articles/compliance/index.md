@@ -2,6 +2,13 @@
 title: Compliance
 description: Information about Auth0 Compliance and Certifications
 classes: topic-page
+topics:
+    - compliance
+    - gdpr
+contentType: 
+    - index
+    - reference
+useCase: compliance
 ---
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
@@ -22,7 +29,7 @@ classes: topic-page
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a>Privacy Shield</a>
+    <i class="icon icon-budicon-715"></i>Privacy Shield
     <p>Auth0 is certified under the Privacy Shield Program, specifically the <b>EU-US Privacy Shield Framework</b> and the <b>Swiss-US Privacy Shield Framework</b>. You can find further details on our <a href="https://auth0.com/privacy">Privacy</a> page.</p>
     <ul>
       <li>
@@ -31,12 +38,12 @@ classes: topic-page
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a>HIPAA</a>
+    <i class="icon icon-budicon-715"></i>HIPAA
     <p>Auth0 is considered a Business Associate as defined by the US <a href="https://www.hhs.gov/hipaa/index.html">HIPAA</a> and <a href="https://www.hhs.gov/hipaa/for-professionals/special-topics/HITECH-act-enforcement-interim-final-rule/index.html">HITECH</a> legislation.</p>
     <p>For Auth0 customers who qualify as a <b>Covered Entity</b> under US HIPAA legislation and related legislation and regulations and who provide ePHI (electronic Protected Health Information) to Auth0 as part of the Auth0 user profile, Auth0 may qualify as a <b>business associate</b>. Auth0 can provide its Business Associate Agreement to such customers upon request.</p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a>SOC 2</a>
+    <i class="icon icon-budicon-715"></i>SOC 2
     <p>Auth0 undergoes a SOC 2 Type II audit by an independent auditor annually. This audit covers our product, infrastructure, and policies. The SOC 2 Type II Audit Report is available to enterprise level customers upon request with a non-disclosure agreement (NDA) signed by a corporate officer authorized to represent the company.</p>
   </li>
 </ul>

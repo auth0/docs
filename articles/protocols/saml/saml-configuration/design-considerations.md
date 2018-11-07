@@ -1,5 +1,11 @@
 ---
-  description: Things to consider when designing your SAML integration
+description: Things to consider when designing your SAML integration
+topics:
+  - saml
+contentType:
+  - concept
+useCase:
+  - add-idp
 ---
 
 # SAML Design Considerations

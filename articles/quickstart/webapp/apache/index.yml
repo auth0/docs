@@ -2,7 +2,7 @@ title: Apache
 author:
   community: true
 image: /media/platforms/apache.jpg
-tags:
+topics:
   - quickstart
 snippets:
   dependencies: server-platforms/apache/dependencies
@@ -12,3 +12,5 @@ seo_alias: apache
 default_article: 01-login
 articles:
   - 01-login
+contentType: tutorial
+useCase: quickstart

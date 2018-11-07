@@ -1,12 +1,17 @@
 ---
 title: Amazon API Gateway Tutorial - Building the App
 description: Step 3 of Amazon API Gateway Tutorial
+topics:
+  - integrations
+  - aws
+  - api-gateway
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 # AWS API Gateway Tutorial
 
-::: version-warning
-Delegation is considered deprecated in Auth0. Please integrate Auth0 using custom authorizers. Use the drop-down to switch to these docs.
-:::
+<%= include('./_delegation-version-warning') %>
 
 ## Step 3 - Build the Application
 

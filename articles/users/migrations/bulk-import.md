@@ -3,6 +3,16 @@ title: Bulk User Imports with the Management API
 description: How to perform bulk user imports with the Management API.
 crews: crew-2
 toc: true
+topics:
+  - users
+  - user-management
+  - migrations
+  - bulk-imports
+contentType:
+  - how-to
+useCase:
+  - manage-users
+  - migrate
 ---
 
 # Bulk User Imports with the Management API
@@ -128,7 +138,7 @@ If it works, you will get a response similar to the following one:
 
 The returned entity represents the import job.
 
-Once the job finishes, whether it failed or was successful, the owner of the Auth0 tenant that the job is being run on will get an e-mail notifying them about the result (if `send_completion_email` was set to `true`). A notification email for a job that failed might notify the owner(s) that it failed to parse the users file JSON when importing users.
+Once the job finishes, whether it failed or was successful, the owner of the Auth0 tenant that the job is being run on will get an email notifying them about the result (if `send_completion_email` was set to `true`). A notification email for a job that failed might notify the owner(s) that it failed to parse the users file JSON when importing users.
 
 ### Query for Job Status
 

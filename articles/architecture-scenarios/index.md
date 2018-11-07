@@ -2,6 +2,17 @@
 title: Architecture Scenarios
 classes: topic-page
 description: Learn about the common architecture scenarios that you will use to solve the authorization and authentication needs of your application.
+topics:
+    - architecture
+    - api-auth
+    - authorization-code
+contentType: 
+    - index
+    - concept
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 # Architecture Scenarios
 
@@ -35,17 +46,6 @@ The goal of these scenarios is to walk you through the implementation process fr
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/mobile-api">Mobile + API</a>
     <p>Mobile Application which talks to an API. The application will use OpenID Connect with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.</p>
   </li>
-</ul>
-
-## Under Construction
-
-These scenarios are under construction and will soon be updated. Some describe the different type of technology architectures your application may use, while others describe the architecture depending on the type of businesses (B2C, B2B, B2E), and how Auth0 can help in each of these scenarios.
-
-<ul class="topic-links">
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/web-saml">Regular Web App (using SAML)</a>
-    <p>Traditional web application which needs to authenticate users using SAML2.</p>
-  </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2b">Business to Business Identity Scenarios</a>
     <p>SaaS applications with users associated with third-party companies registered as tenants of the SaaS app.</p>
@@ -58,7 +58,18 @@ These scenarios are under construction and will soon be updated. Some describe t
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2e">Business to Enterprise Identity Scenarios</a>
     <p>Enterprise directory services using federation to allow employees to log in to applications using their existing enterprise credentials.</p>
   </li>
-    <li>
+</ul>
+
+## Under Construction
+
+These scenarios are under construction and will soon be updated. Some describe the different type of technology architectures your application may use, while others describe the architecture depending on the type of businesses and how Auth0 can help in each of these scenarios.
+
+<ul class="topic-links">
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/web-saml">Regular Web App (using SAML)</a>
+    <p>Traditional web application which needs to authenticate users using SAML2.</p>
+  </li>
+  <li>
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2b-b2e">Business to Business + Enterprise Identity Scenarios</a>
     <p>Hybrid implementation involving aspects of the B2B and B2E scenarios.</p>
   </li>

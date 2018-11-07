@@ -1,6 +1,14 @@
 ---
-description: How to obtain, use and renew an id_token.
+description: How to obtain, use, and renew an ID Token.
 toc: true
+topics:
+  - tokens
+  - id-tokens
+contentType:
+  - how-to
+  - concept
+useCase:
+  - invoke-api
 ---
 # ID Token
 
@@ -61,13 +69,13 @@ Once the application verifies the token's signature, the next step is to validat
 
 - **Token expiration**: The current date/time _must_ be before the expiration date/time listed in the `exp` claim (which is a Unix timestamp).
 
-- **Token issuer**: The `iss` claim denotes the issuer of the JWT. The value **must** match the the URL of your Auth0 tenant. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`.
+- **Token issuer**: The `iss` claim denotes the issuer of the JWT. The value **must** match the URL of your Auth0 tenant. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`.
 
 - **Token audience**: The `aud` claim identifies the recipients that the JWT is intended for. The value _must_ match the Client ID of your Auth0 Application.
 
 ## Control the contents of an ID Token
 
-In order to retrieve an ID Token the `responseType` should include the `id_token`, both for client-side and server-side authentication flows.
+In order to retrieve an ID Token, the `responseType` should include `id_token`, both for client-side and server-side authentication flows.
 
 The attributes included in the issued ID Token are controlled by the use of a [parameter called `scope`](/scopes).
 - If `scope` is set to `openid`, then the ID Token will contain only the `iss`, `sub`, `aud`, `exp` and `iat` claims.
@@ -97,7 +105,7 @@ The ID Token will contain only the claims specified as the value of the `scope` 
 
 ### Add Custom Claims
 
-You can add custom claims to your ID Token (or [Access Token](/tokens/access-token)) using [Rules](/rules).
+You can add custom claims to your ID Token (or [Access Token](/tokens/overview-access-tokens)) using [Rules](/rules).
 
 The claim name must conform to a namespaced format, which basically means adding any non-Auth0 HTTP or HTTPS URL as a prefix. The Auth0 namespaces you cannot use are `auth0.com`, `webtask.io`, and `webtask.run`. The format you should follow is this:  `http://my-namespace/claim-name`.
 

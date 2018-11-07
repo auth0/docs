@@ -282,6 +282,11 @@ module.exports = [
   /* --- Two-step quickstarts to single-step quickstarts --- */
 
   {
+    from: '/quickstart/webapp/nodejs/02-user-profile',
+    to: '/quickstart/webapp/nodejs/01-login'
+  },
+
+  {
     from: [
       '/quickstart/hybrid',
       '/quickstart/native-mobile'
@@ -306,7 +311,11 @@ module.exports = [
     from: `/quickstart/backend/:platform/${apis}`,
     to: '/quickstart/backend/:platform'
   },
-
+  {
+    from: `/quickstart/spa/emberjs`,
+    to: '/quickstart/spa/ember'
+  },
+  
   /* --- Connections --- */
 
   {
@@ -797,7 +806,7 @@ module.exports = [
   },
   {
     from: '/tutorials/setup-up-authentication',
-    to: '/multifactor-authentication/developer/step-up-with-acr'
+    to: '/multifactor-authentication/step-up-authentication'
   },
   {
     from: ['/refresh-token', '/tokens/refresh_token'],
@@ -873,7 +882,7 @@ module.exports = [
   },
   {
     from: '/blacklist-attributes',
-    to: '/tutorials/blacklisting-attributes'
+    to: '/security/blacklisting-attributes'
   },
   {
     from: '/brute-force-protection',
@@ -918,7 +927,7 @@ module.exports = [
   },
   {
     from: ['/oauth-web-protocol', '/protocols/oauth-web-protocol', '/protocols/oauth2/oauth-web-protocol'],
-    to: '/client-auth/current/server-side-web'
+    to: '/application-auth/current/server-side-web'
   },
   {
     from: '/oauth-implicit-protocol',
@@ -1003,6 +1012,10 @@ module.exports = [
   {
     from: '/onboarding/appliance-outage',
     to: '/appliance/critical-issue'
+  },
+  {
+    from: '/appliance/dashboard/instrumentation',
+    to: '/appliance/instrumentation'
   },
   {
     from: '/tutorials/local-testing-and-development',
@@ -1290,7 +1303,19 @@ module.exports = [
   },
   {
     from: '/tutorials/step-up-authentication',
-    to: '/multifactor-authentication/developer/step-up-with-acr'
+    to: '/multifactor-authentication/step-up-authentication'
+  },
+  {
+    from: '/multifactor-authentication/developer/step-up-authentication',
+    to: '/multifactor-authentication/step-up-authentication'
+  },
+  {
+    from: '/multifactor-authentication/developer/step-up-authentication/step-up-for-apis',
+    to: '/multifactor-authentication/step-up-authentication/step-up-for-apis'
+  },
+  {
+    from: '/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps',
+    to: '/multifactor-authentication/step-up-authentication/step-up-for-web-apps'
   },
   {
     from: '/quickstart/spa/angular2/00-login',
@@ -1617,10 +1642,6 @@ module.exports = [
     to: '/i18n'
   },
   {
-    from: '/multifactor-authentication/developer/step-up-with-acr',
-    to: '/multifactor-authentication/developer/step-up-authentication'
-  },
-  {
     from: '/users/bulk-importing-users-into-auth0',
     to: '/users/migrations/bulk-import'
   },
@@ -1822,6 +1843,34 @@ module.exports = [
   },
   {
      from: '/applications/application-settings/non-interactive',
-     to: '/applications/application-settings/machine-to-machine'
+     to: '/applications/machine-to-machine#settings'
+   },
+   {
+     from: '/applications/application-settings/machine-to-machine',
+     to: '/applications/machine-to-machine#settings'
+   },
+   {
+     from: '/applications/application-settings/native',
+     to: '/applications/native#settings'
+   },
+   {
+     from: '/applications/application-settings/regular-web-app',
+     to: '/applications/webapps#settings'
+   },
+   {
+     from: '/applications/application-settings/single-page-app',
+     to: '/applications/spa#settings'
+   },
+   {
+     from: '/protocols/saml/saml-configuration/selecting-between-multiple-idp',
+     to: '/hrd'
+   },
+   {
+     from: '/support/troubleshooting-with-har-files',
+     to: '/troubleshoot/har'
+   },
+   {
+     from: '/tokens/access-token',
+     to: '/tokens/overview-access-tokens'
    }
 ];

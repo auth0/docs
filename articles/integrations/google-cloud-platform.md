@@ -2,6 +2,11 @@
 title: Securing Google Cloud Endpoints with Auth0
 description: How to secure a Google Cloud Endpoints API with Auth0.
 toc: true
+topics:
+  - integrations
+  - google-cloud
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 # Securing Google Cloud Endpoints with Auth0

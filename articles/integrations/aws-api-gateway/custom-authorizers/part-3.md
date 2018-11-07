@@ -1,6 +1,13 @@
 ---
 description: Step 3 of Amazon API Gateway Tutorial
 toc: true
+topics:
+  - integrations
+  - aws
+  - api-gateway
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 # AWS API Gateway Tutorial, Part 3: Create the Custom Authorizers
 
@@ -41,7 +48,7 @@ TOKEN_ISSUER=https://${account.namespace}/
 
 a. First, obtain a valid JWT Access Token. There are multiple methods by which you can get one, and the method you choose depends on your application's type, trust level, or overall end-user experience. 
 
-You can get a test token for your API by going to **APIs > Your API > Test** in the [dashboard](${manage_url}/#/apis). For specific details refer to [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token).
+You can get a test token for your API by going to **APIs > Your API > Test** in the [dashboard](${manage_url}/#/apis). For specific details refer to [Get Access Tokens](/tokens/get-access-tokens).
 
 b. Create a local `event.json` file containing the token. You can copy the sample file (run `cp event.json.sample event.json`). Replace `ACCESS_TOKEN` with your JWT token, and `methodArn` with the appropriate ARN value for the `GET` method of your API.
 

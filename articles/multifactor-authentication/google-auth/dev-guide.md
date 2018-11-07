@@ -1,12 +1,20 @@
 ---
 description:  Using Google Authenticator with Auth0 for developers
+topics:
+  - mfa
+  - google
+  - google-autheticator
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # Google Authenticator for Developers
 
 ## Enabling Google Authenticator for MFA
 
-To turn on Google Authenticator for two-step verification, first visit the [Multifactor Auth](${manage_url}/#/guardian) page from the dashboard. Then click on the link to use a different provider.
+To turn on Google Authenticator for two-step verification, first visit the [Multi-factor Auth](${manage_url}/#/guardian) page from the dashboard. Then click on the link to use a different provider.
 
 ![](/media/articles/mfa/change-provider.png)
 
@@ -29,7 +37,6 @@ function (user, context, callback) {
       context.multifactor = {
         provider: 'google-authenticator',
         // issuer: 'Label on Google Authenticator App', // optional
-        // key: 'YOUR_KEY_HERE', //  optional, the key to use for TOTP. by default one is generated for you
 
         // optional, defaults to true. Set to false to force Google Authenticator every time.
         // See https://auth0.com/docs/multifactor-authentication/custom#change-the-frequency-of-authentication-requests for details
@@ -43,10 +50,6 @@ function (user, context, callback) {
 ```
 
 When you have finished editing the code snippet based on the requirements of your app, click **Save**.
-
-::: panel Screen customization
-At this time Google Authenticator does not allow any customizations to the look and feel of the Google Authenticator screens. For other customization options [see Auth0 Guardian](/multifactor-authentication/administrator#customization).
-:::
 
 ### Configuring Google Authenticator for Select Users
 

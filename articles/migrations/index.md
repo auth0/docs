@@ -2,6 +2,13 @@
 toc: true
 title: Auth0 Migrations
 description: List of all the changes made on Auth0 platform that might affect customers
+topics:
+  - migrations
+contentType:
+  - concept
+  - reference
+useCase:
+  - migrate
 ---
 
 # Migrations
@@ -25,7 +32,7 @@ If you need help with the migration, create a ticket in our [Support Center](${e
 
 ## Active migrations
 
-Current migrations are listed below, newest first. 
+Current migrations are listed below, newest first.
 
 For migrations that have already been enabled for all customers, see [Past Migrations](/migrations/past-migrations).
 
@@ -45,27 +52,25 @@ For more information on this migration and the steps you should follow to upgrad
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
-| Medium | 2017-12-21 |  2018-07-16 |
+| Medium | 2017-12-21 |  2018-08-06 |
 
-We are continually improving the security of our service. As part of this, we are deprecating some endpoints (/usernamepassword/login and /ssodata) used by Lock.js v8, v9, and v10 and and auth0.js, v6, v7, and v8. 
+We are continually improving the security of our service. As part of this effort, we have deprecated the Legacy Lock API, which consists of the /usernamepassword/login and /ssodata endpoints. These endpoints are used by Lock.js v8, v9, and v10 and Auth0.js, v6, v7, and v8, and can also be called directly from applications.
 
-Previously, these endpoints were planned to be removed from service on April 1, 2018. However, the Removal of Service date for those endpoints has been extended to **July 16, 2018**.
+As of August 6, 2018, Auth0 has permanently disabled the Legacy Lock API. This removal of service fully mitigates the CSRF vulnerability [disclosed in April 2018](https://auth0.com/blog/managing-and-mitigating-security-vulnerabilities-at-auth0/). This also ends the soft removal grace period that was [first announced on July 16, 2018](https://community.auth0.com/t/auth0-legacy-lock-api-disabled-grace-period-available/12949), meaning the Legacy Lock API can no longer be re-enabled.
 
-Customers are still encouraged to migrate applications to the latest version of Lock 11 and Auth0.js 9 **as soon as possible** in order to ensure that applications continue to function properly. 
-
-Please refer to our [Legacy Lock API Deprecation Guide](/migrations/guides/legacy-lock-api-deprecation) for instructions on upgrading your Auth0 implementation prior to **July 16, 2018**.
+If your Legacy Lock API migration has not yet been completed, your users may experience an outage, failed logins, or other adverse effects. You will need to complete your migration in order to restore normal functionality. Refer to the [Legacy Lock API Deprecation Guide](/migrations/guides/legacy-lock-api-deprecation) to determine the correct path for your needs; you may also wish to consult the [Deprecation Error Reference](/errors/deprecation-errors) to identify the source(s) of any errors in your tenant logs. 
 
 #### Am I affected by the change?
 
-If you are currently implementing login in your application with Lock v8, v9, or v10, or Auth0.js v6, v7, or v8, you will be affected by these changes. 
+If you are currently implementing login in your application with Lock v8, v9, or v10, or Auth0.js v6, v7, or v8, you are affected by these changes. Additionally, you are affected if your application calls the /usernamepassword/login or /ssodata endpoints directly via the API.
 
-We **recommend** that applications using [Universal Login](/hosted-pages/login) update. 
+We **recommend** that applications using [Universal Login](/hosted-pages/login) update the library versions they use inside of the login page.
 
-However, those who are using Lock or Auth0.js embedded within their applications are **required** to update, and applications which still use deprecated versions will cease to work after the removal of service date.
+However, those who are using Lock or Auth0.js embedded within their applications, or are calling the affected API endpoints directly, are **required** to update, and applications which still use deprecated endpoints will cease to function properly after the removal of service date.
 
 Libraries and SDKs not explicitly named here are not affected by this migration.
 
-If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
+If you have any questions, reach out in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
 ### Deprecating the usage of ID Tokens on the Auth0 Management API
 
@@ -75,7 +80,7 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 For some use cases you can use [ID Tokens](/tokens/id-token) as credentials in order to call the [Management API](/api/management/v2). This functionality is being deprecated.
 
-This is used by the [Users](/api/management/v2#!/Users/get_users_by_id) and [Device Credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints. 
+This is used by the [Users](/api/management/v2#!/Users/get_users_by_id) and [Device Credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints.
 
 List of affected endpoints:
 
@@ -90,7 +95,7 @@ List of affected endpoints:
 | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | [Link user accounts](/link-accounts) from various identity providers |
 | [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) | [Unlink user accounts](/link-accounts#unlinking-accounts) |
 
-These endpoints can now accept regular [Access Tokens](/access-token). 
+These endpoints can now accept regular [Access Tokens](/tokens/access-token).
 
 The functionality is available and affected users are encouraged to migrate. However the ability to use ID Tokens will not be disabled in the foreseeable future so the mandatory opt-in date for this migration remains open. When this changes, customers will be notified beforehand.
 
@@ -104,7 +109,7 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 ## Upcoming migrations
 
-Based on customer feedback, we have adjusted our plans and will continue to maintain and support the below listed endpoints and features. 
+Based on customer feedback, we have adjusted our plans and will continue to maintain and support the below listed endpoints and features.
 
 We will publish guidance for each of the below scenarios on how to transition your applications to standards-based protocols. If we need to make security enhancements to any of these legacy endpoints which would require more urgency, we will promptly announce timeframes and guidelines for any required changes.
 
@@ -130,7 +135,7 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 ### Improved OpenID Connect interoperability in Auth0
 
-The [userinfo](/api/authentication#get-user-info) endpoint is being updated to return [OIDC conformant user profile attributes](/user-profile/normalized/oidc). The most notable change is that `user_id` becomes `sub`. This will deprecate the [legacy Auth0 user profile](/user-profile/normalized/auth0) (in [userinfo](/api/authentication#get-user-info) and in [id tokens](/tokens/id-token)).
+The [userinfo](/api/authentication#get-user-info) endpoint is being updated to return [OIDC conformant user profile attributes](/user-profile/normalized/oidc). The most notable change is that `user_id` becomes `sub`. This will deprecate the [legacy Auth0 user profile](/user-profile/normalized/auth0) (in [userinfo](/api/authentication#get-user-info) and in [ID Tokens](/tokens/id-token)).
 
 #### Am I affected by the change?
 

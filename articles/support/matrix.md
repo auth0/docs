@@ -3,6 +3,13 @@ title: Auth0 Product Support Matrix
 description: This doc covers what features, platforms, and software configurations Auth0 supports.
 toc: true
 classes: support-matrix-page
+topics:
+    - support
+    - support-matrix
+contentType:
+  - reference
+useCase:
+  - support
 ---
 # Auth0 Product Support Matrix
 
@@ -467,12 +474,12 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
     <tr>
       <td><a href="/quickstart/webapp/symfony">PHP (Symfony)</a></td>
       <td class="text-center"><a href="https://github.com/auth0-community/auth0-symfony-php-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-primary">Community</div></td>
+      <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/scala">Play 2 Scala</a></td>
       <td class="text-center"><a href="https://github.com/auth0-community/auth0-scala-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-primary">Community</div></td>
+      <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/python">Python</a></td>
@@ -483,11 +490,6 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
       <td><a href="/quickstart/webapp/rails">Ruby on Rails</a></td>
       <td class="text-center"><a href="https://github.com/auth0-samples/auth0-rubyonrails-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
-    </tr>
-    <tr>
-      <td><a href="/quickstart/webapp/apache">Apache</a></td>
-      <td class="text-center"></td>
-      <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/webapp/nancyfx">NancyFX</a></td>
@@ -531,7 +533,7 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
     <tr>
       <td><a href="/quickstart/backend/hapi">Hapi.js</a></td>
       <td class="text-center"><a href="https://github.com/auth0-community/auth0-hapi-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-primary">Community</div></td>
+      <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/java-spring-security">Java Spring Security</a></td>
@@ -556,7 +558,7 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
     <tr>
       <td><a href="/quickstart/backend/php-symfony">Symfony</a></td>
       <td class="text-center"><a href="https://github.com/auth0-community/auth0-symfony-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-primary">Community</div></td>
+      <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/python">Python</a></td>
@@ -566,7 +568,7 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
     <tr>
       <td><a href="/quickstart/backend/ruby">Ruby</a></td>
       <td class="text-center"><a href="https://github.com/auth0-community/auth0-ruby-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-primary">Community</div></td>
+      <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/rails">Ruby on Rails</a></td>

@@ -1,6 +1,12 @@
 ---
 section: libraries
 description: Keeping your user logged in with Auth0.swift
+topics:
+  - libraries
+  - swift
+  - tokens
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 
 # Auth0.swift Saving and Renewing Tokens

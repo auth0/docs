@@ -5,6 +5,14 @@ image: /media/connections/oauth2.png
 seo_alias: oauth2
 index: 13
 description: You can add any OAuth2 provider using the Auth0 Custom Social Connections extension.
+topics:
+  - connections
+  - social
+  - oauth2
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Add a generic OAuth2 Authorization Server to Auth0
 
@@ -45,16 +53,20 @@ For example, the following code will retrieve the user profile from the **GitHub
 
 ```js
 function(access_token, ctx, callback) {
-  request.get('https://api.github.com/user', {
-      'headers': {
-          'Authorization': 'Bearer ' + access_token,
-          'User-Agent': 'Auth0'
+    request.get('https://api.github.com/user', {
+        'headers': {
+            'Authorization': 'Bearer ' + access_token,
+            'User-Agent': 'Auth0'
         }
-    }, function(e,r,b){
-    if( e ) return callback(e);
-    if( r.statusCode !== 200 ) return callback(new Error('StatusCode:'+r.statusCode));
-      callback(null,JSON.parse(b));
-   });
+    }, function (e, r, b) {
+        if (e) {
+            return callback(e);
+        }
+        if (r.statusCode !== 200) {
+            return callback(new Error('StatusCode:' + r.statusCode));
+        }
+        callback(null, JSON.parse(b));
+    });
 }
 ```
 

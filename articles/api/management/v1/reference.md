@@ -2,9 +2,16 @@
 description: Management API V1 reference page.
 section: apis
 toc: true
+topics:
+  - apis
+  - management-api
+contentType: reference
+useCase: invoke-api
 ---
 
 # Auth0 Management API Reference
+
+<%= include('../../../_includes/_version_warning_api') %>
 
 ### API endpoint
 
@@ -372,7 +379,7 @@ Most attributes in the `user` object are self-explanatory. Some comments are bel
 |`issuer` | The name of the authentication server. In the example above it is the URL of Fabrikam's ADFS server used.|
 |`user_id` | (for example: _the-adfs-server.domain.com/FederationMetadata/2007-06/FederationMetadata.xml_). |
 |`picture` | The URL of the user's gravatar, if available. |
-|`user_id` | A "friendly" unique identifier composed of the strategy plus a unique identifier from the `issuer` (for example: e-mail, and so on). |
+|`user_id` | A "friendly" unique identifier composed of the strategy plus a unique identifier from the `issuer` (for example: email, and so on). |
 
 #### Other resources
 

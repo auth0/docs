@@ -2,6 +2,10 @@
 title: Java Developer Center
 description: Resources and documentation for Java developers
 logo: java
+topics:
+  - java
+contentType: reference
+useCase: strategize
 ---
 
 # Java SDK Developer Center
@@ -24,7 +28,7 @@ A modern Java Spring library that allows you to use Auth0 with Java Spring for s
 - [Library](https://github.com/auth0/auth0-spring-mvc)
 - [Sample Project](https://github.com/auth0-samples/auth0-spring-mvc-sample): Simple sample project that demonstrates using Auth0 with Java Spring to create a Secured MVC Web Application.
 - [Sample Project demonstrating Lock, auth0.js, Social Connection Login, Database Connection and Account Linking](https://github.com/auth0-samples/auth0-spring-boot-social-dbconnection-link): Extends the simpler [Auth0 Spring MVC Sample Project](https://github.com/auth0-samples/auth0-spring-mvc-sample) and demonstrates Social Login, Database Connection Login and [account linking](/link-accounts). In this app, you can choose to login either with a Social Login or a Database Connection. If you login using Social Login and have not already linked you DB Connection then you are requested to do so. You can find details on how to setup and use this sample application in the _README_ of the [GitHub repository](https://github.com/auth0-samples/auth0-spring-boot-social-dbconnection-link).
-- [Sample Project demonstrating Passwordless Authentication, Multifactor Authentication opt-in & account linking](https://github.com/auth0-samples/auth0-spring-mvc-passwordless-mfa-sample): Extends the simpler [Auth0 Spring MVC Sample Project](https://github.com/auth0-samples/auth0-spring-mvc-sample) and demonstrates using Auth0 (including Lock Passwordless and Auth0.js) with Java Spring to create a Secured MVC Web Application using [Passwordless Authentication](/connections/passwordless), [Multifactor Authentication](/multifactor-authentication) Opt-in & [account linking](/link-accounts). You can find details on how to setup and use this sample application in the _README_ of the [GitHub repository](https://github.com/auth0-samples/auth0-spring-mvc-passwordless-mfa-sample.
+- [Sample Project demonstrating Passwordless Authentication, Multi-factor Authentication opt-in & account linking](https://github.com/auth0-samples/auth0-spring-mvc-passwordless-mfa-sample): Extends the simpler [Auth0 Spring MVC Sample Project](https://github.com/auth0-samples/auth0-spring-mvc-sample) and demonstrates using Auth0 (including Lock Passwordless and Auth0.js) with Java Spring to create a Secured MVC Web Application using [Passwordless Authentication](/connections/passwordless), [Multi-factor Authentication](/multifactor-authentication) Opt-in & [account linking](/link-accounts). You can find details on how to setup and use this sample application in the _README_ of the [GitHub repository](https://github.com/auth0-samples/auth0-spring-mvc-passwordless-mfa-sample.
 
 ## Java Spring Security MVC
 
@@ -35,7 +39,7 @@ A modern Java Spring library that allows you to use Auth0 with Spring Security f
 - [Sample Project](https://github.com/auth0-samples/auth0-spring-security-mvc-sample)
 
 ::: panel Authorization Code Grant
-All three technologies displayed above, adopt the `Oauth2 / OIDC Authorization Code Grant` flow in which authentication results in a callback to the server-side application with a `code`. This is then exchanged for [id_token](/tokens/id_token) and [Access Token](/tokens/access_token) on the server-side (as part of the callback), and once the tokens have been received by the application, then `UserProfile` information can also be retrieved via request with a valid Token.
+All three technologies displayed above, adopt the `Oauth2 / OIDC Authorization Code Grant` flow in which authentication results in a callback to the server-side application with a `code`. This is then exchanged for [ID Token](/tokens/id_token) and [Access Token](/tokens/access_token) on the server-side (as part of the callback), and once the tokens have been received by the application, then `UserProfile` information can also be retrieved via request with a valid Token.
 :::
 
 ## Java Spring Security API

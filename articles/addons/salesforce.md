@@ -6,6 +6,11 @@ url: addons/salesforce
 thirdParty: true
 image: /media/addons/salesforce.svg
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize your Salesforce services.
+topics:
+  - salesforce
+  - addons
+useCase: integrate-third-party-apps
+contentType: how-to
 ---
 
 # Salesforce Addon

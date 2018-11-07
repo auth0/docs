@@ -1,5 +1,13 @@
 ---
 title: OIDC Single sign-on
+topics:
+  - api-authentication
+  - oidc
+  - sso
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Single sign-on

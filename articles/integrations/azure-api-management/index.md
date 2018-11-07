@@ -1,5 +1,12 @@
 ---
 description: Using Auth0 as an OAuth 2.0 server to authenticate users wanting access to an API managed by the Azure API Management service
+topics:
+    - integrations
+    - azure
+    - api-management
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 
 # Integrate Azure API Management Service with Auth0

@@ -2,6 +2,17 @@
 section: libraries
 title: Lock Android v2 Native Social Authentication
 description: Lock for Android - Native Social Authentication
+topics:
+  - libraries
+  - lock
+  - android
+  - native
+  - social-connections
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Native Social Authentication
 
@@ -149,7 +160,7 @@ provider.setParameters(parameters);
 
 #### Requesting a custom Google scope
 
-By default, the scope `Scopes.PLUS_LOGIN` is requested. You can customize the Scopes by calling `setScopes` with the list of Scopes. Each Google API (Auth, Drive, Plus..) specify it's own list of Google Scopes.
+By default, the scope `Scopes.PLUS_LOGIN` is requested. You can customize the Scopes by calling `setScopes` with the list of Scopes. Each Google API (Auth, Drive, Plus..) specify its own list of Google Scopes.
 
 ```java
 provider.setScopes(Arrays.asList(new Scope(Scopes.PLUS_ME), new Scope(Scopes.PLUS_LOGIN)));

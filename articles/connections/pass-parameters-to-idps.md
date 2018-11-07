@@ -1,6 +1,10 @@
 ---
 title: Pass Parameters to Identity Providers
 description: How to pass parameters to an Identity Provider API
+contentType: how-to
+useCase:
+  - customize-connections
+  - add-idp
 ---
 # Pass Parameters to Identity Providers
 
@@ -18,6 +22,7 @@ You can configure static parameters per connection with the Connections endpoint
 
 When you [create](/api/management/v2#!/Connections/post_connections) or [update](/api/management/v2#!/Connections/patch_connections_by_id) a connection, use the `upstream_params` element of the `options` attribute.
 
+### Example: WordPress
 As an example, let's use WordPress, which allows you to pass an optional `blog` parameter to its OAuth 2.0 authorization endpoint (for more information, see [WordPress's OAuth 2.0 documentation](https://developer.wordpress.com/docs/oauth2/)).
 
 Let's assume that you have a working WordPress connection and you want to always request that users have access to the `myblog.wordpress.com` blog when logging in with it. To do this, assign WordPress's `blog` parameter a default value of `myblog.wordpress.com`.
@@ -84,6 +89,26 @@ You can configure upstream parameters per user. This way when a user authenticat
 
 To do this, use the `upstream_params` element of the `options` attribute to specify a mapping between one of the existing accepted parameters to the parameter accepted by the Identity Provider.
 
+### Field list
+
+Here are fields available for the `enum` parameter:
+
+* `acr_values`
+* `audience`
+* `client_id`
+* `display`
+* `id_token_hint`
+* `login_hint`
+* `max_age`
+* `max_age`
+* `prompt`
+* `resource`
+* `response_mode`
+* `response_type`
+* `ui_locales`
+
+### Example: Twitter
+
 As an example, let's use Twitter, which allows you to pass an optional `screen_name` parameter to its OAuth authorization endpoint (for more information, see [Twitter's API reference](https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize)). 
 
 To continue, you should already have a working Twitter connection; to learn how to configure one, see [Connect Your App to Twitter](/connections/social/twitter).
@@ -123,7 +148,7 @@ Send the update request, copying the existing `options` contents and adding also
 }
 ```
 
-Now, when you call the [Authorize endpoint](/api/authentication#authorize-client) for a specific user, you can pass their email address in the `login_hint` parameter.
+Now, when you call the [Authorize endpoint](/api/authentication#authorize-application) for a specific user, you can pass their email address in the `login_hint` parameter.
 
 ```text
 https://${account.namespace}/authorize

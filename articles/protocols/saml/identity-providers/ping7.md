@@ -1,6 +1,14 @@
 ---
 title: PingFederate
 description: How to configure PingFederate 7 as an identity provider.
+topics:
+    - saml
+    - identity-providers
+    - pingfederate
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 # Configuring PingFederate 7 as an Identity Provider
 
@@ -20,7 +28,11 @@ If you want **IdP-Initiated SSO** make sure to include the connection parameter 
 
 ### 1. Download Auth0 Metadata File
 
-Download the metadata file from [here](https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME). This will be used in [step 3](#3-configure-the-__sp-connection__) and it is used to automatically import information about your partner.
+::: note
+The following download will work only if you are logged in to Auth0. You may also need to manually provide the name of the connection in the URL.
+:::
+
+Download the [metadata file](https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME). This will be used in [step 3](#3-configure-the-__sp-connection__) and it is used to automatically import information about your partner.
 
 ### 2. Create a new __SP Connection__
 
@@ -30,7 +42,7 @@ Login to _PingFederate_ as an administrator (the URL would be something like __h
 
 ### 3. Configure the __SP Connection__
 
-Select the __Browser SSO Profles__ as the __Connection Type__:
+Select the __Browser SSO Profiles__ as the __Connection Type__:
 
 ![](/media/articles/saml/identity-providers/ping7/ping-2.png)
 

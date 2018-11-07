@@ -1,11 +1,20 @@
 ---
 description: How to use monitoring with an Auth0 account.
 toc: true
+topics:
+  - monitoring
+contentType:
+  - concept
+  - how-to
+useCase:
+  - analyze-auth0-analytics
+  - analyze-logs
+  - integrate-analytics
 ---
 
 # Monitor Auth0
 
-If you are using the public cloud version of Auth0, we recommend subscribing to [Auth0 Status](http://status.auth0.com) for notifications regarding Auth0 service availability. The Auth0 DevOps team uses [Auth0 Status](http://status.auth0.com) for reports on current incidents.
+If you are using the public cloud version of Auth0, we recommend subscribing to [Auth0 Status](https://status.auth0.com) for notifications regarding Auth0 service availability. The Auth0 DevOps team uses [Auth0 Status](https://status.auth0.com) for reports on current incidents.
 
 Current and historical uptime is available at [Auth0 Uptime](http://uptime.auth0.com).
 

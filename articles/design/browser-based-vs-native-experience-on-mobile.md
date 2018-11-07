@@ -2,6 +2,11 @@
 title: Browser-Based vs. Native Login Flows on Mobile Devices
 description: This article covers the pros and cons between a browser-based vs. native experience when implementing Auth0 on a mobile device
 toc: true
+topics:
+  - design
+  - mobile
+contentType: reference
+useCase: strategize
 ---
 # Browser-Based vs. Native Login Flows on Mobile Devices
 
@@ -39,7 +44,7 @@ Using a browser-based flow protects you from this, since the callback URL is lin
 
 ## Implementation time
 
-Using browser-based flows reduces implementation time, since everything is handled by the login page (including multifactor authentication and anomaly detection).
+Using browser-based flows reduces the implementation time required, since everything is handled by the login page (including multi-factor authentication and anomaly detection).
 
 By default, [Lock](/libraries/lock) provides the user experience, but you can customize it with your own templates written in HTML and CSS, then integrate it with [auth0.js](libraries/auth0js)
 
@@ -55,7 +60,7 @@ However, it's worth noting that the number of times a user logs in with the mobi
 
 ## Compliance with best practices
 
-As explained in the [RFC 8252 OAuth 2.0 for Native Apps](https://tools.ietf.org/html/rfc8252), OAuth 2.0 authorization requests from native apps should only be made through external user-agents, primarily the user's browser.  The specification details the security and usability reasons why this is the case.
+As explained in the [RFC 8252 OAuth 2.0 for Native Apps](https://tools.ietf.org/html/rfc8252), OAuth 2.0 authorization requests from native apps should only be made through external user-agents, primarily the user's browser. The specification details the security and usability reasons why this is the case.
 
 ::: note
 For an overview of RFC 8252, refer to [OAuth 2.0 Best Practices for Native Apps](https://auth0.com/blog/oauth-2-best-practices-for-native-apps).

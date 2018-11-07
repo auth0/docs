@@ -4,10 +4,20 @@ toc: true
 title: Lock v11 for Web
 description: A widget that provides a frictionless login and signup experience for your web apps.
 img: media/articles/libraries/lock-web.png
+topics:
+  - libraries
+  - lock
+contentType:
+  - how-to
+  - index
+useCase:
+  - add-login
 ---
 # Lock v11 for Web
 
 Lock is an embeddable login form, [configurable to your needs](/libraries/lock/v11/configuration), and recommended for use in single page apps. It enables you to easily add social identity providers, so that your users can login seamlessly using any provider they want.
+
+<%= include('../../../_includes/_embedded_login_warning') %>
 
 ## Lock Installation
 
@@ -77,7 +87,7 @@ var lock = new Auth0Lock(
 );
 ```
 
-## 2. Authenticating and Getting User Info
+### 2. Authenticating and Getting User Info
 
 Next, listen using the `on` method for the `authenticated` event. When the event occurs, use the `accessToken` which was received to call the `getUserInfo` method and acquire the user's profile information (as needed). You can also save the token or profile to `localStorage` for later use.
 

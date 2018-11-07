@@ -1,6 +1,12 @@
 ---
 description: How to create users in the Auth0 Dashboard.
 crews: crew-2
+topics:
+  - dashboard
+  - users
+contentType: how-to
+useCase:
+  - manage-users
 ---
 
 # Create Users using the Dashboard

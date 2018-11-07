@@ -6,6 +6,14 @@ seo_alias: yahoo
 index: 15
 description: How to obtain a Consumer Key and Consumer Secret for Yahoo!
 toc: true
+topics:
+  - connections
+  - social
+  - yahoo
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Yahoo!

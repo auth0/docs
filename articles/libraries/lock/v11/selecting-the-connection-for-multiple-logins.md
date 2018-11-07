@@ -1,6 +1,15 @@
 ---
 section: libraries
 description: How to select different connection types for multiple login options with Lock V11.
+topics:
+  - libraries
+  - lock
+  - connections
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - customize-connections
 ---
 # Selecting the Connection in Lock
 
@@ -50,7 +59,7 @@ An additional feature in the Lock is the use of email domains as a way of routin
 
 ![](/media/articles/libraries/lock/enterprise-connection.png)
 
-If a connection has domains mapped to it, then the password input field gets disabled automatically when a user is typing an e-mail with a mapped domain.
+If a connection has domains mapped to it, then the password input field gets disabled automatically when a user is typing an email with a mapped domain.
 
 ![Lock using HRD/SSO](/media/articles/libraries/lock/hrd-sso.png)
 

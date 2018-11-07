@@ -1,5 +1,11 @@
 ---
 description: The Visual Studio Team Services Deployments extension allows you to deploy Rules, Hosted Pages and Database Connection scripts from Visual Studio Team Services to Auth0.
+topics:
+  - extensions
+  - vs-team-services-deployments
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Visual Studio Team Services Deployments
@@ -63,7 +69,7 @@ Copy the **Payload URL** and **HTTP headers** values. You will use them in order
 
 ## Configure the Visual Studio Team Services Webhook
 
-Once you have configured your Auth0 Extension, you will need to configure the the Visual Studio Team Services Webhook to complete the integration.
+Once you have configured your Auth0 Extension, you will need to configure the Visual Studio Team Services Webhook to complete the integration.
 
 In your Visual Studio Team Services account, go to **Overview** and click on the name the project being used for the integration, then click **Service Hooks**.
 

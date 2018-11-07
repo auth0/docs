@@ -1,6 +1,13 @@
 ---
 description: Explains what Connections are and how they are associated with Auth0 Applications.
 crews: crew-2
+topics:
+  - applications
+  - connections
+contentType: concept
+useCase:
+  - build-an-app
+  - customize-connections
 ---
 # Application Connections
 

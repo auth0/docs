@@ -1,6 +1,14 @@
 ---
 section: libraries
 description: Lock V10 documentation on setting authentication parameters.
+topics:
+  - libraries
+  - lock
+contentType:
+  - reference
+  - how-to
+useCase:
+  - add-login
 ---
 # Lock: Authentication Parameters
 
@@ -36,9 +44,9 @@ var options = {
 
 There are different values supported for scope:
 
-* `scope: 'openid'`: _(default)_ It will return not only the Access Token, but also an `id_token` which is a JSON Web Token (JWT). The JWT will only contain the user ID (`sub` claim).
+* `scope: 'openid'`: _(default)_ It will return not only the Access Token, but also an ID Token which is a JSON Web Token (JWT). The JWT will only contain the user ID (`sub` claim).
 * `scope: 'openid profile'`: will return all the user attributes in the token. Keep in mind that JWTs are sent on every API request, so it is desirable to keep them as small as possible.
-* `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`). When selecting specific attributes, the attributes chosen are from those available in the user's profile, which will vary from application to application.
+* `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user attributes to be part of the ID Token (For example: `scope: 'openid name email picture'`). When selecting specific attributes, the attributes chosen are from those available in the user's profile, which will vary from application to application.
 
 For more information about scopes, see the [scopes documentation page](/scopes).
 
@@ -66,6 +74,6 @@ There is also a `connectionScopes` configuration option for Lock 10, which allow
 
 ### state {string}
 
-The `state` parameter is an arbitrary state value that will be mantained across redirects. It is useful to mitigate [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery) and for any contextual information, [such as a return url](/tutorials/redirecting-users), that you might need after the authentication process is finished.
+The `state` parameter is an arbitrary state value that will be maintained across redirects. It is useful to mitigate [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery) and for any contextual information, [such as a return url](/tutorials/redirecting-users), that you might need after the authentication process is finished.
 
 [Click here to learn more about how to send/receive the state parameter.](/protocols/oauth-state)

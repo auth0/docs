@@ -3,6 +3,16 @@ name: User Search Best Practices
 description: Best practices when searching for users in Auth0
 url: /users/search/best-practices
 toc: true
+topics:
+  - users
+  - user-management
+  - search
+contentType:
+  - how-to
+  - reference
+  - concept
+useCase:
+  - manage-users
 ---
 
 # User Search Best Practices
@@ -28,7 +38,7 @@ In this document, we use the terms **eventually consistent** and **immediately c
 
 * **Eventually consistent**: When you request information about a user (or a group of users), the response might not reflect the results of a recently-complete write operation. However, if you repeat your request after a short period of time, the response will return up-to-date data.
 
-* **Immediately consistent**: When you request information about a user (or a group of users), the response will reflect the results of all successful write operations, including those that occured shortly prior to your request.
+* **Immediately consistent**: When you request information about a user (or a group of users), the response will reflect the results of all successful write operations, including those that occurred shortly prior to your request.
 
 ## General principles
 
@@ -123,6 +133,10 @@ We do **not** recommend that you use this endpoint for:
 ## Users by ID
 
 The [`GET /api/v2/users/{id}` endpoint](/api/management/v2#!/Users/get_users_by_id) allows you to retrieve a specific user using their Auth0 user ID.
+
+::: note
+The user ID should be URL encoded since it may contain characters that do not work well in a URL.
+:::
 
 *Required Scopes*: `read:users`
 

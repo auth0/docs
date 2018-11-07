@@ -2,6 +2,16 @@
 section: libraries
 title: Custom Fields at Signup
 description: Adding additional fields to signups with Lock v2 for iOS
+topics:
+  - libraries
+  - lock
+  - ios
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock v2 for iOS - Custom Fields at Signup
@@ -25,7 +35,7 @@ When signing up the default information requirements are the user's *email* and 
 You must specify the icon to use with your custom text field.
 :::
 
-Thats it! If you have enabled users Sign Up in the Application's Dashboard, after they complete the basic fields (email/username, password) and hit Submit, they will be prompted to fill the remaining fields.
+That's it! If you have enabled users Sign Up in the Application's Dashboard, after they complete the basic fields (email/username, password) and hit Submit, they will be prompted to fill the remaining fields.
 
 ::: note
 Note that the user must fill all of the custom fields before being able to complete signup.

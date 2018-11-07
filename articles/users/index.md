@@ -2,6 +2,13 @@
 classes: topic-page
 title: Users
 description: Learn about working with users in Auth0
+topics:
+  - users
+  - user-management
+contentType:
+  - index
+useCase:
+  - manage-users
 ---
 
 <div class="topic-page-header">
@@ -32,9 +39,6 @@ description: Learn about working with users in Auth0
         <i class="icon icon-budicon-695"></i><a href="/user-profile/normalized/auth0">Normalized User Profiles</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/user-profile/user-impersonation">User Impersonation</a>
-      </li>
-      <li>
         <i class="icon icon-budicon-695"></i><a href="/user-profile/user-data-storage">User Data Storage</a>
       </li>
       <li>
@@ -50,6 +54,20 @@ description: Learn about working with users in Auth0
     <p>
       Learn about the metadata fields available in the user profile, as well as when to use which.
     </p>
+  </li>  
+  <li>
+    <i class="icon icon-budicon-715"></i>User Export
+    <p>
+      Learn how to export users from Auth0.
+    </p>
+    <ul>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/users/search/best-practices#user-export">Export Users with the Management API</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/extensions/user-import-export">User Import / Export Extension</a>
+      </li>
+    </ul>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/users/migrations">User Migration</a>

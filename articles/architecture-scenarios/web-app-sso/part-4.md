@@ -1,6 +1,17 @@
 ---
 description: Regular web app scenario conclusion
 toc: true
+topics:
+    - architecture
+    - regular-web-apps
+    - api-auth
+    - authorization-code
+    - lockjs
+contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 # SSO for Regular Web Apps: Conclusion
 

@@ -1,6 +1,17 @@
 ---
 description: Regular web app scenario configuration for Auth0
 toc: true
+topics:
+    - architecture
+    - regular-web-apps
+    - api-auth
+    - authorization-code
+    - lockjs
+contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 # SSO for Regular Web Apps: Auth0 Configuration
 
@@ -55,7 +66,7 @@ Auth0 supports a vast variety of protocols and identity providers:
 - Social: Allow your users to log in using Google, Facebook, LinkedIn, Github, and many more.
 - Enterprise: Allow your users to log in using Active Directory, ADFS, LDAP, SAML-P, and many more.
 - Database connections: Create your own user store by configuring a new database connection, and authenticate your users using email/username and password. The credentials can be securely stored either in the Auth0 user store, or in your own database.
-- Passwordless authentication: Allow your users to login without the need to remember a password and use an authentication channel like SMS or e-mail.
+- Passwordless authentication: Allow your users to login without the need to remember a password and use an authentication channel like SMS or email.
 :::
 
 ### Create a database connection

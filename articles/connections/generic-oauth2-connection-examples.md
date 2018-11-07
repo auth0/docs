@@ -1,6 +1,13 @@
 ---
 description: This document covers generic OAuth 1.0/2.0 examples.
 toc: true
+topics:
+  - connections
+  - oauth2
+contentType: concept
+useCase:
+  - customize-connections
+  - add-idp
 ---
 
 # Generic OAuth 1.0 and 2.0 Examples

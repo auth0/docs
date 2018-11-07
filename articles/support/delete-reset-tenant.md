@@ -1,5 +1,15 @@
 ---
 description: How to manage your tenant
+topics:
+    - support
+    - delete-tenant
+    - reset-tenant
+    - tenants
+contentType:
+  - how-to
+  - reference
+useCase:
+  - support
 ---
 
 # Delete/Reset Your Tenant

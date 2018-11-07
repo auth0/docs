@@ -10,16 +10,17 @@ author:
   email: luciano.balmaceda@auth0.com
   community: false
 image: /media/platforms/android.png
-tags:
+topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: native-platforms/android/dependencies
   setup: native-platforms/android/setup
   use: native-platforms/android/use
 seo_alias: android
-default_article: dashboard-default
+default_article: 00-login
 articles:
-  - getting-started
   - 00-login
   - 03-session-handling
   - 04-user-profile
@@ -27,7 +28,7 @@ articles:
   - 06-calling-apis
   - 07-authorization
 next_steps:
-  - path: 00-login
+  - path: 07-authorization
     list:
     - text: Configure other identity providers
       icon: 345
@@ -38,32 +39,14 @@ next_steps:
     - text: Learn about anomaly detection
       icon: 345
       href: "/anomaly-detection"
-  - path: 03-session-handling
-    list:
-    - text: Learn about Refresh Tokens
-      icon: 345
-      href: "/tokens/refresh-tokens"
-  - path: 04-user-profile
-    list:
-    - text: Learn about the user profile structure
-      icon: 345
-      href: "/user-profile/normalized/oidc"
-    - text: Learn about scopes
-      icon: 345
-      href: "/scopes"
-    - text: In-depth details about user profile
-      icon: 345
-      href: "/user-profile/user-profile-details"
-  - path: 06-calling-apis
-    list:
-    - text: Learn about custom APIs
-      icon: 345
-      href: "/api"
-    - text: Introduction to API authorization
-      icon: 345
-      href: "/api-auth"
-  - path: 07-authorization
-    list:
     - text: Learn about rules
       icon: 345
       href: "/rules"
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-android-sample
+requirements:
+  - Android Studio 2.3
+  - Android SDK 25
+  - Emulator - Nexus 5X - Android 6.0

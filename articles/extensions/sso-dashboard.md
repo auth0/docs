@@ -2,6 +2,12 @@
 title: "Auth0 Extension: Single Sign-On (SSO) Dashboard"
 description: This page explains how to configure and utilize the SSO Dashboard Extension.
 toc: true
+topics:
+  - extensions
+  - sso-dashboard
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Auth0 Extension: Single Sign-On (SSO) Dashboard
@@ -50,7 +56,7 @@ Save your changes.
 
 ### Application connections
 
-By default all the connection types are enabled for users to be able to login into the SSO Dashbboard. If you would like to change this, navigate to the *Connections* tab for the Application.
+By default all the connection types are enabled for users to be able to login into the SSO Dashboard. If you would like to change this, navigate to the *Connections* tab for the Application.
 
 ## Install the extension
 

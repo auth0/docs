@@ -1,6 +1,18 @@
 ---
 description: This page explains the basics of the Login by Auth0 WordPress plugin.
 url: /cms/wordpress
+topics:
+    - wordpress
+    - cms
+contentType: 
+    - index
+    - concept
+useCase:
+  - add-login
+  - build-an-app
+  - customize-connections
+  - secure-an-api
+  - manage-users
 ---
 # Login by Auth0 WordPress Plugin
 
@@ -14,7 +26,7 @@ Login features are implemented through a new form (powered by Auth0) that enable
 - Single Sign On with over 30 [Social Providers](/identityproviders)
 - Single Sign On between WordPress installs and other applications
 - User Management Dashboard
-- Optional Multifactor Authentication
+- Optional Multi-factor Authentication
 - Optional Passwordless Authentication
 - Reporting and Analytics
 

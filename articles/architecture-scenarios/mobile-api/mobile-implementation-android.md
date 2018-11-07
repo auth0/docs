@@ -1,6 +1,19 @@
 ---
 description: The Android implementation of the API for the Mobile + API architecture scenario
 toc: true
+topics:
+  - mobile-apps
+  - api-auth
+  - android
+  - architecture
+  - authorization-code
+  - pkce
+contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - enable-mobile-auth
+  - build-an-app
 ---
 
 # Mobile + API: Android Implementation for the Mobile App

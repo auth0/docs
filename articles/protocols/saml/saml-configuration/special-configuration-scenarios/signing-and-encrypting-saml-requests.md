@@ -1,5 +1,12 @@
 ---
 description: Signing and encrypting SAML requests
+  topics:
+    - saml
+    - sso
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Special Configuration Scenarios: Signing and Encrypting SAML Requests

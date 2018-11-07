@@ -1,6 +1,13 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about security
+topics:
+    - appliance
+    - infrastructure
+    - security
+contentType: reference
+useCase: appliance
+applianceId: appliance40
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Security and Access
@@ -17,7 +24,7 @@ You need to create and install a unique SSL certificate for each PSaaS Appliance
 
 The SSL Certificate:
 
-* must be created by a public certificate authority. They cannot be self-signed.
+* must be created by a public certificate authority. They cannot be self-signed;
 * may be a wildcard *or* a multi-domain (SAN) certificate;
 * must contain all required DNS/domain names, including those for the:
     * Management Dashboard;
@@ -42,6 +49,14 @@ MY-PUBLIC-KEY
 -----BEGIN CERTIFICATE-----
 PARENT
 -----END CERTIFICATE-----
+```
+
+If you're uploading the public and private keys separately, convert the private key to RSA as follows:
+
+```text
+-----BEGIN RSA PRIVATE KEY-----
+PRIVATE-KEY
+-----END RSA PRIVATE KEY-----
 ```
 
 ## Transparent Proxies

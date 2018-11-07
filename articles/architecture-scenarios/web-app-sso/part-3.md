@@ -1,6 +1,17 @@
 ---
 description: Regular web app scenario application implementation
 toc: true
+topics:
+    - architecture
+    - regular-web-apps
+    - api-auth
+    - authorization-code
+    - lockjs
+contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 # SSO for Regular Web Apps: Application Implementation
 
@@ -25,11 +36,11 @@ By default, Lock will display all the connections available for login. Selecting
 
 You may however want to avoid that first step, where the user needs to choose the Identity Provider (IdP), and have the system identify it instead of asking every time. Lock offers you the following options:
 
-- __Identify the IdP programatically__: When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any connection defined in your dashboard. When using the Hosted version of Lock by calling the [`/authorize`](/api/authentication/reference#database-ad-ldap-passive-) endpoint, you can pass along a `connection` query string parameter containing the name of the connection. Alternatively, if you are using Embedded Lock, this is as simple as writing `auth0.show({connections: ['YOUR_CONNECTION']});`.
+- __Identify the IdP programmatically__: When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any connection defined in your dashboard. When using the Hosted version of Lock by calling the [`/authorize`](/api/authentication/reference#database-ad-ldap-passive-) endpoint, you can pass along a `connection` query string parameter containing the name of the connection. Alternatively, if you are using Embedded Lock, this is as simple as writing `auth0.show({connections: ['YOUR_CONNECTION']});`.
 
   There are multiple practical ways of getting the `connection` value. One of them is to use __vanity URLs__: for example, company employees will use `https://internal.yoursite.com`, while external contractors will use `https://external.yoursite.com`.
 
-- __Use email domains__: Lock can use email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. If a connection has this setup, then the password textbox gets disabled automatically when typing an e-mail with a mapped domain. Note that you can associate multiple domains to a single connection.
+- __Use email domains__: Lock can use email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. If a connection has this setup, then the password textbox gets disabled automatically when typing an email with a mapped domain. Note that you can associate multiple domains to a single connection.
 
 For additional information on this topic refer to: [Selecting the connection in Auth0 for multiple login options](/libraries/lock/v10/selecting-the-connection-for-multiple-logins).
 
@@ -44,7 +55,7 @@ When talking about managing sessions, there are typically three layers of sessio
 When developing a web application, you will therefore need to keep track of the fact that the user has logged in to your Web application. You can do this by making use of a cookie-based session to keep track of the fact that the user has signed in, and also store any of the user related information or tokens.
 
 ::: panel How do I control the duration of the user's local application session? Can I drive that from Auth0?
-The web app has full control over the user's local application session. How this is done usually depends on the web stack being used (for example, ASP.NET). Regardless, all approaches ultimately use one or more cookies to control the session. The developer can choose to use the expiration of the JWT `id_token` returned by Auth0 to control their session duration or ignore it completely. Some developers store the `id_token` itself in session state and end the user's session when it has expired.
+The web app has full control over the user's local application session. How this is done usually depends on the web stack being used (for example, ASP.NET). Regardless, all approaches ultimately use one or more cookies to control the session. The developer can choose to use the expiration of the JWT ID Token returned by Auth0 to control their session duration or ignore it completely. Some developers store the ID Token itself in session state and end the user's session when it has expired.
 
 The reason why you would use the expiration of the token to determine the expiration of the local session is because it gives you centralized control of the duration of a user session from the Auth0 Dashboard.
 :::
@@ -64,7 +75,7 @@ Auth0 manages its own single-sign-on session. Applications can choose to honor o
 
 ![Lock Widget SSO](/media/articles/architecture-scenarios/web-app-sso/sso-login.png)
 
-If they do so, they are signed in without having to re-enter their credentials with the actual IDP.  Even though the user didn't authenticate, the application still performs an authentication flow with Auth0 and obtains a new `id_token`, which can be used to then manage the new local application session.
+If they do so, they are signed in without having to re-enter their credentials with the actual IDP.  Even though the user didn't authenticate, the application still performs an authentication flow with Auth0 and obtains a new ID Token, which can be used to then manage the new local application session.
 :::
 
 **See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/implementation-aspnetcore#configure-the-cookie-and-oidc-middleware)**.
@@ -94,7 +105,7 @@ The logout flow (not including federated logout) is as follows:
 
 Authorization refers to the process of determining what actions a user can perform inside your application.
 
-You can either implement authorization directly inside your application, independently of Auth0, or use one of the available ways to retrieve the user authorization levels, put them as authorization claims inside the `id_token` and validate these claims inside your application, once you retrieve the token, to control access.
+You can either implement authorization directly inside your application, independently of Auth0, or use one of the available ways to retrieve the user authorization levels, put them as authorization claims inside the ID Token and validate these claims inside your application, once you retrieve the token, to control access.
 
 There are various ways in which you can retrieve and set the user authorization claims when using Auth0:
 - By configuring and using the [Auth0 Authorization Extension](/extensions/authorization-extension).

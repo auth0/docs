@@ -2,6 +2,14 @@
 description: Roadmap of what you need to do to add authentication to your app and secure your APIs with Auth0
 toc: true
 public: false
+topics:
+  - auth0-101
+  - auth0-basics
+contentType: concept
+useCase:
+  - strategize
+  - development
+  - get-started
 ---
 # The Implementation Process - UNDER CONSTRUCTION
 

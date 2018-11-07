@@ -1,4 +1,4 @@
-## Add Authentication with Auth0
+## Configure your application to use Auth0
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET Core application.
 
@@ -6,7 +6,18 @@
 You can also create a custom login for prompting the user for their username and password. To learn how to do this in your application, follow the [Custom Login sample](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Samples/custom-login).
 :::
 
-## Configure OpenID Connect Middleware
+### Install dependencies
+
+To integrate Auth0 with ASP.NET Core you will use the Cookie and OpenID Connect (OIDC) authentication handlers. The seed project already references the ASP.NET Core metapackage (`Microsoft.AspNetCore.All`) which includes **all** NuGet packages shipped by Microsoft as part of ASP.NET Core 2.0, including the packages for the Cookie and OIDC authentication handlers.
+
+If you are adding this to your own existing project, and you have not referenced the metapackage, then please make sure that you add the `Microsoft.AspNetCore.Authentication.Cookies` and `Microsoft.AspNetCore.Authentication.OpenIdConnect` packages to your application.
+
+```bash
+Install-Package Microsoft.AspNetCore.Authentication.Cookies
+Install-Package Microsoft.AspNetCore.Authentication.OpenIdConnect
+```
+
+### Install and configure OpenID Connect Middleware
 
 To enable authentication in your ASP.NET Core application, use the OpenID Connect (OIDC) middleware.
 Go to the `ConfigureServices` method of your `Startup` class. To add the authentication services, call the `AddAuthentication` method. To enable cookie authentication, call the `AddCookie` method.
@@ -129,7 +140,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-## Obtain an Access Token for Calling an API
+### Obtain an Access Token for Calling an API
 
 If you want to call an API from your MVC application, you need to obtain an Access Token issued for the API you want to call. To obtain the token, pass an additional `audience` parameter containing the API identifier to the Auth0 authorization endpoint.
 
@@ -164,7 +175,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## Add the `Login` and `Logout` Methods
+## Trigger authentication
+
+### Add the `Login` and `Logout` Methods
 
 Add the `Login` and `Logout` actions to `AccountController`.
 
@@ -258,7 +271,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## Add the Log In and Log Out Buttons
+### Add the Log In and Log Out Buttons
 
 Add the **Log In** and **Log Out** buttons to the navigation bar. In the `/Views/Shared/_Layout.cshtml` file, in the navigation bar section, add code that displays the **Log Out** button when the user is authenticated and the **Log In** button if not. The buttons link to the `Logout` and `Login` actions in the `AccountController`:  
 
@@ -295,11 +308,11 @@ Add the **Log In** and **Log Out** buttons to the navigation bar. In the `/Views
 </div>
 ```
 
-## Run the Application
+### Run the Application
 
 When the user selects the **Log In** button, the OIDC middleware redirects them to the hosted version of the [Lock](/libraries/lock/v10/customization) widget in your Auth0 domain.
 
-### About the login flow
+#### About the login flow
 
 1. The user clicks on the **Log In** button and is directed to the `Login` route.
 2. The `ChallengeAsync` tells the ASP.NET authentication middleware to issue a challenge to the authentication handler registered with the Auth0 `authenticationScheme` parameter. The parameter uses the "Auth0" value you passed in the call to `AddOpenIdConnect` in the `Startup` class.
@@ -311,7 +324,7 @@ When the user selects the **Log In** button, the OIDC middleware redirects them 
 8. The OIDC middleware extracts the user information from the claims on the ID Token.
 9. The OIDC middleware returns a successful authentication response and a cookie which indicates that the user is authenticated. The cookie contains claims with the user's information. The cookie is stored, so that the cookie middleware will automatically authenticate the user on any future requests. The OIDC middleware receives no more requests, unless it is explicitly challenged.
 
-## Store the Tokens
+### Store the Tokens
 
 The OIDC middleware in ASP.NET Core automatically decodes the ID Token returned from Auth0 and adds the claims from the ID Token as claims in the `ClaimsIdentity`. This means that you can use `User.Claims.FirstOrDefault("<claim type>").Value` to obtain the value of any claim inside any action in your controllers.
 
@@ -359,10 +372,19 @@ To retrieve the tokens, you can call `GetTokenAsync`:
 if (User.Identity.IsAuthenticated)
 {
     string accessToken = await HttpContext.GetTokenAsync("access_token");
+    
+    // if you need to check the access token expiration time, use this value
+    // provided on the authorization response and stored.
+    // do not attempt to inspect/decode the access token
+    DateTime accessTokenExpiresAt = DateTime.Parse(
+        await HttpContext.GetTokenAsync("expires_at"), 
+        CultureInfo.InvariantCulture, 
+        DateTimeStyles.RoundtripKind);
+        
     string idToken = await HttpContext.GetTokenAsync("id_token");
 
     // Now you can use them. For more info on when and how to use the
-    // Access Token and id_token, see https://auth0.com/docs/tokens
+    // Access Token and ID Token, see https://auth0.com/docs/tokens
 }
 ```
 

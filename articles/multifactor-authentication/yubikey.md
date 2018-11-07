@@ -1,10 +1,21 @@
 ---
-description: How to implement Multifactor Authentication Using YubiKey NEO.
+description: How to implement Multi-factor Authentication Using YubiKey NEO.
 toc: true
+topics:
+    - mfa
+    - yubikey
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
-# Multifactor Authentication with YubiKey NEO
+# Multi-factor Authentication with YubiKey NEO
 
-This tutorial shows you how to implement Multifactor Authentication (MFA) using [YubiKey NEO](https://www.yubico.com/products/yubikey-hardware/yubikey-neo/).
+This tutorial shows you how to implement Multi-factor Authentication (MFA) using [YubiKey NEO](https://www.yubico.com/products/yubikey-hardware/yubikey-neo/).
+
+:::warning
+Binding an OTP to an identity is outside the scope of this article.
+:::
 
 Implementing MFA using YubiKey NEO requires use of the following Auth0 features for the described reasons:
 
@@ -18,7 +29,7 @@ In this tutorial, we will walk you through the configuration required for the We
 
 ## Configure the Webtask
 
-The first thing we'll do is create the website where the user completes the second authentication step using YubiKey. We'll use a Webtask, which allows you to run code using the Auth0 sandbox, to host the site. More specifically, the Webtask will: 
+The first thing we'll do is create the website where the user completes the second authentication step using YubiKey. We'll use a Webtask, which allows you to run code using the Auth0 sandbox, to host the site. More specifically, the Webtask will:
 
 * **Render** the UI with the `otpForm` function
 * **Capture** the YubiKey NEO code and validate it using the Yubico API
@@ -28,11 +39,15 @@ The first thing we'll do is create the website where the user completes the seco
 
 Webtask runs code you provide, so we'll begin by creating the code needed. We've provided you with a [fully-functional sample](https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md), which you need to save locally in a file called `yubico-mfa-wt.js`.
 
-Within the code provided is a redirect URL to Auth0. It contains querystring parameters called `id_token` and `state`. The `id_token` parameter is used to transfer information back to Auth0. The `state`parameter is used to protect against CSRF attacks.
+Within the code provided is a redirect URL to Auth0. It contains querystring parameters called `id_token` and `state`. The `id_token` parameter is used to transfer information back to Auth0. The `state` parameter is used to protect against CSRF attacks.
 
 No actual key values are hard-coded into the Webtask code. Your Yubico Client ID and Secret values are referred to using `context.data.yubico_clientid` and `context.data.yubico_secret`. These parameters are securely embedded in the Webtask token when you created the Webtask.
 
 ### Step 2: Initialize the Webtask CLI
+
+::: warning
+Tenants created after **July 16, 2018** will not have access to the underlying Webtask Sandbox via the Webtask CLI. Please contact [Auth0](https://auth0.com/?contact=true) to request access.
+:::
 
 Now that we have the code for our Webtask, we'll need to create the Webtask itself. We do this using the Webtask CLI.
 
@@ -93,7 +108,7 @@ function (user, context, callback) {
 }
 ```
 
-You also need to create two new settings on [Rules](${manage_url}/#/rules): 
+You also need to create two new settings on [Rules](${manage_url}/#/rules):
 
 * One using `WEBTASK_URL` as the key, and the URL returned by the `create` command as the value.
 * Another using `YUBIKEY_SECRET` as the key, and `{YOUR YUBIKEY SECRET}` passed to `create` as the value.
@@ -122,14 +137,14 @@ You'll see the following editor window where you can paste in the rule code abov
 
 You can test your code for correctness using **Try This Rule**. When done, click **Save** to proceed.
 
-You also need to create two new Settings for your [Rules](${manage_url}/#/rules): 
+You also need to create two new Settings for your [Rules](${manage_url}/#/rules):
 
 | Setting | Value |
 | - | - |
 | `WEBTASK_URL` | The URL you saved after running the `CREATE` command in the Webtask CLI |
 | `YUBIKEY_SECRET` | Your YubiKey client secret |
 
-With these settings, you can access the provded values in your rules code using the configuration global object (such as `configuration.WEBTASK_URL`).
+With these settings, you can access the provided values in your rules code using the configuration global object (such as `configuration.WEBTASK_URL`).
 
 ![](/media/articles/mfa/yubi-5.png)
 

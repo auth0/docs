@@ -1,5 +1,15 @@
 ---
 title: User profile claims and scope
+topics:
+  - api-authentication
+  - oidc
+  - scopes
+  - user-profiles
+  - claims
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # User profile claims and scope
@@ -65,7 +75,7 @@ Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any n
 `auth0.com`, `webtask.io` and `webtask.run` are Auth0 domains and therefore cannot be used as a namespace identifier.
 :::
 
-This follows a [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant. While this is not mandatory according to the specification, Auth0 will always enforce namespacing when performing OIDC-conformant login flows, meaning that any non-namespaced claims will be silently excluded from tokens.
+This follows a [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant. While this is not mandatory according to the specification, Auth0 will always enforce namespacing when performing OIDC-conformant login flows, meaning that any custom claims without HTTP/HTTPS namespaces will be silently excluded from tokens.
 
 If you need to add custom claims to the Access Token, the same applies but using `context.accessToken` instead.
 

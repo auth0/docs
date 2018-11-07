@@ -1,6 +1,14 @@
 ---
 description: How to provide a UI for the user to authenticate to their other accounts and link these to their primary account.
 crews: crew-2
+topics:
+  - account-linking
+  - client-side
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-accounts
 ---
 
 # Account Linking Using Client Side Code
@@ -96,7 +104,7 @@ function linkAccount(secondaryIdToken) {
   // Otherwise, it will be lost after linking the accounts
 
   // Uses the Access Token of the primary user as a bearer token to identify the account
-  // which will have the account linked to, and the id_token of the secondary user, to identify
+  // which will have the account linked to, and the ID Token of the secondary user, to identify
   // the user that will be linked into the primary account.
 
   var primaryAccessToken = localStorage.getItem('access_token');

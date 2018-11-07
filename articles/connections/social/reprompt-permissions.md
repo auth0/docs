@@ -1,5 +1,12 @@
 ---
 description: How to handle declined authorization permissions and how to re-prompt for these permissions.
+topics:
+  - connections
+  - social
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Handling Declined Authorization Permissions

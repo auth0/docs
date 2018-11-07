@@ -9,6 +9,5 @@
   - [Resource Owner Password Credentials exchange](/api-auth/tutorials/adoption/password)
   - [Client Credentials exchange](/api-auth/tutorials/adoption/client-credentials) (only available in new pipeline)
 * [Refresh Tokens](/api-auth/tutorials/adoption/refresh-tokens)
-* [Delegation (deprecated)](/api-auth/tutorials/adoption/delegation)
 * [Passwordless authentication](/api-auth/passwordless)
 * [List of breaking changes for OIDC-conformant applications](/api-auth/tutorials/adoption/oidc-conformant)

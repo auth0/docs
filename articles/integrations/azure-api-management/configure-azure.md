@@ -1,6 +1,13 @@
 ---
 description: Configure Azure to accept Auth0 for use as an OAuth 2.0 server to authenticate users wanting access to an API managed by the Azure API Management service
 toc: true
+topics:
+    - integrations
+    - azure
+    - api-management
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 # Configure Azure
 

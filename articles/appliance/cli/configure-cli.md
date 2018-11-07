@@ -1,6 +1,12 @@
 ---
 section: appliance
 description: How to configure the PSaaS Appliance CLI
+topics:
+    - appliance
+    - cli
+contentType: how-to
+useCase: appliance
+applianceId: appliance13
 ---
 
 # Configuring and Using the Auth0 Appliance Command Line Interface
@@ -26,7 +32,7 @@ Usage: a0cli [options] <command>
    create-key           Creates private/public keys pair on current path.
    show-key             Shows public key on current path.
    delete-key           Deletes keys pair from current path.
-   update-commands      Retrieve availables commands from the specified node.
+   update-commands      Retrieve available commands from the specified node.
 
  Options:
 
@@ -47,7 +53,7 @@ Usage: a0cli [options] <command>
     create-key                       Creates private/public keys pair on current path.
     show-key                         Shows public key on current path.
     delete-key                       Deletes keys pair from current path.
-    update-commands                  Retrieve availables commands from the specified node.
+    update-commands                  Retrieve available commands from the specified node.
     backup <password>                Creates a new backup.
     backup-delete                    Deletes the current sensitive backup
     backup-retrieve                  retrieves the current backup.

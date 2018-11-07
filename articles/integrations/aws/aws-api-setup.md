@@ -2,10 +2,15 @@
 description: How to Set Up AWS for Delegated Authentication
 url: /aws-api-setup
 toc: true
+topics:
+  - integrations
+  - aws
+contentType: how-to
+useCase: secure-an-api
 ---
 # How to Set Up AWS for Delegated Authentication
 
-The doc will walk you through setting up AWS for delegated authentication. You'll need to perform these steps any time you want to use Auth0 with AWS. Note that this tutorial does not walk you through a full integration. See the [Enable SSO to the AWS Console](/aws/integrations/sso) or [API Gateway](/integrations/aws-api-gateway) tutorials for complete examples.
+This doc will walk you through setting up AWS for delegated authentication. You'll need to perform these steps any time you want to use Auth0 with AWS. Note that this tutorial does not walk you through a full integration. See the [Configure SSO with the AWS Console](/integrations/aws/sso) or [API Gateway](/integrations/aws-api-gateway) tutorials for complete examples.
 
 ## Step 1: Create a SAML Provider in AWS
 

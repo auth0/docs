@@ -2,21 +2,18 @@
 title: Authorization
 description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
 budicon: 546
+topics:
+  - quickstarts
+  - webapp
+  - aspnet-core
+  - authorization
+github:
+  path: Quickstart/03-Authorization
+contentType: tutorial
+useCase: quickstart
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-aspnetcore-mvc-samples',
-  branch: 'v1',
-  path: 'Quickstart/03-Authorization',
-  requirements: [
-    '.NET Core 1.1.0',
-    'ASP.NET Core 1.1.1',
-    'Microsoft.AspNetCore.Authentication.OpenIdConnect 1.1.1'
-  ]
-}) %>
-
-ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access of users based on their role in the application. In this tutorial we will look at how you can amend your user's `id_token` by adding role information and then use that information inside your application to limit a user's access.
+ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access of users based on their role in the application. In this tutorial we will look at how you can amend your user's ID Token by adding role information and then use that information inside your application to limit a user's access.
 
 ::: note
 This tutorial assumes that you are familiar with [Rules](/rules/current).
@@ -28,22 +25,35 @@ First, we will create a rule that assigns our users either an `admin` role, or a
 
 ```js
 function (user, context, callback) {
-  var addRolesToUser = function(user, cb) {
-    if (user.email.indexOf('@example.com') > -1) {
-      cb(null, ['admin']);
-    } else {
-      cb(null, ['user']);
+
+  // Roles should only be set to verified users.
+  if (!user.email || !user.email_verified) {
+    return callback(null, user, context);
+  }
+
+  user.app_metadata = user.app_metadata || {};
+  // You can add a Role based on what you want
+  // In this case I check domain
+  const addRolesToUser = function(user) {
+    const endsWith = '@example.com';
+
+    if (user.email && (user.email.substring(user.email.length - endsWith.length, user.email.length) === endsWith)) {
+      return ['admin']
     }
+    return ['user'];
   };
 
-  addRolesToUser(user, function(err, roles) {
-    if (err) {
-      callback(err);
-    } else {
-      context.idToken["https://schemas.quickstarts.com/roles"] = roles;     
+  const roles = addRolesToUser(user);
+
+  user.app_metadata.roles = roles;
+  auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+    .then(function() {
+      context.idToken['https://example.com/roles'] = user.app_metadata.roles;
       callback(null, user, context);
-    }
-  });
+    })
+    .catch(function (err) {
+      callback(err);
+    });
 }
 ```
 
@@ -57,7 +67,7 @@ For more information on custom claims please see [User profile claims and scope]
 
 ## Restrict an Action Based on a User's Roles
 
-Next you will need to configure the OIDC middleware registration inside your ASP.NET application to inform it which claim in the `id_token` contains the role information. Alter your OIDC middleware registration to specify the `RoleClaimType` inside the `TokenValidationParameters`. Ensure that this matches the namespace you used inside your Rule.
+Next you will need to configure the OIDC middleware registration inside your ASP.NET application to inform it which claim in the ID Token contains the role information. Alter your OIDC middleware registration to specify the `RoleClaimType` inside the `TokenValidationParameters`. Ensure that this matches the namespace you used inside your Rule.
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IOptions<Auth0Settings> auth0Settings)
@@ -77,7 +87,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
     Events = new OpenIdConnectEvents
     {
-      // handle the logout redirection 
+      // handle the logout redirection
       OnRedirectToIdentityProviderForSignOut = (context) =>
       {
           [...] // code omitted for brevity
@@ -91,7 +101,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-At this point the you have integrated with the the [Role based authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) mechanism of ASP.NET Core, which means that your can ensure that a user belongs to a particular role by simply decorating your controller actions with the `[Authorize(Roles = ?)]` attribute.
+At this point the you have integrated with the [Role based authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) mechanism of ASP.NET Core, which means that your can ensure that a user belongs to a particular role by simply decorating your controller actions with the `[Authorize(Roles = ?)]` attribute.
 
 The sample code below will restrict the particular action only to users who have the "admin" role:
 

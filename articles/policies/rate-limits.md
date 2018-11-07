@@ -2,13 +2,21 @@
 title: Rate Limit Policy For Auth0 APIs
 description: This page details Auth0's Rate Limit Policy with hitting Auth0 API endpoints.
 toc: true
+topics:
+    - auth0-policies
+    - rate-limits
+    - testing
+contentType:
+  - reference
+useCase:
+  - support
 ---
 # Rate Limit Policy For Auth0 APIs
 
 To ensure the quality of Auth0's services, the Auth0 APIs are subject to rate limiting.
 
-::: note
-If you are looking for information on the rate limits on user logins, refer to [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
+::: warning
+Auth0 reserves the right to modify the rate limits at any time. For the up-to-date information on rate limits, please review the headers returned from rate limited endpoints.
 :::
 
 ## Limits
@@ -36,7 +44,7 @@ For some API endpoints, the rate limits are defined per bucket, so the origins o
 
 If you exceed the provided rate limit for a given API endpoint, you will receive a response with [HTTP Status Code 429 (Too Many Requests)](http://tools.ietf.org/html/rfc6585#section-4). You can refer to the [HTTP Response Headers](#http-response-headers) for more information on the rate limits applicable to that endpoint.
 
-Actions such as rapidly updating configuration settings, aggressive polling, or making highy concurrent API calls may result in your app being rate limited.
+Actions such as rapidly updating configuration settings, aggressive polling, or making highly concurrent API calls may result in your app being rate limited.
 
 If your app triggers the rate limit, please refrain from making additional requests until the appropriate amount of time has elapsed.
 
@@ -65,9 +73,9 @@ The rate limits for this API defer depending on whether your tenant is free or p
 
 The following rate limits apply:
 
-- For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This policy goes into effect on __Tuesday, September 12 at 1PM PT__.
-- For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This policy goes into effect on __Tuesday, September 19 at 1PM PT__.
-- For __paid__ tenants, usage of the Management API is restricted to 50 requests per second.
+- For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
+- For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
+- For __paid__ tenants, usage of the Management API is restricted to 15 requests per second (and bursts up to 50 requests).
 
 The aforementioned rate limits include calls made via [Rules](/rules).
 
@@ -186,10 +194,6 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 The following Auth0 Authentication API endpoints return rate limit-related headers.
 
-::: warning
-Auth0 reserves the right to modify the rate limits at any time. For the up-to-date information on rate limits, please review the headers returned from rate limited endpoints.
-:::
-
 <table class="table">
   <thead>
     <tr>
@@ -282,3 +286,7 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
 :::note
 (*) In all instances above, **Free** includes tenants on the Free plan, as well as the non-production tenants of enterprise customers.
 :::
+
+## Limits on Database Logins
+
+For database connections Auth0 limits certain types of repeat login attempts depending on the user account and IP address. For more information, see [Rate Limits on User/Password Authentication](/connections/database/rate-limits).

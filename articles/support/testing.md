@@ -1,6 +1,15 @@
 ---
 title: Testing Your Auth0 Implementation
 description: Guidelines for testing your Auth0 implementation prior to deployment to Production environments
+topics:
+    - support
+    - testing
+    - pre-deployment-testing
+contentType:
+  - how-to
+  - reference
+useCase:
+  - support
 ---
 
 # Testing Your Auth0 Implementation
@@ -32,7 +41,7 @@ There are a number of third-party testing tools that you can use for performance
 
 * [Apache JMeter](http://jmeter.apache.org/)
 * [Artillery](https://artillery.io/)
-* [Micro Focusa LoadRunner](https://www.radview.com/)
+* [Micro Focus LoadRunner](https://www.radview.com/)
 * [Loader](https://loader.io/)
 * [RadView Webload](https://www.radview.com/)
 * [SmartBear LoadUI](https://smartbear.com/)

@@ -8,6 +8,19 @@ alias:
 seo_alias: adfs
 description: How to connect ADFS with Auth0.
 crews: crew-2
+topics:
+    - connections
+    - enterprise
+    - azure
+    - active-directory
+    - microsoft
+    - ad-fs
+contentType: how-to
+toc: true
+useCase: customize-connections
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Connect your app to ADFS
 
@@ -62,7 +75,7 @@ If you are using the [custom domains](/custom-domains) feature, you will need to
 
 #### 2. Creates rules to output common attributes
 
-The script also creates rules to output the most common attribures, such as email, UPN, given name, or surname:
+The script also creates rules to output the most common attributes, such as email, UPN, given name, or surname:
 
 ```powershell
 $rules = @'

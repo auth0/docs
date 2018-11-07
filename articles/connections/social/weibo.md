@@ -5,6 +5,14 @@ image: /media/connections/weibo.png
 seo_alias: weibo
 description: How to obtain an App ID and App Secret for Weibo.
 toc: true
+topics:
+  - connections
+  - social
+  - weibo
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Weibo

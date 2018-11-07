@@ -1,6 +1,12 @@
 ---
 description: This page lists different ways of how to update your application's secret.
 crews: crew-2
+topics:
+  - applications
+  - client-secrets
+contentType: how-to
+useCase:
+  - build-an-app
 ---
 
 # Rotate the Client Secret
@@ -21,7 +27,7 @@ Scroll to the bottom of the Settings page, and click **Save Changes**.
 
 ## Rotate the Client Secret Using the Management API
 
-You can rotate your application's secret by making a `POST` call to the [Rotate a Client Secret endpoint](/api/management/v2#!/Clients/post_rotate_secret) of the Management API.
+You can rotate your application's secret by making a `POST` call to the [Rotate a Client Secret endpoint](/api/management/v2#!/Clients/post_rotate_secret) of the Management API. The global client secret can also be rotated via the Management API. Your global client ID can be found in your [Advanced Tenant Settings](${manage_url}/#/tenant/advanced).
 
 Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and Access Token, respectively.
 

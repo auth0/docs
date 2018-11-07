@@ -1,12 +1,19 @@
 ---
 description:  Information for how to use Duo Security for developers.
+topics:
+  - mfa
+  - duo
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # Duo for Developers
 
 ## Enabling Duo for MFA
 
-To turn on Duo for two-step verification, first visit the [Multifactor Auth](${manage_url}/#/guardian) page from the dashboard. Then click on the link to use a different provider.
+To turn on Duo for two-step verification, first visit the [Multi-factor Auth](${manage_url}/#/guardian) page from the dashboard. Then click on the link to use a different provider.
 
 ![](/media/articles/mfa/change-provider.png)
 
@@ -29,22 +36,16 @@ function (user, context, callback) {
       context.multifactor = {
         //required
         provider: 'duo',
-        ikey: 'DIXBMN...LZO8IOS8',
-        skey: 'nZLxq8GK7....saKCOLPnh',
-        host: 'api-3....049.duosecurity.com',
+        ikey: configuration.DUO_IKEY,
+        skey: configuration.DUO_SKEY,
+        host: configuration.DUO_HOST, // e.g.: 'api-XXXXXXXX.duosecurity.com',
 
         // optional, defaults to true. Set to false to force DuoSecurity every time.
         // See https://auth0.com/docs/multifactor-authentication/custom#change-the-frequency-of-authentication-requests for details
         allowRememberBrowser: false,
 
         // optional. Use some attribute of the profile as the username in DuoSecurity. This is also useful if you already have your users enrolled in Duo.
-        // username: user.nickname,
-
-        // optional. Admin credentials. If you provide an Admin SDK type of credentials. auth0 will update the realname and email in DuoSecurity.
-        // admin: {
-        //  ikey: 'DIAN...NV6UM',
-        //  skey: 'YL8OVzvoeeh...I1uiYrKoHvuzHnSRj'
-        // },
+        // username: user.nickname
       };
     // }
   }
@@ -65,7 +66,7 @@ Required fields that you **must** replace to use Duo are: `ikey`, `skey` and `ho
 
 4. Find the **Auth API** option from the list and then click **Protect this Application**.
 
-5. Then you will be brought to the **Auth API** page under your Appications, you should see a **Details** section.
+5. Then you will be brought to the **Auth API** page under your Applications, you should see a **Details** section.
 
 6. Under the **Details** section you will see:
 
@@ -94,6 +95,3 @@ If `allowRememberBrowser: true` is set, or if the field is left unset, then user
 
 ### Changing the Username sent to Duo
 To use a specific attribute of the profile as the username in DuoSecurity, uncomment `username: user.nickname` and change it to the attribute you wish to use. This is also useful if you already have your users enrolled in Duo.
-
-### Setting Admin Credentials
-If you provide an Admin SDK type of credentials then Auth0 will update the realname and email in Duo. To do this, replace the `ikey` and `skey` with the integration key and secret key.

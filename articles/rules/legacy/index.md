@@ -1,6 +1,14 @@
 ---
 description: Learn what Rules are and how you can use them to customize and extend Auth0's capabilities.
 toc: true
+topics:
+  - rules
+  - extensibility
+contentType:
+  - reference
+  - how-to
+useCase:
+  - extensibility-rules
 ---
 
 # Rules
@@ -217,7 +225,7 @@ You can add `console.log` lines in the rule's code for debugging. The [Rule Edit
 
 ![Rules Editor](/media/articles/rules/rule-editor.png)
 
-1. **TRY THIS RULE**: opens a pop-up where you can run a rule in isolation. The tool provides a mock **user** and **context** objects. Clicking **TRY** will result on the the Rule being run with those two objects as input. `console.log` output will be displayed too.
+1. **TRY THIS RULE**: opens a pop-up where you can run a rule in isolation. The tool provides a mock **user** and **context** objects. Clicking **TRY** will result on the Rule being run with those two objects as input. `console.log` output will be displayed too.
 
 ![Try this Rule](/media/articles/rules/try-rule.png)
 
@@ -275,7 +283,7 @@ Notice that the code sandbox in which Rules run on, can be recycled at any time.
 
 For security reasons, the Rules code runs in a JavaScript sandbox based on [webtask.io](https://webtask.io) where you can use the full power of the ECMAScript 5 language.
 
-For a list of currently supported sandbox modules, see: [Modules Supported by the Sandbox](https://tehsis.github.io/webtaskio-canirequire).
+For a list of currently supported sandbox modules, see: [Modules Supported by the Sandbox](https://auth0-extensions.github.io/canirequire/).
 
 ## Read more
 

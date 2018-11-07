@@ -2,6 +2,18 @@
 title: "SPA + API: Angular 2 Implementation for the SPA"
 description: The Angular 2 implementation of the SPA for the SPA + API architecture scenario
 toc: true
+topics:
+    - architecture
+    - spa
+    - api-auth
+    - authorization-code
+    - implicit-grant
+    - angular2
+contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # SPA + API: Angular 2 Implementation for the SPA
@@ -124,7 +136,7 @@ The service includes several methods for handling authentication.
 
 - __login__: calls `authorize` from auth0.js which initiates [Universal Login](/hosted-pages/login)
 - __handleAuthentication__: looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
-- __setSession__: sets the user's Access Token, `id_token`, and a time at which the Access Token will expire
+- __setSession__: sets the user's Access Token, ID Token, and a time at which the Access Token will expire
 - __logout__: removes the user's tokens from browser storage
 - __isAuthenticated__: checks whether the expiry time for the Access Token has passed
 
@@ -182,7 +194,7 @@ After authentication, users will be taken to the `/callback` route for a brief t
 ## 3. Get the User Profile
 
 ::: panel Extract info from the token
-This section shows how to retrieve the user info using the Access Token and the [/userinfo endpoint](/api/authentication#get-user-info). Alternatively, you can just decode the `id_token` [using a library](https://jwt.io/#libraries-io) (make sure you validate it first). The output will be the same. If you need additional user information consider using the [our Management API](/api/management/v2#!/Users/get_users_by_id).
+This section shows how to retrieve the user info using the Access Token and the [/userinfo endpoint](/api/authentication#get-user-info). Alternatively, you can just decode the ID Token [using a library](https://jwt.io/#libraries-io) (make sure you validate it first). The output will be the same. If you need additional user information consider using the [our Management API](/api/management/v2#!/Users/get_users_by_id).
 :::
 
 To obtain the user's profile, update the existing `AuthService` class. Add a `getProfile` function which will extract the user's Access Token from local storage, and then pass that call the `userInfo` function to retrieve the user's information.
@@ -263,7 +275,7 @@ During the authorization process we already stored the actual scopes which a use
 
 If the `scope` returned in `authResult` is issued is empty, it means the user was granted all the scopes that were requested, and we can therefore use the requested scopes to determine the scopes granted to the user.
 
-Here is the code we wroter earlier for the `setSession` function that does that check:
+Here is the code we wrote earlier for the `setSession` function that does that check:
 
 ```js
 private setSession(authResult): void {
@@ -298,7 +310,7 @@ export class AuthService {
 }
 ```
 
-You can call this method to determine whether we should display a specific UI element, or not. As an example we only want to display the **Approve Timesheets** link if the user has the `approve:timesheets` scope. Note in the code below that we added a call to the `userHasScopes` function to deteremine whether that link should be displayed or not.
+You can call this method to determine whether we should display a specific UI element, or not. As an example we only want to display the **Approve Timesheets** link if the user has the `approve:timesheets` scope. Note in the code below that we added a call to the `userHasScopes` function to determine whether that link should be displayed or not.
 
 ```html
 <nav class="navbar navbar-default">

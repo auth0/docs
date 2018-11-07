@@ -2,6 +2,12 @@
 section: libraries
 toc: true
 description: How to use Auth0.Android with database connections
+topics:
+  - libraries
+  - android
+  - db-connections
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # Auth0.Android Database Authentication
 

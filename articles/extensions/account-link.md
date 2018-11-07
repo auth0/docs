@@ -1,6 +1,13 @@
 ---
 toc: true
 description: The Account Link extension allows users with two accounts with the same email to be prompted to link them.
+topics:
+  - extensions
+  - account-linking
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 # Account Link
 
@@ -15,8 +22,6 @@ To install this extension, click on the __Account Link__ box in the list of prov
 The extension will create a new **Application** named `auth0-account-link` to use internally and a new **Rule** to redirect users to the extension if they login with a new account that has an email matching an existing account.
 
 ## Setup
-
-First, navigate to the [Advanced Settings](${manage_url}/#/tenant/advanced) for your tenant, scroll to the bottom of the page, and click the toggle to enable **Allow ID Tokens for Management API v2 Authentication**.
 
 ### Changing the Application Name
 

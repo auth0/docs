@@ -13,6 +13,18 @@ seo_alias: azure-active-directory
 description: How to obtain a ClientId and Client Secret for Microsoft Azure Active Directory.
 crews: crew-2
 toc: true
+topics:
+    - connections
+    - enterprise
+    - azure
+    - active-directory
+    - microsoft
+contentType: 
+    - index
+    - how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Microsoft Azure Active Directory
@@ -25,7 +37,7 @@ There are different scenarios in which you might want to integrate with Microsof
 
 If you plan on allowing users to log in using a Microsoft Azure Active Directory account, either from your company or from external directories, you must register your application through the Microsoft Azure portal. If you don't have a Microsoft Azure account, you can [signup](https://azure.microsoft.com/en-us/free) for free.
 
-You can access the Azure management portal from your Microsoft service, or visit [https://manage.windowsazure.com](https://manage.windowsazure.com) and sign in to Azure using the global administrator account used to create the Office 365 organization.
+You can access the Azure management portal from your Microsoft service, or visit [https://portal.azure.com](https://portal.azure.com) and sign in to Azure using the global administrator account used to create the Office 365 organization.
 
 ::: note
 There is no way to create an application that integrates with Microsoft Azure AD without having **your own** Microsoft Azure AD instance.

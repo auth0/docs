@@ -19,7 +19,7 @@ Then, add the following `UIApplicationDelegate` method:
 ```
 
 ::: note
-Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-objc/00-getting-started#configure-callback-urls).
+Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-objc#configure-callback-urls).
 :::
 
 ## Implement the Login

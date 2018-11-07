@@ -1,11 +1,19 @@
 ---
 description: How to enable and use Push Notifications and SMS for Guardian MFA.
 toc: true
+topics:
+  - mfa
+  - guardian
+  - push-notifications
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # Guardian for Administrators
 
-Guardian is Auth0's multifactor authentication (MFA) application that provides a simple, safe way for you to implement MFA. The Guardian app is used for two-factor authentication when logging into an application, which helps create a more secure login.  With two-factor authentication your users will always need their mobile device in order to login.
+Guardian is Auth0's multi-factor authentication (MFA) application that provides a simple, safe way for you to implement MFA. The Guardian app is used for two-factor authentication when logging into an application, which helps create a more secure login.  With two-factor authentication your users will always need their mobile device in order to login.
 
 This page explains how to enable and use Push Notifications and SMS for MFA for signing in your users.
 
@@ -13,7 +21,7 @@ For more information on Guardian, how to download the app, and common questions,
 
 ## Support for Push Notifications
 
-To enable Push Notifications MFA for sign in and sign up for your application by your users, go to the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard. Then toggle the **Push Notification** slider to enable it.
+To enable Push Notifications MFA for sign in and sign up for your application by your users, go to the [Multi-factor Auth](${manage_url}/#/guardian) section of the dashboard. Then toggle the **Push Notification** slider to enable it.
 
 ![Dashboard > Guardian](/media/articles/mfa/guardian-dashboard.png)
 
@@ -37,9 +45,9 @@ Users that were previously registered before you enabled MFA will need to comple
 
 ## Support for SMS
 
-You can enable SMS messages to use as a form of multifactor authentication. This is also under the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard. By toggling the **SMS** slider, you can enable using SMS for sign in and sign up for your application. SMS can be used as your only form of MFA or in addition to Push Notifications.
+You can enable SMS messages to use as a form of multi-factor authentication. This is also under the [Multi-factor Auth](${manage_url}/#/guardian) section of the dashboard. By toggling the **SMS** slider, you can enable using SMS for sign in and sign up for your application. SMS can be used as your only form of MFA or in addition to Push Notifications.
 
-Your users must have a device capable of using SMS to use this option. If your users are unable to always receive SMS messages (such as when traveling), they will be unable sign up with SMS and unable to login without the recovery code.
+Your users must have a device capable of using SMS to use this option. If your users are unable to always receive SMS messages (such as when travelling), they will be unable sign up with SMS and unable to login without the recovery code.
 
 When your users sign up with SMS, they enter their phone number's country code and mobile phone number.
 
@@ -173,7 +181,7 @@ To reset a user's MFA:
 
 1.  Find and select the user in the [Users](${manage_url}/#/users) section of the dashboard.
 2. Once you have selected the affected user, click on the **Actions** button on the top right of the screen.
-3. Select **Reset Multifactor Authentication** from the dropdown.
+3. Select **Reset Multi-factor Authentication** from the dropdown.
 4. There will be a pop up box to confirm your decision.  Click **YES, RESET IT** to reset the user's MFA.
 
  ![](/media/articles/mfa/reset-mfa.png)
@@ -182,6 +190,6 @@ The next time the user logs in they will need to re-setup their MFA just like a 
 
 ## Disabling Guardian and other MFA
 
-Guardian, and other types of MFA, can be disabled from the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard. Toggle the button to disabled for the type of MFA you wish to turn off. A confirmation popup will appear.
+Guardian, and other types of MFA, can be disabled from the [Multi-factor Auth](${manage_url}/#/guardian) section of the dashboard. Toggle the button to disabled for the type of MFA you wish to turn off. A confirmation popup will appear.
 
 By disabling a type of MFA, you will un-enroll all your current users of that type of MFA. They will be asked to re-enroll next time they try to login. This action cannot be reverted.

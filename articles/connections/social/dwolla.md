@@ -5,6 +5,14 @@ image: /media/connections/dwolla.png
 seo_alias: dwolla
 description: How to obtain a Client Id and Client Secret for Dwolla.
 toc: true
+topics:
+  - connections
+  - social
+  - dwolla
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Dwolla

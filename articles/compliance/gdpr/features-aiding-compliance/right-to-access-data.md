@@ -2,6 +2,11 @@
 title: "GDPR: Right to access, correct, and erase data"
 description: This article discusses which Auth0 features can help customers comply with the GDPR requirements on the user's right to access, correct, and erase their personal data
 toc: true
+topics:
+    - compliance
+    - gdpr
+contentType: concept
+useCase: compliance
 ---
 # GDPR: Right to access, correct, and erase data
 
@@ -9,7 +14,7 @@ As per articles 15, 16, 17, and 19 of GDPR, users have the right to get a copy o
 
 With Auth0, you can access, edit, and delete user information:
 - manually, using the [Dashboard](${manage_url}/#/users), or
-- programatically, using the [Management API](/api/management/v2)
+- programmatically, using the [Management API](/api/management/v2)
 
 <%= include('./_legal-warning.md') %>
 
@@ -49,7 +54,7 @@ In order to call any of the API's endpoints, you will need an valid Access Token
 Each endpoint at the [Management API explorer](/api/management/v2) has a section **Scopes** that lists the scope(s) that the Access Token must contain in order to access it. For example, the [Delete user endpoint](/api/management/v2#!/Users/delete_users_by_id) requires the `delete:users` scope.
 :::
 
-You can [get an Access Token for the Management API manually](/api/management/v2/tokens#get-a-token-manually) or you can [automate the process](/api/management/v2/tokens#automate-the-process).
+To learn more about these tokens and how you can generate one, see [Access Tokens for the Management API](/api/management/v2/tokens).
 
 Once you know which endpoint you want to access, and you have a valid Access Token, you are ready to send your request.
 

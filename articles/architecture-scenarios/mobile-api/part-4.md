@@ -1,5 +1,17 @@
 ---
 description: Conclusion for the Mobile + API architecture scenario
+topics:
+    - architecture
+    - mobile-apps
+    - api-auth
+    - authorization-code
+    - pkce
+contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - enable-mobile-auth
+  - build-an-app
 ---
 
 # Mobile + API: Conclusion

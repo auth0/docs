@@ -1,19 +1,18 @@
 ---
 title: Custom Login Form
-description: This tutorial demonstrates how to add a custom login form to an Angular 2+ application with Auth0
+description: This tutorial demonstrates how to add a custom login form to an Angular 2+ application with Auth0.
 budicon: 448
+topics:
+  - quickstarts
+  - spa
+  - angular2
+  - login
+github:
+  branch: embedded-login
+  path: 02-Custom-Login-Form
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-angular-samples',
-  path: '02-Custom-Login-Form',
-  branch: 'embedded-login',
-  requirements: [
-    'Angular 2+'
-  ]
-}) %>
-
 <%= include('../_includes/_custom_login_preamble') %>
 
 <%= include('../_includes/_install_auth0js') %>
@@ -85,15 +84,15 @@ Create a template with a `form` which allows users to pass in their email and pa
 </form>
 ```
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 All authentication transactions should be handled from an injectable service. The service requires methods named `login`, `signup`, and `loginWithGoogle` which all make calls to the appropriate auth0.js methods to handle those actions. These methods are called from the `login` template above.
 
 The auth0.js methods for making authentication requests come from the `WebAuth` object. Create an instance of `auth0.WebAuth` and provide the domain, client ID, and callback URL for your application. A `responseType` of `token id_token` should also be specified.
 
-The `login` and `signup` methods should take the username and password input supplied by the user and pass it to the appropriate auth0.js methods. In the case of `login`, these values are passed to the `client.login` method. Since `client.login` is an XHR-based transaction, the authentication result is handled in a callback and the `setSession` method is called to set the user's Access Token, `id_token`, and Access Token expiry time in local storage if the transaction is successful.
+The `login` and `signup` methods should take the username and password input supplied by the user and pass it to the appropriate auth0.js methods. In the case of `login`, these values are passed to the `client.login` method. Since `client.login` is an XHR-based transaction, the authentication result is handled in a callback and the `setSession` method is called to set the user's Access Token, ID Token, and Access Token expiry time in local storage if the transaction is successful.
 
-The `signup` method is a redirect-based flow and the authentication result is handled by the `handleAuthentication` method. This method looks for an Access Token and `id_token` in the URL hash when the user is redirected back to the application. If the tokens are found, they are saved into local storage and the user is redirected to the home route.
+The `signup` method is a redirect-based flow and the authentication result is handled by the `handleAuthentication` method. This method looks for an Access Token and ID Token in the URL hash when the user is redirected back to the application. If the tokens are found, they are saved into local storage and the user is redirected to the home route.
 
 ```js
 // src/app/auth/auth.service.ts
@@ -112,7 +111,6 @@ export class AuthService {
     domain: ${account.namespace},
     clientID: ${account.clientId},
     redirectUri: 'http://localhost:4200/callback',
-    audience: `https://${account.namespace}/userinfo`,
     responseType: 'token id_token'
   });
 

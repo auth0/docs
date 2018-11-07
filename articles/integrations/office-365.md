@@ -1,6 +1,12 @@
 ---
 description: Overview of Microsoft Office 365 Integration with Auth0.
 toc: true
+topics:
+  - integrations
+  - microsoft
+  - office-365
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 # Office 365 Integration
 
@@ -76,7 +82,7 @@ Set-MsolDomainAuthentication
     -Authentication Federated
     -PassiveLogOnUri "https://fabrikam.auth0.com/wsfed/yNqQMENaYIONxAaQmrct341tZ9joEjTi"
     -ActiveLogonUri "https://fabrikam.auth0.com/yNqQMENaYIONxAaQmrct341tZ9joEjTi/trust/usernamemixed?connection=FabrikamAD"
-    -MetadataExchangeUri "https://fabrikam.auth0.com/wsfed/yNqQMENaYIONxAaQmrct341tZ9joEjTi/FederationMetadata/2007-06/FederationMetadata.xml?connection=FabrikamAD"
+    -MetadataExchangeUri "https://fabrikam.auth0.com/wsfed/FederationMetadata/2007-06/FederationMetadata.xml?connection=FabrikamAD"
     -SigningCertificate "MIID..."
     -IssuerUri "urn:fabrikam"
     -LogOffUri "https://fabrikam.auth0.com/logout"
@@ -159,19 +165,23 @@ You will need the `YOUR_CLIENT_ID` part of the segment.
 
 2. Go to the **Rules** section and create a new rule. Start from the **Empty** template, name it `Set Issuer for Office 365 SSO Integration` and write code similar to this to set the issuer according to the domain of the user's email:
 
-```JavaScript
+```js
 function (user, context, callback) {
-  const office365ClientId = 'xxxxxx'; // put the right client id
+  // retrieve values from the configuration object
+  const office365ClientId = configuration.OFFICE365_CLIENT_ID; // put the right client id
+  const primaryDomain = configuration.PRIMARY_DOMAIN; // for example, exampleco.com
+  const secondaryDomain = configuration.SECONDARY_DOMAIN;
+
   if (context.clientID !== office365ClientId)
       return callback(null, user, context);
 
   var getIssuerURI = function(domain) {
     // write code that returns the right issuer URI
     // for each domain
-    if (domain === 'fabrikam.be') {
-      return 'urn:fabrikam.be';
-    } else if (domain === 'contoso.com') {
-      return 'urn:contoso.com';
+    if (domain === primaryDomain) {
+      return 'urn:' + primaryDomain;
+    } else if (domain === secondaryDomain) {
+      return 'urn:' + secondaryDomain;
     }
     return null;
   }

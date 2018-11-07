@@ -2,6 +2,14 @@
 title: Dashboard Overview
 description: Learn the basics of the Auth0 Dashboard
 toc: true
+topics:
+  - auth0-101
+  - dashboard
+contentType:
+    - how-to
+useCase:
+    - manage-accounts
+    - get-started
 ---
 # Dashboard Overview
 
@@ -56,7 +64,7 @@ The matrix that follows offers a brief overview of the different dashboard scree
             <td colspan="3"><%= include('./_list-processes', {"screen": "hooks"}) %></td>
         </tr>
         <tr>
-            <th><i class="icon icon-budicon-243"></i>&nbsp;Multifactor Auth</th>
+            <th><i class="icon icon-budicon-243"></i>&nbsp;Multi-factor Auth</th>
             <td colspan="3"><%= include('./_list-processes', {"screen": "mfa"}) %></td>
         </tr>
         <tr>

@@ -2,6 +2,14 @@
 section: libraries
 toc: true
 description: Lock v11 has many configurable options that allow you to change the behavior, appearance, and connectivity of the Lock widget - this resource provides the details on those options for you!
+topics:
+  - libraries
+  - lock
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
 ---
 # Lock Configuration Options
 
@@ -59,7 +67,6 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [redirectUrl](#redirecturl-string-) | The URL to redirect to after auth |
 | [responseMode](#responsemode-string-) | Option to send response as POST |
 | [responseType](#responsetype-string-) | Response as a code or token |
-| [sso](#sso-boolean-) | Whether or not to enable Single Sign On behavior in Lock |
 
 ### Database
 
@@ -76,7 +83,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [mustAcceptTerms](#mustacceptterms-boolean-) | Whether or not terms must be accepted (checkbox) |
 | [prefill](#prefill-object-) | Prefill values for email/username fields |
 | [signUpLink](#signuplink-string-) | Set a custom url to fire when clicking "sign up" |
-| [usernameStyle](#usernamestyle-string-) | Toggle "username", "password" or "username and password" |
+| [usernameStyle](#usernamestyle-string-) | Limit username field to accept only "username" values or only "email" values |
 
 ### Enterprise
 
@@ -88,7 +95,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 | Option | Description |
 | --- | --- |
-| [clientBaseUrl](#clientbaseurl-string-) | Override your application's base URL |
+| [configurationBaseUrl](#configurationbaseurl-string-) | Override your application's base URL |
 | [languageBaseUrl](#languagebaseurl-string-) | Override your language file base URL |
 | [hashCleanup](#hashcleanup-boolean-) | Override the default removal of the hash from the URL |
 | [leeway](#leeway-integer-) | Add leeway for clock skew to JWT expiration times |
@@ -287,7 +294,9 @@ Options for the `window.open` [position and size][windowopen-link] features. Thi
 
 ```js
 var options = {
-  redirect: false,
+  auth: {
+      redirect: false
+  },
   popupOptions: { width: 300, height: 400, left: 200, top: 300 }
 };
 ```
@@ -302,6 +311,13 @@ var options = {
   rememberLastLogin: false
 };
 ```
+
+::: note
+The **Last time you signed in with [...]** message will not be available under the following circumstances:
+
+- You used Lock in a [Hosted Login Page](/hosted-pages/login) with the session established using [Passwordless authentication](/connections/passwordless).
+- You used Lock in an [embedded login scenario](/guides/login/universal-vs-embedded#embedded-login-with-auth0) where `responseType: code` (indicating the [Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant), which is used for Regular Web Apps).
+:::
 
 ## Theming Options
 
@@ -508,10 +524,6 @@ For more details about supported parameters check the [Authentication Parameters
 
 Defaults to true. When set to true, redirect mode will be used. If set to false, [popup mode](/libraries/lock/v11/authentication-modes#popup-mode) is chosen.
 
-::: warning
-There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend either only using redirect mode or detecting these special cases and selectively enabling redirect mode.
-:::
-
 ```js
 var options = {
   auth: {
@@ -565,22 +577,6 @@ var options = {
 ::: note
 When the `responseType` is set to `code`, Lock will never show the **Last time you logged in with** message, and will always prompt the user for credentials.
 :::
-
-#### sso {Boolean}
-
-Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the application's or tenant' settings.
-
-::: warning
-Failing to set this to true will result in multifactor authentication not working correctly.
-:::
-
-```js
-var options = {
-  auth: {
-    sso: true
-  }
-};
-```
 
 ## Database Options
 
@@ -758,7 +754,7 @@ var options = {
 Determines whether or not the user will be automatically signed in after a successful sign up. Defaults to `true`.
 
 ```js
-var option = {
+var options = {
   loginAfterSignUp: false
 };
 ```
@@ -843,15 +839,21 @@ var options = {
 };
 ```
 
+## Passwordless Options
+
+### passwordlessMethod {String}
+
+When using `Auth0LockPasswordless` with an email connection, you can use this option to pick between sending a code or a magic link to authenticate the user. Available values for email connections are `code` and `link`. The option defaults to `code`, and passwordless with SMS connections will always use `code`.
+
 ## Other Options
 
-### clientBaseUrl {String}
+### configurationBaseUrl {String}
 
-This option can provide a URL to override the application settings base URL. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your application not use the default behavior.
+This option can provide a URL to override the application settings base URL. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set to something else instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your application not use the default behavior.
 
 ```js
 var options = {
-  clientBaseUrl: "http://www.example.com"
+  clientBaseUrl: "https://www.example.com"
 };
 ```
 
@@ -861,7 +863,7 @@ Overrides the language source url for Auth0's provided translations. By default,
 
 ```js
 var options = {
-  languageBaseUrl: "http://www.example.com"
+  languageBaseUrl: "https://www.example.com"
 };
 ```
 

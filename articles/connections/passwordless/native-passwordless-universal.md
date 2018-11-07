@@ -1,6 +1,12 @@
 ---
 title: Passwordless Authentication in Native Applications with Universal Login
 description: Describes how to implement passwordless authentication in native applications, using Universal Login
+topics:
+    - connections
+    - passwordless
+    - native
+contentType: how-to
+useCase: customize-connections
 ---
 # Passwordless Authentication in Native Applications with Universal Login
 

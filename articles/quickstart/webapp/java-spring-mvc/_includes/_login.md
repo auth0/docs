@@ -1,4 +1,4 @@
-## Project Structure
+### Project Structure
 The Login project sample has the following structure:
 
 ```text
@@ -38,10 +38,9 @@ The project contains also five Controllers:
 - `LogoutController.java`: Invoked when the user clicks the logout link. The controller invalidates the user session and redirects the user to the login page, handled by the `LoginController`.
 - `ErrorController.java`: The controller triggers upon any non-handled exception and redirects the user to the `/login` path.
 
-Lastly, the project defines a helper class: the `AuthController.java` which will be in charge of creating new instances of `AuthenticationController`. By defining it as a Spring Component, the framework will handle it's creation.
+Lastly, the project defines a helper class: the `AuthController.java` which will be in charge of creating new instances of `AuthenticationController`. By defining it as a Spring Component, the framework will handle its creation.
 
-
-## Authenticate the User
+## Trigger Authentication
 
 Let's begin by making your Auth0 credentials available on the App. In the `AppConfig` class we tell Spring to map the properties defined in the `auth0.properties` file to the corresponding fields by using the `@Configuration` and `@Value` annotations. We also define the class as a `@Component` so we can later autowire it to make it available on other classes:
 
@@ -121,7 +120,6 @@ protected void getCallback(final HttpServletRequest req, final HttpServletRespon
 It it's recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample we will skip that validation.
 :::
 
-
 ## Display the Home Page
 
 Now that the user is authenticated (the tokens exists), the `Auth0Filter` will allow them to access our protected resources. In the `HomeController` we obtain the tokens from the request's session and set them as the `userId` attribute so they can be used from the JSP code:
@@ -147,6 +145,8 @@ To run the sample from a terminal, change the directory to the root folder of th
 ```bash
 ./gradlew clean bootRun
 ```
+
+If you are using a Windows environment, execute `gradlew clean appRun`
 
 After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource [http://localhost:3000/portal/home](http://localhost:3000/portal/home) and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
 

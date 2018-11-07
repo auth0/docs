@@ -1,21 +1,29 @@
 ---
-description: How to implement multifactor authentication with Guardian.
+description: How to implement multi-factor authentication with Guardian.
+topics:
+  - mfa
+  - guardian
+  - push-notifications
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 
 # Developer Guide to Configuring Guardian
 
-Guardian is Auth0's multifactor authentication (MFA) application that provides a simple, safe way for you to implement MFA. The Guardian app is currently available for mobile devices running iOS or Android.
+Guardian is Auth0's multi-factor authentication (MFA) application that provides a simple, safe way for you to implement MFA. The Guardian app is currently available for mobile devices running iOS or Android.
 
 For applications where Guardian MFA is enabled, the user will be required to sign in **and** confirm the login with a verified mobile device. You can find additional information on user login and sign-up process and common user questions at: [How to Use the Guardian App](/multifactor-authentication/guardian/user-guide).
 
-## Implementing Multifactor Authentication
+## Implementing Multi-factor Authentication
 
-Within Auth0, you may implement MFA via the [Multifactor Auth](${manage_url}/#/guardian) page of the Management Dashboard.
+Within Auth0, you may implement MFA via the [Multi-factor Auth](${manage_url}/#/guardian) page of the Management Dashboard.
 
 ![](/media/articles/mfa/guardian-dashboard.png)
 
 ::: panel MFA options
-Auth0 provides [built-in support](/multifactor-authentication) for MFA using Google Authenticator or Duo. You may choose to use either of these providers, in lieu of Guardian, or any code generator application, on the **Multifactor Auth** page of the Management Dashboard.
+Auth0 provides [built-in support](/multifactor-authentication) for MFA using Google Authenticator or Duo. You may choose to use either of these providers, in lieu of Guardian, or any code generator application, on the **Multi-factor Auth** page of the Management Dashboard.
 :::
 
 ### Configuring Guardian in the Management Dashboard
@@ -87,6 +95,10 @@ function (user, context, callback) {
 Once you have finished making your desired changes, click **Save** so that they persist.
 
 ### Customizing the Guardian Screen
+
+::: note
+Customizing the Guardian page also changes the Google Authenticator UI when using the latter for MFA with Auth0.
+:::
 
 You may change the logo and the friendly name that is displayed to your users. To do so, make the appropriate changes to the Guardian page settings on the [Tenant Settings](${manage_url}/#/tenant) page. You may also reach the **Tenant Settings** page by clicking on your tenant name on the top right of the page and then selecting **Settings** from the dropdown menu that appears.
 

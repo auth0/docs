@@ -1,6 +1,19 @@
 ---
 description: The Node.js implementation of the API for the Mobile + API architecture scenario
 toc: true
+topics:
+  - mobile-apps
+  - api-auth
+  - nodejs
+  - architecture
+  - authorization-code
+  - pkce
+contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - enable-mobile-auth
+  - build-an-app
 ---
 
 # Mobile + API: Node.js Implementation for the API
@@ -176,7 +189,7 @@ npm install express-jwt-authz --save
 
 Now it is as simple as adding a call to `jwtAuthz(...)` to your middleware to ensure that the JWT contain a particular scope in order to execute a particular endpoint.
 
-We will add an additional dependency. The **express-jwt-authz** library, which is used in conjunction with express-jwt, validates the [JWT](/jwt) and ensures it bears the correct permissions to call the desired endoint. For more information refer to the [express-jwt-authz GitHub repository](https://github.com/auth0/express-jwt-authz).
+We will add an additional dependency. The **express-jwt-authz** library, which is used in conjunction with express-jwt, validates the [JWT](/jwt) and ensures it bears the correct permissions to call the desired endpoint. For more information refer to the [express-jwt-authz GitHub repository](https://github.com/auth0/express-jwt-authz).
 
 This is our sample implementation (some code is omitted for brevity):
 

@@ -2,6 +2,13 @@
 section: libraries
 toc: true
 description: Details on the Lock V10 API.
+topics:
+  - libraries
+  - lock
+contentType:
+  - reference
+useCase:
+  - add-login
 ---
 # Lock: API Reference
 
@@ -59,7 +66,7 @@ lock.on("authenticated", function(authResult) {
 getUserInfo(accessToken, callback)
 ```
 
-Once the user has logged in and you are in possesion of a token, you can use that token to obtain the user's profile with `getUserInfo`. This method replaces the deprecated `getProfile()`.
+Once the user has logged in and you are in possession of a token, you can use that token to obtain the user's profile with `getUserInfo`. This method replaces the deprecated `getProfile()`.
 
 - **accessToken {String}**: User token.
 - **callback {Function}**: Will be invoked after the user profile been retrieved.

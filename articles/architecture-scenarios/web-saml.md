@@ -5,6 +5,17 @@ image: /media/articles/architecture-scenarios/web-saml.png
 extract: Traditional web application which needs to authenticate users using SAML2
 description: Explains the architecture scenario of using a traditional web application to authenticate users using SAML2.
 beta: true
+topics:
+    - architecture
+    - regular-web-apps
+    - api-auth
+    - lockjs
+    - saml
+contentType: concept
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # Regular Web App (using SAML)

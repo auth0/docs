@@ -1,6 +1,13 @@
 ---
 section: libraries
 description: Supported parameters that can be used with Lock V9.
+topics:
+  - libraries
+  - lock
+contentType:
+  - reference
+useCase:
+  - add-login
 ---
 # Lock: Authentication Parameters
 
@@ -37,9 +44,9 @@ lock.show({
 
 There are different values supported for scope:
 
-* `scope: 'openid'`: _(default)_ It will return not only the Access Token, but also an `id_token` which is a JSON Web Token (JWT). The JWT will only contain the user ID (`sub` claim).
+* `scope: 'openid'`: _(default)_ It will return not only the Access Token, but also an ID Token which is a JSON Web Token (JWT). The JWT will only contain the user ID (`sub` claim).
 * `scope: 'openid profile'`: (not recommended): will return all the user attributes in the token. This can cause problems when sending or receiving tokens in URLs (for example, when using response_type=token) and will likely create an unnecessarily large token(especially with Azure AD which returns a fairly long JWT). Keep in mind that JWTs are sent on every API request, so it is desirable to keep them as small as possible.
-* `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
+* `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user attributes to be part of the ID Token (For example: `scope: 'openid name email picture'`).
 
 ### connection_scopes {Object}
 
@@ -66,6 +73,6 @@ The values for each scope are not transformed in any way. They must match exactl
 
 ### state {string}
 
-The `state` parameter is an arbitrary state value that will be mantained across redirects. It is useful to mitigate [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery) and for any contextual information (such as a return url) that you might need after the authentication process is finished.
+The `state` parameter is an arbitrary state value that will be maintained across redirects. It is useful to mitigate [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery) and for any contextual information (such as a return url) that you might need after the authentication process is finished.
 
 [Click here to learn more about how to send/receive the state parameter.](/protocols/oauth-state)

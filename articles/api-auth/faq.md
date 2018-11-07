@@ -1,12 +1,18 @@
 ---
 description: API Authentication and Authorization FAQ
+topics:
+  - api-authentication
+  - oidc
+  - user-consent
+  - resource-servers
+  - applications
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # API Authentication and Authorization FAQ
-
-## Can I execute a user consent flow?
-
-Yes! We are working on creating documentation and tutorials for implementing this flow. In the meantime, if you need assistance or more information please contact our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
 ## I have an Application that needs to talk to different Resource Servers
 

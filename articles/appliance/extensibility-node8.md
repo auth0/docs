@@ -1,15 +1,31 @@
 ---
 title: Migration Guide - Extensibility and Node 8
 description: This article covers the Auth0 PSaaS Appliance features/modules affected, as well as recommendations to ensure a smooth migration process.
+section: appliance
+topics:
+    - appliance
+    - extensibility
+    - migration
+contentType: 
+    - how-to
+    - concept
 toc: true
+useCase: appliance
+applianceId: appliance57
 ---
 # PSaaS Appliance Migration Guide: Extensibility and Node 8
 
 Auth0 announced that it will be making the Webtask Node 8 runtime available for Public Cloud customers beginning 2018 April 17.
 
-The Auth0 PSaaS Appliance team is working to port these changes to the Appliance environment, and we expect to have the work completed and ready for deployment in early June.
+The Auth0 PSaaS Appliance team has ported these changes to the Appliance environment, and the changes are [available in **release #16257**](https://auth0.com/changelog/appliance).
 
-We will notify all PSaaS Appliance customers once the PSaaS Appliance Node 8 release is available.
+Auth0 has notified all PSaaS Appliance customers that this release is available.
+
+::: warning
+Beginning with the September 2018 major release **16999**, Node.js v4 will no longer be supported on the PSaaS Appliance. 
+
+Versions **16257** and **16793** support Node.js v4 and v8, so you should test using either version before upgrading to version **16999** or later. 
+:::
 
 ## Background
 
@@ -52,11 +68,20 @@ All officially-supported Auth0 Extensions will be updated to run on Node.js v8 p
 
 ## Enable Node.js v8 in the PSaaS Appliance
 
+::: panel Auth0-Hosted PSaaS Appliance
+For those with PSaaS Appliance in the Auth0 Dedicated Cloud Service, please open a ticket with [Support](${env.DOMAIN_URL_SUPPORT}) so that Auth0 can enable Node.js v8 on your behalf.
+
+Please indicate:
+
+* The environment (DEV or PROD) for which you want Node.js v8 enabled
+* Timing restrictions/the time frame during which you would like Auth0 to make the switch
+:::
+
 The Auth0 Sandbox should be updated to Node.js v8 to complete the migration of Rules, Hooks, and Webtask from Node.js v4.
 
-::: note
-For the customer-hosted PSaaS Appliance, please ensure that the VMs have internet access when enabling Node.js v8 for the first time.
-:::
+This change will affect **all** tenants on the PSaaS Appliance.
+
+Please ensure that the VMs have internet access when enabling Node.js v8 for the first time.
 
 1. Navigate to the Sandbox configuration page (the URL will be of the following format: **https://CustomerManageDomain/configuration#/sandbox**).
 

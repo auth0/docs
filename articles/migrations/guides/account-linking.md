@@ -2,13 +2,21 @@
 title: Migration Guide: Account Linking and ID Tokens
 description: Auth0 is deprecating the usage of ID Tokens in the Account Linking process. This article will help you migrate your solution from the old implementation to the new one.
 toc: true
+topics:
+  - account-linking
+  - migrations
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-accounts
 ---
 
 # Migration Guide: Account Linking and ID Tokens
 
 This guide is part of the [Deprecating the usage of ID Tokens on the Auth0 Management API](/migrations#deprecating-the-usage-of-id-tokens-on-the-auth0-management-api) migration, and focuses on the [account linking process](/link-accounts).
 
-For some use cases you could use [ID Tokens](/tokens/id-token) to [link and unlink user accounts](/link-accounts). This functionality is being deprecated. You will have to use [Access Tokens](/tokens/access-token) in all cases.
+For some use cases you could use [ID Tokens](/tokens/id-token) to [link and unlink user accounts](/link-accounts). This functionality is being deprecated. You will have to use [Access Tokens](/tokens/overview-access-tokens) in all cases.
 
 The functionality is available and affected users are encouraged to migrate. However the ability to use ID Tokens will **not** be disabled in the foreseeable future so the mandatory opt-in date for this migration remains open. When this changes, customers will be notified beforehand.
 
@@ -103,7 +111,7 @@ With this migration, you must get an Access Token (which must contain the `updat
 First, you must get an Access Token with the `update:current_user_identities` scope. 
 
 ::: note
-In the example that follows, we use the [Implicit Grant](/api-auth/tutorials/implicit-grant), the recommended OAuth 2.0 flow for client-side apps). You can get Access Tokens though for any application type (see [How to get an Access Token](/tokens/access-token#how-to-get-an-access-token)).
+In the example that follows, we use the [Implicit Grant](/api-auth/tutorials/implicit-grant), the recommended OAuth 2.0 flow for client-side apps). You can get Access Tokens though for any application type (see [Get Access Tokens](/tokens/get-access-tokens).
 :::
 
 <%= include('./_get-token-authorize.md', { scope: 'update:current_user_identities', idPrevious: 'authZ-id-token', idCurrent: 'authZ-access-token' }) %>

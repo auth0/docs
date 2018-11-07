@@ -2,6 +2,15 @@
 toc: true
 description: This page explains query string syntax, which you can use to construct custom queries when searching using Auth0's Management API.
 crews: crew-2
+topics:
+  - users
+  - user-management
+  - search
+  - query-syntax
+contentType:
+  - reference
+useCase:
+  - manage-users
 ---
 
 # User Search Query Syntax

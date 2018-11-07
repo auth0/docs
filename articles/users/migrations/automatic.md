@@ -3,6 +3,18 @@ title: Automatic User Migration with Custom Database Connections
 description: Auth0 supports automatic migration of users to Auth0 from a custom database connection. This feature adds your users to the Auth0 database as each person logs in and avoids asking your users to reset their passwords due to migration.
 crews: crew-2
 toc: true
+topics:
+  - users
+  - user-management
+  - migrations
+  - automatic-user-migration
+  - custom-db
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-users
+  - migrate
 ---
 
 # Automatic User Migration with Custom Database Connections
@@ -70,7 +82,7 @@ You can enable these validations for a connection using the [Update a connection
 
 - The parameter that enables the validations is the `"strategy_version": 2`. However, when you update `options`, the whole object is overridden, so all the parameters should be present. You can use the [Get a connection endpoint](/api/management/v2#!/Connections/get_connections_by_id) to get the whole object. Replace the `"nextOptionParam": "..."` placeholder with the list of parameters you get.
 - You should replace `{connection-id}` with the Id of the custom database connection you want to update. If you don't know it, you can use the [Get all connections endpoint](/api/management/v2#!/Connections/get_connections) to find it.
-- To access any Management APIv2 endpoint you need an Access Token (which you should set at the `{access-token}` placeholder of the `Authorization` header). For information on how to get one refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+- To access any Management APIv2 endpoint you need an Access Token (which you should set at the `{access-token}` placeholder of the `Authorization` header). For information on how to get one see [Access Tokens for the Management API](/api/management/v2/tokens).
 
 ## Enable Automatic Migration
 

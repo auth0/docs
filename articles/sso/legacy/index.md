@@ -1,6 +1,12 @@
 ---
 toc: true
 description: Introduction to Single Sign On (SSO) with Auth0.
+topics:
+  - sso
+contentType:
+  - index
+useCase:
+  - integrate-saas-sso
 ---
 # What is Single Sign On?
 
@@ -33,7 +39,7 @@ Let's look at how the SSO flow looks when using Auth0 and a user visits your app
     ![](/media/articles/sso/single-sign-on/lock-no-sso-cookie.png)
 
 4. Once the user has logged in, Auth0 will set an SSO cookie
-5. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
+5. Auth0 will also redirect back to your web application and will return an ID Token containing the identity of the user.
 
 Now let's look at flow when the user returns to your website for a subsequent visit:
 
@@ -44,7 +50,7 @@ Now let's look at flow when the user returns to your website for a subsequent vi
     ![](/media/articles/sso/single-sign-on/lock-sso-cookie.png)
 
 4. Auth0 will update the SSO cookie if required
-5. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
+5. Auth0 will also redirect back to your web application and will return an ID Token containing the identity of the user.
 
 If an SSO cookie is present you can also sign the user in silently, that is, without even displaying Lock so they can enter their credentials. This is covered in more detail in the next section.
 
@@ -54,7 +60,7 @@ If an SSO cookie is present you can also sign the user in silently, that is, wit
 Prior to enabling SSO for a given Application, you must first [configure the Identity Provider(s)](/identityproviders) you want to use.
 :::
 
-To enable SSO for one of your Applications (recall that each Application is independent of one another), navigate to the [Applications section of the Auth0 Management Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the Application with which you want to use SSO.
+To configure SSO for one of your Applications (recall that each Application is independent of one another), navigate to the [Applications section of the Auth0 Management Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the Application with which you want to use SSO.
 
 ![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 

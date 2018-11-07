@@ -1,6 +1,16 @@
 ---
 title: Associate a One-Time Password Authenticator
 description: Configure your application so users can self-associate one-time password (OTP) authenticators.
+topics:
+  - mfa
+  - mfa-api
+  - mfa-authenticators
+  - otp
+contentType:
+  - how-to
+  - reference
+useCase:
+  - customize-mfa
 ---
 
 # Associate a One-Time Password Authenticator
@@ -93,7 +103,7 @@ To confirm the association of an authenticator using OTP, make a `POST` request 
 	"url": "https://${account.namespace}/oauth/token",
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"client_id\": [\"YOUR_CLIENT_ID\"], \"grant_type\": \"http://auth0.com/oauth/grant-type/mfa-otp\", \"mfa_token\": \"YOUR_MFA_TOKEN\", \"otp\": \"000000\" }"
+		"text": "{ \"client_id\": \"YOUR_CLIENT_ID\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"grant_type\": \"http://auth0.com/oauth/grant-type/mfa-otp\", \"mfa_token\": \"YOUR_MFA_TOKEN\", \"otp\": \"000000\" }"
 	}
 }
 ```

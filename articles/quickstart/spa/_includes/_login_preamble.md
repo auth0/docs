@@ -1,4 +1,4 @@
-## Add Authentication with Auth0
+### Authentication with Auth0
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ${library} application.
 
@@ -10,7 +10,7 @@ To learn how to embed the Lock widget in your application, follow the [Embedded 
 :::
 
 When a user logs in, Auth0 returns three items:
-* `access_token`: to learn more, see the [Access Token documentation](/tokens/access-token)
+* `access_token`: to learn more, see the [Access Token documentation](/tokens/overview-access-tokens)
 * `id_token`: to learn more, see the [ID Token documentation](/tokens/id-token)
 * `expires_in`: the number of seconds before the Access Token expires
 

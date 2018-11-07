@@ -1,13 +1,20 @@
 ---
-title: Multifactor Authentication API
-description: Overview of available multifactor authentication APIs
+title: Multi-factor Authentication API
+description: Overview of available multi-factor authentication APIs
+topics:
+  - mfa
+  - mfa-api
+contentType:
+  - index
+useCase:
+  - customize-mfa
 ---
 
-# Multifactor Authentication API
+# Multi-factor Authentication API
 
-The Multifactor Authentication (MFA) API endpoints allow you to enforce MFA when users interact with [the Token endpoints](/api/authentication#get-token), as well enroll and manage user authenticators.
+The Multi-factor Authentication (MFA) API endpoints allow you to enforce MFA when users interact with [the Token endpoints](/api/authentication#get-token), as well enroll and manage user authenticators.
 
-## Multifactor authentication with the Token endpoint
+## Multi-factor authentication with the Token endpoint
 
 We have expanded MFA support on the Token endpoints to cover the following use cases:
 

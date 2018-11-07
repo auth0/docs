@@ -1,23 +1,30 @@
 ---
 description: Guide on how to use the hosted password reset page
-crews: crew-2
+topics:
+  - password-reset
+  - hosted-pages
+contentType: how-to
+useCase: customize-hosted-pages
 ---
-
 # Password Reset Page
+
+::: note
+This article will help you learn how to configure the custom Password Reset page. If you are an admin trying to reset a user's password, see [Change Users' Passwords](/connections/database/password-change). If you are a user trying to reset your own password, see [Reset Your Auth0 Account Password](/support/reset-account-password).
+:::
 
 The Password Reset Page allows users to change their passwords in the event that they're unable to log in. Using this page, you can maintain consistency in the appearance of your pages (login, password reset, and so on), and your users can easily change their passwords as needed.
 
-## Enable the Custom Password Reset Page
+## Enable the Password Reset Page
 
 Using the [Auth0 Dashboard](${manage_url}/#/password_reset), you can enable your Hosted Password Reset Page by flipping the toggle switch.
 
 ![Hosted Password Reset Page](/media/articles/hosted-pages/password-reset.png)
 
-## Edit the Custom Password Reset Page
+## Edit the Password Reset Page
 
 Once you've enabled the Password Reset Page for your tenant, you'll be able to use the text editor built into the Auth0 Dashboard to change your HTML, style your page using CSS, and alter the JavaScript used to retrieve custom variables. After you've made your changes, and make sure to click _Save_.
 
-### Custom Variables
+### Custom variables
 
 You can use JavaScript to retrieve the following custom variables:
 
@@ -32,10 +39,16 @@ You can use JavaScript to retrieve the following custom variables:
 | `tenant.support_email` | The support email address for your company displayed to your Auth0 users | 
 | `tenant.support_url` | The support URL for your company displayed to your Auth0 users | 
 | `lang` | The user's language | 
-| `password_policy` | The active connection's security policy You can see what this is using `${manage_url}/#/connections/database/con_YOUR-CONNECTION-ID/security`. Be sure to provide your connection ID in the URL.) | 
+| `password_policy` | The active connection's security policy. You can see what this is using `${manage_url}/#/connections/database/con_YOUR-CONNECTION-ID/security`. Be sure to provide your connection ID in the URL.) |
+| `password_complexity_options` | Object containing settings for the password complexity requirements |
+| `min_length` | The minimum length required for newly-created passwords. Can range from 1 to 128 characters in length | 
 
 ::: note
 You can set/check the values for your `tenant` variables in the **Settings** area in [Tenant Settings](${manage_url}/#/tenant)
+:::
+
+::: note
+It is currently not possible to conditionalize customizations based on Application ID (`client_id`).
 :::
 
 Within the Password Reset Page Editor, you'll see the following JavaScript embedded:

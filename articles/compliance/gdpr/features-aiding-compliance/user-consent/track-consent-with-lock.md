@@ -2,6 +2,11 @@
 title: "GDPR: Track Consent with Lock"
 description: This tutorial describes how you can customize Lock to capture consent information
 toc: true
+topics:
+    - compliance
+    - gdpr
+contentType: tutorial
+useCase: compliance
 ---
 # Track Consent with Lock
 

@@ -1,6 +1,11 @@
 ---
 description: Explains what features and settings can be changed in the Tenant Settings page of the dashboard.
 toc: true
+topics:
+  - dashboard
+  - tenants
+contentType: reference
+useCase: manage-accounts
 ---
 # Tenant Settings in the Auth0 Dashboard
 
@@ -25,10 +30,10 @@ Click **SAVE** when finished to submit your changes.
 
 ### API Authorization Settings
 
-**Default Audience**: Allows you to specify an API Identifier for a default audience when using the [API Authorization](/api-auth) flows. The will cause all [Access Tokens](/tokens/access-token) issued by Auth0 to have this API Identitifier specified as an audience.
+**Default Audience**: Allows you to specify an API Identifier for a default audience when using the [API Authorization](/api-auth) flows. This will cause all [Access Tokens](/tokens/access-token) issued by Auth0 to have this API Identifier specified as an audience.
 
 ::: note
-This setting is equivalent to appending the audience to every authorization request made to the tenant for every application. This will cause new behaviour that might result in breaking changes for some of your applications. Please contact support if you require assistance.
+This setting is equivalent to appending the audience to every authorization request made to the tenant for every application. This will cause new behavior that might result in breaking changes for some of your applications. Please contact support if you require assistance.
 :::
 
 **Default Directory**: Name of the connection to be use for [Password Grant exchanges](/api-auth/tutorials/password-grant). The __Default Directory__ value should be the exact name of an existing [connection](/connections) of one of the following strategies: `auth0-adldap`, `ad`, `auth0`, `email`, `sms`, `waad` or `adfs`.
@@ -53,7 +58,7 @@ The __Active Users__ functionality has been moved to the [Quota Utilization Repo
 
 ## Dashboard Admins
 
-Allows you to add or remove administrators for your Auth0 tenant, as well as review whether administrators have Multifactor authentication enabled for their account. [Learn about Dashboard Admins](/tutorials/manage-dashboard-admins).
+Allows you to add or remove administrators for your Auth0 tenant, as well as review whether administrators have Multi-factor authentication enabled for their account. [Learn about Dashboard Admins](/tutorials/manage-dashboard-admins).
 
 ## Webtasks
 
@@ -75,9 +80,11 @@ Learn more about [Logout](/logout).
 
 ![](/media/articles/tutorials/tenant-settings/session-timeout.png)
 
-Allows you to specify the **SSO Cookie Timeout**. This value is the login session lifetime, which is how long the session will stay valid measured in minutes. The default value is 10080 minutes (or 7 days).
+Allows you to specify the **SSO Cookie Timeout**. This value is the login session lifetime, which is how long the session will stay valid, measured in minutes. The default value is 10080 minutes (or 7 days).
 
 This is the session timeout for the Auth0 session. You can configure separately the timeouts used with tokens issued by Auth0, such as the OpenID Connect ID Token expiration claim or the SAML lifetime assertions. These are often used to drive the sessions on the applications (SAML SPs) themselves and are independent of the Auth0 (IdP) session.
+
+Auth0 also sets a value for the session idle timeout, which is the allowed duration of inactivity for a session before a new session is required. Currently, this value is set at 7 days and is not configurable. If the **SSO Cookie Timeout** is set to longer than the idle timeout, then if the session is not used within 7 days, the session will expire and a new session must be created.
 
 Learn more about [Single Sign On](/sso/current).
 

@@ -1,21 +1,17 @@
 ---
 title: User Profile
-description: This tutorial will show you how to display get the user's profile and display it.
+description: This tutorial will show you how to get the user's profile and display it.
 budicon: 292
+topics:
+  - quickstarts
+  - webapp
+  - aspnet-core
+  - user-profile
+github:
+  path: Quickstart/02-User-Profile
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-aspnetcore-mvc-samples',
-  path: 'Quickstart/02-User-Profile',
-  branch: 'master',
-  requirements: [
-    '.NET Core SDK 2.1.300',
-    '.NET Core 2.1.0',
-    'ASP.NET Core 2.1.0'
-  ]
-}) %>
-
 ## Get the Profile
 
 The OIDC middleware extracts the user's information from the ID Token and adds it as claims to the `ClaimsIdentity`.

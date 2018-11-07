@@ -1,19 +1,15 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization to your Laravel API using Auth0
+description: This tutorial demonstrates how to add authorization to a Laravel API.
+topics:
+    - quickstart
+    - backend
+    - laravel
+github:
+   path: 01-Authorization-RS256
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-laravel-api-samples',
-  path: '01-Authorization-RS256',
-  requirements: [
-    'Composer 1.5',
-    'PHP 7.0',
-    'Laravel 5.5',
-    'laravel-auth0 5.0.2'
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
@@ -21,9 +17,11 @@ description: This tutorial demonstrates how to add authorization to your Laravel
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-## Install the Dependencies
+## Validate Access Tokens
 
-Protecting your Laravel API requires a middleware which will check for and verify an Access Token in the `Authorization` header of an incoming HTTP request. You can use the middleware provided in the **[laravel-auth0](https://github.com/auth0/laravel-auth0)** package.
+### Install dependencies
+
+Protecting your Laravel API requires a middleware which will check for and verify an Access Token in the `Authorization` header of an incoming HTTP request. You can use the middleware provided in the [laravel-auth0](https://github.com/auth0/laravel-auth0) package.
 
 Install `laravel-auth0` using **Composer**.
 
@@ -33,7 +31,7 @@ Install `laravel-auth0` using **Composer**.
 
 ${snippet(meta.snippets.dependencies)}
 
-## Enable the Provider
+### Enable the provider
 
 The `laravel-auth0` package comes with a provider called `LoginServiceProvider`. Add this to the list of application `providers`.
 
@@ -70,7 +68,7 @@ public function register()
 }
 ```
 
-## Configure the Plugin
+### Configure the plugin
 
 The **laravel-auth0** plugin comes with a configuration file that can be generated using `artisan`. Generate the file and complete the details found within.
 
@@ -80,7 +78,7 @@ php artisan vendor:publish
 
 After the file is generated, it will be located at `config/laravel-auth0.php`.
 
-## Configure Apache
+### Configure Apache
 
 By default, Apache doesn't parse `Authorization` headers from incoming HTTP requests. To enable this, add a `mod_rewrite` to your `.htaccess` file.
 
@@ -89,18 +87,18 @@ RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 ```
 
-## Define a User and User Provider
+### Define a User and User Provider
 
-The [Laravel authentication system](https://laravel.com/docs/5.5/authentication) needs a **User Object** given by a **User Provider**. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the **User Provider** indirectly by selecting a user provider in `app/config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
+The [Laravel authentication system](https://laravel.com/docs/5.5/authentication) needs a **User Object** given by a **User Provider**. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the **User Provider** indirectly by selecting a user provider in `/config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
 
 The **laravel-auth0** plugin comes with an authentication driver called `auth0`. This driver defines a user structure that wraps the [normalized user profile](https://auth0.com/docs/user-profile/normalized) defined by Auth0. It doesn't actually persist the object but rather simply stores it in the session for future calls.
 
 This is adequate for basic testing or if you don't have a requirement to persist the user. At any point you can call `Auth::check()` to determine if there is a user logged in and `Auth::user()` to retrieve the wrapper with the user information.
 
-Configure the `driver` in `/config/auth.php` to use `auth0`.
+Configure the `driver` in `config/auth.php` to use `auth0`.
 
 ```php
-// app/config/auth.php
+// config/auth.php
 
 // ...
 'providers' => [
@@ -110,7 +108,9 @@ Configure the `driver` in `/config/auth.php` to use `auth0`.
 ],
 ```
 
-## Protect the API Routes
+## Protect API Endpoints
+
+<%= include('../_includes/_api_endpoints') %>
 
 Define a middleware to check and verify Access Token in the `Authorization` header of an incoming HTTP request.
 
@@ -169,9 +169,9 @@ class CheckJWT
 
             \Auth::login($user);
 
-        } catch (CoreException $e) {
-            return response()->json(["message" => $e->getMessage()], 401);
         } catch (InvalidTokenException $e) {
+            return response()->json(["message" => $e->getMessage()], 401);
+        } catch (CoreException $e) {
             return response()->json(["message" => $e->getMessage()], 401);
         }
 
@@ -202,13 +202,13 @@ Route::get('/public', function (Request $request) {
 });
 
 Route::get('/private', function (Request $request) {
-    return response()->json(["message" => "Hello from a private endpoint! You need to have a valid access token to see this."]);
+    return response()->json(["message" => "Hello from a private endpoint! You need to have a valid Access Token to see this."]);
 })->middleware('jwt');
 ```
 
 This route is now only accessible if an Access Token is included in the `Authorization` header of the incoming request.
 
-## Configure the Scopes
+### Configure the Scopes
 
 The middleware defined above that the Access Token in the incoming HTTP request is valid, however it does not include a mechanism to check if the Access Token has sufficient **scope** to access the requested resource.
 
@@ -284,9 +284,9 @@ class CheckScope
 
                 \Auth::login($user);
             }
-        } catch (CoreException $e) {
-            return response()->json(["message" => $e->getMessage()], 401);
         } catch (InvalidTokenException $e) {
+            return response()->json(["message" => $e->getMessage()], 401);
+        } catch (CoreException $e) {
             return response()->json(["message" => $e->getMessage()], 401);
         }
 
@@ -313,14 +313,16 @@ Apply the `check.scope` middleware to the route you want to protect.
 
 Route::get('/private-scoped', function (Request $request) {
     return response()->json([
-        "message" => "Hello from a private endpoint! You need to have a valid access token and a scope of read:messages to see this."
+        "message" => "Hello from a private endpoint! You need to have a valid Access Token and a scope of read:messages to see this."
     ]);
 })->middleware('check.scope:read:messages');
 ```
 
 This route is now only accessible if an Access Token with a scope of `read:messages` is included in the `Authorization` header of the incoming request.
 
-## Extend the `Auth0UserRepository` Class
+## Optional Steps
+
+### Extend the `Auth0UserRepository` class
 
 There may be situations where you need to customize the `Auth0UserRepository` class. For example, you may want to use the default `User` model and store the user profile in your database. If you need a more advanced custom solution such as this, you can extend the `Auth0UserRepository` class with your own custom class.
 
@@ -404,30 +406,37 @@ public function register()
 }
 ```
 
-## Optional Steps
-
 ### Configure CORS
 
 To configure CORS, you should add the `laravel-cors` dependency. You can [check it out here](https://github.com/barryvdh/laravel-cors).
 
-After installation, add the following to the configuration file for `CORS`:
+After installation, add `HandleCors` middleware in the application's global middleware stack:
 
 ```php
-'defaults' => array(
-    'supportsCredentials' => false,
-    'allowedOrigins' => array(),
-    'allowedHeaders' => array(),
-    'allowedMethods' => array(),
-    'exposedHeaders' => array(),
-    'maxAge' => 0,
-    'hosts' => array(),
-),
+// app/Http/Kernel.php
 
-'paths' => array(
-    '*' => array(
-        'allowedOrigins' => array('*'),
-        'allowedHeaders' => array('Content-Type', 'Authorization', 'Accept'),
-        'allowedMethods' => array('POST', 'PUT', 'GET', 'DELETE')
-    ),
-),
+protected $middleware = [
+    // ...
+    \Barryvdh\Cors\HandleCors::class,
+];
+```
+
+Add the following to the configuration file for `CORS`:
+
+```php
+// config/cors.php
+
+<?php
+
+return [
+
+    'supportsCredentials' => true,
+    'allowedOrigins' => ['http://localhost:3000'],
+    'allowedOriginsPatterns' => [],
+    'allowedHeaders' => ['*'],
+    'allowedMethods' => ['*'],
+    'exposedHeaders' => [],
+    'maxAge' => 0,
+
+];
 ```

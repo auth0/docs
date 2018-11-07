@@ -1,6 +1,14 @@
 ---
 title: Amazon API Gateway Tutorial - Secure AWS API Gateway Using Cognito
 description: How to secure the API Gateway Tutorial using Cognito instead of IAM roles and policies.
+topics:
+  - integrations
+  - aws
+  - api-gateway
+  - cognito
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 
 # Secure AWS API Gateway Using Cognito
@@ -27,7 +35,7 @@ To configure your authorizer:
 
 1. Choose the **Cognito region** in which you created your User Pool.
 2. Customize the **Authorizer name** field, if desired (it will be automatically populated with the name of the chosen User Pool, so you can opt to leave it as is)
-3. Customize the **Identity token source** field. By default, this field is set to `method.request.header.Authorization`, which sets the the name of the incoming request header containing the API caller's identity token to `Authorization`.
+3. Customize the **Identity token source** field. By default, this field is set to `method.request.header.Authorization`, which sets the name of the incoming request header containing the API caller's identity token to `Authorization`.
 4. If desired, add a regular expression to the **App client ID regex** field to validate client IDs associated with the User Pool.
 
 When you've finished configuring your authorizer, click **Create** to integrate the User Pool with your API.

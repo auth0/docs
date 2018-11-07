@@ -2,6 +2,15 @@
 title: Getting Started
 description: Initial steps to integrate Auth0 in an iOS Objective-C application.
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - ios
+  - objective-c
+github:
+  path: 01-Login
+contentType: tutorial
+useCase: quickstart
 ---
 
 This quickstart guide walks you through managing authentication with Auth0 in your iOS Objective-C apps.

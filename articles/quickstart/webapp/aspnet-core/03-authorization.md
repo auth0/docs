@@ -2,21 +2,17 @@
 title: Authorization
 description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
 budicon: 546
+topics:
+  - quickstarts
+  - webapp
+  - aspnet-core
+  - authorization
+github:
+  path: Quickstart/03-Authorization
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-aspnetcore-mvc-samples',
-  path: 'Quickstart/03-Authorization',
-  branch: 'master',
-  requirements: [
-    '.NET Core SDK 2.1.300',
-    '.NET Core 2.1.0',
-    'ASP.NET Core 2.1.0'
-  ]
-}) %>
-
-ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access to your application based on the user's role. This tutorial shows how to add role information to the user's ID Token and then use it to limit access to your application. 
+ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access to your application based on the user's role. This tutorial shows how to add role information to the user's ID token and then use it to limit access to your application. 
 
 ::: note
 To follow the tutorial, make sure you are familiar with [Rules](/rules/current).
@@ -34,22 +30,35 @@ Use the following code for your rule:
 
 ```js
 function (user, context, callback) {
-  var addRolesToUser = function(user, cb) {
-    if (user.email.indexOf('@example.com') > -1) {
-      cb(null, ['admin']);
-    } else {
-      cb(null, ['user']);
+
+  // Roles should only be set to verified users.
+  if (!user.email || !user.email_verified) {
+    return callback(null, user, context);
+  }
+
+  user.app_metadata = user.app_metadata || {};
+  // You can add a Role based on what you want
+  // In this case I check domain
+  const addRolesToUser = function(user) {
+    const endsWith = '@example.com';
+
+    if (user.email && (user.email.substring(user.email.length - endsWith.length, user.email.length) === endsWith)) {
+      return ['admin']
     }
+    return ['user'];
   };
 
-  addRolesToUser(user, function(err, roles) {
-    if (err) {
-      callback(err);
-    } else {
-      context.idToken["https://schemas.quickstarts.com/roles"] = roles;     
+  const roles = addRolesToUser(user);
+
+  user.app_metadata.roles = roles;
+  auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+    .then(function() {
+      context.idToken['https://example.com/roles'] = user.app_metadata.roles;
       callback(null, user, context);
-    }
-  });
+    })
+    .catch(function (err) {
+      callback(err);
+    });
 }
 ```
 

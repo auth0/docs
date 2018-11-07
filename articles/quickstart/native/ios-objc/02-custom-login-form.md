@@ -2,19 +2,17 @@
 title: Custom Login Form
 description: This tutorial demonstrates how to perform Login and Sign Up by creating your own Login form.
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - ios
+  - objective-c
+github:
+    path: 02-Custom-Login-Form
+    branch: embedded-login
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-objc-sample',
-  branch: 'embedded-login',
-  path: '02-Custom-Login-Form',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
 
 <%= include('_includes/_hybrid_setup') %>
 
@@ -105,7 +103,7 @@ Notice that any extra information that you need to add to the user's profile, ot
 ## Perform Social Authentication
 
 ::: note
-Please ensure you have configured your callback URL as show in [Configure Callback](/quickstart/native/ios-objc/getting-started#configure-callback-urls).
+Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-objc#configure-callback-urls).
 :::
 
 Add the following function in your application's `AppDelegate`:

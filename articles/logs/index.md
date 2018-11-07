@@ -2,11 +2,24 @@
 description: How to view log data, lists log event types.
 url: /logs
 crews: crew-2
+topics:
+  - logs
+contentType:
+  - concept
+  - how-to
+  - reference
+useCase:
+  - analyze-logs
+  - integrate-analytics
 ---
 
 # Logs
 
 Using the [Dashboard](${manage_url}), you can pull log data on actions performed by administrators using the Dashboard, and authentications made by your users.
+
+::: warning
+Auth0 does not provide real-time logs for your tenant. While we do our best to index events as they arrive, you may see some delays.
+:::
 
 ## How to View Log Data
 
@@ -86,28 +99,28 @@ The following table lists the codes associated with the appropriate log events.
 | `fui` | Failed users import | Failed to import users | [User Import/Export](/extensions/user-import-export) |
 | `fv` | Failed Verification Email | Failed to send verification email | [Verification Email](/email/custom#verification-email) |
 | `fvr` | Failed Verification Email Request | Failed to process verification email request | [Verification Email](/email/custom#verification-email) |
-| `gd_auth_failed` | OTP Auth failed | One-time password authentication failed. | [Multifactor Authentication](/multifactor-authentication) |
-| `gd_auth_rejected` | OTP Auth rejected | One-time password authentication rejected. | [Multifactor Authentication](/multifactor-authentication) |
-| `gd_auth_succeed` | OTP Auth success | One-time password authentication success. | [Multifactor Authentication](/multifactor-authentication) |
+| `gd_auth_failed` | OTP Auth failed | One-time password authentication failed. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_auth_rejected` | OTP Auth rejected | One-time password authentication rejected. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_auth_succeed` | OTP Auth success | One-time password authentication success. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_enrollment_complete` | Guardian enrollment complete | | |
 | `gd_module_switch` | Module switch | | |
 | `gd_otp_rate_limit_exceed` | Too many failures | | |
-| `gd_recovery_failed` | Recovery failed | Multifactor recovery code failed. | [Multifactor Authentication](/multifactor-authentication) |
-| `gd_recovery_rate_limit_exceed` | Too many failures | Multifactor recovery code has failed too many times. | [Multifactor Authentication](/multifactor-authentication) |
-| `gd_recovery_succeed` | Recovery success | Multifactor recovery code succeeded authorization. | [Multifactor Authentication](/multifactor-authentication) |
+| `gd_recovery_failed` | Recovery failed | Multi-factor recovery code failed. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_recovery_rate_limit_exceed` | Too many failures | Multi-factor recovery code has failed too many times. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_recovery_succeed` | Recovery success | Multi-factor recovery code succeeded authorization. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_send_pn` | Push notification sent | Push notification for MFA sent successfully sent with Guardian. | [Auth0 Guardian](/multifactor-authentication/guardian) |
 | `gd_send_sms` | SMS Sent | SMS for MFA sent successfully sent. | [Using SMS for MFA](/multifactor-authentication/guardian/admin-guide#support-for-sms) |
-| `gd_start_auth` | Second factor started | Second factor authentication event started for MFA. | [Multifactor Authentication](/multifactor-authentication) |
-| `gd_start_enroll` | Enroll started | Multifactor authentication enroll has started. | [Multifactor Authentication](/multifactor-authentication) |
+| `gd_start_auth` | Second factor started | Second factor authentication event started for MFA. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_start_enroll` | Enroll started | Multi-factor authentication enroll has started. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_tenant_update` | Guardian tenant update | | [Auth0 Guardian](/multifactor-authentication/guardian) |
-| `gd_unenroll` | Unenroll device account | Device used for second factor authentication has been unenrolled. | [Multifactor Authentication](/multifactor-authentication) |
-| `gd_update_device_account` | Update device account | Device used for second factor authentication has been updated. | [Multifactor Authentication](/multifactor-authentication) |
-| `gd_user_delete` | User delete | Deleted multifactor user account. | [User Profile](/user-profile) |
+| `gd_unenroll` | Unenroll device account | Device used for second factor authentication has been unenrolled. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_update_device_account` | Update device account | Device used for second factor authentication has been updated. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_user_delete` | User delete | Deleted multi-factor user account. | [User Profile](/user-profile) |
 | `limit_delegation` | Too Many Calls to /delegation | Rate limit exceeded to `/delegation` endpoint | [API Rate Limit Policy](/policies/rate-limits) |
 | `limit_mu` | Blocked IP Address | An IP address is blocked with 100 failed login attempts using different usernames, all with incorrect passwords in 24 hours, or 50 sign-up attempts per minute from the same IP address. | [Anomaly Detection](/anomaly-detection) |
 | `limit_ui` | Too Many Calls to /userinfo | Rate limit exceeded to `/limit_ui` endpoint | [API Rate Limit Policy](/policies/rate-limits) |
 | `limit_wc` | Blocked Account | An IP address is blocked with 10 failed login attempts into a single account from the same IP address. | [Anomaly Detection](/anomaly-detection) |
-| `pwd_leak` | Breached password | | |
+| `pwd_leak` | Breached password | Someone behind the IP address: `ip` attempted to login with a leaked password. | [Anomaly Detection](/anomaly-detection) |
 | `s` | Success Login | Successful login event. | |
 | `sapi` | Success API Operation | | |
 | `sce` | Success Change Email | | [Emails in Auth0](/email) |
@@ -129,7 +142,7 @@ The following table lists the codes associated with the appropriate log events.
 | `slo` | Success Logout | User successfully logged out | [Logout](/logout) |
 | `ss` | Success Signup | | |
 | `ssa` | Success Silent Auth | | |
-| `sui` | Success users import | Successfuly imported users | [User Import/Export](/extensions/user-import-export) |
+| `sui` | Success users import | Successfully imported users | [User Import/Export](/extensions/user-import-export) |
 | `sv` | Success Verification Email | | |
 | `svr` | Success Verification Email Request | | |
 | `sys_os_update_end` | Auth0 OS Update Ended | | |

@@ -1,5 +1,12 @@
 ---
-  description: How to customize SAML assertions
+description: How to customize SAML assertions
+topics:
+  - saml
+  - saml-assertions
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Customize SAML Assertions
@@ -69,7 +76,7 @@ The following is a list of customization options for your SAML assertions.
 
 * **recipient** (string): The recipient of the SAML Assertion (SubjectConfirmationData). Default is `AssertionConsumerUrl` on SAMLRequest or Callback URL if no SAMLRequest was sent.
 
-* **mappings** (Array): The mappings between Auth0 profile and the output attributes on the SAML Assertion. Default mapping is shown above.
+* **mappings** (Object): The mappings between Auth0 profile and the output attributes on the SAML Assertion. Default mapping is shown above.
 
 * **createUpnClaim** (bool): Whether or not a UPN claim should be created. Default is true.
 

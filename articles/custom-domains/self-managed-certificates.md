@@ -2,10 +2,19 @@
 title: Configure Custom Domains with Self-Managed Certificates
 description: How to create custom domains with self-managed certificates
 toc: true
+topics:
+  - custom-domains
+  - certificates
+contentType: how-to
+useCase: customize-domains
 ---
 # Custom Domains with Self-Managed Certificates
 
-Custom Domains with the **Self-Managed Certificates** option is available for enterprise customers only. Choosing this option means that you are responsible for managing your SSL/TLS certificates and configuring a reverse proxy to handle SSL termination and forwarding requests to Auth0. 
+::: warning
+Custom Domains with the **Self-Managed Certificates** option is available for enterprise customers only.
+:::
+
+You can choose to manage the certificates for your custom domains yourself, which means that you are responsible for managing your SSL/TLS certificates and configuring a reverse proxy to handle SSL termination and forwarding requests to Auth0. 
 
 Choose this option if:
 

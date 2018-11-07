@@ -3,6 +3,14 @@ title: Linking User Accounts
 description: Learn how to link user accounts from various identity providers, so your users can authenticate from any of their accounts and still be recognized by your app and associated with the same user profile
 crews: crew-2
 toc: true
+topics:
+  - account-linking
+contentType:
+  - concept
+  - how-to
+  - index
+useCase:
+  - manage-accounts
 ---
 # Linking User Accounts
 
@@ -254,7 +262,7 @@ The Auth0 Management API provides the [Link a user account](/api/v2#!/Users/post
 
 Instead of calling directly the API, you can use the [Auth0.js](/libraries/auth0js) library.
 
-First, you must get an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/˜` audience when initializing Auth0.js. You will get the Access Token as part of the authentication flow. Alternatively, you can use the `checkSession` method.
+First, you must get an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/` audience when initializing Auth0.js. You will get the Access Token as part of the authentication flow. Alternatively, you can use the `checkSession` method.
 
 Once you have the Access Token, you can create a new `auth0.Management` instance by passing it the account's Auth0 domain, and the Access Token.
 
@@ -263,23 +271,23 @@ For more information and sample scripts, see [Auth0.js > User management](/libra
 ## Scenarios
 
 In this section we will see some scenarios that implement account linking:
-* [Automatic account linking](#automatic-account-linking): automatically link accounts with the same e-mail address
+* [Automatic account linking](#automatic-account-linking): automatically link accounts with the same email address
 * [User-initiated account linking](#user-initiated-account-linking): allow your users to link their accounts using an admin screen in your app
-* [Suggested account linking](#suggested-account-linking): identify accounts with the same e-mail address and prompt the user in your app to link them
+* [Suggested account linking](#suggested-account-linking): identify accounts with the same email address and prompt the user in your app to link them
 
 ::: warning
-For security purposes, link accounts **only if both e-mails are verified**.
+For security purposes, link accounts **only if both emails are verified**.
 :::
 
 ### Automatic account linking
 
-You can implement automatic linking by setting up a [Rule](/rules) that will run upon user login and link accounts with the same e-mail address.
+You can implement automatic linking by setting up a [Rule](/rules) that will run upon user login and link accounts with the same email address.
 
 The rule is an example of linking accounts in server-side code using the Auth0 Management API [Link a user account endpoint](/api/v2#!/Users/post_identities) where you have both the primary and secondary user IDs and an [Management API Access Token](/api/v2/tokens) with `update:users` scope.
 
-Note, that if the primary account changes during the authorization transaction (for example, the account the user has logged in with, becomes a secondary account to some other primary account), you could get an error in the Authorization Code flow or an `id_token` with the wrong `sub` claim in the token flow. To avoid this, set `context.primaryUser = 'auth0|user123'` in the rule after account linking. This will tell the authorization server to use the user with id `auth0|user123` for the rest of the flow.
+Note, that if the primary account changes during the authorization transaction (for example, the account the user has logged in with, becomes a secondary account to some other primary account), you could get an error in the Authorization Code flow or an ID Token with the wrong `sub` claim in the token flow. To avoid this, set `context.primaryUser = 'auth0|user123'` in the rule after account linking. This will tell the authorization server to use the user with id `auth0|user123` for the rest of the flow.
 
-For a rule template on automatic account linking, see [Link Accounts with Same Email Address](https://github.com/auth0/rules/blob/master/rules/link-users-by-email.md). If you want to merge metadata as well, see [Link Accounts with Same Email Address while Merging Metadata](https://github.com/auth0/rules/blob/master/rules/link-users-by-email-with-metadata.md).
+For a rule template on automatic account linking, see [Link Accounts with Same Email Address](https://github.com/auth0/rules/blob/master/src/rules/link-users-by-email.js). If you want to merge metadata as well, see [Link Accounts with Same Email Address while Merging Metadata](https://github.com/auth0/rules/blob/master/src/rules/link-users-by-email-with-metadata.js).
 
 ### User-initiated account linking
 
@@ -291,7 +299,7 @@ You can follow the [Account Linking Using Client Side Code](/link-accounts/user-
 
 ### Suggested account linking
 
-As with automatic linking, in this scenario you will set up a [Rule](/rules) that will link accounts with the same verified e-mail address. However, instead of completing the link automatically on authentication, your app will first prompt the user to link their identities.
+As with automatic linking, in this scenario you will set up a [Rule](/rules) that will link accounts with the same verified email address. However, instead of completing the link automatically on authentication, your app will first prompt the user to link their identities.
 
 ![Sample linking suggestion](/media/articles/link-accounts/regular-web-app-suggest-linking.png)
 

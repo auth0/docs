@@ -2,6 +2,12 @@
 section: libraries
 toc: true
 description: How to use Auth0.Android to manage users
+topics:
+  - libraries
+  - android
+  - users
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # Use Auth0.Android to Manage Users
 

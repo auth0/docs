@@ -1,5 +1,13 @@
 ---
 description: How to SSO with Heroku.
+topics:
+    - saml
+    - identity-providers
+    - heroku
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Configure SSO with Heroku
@@ -23,7 +31,7 @@ You will need the following two parameters from this section to integrate with A
 
 ## 2. Register Heroku with Auth0
 
-Log in to your [Auth0 Dashboard](${manage_url}/#/applications) and select the [application](/applications) for which you want to enable SSO with Heroku. Go to the __Addons__ section of your Application, and enable __SAML2 Web App__:
+Log in to your [Auth0 Dashboard](${manage_url}/#/applications) and select the [application](/applications) for which you want to configure SSO with Heroku. Go to the __Addons__ section of your Application, and enable __SAML2 Web App__:
 
 ![](/media/articles/saml/saml-apps/heroku/auth0-dashboard.png)
 

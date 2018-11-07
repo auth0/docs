@@ -1,5 +1,15 @@
 ---
 description: How to track sign-ups, enrich user profiles and generate new leads.
+topics:
+  - monitoring
+  - marketing
+contentType:
+  - how-to
+useCase:
+  - analyze-auth0-analytics
+  - analyze-logs
+  - analyze-external-analytics
+  - integrate-analytics
 ---
 
 # How to track Sign-ups, enrich User Profile and generate new Leads
@@ -23,26 +33,27 @@ We also call this event `Sign Up`:
 ```js
 function (user, context, callback) {
 
-  if(user.signedUp) return callback(null,user,context);
-
-  var mixPanelEvent = {
-    "event": "Sign Up",
+  const mpEvent = {
+    "event": "Sign In",
     "properties": {
         "distinct_id": user.user_id,
-        "token": YOUR_MIXPANEL_TOKEN,
+        "token": configuration.MIXPANEL_API_TOKEN,
         "application": context.clientName
     }
   };
 
-  var base64Event = new Buffer(JSON.stringify(mixPanelEvent)).toString('base64');
+  const base64Event = Buffer.from(JSON.stringify(mpEvent)).toString('base64');
 
-  request('http://api.mixpanel.com/track/?data=' + base64Event,
-           function(e,r,b){
-                if(e) return callback(e);
-                return callback(null,user,context);
-              });
+  request.get({
+    url: 'http://api.mixpanel.com/track/',
+    qs: {
+      data: base64Event
+    }
+  }, (err, res, body) => {
+      // don’t wait for the MixPanel API call to finish, return right away (the request will continue on the sandbox)`
+      callback(null, user, context);
+  });
 }
-
 ```
 
 ## 2.Augment User Profile with FullContact
@@ -55,24 +66,46 @@ We are ignoring certain conditions that exist in the API and only doing this whe
 
 ```js
 function (user, context, callback) {
+  const FULLCONTACT_KEY = configuration.FULLCONTACT_KEY;
+  const SLACK_HOOK = configuration.SLACK_HOOK_URL;
 
-  if(user.signedUp) return callback(null,user,context);
+  const slack = require('slack-notify')(SLACK_HOOK);
 
-  var fullContactAPIKey = 'YOUR FULLCONTACT API KEY';
+  // skip if no email
+  if (!user.email) return callback(null, user, context);
 
-  if(user.email){
-    request('https://api.fullcontact.com/v2/person.json?email=' + encodeURIComponent(user.email) + '&apiKey=' + fullContactAPIKey,
-            function(e,r,b){
-              if(e) return callback(e);
-              if(r.statusCode===200){
-                user.fullContactInfo = JSON.parse(b);
-              }
-              return callback(null, user, context);
-            });
-  }
-  else{
+  // skip if fullcontact metadata is already there
+  if (user.user_metadata && user.user_metadata.fullcontact) return callback(null, user, context);
+
+  request.get('https://api.fullcontact.com/v2/person.json', {
+    qs: {
+      email:  user.email,
+      apiKey: FULLCONTACT_KEY
+    },
+    json: true
+  }, (error, response, body) => {
+    if (error || (response && response.statusCode !== 200)) {
+
+      slack.alert({
+        channel: '#slack_channel',
+        text: 'Fullcontact API Error',
+        fields: {
+          error: error ? error.toString() : (response ? response.statusCode + ' ' + body : '')
+        }
+      });
+
+      // swallow fullcontact api errors and just continue login
+      return callback(null, user, context);
+    }
+
+    // if we reach here, it means fullcontact returned info and we'll add it to the metadata
+    user.user_metadata = user.user_metadata || {};
+    user.user_metadata.fullcontact = body;
+
+    auth0.users.updateUserMetadata(user.user_id, user.user_metadata);
+    context.idToken['https://example.com/fullcontact'] = user.user_metadata.fullcontact;
     return callback(null, user, context);
-  }
+  });
 }
 ```
 
@@ -86,60 +119,98 @@ In the last step we record the information as a __New Lead__ in Salesforce, so t
 
 ```js
 function (user, context, callback) {
+  user.app_metadata = user.app_metadata || {};
+  if (user.app_metadata.recordedAsLead) {
+    return callback(null,user,context);
+  }
 
-  if(user.signedUp) return callback(null,user,callback);
+  const MY_SLACK_WEBHOOK_URL = 'YOUR SLACK WEBHOOK URL';
+  const slack = require('slack-notify')(MY_SLACK_WEBHOOK_URL);
 
-  getAccessToken(SFCOM_CLIENT_ID, SFCOM_CLIENT_SECRET, USERNAME, PASSWORD,
-            function(e,r){
-                    if( e ) return callback(e);
+  //Populate the variables below with appropriate values
+  const SFCOM_CLIENT_ID = configuration.SALESFORCE_CLIENT_ID;
+  const SFCOM_CLIENT_SECRET = configuration.SALESFORCE_CLIENT_SECRET;
+  const USERNAME = configuration.SALESFORCE_USERNAME;
+  const PASSWORD = configuration.SALESFORCE_PASSWORD;
+  getAccessToken(
+    SFCOM_CLIENT_ID,
+    SFCOM_CLIENT_SECRET,
+    USERNAME,
+    PASSWORD,
+    (response) => {
+      if (!response.instance_url || !response.access_token) {
+        slack.alert({
+          channel: '#some_channel',
+          text: 'Error Getting SALESFORCE Access Token',
+          fields: {
+            error: response
+          }
+        });
 
-                    createLead(r.instance_url, r.access_token, function(e,result){
-                        if(e) return callback(e);
-                        //Everyhting worked fine. We signal this signup was succesful.
-                        user.persistent.signedUp = true;
-                        return callback(null,user,context);
-                    });
-                });
+        return;
+      }
 
-  function createLead(url,access_token, callback){
+      createLead(
+        response.instance_url,
+        response.access_token,
+        (err, result) => {
+        if (err || !result || !result.id) {
+          slack.alert({
+            channel: '#some_channel',
+            text: 'Error Creating SALESFORCE Lead',
+            fields: {
+              error: err || result
+            }
+          });
 
-    //Just a few fields. The Lead object is much richer
-    var data = {
-        LastName: user.name,
-        Company: 'Web channel signups'
+          return;
+        }
+
+        user.app_metadata.recordedAsLead = true;
+        auth0.users.updateAppMetadata(user.user_id, user.app_metadata);
+      });
+    });
+
+  //See http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_objects_lead.htm
+  function createLead(url, access_token, callback){
+    //Can use many more fields
+    const data = {
+      LastName: user.name,
+      Company: 'Web channel signups'
     };
 
     request.post({
-        url: url + "/services/data/v20.0/sobjects/Lead/",
-        headers: {
-            "Authorization": "OAuth " + access_token,
-            "Content-type": "application/json"
-        },
-        body: JSON.stringify(data)
-        }, function(e,r,b){
-            if(e) return callback(e);
-            return callback(null,b);
-        });
+      url: url + "/services/data/v20.0/sobjects/Lead",
+      headers: {
+        "Authorization": "OAuth " + access_token
+      },
+      json: data
+      }, (err, response, body) => {
+        return callback(err, body);
+      });
   }
 
-  function getAccessToken(client_id, client_secret, username, password, callback){
+  //Obtains a SFCOM access_token with user credentials
+  function getAccessToken(client_id, client_secret, username, password, callback) {
     request.post({
-        url: 'https://login.salesforce.com/services/oauth2/token',
-        form: {
-            grant_type: 'password',
-            client_id: client_id,
-            client_secret: client_secret,
-            username: username,
-            password: password
-        }}, function(e,r,b){
-            if(e) return callback(e);
-            return callback(null,JSON.parse(b));
-        });
+      url: 'https://login.salesforce.com/services/oauth2/token',
+      form: {
+        grant_type: 'password',
+        client_id: client_id,
+        client_secret: client_secret,
+        username: username,
+        password: password
+      }}, (err, respose, body) => {
+        return callback(JSON.parse(body));
+      });
   }
+
+  // don’t wait for the SF API call to finish, return right away (the request will continue on the sandbox)`
+  callback(null, user, context);
 }
 ```
 
 Check out our [repository of Auth0 Rules](https://github.com/auth0/rules) for more great examples:
 
 * Rules for access control
-* Integration with other services: [Firebase](http://firebase.com), [Rapleaf](http://rapleaf.com)
+* Integration with other services: [Firebase](http://firebase.com), [TowerData](https://www.towerdata.com/email-intelligence/email-enhancement)

@@ -2,13 +2,13 @@
 
 This style guide covers the terminology and content specific to Auth0, along with some comments on common writing issues.
 
-For general software-industry styles and terminology, see the [Microsoft Manual of Style](https://eucalyptus.atlassian.net/wiki/download/attachments/76611622/microsoft_manual_of_style_fourth_edition.pdf?version=2&modificationDate=1424379604164&api=v2).
+For general software-industry styles and terminology, see the [Microsoft Writing Style Guide](https://docs.microsoft.com/en-us/style-guide/welcome/).
 
 ## Voice
 
 * Address the reader directly: "you". Use "we" only for Auth0's recommendations.
-* Use active voice.
-* For instructions, use imperative mood.
+* Use the active voice.
+* For instructions, use the imperative mood.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
@@ -21,12 +21,12 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | --- | --- |
 | The user enters his password. | The user enters their password. |
 
-* Avoid gerunds in headings and main body.
+* Avoid gerunds in headings and the main body.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
-| Saving User Authentication Data | Save User Authentication Data |
-| Setting up the authorization process requires an ID token and a valid access token. | To set up the authorization process, you need an ID token and a valid access token. |
+| Saving User Authentication Data. | Save User Authentication Data. |
+| Setting up the authorization process requires an ID Token and a valid Access Token. | To set up the authorization process, you need an ID Token and a valid Access Token. |
 
 ## Body text
 
@@ -36,7 +36,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | Authentication using JSON Web Tokens is stateless by nature, meaning that there is no information about the user's session stored on your server.| Authentication using JSON Web Tokens is stateless. This means that when you use it, no information about user session is stored on your server. |
-| In this way, setting up a session for the user on the client side is simply a matter of saving the Access Token, `id_token`, and a time that the Access Token expires at in browser storage. | To set up a session for the user on the client side, save the following information in browser storage: `access_token`, `id_token`, `expires_in`. |
+| In this way, setting up a session for the user on the client side is simply a matter of saving the Access Token, ID Token, and a time that the Access Token expires at in browser storage. | To set up a session for the user on the client side, save the following information in browser storage: `access_token`, `id_token`, `expires_in`. |
 
 * When mentioning several elements, use bulleted lists.
 * Subheads are not independent statements. Repeat the information from the subhead in the paragraph.
@@ -90,7 +90,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | **Incorrect** | **Correct** |
 | --- | --- |
 | Save the "idToken" value in your client properties. | Save the `idToken` value in your client properties. |
-| An `idToken` helps you identify the user. | An ID token helps you identify the user. |
+| An `idToken` helps you identify the user. | An ID Token helps you identify the user. |
 
 * The text of a link must include the title of the linked page. This helps the reader decide if they want to click on the link.
 
@@ -122,10 +122,10 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | 14 plugins are available. | Fourteen plugins are available. |
 | Configure 12 50GB drives | Configure twelve 50GB drives. |
 
-* For additional information that is up to four lines long, use [notes](/blob/master/CONTRIBUTING.md#note).
-* For additional information that is longer than four lines, use [panels](https://github.com/auth0/docs/blob/master/CONTRIBUTING.md#panels).
-* For critical security information up to four lines long, use [warnings](https://github.com/auth0/docs/blob/master/CONTRIBUTING.md#warning).
-* For critical security information longer than four lines, use [panel warnings](https://github.com/auth0/docs/blob/master/CONTRIBUTING.md#panel-warning).
+* For additional information that is up to four lines long, use [notes](CONTRIBUTING.md#note).
+* For additional information that is longer than four lines, use [panels](CONTRIBUTING.md#panels).
+* For critical security information up to four lines long, use [warnings](CONTRIBUTING.md#warning).
+* For critical security information longer than four lines, use [panel warnings](CONTRIBUTING.md#panel-warning).
 
 ## Vocabulary
 
@@ -155,7 +155,7 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | Setup the login screen. | Set up the login screen. |
 | Edit the login screen set-up to display the **Log in** button. | Edit the login screen setup to display the **Log in** button. |
 
-* Use "multifactor authentication" instead of "multi-factor authentication".
+* Use "multi-factor authentication" instead of "multifactor authentication".
 * Use "email address" instead of "e-mail address".
 * Use "website" instead of "web site".
 * Use "click on" when referring to text links in a webpage or UI. Use "click" when referring to a button.
@@ -176,11 +176,11 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 | The run-time engine must be running to execute the application.  | The runtime engine must be running to execute the application. |
 | Write code for the client-side. | Write code for the client side. |
 | Write the client side code. | Write the client-side code. |
-| Save the logged in user's access token. | Save the logged-in user's access token. |
+| Save the logged in user's Access Token. | Save the logged-in user's Access Token. |
 
 ### The dashboard
 
-* Dashboard: the [Auth0 management console](${manage_url})
+* Dashboard: the [Auth0 management console](${manage_url}).
 * The dashboard elements are called "section", "tab", "field".
 * Dashboard-related terminology:
 ![](/media/readme/structure.png)

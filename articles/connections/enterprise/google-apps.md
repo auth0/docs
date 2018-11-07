@@ -6,11 +6,24 @@ seo_alias: google-apps
 description: Connecting Google Apps with Auth0.
 crews: crew-2
 toc: true
+topics:
+    - connections
+    - enterprise
+    - google
+    - google-apps
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect Your Google App with Auth0
 
 You can connect your Auth0 Application to Google Apps by providing the Google *Client ID* and *Client Secret* to Auth0.
+
+::: panel Using Google Social and Enterprise Connections
+If you have an existing [Google Social Connection](/connections/social/google) for your application and you create a new Google Apps connection for the same domain, users affiliated with the social connection with now be logged in with the new enterprise connection. This will occur regardless of whether you enable the Google Apps (enterprise) connection or not.
+:::
 
 ## Generate the Google Client ID and Client Secret
 

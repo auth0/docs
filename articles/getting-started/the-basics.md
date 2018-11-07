@@ -2,6 +2,14 @@
 title: Learn the Basics
 description: Learn the basics of Auth0 and familiarize yourself with the terminology
 toc: true
+topics:
+  - auth0-101
+  - auth0-basics
+contentType: concept
+useCase:
+  - development
+  - strategize
+  - get-started
 ---
 # Learn the Basics
 
@@ -10,7 +18,7 @@ Often, the biggest barrier to learning new things, especially in the tech indust
 ::: panel TL;DR
 This article uses an example to introduce some core concepts of Auth0: **accounts**, **tenants**, **domains**, **applications**, and **connections**. If you already know what these are (in the context of Auth0) you can safely skip reading it.
 
-We will use a very simple example: A company named `Example-Co` wants to use Auth0 for authentication. They have a web app and a mobile app, and they want their users to be able to login with username/password, Google, or GitHub.
+We will use a very simple example: A company named `Example-Co` wants to use Auth0 for authentication. They have a web app and a mobile app, and they want their users to be able to log in with username/password, Google, or GitHub.
 :::
 
 ## Account and tenants
@@ -43,7 +51,7 @@ In our example, `Example-Co` picked the name `example-co` and Americas as their 
 
 ### Custom domains
 
-You can use a custom domain, such as `example-co.com`. This comes with an additional cost. 
+We recommend the use of custom domains, such as `example-co.com`, in your production environments to provide your users with the most secure and seamless experience. This comes with an additional cost. 
 
 If you have a **single-tenant** implementation, you can deploy your custom domain in one of three locations:
 - The cloud managed by Auth0

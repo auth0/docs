@@ -2,6 +2,14 @@
 toc: true
 description: Explains all the types of Anomaly Detection provided by Auth0 and how to enable them.
 url: /anomaly-detection
+topics:
+    - security
+    - anomaly-detection
+contentType: 
+    - index
+    - reference
+    - how-to
+useCase: customize-anomaly-detection
 ---
 
 # Anomaly Detection
@@ -17,6 +25,7 @@ A **trigger** is a suspicious event that is detected when someone is trying to l
 ## Shields
 
 ### Brute-Force Protection
+
 There are two different triggers for the brute-force protection shield, for two slightly different attack scenarios.
 
 **Trigger:** *10* failed login attempts into a single account from the same IP address.
@@ -37,16 +46,23 @@ If this block is triggered, it can be cleared the following ways:
 * The User clicks on the "unblock" link provided in the email sent when the block went into effect;
 * The User changes their password.
 
-
 **Trigger:** *100* failed login attempts from a single IP address using different usernames, all with incorrect passwords in 24 hours. Or *50* sign ups attempts per minute from the same IP address.
 
 **Actions:**
 * Notify dashboard administrator(s)
 * Block suspicious addresses
 
-If this block is triggered, additional access attempts are released one at a time over the course of 24 hours until 100 attempts are allocated. More specifically, you will gain 100 attempts / 24 hours * 60 minutes = 1 additional attempt every 25 minutes.
+If this block is triggered, additional access attempts are released one at a time over the course of 24 hours until 100 attempts are allocated. More specifically, you will gain 100 attempts / 24 hours * 60 minutes = approximately 1 additional attempt every 15 minutes.
 
 Auth0 does email the dashboard administrator(s) when this block is triggered. Within this email there's a link the owner can click on to remove the block.
+
+#### Enable or Disable Brute Force Protection
+
+By default, brute force protection is enabled for all connections.
+
+Each connection has a flag called `brute_force_protection` that you can use to disable brute force protection. If this flag is set to `true`, then brute force protection is enabled *even if general brute force protection is enabled*.
+
+We do not recommend setting the `brute_force_protection` flag to `false` (effectively disabling brute force protection for the connection), but if you do, you will be able to change this in the Dashboard. There will be a **Improve brute force protection** toggle under Connection Settings that changes the flag from `false` to `true`.
 
 #### Restrictions Regarding Brute-Force Protection
 
@@ -75,7 +91,7 @@ This block remains in place until the user changes their password.
 Watch our [Breached Password Detection 101 video tutorial](https://auth0.com/resources/videos/learn-about-breached-password-detection).
 :::
 
-## Setting Your Preferences
+## Set your anomaly detection preferences
 
 To customize the **actions** that get taken from the **triggers**, go to the [Anomaly Detection](${manage_url}/#/anomaly) section on the dashboard.
 
@@ -84,6 +100,10 @@ To customize the **actions** that get taken from the **triggers**, go to the [An
 You can use the toggle to disable all the actions of a certain shield. Or to enable/disable certain actions, click on the shield that has the action in it that you wish to change.
 
 Then you can use the toggle to enable/disable an action.
+
+::: warning
+We do not recommend making changes to your anomaly detection features via the Management API.
+:::
 
 ### Brute-force Protection
 
@@ -111,3 +131,36 @@ The template used for this message can be customized on the [Dashboard](${manage
 
 [Learn more about Customizing your Emails](/email/templates)
 
+## FAQs
+
+1. **Is the user notified at every login?**
+
+We send one email every hour, regardless of the number of logins. For example, if a user tries to log in 200 times in 1 hour and 30 minutes, we will send two emails.
+
+2. **Is there a limit to the number of times a user will be notified?**
+
+Users will only be notified once per hour.
+
+3. **How long is the reset password link, included in the breached password email, valid for?**
+
+Password reset links are valid for five days.
+
+4. **Is there a test dataset of breached passwords?**
+
+You can test with **leak-test@example.com** as the email and **Paaf213XXYYZZ** as the password. 
+
+5. **Does the breached password detection work when logging in using the Resource Owner password grant?**
+
+Yes.
+
+6. **Does the breached password detection feature work with a custom database?**
+
+Yes.
+
+7. **What Redirect URL applies to the *Change password* link included in the breached password notification email?**
+
+The **RedirectTo** URL is the URL listed in the Dashboard in [Emails > Templates > Change Password Template](${manage_url}/#/emails).
+
+8. **Is there a way to configure the Redirect URL and length of time the change password link is valid?**
+
+You can configure the **URL Lifetime** and **Redirect To** values in the Dashboard by going to [Emails > Templates > Change Password Template](${manage_url}/#/emails).

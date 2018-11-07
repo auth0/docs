@@ -1,5 +1,14 @@
 ---
 title: OIDC-conformant Refresh Token use
+topics:
+  - api-authentication
+  - oidc
+  - tokens
+  - refresh tokens
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # OIDC-conformant Refresh Tokens
@@ -11,7 +20,7 @@ There are some changes to how Refresh Tokens are used in the OIDC-conformant aut
 * Using the [implicit grant](/api-auth/tutorials/adoption/implicit) for authentication will no longer return Refresh Tokens.
   Use [silent authentication](/api-auth/tutorials/silent-authentication) (such as `prompt=none`) instead.
 * Refresh Tokens should only be used by [confidential applications](/applications/application-types#confidential-applications). However, they can also be used by Native (public) applications to obtain Refresh Tokens for mobile apps. 
-* The `/delegation` endpoint is considered deprecated. To obtain new tokens from a Refresh Token, the `/oauth/token` endpoint should be used instead:
+* The `/delegation` endpoint is deprecated. To obtain new tokens from a Refresh Token, the `/oauth/token` endpoint should be used instead:
 
 <div class="code-picker">
   <div class="languages-bar">

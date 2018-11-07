@@ -1,6 +1,16 @@
 ---
 title: Associate an Out-of-Band Authenticator
 description: Configure your application so users can self-associate out-of-band (OOB) authenticators.
+topics:
+  - mfa
+  - mfa-api
+  - mfa-authenticators
+  - oob
+contentType:
+  - how-to
+  - reference
+useCase:
+  - customize-mfa
 ---
 
 # Associate an Out-of-Band Authenticator
@@ -21,7 +31,7 @@ When a user begins the authorization process without an active authenticator ass
 }
 ```
 
-In the next step, use the MFA token (`mfa_token`) instead of the standard access token to request association of a new authenticator.
+In the next step, use the MFA token (`mfa_token`) instead of the standard Access Token to request association of a new authenticator.
 
 ## 2. Request association of the authenticator
 

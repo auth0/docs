@@ -1,5 +1,13 @@
 ---
 description: How to use Lock Passwordless with Universal Login
+topics:
+  - login
+  - universal-login
+  - passwordless
+  - hosted-pages
+  - lock
+contentType: how-to
+useCase: customize-hosted-pages
 ---
 # Universal Login with Lock Passwordless
 

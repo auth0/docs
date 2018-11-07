@@ -2,6 +2,14 @@
 title: Migrate SPAs Using Lock 9 Popup Mode to Universal Login
 description: Learn how to Migrate SPAs Using Lock 9 Popup Mode to Universal Login
 toc: true
+topics:
+  - lock
+  - migrations
+  - spa
+  - universal-login
+contentType:
+    - how-to
+useCase: migrate
 ---
 # Migrate SPAs Using Lock 9 Popup Mode to Universal Login
 

@@ -3,15 +3,21 @@ title: Using the Post-User Registration Extensibility Point
 description: The post-user-registration extensibility point for use with Hooks
 beta: true
 toc: true
+topics:
+    - hooks
+    - extensibility-points   
+contentType:
+  - how-to
+useCase: extensibility-hooks
 ---
 
-# Extensibility Point: Post-User Registration
+# Post-User Registration
 
 For [Database Connections](/connections/database), the `post-user-registration` extensibility point allows you to implement custom actions that execute after a new user registers and is added to the database. [Hooks](/hooks#work-with-hooks) associated with the `post-user-registration` extensibility point execute asynchronously from the actions that are a part of the Auth0 authentication process.
 
 This allows you to implement scenarios including (but not limited to):
 
-* Sending notifications to Slack or via e-mail about the user's new account;
+* Sending notifications to Slack or via email about the user's new account;
 * Creating a new user record in a CRM system.
 
 ## How to Implement This
@@ -22,7 +28,7 @@ You can implement a [Hook](/hooks#work-with-hooks) using this extensibility poin
 
 After you've created a new Hook that uses the Post-User Registration extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
 
-The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. For example, the `client` object comes with the following parameters: application name, client ID, the Auth0 tenant name with which the application is associated, and application metadata. 
+The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. 
 
 ```js
 /**
@@ -31,7 +37,7 @@ The parameters listed in the comment at the top of the code indicate the Auth0 o
 @param {string} user.tenant - Auth0 tenant name
 @param {string} user.username - user name
 @param {string} user.email - email
-@param {boolean} user.emailVerified - is e-mail verified?
+@param {boolean} user.emailVerified - is email verified?
 @param {string} user.phoneNumber - phone number
 @param {boolean} user.phoneNumberVerified - is phone number verified?
 @param {object} user.user_metadata - user metadata

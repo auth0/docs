@@ -1,6 +1,13 @@
 ---
 section: appliance
 description: How to reconfigure PSaaS Appliance IP Addresses using the CLI
+topics:
+    - appliance
+    - cli
+    - ip-addresses
+contentType: how-to
+useCase: appliance
+applianceId: appliance15
 ---
 
 # How to Reconfigure IP Addresses Using the Command Line Interface

@@ -1,6 +1,12 @@
 ---
 description: This page answers several common questions regarding the PSaaS Appliance infrastructure.
 section: appliance
+topics:
+    - appliance
+    - infrastructure
+contentType: reference
+useCase: appliance
+applianceId: appliance33
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Frequently Asked Questions

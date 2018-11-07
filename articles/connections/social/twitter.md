@@ -6,6 +6,14 @@ description: This page shows you how to connect your Auth0 application to Twitte
 seo_alias: twitter
 index: 8
 toc: true
+topics:
+  - connections
+  - social
+  - twitter
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect Your App to Twitter
@@ -88,7 +96,7 @@ Unlike many social identity providers, Twitter manages profile attribute permiss
 
 
 ::: panel Application-Specific Access Tokens
-Unlike many social identity providers, Twitter allows you to use application-specific access tokens for many API calls without requiring user access tokens. You can generate these tokens in [Twitter Application Management](https://apps.twitter.com). Using application-specific access tokens will limit your app to requests that do not require user context. For more information, see [Twitter Developer Documentation: Application-Only Authentication](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only.html).
+Unlike many social identity providers, Twitter allows you to use application-specific Access Tokens for many API calls without requiring user Access Tokens. You can generate these tokens in [Twitter Application Management](https://apps.twitter.com). Using application-specific Access Tokens will limit your app to requests that do not require user context. For more information, see [Twitter Developer Documentation: Application-Only Authentication](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only.html).
 :::
 
 ## Troubleshooting
@@ -97,9 +105,13 @@ If you are seeing errors, refer to the following troubleshooting steps.
 
 ### User's email address is missing from retrieved user profile
 
+Twitter connections do not retrieve the user's email address by default. But you can add a rule to request the email using the access token returned from Twitter.
+
+Auth0 provides a rule template to get email addresses from Twitter. To use it, [create a new rule](${manage_url}/#/rules/create) with the **Get Email Address from Twitter** template under the **Enrich Profile** section.
+
 If you are using Auth0 developer keys, this functionality will not work; you will need to use your Twitter Consumer Key and Consumer Secret.
 
-Otherwise, you must explicitly request permission to retrieve user email addresses for your Twitter app:
+You must also explicitly request permission to retrieve user email addresses for your Twitter app:
 
 1. Login to [Twitter Application Management](https://apps.twitter.com).
 1. Choose your app.

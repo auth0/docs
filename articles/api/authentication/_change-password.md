@@ -61,7 +61,7 @@ This endpoint only works for database connections.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client. |
+| `client_id` | The `client_id` of your client. We strongly recommend including a Client ID so that the email template knows from which client the request was triggered. |
 | `email` <br/><span class="label label-danger">Required</span> | The user's email address. |
 | `password `      | The new password. See the next paragraph for the case when a password can be set. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database connection configured to your client. |
@@ -74,8 +74,8 @@ This endpoint only works for database connections.
 
 ### Remarks
 
-- If you are using Lock version 9 and above, **do not set the password field** or you will receive a *password is not allowed* error. You can only set the password if you are using Lock version 8.
-- If a password is provided, when the user clicks on the confirm password change link, the new password specified in this POST will be set for this user.
+- If you are using Lock version 9 and above, do not set the password field or you will receive a **Password is not allowed** error. You can only set the password if you are using Lock version 8.
+- If a password is provided, when the user clicks on the **confirm password change** link, the new password specified in this POST will be set for this user.
 - If a password is NOT provided, when the user clicks on the password change link they will be redirected to a page asking them for a new password.
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 - This endpoint will return three HTTP Response Headers, that provide relevant data on its rate limits:

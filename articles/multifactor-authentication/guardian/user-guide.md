@@ -1,6 +1,14 @@
 ---
 description: How to sign-up and login using the Guardian app.
 toc: true
+topics:
+  - mfa
+  - guardian
+  - push-notifications
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 # How to Use the Guardian App
 
@@ -51,7 +59,7 @@ For more information about Google Authenticator, see [Install Google Authenticat
 
 ### SMS
 
-Depending on the applications settings, SMS may be an option to use for two-factor authentication. Click on the the **SMS** link after entering your email and password.
+Depending on the applications settings, SMS may be an option to use for two-factor authentication. Click on the **SMS** link after entering your email and password.
 
 Then select your phone number's country code and enter your mobile phone number. You must be able to receive SMS to your device to use this option.
 
@@ -118,7 +126,7 @@ If you know you are selecting the correct connection, make sure that your mobile
 
 ### Transaction Expiration
 
-For all types of multifactor authentication types there is a five minute expiration. Check the timestamp on the messages to see if it is still valid when trying to login. If it has been longer than five minutes, you will need to try to login again and get a new code or notification.
+For all types of multi-factor authentication types there is a five minute expiration. Check the timestamp on the messages to see if it is still valid when trying to login. If it has been longer than five minutes, you will need to try to login again and get a new code or notification.
 
 If using SMS, make sure you are not [exceeding rate limits](#sms-rate-limits).
 

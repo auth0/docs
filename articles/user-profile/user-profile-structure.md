@@ -1,6 +1,16 @@
 ---
 title: Structure of the User Profile
 description: This page lists the attributes that are available on the Auth0 user profile
+topics:
+    - users
+    - user-management
+    - user-profiles
+    - user-profile-structure
+contentType:
+  - concept
+  - reference
+useCase:
+  - manage-users
 ---
 
 # Structure of the User Profile
@@ -27,11 +37,11 @@ The following attributes are available on the user profile.
     * `user_id`: The user's unique identifier for this connection/provider
 
 
-* `multifactor`: The list of multifactor providers in which the user is enrolled.
+* `multifactor`: The list of multi-factor providers in which the user is enrolled.
 
 * `last_ip`: The IP address associated with the user's last login.
 
-* `last_login`: The timestamp of when the user last logged in. In case you are this property from inside a [Rule](/rules) using the `user` object, its value will be the one associated with the login that triggered the rule (since rules execute after the actual login).
+* `last_login`: The timestamp of when the user last logged in.
 
 * `logins_count`: The number of times the user has logged in.
 
@@ -39,9 +49,13 @@ The following attributes are available on the user profile.
 
 * `nickname`: The user's nickname.
 
-* `phone_number`: The user's phone number.
+* `last_password_reset`: The last time the password was reset/changed.
 
-* `phone_verified`: The `true/false` value indicating whether the user's phone number has been verified (only valid for users with SMS connections).
+* `password_set_date`: The date when the user's password was set. At user creation, this field exists, but `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical.
+
+* `phone_number`: The user's phone number. Only valid for users with SMS connections.
+
+* `phone_verified`: The `true/false` value indicating whether the user's phone number has been verified. Only valid for users with SMS connections.
 
 * `picture`: [The user's profile picture](/user-profile/user-picture).
 
@@ -53,9 +67,9 @@ The following attributes are available on the user profile.
 
 * `username` (unique): The user's username.
 
-Most user profile fields are not returned as part of [ID Token](/tokens/id-token), nor are they included in the response from the [/userinfo endpoint](/api/authentication#get-user-info) of the Authentication API. To retrieve user datails from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) of the Management API. For more info on the endpoints you can use to retrieve users, see [User Search Best Practices
+Most user profile fields are not returned as part of [ID Token](/tokens/id-token), nor are they included in the response from the [/userinfo endpoint](/api/authentication#get-user-info) of the Authentication API. To retrieve user details from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) of the Management API. For more info on the endpoints you can use to retrieve users, see [User Search Best Practices
 ](/users/search/best-practices).
 
 ## Blacklisting user attributes
 
-If there are user fields that should not be stored by Auth0 due to privacy reasons, you can blacklist the attributes you do not want persisting in Auth0 databases. For details on how to do that refer to [Blacklisting User Attributes](/tutorials/blacklisting-attributes).
+If there are user fields that should not be stored by Auth0 due to privacy reasons, you can blacklist the attributes you do not want persisting in Auth0 databases. For details on how to do that refer to [Blacklisting User Attributes](/security/blacklisting-attributes).

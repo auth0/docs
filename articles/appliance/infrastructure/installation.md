@@ -1,6 +1,15 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about installation
+topics:
+    - appliance
+    - infrastructure
+    - installation
+contentType: 
+    - concept
+    - how-to
+useCase: appliance
+applianceId: appliance36
 ---
 
 <!-- markdownlint-disable MD033 -->

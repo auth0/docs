@@ -1,8 +1,18 @@
 ---
 title: Delegation and the OIDC-conformant pipeline
+topics:
+  - api-authentication
+  - oidc
+  - delegation
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Delegation and the OIDC-conformant pipeline
+
+<%= include('../../../_includes/_deprecate-delegation') %>
 
 <%= include('./_about.md') %>
 

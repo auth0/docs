@@ -1,6 +1,11 @@
 ---
 description: Extensions enable you to install applications or run commands/scripts that extend the functionality of Auth0.
 toc: true
+topics:
+  - extensions
+contentType:
+  - index
+useCase: extensibility-extensions
 ---
 # Auth0 Extensions
 
@@ -60,3 +65,4 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 
 ### Create a SSO dashboard with multiple enterprise applications 
 - [SSO Dashboard Extension](extensions/sso-dashboard)
+

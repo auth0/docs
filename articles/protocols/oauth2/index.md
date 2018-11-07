@@ -1,6 +1,14 @@
 ---
 description: What is the OAuth 2.0 Authorization Framework and how it works.
 toc: true
+topics:
+    - protocols
+    - oauth2
+    - oauth
+contentType:
+  - concept
+useCase:
+  - development
 ---
 # OAuth 2.0
 
@@ -160,7 +168,7 @@ The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/spe
 
 ### Token Endpoint
 
-The Token endpoint is used by the application in order to get an [Access Token](/tokens/access-token) or a [Refresh Token](/tokens/refresh-token). It is used by all grant types, except for [Implicit](/api-auth/grant/implicit) grant (since an Access Token is issued directly).
+The Token endpoint is used by the application in order to get an [Access Token](/tokens/overview-access-tokens) or a [Refresh Token](/tokens/refresh-token). It is used by all grant types, except for [Implicit](/api-auth/grant/implicit) grant (since an Access Token is issued directly).
 
 In the [Authorization Code](/api-auth/grant/authorization-code) grant, the application exchanges the authorization code it got from the Authorization endpoint for an Access Token.
 

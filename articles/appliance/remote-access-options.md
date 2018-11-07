@@ -1,6 +1,12 @@
 ---
 title: PSaaS Appliance Remote Access Options
 description: Remote Access Options Available for those with PSaaS Appliance
+topics:
+    - appliance
+    - remote-access
+contentType: reference
+useCase: appliance
+applianceId: appliance63
 ---
 # PSaaS Appliance Remote Access Options
 

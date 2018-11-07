@@ -1,25 +1,27 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization and access control to your application
+description: This tutorial demonstrates how to add authorization and access control to an Angular2+ application.
 budicon: 546
+topics:
+  - quickstarts
+  - spa
+  - angular2
+  - authorization
+github:
+  path: 04-Authorization
+sample_download_required_data:
+  - client
+  - api
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-angular-samples',
-  path: '04-Authorization',
-  requirements: [
-    'Angular 2+'
-  ]
-}) %>
-
 <%= include('../_includes/_authz_preamble') %>
 
 <%= include('../_includes/_authz_determining_scopes') %>
 
 ## Handle Scopes in the `AuthService` Service
 
-Add a local member to your `AuthService` service and intialize it with all the scopes you want to request when users log in. Use this member when initializing your instance of the `auth0.WebAuth` object.
+Add a local member to your `AuthService` service and initialize it with all the scopes you want to request when users log in. Use this member when initializing your instance of the `auth0.WebAuth` object.
 
 ```ts
 // src/app/auth/auth.service.ts

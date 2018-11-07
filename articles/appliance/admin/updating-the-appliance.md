@@ -2,10 +2,16 @@
 section: appliance
 description: How to update the PSaaS Appliance
 toc: true
+topics:
+    - appliance
+    - updates
+contentType: how-to
+useCase: appliance
+applianceId: appliance10
 ---
 # Updating the PSaaS Appliance
 
-To ensure that your PSaaS Appliance has the latest functionality, security, and bug fixes, Auth0 requires you to perform regular updates. While the Auth0 engineering team releases updates on a monthly basis, you should plan updates on a monthly, bi-monthly, and quarterly basis.
+To [ensure that your PSaaS Appliance has the latest functionality, security, and bug fixes](/appliance/admin/importance-of-updates), Auth0 requires you to perform regular updates. While the Auth0 engineering team releases updates on a monthly basis, you should plan updates on a monthly, bi-monthly, and quarterly basis.
 
 Appliances must be updated using a **major release** at least once every **90 days**.
 
@@ -84,7 +90,7 @@ Please remember that you are responsible for testing and ensuring that all of yo
 
 ## Downtime
 
-During an upgrade, we expect there to be some downtime. For single-node clusters, we expect there to be 3-5 minutes of downtime. For multi-node clusters, we can perform updates sequentially, preventing downtime. There will, however, be a period between 10-30 seconds where the node being updated will not process new requests (all other nodes remain active). 
+During an upgrade, we expect there to be some downtime. For single-node clusters, we expect there to be 3-5 minutes of downtime. For multi-node clusters, we can perform updates sequentially, where users may see up to 30 seconds of downtime.
 
 Downtime occurs when we restart services. Because of this, we are willing to schedule updates to Production clusters during non-business hours. Please contact your Customer Success Manager to select a time that would be best for you.
 

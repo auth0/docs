@@ -7,6 +7,16 @@ alias:
 seo_alias: active-directory
 description: How to connect to Active Directory with Auth0.
 crews: crew-2
+topics:
+    - connections
+    - enterprise
+    - azure
+    - active-directory
+    - microsoft
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Active Directory

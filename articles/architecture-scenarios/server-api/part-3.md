@@ -1,6 +1,17 @@
 ---
 description: Application Implementation for the Server + API architecture scenario
 toc: true
+topics:
+    - architecture
+    - server-apps
+    - api-auth
+    - authorization-code
+    - client-credentials
+contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # Server + API: Application Implementation

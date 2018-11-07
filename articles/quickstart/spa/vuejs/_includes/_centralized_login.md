@@ -1,6 +1,6 @@
 <%= include('../../_includes/_login_preamble', { library: 'Vue.js', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-vue-samples/tree/embedded-login/01-Embedded-Login'}) %>
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `AuthService` and the filename will be `AuthService.js`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
 
@@ -27,7 +27,6 @@ export default class AuthService {
     domain: '${account.namespace}',
     clientID: '${account.clientId}',
     redirectUri: 'http://localhost:3000/callback',
-    audience: 'https://${account.namespace}/userinfo',
     responseType: 'token id_token',
     scope: 'openid'
   })
@@ -44,7 +43,7 @@ export default class AuthService {
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-### Finish Out the Service
+## Handle Authentication Tokens
 
 Add some additional methods to the `Auth` service to fully handle authentication in the app.
 
@@ -118,7 +117,7 @@ export default class AuthService {
 The service now includes several other methods for handling authentication.
 
 * `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
-* `setSession` - sets the user's Access Token, `id_token`, and a time at which the Access Token will expire
+* `setSession` - sets the user's Access Token, ID Token, and a time at which the Access Token will expire
 * `logout` - removes the user's tokens from browser storage
 * `isAuthenticated` - checks whether the expiry time for the Access Token has passed
 
@@ -126,7 +125,7 @@ The service now includes several other methods for handling authentication.
 
 <%= include('../../_includes/_auth_service_method_description_auth0js') %>
 
-## Provide a Login Control
+### Provide a Login Control
 
 Provide a component with controls for the user to log in and log out.
 
@@ -142,13 +141,13 @@ When the **Log In** button is clicked, the user will be redirected to login page
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
-## Add a Callback Component
+### Add a Callback Component
 
 Using Universal Login means that users are taken away from your application to a login page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
 
 <%= include('../../_includes/_callback_component') %>
 
-When a user authenticates at the login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsbile for processing the hash.
+When a user authenticates at the login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsible for processing the hash.
 
 Create a component named `CallbackComponent` and populate it with a loading indicator. The component should also call `handleAuthentication` from the `AuthService`.
 

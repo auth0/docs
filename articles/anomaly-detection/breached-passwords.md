@@ -1,5 +1,10 @@
 ---
 description: Explains why a user received a breached password email and general web security tips.
+topics:
+    - security
+    - passwords
+contentType: concept
+useCase: customize-anomaly-detection
 ---
 
 # Breached Password Security
@@ -21,7 +26,7 @@ You can't prevent certain sites from security breaches, but there are some thing
 * **Check your emails carefully** 
 Make sure to check where an email is coming from, and the links that they provide. Often phishing emails do not include your name but something generic such as "Dear Customer".  Always do a password reset through the actual site itself.
 *  **Never enter personal or financial information in an email** 
-Emails in general are not very secure, so this is not a good way to communicate sensitive information. A trusted company/application would not ask for your information in this way. Also watch out to make sure you are not entering confidential information through false the links provided in emails. A secure website always starts with “https”.
+Emails in general are not very secure, so this is not a good way to communicate sensitive information. A trusted company/application would not ask for your information in this way. Also watch out to make sure you are not entering confidential information through false links provided in emails. A secure website always starts with “https”.
 * **Never download files from unreliable sources**
 Most web browsers detect suspicious sites, when you try to access a malicious site, an alert message will appear. Never download files from suspicious emails or websites.
 * **Do not reuse passwords**

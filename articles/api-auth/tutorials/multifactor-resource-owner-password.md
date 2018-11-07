@@ -1,13 +1,22 @@
 ---
-title: Multifactor Authentication and Resource Owner Password
-description: How to use Multifactor Authentication with Resource Owner Password Grant.
+title: Multi-factor Authentication and Resource Owner Password
+description: How to use Multi-factor Authentication with Resource Owner Password Grant.
 toc: true
+topics:
+  - api-authentication
+  - oidc
+  - mfa
+  - resource-owner-password
+contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
-# Multifactor Authentication and the Resource Owner Password Grant
+# Multi-factor Authentication and the Resource Owner Password Grant
 
 <%= include('../../_includes/_pipeline2') %>
 
-Highly-trusted applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials to be submitted to Auth0. In some scenarios, however, stronger authentication may be required. This document outlines using [multifactor authentication](/multifactor-authentication) with the [Resource Owner Password Grant](/api-auth/grant/password).
+Highly-trusted applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials to be submitted to Auth0. In some scenarios, however, stronger authentication may be required. This document outlines using [multi-factor authentication](/multifactor-authentication) with the [Resource Owner Password Grant](/api-auth/grant/password).
 
 ## Prerequisites
 
@@ -19,7 +28,7 @@ Before you continue, make sure that you've met the following prerequisites:
 
 1. End users are enrolled in MFA.
 
-## Initiate Multifactor Authentication
+## Initiate Multi-factor Authentication
 
 The flow starts by collecting end-user credentials and sending them to Auth0, as described in [Resource Owner Password Grant](/api-auth/grant/password). Both [password](/api-auth/tutorials/password-grant) and [password-realm](/api-auth/tutorials/password-grant#realm-support) flows are available.
 
@@ -36,7 +45,7 @@ The flow starts by collecting end-user credentials and sending them to Auth0, as
   Content-Type: application/json
   {
     "error": "mfa_required",
-    "error_description": "Multifactor authentication required",
+    "error_description": "Multi-factor authentication required",
     "mfa_token": "eyJ0eXAiOiJKV1QiLCJhbGci....D3QCiQ"
   }
   ```
@@ -59,7 +68,7 @@ To execute MFA, follow the next steps according to the challenge type you will u
 
 - [OOB with no binding method](#challenge-type-oob-with-no-binding-method): in this case, the proof of possession will be driven entirely in a side channel (such as a push notification-based authenticator). The response will include an `oob_code` that the Application will use to periodically check for the resolution of the transaction. Continue the flow using the __mfa-oob__ grant type.
 
-## Execute Multifactor Authentication
+## Execute Multi-factor Authentication
 
 The following sections cover how to execute MFA based on the challenge type used.
 
@@ -70,7 +79,7 @@ The following sections cover how to execute MFA based on the challenge type used
 For this type of challenge, the Application must get an one-time password (`otp`) code from a OTP Generator app, such as Google Authenticator or Microsoft Authenticator.
 
 ::: note
-If you already know that the user supports OTP, then steps 5 and 6 above of the [Initiate Multifactor Authentication](#initiate-multifactor-authentication) section are optional.
+If you already know that the user supports OTP, then steps 5 and 6 above of the [Initiate Multi-factor Authentication](#initiate-multifactor-authentication) section are optional.
 :::
 
 7. The Application prompts the end user to enter an OTP code.
@@ -107,7 +116,7 @@ In this scenario, the challenge will be sent using a side channel, however, ther
 
 7. The Application asks the user to accept the delivered challenge and keeps the `oob_code` from step 6 for future use.
 
-8. The Application polls Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/docs/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
+8. The Application polls Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
 
 9. Auth0 validates the provided `oob_code`, the `mfa_token` and returns:
     - `authorization_pending` error: if the challenge has not been accepted nor rejected.

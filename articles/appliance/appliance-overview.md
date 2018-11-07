@@ -1,6 +1,11 @@
 ---
 section: appliance
 description: The PSaaS Appliance is an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service.
+topics:
+    - appliance
+contentType: concept
+useCase: appliance
+applianceId: appliance52
 ---
 
 # PSaaS Appliance Overview

@@ -5,6 +5,14 @@ image: /media/connections/renren.png
 seo_alias: renren
 description: How to obtain an API Key and Secret Key for RenRen.
 toc: true
+topics:
+  - connections
+  - social
+  - renren
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to RenRen

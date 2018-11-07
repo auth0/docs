@@ -1,8 +1,15 @@
 ---
 title: Troubleshooting
-name: Shows how to troubleshoot the JWT middeware configuration
+name: Shows how to troubleshoot the JWT middleware configuration
 description: This document will help you troubleshoot your configuration if you get 401 (Unauthorized) response from your API.
 budicon: 500
+topics:
+    - quickstart
+    - backend
+    - aspnetcore
+    - web-api
+contentType: tutorial
+useCase: quickstart
 ---
 
 If the configuration of your JSON Web Token (JWT) middleware does not match the JWT that was passed to the API, you get a 401 (Unauthorized) response from your API.
@@ -63,7 +70,7 @@ The screenshot below shows the following information:
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-hs256.png)
 
-If your token is signed with the HS256 alrgorithm, the middleware needs to be configured in the following way:
+If your token is signed with the HS256 algorithm, the middleware needs to be configured in the following way:
 
 ```csharp
 var options = new JwtBearerOptions

@@ -1,6 +1,15 @@
 ---
 title: Trigger MFA using the API
 description: How to trigger MFA challenges for enrolled authenticators using the MFA API
+topics:
+  - mfa
+  - mfa-api
+  - mfa-challenges
+contentType:
+  - how-to
+  - reference
+useCase:
+  - customize-mfa
 ---
 # Trigger MFA using the API
 

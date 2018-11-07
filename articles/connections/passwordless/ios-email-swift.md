@@ -1,10 +1,18 @@
 ---
-title: Using Passwordless Authentication on iOS with e-mails - Swift
+title: Using Passwordless Authentication on iOS with emails - Swift
 languages:
   - name: Swift
     url: swift
   - name: Objective-C
     url: objc
+topics:
+    - connections
+    - passwordless
+    - email
+    - ios
+    - swift
+contentType: how-to
+useCase: customize-connections
 ---
 # Using Passwordless on iOS with Email
 

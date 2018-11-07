@@ -2,6 +2,16 @@
 section: libraries
 title: Using Lock with Swift
 description: How to use Swift with Lock iOS.
+topics:
+  - libraries
+  - lock
+  - ios
+  - swift
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock iOS: Using Swift

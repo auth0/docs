@@ -1,6 +1,14 @@
 ---
 section: libraries
 description: Describes different options for selecting the connection in Auth0 when there are multiple login options for Lock v9.
+topics:
+  - libraries
+  - lock
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - customize-connections
 ---
 # Selecting the connection in Auth0 for multiple login options
 
@@ -53,7 +61,7 @@ An additional feature in the Lock is the use of email domains as a way of routin
 
 ![](/media/articles/hrd/k_LcfC8PHp.png)
 
-If a connection has this setup, then the password textbox gets disabled automatically when typing an e-mail with a mapped domain:
+If a connection has this setup, then the password textbox gets disabled automatically when typing an email with a mapped domain:
 
 ![](/media/articles/hrd/R7mvAZpSnf.png)
 

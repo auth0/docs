@@ -1,6 +1,12 @@
 ---
 toc: true
 description: The Bitbucket Deployments extension allows you to deploy Rules and Database Connection scripts from Bitbucket to Auth0.
+topics:
+  - extensions
+  - bitbucket-deployments
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Bitbucket Deployments
@@ -15,11 +21,11 @@ To install and configure this extension, click on the **Bitbucket Deployments** 
 
 Set the following configuration variables:
 
-* **BITBUCKET_REPOSITORY**: the repository from which you want to deploy your Rules and Database Connection scripts (this can be either a public or private repository);
-* **BITBUCKET_BRANCH**: the branch the extension will monitor for changes;
-* **BITBUCKET_USER**: the username used to access the Bitbucket account;
-* **BITBUCKET_PASSWORD**: the password associated with the username used to access the Bitbucket account;
-* **SLACK_INCOMING_WEBHOOK**: the Webhook URL for Slack used to notify you of successful and failed deployments.
+* **BITBUCKET_REPOSITORY**: The repository from which you want to deploy your Rules and Database Connection scripts. This can be either a public or private repository
+* **BITBUCKET_BRANCH**: The branch the extension will monitor for changes
+* **BITBUCKET_USER**: The username used to access the Bitbucket account. Make sure you use the username, and not the email
+* **BITBUCKET_PASSWORD**: An app password you create through the Bitbucket settings to grant permissions to certain apps
+* **SLACK_INCOMING_WEBHOOK**: The Webhook URL for Slack used to notify you of successful and failed deployments
 
 Once you have provided this information, click **Install**.
 

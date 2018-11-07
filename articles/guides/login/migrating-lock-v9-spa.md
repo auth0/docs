@@ -2,6 +2,14 @@
 title: Moving Web Applications using Lock to Universal Login 
 description: Learn how to migrate from Web Applications using Lock to Universal Login
 toc: true
+topics:
+  - lock
+  - migrations
+  - spa
+  - universal-login
+contentType:
+    - how-to
+useCase: migrate
 ---
 # Migrate Single Page Applications using Lock 9 to Universal Login
 

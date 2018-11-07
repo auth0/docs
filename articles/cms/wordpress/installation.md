@@ -1,5 +1,15 @@
 ---
 description: Explains how to install the Auth0 WordPress plugin.
+topics:
+    - wordpress
+    - cms
+contentType: how-to
+useCase:
+  - add-login
+  - build-an-app
+  - customize-connections
+  - secure-an-api
+  - manage-users  
 ---
 # Installation of the Login by Auth0 WordPress Plugin
 
@@ -28,12 +38,12 @@ There are a few ways that a network of sites can be setup in Auth0:
 1. All sites can share both an Application and a database connection:
 	1. Run the Setup Wizard steps to completion for the main site.
 	2. Setup all other sites manually using the **Domain**, **Client ID**, and **Client Secret** from the main site in the Basic tab of the Auth0 settings page.
-	3. Update the Application's **Allowed Callback URLs**, **Allowed Web Origins** , and **Allowed Logout URLs** to include each site (wildcards can be used if your network uses subdomains).
-2. Each site can have it's own Application and share a database connection:
+	3. Update the Application's **Allowed Callback URLs**, **Allowed Web Origins**, and **Allowed Logout URLs** to include each site (wildcards can be used if your network uses subdomains).
+2. Each site can have its own Application and share a database connection:
 	1. Run the Setup Wizard steps to completion for the main site.
 	2. Next, create an Application for each of the sites [manually](/cms/wordpress/configuration) and add each one to the previously-created database connection.
 	3. Add the **Domain**, **Client ID**, and **Client Secret** values to the Basic tab of the Auth0 settings page for each site.
-3. Each site can have it's own Application and it's own database connection. In this case, Run the Setup Wizard steps to completion for each site.
+3. Each site can have its own Application and its own database connection. In this case, Run the Setup Wizard steps to completion for each site.
 
 Each of the options above has trade-offs. Option 1 has the least number of different entities to manage in Auth0 but, if your network has hundreds of sites and you're not using subdomains, you might run into limitations with the number of callback URLs. Option 2 will require managing many different Applications but will allow you to configure each site's Application differently. 
 
@@ -51,7 +61,7 @@ This will create and configure an Application and a database connection for this
 
 ![WordPress Installation standard setup fields](/media/articles/cms/wordpress/setup-wizard-social-modal.png)
 
-In the modal that appears, enter the domain name for your tenant and a valid, manually-generated Access Token. [Follow the instructions here](/api/management/v2/tokens#get-a-token-manually) - "Get a token manually" section - to create the token and find your domain.  
+In the modal that appears, enter the domain name for your tenant and a valid, manually-generated Access Token. To create a token manually using the Dashboard and find your domain, see [Get Access Tokens for Testing](/api/management/v2/get-access-tokens-for-test).  
 
 If the first part of the setup successfully completes, you'll see the "Configure your social connections" screen. If not, to go **Auth0 > Settings > Basic**, delete your Client ID and domain, then click **Setup Wizard** in the admin menu to start again. Check the Auth0 Error Log in wp-admin for more information about what went wrong and [post in our Community](https://community.auth0.com/tags/wordpress) if you need support. 
 

@@ -2,6 +2,14 @@
 title: Auth0 Deployment Models
 description: Read about the four different deployment models that Auth0 offers and the differences between them
 toc: true
+topics:
+  - auth0-101
+  - deployment-models
+contentType:
+    - concept
+useCase:
+    - development
+    - get-started
 ---
 # Auth0 Deployment Models
 
@@ -59,7 +67,7 @@ The following tables describe operational and feature differences between these 
         </tr>
         <tr>
             <th class="info"><strong>Service & Uptime Reporting</strong></th>
-            <td><a href="http://status.auth0.com">http://status.auth0.com</a><br /><a href="http://uptime.auth0.com">http://uptime.auth0.com</a></td>
+            <td><a href="https://status.auth0.com">https://status.auth0.com</a><br /><a href="http://uptime.auth0.com">http://uptime.auth0.com</a></td>
             <td>Monitored by Auth0</td>
             <td>Monitored by Auth0 and Customer's tools</td>
             <td>Monitored by Auth0 and Customer's tools</td>

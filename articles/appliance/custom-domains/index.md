@@ -2,6 +2,13 @@
 url: /appliance/custom-domains
 section: appliance
 description: How to set up custom domains for your PSaaS Appliance
+topics:
+    - appliance
+    - custom-domains
+contentType: 
+    - index
+useCase: appliance
+applianceId: appliance16
 ---
 
 # Private SaaS (PSaaS) Appliance: Custom Domains

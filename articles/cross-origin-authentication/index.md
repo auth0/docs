@@ -2,6 +2,13 @@
 toc: true
 title: Cross-Origin Authentication
 description: An explanation of cross-origin authentication in Auth0 and its compatibility with browsers
+topics:
+  - cors
+contentType:
+    - index
+    - concept
+useCase: 
+  - strategize
 ---
 # Cross-Origin Authentication
 
@@ -27,7 +34,7 @@ Because cross-origin authentication is achieved using third-party cookies, disab
 
 There are two approaches you can follow to remediate the issue:
 
-- Enable [Custom Domains](/custom-domains) and host your web application in a domain that has the same top level domain as the Auth0 custom domain. This way the cookies are no longer third-party and are not blocked by browsers.
+- Enable a [Custom Domain](/custom-domains) on your tenant and host your web application in a domain that has the same top level domain as your Auth0 custom domain. Example: Host your application at `https://northwind.com` and set your Auth0 custom domain as `https://login.northwind.com`. This way the cookies are no longer third-party (because both your Auth0 tenant and your application are using the same top level domain) and thus are not blocked by browsers.
 - Provide a [Cross-Origin verification page](#create-a-cross-origin-verification-page) that will make cross-origin authentication work **in some browsers** even with third-party cookies disabled (see the [browser testing matrix](#browser-testing-matrix) below).
 
 These issues are another reason why the more practical solution is to use [Universal Login](/hosted-pages/login).
@@ -47,7 +54,7 @@ There are some cases when third party cookies will not be available. Certain bro
 Using `crossOriginVerification` as a fallback will only work if the browser is on the support matrix as **Yes** under "Third-Party Cookies Disabled". For some browsers, such as **Chrome**, **Opera**, and **Safari**, when third party cookies are disabled, cross-origin authentication will not work at all unless you enable [Custom Domains](/custom-domains).
 
 ::: note
-**Safari's** configuration is labeled as "Prevent cross-site tracking" and uses [Intelligent Tracking Prevention](https://webkit.org/blog/7675/intelligent-tracking-prevention/) to prevent 3rd party cookies from being useful in authentication scenarios.
+**Safari's** configuration is labeled as "Prevent cross-site tracking" and uses [Intelligent Tracking Prevention](https://webkit.org/blog/7675/intelligent-tracking-prevention/). Unfortunately, this also prevents 3rd party cookies from being useful in authentication scenarios. Here's an example of how it affects [token renewal](/api-auth/token-renewal-in-safari).
 :::
 
 Provide a page in your application which instantiates `WebAuth` from [auth0.js](/libraries/auth0js). Call `crossOriginVerification` immediately. The name of the page is at your discretion.
@@ -70,6 +77,8 @@ Provide a page in your application which instantiates `WebAuth` from [auth0.js](
 When third party cookies are not available, **auth0.js** will render an `iframe` which will be used to call a different cross-origin verification flow.
 
 Add the URL of this callback page to the **Cross-Origin Verification Fallback** field in your Application's settings in the [Dashboard](${manage_url}), under the **Advanced > OAuth** panel.
+
+For production environments, verify that the Location URL for the page does not point to localhost.
 
 ::: note
 See the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/support/callback-cross-auth.html) for more detail.

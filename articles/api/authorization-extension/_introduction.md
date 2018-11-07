@@ -5,7 +5,7 @@ The Authorization Extension API enables you to:
 - automate provisioning for your users, roles, groups, and permissions
 - query the authorization context of your users in real time
 
-In order to use it you first have to [enable API access](/extensions/authorization-extension/v2#enable-api-access) from your Authorization Dashboard.
+In order to use it, you first have to [enable API access](/extensions/authorization-extension/v2#enable-api-access) from your Authorization Dashboard.
 
 For more information on the Authorization Extension and how to configure it refer to [Auth0 Authorization Extension](/extensions/authorization-extension).
 
@@ -14,6 +14,8 @@ For each endpoint in this explorer, you will find sample snippets you can use, i
 - HTTP request
 - Curl command
 - JavaScript: depending on the endpoint each snippet may use Node.js or simple JavaScript
+
+Each request should be sent with a Content-Type of `application/json`.
 
 ## Find your extension URL
 
@@ -35,7 +37,7 @@ All endpoints in this explorer, start with `https://{extension_url}`. This is th
 
 When you [enabled API access for your tenant](/extensions/authorization-extension/v2#enable-api-access), an API was created at your [dashboard](${manage_url}), which you can use to access the Authorization Extension API.
 
-To do so you will have to configure a machine to machine application which will have access to this API and which you will use to get an [Access Token](/tokens/access-token).
+To do so you will have to configure a machine to machine application which will have access to this API and which you will use to get an [Access Token](/tokens/overview-access-tokens).
 
 Follow these steps to setup your application (you will have to do this only once):
 

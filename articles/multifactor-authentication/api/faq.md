@@ -1,11 +1,18 @@
 ---
-title: Multifactor Authentication API FAQ
+title: Multi-factor Authentication API FAQ
 description: Frequently asked questions about MFA and its API
+topics:
+  - mfa
+  - mfa-api
+contentType:
+  - reference
+useCase:
+  - customize-mfa
 ---
 
 # FAQ: MFA and the MFA API
 
-The following is a list of frequently-asked questions about multifactor authentication (MFA) and Auth0's MFA API.
+The following is a list of frequently-asked questions about multi-factor authentication (MFA) and Auth0's MFA API.
 
 ## When can I self-associate authenticators during the authorization process?
 

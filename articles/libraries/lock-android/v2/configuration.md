@@ -2,6 +2,16 @@
 section: libraries
 title: Lock for Android v2 Configuration
 description: Altering the appearance and behavior of Lock for Android
+topics:
+  - libraries
+  - lock
+  - android
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Configuration
 

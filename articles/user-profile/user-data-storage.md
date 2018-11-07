@@ -2,6 +2,20 @@
 title: User Data Storage Guidance
 description: Demonstrates the best practices in using Auth0 storage mechanisms through the scenario of a native Swift app with a Node API backend
 toc: true
+topics:
+    - users
+    - user-management
+    - user-profiles
+    - data-storage
+    - swift
+    - ios
+    - nodejs
+    - api
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-users
 ---
 
 # User Data Storage Guidance
@@ -212,7 +226,7 @@ Because the Auth0 data store is customized for authentication data, storing anyt
 
 * **Scalability**: The Auth0 data store is limited in scalability, and your Application's data may exceed the appropriate limits. By using an external database, you keep your Auth0 data store simple, while the more efficient external database contains the extra data;
 * **Performance**: Your authentication data is likely accessed at lower frequencies than your other data. The Auth0 data store isn't optimized for high frequency use, so you should store data that needs to be retrieved more often elsewhere;
-* **Flexibility**: Because the Auth0 data store was built to accomodate only user profiles and their associated metadata, you are limited in terms of the actions you can perform on the database. By using separate databases for your other data, you can manage your data as appropriate.
+* **Flexibility**: Because the Auth0 data store was built to accommodate only user profiles and their associated metadata, you are limited in terms of the actions you can perform on the database. By using separate databases for your other data, you can manage your data as appropriate.
 
 ### Example
 

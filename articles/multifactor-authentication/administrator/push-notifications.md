@@ -1,9 +1,17 @@
 ---
 description: How to enable and use push notifications for Guardian.
+topics:
+  - mfa
+  - guardian
+  - push-notifications
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
 ---
 # Guardian Push Notifications
 
-To enable Push Notifications for Guardian for your users, go to the [Multifactor Auth](${manage_url}/#/guardian) section of the Auth0 dashboard. Then toggle the **Push Notification** slider to enable it.
+To enable Push Notifications for Guardian for your users, go to the [Multi-factor Auth](${manage_url}/#/guardian) section of the Auth0 dashboard. Then toggle the **Push Notification** slider to enable it.
 
 ![](/media/articles/mfa/guardian-dashboard.png)
 

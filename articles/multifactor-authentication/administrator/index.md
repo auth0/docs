@@ -1,10 +1,19 @@
 ---
 description: How to enable and use Push Notifications and SMS for Guardian MFA.
+topics:
+  - mfa
+  - guardian
+  - push-notifications
+  - sms
+contentType:
+  - index
+useCase:
+  - customize-mfa
 ---
 
 # Guardian for Administrators 
 
-Guardian is Auth0's multifactor authentication solution that provides a simple and secure way to implement MFA. When using Guardian with Auth0, users will be prompted for additional authentication from the Guardian mobile application, helping to provide a more secure login.
+Guardian is Auth0's multi-factor authentication solution that provides a simple and secure way to implement MFA. When using Guardian with Auth0, users will be prompted for additional authentication from the Guardian mobile application, helping to provide a more secure login.
 
 This page contains information on how to enable and configure Guardian as an administrator. Information geared toward developers and users can be found under [additional documents](#additional-documents).
 

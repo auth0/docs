@@ -1,12 +1,20 @@
 ---
-  description: How to use multiple APIs and represent them as a single API in Auth0.
+description: How to use multiple APIs and represent them as a single API in Auth0.
+topics:
+  - api-authentication
+  - oidc
+  - apis
+contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # How to Represent Multiple APIs Using a Single Auth0 API
 
 To simplify your authentication process, you can create a single [API](/apis) using the Auth0 Dashboard to represent all of your existing APIs. Doing this allows you to implement just one authentication flow. You can then control access to the individual APIs by assigning the appropriate scopes.
 
-This article shows you how to use and represent multiple APIs as a single Resource Server in Auth0 using a [sample application you can download](https://github.com/auth0-samples/auth0-api-auth-implicit-sample) if you would like to follow along as you read.
+This article shows you how to use and represent multiple APIs as a single Resource Server in Auth0 using a [sample application you can download](https://github.com/auth0-samples/auth0-api-auth-implicit-sample) if you would like to follow along as you read. Before you set up the sample on your local environment, please make sure you [set up your application in Auth0](#the-auth0-application).
 
 ## The Sample Application
 
@@ -144,3 +152,7 @@ The app can then use the Access Token to call the API on behalf of the user.
 After logging in, you can see buttons that allow you to call either of your APIs.
 
 ![SPA Home after Login](/media/articles/api-auth/tutorials/represent-multiple-apis/apis.png)
+
+## Polling checkSession() to attain SSO or SLO
+
+<%= include('../../_includes/_checksession_polling') %>

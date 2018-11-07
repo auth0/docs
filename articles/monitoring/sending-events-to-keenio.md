@@ -1,5 +1,15 @@
 ---
 description: How to send events to Keen IO from Auth0.
+topics:
+  - monitoring
+  - keenio
+contentType:
+  - how-to
+useCase:
+  - analyze-auth0-analytics
+  - analyze-logs
+  - analyze-external-analytics
+  - integrate-analytics
 ---
 # Sending events to Keen IO from Auth0
 
@@ -24,8 +34,8 @@ function(user, context, callback) {
     return callback(null, user, context);
   }
 
-  var writeKey = 'YOUR KEEN IO WRITE KEY';
-  var projectId = 'YOUR KEEN IO PROJECT ID';
+  var writeKey = configuration.KEENIO_WRITE_KEY;
+  var projectId = configuration.KEENIO_PROJECT_ID;
   var eventCollection = 'signups';
 
   var keenEvent = {
@@ -36,9 +46,10 @@ function(user, context, callback) {
 
   request.post({
       method: 'POST',
-      url: 'https://api.keen.io/3.0/projects/' + projectId + '/events/' + eventCollection + '?api_key=' + writeKey,
+      url: 'https://api.keen.io/3.0/projects/' + projectId + '/events/' + eventCollection,
       headers: {
-        'Content-type': 'application/json',
+        "Authorization: " + writeKey,
+        'Content-type': 'application/json'
       },
       body: JSON.stringify(keenEvent),
       }, 

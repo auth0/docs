@@ -1,4 +1,6 @@
-## Install auth0.js
+## Integrate Auth0 in your Application
+
+### Install auth0.js
 
 You need the auth0.js library to integrate Auth0 into your application.
 

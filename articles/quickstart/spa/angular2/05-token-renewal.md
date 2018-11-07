@@ -1,18 +1,17 @@
 ---
 title: Token Renewal
-description: This tutorial demonstrates how to add automatic Access Token renewal to an application with Auth0
+description: This tutorial demonstrates how to add automatic Access Token renewal to an Angular2+ application with Auth0.
 budicon: 448
+topics:
+  - quickstarts
+  - spa
+  - angular2
+  - tokens
+github:
+  path: 05-Token-Renewal
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-angular-samples',
-  path: '05-Token-Renewal',
-  requirements: [
-    'Angular 2+'
-  ]
-}) %>
-
 <%= include('../_includes/_token_renewal_preamble') %>
 
 ## Add Token Renewal
@@ -84,7 +83,7 @@ export class AuthService {
 
 This lets you schedule token renewal any time. For example, you can schedule a renewal after the user logs in and then again, if the page is refreshed.
 
-In the `setSession` method, add the function right after setting the Access Token and `id_token` into local storage.
+In the `setSession` method, add the function right after setting the Access Token and ID Token into local storage.
 
 ```ts
 // src/app/auth/auth.service.ts

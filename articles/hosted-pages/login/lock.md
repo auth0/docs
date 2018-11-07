@@ -1,5 +1,12 @@
 ---
 description: How to use Lock with Universal Login
+topics:
+  - lock
+  - login
+  - universal-login
+  - hosted-pages
+contentType: how-to
+useCase: customize-hosted-pages
 ---
 # How to Use Lock with Universal Login
 

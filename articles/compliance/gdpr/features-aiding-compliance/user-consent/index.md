@@ -2,6 +2,13 @@
 title: "GDPR: Conditions for Consent"
 description: This article discusses which Auth0 features can help customers comply with the Conditions for Consent GDPR requirements
 toc: true
+topics:
+    - compliance
+    - gdpr
+contentType: 
+    - index
+    - how-to
+useCase: compliance
 ---
 # GDPR: Conditions for Consent
 
@@ -58,10 +65,10 @@ Note that every time your Terms and Conditions change, you **must** ask the user
 
 According to GDPR, you should be able to show that the user has consented to the processing of their personal data. 
 
-With Auth0 you can save the user's consent information as part of the `user_metadata`. You can either save only a flag, showing if the user has consented or not, or a set of consent information and preferences (including for example, the day the user provided consent, the terms he consented to, etc). Afterwards, you can access and manipilate this information using our Management API.
+With Auth0 you can save the user's consent information as part of the `user_metadata`. You can either save only a flag, showing if the user has consented or not, or a set of consent information and preferences (including for example, the day the user provided consent, the terms he consented to, etc). Afterwards, you can access and manipulate this information using our Management API.
 
 :::note
-To access the Management API you will need an Access Token, for information on how to get one refer to the [Auth0 Management API token](/api/management/v2/tokens).
+To access the Management API you will need an Access Token. For information on how to get one, refer to the [Access Tokens for the Management API](/api/management/v2/tokens).
 :::
 
 The Management API offers several offers several options when it comes to user search and endpoints to update `user_metadata` or batch export users.
@@ -257,7 +264,7 @@ To export a list of your users using the Management API, use [the User export en
 
 This endpoint creates a job that exports all users associated with a connection. You will need the ID of the connection. To find this ID, use [the Get Connections endpoint](/api/management/v2#!/Connections/get_connections) (you can set the **name** parameter to the name of the connection to retrieve only this one).
 
-Once you have the connection ID and a [Management API token](/api/management/v2/tokens), you are ready to start exporting users. For a sample request and response see [User Export](/users/search/best-practices#user-export).
+Once you have the connection ID and a [Access Token for the Management API](/api/management/v2/tokens), you are ready to start exporting users. For a sample request and response see [User Export](/users/search/best-practices#user-export).
 
 :::panel What else do I have to do?
 - Determine how you want to track consent. We recommend including information on not just the date the user consented, but the version of terms and conditions to which the user agreed. We also recommend including an array to hold information about users that withdraw their permission (remember that the user can consent and withdraw multiple times)

@@ -1,5 +1,11 @@
 ---
 description: How to configure, use debug rules using the Real-time Webtask Logs extension.
+topics:
+  - extensions
+  - realtime-webtask-logs
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Real-time Webtask Logs
@@ -20,7 +26,7 @@ Click the _Install_ button.
 
 ![](/media/articles/extensions/realtime-webtask-logs/view-realtime-logs.png)
 
-To clear the logs and start fresh select the the red _CLEAR CONSOLE_ button at the bottom right.
+To clear the logs and start fresh select the red _CLEAR CONSOLE_ button at the bottom right.
 
 ## Debugging Rules
 

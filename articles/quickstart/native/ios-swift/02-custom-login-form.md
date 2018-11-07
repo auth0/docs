@@ -2,19 +2,17 @@
 title: Custom Login Form
 description: This tutorial demonstrates how to perform Login and Sign Up by creating your own Login form.
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - ios
+  - swift
+github:
+  path: 02-Custom-Login-Form
+  branch: embedded-login
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-swift-sample',
-  branch: 'embedded-login',
-  path: '02-Custom-Login-Form',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
 
 ## Implement the Login
 

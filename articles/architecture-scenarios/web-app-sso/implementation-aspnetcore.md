@@ -1,6 +1,18 @@
 ---
 title: "SSO for Regular Web Apps: ASP.NET Core Implementation"
 description: The ASP.NET Core implementation for the SSO for Regular Web Apps architecture scenario
+topics:
+    - architecture
+    - regular-web-apps
+    - api-auth
+    - authorization-code
+    - lockjs
+    - aspnetcore
+contentType: tutorial
+useCase:
+  - invoke-api
+  - secure-an-api
+  - build-an-app
 ---
 
 # SSO for Regular Web Apps: ASP.NET Core implementation
@@ -76,7 +88,7 @@ The second is the OIDC middleware which is done with the call to `UseOpenIdConne
 
 Once the user has signed in to Auth0 using the OIDC middleware, their information will automatically be stored inside a session cookie. All you need to do is to configure the middleware as above and it will take care of managing the user session.
 
-The OpenID Connect middleware will also extract all the claims from the `id_token`, which is sent from Auth0 once the user has authenticated, and add them as claims on the `ClaimsIdentity`.
+The OpenID Connect middleware will also extract all the claims from the ID Token, which is sent from Auth0 once the user has authenticated, and add them as claims on the `ClaimsIdentity`.
 
 ## Implement the Logout
 

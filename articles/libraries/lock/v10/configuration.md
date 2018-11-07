@@ -2,6 +2,13 @@
 section: libraries
 toc: true
 description: Lock 10 has many configurable options that allow you to change the behavior, appearance, and connectivity of the Lock widget - this resource provides the details on those options for you!
+topics:
+  - libraries
+  - lock
+contentType:
+  - reference
+useCase:
+  - add-login
 ---
 # Lock: Configuration Options
 
@@ -570,7 +577,7 @@ var options = {
 Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the application's or tenant' settings.
 
 ::: warning
-Failing to set this to true will result in multifactor authentication not working correctly.
+Failing to set this to true will result in multi-factor authentication not working correctly.
 :::
 
 ```js

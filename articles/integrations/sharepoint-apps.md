@@ -1,5 +1,10 @@
 ---
 description: How to connect provider hosted apps to SharePoint Online.
+topics:
+  - integrations
+  - sharepoint
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 # Connecting Provider Hosted Apps to SharePoint Online
 

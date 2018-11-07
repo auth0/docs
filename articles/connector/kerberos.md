@@ -1,6 +1,17 @@
 ---
 description: Explains AD/LDAP Federation Support with Auth0, how to configure it, the flow, and auto-login with Lock.
 toc: true
+topics:
+  - connector
+  - ad/ldap
+  - kerberos
+contentType: 
+    - how-to
+    - concept
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 # Federating with Active Directory through the AD/LDAP Connector
 
@@ -43,10 +54,10 @@ On the other hand, when users are not in the corporate network (for example, at 
 ## Auto-login with Lock
 
 ::: warning
-Detecting IP ranges in an Active Directory/LDAP connection and using those ranges with Lock to allow integrated Windows Authentication is a feature which works in Lock 10  but is disabled in Lock 11.
+Detecting IP ranges in an Active Directory/LDAP connection and using those ranges with Lock to allow integrated Windows Authentication is a feature that works in Lock 10, but can only be used in Lock 11 in Universal Login scenarios. This feature is *disabled* in Lock 11 when Lock 11 is used in Embedded Login scenarios.
 :::
 
-When an application is using Lock within the Login Page hosted by Auth0 (typically used for SAML/WS-Federation protocols and SSO Integrations), there will be a button which allows users to authenticate using "Windows Authentication". 
+When an application is using Lock 10 or 11 within the Login Page hosted by Auth0 (typically used for SAML/WS-Federation protocols and SSO Integrations), there will be a button which allows users to authenticate using "Windows Authentication". 
 
 In some cases the requirement could be to automatically sign in the user if Kerberos is possible (based on the IP-address of the end user). The following changes can be added to the Auth0 Login Page to automatically sign in the user if Kerberos is possible:
 
@@ -89,7 +100,7 @@ To enable verbose logging of Kerberos requests, add a system level environment v
 
 ## Firefox support for Kerberos
 
-By default, [Firefox](https://www.mozilla.org/firefox) [rejects all "negociate" requests required to authenticate users with Kerberos](https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication). If you wish to use Firefox with Kerberos, you need to whitelist the server where the connector is installed. To do that:
+By default, [Firefox](https://www.mozilla.org/firefox) [rejects all "negotiate" requests required to authenticate users with Kerberos](https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication). If you wish to use Firefox with Kerberos, you need to whitelist the server where the connector is installed. To do that:
 
 * Open a Firefox tab and type `about:config` in the address bar.
 * Dismiss any warning message, and in the search box type `negotiate`.
