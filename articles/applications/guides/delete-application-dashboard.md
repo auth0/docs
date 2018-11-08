@@ -1,6 +1,6 @@
 ---
 description: Explains how to remove an application using the Auth0 Dashboard.
-toc: true
+toc: false
 topics:
   - applications
 contentType: 
@@ -9,7 +9,9 @@ useCase:
   - build-an-app
   - add-login
   - call-api
----.
+---
+
+
 # Delete an Application using the Dashboard
 
 1. Navigate to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings), and scroll to the end of the page. 
