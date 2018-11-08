@@ -48,13 +48,11 @@ To find your iOS application's `Bundle identifier`, go to its [Xcode project set
 
 To test, check whether the universal links apple app site association file is available for your application. 
 
-1. Go to your browser and open: https://YOURACCOUNT.auth0.com/apple-app-site-association (replace YOURACCOUNT with your Auth0 account name).
-
-You can test your universal link by navigating to the following URL using your browser:
+To do so, use your browser to navigate to:
 
 `${account.namespace}/apple-app-site-association`
 
-If the link is successful, you will return the following JSON (formatted for readability):
+If the link is successful, you will see the following JSON (formatted for readability):
 
 ```json
 {
