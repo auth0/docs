@@ -28,6 +28,6 @@ You can explore all available settings at [Dashboard Reference: Application Sett
 
 If you're developing a mobile application, you can provide the necessary iOS/Android parameters in the Advanced Settings area:
 
-<%= include('./application-settings/_trust-token-endpoint-ip-header') %>
+- Toggle the Trust Token Endpoint IP Header setting; if this is enabled, the auth0-forwarded-for is set as trusted and used as a source of end user IP information for protection against brute-force attacks on the token endpoint.
 
 You can explore all available settings at [Dashboard Reference: Advanced Application Settings](/reference/dashboard/settings-applications-advanced). 
