@@ -1,6 +1,6 @@
 ---
-title: Auth0 Dashboard Application Settings
-description: Learn about the Application Settings available through the Auth0 Dashboard.
+title: Auth0 Dashboard Advanced Application Settings
+description: Learn about the AdvancedApplication Settings available through the Auth0 Dashboard.
 topics:
   - applications
   - oidc
@@ -35,7 +35,7 @@ Set the OAuth-related settings on this tab:
 
 * By default, all apps/APIs can make a delegation request, but if you want to explicitly grant permissions to selected apps/APIs, you can do so in **Allowed APPs/APIs**.
 
-* Set the algorithm used (**HS256** or **RS256**) for signing your JSON Web Tokens.
+* Set the algorithm used (**HS256** or **RS256**) for signing your JSON Web Tokens. Learn more about [signing algorithms](/concepts/signing-algorithms).
 
 * Toggle the switch to indicate if your application is OIDC Conformant or not.
 
