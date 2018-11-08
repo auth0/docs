@@ -24,4 +24,4 @@ Some typical scenarios for using add-ons include:
 
 ## Keep reading
 
-- [View all available add-ons for a registered application]
+- [View all available add-ons for a registered application](/applications/guides/view-addons-for-app)
