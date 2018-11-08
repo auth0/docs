@@ -1,5 +1,5 @@
 ---
-description: Learn how to update your application's client secret.
+description: Learn how to rotate your application's client secret using the Auth0 Dashboard.
 crews: crew-2
 topics:
   - applications
