@@ -25,9 +25,7 @@ Your application can use this parameter in order to:
 
 ## Format and Limitations
 
-For the most basic cases the **state** parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce). 
-
-This field can also be a [Base64](https://en.wikipedia.org/wiki/Base64) encoded JSON object that can hold multiple values, [such as a return URL](/tutorials/redirecting-users).
+For the most basic cases the **state** parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce), used to correlate the request with the response received from the authentication (see below).
 
 Note that the allowed length for state is not unlimited. If you get the error `414 Request-URI Too Large` try a smaller value.
 
@@ -37,10 +35,10 @@ A **CSRF attack** can occur when a malicious program causes a user's web browser
 
 ![Diagram of CSRF attack](/media/articles/protocols/CSRF_Diagram.png)
 
-By using the state parameter to hold a value for verification, malicious requests can be denied.
+By using the state parameter to hold a correlation value for verification, malicious requests can be denied.
 
 ::: note
-Depending on the application type or framework this may be included for the developer. Also the exact structure of the requests may differ.
+Most modern OIDC and OAuth2 SDKs, including Auth0.js in Single Page Applications, handle the state generation and validation automatically. 
 :::
 
 1. Before redirecting a request to the [IdP](/identityproviders), have the application generate a random string.
@@ -49,56 +47,64 @@ Depending on the application type or framework this may be included for the deve
 xyzABC123
 ```
 
-2. Save this string to a variable in [web storage](/security/store-tokens#web-storage-local-storage-session-storage-).
+2. Remember this string locally. The method will vary depending on the type of application: could be a cookie or session in a regular web application, local storage in the browser for a single page app, or memory or local storage for a native application.
 
 ```text
-auth0-authorize = xyzABC123
+storeStateLocally(xyzABC123)
 ```
 
-3. Encode this value and set it as the **state** parameter in the request.
+3. Add the **state** parameter in the request (URL-encoding if necessary).
 
 ```js
 // Encode the String
-var encodedString = Base64.encode(string);
-tenant.auth0.com/authorize?...&state=encodedString
+tenant.auth0.com/authorize?...&state=xyzABC123
 ```
 
 4. After the request is sent, the user is redirected back to the application by Auth0. The **state** value will be included in this redirect. Note that depending on the type of connection used, this value might be in the body of the request or in the query string.
 
 ```text
-/login/callback?...&state=encodedString
+/callback?...&state=xyzABC123
 ```
 
-5.  Decode the returned **state** value and compare it to the one you stored earlier. If the values match, then approve the request, else deny it.
+5.  Retrieve the returned **state** value and compare it with the one you stored earlier. If the values match, then approve the authentication response, else deny it.
 
 ```js
 // Decode the String
 var decodedString = Base64.decode(encodedString);
-if(decodedString == auth0-authorize) {
+if(receivedState === retrieveStateStoredLocally()) {
 	// Authorized request
 } else {
-	// Request Denied
+	// This response is not for us, reject it
 }
 ```
-## How to use the parameter to restore state
+## How to use the parameter to restore application state
 
-If a user intended to access a page in your app, and that action triggered the request to authenticate, once the user logs in you want to redirect the user to that page.
+Before you redirect the user to authenticate you might want to store some application state. For instance, if a user intended to access a protected page in your app, and that action triggered the request to authenticate, you will store that URL to redirect the user back to the intended page after the authentication finishes.
 
+You can use the same `state` parameter to lookup and restore the previous state of your application.
 
-You can use the state parameter to restore the previous state of your application. 
+The process in order to do that looks like the following:
 
-The process in order to do that, looks like the following:
+1. Generate the nonce that you will use to protect against CSRF attacks as explained before. Store the nonce locally, using it as the key to store all the other application state like the URL where the user intended to go. E.g.:
 
-1. Store the URL value locally
-1. Authenticate the user
-1. If the authentication is successful, retrieve the value once you get the callback from Auth0
-1. Redirect the user to the page
+```json
+{
+  "xyzABC123" : {
+    rediretUrl: '/protectedResource',
+    expiresOn: [...]
+  }
+}
+```
 
-How you store the URL value depends on your application's type. It can be local storage in single page apps or a cookie in a regular web app. Also, in this case, the parameter cannot be just a random string, it has to be a proper JSON object in order to hold values (see [Format](#format-and-limitations)).
+2. Authenticate the user, sending the generated nonce as the state.
+3. As part of the callback processing and response validation, verify that the state returned matches the nonce stored locally. If it does, retrieve the rest of the application state (like the `redirectUrl`). 
+4. Once you complete the callback processing redirect the user to the URL previously stored.
+
+Again, how you store the nonce and the URL or other information pertinent to the application state depends on your application's type. It can be local storage in single page or native apps or a cookie in a regular web app. 
 
 ## How to get the parameter value in a rule
 
-You can access the **state** parameter value within a [rule](/rules). How you can get this value, depends on the type of connection used; either from the body of the request or from the query string. 
+You can access the **state** parameter value within a [rule](/rules). How you can get this value will depend on the type of flow used; either from the body of the request or from the query string. 
 
 You can obtain it using the following:
 
