@@ -1,4 +1,16 @@
-## Example multi-tenant configuration
+---
+description: Explore the concept of multi-tenant configuration in Auth0.
+crews: crew-2
+topics:
+  - applications
+  - connections
+contentType: how-to
+useCase:
+  - build-an-app
+  - customize-connections
+---
+
+# Multi-Tenant Configuration
 
 If you have two separate domains (for example, public-facing and internal), or two groups of connections you'd like to allow users, the best solution is to create a second Auth0 tenant via the settings menu in the top right on the [Dashboard](${manage_url}). This will allow you to have separate sets of users, applications, and connections for the two groups of users and applications you need to support.
 
