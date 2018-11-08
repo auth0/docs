@@ -35,7 +35,7 @@ Set the OAuth-related settings on this tab:
 
 * By default, all apps/APIs can make a delegation request, but if you want to explicitly grant permissions to selected apps/APIs, you can do so in **Allowed APPs/APIs**.
 
-* Set the algorithm used (**HS256** or **RS256**) for signing your JSON Web Tokens. Learn more about [signing algorithms](/concepts/signing-algorithms).
+* Set the [signing algorithm](/concepts/signing-algorithms) used (**HS256** or **RS256**) for sign your JSON Web Tokens.
 
-* Toggle the switch to indicate if your application is OIDC Conformant or not.
+* Toggle the switch to indicate if your application is OIDC Conformant or not. By default, this is set to true.
 
