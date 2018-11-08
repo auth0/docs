@@ -1,5 +1,5 @@
 ---
-description: Explains the basics of registering and using native/mobile applications using the Auth0 Dashboard.
+description: Learn to register and configure native/mobile applications using the Auth0 Dashboard.
 toc: true
 
 ---
