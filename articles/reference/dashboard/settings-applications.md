@@ -1,3 +1,22 @@
+---
+title: Auth0 Dashboard Application Settings
+description: Learn about the Application Settings available through the Auth0 Dashboard.
+topics:
+  - applications
+  - oidc
+  - dashboard
+  - authentication
+contentType: reference
+useCase:
+  - secure-api
+  - call-api
+  - add-login
+---
+
+# Application Settings
+
+In the [Applications](${manage_url}/#/applicationss) section, locate your Application and click on the cog to review the available settings:
+
 - **Name**: The name of your application. This information is editable and you will see in the portal, emails, logs, and so on.
 
 - **Domain**: Your Auth0 tenant name. Note that the domain name is chosen when you create a new Auth0 tenant and cannot be changed. If you need a different one you have to register for a new tenant by selecting **+ Create Tenant** in the top right menu.
