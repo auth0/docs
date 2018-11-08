@@ -13,23 +13,23 @@ useCase:
 ---
 # Applications
 
-An Auth0 **Application** represents your application in Auth0. You first need to define the Application in Auth0 to then be able to add authentication to it.
+Applications are primarily meant for human interaction, as opposed to APIs, which provide data to applications through a standardized messaging system.
 
-The term application does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server. The key point is that applications are primarily meant for human interaction, as opposed to APIs, which provide data to applications through a standardized messaging system.
+The term application does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server.
 
-## Application Types
 
-There are four application types in Auth0:
+## Applications in Auth0
 
-- [Native](/applications/native): Used for mobile, desktop or hybrid apps, than run natively in a device, like Android, iOS, Ionic, Windows, OS/X.
+To add authentication to your application, you must first register it with Auth0 and select an application type. Auth0 recognizes four application types:
 
-- [Single Page Web Applications](/applications/spa): Used for JavaScript front-end apps that run on a browser, like Angular, jQuery or React. 
+- [Native/Mobile Apps](/applications/native): Mobile, desktop, or hybrid apps that run natively in a device (e.g., Android, iOS, Ionic, Windows, OS/X). Learn to configure your Native/Mobile App using the Dashboard.
 
-- [Regular Web Applications](/applications/webapps): Used for traditional web applications that run on a server, like ASP .NET, Java, Ruby on Rails or Node.js. 
+- [Single Page Apps (SPAs)](/applications/spa): JavaScript front-end applications that run in a browser (e.g., Angular, jQuery, React). Learn to configure your Single Page App using the Dashboard.
 
-- [Machine to Machine Applications](/applications/machine-to-machine): Used for server to server applications like command-line tools, daemons, IoT devices, or services running on your backend. Typically you would use this option if you have a service that requires access to an API.
+- [Regular Web Apps](/applications/webapps): Traditional web applications that run on a server (e.g., ASP .NET, Java, Ruby on Rails, Node.js). Learn to configure your Regular Web App using the Dashboard.
 
-Follow the links above to get more information on how to configure each one.
+- [Machine-to-Machine (M2M) Apps](/applications/machine-to-machine): Server-to-server applications, such as command-line tools, daemons, IoT devices, or services running on your back-end. Typically, you use this option if you have a service that requires access to an API. Learn to configure your M2M App using the Dashboard.
+
 
 ::: note
 After creating your first application, set the environment for your tenant to: development, staging, or production. For more information refer to [Set Up Multiple Environments](/dev-lifecycle/setting-up-env#set-the-environment).
