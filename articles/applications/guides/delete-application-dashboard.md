@@ -1,3 +1,4 @@
+
 ---
 description: Explains how to remove an application using the Auth0 Dashboard.
 toc: true
