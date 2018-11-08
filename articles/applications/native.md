@@ -10,7 +10,7 @@ useCase:
   - add-login
   - call-api
 ---
-# Register a Native Application using the Dashboard
+# Register a Native/Mobile Application
 
 To integrate Auth0 with mobile, desktop, or hybrid apps that run natively on deviced (e.g., Android, iOS, Windows, macOS), you must first register your app as a Native/Mobile App.
 
