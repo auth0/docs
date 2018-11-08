@@ -20,11 +20,17 @@ To integrate Auth0 with mobile, desktop, or hybrid apps that run natively on dev
 
 For a Native/Mobile App, you must do the following:
 
-- For **Application Type**, choose Native/Mobile Apps.
+- For **Application Type**, choose Native/Mobile Apps
 
 You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-applications). 
 
 ### Advanced Settings
 
-<%= include('./application-settings/_adv-settings-mobile') %>
+If you're developing a mobile application, you can provide the necessary iOS/Android parameters in the Advanced Settings area:
+
+- For iOS apps, provide your Team ID and App Bundle Identifier
+
+- For Android apps, provide your App Package Name and your Key Hashes
+
+You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-applications-advanced). 
 
