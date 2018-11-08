@@ -29,4 +29,4 @@ For more details on the connections you can configure, see [Identity Providers S
 
 ## Keep reading
 
-- [Multi-tenant configuration](/applications/multiple-tenants)
+- [Configure Connections](/applications/multiple-tenants)
