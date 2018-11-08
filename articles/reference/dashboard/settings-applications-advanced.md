@@ -39,3 +39,9 @@ Set the OAuth-related settings on this tab:
 
 * Toggle the switch to indicate if your application is OIDC Conformant or not. By default, this is set to true.
 
+
+
+### For Single Page Applications
+
+- **Trust Token Endpoint IP Header**: When enabled, the auth0-forwarded-for is set as trusted and used as a source of end-user IP information for protection against brute-force attacks on the token endpoint.
+
