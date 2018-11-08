@@ -57,7 +57,7 @@ You can provide up to 100 URLs in the **Allowed Callback URLs**, **Allowed Web O
 
 
 ## Keep reading
-
+- [Advanced Application Settings](/reference/dashboard/settings-applications-advanced)
 - [Register a Native/Mobile App](/applications/guides/register-native-app)
 - [Register a Regular Web App](/applications/guides/register-regular-web-app)
 - [Register a Single Page App](/applications/guides/register-single-page-app)
