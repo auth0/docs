@@ -61,7 +61,7 @@ To access the API, you'll need to [ask for and obtain the appropriate token](htt
 
 You can call the API via:
 
-* An HTTML request
+* An HTML request
 * A cURL command
 
 You can also find detailed information about the endpoints, as well as samples on how to call each endpoint using the three methods above, in the [Authorization Extension API Explorer](/api/authorization-extension).
