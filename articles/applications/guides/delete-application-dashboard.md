@@ -11,7 +11,6 @@ useCase:
   - call-api
 ---
 
-
 # Delete an Application using the Dashboard
 
 1. Navigate to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings), and scroll to the end of the page. 
