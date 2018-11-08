@@ -11,4 +11,10 @@ useCase:
 
 # Client Secret
 
-A client secret protects your resources by only granting tokens to requestors if they're authorized. Protect your client secrets; if any are ever compromised, you should rotate to a new one. Please remember that all authorized apps will therefore need to be updated with the new client secret.
+A client secret is a secret known only to your application and the authorization server. It protects your resources by only granting tokens to authorized requesters. 
+
+Protect your client secrets and never include them in mobile or browser-based apps. If your client secret is ever compromised, you should rotate to a new one and update all authorized apps with the new client secret.
+
+## Keep reading
+
+- [Rotate a client secret]()
