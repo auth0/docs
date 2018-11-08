@@ -1,6 +1,7 @@
 ---
-description: Explains the basics of creating and using Auth0 Native applications.
+description: Explains the basics of registering and using native/mobile applications using the Auth0 Dashboard.
 toc: true
+
 ---
 # Native Applications
 
