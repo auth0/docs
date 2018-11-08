@@ -18,9 +18,13 @@ To integrate Auth0 with mobile, desktop, or hybrid apps that run natively on dev
 
 ## Settings
 
-<%= include('./application-settings/_settings') %>
+For a Native/Mobile App, you must do the following:
 
-- **Application Type**: The type of application you are implementing. For desktop or mobile apps running natively on a device, choose Native/Mobile Apps.
+- For **Application Type**, choose Native/Mobile Apps.
+
+
+
+You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-applications). 
 
 <%= include('./application-settings/_settings-pt2') %>
 
