@@ -15,7 +15,7 @@ useCase:
 
 # Application Settings
 
-In the [Applications](${manage_url}/#/applicationss) section, locate your Application and click on the cog to review the available settings:
+In the [Applications](${manage_url}/#/applications) section, locate your Application and click on the cog to review its available settings:
 
 - **Name**: The name of your application. This information is editable and you will see in the portal, emails, logs, and so on.
 
