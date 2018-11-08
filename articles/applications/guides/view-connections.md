@@ -22,6 +22,11 @@ To view all the connections that you have configured or to create new ones, navi
 
 For more details on the connections you can configure, see [Identity Providers Supported by Auth0](/identityproviders).
 
+
+
+
+/design/using-auth0-with-multi-tenant-apps
+
 ## Keep reading
 
 - [Multi-tenant configuration](/applications/multiple-tenants)
