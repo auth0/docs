@@ -1,9 +1,19 @@
+---
+description: Explains how to remove an application using the Auth0 Dashboard.
+toc: true
+topics:
+  - applications
+contentType: 
+    - how-to
+useCase:
+  - build-an-app
+  - add-login
+  - call-api
+---.
 # Delete an Application using the Dashboard
 
-1. Navigate to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings), and scroll to the end of the page. Under the *Danger Zone* section you can find the **Delete Application** button. This operation cannot be undone.
+1. Navigate to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings), and scroll to the end of the page. 
 
-Once you click on the button a pop-up window will ask you to confirm the action. Click **Yes, delete application** to permanently remove the application.
+2. Locate the *Danger Zone* section, and click the **Delete Application** button. 
 
-::: note
-You can also delete an application using the [DELETE /api/v2/clients/{id} endpoint](/api/management/v2#!/Clients/delete_clients_by_id) of the Management API.
-:::
+3. Once you click the button, a pop-up window will ask you to confirm the action. Once confirmed, this operation cannot be undone. To permanently remove the application, click **Yes, delete application**.
