@@ -4,7 +4,7 @@ crews: crew-2
 topics:
   - applications
   - client-secrets
-contentType: how-to
+contentType: concept
 useCase:
   - build-an-app
 ---
