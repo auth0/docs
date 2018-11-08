@@ -32,5 +32,5 @@ If you're developing a mobile application, you can provide the necessary iOS/And
 
 - For Android apps, provide your App Package Name and your Key Hashes
 
-You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-applications-advanced). 
+You can explore all available settings at [Dashboard Reference: Advanced Application Settings](/reference/dashboard/settings-applications-advanced). 
 
