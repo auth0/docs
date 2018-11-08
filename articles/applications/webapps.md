@@ -18,16 +18,12 @@ To integrate Auth0 with a traditional web application running on a server with t
 
 ## Settings
 
-For a Regular Web App, you must do the following:
-
 - For **Application Type**, choose Regular Web App
 
 You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-applications). 
 
 ### Advanced Settings
 
-If you're developing a mobile application, you can provide the necessary iOS/Android parameters in the Advanced Settings area:
-
-- Toggle the Trust Token Endpoint IP Header setting; if this is enabled, the auth0-forwarded-for is set as trusted and used as a source of end user IP information for protection against brute-force attacks on the token endpoint.
+- Be sure that **Trust Token Endpoint IP Header** is enabled to protect against brute-force attacks on the token endpoint.
 
 You can explore all available settings at [Dashboard Reference: Advanced Application Settings](/reference/dashboard/settings-applications-advanced). 
