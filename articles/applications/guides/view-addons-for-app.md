@@ -12,6 +12,12 @@ useCase:
 
 # View Add-ons for an Application
 
-To view all the available add-ons for an application, navigate to [Dashboard > Applications > Addons](${manage_url}/#/applications/${account.clientId}/addons).
+To view all the available [add-ons](/applications/concepts/add-ons) for an application:
+
+1. Navigate to [Dashboard > Applications](${manage_url}/#/applications).
+
+2. Click the cog icon next to your application to show its settings.
+
+3. Select the Add-ons view.
 
 ![Application Addons List](/media/articles/applications/addons-dashboard-list.png)
