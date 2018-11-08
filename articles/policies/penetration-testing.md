@@ -38,7 +38,7 @@ Auth0 requires that:
 
 ## PSaaS Appliance customers
 
-Private SaaS Appliance customers should also request permission to run a penetration test via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}). Please include the information listed above with your support request.
+Private SaaS Appliance customers should also request permission to run a penetration test via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}). Please include the [information listed above](/policies/penetration-testing#information-required) with your support request.
 
 ## Load testing
 
