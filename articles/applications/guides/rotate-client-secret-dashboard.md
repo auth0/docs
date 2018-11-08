@@ -1,5 +1,5 @@
 ---
-description: This page lists different ways of how to update your application's secret.
+description: Learn how to update your application's client secret.
 crews: crew-2
 topics:
   - applications
