@@ -37,15 +37,6 @@ After creating your first application, set the environment for your tenant to: d
 
 Auth0 also differentiates between [public and private applications](/applications/application-types#confidential-vs-public-applications), as well as [first- vs. third-party applications](/applications/application-types#first-vs-third-party-applications).
 
-## How to Delete an Application
-
-Navigate to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) and scroll to the end of the page. Under the *Danger Zone* section you can find the **Delete Application** button. This operation cannot be undone.
-
-Once you click on the button a pop-up window will ask you to confirm the action. Click **Yes, delete application** to permanently remove the application.
-
-::: note
-You can also delete an application using the [DELETE /api/v2/clients/{id} endpoint](/api/management/v2#!/Clients/delete_clients_by_id) of the Management API.
-:::
 
 ## Application Auditing
 
@@ -76,3 +67,7 @@ Once you have configured your Application, some common next steps to take are:
   - The [Authentication API](/api/authentication) handles all the primary identity related functions (login, logout, get user profile, and so forth). Most users consume this API through our [Quickstarts](/quickstarts), the [Auth0.js library](/libraries/auth0js) or the [Lock widget](/libraries/lock). However, if you are building all of your authentication UI manually you will have to interact with this API directly.
 
   - The [Management API](/api/management/v2) can be used to automate various tasks in Auth0 such as creating users.
+  
+  ## Keep reading
+  * [Remove an Application using the Dashboard](/applications/guides/remove-application-dashboard)
+  * [Remove an Application using the Management API](/applications/guides/remove-application-mgmt-api)
