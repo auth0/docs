@@ -22,8 +22,6 @@ For a Regular Web App, you must do the following:
 
 - For **Application Type**, choose Regular Web App
 
-- For **Token Endpoint Authentication Method**: Defines the requested authentication method for the token endpoint. Possible values are `None` (public client without a client secret), `Post` (client uses HTTP POST parameters) or `Basic` (client uses HTTP Basic).
-
 You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-applications). 
 
 ### Advanced Settings
