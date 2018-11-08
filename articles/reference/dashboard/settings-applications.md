@@ -17,6 +17,8 @@ useCase:
 
 In the [Applications](${manage_url}/#/applications) section, locate your Application and click on the cog to review its available settings:
 
+![Application Settings Page](/media/articles/applications/settings.png)
+
 - **Name**: The name of your application. This information is editable and you will see in the portal, emails, logs, and so on.
 
 - **Domain**: Your Auth0 tenant name. Note that the domain name is chosen when you create a new Auth0 tenant and cannot be changed. If you need a different one you have to register for a new tenant by selecting **+ Create Tenant** in the top right menu.
@@ -51,7 +53,7 @@ You can provide up to 100 URLs in the **Allowed Callback URLs**, **Allowed Web O
 
 - **Use Auth0 instead of the IdP to do Single Sign On**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on).
 
-![Application Settings Page](/media/articles/applications/settings.png)
+
 
 
 ## Keep reading
