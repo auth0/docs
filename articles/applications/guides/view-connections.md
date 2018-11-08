@@ -9,7 +9,7 @@ useCase:
   - build-an-app
   - customize-connections
 ---
-# Enable Connections
+# View Connections
 
 You can configure any number of [connections](/connections) through the Dashboard, and then enable them for any application or API.
 
