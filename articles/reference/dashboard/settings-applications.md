@@ -14,7 +14,7 @@
 
 - **Application Logo**: The URL to a logo (recommended size: 150x150 pixels) to be displayed for the application. This will appear in several areas, including the list of applications in the Dashboard, as well as things like customized consent forms.
 
-- **The type of application you are implementing. For desktop or mobile apps running natively on a device, choose Native/Mobile Apps.
+- **Application Type**: The type of application you are implementing. Choose the corresponding [Auth0 Application Type](/applications/reference/application-types).
 
 ::: note
 You can provide up to 100 URLs in the **Allowed Callback URLs**, **Allowed Web Origins**, **Allowed Logout URLs**, **Allowed Origins (CORS)** fields.
