@@ -22,15 +22,9 @@ For a Native/Mobile App, you must do the following:
 
 - For **Application Type**, choose Native/Mobile Apps.
 
-
-
 You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-applications). 
 
-<%= include('./application-settings/_settings-pt2') %>
-
 ### Advanced Settings
-
-<%= include('./application-settings/_adv-settings') %>
 
 <%= include('./application-settings/_adv-settings-mobile') %>
 
