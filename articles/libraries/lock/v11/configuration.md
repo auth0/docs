@@ -682,7 +682,8 @@ var options = {
 ```
 
 #### Hidden field
-To specify a hidden field use: `type: "hidden"`. Both the `value` and `name` properties are required.
+
+The signup field `type: "hidden"` will allow you to use a hidden input with a fixed value.
 
  ```js
 var options = {
