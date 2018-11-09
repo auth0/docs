@@ -18,7 +18,7 @@ To integrate Auth0 with front-end apps that run in a browser (e.g., Angular, jQu
 
 ## Settings
 
-By default, most of the settings will be created for you. However, for an app with a JavaScript front-end that calls APIs, you must do the following:
+By default, most of the settings will be created for you. However, for an app with a JavaScript front-end that calls APIs, you must:
 
 - For **Application Type**, choose Single Page App.
 
