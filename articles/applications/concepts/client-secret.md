@@ -17,5 +17,5 @@ Protect your client secrets and never include them in mobile or browser-based ap
 
 ## Keep reading
 
-- [Rotate a client secret using the dashboard](/applications/guides/rotate-client-secret-dashboard)
-- [Rotate a client secret using the Management API](/applications/guides/rotate-client-secret-mgmt-api)
+- [Rotate a Client Secret using the Dashboard](/applications/guides/rotate-client-secret-dashboard)
+- [Rotate a Client Secret using the Management API](/applications/guides/rotate-client-secret-mgmt-api)
