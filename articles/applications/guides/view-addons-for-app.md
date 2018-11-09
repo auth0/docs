@@ -12,11 +12,11 @@ useCase:
 
 # View Add-ons for an Application
 
-To view all the available [add-ons](/applications/concepts/add-ons) for an application:
+To view all the available [add-ons](/applications/concepts/add-ons) for an Application:
 
 1. Navigate to [Dashboard > Applications](${manage_url}/#/applications).
 
-2. Click the cog icon next to your application to show its settings.
+2. Click the name of your Application to show its settings.
 
 3. Select the Add-ons view.
 
