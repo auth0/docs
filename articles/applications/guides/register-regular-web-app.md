@@ -18,11 +18,15 @@ To integrate Auth0 with a traditional web application running on a server with t
 
 ## Settings
 
+By default, most of the settings will be created for you. However, for a regular web application, you must:
+
 - For **Application Type**, choose Regular Web App
 
 You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-applications). 
 
 ### Advanced Settings
+
+By default, most of the settings will be created for you. However, for a regular web application, you must:
 
 - Be sure that **Trust Token Endpoint IP Header** is enabled to protect against brute-force attacks on the token endpoint.
 
