@@ -68,16 +68,16 @@ Note that some of the steps below will require the login process to be broken du
 1. While logged out of WordPress and Auth0, visit the login page being tested.
 2. Check if the `auth0_state` cookie is being set (in Chrome, View > Developer > JavaScript Console > Application tab > Storage on the left > Cookies > domain being tested, look for an `auth0_state` cookie with a non-empty value).
 
-	2.1. If this value is not set, check for errors in the JS console and that your browser can accept cookies (login will not work without cookies). This is set in `/assets/js/lock-init.js` ([code on GitHub](https://github.com/auth0/wp-auth0/blob/master/assets/js/lock-init.js#L22))
-	2.2. If the value is set, copy the value and view the source code of the page (in Chrome, View > Developer > View Source). Search for that value in the code and it should appear in JavaScript as the value of `wpAuth0LockGlobal.auth.settings.state` ([sample JSON](https://gist.github.com/joshcanhelp/1b8bb990048325eb7214e2b3d7136b78)). Make a note of this value by copying and pasting into a text file.
+	* If this value is not set, check for errors in the JS console and that your browser can accept cookies (login will not work without cookies). This is set in `/assets/js/lock-init.js` ([code on GitHub](https://github.com/auth0/wp-auth0/blob/master/assets/js/lock-init.js#L22))
+	* If the value is set, copy the value and view the source code of the page (in Chrome, View > Developer > View Source). Search for that value in the code and it should appear in JavaScript as the value of `wpAuth0LockGlobal.auth.settings.state` ([sample JSON](https://gist.github.com/joshcanhelp/1b8bb990048325eb7214e2b3d7136b78)). Make a note of this value by copying and pasting into a text file.
 
 3. If the value appears there and the Lock form is loading normally then steps 1 and 2 from the first list above are functioning properly.
 4. Before logging in, add [this snippet](https://gist.github.com/joshcanhelp/ba98f748747c7fd2ecdf54e73c6110f3) to the top of your `wp-config.php`. **WARNING**: This will break login for the WordPress site being tested so use it only on a non-production install.
 5. Log in normally.
 6. After you're redirected back to your site's callback URL, the process will stop. You should see an output like what's shown in the linked Gist in step #4 above. If you see something like `Array()` with no additional values, then one of two things could be happening:
 
-	6.1. The WordPress callback URL is cached. Page caching can happen in many different ways so there are not explicit steps we can provide here. Check any caching plugins you may have installed, they usually have some kind of URL exclusion built-in. Also check with your host as caching may be automatic and require support involvement.
-	6.2. The server is not reading the Auth0 cookie. See the [issue here](https://github.com/auth0/wp-auth0/issues/494) and [fix here](https://github.com/auth0/wp-auth0/pull/495) for a possible solution.
+	* The WordPress callback URL is cached. Page caching can happen in many different ways so there are not explicit steps we can provide here. Check any caching plugins you may have installed, they usually have some kind of URL exclusion built-in. Also check with your host as caching may be automatic and require support involvement.
+	* The server is not reading the Auth0 cookie. See the [issue here](https://github.com/auth0/wp-auth0/issues/494) and [fix here](https://github.com/auth0/wp-auth0/pull/495) for a possible solution.
 
 7. If the values are present, check the response headers for the callback URL being loaded (in Chrome, View > Developer > JavaScript Console > Network tab, click the first "document" listed with a 500 status and look for "Response Headers"). Look for any evidence of caching here, like a `Cache-Control` with a non-zero `max-age`, an `x-cache` of something other than `MISS`, or any other clue that this page is being served from a cache.
 8. Also in the response headers, check that `set-cookie` includes a directive like `auth0_state=deleted`  to confirm the validation process is happening.  
@@ -97,7 +97,7 @@ echo '<h1>$_REQUEST</h1>'; var_dump($_REQUEST); echo '<h1>$_COOKIE</h1>'; var_du
 14. You should see values output when redirected back to the WordPress callback URL.
 15. Check if the `state` value in `$_REQUEST` exists and matches the `auth0_state` value in `$_COOKIE`.
 
-	15.1. If it's different, it should match the original value recorded in step #3 above. This means that the `$_COOKIE` state value has changed somewhere in the process.
+	* If it's different, it should match the original value recorded in step #3 above. This means that the `$_COOKIE` state value has changed somewhere in the process.
 
 If none of the steps above resolve the issue, please collect the results of the steps above and [contact support](https://support.auth0.com/) or post on [Community](https://community.auth0.com/tags/wordpress) with the tag `wordpress`. Also include:
 
