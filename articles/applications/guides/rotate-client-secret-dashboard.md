@@ -9,7 +9,7 @@ useCase:
   - build-an-app
 ---
 
-# Rotate the Client Secret in the Dashboard
+# Rotate a Client Secret using the Dashboard
 
 1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/). 
 
