@@ -7,6 +7,7 @@ topics:
     - user-picture
 contentType: how-to
 useCase: manage-users
+v2: true
 ---
 
 # Change User Pictures
@@ -79,8 +80,6 @@ function (user, context, callback) {
 
 ## Keep reading
 
-::: next-steps
-- [Structure of the User Profile](/user-profile/user-profile-structure)
-- [User Profile: In-Depth Details](/user-profile/user-profile-details)
+- [User Profile Structure](/user-profile/user-profile-structure)
+- [View Users](/user-profile/view-users)
 - [Auth0 Blog: Update of the user's details section](https://auth0.com/blog/update-of-the-user-details-section/)
-:::

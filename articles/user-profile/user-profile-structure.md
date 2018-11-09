@@ -7,11 +7,36 @@ topics:
     - user-profile-structure
 contentType: reference
 useCase: manage-users
+v2: true
 ---
 
 # User Profile Structure
 
-The following attributes are available on the user profile.
+There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](${manage_url}/#/users) in the Auth0 Dashboard and then on a particular user.
+
+"Details" consists of core User Profile object with basic information such as name, email, and the timestamp of the latest login. The core User Profile object may contain additional attributes from its source Connection, in addition to the normalized Auth0 User Profile attributes.
+
+The User Profile object also has two **metadata** sub-objects, one called `user_metadata` and the other `app_metadata`. The metadata objects can be used to store additional User Profile information. The `user_metadata` object should be used to store user attributes, such as user preferences, that don't impact what a user can access. The `app_metadata` object should be used for user attributes, such as a support plan, security roles, or access control groups, which can impact how an application functions and/or what the user can access. [Learn more](/api/management/v2/changes#8) about when to use `app_metadata` vs `user_metadata`.
+
+::: panel Metadata Data Limits
+Both `app_metadata` and `user_metadata` are limited to a size of 16mb each. However, we recommend against using these properties like a database. They should be used for identity related information. Additionally, at some point we may put a more strict size limit on these properties.
+
+In addition, please be aware that using Rules and/or the Management Dashboard may further limit the amount of metadata you can store.
+:::
+
+::: warning
+Please note that an authenticated user can perform actions that modify data in their profile's **user_metadata**, but they can't do anything that modifies their **app_metadata**.
+:::
+
+::: note
+Use a consistent datatype each time you create or update a given metadata field. Using `user.user_metadata.age = "23"` for one user and `user.user_metadata.age = 23` for another user will cause issues when retrieving the data.
+:::
+
+## Attributes
+
+There is a section called `Identity Provider Attributes` which contains information retrieved from the authentication provider (such as Facebook, Twitter, Google, SAML, your own provider, and so on). This section always contains at least one identity provider, and it is the one the user originally authenticated against. This data is read-only.
+
+Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API Access Token that can be used with that provider.The following attributes are available on the user profile.
 
 * `app_metadata`: Custom fields storing information about a user. These attributes contain information that influences the user's access. For more info see [Metadata](/metadata).
 
@@ -51,7 +76,7 @@ The following attributes are available on the user profile.
 
 * `phone_verified`: The `true/false` value indicating whether the user's phone number has been verified. Only valid for users with SMS connections.
 
-* `picture`: [The user's profile picture](/user-profile/user-picture).
+* `picture`: [The user's profile picture](/user-profile/change-user-pictures).
 
 * `updated_at`: The timestamp of when the user's profile was last updated/modified.
 
@@ -66,3 +91,10 @@ Most user profile fields are not returned as part of [ID Token](/tokens/id-token
 ::: panel Blacklist user attributes
 If there are user fields that should not be stored by Auth0 due to privacy reasons, you can blacklist the attributes you do not want persisting in Auth0 databases. For details, see [Blacklist User Attributes](/security/blacklist-user-attributes).
 :::
+
+## Keep reading
+
+* [Auth0 Normalized User Profile](/user-profile/normalized)
+* [User Metadata](/metadata)
+* [View Users](/user-profile/view-users)
+* [Update Users Using Your Database](/user-profile/update-users-using-your-database)

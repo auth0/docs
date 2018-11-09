@@ -7,6 +7,7 @@ topics:
 contentType: how-to
 useCase:
   - manage-users
+v2: true
 ---
 
 # Create Users Using the Dashboard

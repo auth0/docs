@@ -7,6 +7,7 @@ topics:
     - user-profiles
 contentType: concept
 useCase: manage-users
+v2: true
 ---
 # User Profiles
 
@@ -14,17 +15,17 @@ The Auth0 **User Profile** is a set of attributes about a user, such as first na
 
 Attributes may be returned by the authenticating service (such as Facebook), as well as via custom databases and web services. Auth0 refers to all attribute sources as **Connections** because Auth0 connects to them to authenticate the user.
 
-## User profile data sources
+## Data sources
 
 User Profile attributes may come from multiple sources. A core set of attributes will come from the service, such as Facebook or LinkedIn, that authenticates a user. Alternatively, the authentication service might be an enterprise provider, such as Active Directory, or a SAML-compliant authentication service operated by a business or other organization.
 
 Other types of authentication services include custom databases, web services, and the database that is included as part of the Auth0 service. These authentication services are also called providers, authentication providers or identity providers (often referred to as IDPs). Within Auth0, they are called **Connections**, because Auth0 connects to them to authenticate a user.
 
-## User Profile data normalization
+## Data normalization
 
 Auth0 supports [a wide variety of Connections](/identityproviders). Each connection may return a different set of attributes about the user, and each provider may use different names for the same attribute, such as *surname*, *last name* and *family name*. To handle the increased complexity this presents, Auth0 provides a [Normalized User Profile](/user-profile/normalized). Auth0 will return a basic set of information using specific attribute names so programs can rely on using those exact names to retrieve information such as `user_id`, `name`, `nickname`, and `picture`. If available, additional attributes such as `given_name` and `family_name` are also included in the [Normalized User Profile](/user-profile/normalized).
 
-## User Profile caching
+## Caching
 
 Auth0 caches the User Profile received from a Connection prior to passing it on to the calling application. This cache is stored in the Auth0 database. The information in the cache that originates from a Connection is refreshed each time the user authenticates.
 
@@ -32,41 +33,19 @@ The User Profile is cached for several reasons. First, caching allows you the op
 
 You may delete a user's cached profile via the Auth0 Dashboard or the Management API.
 
-## User Profile data structure
+## Data structure
 
-There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](${manage_url}/#/users) in the Auth0 Dashboard and then on a particular user.
-
-"Details" consists of core User Profile object with basic information such as name, email, and the timestamp of the latest login. The core User Profile object may contain additional attributes from its source Connection, in addition to the normalized Auth0 User Profile attributes.
-
-The User Profile object then has two **metadata** sub-objects, one called `user_metadata` and the other `app_metadata`. The metadata objects can be used to store additional User Profile information. The `user_metadata` object should be used to store user attributes, such as user preferences, that don't impact what a user can access. The `app_metadata` object should be used for user attributes, such as a support plan, security roles, or access control groups, which can impact how an application functions and/or what the user can access. [Learn more](/api/management/v2/changes#8) about when to use `app_metadata` vs `user_metadata`.
-
-::: panel Metadata Data Limits
-Both `app_metadata` and `user_metadata` are limited to a size of 16mb each. However, we recommend against using these properties like a database. They should be used for identity related information. Additionally, at some point we may put a more strict size limit on these properties.
-
-In addition, please be aware that using Rules and/or the Management Dashboard may further limit the amount of metadata you can store.
-:::
-
-::: warning
-Please note that an authenticated user can perform actions that modify data in their profile's **user_metadata**, but they can't do anything that modifies their **app_metadata**.
-:::
-
-::: note
-Use a consistent datatype each time you create or update a given metadata field. Using `user.user_metadata.age = "23"` for one user and `user.user_metadata.age = 23` for another user will cause issues when retrieving the data.
-:::
-
-Lastly, there is a section called `Identity Provider Attributes`. Here you will find all the information retrieved from the authentication provider (such as Facebook, Twitter, Google, SAML, your own provider, and so on). This section will always contain at least one identity provider, and it is the one the user originally authenticated against. This data is read-only.
-
-Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API Access Token that can be used with that provider.
+There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](${manage_url}/#/users) in the Auth0 Dashboard and then on a particular user. See [User Profile Structure](/user-profile/user-profile-structure)
 
 ## Custom User Profile data storage
 
 You can use `user_metadata` to store custom attributes such as the user's favorite color or phone number.
 
-Auth0 provides a [JS widget](https://github.com/auth0/auth0-editprofile-widget) that allows the user to update their profile information.
+Auth0 provides a [JS widget](https://github.com/auth0/auth0-editprofile-widget) that allows the user to update their profile information. See [User Data Storage Best Practices](/user-data-storage-best-practices) for more information. 
 
 ## User Profile application access
 
-The User Profile will be provided to an app once authentication is complete and control is returned to the app. At a low level, this can be accomplished using one of the [application protocols](/protocols) supported by Auth0. However, most developers prefer to leverage the Auth0 SDKs that are available as [Quickstarts](/).
+The User Profile will be provided to an application once authentication is complete and control is returned to the app. At a low level, this can be accomplished using one of the [application protocols](/protocols) supported by Auth0. However, most developers prefer to leverage the Auth0 SDKs that are available as [Quickstarts](/).
 
 One SDK is the Auth0 Lock widget, which provides a user login interface:
 
@@ -210,7 +189,7 @@ Information on linking accounts and examples of profiles are located [here](/lin
 
 ## Keep reading
 
-* [User Profile Attributes](/user-profile/user-profile-structure)
+* [User Profile Structure](/user-profile/user-profile-structure)
 * [Auth0 Normalized User Profile](/user-profile/normalized)
 * [User Metadata](/metadata)
-* [User Profile: In-Depth Details](/user-profile/user-profile-details)
+* [View Users](/user-profile/view-users)

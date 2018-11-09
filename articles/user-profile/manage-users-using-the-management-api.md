@@ -6,6 +6,7 @@ topics:
     - user-profiles
 contentType: how-to
 useCase: manage-users
+v2: true
 ---
 # Manage Users Using the Management API
 
@@ -19,10 +20,8 @@ For a list of available SDKs, refer to [the SDKs section of our Support Matrix](
 
 ## Keep reading
 
-::: next-steps
-* [User Profile Attributes](/user-profile/user-profile-structure)
+* [User Profile Structure](/user-profile/user-profile-structure)
 * [Auth0 Normalized User Profile](/user-profile/normalized)
 * [User Metadata](/metadata)
-* [User Profile: In-Depth Details](/user-profile/user-profile-details)
-* [Update Users using a Custom Database](/user-profile/customdb)
-:::
+* [View Users](/user-profile/view-users)
+* [Update Users Using Your Database](/user-profile/update-users-using-your-database)

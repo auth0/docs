@@ -8,6 +8,7 @@ topics:
     - impersonation
 contentType: how-to
 useCase: manage-users
+v2: true
 ---
 
 # Impersonate Users Using the Impersonation API
@@ -20,7 +21,7 @@ Let's assume that you have two apps, `app1` and `app2`, and you want to imperson
 
 1. Use one of two methods to locate the `user_id` of a given user that you want to impersonate. You can either use the Management API v2 to retrieve it, or you can use the Dashboard.
 
-* Option A: Use the Management API
+### Option A: Use the Management API
 
 First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that see [Access Tokens for the Management API](/api/management/v2/concepts/tokens).
 
@@ -40,7 +41,7 @@ After you have a token, you will have to use the token to retrieve the user id o
 
 Replace `YOUR_ACCESS_TOKEN` with the Management APIv2 token you got in the previous step.
 
-* Option B: Use the Dashboard
+### Option B: Use the Dashboard
 
 Alternatively, you can retrieve the `user_id` information from the Dashboard. Go to the [Users](${manage_url}/#/users) section and look at the user's profile. The `user_id` is displayed under the **Identity Provider Attributes** section.
 
@@ -161,3 +162,11 @@ Content-Type: application/json
 ```
 
 Congratulations, you are done!
+
+## Keep reading
+
+* [User Profile Structure](/user-profile/user-profile-structure)
+* [Auth0 Normalized User Profile](/user-profile/normalized)
+* [User Metadata](/metadata)
+* [View Users](/user-profile/view-users)
+* [Update Users Using Your Database](/user-profile/update-user-profiles-using-your-database)
