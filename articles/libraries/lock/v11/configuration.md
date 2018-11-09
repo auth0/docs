@@ -681,6 +681,19 @@ var options = {
 }
 ```
 
+#### Hidden field
+To specify a hidden field use: `type: "hidden"`. Both the `value` and `name` properties are required.
+
+ ```js
+var options = {
+  additionalSignUpFields: [{
+    type: "hidden",
+    name: "signup_code",
+    value: "abc123"
+  }]
+}
+```
+
 ::: note
 Some use cases may be able to use `additionalSignUpFields` data for email templates, such as an option for language preferences, the value of which could then be used to set the language of templated email communications.
 :::
