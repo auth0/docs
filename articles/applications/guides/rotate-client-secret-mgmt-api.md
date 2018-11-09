@@ -9,7 +9,7 @@ useCase:
   - build-an-app
 ---
 
-# Rotate the Client Secret using the Management API
+# Rotate a Client Secret using the Management API
 
 ::: note
 To make calls to the Management API, you must [get and use a valid Access Token](/api/management/v2/tokens).
