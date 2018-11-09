@@ -28,7 +28,19 @@ v2: True
 
 ## Users Tab
 
+The [Users](${manage_url}/#/users) page lists the users who are associated with your apps. There are five tabs:
+
+* Details
+* Devices
+* History
+* Locations
+* Raw JSON
+
 ![](/media/articles/users/users-tab.png)
+
+### User Details
+
+See the [User Details](/api-auth/references/user-details) for more information. 
 
 ### Create User
 
