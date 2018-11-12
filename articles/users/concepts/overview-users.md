@@ -18,11 +18,10 @@ The Auth0 **User Profile** is a set of attributes about a user, such as first na
 
 * [User Profile Overview](/users/concepts/overview-user-profile)
 * [User Profile Structure](/users/references/user-profile-structure)
-* [User Data Storage Best Practices](/users/references/user-data-storage-best-practices)
 * [Normalized User Profile](/users/normalized)
-* [Use Profile Metadata in Rules](/rules/metadata-in-rules)
 * [Link Accounts](/link-accounts)
 * [Implement Progressive Profiling](/users/guides/implement-progressive-profiling)
+* [Update User Profiles Using Your Database](/users/guides/update-user-profiles-using-your-database)
 * [Blacklist User Attributes](/security/blacklisting-attributes)
 
 ## User metadata
@@ -33,7 +32,7 @@ Learn about the [metadata](/metadata) fields available in the user profile, as w
 
 Learn how to export users from Auth0.
 
-* [Export Users with the Management API](/users/references/search-best-practices#user-export)
+* [Export Users Search Results](/users/references/search-best-practices#user-export)
 * [User Import/Export Extension](/extensions/user-import-export)
 
 ## User migration
@@ -57,6 +56,10 @@ Learn about the [extensions](/extensions) available for providing Auth0 admin ac
 ## Redirect users
 
 Learn about [redirecting](/users/guides/redirect-users-after-login) your users after the authentication process. 
+
+* [Redirect Users After Login](/users/guides/redirect-users-after-login)
+* [Redirect Users After Logout](/logout#redirect-users-after-logout)
+* [Redirect Users from Rules](/rules/current/redirect)
 
 ## Get user information on Unbounce landing pages
 
