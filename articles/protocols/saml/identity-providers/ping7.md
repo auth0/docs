@@ -22,7 +22,7 @@ Most options are the default values. You will just need to press __Next__ in mos
 
 If you want **IdP-Initiated SSO** make sure to include the connection parameter in the Assertion Consumer Service URL: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`.
 
-**Beginning with auth0.js v9.3.4, you must also [enable the impersonation flags](/user-profile/user-impersonation#enable-impersonation) to use IdP-initiated login.**
+**Beginning with auth0.js v9.3.4, you must also [enable the impersonation flags](/users/guides/impersonate-users-using-the-impersonation-api) to use IdP-initiated login.**
 
 <%= include('../../../_includes/_deprecate-impersonation.md') %>
 

@@ -244,10 +244,8 @@ Instead, you would use this:
 }
 ```
 
-## Keep Reading
+## Keep reading
 
-::: next-steps
 * [Updating Metadata with Auth0 APIs](/metadata/management-api)
 * [User Data Storage Guidance](/users/references/user-data-storage)
-* [Change a User's Picture](/user-profile/user-picture#change-a-user-s-picture)
-:::
+* [Change a User's Picture](/users/guides/change-user-pictures)

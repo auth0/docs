@@ -76,7 +76,7 @@ Auth0 also supports the ability for users to [link their profile to multiple ide
 
 * `phone_verified`: The `true/false` value indicating whether the user's phone number has been verified. Only valid for users with SMS connections.
 
-* `picture`: [The user's profile picture](/user-profile/change-user-pictures).
+* `picture`: [The user's profile picture](/users/guides/change-user-pictures).
 
 * `updated_at`: The timestamp of when the user's profile was last updated/modified.
 
