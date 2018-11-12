@@ -23,7 +23,7 @@ Other types of authentication services include custom databases, web services, a
 
 ## Data normalization
 
-Auth0 supports [a wide variety of Connections](/identityproviders). Each connection may return a different set of attributes about the user, and each provider may use different names for the same attribute, such as *surname*, *last name* and *family name*. To handle the increased complexity this presents, Auth0 provides a [Normalized User Profile](/user-profile/normalized). Auth0 will return a basic set of information using specific attribute names so programs can rely on using those exact names to retrieve information such as `user_id`, `name`, `nickname`, and `picture`. If available, additional attributes such as `given_name` and `family_name` are also included in the [Normalized User Profile](/user-profile/normalized).
+Auth0 supports [a wide variety of Connections](/identityproviders). Each connection may return a different set of attributes about the user, and each provider may use different names for the same attribute, such as *surname*, *last name* and *family name*. To handle the increased complexity this presents, Auth0 provides a [Normalized User Profile](/users/normalized). Auth0 will return a basic set of information using specific attribute names so programs can rely on using those exact names to retrieve information such as `user_id`, `name`, `nickname`, and `picture`. If available, additional attributes such as `given_name` and `family_name` are also included in the Normalized User Profile.
 
 ## Caching
 
@@ -35,13 +35,13 @@ You may delete a user's cached profile via the Auth0 Dashboard or the Management
 
 ## Data structure
 
-There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](${manage_url}/#/users) in the Auth0 Dashboard and then on a particular user. See [User Profile Structure](/user-profile/user-profile-structure)
+There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](${manage_url}/#/users) in the Auth0 Dashboard and then on a particular user. See [User Profile Structure](/users/references/user-profile-structure)
 
 ## Custom User Profile data storage
 
 You can use `user_metadata` to store custom attributes such as the user's favorite color or phone number.
 
-Auth0 provides a [JS widget](https://github.com/auth0/auth0-editprofile-widget) that allows the user to update their profile information. See [User Data Storage Best Practices](/user-data-storage-best-practices) for more information. 
+Auth0 provides a [JS widget](https://github.com/auth0/auth0-editprofile-widget) that allows the user to update their profile information. See [User Data Storage Best Practices](users/references/user-data-storage-best-practices) for more information. 
 
 ## User Profile application access
 
@@ -186,10 +186,3 @@ Users may log into an application initially via one Connection (such as a databa
 Note that the User Profile attributes from the multiple providers are not merged. The core User Profile attributes will be sourced from the first provider used.
 
 Information on linking accounts and examples of profiles are located [here](/link-accounts).
-
-## Keep reading
-
-* [User Profile Structure](/user-profile/user-profile-structure)
-* [Auth0 Normalized User Profile](/user-profile/normalized)
-* [User Metadata](/metadata)
-* [View Users](/user-profile/view-users)
