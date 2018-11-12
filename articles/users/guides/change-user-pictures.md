@@ -12,7 +12,7 @@ v2: true
 
 # Change User Pictures
 
-Auth0 [normalizes](/user-profile/normalized) common profile properties in the User Profile, this includes the `name` and `picture` field and more. The picture field is populated by either the social provider profile picture or the Gravatar image associated with the user's email address. By default all database users will have a placeholder image with their initials. When you authenticate the user, this picture field is referred by as `user.picture`.
+Auth0 [normalizes](/users/normalized) common profile properties in the User Profile, this includes the `name` and `picture` field and more. The picture field is populated by either the social provider profile picture or the Gravatar image associated with the user's email address. By default all database users will have a placeholder image with their initials. When you authenticate the user, this picture field is referred by as `user.picture`.
 
 ![User Picture](/media/articles/user-profile/user-picture.png)
 
@@ -80,6 +80,6 @@ function (user, context, callback) {
 
 ## Keep reading
 
-- [User Profile Structure](/user-profile/user-profile-structure)
-- [View Users](/user-profile/view-users)
+- [User Profile Structure](/users/references/user-profile-structure)
+- [View Users](/users/guides/view-users)
 - [Auth0 Blog: Update of the user's details section](https://auth0.com/blog/update-of-the-user-details-section/)

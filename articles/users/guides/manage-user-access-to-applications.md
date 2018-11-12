@@ -26,7 +26,7 @@ For total separation you can create a new tenant.
 
 ## Keep reading
 
-* [User Profile Structure](/user-profile/user-profile-structure)
-* [Normalized User Profile](/user-profile/normalized)
+* [User Profile Structure](/users/references/user-profile-structure)
+* [Auth0 Normalized User Profile](/users/normalized)
 * [User Metadata](/metadata)
-* [Update User Profiles Using Your Database](/user-profile/update-user-profiles-using-your-database)
+* [Update Users Using Your Database](/users/guides/update-user-profiles-using-your-database)

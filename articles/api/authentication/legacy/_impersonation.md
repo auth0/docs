@@ -83,4 +83,4 @@ Use this endpoint to obtain an impersonation URL to login as another user. Usefu
 
 ### More Information
 
-- [Impersonation](/user-profile/user-impersonation)
+- [Impersonate Users](/users/guides/impersonate-users-using-the-dashboard)

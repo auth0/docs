@@ -221,7 +221,7 @@ The Auth0 data store is customized for authentication data. Storing anything bey
 
 We need to associate a user's music with that user, but this information is not required for authentication. Here's how to store this information in a separate database that is integrated with the backend of the application.
 
-The user's unique identifier is their [user_id](/user-profile/normalized#storing-user-data). Here is a sample row from the `songs` table in our database:
+The user's unique identifier is their [user_id](/users/normalized#storing-user-data). Here is a sample row from the `songs` table in our database:
 
 | song_id   | songname           | user_id                    |
 | --------- | ------------------ | -------------------------- |

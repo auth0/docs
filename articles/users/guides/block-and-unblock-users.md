@@ -29,4 +29,4 @@ To disable a user's access to your apps, you can block the user in the Dashboard
 ## Keep reading
 
 * [Manage User Access to Applications](/users/guides/manage-user-access-to-applications)
-* [View Users](/user-profile/view-users)
+* [View Users](/users/guides/view-users)

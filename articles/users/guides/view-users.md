@@ -56,8 +56,8 @@ The Raw JSON tab displays all of the information contained on the user's profile
 
 ## Keep reading
 
-* [User Profile Attributes](/user-profile/user-profile-structure)
-* [Auth0 Normalized User Profile](/user-profile/normalized)
+* [User Profile Structure](/users/references/user-profile-structure)
+* [Auth0 Normalized User Profile](/users/normalized)
 * [User Metadata](/metadata)
-* [View Users](/user-profile/view-users)
-* [Update Users Using Your Database](/user-profile/update-users-using-your-database)
+* [View Users](/users/guides/view-users)
+* [Update Users Using Your Database](/users/guides/update-user-profiles-using-your-database)

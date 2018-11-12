@@ -39,10 +39,10 @@ See the [User profile cache](#user-profile-cache) section below for a brief over
 
 If you have [enabled user migration](/connections/database/migrating), and a user has already been migrated to the Auth0 database, then Auth0 will not query your database again for the user profile. And therefore all changes made in the custom database for that user will never reflect in Auth0.
 
-Once a user has been migrated, you will also be able to update fields such as `email` and `email_verified` via the Management API. However, normal rules for updating other user fields will still apply as described in the [Normalized User Profile](/user-profile/normalized) (for example, you will still not be able to update fields such as `nickname`, `picture` and so on).
+Once a user has been migrated, you will also be able to update fields such as `email` and `email_verified` via the Management API. However, normal rules for updating other user fields will still apply as described in the [Normalized User Profile](/users/normalized) (for example, you will still not be able to update fields such as `nickname`, `picture` and so on).
 
 ## User profile cache
 
-Auth0 [caches the user profile](/user-profile/user-profile-details#caching-of-the-user-profile-in-auth0) received from a [database connection](/connections/database) before sending it to the client application. This cache is stored in the Auth0 database and is refreshed each time the user authenticates.
+Auth0 [caches the user profile](/users/references/user-profile-structure) received from a [database connection](/connections/database) before sending it to the client application. This cache is stored in the Auth0 database and is refreshed each time the user authenticates.
 
-The cached values for the [Normalized User Profile](/user-profile/normalized) fields are based on the values returned from the Login Script of your custom database connection.
+The cached values for the [Normalized User Profile](/users/normalized) fields are based on the values returned from the Login Script of your custom database connection.

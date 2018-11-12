@@ -44,7 +44,7 @@ This would be the profile stored by Auth0:
 }
 ```
 
-This is a [*normalized user profile*](/user-profile/normalized), which is a protocol-agnostic representation of this user as defined by Auth0. When performing an OIDC conformant login, Auth0 would return the following ID Token claims to the application:
+This is a [*normalized user profile*](/users/normalized), which is a protocol-agnostic representation of this user as defined by Auth0. When performing an OIDC conformant login, Auth0 would return the following ID Token claims to the application:
 
 ```json
 {

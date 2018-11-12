@@ -94,7 +94,7 @@ When impersonating a user in Dashboard, after clicking **Sign in as User** you w
 
 ![Advanced Settings](/media/articles/user-profile/impersonation-adv.png)
 
-This reveals fields to make it easier to [impersonate a User using the Impersonation API](#impersonate-a-user-using-the-impersonation-api):
+This reveals fields to make it easier to [Impersonate a User Using the Impersonation API](/users/guides/impersonate-users-using-the-impersonation-api):
 
 - **Response mode**: `GET` or `POST`. This is only for server side apps, client side apps default to `GET`.
 - **Response type**: `Code` or `Token`. This is only for server side apps, client side apps default to `Token`.
@@ -103,8 +103,7 @@ This reveals fields to make it easier to [impersonate a User using the Impersona
 
 ## Keep reading
 
-* [User Profile Structure](/user-profile/user-profile-structure)
-* [Auth0 Normalized User Profile](/user-profile/normalized)
+* [User Profile Structure](/users/references/user-profile-structure)
+* [Auth0 Normalized User Profile](/users/normalized)
 * [User Metadata](/metadata)
-* [View Users](/user-profile/view-users)
-* [Update Users Using Your Database](/user-profile/update-user-profiles-using-your-database)
+* [View Users](/users/guides/view-users)

@@ -46,9 +46,9 @@ You can use the [Management API](/api/management/v2) in order to retrieve, creat
 
 | **Endpoint** | **Description** |
 |--|--|
-| [Search user by id](/api/management/v2#!/Users/get_users_by_id) | Use this if you want to search for a user based on Id. For an example request see [User Search](/users/search/best-practices#users-by-id). |
-| [Search user by email](/api/management/v2#!/Users_By_Email/get_users_by_email) | Use this if you want to search for a user based on email. For an example request see [User Search](/users/search/best-practices#users-by-email).|
-| [Get a list of users](/api/management/v2#!/Users/get_users) | Use this if you want to search for a list if users with other search criteria. For an example request see [User Search](/users/search/best-practices#users). See also [Search Metadata](#search-metadata) for a list of restrictions. |
+| [Search user by id](/api/management/v2#!/Users/get_users_by_id) | Use this if you want to search for a user based on Id. For an example request see [User Search](/users/references/search-best-practices#users-by-id). |
+| [Search user by email](/api/management/v2#!/Users_By_Email/get_users_by_email) | Use this if you want to search for a user based on email. For an example request see [User Search](/users/references/search-best-practices#users-by-email).|
+| [Get a list of users](/api/management/v2#!/Users/get_users) | Use this if you want to search for a list if users with other search criteria. For an example request see [User Search](/users/references/search-best-practices#users). See also [Search Metadata](#search-metadata) for a list of restrictions. |
 | [Create User](/api/management/v2#!/Users/post_users) | Create a new user and (optionally) set metadata. For a body sample see [POST /api/v2/users](/api/management/v2#!/Users/post_users).|
 | [Update User](/api/management/v2#!/Users/patch_users_by_id) | Update a user using a JSON object. For example requests see [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id).| 
 
@@ -248,6 +248,6 @@ Instead, you would use this:
 
 ::: next-steps
 * [Updating Metadata with Auth0 APIs](/metadata/management-api)
-* [User Data Storage Guidance](/user-profile/user-data-storage)
+* [User Data Storage Guidance](/users/references/user-data-storage)
 * [Change a User's Picture](/user-profile/user-picture#change-a-user-s-picture)
 :::

@@ -56,7 +56,7 @@ Learn about the [extensions](/extensions) available for providing Auth0 admin ac
 
 ## Redirect users
 
-Learn about [redirecting](/users/redirecting-users) your users after the authentication process. 
+Learn about [redirecting](/users/guides/redirect-users-after-login) your users after the authentication process. 
 
 ## Get user information on Unbounce landing pages
 

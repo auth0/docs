@@ -46,10 +46,10 @@ The User Details page will show `pending` when a user is first created until the
 
 ## Keep reading
 
-* [User Profiles](/user-profile/overview-user-profile)
-* [Manage Users Using the Dashboard](/user-profile/manage-users-using-the-dashboard)
-* [View Users](/user-profile/view-users)
-* [Manage User Access to Applications](/user-profile/manage-user-access-to-applications)
-* [Manage Users Using the Management API](/user-profile/manage-users-using-the-management-api)
-* [Update User Profiles Using Your Database](/user-profile/update-user-profiles-using-your-database)
+* [User Profiles](/users/concepts/overview-user-profile)
+* [Manage Users Using the Dashboard](/users/guides/manage-users-using-the-dashboard)
+* [View Users](/users/guides/view-users)
+* [Manage User Access to Applications](/users/guides/manage-user-access-to-applications)
+* [Manage Users Using the Management API](/users/guides/manage-users-using-the-management-api)
+* [Update User Profiles Using Your Database](/users/guides/update-user-profiles-using-your-database)
 * [Search](/users/search/v3)
