@@ -35,6 +35,7 @@ A correctly formatted, or well-formed, JWT consists of three concatenated Base64
 
 To see for yourself what is inside a JWT, use the [JWT.io Debugger](https://jwt.io/#debugger). It will allow you to quickly check that a JWT is well formed and manually inspect the values of the various claims.
 
+
 ## Verify the signature
 
 The last part of a JWT is the signature, which is used to verify that the token was signed by the sender and not altered in any way. You will need to Base64-decode the signature to do this.
@@ -50,22 +51,6 @@ Since the ID Token is always a JWT, the signature is created using its header an
 - For `RS256` (the most secure practic and our recommendation), the tenant's [JSON Web Key Set (JWKS)](/jwks) is used. Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
 
 - For `HS256`, the APIs __Signing Secret__ is used. You can find this information at your [API's Settings](${manage_url}/#/apis)> Advanced Settings > OAuth. Note that this field is only displayed for APIs that use `HS256`.
-
-
-
-
-
-
-
-
-
-Confirm that the Access Token is correctly signed using the proper key
-To do this, you will need to:
-
-Grab the kid property from the header of the decoded Access Token
-Search your filtered JWKS for the key with the matching kid property
-Build a certificate using the corresponding x5c property in your JWKS
-Use the certificate to verify the Access Token's signature
 
 
 ## Verify the claims
