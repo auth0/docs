@@ -17,8 +17,6 @@ useCase:
 
 Now that you have an Authorization Code, you must exchange it for tokens. Using the Authorization Code (`code`) from the previous step, you will need to `POST` to the [Token URL](/api/authentication#authorization-code-pkce-) sending also the `code_verifier`.
 
-## Request tokens when adding login to your app
-
 An example POST to Token URL:
 
 ```har
@@ -65,52 +63,3 @@ You can [decode and extract user information from an ID Token](/tokens/id-token#
 You can use an Access Token to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or your own back-end API.
 
 You can use [Refresh Tokens](/tokens/refresh-token) to obtain a new Access Token or ID Token after the previous one has expired. The `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard.
-
-
-----
-
-## Request tokens when calling an API from your app
-
-When calling an API from your app, you'll want to make sure you obtain an Access Token.
-
-
-An example POST to Token URL:
-
-```har
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/oauth/token",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" }
-  ],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"com.myclientapp://myclientapp.com/callback\", }"
-  }
-}
-```
-
-Where:
-
-* `grant_type`: This must be `authorization_code`.
-* `client_id`: Your application's Client ID.
-* `code_verifier`: Cryptographically random key that was used to generate the `code_challenge` passed to `/authorize`.
-* `code`: The Authorization Code received from the initial `authorize` call.
-* `redirect_uri`: The URL must match exactly the `redirect_uri` passed to `/authorize`.
-
-The response contains `access_token`, `refresh_token`, `id_token`, and `token_type` values, for example:
-
-```js
-{
-  "access_token": "eyJz93a...k4laUWw",
-  "refresh_token": "GEbRxBN...edjnXbL",
-  "id_token": "eyJ0XAi...4faeEoQ",
-  "token_type": "Bearer"
-}
-```
-
-Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](/tokens/refresh-token).
-
-::: warning
-The Authorization Code flow with PKCE can only be used for Applications whose type is `Native` in the Dashboard.
-:::
