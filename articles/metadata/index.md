@@ -247,5 +247,5 @@ Instead, you would use this:
 ## Keep reading
 
 * [Updating Metadata with Auth0 APIs](/metadata/management-api)
-* [User Data Storage Guidance](/users/references/user-data-storage)
-* [Change a User's Picture](/users/guides/change-user-pictures)
+* [User Data Storage Best Practices](/users/references/user-data-storage-best-practices)
+* [Change User Pictures](/users/guides/change-user-pictures)

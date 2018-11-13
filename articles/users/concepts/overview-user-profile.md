@@ -35,7 +35,7 @@ You may delete a user's cached profile via the Auth0 Dashboard or the Management
 
 ## Data structure
 
-There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](${manage_url}/#/users) in the Auth0 Dashboard and then on a particular user. See [User Profile Structure](/users/references/user-profile-structure)
+There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](${manage_url}/#/users) in the Auth0 Dashboard and then on a particular user. See [User Profile Structure](/users/references/user-profile-structure).
 
 ## Custom User Profile data storage
 
