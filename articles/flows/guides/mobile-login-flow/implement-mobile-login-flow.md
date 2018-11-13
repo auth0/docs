@@ -14,7 +14,7 @@ useCase:
 ---
 # Implement the Mobile Login Flow
 
-<%= include('../../_includes/_pipeline2') %>
+<%= include('/_includes/_pipeline2') %>
 
 ::: note
 This tutorial will help you implement the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/flows/concepts/mobile-login-flow).
