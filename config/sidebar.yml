@@ -488,54 +488,15 @@ articles:
             url: "/users/migrations/azure-access-control"
             hidden: true
 
-  - title: "Multifactor Authentication"
+  - title: "Multi-factor Authentication"
     url: "/multifactor-authentication"
     children:
       - title: "Overview"
         url: "/multifactor-authentication"
 
-      - title: "Guardian"
-        url: "/multifactor-authentication/guardian"
-        children:
-          - title: "For Administrators"
-            url: "/multifactor-authentication/administrator"
-
-          - title: "For Developers"
-            url: "/multifactor-authentication/developer"
-
-          - title: "For Users"
-            url: "/multifactor-authentication/guardian/user-guide"
-
-      - title: "Google Authenticator"
-        url: "/multifactor-authentication/google-authenticator"
-        children:
-          - title: "For Administrators"
-            url: "/multifactor-authentication/google-auth/admin-guide"
-
-          - title: "For Developers"
-            url: "/multifactor-authentication/google-auth/dev-guide"
-
-          - title: "For Users"
-            url: "/multifactor-authentication/google-auth/user-guide"
-
-      - title: "Duo Security"
-        url: "/multifactor-authentication/duo"
-        children:
-          - title: "For Administrators"
-            url: "/multifactor-authentication/duo/admin-guide"
-
-          - title: "For Developers"
-            url: "/multifactor-authentication/duo/dev-guide"
-
-          - title: "For Users"
-            url: "/multifactor-authentication/duo/user-guide"
-
       - title: "Custom MFA"
         url: "/multifactor-authentication/custom"
 
-      - title: "Yubikey NEO Example"
-        url: "/multifactor-authentication/yubikey"
-        
       - title: "Step-up Authentication"
         url: "/multifactor-authentication/step-up-authentication"
         children:
@@ -547,7 +508,7 @@ articles:
             url: "/multifactor-authentication/step-up-authentication/step-up-for-apis"
             hidden: true
 
-      - title: "API"
+      - title: "MFA API"
         url: "/multifactor-authentication/api"
         children:
           - title: "Trigger MFA"
