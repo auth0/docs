@@ -77,3 +77,9 @@ NSString *challenge = [[[[hash base64EncodedStringWithOptions:0]
     </div>
   </div>
 </div>
+
+## Next steps
+
+::: next-steps
+[Authorize the User](/api-auth/tutorials/mobile-login-flow/authorize-user) 
+:::
