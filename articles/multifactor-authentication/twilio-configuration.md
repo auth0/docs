@@ -9,7 +9,6 @@ contentType:
 useCase:
   - customize-mfa
 ---
-
 # Configuring Twilio for Guardian SMS
 
 When initially setting up SMS, you have up to 100 SMS to be used for testing. This limit can be removed by setting up a Twilio account. To prevent malicious login attempts, your users will always be limited to up to 10 SMS/Hour (replenishing one message an hour, up to 10).

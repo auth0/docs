@@ -9,7 +9,6 @@ contentType:
 useCase:
   - customize-mfa
 ---
-
 # Customize SMS Messages
 
 To customize the SMS messages sent by Auth0 during enrollment (when associating a device to Guardian) or verification (when an authentication message is sent to the device), do the following:
