@@ -1,4 +1,21 @@
-Example Use Cases
+---
+description: Explore example use cases while implementing the mobile login flow.
+toc: false
+topics:
+  - api-authentication
+  - oidc
+  - authorization-code
+  - pkce
+  - mobile-login-flow
+contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
+  - add-login
+---
+
+# Example Use Cases
+
 This section covers use cases that illustrate the authentication process using PKCE.
 
 Request the User's Name and Profile Picture
