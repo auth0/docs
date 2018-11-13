@@ -58,4 +58,4 @@ Check the standard claims contained in the decoded token's payload:
 
 - **Token issuer** (`iss`): The issuing authority inside the token must match the issuing authority identified in your Auth0 tenant's discovery document, which exists at https://YOUR_AUTH0_DOMAIN/.well-known/openid-configuration.
 
-- **Token audience** (`aud`): The token audience identifies the receipientw for which the token is intended. The value must match the Client ID of your Auth0 Application.
+- **Token audience** (`aud`): The token audience identifies the receipient for which the token is intended. The value must match the Client ID of your Auth0 Application.
