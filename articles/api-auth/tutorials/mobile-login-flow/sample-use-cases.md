@@ -16,13 +16,13 @@ useCase:
 
 # Example Use Cases
 
-These use cases build off of our tutorial on how to [Implement the Mobile Login Flow] (/api-auth/tutorials/mobile-login-flow/overview-mobile-login-flow).
+These use cases build off of our tutorial on how to [Implement the Mobile Login Flow](/api-auth/tutorials/mobile-login-flow/overview-mobile-login-flow).
 
 ## Request the User's Name and Profile Picture
 
 In addition to the usual user authentication, this example shows how to request additional user details.
 
-To request the user's name and picture, you need to add the appropriate scopes when calling the Authorization URL to request an `authorization_code`:
+To request the user's name and picture, you need to add the appropriate scopes when [authorizing the user](/api-auth/tutorials/mobile-login-flow/authorize-user):
 
 https://${account.namespace}/authorize?
     scope=openid%20name%20picture&
@@ -31,32 +31,8 @@ https://${account.namespace}/authorize?
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
     redirect_uri=${account.namespace}/mobile
-    
-After the user submits the request, the app receives an HTTP 302 response with a URL containing the authorization code at the end: https://${account.namespace}/callback?code=AUTHORIZATION_CODE
 
-Using the authorization code, you can obtain the ID Token by making a POST call to the tokens endpoint.
-
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/oauth/token",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" }
-  ],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.namespace}/mobile\" }"
-  }
-}
-If all goes well, you'll receive an HTTP 200 response with the following payload:
-
-{
-  "access_token":"eyJz93a...k4laUWw",
-  "refresh_token":"GEbRxBN...edjnXbL",
-  "id_token":"eyJ0XAi...4faeEoQ",
-  "token_type":"Bearer",
-  "expires_in":86400
-}
-By extracting the ID Token, which now contains the additional name and picture claims you requested, you'll see something similar to the following once you've decoded the payload:
+Now, when you [request tokens](/api-auth/tutorials/mobile-login-flow/request-tokens), your ID Token will contain the requested name and picture claims. When you [decode the ID Token](), it will look similar to:
 
 {
   "name": "auth0user@...",
@@ -67,6 +43,7 @@ By extracting the ID Token, which now contains the additional name and picture c
   "exp": 1478113129,
   "iat": 1478077129
 }
+
 Request a User Log In with GitHub
 You can send a user directly to the GitHub authentication screen by passing the connection parameter and setting its value to github.
 
