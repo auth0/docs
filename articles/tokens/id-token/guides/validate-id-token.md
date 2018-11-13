@@ -38,7 +38,11 @@ To see for yourself what is inside a JWT, use the [JWT.io Debugger](https://jwt.
 
 ## Verify the signature
 
-The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
+The last part of a JWT is the signature, which is used to verify that the token was signed by the sender and not altered in any way. You will need to Base64-decode the signature to do this.
+
+### Check the signing algorithm
+
+Check that the algorithm (`alg`) specified in the header of the decoded token matches the one you selected when you registered your Application with Auth0. To see the algorithm for your Application, [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm.
 
 Remember that the ID Token is always a JWT, and the signature is created using its header and payload, a secret and the hashing algorithm being used (as specified in the header: `HMAC`, `SHA256` or `RSA`). The way to verify it, depends on the hashing algorithm:
 
@@ -47,7 +51,20 @@ Remember that the ID Token is always a JWT, and the signature is created using i
 
 The most secure practice, and our recommendation, is to use `RS256`.
 
-To check or update the algorithm your Application uses go to [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm.
+
+
+
+
+
+
+
+Confirm that the Access Token is correctly signed using the proper key
+To do this, you will need to:
+
+Grab the kid property from the header of the decoded Access Token
+Search your filtered JWKS for the key with the matching kid property
+Build a certificate using the corresponding x5c property in your JWKS
+Use the certificate to verify the Access Token's signature
 
 
 ## Verify the claims
