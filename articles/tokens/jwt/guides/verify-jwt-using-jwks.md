@@ -12,7 +12,8 @@ useCase:
 ---
 # Verify a JWT using the JWKS Endpoint
 
-Auth0 exposes a discovery endpoint, which exists at https://YOUR_AUTH0_DOMAIN/.well-known/openid-configuration. You can use this endpoint to automatically configure your application and locate the JWKS endpoint (jwks_uri), which contains the JWKs used to sign all Auth0-issued JWTs for your API.
+Auth0 exposes a discovery endpoint, which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to automatically configure your application and locate the JWKS endpoint (`jwks_uri`), which contains the JWKs used to sign all Auth0-issued JWTs for your API.
+
 
 When verifying a JWT using a JWKS, here are the high level steps you will need to follow:
 
@@ -34,12 +35,12 @@ Use the certificate to verify the Access Token's signature
 
 
 
-How many signing keys should I expect?
+## How many signing keys should I expect?
 
 It's good practice to assume that multiple signing keys could be present in your JWKS. This may seem unnecessary since the Auth0 JWKS endpoint typically contains a single signing key; however, multiple keys can be found in the JWKS when rotating signing certificates.
 
 You will also probably want to filter out any keys missing a public key or a kid property since later, you will use the kid property to match the key in your JWKS with the key specified in the Access Token.
 
-Should I cache my signing keys?
+## Should I cache my signing keys?
 
 You can cache your signing keys to improve application performance and avoid running into rate limits, but you will want to make sure that if decoding a token fails, you invalidate the cache and retrieve new signing keys before trying only one more time.
