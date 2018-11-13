@@ -60,14 +60,13 @@ Learn how to implement this flow at [Implement the Mobile Login Flow](/flows/gui
 
 Yes, [rules](/rules) will run for the mobile login flow. If you want to execute special logic for this flow, check that the `context.protocol` property in your rule contains a value of `oidc-basic-profile`. If it does, then the rule is running during the mobile login flow.
 
-Learn how to implement this at [Implement the Mobile Login Flow: Customize the Tokens](/flows/guides/mobile-login-flow/sample-use-cases#).
+Learn how to implement a rule for your mobile login flow at [Sample Use Cases: Customize Tokens](/flows/guides/mobile-login-flow/sample-use-cases##customize-tokens).
 
 ## Keep reading
 
 ::: next-steps
-- [Implement the Mobile Login Flow](/api-auth/tutorials/mobile-login-flow)
-- [How to configure an API in Auth0](/api-auth/guides/configure-api)
+- [Implement the Mobile Login Flow](/flows/guides/mobile-login-flow/implement-mobile-login-flow)
+- [How to configure an API in Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
 - [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Application Authentication for Mobile & Desktop Apps](/application-auth/mobile-desktop)
 - [Tokens used by Auth0](/tokens)
 :::
