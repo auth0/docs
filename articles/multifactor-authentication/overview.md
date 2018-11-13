@@ -25,7 +25,7 @@ Enabling MFA for your tenant is a fairly straightforward process.
 
 ### 1. Toggle on the factors you require in the Dashboard
 
-In the [Dashboard](${manage_url}/#/), head to the Multifactor Auth section. Here you will find a series of toggles for the MFA factors supported by Auth0. 
+In the [Dashboard > Multifactor Auth](${manage_url}/#/mfa), head to the Multifactor Auth section. Here you will find a series of toggles for the MFA factors supported by Auth0. 
 
 ![MFA Dashboard Page](/media/articles/multifactor-authentication/mfa-dashboard.png)
 
@@ -59,6 +59,10 @@ End users will be prompted to download whichever app you have enabled in the Das
 Once this is all set up, when the user attempts to authenticate as normal, their device will receive a push notification via the app, and once they approve the request, they will be logged in.
 
 Auth0 supports the use of Auth0 Guardian ([Google Play](/) / [App Store](/)) and Duo ([Google Play](/) / [App Store](/)) for push notifications.
+
+::: note
+Enabling Duo will result in end users not being given any other choices for MFA factors, even if other factors are enabled and set up.
+:::
 
 #### SMS
 
