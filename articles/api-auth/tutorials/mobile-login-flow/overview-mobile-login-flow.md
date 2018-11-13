@@ -33,12 +33,17 @@ If you prefer to embed your own login pages within your mobile app, you can impl
 
 ## Prerequisites
 
-Before beginning this tutorial, please:
+This tutorial can be used to add login to your app or to call an API from your app.
+
+Before beginning the tutorial, please:
 
 * [Register your Application with Auth0](/application-auth/guides/register-application-dashboard). 
   * Select an **Application Type** of **Native**.
   * Add an **Allowed Callback URL** of **https://${account.namespace}/mobile**.
   * Make sure your Application's **[Grant Types](/applications/guides/change-app-grant-type-dashboard)** include **Authorization Code**.
+  
+If calling an API, you should also:
+
 * [Register your API with Auth0](/api-auth/guides/register-api)
 
 
