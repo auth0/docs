@@ -67,5 +67,5 @@ If all goes well, you'll receive an HTTP 200 response with a payload containing 
 ## Next steps
 
 ::: next-steps
-[Explore sample use cases](/api-auth/tutorials/mobile-login-flow/sample-use-cases) 
+[Explore sample use cases](/flows/guides/mobile-login-flow/sample-use-cases) 
 :::
