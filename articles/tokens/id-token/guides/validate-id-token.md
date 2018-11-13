@@ -26,7 +26,7 @@ Most JWT libraries will take care of the token validation for you automatically,
 
 ## Check that the ID Token is correctly formatted
 
-Auth0 will generate the ID Token in JSON Web Token (JWT) format. Before doing anything else, your app should parse the ID Token to make sure it conforms to the structure of a JWT.
+Auth0 will generate the ID Token in [JSON Web Token (JWT) format](https://auth0.com/docs/jwt#what-is-the-json-web-token-structure-). Before doing anything else, your app should parse the ID Token to make sure it conforms to the structure of a JWT.
 
 A correctly formatted, or well-formed, JWT consists of three concatenated Base64-encoded strings, separated by dots: 
 
@@ -34,7 +34,7 @@ A correctly formatted, or well-formed, JWT consists of three concatenated Base64
 * Payload (set of claims): contains verifiable security statements such as the identity of the user and the permissions they are allowed.
 * Signature: used to validate that the token is trustworthy and has not been tampered with.
 
-To see for yourself what is inside a JWT, use the JWT.io Debugger. It will allow you to quickly check that a JWT is well formed and manually inspect the values of the various claims.
+To see for yourself what is inside a JWT, use the [JWT.io Debugger](https://jwt.io/#debugger). It will allow you to quickly check that a JWT is well formed and manually inspect the values of the various claims.
 
 ## Verify the signature
 
@@ -52,10 +52,10 @@ To check or update the algorithm your Application uses go to [Application Settin
 
 ## Verify the claims
 
-Once the application verifies the token's signature, the next step is to validate the standard claims of the token's payload. The following validations need to be made:
+Check the standard claims contained in the decoded token's payload:
 
-- **Token expiration**: The current date/time _must_ be before the expiration date/time listed in the `exp` claim (which is a Unix timestamp).
+- **Token expiration** (`exp`, Unix timestamp): The expiration date/time must be after the current date/time.
 
-- **Token issuer**: The `iss` claim denotes the issuer of the JWT. The value **must** match the URL of your Auth0 tenant. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`.
+- **Token issuer** (`iss`): The issuing authority inside the token must match the issuing authority identified in your Auth0 tenant's discovery document, which exists at https://YOUR_AUTH0_DOMAIN/.well-known/openid-configuration.
 
-- **Token audience**: The `aud` claim identifies the recipients that the JWT is intended for. The value _must_ match the Client ID of your Auth0 Application.
+- **Token audience** (`aud`): The token audience identifies the receipientw for which the token is intended. The value must match the Client ID of your Auth0 Application.
