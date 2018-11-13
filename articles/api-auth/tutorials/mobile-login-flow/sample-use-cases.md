@@ -14,13 +14,13 @@ useCase:
   - add-login
 ---
 
-# Example Use Cases
+# Sample Use Cases
 
 These use cases build off of our tutorial on how to [Implement the Mobile Login Flow](/api-auth/tutorials/mobile-login-flow/overview-mobile-login-flow).
 
 ## Request the User's Name and Profile Picture
 
-In addition to the usual user authentication, this example shows how to request additional user details.
+In addition to the usual user authentication, this example shows how to request additional user details, such as name and picture.
 
 To request the user's name and picture, you need to add the appropriate scopes when [authorizing the user](/api-auth/tutorials/mobile-login-flow/authorize-user):
 
@@ -32,7 +32,7 @@ https://${account.namespace}/authorize?
     code_challenge_method=S256&
     redirect_uri=${account.namespace}/mobile
 
-Now, when you [request tokens](/api-auth/tutorials/mobile-login-flow/request-tokens), your ID Token will contain the requested name and picture claims. When you [decode the ID Token](), it will look similar to:
+Now, when you [request tokens](/api-auth/tutorials/mobile-login-flow/request-tokens), your ID Token will contain the requested name and picture claims. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
 
 {
   "name": "auth0user@...",
@@ -44,7 +44,8 @@ Now, when you [request tokens](/api-auth/tutorials/mobile-login-flow/request-tok
   "iat": 1478077129
 }
 
-Request a User Log In with GitHub
+## Request a User Log In with GitHub
+
 You can send a user directly to the GitHub authentication screen by passing the connection parameter and setting its value to github.
 
 :::panel Logins with Social Providers While this example shows how to log in users via GitHub, you can just as easily request that a user log in with other Social providers, such as Google or Facebook.
