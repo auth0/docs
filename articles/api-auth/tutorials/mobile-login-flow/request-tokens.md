@@ -20,7 +20,7 @@ Now that you have an Authorization Code, you must exchange it for tokens. Using 
 
 
 
-# Request tokens when adding login to your app
+## Request tokens when adding login to your app
 
 When adding login to your app, you'll want to make sure you obtain an ID Token.
 
@@ -39,13 +39,17 @@ An example POST to Token URL:
   }
 }
 ```
+### Parameters
+
+| Parameter Name  | Description |
+|-----------------|-------------|
+| `grant_type`    | Set this to "authorization_code". |
+| `client_id`     | Your application's Client ID. |
+| `code_verifier` | The cryptographically-random key that was generated in the first step of this tutorial. |
+| `code`          | The `authorization_code` retrieved in the previous step of this tutorial. |
+| `redirect_uri`  | The URL must exactly match the `redirect_uri` passed to `/authorize`.
 
 
-
-
-
-
-For details on the request parameters, refer to [Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce#4-exchange-the-authorization-code-for-an-access-token).
 
 If all goes well, you'll receive an HTTP 200 response with the following payload:
 
@@ -88,7 +92,7 @@ For a list of libraries you can use to verify and decode tokens refer to [JWT.io
 
 ----
 
-# Request tokens when calling an API from your app
+## Request tokens when calling an API from your app
 
 When calling an API from your app, you'll want to make sure you obtain an Access Token.
 
