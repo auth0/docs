@@ -63,17 +63,6 @@ The example JWKS above contains a single key. Each property in the key is define
 * **kid**: is the unique identifier for the key
 * **x5t**: is the thumbprint of the x.509 cert (SHA-1 thumbprint)
 
-## Verifying a JWT using the JWKS endpoint
-
-We discussed verifying a JWT in detail in [Verify Access Tokens](/api-auth/tutorials/verify-access-token), so will not go into much detail in this document. One of the steps when verifying a JWT is to [verify the signature](/api-auth/tutorials/verify-access-token#verify-the-signature). 
-
-When verifying a JWT using a JWKS, here are the high level steps you will need to follow:
-
-* Retrieve the JWKS and filter for potential signing keys.
-* Extract the JWT from the request's authorization header.
-* Decode the JWT and grab the `kid` property from the header.
-* Find the signing key in the filtered JWKS with a matching `kid` property.
-* Using the `x5c` property build a certificate which will be used to verify the JWT signature.
 
 ## Using the JWKS in your application to verify a JWT
 
