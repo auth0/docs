@@ -64,17 +64,12 @@ The example JWKS above contains a single key. Each property in the key is define
 * **x5t**: is the thumbprint of the x.509 cert (SHA-1 thumbprint)
 
 
-## Using the JWKS in your application to verify a JWT
-
-Due to the fact that there are such a wide range of technologies being used by our customers, going into detail of the actual implementation of verifying a JWT using a JWKS is beyond the scope of this document.
-
-However, here are some resources which will assist you:
-
-1. When building an API, our [Backend / API Quickstarts](/quickstart/backend) show how to implement signature verification for many different platforms. This is typically done by some form of middleware which is available on the particular platform.
-1. To manually verify a token's signature, you can use one of the libraries listed in the Libraries for Token Signing/Verification section of [JWT.io](https://jwt.io/). Refer to the documentation of the relevant library for the exact implementation details.
-1. Our blog post [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) shows a sample implementation using Node.js.
-
 
 ## Keep reading
 
-[Verify a JWT's Signature using the JWKS Endpoint](/tokens/jwt/guides/verify-jwt-using-jwks)
+* [Verify a JWT's Signature using the JWKS Endpoint](/tokens/jwt/guides/verify-jwt-using-jwks)
+* [Programmatically Parse and Validate a JWT](/tokens/guides/parse-validate-jwt-programmatically)
+
+Sample implementations:
+* [Backend/API Quickstarts](/quickstart/backend)
+* [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) (uses Node.js)
