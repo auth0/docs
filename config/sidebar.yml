@@ -488,7 +488,7 @@ articles:
             url: "/users/search/v3/query-syntax"
 
           - title: "Best Practices"
-            url: "/users/search/best-practices"
+            url: "/users/references/search-best-practices"
 
       - title: "User Search"
         url: "/users/search/v2"
