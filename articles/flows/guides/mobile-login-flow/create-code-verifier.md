@@ -71,5 +71,5 @@ NSString *verifier = [[[[data base64EncodedStringWithOptions:0]
 ## Next steps
 
 ::: next-steps
-[Create a Code Challenge](/api-auth/tutorials/mobile-login-flow/create-code-challenge) 
+[Create a Code Challenge](/flows/guides/mobile-login-flow/create-code-challenge) 
 :::
