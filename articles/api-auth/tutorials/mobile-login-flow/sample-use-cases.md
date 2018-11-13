@@ -86,7 +86,7 @@ For a list of possible connections, see [Identity Providers Supported by Auth0](
 
 ## Customize Tokens
 
-You can use [Rules](/rules) to change the returned scopes of Access Tokens and/or add claims to Access and ID Tokens. To do so, add the following rule to your API:
+You can use [Rules](/rules) to change the returned scopes of Access Tokens and/or add claims to Access and ID Tokens. To do so, add the following rule:
 
 function(user, context, callback) {
 
@@ -105,10 +105,8 @@ Auth0 returns profile information in a structured claim format as defined by the
 :::
 
 
-If you wish to execute special logic unique to the Authorization Code (PKCE) grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-basic-profile`, then the rule is running during the Authorization Code (PKCE) grant.
+## Sample Application: Mobile App + API
 
-## Sample application
+For an sample implementation, see the [Mobile + API](/architecture-scenarios/application/mobile-api) architecture scenario.
 
-For an example implementation, see the [Mobile + API](/architecture-scenarios/application/mobile-api) architecture scenario.
-
-This is a series of tutorials that describe a scenario for a fictitious company, which wants to implement a mobile app that its employees can use to send timesheets to the company's Timesheet API. The tutorials are accompanied by a code sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
+This series of tutorials is accompanied by a code sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
