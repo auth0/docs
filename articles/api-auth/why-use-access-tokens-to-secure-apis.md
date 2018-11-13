@@ -120,7 +120,7 @@ For comparison, let's look at the contents of an Access Token:
 
 Note that the token does not contain any information about the user itself besides their ID (**sub** claim), it only contains authorization information about which actions the application is allowed to perform at the API (**scope** claim).
 
-In many cases, you might find it useful to retrieve additional user information at the API, so the token is also valid for call [the /userinfo API](/api/authentication#user-profile), which returns the user's profile information. The intended audience (indicated by the **aud** claim) for this token is both your custom API as specified by its identifier (such as `https://my-api-identifier`) and the **/userinfo** endpoint (such as `https://${account.namespace}/userinfo`).
+In many cases, you might find it useful to retrieve additional user information at the API, so the token is also valid for calling [the /userinfo API](/api/authentication#user-profile), which returns the user's profile information. The intended audience (indicated by the **aud** claim) for this token is both your custom API as specified by its identifier (such as `https://my-api-identifier`) and the **/userinfo** endpoint (such as `https://${account.namespace}/userinfo`).
 
 ## Keep reading
 
