@@ -20,7 +20,8 @@ Now that you have an Authorization Code, you must exchange it for tokens. Using 
 
 ## Request tokens when adding login to your app
 
-When adding login to your app, you'll want to make sure you obtain an ID Token.
+When adding login to your app, you'll want to make sure you obtain an ID Token. You can use an Access Token to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info).
+
 
 An example POST to Token URL:
 
@@ -37,6 +38,7 @@ An example POST to Token URL:
   }
 }
 ```
+
 ### Parameters
 
 | Parameter Name  | Description |
@@ -45,7 +47,7 @@ An example POST to Token URL:
 | `client_id`     | Your application's Client ID. |
 | `code_verifier` | The cryptographically-random key that was generated in the first step of this tutorial. |
 | `code`          | The `authorization_code` retrieved in the previous step of this tutorial. |
-| `redirect_uri`  | The valid callback URL set in your Application settings. This must exactly match the `redirect_uri` passed to `/authorize`
+| `redirect_uri`  | The valid callback URL set in your Application settings. This must exactly match the `redirect_uri` passed to the authorization URL in the previous step of this tutorial. |
 
 
 
@@ -60,10 +62,6 @@ If all goes well, you'll receive an HTTP 200 response with the following payload
   "expires_in":86400
 }
 ```
-
-::: note
-You can use the Access Token to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info).
-:::
 
 ## The ID Token
 
