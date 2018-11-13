@@ -81,5 +81,5 @@ NSString *challenge = [[[[hash base64EncodedStringWithOptions:0]
 ## Next steps
 
 ::: next-steps
-[Authorize the User](/api-auth/tutorials/mobile-login-flow/authorize-user) 
+[Authorize the User](/flows/guides/mobile-login-flow/authorize-user) 
 :::
