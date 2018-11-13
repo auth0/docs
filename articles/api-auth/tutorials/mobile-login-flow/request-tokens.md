@@ -15,9 +15,9 @@ useCase:
 ---
 # Request Tokens
 
-Now that you have an Authorization Code, you must exchange it for tokens. Using the Authorization Code (`code`) from the previous step, you will need to `POST` to the [Token URL](/api/authentication#authorization-code-pkce-) sending also the `code_verifier`.
+Now that you have an Authorization Code, you must exchange it for tokens. Using the Authorization Code (`code`) from the previous step, you will need to `POST` to the [token URL](/api/authentication#authorization-code-pkce-) sending also the `code_verifier`.
 
-An example POST to Token URL:
+An example POST to token URL:
 
 ```har
 {
