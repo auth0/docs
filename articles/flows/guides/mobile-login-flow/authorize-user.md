@@ -126,5 +126,5 @@ As an example, your HTML snippet for your authorization URL when calling an API 
 ## Next steps
 
 ::: next-steps
-[Request Tokens](/api-auth/tutorials/mobile-login-flow/request-tokens) 
+[Request Tokens](/flows/guides/mobile-login-flow/request-tokens) 
 :::
