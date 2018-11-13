@@ -60,11 +60,8 @@ Generate a code_challenge from the code_verifier that, along with the code_verif
 Request the user's authorization and redirect back to your app with an authorization_code.
 4. [Request Tokens](/api-auth/tutorials/mobile-login-flow/request-tokens)
 Exchange your authorization_code and code_verifier for tokens.
-5. Call an API
 
-6. Verify the Token
-
-Optional: Customize the Tokens - API
+Optional: [Explore Sample Use Cases](/api-auth/tutorials/mobile-login-flow/sample-use-cases)
 
 Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens). The ID Token will contain basic user profile information, and the Access Token can be used to call Auth0 or your own protected APIs.
 
