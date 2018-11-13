@@ -63,3 +63,9 @@ If all goes well, you'll receive an HTTP 200 response with a payload containing 
 [Access Tokens](/tokens/access-token) are used to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or another API. If you are calling your own API, the first thing your API will need to do is [verify the Access Token](/api-auth/tutorials/verify-access-token).
 
 [Refresh Tokens](/tokens/refresh-token) are used to obtain a new Access Token or ID Token after the previous one has expired. The `refresh_token` will only be present in the response if you included the `offline_access` scope and enabled __Allow Offline Access__ for your API in the Dashboard.
+
+## Next steps
+
+::: next-steps
+[Explore sample use cases](/api-auth/tutorials/mobile-login-flow/sample-use-cases) 
+:::
