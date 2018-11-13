@@ -24,7 +24,7 @@ Set the following configuration variables:
 * **TFS_PROJECT**: The project from which you want to deploy rules and database scripts.
 * **TFS_BRANCH**: The branch we should monitor for commits.
 * **TFS_INSTANCE**: Your Visual Studio Team Services instance name (without .visualstudio.com).
-* **TFS_COLLECTION**: Your visualstudio collection
+* **TFS_COLLECTION**: Your visualstudio collection (DefaultCollection for Azure DevOps).
 * **TFS_USERNAME**: Your Visual Studio Team Services username
 * **TFS_TOKEN**: Your personal Access Token for Visual Studio Team Services, for details on how to configure one refer to [Configure a Personal Access Token](#configure-a-personal-access-token) below.
 * **SLACK_INCOMING_WEBHOOK**: Webhook URL for Slack used to notify you of successful and failed deployments.
