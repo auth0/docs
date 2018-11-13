@@ -157,10 +157,6 @@ auth0.checkSession({
 });
 ```
 
-## Revoke access
-
-Once issued, tokens can not be revoked in the same fashion as cookies with session ids for server-side sessions. As a result, tokens should be issued for relatively short periods, and then [renewed](#lifetime) periodically if the user remains active.
-
 ## Keep Reading
 
 ::: next-steps
