@@ -18,5 +18,6 @@ Our troubleshooting guides will help you narrow down or solve issues you might b
 <%= include('../_includes/_topic-links', { links: [
   'troubleshoot/basics',
   'troubleshoot/issues',
-  'troubleshoot/har'
+  'troubleshoot/har',
+  'troubleshoot/error-reference'
 ] }) %>
