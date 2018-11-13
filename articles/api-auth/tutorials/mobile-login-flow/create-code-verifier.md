@@ -16,7 +16,7 @@ useCase:
 
 # Create a Code Verifier
 
-A `code-verifier` is a cryptographically-random key that, along with its transformed value (called the `code_challenge`), will be sent to Auth0 to request an `authorization_code`.
+A `code_verifier` is a cryptographically-random key that, along with its transformed value (called the `code_challenge`), will be sent to Auth0 to request an `authorization_code`.
 
 <div class="code-picker">
   <div class="languages-bar">
