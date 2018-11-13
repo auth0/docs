@@ -49,7 +49,7 @@ Generate a code_verifier that will be sent to Auth0 to request an authorization_
 2. [Create a code challenge](/api-auth/tutorials/mobile-login-flow/create-code-challenge)
 Generate a code_challenge from the code_verifier that, along with the code_verifier, will be sent to Auth0 to request an authorization_code.
 3. Authorize the user
-
+Request the user's authorization and redirect back to your app with an authorization_code.
 4. Request Tokens
 
 5. Call an API
