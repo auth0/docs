@@ -16,14 +16,13 @@ useCase:
 
 # Example Use Cases
 
-This section covers use cases that illustrate the authentication process using PKCE.
+These use cases build off of our tutorial on how to [Implement the Mobile Login Flow] (/api-auth/tutorials/mobile-login-flow/overview-mobile-login-flow).
 
-Request the User's Name and Profile Picture
-In addition to the usual authentication, this example shows how you can request additional user details.
+## Request the User's Name and Profile Picture
 
-We assume that your app is capable of generating the appropriate code_verifier and code_challenge.
+In addition to the usual user authentication, this example shows how to request additional user details.
 
-To return the user's name and picture, add the appropriate scopes to your call to the /authorize endpoint. Therefore, the initial authorization URL is as follows:
+To request the user's name and picture, you need to add the appropriate scopes when calling the Authorization URL to request an `authorization_code`:
 
 https://${account.namespace}/authorize?
     scope=openid%20name%20picture&
@@ -32,7 +31,8 @@ https://${account.namespace}/authorize?
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
     redirect_uri=${account.namespace}/mobile
-After the user submits the request, the app receives an TTP 302 response with a URL containing the authorization code at the end: https://${account.namespace}/callback?code=AUTHORIZATION_CODE
+    
+After the user submits the request, the app receives an HTTP 302 response with a URL containing the authorization code at the end: https://${account.namespace}/callback?code=AUTHORIZATION_CODE
 
 Using the authorization code, you can obtain the ID Token by making a POST call to the tokens endpoint.
 
