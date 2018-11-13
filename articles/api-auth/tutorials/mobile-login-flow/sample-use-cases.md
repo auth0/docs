@@ -50,12 +50,6 @@ Now, when you [request tokens](/api-auth/tutorials/mobile-login-flow/request-tok
 
 ## Request a User Log In with GitHub
 
-Read more:
-
-* [Identity Providers Supported by Auth0](/identityproviders)
-* [Social Login using the Authentication API](/api/authentication#social)
-:::
-
 In addition to the usual user authentication, this example shows how to send users directly to a social identity provider, such as GitHub. For this example to work, you will first need to [configure the appropriate connection in the Auth0 Dashboard](${manage_url}/#/connections/social) and get the connection name from the **Settings** tab.
 
 To send users directly to the GitHub login screen, you need to pass the `connection` parameter and set its value to the connection name (in this case, `github`) when [authorizing the user](/api-auth/tutorials/mobile-login-flow/authorize-user):
@@ -86,6 +80,8 @@ Now, when you [request tokens](/api-auth/tutorials/mobile-login-flow/request-tok
   "iat": 1478078742
 }
 ```
+
+For a list of possible connections, see [Identity Providers Supported by Auth0](/identityproviders).
 
 -------
 
