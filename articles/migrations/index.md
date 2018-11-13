@@ -125,7 +125,7 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 ### API authorization with third-party vendor APIs
 
-The mechanism by which you get tokens for third-party / vendor APIs (for example AWS, Firebase, and others) is being changed. It will work the same as any custom API, providing better consistency. This new architecture will be available in 2018 and once it becomes available, the [/delegation](/api/authentication#delegation) endpoint will be officially deprecated.
+The mechanism by which you get tokens for third-party / vendor APIs (for example AWS, Firebase, and others) is being changed. It will work the same as any custom API, providing better consistency. This new architecture will be available in 2019 and once it becomes available, the [/delegation](/api/authentication#delegation) endpoint will be officially deprecated.
 
 #### Am I affected by the change?
 
