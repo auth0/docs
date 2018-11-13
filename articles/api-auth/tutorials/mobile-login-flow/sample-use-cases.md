@@ -123,3 +123,18 @@ You can pull the user's name, profile picture, and email address from the name, 
   "exp": 1478114742,
   "iat": 1478078742
 }
+
+
+-------
+
+## Optional: Customize the Tokens
+
+<%= include('../../_includes/_api-auth-customize-tokens') %>
+
+If you wish to execute special logic unique to the Authorization Code (PKCE) grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-basic-profile`, then the rule is running during the Authorization Code (PKCE) grant.
+
+## Sample application
+
+For an example implementation, see the [Mobile + API](/architecture-scenarios/application/mobile-api) architecture scenario.
+
+This is a series of tutorials that describe a scenario for a fictitious company, which wants to implement a mobile app that its employees can use to send timesheets to the company's Timesheet API. The tutorials are accompanied by a code sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
