@@ -41,11 +41,13 @@ Before beginning the tutorial, please:
   * Select an **Application Type** of **Native**.
   * Add an **Allowed Callback URL** of **https://${account.namespace}/mobile**.
   * Make sure your Application's **[Grant Types](/applications/guides/change-app-grant-type-dashboard)** include **Authorization Code**.
+  * If you want your app to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enabled **Allow Offline Access**.
   
 If calling an API, you should also:
 
 * [Register your API with Auth0](/api-auth/guides/register-api)
   * Add an **Allowed Callback URL** of **com.myclientapp://myclientapp.com/callback**.
+  * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enabled **Allow Offline Access**.
 
 
 ## Steps
