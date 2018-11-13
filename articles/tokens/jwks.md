@@ -73,3 +73,8 @@ However, here are some resources which will assist you:
 1. When building an API, our [Backend / API Quickstarts](/quickstart/backend) show how to implement signature verification for many different platforms. This is typically done by some form of middleware which is available on the particular platform.
 1. To manually verify a token's signature, you can use one of the libraries listed in the Libraries for Token Signing/Verification section of [JWT.io](https://jwt.io/). Refer to the documentation of the relevant library for the exact implementation details.
 1. Our blog post [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) shows a sample implementation using Node.js.
+
+
+## Keep reading
+
+[Verify a JWT's Signature using the JWKS Endpoint](/tokens/jwt/guides/verify-jwt-using-jwks)
