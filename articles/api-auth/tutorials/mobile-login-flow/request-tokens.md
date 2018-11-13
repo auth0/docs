@@ -18,8 +18,6 @@ useCase:
 Now that you have an Authorization Code, you must exchange it for tokens. Using the Authorization Code (`code`) from the previous step, you will need to `POST` to the [Token URL](/api/authentication#authorization-code-pkce-) sending also the `code_verifier`.
 
 
-
-
 ## Request tokens when adding login to your app
 
 When adding login to your app, you'll want to make sure you obtain an ID Token.
@@ -47,7 +45,7 @@ An example POST to Token URL:
 | `client_id`     | Your application's Client ID. |
 | `code_verifier` | The cryptographically-random key that was generated in the first step of this tutorial. |
 | `code`          | The `authorization_code` retrieved in the previous step of this tutorial. |
-| `redirect_uri`  | The URL must exactly match the `redirect_uri` passed to `/authorize`.
+| `redirect_uri`  | The valid callback URL set in your Application settings. This must exactly match the `redirect_uri` passed to `/authorize`
 
 
 
