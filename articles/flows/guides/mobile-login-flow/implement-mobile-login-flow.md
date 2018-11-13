@@ -52,16 +52,16 @@ If calling an API, you should also:
 
 ## Steps
 
-1. [Create a code verifier](/api-auth/tutorials/mobile-login-flow/create-code-verifier): 
+1. [Create a code verifier](/flows/guides/mobile-login-flow/create-code-verifier): 
 Generate a code_verifier that will be sent to Auth0 to request an authorization_code.
-2. [Create a code challenge](/api-auth/tutorials/mobile-login-flow/create-code-challenge): 
+2. [Create a code challenge](/flows/guides/mobile-login-flow/create-code-challenge): 
 Generate a code_challenge from the code_verifier that, along with the code_verifier, will be sent to Auth0 to request an authorization_code.
-3. [Authorize the user](/api-auth/tutorials/mobile-login-flow/authorize-user): 
+3. [Authorize the user](/flows/guides/mobile-login-flow/authorize-user): 
 Request the user's authorization and redirect back to your app with an authorization_code.
-4. [Request Tokens](/api-auth/tutorials/mobile-login-flow/request-tokens): 
+4. [Request Tokens](/flows/guides/mobile-login-flow/request-tokens): 
 Exchange your authorization_code and code_verifier for tokens.
 
-Optional: [Explore Sample Use Cases](/api-auth/tutorials/mobile-login-flow/sample-use-cases)
+Optional: [Explore Sample Use Cases](/flows/guides/mobile-login-flow/sample-use-cases)
 
 Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens). The ID Token will contain basic user profile information, and the Access Token can be used to call Auth0 or your own protected APIs.
 
