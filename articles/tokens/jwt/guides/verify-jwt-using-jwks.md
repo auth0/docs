@@ -1,5 +1,5 @@
 ---
-description: Learn how to verify a JSON Web Token (JWT) using JSON Web Keys (JWKS).
+description: Learn how to verify a JSON Web Token (JWT)'s signature using JSON Web Keys (JWKS).
 toc: true
 topics:
   - tokens
@@ -10,7 +10,7 @@ useCase:
   - invoke-api
   - secure-api
 ---
-# Verify a JWT using the JWKS Endpoint
+# Verify a JWT's Signature using the JWKS Endpoint
 
 Auth0 exposes a discovery endpoint, which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to automatically configure your application and locate the JWKS endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued JWTs for your API.
 
