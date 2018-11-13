@@ -45,6 +45,7 @@ Before beginning the tutorial, please:
 If calling an API, you should also:
 
 * [Register your API with Auth0](/api-auth/guides/register-api)
+  * Add an **Allowed Callback URL** of **com.myclientapp://myclientapp.com/callback**.
 
 
 ## Steps
