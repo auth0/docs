@@ -1,5 +1,5 @@
 ---
-description: Explore example use cases while implementing the mobile login flow.
+description: Explore sample use cases while implementing the mobile login flow.
 toc: false
 topics:
   - api-authentication
@@ -107,6 +107,6 @@ Auth0 returns profile information in a [structured claim format as defined by th
 :::
 
 
-## Sample Application: Mobile App + API
+## View Sample Application: Mobile App + API
 
 For an sample implementation, see the [Mobile + API](/architecture-scenarios/application/mobile-api) architecture scenario. This series of tutorials is accompanied by a code sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
