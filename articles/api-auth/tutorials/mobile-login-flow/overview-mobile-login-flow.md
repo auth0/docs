@@ -53,6 +53,7 @@ Generate a code_challenge from the code_verifier that, along with the code_verif
 4. Request Tokens
 
 5. Call an API
+
 6. Verify the Token
 
 Optional: Customize the Tokens - API
