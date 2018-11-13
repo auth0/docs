@@ -17,11 +17,7 @@ useCase:
 
 Now that you have an Authorization Code, you must exchange it for tokens. Using the Authorization Code (`code`) from the previous step, you will need to `POST` to the [Token URL](/api/authentication#authorization-code-pkce-) sending also the `code_verifier`.
 
-
 ## Request tokens when adding login to your app
-
-When adding login to your app, you'll want to make sure you obtain an ID Token. You can use an Access Token to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info).
-
 
 An example POST to Token URL:
 
@@ -51,7 +47,7 @@ An example POST to Token URL:
 
 
 
-If all goes well, you'll receive an HTTP 200 response with the following payload:
+If all goes well, you'll receive an HTTP 200 response with a payload containing `access_token`, `refresh_token`, `id_token`, and `token_type` values:
 
 ```json
 {
@@ -63,28 +59,13 @@ If all goes well, you'll receive an HTTP 200 response with the following payload
 }
 ```
 
-## The ID Token
 
-Once you've decoded the ID Token, you can extract user information from it. The JSON payload contains the user claims (attributes), as well as metadata, and it will look something like this:
+You can [decode and extract user information from an ID Token](/tokens/id-token#id-token-payload). 
 
-```json
-{
-  "name": "John Smith",
-  "email": "jsmith@example.com",
-  "picture": "https://example.com/profile-pic.png",
-  "iss": "https://auth0user.auth0.com/",
-  "sub": "auth0|581...",
-  "aud": "xvt...",
-  "exp": 1478113129,
-  "iat": 1478077129
-}
-```
+You can use an Access Token to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or your own back-end API.
 
-For additional details, please see our docs [on the ID Token and its claims](/tokens/id-token#id-token-payload).
+You can use [Refresh Tokens](/tokens/refresh-token) to obtain a new Access Token or ID Token after the previous one has expired. The `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard.
 
-::: note
-For a list of libraries you can use to verify and decode tokens refer to [JWT.io](https://jwt.io/#libraries-io).
-:::
 
 ----
 
