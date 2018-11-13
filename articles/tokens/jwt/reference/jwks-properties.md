@@ -41,7 +41,7 @@ Each property in the key is defined by the JWK specification [RFC 7517 Section 4
 | `alg`         | The algorithm for the key. |
 | `kty`         | The key type.              |
 | `use`         | How the key was meant to be used. For the example above, `sig` represents signature. |
-| `x5c`         | The x509 certificate chain. |
+| `x5c`         | The x.509 certificate chain. |
 | `e`           | The exponent for a standard [pem](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail). |
 | `n`           | The modulus for a standard [pem](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail). |
 | `kid`         | The unique identifier for the key. |
