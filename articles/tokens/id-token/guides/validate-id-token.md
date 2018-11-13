@@ -15,9 +15,8 @@ useCase:
 To validate an ID Token, your application needs to:
 
 1. Check that the ID Token is correctly formatted
-2. Retrieve and filter your Auth0 JSON Web Key Set (JWKS)
-3. Verify the ID Token's signature
-4. Verify the claims found inside the ID Token
+2. Verify the ID Token's signature
+3. Verify the claims found inside the ID Token
 
 ::: note
 Most JWT libraries will take care of the token validation for you automatically, so be sure to reference the [Libraries for Token Signing/Verification section of JWT.io](https://jwt.io/#libraries-io) to find a JWT library for your platform and programming language.
@@ -42,14 +41,16 @@ The last part of a JWT is the signature, which is used to verify that the token 
 
 ### Check the signing algorithm
 
-Check that the algorithm (`alg`) specified in the header of the decoded token matches the one you selected when you registered your Application with Auth0. To see the algorithm for your Application, [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm.
+Check that the algorithm (`alg`) specified in the header of the decoded token matches the one you [selected when you registered your Application with Auth0](/tokens/guides/update-signing-algorithm-application). 
 
-Remember that the ID Token is always a JWT, and the signature is created using its header and payload, a secret and the hashing algorithm being used (as specified in the header: `HMAC`, `SHA256` or `RSA`). The way to verify it, depends on the hashing algorithm:
+### Confirm that the token is correctly signed using the proper key
 
-- For `HS256`, the API's __Signing Secret__ is used. You can find this information at your [API's Settings](${manage_url}/#/apis). Note that the field is only displayed for APIs that use `HS256`.
-- For `RS256`, the tenant's [JSON Web Key Set (JWKS)](/jwks) is used. Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
+Since the ID Token is always a JWT, the signature is created using its header and payload, a secret, and the selected hashing algorithm (e.g., `HMAC`, `SHA256`, `RSA`). Thus, the method of verifying the signature depends on the hashing algorithm:
 
-The most secure practice, and our recommendation, is to use `RS256`.
+- For `RS256` (the most secure practic and our recommendation), the tenant's [JSON Web Key Set (JWKS)](/jwks) is used. Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
+
+- For `HS256`, the APIs __Signing Secret__ is used. You can find this information at your [API's Settings](${manage_url}/#/apis)> Advanced Settings > OAuth. Note that this field is only displayed for APIs that use `HS256`.
+
 
 
 
