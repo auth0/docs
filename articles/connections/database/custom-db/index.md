@@ -16,6 +16,12 @@ useCase:
 
 If you have your own user database, you can use it as an identity provider in Auth0 to authenticate users.
 
+::: panel Feature availability
+Only **Enterprise** subscription plans include the ability to use a custom database for authentication requests.
+
+For more information refer to [Auth0 pricing plans](https://auth0.com/pricing).
+:::
+
 In this tutorial, you'll learn how to connect your user database to Auth0 and configure it for use as an identity provider. More specifically, you will:
 
 * [Create and configure a custom database connection](/connections/database/custom-db/create-db-connection) using the [Auth0 dashboard](${manage_url}).
