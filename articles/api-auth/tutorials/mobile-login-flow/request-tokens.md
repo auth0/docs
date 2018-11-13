@@ -60,6 +60,6 @@ If all goes well, you'll receive an HTTP 200 response with a payload containing 
 
 You can [decode and extract user information from an ID Token](/tokens/id-token#id-token-payload). 
 
-You can use an Access Token to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or your own back-end API.
+You can use an Access Token to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or another API. If you are calling your own API, the first thing your API will need to do is [verify the Access Token](/api-auth/tutorials/verify-access-token).
 
 You can use [Refresh Tokens](/tokens/refresh-token) to obtain a new Access Token or ID Token after the previous one has expired. The `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard.
