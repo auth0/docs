@@ -23,7 +23,7 @@ When you are building a [mobile app](/quickstart/native), the mobile login flow 
 Each login flow builds off of an [OAuth 2.0](/protocols/oauth2) grant; in this case, we use the [Authorization Code Grant with Proof Key for Code Exchange (PKCE, pronounced "pixie") enhancement](https://oauth.net/2/pkce/) (as defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)), which is similar to the standard [Authorization Code Grant](https://oauth.net/2/grant-types/authorization-code/), but contains a few extra steps.
 :::
 
-## What is the mobile login flow?
+## How it works
 
 ![Authorization Code Grant using PKCE](/media/articles/api-auth/authorization-code-grant-pkce.png)
 
@@ -43,7 +43,7 @@ In OAuth 2.0 terms, your mobile app is the Client, the user is the Resource Owne
 If you need a refresher on the OAuth 2.0 protocol, visit [OAuth 2.0](/protocols/oauth2).
 :::
 
-## Why should I use the mobile login flow?
+## Why use it
 
 This flow provides an extra level of security, which is necessary because:
 
@@ -52,13 +52,13 @@ This flow provides an extra level of security, which is necessary because:
 
 With PKCE, the code verifier acts like a secret. And since your code verifier and code challenge are both sent over HTTPS, malicious attackers can only intercept the authorization code.
 
-## How do I implement the mobile login flow?
+## How to implement it
 
 Learn how to implement this flow at [Implement the Mobile Login Flow](/flows/guides/mobile-login-flow/implement-mobile-login-flow).
 
-## Will rules run for the mobile login flow?
+## The Mobile Login Flow and Rules
 
-Yes, [rules](/rules) will run for the mobile login flow. If you want to execute special logic for this flow, check that the `context.protocol` property in your rule contains a value of `oidc-basic-profile`. If it does, then the rule is running during the mobile login flow.
+[Rules](/rules) will run for the mobile login flow. If you want to execute special logic for this flow, check that the `context.protocol` property in your rule contains a value of `oidc-basic-profile`. If it does, then the rule is running during the mobile login flow.
 
 Learn how to implement a rule for your mobile login flow at [Sample Use Cases: Customize Tokens](/flows/guides/mobile-login-flow/sample-use-cases##customize-tokens).
 
