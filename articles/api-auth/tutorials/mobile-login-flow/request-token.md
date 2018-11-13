@@ -13,10 +13,18 @@ useCase:
   - call-api
   - add-login
 ---
+# Request Tokens
 
-### Step 3: Obtain an ID Token
+Now that you have an Authorization Code, you must exchange it for tokens. Using the Authorization Code (`code`) from the previous step, you will need to `POST` to the [Token URL](/api/authentication#authorization-code-pkce-) sending also the `code_verifier`.
 
-Using the authorization code obtained in step 2, you can obtain the ID Token by making the appropriate `POST` call to the [tokens endpoint](api/authentication#authorization-code-pkce-).
+
+
+
+# Request tokens when adding login to your app
+
+When adding login to your app, you'll want to make sure you obtain an ID Token.
+
+An example POST to Token URL:
 
 ```har
 {
@@ -31,6 +39,11 @@ Using the authorization code obtained in step 2, you can obtain the ID Token by 
   }
 }
 ```
+
+
+
+
+
 
 For details on the request parameters, refer to [Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce#4-exchange-the-authorization-code-for-an-access-token).
 
@@ -75,9 +88,12 @@ For a list of libraries you can use to verify and decode tokens refer to [JWT.io
 
 ----
 
-## 4. Exchange the Authorization Code for an Access Token
+# Request tokens when calling an API from your app
 
-Now that you have an Authorization Code, you must exchange it for an Access Token that can be used to call your API. Using the Authorization Code (`code`) from the previous step, you will need to `POST` to the [Token URL](/api/authentication#authorization-code-pkce-) sending also the `code_verifier`:
+When calling an API from your app, you'll want to make sure you obtain an Access Token.
+
+
+An example POST to Token URL:
 
 ```har
 {
