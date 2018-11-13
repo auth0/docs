@@ -56,7 +56,7 @@ With PKCE, the code verifier acts like a secret. And since your code verifier an
 
 Learn how to implement this flow at [Implement the Mobile Login Flow](/flows/guides/mobile-login-flow/implement-mobile-login-flow).
 
-## The Mobile Login Flow and Rules
+## How to customize it
 
 [Rules](/rules) will run for the mobile login flow. If you want to execute special logic for this flow, check that the `context.protocol` property in your rule contains a value of `oidc-basic-profile`. If it does, then the rule is running during the mobile login flow.
 
