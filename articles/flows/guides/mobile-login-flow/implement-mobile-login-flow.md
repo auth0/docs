@@ -17,7 +17,7 @@ useCase:
 <%= include('../../_includes/_pipeline2') %>
 
 ::: note
-This tutorial will help you implement the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/api-auth/grant/authorization-code-pkce).
+This tutorial will help you implement the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/flows/concepts/mobile-login-flow).
 :::
 
 Auth0 makes it easy for your app to implement the mobile login flow using:
@@ -33,7 +33,7 @@ If you prefer to embed your own login pages within your mobile app, you can impl
 
 ## Prerequisites
 
-This tutorial can be used to add login to your app or to call an API from your app.
+This tutorial can be used to add login to your mobile app or to call an API from your mobile app.
 
 Before beginning the tutorial, please:
 
@@ -41,13 +41,13 @@ Before beginning the tutorial, please:
   * Select an **Application Type** of **Native**.
   * Add an **Allowed Callback URL** of **https://${account.namespace}/mobile**.
   * Make sure your Application's **[Grant Types](/applications/guides/change-app-grant-type-dashboard)** include **Authorization Code**.
-  * If you want your app to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enabled **Allow Offline Access**.
+  * If you want your app to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
   
 If calling an API, you should also:
 
-* [Register your API with Auth0](/api-auth/guides/register-api)
+* [Register your API with Auth0](/applications/native)
   * Add an **Allowed Callback URL** of **com.myclientapp://myclientapp.com/callback**.
-  * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enabled **Allow Offline Access**.
+  * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
 
 
 ## Steps
@@ -70,7 +70,6 @@ Following successful login, your application will have access to the user's [ID 
 
 ::: next-steps
 - [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Application Authentication for Mobile & Desktop Apps](/Application-auth/mobile-desktop)
 - [The OAuth 2.0 protocol](/protocols/oauth2)
 - [The OpenID Connect protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
