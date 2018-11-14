@@ -170,6 +170,20 @@ module.exports = router;
 This tutorial implements logout by closing the local user session. After logging out, the user's session in the Auth0 authentication server is still open. For other implementations, please refer to the [logout documentation](/logout). 
 :::
 
+If you wish to log out a user from the Auth0 session, you can implement the following:
+
+Remove this line in views/layout.pug: 
+a(id="qsLogoutBtn" href="/logout").w3-bar-item.w3-button Log Out
+Adding this line in its place:         
+a(id="qsLogoutBtn" href="https://{your-domain}.auth0.com/v2/logout?returnTo=http://127.0.0.1:3000").w3-bar-item.w3-button Log Out
+
+Then, navigate to the Auth0 dashboard and you have to set the allowed logout url in two places,
+
+The first place you want to set it is in the `Allowed Logout URLs` under your application settings (https://manage.auth0.com/#/applications).
+The second place you want to set the it is in the `Allowed Logout URLs` in the tenant's advanced settings (https://manage.auth0.com/#/tenant/advanced).
+
+Once successfully, configure upon logout, the User will be logged out from the Auth0 session.
+
 ### Middleware to protect routes
 
 Create a `secured` middleware to protect routes and ensure they are only accessible if logged in.
