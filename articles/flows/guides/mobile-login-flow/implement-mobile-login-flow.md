@@ -33,7 +33,7 @@ If you prefer to embed your own login pages within your mobile app, you can impl
 
 This tutorial can be used to add login to your mobile app or to call an API from your mobile app.
 
-Before beginning the tutorial, please:
+**Before beginning the tutorial, please:**
 
 * [Register your Application with Auth0](/applications/native). 
   * Select an **Application Type** of **Native**.
@@ -41,9 +41,9 @@ Before beginning the tutorial, please:
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code**.
   * If you want your app to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
   
-If calling an API, you should also:
+**If calling an API, you should also:**
 
-* [Register your API with Auth0](/applications/native)
+* [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
   * Add an **Allowed Callback URL** of **com.myclientapp://myclientapp.com/callback**.
   * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
 
