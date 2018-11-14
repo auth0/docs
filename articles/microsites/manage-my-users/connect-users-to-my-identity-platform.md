@@ -1,11 +1,17 @@
 ---
 title: Connect Users to My Identity Platform
 description: An introduction to the concepts and tasks related to how Auth0 enables you to connect users to your apps based on their user profile information. 
+contentType: microsite
+topics:
+  - users
+  - user-management
+  - connect-users
+useCase: manage-users
 template: microsite
 v2: True
 ---
 
-# Connect Users to My Identity Platform
+# Connect Users to My Identity Platform - DRAFT
 
 You can connect users to your identity platform using popular social media providers like [Facebook, Google, and Twitter](/identityproviders). Alternatively, enterprises might opt to use SD, LDAP, SAML and more to authenticate users. You can also create connections that don't require your users to [remember passwords](/connections/passwordless/user-guide) and specify which users have access to [which apps](/user-profile/manage-user-access-to-applications). 
 

@@ -1,17 +1,24 @@
 ---
 title: Define and Maintain Custom User Data
 description: An introduction to the concepts and tasks related to how Auth0 helps you manage metadata associated with your users' profile information. 
+contentType: microsite
+topics:
+  - users
+  - user-management
+  - define-user-data
+useCase: manage-users
 template: microsite
 v2: True
 ---
 
-# Define and Maintain Custom User Data
+# Define and Maintain Custom User Data - DRAFT
 
 After you have set up your [user profiles](/microsites/manage-my-users/manage-users-and-user-profiles), Auth0 can help you define custom user data using the metadata within the user profiles using Rules, the Lock widget, or APIs, depending on your need.
 
 * [Rules](/rules/current/metadata-in-rules) are JavaScript functions executed as part of the Auth0 authentication process (prior to authorization). Using rules, you can read, create, or update user metadata which, in turn, affect the results of the authorization process.
 * Use the [Lock widget](https://auth0.com/docs/libraries#lock) to add new items to user metadata and read user metadata after authentication. 
-* When you use the **Authentication API**, you can use the Signup endpoint with a database connection, to set the user metadata for a user. You can also use the **Management API** to retrieve, create, or update both the user metadata and app metadata. 
+* When you use the **Authentication API**, you can use the Signup endpoint with a database connection, to set the user metadata for a user. 
+* You can also use the **Management API** to retrieve, create, or update both the user metadata and app metadata. 
 
 Depending on the method you choose, you can define, read, update, merge and delete metadata using Auth0 [User Profiles](/user-profile/overview-user-profile) in the Auth0 Dashboard. You can also import, export and blacklist metadata.
 
@@ -37,27 +44,27 @@ After you have customized the user metadata, there are a couple of ways that Aut
 ::: concepts
   * [User Profile Overview](/user-profile/overview-user-profile)
   * [Normalized User Profile](/user-profile/normalized/auth0)
-  * [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
-  * [User Search Best Practices](/users/search/best-practices)
   * [User Profiles Returned from OIDC-compliant Pipelnes](/user-profile/normalized/oidc)
   * [Progressive Profiling](/user-profile/progressive-profiling)
   * [GDPR Overview](/compliance/overview-gdpr)
 :::
 
 ::: guides
-  * [Search for Users](/search/v3)
+  * [Search for Users](/users/search/v3)
   * [View User Profiles](/user-profile/view-users)
   * [Update User Profiles Using Your Database](/user-profile/update-user-profiles-using-your-database)
   * [Manage User Metadata with Auth0 APIs](/metadata/manage-user-metadata-with-apis)
   * [User Metadata in Rules](/rules/current/metadata-in-rules)
-  * [Get User Information with Unbounce Landing Pages](get-user-information-with-unbounce-landing-pages)
+  * [Get User Information with Unbounce Landing Pages](/users/guides/get-user-information-with-unbounce-landing-pages)
   * [Redirect Users After Login](redirect-users-after-login)
+  * [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
+  * [User Search Best Practices](/users/search/best-practices)
   :::
 
 ::: references
-  * [User Profile Structure](/user-profile/user-profile-structure)
-  * [User Search Query Syntax](/search/v3/query-syntax)
-  * [Identity Providers Supported by Auth0](/identityproviders)
+  * [User Profile Structure](/users/references/user-profile-structure)
+  * [User Search Query Syntax](/users/search/v3/query-syntax)
+  * [Identity Providers Supported](/identityproviders)
   * [Lock Library](https://github.com/auth0/lock)
   * [User Import/Export Extension](/extensions/user-import-export)
   * [Authorization Extension](/extensions/authorization-extension/v2)
