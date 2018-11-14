@@ -681,6 +681,20 @@ var options = {
 }
 ```
 
+#### Hidden field
+
+The signup field `type: "hidden"` will allow you to use a hidden input with a fixed value.
+
+ ```js
+var options = {
+  additionalSignUpFields: [{
+    type: "hidden",
+    name: "signup_code",
+    value: "abc123"
+  }]
+}
+```
+
 ::: note
 Some use cases may be able to use `additionalSignUpFields` data for email templates, such as an option for language preferences, the value of which could then be used to set the language of templated email communications.
 :::
