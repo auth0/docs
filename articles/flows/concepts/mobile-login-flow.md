@@ -14,8 +14,6 @@ useCase:
 ---
 # Mobile Login Flow
 
-<%= include('../../../_includes/_pipeline2') %>
-
 When you are building a [mobile app](/quickstart/native), the mobile login flow is the best way to control access to your app. 
 
 
