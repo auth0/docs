@@ -35,10 +35,10 @@ This tutorial can be used to add login to your mobile app or to call an API from
 
 Before beginning the tutorial, please:
 
-* [Register your Application with Auth0](/application-auth/guides/register-application-dashboard). 
+* [Register your Application with Auth0](/applications/native). 
   * Select an **Application Type** of **Native**.
   * Add an **Allowed Callback URL** of **https://${account.namespace}/mobile**.
-  * Make sure your Application's **[Grant Types](/applications/guides/change-app-grant-type-dashboard)** include **Authorization Code**.
+  * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code**.
   * If you want your app to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
   
 If calling an API, you should also:
