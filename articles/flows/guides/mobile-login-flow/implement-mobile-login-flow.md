@@ -51,13 +51,13 @@ If calling an API, you should also:
 ## Steps
 
 1. [Create a code verifier](/flows/guides/mobile-login-flow/create-code-verifier): 
-Generate a code_verifier that will be sent to Auth0 to request an authorization_code.
+Generate a `code_verifier` that will be sent to Auth0 to request an `authorization_code`.
 2. [Create a code challenge](/flows/guides/mobile-login-flow/create-code-challenge): 
-Generate a code_challenge from the code_verifier that, along with the code_verifier, will be sent to Auth0 to request an authorization_code.
+Generate a `code_challenge` from the `code_verifier` that, along with the `code_verifier`, will be sent to Auth0 to request an `authorization_code`.
 3. [Authorize the user](/flows/guides/mobile-login-flow/authorize-user): 
-Request the user's authorization and redirect back to your app with an authorization_code.
+Request the user's authorization and redirect back to your app with an `authorization_code`.
 4. [Request Tokens](/flows/guides/mobile-login-flow/request-tokens): 
-Exchange your authorization_code and code_verifier for tokens.
+Exchange your `authorization_code` and `code_verifier` for tokens.
 
 Optional: [Explore Sample Use Cases](/flows/guides/mobile-login-flow/sample-use-cases)
 
