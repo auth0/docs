@@ -33,26 +33,35 @@ If you prefer to embed your own login pages within your mobile app, you can impl
 
 ## Prerequisites
 
-Before beginning this tutorial, please:
+This tutorial can be used to add login to your app or to call an API from your app.
+
+Before beginning the tutorial, please:
 
 * [Register your Application with Auth0](/application-auth/guides/register-application-dashboard). 
   * Select an **Application Type** of **Native**.
   * Add an **Allowed Callback URL** of **https://${account.namespace}/mobile**.
   * Make sure your Application's **[Grant Types](/applications/guides/change-app-grant-type-dashboard)** include **Authorization Code**.
+  * If you want your app to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enabled **Allow Offline Access**.
+  
+If calling an API, you should also:
+
 * [Register your API with Auth0](/api-auth/guides/register-api)
+  * Add an **Allowed Callback URL** of **com.myclientapp://myclientapp.com/callback**.
+  * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enabled **Allow Offline Access**.
 
 
 ## Steps
 
-1. [Create a code verifier](/api-auth/tutorials/mobile-login-flow/create-code-verifier)
-2. [Create a code challenge](/api-auth/tutorials/mobile-login-flow/create-code-challenge)
-3. Authorize the user
-4. Request Tokens
+1. [Create a code verifier](/api-auth/tutorials/mobile-login-flow/create-code-verifier): 
+Generate a code_verifier that will be sent to Auth0 to request an authorization_code.
+2. [Create a code challenge](/api-auth/tutorials/mobile-login-flow/create-code-challenge): 
+Generate a code_challenge from the code_verifier that, along with the code_verifier, will be sent to Auth0 to request an authorization_code.
+3. [Authorize the user](/api-auth/tutorials/mobile-login-flow/authorize-user): 
+Request the user's authorization and redirect back to your app with an authorization_code.
+4. [Request Tokens](/api-auth/tutorials/mobile-login-flow/request-tokens): 
+Exchange your authorization_code and code_verifier for tokens.
 
-5. Call an API
-6. Verify the Token
-
-Optional: Customize the Tokens - API
+Optional: [Explore Sample Use Cases](/api-auth/tutorials/mobile-login-flow/sample-use-cases)
 
 Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens). The ID Token will contain basic user profile information, and the Access Token can be used to call Auth0 or your own protected APIs.
 

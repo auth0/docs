@@ -16,7 +16,7 @@ useCase:
 
 # Create a Code Verifier
 
-A `code-verifier` is a cryptographically-random key that, along with its transformed value (called the `code_challenge`), will be sent to Auth0 to request an `authorization_code`.
+Create a `code_verifier`, which is a cryptographically-random key that, along with its transformed value (called the `code_challenge`), will be sent to Auth0 to request an `authorization_code`.
 
 <div class="code-picker">
   <div class="languages-bar">
@@ -67,3 +67,9 @@ NSString *verifier = [[[[data base64EncodedStringWithOptions:0]
     </div>
   </div>
 </div>
+
+## Next steps
+
+::: next-steps
+[Create a Code Challenge](/api-auth/tutorials/mobile-login-flow/create-code-challenge) 
+:::
