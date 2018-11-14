@@ -2,6 +2,7 @@
 title: Multi-factor Authentication in Auth0
 description: The basics of multi-factor authentication and the different methods of implementing it with Auth0.
 url: /multifactor-authentication
+toc: true
 topics:
     - mfa
 contentType:
@@ -21,11 +22,15 @@ Multi-factor Authentication (MFA) is a method of verifying a user's identity by 
 
 ## Implement MFA with Auth0
 
-Enabling MFA for your tenant is a fairly straightforward process. 
+Enabling MFA for your tenant is a fairly straightforward process. First, you toggle on the factors you choose to enable on your tenant, such as push notifications or SMS. Next, you perform any further setup required for that factor, and last, you choose whether you wish to force MFA for all users or not. See the instructions below for details.
+
+You can also [customize your MFA flow](/multifactor-authentication/custom) with [Auth0 Rules](/rules), to allow MFA to only be required in specific circumstances or force a particular factor to be used.
 
 ### 1. Toggle on the factors you require in the Dashboard
 
 In the [Dashboard > Multifactor Auth](${manage_url}/#/mfa), head to the Multifactor Auth section. Here you will find a series of toggles for the MFA factors supported by Auth0. 
+
+**TODO: STANDARDIZE DASHBOARD IMAGE**
 
 ![MFA Dashboard Page](/media/articles/multifactor-authentication/mfa-dashboard.png)
 
@@ -46,11 +51,11 @@ Auth0 supports the following factors for implementing MFA. You must enable at le
 
 #### One Time Passwords (OTP)
 
-The principle behind OTP as a factor is fairly straightforward for the end user. They use an app, such as Google Authenticator ([Google Play](/) / [App Store](/)). Upon signup, they can scan a code and set up the app, upon which it will begin generating one-time codes. Afterword, the user can simply check the app for the current one-time code to enter when authenticating using this factor.
+The principle behind OTP as a factor is fairly straightforward for the end user. They use an app, such as Google Authenticator ([Google Play](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) / [App Store](https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8)). Upon signup, they can scan a code and set up the app, upon which it will begin generating one-time codes. Afterword, the user can simply check the app for the current one-time code to enter when authenticating using this factor.
 
 Your users will need to have in their posession a supported device for whichever OTP app you use.
 
-#### Push Notifications
+#### Push notifications
 
 MFA by push notification simply requires an appropriate app on the user's device. The app is sent push notifications when the user attempts to authenticate, and the user must respond to it in order to login, ensuring that they not only know their login information but also posess the device set up for MFA.
 
@@ -58,7 +63,7 @@ End users will be prompted to download whichever app you have enabled in the Das
 
 Once this is all set up, when the user attempts to authenticate as normal, their device will receive a push notification via the app, and once they approve the request, they will be logged in.
 
-Auth0 supports the use of Auth0 Guardian ([Google Play](/) / [App Store](/)) and Duo ([Google Play](/) / [App Store](/)) for push notifications.
+Auth0 supports the use of Auth0 Guardian ([Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian) / [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833?mt=8)) and Duo ([Google Play](https://play.google.com/store/apps/details?id=com.duosecurity.duomobile) / [App Store](https://itunes.apple.com/us/app/duo-mobile/id422663827?mt=8)) for push notifications.
 
 ::: note
 Enabling Duo will result in end users not being given any other choices for MFA factors, even if other factors are enabled and set up.
@@ -78,7 +83,7 @@ In order to set up SMS, you will need to [configure an SMS provider such as Twil
 
 ### Customizing via Rules
 
-If you need to customize the multi-factor experience you are offering to your users, you may do so via [custom rules configurations for multi-factor authentication](/multifactor-authentication/custom/custom-landing). This might be needed, for example, if you wish to defined conditions (such as changes in geographic location or logins from unrecognized devices) which would trigger additional authentication challenges.
+If you need to customize the multi-factor experience you are offering to your users, you may do so via [custom rules configurations for multi-factor authentication](/multifactor-authentication/custom). This might be needed, for example, if you wish to defined conditions (such as changes in geographic location or logins from unrecognized devices) which would trigger additional authentication challenges.
 
 ### Customizing Guardian
 
@@ -93,6 +98,6 @@ Additionally, you can [customize the Guardian hosted page](/hosted-pages/guardia
 
 Additionally, the [MFA API](/multifactor-authentication/api) is available for other customized MFA requirements.
 
-## Recovery Methods
+## Recovery methods
 
-With most MFA factors, upon signup, the end user will be given a recovery code which should be kept secret. They will need this code to login if they do not have their device or are temporarily unable to use their normal MFA. If they have lost their recovery code and device, you will need to [reset the user's MFA](/).
+With most MFA factors, upon signup, the end user will be given a recovery code which should be kept secret. They will need this code to login if they do not have their device or are temporarily unable to use their normal MFA. If they have lost their recovery code and device, you will need to [reset the user's MFA](/multifactor-authentication/reset-user).
