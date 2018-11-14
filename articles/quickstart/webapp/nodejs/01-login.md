@@ -57,7 +57,7 @@ app.use(session(sess));
 
 ### Configure Passport with the application settings
 
-In `app.js`, include the `passport` and `passport0-auth0` modules, and configure Passport to use a new instance of `Auth0Strategy` with your Auth0 application settings. Use `passport.initialize()` and `passport.session()` to initialize Passport with persistent login sessions.
+In `app.js`, include the `passport` and `passport-auth0` modules, and configure Passport to use a new instance of `Auth0Strategy` with your Auth0 application settings. Use `passport.initialize()` and `passport.session()` to initialize Passport with persistent login sessions.
 
 ```js
 // app.js
