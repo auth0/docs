@@ -56,7 +56,9 @@ If all goes well, you'll receive an HTTP 200 response with a payload containing 
   "expires_in":86400
 }
 ```
-
+::: panel-warning
+You should validate your [ID Token](/tokens/id-token#validate-an-id-token) and [Access Token](/api-auth/tutorials/verify-access-token) before saving them.
+:::
 
 [ID Tokens](/tokens/id-token) contain user information that must be [decoded and extracted](/tokens/id-token#id-token-payload). 
 
