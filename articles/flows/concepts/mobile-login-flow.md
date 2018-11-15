@@ -35,7 +35,7 @@ Each login flow builds off of an [OAuth 2.0](/protocols/oauth2) grant; in this c
 
  4. Auth0 validates this info and returns an Access Token and an ID Token (and optionally, a Refresh Token).
 
- 5. Your app can use the Access Token to call an API on behalf of the user. For example, you may want to call Auth0's /userinfo API and retrieve the user's profile.
+ 5. Your app can use the Access Token to call an API on behalf of the user. For example, you may want to call Auth0's [/userinfo endpoint](/api/authentication#get-user-info) and retrieve the user's profile.
 
 ::: note
 In OAuth 2.0 terms, your mobile app is the Client, the user is the Resource Owner, the API is the Resource Server, the browser is the User Agent, and Auth0 is the Authorization Server.
