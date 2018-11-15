@@ -73,7 +73,7 @@ Once this is all set up, when the user attempts to authenticate as normal, their
 Auth0 supports the use of Auth0 Guardian ([Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian) / [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833?mt=8)) and Duo ([Google Play](https://play.google.com/store/apps/details?id=com.duosecurity.duomobile) / [App Store](https://itunes.apple.com/us/app/duo-mobile/id422663827?mt=8)) for push notifications.
 
 ::: note
-Enabling Duo will result in end users not being given any other choices for MFA factors, even if other factors are enabled and set up.
+If other factors are enabled alongside Duo, Duo will be unavailable. Duo is currently only available to end users when it is the only factor enabled.
 :::
 
 #### SMS
