@@ -17,9 +17,15 @@ You may configure a [rule](/rules) from your [Dashboard > Rules](${manage_url}/#
 
 ## The provider setting
 
-The `provider` setting now defaults to `any`. This allows the toggles on the [Dashboard > MFA](${manage_url}/#/mfa) to control which providers are enabled, and the user to select from any of the enabled providers. Setting `provider` to `guardian`, for example, will now restrict end users to only use Guardian for their second factor, regardless of which factors are enabled in the Dashboard. In most cases, it would be recommend to leave the setting as is, rather than modifying it with a rule, and instead control the available factors via the Dashboard toggles.
+The `provider` setting now defaults to `any`. This allows the toggles on the [Dashboard > MFA](${manage_url}/#/mfa) to control which providers are enabled, and the user to select from any of the enabled providers. 
 
-In addition to `any` or a particular value such as `guardian`, `sms`, `google-authenticator`, or `duo`, you can also set `provider` to `none`. This will forcibly remove MFA prompts from the login process.
+You can also set the `provider` to any of these legacy options, which are still valid to ensure backwards compatibility:
+
+* `guardian` = uses SMS or Push via Guardian
+* `google-authenticator` = forces you to use a UI specific to Google Authenticator
+* `duo` = forces you to use Duo
+
+Setting the `provider` manually will override the enabled/disabled toggles in the Dashboard, and is not the recommended way to control which factors are used.
 
 ```js
 function (user, context, callback) {
