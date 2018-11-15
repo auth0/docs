@@ -34,7 +34,7 @@ In the [Dashboard > Multifactor Auth](${manage_url}/#/mfa), head to the Multifac
 
 ![MFA Dashboard Page](/media/articles/multifactor-authentication/mfa-dashboard.png)
 
-Any or all of these factors can be enabled simultaneously. When using Universal Login, the user will be shown a default and but will be allowed to choose another factor to use, if you have more than one factor enabled in the Dashboard.
+Any or all of these factors can be enabled simultaneously. When logging in the first time, the user will be shown a default and but will be allowed to choose another factor to use, if you have more than one factor enabled in the Dashboard. 
 
 **TODO: IMAGE OF CURRENT LOGIN PROMPT WITH MFA CHOICES**
 
