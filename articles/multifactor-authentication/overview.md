@@ -26,7 +26,7 @@ Enabling MFA for your tenant is a fairly straightforward process. First, you tog
 
 You can also [customize your MFA flow](/multifactor-authentication/custom) with [Auth0 Rules](/rules), to allow MFA to only be required in specific circumstances or force a particular factor to be used.
 
-### 1. Toggle on the factors you require in the Dashboard
+### 1. Enable the factors you require
 
 In the [Dashboard > Multifactor Auth](${manage_url}/#/mfa), head to the Multifactor Auth section. Here you will find a series of toggles for the MFA factors supported by Auth0. 
 
@@ -34,7 +34,7 @@ In the [Dashboard > Multifactor Auth](${manage_url}/#/mfa), head to the Multifac
 
 ![MFA Dashboard Page](/media/articles/multifactor-authentication/mfa-dashboard.png)
 
-Any or all of these factors can be enabled simultaneously. When logging in the first time, the user will be shown a default and but will be allowed to choose another factor to use, if you have more than one factor enabled in the Dashboard. 
+Any or all of these factors can be enabled simultaneously. When logging in the first time, the user will be shown a default, but will be allowed to choose another factor to use, if you have more than one factor enabled in the Dashboard. 
 
 **TODO: IMAGE OF CURRENT LOGIN PROMPT WITH MFA CHOICES**
 
@@ -43,7 +43,9 @@ When you enable the Duo factor, you will have to fill in a few further settings 
 **TODO: SPECIFY SETTINGS**
 :::
 
-Additionally, there is the **Always require Multi-factor Authentication** toggle, which allows authentication against this app only when one or more of the factors is enabled in the Dashboard, and completed by users while logging in.
+#### Always require multi-factor authentication
+
+The **Always require Multi-factor Authentication** setting, when enabled, will allow authentication to your applications only when multi-factor authentication is used. This means that one or more of the factors is enabled in the Dashboard, and successfully completed by end-users when authenticating.
 
 ### 2. Set up your services
 
