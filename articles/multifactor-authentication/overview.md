@@ -108,3 +108,6 @@ Additionally, the [MFA API](/multifactor-authentication/api) is available for ot
 ## Recovery methods
 
 With most MFA factors, upon signup, the end user will be given a recovery code which should be kept secret. They will need this code to login if they do not have their device or are temporarily unable to use their normal MFA. If they have lost their recovery code and device, you will need to [reset the user's MFA](/multifactor-authentication/reset-user).
+::: note
+If a recovery code is used, a new recovery code will be provided at that time.
+:::
