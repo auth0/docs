@@ -22,7 +22,7 @@ Multi-factor Authentication (MFA) is a method of verifying a user's identity by 
 
 ## Implement MFA with Auth0
 
-Enabling MFA for your tenant is a fairly straightforward process. First, you toggle on the factors you choose to enable on your tenant, such as push notifications or SMS. Next, you perform any further setup required for that factor, and last, you choose whether you wish to force MFA for all users or not. See the instructions below for details.
+Enabling MFA for your tenant is a fairly straightforward process. First, you toggle on the factors you choose to enable on your tenant, such as push notifications or SMS. Next, you perform any further setup required to configure that factor, and last, you choose whether you wish to force MFA for all users or not. See the instructions below for details.
 
 You can also [customize your MFA flow](/multifactor-authentication/custom) with [Auth0 Rules](/rules), to allow MFA to only be required in specific circumstances or force a particular factor to be used.
 
