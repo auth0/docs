@@ -172,10 +172,9 @@ This tutorial implements logout by closing the local user session. After logging
 
 If you wish to log out a user from the Auth0 session, you can implement the following:
 
-Remove this line in views/layout.pug: 
-a(id="qsLogoutBtn" href="/logout").w3-bar-item.w3-button Log Out
-Adding this line in its place:         
-a(id="qsLogoutBtn" href="https://{your-domain}.auth0.com/v2/logout?returnTo=http://127.0.0.1:3000").w3-bar-item.w3-button Log Out
+In Routes/auth.js on line 38 change:
+res.redirect('/'); to   res.redirect('https://{your-domain}.auth0.com/v2/logout?returnTo={your-redirect-url}');
+
 
 Then, navigate to the Auth0 dashboard and you have to set the allowed logout url in two places,
 
