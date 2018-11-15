@@ -68,7 +68,7 @@ Your users will need to have in their posession a supported device for whichever
 
 MFA by push notification simply requires an appropriate app on the user's device. The app is sent push notifications when the user attempts to authenticate, and the user must respond to it in order to login, ensuring that they not only know their login information but also posess the device set up for MFA.
 
-End users will be prompted to download whichever app you have enabled in the Dashboard when trying to sign up or log in to your application. Once they indicate that they have successfully downloaded the app, a barcode will appear on screen. They will have a short amount of time in which to scan the code with the designated app. Once this is done, they should see a confirmation screen and also a recovery code to take note of.
+End users will be prompted to download the app you have enabled in the Dashboard when trying to sign up or log in to your application. Once they indicate that they have successfully downloaded the app, a barcode will appear on screen. They will have a short amount of time in which to scan the code with the designated app. Once this is done, they should see a confirmation screen and also a recovery code to take note of.
 
 Once this is all set up, when the user attempts to authenticate as normal, their device will receive a push notification via the app, and once they approve the request, they will be logged in.
 
@@ -92,7 +92,7 @@ In order to set up SMS, you will need to [configure an SMS provider such as Twil
 
 ### Customizing via Rules
 
-If you need to customize the multi-factor experience you are offering to your users, you may do so via [custom rules configurations for multi-factor authentication](/multifactor-authentication/custom). This might be needed, for example, if you wish to defined conditions (such as changes in geographic location or logins from unrecognized devices) which would trigger additional authentication challenges.
+If you need to customize the multi-factor experience you are offering to your users, you may do so via [custom rules configurations for multi-factor authentication](/multifactor-authentication/custom). This might be needed, for example, if you wish to trigger MFA for only specific applications, or for specific users based on user metadata or on IP addresses.
 
 ### Customizing Guardian
 
