@@ -42,7 +42,7 @@ function (user, context, callback) {
     const endsWith = '@example.com';
 
     if (user.email && (user.email.substring(user.email.length - endsWith.length, user.email.length) === endsWith)) {
-      return ['admin']
+      return ['admin'];
     }
     return ['user'];
   };
@@ -63,7 +63,7 @@ function (user, context, callback) {
 
 The rule is checked every time a user attempts to authenticate.
 
-* If the user has a valid email and the domain is `admin.com`, the user gets the admin and user roles.
+* If the user has a valid email and the domain is `example.com`, the user gets the admin and user roles.
 * If the email contains anything else, the user gets the regular user role.
 
 The claim is saved in the ID Token under the name `https://access.control/roles`.
@@ -84,7 +84,7 @@ import JWTDecode
 guard
     let idToken = self.keychain.string(forKey: "id_token"),
     let jwt = try? decode(jwt: idToken),
-    let roles = jwt.claim(name: "https://access.control/roles").array
+    let roles = jwt.claim(name: "https://example.com/roles").array
     else { // Couldn't retrieve claim }
 
 if roles.contains("admin") {
