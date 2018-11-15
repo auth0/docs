@@ -16,7 +16,7 @@ useCase:
 
 # Create a Code Challenge
 
-Generate a `code_challenge` from the `code_verifier` that, along with the `code_verifier`, will be sent to Auth0 to request an `authorization_code`.
+Generate a `code_challenge` from the `code_verifier` that will be sent to Auth0 to request an `authorization_code`.
 
 
 <div class="code-picker">
