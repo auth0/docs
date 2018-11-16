@@ -119,36 +119,6 @@ function (user, context, callback) {
 }
 ```
 
-## Use a custom MFA service
-
-If you are using an MFA provider that does not have Auth0 built-in support or if you are using a service you have created, you can use the [redirect](/rules/redirect) protocol for the integration.
-
-By using the redirect protocol, you interrupt the authentication transaction and redirect the user to a specified URL where they are asked for MFA. If authentication is successful, Auth0 will continue processing the request.
-
-Some MFA options you can implement using the redirect protocol include:
-
-* A one-time code sent via SMS
-* Integration with specialized providers, such as those that require hardware tokens
-
-To use the redirect protocol, edit the `URL` field:
-
-```JS
-function (user, context, callback) {
-
-  if (condition() && context.protocol !== 'redirect-callback'){
-    context.redirect = {
-      url: 'https://your_custom_mfa'
-    };
-  }
-
-  if (context.protocol === 'redirect-callback'){
-    //TODO: handle the result of the MFA step
-  }
-
-  callback(null, user, context);
-}
-```
-
 ## Additional Notes
 
 * A tutorial is available on using MFA with the [Resource Owner](/api-auth/tutorials/multifactor-resource-owner-password) endpoint.
