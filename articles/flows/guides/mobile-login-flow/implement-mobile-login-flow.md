@@ -60,10 +60,12 @@ Generate a `code_challenge` from the `code_verifier` that will be sent to Auth0 
 Request the user's authorization and redirect back to your app with an `authorization_code`.
 4. [Request Tokens](/flows/guides/mobile-login-flow/request-tokens): 
 Exchange your `authorization_code` and `code_verifier` for tokens.
+5. [Refresh Tokens](/flows/guides/mobile-login-flow/refresh-tokens):
+Use a refresh token to request new tokens.
 
 Optional: [Explore Sample Use Cases](/flows/guides/mobile-login-flow/sample-use-cases)
 
-Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens). The ID Token will contain basic user profile information, and the Access Token can be used to call Auth0 or your own protected APIs.
+Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens). The ID Token will contain basic user profile information, and the Access Token can be used to call the Auth0 /userinfo endpoint or your own protected APIs.
 
 
 ## Keep Reading
