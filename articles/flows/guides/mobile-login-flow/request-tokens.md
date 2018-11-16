@@ -56,7 +56,7 @@ If all goes well, you'll receive an HTTP 200 response with a payload containing 
   "expires_in":86400
 }
 ```
-::: panel-warning
+::: warning
 You should validate your tokens before saving them.
 :::
 
@@ -66,7 +66,7 @@ You should validate your tokens before saving them.
 
 [Refresh Tokens](/tokens/refresh-token) are used to obtain a new Access Token or ID Token after the previous one has expired. The `refresh_token` will only be present in the response if you included the `offline_access` scope and enabled __Allow Offline Access__ for your API in the Dashboard.
 
-::: panel-warning
+::: warning
 Refresh Tokens must be stored securely since they allow a user to remain authenticated essentially forever.
 :::
 
