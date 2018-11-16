@@ -49,7 +49,7 @@ An example POST to token URL:
 | `refresh_token` | The Refresh Token to use. |
 | `scope`         | (Optional) A space-delimited list of requested scope permissions. If not sent, the original scopes will be used; otherwise you can request a reduced set of scopes. |
 
-If all goes well, you'll receive an HTTP 200 response with a payload containing a new `access_token`, its lifetime in seconds (`expires_in`), `token_type`, and granted `scope` values. If the scope of the initial token included `openid`, then the response will also include a new `id_token`:
+If all goes well, you'll receive an HTTP 200 response with a payload containing a new `access_token`, its lifetime in seconds (`expires_in`), granted `scope` values, and `token_type`. If the scope of the initial token included `openid`, then the response will also include a new `id_token`:
 
 ```json
 {
