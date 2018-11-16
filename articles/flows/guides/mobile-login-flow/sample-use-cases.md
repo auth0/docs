@@ -1,19 +1,3 @@
----
-description: Explore sample use cases while implementing the mobile login flow.
-toc: false
-topics:
-  - api-authentication
-  - oidc
-  - authorization-code
-  - pkce
-  - mobile-login-flow
-contentType: tutorial
-useCase:
-  - secure-api
-  - call-api
-  - add-login
----
-
 # Sample Use Cases
 
 These use cases build off of our tutorial on how to [Implement the Mobile Login Flow](/api-auth/tutorials/mobile-login-flow/overview-mobile-login-flow).
