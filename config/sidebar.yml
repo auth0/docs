@@ -387,22 +387,25 @@ articles:
             url: "/users/references/user-profile-structure"
 
           - title: "Normalized User Profile"
-            url: "/users/normalized"
+            url: "/users/normalized/auth0"
 
           - title: "Link Accounts"
             url: "/link-accounts"
+            hidden: true
 
           - title: "Custom Database"
             url: "/users/guides/update-user-profiles-using-your-database"  
 
           - title: "Progressive Profiling"
             url: "/users/guides/implement-progressive-profiling"
+            hidden: true
 
           - title: "Blacklist Attributes"
             url: "/security/blacklisting-attributes"
+            hidden: true
 
       - title: "User Metadata"
-        url: "/users/concepts/overview-metadata"
+        url: "/users/concepts/overview-user-metadata"
 
       - title: "User Impersonation"
         url: "/users/guides/impersonate-users-using-the-dashboard"
@@ -446,6 +449,7 @@ articles:
 
       - title: "Data Storage"
         url: "/users/references/user-data-storage-best-practices"
+        hidden: true
 
       - title: "User Migration"
         url: "/users/migrations"
@@ -477,9 +481,11 @@ articles:
         children:
           - title: "Redirect Users from Rules"
             url: "/rules/current/redirect"
+            hidden: true
 
           - title: "Redirect Users After Logout"
             url: "/logout#redirect-users-after-logout"
+            hidden: true
 
       - title: "User Search"
         url: "/users/search/v3"
@@ -499,7 +505,7 @@ articles:
             hidden: true
 
           - title: "Best Practices"
-            url: "/users/search/best-practices"
+            url: "/users/references/search-best-practices"
             hidden: true
 
 

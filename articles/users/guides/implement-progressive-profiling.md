@@ -31,7 +31,7 @@ The first two sources are generally not directly relevant to **progressive profi
 Users logging in with social networks will typically **consent** to disclose their information.
 :::
 
-Using the Auth0 [Users API](/api/v2#!/Users/patch_users_by_id), you can augment the profile of any authenticated user with any information.  Auth0 metadata objects can contain any serializable data structure. Auth0 provides two [metadata](/users/concepts/overview-metadata) attributes: **user metadata** and **app metadata**. You can update the contents of your metadata fields with the [Management APIv2](/api/management/v2). What information to collect, when to collect it, and how to collect it, is up to you. Each application will implement progressive profiling differently. Your application might already do so, in fact. 
+Using the Auth0 [Users API](/api/v2#!/Users/patch_users_by_id), you can augment the profile of any authenticated user with any information.  Auth0 metadata objects can contain any serializable data structure. Auth0 provides two [metadata](/users/concepts/overview-user-metadata) attributes: **user metadata** and **app metadata**. You can update the contents of your metadata fields with the [Management APIv2](/api/management/v2). What information to collect, when to collect it, and how to collect it, is up to you. Each application will implement progressive profiling differently. Your application might already do so, in fact. 
 
 The use of progressive profiling within your application makes it very easy to control what information gets collected and when. As this happens, you can enrich the user profile with the data you've collected:
 

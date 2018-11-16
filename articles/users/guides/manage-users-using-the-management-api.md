@@ -22,5 +22,5 @@ For a list of available SDKs, refer to [the SDKs section of our Support Matrix](
 
 * [User Profile Structure](/users/references/user-profile-structure)
 * [Normalized User Profile](/users/normalized)
-* [Metadata Overview](/users/concepts/overview-metadata)
+* [Metadata Overview](/users/concepts/overview-user-metadata)
 * [View Users](/users/guides/view-users)

@@ -38,7 +38,7 @@ There is a section called `Identity Provider Attributes` which contains informat
 
 Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API Access Token that can be used with that provider.The following attributes are available on the user profile.
 
-* `app_metadata`: Custom fields storing information about a user. These attributes contain information that influences the user's access. For more infornation see [Metadata Overview](/users/concepts/overview-metadata).
+* `app_metadata`: Custom fields storing information about a user. These attributes contain information that influences the user's access. For more infornation see [Metadata Overview](/users/concepts/overview-user-metadata).
 
 * `blocked`: The `true/false` value indicating if the user has been blocked.
 
@@ -82,7 +82,7 @@ Auth0 also supports the ability for users to [link their profile to multiple ide
 
 * `user_id` (unique): The user's unique identifier.
 
-* `user_metadata`: The custom fields storing information about a user. These attributes should contain information about the user that does not impact what they can or cannot access (such as work and home addresses). For more information see [Metadata Overview](/users/concepts/overview-metadata).
+* `user_metadata`: The custom fields storing information about a user. These attributes should contain information about the user that does not impact what they can or cannot access (such as work and home addresses). For more information see [Metadata Overview](/users/concepts/overview-user-metadata).
 
 * `username` (unique): The user's username.
 
@@ -94,7 +94,7 @@ If there are user fields that should not be stored by Auth0 due to privacy reaso
 
 ## Keep reading
 
-* [Normalized User Profile](/users/normalized)
-* [Metadata Overview](/users/concepts/overview-metadata)
+* [Normalized User Profile](/users/normalized/auth0)
+* [User Metadata](/users/concepts/overview-user-metadata)
 * [View Users](/users/guides/view-users)
-* [Update Users Using Your Database](/users/guides/update-user-profiles-using-your-database)
+* [Update User Profiles Using Your Database](/users/guides/update-user-profiles-using-your-database)

@@ -16,7 +16,7 @@ Auth0 [normalizes](/users/normalized) common profile properties in the User Prof
 
 ![User Picture](/media/articles/user-profile/user-picture.png)
 
-1. The `user.picture` attribute is not directly editable. As an alternative, you can use the [Metadata](/users/concepts/overview-metadata) to store a picture attribute which you can then use in your application as desired. You can update the `user_metadata` field by [calling the Management API v2 endpoint](/api/management/v2#!/Users/patch_users_by_id) with the `id` of the specified user.
+1. The `user.picture` attribute is not directly editable. As an alternative, you can use the [Metadata](/users/concepts/overview-user-metadata) to store a picture attribute which you can then use in your application as desired. You can update the `user_metadata` field by [calling the Management API v2 endpoint](/api/management/v2#!/Users/patch_users_by_id) with the `id` of the specified user.
 
 For example, if your app provides a way to upload profile pictures, once the picture is uploaded, you can set the URL to the picture in `user.user_metadata.picture`:
 

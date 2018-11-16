@@ -18,7 +18,7 @@ Auth0 [user profiles](/users/concepts/overview-user-profiles) contain informatio
 
 ## User metadata
 
-Auth0 allows you to create, manage, and store [metadata](/users/concepts/overview-metadata) related to each user that has not come from an external data source. 
+Auth0 allows you to create, manage, and store [metadata](/users/concepts/overview-user-metadata) related to each user that has not come from an external data source. 
 
 ## Authorization extension
 

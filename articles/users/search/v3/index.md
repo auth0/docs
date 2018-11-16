@@ -234,5 +234,5 @@ Please note that only one log of the same type will generated within 60 minutes.
 
 ## Keep reading
 
-* [Query Syntax](/users/search/v2/query-syntax)
+* [Query Syntax](/users/search/v3/query-syntax)
 * [Search Best Practices](/users/references/search-best-practices)

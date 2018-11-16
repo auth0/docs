@@ -105,5 +105,5 @@ This reveals fields to make it easier to [Impersonate a User Using the Impersona
 
 * [User Profile Structure](/users/references/user-profile-structure)
 * [Normalized User Profile](/users/normalized)
-* [Metadata Overview](/users/concepts/overview-metadata)
+* [Metadata Overview](/users/concepts/overview-user-metadata)
 * [View Users](/users/guides/view-users)

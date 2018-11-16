@@ -10,7 +10,7 @@ useCase: compliance
 ---
 # Track Consent with Custom UI
 
-In this tutorial we will see how you can use auth0.js or the Auth0 APIs to ask for consent information and save the input at the user's [metadata](/users/concepts/overview-metadata).
+In this tutorial we will see how you can use auth0.js or the Auth0 APIs to ask for consent information and save the input at the user's [metadata](/users/concepts/overview-user-metadata).
 
 <%= include('../_legal-warning.md') %>
 

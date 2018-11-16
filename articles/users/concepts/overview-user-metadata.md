@@ -11,9 +11,9 @@ useCase: manage-users
 v2: true
 ---
 
-# Metadata Overview
+# User Metadata
 
-Auth0 allows you to store **metadata**, or data related to each user that has not come from the identity provider. There are two kinds of metadata:
+Auth0 allows you to store **metadata**, which is data related to each user that has not come from the identity provider. There are two kinds of metadata:
 
 * **user_metadata**: stores user attributes (such as user preferences) that do not impact a user's core functionality;
 * **app_metadata**: stores information (such as a user's support plan, security roles, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
@@ -120,8 +120,7 @@ Instead, you would use this:
 
 ## Keep reading
 
-* [Manage User Metadata with Auth0 APIs](/users/guides/manage-user-metadata-with-apis)
-* [Manage User Metadata with Lock](/users/guides/manage-user-metadata-with-lock)
+* [Manage User Metadata](/users/guides/manage-user-metadata)
 * [User Metadata in Rules](/rules/current/metadata-in-rules)
 * [User Data Storage Best Practices](/users/references/user-data-storage-best-practices)
 * [Change User Pictures](/users/guides/change-user-pictures)

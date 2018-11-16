@@ -22,7 +22,7 @@ Auth0 provides a sample app (a mobile music application) that reflects the end-t
 
 To store user data points beyond the basic information Auth0 uses for authentication, you can use the  Auth0 data store or a [Custom database](/connections/database/mysql). However, if you use these additional data points for authentication purposes, we recommend using the Auth0 data store, as this allows you to manage your user data through the [Auth0 Management Dashboard](${manage_url}).
 
-Any data you store in Auth0 that's *not* already a part of the user profile should go into one of the two provided [metadata](/users/concepts/overview-metadata):
+Any data you store in Auth0 that's *not* already a part of the user profile should go into one of the two provided [metadata](/users/concepts/overview-user-metadata):
 
 * `app_metadata`
 * `user_metadata`

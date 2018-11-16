@@ -81,7 +81,7 @@ Instead, you would use this:
 
 ## Keep reading
 
-* [Metadata Overview](/users/concepts/overview-metadata)
+* [Metadata Overview](/users/concepts/overview-user-metadata)
 * [Read Metadata](/users/guides/read-metadata)
 * [Set Metadata Properties on Creation](/users/guides/set-metadata-properties-on-creation)
 * [Update Metadata Properties with the Management API](/users/guides/update-metadata-properties-with-management-api)
