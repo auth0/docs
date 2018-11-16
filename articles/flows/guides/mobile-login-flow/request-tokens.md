@@ -69,5 +69,5 @@ You should validate your [ID Token](/tokens/id-token#validate-an-id-token) and [
 ## Next steps
 
 ::: next-steps
-[Refresh tokens](/flows/guides/mobile-login-flow/refresh-tokens) 
+[Refresh Tokens](/flows/guides/mobile-login-flow/refresh-tokens) 
 :::
