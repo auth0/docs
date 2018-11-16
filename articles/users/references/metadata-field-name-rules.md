@@ -131,6 +131,5 @@ Instead, you would use this:
 
 ## Keep Reading
 
-* [Updating Metadata with Auth0 APIs](/metadata/apis)
+* [Managing User Metadata with Auth0 APIs](/users/guides/manage-user-metadata-with-apis)
 * [User Data Storage Best Practices](/users/references/user-data-storage-best-practices)
-* [Change User Pictures](/users/guides/change-user-pictures)

@@ -1,5 +1,6 @@
 ---
 description: Describes how metadata works with Auth0.
+toc: true
 topics: 
    - metadata
    - rules
@@ -85,10 +86,40 @@ console.log(user.app_metadata.plan); // "full"
 With Management APIv1, all metadata was stored in the `metadata` field. Data stored in this field is now available under `app_metadata`.
 :::
 
+## Metadata and custom databases
+
+If you are using a [custom database](/connections/database#using-your-own-user-store), the **app_metadata** field should be referred to as **metadata** in the scripts you run to manage your metadata.
+
+For example, you would *not* use this:
+
+```json
+{
+    "emails": "jane.doe@example.com",
+    "user_metadata": {
+        "hobby": "surfing"
+    },
+    "app_metadata": {
+        "plan": "full"
+    }
+}
+```
+
+Instead, you would use this:
+
+```json
+{
+    "emails": "jane.doe@example.com",
+    "user_metadata": {
+        "hobby": "surfing"
+    },
+    "metadata": {
+        "plan": "full"
+    }
+}
+```
+
 ## Keep reading
 
-::: next-steps
-* [Updating Metadata with Auth0 APIs](/metadata/management-api)
-* [User Data Storage Guidance](/user-profile/user-data-storage)
-* [Change a User's Picture](/user-profile/user-picture#change-a-user-s-picture)
-:::
+* [Manage User Metadata with Auth0 APIs](/users/guides/manage-user-metadata-with-apis)
+* [Manage User Metadata with Lock](/users/guides/manage-user-metadata-with-lock)
+* [User Data Storage Best Practices](/users/references/user-data-storage-best-practices)

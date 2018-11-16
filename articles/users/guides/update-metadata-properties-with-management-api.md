@@ -1,5 +1,5 @@
 ---
-description: How to update user metadata properties.
+description: How to update user metadata properties with the Management API.
 crews: crew-2
 topics:
   - metadata
@@ -9,11 +9,11 @@ useCase: manage-users
 v2: true
 ---
 
-# Update Metadata Properties
+# Update Metadata Properties with the Management API
 
-You can update a user's metadata by making a `PATCH` call to the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id).
+You can update a user's metadata properties by making a `PATCH` call to the [Update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint.
 
-Assuming you created the user as shown above with the following metadata values:
+Assuming you created a user with the following metadata values:
 
 ```json
 {
@@ -84,7 +84,7 @@ The user's profile will now appear as follows:
 When you send a `PATCH` call in which you have set a property's value to `null` (for example, `{user_metadata: {color: null}}`), Auth0 **deletes** the property/value from the database. Also, patching the metadata itself with an empty object removes the metadata completely (see [Deleting](#deleting)).
 :::
 
-## Merging properties
+## Merge properties
 
 Only properties at the root level are merged into the object. All lower-level properties will be replaced.
 
@@ -127,7 +127,7 @@ Therefore, the corresponding `PATCH` call to the API would be:
 }
 ```
 
-## Deleting properties
+## Delete properties
 
 Patching the metadata with an empty object removes the metadata completely. For example, sending this body removes everything in `app_metadata`:
 
@@ -144,34 +144,10 @@ Similarly, this clears out `user_metadata`:
   "user_metadata": {}
 }
 ```
-## Sample request
+## Keep reading
 
-Here is a sample request that adds the user's home address as a second-level property:
-
-```har
-{
-  "method": "PATCH",
-  "url": "https://YOURACCOUNT.auth0.com/api/v2/users/user_id",
-  "httpVersion": "HTTP/1.1",
-  "cookies": [],
-  "headers": [{
-    "name": "Authorization",
-    "value": "Bearer YOUR_TOKEN"
-  }, {
-    "name": "Content-Type",
-    "value": "application/json"
-  }],
-  "queryString": [],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"user_metadata\": {\"addresses\": {\"home\": \"123 Main Street, Anytown, ST 12345\"}}}"
-  },
-  "headersSize": -1,
-  "bodySize": -1,
-  "comment": ""
-}
-```
-
-::: note
-The Auth0 Management APIv2 token is required to call the Auth0 Management API. For more information see [Access Tokens for the Management API](/api/management/v2/concepts/tokens)
-:::
+* [Access Tokens for the Management API](/api/management/v2/concepts/tokens)
+* [Manage User Metadata](/users/guides/manage-user-metadata)
+* [Read Metadata](/users/guides/read-metadata)
+* [Set Metadata Properties on Creation](/users/guides/set-metadata-properties-on-creation)
+* [Metadata Field Name Rules](/users/references/metadata-field-name-rules)
