@@ -184,10 +184,6 @@ We provide all technical support in English, but we will make an effort to accom
 
 During the Subscription Term, Auth0 will provide or install Updates if and when they are made generally commercially available by Auth0 to its customers, at no additional cost to you.
 
-## Demand Services
-
-You may from time to time request assistance from Auth0 for services that are outside the scope of the Support Program.  Auth0 will make resources available for mutually agreeable time periods to provide such assistance.  Auth0 will invoice you, and you will pay for these services (“Demand Services”) at Auth0’s then applicable rates, or such other rates as may be agreed in writing between Auth0 and you, plus any applicable expenses.
-
 ## Pricing
 
 For pricing information on Auth0's subscription plans, please see [Pricing Page](https://auth0.com/pricing) or your [Tenant Settings](${manage_url}/#/tenant/billing/subscription).
