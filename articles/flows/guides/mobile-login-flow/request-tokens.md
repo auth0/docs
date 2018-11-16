@@ -57,7 +57,7 @@ If all goes well, you'll receive an HTTP 200 response with a payload containing 
 }
 ```
 ::: panel-warning
-You should validate your [ID Token](/tokens/id-token#validate-an-id-token) and [Access Token](/api-auth/tutorials/verify-access-token) before saving them.
+You should validate your tokens before saving them.
 :::
 
 [ID Tokens](/tokens/id-token) contain user information that must be [decoded and extracted](/tokens/id-token#id-token-payload). 
@@ -65,6 +65,10 @@ You should validate your [ID Token](/tokens/id-token#validate-an-id-token) and [
 [Access Tokens](/tokens/access-token) are used to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or another API. If you are calling your own API, the first thing your API will need to do is [verify the Access Token](/api-auth/tutorials/verify-access-token).
 
 [Refresh Tokens](/tokens/refresh-token) are used to obtain a new Access Token or ID Token after the previous one has expired. The `refresh_token` will only be present in the response if you included the `offline_access` scope and enabled __Allow Offline Access__ for your API in the Dashboard.
+
+::: panel-warning
+Refresh Tokens must be stored securely since they allow a user to remain authenticated essentially forever.
+:::
 
 ## Next steps
 
