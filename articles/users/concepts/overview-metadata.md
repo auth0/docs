@@ -51,7 +51,7 @@ You can use the [Management API](/api/management/v2) in order to retrieve, creat
 | [Update User](/api/management/v2#!/Users/patch_users_by_id) | Update a user using a JSON object. For example requests see [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id).| 
 
 :::note
-For examples and more info you can also refer to [How to Create and Update User Metadata With the Auth0 APIs](/metadata/apis).
+For examples and more information, see [Manage User Metadata](/users/guides/manage-user-metadata).
 :::
 
 ## Metadata usage
@@ -74,7 +74,7 @@ Suppose the following metadata is stored for a user with the email address `jane
 Any valid JSON snippet can be used as metadata.
 :::
 
-To read metadata, simply access the correct property as you would from any JSON object. For example, if you were working with the above example metadata within a [Rule](/rules) or via a call to the [Management API](/metadata/management-api), you could reference specific items from the data set as follows:
+To read metadata, simply access the correct property as you would from any JSON object. For example, if you were working with the above example metadata within a [Rule](/rules) or via a call to the Management API, you could reference specific items from the data set as follows:
 
 ```js
 console.log(user.email); // "jane.doe@example.com"
@@ -122,4 +122,6 @@ Instead, you would use this:
 
 * [Manage User Metadata with Auth0 APIs](/users/guides/manage-user-metadata-with-apis)
 * [Manage User Metadata with Lock](/users/guides/manage-user-metadata-with-lock)
+* [User Metadata in Rules](/rules/current/metadata-in-rules)
 * [User Data Storage Best Practices](/users/references/user-data-storage-best-practices)
+* [Change User Pictures](/users/guides/change-user-pictures)

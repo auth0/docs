@@ -36,7 +36,7 @@ As an example, assume the following metadata is stored for a user with the email
 
 ## Wth Management API
 
-To read metadata, access the property as you would from any JSON object. For example, using the example metadata above, within a [Rule](/rules) or via a call to the [Management API](/metadata/management-api), you could reference specific items from the data set as follows:
+To read metadata, access the property as you would from any JSON object. For example, using the example metadata above, within a [Rule](/rules) or via a call to the [Management API](/users/guides/manage-user-metadata), you could reference specific items from the data set as follows:
 
 ```js
 console.log(user.email); // "jane.doe@example.com"

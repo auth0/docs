@@ -22,7 +22,7 @@ Auth0 provides a sample app (a mobile music application) that reflects the end-t
 
 To store user data points beyond the basic information Auth0 uses for authentication, you can use the  Auth0 data store or a [Custom database](/connections/database/mysql). However, if you use these additional data points for authentication purposes, we recommend using the Auth0 data store, as this allows you to manage your user data through the [Auth0 Management Dashboard](${manage_url}).
 
-Any data you store in Auth0 that's *not* already a part of the user profile should go into one of the two provided [metadata](/metadata):
+Any data you store in Auth0 that's *not* already a part of the user profile should go into one of the two provided [metadata](/users/concepts/overview-metadata):
 
 * `app_metadata`
 * `user_metadata`
@@ -35,7 +35,7 @@ You can store data points that are read-only to the user in `app_metadata`. Thre
 * Plan information: settings that cannot be changed by the user without confirmation from someone with the appropriate authority;
 * External IDs: identifying information used to associate users with external accounts.
 
-For a list of fields that *cannot* be stored within `app_metadata`, please see the [metadata overview page](/metadata#metadata-restrictions).
+For a list of fields that *cannot* be stored within `app_metadata`, see [Metadata Field Name Rules]](/users/references/metadata-field-name-rules).
 
 ## Example: App metadata for a mobile music application
 

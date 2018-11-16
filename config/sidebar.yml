@@ -402,9 +402,9 @@ articles:
             url: "/security/blacklisting-attributes"
 
       - title: "User Metadata"
-        url: "/metadata"
+        url: "/users/concepts/overview-metadata"
 
-      - title: "User Impersonation"
+       - title: "User Impersonation"
         url: "/users/guides/impersonate-users-using-the-dashboard"
         hidden: true
 

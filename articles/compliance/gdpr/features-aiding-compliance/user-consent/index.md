@@ -20,10 +20,10 @@ This article explains how you can use Auth0 features to implement these requirem
 
 ## Ask for consent
 
-Upon signup you have to ask your users for consent. With Auth0, you can save this information at the [user metadata](/metadata). There are several available options here, depending on how you use Auth0 to authenticate your users.
+Upon signup you have to ask your users for consent. With Auth0, you can save this information at the [user metadata](/users/concepts/overview-metadata). There are several available options here, depending on how you use Auth0 to authenticate your users.
 
 ::: note
-Before you design your solution using metadata make sure you are aware of the restrictions. Auth0 limits the total size of the `user_metadata` to **16 MB**. For more details review the [metadata size limits](/metadata#metadata-size-limits).
+Before you design your solution using metadata make sure you are aware of the restrictions. Auth0 limits the total size of the `user_metadata` to **16 MB**. For more details review the [metadata size limits](/users/references/metadata-field-name-rules).
 ::: 
 
 ### Use Lock
@@ -303,7 +303,7 @@ This allows you to keep a record of deleted users for future use.
 
 #### Step 1: Flag the profile
 
-To flag a user as deleted use the [app_metadata](/metadata). In the following example, we will show you how to add a property called **deleted** to the **app_metadata** field. This allows you to configure the authentication process to treat all uses with this property set to true as deleted.
+To flag a user as deleted use the [app_metadata](users/concepts/overview-metadata). In the following example, we will show you how to add a property called **deleted** to the **app_metadata** field. This allows you to configure the authentication process to treat all uses with this property set to true as deleted.
 
 To update a user's metadata, use the [Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
 

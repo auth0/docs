@@ -21,6 +21,6 @@ For a list of available SDKs, refer to [the SDKs section of our Support Matrix](
 ## Keep reading
 
 * [User Profile Structure](/users/references/user-profile-structure)
-* [Auth0 Normalized User Profile](/users/normalized)
-* [User Metadata](/metadata)
+* [Normalized User Profile](/users/normalized)
+* [Metadata Overview](/users/concepts/overview-metadata)
 * [View Users](/users/guides/view-users)

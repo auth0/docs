@@ -27,6 +27,6 @@ A popup will warn you that the action cannot be undone and prompt you to confirm
 ## Keep reading
 
 * [User Profile Structure](/users/references/user-profile-structure)
-* [Auth0 Normalized User Profile](/users/normalized)
-* [User Metadata](/metadata)
+* [Normalized User Profile](/users/normalized)
+* [Metadata Overview](/users/concepts/overview-metadata)
 * [View Users](/users/guides/view-users)

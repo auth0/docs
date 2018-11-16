@@ -40,10 +40,7 @@ You can search for users using the following fields:
 ::: warning
 New tenants, starting September 1st 2017, cannot search any of the `app_metadata` fields. Paid tenants (that is, tenants that have a credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment)), that were created up to August 31st 2017, can search using the `app_metadata` fields.
 :::
-
-::: note
-For more information on user related metadata refer to [User Metadata](/metadata).
-:::
+For more information, see the [Metadata Overview](/users/concepts/overview-metadata).
 
 ### Field name examples
 

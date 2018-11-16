@@ -582,7 +582,7 @@ When the `responseType` is set to `code`, Lock will never show the **Last time y
 
 ### additionalSignUpFields {Array}
 
-Extra input fields can be added to the sign up screen with the `additionalSignUpFields` option. Each option added in this manner will then be added to that user's `user_metadata`. See the [user metadata documentation](/metadata) for more information. Every input must have a `name` and a `placeholder`, and an `icon` URL can also be provided. Also, the initial value can be provided with the `prefill` option, which can be a string with the value or a function that obtains it. Other options depend on the type of the field, which is defined via the type option and defaults to "text".
+Extra input fields can be added to the sign up screen with the `additionalSignUpFields` option. Each option added in this manner will then be added to that user's `user_metadata`. See [Metadata](/users/concepts/overview-metadata) for more information. Every input must have a `name` and a `placeholder`, and an `icon` URL can also be provided. Also, the initial value can be provided with the `prefill` option, which can be a string with the value or a function that obtains it. Other options depend on the type of the field, which is defined via the type option and defaults to "text".
 
 ::: panel Intended for use with database signup only
 `additionalSignUpFields` are intended for use with database signups only. If you have social sign ups too, you can ask for the additional information after the users sign up (see this [page about custom signup](/libraries/custom-signup) for more details). You can use the `databaseAlternativeSignupInstructions` i18n key to display these instructions.
