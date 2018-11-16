@@ -20,7 +20,8 @@ You can create and update metadata using the [Authentication](/api/authenticatio
 
 When you use the Authentication API's [Signup endpoint](/api/authentication?shell#signup), you can create a new Database Connection user and set the `user_metadata` field.
 
-<%= include('../_includes/_metadata_on_signup_warning') %>
+<%= include('../../_includes/_metadata_on_signup_warning') %>
+
 
 ## With the Management API
 

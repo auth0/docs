@@ -10,7 +10,7 @@ v2: true
 ---
 # Impersonate Users Using the Dashboard
 
-<%= include('../../_includes/_deprecate-impersonation.md') %>
+<%= include('../../_includes/_deprecate-impersonation') %>
 
 Often you may need to impersonate other users for testing or troubleshooting purposes. Using impersonation, you can:
 

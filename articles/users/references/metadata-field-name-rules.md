@@ -94,7 +94,7 @@ Currently, Auth0 limits the total size of your user metadata to **16 MB**. Howev
 When setting the `user_metadata` field with the [Authentication API Signup endpoint](/api/authentication?javascript#signup), your metadata is limited to a maximum of 10 fields and 500 characters.
 Currently, Auth0 limits the total size of your user metadata to **16 MB**. However, when using Rules and/or the Management Dashboard, your metadata limits may be lower.
 
-<%= include('../_includes/_metadata_on_signup_warning') %>
+<%= include('../../_includes/_metadata_on_signup_warning') %>
 
 
 ## Metadata and custom databases
