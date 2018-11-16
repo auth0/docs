@@ -51,7 +51,7 @@ This tutorial can be used to add login to your mobile app or to call an API from
 
 ## Steps
 
-1. [Create a code verifier](/flows/guides/mobile-login-flow/create-code-verifier): 
+1. [Create a code verifier](#create-a-code-verifier): 
 Generate a `code_verifier` that will be sent to Auth0 to request tokens.
 2. [Create a code challenge](/flows/guides/mobile-login-flow/create-code-challenge): 
 Generate a `code_challenge` from the `code_verifier` that will be sent to Auth0 to request an `authorization_code`.
