@@ -1,20 +1,4 @@
----
-description: Learn how to create a code verifier while implementing the mobile login flow.
-toc: false
-topics:
-  - api-authentication
-  - oidc
-  - authorization-code
-  - pkce
-  - mobile-login-flow
-contentType: tutorial
-useCase:
-  - secure-api
-  - call-api
-  - add-login
----
-
-# Create a Code Verifier
+## Create a Code Verifier
 
 Create a `code_verifier`, which is a cryptographically-random key that will eventually be sent to Auth0 to request an `authorization_code`.
 
@@ -67,9 +51,3 @@ NSString *verifier = [[[[data base64EncodedStringWithOptions:0]
     </div>
   </div>
 </div>
-
-## Next steps
-
-::: next-steps
-[Create a Code Challenge](/flows/guides/mobile-login-flow/create-code-challenge) 
-:::
