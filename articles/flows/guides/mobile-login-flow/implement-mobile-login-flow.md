@@ -65,10 +65,15 @@ Use a refresh token to request new tokens.
 Optional: [Explore Sample Use Cases](/flows/guides/mobile-login-flow/sample-use-cases)
 
 <%= include('./create-code-verifier') %>
+
 <%= include('./create-code-challenge') %>
+
 <%= include('./authorize-user') %>
+
 <%= include('./request-tokens') %>
+
 <%= include('./refresh-tokens') %>
+
 <%= include('./sample-use-cases') %>
 
 ## Keep Reading
