@@ -1,19 +1,4 @@
----
-description: Learn how to refresh tokens while implementing the mobile login flow.
-toc: false
-topics:
-  - api-authentication
-  - oidc
-  - authorization-code
-  - pkce
-  - mobile-login-flow
-contentType: tutorial
-useCase:
-  - secure-api
-  - call-api
-  - add-login
----
-# Refresh Tokens
+## Refresh Tokens
 
 You have already received a [Refresh Token](/tokens/refresh-token/current) if you've been following this tutorial and completed the following:
 
@@ -63,10 +48,4 @@ If all goes well, you'll receive an HTTP 200 response with a payload containing 
 
 ::: warning
 You should validate your tokens before saving them.
-:::
-
-## Next steps
-
-::: next-steps
-[Explore Sample Use Cases](/flows/guides/mobile-login-flow/sample-use-cases) 
 :::
