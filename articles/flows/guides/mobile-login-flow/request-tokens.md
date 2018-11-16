@@ -1,19 +1,4 @@
----
-description: Learn how to request tokens while implementing the mobile login flow.
-toc: false
-topics:
-  - api-authentication
-  - oidc
-  - authorization-code
-  - pkce
-  - mobile-login-flow
-contentType: tutorial
-useCase:
-  - secure-api
-  - call-api
-  - add-login
----
-# Request Tokens
+## Request Tokens
 
 Now that you have an Authorization Code, you must exchange it for tokens. Using the Authorization Code (`code`) from the previous step, you will need to `POST` to the [token URL](/api/authentication#authorization-code-pkce-) sending along the `code_verifier`.
 
@@ -68,10 +53,4 @@ You should validate your tokens before saving them.
 
 ::: warning
 Refresh Tokens must be stored securely since they allow a user to remain authenticated essentially forever.
-:::
-
-## Next steps
-
-::: next-steps
-[Refresh Tokens](/flows/guides/mobile-login-flow/refresh-tokens) 
 :::
