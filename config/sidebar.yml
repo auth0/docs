@@ -268,7 +268,7 @@ articles:
         url: "/rules/current"
 
       - title: "User Metadata in Rules"
-        url: "/rules/metadata-in-rules"
+        url: "/rules/current/metadata-in-rules"
 
       - title: "Use the Management API in rules"
         url: "/rules/current/management-api"
@@ -386,14 +386,14 @@ articles:
           - title: "Structure"
             url: "/users/references/user-profile-structure"
 
-          - title: "Use Custom Database"
-            url: "/users/guides/update-user-profiles-using-your-database"  
-
           - title: "Normalized User Profile"
             url: "/users/normalized"
 
           - title: "Link Accounts"
             url: "/link-accounts"
+
+          - title: "Custom Database"
+            url: "/users/guides/update-user-profiles-using-your-database"  
 
           - title: "Progressive Profiling"
             url: "/users/guides/implement-progressive-profiling"
