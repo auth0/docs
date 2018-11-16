@@ -46,29 +46,8 @@ An example POST to token URL:
 |-----------------|-------------|
 | `grant_type`    | Set this to "refresh_token". |
 | `client_id`     | Your application's Client ID. |
-| `code_verifier` | The cryptographically-random key that was generated in the first step of this tutorial. |
-| `code`          | The `authorization_code` retrieved in the previous step of this tutorial. |
-| `redirect_uri`  | The valid callback URL set in your Application settings. This must exactly match the `redirect_uri` passed to the authorization URL in the previous step of this tutorial. |
 | `refresh_token` | The Refresh Token to use. |
-
-
-
-An example POST to token URL:
-
-```har
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/oauth/token",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" }
-  ],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"https://${account.namespace}/mobile\" }"
-  }
-}
-```
-
+| `scope`         | (Optional) A space-delimited list of requested scope permissions. If not sent, the original scopes will be used; otherwise you can request a reduced set of scopes. |
 
 If all goes well, you'll receive an HTTP 200 response with a payload containing a new `access_token`, its lifetime in seconds (`expires_in`), `token_type`, and granted `scope` values. If the scope of the initial token included `openid`, then the response will also include a new `id_token`:
 
