@@ -1,21 +1,4 @@
----
-description: Learn how to authorize a user while implementing the mobile login flow.
-toc: false
-topics:
-  - api-authentication
-  - oidc
-  - authorization-code
-  - pkce
-  - mobile-login-flow
-contentType: tutorial
-useCase:
-  - secure-api
-  - call-api
-  - add-login
----
-
-
-# Authorize the User
+## Authorize the User
 
 Once you've created the `code_verifier` and the `code_challenge`, you'll need to get the user's authorization. This is technically the beginning of the authorization flow, and this step may include one or more of the following processes:
 
@@ -27,7 +10,7 @@ To authorize the user, your app must send the user to the [authorization URL](/a
 
 
 
-## Authorize a user when adding login to your app
+### Authorize a user when adding login to your app
 
 An example authorization URL:
 
@@ -41,7 +24,7 @@ https://${account.namespace}/authorize?
     redirect_uri=${account.namespace}/mobile
 ```
 
-### Parameters
+#### Parameters
 
 | Parameter Name  | Description |
 |-----------------|-------------|
@@ -74,7 +57,7 @@ Location: https://${account.namespace}/mobile?code=AUTHORIZATION_CODE
 ```
 
 
-## Authorize a user when calling an API
+### Authorize a user when calling an API
 
 An example authorization URL:
 
@@ -89,7 +72,7 @@ https://${account.namespace}/authorize?
     redirect_uri=${account.callback}
 ```
 
-### Parameters
+#### Parameters
 
 Note that for authorizing a user when calling an API, you:
 
@@ -122,9 +105,3 @@ As an example, your HTML snippet for your authorization URL when calling an API 
   Sign In
 </a>
 ```
-
-## Next steps
-
-::: next-steps
-[Request Tokens](/flows/guides/mobile-login-flow/request-tokens) 
-:::
