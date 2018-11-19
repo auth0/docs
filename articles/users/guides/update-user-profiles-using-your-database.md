@@ -9,6 +9,7 @@ contentType:
   - how-to
 useCase:
   - manage-users
+v2: true
 ---
 
 # Update User Profiles Using Your Database
@@ -33,6 +34,11 @@ If you need to update other user fields you will need to do it directly in your 
 
 You can update user profiles in your database as you normally do, and Auth0 will update its cached user profile the next time that user logs in.
 
+The user profile in the custom database can be implemented with any user profile structure, but you need to map it in the Login call to the Auth0 normalized user profile attributes as shown in the "Login" custom database template. 
+
+Access the custom database templates are accessed via
+*Connections* -> *Database* -> *Custom Database*. Be sure to turn on the "Use my own database" toggle to enable editing the scripts.
+
 See the [User profile cache](#user-profile-cache) section below for a brief overview of how Auth0 caches user profiles.
 
 ## Update users through migration
@@ -43,6 +49,20 @@ Once a user has been migrated, you will also be able to update fields such as `e
 
 ## User profile cache
 
-Auth0 [caches the user profile](/users/references/user-profile-structure) received from a [database connection](/connections/database) before sending it to the client application. This cache is stored in the Auth0 database and is refreshed each time the user authenticates.
+Auth0 caches the user profile received from a [database connection](/connections/database) before sending it to the client application. This cache is stored in the Auth0 database and is refreshed each time the user authenticates.
 
 The cached values for the [Normalized User Profile](/users/normalized) fields are based on the values returned from the Login Script of your custom database connection.
+
+The User Profile is cached for several reasons. First, caching allows you the option of implementing [Single Sign-On](/sso) at the Auth0 layer to avoid going to the Connection for every request. Additionally, this provides resilience if a Connection is temporarily unavailable.
+
+You can delete a user's cached profile with the Auth0 Dashboard or the Management API. See [User Data Storage Best Practices](users/references/user-data-storage-best-practices) for more information. 
+
+## Keep reading
+
+* [User Profiles](/users/concepts/overview-user-profile)
+* [User Metadata](/users/concepts/overview-user-metadata)
+* [Manage User Metadata](/users/guides/manage-user-metadata)
+* [Manage Users Using the Management API](users/guides/manage-users-using-the-management-api)
+* [Update Metadata Properties with the Management API](/users/guides/update-metadata-properties-with-management-api)
+* [Read Metadata](/users/guides/read-metadata)
+* [View Users](/users/guides/view-users)
