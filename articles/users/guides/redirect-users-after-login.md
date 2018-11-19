@@ -1,5 +1,4 @@
 ---
-title: Redirect Users After Login
 description: How to redirect users to URLs that have not been whitelisted
 topics:
   - users
@@ -7,7 +6,6 @@ topics:
   - redirection
 contentType:
   - how-to
-  - concept
 useCase:
   - manage-users
 ---
@@ -35,3 +33,8 @@ To redirect authenticated users to a URL that is *not* the callback URL, you can
 - In a cookie (for regular web apps, running on the server)
 
 You can then create the necessary logic in your application to retrieve the stored URL and redirect your users where you want.
+
+## Keep reading
+
+* [Redirect Users from Rules](/rules/current/redirect)
+* [Redirect Users After Logout](/logout#redirect-users-after-logout)

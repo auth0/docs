@@ -14,7 +14,7 @@ Auth0 stores user information for your tenant in a hosted cloud database. [Users
 
 ## User profiles
 
-Auth0 [user profiles](/users/concepts/overview-user-profiles) contain information about your users such as name and contact information. Auth0 provides a variety of tools to help you manage user profiles such as the Dashboard and the Management API. You can create, search, view, and delete users. You can also define, manage, and store custom user profile attributes such as favorite color or location.
+Auth0 [user profiles](/users/concepts/overview-user-profile) contain information about your users such as name and contact information. Auth0 provides a variety of tools to help you manage user profiles such as the Dashboard and the Management API. You can create, search, view, and delete users. You can also define, manage, and store custom user profile attributes such as favorite color or location.
 
 ## User metadata
 

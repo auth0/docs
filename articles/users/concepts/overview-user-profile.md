@@ -88,10 +88,7 @@ The information contained in a user profile and in an ID Token can be modified i
 
 * **Custom database scripts**: The above APIs are used for creating and managing users in the Auth0 Database. If a [custom database](/connections/database/mysql) is used as the connection, you can write scripts to implement lifecycle events such as Create, Login, Verify, Delete and Change Password. Auth0 provides templates for these scripts, but they must be modified as needed for the particular database and schema in use by a particular customer.
 
-* **Rules**: [Rules](/rules) execute after a user has been authenticated and can be used to augment the user profile during the authentication transaction, and optionally persist those changes back to Auth0. For more details, see:
-
-* [User profile metadata in rules](/rules/metadata-in-rules)
-* [Altering SAML authentication assertion attributes/claims for a SAML app](https://github.com/auth0/rules/blob/master/rules/saml-attribute-mapping.md)
+* **Rules**: [Rules](/rules) execute after a user has been authenticated and can be used to augment the user profile during the authentication transaction, and optionally persist those changes back to Auth0. For more information, see [User Profile Metadata in Rules](/rules/metadata-in-rules) and [Altering SAML authentication assertion attributes/claims for a SAML app](https://github.com/auth0/rules/blob/master/rules/saml-attribute-mapping.md).
 
 ## User profile attribute mapping
 

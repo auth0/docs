@@ -1531,15 +1531,15 @@ module.exports = [
   },
   {
     from: '/tutorials/redirecting-users',
-    to: '/users/redirecting-users',
+    to: '/users/guides/redirect-users-after-login',
   },
   {
     from: '/tutorials/get-user-information-with-unbounce-landing-pages',
-    to: '/users/get-user-information-with-unbounce-landing-pages',
+    to: '/users/guides/get-user-information-with-unbounce-landing-pages',
   },
   {
     from: '/tutorials/bulk-importing-users-into-auth0',
-    to: '/users/bulk-importing-users-into-auth0',
+    to: '/users/migrations/bulk-import',
   },
   {
     from: '/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise',
@@ -1872,5 +1872,85 @@ module.exports = [
    {
      from: '/tokens/access-token',
      to: '/tokens/overview-access-tokens'
+   }
+   {
+     from: '/user-profile',
+     to: '/users/concepts/overview-user-profile'
+   }
+   {
+     from: '/users',
+     to: '/users/concepts/overview-users'
+   }
+   {
+     from: '/user-profile#block-and-unblock-a-user',
+     to: '/users/guides/block-and-unblock-users'
+   }
+   {
+     from: '/user-profile/user-picture'
+     to: '/users/guides/change-user-pictures'
+   }
+   {
+     from: '/user-profile#create-a-user'
+     to: '/users/guides/create-users'
+   }
+   {
+     from: '/user-profile#delete-a-user'
+     to: '/users/guides/delete-users'
+   }
+   {
+     from: '/user-profile#user-access-to-applications'
+     to: '/users/guides/manage-user-access-to-applications'
+   }
+   {
+     from: '/user-profile#manage-users-using-the-dashboard'
+     to: '/users/guides/manage-users-using-the-dashboard'
+   }
+   {
+     from: '/user-profile#manage-users-using-the-management-api'
+     to: '/users/guides/manage-users-using-the-management-api'
+   }
+   {
+     from: '/user-profile/progressive-profiling'
+     to: '/users/guides/implement-progressive-profiling'
+   }
+   {
+     from: '/user-profile/customdb.md'
+     to: '/users/guides/update-user-profiles-using-your-database'
+   }
+   {
+     from: '/user-profile#view-users'
+     to: '/users/guides/view-users'
+   }
+   {
+     from: '/user-profile/normalized/auth0'
+     to: '/users/normalized/auth0'
+   }
+   {
+     from: '/user-profile/normalized/oidc'
+     to: '/users/normalized/oidc'
+   }
+   {
+     from: '/users/search/best-practices'
+     to: '/users/references/search-best-practices'
+   }
+   {
+     from: '/users/user-data-storage'
+     to: '/users/references/user-data-storage-best-practices'
+   }
+   {
+     from: '/user-profile/user-profile-structure'
+     to: '/users/references/user-profile-structure'
+   }
+   {
+     from: '/metadata'
+     to: '/users/concepts/overview-user-metadata'
+   }
+   {
+     from: '/metadata/apis'
+     to: '/users/guides/manage-user-metadata'
+   }
+   {
+     from: '/metadata/lock'
+     to: '/users/guides/manage-user-metadata'
    }
 ];
