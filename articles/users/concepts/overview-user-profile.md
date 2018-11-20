@@ -80,25 +80,25 @@ For more information on tokens and claims see the [Tokens](/tokens).
 
 The information contained in a user profile and in an ID Token can be modified in a number of ways.
 
-* **Scopes**: The authentication flows supported by Auth0 includes an optional parameter that allows you to specify a scope. This controls the User Profile information (claims) included in the ID Token (JWT). See [Scopes](/scopes) for examples of different kinds of scopes.
+* [**Scopes**](/scopes): The authentication flows supported by Auth0 includes an optional parameter that allows you to specify a scope. This controls the user profile information (claims) included in the ID Token (JWT). 
 
-* **Dashboard**: The user profile can also be modified through the [Auth0 Management Dashboard](/users/guides/manage-users-using-the-dashboard). The dashboard allows administrators to manually edit portions of the user profile for a particular user. This mechanism can be used to alter the `user_metadata` and `app_metadata` portions of the user profile.
+* [**Management Dashboard**](/users/guides/manage-users-using-the-dashboard): The dashboard allows administrators to manually edit portions of the user profile for a particular user. This mechanism can be used to alter the `user_metadata` and `app_metadata` portions of the user profile.
 
-* **Management API**: The [Auth0 Management API](/users/guides/manage-users-using-the-management-api) provides access to read, update, and delete user profiles stored in the Auth0 database.
+* [**Management API**](/users/guides/manage-users-using-the-management-api): Provides access to read, update, and delete user profiles stored in the Auth0 database.
 
-* **Custom database scripts**: The above APIs are used for creating and managing users in the Auth0 Database. If a [custom database](/connections/database/mysql) is used as the connection, you can write scripts to implement lifecycle events such as Create, Login, Verify, Delete and Change Password. Auth0 provides templates for these scripts, but they must be modified as needed for the particular database and schema in use by a particular customer.
+* [**Custom database scripts**](/connections/database/custom-db/templates): If a custom database is used as the connection, you can write scripts to implement lifecycle events such as create, login, verify, delete and change password. Auth0 provides templates for these scripts that you can modify for the particular database and schema.
 
-* **Rules**: [Rules](/rules) execute after a user has been authenticated and can be used to augment the user profile during the authentication transaction, and optionally persist those changes back to Auth0. For more information, see [User Profile Metadata in Rules](/rules/metadata-in-rules) and [Altering SAML authentication assertion attributes/claims for a SAML app](https://github.com/auth0/rules/blob/master/rules/saml-attribute-mapping.md).
+* [**Rules**](/rules/metadata-in-rules)): Rules execute after a user has been authenticated. Use Rules to augment the user profile during the authentication transaction, and optionally persist those changes back to Auth0. 
 
 ## User profile attribute mapping
 
-### AD/LDAP Connector
+### AD/LDAP connector
 
 For Active Directory or any other LDAP connections that use the Auth0 AD/LDAP connector, there is a mechanism for mapping User Profile attributes in the directory service to the Auth0 User Profile. This mapping takes place when a user authenticates via such a Connection and attributes specified in this mapping are reflected in the Auth0 User Profile.
 
 This mapping is implemented in a file called `profileMapper.js` located in the installation directory of the AD/LDAP connector.
 
-### SAML Assertions
+### SAML assertions
 
 If the SAML protocol is used between Auth0 and the application, there are two places where user attribute mapping can occur.
 
