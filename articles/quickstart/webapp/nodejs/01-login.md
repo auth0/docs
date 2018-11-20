@@ -263,7 +263,7 @@ app.use('/', user);
 Use `locals.user`, as implemented in the middleware, to customize the views. For example, we can use it to conditionally render links related to the user session:
 
 ```pug
-// views/layout.pug
+//- views/layout.pug
 
   body
     // ...
@@ -283,7 +283,7 @@ Use `locals.user`, as implemented in the middleware, to customize the views. For
 Create a `views/user.pug` template. Present the information by accessing the object `locals.user`.
 
 ```pug
-// views/user.pug
+//- views/user.pug
 
 extends layout
 
