@@ -112,7 +112,7 @@ passport.deserializeUser(function (user, done) {
 
 In this example, following routes are implemented:
 
-* `/login` triggers the authentication by calling Passport's `authenticate` method. The user is then redirected to the login page as required.
+* `/login` triggers the authentication by calling Passport's `authenticate` method. The user is then redirected to the tenant login page hosted by Auth0.
 * `/callback`is the route the user is returned to by Auth0 after authenticating. It redirects the user to the profile page (`/user`).
 * `/user` displays the user's profile.
 * `/logout` closes the local user session and redirects the user again to the root index `/`.
@@ -272,7 +272,7 @@ Use `locals.user`, as implemented in the middleware, to customize the views. For
 
 
 ```pug
-// views/layout.pug
+//- views/layout.pug
 
   body
     // ...
@@ -292,7 +292,7 @@ Use `locals.user`, as implemented in the middleware, to customize the views. For
 Create a `views/user.pug` template. Use `locals.user` to access the user data in the session.
 
 ```pug
-// views/user.pug
+//- views/user.pug
 
 extends layout
 
