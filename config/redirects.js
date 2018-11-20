@@ -1886,71 +1886,71 @@ module.exports = [
      to: '/users/guides/block-and-unblock-users'
    },
    {
-     from: '/user-profile/user-picture'
+     from: '/user-profile/user-picture',
      to: '/users/guides/change-user-pictures'
    },
    {
-     from: '/user-profile#create-a-user'
+     from: '/user-profile#create-a-user',
      to: '/users/guides/create-users'
    },
    {
-     from: '/user-profile#delete-a-user'
+     from: '/user-profile#delete-a-user',
      to: '/users/guides/delete-users'
    },
    {
-     from: '/user-profile#user-access-to-applications'
+     from: '/user-profile#user-access-to-applications',
      to: '/users/guides/manage-user-access-to-applications'
    },
    {
-     from: '/user-profile#manage-users-using-the-dashboard'
+     from: '/user-profile#manage-users-using-the-dashboard',
      to: '/users/guides/manage-users-using-the-dashboard'
    },
    {
-     from: '/user-profile#manage-users-using-the-management-api'
+     from: '/user-profile#manage-users-using-the-management-api',
      to: '/users/guides/manage-users-using-the-management-api'
    },
    {
-     from: '/user-profile/progressive-profiling'
+     from: '/user-profile/progressive-profiling',
      to: '/users/guides/implement-progressive-profiling'
    },
    {
-     from: '/user-profile/customdb.md'
+     from: '/user-profile/customdb.md',
      to: '/users/guides/update-user-profiles-using-your-database'
    },
    {
-     from: '/user-profile#view-users'
+     from: '/user-profile#view-users',
      to: '/users/guides/view-users'
    },
    {
-     from: '/user-profile/normalized/auth0'
+     from: '/user-profile/normalized/auth0',
      to: '/users/normalized/auth0'
    },
    {
-     from: '/user-profile/normalized/oidc'
+     from: '/user-profile/normalized/oidc',
      to: '/users/normalized/oidc'
    },
    {
-     from: '/users/search/best-practices'
+     from: '/users/search/best-practices',
      to: '/users/references/search-best-practices'
    },
    {
-     from: '/users/user-data-storage'
+     from: '/users/user-data-storage',
      to: '/users/references/user-data-storage-best-practices'
    },
    {
-     from: '/user-profile/user-profile-structure'
+     from: '/user-profile/user-profile-structure',
      to: '/users/references/user-profile-structure'
    },
    {
-     from: '/metadata'
+     from: '/metadata',
      to: '/users/concepts/overview-user-metadata'
    },
    {
-     from: '/metadata/apis'
+     from: '/metadata/apis',
      to: '/users/guides/manage-user-metadata'
    },
    {
-     from: '/metadata/lock'
+     from: '/metadata/lock',
      to: '/users/guides/manage-user-metadata'
    }
 ];
