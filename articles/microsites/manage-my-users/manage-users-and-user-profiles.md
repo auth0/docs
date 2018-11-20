@@ -30,13 +30,13 @@ The information contained in a user profile and in an ID Token can be modified i
 
 * [**Scopes**](/scopes/current): The authentication flows supported by Auth0 includes an optional parameter that allows you to specify a scope. This controls the user profile information (claims) included in the ID Token (JWT). 
 
-* [**Management Dashboard**](/users/guides/manage-users-using-the-dashboard): The user profile can also be modified through the Auth0 Management Dashboard. The dashboard allows administrators to manually edit portions of the user profile for a particular user. This mechanism can be used to alter the user_metadata and app_metadata portions of the user profile.
+* [**Management Dashboard**](/users/guides/manage-users-using-the-dashboard): The user profile can also be modified through the Auth0 Management Dashboard. The dashboard allows administrators to manually edit portions of the user profile for a particular user. This mechanism can be used to alter the `user_metadata` and `app_metadata` portions of the user profile.
 
-* [**Management API**](/users/guides/manage-users-using-the-management-api): The Auth0 Management API provides access to read, update, and delete user profiles stored in the Auth0 database.
+* [**Management API**](/users/guides/manage-users-using-the-management-api): Provides access to read, update, and delete user profiles stored in the Auth0 database.
 
-* [**Custom database scripts**](/connections/database/custom-db/templates): The above APIs are used for creating and managing users in the Auth0 Database. If a custom database is used as the connection, you can write scripts to implement lifecycle events such as create, login, verify, delete and change password. Auth0 provides templates for these scripts, but they must be modified as needed for the particular database and schema in use by a particular customer.
+* [**Custom database scripts**](/connections/database/custom-db/templates): If a custom database is used as the connection, you can write scripts to implement lifecycle events such as create, login, verify, delete and change password. Auth0 provides templates for these scripts, but they must be modified as needed for the particular database and schema in use by a particular customer.
 
-* [**Rules**](/rules): Rules execute after a user has been authenticated and can be used to augment the user profile during the authentication transaction, and optionally persist those changes back to Auth0. 
+* [**Rules**](/rules): Rules execute after a user has been authenticated.  Use Rules to augment the user profile during the authentication transaction, and optionally persist those changes back to Auth0. 
 
 :::: further-reading
 ::: concepts
