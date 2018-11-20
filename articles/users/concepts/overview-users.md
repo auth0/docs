@@ -10,7 +10,7 @@ v2: true
 
 # User Management
 
-Auth0 stores user information for your tenant in a hosted cloud database. [Users](/users/concepts/overview-users) related to your tenant have access to the applications connected to the tenant. User information is stored in a *user profile* and can come from a variety of sources such as identity providers, your own databases, and enterprise connections (Active Directory, SAML, etc.). You can normalize user data that comes from a variety of data sources.
+Auth0 stores user information for your tenant in a hosted cloud database. Users related to your tenant have access to the applications connected to the tenant. User information is stored in a *user profile* and can come from a variety of sources such as identity providers, your own databases, and enterprise connections (Active Directory, SAML, etc.). You can normalize user data that comes from a variety of data sources.
 
 ## User profiles
 
