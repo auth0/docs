@@ -30,7 +30,7 @@ The **Authorization Code Grant** (defined in [RFC 6749, section 4.1](https://too
 
 1. Auth0 redirects the user to the web app (specifically to the `redirect_uri`, as specified in the [/authorize request](/api/authentication#authorization-code-grant)) with an Authorization Code in the querystring (`code`).
 
-1. The web app sends the Authorization Code to Auth0 and asks to exchange it with an Access Token (and optionally an ID Token and a Refresh Token). This is done using the [/oauth/token endpoint](/api/authentication?http#authorization-code). When making this request, the web app authenticates with Auth0, using the Client Id and Client Secret.
+1. The web app sends the Authorization Code to Auth0 and asks to exchange it with an Access Token (and optionally an ID Token and a Refresh Token). This is done using the [/oauth/token endpoint](/api/authentication?http#authorization-code). When making this request, the web app authenticates with Auth0, using the Client Id.
 
 1. Auth0 authenticates the web app, validates the Authorization Code and responds back with the token.
 

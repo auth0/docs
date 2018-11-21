@@ -126,7 +126,7 @@ Using the Authorization Code (`code`) from the first step, you will need to `POS
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
   }
 }
 ```
@@ -135,7 +135,6 @@ Where:
 
 * `grant_type`: This must be `authorization_code`.
 * `client_id`: Your application's Client ID.
-* `client_secret`: Your application's Client Secret.
 * `code`: The Authorization Code received from the initial `authorize` call.
 * `redirect_uri`: The URL must match exactly the `redirect_uri` passed to `/authorize`.
 

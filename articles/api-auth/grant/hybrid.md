@@ -42,7 +42,7 @@ In this article, we will take a closer look at how this flow works.
 
 1. Auth0 redirects the user to the app with an [Access Token](/tokens/access-token) and (optionally) an [ID Token](/tokens/id-token) in the hash fragment of the URI. The app can now extract the tokens from the hash fragment.
 
-1. The application parses out the Authorization Code, sends it to Auth0's [token endpoint](/api/authentication?http#authorization-code), and requests that Auth0 return (in exchange) the Access Token. The application identifies itself during this request using its assigned Client ID and Client Secret.
+1. The application parses out the Authorization Code, sends it to Auth0's [token endpoint](/api/authentication?http#authorization-code), and requests that Auth0 return (in exchange) the Access Token. The application identifies itself during this request by providing its assigned Client ID.
 
 1. If the request sent to the token endpoint is valid, Auth0 responds to the application's request with an ID Token, as well as an Access Token (and possibly a Refresh Token).
 
