@@ -541,7 +541,7 @@ auth0Manage.getUser(userId, cb);
 
 ### Updating the user profile
 
-When updating user metadata, you will need to first create a `userMetadata` object, and then call the `patchUserMetadata` method, passing it the user id and the `userMetadata` object you created. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata. Visit the [User Metadata](/metadata) documentation for more details on user metadata.
+When updating user metadata, you will need to first create a `userMetadata` object, and then call the `patchUserMetadata` method, passing it the user id and the `userMetadata` object you created. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata. See the [Metadata](/users/concepts/overview-user-metadata) documentation for more details on user metadata.
 
 ```js
 auth0Manage.patchUserMetadata(userId, userMetadata, cb);

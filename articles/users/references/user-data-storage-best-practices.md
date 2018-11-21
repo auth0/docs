@@ -1,6 +1,5 @@
 ---
-title: User Data Storage Guidance
-description: Demonstrates the best practices in using Auth0 storage mechanisms through the scenario of a native Swift app with a Node API backend
+description: Demonstrates the best practices for using Auth0 storage mechanisms through the scenario of a native Swift app with a Node API backend.
 toc: true
 topics:
     - users
@@ -11,38 +10,24 @@ topics:
     - ios
     - nodejs
     - api
-contentType:
-  - concept
-  - how-to
-useCase:
-  - manage-users
+contentType: reference
+useCase: manage-users
 ---
 
-# User Data Storage Guidance
+# User Data Storage Best Practices
 
-Auth0 provides multiple places to store data used to authenticate an Application's users. This document covers best practices on how to store your data securely and efficiently. It uses a sample Application (a mobile music application) that reflects the end-to-end user experience of using Auth0 with an external database to illustrate specific topics.
+Auth0 provides multiple places to store data used to authenticate an Application's users. 
 
-The sample Application is a basic iOS app utilizing the [Auth0 iOS seed project](/quickstart/native/ios-swift). The backend uses the [Node.js API](/quickstart/backend/nodejs). For a visualization of the application's overall structure, see the [Mobile + API architecture scenario](/architecture-scenarios/application/mobile-api).
+Auth0 provides a sample app (a mobile music application) that reflects the end-to-end user experience when using Auth0 with an external database. The sample app is an iOS app created using the [Auth0 iOS seed project](/quickstart/native/ios-swift). The backend uses the [Node.js API](/quickstart/backend/nodejs). For a visualization of the application's overall structure, see the [Mobile + API architecture scenario](/architecture-scenarios/application/mobile-api).
 
-## Where should I store my authentication data?
+To store user data points beyond the basic information Auth0 uses for authentication, you can use the  Auth0 data store or a [custom database](/connections/database/mysql). However, if you use these additional data points for authentication purposes, we recommend using the Auth0 data store, as this allows you to manage your user data through the [Auth0 Management Dashboard](${manage_url}).
 
-To store user data points beyond the basic information Auth0 uses for authentication, you can use:
-
-1. The Auth0 data store;
-2. A [custom database](/connections/database/mysql).
-
-However, if you use these additional data points for authentication purposes, we recommend using the Auth0 data store, as this allows you to manage your user data through the [Auth0 Management Dashboard](${manage_url}).
-
-## How should I use the Auth0 data store?
-
-Any data you store in Auth0 that's *not* already a part of the user profile should go into one of the two provided [metadata](/metadata) :
+Any data you store in Auth0 that's *not* already a part of the user profile should go into one of the two provided [metadata](/users/concepts/overview-user-metadata):
 
 * `app_metadata`
 * `user_metadata`
 
 These fields contain JSON snippets and can be used during the Auth0 authentication process.
-
-### App metadata
 
 You can store data points that are read-only to the user in `app_metadata`. Three common types of data for the `app_metadata` field:
 
@@ -50,18 +35,22 @@ You can store data points that are read-only to the user in `app_metadata`. Thre
 * Plan information: settings that cannot be changed by the user without confirmation from someone with the appropriate authority;
 * External IDs: identifying information used to associate users with external accounts.
 
-For a list of fields that *cannot* be stored within `app_metadata`, please see the [metadata overview page](/metadata#metadata-restrictions).
+For a list of fields that *cannot* be stored within `app_metadata`, see [Metadata Field Name Rules]](/users/references/metadata-field-name-rules).
 
-#### Example: App metadata for a mobile music application
+## Example: App metadata for a mobile music application
 
 The following data points from our mobile music application appropriate to store in `app_metadata`:
 
-* A user's subscription plan;
-* A user's right (or lack thereof) to edit featured playlists.
+* User's subscription plan
+* User's right (or lack thereof) to edit featured playlists
 
-These two should be stored in `app_metadata` instead of `user_metadata` because they should not be directly changeable by the user.
+These two data points should be stored in `app_metadata` instead of `user_metadata` because they should not be directly changeable by the user.
+
+### User data permission rules
 
 The following section details [rules](/rules) we use to implement permissions on whether a user can edit featured playlists or not.
+
+#### Assign Playlist Editor role
 
 The first rule sends a request to our Node API, which then queries the database connected to Heroku to check how many plays the user’s playlist has. If the number is 100 or greater, we assign `playlist_editor` as a value in the `roles` array in `app_metadata`.
 
@@ -128,6 +117,8 @@ function (user, context, callback) {
 }
 ```
 
+#### Scope parameter specifies role 
+
 The second rule gets the `app_metadata` field and assigns the `roles` array to a field in the user object so it can be accessed without calling `app_metadata` on the application. The `scope` parameter can then specify `roles` upon the user logging in without including everything in `app_metadata` in the user object:
 
 ```js
@@ -144,7 +135,7 @@ After we've implemented these two rules, the app recognizes whether the user is 
 
 ![](/media/articles/tutorials/data-scenarios/3-home.png)
 
-### User metadata
+## Example: User metadata for a mobile music application
 
 The following data points from our mobile music application are appropriate to store in `user_metadata`:
 
@@ -153,8 +144,6 @@ The following data points from our mobile music application are appropriate to s
 * Any details chosen by the user to alter their experience of the app upon login.
 
 Note that, unlike the data points for `app_metadata`, the user can easily and readily change those stored in `user_metadata`.
-
-#### Example: User metadata for a mobile music application
 
 We can let the user change their `displayName`, which is the name the user sees upon logging in and is displayed to other users of the app.
 
@@ -218,21 +207,21 @@ This is followed by a call to the [Update a User](/api/management/v2#!/Users/pat
 }
 ```
 
-You must replace `YOUR_ACCESS_TOKEN` with a [Management API Access Token](/api/management/v2/tokens).
+You must replace `YOUR_ACCESS_TOKEN` with a [Management API Access Token](/api/management/v2/concepts/tokens).
 
-## Why shouldn't I put all my Application's data in the Auth0 data store?
+## Avoid putting all your application data in the Auth0 data store
 
-Because the Auth0 data store is customized for authentication data, storing anything beyond the default user information should be done only in limited cases. Here's why:
+The Auth0 data store is customized for authentication data. Storing anything beyond the default user information should be done only in limited cases. Here's why:
 
 * **Scalability**: The Auth0 data store is limited in scalability, and your Application's data may exceed the appropriate limits. By using an external database, you keep your Auth0 data store simple, while the more efficient external database contains the extra data;
 * **Performance**: Your authentication data is likely accessed at lower frequencies than your other data. The Auth0 data store isn't optimized for high frequency use, so you should store data that needs to be retrieved more often elsewhere;
 * **Flexibility**: Because the Auth0 data store was built to accommodate only user profiles and their associated metadata, you are limited in terms of the actions you can perform on the database. By using separate databases for your other data, you can manage your data as appropriate.
 
-### Example
+### Example: Associating a user's music with the user
 
-We need to associate a user's music with that user, but this information is not required for authentication. Here's how to store this information in a separate database that is integrated with the backend of our Application.
+We need to associate a user's music with that user, but this information is not required for authentication. Here's how to store this information in a separate database that is integrated with the backend of the application.
 
-The user's unique identifier is their [user_id](/user-profile/normalized#storing-user-data). Here is a sample row from the `songs` table in our database:
+The user's unique identifier is their [user_id](/users/normalized#storing-user-data). Here is a sample row from the `songs` table in our database:
 
 | song_id   | songname           | user_id                    |
 | --------- | ------------------ | -------------------------- |

@@ -15,7 +15,7 @@ The Management API provides functionality that you can use to manage users of yo
 
 * Link separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0)
 * Unlink user accounts, returning them to separate identities
-* Update user [metadata](/metadata)
+* Update user [metadata](/users/concepts/overview-user-metadata)
 
 ## Initializing the API Application
 

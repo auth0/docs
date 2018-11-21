@@ -46,7 +46,7 @@ function(access_token, ctx, callback){
 The `access_token` parameter is used for authenticating requests to the provider's API.
 
 ::: note
-We recommend using the field names from the [normalized profile](/user-profile#normalized-user-profile).
+We recommend using the field names from the [normalized profile](/users/normalized).
 :::
 
 For example, the following code will retrieve the user profile from the **GitHub** API:
