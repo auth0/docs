@@ -88,7 +88,7 @@ function (user, context, callback) {
       return callback(new Error(err));
 
     // Email sent flag persisted in the user's profile.
-    user.persistent.welcome_email_sent = true;
+    user.app_metadata.welcome_email_sent = true;
     return callback(null, user, context);
   });
 }
