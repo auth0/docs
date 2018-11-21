@@ -10,7 +10,8 @@ v2: true
 
 # Read Metadata
 
-You can read metadata using rules with the Management API and with Lock. As for `user_metadata`, you can only search for profile-related information, such as:
+You can read metadata using rules with the Management API and with Lock. You can also search for profile-related information in `user_metadata`, such as:
+
 - `name`
 - `nickname`
 - `given_name`
@@ -34,9 +35,9 @@ As an example, assume the following metadata is stored for a user with the email
 }
 ```
 
-## Wth Management API
+## Read metadata with the Management API
 
-To read metadata, access the property as you would from any JSON object. For example, using the example metadata above, within a [Rule](/rules) or via a call to the [Management API](/users/guides/manage-user-metadata), you could reference specific items from the data set as follows:
+Using the example metadata above, you can refer to specific items from the dataset in [Rules](/rules) or via a call to the [Management API](/users/guides/manage-user-metadata) as follows:
 
 ```js
 console.log(user.email); // "jane.doe@example.com"
@@ -46,12 +47,12 @@ console.log(user.app_metadata.plan); // "full"
 Any valid JSON snippet can be used as metadata.
 
 ::: note
-In Management APIv1, all metadata is stored in the `metadata` field. Data stored in this field is **now** available under `app_metadata`.
+In Management APIv1, all metadata is stored in the `metadata` field. Data stored in this field is **now** available from the Management APIv2 as `app_metadata`.
 :::
 
-## With Lock
+## Read metadata with Lock
 
-Using the Lock library, you can read the user's `user_metadata` properties the same way you would for any user profile property. This example retrieves the value associated with `user_metadata.hobby` using the example user metadata listed above:
+Using the Lock library, you can read the user's `user_metadata` properties the same way you would read any other user profile property. This example retrieves the value associated with `user_metadata.hobby` using the example user metadata listed above:
 
 ```js
 lock.getUserInfo(accessToken, function(error, profile) {
