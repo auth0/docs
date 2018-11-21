@@ -10,7 +10,9 @@ v2: true
 
 # User Management
 
-Auth0 stores user information for your tenant in a hosted cloud database. Users related to your tenant have access to the applications connected to the tenant. User information is stored in a *user profile* and can come from a variety of sources such as identity providers, your own databases, and enterprise connections (Active Directory, SAML, etc.). You can normalize user data that comes from a variety of data sources.
+Auth0's hosted cloud database stores a variety of information on your users that is accessible to you. This information is available to you via a *user profile*, and your users are grouped by tenant. The user information itself can come from a variety of sources, including identity providers, your own databases, and enterprise connections (Active Directory, SAML).
+
+To reconcile the formatting differences between various identity providers, you can normalize your user data.
 
 ## User profiles
 
@@ -20,7 +22,7 @@ Auth0 [user profiles](/users/concepts/overview-user-profile) contain information
 
 Auth0 allows you to create, manage, and store [metadata](/users/concepts/overview-user-metadata) related to each user that has not come from an external data source. 
 
-## Authorization extension
+## Authorization Extension
 
 The [Authorization Extension](/extensions/authorization-extension/v2) provides support for user authorization via Groups, Roles, and Permissions. You can define the expected behavior during the login process, and your configuration settings will be captured in a [rule](/rules) that is executed at runtime.
 
