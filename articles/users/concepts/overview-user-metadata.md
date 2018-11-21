@@ -13,16 +13,16 @@ v2: true
 
 # User Metadata
 
-Auth0 allows you to store **metadata**, which is data related to each user that has not come from the identity provider. There are two kinds of metadata:
+Auth0 provides you with **metadata** fields to store individual user information that did not originate with an identity provider. Auth0 distinguishes between two types of metadata:
 
-* **user_metadata**: stores user attributes (such as user preferences) that do not impact a user's core functionality;
-* **app_metadata**: stores information (such as a user's support plan, security roles, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
+* **User metadata**: used to store user attributes (e.g., user preferences) that do *not* impact a user's core functionality;
+* **App metadata**: used to store information (e.g., a user's support plan, security roles, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
 
 ::: note
 An authenticated user can modify data in their profile's `user_metadata`, but not in their `app_metadata`.
 :::
 
-You can read, create, and edit user metadata using rules, Auth0 APIs, and Lock.
+You can read, create, and edit user metadata using Rules, Auth0 APIs, and Lock.
 
 ## Rules
 
@@ -32,9 +32,9 @@ For more information and examples refer to [User Metadata in Rules](/rules/curre
 
 ## Auth0 APIs
 
-When you use the [Authentication API](/api/authentication), you can use the [Signup](/api/authentication?shell#signup) endpoint, in order to set the `user_metadata` for a user. Note though that this endpoint only works for database connections.
+When you use the [Authentication API](/api/authentication), you can use the [Signup](/api/authentication?shell#signup) endpoint to set the `user_metadata` for a user. **This endpoint only works for database connections.**
 
-For an example, refer to [Custom Signup > Using the API](/libraries/custom-signup#using-the-api).
+For an example of working with metadata during a custom signup process, see [Custom Signup > Using the API](/libraries/custom-signup#using-the-api).
 
 :::note
 You can also use the [GET /userinfo endpoint](/api/authentication#get-user-info) in order to get a user's `user_metadata`. To do so, you first have to [write a Rule to copy `user_metadata` properties to the ID Token](/rules#copy-user-metadata-to-id-token).
