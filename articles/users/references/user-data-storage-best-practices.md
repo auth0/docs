@@ -20,7 +20,7 @@ Auth0 provides multiple places to store data used to authenticate an Application
 
 Auth0 provides a sample app (a mobile music application) that reflects the end-to-end user experience when using Auth0 with an external database. The sample app is an iOS app created using the [Auth0 iOS seed project](/quickstart/native/ios-swift). The backend uses the [Node.js API](/quickstart/backend/nodejs). For a visualization of the application's overall structure, see the [Mobile + API architecture scenario](/architecture-scenarios/application/mobile-api).
 
-To store user data points beyond the basic information Auth0 uses for authentication, you can use the  Auth0 data store or a [Custom database](/connections/database/mysql). However, if you use these additional data points for authentication purposes, we recommend using the Auth0 data store, as this allows you to manage your user data through the [Auth0 Management Dashboard](${manage_url}).
+To store user data points beyond the basic information Auth0 uses for authentication, you can use the  Auth0 data store or a [custom database](/connections/database/mysql). However, if you use these additional data points for authentication purposes, we recommend using the Auth0 data store, as this allows you to manage your user data through the [Auth0 Management Dashboard](${manage_url}).
 
 Any data you store in Auth0 that's *not* already a part of the user profile should go into one of the two provided [metadata](/users/concepts/overview-user-metadata):
 
