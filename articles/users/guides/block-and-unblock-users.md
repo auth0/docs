@@ -10,19 +10,29 @@ v2: true
 ---
 # Block and Unblock Users
 
-To disable a user's access to your apps, you can block the user in the Dashboard.
+You can use the Dashboard to restrict a specific user's access to your application.
 
-1. To block a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to block. When the User Details page opens, click the "Actions" button. Select **Block User** from the dropdown menu.
+## Block a user
+
+To disable a user's access to your apps, you can block the user in the Dashboard:
+
+1. Go to the [Users](${manage_url}/#/users) page in the Dashboard
+2. Click the name of the user you want to block
+3. When the User Details page opens, click the "Actions" button.
+4. Select **Block User** from the dropdown menu.
 
 ![Block a User](/media/articles/user-profile/user4.png)
 
-2. If a blocked user tries to access an application, they will see the error message `user is blocked`.
+If a blocked user tries to access an application, they will see the error message `user is blocked`.
 
-3. To unblock a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. 
+## Unblock a user
 
-   * Click the name of the user you want to unblock. 
-   * When the User Details page opens, click the **Actions** button. 
-   * Select **Unblock User** from the dropdown menu.
+To reinsate a user's access to your apps, you can unblock the user in the Dashboard:
+
+1. Go to the [Users](${manage_url}/#/users) page in the Dashboard. 
+2. Click the name of the user you want to unblock. 
+3. When the User Details page opens, click the **Actions** button. 
+4. Select **Unblock User** from the dropdown menu.
 
 ![Unblock a User](/media/articles/user-profile/user4.png)
 
