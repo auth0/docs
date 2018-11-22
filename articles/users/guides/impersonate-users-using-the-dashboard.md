@@ -32,7 +32,11 @@ Any [Rules](/rules) that you have implemented will run when you impersonate a us
 Impersonation **does not work** with the [API Authorization](/api-auth) features. This means that the `audience` parameter will be ignored, and the [Access Token](/tokens/concepts/overview-access-tokens) returned to applications when using this flow is only valid for requests to [the /userinfo endpoint](/api/authentication#get-user-info). 
 :::
 
-## Enable impersonation
+## Login CSRF attacks mitigation and Impersonation
+
+The OAuth2 protocol specification recommends applications to use the `state` parameter to ensure that a received authentication response matches an authentication request originated by the same session to avoid [Login CSRF attacks](/protocols/oauth2/oauth-state#how-to-use-the-parameter-against-csrf-attacks). Applications where the OIDC/OAuth2 stack check for a valid `state` will not work with impersonation, since impersonation works by sending an authentication response to an application that never requested the authentication in the first place. 
+
+If you are building a single page application where the authentication results are processed either by Lock or Auth0.js you can disable the `state` check to allow impersonation.
 
 ::: warning
 Impersonation leaves your application vulnerable to CSRF attacks, since the flag allows the bypassing of the CSRF check from the [state parameter](/protocols/oauth2/oauth-state) if this parameter is missing from the authorization response. By using impersonation, you acknowledge that you understand and accept these risks.
