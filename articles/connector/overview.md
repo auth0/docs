@@ -41,6 +41,10 @@ To disable credential caching at the [connection](/identityproviders) level:
 2. Click on the **Settings** icon for the **Active Directory / LDAP** connection
 3. Toggle **Disable Cache**
 
+::: warning
+The cache is case sensitive which means login attempts will only succeed if end-users provide the same exact username as the one that was cached.
+:::
+
 ## Notes
 
 * All connections from the Connector to the Auth0 Server are outbound only, so you do not need to make any changes to your firewall.
