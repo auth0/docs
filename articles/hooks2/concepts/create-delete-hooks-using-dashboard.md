@@ -6,14 +6,19 @@ topics:
     - dashboard
 contentType: how-to
 useCase: extensibility-hooks
+v2: true
 ---
-# Create a New Hook
+# Create a New Hook Using the Dashboard
 
-You can create new Hooks using the Auth0 Management Dashboard.
+The Auth0 Management Dashboard provides a visual interface for working with Hooks. With the Dashboard, you can create new Hooks.
 
 ![Management Dashboard Hooks Page](/media/articles/hooks/hooks-dashboard.png)
 
-## Create a New Hook
+::: note
+Hooks utilize the Webtask Editor. For additional information on how to work with the Webtask Editor, you can review its docs [here](https://webtask.io/docs/editor/).
+:::
+
+## Create a new Hook
 
 1. Navigate to [the Hooks page of the Dashboard](${manage_url}/#/hooks). You can create new Hooks in one of two ways:
 
@@ -39,7 +44,7 @@ Auth0 automatically enables the first Hook you create for an extensibility point
 
 ![List of Hooks](/media/articles/hooks/hooks-list.png)
 
-## Delete an Existing Hook
+## Delete an existing Hook
 
 1. In the Hooks page of the Management Dashboard, find the Hook you want to edit.
 2. Click the **Gear** icon next to your Hook.

@@ -1981,5 +1981,24 @@ module.exports = [
   //    from: '/metadata/lock',
   //    to: '/users/guides/manage-user-metadata'
   //  }
+    from: '/hooks/dashboard/create-delete',
+    to: '/hooks/guides/create-delete-hooks-using-dashboard'
+  },
+  {
+    from: '/hooks/dashboard/edit',
+    to: '/hooks/guides/edit-hooks-using-dashboard'
+  },
+  {
+    from: '/hooks/dashboard/enable-disable',
+    to: '/hooks/guides/enable-disable-hooks-using-dashboard'
+  },
+  {
+    from: '/hooks/dashboard/logs',
+    to: '/hooks/guides/logging-hooks-using-dashboard'
+  },
+  {
+    from: '/hooks/dashboard',
+    to: '/hooks'
+  }
 ];
 
