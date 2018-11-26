@@ -13,13 +13,13 @@ v2: True
 
 # Connect Users to My Identity Platform - DRAFT
 
-[Connections](/connections) are sources of users. They are categorized into Database, Social, Enterprise and Passwordless and can be shared among different applications.
+[Connections](/connections) are sources of users. They are categorized as Database, Social, Enterprise, and Passwordless and can be shared among different applications.
 
-Connect users to your identity platform using popular social media providers like [Facebook, Google, and Twitter](/identityproviders), or in an enterprise environment, you can use SD, LDAP, and SAML to authenticate users. You can also create connections that don't require your users to [remember passwords](/connections/passwordless/user-guide) and specify which users have access to [which apps](/users/guides/manage-user-access-to-applications). 
+Connect users to your identity platform using popular social media providers like [Facebook, Google, and Twitter](/identityproviders), or in an enterprise environment, use SD, LDAP, and SAML to authenticate users. You can also create connections that don't require your users to [remember passwords](/connections/passwordless/user-guide) and specify which users have access to [which apps](/users/guides/manage-user-access-to-applications). 
 
 ## How it works
 
-As an example, suppose ou have two separate domains (public facing and internal), or two groups of connections you'd like to make available to users. The best solution is to create a second Auth0 tenant via the settings menu in the top right on the Dashboard. This will allow you to have separate sets of users, applications, and connections for the two groups of users and applications you need to support.
+As an example, suppose you have two separate domains (public facing and internal), or two groups of connections you'd like to make available to users. The best solution is to create a two separate Auth0 tenants using the settings menu in the top right on the Dashboard. This will allow you to have separate sets of users, applications, and connections for the two groups of users and applications you need to support.
 
 Let's suppose that you have two applications: an internal timesheets application and a customer portal. Users should log in to the timesheets application either using their Active Directory credentials or their Google apps social connection. The customer portal on the other hand should be accessible via [Facebook, Google, or LinkedIn](/identityproviders) authentication.
 
