@@ -1882,16 +1882,20 @@ module.exports = [
      to: '/multifactor-authentication/sms-templates'
    },
    {
-     from: ['/multifactor-authentication/guardian', '/multifactor-authentication/guardian/administrator', '/multifactor-authentication/guardian/developer', '/multifactor-authentication/guardian/user-guide'],
-     to: '/multifactor-authentication'
+     from: '/multifactor-authentication/guardian',
+     to: '/multifactor-authentication/factors/push'
    },
    {
-     from: ['/multifactor-authentication/google-authenticator', '/multifactor-authentication/google-authenticator/administrator', '/multifactor-authentication/google-authenticator/developer', '/multifactor-authentication/google-authenticator/user-guide'],
-     to: '/multifactor-authentication'
+     from: '/multifactor-authentication/google-authenticator',
+     to: '/multifactor-authentication/factors/otp'
    },
    {
-     from: ['/multifactor-authentication/duo', '/multifactor-authentication/duo/administrator', '/multifactor-authentication/duo/developer', '/multifactor-authentication/duo/user-guide'],
-     to: '/multifactor-authentication'
+     from: '/multifactor-authentication/duo',
+     to: '/multifactor-authentication/factors/duo'
+   },
+   {
+     from: '/multifactor-authentication/sms',
+     to: '/multifactor-authentication/factors/sms'
    },
    {
      from: '/multifactor-authentication/yubikey',
