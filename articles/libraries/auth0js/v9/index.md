@@ -377,7 +377,7 @@ To sign up a user, use the `signup` method. This method accepts an options objec
 | `password` | required | (String) User's desired password |
 | `username` | required\* | (String) User's desired username. </br>\*Required if you use a database connection and you have enabled **Requires Username** |
 | `connection` | required | (String) The database connection name on your application upon which to attempt user account creation |
-| `user_metadata` | optional | (JSON object) Additional attributes used for user information. Will be stored in [user_metadata](/metadata) |
+| `user_metadata` | optional | (JSON object) Additional attributes used for user information. Will be stored in [user_metadata](/users/concepts/overview-user-metadata) |
 
 Signups should be for database connections. Here is an example of the `signup` method and some sample code for a form.
 
@@ -530,7 +530,7 @@ auth0Manage.getUser(userId, cb);
 
 ### Updating the user profile
 
-When updating user metadata, you will need to first create a `userMetadata` object, and then call the `patchUserMetadata` method, passing it the user id and the `userMetadata` object you created. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata. Visit the [User Metadata](/metadata) documentation for more details on user metadata.
+When updating user metadata, you will need to first create a `userMetadata` object, and then call the `patchUserMetadata` method, passing it the user id and the `userMetadata` object you created. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata. See the [Metadata](/users/concepts/overview-user-metadata) documentation for more details on user metadata.
 
 ```js
 auth0Manage.patchUserMetadata(userId, userMetadata, cb);

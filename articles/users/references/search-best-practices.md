@@ -1,16 +1,12 @@
 ---
 name: User Search Best Practices
 description: Best practices when searching for users in Auth0
-url: /users/search/best-practices
 toc: true
 topics:
   - users
   - user-management
   - search
-contentType:
-  - how-to
-  - reference
-  - concept
+contentType: reference
 useCase:
   - manage-users
 ---
@@ -394,6 +390,17 @@ In this case, for the same example we used before, the request will look like th
   "comment": ""
 }
 ```
+::: panel Search Metadata
+Beginning **1 September 2017**, new tenants cannot search any of the  `app_metadata` fields. 
+
+Only tenants associated with paid subscriptions that were created on/before **31 August 2017** can search the `app_metadata` fields.
+
+As for `user_metadata`, you can only search for profile-related information, such as
+- `name`
+- `nickname`
+- `given_name`
+- `family_name`
+:::
 
 ### Get the results
 

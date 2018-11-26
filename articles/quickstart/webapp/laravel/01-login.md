@@ -201,7 +201,7 @@ Route::get('/logout', 'Auth\Auth0IndexController@logout' )->name( 'logout' )->mi
 
 The [Laravel authentication system](https://laravel.com/docs/5.7/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting a user provider in `config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
 
-The plugin comes with an authentication driver called `auth0` which defines a user structure that wraps the [Normalized User Profile](/user-profile) defined by Auth0. This driver does not actually persist the User, it just stores it in session for future calls. This works fine for basic testing or if you don't really need to persist the user. For persistence in the database, see the "Custom User Handling" section below.
+The plugin comes with an authentication driver called `auth0` which defines a user structure that wraps the [Normalized User Profile](/users/normalized) defined by Auth0. This driver does not actually persist the User, it just stores it in session for future calls. This works fine for basic testing or if you don't really need to persist the user. For persistence in the database, see the "Custom User Handling" section below.
 
 At any point you can call `Auth::check()` to see if there is a user logged in and `Auth::user()` to get the wrapper with the user information.
 

@@ -107,7 +107,7 @@ $userInfo = $auth0->getUser();
 </html>
 ```
 
-To learn about all the available properties from the user's profile, read the [user profile](/user-profile) documentation. 
+To learn about all the available properties from the user's profile, read the [user profile](/users/concepts/overview-user-profile) documentation. 
 
 ::: note
 Some of the user profile properties depend on the social provider you use.

@@ -21,7 +21,7 @@ The query string is parsed into a series of terms and operators:
 
 * A term can be a single word such as `jane` or `smith`.
 * A term can be a phrase surrounded by double quotes (`"green apple"`), which will match all words in the phrase in the same order.
-* A term without a field name will not match text in the [user metadata](/metadata) fields.
+* A term without a field name will not match text in the [user metadata](/users/concepts/overview-user-metadata) fields.
 * Multiple terms can be grouped together with parentheses to form sub-queries.
 * Search values for the normalized user fields (`email`, `name`, `given_name`, `family_name`, and `nickname`) are case insensitive. All other fields (including all `app_metadata`/`user_metadata` fields) are case sensitive.
 * Operators (`AND`, `OR`, `NOT`) work on all normalized user fields and root metadata fields.
@@ -30,7 +30,7 @@ The query string is parsed into a series of terms and operators:
 
 You can search for users using the following fields:
 
-* All the [normalized user profile](/user-profile/normalized/auth0) fields.
+* All the [normalized user profile](/users/normalized/auth0) fields.
 * User metadata fields may be used with:
     * Booleans
     * Numeric (integer or double)
@@ -38,7 +38,7 @@ You can search for users using the following fields:
     * Objects. In order to search a scalar value nested in another object, use the path to the field. For example, `app_metadata.subscription.plan:"gold"`
     * Arrays. In order to search fields in objects nested arrays, use the path to the field and ignore the array level. For example, `user_metadata.addresses.city:"Paris"`
 
-Range and wildcard searches are not available on [user metadata](/metadata) fields.
+Range and wildcard searches are not available on [user metadata](/users/concepts/overview-user-metadata) fields.
 
 ## Exact match
 
@@ -98,7 +98,7 @@ For example, to find all users whose names start with `john`, use `q=name:john*`
 }
 ```
 
-Wildcard searches are not available on [user metadata](/metadata) fields.
+Wildcard searches are not available on [user metadata](/users/guides/read-metadata) fields.
 
 ## Ranges
 

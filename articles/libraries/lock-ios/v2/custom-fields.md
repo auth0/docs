@@ -20,7 +20,7 @@ useCase:
 
 ## Adding custom fields
 
-When signing up the default information requirements are the user's *email* and *password*. You can expand your data capture requirements as needed. Capturing additional signup fields here will store them in the `user_metadata`, which you can read more about in the [Metadata Documentation](/metadata).
+When signing up the default information requirements are the user's *email* and *password*. You can expand your data capture requirements as needed. Capturing additional signup fields here will store them in the `user_metadata`, which you can read more about in [Metadata](/users/concepts/overview-user-metadata).
 
 ```swift
 .withOptions {

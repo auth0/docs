@@ -15,7 +15,7 @@ useCase:
 
 <%= include('../_includes/_pipeline2') %>
 
-Dynamic Client Registration enables you to register applications dynamically. These applications can be either [first-party or third-party applications](/applications/application-types#first-vs-third-party-applications).
+Dynamic Client Registration enables you to register [third-party applications](/applications/application-types#first-vs-third-party-applications) dynamically.
 
 This feature is based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html) and in this article we will see how you can enable and use it.
 

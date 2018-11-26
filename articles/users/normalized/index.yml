@@ -1,5 +1,5 @@
 versioning:
-  baseUrl: user-profile/normalized
+  baseUrl: users/normalized
   current: auth0
   versions:
     - auth0

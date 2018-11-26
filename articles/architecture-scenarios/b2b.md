@@ -53,7 +53,7 @@ You can also map SAML attributes to the Auth0 user profile from the dashboard. T
 
 ## Add attributes to User Profiles
 
-You may want to enrich user profiles with attributes or data retrieved from other services. For example, you might receive an address or phone number and wish to translate that into a geographic region. [Auth0 Rules](/rules) enable you to write small snippets of code that execute during the authentication transaction. This lets you execute logic or call other services for user information, then add it to the [Auth0 user profile](/metadata) and optionally the resulting tokens sent to your applications.
+You may want to enrich user profiles with attributes or data retrieved from other services. For example, you might receive an address or phone number and wish to translate that into a geographic region. [Auth0 Rules](/rules) enable you to write small snippets of code that execute during the authentication transaction. This lets you execute logic or call other services for user information, then add [user metadata](/users/concepts/overview-user-metadata) to the Auth0 user profile and optionally the resulting tokens sent to your applications.
 
 ## Single sign-on
 

@@ -46,7 +46,7 @@ Watch this video to learn all about Rules in just a few minutes.
 
 A Rule is a function with the following arguments:
 
-* `user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Structure](/user-profile/user-profile-structure).
+* `user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Structure](/users/references/user-profile-structure).
 
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, or location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/context).
 
