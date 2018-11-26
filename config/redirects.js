@@ -1946,28 +1946,28 @@ module.exports = [
      to: '/users/guides/manage-user-metadata'
    },
    {
-     from: '/multifactor-authentication/administrator/twilio-configuration',
-     to: '/multifactor-authentication/twilio-configuration'
+     from: '/metadata/lock',
+     to: '/users/guides/manage-user-metadata'
    },
    {
-     from: '/multifactor-authentication/administrator/sms-templates',
-     to: '/multifactor-authentication/sms-templates'
+     from: '/hooks/cli/create-delete',
+     to: '/hooks/guides/create-delete-hooks-using-cli'
    },
    {
-     from: '/multifactor-authentication/guardian',
-     to: '/multifactor-authentication/factors/push'
+     from: '/hooks/cli/edit',
+     to: '/hooks/guides/edit-hooks-using-cli'
    },
    {
-     from: '/multifactor-authentication/google-authenticator',
-     to: '/multifactor-authentication/factors/otp'
+     from: '/hooks/cli/enable-disable',
+     to: '/hooks/guides/enable-disable-hooks-using-cli'
    },
    {
-     from: '/multifactor-authentication/duo',
-     to: '/multifactor-authentication/factors/duo'
+     from: '/hooks/cli/logs',
+     to: '/hooks/guides/logging-hooks-using-cli'
    },
    {
-     from: '/multifactor-authentication/sms',
-     to: '/multifactor-authentication/factors/sms'
+     from: '/hooks/cli',
+     to: '/hooks'
    },
    {
      from: '/multifactor-authentication/yubikey',
