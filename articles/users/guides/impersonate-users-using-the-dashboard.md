@@ -34,9 +34,9 @@ Impersonation **does not work** with the [API Authorization](/api-auth) features
 
 ## Login CSRF attacks mitigation and Impersonation
 
-The OAuth2 protocol specification recommends applications to use the `state` parameter to ensure that a received authentication response matches an authentication request originated by the same session to avoid [Login CSRF attacks](/protocols/oauth2/oauth-state#how-to-use-the-parameter-against-csrf-attacks). Applications where the OIDC/OAuth2 stack check for a valid `state` will not work with impersonation, since impersonation works by sending an authentication response to an application that never requested the authentication in the first place. 
+To avoid [Login CSRF attacks](/protocols/oauth2/oauth-state#how-to-use-the-parameter-against-csrf-attacks), the OAuth 2.0 specification recommends that applications use the **state** parameter to make sure that the response they receive matches the authentication request and originates from the same session.
 
-If you are building a single page application where the authentication results are processed either by Lock or Auth0.js you can disable the `state` check to allow impersonation.
+However, applications that check for a valid **state** parameter will *not* work with Impersonation, since Impersonation works by sending authenticated responses to applications that never requested authentication. If you are building a single page application where the authentication results are processed by Lock or Auth0.js, you can disable checking of **state** to allow Impersonation.
 
 ::: warning
 Impersonation leaves your application vulnerable to CSRF attacks, since the flag allows the bypassing of the CSRF check from the [state parameter](/protocols/oauth2/oauth-state) if this parameter is missing from the authorization response. By using impersonation, you acknowledge that you understand and accept these risks.
