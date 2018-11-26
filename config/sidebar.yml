@@ -494,6 +494,18 @@ articles:
       - title: "Overview"
         url: "/multifactor-authentication"
 
+      - title: "Push"
+        url: "/multifactor-authentication/factors/push"
+
+      - title: "One Time Passwords"
+        url: "/multifactor-authentication/factors/otp"
+
+      - title: "SMS"
+        url: "/multifactor-authentication/factors/sms"
+
+      - title: "Duo"
+        url: "/multifactor-authentication/factors/duo"
+
       - title: "Custom MFA"
         url: "/multifactor-authentication/custom"
 
