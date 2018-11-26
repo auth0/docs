@@ -42,7 +42,7 @@ To disable credential caching at the [connection](/identityproviders) level:
 3. Toggle **Disable Cache**
 
 ::: warning
-The cache is case sensitive which means login attempts will only succeed if end-users provide the same exact username as the one that was cached.
+Values in the cache are case sensitive, which means that login attempts will only succeed if end users provide the exact username that was cached.
 :::
 
 ## Notes
