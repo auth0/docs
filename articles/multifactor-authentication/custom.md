@@ -13,7 +13,11 @@ useCase:
 ---
 # Configuring Custom MFA
 
-You may configure a [rule](/rules) from your [Dashboard > Rules](${manage_url}/#/rules) for custom MFA processes, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices. You can also use the rule to force a particular MFA provider despite the Dashboard toggles, or to force MFA only for particular applications or for particular users.
+You may configure a [rule](/rules) from your [Dashboard > Rules](${manage_url}/#/rules) for custom MFA processes, which allow you to define the conditions that will trigger additional authentication challenges. Rules can be used to force MFA for users of certain applications, or for users with particular user metadata or IP ranges, among other triggers.
+
+::: note
+The MFA settings defined in rules will always take precedence over the toggles in the MFA section of the Dashboard.
+:::
 
 ## The provider setting
 
