@@ -1872,5 +1872,29 @@ module.exports = [
    {
      from: '/tokens/access-token',
      to: '/tokens/overview-access-tokens'
+   },
+   {
+     from: '/multifactor-authentication/administrator/twilio-configuration',
+     to: '/multifactor-authentication/twilio-configuration'
+   },
+   {
+     from: '/multifactor-authentication/administrator/sms-templates',
+     to: '/multifactor-authentication/sms-templates'
+   },
+   {
+     from: ['/multifactor-authentication/guardian', '/multifactor-authentication/guardian/administrator', '/multifactor-authentication/guardian/developer', '/multifactor-authentication/guardian/user-guide'],
+     to: '/multifactor-authentication'
+   },
+   {
+     from: ['/multifactor-authentication/google-authenticator', '/multifactor-authentication/google-authenticator/administrator', '/multifactor-authentication/google-authenticator/developer', '/multifactor-authentication/google-authenticator/user-guide'],
+     to: '/multifactor-authentication'
+   },
+   {
+     from: ['/multifactor-authentication/duo', '/multifactor-authentication/duo/administrator', '/multifactor-authentication/duo/developer', '/multifactor-authentication/duo/user-guide'],
+     to: '/multifactor-authentication'
+   },
+   {
+     from: '/multifactor-authentication/yubikey',
+     to: '/multifactor-authentication'
    }
 ];
