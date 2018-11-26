@@ -48,56 +48,10 @@ The **Always require Multi-factor Authentication** setting, when enabled, will a
 
 Auth0 supports the following factors for implementing MFA. You must enable at least one to use MFA, but you can choose to enable and make available more than one factor if you wish.
 
-#### One Time Passwords (OTP)
-
-The principle behind OTP as a factor is fairly straightforward for the end user. They use an app, such as:
-
-* Authy ([Google Play](https://play.google.com/store/apps/details?id=com.authy.authy) / [App Store](https://itunes.apple.com/us/app/authy/id494168017)).
-* Google Authenticator ([Google Play](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) / [App Store](https://itunes.apple.com/us/app/google-authenticator/id388497605)).
-* Guardian ([Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian) / [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833)).
-* Microsoft Authenticator ([Google Play](https://play.google.com/store/apps/details?id=com.azure.authenticator) / [App Store](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458)).
-
-![MFA Google Authenticator](/media/articles/multifactor-authentication/google-auth-scan-code.png)
-
-Upon signup, they can scan a code and set up the app, upon which it will begin generating one-time codes. Afterwards, the user can simply check the app for the current one-time code to enter when authenticating using this factor.
-
-Your users will need to have in their posession a supported device for whichever OTP app you use.
-
-#### Push notifications
-
-MFA by push notification simply requires an appropriate app on the user's device. The app is sent push notifications when the user attempts to authenticate, and the user must respond to it in order to login, ensuring that they not only know their login information but also posess the device set up for MFA.
-
-End users will be prompted to download the app you have enabled in the Dashboard when trying to sign up or log in to your application. Once they indicate that they have successfully downloaded the app, a barcode will appear on screen. They will have a short amount of time in which to scan the code with the designated app. Once this is done, they should see a confirmation screen and also a recovery code to take note of.
-
-Once this is all set up, when the user attempts to authenticate as normal, their device will receive a push notification via the app, and once they approve the request, they will be logged in.
-
-Auth0 supports the use of Auth0 Guardian ([Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian) / [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833?mt=8)) for push notifications ([Duo](#duo) also can send push notifications, as discussed below).
-
-#### Duo
-
-Duo is a multi-faceted provider and can only be used on your Auth0 tenant if all other factors are disabled. Your Duo account can be configured to support push notifications, SMS, OTP, phone callback, and more. See the [Duo documentation](https://duo.com/docs) for more details on Duo setup. Your end users can download the Duo app from a source below to use Duo as a second factor.
-
-Duo apps: ([Google Play](https://play.google.com/store/apps/details?id=com.duosecurity.duomobile) / [App Store](https://itunes.apple.com/us/app/duo-mobile/id422663827?mt=8))
-
-When enabling Duo in the Dashboard, you will need to click on the Duo factor and fill in a few settings fields in order to link your Duo account to Auth0.
-
-![MFA Duo Settings](/media/articles/multifactor-authentication/duo-settings.png)
-
-::: note
-If other factors are enabled alongside Duo, Duo will be unavailable. Duo is currently only available to end users when it is the only factor enabled.
-:::
-
-#### SMS
-
-SMS as an MFA factor means that the end user is sent a code via SMS when attempting to authenticate with your application. They will have to enter this code to complete the transaction, implying that in addition to knowing their login information, they also have posession of the device set up for receiving MFA texts.
-
-Your users must have a device capable of using SMS to use this option. If your users are unable to always receive SMS messages (such as when traveling), they will be unable to sign up with SMS and will be unable to log in without SMS or their recovery code.
-
-After signing up, and entering a country code and phone number, the user will receive a six digit code to their device. They need to enter this code into the box, and then they will also get a recovery code.
-
-In order to set up SMS, you will need to click on the SMS factor in the Dashboard and [configure an SMS provider such as Twilio](/multifactor-authentication/twilio-configuration). You can also [customize your SMS notification templates](/multifactor-authentication/sms-templates).
-
-![MFA SMS Settings](/media/articles/multifactor-authentication/sms-settings.png)
+* [One Time Passwords (OTP)](factors/otp)
+* [Push](factors/push)
+* [SMS](factors/sms)
+* [Duo](factors/duo)
 
 ## Customizing multi-factor authentication
 

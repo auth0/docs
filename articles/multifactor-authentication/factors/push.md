@@ -1,0 +1,20 @@
+---
+title: MFA - Push Notifications
+description: Using one time passwords with Auth0 MFA
+toc: true
+topics:
+    - mfa
+contentType:
+  - index
+useCase:
+  - customize-mfa
+---
+# MFA with Push Notifications
+
+MFA by push notification simply requires an appropriate app on the user's device. The app is sent push notifications when the user attempts to authenticate, and the user must respond to it in order to login, ensuring that they not only know their login information but also posess the device set up for MFA.
+
+End users will be prompted to download the app you have enabled in the Dashboard when trying to sign up or log in to your application. Once they indicate that they have successfully downloaded the app, a barcode will appear on screen. They will have a short amount of time in which to scan the code with the designated app. Once this is done, they should see a confirmation screen and also a recovery code to take note of.
+
+Once this is all set up, when the user attempts to authenticate as normal, their device will receive a push notification via the app, and once they approve the request, they will be logged in.
+
+Auth0 supports the use of Auth0 Guardian ([Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian) / [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833?mt=8)) for push notifications ([Duo](#duo) also can send push notifications, as discussed below).
