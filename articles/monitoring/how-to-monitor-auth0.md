@@ -123,7 +123,7 @@ To set up SCOM:
   * **Performance data collection interval**: 60 seconds
   * **Test time-out**: 30 seconds
 
-  Additionally, under the *Alerts* section, **check** the box next to *HTTP status code* and set that to **Great than or equals 400**.
+  Additionally, under the *Alerts* section, **check** the box next to *HTTP status code* and set that to **Greater than or equals 400**.
 
   ![ss-2014-11-21T16-33-51.png](/media/articles/monitoring/ss-2014-11-21T16-33-51.png)
 
