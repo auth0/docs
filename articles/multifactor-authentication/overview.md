@@ -30,20 +30,17 @@ You can also [customize your MFA flow](/multifactor-authentication/custom) with 
 
 In the [Dashboard > Multifactor Auth](${manage_url}/#/mfa), head to the Multifactor Auth section. Here you will find a series of toggles for the MFA factors supported by Auth0. 
 
-**TODO: STANDARDIZE DASHBOARD IMAGE**
-
-![MFA Dashboard Page](/media/articles/multifactor-authentication/mfa-dashboard.png)
+![MFA Dashboard Page](/media/articles/multifactor-authentication/mfa-dashboard-1.png)
 
 Any or all of these factors can be enabled simultaneously. When logging in the first time, the user will be shown a default, but will be allowed to choose another factor to use, if you have more than one factor enabled in the Dashboard. 
 
-**TODO: IMAGE OF CURRENT LOGIN PROMPT WITH MFA CHOICES**
-
 ::: note
-When you enable the Duo factor, you will have to fill in a few further settings related specifically to Duo before continuing.
-**TODO: SPECIFY SETTINGS**
+When you enable the SMS or the Duo factor, you will have to click on it and fill in a few further settings related specifically to that factor before continuing.
 :::
 
 #### Always require multi-factor authentication
+
+![MFA Dashboard Page](/media/articles/multifactor-authentication/mfa-dashboard-2.png)
 
 The **Always require Multi-factor Authentication** setting, when enabled, will allow authentication to your applications only when multi-factor authentication is used. This means that one or more of the factors is enabled in the Dashboard, and successfully completed by end-users when authenticating.
 
@@ -60,7 +57,9 @@ The principle behind OTP as a factor is fairly straightforward for the end user.
 * Guardian ([Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian) / [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833)).
 * Microsoft Authenticator ([Google Play](https://play.google.com/store/apps/details?id=com.azure.authenticator) / [App Store](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458)).
 
-Upon signup, they can scan a code and set up the app, upon which it will begin generating one-time codes. Afterword, the user can simply check the app for the current one-time code to enter when authenticating using this factor.
+![MFA Google Authenticator](/media/articles/multifactor-authentication/google-auth-scan-code.png)
+
+Upon signup, they can scan a code and set up the app, upon which it will begin generating one-time codes. Afterwards, the user can simply check the app for the current one-time code to enter when authenticating using this factor.
 
 Your users will need to have in their posession a supported device for whichever OTP app you use.
 
@@ -72,7 +71,15 @@ End users will be prompted to download the app you have enabled in the Dashboard
 
 Once this is all set up, when the user attempts to authenticate as normal, their device will receive a push notification via the app, and once they approve the request, they will be logged in.
 
-Auth0 supports the use of Auth0 Guardian ([Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian) / [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833?mt=8)) and Duo ([Google Play](https://play.google.com/store/apps/details?id=com.duosecurity.duomobile) / [App Store](https://itunes.apple.com/us/app/duo-mobile/id422663827?mt=8)) for push notifications.
+Auth0 supports the use of Auth0 Guardian ([Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian) / [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833?mt=8)) for push notifications ([Duo](#duo) also can send push notifications, as discussed below).
+
+#### Duo
+
+**TODO Duo section**
+
+Duo apps: ([Google Play](https://play.google.com/store/apps/details?id=com.duosecurity.duomobile) / [App Store](https://itunes.apple.com/us/app/duo-mobile/id422663827?mt=8))
+
+![MFA Duo Settings](/media/articles/multifactor-authentication/duo-settings.png)
 
 ::: note
 If other factors are enabled alongside Duo, Duo will be unavailable. Duo is currently only available to end users when it is the only factor enabled.
@@ -86,7 +93,9 @@ Your users must have a device capable of using SMS to use this option. If your u
 
 After signing up, and entering a country code and phone number, the user will receive a six digit code to their device. They need to enter this code into the box, and then they will also get a recovery code.
 
-In order to set up SMS, you will need to [configure an SMS provider such as Twilio](/multifactor-authentication/twilio-configuration). You can also [customize your SMS notification templates](/multifactor-authentication/sms-templates).
+In order to set up SMS, you will need to click on the SMS factor in the Dashboard and [configure an SMS provider such as Twilio](/multifactor-authentication/twilio-configuration). You can also [customize your SMS notification templates](/multifactor-authentication/sms-templates).
+
+![MFA SMS Settings](/media/articles/multifactor-authentication/sms-settings.png)
 
 ## Customizing multi-factor authentication
 
@@ -110,6 +119,9 @@ Additionally, the [MFA API](/multifactor-authentication/api) is available for ot
 ## Recovery methods
 
 With most MFA factors, upon signup, the end user will be given a recovery code which should be kept secret. They will need this code to login if they do not have their device or are temporarily unable to use their normal MFA. If they have lost their recovery code and device, you will need to [reset the user's MFA](/multifactor-authentication/reset-user).
+
+![MFA Recovery Code](/media/articles/multifactor-authentication/recovery-code.png)
+
 ::: note
 If a recovery code is used, a new recovery code will be provided at that time.
 :::
