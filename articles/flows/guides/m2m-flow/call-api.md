@@ -1,6 +1,9 @@
-You can call the API from your application by passing an Access Token in the Authorization header of your HTTP request as a Bearer token.
+## Call your API
 
-cURL C# Go Java jQuery Node.JS ...
+To call your API from the M2M application, the application must pass the retrieved Access Token as a Bearer token in the Authorization header of your HTTP request.
+
+```text
 curl --request GET \
-  --url http://localhost:3010/api/private \
-  --header 'authorization: Bearer YOUR_ACCESS_TOKEN'
+  --url YOUR_API_URL \
+  --header 'Authorization: Bearer YOUR_ACCESS_TOKEN'
+```
