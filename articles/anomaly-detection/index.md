@@ -82,7 +82,7 @@ Both of these anomaly types depend on the IP address of the user. Because of thi
 
 Brute-force protection is enabled for all connections by default.
 
-We do not recommend setting the `brute_force_protection` flag to `false` (effectively disabling brute-force protection for the connection), but if you do, you will be able to change this in the Dashboard. There will be a **Improve brute force protection** toggle under Connection Settings that changes the flag from `false` to `true`.
+We do not recommend setting the `brute_force_protection` flag to `false` (effectively disabling brute-force protection for the connection), but if you do, you will be able to change this in the Dashboard. There is a **Improve brute force protection** toggle under Connection Settings that changes the flag from `false` to `true`.
 
 ## Breached password detection
 
