@@ -57,6 +57,10 @@ Auth0 supports the following factors for implementing MFA. You must enable at le
 
 ### Customizing MFA
 
+::: note
+These customizations do not apply to Duo, which has its own UI.
+:::
+
 The hosted page for MFA can also be customized. You may change the logo and the name that is displayed to your users. To do so, make the appropriate changes to the Guardian page's settings on the **General** tab in [Dashboard > Tenant Settings](${manage_url}/#/tenant). You can also reach the Tenant Settings page by clicking on your tenant name on the top right of the page and then selecting **Settings** from the dropdown menu.
 
 * **Friendly Name**: the name of the app that you want displayed to users
