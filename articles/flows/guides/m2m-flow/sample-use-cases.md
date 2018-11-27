@@ -4,7 +4,7 @@
 
 You can use [Hooks](/hooks) to change the returned scopes of Access Tokens and/or add claims to them. Auth0 invokes Hooks attached to the client credentials grant at runtime to execute your custom logic.
 
-For more information, see [Using Hooks with the Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks).
+For more information, see our tutorial on [Using Hooks with the Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks).
 
 
 ### View Sample Application: Server Client + API
