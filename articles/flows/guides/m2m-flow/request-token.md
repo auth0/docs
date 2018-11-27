@@ -45,8 +45,8 @@ If you [decode the `access_token` value](https://jwt.io/#debugger-io), you will 
   "iss": "https://${account.namespace}/",
   "sub": "YOUR_MACHINE_TO_MACHINE_APPLICATION_CLIENT_ID@clients",
   "aud": "YOUR_API_IDENTIFIER",
-  "exp": 1489715431, // unix timestamp of the token's expiration date,
-  "iat": 1489679431, // unix timestamp of the token's creation date,
+  "exp": 1489715431, //Unix timestamp of the token's expiration date
+  "iat": 1489679431, //Unix timestamp of the token's creation date
   "scope": ""
 }
 ```
