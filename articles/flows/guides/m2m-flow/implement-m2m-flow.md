@@ -34,7 +34,6 @@ This tutorial can be used to call an API from a machine-to-machine application, 
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Client Credentials**.
   
 * [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
-  * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
   
  * Authorize the M2M Application to call your API [using the dashboard](/api-auth/config/using-the-auth0-dashboard) or [using our Management API](/api-auth/config/using-the-management-api).
 
@@ -44,16 +43,12 @@ This tutorial can be used to call an API from a machine-to-machine application, 
 From the authorized application, request an Access Token for your API. 
 2. [Call your API](#call-api): 
 Use the retrieved Access Token to call your API.
-3. [Refresh a token](#refresh-token):
-Use a Refresh Token to request a new Access Token.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 <%= include('./request-token') %>
 
 <%= include('./call-api') %>
-
-<%= include('./refresh-token') %>
 
 <%= include('./sample-use-cases') %>
 
