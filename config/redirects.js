@@ -312,10 +312,10 @@ module.exports = [
     to: '/quickstart/backend/:platform'
   },
   {
-    from: `/quickstart/spa/emberjs`,
+    from: '/quickstart/spa/emberjs',
     to: '/quickstart/spa/ember'
   },
-  
+
   /* --- Connections --- */
 
   {
@@ -1363,203 +1363,203 @@ module.exports = [
   },
   {
     from: '/metadata/lock',
-    to: '/metadata#using-lock-to-manage-metadata'
+    to: '/metadata'
   },
   {
     from: ['/libraries/lock/v10/customization'],
-    to: '/libraries/lock/v10/configuration',
+    to: '/libraries/lock/v10/configuration'
   },
   {
     from: ['/libraries/lock/v11/customization'],
-    to: '/libraries/lock/v11/configuration',
+    to: '/libraries/lock/v11/configuration'
   },
   {
     from: '/libraries/lock/v9/customization',
-    to: '/libraries/lock/v9/configuration',
+    to: '/libraries/lock/v9/configuration'
   },
   {
     from: '/libraries/lock/v10/popup-mode',
-    to: '/libraries/lock/v10/authentication-modes',
+    to: '/libraries/lock/v10/authentication-modes'
   },
   {
     from: '/libraries/lock/v11/popup-mode',
-    to: '/libraries/lock/v11/authentication-modes',
+    to: '/libraries/lock/v11/authentication-modes'
   },
   {
     from: '/libraries/lock/v9/display-modes',
-    to: '/libraries/lock/v9/configuration#container-string-',
+    to: '/libraries/lock/v9/configuration#container-string-'
   },
   {
     from: '/libraries/lock/v9/types-of-applications',
-    to: '/libraries/lock/v9/display-modes',
+    to: '/libraries/lock/v9/display-modes'
   },
   {
     from: '/tutorials/azure-tutorial',
-    to: '/integrations/azure-tutorial',
+    to: '/integrations/azure-tutorial'
   },
   {
     from: '/tutorials/blacklisting-attributes',
-    to: '/security/blacklisting-attributes',
+    to: '/security/blacklisting-attributes'
   },
   {
     from: '/tutorials/integrating-with-slack',
-    to: '/integrations/integrating-with-slack',
+    to: '/integrations/integrating-with-slack'
   },
   {
     from: '/tutorials/browser-based-vs-native-experience-on-mobile',
-    to: '/design/browser-based-vs-native-experience-on-mobile',
+    to: '/design/browser-based-vs-native-experience-on-mobile'
   },
   {
     from: '/tutorials/using-auth0-with-multi-tenant-apps',
-    to: '/design/using-auth0-with-multi-tenant-apps',
+    to: '/design/using-auth0-with-multi-tenant-apps'
   },
   {
     from: '/tutorials/adding-generic-oauth1-connection',
-    to: '/connections/adding-generic-oauth1-connection',
+    to: '/connections/adding-generic-oauth1-connection'
   },
   {
     from: '/tutorials/adding-scopes-for-an-external-idp',
-    to: '/connections/adding-scopes-for-an-external-idp',
+    to: '/connections/adding-scopes-for-an-external-idp'
   },
   {
     from: '/tutorials/generic-oauth2-connection-examples',
-    to: '/connections/generic-oauth2-connection-examples',
+    to: '/connections/generic-oauth2-connection-examples'
   },
   {
     from: '/tutorials/calling-an-external-idp-api',
-    to: '/connections/calling-an-external-idp-api',
+    to: '/connections/calling-an-external-idp-api'
   },
   {
     from: '/tutorials/tracking-new-leads-in-salesforce-and-raplead',
-    to: '/monitoring/tracking-new-leads-in-salesforce-and-raplead',
+    to: '/monitoring/tracking-new-leads-in-salesforce-and-raplead'
   },
   {
     from: '/tutorials/track-signups-enrich-user-profile-generate-leads',
-    to: '/monitoring/track-signups-enrich-user-profile-generate-leads',
+    to: '/monitoring/track-signups-enrich-user-profile-generate-leads'
   },
   {
     from: '/tutorials/how-to-monitor-auth0',
-    to: '/monitoring/how-to-monitor-auth0',
+    to: '/monitoring/how-to-monitor-auth0'
   },
   {
     from: '/tutorials/sending-events-to-splunk',
-    to: '/monitoring/sending-events-to-splunk',
+    to: '/monitoring/sending-events-to-splunk'
   },
   {
     from: '/tutorials/sending-events-to-segmentio',
-    to: '/monitoring/sending-events-to-segmentio',
+    to: '/monitoring/sending-events-to-segmentio'
   },
   {
     from: '/tutorials/sending-events-to-keenio',
-    to: '/monitoring/sending-events-to-keenio',
+    to: '/monitoring/sending-events-to-keenio'
   },
   {
     from: '/tutorials/cancel-paid-subscriptions',
-    to: '/support/cancel-paid-subscriptions',
+    to: '/support/cancel-paid-subscriptions'
   },
   {
     from: '/tutorials/reset-account-password',
-    to: '/support/reset-account-password',
+    to: '/support/reset-account-password'
   },
   {
     from: '/tutorials/troubleshooting-with-har-files',
-    to: '/support/troubleshooting-with-har-files',
+    to: '/support/troubleshooting-with-har-files'
   },
   {
     from: '/tutorials/delete-reset-tenant',
-    to: '/support/delete-reset-tenant',
+    to: '/support/delete-reset-tenant'
   },
   {
     from: '/tutorials/how-to-test-partner-connection',
-    to: '/connections/how-to-test-partner-connection',
+    to: '/connections/how-to-test-partner-connection'
   },
   {
     from: '/tutorials/how-auth0-versions-software',
-    to: '/support/how-auth0-versions-software',
+    to: '/support/how-auth0-versions-software'
   },
   {
     from: '/tutorials/authenticating-a-tessel-device',
-    to: '/integrations/authenticating-a-tessel-device',
+    to: '/integrations/authenticating-a-tessel-device'
   },
   {
     from: '/tutorials/authenticating-devices-using-mqtt',
-    to: '/integrations/authenticating-devices-using-mqtt',
+    to: '/integrations/authenticating-devices-using-mqtt'
   },
   {
     from: '/tutorials/creating-users-in-the-management-portal',
-    to: '/dashboard/creating-users-in-the-management-portal',
+    to: '/dashboard/creating-users-in-the-management-portal'
   },
   {
     from: '/tutorials/dashboard-tenant-settings',
-    to: '/dashboard/dashboard-tenant-settings',
+    to: '/dashboard/dashboard-tenant-settings'
   },
   {
     from: '/tutorials/manage-dashboard-admins',
-    to: '/dashboard/manage-dashboard-admins',
+    to: '/dashboard/manage-dashboard-admins'
   },
   {
     from: '/tutorials/web-apps-vs-web-apis-cookies-vs-tokens',
-    to: '/design/web-apps-vs-web-apis-cookies-vs-tokens',
+    to: '/design/web-apps-vs-web-apis-cookies-vs-tokens'
   },
   {
     from: '/tutorials/how-to-update-applications-client-secret',
-    to: '/applications/how-to-update-client-secret',
+    to: '/applications/how-to-update-client-secret'
   },
   {
     from: '/tutorials/using-auth0-to-secure-a-cli',
-    to: '/integrations/using-auth0-to-secure-a-cli',
+    to: '/integrations/using-auth0-to-secure-a-cli'
   },
   {
     from: '/tutorials/creating-invite-only-applications',
-    to: '/design/creating-invite-only-applications',
+    to: '/design/creating-invite-only-applications'
   },
   {
     from: '/tutorials/google-cloud-platform',
-    to: '/tutorials/google-cloud-platform',
+    to: '/tutorials/google-cloud-platform'
   },
   {
     from: '/tutorials/configuration-to-query-users-from-google-apps',
-    to: '/integrations/configuration-to-query-users-from-google-apps',
+    to: '/integrations/configuration-to-query-users-from-google-apps'
   },
   {
     from: '/tutorials/integrating-auth0-amazon-cognito-mobile-apps',
-    to: '/integrations/integrating-auth0-amazon-cognito-mobile-apps',
+    to: '/integrations/integrating-auth0-amazon-cognito-mobile-apps'
   },
   {
     from: '/tutorials/office365-connection-deprecation-guide',
-    to: '/integrations/office365-connection-deprecation-guide',
+    to: '/integrations/office365-connection-deprecation-guide'
   },
   {
     from: '/tutorials/redirecting-users',
-    to: '/users/guides/redirect-users-after-login',
+    to: '/users/guides/redirect-users-after-login'
   },
   {
     from: '/tutorials/get-user-information-with-unbounce-landing-pages',
-    to: '/users/guides/get-user-information-with-unbounce-landing-pages',
+    to: '/users/guides/get-user-information-with-unbounce-landing-pages'
   },
   {
     from: '/tutorials/bulk-importing-users-into-auth0',
-    to: '/users/migrations/bulk-import',
+    to: '/users/migrations/bulk-import'
   },
   {
     from: '/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise',
-    to: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
+    to: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise'
   },
   {
     from: '/tutorials/configure-wsfed-application',
-    to: '/integrations/configure-wsfed-application',
+    to: '/integrations/configure-wsfed-application'
   },
   {
     from: '/tutorials/openid-connect-discovery',
-    to: '/protocols/oidc/openid-connect-discovery',
+    to: '/protocols/oidc/openid-connect-discovery'
   },
   {
     from: '/tutorials/removing-auth0-exporting-data',
-    to: '/support/removing-auth0-exporting-data',
+    to: '/support/removing-auth0-exporting-data'
   },
   {
     from: '/tutorials',
-    to: '/',
+    to: '/'
   },
   {
     from: '/sso/current/single-page-apps-sso',
@@ -1635,7 +1635,7 @@ module.exports = [
   },
   {
     from: '/clients/how-to-update-client-secret',
-    to: '/applications/how-to-rotate-client-secret',
+    to: '/applications/how-to-rotate-client-secret'
   },
   {
     from: '/i18n/i18n-custom-login-page',
@@ -1654,20 +1654,20 @@ module.exports = [
     to: '/users/migrations/okta'
   },
   {
-    from: `/metadata/management-api`,
-    to: `/metadata/apis`
+    from: '/metadata/management-api',
+    to: '/metadata/apis'
   },
   {
-    from: `/connections/grean/bankid-no`,
-    to: `/connections/criipto/bankid-no`
+    from: '/connections/grean/bankid-no',
+    to: '/connections/criipto/bankid-no'
   },
   {
-    from: `/connections/grean/bankid-se`,
-    to: `/connections/criipto/bankid-se`
+    from: '/connections/grean/bankid-se',
+    to: '/connections/criipto/bankid-se'
   },
   {
-    from: `/connections/grean/nemid`,
-    to: `/connections/criipto/nemid`
+    from: '/connections/grean/nemid',
+    to: '/connections/criipto/nemid'
   },
   {
     from: '/sso/current/integrations',
@@ -1762,12 +1762,12 @@ module.exports = [
     to: '/rules/current#video-using-rules'
   },
   {
-    from: `/guides/login/migration-embedded-centralized`,
-    to: `/guides/login/migration-embedded-universal`
+    from: '/guides/login/migration-embedded-centralized',
+    to: '/guides/login/migration-embedded-universal'
   },
   {
-    from: `/link-accounts/auth-api`,
-    to: `/link-accounts`
+    from: '/link-accounts/auth-api',
+    to: '/link-accounts'
   },
   {
     from: '/videos/session-and-cookies',
@@ -1842,87 +1842,87 @@ module.exports = [
     to: '/architecture-scenarios/web-app-sso/implementation-aspnetcore'
   },
   {
-     from: '/applications/application-settings/non-interactive',
-     to: '/applications/machine-to-machine#settings'
-   },
-   {
-     from: '/applications/application-settings/machine-to-machine',
-     to: '/applications/machine-to-machine#settings'
-   },
-   {
-     from: '/applications/application-settings/native',
-     to: '/applications/native#settings'
-   },
-   {
-     from: '/applications/application-settings/regular-web-app',
-     to: '/applications/webapps#settings'
-   },
-   {
-     from: '/applications/application-settings/single-page-app',
-     to: '/applications/spa#settings'
-   },
-   {
-     from: '/protocols/saml/saml-configuration/selecting-between-multiple-idp',
-     to: '/hrd'
-   },
-   {
-     from: '/support/troubleshooting-with-har-files',
-     to: '/troubleshoot/har'
-   },
-   {
-     from: '/tokens/access-token',
-     to: '/tokens/overview-access-tokens'
-   },
-   {
-     from: '/user-profile',
-     to: '/users/concepts/overview-user-profile'
-   },
-   {
-     from: '/users',
-     to: '/users/concepts/overview-users'
-   },
-   {
-     from: '/user-profile/user-picture',
-     to: '/users/guides/change-user-pictures'
-   },
-   {
-     from: '/user-profile/progressive-profiling',
-     to: '/users/guides/implement-progressive-profiling'
-   },
-   {
-     from: '/user-profile/customdb.md',
-     to: '/users/guides/update-user-profiles-using-your-database'
-   },
-   {
-     from: '/user-profile/normalized/auth0',
-     to: '/users/normalized/auth0'
-   },
-   {
-     from: '/user-profile/normalized/oidc',
-     to: '/users/normalized/oidc'
-   },
-   {
-     from: '/users/search/best-practices',
-     to: '/users/references/search-best-practices'
-   },
-   {
-     from: '/users/user-data-storage',
-     to: '/users/references/user-data-storage-best-practices'
-   },
-   {
-     from: '/user-profile/user-profile-structure',
-     to: '/users/references/user-profile-structure'
-   },
-   {
-     from: '/metadata',
-     to: '/users/concepts/overview-user-metadata'
-   },
-   {
-     from: '/metadata/apis',
-     to: '/users/guides/manage-user-metadata'
-   },
-   {
-     from: '/metadata/lock',
-     to: '/users/guides/manage-user-metadata'
-   }
+    from: '/applications/application-settings/non-interactive',
+    to: '/applications/machine-to-machine'
+  },
+  {
+    from: '/applications/application-settings/machine-to-machine',
+    to: '/applications/machine-to-machine'
+  },
+  {
+    from: '/applications/application-settings/native',
+    to: '/applications/native'
+  },
+  {
+    from: '/applications/application-settings/regular-web-app',
+    to: '/applications/webapps'
+  },
+  {
+    from: '/applications/application-settings/single-page-app',
+    to: '/applications/spa'
+  },
+  {
+    from: '/protocols/saml/saml-configuration/selecting-between-multiple-idp',
+    to: '/hrd'
+  },
+  {
+    from: '/support/troubleshooting-with-har-files',
+    to: '/troubleshoot/har'
+  },
+  {
+    from: '/tokens/access-token',
+    to: '/tokens/overview-access-tokens'
+  },
+  {
+    from: '/user-profile',
+    to: '/users/concepts/overview-user-profile'
+  },
+  {
+    from: '/users',
+    to: '/users/concepts/overview-users'
+  },
+  {
+    from: '/user-profile/user-picture',
+    to: '/users/guides/change-user-pictures'
+  },
+  {
+    from: '/user-profile/progressive-profiling',
+    to: '/users/guides/implement-progressive-profiling'
+  },
+  {
+    from: '/user-profile/customdb.md',
+    to: '/users/guides/update-user-profiles-using-your-database'
+  },
+  {
+    from: '/user-profile/normalized/auth0',
+    to: '/users/normalized/auth0'
+  },
+  {
+    from: '/user-profile/normalized/oidc',
+    to: '/users/normalized/oidc'
+  },
+  {
+    from: '/users/search/best-practices',
+    to: '/users/references/search-best-practices'
+  },
+  {
+    from: '/users/user-data-storage',
+    to: '/users/references/user-data-storage-best-practices'
+  },
+  {
+    from: '/user-profile/user-profile-structure',
+    to: '/users/references/user-profile-structure'
+  },
+  {
+    from: '/metadata',
+    to: '/users/concepts/overview-user-metadata'
+  },
+  {
+    from: '/metadata/apis',
+    to: '/users/guides/manage-user-metadata'
+  },
+  {
+    from: '/metadata/lock',
+    to: '/users/guides/manage-user-metadata'
+  }
 ];
