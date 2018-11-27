@@ -1999,6 +1999,38 @@ module.exports = [
   {
     from: '/hooks/dashboard',
     to: '/hooks'
+  },
+  {
+    from: '/hooks/extensibility-points/credentials-exchange',
+    to: '/hooks/concepts/credentials-exchange-extensibility-point'
+  },
+  {
+    from: '/hooks/extensibility-points/post-user-registration',
+    to: '/hooks/concepts/pre-user-registration-extensibility-point'
+  },
+  {
+    from: '/hooks/extensibility-points/pre-user-registration',
+    to: '/hooks/concepts/post-user-registration-extensibility-point'
+  },
+  {
+    from: '/hooks/overview',
+    to: '/hooks/concepts/overview'
+  },
+  {
+    from: '/hooks',
+    to: '/hooks/concepts/overview'
+  },
+  {
+    from: '',
+    to: ''
+  },
+  {
+    from: '',
+    to: ''
+  },
+  {
+    from: '',
+    to: ''
   }
 ];
 

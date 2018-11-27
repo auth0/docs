@@ -1,8 +1,6 @@
 ---
-title: Using the Post-User Registration Extensibility Point
-description: The post-user-registration extensibility point for use with Hooks
+description: How to use the post-user-registration extensibility point
 beta: true
-toc: true
 topics:
     - hooks
     - extensibility-points   
@@ -10,17 +8,7 @@ contentType:
   - how-to
 useCase: extensibility-hooks
 ---
-
-# Post-User Registration
-
-For [Database Connections](/connections/database), the `post-user-registration` extensibility point allows you to implement custom actions that execute after a new user registers and is added to the database. [Hooks](/hooks#work-with-hooks) associated with the `post-user-registration` extensibility point execute asynchronously from the actions that are a part of the Auth0 authentication process.
-
-This allows you to implement scenarios including (but not limited to):
-
-* Sending notifications to Slack or via email about the user's new account;
-* Creating a new user record in a CRM system.
-
-## How to Implement This
+# Use the Post-User Registration Extensibility Point
 
 You can implement a [Hook](/hooks#work-with-hooks) using this extensibility point with either the [Dashboard](/hooks/dashboard) or the [Command Line Interface](/hooks/cli). 
 
