@@ -515,17 +515,20 @@ articles:
       - title: "Overview"
         url: "/multifactor-authentication"
 
-      - title: "Push"
-        url: "/multifactor-authentication/factors/push"
+      - title: "Factors"
+        url: "/multifactor-authentication/factors"
+        children:
+          - title: "Push"
+            url: "/multifactor-authentication/factors/push"
 
-      - title: "One Time Passwords"
-        url: "/multifactor-authentication/factors/otp"
+          - title: "One Time Passwords"
+            url: "/multifactor-authentication/factors/otp"
 
-      - title: "SMS"
-        url: "/multifactor-authentication/factors/sms"
+          - title: "SMS"
+            url: "/multifactor-authentication/factors/sms"
 
-      - title: "Duo"
-        url: "/multifactor-authentication/factors/duo"
+          - title: "Duo"
+            url: "/multifactor-authentication/factors/duo"
 
       - title: "Custom MFA"
         url: "/multifactor-authentication/custom"

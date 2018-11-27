@@ -46,12 +46,7 @@ The **Always require Multi-factor Authentication** setting, when enabled, will a
 
 ### 2. Set up your services
 
-Auth0 supports the following factors for implementing MFA. You must enable at least one to use MFA, but you can choose to enable and make available more than one factor if you wish.
-
-* [One Time Passwords (OTP)](factors/otp)
-* [Push](factors/push)
-* [SMS](factors/sms)
-* [Duo](factors/duo)
+<%= include('./factors/_factors-index') %>
 
 ## Customizing multi-factor authentication
 
