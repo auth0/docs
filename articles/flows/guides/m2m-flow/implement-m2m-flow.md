@@ -44,6 +44,8 @@ This tutorial can be used to call an API from a machine-to-machine application, 
 From the authorized application, request an Access Token for your API. 
 2. [Call your API](#call-api): 
 Use the retrieved Access Token to call your API.
+3. [Refresh a token](#refresh-token):
+Use a Refresh Token to request a new Access Token.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
@@ -51,7 +53,7 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 <%= include('./call-api') %>
 
-
+<%= include('./refresh-token') %>
 
 <%= include('./sample-use-cases') %>
 
