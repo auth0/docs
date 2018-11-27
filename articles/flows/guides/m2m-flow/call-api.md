@@ -5,5 +5,5 @@ To call your API from the M2M application, the application must pass the retriev
 ```text
 curl --request GET \
   --url YOUR_API_URL \
-  --header 'Authorization: Bearer YOUR_ACCESS_TOKEN'
+  --header 'authorization: Bearer YOUR_ACCESS_TOKEN'
 ```
