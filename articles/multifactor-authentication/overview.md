@@ -55,18 +55,18 @@ Auth0 supports the following factors for implementing MFA. You must enable at le
 
 ## Customizing multi-factor authentication
 
-### Customizing via Rules
+### Customizing MFA
 
-If you need to customize the multi-factor experience you are offering to your users, you may do so via [custom rules configurations for multi-factor authentication](/multifactor-authentication/custom). This might be needed, for example, if you wish to trigger MFA for only specific applications, or for specific users based on user metadata or on IP addresses.
-
-### Customizing Guardian
-
-The hosted page for Guardian can also be customized. You may change the logo and the name that is displayed to your users. To do so, make the appropriate changes to the Guardian page's settings on the **General** tab in [Dashboard > Tenant Settings](${manage_url}/#/tenant). You can also reach the Tenant Settings page by clicking on your tenant name on the top right of the page and then selecting **Settings** from the dropdown menu.
+The hosted page for MFA can also be customized. You may change the logo and the name that is displayed to your users. To do so, make the appropriate changes to the Guardian page's settings on the **General** tab in [Dashboard > Tenant Settings](${manage_url}/#/tenant). You can also reach the Tenant Settings page by clicking on your tenant name on the top right of the page and then selecting **Settings** from the dropdown menu.
 
 * **Friendly Name**: the name of the app that you want displayed to users
 * **Logo URL**: the URL that points to the logo image you want displayed to users
 
-Additionally, you can [customize the Guardian hosted page](/hosted-pages/guardian) as well.
+Additionally, you can [customize the MFA hosted page](/hosted-pages/guardian) as well.
+
+### Customizing via Rules
+
+If you need to customize the multi-factor experience you are offering to your users, you may do so via [custom rules configurations for multi-factor authentication](/multifactor-authentication/custom). This might be needed, for example, if you wish to trigger MFA for only specific applications, or for specific users based on user metadata or on IP addresses.
 
 ### MFA API
 
@@ -74,7 +74,7 @@ Additionally, the [MFA API](/multifactor-authentication/api) is available for ot
 
 ## Recovery methods
 
-With most MFA factors, upon signup, the end user will be given a recovery code which should be kept secret. They will need this code to login if they do not have their device or are temporarily unable to use their normal MFA. If they have lost their recovery code and device, you will need to [reset the user's MFA](/multifactor-authentication/reset-user).
+With most MFA factors, upon signup, the end user will be given a recovery code which should be noted, and kept secret. They will need this code to login if they do not have their device or are temporarily unable to use their normal MFA. If they have lost their recovery code and device, you will need to [reset the user's MFA](/multifactor-authentication/reset-user).
 
 ![MFA Recovery Code](/media/articles/multifactor-authentication/recovery-code.png)
 
