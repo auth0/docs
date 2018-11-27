@@ -131,7 +131,7 @@ The `passwordlessLogin` method will verify the Passwordless transaction, then re
 ```js
 $(document).ready(function() {
   if(window.location.hash){
-    webAuth.parseHash(window.location.hash, function(err, authResult) {
+    webAuth.parseHash({hash: window.location.hash}, function(err, authResult) {
       if (err) {
         return console.log(err);
       } else if (authResult){
