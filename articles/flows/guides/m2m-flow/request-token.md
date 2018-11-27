@@ -23,7 +23,7 @@
  
 | Parameter Name  | Description |
 |-----------------|-------------|
-| `grant_type`    | Set this to "client_credentials`". |
+| `grant_type`    | Set this to "client_credentials". |
 | `client_id`     | Your application's Client ID. You can find this value on the [application's settings tab](${manage_url}/#/applications). |
 | `client_secret` | Your application's Client Secret. You can find this value on the [application's settings tab](${manage_url}/#/applications). |
 | `audience`      | The audience for the token, which is your API. You can find this in the **Identifier** field on your [API's settings tab](${manage_url}/#/apis). |
