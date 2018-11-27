@@ -49,6 +49,12 @@ Go to your [Dashboard Settings](${manage_url}/#/applications/${account.clientId}
 {PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
 ```
 
+e.g. If your bundle identifier was com.company.myapp and your domain was company.auth0.com then this value would be
+
+```text
+com.company.myapp://company.auth0.com/ios/com.company.myapp/callback
+```
+
 # Start the Authentication
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
@@ -75,7 +81,7 @@ Then, add the following `UIApplicationDelegate` method:
 ```swift
 // AppDelegate.swift
 
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
     return Auth0.resumeAuth(url, options: options)
 }
 ```

@@ -52,3 +52,9 @@ Finally, go to your [Client's Dashboard](${manage_url}/#/applications/${account.
 ```text
 {PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
 ```
+
+e.g. If your bundle identifier was com.company.myapp and your domain was company.auth0.com then this value would be
+
+```text
+com.company.myapp://company.auth0.com/ios/com.company.myapp/callback
+```

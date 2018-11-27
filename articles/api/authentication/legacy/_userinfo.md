@@ -94,6 +94,6 @@ This endpoint validates a JSON Web Token (signature and expiration) and returns 
 
 ### More Information
 
-- [User Profile: In-Depth Details - API](/user-profile/user-profile-details#api)
+- [User Profile Struture](/users/references/user-profile-structure)
 
 - [Auth0 API Rate Limit Policy](/policies/rate-limits)

@@ -216,7 +216,7 @@ def dashboard(request):
     })
 ```
 
-Add the following snippet to `dashboard.html` to display the [user information](/user-profile/normalized/oidc).
+Add the following snippet to `dashboard.html` to display the [user information](/users/normalized/oidc).
 
 ```html
 <!-- auth0login/templates/dashboard.html -->

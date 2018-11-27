@@ -15,7 +15,7 @@ useCase: extensibility-hooks
 
 For [Database Connections](/connections/database), the Pre-User Registration extensibility point allows you to add custom data points to a newly-created user's profile.
 
-This allows you to implement scenarios such as setting conditional information (in the form of [metadata](/metadata) on users that do not exist yet.
+This allows you to implement scenarios such as setting conditional information (in the form of [metadata](/users/concepts/overview-user-metadata) on users that do not exist yet.
 
 ## How to Implement This
 

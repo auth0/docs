@@ -66,11 +66,11 @@ With that said, Auth0 suggests the following as a starting point for monitoring 
 | [GET /status/replicaset](/appliance/monitoring/authenticated-endpoints#get-status-replicaset) at node level | Returns a 520 status code | [Submit a support ticket](/support/tickets) with a severity of **Normal** |
 | Synthetic Transaction: Login | Synthetic login failed | [Submit a support ticket](/support/tickets) with a severity of **Normal** |
 
-When building your monitoring strategy for a PSaaS Appliance implementation hosted on an environment you own or control, remember that you are responsible for using the instrumentation and tenant log data to watch for anomalies.
+When building your monitoring strategy for a PSaaS Appliance implementation hosted on an environment you own or control, remember that you are responsible for using the instrumentation and tenant log data to watch for anomalies.=
+
+## Your Responsibilities in Monitoring the Auth0-Hosted PSaaS Appliance
 
 If Auth0 hosts your PSaaS Appliance, you won't have access to instrumentation data. However, you are still expected to monitor your tenant logs for anomalies, since this provides you information on the health of your PSaaS Appliance-dependent applications.
-
-## Your Responsibilities
 
 If Auth0 hosts your PSaaS Appliance implementation, Auth0's Managed Service Engineering (MSE) team is responsible for monitoring. However, the MSE team is focused on the health of the PSaaS Appliance – you are responsible for tracking the health of your applications, as well as its usage of Auth0.
 

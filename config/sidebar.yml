@@ -268,7 +268,7 @@ articles:
         url: "/rules/current"
 
       - title: "User Metadata in Rules"
-        url: "/rules/metadata-in-rules"
+        url: "/rules/current/metadata-in-rules"
 
       - title: "Use the Management API in rules"
         url: "/rules/current/management-api"
@@ -378,52 +378,42 @@ articles:
         url: "/connections/database/password-strength"
 
   - title: "User Management"
-    url: "/users"
+    url: "/users/concepts/overview-users"
     children:
-      - title: "User Profile"
-        url: "/user-profile"
+      - title: "User Profiles"
+        url: "/users/concepts/overview-user-profile"
         children:
           - title: "Structure"
-            url: "/user-profile/user-profile-structure"
-
-          - title: "Details"
-            url: "/user-profile/user-profile-details"
+            url: "/users/references/user-profile-structure"
 
           - title: "Normalized User Profile"
-            url: "/user-profile/normalized/auth0"
+            url: "/users/normalized/auth0"
 
-          - title: "Picture"
-            url: "/user-profile/user-picture"
-
-      - title: "User Search"
-        url: "/users/search/v3"
-        children:
-          - title: "Query Syntax"
-            url: "/users/search/v3/query-syntax"
-
-          - title: "Best Practices"
-            url: "/users/search/best-practices"
-
-      - title: "User Search"
-        url: "/users/search/v2"
-        hidden: true
-        children:
-          - title: "Query Syntax"
-            url: "/users/search/v2/query-syntax"
+          - title: "Link Accounts"
+            url: "/link-accounts"
             hidden: true
 
-          - title: "Best Practices"
-            url: "/users/search/best-practices"
+          - title: "Custom Database"
+            url: "/users/guides/update-user-profiles-using-your-database"  
+
+          - title: "Progressive Profiling"
+            url: "/users/guides/implement-progressive-profiling"
+            hidden: true
+
+          - title: "Blacklist Attributes"
+            url: "/security/blacklisting-attributes"
             hidden: true
 
       - title: "User Metadata"
-        url: "/metadata"
+        url: "/users/concepts/overview-user-metadata"
 
       - title: "User Impersonation"
-        url: "/user-profile/user-impersonation"
+        url: "/users/guides/impersonate-users-using-the-dashboard"
+        hidden: true
 
       - title: "Delegated Administration"
         url: "/extensions/delegated-admin/v3"
+        hidden: true
 
       - title: "Authorization Extension"
         url: "/extensions/authorization-extension/v2"
@@ -457,11 +447,9 @@ articles:
             url: "/extensions/authorization-extension/v2/import-export-data"
             hidden: true
 
-      - title: "Progressive Profiling"
-        url: "/user-profile/progressive-profiling"
-
       - title: "Data Storage"
-        url: "/user-profile/user-data-storage"
+        url: "/users/references/user-data-storage-best-practices"
+        hidden: true
 
       - title: "User Migration"
         url: "/users/migrations"
@@ -487,6 +475,39 @@ articles:
           - title: "Azure Access Control"
             url: "/users/migrations/azure-access-control"
             hidden: true
+ 
+      - title: "Redirect Users"
+        url: "/users/guides/redirect-users-after-login"
+        children:
+          - title: "Redirect Users from Rules"
+            url: "/rules/current/redirect"
+            hidden: true
+
+          - title: "Redirect Users After Logout"
+            url: "/logout#redirect-users-after-logout"
+            hidden: true
+
+      - title: "User Search"
+        url: "/users/search/v3"
+        children:
+          - title: "Query Syntax"
+            url: "/users/search/v3/query-syntax"
+
+          - title: "Best Practices"
+            url: "/users/references/search-best-practices"
+
+      - title: "User Search"
+        url: "/users/search/v2"
+        hidden: true
+        children:
+          - title: "Query Syntax"
+            url: "/users/search/v2/query-syntax"
+            hidden: true
+
+          - title: "Best Practices"
+            url: "/users/references/search-best-practices"
+            hidden: true
+
 
   - title: "Multi-factor Authentication"
     url: "/multifactor-authentication"

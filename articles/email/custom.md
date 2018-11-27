@@ -24,7 +24,7 @@ To begin, you will need to disable automatic emails by deselecting **Status** un
 
 A verification email should be sent to every user for which the `email_verified` property is `false`. Typically, these are users in database connections or users authenticating with Social Providers that do not validate email addresses upon new user registration.
 
-Using a [Rule](/rules), you can call your API when a user logs in for the first time with an email address that has not been verified. After calling your API, [add a flag](/rules/metadata-in-rules) to the user's profile metadata that indicates that the verification email has been sent:
+Using a [Rule](/rules), you can call your API when a user logs in for the first time with an email address that has not been verified. After calling your API, [add a flag](/users/concepts/overview-user-metadata) to the user's profile metadata that indicates that the verification email has been sent:
 
 ```js
 function (user, context, callback) {
@@ -88,7 +88,7 @@ function (user, context, callback) {
       return callback(new Error(err));
 
     // Email sent flag persisted in the user's profile.
-    user.persistent.welcome_email_sent = true;
+    user.app_metadata.welcome_email_sent = true;
     return callback(null, user, context);
   });
 }

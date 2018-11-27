@@ -55,7 +55,7 @@ You can find details on how to configure a webhook at [Creating Webhooks](https:
 
 Once you have setup the webhook in GitHub using the provided information, you are ready to start committing to your repository.
 
-With each commit you push to your configured GitHub repository, if changes were made in the `rules` or `database-connection` folders, the webhook will call the extension to initiate a deployment.
+With each commit you push to your configured GitHub repository, if changes were made in the `rules` or `database-connections` folders, the webhook will call the extension to initiate a deployment.
 
 The __Deploy__ button on the **Deployments** tab of the  extension allows you to manually deploy the rules and database connection scripts you already have in your GitHub repository. This is useful if you already have a repository filled with scripts that you want to deploy once you have setup the extension, or if you have accidentally deleted some scripts in Auth0 and need to redeploy the latest version of your repository.
 
