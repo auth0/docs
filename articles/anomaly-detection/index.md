@@ -27,11 +27,14 @@ A **shield** specifies the **action** you wish to take given a specific **trigge
 
 There are two different triggers for the brute-force protection shield, for two slightly different attack scenarios.
 
+* 10 failed login attempts from the same IP address
+* 100 failed login attempts in 24 hours *or* 50 sign up attempts per minute
+
 For example, if a user with *user_id1* signs in from *IP1* and fails to login consecutively for 10 attempts, their log in attempt from this *IP1* will be blocked. Another user, *user_id2*, signing in from *IP1* will not be blocked. 
 
 ### Trigger: 10 failed login attempts
 
-This trigger occurs when there are 10 failed login attempts into a single account fromt the same IP address.
+This trigger occurs when there are 10 failed login attempts into a single account from the same IP address.
 
 #### Actions
 
@@ -52,7 +55,7 @@ If this block is triggered, it can be cleared the following ways:
 
 ### Triggers: 100 failed login attempts *or* 50 sign up attempts
 
-One trigger occurs when there are 100 failed login attempts from a single IP address using different usernames, all with incorrect passwords in 24 hours. 
+A trigger occurs when there are 100 failed login attempts from one IP address using different usernames with incorrect passwords in 24 hours. 
 
 Another trigger occurs if there are 50 sign up attempts per minute from the same IP address
 
