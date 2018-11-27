@@ -5,6 +5,8 @@ url: /anomaly-detection
 topics:
     - security
     - anomaly-detection
+    - brute-force-protection
+    - breached-password-detection
 contentType: 
     - index
     - reference
@@ -14,21 +16,21 @@ useCase: customize-anomaly-detection
 
 # Anomaly Detection
 
-Auth0 provides built-in tools to detect anomalies and stop malicious attempts to access your application. Anomaly detection can alert you and your users of suspicious activity, as well as block further login attempts. You can set your preferences on the notifications that get sent and you can decide whether to block a suspicious IP address or not.
+Auth0 can detect anomalies and stop malicious attempts to access your application. Anomaly detection can alert you and your users of suspicious activity, as well as block further login attempts. You can set preferences for notifications and decide whether to block a suspicious IP address or not.
 
-Currently Auth0 has two types of **shields** you can enable to handle anomalies and attacks.  
+Auth0 has two types of **shields** to handle anomalies and attacks.  
 
-* Brute-Force Protection
-* Breached Password Detection
+* Brute-force protection
+* Breached password detection
 
 A **shield** specifies the **action** you wish to take given a specific **trigger**. A **trigger** is a suspicious event that is detected when someone is trying to login to your system, or there may have been a breached password with another third party service.
 
-## Brute-Force Protection
+## Brute-force protection
 
 There are two different triggers for the brute-force protection shield, for two slightly different attack scenarios.
 
-* 10 failed login attempts from the same IP address
-* 100 failed login attempts in 24 hours *or* 50 sign up attempts per minute
+* 10 consecutive failed login attempts for the same user and from the same IP address
+* 100 failed login attempts from the same IP address in 24 hours *or* 50 sign up attempts from the same IP address per minute
 
 For example, if a user with *user_id1* signs in from *IP1* and fails to login consecutively for 10 attempts, their log in attempt from this *IP1* will be blocked. Another user, *user_id2*, signing in from *IP1* will not be blocked. 
 
@@ -38,7 +40,7 @@ This trigger occurs when there are 10 failed login attempts into a single accoun
 
 #### Actions
 
-* Send an email to the affected user. (The email can be [customized](#customize-the-blocked-account-email).)
+* Send an email to the affected user. (You can [customize](#customize-the-blocked-account-email) the email.)
 * Block the suspicious IP address for that user.
 
 ::: note
@@ -62,13 +64,13 @@ Another trigger occurs if there are 50 sign up attempts per minute from the same
 #### Actions
 
 * Notify dashboard administrator(s).
-* Block suspicious addresses.
+* Block suspicious addresses for 15 minutes.
 
 If this block is triggered, additional access attempts are released one-at-a-time over the course of 24 hours until 100 attempts are allocated. This results in approximately 1 additional attempt every 15 minutes.
 
 Auth0 emails the dashboard administrator(s) when this block is triggered. Within this email there's a link the owner can click on to remove the block.
 
-### Restrictions Regarding Brute-Force Protection
+### Restrictions and limitations
 
 Both of these anomaly types depend on the IP address of the user. Because of this, the following use cases are *not* supported:
 
@@ -76,15 +78,13 @@ Both of these anomaly types depend on the IP address of the user. Because of thi
 2. Using [Resource Owner Password Grant](/api-auth/grant/password) from the backend of the application. Using this call does not get the IP address of the user, however, you can [configure your application and send the IP address of the user as part of the request](/api-auth/tutorials/using-resource-owner-password-from-server-side) to make brute-force protection work correctly.
 3. Authenticating many users from the same IP address. For example, users that are behind a proxy are more likely to reach these limits and trigger the associated protection. It is possible to configure a whitelist for the proxy's IP and CIDR range and avoid erroneously triggering the protection.
 
-### Enable or disable Brute Force Protection
+### Enable or disable brute-force protection
 
-Brute force protection is enabled for all connections by default.
+Brute-force protection is enabled for all connections by default.
 
-Each connection has a flag called `brute_force_protection` that you can use to disable brute force protection. If this flag is set to `true`, then brute force protection is enabled *even if general brute force protection is enabled*.
+We do not recommend setting the `brute_force_protection` flag to `false` (effectively disabling brute-force protection for the connection), but if you do, you will be able to change this in the Dashboard. There will be a **Improve brute force protection** toggle under Connection Settings that changes the flag from `false` to `true`.
 
-We do not recommend setting the `brute_force_protection` flag to `false` (effectively disabling brute force protection for the connection), but if you do, you will be able to change this in the Dashboard. There will be a **Improve brute force protection** toggle under Connection Settings that changes the flag from `false` to `true`.
-
-## Breached Password Detection
+## Breached password detection
 
 Every day malicious hackers penetrate websites and applications, exposing thousands of email and passwords. Given that it's quite common for users to use the same password to login to multiples sites, this poses a problem, not only for the hacked system, but to any application that shares those credentials.
 
@@ -110,33 +110,31 @@ This block remains in place until the user changes their password.
 
 ## Set anomaly detection preferences
 
-To customize the **actions** that get taken from the **triggers**, go to the [Anomaly Detection](${manage_url}/#/anomaly) section on the dashboard.
+To customize the actions that get taken from the triggers, go to the [Anomaly Detection](${manage_url}/#/anomaly) section on the dashboard.
 
 ![](/media/articles/anomaly-detection/anomaly-detection-overview.png)
 
-You can use the toggle to disable all the actions of a certain shield. Or to enable/disable certain actions, click on the shield that has the action in it that you wish to change.
-
-Then you can use the toggle to enable/disable an action.
+You can use the toggle to disable all the actions of a certain shield, or you can enable/disable certain actions. Click on the shield that has the action in it that you wish to change. Then you can use the toggle to enable/disable an action.
 
 ::: warning
 We do not recommend making changes to your anomaly detection features via the Management API.
 :::
 
-### Brute-force Protection
+### Brute-force protection preferences
 
 ![](/media/articles/anomaly-detection/brute-force-shield.png)
 
 Here you can also add any IP addresses to the **Whitelist** field to avoid erroneously triggering the protection.
 
-Click **Save** when you have finished.
+Click **Save** when you are finished.
 
-### Breached-password Detection
+### Breached password detection preferences
 
 ![](/media/articles/anomaly-detection/breached-password-shield.png)
 
-Click **Save** when you have finished.
+Click **Save** when you are finished.
 
-### Customize the Blocked Account Email
+### Customize blocked account emails
 
 When Auth0 sends an email to a user to notify them of the block, the message contains a link to re-enable the origin of the request. Notice that Auth0 never blocks the user itself, just the attempts from the suspicious origin.
 
