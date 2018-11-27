@@ -57,7 +57,7 @@ If this block is triggered, it can be cleared the following ways:
 
 A trigger occurs when there are 100 failed login attempts from one IP address using different usernames with incorrect passwords in 24 hours. 
 
-Another trigger occurs if there are 50 sign up attempts per minute from the same IP address
+Another trigger occurs if there are 50 sign up attempts per minute from the same IP address.
 
 #### Actions
 
