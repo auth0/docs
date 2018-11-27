@@ -16,20 +16,20 @@ useCase:
 You may configure a [rule](/rules) from your [Dashboard > Rules](${manage_url}/#/rules) for custom MFA processes, which allow you to define the conditions that will trigger additional authentication challenges. Rules can be used to force MFA for users of certain applications, or for users with particular user metadata or IP ranges, among other triggers.
 
 ::: note
-The MFA settings defined in rules will always take precedence over the toggles in the MFA section of the Dashboard.
+The MFA settings defined in rules will always take precedence over the toggles in the Multi-factor Auth section of the Dashboard.
 :::
 
 ## The provider setting
 
-The `provider` setting now defaults to `any`. This allows the toggles on the [Dashboard > MFA](${manage_url}/#/mfa) to control which providers are enabled, and the user to select from any of the enabled providers. 
+The `provider` setting is a way to specify whether to force MFA. It can be set to allow MFA from any enabled factor, or from a specific factor.If the `provider` value is manually set, it overrides the toggles in the [Dashboard > MFA](${manage_url}/#/mfa). 
 
-You can also set the `provider` to any of these legacy options, which are still valid to ensure backwards compatibility:
+Setting the `provider` value to `any` will force MFA for all users, but allow them to use any of the factors which have been enabled in the Dashboard. You can also set the `provider` to any of these specific legacy options, which are still valid to ensure backwards compatibility:
 
 * `guardian` = uses SMS or Push via Guardian
-* `google-authenticator` = forces you to use a UI specific to Google Authenticator
+* `google-authenticator` = forces you to use a UI which is specific to Google Authenticator
 * `duo` = forces you to use Duo
 
-Setting the `provider` manually will override the enabled/disabled toggles in the Dashboard, and is not the recommended way to control which factors are used.
+Setting the `provider` to a specific option manually will override the enabled/disabled toggles in the Dashboard, and is not the recommended way to control which factors are used.
 
 ```js
 function (user, context, callback) {
