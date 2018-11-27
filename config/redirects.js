@@ -1882,32 +1882,8 @@ module.exports = [
      to: '/users/concepts/overview-users'
    },
    {
-     from: '/user-profile#block-and-unblock-a-user',
-     to: '/users/guides/block-and-unblock-users'
-   },
-   {
      from: '/user-profile/user-picture',
      to: '/users/guides/change-user-pictures'
-   },
-   {
-     from: '/user-profile#create-a-user',
-     to: '/users/guides/create-users'
-   },
-   {
-     from: '/user-profile#delete-a-user',
-     to: '/users/guides/delete-users'
-   },
-   {
-     from: '/user-profile#user-access-to-applications',
-     to: '/users/guides/manage-user-access-to-applications'
-   },
-   {
-     from: '/user-profile#manage-users-using-the-dashboard',
-     to: '/users/guides/manage-users-using-the-dashboard'
-   },
-   {
-     from: '/user-profile#manage-users-using-the-management-api',
-     to: '/users/guides/manage-users-using-the-management-api'
    },
    {
      from: '/user-profile/progressive-profiling',
@@ -1916,10 +1892,6 @@ module.exports = [
    {
      from: '/user-profile/customdb.md',
      to: '/users/guides/update-user-profiles-using-your-database'
-   },
-   {
-     from: '/user-profile#view-users',
-     to: '/users/guides/view-users'
    },
    {
      from: '/user-profile/normalized/auth0',
