@@ -63,44 +63,31 @@ If you prefer to embed your own login pages within your native/mobile app, you c
 * [Android Lock UI Component library](/libraries/lock-android/v2)
 
 :::: further-reading
+
+::: guides
+  * [Auth0 Mobile/Native App Quickstarts](/quickstart/native)
+  * [Add login using the mobile login flow](/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow)
+  * [Customize the hosted login page](/hosted-pages/login#how-to-customize-your-login-page)
+:::
+
+::: references
+  * [Identity Providers supported by Auth0](/connections/identity-providers-supported)
+  * [SDKs](/libraries)
+:::
+
 ::: concepts
   * [User Profile Overview](/user-profile/overview-user-profile)
   * [Normalized User Profile](/user-profile/normalized/auth0)
   * [User Profiles Returned from OIDC-compliant Pipelnes](/user-profile/normalized/oidc)
   * [Progressive Profiling](/user-profile/progressive-profiling)
   * [GDPR Overview](/compliance/overview-gdpr)
+  
+  * [Universal vs. Embedded Login](/guides/login/universal-vs-embedded)
+  * [ID Tokens](/tokens/id-token)
+  * [Access Tokens](/tokens/access-token)
+  * [Where to store tokens](/security/store-tokens)
 :::
 
-::: guides
-  * [Search for Users](/search/v3)
-  * [Fix Breached Passwords](/anomaly-detection/breached-passwords)
-  * [View User Profiles](/user-profile/view-users)
-  * [Update User Profiles Using Your Database](/user-profile/update-user-profiles-using-your-database)
-  * [Create Users Using the Dashboard](/dashboard/create-users)
-  * [Manage Users Using the Management API](/user-profile/manage-users-using-the-management-api)
-  * [Delete Users](/user-profile/delete-users)
-  * [Change User Pictures](/user-profile/change-user-pictures)
-  * [Change User Passwords](/connections/database/password-change)
-  * [Get User Information with Unbounce Landing Pages](get-user-information-with-unbounce-landing-pages)
-  * [Redirect Users After Login](redirect-users-after-login)
-  * [Fix Breached Passwords](/anomaly-detection/fix-breached-passwords)
-  * [Block and Unblock Users](/user-profile/block-and-unblock-users)
-  * [Impersonate Users Using the Dashboard](/user-profile/impersonate-users-using-the-dashboard)
-  * [Impersonate Users Using the Impersonation API](/user-profile/impersonate-users-using-the-impersonation-api)
-  * [User Import/Export Extension](/extensions/user-import-export)
-  * [Authorization Extension](/extensions/authorization-extension/v2)
-  * [Delegated Administration Extension](/extensions/delegated-admin/v3)
-:::
-
-::: references
-  * [User Profile Structure](/user-profile/user-profile-structure)
-  * [User Data Storage Best Practices](/user-profile/user-data-storage-best-practices)
-  * [User Search Best Practices](/user-profile/user-search-best-practices)
-  * [User Search Query Syntax](/search/v3/query-syntax)
-  * [Password Security Tips](/anomaly-detection/password-security-tips)
-  * [Identity Providers Supported](/connections/identity-providers-supported)
-  * [Auth0 Identity Glossary](https://auth0.com/identity-glossary)
-:::
 ::::
 
 ::: whats-next
