@@ -49,22 +49,15 @@ This tutorial can be used to add login to your regular web app or to call an API
 
 ## Steps
 
-1. [Create a code verifier](#create-a-code-verifier): 
-Generate a `code_verifier` that will be sent to Auth0 to request tokens.
-2. [Create a code challenge](#create-a-code-challenge): 
-Generate a `code_challenge` from the `code_verifier` that will be sent to Auth0 to request an `authorization_code`.
-3. [Authorize the user](#authorize-the-user): 
+1. [Authorize the user](#authorize-the-user): 
 Request the user's authorization and redirect back to your app with an `authorization_code`.
-4. [Request Tokens](#request-tokens): 
-Exchange your `authorization_code` and `code_verifier` for tokens.
-5. [Refresh Tokens](#refresh-tokens):
+2. [Request Tokens](#request-tokens): 
+Exchange your `authorization_code` for tokens.
+3. [Refresh Tokens](#refresh-tokens):
 Use a refresh token to request new tokens.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
-<%= include('./create-code-verifier') %>
-
-<%= include('./create-code-challenge') %>
 
 <%= include('./authorize-user') %>
 
@@ -81,4 +74,7 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 - [The OAuth 2.0 protocol](/protocols/oauth2)
 - [The OpenID Connect protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
+
+
+- [How to refresh a token](/tokens/refresh-token)
 :::
