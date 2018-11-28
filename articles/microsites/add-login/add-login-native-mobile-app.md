@@ -1,27 +1,37 @@
 ---
-title: Add login to my Native/Mobile App
-description: Everything you need to know to implement the login flow for Native/Mobile apps.
+title: Add Login to My Native/Mobile App
+description: Everything you need to know to implement login for a native/mobile app.
+ctaText: Go to Quickstart
+ctaLink: /docs/quickstarts/native
 template: microsite
+topics:
+  - authentication
+  - oauth2
+  - mobile-apps
+  - desktop-apps
+  - native-apps
+useCase:
+  - add-login
 ---
 
-Welcome! Let's see what you have to do to add login to your Single Page Application (SPA) and no, 
-you won't have to study any protocols to get this working.
+Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to [accounts.google.com](http://accounts.google.com) whenever a user signs in.
 
-## Overview
+Your user will authenticate, and Auth0 will generate an ID Token and Access Token that will be passed back to your application. The Access Token can then be used to call an API and extract attributes for that user (such as name, email, role, or a custom attribute).
 
-### How does login work with Auth0?
+## How it works
 
-Every time one of your users clicks Log In or Sign Up, your app calls Auth0. Auth0 loads your app's configuration, redirects the user to the login page hosted by Auth0, and displays the available login options such as, username/password, Login with Google, etc.. Auth0 verifies your user's identity and sends the basic user information back to your app included in a signed token. Once the user successfully authenticates, Auth0 redirects the user back to your app (to a preconfigured URL that you specify) informing your app at the same time about the logged in user's information. If you have a user database you can use it with Auth0. If not, no problem. You can use Auth0's user data store, social connections (like Google or Facebook), or enterprise directories (like Active Directory).  You can also choose to use a combination of those, based on your needs.  Think of Auth0 as an identity hub that supports all major identity providers and various protocols. Want to add Google login to your app? You can enable it with a flip of a switch in the Auth0 Dashboard, add your Google keys, and have it available on the next login. And if GDPR affects you, we are here for you. We have tools you can use to comply with this regulation. 
-We have a lot of additional building blocks you can use like Single Sign-On, Multi-factor Authentication, Password policies, Anomaly Detection, and more.
+In a native application, the default experience will open a SafariViewController in iOS, or a Custom Chrome Tab in Android. 
 
-### What standards does Auth0 use?
+1. The user clicks your **Login** button or link.
+2. Our SDK redirects the user to your Auth0 Authorization Server.
+3. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML).
+4. Auth0 responds with the user's ID Token and Access Token.
+5. The Access Token can be used to call an API and retrieve their information.
 
-The standards that this flow uses are OAuth 2.0 and OpenID Connect.
+For security in mobile devices, Auth0 uses the Mobile Login Flow.
 
-OAuth 2.0 grants authorization. It enables you to authorize the Web App A to access your information from Web App B, without sharing your credentials. Instead Web App A authenticates with an Authorization Server (in our case, Auth0) once, and the server sends to the application a token that can be used as credentials in order to access the protected resources of Web App B. These tokens are called Access Tokens. The issue with OAuth 2.0 is that it doesn't include any authentication mechanisms to let you know who the user is that authenticated and granted authorization to the app. Access Tokens are meant for APIs and they must be validated before they are used.
 
-OpenID Connect (OIDC) builds on OAuth 2.0. It enables users verify their identity and give some basic profile information without sharing their credentials. An example is a to-do application which lets users log in using their Google account and then push their to-do items as calendar entries to their Google Calendar. The part where they authenticate their identity is implemented via OpenID Connect, while the part where they authorize the to-do application to modify their calendar by adding entries is implemented via OAuth 2.0. OIDC uses tokens called ID Tokens that contain information about the user, and what they authorized, as a JSON object. ID Tokens are meant for applications and they must be validated before they are used.
-OAuth 2.0 comes in different flavors and the one we use for SPAs is the Implicit Grant.
+
 
 ## How to add login in to your Single App
 ::: prerequisites
