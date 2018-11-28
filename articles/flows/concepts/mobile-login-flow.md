@@ -16,57 +16,47 @@ useCase:
 
 <%= include('../../_includes/_pipeline2') %>
 
-When you are building a [mobile app](/quickstart/native), the mobile login flow is the best way to control access to your app. 
+During authentication, mobile/native applications require additional security as they:
 
+* cannot securely store a Client Secret
+* may make use of a custom URL scheme to capture redirects (e.g., MyApp:// ) potentially allowing malicious applications to receive an Authorization Code from your Authorization Server.
 
-::: note
-Each login flow builds off of an [OAuth 2.0](/protocols/oauth2) grant; in this case, we use the [Authorization Code Grant with Proof Key for Code Exchange (PKCE, pronounced "pixie") enhancement](https://oauth.net/2/pkce/) (as defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)), which is similar to the standard [Authorization Code Grant](https://oauth.net/2/grant-types/authorization-code/), but contains a few extra steps.
-:::
+To mitigate this, OAuth 2.0 provides a version of the Authorization Code Flow which makes use of a Proof Key for Code Exchange (PKCE). The PKCE-enhanced Authorization Code Flow introduces a secret created by the calling application that can be verified by the authorization server; this secret is called the Code Verifier. Additionally, the calling app creates a transform value of the Code Verifier called the Code Challenge and sends this value over HTTPS to retrieve an Authorization Code. This way, a malicious attacker can only intercept the Authorization Code, and they cannot exchange it for a token without the Code Verifier.
 
 ## How it works
 
+Because the PKCE-enhanced Authorization Code Flow builds upon the standard Authorization Code Flow, the steps are very similar.
+
 ![Authorization Code Grant using PKCE](/media/articles/api-auth/authorization-code-grant-pkce.png)
 
- 1. Your app generates a cryptographically-random key called a `code_verifier` and creates a `code_challenge` from the verifier. Then it initiates the flow and redirects the user to Auth0 ([/authorize endpoint](/api/authentication#authorization-code-grant-pkce-)), sending the `code_challenge` and `code_challenge_method` parameters. The user authenticates.
 
- 2. Auth0 redirects the user to your app with an `authorization_code` in the querystring.
+1. The user clicks **Login** within the native/mobile application.
+2. Auth0's SDK creates a cryptographically-random `code_verifier` and from this generates a `code_challenge`.
+3. Auth0's SDK redirects the user to the Auth0 Authorization Server ([**/authorize** endpoint](/api/authentication#authorization-code-grant-pkce-)) along with the `code_challenge`.
+4. Your Auth0 Authorization Server redirects the user to the login and authorization prompt.
+5. The user authenticates using one of the configured login options and may see a consent page listing the permissions Auth0 will give to the mobile application.
+6. Your Auth0 Authorization Server stores the `code_challenge` and redirects the user back to the application with an authorization `code`.
+7. Auth0's SDK sends this `code` and the `code_verifier` (created in step 2) to the Auth0 Authorization Server ([**/token** endpoint](/api/authentication?http#authorization-code-pkce-)).
+8. Your Auth0 Authorization Server verifies the `code_challenge` and `code_verifier`.
+9. Your Auth0 Authorization Server responds with an ID Token and Access Token (and optionally, a Refresh Token).
+10. Your application can use the Access Token to call an API to access information about the user.
+11. The API responds with requested data.
 
- 3. Your app sends the `authorization_code` and `code_verifier` together with the `redirect_uri` and the `client_id` to Auth0 ([/oauth/token endpoint](/api/authentication?http#authorization-code-pkce-)).
-
- 4. Auth0 validates this info and returns an Access Token and an ID Token (and optionally, a Refresh Token).
-
- 5. Your app can use the Access Token to call an API on behalf of the user. For example, you may want to call Auth0's [/userinfo endpoint](/api/authentication#get-user-info) and retrieve the user's profile.
-
-::: note
-In OAuth 2.0 terms, your mobile app is the Client, the user is the Resource Owner, the API is the Resource Server, the browser is the User Agent, and Auth0 is the Authorization Server.
-
-If you need a refresher on the OAuth 2.0 protocol, visit [OAuth 2.0](/protocols/oauth2).
-:::
-
-## Why use it
-
-This flow provides an extra level of security, which is necessary because:
-
-* mobile apps cannot securely store a client secret
-* mobile redirects use app:// protocols, which allow malicious attackers to intercept the `authorization_code` as it is being passed through the mobile operating system
-
-With PKCE, the code verifier acts like a secret. And since your code verifier and code challenge are both sent over HTTPS, malicious attackers can only intercept the authorization code.
 
 ## How to implement it
 
-Learn how to implement this flow at [Implement the Mobile Login Flow](/flows/guides/mobile-login-flow/implement-mobile-login-flow).
+The easiest way to implement the Mobile Login Flow is to follow our [Mobile/Native Quickstarts](/quickstart/native).
 
-## How to customize it
+You can also use our mobile SDKs:
 
-[Rules](/rules) will run for the mobile login flow. If you want to execute special logic for this flow, check that the `context.protocol` property in your rule contains a value of `oidc-basic-profile`. If it does, then the rule is running during the mobile login flow.
+* [Auth0 Swift SDK](/libraries/auth0-swift)
+* [Auth0 Android SDK](/libraries/auth0-android)
 
-Learn how to implement a rule for your mobile login flow at [Sample Use Cases: Customize Tokens](/flows/guides/mobile-login-flow/sample-use-cases##customize-tokens).
+Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Mobile Login Flow](/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow) or [Call My API Using the Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
 
 ## Keep reading
 
 ::: next-steps
-- [Implement the Mobile Login Flow](/flows/guides/mobile-login-flow/implement-mobile-login-flow)
-- [How to configure an API in Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
 - [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Tokens used by Auth0](/tokens)
 :::
