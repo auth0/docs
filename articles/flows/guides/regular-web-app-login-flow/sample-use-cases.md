@@ -66,7 +66,7 @@ https://${account.namespace}/authorize?
     client_id=${account.clientId}&
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
-    redirect_uri=https://${account.namespace}/callback&
+    redirect_uri=${account.namespace}/callback&
     scope=openid%20name%20picture&
     connection=github
 ```
