@@ -33,25 +33,33 @@ For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows
 ![Flow Overview for Native/Mobile Apps](/media/articles/microsites/add-login/overview-flow-native-mobile-app.png)
 
 
-## How to add login in to your Single App
-::: prerequisites
-  * Example Prereq One
-    - Qui ut quasi praesentium voluptatem explicabo. Sed perferendis est nemo sint asperiores.Architecto vero ut sit sapiente.
-  * Example Prereq Two
-    - Qui ut quasi praesentium voluptatem explicabo. Sed perferendis est nemo sint asperiores.Architecto vero ut sit sapiente.
-  * Example Prereq Three
-    - Qui ut quasi praesentium voluptatem explicabo. Sed perferendis est nemo sint asperiores.Architecto vero ut sit sapiente.
-  * Example Prereq Four
-    - Qui ut quasi praesentium voluptatem explicabo. Sed perferendis est nemo sint asperiores.Architecto vero ut sit sapiente.
+## Implementation overview
+
+::: steps [{ data-title="Steps for adding login" }]
+  1. Configure the sign-in methods. 
+  
+  Auth0 supports a wide range of authentication methods: regular username/password (users can be stored in Auth0 or your own database), social (like Google, Facebook, and 50+ other providers), passwordless (email magic link, email code, and phone code), and enterprise (e.g., SAML-based, ADFS, Ping, Okta).
+
+Go to the dashboard and turn on the methods you want to allow; they will automatically show up in the login/signup page. By default, email/password and Google are enabled.
+
+  2. Customize the sign-in UI (optional).
+  
+  The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.
+  
+  
+  3. Use the Auth0 SDK to trigger the flow.
+  
+  The SDK will take care of the details of opening the SafariViewController or Chrome Custom Tab, parsing the response back from Auth0, and validating the ID Token. Your app can store the Access Token and a Refresh Token used to renew the Access Token without asking the user to re-enter their credentials. Follow one of our [Native/Mobile Quickstarts](/quickstart/native) to get started with the integration.
+
 :::
 
-::: steps [{ data-title="Steps for Adding login" }]
-  1. [Add your application within the Auth0 Dashboard](/user-profile/overview-user-profile). This will be the entity that represents your application in Auth0. When you do that, a unique key is generated for your app (called Client Id). This must be part of the request every time you login a user.
-  2. At the Dashboard > Application > Settings, specify the URL of your app where Auth0 will redirect users after they authenticate.
-  3. Enable the login options you want to offer to your users (for example, username/password, social media, enterprise directories, multifactor authentication, etc).
-  4. Edit your code to redirect to Auth0 when the user wants to authenticate. Use one of our libraries to do that or call directly our Authentication API.
-  5. Parse the callback results and restore your application's previous state.  For example, if the user tried to access their profile information and at that point you asked them to login, once they do you must redirect them to the profile page they were trying to access.
-:::
+
+## Alternative: Use Embedded Login
+
+If you prefer to embed your own login pages within your native/mobile app, you can implement our login widget (Lock UI) directly into your app with our:
+
+* [iOS Lock UI Component library](/libraries/lock-ios/v2)
+* [Android Lock UI Component library](/libraries/lock-android/v2)
 
 :::: further-reading
 ::: concepts
