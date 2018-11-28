@@ -23,7 +23,7 @@ An example POST to token URL:
 | Parameter Name  | Description |
 |-----------------|-------------|
 | `grant_type`    | Set this to "authorization_code". |
-| `client_id`     | Your application's Client ID. |
+| `client_id`     | Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
 | `code_verifier` | The cryptographically-random key that was generated in the first step of this tutorial. |
 | `code`          | The `authorization_code` retrieved in the previous step of this tutorial. |
 | `redirect_uri`  | The valid callback URL set in your Application settings. This must exactly match the `redirect_uri` passed to the authorization URL in the previous step of this tutorial. |
