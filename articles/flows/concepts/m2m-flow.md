@@ -36,7 +36,5 @@ You can also follow our tutorial to use our API endpoints to [Call My API Using
 
 ## Keep reading
 
-::: next-steps
 - Auth0 offers many ways to personalize your user's login experience using [rules](/rules) and [hooks](/hooks).
 - [Tokens used by Auth0](/tokens)
-:::
