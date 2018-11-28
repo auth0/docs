@@ -5,7 +5,7 @@ To call your API from a native/mobile application, the application must pass the
 ```har
 {
   "method": "GET",
-  "url": "YOUR_API_URL", //example: https://someapi.com/api
+  "url": "YOUR_API_URL",
   "headers": [
     { "name": "Content-Type", "value": "application/json" },
     { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN" }
