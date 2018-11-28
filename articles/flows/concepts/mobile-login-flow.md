@@ -27,7 +27,7 @@ To mitigate this, OAuth 2.0 provides a version of the Authorization Code Flow wh
 
 Because the PKCE-enhanced Authorization Code Flow builds upon the standard Authorization Code Flow, the steps are very similar.
 
-![Authorization Code Grant using PKCE](/media/articles/api-auth/authorization-code-grant-pkce.png)
+![Mobile Login Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-mobile-login-flow.png)
 
 
 1. The user clicks **Login** within the native/mobile application.
