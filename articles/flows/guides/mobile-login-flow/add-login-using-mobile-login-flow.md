@@ -1,5 +1,5 @@
 ---
-description: Learn how to execute a mobile login flow.
+description: Learn how to add login using the mobile login flow.
 toc: true
 topics:
   - api-authentication
@@ -8,8 +8,6 @@ topics:
   - pkce
 contentType: tutorial
 useCase:
-  - secure-api
-  - call-api
   - add-login
 ---
 # Add Login Using the Mobile Login Flow
