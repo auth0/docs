@@ -1,6 +1,6 @@
 ## Request Tokens
 
-Now that you have an Authorization Code, you must exchange it for tokens. Using the Authorization Code (`code`) from the previous step, you will need to `POST` to the [token URL](/api/authentication#authorization-code).
+Now that you have an Authorization Code, you must exchange it for tokens. Using the extracted Authorization Code (`code`) from the previous step, you will need to `POST` to the [token URL](/api/authentication#authorization-code).
 
 An example POST to token URL:
 
@@ -13,34 +13,34 @@ An example POST to token URL:
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"https://${account.namespace}/mobile\" }"
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}/webapp\"}"
   }
 }
 ```
+
 
 ### Parameters
 
 | Parameter Name  | Description |
 |-----------------|-------------|
 | `grant_type`    | Set this to "authorization_code". |
-| `client_id`     | Your application's Client ID. |
-| `code_verifier` | The cryptographically-random key that was generated in the first step of this tutorial. |
+| `client_id`     | Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
+| `client_secret` | Your application's Client Secret. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
 | `code`          | The `authorization_code` retrieved in the previous step of this tutorial. |
 | `redirect_uri`  | The valid callback URL set in your Application settings. This must exactly match the `redirect_uri` passed to the authorization URL in the previous step of this tutorial. |
 
 
-
 If all goes well, you'll receive an HTTP 200 response with a payload containing `access_token`, `refresh_token`, `id_token`, and `token_type` values:
 
-```json
+```js
 {
-  "access_token":"eyJz93a...k4laUWw",
-  "refresh_token":"GEbRxBN...edjnXbL",
-  "id_token":"eyJ0XAi...4faeEoQ",
-  "token_type":"Bearer",
-  "expires_in":86400
+  "access_token": "eyJz93a...k4laUWw",
+  "refresh_token": "GEbRxBN...edjnXbL",
+  "id_token": "eyJ0XAi...4faeEoQ",
+  "token_type": "Bearer"
 }
 ```
+
 ::: warning
 You should validate your tokens before saving them.
 :::
