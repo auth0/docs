@@ -7,6 +7,7 @@ topics:
   - api-authorization
   - grants
   - authentication
+  - SPA
 contentType: concept
 useCase:
   - secure-api
