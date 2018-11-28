@@ -10,7 +10,6 @@ contentType: tutorial
 useCase:
   - secure-api
   - call-api
-  - add-login
 ---
 # Call Your API Using the Mobile Login Flow
 
@@ -51,7 +50,7 @@ Request the user's authorization and redirect back to your app with an `authoriz
 4. [Request Tokens](#request-tokens): 
 Exchange your `authorization_code` and `code_verifier` for tokens.
 5. [Call Your API](#call-your-api):
-
+Use the retrieved Access Token to call your API.
 6. [Refresh Tokens](#refresh-tokens):
 Use a refresh token to request new tokens.
 
