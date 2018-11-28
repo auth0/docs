@@ -2,6 +2,7 @@
 description: Learn how the M2M flow works and why you should use it for machine-to-machine (M2M) apps.
 topics:
   - M2M
+  - client-credentials
   - api-authorization
   - grants
   - authentication
