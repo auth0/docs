@@ -58,17 +58,17 @@ Use a refresh token to request new tokens.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
-<%= include('./create-code-verifier') %>
+<%= include('./includes/create-code-verifier') %>
 
-<%= include('./create-code-challenge') %>
+<%= include('./includes/create-code-challenge') %>
 
-<%= include('./authorize-user-add-login') %>
+<%= include('./includes/authorize-user-add-login') %>
 
-<%= include('./request-tokens') %>
+<%= include('./includes/request-tokens') %>
 
-<%= include('./refresh-tokens') %>
+<%= include('./includes/refresh-tokens') %>
 
-<%= include('./sample-use-cases-add-login') %>
+<%= include('./includes/sample-use-cases-add-login') %>
 
 ## Keep Reading
 
