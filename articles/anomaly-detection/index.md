@@ -47,7 +47,7 @@ This trigger occurs when there are 10 failed login attempts into a single accoun
 The default trigger amount of 10 cannot be changed.
 :::
 
-#### Clear block
+#### Remove block
 
 If this block is triggered, it can be cleared the following ways:
 
@@ -68,7 +68,9 @@ Another trigger occurs if there are 50 sign up attempts per minute from the same
 
 If this block is triggered, additional access attempts are released one-at-a-time over the course of 24 hours until 100 attempts are allocated. This results in approximately 1 additional attempt every 15 minutes.
 
-Auth0 emails the dashboard administrator(s) when this block is triggered. Within this email there's a link the owner can click on to remove the block.
+#### Remove block
+
+Auth0 emails the dashboard administrator(s) when this block is triggered. Within this email there's a link the owner can click on to clear the block.
 
 ### Restrictions and limitations
 
@@ -104,7 +106,7 @@ Watch our [Breached Password Detection 101 video tutorial](https://auth0.com/res
 * Send an email to dashboard owners immediately, and/or have a daily/weekly/monthly summary.
 * Block login attempts for suspected user accounts using that username and password combination.
 
-#### Clear block
+#### Remove block
 
 This block remains in place until the user changes their password.
 
