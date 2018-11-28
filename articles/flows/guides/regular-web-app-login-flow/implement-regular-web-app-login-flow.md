@@ -38,13 +38,13 @@ This tutorial can be used to add login to your regular web app or to call an API
 
 * [Register your Application with Auth0](/applications/webapps). 
   * Select an **Application Type** of **Regular Web Apps**.
-  * Add an **Allowed Callback URL** of **https://${account.namespace}/webapp**.
+  * Add an **Allowed Callback URL** of **https://${account.namespace}/callback**.
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code**.
   
 **If calling an API, you should also:**
 
 * [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
-  * Add an **Allowed Callback URL** of **com.myclientapp://myclientapp.com/callback**.
+  * Add an **Allowed Callback URL** of **com.myapi://myapi.com/callback**.
   * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
 
 ## Steps
@@ -74,7 +74,4 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 - [The OAuth 2.0 protocol](/protocols/oauth2)
 - [The OpenID Connect protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
-
-
-- [How to refresh a token](/tokens/refresh-token)
 :::
