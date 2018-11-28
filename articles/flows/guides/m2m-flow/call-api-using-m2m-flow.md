@@ -5,6 +5,7 @@ topics:
   - api-authentication
   - oidc
   - client-credentials
+  - M2M
 contentType: tutorial
 useCase:
   - secure-api
