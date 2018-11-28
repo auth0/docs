@@ -25,7 +25,7 @@ Auth0 makes it easy for your app to implement the mobile login flow using:
 * [Auth0 Mobile SDKs](/libraries): The easiest way to implement the mobile login flow, which will do most of the heavy-lifting for you. Our [Mobile Quickstarts](/quickstart/native) will walk you through the process.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
-If you prefer to embed your own login pages within your mobile app, you can implement our login widget (Lock UI) directly into your app with our:
+If you prefer to embed your own login pages within your native/mobile app, you can implement our login widget (Lock UI) directly into your app with our:
 
 * [iOS Lock UI Component library](/libraries/lock-ios/v2)
 * [Android Lock UI Component library](/libraries/lock-android/v2)
@@ -34,7 +34,7 @@ Following successful login, your application will have access to the user's [ID 
 
 ## Prerequisites
 
-This tutorial can be used to add login to your mobile app or to call an API from your mobile app.
+This tutorial can be used to add login to your native/mobile app or to call an API from your native/mobile app.
 
 **Before beginning this tutorial:**
 
