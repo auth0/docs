@@ -12,12 +12,12 @@ useCase:
   - call-api
   - add-login
 ---
-# Implement the Mobile Login Flow
+# Add Login Using the Mobile Login Flow
 
 <%= include('../../../_includes/_pipeline2') %>
 
 ::: note
-This tutorial will help you implement the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/flows/concepts/mobile-login-flow).
+This tutorial will help you add login to your native/mobile app using the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/flows/concepts/mobile-login-flow).
 :::
 
 Auth0 makes it easy for your app to implement the mobile login flow using:
