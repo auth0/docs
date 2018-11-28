@@ -52,13 +52,7 @@ Use a refresh token to request new tokens.
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 
-<%= include('./includes/authorize-user-add-login') %>
 
-<%= include('./includes/request-tokens') %>
-
-<%= include('./includes/refresh-tokens') %>
-
-<%= include('./includes/sample-use-cases-add-login') %>
 
 ## Keep Reading
 
