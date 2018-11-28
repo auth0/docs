@@ -58,7 +58,7 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 <%= include('./includes/refresh-tokens') %>
 
-<%= include('./includes/sample-use-cases-add-login') %>
+<%= include('./includes/sample-use-cases-call-api') %>
 
 ## Keep Reading
 
