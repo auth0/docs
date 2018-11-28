@@ -46,11 +46,11 @@ Use the retrieved Access Token to call your API.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
-<%= include('./request-token') %>
+<%= include('./includes/request-token') %>
 
-<%= include('./call-api') %>
+<%= include('./includes/call-api') %>
 
-<%= include('./sample-use-cases') %>
+<%= include('./includes/sample-use-cases') %>
 
 
 Once your API receives a request with an Access Token, it will need to validate the token. For details, see [Validate Access Tokens](/api-auth/tutorials/verify-access-token).
