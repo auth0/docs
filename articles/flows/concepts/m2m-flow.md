@@ -32,7 +32,7 @@ With machine-to-machine (M2M) apps, the system authenticates and authorizes the 
 
 The easiest way to implement the M2M Flow is to follow our [Machine-to-Machine Quickstarts](/quickstart/backend).
 
-You can also follow our tutorial to use our API endpoints to [Call My API Using the M2M Flow](/flows/guides/m2m-flow/implement-m2m-flow).
+You can also follow our tutorial to use our API endpoints to [Call My API Using the M2M Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow).
 
 ## Keep reading
 
