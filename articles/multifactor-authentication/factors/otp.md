@@ -22,6 +22,6 @@ No further setup is required for administrators beyond enabling OTP. The princip
 
 Upon signup, they can scan a code and set up the app, upon which it will begin generating one-time codes. Afterwards, the user can simply check the app for the current one-time code to enter when authenticating using this factor.
 
-![Google Authenticator OTP](/media/articles/multifactor-authentication/google-auth-screenshot.png)
+<div class="phone-mockup"><img src="/media/articles/multifactor-authentication/google-auth-screenshot.png" alt="Google Authenticator OTP"/></div>
 
 Your users will need to have in their posession a supported device for whichever OTP app you use.

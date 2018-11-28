@@ -17,6 +17,6 @@ End users will be prompted to download the app you have enabled in the Dashboard
 
 Once this is all set up, when the user attempts to authenticate as normal, their device will receive a push notification via the app, and once they approve the request, they will be logged in.
 
-![Guardian Push](/media/articles/multifactor-authentication/guardian-push.png)
+<div class="phone-mockup"><img src="/media/articles/multifactor-authentication/guardian-push.png" alt="Guardian Push"/></div>
 
 Auth0 supports the use of Auth0 Guardian ([Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian) / [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833?mt=8)) for push notifications ([Duo](multifactor-authentication/factors/duo) also can send push notifications, as discussed below).
