@@ -13,7 +13,7 @@ https://${account.namespace}/authorize?
     client_id=${account.clientId}&
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
-    redirect_uri=${account.namespace}/mobile
+    redirect_uri=${account.namespace}/callback
 ```
 
 Now, when you [request tokens](/api-auth/tutorials/mobile-login-flow/add-login-using-mobile-login-flow#request-tokens), your ID Token will contain the requested name and picture claims. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
@@ -43,7 +43,7 @@ https://${account.namespace}/authorize?
     client_id=${account.clientId}&
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
-    redirect_uri=https://${account.namespace}/mobile&
+    redirect_uri=${account.namespace}/callback&
     connection=github
 ```
 
