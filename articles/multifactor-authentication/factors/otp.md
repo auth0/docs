@@ -18,10 +18,16 @@ No further setup is required for administrators beyond enabling OTP. The princip
 * Guardian ([Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian) / [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833)).
 * Microsoft Authenticator ([Google Play](https://play.google.com/store/apps/details?id=com.azure.authenticator) / [App Store](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458)).
 
-![MFA Google Authenticator](/media/articles/multifactor-authentication/google-auth-scan-code.png)
+![MFA OTP Signup](/media/articles/multifactor-authentication/mfa-otp-setup.png)
 
-Upon signup, they can scan a code and set up the app, upon which it will begin generating one-time codes. Afterwards, the user can simply check the app for the current one-time code to enter when authenticating using this factor.
+Upon signup, they can scan a code and set up the app, upon which it will begin generating one-time codes. 
+
+Afterwards, when logging in to the app, the user can simply check the app for the current one-time code:
 
 <div class="phone-mockup"><img src="/media/articles/multifactor-authentication/google-auth-screenshot.png" alt="Google Authenticator OTP"/></div>
+
+And enter the code at the prompt:
+
+![MFA OTP Login](/media/articles/multifactor-authentication/mfa-otp-login.png)
 
 Your users will need to have in their posession a supported device for whichever OTP app you use.
