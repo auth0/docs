@@ -1,0 +1,42 @@
+---
+description: Learn how the M2M flow works and why you should use it for machine-to-machine (M2M) apps.
+topics:
+  - M2M
+  - api-authorization
+  - grants
+  - authentication
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
+---
+# Machine-to-Machine (M2M) Flow
+
+<%= include('../../_includes/_pipeline2') %>
+
+With machine-to-machine (M2M) apps, the system authenticates and authorizes the app rather than a user. For this scenario, typical authentication schemes like username + password or social logins don't make sense. Instead, M2M apps use the Client Credentials Flow, in which they pass along their Client ID and Client Secret to authenticate themselves and get a token.
+
+## How it works
+
+![M2M Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-m2m-flow.png)
+
+
+1. Your app authenticates with the Auth0 Authorization Server using its Client ID and Client Secret (**/token** endpoint).
+2. Your Auth0 Authorization Server validates the Client ID and Client Secret.
+3. Your Auth0 Authorization Server responds with an Access Token.
+4. Your application can use the Access Token to call an API on behalf of itself.
+5. The API responds with requested data.
+
+
+## How to implement it
+
+The easiest way to implement the M2M Flow is to follow our [Backend/API Quickstarts](/quickstart/backend).
+
+You can also follow our tutorial to use our API endpoints to [Call My API Using the M2M Flow](/flows/guides/m2m-flow/implement-m2m-flow).
+
+## Keep reading
+
+::: next-steps
+- Auth0 offers many ways to personalize your user's login experience using [rules](/rules) and [hooks](/hooks).
+- [Tokens used by Auth0](/tokens)
+:::
