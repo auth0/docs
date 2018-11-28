@@ -34,20 +34,14 @@ Following successful login, your application will have access to the user's [ID 
 
 ## Prerequisites
 
-This tutorial can be used to add login to your native/mobile app or to call an API from your native/mobile app.
+This tutorial can be used to add login to your native/mobile app. If you want to learn to call your API from a native/mobile app, see [Call your API from a Native/Mobile App](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
 
 **Before beginning this tutorial:**
 
 * [Register your Application with Auth0](/applications/native). 
   * Select an **Application Type** of **Native**.
-  * Add an **Allowed Callback URL** of **https://${account.namespace}/mobile**.
+  * Add an **Allowed Callback URL** of **https://${account.namespace}/callback**.
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code**.
-  
-**If calling an API, you should also:**
-
-* [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
-  * Add an **Allowed Callback URL** of **com.myclientapp://myclientapp.com/callback**.
-  * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
 
 ## Steps
 
@@ -68,18 +62,17 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 <%= include('./create-code-challenge') %>
 
-<%= include('./authorize-user') %>
+<%= include('./authorize-user-add-login') %>
 
 <%= include('./request-tokens') %>
 
 <%= include('./refresh-tokens') %>
 
-<%= include('./sample-use-cases') %>
+<%= include('./sample-use-cases-add-login') %>
 
 ## Keep Reading
 
 ::: next-steps
-- [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
 - [The OAuth 2.0 protocol](/protocols/oauth2)
 - [The OpenID Connect protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
