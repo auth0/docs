@@ -16,7 +16,7 @@ https://${account.namespace}/authorize?
     redirect_uri=${account.namespace}/mobile
 ```
 
-Now, when you [request tokens](/api-auth/tutorials/mobile-login-flow/request-tokens), your ID Token will contain the requested name and picture claims. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
+Now, when you [request tokens](/api-auth/tutorials/mobile-login-flow/add-login-using-mobile-login-flow#request-tokens), your ID Token will contain the requested name and picture claims. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
 
 ```json
 {
@@ -47,7 +47,7 @@ https://${account.namespace}/authorize?
     connection=github
 ```
 
-Now, when you [request tokens](/api-auth/tutorials/mobile-login-flow/request-tokens), your ID Token will contain a `sub` claim with the user's unique ID returned from GitHub. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
+Now, when you [request tokens](/api-auth/tutorials/mobile-login-flow/add-login-using-mobile-login-flow#request-tokens), your ID Token will contain a `sub` claim with the user's unique ID returned from GitHub. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
 
 ```json
 {
