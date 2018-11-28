@@ -44,7 +44,7 @@ As an example, your HTML snippet for your authorization URL when adding login to
   client_id=${account.clientId}&
   code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&
   code_challenge_method=S256&
-  redirect_uri=https://${account.namespace}/callback&
+  redirect_uri=${account.namespace}/callback&
   scope=openid%20profile">
   Sign In
 </a>
