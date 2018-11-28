@@ -1,5 +1,5 @@
 ---
-description: Learn how to execute a regular web app login flow.
+description: Learn how to add login to your application using the regular web app login flow.
 toc: true
 topics:
   - api-authentication
@@ -7,16 +7,14 @@ topics:
   - authorization-code
 contentType: tutorial
 useCase:
-  - secure-api
-  - call-api
   - add-login
 ---
-# Implement the Regular Web App Login Flow
+# Add Login Using the Regular Web App Login Flow
 
 <%= include('../../../_includes/_pipeline2') %>
 
 ::: note
-This tutorial will help you implement the regular web app login flow. If you want to learn how the flow works and why you should use it, see [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow).
+This tutorial will help you add login to your regular web application using the regular web app login flow. If you want to learn how the flow works and why you should use it, see [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow).
 :::
 
 Auth0 makes it easy for your app to implement the regular web app login flow using:
@@ -32,7 +30,7 @@ Following successful login, your application will have access to the user's [ID 
 
 ## Prerequisites
 
-This tutorial can be used to add login to your regular web app or to call an API from your regular web app. If you want to learn to call your API from a regular web app, see [Call My API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
+This tutorial can be used to add login to your regular web app. If you want to learn to call your API from a regular web app, see [Call My API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
 
 **Before beginning this tutorial:**
 
@@ -40,12 +38,7 @@ This tutorial can be used to add login to your regular web app or to call an API
   * Select an **Application Type** of **Regular Web Apps**.
   * Add an **Allowed Callback URL** of **https://${account.namespace}/callback**.
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code**.
-  
-**If calling an API, you should also:**
 
-* [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
-  * Add an **Allowed Callback URL** of **com.myapi://myapi.com/callback**.
-  * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
 
 ## Steps
 
@@ -59,13 +52,13 @@ Use a refresh token to request new tokens.
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 
-<%= include('./includes/authorize-user') %>
+<%= include('./includes/authorize-user-add-login') %>
 
 <%= include('./includes/request-tokens') %>
 
 <%= include('./includes/refresh-tokens') %>
 
-<%= include('./includes/sample-use-cases') %>
+<%= include('./includes/sample-use-cases-add-login') %>
 
 ## Keep Reading
 
