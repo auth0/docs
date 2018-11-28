@@ -46,7 +46,7 @@ Request the user's authorization and redirect back to your app with an `authoriz
 2. [Request Tokens](#request-tokens): 
 Exchange your `authorization_code` for tokens.
 3. [Call Your API](#call-api):
-
+Use the retrieved Access Token to call your API.
 4. [Refresh Tokens](#refresh-tokens):
 Use a refresh token to request new tokens.
 
