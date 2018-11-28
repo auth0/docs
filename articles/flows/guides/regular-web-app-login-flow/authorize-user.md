@@ -18,7 +18,7 @@ An example authorization URL:
 https://${account.namespace}/authorize?
     response_type=code&
     client_id=${account.clientId}&
-    redirect_uri=${account.namespace}/webapp&
+    redirect_uri=${account.namespace}/callback&
     scope=SCOPE
 ```
 
@@ -39,7 +39,7 @@ As an example, your HTML snippet for your authorization URL when adding login to
 <a href="https://${account.namespace}/authorize?
   response_type=code&
   client_id=${account.clientId}&
-  redirect_uri=https://${account.namespace}/webapp/&
+  redirect_uri=https://${account.namespace}/callback&
   scope=openid%20profile">
   Sign In
 </a>
@@ -61,7 +61,7 @@ An example authorization URL:
 https://${account.namespace}/authorize?
     response_type=code&
     client_id=${account.clientId}&
-    redirect_uri=${account.callback}&
+    redirect_uri=${account.namespace}/callback&
     scope=SCOPE&
     audience=API_AUDIENCE&
     state=YOUR_OPAQUE_VALUE
@@ -90,7 +90,7 @@ As an example, your HTML snippet for your authorization URL when calling an API 
 <a href="https://${account.namespace}/authorize?
   response_type=code&
   client_id=${account.clientId}&
-  redirect_uri=com.myclientapp://myclientapp.com/callback&  
+  redirect_uri=${account.namespace}/callback&  
   scope=appointments%20contacts&
   audience=appointments:api">
   Sign In
