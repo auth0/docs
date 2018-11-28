@@ -59,13 +59,13 @@ Use a refresh token to request new tokens.
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 
-<%= include('./authorize-user') %>
+<%= include('./includes/authorize-user') %>
 
-<%= include('./request-tokens') %>
+<%= include('./includes/request-tokens') %>
 
-<%= include('./refresh-tokens') %>
+<%= include('./includes/refresh-tokens') %>
 
-<%= include('./sample-use-cases') %>
+<%= include('./includes/sample-use-cases') %>
 
 ## Keep Reading
 
