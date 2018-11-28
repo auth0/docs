@@ -30,7 +30,7 @@ An example POST to token URL:
 | Parameter Name  | Description |
 |-----------------|-------------|
 | `grant_type`    | Set this to "refresh_token". |
-| `client_id`     | Your application's Client ID. |
+| `client_id`     | Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
 | `refresh_token` | The Refresh Token to use. |
 | `scope`         | (Optional) A space-delimited list of requested scope permissions. If not sent, the original scopes will be used; otherwise you can request a reduced set of scopes. |
 
