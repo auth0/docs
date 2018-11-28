@@ -1,5 +1,5 @@
 ---
-description: Learn how to call your API using an SPA
+description: Learn how to call your API using the SPA login flow
 toc: true
 topics:
   - api-authentication
@@ -10,7 +10,7 @@ useCase:
   - secure-api
   - call-api
 ---
-# Call My API Using a Single Page Application (SPA)
+# Call My API Using the Single Page Application (SPA) Login Flow
 
 <%= include('../../../_includes/_pipeline2') %>
 

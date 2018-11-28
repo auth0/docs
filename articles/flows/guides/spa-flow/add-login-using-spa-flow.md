@@ -30,7 +30,7 @@ Following successful login, your application will have access to the user's [ID 
 
 ## Prerequisites
 
-This tutorial can be used to add login to your SPA. If you want to learn to call your API from a SPA, see [Call My API Using an SPA](/flows/guides/single-page-login-flow/call-api-using-single-page-app).
+This tutorial can be used to add login to your SPA. If you want to learn to call your API from a SPA, see [Call My API Using an SPA](/flows/guides/single-page-login-flow/call-api-using-single-page-app-login-flow).
 
 **Before beginning this tutorial:**
 
