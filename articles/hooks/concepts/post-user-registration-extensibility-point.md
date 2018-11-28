@@ -11,7 +11,9 @@ v2: true
 ---
 # The Post-User Registration Extensibility Point
 
-For [Database Connections](/connections/database), the `post-user-registration` extensibility point allows you to implement custom actions that execute after a new user registers and is added to the database. [Hooks](/hooks#work-with-hooks) associated with the `post-user-registration` extensibility point execute asynchronously from the actions that are a part of the Auth0 authentication process.
+For [Database Connections](/connections/database), the `post-user-registration` extensibility point allows you to implement custom actions that execute after a new user registers and is added to the database.
+
+[Hooks](/hooks#work-with-hooks) associated with the `post-user-registration` extensibility point execute asynchronously from the actions that are a part of the Auth0 authentication process.
 
 This allows you to implement scenarios including (but not limited to):
 
