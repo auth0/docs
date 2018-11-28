@@ -59,13 +59,13 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 <%= include('./create-code-challenge') %>
 
-<%= include('./authorize-user-api') %>
+<%= include('./authorize-user-call-api') %>
 
 <%= include('./request-tokens') %>
 
 <%= include('./refresh-tokens') %>
 
-<%= include('./sample-use-cases-api') %>
+<%= include('./sample-use-cases-call-api') %>
 
 ## Keep Reading
 
