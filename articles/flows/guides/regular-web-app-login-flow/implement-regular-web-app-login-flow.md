@@ -32,7 +32,7 @@ Following successful login, your application will have access to the user's [ID 
 
 ## Prerequisites
 
-This tutorial can be used to add login to your regular web app or to call an API from your regular web app.
+This tutorial can be used to add login to your regular web app or to call an API from your regular web app. If you want to learn to call your API from a regular web app, see [Call My API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
 
 **Before beginning this tutorial:**
 
