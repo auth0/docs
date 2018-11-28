@@ -39,7 +39,7 @@ As an example, your HTML snippet for your authorization URL when adding login to
 <a href="https://${account.namespace}/authorize?
   response_type=code&
   client_id=${account.clientId}&
-  redirect_uri=https://${account.namespace}/callback&
+  redirect_uri=${account.namespace}/callback&
   scope=openid%20profile">
   Sign In
 </a>
