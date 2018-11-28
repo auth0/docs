@@ -53,15 +53,6 @@ Use a refresh token to request new tokens.
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 
-<%= include('./includes/authorize-user-call-api') %>
-
-<%= include('./includes/request-tokens') %>
-
-<%= include('./includes/call-api') %>
-
-<%= include('./includes/refresh-tokens') %>
-
-<%= include('./includes/sample-use-cases-call-api') %>
 
 ## Keep Reading
 
