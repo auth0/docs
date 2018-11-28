@@ -18,7 +18,7 @@ https://${account.namespace}/authorize?
     client_id=${account.clientId}&
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
-    redirect_uri=${account.callback}&
+    redirect_uri=${account.namespace}/callback&
     scope=SCOPE&
     audience=API_AUDIENCE
 ```
@@ -51,7 +51,7 @@ As an example, your HTML snippet for your authorization URL when calling an API 
   client_id=${account.clientId}&
   code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&
   code_challenge_method=S256&
-  redirect_uri=com.myclientapp://myclientapp.com/callback&
+  redirect_uri=${account.namespace}/callback&
   scope=appointments%20contacts&
   audience=appointments:api">
   Sign In
@@ -62,4 +62,4 @@ If all goes well, you'll receive an `HTTP 302` response. The authorization code 
 
 ```text
 HTTP/1.1 302 Found
-Location: https://${account.namespace}/mobile?code=AUTHORIZATION_CODE
+Location: https://${account.namespace}/callback?code=AUTHORIZATION_CODE
