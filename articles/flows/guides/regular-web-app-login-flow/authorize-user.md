@@ -49,7 +49,7 @@ If all goes well, you'll receive an `HTTP 302` response. The authorization code 
 
 ```text
 HTTP/1.1 302 Found
-Location: https://${account.namespace}/webapp?code=AUTHORIZATION_CODE
+Location: https://${account.namespace}/callback?code=AUTHORIZATION_CODE
 ```
 
 
