@@ -61,7 +61,6 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 ## Keep Reading
 
 ::: next-steps
-- [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
 - [The OAuth 2.0 protocol](/protocols/oauth2)
 - [The OpenID Connect protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
