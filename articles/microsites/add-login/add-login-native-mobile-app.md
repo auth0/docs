@@ -28,7 +28,7 @@ In a native/mobile application, the default experience will open a SafariViewCon
 4. Auth0 responds with the user's ID Token and Access Token.
 5. The Access Token can be used to call an API and retrieve their information.
 
-For security in native/mobile devices, Auth0 uses the Mobile Login Flow.
+For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows/concepts/mobile-login-flow).
 
 ![Flow Overview for Native/Mobile Apps](/media/articles/microsites/add-login/overview-flow-native-mobile-app.png)
 
