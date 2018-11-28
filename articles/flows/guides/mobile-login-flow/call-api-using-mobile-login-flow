@@ -1,5 +1,5 @@
 ---
-description: Learn how to execute a mobile login flow.
+description: Learn how to call your API using the mobile login flow.
 toc: true
 topics:
   - api-authentication
