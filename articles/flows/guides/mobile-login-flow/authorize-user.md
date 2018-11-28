@@ -110,3 +110,9 @@ As an example, your HTML snippet for your authorization URL when calling an API 
   Sign In
 </a>
 ```
+
+If all goes well, you'll receive an `HTTP 302` response. The authorization code is included at the end of the URL:
+
+```text
+HTTP/1.1 302 Found
+Location: https://${account.namespace}/mobile?code=AUTHORIZATION_CODE
