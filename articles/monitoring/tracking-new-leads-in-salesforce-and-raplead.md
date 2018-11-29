@@ -1,5 +1,6 @@
 ---
-description: How to track new leads in Salesforce and augment user profile with Towerdata.
+title: Track New Leads in Salesforce with RapLeaf Information
+description: How to track leads in Salesforce with information gathered from RapLeaf.
 topics:
   - monitoring
   - marketing
