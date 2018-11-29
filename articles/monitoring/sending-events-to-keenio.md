@@ -1,5 +1,6 @@
 ---
-description: How to send events to Keen IO from Auth0.
+title: Send Events to Keen IO
+description: How to send logging events to Keen IO from Auth0.
 topics:
   - monitoring
   - keenio
@@ -11,7 +12,7 @@ useCase:
   - analyze-external-analytics
   - integrate-analytics
 ---
-# Sending events to Keen IO from Auth0
+# Send Events to Keen IO from Auth0
 
 [Keen IO](http://keen.io) provides a service to capture and analyze events generated in your apps. In their words:
 
@@ -23,7 +24,7 @@ Implementing this with Auth0 is very easy, only taking a few lines of code.
 
 ![Keen IO Dataflow](/media/articles/tutorials/keen-io-dataflow.png)
 
-## Recording a SignUp event in Keen IO
+## Record a SignUp event in Keen IO
 
 This rule checks whether the user has already signed up before or not. This is tracked by the `user.signedUp` property. If the property is present then we assume return immediately, otherwise we assume a new `signup`.
 
