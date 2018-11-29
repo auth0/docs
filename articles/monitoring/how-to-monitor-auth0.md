@@ -25,9 +25,9 @@ Current and historical uptime is available at [Auth0 Uptime](http://uptime.auth0
 
 If you would like to monitor your account or conduct end-to-end testing, you’ll need to set up your own tests.
 
-If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can build a synthetic transaction that exercises these capabilities using the [Resource Owner Password Grant](/api-auth/tutorials/password-grant). However, we recommend using an authentication flow that doesn't require a user interface (such as the **Resource Owner Password Grant**), so that you don't have to use a monitoring tool that is capable of mimicking the actions of a user.
+If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can build a synthetic transaction that exercises these capabilities using the [Resource Owner Password Grant](/api-auth/tutorials/password-grant). One way of doing this is to [Monitor Auth0 Using SCOM](#monitor-auth0-using-scom).
 
-Many monitoring services exist, including:
+However, we recommend using an authentication flow that doesn't require a user interface (such as the **Resource Owner Password Grant**), so that you don't have to use a monitoring tool that is capable of mimicking the actions of a user. Many monitoring services exist with this capability, including:
 
 * [New Relic](http://newrelic.com)
 * [Pingdom](http://pingdom.com)
@@ -100,7 +100,7 @@ Please see the [PSaaS Appliance](/appliance) pages for [information on monitorin
 
 Auth0 can be monitored as a standard web application using System Center Operations Manager (SCOM) or any tool that supports synthetic transactions.
 
-We recommend adding SCOM probes for the `test` and `testall` endpoints, in addition to one for a synthetic login transaction that includes the extensions your applications rely on (such as rules that execute custom code for integration with your company's other services).
+In addition to a synthetic login transaction that includes the extensions your applications rely on (such as rules that execute custom code for integration with your company's other services), we recommend adding SCOM probes for the `test` and `testall` endpoints.
 
 To set up SCOM:
 
@@ -109,22 +109,27 @@ To set up SCOM:
   * **Name**: a descriptive name for the SCOM instance
   * **Description**: a description of what this SCOM instances monitors
   * **Select destination management pack**: Default Management Pack
+  
+  When finished, click **Next** to continue.
 
   ![ss-2014-11-21T15-44-34.png](/media/articles/monitoring/ss-2014-11-21T15-44-34.png)
 
-  Click **Next** to continue.
-
+ 
 2. Click **Add** to enter the URLs you want SCOM to monitor.
+
+
 
   ![ss-2014-11-21T16-31-15.png](/media/articles/monitoring/ss-2014-11-21T16-31-15.png)
 
-  Click **Next** to continue.
 
-3. You will be asked where you want to monitor from. Click **Add** to set up a location. In the pop-up dialog, search for **Internal location - Agent**. Select the appropriate address and click **Add**. Click **Ok** to finish selecting the location.
+3. Click **Add** to set up a location from which you want to monitor.
+
+In the pop-up dialog, search for **Internal location - Agent**. Select the appropriate address, and click **Add**. Then click **Ok** to finish selecting the location.
+
+When finished, click **Next** to continue.
 
   ![ss-2014-11-21T16-32-25.png](/media/articles/monitoring/ss-2014-11-21T16-32-25.png)
 
-  Click **Next** to continue.
 
 4. Set the frequency with which SCOM collects data from each endpoint:
 
@@ -132,17 +137,18 @@ To set up SCOM:
   * **Performance data collection interval**: 60 seconds
   * **Test time-out**: 30 seconds
 
-  Additionally, under the *Alerts* section, **check** the box next to *HTTP status code* and set that to **Great than or equals 400**.
+  Additionally, under the *Alerts* section, **check** the box next to *HTTP status code* and set that to **Greater than or equals 400**.
+  
+  When finished, click **Next** to continue.
 
   ![ss-2014-11-21T16-33-51.png](/media/articles/monitoring/ss-2014-11-21T16-33-51.png)
 
-  Click **Next** to continue.
 
 5. Click **Run Test** to test each endpoint and ensure that the connection settings provided are correct.
 
 ![ss-2014-11-21T16-34-25.png](/media/articles/monitoring/ss-2014-11-21T16-34-25.png)
 
-Once you have finished configuring your SCOM instance, you can activity through the **Monitoring** tab:
+6. Once you have finished configuring your SCOM instance, you can view activity through the **Monitoring** tab:
 
 ![ss-2014-11-25T17-20-47.png](/media/articles/monitoring/ss-2014-11-25T17-20-47.png)
 
