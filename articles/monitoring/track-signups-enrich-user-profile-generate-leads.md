@@ -21,7 +21,7 @@ Whenever a new user signs up with a website using a social credential, we want t
 2. __Augment the user profile__ with additional public information through [FullContact](http://www.fullcontact.com/).
 3. __Record the sign-up as a New Lead__ on [Salesforce](http://www.salesforce.com/), so a sales professional can follow up.
 
-Implementing this with Auth0 is very easy. You just need 3 [Rules](/rules) in your pipeline:
+Implementing this with Auth0 is quite easy; you just need to create three [Rules](/rules) in your pipeline:
 
 ![](/media/articles/tutorials/signups.png)
 
