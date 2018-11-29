@@ -1,5 +1,6 @@
 ---
-description: How to track sign-ups, enrich user profiles and generate new leads.
+title: Track Signups, Enrich User Profiles, and Generate New Leads
+description: How to track your signups, enrich your user profiles with the information you've gathered, and generate new leads.
 topics:
   - monitoring
   - marketing
@@ -12,7 +13,7 @@ useCase:
   - integrate-analytics
 ---
 
-# How to track Sign-ups, enrich User Profile and generate new Leads
+# Track Sign-ups, Enrich User Profiles, and Generate New Leads
 
 Upon a signup of a new user to a website with any social credential, we want to:
 
@@ -24,7 +25,7 @@ Implementing this with Auth0 is very easy. You just need 3 [Rules](/rules) in yo
 
 ![](/media/articles/tutorials/signups.png)
 
-## 1. Recording a SignUp in MixPanel
+## 1. Record a SignUp in MixPanel
 
 This first rule checks whether the user has already signed up. If they have, it simply skips everything. If not, it calls __MixPanel__ to record the event. In the example below we are simply using a property `application` that you can then use in MixPanel to filter information. But the full `context` and `user` properties are available as sources of more information (such as IP addresses, agent, and so on.).
 
