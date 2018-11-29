@@ -26,22 +26,15 @@ Create a rule that will record user `signup` and `login` events for your apps us
 
 ![](/media/articles/scenarios/splunk/splunk-dashbaord.png)
 
-We track the type of event using the `user.app_metadata.signedUp` property. When the property is set to true, we assume the event is a `login`. Otherwise, we assume the event is a new `signup`.
 
 Please note:
 
-For this rule, we use a persistent property called user.app_metadata.recordedAsLead, and if everything goes well, set it to true. The next time the user signs in, all of these rules will be skipped.
+* Splunk's API supports basic & token-based auth. In this example, we use basic auth and your Splunk credentials are hard-coded into the rule. If you prefer, you can store them in the `configuration` object instead (see the [Settings](${manage_url}/#/rules) under the list of your rules). Doing so will allow you to use your credentials in multiple rules and will prevent you from having to store them directly in the code.
 
+* For this rule, we send contextual information, such as IP address (can be used to deduce location), application name, and username. However, you can send any number of properties.
 
-You can send any number of properties. This sample sends contextual information like the user IP address (can be used for location), the application, the username, and so on.
+* For this rule, we track the event type using a __persistent__ property called `user.app_metadata.signedUp`. When the property is set to `true`, we assume the event is a `login`. Otherwise, we assume the event is a new `signup`, and if everything goes well, we set it to `true`. Thus, the next time the user logs in, the event will be recorded as a `login`.
 
-Splunk's API supports basic & token based auth. For simplicity, we use basic auth, with credentials in the rule. You can store these credentials securely in Auth0 using standard settings on the dashboard.
-
-
-
-::: panel Securely Storing Credentials
-In this example, your Splunk credentials are hard-coded into the rule. If you prefer, you can store them in the `configuration` object instead (see the [Settings](${manage_url}/#/rules) under the list of your rules). Doing so will allow you to use your credentials in multiple rules and will prevent you from having to store them directly in the code.
-:::
 
 ```js
 function (user, context, callback) {
@@ -86,10 +79,6 @@ function (user, context, callback) {
 
 }
 ```
-
-::: note
-Notice that if all calls are successful, we signal the user as signed up. So next time we record `login`.
-:::
 
 ## Keep reading
 
