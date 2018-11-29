@@ -117,7 +117,7 @@ To set up SCOM:
  
 2. Click **Add** to enter the URLs you want SCOM to monitor.
 
-
+When finished, click **Next** to continue.
 
   ![ss-2014-11-21T16-31-15.png](/media/articles/monitoring/ss-2014-11-21T16-31-15.png)
 
