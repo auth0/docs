@@ -12,20 +12,34 @@ useCase:
   - analyze-logs
   - integrate-analytics
 ---
-
 # Monitor Auth0
+
+## Monitor Auth0 availability
 
 If you are using the public cloud version of Auth0, we recommend subscribing to [Auth0 Status](https://status.auth0.com) for notifications regarding Auth0 service availability. The Auth0 DevOps team uses [Auth0 Status](https://status.auth0.com) for reports on current incidents.
 
 Current and historical uptime is available at [Auth0 Uptime](http://uptime.auth0.com).
 
+
 ## Monitor your Auth0 account
 
-You can add Auth0 health probes to your monitoring infrastructure with the following endpoints:
+If you would like to monitor your account or conduct end-to-end testing, you’ll need to set up your own tests.
+
+If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can build a synthetic transaction that exercises these capabilities using the [Resource Owner Password Grant](/api-auth/tutorials/password-grant). However, we recommend using an authentication flow that doesn't require a user interface (such as the **Resource Owner Password Grant**), so that you don't have to use a monitoring tool that is capable of mimicking the actions of a user.
+
+Many monitoring services exist, including:
+
+* [New Relic](http://newrelic.com)
+* [Pingdom](http://pingdom.com)
+
+You can use one of these services to execute synthetic authentication requests or to call the following endpoints:
+
+* **`test` endpoint:** checks the status of the core Auth0 authentication service
+* **`testall` endpoint:** checks the status of the core Auth0 authentication service, as well as supporting services such as those for the [Dashboard](${manage_url}) and documentation.
 
 ### The test endpoint
 
-The `test` endpoint checks the status of the core Auth0 authentication service. If the status is up, the endpoint returns a `200` status code; if is is not, it will return a `5xx` status code.
+The `test` endpoint checks the status of the core Auth0 authentication service. An example call:
 
 ```har
 {
@@ -34,7 +48,7 @@ The `test` endpoint checks the status of the core Auth0 authentication service. 
 }
 ```
 
-Additionally, this endpoint returns a JSON object:
+If the service is up, the endpoint returns a `200` HTTP response code; if it is not, it returns a `5xx` response code. Additionally, this endpoint returns a JSON object:
 
 ```json
 {
@@ -44,7 +58,7 @@ Additionally, this endpoint returns a JSON object:
 
 ### The testall endpoint
 
-The `/testall` endpoint checks the status of the core Auth0 authentication service, as well as supporting services such as those for the [Dashboard](${manage_url}) and documentation.
+The `/testall` endpoint checks the status of the core Auth0 authentication service, as well as supporting services such as those for the [Dashboard](${manage_url}) and documentation. An example call:
 
 ```har
 {
@@ -53,18 +67,12 @@ The `/testall` endpoint checks the status of the core Auth0 authentication servi
 }
 ```
 
-If all services are up, the endpoint returns the `200` HTTP response code and a simple text message saying, `OK`. If any service is down, the response code from `/testall` will be `5xx`.
+If all services are up, the endpoint returns the `200` HTTP response code and a simple text message of `OK`. If any service is down, it returns a `5xx` response code.
 
-If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can build a synthetic transaction that exercises these capabilities using the [Resource Owner Password Grant](/api-auth/tutorials/password-grant).
-
-We recommend using an authentication flow that doesn't require a user interface (such as the **Resource Owner Password Grant**) so that you don't have to use a monitoring tool that is capable of mimicking the actions of a user. Many monitoring tools exist using this approach, including:
-
-* [New Relic](http://newrelic.com)
-* [Pingdom](http://pingdom.com)
 
 ## Monitor external services
 
-If you are seeing potential issues with your Auth0 service, but the monitoring endpoints and the [Auth0 Status page](https://status.auth0.com) aren't indicating any problems, check the status of any external services that you use alongside Auth0.
+If you see potential issues with your Auth0 service, but the monitoring endpoints and the [Auth0 Status page](https://status.auth0.com) aren't indicating any problems, check the status of any external services that you use alongside Auth0, such as:
 
 * [Amazon Web Services](https://status.aws.amazon.com/)
 * [Azure Active Directory](https://azure.microsoft.com/en-us/status/)
