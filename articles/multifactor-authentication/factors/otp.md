@@ -11,7 +11,7 @@ useCase:
 ---
 # MFA with One Time Passwords (OTP)
 
-No further setup is required for administrators beyond enabling OTP. The principle behind OTP as a factor is fairly straightforward for the end user as well. They use an app, such as:
+To use one time passwords as an authentication factor, users need an Authenticator app such as:
 
 * Authy ([Google Play](https://play.google.com/store/apps/details?id=com.authy.authy) / [App Store](https://itunes.apple.com/us/app/authy/id494168017)).
 * Google Authenticator ([Google Play](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) / [App Store](https://itunes.apple.com/us/app/google-authenticator/id388497605)).
