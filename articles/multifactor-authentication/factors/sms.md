@@ -11,7 +11,7 @@ useCase:
 ---
 # MFA with SMS
 
-SMS as an MFA factor means that the end user is sent a code via SMS when attempting to authenticate with your application. They will have to enter this code to complete the transaction, implying that in addition to knowing their login information, they also have posession of the device set up for receiving MFA texts.
+Using SMS as an authentication factor means that the end user is sent a code via SMS when attempting to authenticate with your application. They will have to enter this code to complete the transaction, implying that in addition to knowing their login information, they also have possession of the device.
 
 ## End user experience
 
