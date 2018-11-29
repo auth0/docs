@@ -42,7 +42,7 @@ When you enable the SMS or the Duo factor, you will have to click on it and fill
 
 ![MFA Dashboard Page](/media/articles/multifactor-authentication/mfa-dashboard-2.png)
 
-The **Always require Multi-factor Authentication** setting, when enabled, will allow authentication to your applications only when multi-factor authentication is used. This means that one or more of the factors is enabled in the Dashboard, and successfully completed by end-users when authenticating.
+The **Always require Multi-factor Authentication** setting, when enabled, will force all your applications to prompt for MFA during the authentication flow. Users will be able to use any of the factors enabled in the Dashboard.
 
 ### 2. Set up your services
 
