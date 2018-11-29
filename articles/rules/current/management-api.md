@@ -19,7 +19,7 @@ When you write [Rules](/rules), you can use the `auth0` object to update a user'
 If you wish to access more [Management API](/api/management/v2) endpoints inside Rules, you have to use another version of the library.
 
 :::warning
-[Searching for users](/users/references/search-best-practices) inside Rules may affect the performance of your logins, and we advise against it. 
+[Searching for users](/best-practices/search-best-practices) inside Rules may affect the performance of your logins, and we advise against it. 
 :::
 
 ## How to access a newer version of the library

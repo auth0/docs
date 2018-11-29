@@ -494,7 +494,7 @@ articles:
             url: "/users/search/v3/query-syntax"
 
           - title: "Best Practices"
-            url: "/users/references/search-best-practices"
+            url: "/best-practices/search-best-practices"
 
       - title: "User Search"
         url: "/users/search/v2"
@@ -505,7 +505,7 @@ articles:
             hidden: true
 
           - title: "Best Practices"
-            url: "/users/references/search-best-practices"
+            url: "/best-practices/search-best-practices"
             hidden: true
 
 

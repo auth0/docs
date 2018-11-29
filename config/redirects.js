@@ -1943,7 +1943,7 @@ module.exports = [
    },
    {
      from: '/users/search/best-practices',
-     to: '/users/references/search-best-practices'
+     to: '/best-practices/search-best-practices'
    },
    {
      from: '/users/user-data-storage',

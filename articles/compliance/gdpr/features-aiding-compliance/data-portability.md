@@ -28,4 +28,4 @@ To export a user's data manually from the Dashboard:
 
 ## Export data using the API
 
-You can export a user's full profile using our Management API. The response will be in JSON format. You can either [search for a user using their ID](/users/references/search-best-practices#users-by-id), or [export a list of your users](/users/references/search-best-practices#user-export).
+You can export a user's full profile using our Management API. The response will be in JSON format. You can either [search for a user using their ID](/best-practices/search-best-practices#users-by-id), or [export a list of your users](/best-practices/search-best-practices#user-export).
