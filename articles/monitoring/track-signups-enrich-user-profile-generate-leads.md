@@ -17,9 +17,9 @@ useCase:
 
 Whenever a new user signs up with a website using a social credential, we want to:
 
-1. Record a `signup` event in [MixPanel](https://mixpanel.com).
-2. Augment the user profile with additional public information through [FullContact](http://www.fullcontact.com/).
-3. Record the sign-up as a New Lead in [Salesforce](http://www.salesforce.com/), so a sales professional can follow up.
+1. __Record a `signup` event__ in [MixPanel](https://mixpanel.com).
+2. __Augment the user profile__ with additional public information through [FullContact](http://www.fullcontact.com/).
+3. __Record the sign-up as a New Lead__ in [Salesforce](http://www.salesforce.com/), so a sales professional can follow up.
 
 To implement this with Auth0, you just need to create three [Rules](/rules) in your pipeline:
 
