@@ -12,7 +12,7 @@ useCase:
   - analyze-external-analytics
   - integrate-analytics
 ---
-# Send Auth0 Events to Segment IO
+# Send Events to Segment IO
 
 [Segment](http://segment.io/features) provides a large number of analytics-related functionality with a single, simple to use API.
 
