@@ -18,9 +18,7 @@ useCase:
 
 > Analytics transforms data into answers – the kind of answers every company deserves. Unfortunately, a lot of companies a) can't find an analytics service that's right for their specific needs, and b) don't have the resources to develop their own analytics infrastructure. That's why we started Keen IO. Basically, we built it, so you don't have to. And we made it powerful, flexible, and scalable enough that you can use it however you need to – even if those needs change over time.
 
-This example shows how you can very easily connect Auth0 to __Keen IO__ and stream `signup` events.
-
-Implementing this with Auth0 is very easy, only taking a few lines of code.
+In this example, you will learn how to connect Auth0 to Keen IO and stream `signup` events. To do so, you will need to create one Rule in your pipeline.
 
 ![Keen IO Dataflow](/media/articles/tutorials/keen-io-dataflow.png)
 
