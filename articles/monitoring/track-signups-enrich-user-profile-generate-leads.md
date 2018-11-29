@@ -21,13 +21,13 @@ Whenever a new user signs up with a website using a social credential, we want t
 2. __Augment the user profile__ with additional public information through [FullContact](http://www.fullcontact.com/).
 3. __Record the sign-up as a New Lead__ in [Salesforce](http://www.salesforce.com/), so a sales professional can follow up.
 
-Implementing this with Auth0 is quite easy; you just need to create three [Rules](/rules) in your pipeline:
+To implement this with Auth0, you just need to create three [Rules](/rules) in your pipeline:
 
 ![](/media/articles/tutorials/signups.png)
 
 ## 1. Record SignUp event in MixPanel
 
-Record the event by calling MixPanel. In the example below, we record the application name in the `application` property to help you filter information in MixPanel. However, the full `context` and `user` properties are available as sources of additional information (e.g., IP addresses, agent).
+Create a rule to record the event by calling MixPanel. In the example below, we record the application name in the `application` property to help you filter information in MixPanel. However, the full `context` and `user` properties are available as sources of additional information (e.g., IP addresses, agent).
 
 ::: note
 This rule will be skipped if the user has already signed up, which is signaled by the `user.app_metadata.recordedAsLead` property being set to true (see step 3).
@@ -63,9 +63,9 @@ function (user, context, callback) {
 
 ## 2. Enrich User Profile with FullContact
 
-To obtain more information about the user, retrieve public information from FullContact's API using the user's email address as input.
+Create a rule to obtain more information about the user by retrieving public information from FullContact's API using the user's email address as input.
 
-Once the call to FullContact completes, store this additional information in a property called `fullContactInfo`:
+Once the call to FullContact completes, we store this additional information in a property called `fullContactInfo`:
 
 :::note
 We ignore certain conditions that exist in the API and only do this when there's a successful call (`statusCode=200`). This rule will also be skipped if the user has already signed up, which is signaled by the `user.app_metadata.recordedAsLead` property being set to true (see step 3).
@@ -118,7 +118,7 @@ function (user, context, callback) {
 
 ## 3. Create New Lead in Salesforce
 
-Record the information as a New Lead in Salesforce, so the sales department can follow up. Please note:
+Create a rule to record the information as a New Lead in Salesforce, so the sales department can follow up. Please note:
 
 * The Salesforce REST API uses an OAuth Access Token. So for this rule, we use the OAuth2 `Resource Owner Password Credential Grant` to obtain this token, and use the `getToken` function, which uses credentials as input, as opposed to an `API-KEY` as was used in the rules in the previous steps.
 
