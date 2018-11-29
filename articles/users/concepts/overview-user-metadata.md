@@ -122,5 +122,5 @@ Instead, you would use this:
 
 * [Manage User Metadata](/users/guides/manage-user-metadata)
 * [User Metadata in Rules](/rules/current/metadata-in-rules)
-* [User Data Storage Best Practices](/users/references/user-data-storage-best-practices)
+* [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)
 * [Change User Pictures](/users/guides/change-user-pictures)

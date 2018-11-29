@@ -448,7 +448,7 @@ articles:
             hidden: true
 
       - title: "Data Storage"
-        url: "/users/references/user-data-storage-best-practices"
+        url: "/best-practices/user-data-storage-best-practices"
         hidden: true
 
       - title: "User Migration"

@@ -1947,7 +1947,7 @@ module.exports = [
    },
    {
      from: '/users/user-data-storage',
-     to: '/users/references/user-data-storage-best-practices'
+     to: '/best-practices/user-data-storage-best-practices'
    },
    {
      from: '/user-profile/user-profile-structure',
