@@ -25,7 +25,7 @@ To implement this with Auth0, you just need to create three [Rules](/rules) in y
 
 ![](/media/articles/tutorials/signups.png)
 
-## 1. Record `signup` event in MixPanel
+## 1. Record sign-up event in MixPanel
 
 Create a rule to record the event by calling MixPanel. In the example below, we record the application name in the `application` property to help you filter information in MixPanel. However, the full `context` and `user` properties are available as sources of additional information (e.g., IP addresses, agent).
 
