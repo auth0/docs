@@ -16,21 +16,21 @@ useCase:
 
 [Segment IO](http://segment.io/features) provides a large number of analytics-related functionality with a single, simple to use API.
 
-In this example, you will learn how to connect Auth0 to Segment and stream `signup` and `login` events. You'll be using [Segment's Node.js library](https://github.com/segmentio/analytics-node) to record Auth0 data.
-
-This example shows how you can 
+In this example, you will learn how to connect Auth0 to Segment and stream `signup` and `login` events. To do so, you will need to create one [Rule](/rules) in your pipeline.
 
 ![Segment Flow](/media/articles/monitoring/segment/segment-io-dataflow.png)
 
-## Find your Segment Write Key
+You'll be using [Segment's Node.js library](https://github.com/segmentio/analytics-node) to record Auth0 data.
+
+## 1. Find your Segment Write Key
 
 To configure this integration, you'll need your Segment **Write Key**. You can find this under **Settings** > **API**.
 
 ![Segment API Keys](/media/articles/monitoring/segment/segment-3.png)
 
-## Record sign up and login events
+## 2. Record sign up and login events
 
-To record Auth0 signup and login events and send the information to Segment, you will create a [rule](/rules) implementing Segment's Node.js library.
+Create a rule to record Auth0 signup and login events and send the information to Segment using Segment's Node.js library.
 
 ::: note
 Be sure to add your **Write Key** to the [Global Configuration Object](/rules#using-the-configuration-object) prior to running your rule.
