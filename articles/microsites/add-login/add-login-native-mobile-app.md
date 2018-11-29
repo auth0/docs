@@ -35,7 +35,7 @@ For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows
 
 ## Implementation overview
 
-::: steps [{ data-title="Steps for adding login" }]
+::: steps
   1. Configure the sign-in methods. Auth0 supports a wide range of authentication methods: regular username/password (users can be stored in Auth0 or your own database), social (like Google, Facebook, and 50+ other providers), passwordless (email magic link, email code, and phone code), and enterprise (e.g., SAML-based, ADFS, Ping, Okta). Go to the dashboard and turn on the methods you want to allow; they will automatically show up in the login/signup page. By default, email/password and Google are enabled.
 
   2. Customize the sign-in UI (optional). The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.
