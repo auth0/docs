@@ -30,11 +30,10 @@ To configure this integration, you'll need your Segment **Write Key**. You can f
 
 ## 2. Record sign-up and log-in events in Segment
 
-Create a rule to record Auth0 `signup` and `login` events for your apps and send the information to Segment using Segment's Node.js library.
+Create a rule to record user `signup` and `login` events for your apps and send the information to Segment using Segment's Node.js library. Please note:
 
-::: note
-Be sure to add your **Write Key** to the [Global Configuration Object](/rules#using-the-configuration-object) prior to running your rule.
-:::
+* In this example, we expect your Segment credentials to be stored in the `configuration` object (see the [Settings](${manage_url}/#/rules) under the list of your rules). Be sure to add your **Write Key** here before running your rule. Doing this allows you to use your credentials in multiple rules and will prevent you from having to store them directly in the code.
+
 
 ```js
 function(user, context, callback) {
