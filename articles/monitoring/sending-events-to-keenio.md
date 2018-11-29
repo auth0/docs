@@ -18,11 +18,11 @@ useCase:
 
 > Analytics transforms data into answers – the kind of answers every company deserves. Unfortunately, a lot of companies a) can't find an analytics service that's right for their specific needs, and b) don't have the resources to develop their own analytics infrastructure. That's why we started Keen IO. Basically, we built it, so you don't have to. And we made it powerful, flexible, and scalable enough that you can use it however you need to – even if those needs change over time.
 
-In this example, you will learn how to connect Auth0 to Keen IO and stream `signup` events. To do so, you will need to create one Rule in your pipeline.
+In this example, you will learn how to connect Auth0 to Keen IO and stream `signup` events. To implement this with Auth0, you just need to create one [Rule](/rule) in your pipeline.
 
 ![Keen IO Dataflow](/media/articles/tutorials/keen-io-dataflow.png)
 
-## Record a SignUp event in Keen IO
+## Record a sign-up event in Keen IO
 
 This rule checks whether the user has already signed up before or not. This is tracked by the `user.signedUp` property. If the property is present then we assume return immediately, otherwise we assume a new `signup`.
 
@@ -65,6 +65,8 @@ function(user, context, callback) {
 Notice that if all calls are successful, we signal the user as signed up. So next time we skip the entire rule.
 :::
 
+
+## Keep reading
 Check out our [repository of Auth0 Rules](https://github.com/auth0/rules) for more great examples:
 
 * Rules for access control
