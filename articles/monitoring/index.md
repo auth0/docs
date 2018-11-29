@@ -46,3 +46,12 @@ useCase:
   </li>
   <p>How to send logging events to Splunk</p>
 </ul>
+
+<%= include('../../_includes/_topic-links', { links: [
+  'monitoring/how-to-monitor-auth0',
+  '/monitoring/tracking-new-leads-in-salesforce-and-raplead',
+  '/monitoring/track-signups-enrich-user-profile-generate-leads',
+  '/monitoring/sending-events-to-keenio',
+  '/monitoring/sending-events-to-segmentio',
+  '/monitoring/sending-events-to-splunk'
+] }) %>
