@@ -74,7 +74,7 @@ Create a rule that will record the information as a __New Lead__ in Salesforce, 
 
 * For this rule, we record only the username and a fixed company name. However, we could use anything available in the enriched user profile we obtained in step 1 to record more information and provide additional context for the sales representative.
 
-* For this rule, we use a __persistent__ property called `user.app_metadata.recordedAsLead`, and if everything goes well, we set it to `true`. The next time the user signs in, this rule will be skipped.
+* For this rule, we use a property called `user.app_metadata.recordedAsLead`, and if everything goes well, we set it to `true`. The next time the user signs in, this rule will be skipped.
 
 ```js
 function (user, context, callback) {
