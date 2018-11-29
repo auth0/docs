@@ -34,7 +34,7 @@ To obtain more information about the user, retrieve public information from Towe
 Once the call to TowerData completes, store this additional information in a property called `towerdata`:
 
 :::note
-We ignore certain conditions that exist in the API and only do this when there's a successful call (`statusCode=200`). This rule will also be skipped if the user has already signed up, which is signaled by the `user.signedUp` property being set to true (see step 2).
+We ignore certain conditions that exist in the API and only do this when there's a successful call (`statusCode=200`). This rule will also be skipped if the user has already signed up, which is signaled by the `user.app_metadata.recordedAsLead` property being set to true (see step 2).
 :::
 
 ```js
@@ -74,7 +74,7 @@ Record the information as a __New Lead__ in Salesforce, so the sales department 
 
 * For this rule, we record only the username and a fixed company name. However, we could use anything available in the enriched user profile we obtained in step 1 to record more information and provide additional context for the sales representative.
 
-* For this rule, we use a __persistent__ property called `user.signedUp`, and if everything goes well, we set it to `true`. The next time the user signs in, this rule will be skipped.
+* For this rule, we use a __persistent__ property called `user.app_metadata.recordedAsLead`, and if everything goes well, we set it to `true`. The next time the user signs in, this rule will be skipped.
 
 ```js
 function (user, context, callback) {
