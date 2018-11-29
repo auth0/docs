@@ -26,7 +26,7 @@ In this example, you will learn how to connect Auth0 to Keen and stream `signup`
 
 Create a rule that will record user `signup` events for your apps in Keen. Please note:
 
-* In this example, we use basic auth and your Keen credentials are hard-coded into the rule. If you prefer, you can store them in the `configuration` object instead (see the [Settings](${manage_url}/#/rules) under the list of your rules). Doing so will allow you to use your credentials in multiple rules and prevents you from having to store them directly in the code.
+* In this example, your Keen credentials are hard-coded into the rule. If you prefer, you can store them in the `configuration` object instead (see the [Settings](${manage_url}/#/rules) under the list of your rules). Doing so will allow you to use your credentials in multiple rules and prevents you from having to store them directly in the code.
 
 * For this rule, we send contextual information, such as IP address (can be used to deduce location), user ID, and username. However, you can send any number of properties.
 
