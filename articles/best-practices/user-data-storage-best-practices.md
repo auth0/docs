@@ -1,5 +1,5 @@
 ---
-description: Demonstrates the best practices for using Auth0 storage mechanisms through the scenario of a native Swift app with a Node API backend.
+description: Recommendations for using Auth0 storage mechanisms.
 toc: true
 topics:
     - users
@@ -16,7 +16,7 @@ useCase: manage-users
 
 # User Data Storage Best Practices
 
-Auth0 provides multiple places to store data used to authenticate an Application's users. 
+Auth0 provides multiple places to store data used to authenticate an application's users. 
 
 Auth0 provides a sample app (a mobile music application) that reflects the end-to-end user experience when using Auth0 with an external database. The sample app is an iOS app created using the [Auth0 iOS seed project](/quickstart/native/ios-swift). The backend uses the [Node.js API](/quickstart/backend/nodejs). For a visualization of the application's overall structure, see the [Mobile + API architecture scenario](/architecture-scenarios/application/mobile-api).
 

@@ -9,15 +9,15 @@ useCase:
   - best-practices
 ---
 
-# Best Practices: General Operations
+# General Usage and Operations Best Practices
 
-In this article, you'll learn some best practices for general Auth0 usage and operation.
+Here are some recommended best practices for general Auth0 usage and operation.
 
 ## Capture log files 
 
 Auth0 keeps tenant [logs](/logs) for a limited amount of time. To get log data and store it elsewhere, you can use the [Management API](/api/management/v2#!/Logs/get_logs) or one of the [available extensions](/extensions#export-auth0-logs-to-an-external-service) for services such as Loggly or Splunk.
 
-## Set up own email provider & customize email templates
+## Set up your own email provider and customize email templates
 
 [Auth0 provides a test email provider](/email) so you can test default welcome and email verification messages during tenant setup. The test provider can only send a limited amount of emails, so you should [configure your own mail server](/email/providers).
 
