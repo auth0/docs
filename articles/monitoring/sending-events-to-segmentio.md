@@ -14,7 +14,7 @@ useCase:
 ---
 # Send Auth0 Events to Segment
 
-[Segment](http://segment.io/features) provides a large number of analytics-related functionality with a single, simple to use API.
+[Segment](https://segment.com/) provides a large number of analytics-related functionality with a single, simple to use API.
 
 In this example, you will learn how to connect Auth0 to Segment and stream `signup` and `login` events. To implement this with Auth0, you just need to create one [Rule](/rule) in your pipeline.
 
