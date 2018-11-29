@@ -1976,13 +1976,16 @@ module.exports = [
    {
      from: ['/libraries/lock/v10/auth0js', '/libraries/lock/v11/auth0js'],
      to: '/libraries/auth0js'
-   }
+   },
   //  {
   //    from: '/metadata/lock',
   //    to: '/users/guides/manage-user-metadata'
   //  }
+  {
     from: '/hooks/dashboard/create-delete',
     to: '/hooks/guides/create-delete-hooks-using-dashboard'
+  },
+  {
     from: '/hooks/cli/create-delete',
     to: '/hooks/guides/create-delete-hooks-using-cli'
   },
