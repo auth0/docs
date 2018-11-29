@@ -15,7 +15,7 @@ Tenants created after **July 16, 2018** will not have access to the underlying W
 :::
 
 ::: note
-The Auth0 CLI examples use `auth0-profile` as the name of the profile. This is the same profile name used when installing `wt-cli`, and you can obtain it from *Step 2* of the instructions set located on [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks).
+The Auth0 CLI examples use `auth0-profile` as the name of the profile. This is the same profile name used when installing `wt-cli`, and you can obtain it from *Step 2* of the instructions set located on [Auth0 Management Dashboard's Webtask page](https://manage.auth0.com/#/tenant/webtasks).
 :::
 
 Using the Auth0 CLI, you can create new Hooks, as well as manage or delete existing Hooks. You can also gather real-time data about your Hooks.
