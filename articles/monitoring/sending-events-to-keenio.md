@@ -24,9 +24,6 @@ In this example, you will learn how to connect Auth0 to Keen and stream `signup`
 
 ## Record a sign-up event in Keen
 
-This rule checks whether the user has already signed up before or not. This is tracked by the `user.signedUp` property. If the property is present then we assume return immediately, otherwise we assume a new `signup`.
-
-
 Create a rule that will record user `signup` events for your apps in Keen. Please note:
 
 * In this example, we use basic auth and your Keen credentials are hard-coded into the rule. If you prefer, you can store them in the `configuration` object instead (see the [Settings](${manage_url}/#/rules) under the list of your rules). Doing so will allow you to use your credentials in multiple rules and will prevent you from having to store them directly in the code.
@@ -70,11 +67,6 @@ function(user, context, callback) {
        });
 }
 ```
-
-::: note
-Notice that if all calls are successful, we signal the user as signed up. So next time we skip the entire rule.
-:::
-
 
 ## Keep reading
 Check out our [repository of Auth0 Rules](https://github.com/auth0/rules) for more great examples:
