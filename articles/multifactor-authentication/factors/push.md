@@ -13,7 +13,7 @@ useCase:
 
 MFA by push notification does not require administrative setup beyond enabling the factor, if the Guardian app is being used. End users will need to have the app installed on their device. The app is sent push notifications when the user attempts to authenticate, and the user must respond to it in order to login, ensuring that they not only know their login information but also posess the device set up for MFA.
 
-End users will be prompted to download the app you have enabled in the Dashboard when trying to sign up or log in to your application. Once they indicate that they have successfully downloaded the app, a barcode will appear on screen. They will have a short amount of time in which to scan the code with the designated app. Once this is done, they should see a confirmation screen.
+End users will be prompted to download Auth0 Guardian when trying to sign up or log in to your application. Once they indicate that they have successfully downloaded the app, a QR code will appear on screen. They will have a short amount of time in which to scan the code with the designated app. Once this is done, they should see a confirmation screen.
 
 Once this is all set up, when the user attempts to authenticate as normal, their device will receive a push notification via the app, and once they approve the request, they will be logged in.
 
