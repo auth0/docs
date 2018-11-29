@@ -15,11 +15,11 @@ useCase:
 
 # Track Sign-ups, Enrich User Profiles, and Generate New Leads
 
-Upon a signup of a new user to a website with any social credential, we want to:
+Whenever a new user signs up with a website using a social credential, we want to:
 
-1. Record a __SignUp__ event on [MixPanel](https://mixpanel.com).
+1. __Record a SignUp__ event on [MixPanel](https://mixpanel.com).
 2. __Augment the user profile__ with additional public information through [FullContact](http://www.fullcontact.com/).
-3. Record the new signup as a __New Lead__ on [Salesforce](http://www.salesforce.com/) for follow-up.
+3. __Record the sign-up as a New Lead__ on [Salesforce](http://www.salesforce.com/), so a sales professional can follow up.
 
 Implementing this with Auth0 is very easy. You just need 3 [Rules](/rules) in your pipeline:
 
