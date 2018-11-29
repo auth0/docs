@@ -1,6 +1,6 @@
 ---
 title: Track New Leads in Salesforce with TowerData-Enriched User Profiles
-description: How to track leads in Salesforce with augmented information gathered from TowerData.
+description: How to track leads in Salesforce and augment user profiles with public information gathered from TowerData.
 topics:
   - monitoring
   - marketing
