@@ -17,15 +17,15 @@ useCase:
 
 Whenever a new user signs up with a website using a social credential, we want to:
 
-1. __Record a SignUp__ event on [MixPanel](https://mixpanel.com).
+1. __Record a SignUp__ event in [MixPanel](https://mixpanel.com).
 2. __Augment the user profile__ with additional public information through [FullContact](http://www.fullcontact.com/).
-3. __Record the sign-up as a New Lead__ on [Salesforce](http://www.salesforce.com/), so a sales professional can follow up.
+3. __Record the sign-up as a New Lead__ in [Salesforce](http://www.salesforce.com/), so a sales professional can follow up.
 
 Implementing this with Auth0 is quite easy; you just need to create three [Rules](/rules) in your pipeline:
 
 ![](/media/articles/tutorials/signups.png)
 
-## 1. Record a SignUp in MixPanel
+## 1. Record SignUp event in MixPanel
 
 This first rule checks whether the user has already signed up. If they have, it simply skips everything. If not, it calls __MixPanel__ to record the event. In the example below we are simply using a property `application` that you can then use in MixPanel to filter information. But the full `context` and `user` properties are available as sources of more information (such as IP addresses, agent, and so on.).
 
@@ -110,7 +110,7 @@ function (user, context, callback) {
 }
 ```
 
-## 3. Create a New Lead in Salesforce
+## 3. Create New Lead in Salesforce
 
 In the last step we record the information as a __New Lead__ in Salesforce, so the sales department can followup. This __Rule__ has some interesting things:
 
@@ -210,6 +210,8 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
+
+## Keep reading
 
 Check out our [repository of Auth0 Rules](https://github.com/auth0/rules) for more great examples:
 
