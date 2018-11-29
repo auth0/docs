@@ -174,4 +174,4 @@ function (user, context, callback) {
 Check out our [repository of Auth0 Rules](https://github.com/auth0/rules) for more great examples:
 
 * Rules for access control
-* Integration with other services: [MixPanel](http://mixpanel.com), [Firebase](http://firebase.com), [Parse](http://parse.com)
+* Integration with other services: [MixPanel](http://mixpanel.com), [Firebase](http://firebase.com), [Parse](http://parse.com), [Splunk](https://www.splunk.com/), [Segment](https://segment.com/), [Keen](https://keen.io/)
