@@ -22,9 +22,9 @@ useCase:
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/monitoring/how-to-monitor-auth0">Create Users in the Dashboard</a>
+    <i class="icon icon-budicon-715"></i><a href="/monitoring/how-to-monitor-auth0">Monitor Auth0</a>
   </li>
-  <p>How to monitor your Auth0 account, and dedicated deployments</p>
+  <p>How to monitor your Auth0 implementation and account, external services, and dedicated deployments</p>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/monitoring/tracking-new-leads-in-salesforce-and-raplead">Track New Leads in Salesforce with RapLeaf Information</a>
   </li>
