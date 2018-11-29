@@ -41,7 +41,7 @@ You can create Hooks for the following [extensibility points](/hooks/extensibili
 - [Pre-User Registration](/hooks/guides/pre-user-registration-extensibility-point)
 - [Post-User Registration](/hooks/guides/post-user-registration-extensibility-point)
 
-<%= include('../_includes/_ip_whitelist') %>
+<%= include('../../_includes/_ip_whitelist') %>
 
 ## Use the Webtask Editor to Edit Hooks
 
