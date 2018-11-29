@@ -14,7 +14,6 @@ Your user will authenticate, and Auth0 will generate an ID Token and Access Toke
 
 In a native application, the default experience will open a `SafariViewController` in iOS, whereas Android opens up a Custom Chrome Tab. 
 
-::: steps
   1. The user clicks your **Login** button or link.
   2. Our SDK redirects the user to your Auth0 Authorization Server.
   3. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, or SAML).
@@ -23,7 +22,7 @@ In a native application, the default experience will open a `SafariViewControlle
 
 For security in mobile devices, Auth0 uses the 0Auth 2.0 Mobile Login Flow. 
 
-*insert flow diagram here*
+![](/media/articles/microsites/overview-flow-native-mobile-app.png)
 
 ## How to implement it
 
@@ -62,6 +61,6 @@ For security in mobile devices, Auth0 uses the 0Auth 2.0 Mobile Login Flow.
 
 ::: whats-next
   * [Protect My API](/microsites/protect-my-api)
-  * Mobile Login Flow
+  * Mobile Login Flow *need link**
   * [Manage My Users](/microsites/manage-my-users/manage-users-and-user-profiles)
 :::
