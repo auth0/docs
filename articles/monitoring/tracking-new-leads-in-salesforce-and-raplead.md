@@ -29,9 +29,9 @@ Implementing this with Auth0 is quite easy; you just need to create two [Rules](
 
 ## 1. Enrich User Profile with TowerData
 
-To obtain more information about the user, retrieve public information from TowerData's API using the user's email address as input.
+Create a rule that will obtain more information about the user by retrieving public information from TowerData's API using the user's email address as input.
 
-Once the call to TowerData completes, store this additional information in a property called `towerdata`:
+Once the call to TowerData completes, we store this additional information in a property called `towerdata`:
 
 :::note
 We ignore certain conditions that exist in the API and only do this when there's a successful call (`statusCode=200`). This rule will also be skipped if the user has already signed up, which is signaled by the `user.app_metadata.recordedAsLead` property being set to true (see step 2).
@@ -68,7 +68,7 @@ function (user, context, callback) {
 
 ## 2. Create New Lead in Salesforce
 
-Record the information as a __New Lead__ in Salesforce, so the sales department can follow up. Please note:
+Create a rule that will record the information as a __New Lead__ in Salesforce, so the sales department can follow up. Please note:
 
 * The Salesforce REST API uses an OAuth Access Token. So for this rule, we use the OAuth2 `Resource Owner Password Credential Grant` to obtain this token, and use the `getToken` function, which uses credentials as input, as opposed to an `API-KEY` as was used in the rule in the previous step.
 
