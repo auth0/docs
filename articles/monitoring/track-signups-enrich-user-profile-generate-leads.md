@@ -27,10 +27,10 @@ Implementing this with Auth0 is quite easy; you just need to create three [Rules
 
 ## 1. Record SignUp event in MixPanel
 
-This first rule checks whether the user has already signed up. If they have, it simply skips everything. If not, it calls __MixPanel__ to record the event. In the example below we are simply using a property `application` that you can then use in MixPanel to filter information. But the full `context` and `user` properties are available as sources of more information (such as IP addresses, agent, and so on.).
+Record the event by calling MixPanel. In the example below, we record the application name in the `application` property to help you filter information in MixPanel. However, the full `context` and `user` properties are available as sources of additional information (e.g., IP addresses, agent).
 
 ::: note
-This rule will be skipped if the user has already signed up, which is signaled by the `user.signedUp` property being set to true (see step 3).
+This rule will be skipped if the user has already signed up, which is signaled by the `user.app_metadata.recordedAsLead` property being set to true (see step 3).
 :::
 
 We also call this event `Sign Up`:
@@ -68,7 +68,7 @@ To obtain more information about the user, retrieve public information from Full
 Once the call to FullContact completes, store this additional information in a property called `fullContactInfo`:
 
 :::note
-We ignore certain conditions that exist in the API and only do this when there's a successful call (`statusCode=200`). This rule will also be skipped if the user has already signed up, which is signaled by the `user.signedUp` property being set to true (see step 3).
+We ignore certain conditions that exist in the API and only do this when there's a successful call (`statusCode=200`). This rule will also be skipped if the user has already signed up, which is signaled by the `user.app_metadata.recordedAsLead` property being set to true (see step 3).
 :::
 
 ```js
@@ -124,7 +124,7 @@ Record the information as a New Lead in Salesforce, so the sales department can 
 
 * For this rule, we record only the username and a fixed company name. However, we could use anything available in the enriched user profile we obtained in step 2 to record more information and provide additional context for the sales representative.
 
-* For this rule, we use a __persistent__ property called `user.signedUp`, and if everything goes well, set it to true. The next time the user signs in, all of these rules will be skipped.
+* For this rule, we use a __persistent__ property called `user.app_metadata.recordedAsLead`, and if everything goes well, set it to true. The next time the user signs in, all of these rules will be skipped.
 
 
 ```js
