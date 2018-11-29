@@ -112,11 +112,14 @@ function (user, context, callback) {
 
 ## 3. Create New Lead in Salesforce
 
-In the last step we record the information as a __New Lead__ in Salesforce, so the sales department can followup. This __Rule__ has some interesting things:
+Record the information as a New Lead in Salesforce, so the sales department can follow up. Please note:
 
-1. The Salesforce REST API uses an OAuth Access Token. We are using the OAuth2 `Resource Owner Password Credential Grant` to obtain such Access Token. This is the `getToken` function hat uses credentials as input as opposed to an `API-KEY` as the previous rules.
-2. We are just recording the user name and a fixed company name. We would of course us anything available in the enriched user profile we obtained in step 2, to record more information and have better context for the sales representative.
-3. If everything went well, we use a __persistent__ property: `user.signedUp` and set it to `true`. So next time this same users logs in, none of these rules will do anything.
+* The Salesforce REST API uses an OAuth Access Token. So for this rule, we use the OAuth2 `Resource Owner Password Credential Grant` to obtain this token, and use the `getToken` function, which uses credentials as input, as opposed to an `API-KEY` as was used in the rules in the previous steps.
+
+* For this rule, we record only the username and a fixed company name. However, we could use anything available in the enriched user profile we obtained in step 2 to record more information and provide additional context for the sales representative.
+
+* For this rule, we use a __persistent__ property called `user.signedUp`, and if everything goes well, set it to true. The next time the user signs in, all of these rules will be skipped.
+
 
 ```js
 function (user, context, callback) {
