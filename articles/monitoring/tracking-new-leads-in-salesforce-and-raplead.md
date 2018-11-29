@@ -20,9 +20,10 @@ useCase:
 Whenever a new user signs up with a website using any social credential, we want to:
 
 1. __Augment the user profile__ with additional public information obtained through [TowerData](https://www.towerdata.com/email-intelligence/email-enhancement).
-2. Record the sign-up as a __New Lead__ on [Salesforce](http://www.salesforce.com/) so a sales professional can follow up.
 
-Implementing this with Auth0 is very easy. You just need to create two [Rules](/rules) in your pipeline:
+2. Record the sign-up as a __New Lead__ on [Salesforce](http://www.salesforce.com/), so a sales professional can follow up.
+
+Implementing this with Auth0 is quite easy; you just need to create two [Rules](/rules) in your pipeline:
 
 ![](/media/articles/tutorials/rapleaf-salesforce.png)
 
@@ -65,15 +66,15 @@ function (user, context, callback) {
 }
 ```
 
-## 2. Create a New Lead in Salesforce
+## 2. Create New Lead in Salesforce
 
 Record the information as a __New Lead__ in Salesforce, so the sales department can follow up. Please note:
 
-1. The Salesforce REST API uses an OAuth Access Token. So for this rule, we use the OAuth2 `Resource Owner Password Credential Grant` to obtain this token, and use the `getToken` function, which uses credentials as input, as opposed to an `API-KEY` as was used in the rule in the previous step.
+* The Salesforce REST API uses an OAuth Access Token. So for this rule, we use the OAuth2 `Resource Owner Password Credential Grant` to obtain this token, and use the `getToken` function, which uses credentials as input, as opposed to an `API-KEY` as was used in the rule in the previous step.
 
-2. For this rule, we record only the username and a fixed company name. However, we could use anything available in the enriched user profile we obtained in step 1 to record more information and provide additional context for the sales representative.
+* For this rule, we record only the username and a fixed company name. However, we could use anything available in the enriched user profile we obtained in step 1 to record more information and provide additional context for the sales representative.
 
-3. For this rule, we use a __persistent__ property called `user.signedUp`, and if everything goes well, we set it to `true`. The next time the user signs in, this rule will be skipped.
+* For this rule, we use a __persistent__ property called `user.signedUp`, and if everything goes well, we set it to `true`. The next time the user signs in, this rule will be skipped.
 
 ```js
 function (user, context, callback) {
