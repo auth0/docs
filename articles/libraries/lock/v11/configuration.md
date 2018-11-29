@@ -616,6 +616,20 @@ var options = {
 }
 ```
 
+If you don't specify a `validator` the text field will be **required**. If you want to make the text field optional, use a validator that always returns `true` like this:
+
+```js
+var options = {
+  additionalSignUpFields: [{
+    name: "favorite color",
+    placeholder: "Enter your favorite color (optional)",
+    validator: function() { 
+      return true;
+    }
+  }]
+}
+```
+
 ![Lock - Additional Signup Fields](/media/articles/libraries/lock/v10/customization/lock-additionalsignupfields.png)
 
 #### Select Field
