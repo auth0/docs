@@ -1,6 +1,6 @@
 ---
-title: Track Signups, Enrich User Profiles, and Generate New Leads
-description: How to track your signups, enrich your user profiles with the information you've gathered, and generate new leads.
+title: Track New Leads in Salesforce with FullContact-Enriched User Profiles, and Send Auth0 Events to MixPanel
+description: How to track your sign-ups in MixPanel, enrich your user profiles with public information gathered from FullContact, and generate new sales leads.
 topics:
   - monitoring
   - marketing
@@ -13,7 +13,7 @@ useCase:
   - integrate-analytics
 ---
 
-# Track New Leads in Salesforce with FullContact-Enriched User Profiles and Log Events in MixPanel
+# Track New Leads in Salesforce with FullContact-Enriched User Profiles, and Send Auth0 Events to MixPanel
 
 Whenever a new user signs up with a website using a social credential, we want to:
 
