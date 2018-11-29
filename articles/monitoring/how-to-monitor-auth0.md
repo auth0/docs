@@ -1,5 +1,6 @@
 ---
-description: How to use monitoring with an Auth0 account.
+title: Monitor Auth0
+description: How to monitor your Auth0 implementation and account, external services, and dedicated deployments.
 toc: true
 topics:
   - monitoring
