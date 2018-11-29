@@ -96,7 +96,7 @@ If you see potential issues with your Auth0 service, but the monitoring endpoint
 
 Please see the [PSaaS Appliance](/appliance) pages for [information on monitoring a dedicated deployment](/appliance/monitoring).
 
-## Configure SCOM
+## Monitor Auth0 Using SCOM
 
 Auth0 can be monitored as a standard web application using System Center Operations Manager (SCOM) or any tool that supports synthetic transactions.
 
