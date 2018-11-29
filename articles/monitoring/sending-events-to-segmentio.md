@@ -1,5 +1,5 @@
 ---
-title: Send Events to Segment IO
+title: Send Auth0 Events to Segment IO
 description: How to send logging events to Segment IO from Auth0.
 topics:
   - monitoring
@@ -12,7 +12,7 @@ useCase:
   - analyze-external-analytics
   - integrate-analytics
 ---
-# Send Events to Segment IO
+# Send Auth0 Events to Segment IO
 
 [Segment](http://segment.io/features) provides a large number of analytics-related functionality with a single, simple to use API.
 
