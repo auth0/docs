@@ -75,13 +75,7 @@ If you prefer to embed your own login pages within your native/mobile app, you c
   * [SDKs](/libraries)
 :::
 
-::: concepts
-  * [User Profile Overview](/user-profile/overview-user-profile)
-  * [Normalized User Profile](/user-profile/normalized/auth0)
-  * [User Profiles Returned from OIDC-compliant Pipelnes](/user-profile/normalized/oidc)
-  * [Progressive Profiling](/user-profile/progressive-profiling)
-  * [GDPR Overview](/compliance/overview-gdpr)
-  
+::: concepts  
   * [Universal vs. Embedded Login](/guides/login/universal-vs-embedded)
   * [ID Tokens](/tokens/id-token)
   * [Access Tokens](/tokens/access-token)
@@ -91,8 +85,8 @@ If you prefer to embed your own login pages within your native/mobile app, you c
 ::::
 
 ::: whats-next
-  * Now that you have the authentication set up and ready to go, learn how you can manage your users. To see everything Auth0 has to offer on this area, [see Manage My Users](microsite-connect-users-to-your-identity-platform)
-  * Most SPAs access RESTful APIs to retrieve data. You can do that as well using Auth0. For more information on this, see Call an API.
-  * If you are building your own API and you want to secure the endpoints using Auth0, see Protect My API.
+  * Auth0 offers many ways to personalize your user's login experience using [rules](/rules) and [hooks](/hooks).
+  * Most SPAs access RESTful APIs to retrieve data. You can do that as well using Auth0. For more information on this, see Call an API. Learn how to [Call My API from a Native/Mobile App using Auth0](/microsites/call-my-api/call-my-api-native-mobile-app).
+  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-my-api/protect-my-api).
 :::
 
