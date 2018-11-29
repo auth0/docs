@@ -120,6 +120,8 @@ Create a rule to record the information as a New Lead in Salesforce, so the sale
 
 * The Salesforce REST API uses an OAuth Access Token. So for this rule, we use the OAuth2 `Resource Owner Password Credential Grant` to obtain this token, and use the `getToken` function, which uses credentials as input, as opposed to an `API-KEY` as was used in the rules in the previous steps.
 
+* In this example, we expect your Salesforce credentials to be stored in the [global `configuration` object](/rules/current#use-the-configuration-object). Be sure to add your credentials here before running your rule. Doing this allows you to use your credentials in multiple rules and prevents you from having to store them directly in the code.
+
 * For this rule, we record only the username and a fixed company name. However, we could use anything available in the enriched user profile we obtained in step 2 to record more information and provide additional context for the sales representative.
 
 * For this rule, we use a property called `user.app_metadata.recordedAsLead`, and if everything goes well, set it to true. The next time the user signs in, all of these rules will be skipped.
