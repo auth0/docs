@@ -28,17 +28,15 @@ For security in mobile devices, Auth0 uses the 0Auth 2.0 Mobile Login Flow.
 
 ::: steps [{ data-title="Steps for calling my API" }]
   1. Configure your API. 
-     - Once the application has been created you will need to configure the Scopes which application can request during authorization. 
+     Once the application has been created you will need to configure the Scopes which application can request during authorization. 
   2. Get an Access Token. 
-     - When your application receives the authorization code, it exchanges it for an Access Token. It sends the authorization code and the code verifier to Auth0's token endpoint.
+     When your application receives the authorization code, it exchanges it for an Access Token. It sends the authorization code and the code verifier to Auth0's token endpoint.
   3. Call Your API.
-     - To include the Access Token that grants you the right to call the API, Auth0 and the OAuth 2.0 specification recommends for its inclusion in the HTTP Authorization header whenever possible.
+     To include the Access Token that grants you the right to call the API, Auth0 and the OAuth 2.0 specification recommends for its inclusion in the HTTP Authorization header whenever possible.
   4. Refresh your Access Token.
-     - Your Access Token has a limited lifetime and therefore your Access Token will eventually expire. Use Refresh Tokens to get new Access Tokens without having to bother the end user for permissions again.
-     - We recommend that you request Auth0 send a Refresh Token whenever it grants an Access Token. You can use it to refresh your Access Token without going through the authorization process again.
+     Your Access Token has a limited lifetime and therefore your Access Token will eventually expire. Use Refresh Tokens to get new Access Tokens without having to bother the end user for permissions again.
+     We recommend that you request Auth0 send a Refresh Token whenever it grants an Access Token. You can use it to refresh your Access Token without going through the authorization process again.
 :::
-
-## Keep reading
 
 :::: further-reading
 ::: concepts
