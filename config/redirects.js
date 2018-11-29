@@ -1983,54 +1983,64 @@ module.exports = [
   //  }
     from: '/hooks/dashboard/create-delete',
     to: '/hooks/guides/create-delete-hooks-using-dashboard'
+    from: '/hooks/cli/create-delete',
+    to: '/hooks/guides/create-delete-hooks-using-cli'
   },
   {
-    from: '/hooks/dashboard/edit',
-    to: '/hooks/guides/edit-hooks-using-dashboard'
+      from: '/hooks/cli/edit',
+      to: '/hooks/guides/edit-hooks-using-cli'
   },
   {
-    from: '/hooks/dashboard/enable-disable',
-    to: '/hooks/guides/enable-disable-hooks-using-dashboard'
+      from: '/hooks/cli/enable-disable',
+      to: '/hooks/guides/enable-disable-hooks-using-cli'
   },
   {
-    from: '/hooks/dashboard/logs',
-    to: '/hooks/guides/logging-hooks-using-dashboard'
+      from: '/hooks/cli/index',
+      to: '/hooks/concepts/overview-hooks'
   },
   {
-    from: '/hooks/dashboard',
-    to: '/hooks'
+      from: '/hooks/cli/logs',
+      to: '/hooks/guides/logging-hooks-using-cli'
   },
   {
-    from: '/hooks/extensibility-points/credentials-exchange',
-    to: '/hooks/concepts/credentials-exchange-extensibility-point'
+      from: '/hooks/dashboard/create-delete',
+      to: '/hooks/guides/create-delete-hooks-using-dashboard'
   },
   {
-    from: '/hooks/extensibility-points/post-user-registration',
-    to: '/hooks/concepts/pre-user-registration-extensibility-point'
+      from: '/hooks/dashboard/edit',
+      to: '/hooks/guides/edit-hooks-using-dashboard'
   },
   {
-    from: '/hooks/extensibility-points/pre-user-registration',
-    to: '/hooks/concepts/post-user-registration-extensibility-point'
+      from: '/hooks/dashboard/enable-disable',
+      to: '/hooks/guides/enable-disable-hooks-using-dashboard'
   },
   {
-    from: '/hooks/overview',
-    to: '/hooks/concepts/overview'
+      from: '/hooks/dashboard/index',
+      to: '/hooks/concepts/overview-hooks'
   },
   {
-    from: '/hooks',
-    to: '/hooks/concepts/overview'
+      from: '/hooks/extensibility-points/credentials-exchange',
+      to: '/hooks/concepts/credentials-exchange-extensibility-point'
   },
   {
-    from: '',
-    to: ''
+      from: '/hooks/extensibility-points/index',
+      to: '/hooks/concepts/overview-extensibility-points'
   },
   {
-    from: '',
-    to: ''
+      from: '/hooks/extensibility-points/post-user-registration',
+      to: '/hooks/concepts/post-user-registration-extensibility-point'
   },
   {
-    from: '',
-    to: ''
+      from: '/hooks/extensibility-points/pre-user-registration',
+      to: '/hooks/concepts/pre-user-registration-extensibility-point'
+  },
+  {
+      from: '/hooks',
+      to: '/hooks/concepts/overview-hooks'
+  },
+  {
+      from: '/hooks/overview',
+      to: '/hooks/concepts/overview-hooks'
   }
 ];
 
