@@ -29,11 +29,11 @@ This rule checks whether the user has already signed up before or not. This is t
 
 Create a rule that will record user `signup` events for your apps in Keen. Please note:
 
-* Splunk's API supports basic & token-based auth. In this example, we use basic auth and your Splunk credentials are hard-coded into the rule. If you prefer, you can store them in the `configuration` object instead (see the [Settings](${manage_url}/#/rules) under the list of your rules). Doing so will allow you to use your credentials in multiple rules and will prevent you from having to store them directly in the code.
+* In this example, we use basic auth and your Keen credentials are hard-coded into the rule. If you prefer, you can store them in the `configuration` object instead (see the [Settings](${manage_url}/#/rules) under the list of your rules). Doing so will allow you to use your credentials in multiple rules and will prevent you from having to store them directly in the code.
 
 * For this rule, we send contextual information, such as IP address (can be used to deduce location), user ID, and username. However, you can send any number of properties.
 
-* For this rule, we track the event type using a __persistent__ property called `user.signedUp`. When the property is set to `true`, we return immediately. Otherwise, we assume the event is a new `signup`, and if everything goes well, we set the property to `true`.
+* For this rule, we track the event type using a __persistent__ property called `user.signedUp`. When the property is set to `true`, we return immediately. Otherwise, we assume the event is a new `signup`, and if everything goes well, we set the property to `true`. The next time the user signs in, this rule will be skipped.
 
 
 ```js
