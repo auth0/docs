@@ -30,4 +30,4 @@ And enter the code at the prompt:
 
 ![MFA OTP Login](/media/articles/multifactor-authentication/mfa-otp-login.png)
 
-Your users will need to have in their posession a supported device for whichever OTP app you use.
+Your users will need to have an OTP Authenticator app installed in their mobile devices.
