@@ -1,6 +1,5 @@
 ---
 description: Recommendations for using Auth0 storage mechanisms.
-toc: true
 topics:
     - users
     - user-management
