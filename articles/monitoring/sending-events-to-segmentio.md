@@ -24,11 +24,11 @@ You'll be using [Segment's Node.js library](https://github.com/segmentio/analyti
 
 ## 1. Find your Segment Write Key
 
-To configure this integration, you'll need your Segment **Write Key**. You can find this under **Settings** > **API**.
+To configure this integration, you'll need your Segment **Write Key**. You can find this under Segment's  **Settings** > **API**.
 
 ![Segment API Keys](/media/articles/monitoring/segment/segment-3.png)
 
-## 2. Record Signup and Login events
+## 2. Record `signup` and `login` events
 
 Create a rule to record Auth0 `signup` and `login` events for your apps and send the information to Segment using Segment's Node.js library.
 
