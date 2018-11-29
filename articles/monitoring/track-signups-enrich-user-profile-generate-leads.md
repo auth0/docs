@@ -13,7 +13,7 @@ useCase:
   - integrate-analytics
 ---
 
-# Track Sign-ups, Enrich User Profiles, and Generate New Leads
+# Track New Leads in Salesforce with FullContact-Enriched User Profiles and Log Events in MixPanel
 
 Whenever a new user signs up with a website using a social credential, we want to:
 
