@@ -28,7 +28,7 @@ To configure this integration, you'll need your Segment **Write Key**. You can f
 
 ![Segment API Keys](/media/articles/monitoring/segment/segment-3.png)
 
-## 2. Record `signup` and `login` events
+## 2. Record sign-up and log-in events in Segment
 
 Create a rule to record Auth0 `signup` and `login` events for your apps and send the information to Segment using Segment's Node.js library.
 
@@ -76,8 +76,8 @@ function(user, context, callback) {
 }
 ```
 
-## Check your integration
+## 3. Check your integration
 
-To see if your integration works, you can check the Segment Debugger to see if your Auth0 events are appearing.
+See if your integration works by checking the Segment Debugger to see if your Auth0 events are appearing.
 
 ![Segment Debugger](/media/articles/monitoring/segment/segment-14.png)
