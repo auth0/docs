@@ -1,5 +1,5 @@
 ---
-title: Track New Leads in Salesforce with TowerData-Augmented User Profiles
+title: Track New Leads in Salesforce with TowerData-Enriched User Profiles
 description: How to track leads in Salesforce with augmented information gathered from TowerData.
 topics:
   - monitoring
@@ -15,7 +15,7 @@ useCase:
   - integrate-analytics
 ---
 
-# Track New Leads in Salesforce with TowerData-Augmented User Profiles
+# Track New Leads in Salesforce with TowerData-Enriched User Profiles
 
 Whenever a new user signs up with a website using any social credential, we want to:
 
@@ -26,7 +26,7 @@ Implementing this with Auth0 is very easy. You just need to create two [Rules](/
 
 ![](/media/articles/tutorials/rapleaf-salesforce.png)
 
-## 1. Augment User Profile with TowerData
+## 1. Enrich User Profile with TowerData
 
 To obtain more information about the user, retrieve public information from TowerData's API using the user's email address as input.
 
