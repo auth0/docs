@@ -76,7 +76,7 @@ If you prefer to embed your own login pages within your native/mobile app, you c
 
 ::: whats-next
   * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
-  * Most native/mobile apps access APIs to retrieve data, which can also be done using Auth0. Learn how to [Call My API from a Native/Mobile App using Auth0](/microsites/call-my-api/call-my-api-native-mobile-app).
+  * Most native/mobile apps access APIs to retrieve data, which can also be done using Auth0. Learn how to [Call My API from a Native/Mobile App](/microsites/call-my-api/call-my-api-native-mobile-app).
   * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-my-api/protect-my-api).
 :::
 
