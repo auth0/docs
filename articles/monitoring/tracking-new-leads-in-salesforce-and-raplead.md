@@ -34,7 +34,7 @@ To obtain more information about the user, retrieve public information from Towe
 Once the call to TowerData completes, store this additional information in a property called `towerdata`:
 
 :::note
-We ignore certain conditions that exist in the API and only do this when there's a successful call (`statusCode=200`). This entire rule will be ignored if the user has already signed up, which is signaled by the `user.signedUp` property being set to true after recording a new lead (see step 2 below).
+We ignore certain conditions that exist in the API and only do this when there's a successful call (`statusCode=200`). This rule will also be skipped if the user has already signed up, which is signaled by the `user.signedUp` property being set to true (see step 2).
 :::
 
 ```js
