@@ -12,7 +12,7 @@ useCase:
   - analyze-external-analytics
   - integrate-analytics
 ---
-# Send Events to Keen IO from Auth0
+# Send Events to Keen IO
 
 [Keen IO](http://keen.io) provides a service to capture and analyze events generated in your apps. In their words:
 
