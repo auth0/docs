@@ -1,6 +1,6 @@
 ---
-title: Send Auth0 Events to Segment IO
-description: How to send logging events to Segment IO from Auth0.
+title: Send Auth0 Events to Segment
+description: How to send logging events to Segment from Auth0.
 topics:
   - monitoring
   - segmentio
@@ -12,9 +12,9 @@ useCase:
   - analyze-external-analytics
   - integrate-analytics
 ---
-# Send Auth0 Events to Segment IO
+# Send Auth0 Events to Segment
 
-[Segment IO](http://segment.io/features) provides a large number of analytics-related functionality with a single, simple to use API.
+[Segment](http://segment.io/features) provides a large number of analytics-related functionality with a single, simple to use API.
 
 In this example, you will learn how to connect Auth0 to Segment and stream `signup` and `login` events. To implement this with Auth0, you just need to create one [Rule](/rule) in your pipeline.
 
