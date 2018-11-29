@@ -616,7 +616,7 @@ var options = {
 }
 ```
 
-If you don't specify a `validator` the tet field will be **required**. If you want to make the text field optional, use a validator that always returns `true` like this:
+If you don't specify a `validator` the text field will be **required**. If you want to make the text field optional, use a validator that always returns `true` like this:
 
 ```js
 var options = {
