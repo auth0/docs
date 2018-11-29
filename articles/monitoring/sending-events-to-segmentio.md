@@ -16,7 +16,7 @@ useCase:
 
 [Segment IO](http://segment.io/features) provides a large number of analytics-related functionality with a single, simple to use API.
 
-In this example, you will learn how to connect Auth0 to Segment and stream `signup` and `login` events. To do so, you will need to create one [Rule](/rules) in your pipeline.
+In this example, you will learn how to connect Auth0 to Segment and stream `signup` and `login` events. To implement this with Auth0, you just need to create one [Rule](/rule) in your pipeline.
 
 ![Segment Flow](/media/articles/monitoring/segment/segment-io-dataflow.png)
 
