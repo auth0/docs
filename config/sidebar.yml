@@ -866,8 +866,8 @@ articles:
   - title: "Best Practices"
     url: "/best-practices"
     children:
-      - title: "Tenant Settings"
-        url: "/best-practices/tenant-settings"
+      - title: "General Usage and Operations"
+        url: "/best-practices/operations"
 
       - title: "Application Settings"
         url: "/best-practices/application-settings"
@@ -875,11 +875,17 @@ articles:
       - title: "Connection Settings"
         url: "/best-practices/connection-settings"
 
-      - title: "General Operations"
-        url: "/best-practices/operations"
-
       - title: "Rules"
         url: "/best-practices/rules"
+
+      - title: "Search"
+        url: "/best-practices/search-best-practices"
+
+      - title: "Tenant Settings"
+        url: "/best-practices/tenant-settings"
+
+      - title: "User Data Storage"
+        url: "/best-practices/user-data-storage-best-practices"
 
   - title: "Troubleshoot"
     url: "/troubleshoot"
