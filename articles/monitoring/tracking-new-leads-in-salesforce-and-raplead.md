@@ -21,7 +21,7 @@ Whenever a new user signs up with a website using any social credential, we want
 
 1. __Augment the user profile__ with additional public information obtained through [TowerData](https://www.towerdata.com/email-intelligence/email-enhancement).
 
-2. Record the sign-up as a __New Lead__ on [Salesforce](http://www.salesforce.com/), so a sales professional can follow up.
+2. __Record the sign-up as a New Lead__ on [Salesforce](http://www.salesforce.com/), so a sales professional can follow up.
 
 Implementing this with Auth0 is quite easy; you just need to create two [Rules](/rules) in your pipeline:
 
