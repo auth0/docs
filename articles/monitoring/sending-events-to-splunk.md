@@ -22,13 +22,15 @@ In this example, you will learn how to connect Auth0 to Splunk and stream `signu
 
 ## Record SignUp or Login Event in Splunk
 
-Create a rule to record `signup` and `login` events from users to your apps using the [Splunk REST API](http://dev.splunk.com/view/rest-api-overview/SP-CAAADP8). When enabled, this rule will start sending events that will show up on Splunk's dashboard:
+Create a rule that will record user `signup` and `login` events for your apps using the [Splunk REST API](http://dev.splunk.com/view/rest-api-overview/SP-CAAADP8). When enabled, this rule will send events that will then show on Splunk's dashboard:
 
 ![](/media/articles/scenarios/splunk/splunk-dashbaord.png)
 
 We track the type of event using the `user.app_metadata.signedUp` property. When the property is set to true, we assume the event is a `login`. Otherwise, we assume the event is a new `signup`.
 
 Please note:
+
+For this rule, we use a persistent property called user.app_metadata.recordedAsLead, and if everything goes well, set it to true. The next time the user signs in, all of these rules will be skipped.
 
 
 You can send any number of properties. This sample sends contextual information like the user IP address (can be used for location), the application, the username, and so on.
