@@ -55,8 +55,7 @@ Additionally, the User Profile section of our [QuickStarts](/quickstarts) return
 
 - [ASP.NET Core](/quickstart/webapp/aspnet-core/04-user-profile)
 - [Android](/quickstart/native/android/04-user-profile)
-- [Angular 1.x](/quickstart/spa/angularjs/02-user-profile) and [Angular 2](/quickstart/spa/angular2/03-user-profile)
-- [jQuery](/quickstart/spa/jquery/02-user-profile)
+- [Angular 2](/quickstart/spa/angular2/03-user-profile)
 - [Node.js](/quickstart/webapp/nodejs)
 - [React](/quickstart/spa/react/02-user-profile)
 

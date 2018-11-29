@@ -204,13 +204,9 @@ For guidance and sample code on how to implement logout functionality in your ap
 ### Single Page Apps
 
 * [Angular 2+](/quickstart/spa/angular2)
-* [AngularJS](/quickstart/spa/angularjs)
-* [Aurelia](/quickstart/spa/aurelia)
-* [Ember](/quickstart/spa/ember)
 * [JavaScript](/quickstart/spa/vanillajs)
 * [React](/quickstart/spa/react)
 * [Vue](/quickstart/spa/vuejs)
-* [jQuery](/quickstart/spa/jquery)
 
 ### Web Apps
 

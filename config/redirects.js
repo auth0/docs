@@ -315,6 +315,18 @@ module.exports = [
     from: `/quickstart/spa/emberjs`,
     to: '/quickstart/spa/ember'
   },
+
+  /* --- Removed Quickstarts --- */
+
+  {
+    from: [
+      '/quickstart/spa/angularjs',
+      '/quickstart/spa/aurelia',
+      '/quickstart/spa/ember',
+      '/quickstart/spa/jquery'
+    ],
+    to: '/quickstart/spa'
+  },
   
   /* --- Connections --- */
 
