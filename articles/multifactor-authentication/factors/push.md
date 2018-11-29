@@ -19,8 +19,4 @@ Once this is all set up, when the user attempts to authenticate as normal, their
 
 <div class="phone-mockup"><img src="/media/articles/multifactor-authentication/guardian-push.png" alt="Guardian Push"/></div>
 
-Auth0 supports the use of Auth0 Guardian ([Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian) / [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833?mt=8)) for push notifications. 
-
-::: note
-Duo also can send push notifications, but requires further administrative setup. See the [Duo](multifactor-authentication/factors/duo) page for more information.
-:::
+Auth0 Guardian is available on ([Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian) and the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833?mt=8)).
