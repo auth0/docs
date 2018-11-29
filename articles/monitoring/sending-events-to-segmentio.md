@@ -14,9 +14,11 @@ useCase:
 ---
 # Send Auth0 Events to Segment IO
 
-[Segment](http://segment.io/features) provides a large number of analytics-related functionality with a single, simple to use API.
+[Segment IO](http://segment.io/features) provides a large number of analytics-related functionality with a single, simple to use API.
 
-This example shows how you can connect Auth0 to Segment and stream `signup` and `login` events. You'll be using [Segment's Node.js library](https://github.com/segmentio/analytics-node) to record Auth0 data.
+In this example, you will learn how to connect Auth0 to Segment and stream `signup` and `login` events. You'll be using [Segment's Node.js library](https://github.com/segmentio/analytics-node) to record Auth0 data.
+
+This example shows how you can 
 
 ![Segment Flow](/media/articles/monitoring/segment/segment-io-dataflow.png)
 
