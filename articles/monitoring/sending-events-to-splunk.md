@@ -33,7 +33,7 @@ Please note:
 
 * For this rule, we send contextual information, such as IP address (can be used to deduce location), application name, and username. However, you can send any number of properties.
 
-* For this rule, we track the event type using a __persistent__ property called `user.app_metadata.signedUp`. When the property is set to `true`, we assume the event is a `login`. Otherwise, we assume the event is a new `signup`, and if everything goes well, we set it to `true`. Thus, the next time the user logs in, the event will be recorded as a `login`.
+* For this rule, we track the event type using a property called `user.app_metadata.signedUp`. When the property is set to `true`, we assume the event is a `login`. Otherwise, we assume the event is a new `signup`, and if everything goes well, we set it to `true`. Thus, the next time the user logs in, the event will be recorded as a `login`.
 
 
 ```js
