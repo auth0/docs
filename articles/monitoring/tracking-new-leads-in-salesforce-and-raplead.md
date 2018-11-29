@@ -23,7 +23,7 @@ Whenever a new user signs up with a website using any social credential, we want
 
 2. __Record the sign-up as a New Lead__ on [Salesforce](http://www.salesforce.com/), so a sales professional can follow up.
 
-Implementing this with Auth0 is quite easy; you just need to create two [Rules](/rules) in your pipeline:
+To implement this with Auth0, you just need to create two [Rules](/rules) in your pipeline:
 
 ![](/media/articles/tutorials/rapleaf-salesforce.png)
 
