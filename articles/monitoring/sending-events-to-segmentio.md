@@ -81,3 +81,11 @@ function(user, context, callback) {
 See if your integration works by checking the Segment Debugger to see if your Auth0 events are appearing.
 
 ![Segment Debugger](/media/articles/monitoring/segment/segment-14.png)
+
+
+## Keep reading
+
+Check out our [repository of Auth0 Rules](https://github.com/auth0/rules) for more great examples:
+
+* Rules for access control
+* Integration with other services: [MixPanel](http://mixpanel.com), [Firebase](http://firebase.com), [TowerData](https://www.towerdata.com/email-intelligence/email-enhancement), [Parse](http://parse.com), [Splunk](https://www.splunk.com), [Keen](https://keen.io/)
