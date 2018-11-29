@@ -35,7 +35,7 @@ The command-line interface also offers you the ability to get [logs on your Hook
 
 ## Supported Extensibility Points
 
-You can create Hooks for the following [extensibility points](/hooks/extensibility-points):
+You can create Hooks for the following extensibility points:
 
 - [Credentials Exchange](/hooks/guides/credentials-exchange-extensibility-point)
 - [Pre-User Registration](/hooks/guides/pre-user-registration-extensibility-point)

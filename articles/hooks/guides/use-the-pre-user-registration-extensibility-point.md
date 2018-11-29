@@ -9,7 +9,7 @@ contentType:
 useCase: extensibility-hooks
 v2: true
 ---
-Use the Pre-User Registration Extensibility Point
+# Use the Pre-User Registration Extensibility Point
 
 For [Database Connections](/connections/database), the Pre-User Registration extensibility point allows you to add custom data points to a newly-created user's profile.
 
@@ -17,7 +17,7 @@ This allows you to implement scenarios such as setting conditional information (
 
 ## How to Implement This
 
-You can implement a [Hook](/hooks#work-with-hooks) using this extensibility point with either the [Dashboard](/hooks/dashboard) or the [Command Line Interface](/hooks/cli). 
+You can implement a [Hook](/hooks/concepts/overview-hooks) using this extensibility point with either the [Dashboard](/hooks/guides/create-delete-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-delete-hooks-using-cli). 
 
 ## Starter Code and Parameters
 
