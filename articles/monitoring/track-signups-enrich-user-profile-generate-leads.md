@@ -17,15 +17,15 @@ useCase:
 
 Whenever a new user signs up with a website using a social credential, we want to:
 
-1. __Record a SignUp__ event in [MixPanel](https://mixpanel.com).
-2. __Augment the user profile__ with additional public information through [FullContact](http://www.fullcontact.com/).
-3. __Record the sign-up as a New Lead__ in [Salesforce](http://www.salesforce.com/), so a sales professional can follow up.
+1. Record a `signup` event in [MixPanel](https://mixpanel.com).
+2. Augment the user profile with additional public information through [FullContact](http://www.fullcontact.com/).
+3. Record the sign-up as a New Lead in [Salesforce](http://www.salesforce.com/), so a sales professional can follow up.
 
 To implement this with Auth0, you just need to create three [Rules](/rules) in your pipeline:
 
 ![](/media/articles/tutorials/signups.png)
 
-## 1. Record SignUp event in MixPanel
+## 1. Record `signup` event in MixPanel
 
 Create a rule to record the event by calling MixPanel. In the example below, we record the application name in the `application` property to help you filter information in MixPanel. However, the full `context` and `user` properties are available as sources of additional information (e.g., IP addresses, agent).
 
@@ -33,13 +33,11 @@ Create a rule to record the event by calling MixPanel. In the example below, we 
 This rule will be skipped if the user has already signed up, which is signaled by the `user.app_metadata.recordedAsLead` property being set to true (see step 3).
 :::
 
-We also call this event `Sign Up`:
-
 ```js
 function (user, context, callback) {
 
   const mpEvent = {
-    "event": "Sign In",
+    "event": "Sign up",
     "properties": {
         "distinct_id": user.user_id,
         "token": configuration.MIXPANEL_API_TOKEN,
@@ -61,7 +59,7 @@ function (user, context, callback) {
 }
 ```
 
-## 2. Enrich User Profile with FullContact
+## 2. Enrich user profile with FullContact
 
 Create a rule to obtain more information about the user by retrieving public information from FullContact's API using the user's email address as input.
 
