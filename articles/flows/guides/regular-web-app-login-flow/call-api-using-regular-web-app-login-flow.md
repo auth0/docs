@@ -12,10 +12,8 @@ useCase:
 ---
 # Call My API Using the Regular Web App Login Flow
 
-<%= include('../../../_includes/_pipeline2') %>
-
 ::: note
-This tutorial will help you call your API using the regular web app login flow. If you want to learn how the flow works and why you should use it, see [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow).
+This tutorial will help you call your API using the regular web app login flow. If you want to learn how the flow works and why you should use it, see [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow). If you want to learn to add login to your regular web app, see [Add Login Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow).
 :::
 
 Auth0 makes it easy for your app to implement the regular web app login flow using:
@@ -25,8 +23,6 @@ Auth0 makes it easy for your app to implement the regular web app login flow usi
 
 
 ## Prerequisites
-
-This tutorial can be used call your API from a regular web app. If you want to learn to add login to your regular web app, see [Add Login Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow).
 
 **Before beginning this tutorial:**
 
