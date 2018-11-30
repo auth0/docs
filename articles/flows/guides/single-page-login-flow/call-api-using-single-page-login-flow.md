@@ -51,7 +51,7 @@ Use a refresh token to request new tokens when the existing ones expire.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
-<%= include('./includes/authorize-user-add-login') %>
+<%= include('./includes/authorize-user-call-api') %>
 
 <%= include('./includes/request-tokens') %>
 
