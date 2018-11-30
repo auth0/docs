@@ -1,5 +1,6 @@
 ---
-description: How to send events to Keen IO from Auth0.
+title: Send Auth0 Events to Keen
+description: How to send logging events to Keen from Auth0.
 topics:
   - monitoring
   - keenio
@@ -11,21 +12,26 @@ useCase:
   - analyze-external-analytics
   - integrate-analytics
 ---
-# Sending events to Keen IO from Auth0
+# Send Auth0 Events to Keen
 
-[Keen IO](http://keen.io) provides a service to capture and analyze events generated in your apps. In their words:
+[Keen](http://keen.io) provides a service to capture and analyze events generated in your apps. In their words:
 
 > Analytics transforms data into answers – the kind of answers every company deserves. Unfortunately, a lot of companies a) can't find an analytics service that's right for their specific needs, and b) don't have the resources to develop their own analytics infrastructure. That's why we started Keen IO. Basically, we built it, so you don't have to. And we made it powerful, flexible, and scalable enough that you can use it however you need to – even if those needs change over time.
 
-This example shows how you can very easily connect Auth0 to __Keen IO__ and stream `signup` events.
-
-Implementing this with Auth0 is very easy, only taking a few lines of code.
+In this example, you will learn how to connect Auth0 to Keen and stream `signup` events. To implement this with Auth0, you just need to create one [Rule](/rule) in your pipeline.
 
 ![Keen IO Dataflow](/media/articles/tutorials/keen-io-dataflow.png)
 
-## Recording a SignUp event in Keen IO
+## Record a sign-up event in Keen
 
-This rule checks whether the user has already signed up before or not. This is tracked by the `user.signedUp` property. If the property is present then we assume return immediately, otherwise we assume a new `signup`.
+Create a rule that will record user `signup` events for your apps in Keen. Please note:
+
+* In this example, we expect your Keen credentials to be stored in the [global `configuration` object](/rules/current#use-the-configuration-object). Be sure to add your **Write Key** here before running your rule. Doing this allows you to use your key in multiple rules and prevents you from having to store it directly in the code.
+
+* For this rule, we send contextual information, such as IP address (can be used to deduce location), user ID, and username. However, you can send any number of properties.
+
+* For this rule, we track the event type using a __persistent__ property called `user.signedUp`. When the property is set to `true`, we return immediately. Otherwise, we assume the event is a new `signup`, and if everything goes well, we set the property to `true`. The next time the user signs in, this rule will be skipped.
+
 
 ```js
 function(user, context, callback) {
@@ -62,11 +68,8 @@ function(user, context, callback) {
 }
 ```
 
-::: note
-Notice that if all calls are successful, we signal the user as signed up. So next time we skip the entire rule.
-:::
-
+## Keep reading
 Check out our [repository of Auth0 Rules](https://github.com/auth0/rules) for more great examples:
 
 * Rules for access control
-* Integration with other services: [MixPanel](http://mixpanel.com), [Firebase](http://firebase.com), [Rapleaf](http://rapleaf.com), [Parse](http://parse.com)
+* Integration with other services: [MixPanel](http://mixpanel.com), [Firebase](http://firebase.com), [TowerData](https://www.towerdata.com/email-intelligence/email-enhancement), [Parse](http://parse.com), [Splunk](https://www.splunk.com), [Segment](https://segment.com/)
