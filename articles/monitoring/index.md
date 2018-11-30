@@ -17,9 +17,9 @@ Learn how to monitor your Auth0 implementation and track your Auth0 usage, as we
 
 <%= include('../_includes/_topic-links', { links: [
   'monitoring/how-to-monitor-auth0',
-  '/monitoring/tracking-new-leads-in-salesforce-and-raplead',
-  '/monitoring/track-signups-enrich-user-profile-generate-leads',
-  '/monitoring/sending-events-to-keenio',
-  '/monitoring/sending-events-to-segmentio',
-  '/monitoring/sending-events-to-splunk'
+  'monitoring/tracking-new-leads-in-salesforce-and-raplead',
+  'monitoring/track-signups-enrich-user-profile-generate-leads',
+  'monitoring/sending-events-to-keenio',
+  'monitoring/sending-events-to-segmentio',
+  'monitoring/sending-events-to-splunk'
 ] }) %>
