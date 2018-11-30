@@ -38,7 +38,7 @@ As an example, your HTML snippet for your authorization URL when adding login to
 
 ```html
 <a href="https://${account.namespace}/authorize?
-  response_type=code id_token&
+  response_type=code id_token token&
   client_id=${account.clientId}&
   redirect_uri=${account.namespace}/callback&
   scope=read:tests&
@@ -54,6 +54,5 @@ If all goes well, you'll receive an `HTTP 302` response. The requested credentia
 
 ```text
 HTTP/1.1 302 Found
-Location: https://${account.namespace}/callback?code=AUTHORIZATION_CODE&id_token=ID_TOKEN
+Location: https://${account.namespace}/callback/#access_token=ACCESS_TOKEN&expires_in=7200&token_type=Bearer&code=AUTHORIZATION_CODE&id_token=ID_TOKEN
 ```
-
