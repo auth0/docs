@@ -47,7 +47,7 @@ Exchange your authorization code for tokens, including a secure Access Token.
 3. [Call Your API](#call-api): 
 Use the retrieved secure Access Token to call your API.
 4. [Refresh Tokens](#refresh-tokens): 
-Use a refresh token to request new tokens when the existing ones expire.
+Use a refresh token to request new tokens when the existing secure ones expire.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
