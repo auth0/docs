@@ -99,7 +99,7 @@ Auth0 has [features to help you meet GDPR obligations](/compliance/gdpr/features
 
 An unfortunate part of modern life on the internet is hackers. Hackers are constantly trying to find a way into applications. For example, they may try to log in using common passwords. Or they may use credentials stolen from elsewhere, hoping that users re-used the same passwords at other sites.
 
-Auth0's [Anomaly Detection](/anomaly-detection) detects these situations for Auth0 Database Connections and provides options for how to respond. Turn on Anomaly Detection and configure the response options so you can respond appropriately if such an event occurs.
+Auth0's [Anomaly Detection](/anomaly-detection/concepts/overview-anomaly-detection) detects these situations for Auth0 Database Connections and provides options for how to respond. Turn on Anomaly Detection and configure the response options so you can respond appropriately if such an event occurs.
 
 ## Github Deployment 
 
