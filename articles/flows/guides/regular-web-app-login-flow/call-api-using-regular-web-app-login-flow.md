@@ -28,7 +28,7 @@ Auth0 makes it easy for your app to implement the regular web app login flow usi
 
 * [Register your Application with Auth0](/applications/webapps). 
   * Select an **Application Type** of **Regular Web Apps**.
-  * Add an **Allowed Callback URL** of **https://${account.namespace}/callback**.
+  * Add an **Allowed Callback URL** of **`${account.callback}`**.
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code**.
 
 * [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
