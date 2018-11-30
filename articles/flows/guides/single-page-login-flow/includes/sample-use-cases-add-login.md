@@ -8,7 +8,7 @@ This example shows the most basic request you can make when authorizing the user
 https://${account.namespace}/authorize?
     response_type=code id_token&
     client_id=${account.clientId}&
-    redirect_uri=${account.namespace}/callback&
+    redirect_uri=${account.callback}&
     nonce=NONCE
 ```
 
@@ -25,8 +25,9 @@ To request the user's name and picture, you need to add the appropriate scopes w
 https://${account.namespace}/authorize?
     response_type=code id_token token&
     client_id=${account.clientId}&
-    redirect_uri=${account.namespace}/callback&
+    redirect_uri=${account.callback}&
     scope=openid%20name%20picture&
+    state=STATE&
     nonce=NONCE
 ```
 
@@ -54,8 +55,9 @@ To send users directly to the GitHub login screen, you need to pass the `connect
 https://${account.namespace}/authorize?
     response_type=code id_token token&
     client_id=${account.clientId}&
-    redirect_uri=${account.namespace}/callback&
+    redirect_uri=${account.callback}&
     scope=openid%20name%20picture&
+    state=STATE&
     nonce=NONCE&
     connection=github
 ```
