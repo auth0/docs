@@ -1,5 +1,5 @@
 ---
-description: Learn how to call your API using the SPA login flow
+description: Learn how to call your API using the single page login flow
 toc: true
 topics:
   - api-authentication
@@ -10,31 +10,31 @@ useCase:
   - secure-api
   - call-api
 ---
-# Call My API Using the Single Page Application (SPA) Login Flow
+# Call My API Using the Single Page Login Flow
 
 <%= include('../../../_includes/_pipeline2') %>
 
 ::: note
-This tutorial will help you call your API using the regular web app login flow. If you want to learn how the flow works and why you should use it, see [Regular Web App Login Flow](/flows/concepts/single-page-login-flow).
+This tutorial will help you call your API using the single page login flow. If you want to learn how the flow works and why you should use it, see [Single Page Login Flow](/flows/concepts/single-page-login-flow).
 :::
 
-Auth0 makes it easy for your app to implement the SPA login flow using:
+Auth0 makes it easy for your app to implement the single page login flow using:
 
-* [Auth0 Mobile SDKs](/libraries): The easiest way to implement the regular web app flow, which will do most of the heavy-lifting for you. Our [Regular Web App Quickstarts](/quickstart/spa) will walk you through the process.
+* [Auth0 Mobile SDKs](/libraries): The easiest way to implement the single page login flow, which will do most of the heavy-lifting for you. Our [Single Page App Quickstarts](/quickstart/spa) will walk you through the process.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
 ## Prerequisites
 
-This tutorial can be used call your API from a single page web app. If you want to learn to add login to your SPA, see [Add Login Using the Single Page App Login Flow](/flows/guides/spa-flow/add-login-using-spa-flow).
+This tutorial can be used call your API from a single page app (SPA). If you want to learn to add login to your SPA, see [Add Login Using the Single Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
 
 **Before beginning this tutorial:**
 
 * [Register your Application with Auth0](/applications/webapps). 
-  * Select an **Application Type** of **Single Page Web App**.
+  * Select an **Application Type** of **Single Page App**.
   * Add an **Allowed Callback URL** of **https://${account.namespace}/callback**.
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code** and **Implicit**.
 
-* [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
+* [Register your API with Auth0](/architecture-scenarios/spa-api/part-2#create-the-api)
   * Add an **Allowed Callback URL** of **com.myapi://myapi.com/callback**.
   * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
 
