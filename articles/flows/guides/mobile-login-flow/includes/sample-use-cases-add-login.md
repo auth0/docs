@@ -13,7 +13,8 @@ https://${account.namespace}/authorize?
     code_challenge_method=S256&
     client_id=${account.clientId}&
     redirect_uri=${account.callback}&
-    scope=openid%20name%20picture
+    scope=openid%20name%20picture&
+    state=STATE
 ```
 
 Now, when you [request tokens](/api-auth/tutorials/mobile-login-flow/add-login-using-mobile-login-flow#request-tokens), your ID Token will contain the requested name and picture claims. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
@@ -44,6 +45,7 @@ https://${account.namespace}/authorize?
     client_id=${account.clientId}&
     redirect_uri=${account.callback}&
     scope=openid%20name%20picture&
+    state=STATE&
     connection=github
 ```
 
