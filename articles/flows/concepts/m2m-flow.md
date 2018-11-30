@@ -13,8 +13,6 @@ useCase:
 ---
 # Machine-to-Machine (M2M) Flow
 
-<%= include('../../_includes/_pipeline2') %>
-
 With machine-to-machine (M2M) apps, the system authenticates and authorizes the app rather than a user. For this scenario, typical authentication schemes like username + password or social logins don't make sense. Instead, M2M apps use the Client Credentials Flow, in which they pass along their Client ID and Client Secret to authenticate themselves and get a token.
 
 ## How it works
