@@ -16,7 +16,8 @@ https://${account.namespace}/authorize?
     response_type=code&
     client_id=${account.clientId}&
     redirect_uri=${account.namespace}/callback&
-    scope=SCOPE
+    scope=SCOPE&
+    state=STATE
 ```
 
 #### Parameters
@@ -37,7 +38,8 @@ As an example, your HTML snippet for your authorization URL when adding login to
   response_type=code&
   client_id=${account.clientId}&
   redirect_uri=${account.namespace}/callback&
-  scope=openid%20profile">
+  scope=openid%20profile&
+  state=xyzABC123">
   Sign In
 </a>
 ```
@@ -46,5 +48,5 @@ If all goes well, you'll receive an `HTTP 302` response. The authorization code 
 
 ```text
 HTTP/1.1 302 Found
-Location: https://${account.namespace}/callback?code=AUTHORIZATION_CODE
+Location: https://${account.namespace}/callback?code=AUTHORIZATION_CODE&state=xyzABC123
 ```
