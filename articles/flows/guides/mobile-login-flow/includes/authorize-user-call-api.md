@@ -20,7 +20,8 @@ https://${account.namespace}/authorize?
     code_challenge_method=S256&
     redirect_uri=${account.namespace}/callback&
     scope=SCOPE&
-    audience=API_AUDIENCE
+    audience=API_AUDIENCE&
+    state=STATE
 ```
 
 #### Parameters
@@ -53,7 +54,8 @@ As an example, your HTML snippet for your authorization URL when calling an API 
   code_challenge_method=S256&
   redirect_uri=${account.namespace}/callback&
   scope=appointments%20contacts&
-  audience=appointments:api">
+  audience=appointments:api&
+  state=xyzABC123">
   Sign In
 </a>
 ```
@@ -62,5 +64,5 @@ If all goes well, you'll receive an `HTTP 302` response. The authorization code 
 
 ```text
 HTTP/1.1 302 Found
-Location: https://${account.namespace}/callback?code=AUTHORIZATION_CODE
+Location: https://${account.namespace}/callback?code=AUTHORIZATION_CODE&state=xyzABC123
 ```
