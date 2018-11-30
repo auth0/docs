@@ -41,11 +41,11 @@ This tutorial can be used call your API from a single page app (SPA). If you wan
 ## Steps
 
 1. [Authorize the user](#authorize-the-user): 
-Request the user's authorization and redirect back to your app with the requested credentials.
+Request the user's authorization and redirect back to your app with the requested credentials. We do not recommend that you call protected APIs using an Access Token obtained in this step.
 2. [Request tokens](#request-tokens): 
-Exchange your authorization code for tokens.
+Exchange your authorization code for tokens, including a secure Access Token.
 3. [Call Your API](#call-api): 
-Use the retrieved Access Token to call your API.
+Use the retrieved secure Access Token to call your API.
 4. [Refresh Tokens](#refresh-tokens): 
 Use a refresh token to request new tokens when the existing ones expire.
 
