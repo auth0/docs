@@ -18,7 +18,7 @@ https://${account.namespace}/authorize?
     redirect_uri=${account.namespace}/callback&
     scope=YOUR_SCOPE&
     audience=YOUR_API_AUDIENCE&
-    state=YOUR_OPAQUE_VALUE&
+    state=STATE&
     nonce=NONCE
 ```
 
