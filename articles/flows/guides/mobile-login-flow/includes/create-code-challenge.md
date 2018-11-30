@@ -15,8 +15,7 @@ Generate a `code_challenge` from the `code_verifier` that will be sent to Auth0 
   <div class="tab-content">
     <div id="challenge-javascript" class="tab-pane active">
       <pre>
-<code class="javascript hljs">
-// Dependency: Node.js crypto module
+<code class="javascript hljs">// Dependency: Node.js crypto module
 // https://nodejs.org/api/crypto.html#crypto_crypto
 
 function sha256(buffer) {
