@@ -42,7 +42,7 @@ As an example, your HTML snippet for your authorization URL when adding login to
   client_id=${account.clientId}&
   redirect_uri=${account.namespace}/callback&
   scope=read:tests&
-  audience=https://my-api.com&
+  audience=https://myapi.com&
   state=STATE&
   nonce=NONCE">
   Sign In
