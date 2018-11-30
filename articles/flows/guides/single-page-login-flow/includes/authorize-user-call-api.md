@@ -15,7 +15,7 @@ To authorize the user, your app must send the user to the [authorization URL](/a
 https://${account.namespace}/authorize?
     response_type=YOUR_RESPONSE_TYPE&
     client_id=${account.clientId}&
-    redirect_uri=${account.namespace}/callback&
+    redirect_uri=${account.callback}&
     scope=YOUR_SCOPE&
     audience=YOUR_API_AUDIENCE&
     state=STATE&
@@ -40,7 +40,7 @@ As an example, your HTML snippet for your authorization URL when adding login to
 <a href="https://${account.namespace}/authorize?
   response_type=code id_token token&
   client_id=${account.clientId}&
-  redirect_uri=${account.namespace}/callback&
+  redirect_uri=${account.callback}&
   scope=read:tests&
   audience=https://myapi.com&
   state=xyzABC123&
@@ -53,7 +53,7 @@ If all goes well, you'll receive an `HTTP 302` response. The requested credentia
 
 ```text
 HTTP/1.1 302 Found
-Location: https://${account.namespace}/callback#access_token=ey...MhPw&expires_in=7200&token_type=Bearer&code=AUTHORIZATION_CODE&id_token=ey...Fyqk&nonce=eq...hPmz&state=xyzABC123
+Location: ${account.callback}#access_token=ey...MhPw&expires_in=7200&token_type=Bearer&code=AUTHORIZATION_CODE&id_token=ey...Fyqk&nonce=eq...hPmz&state=xyzABC123
 ```
 
 Note that the returned values depend on what you requested as a `response_type`.
