@@ -17,6 +17,7 @@ Generate a `code_challenge` from the `code_verifier` that will be sent to Auth0 
       <pre>
 <code class="javascript hljs">// Dependency: Node.js crypto module (https://nodejs.org/api/crypto.html#crypto_crypto
 )
+
 function sha256(buffer) {
     return crypto.createHash('sha256').update(buffer).digest();
 }
