@@ -21,7 +21,7 @@ After signing up, and entering a country code and phone number, the user will re
 
 ![SMS End User 2](/media/articles/multifactor-authentication/mfa-sms2.png)
 
-Your users must have a device capable of using SMS to use this option. If your users are unable to always receive SMS messages (such as when traveling), they will be unable to sign up with SMS, and if already signed up will be unable to log in without SMS.
+Your users must have a device capable of receiving SMS messages to use this option. If users can't receive SMS messages, they will not be able to sign-up with this factor. If they already enrolled with SMS and don't have the device, they will need to use their recovery code to complete the MFA flow.
 
 ## Administrative setup
 
