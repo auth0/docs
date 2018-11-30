@@ -11,10 +11,8 @@ useCase:
 ---
 # Add Login Using the Single Page Login Flow
 
-<%= include('../../../_includes/_pipeline2') %>
-
 ::: note
-This tutorial will help you add login to your single page application (SPA) using the single page login flow. If you want to learn how the flow works and why you should use it, see [Single Page Login Flow](/flows/concepts/single-page-login-flow).
+This tutorial will help you add login to your single page application (SPA) using the single page login flow. If you want to learn how the flow works and why you should use it, see [Single Page Login Flow](/flows/concepts/single-page-login-flow). If you want to learn to call your API from a SPA, see [Call My API Using the Single Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow).
 :::
 
 Auth0 makes it easy to implement the single page login flow by using:
@@ -29,8 +27,6 @@ If you prefer to embed your own login pages within your SPA, you can implement o
 Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens), as well as an authorization code that can be exchanged with Auth0 for an additional Access Token. The ID Token will contain basic user profile information, and the Access Token can be used to call the Auth0 /userinfo endpoint or your own protected APIs.
 
 ## Prerequisites
-
-This tutorial can be used to add login to your SPA. If you want to learn to call your API from a SPA, see [Call My API Using the Single Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow).
 
 **Before beginning this tutorial:**
 
