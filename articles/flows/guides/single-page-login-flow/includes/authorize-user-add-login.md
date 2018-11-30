@@ -50,10 +50,19 @@ As an example, your HTML snippet for your authorization URL when adding login to
 </a>
 ```
 
-
 If all goes well, you'll receive an `HTTP 302` response. The requested credentials are included at the end of the URL:
 
 ```text
 HTTP/1.1 302 Found
-Location: https://${account.namespace}/callback/#access_token=ACCESS_TOKEN&expires_in=7200&token_type=Bearer&code=AUTHORIZATION_CODE&id_token=ID_TOKEN&state=STATE&nonce=NONCE
+Location: https://${account.namespace}/callback/#access_token=ey...MhPw&expires_in=7200&token_type=Bearer&code=AUTHORIZATION_CODE&id_token=ey...qk&state=STATE&nonce=NONCE
 ```
+
+Note that the returned values depend on what you requested as a `response_type`.
+
+| Response Type       | Components |
+| ------------------- | ---------- |
+| code id_token       | Authorization Code, ID Token |
+| code token          | Authorization Code, Access Token (plus `expires_in` and `token_type` values) |
+| code id_token token | Authorization Code, ID Token, Access Token (plus `expires_in` and `token_type` values) |
+
+Auth0 will also return any state or nonce values you included in your call to the authorization URL.
