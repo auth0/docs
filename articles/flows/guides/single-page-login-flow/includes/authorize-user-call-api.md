@@ -33,7 +33,6 @@ https://${account.namespace}/authorize?
 | `audience` | The unique identifier of the API the web app wants to access. Use the **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial. |
 | `state`         | (recommended) An opaque arbitrary alphanumeric string that your app adds to the initial request and Auth0 includes when redirecting back to your application. To see how to use this value to prevent cross-site request forgery (CSRF) attacks, see [Use the State Parameter Against CSRF Attacks](/protocols/oauth2/oauth-state#how-to-use-the-parameter-against-csrf-attacks). |
 | `nonce` | (required for `response_type=id_token token`, otherwise recommended) A cryptographically random string that your app adds to the initial request and Auth0 includes in its response, [used to prevent token replay attacks](/api-auth/tutorials/nonce). |
-| `connection`    | (optional) Forces the user to sign in with a specific connection. For example, you can pass a value of `github` to send the user directly to GitHub to log in with their GitHub account. When not specified, the user sees the Auth0 Lock screen with all configured connections. You can see a list of your configured connections on the **Connections** tab of your application. |
 
 As an example, your HTML snippet for your authorization URL when adding login to your app might look like:
 
