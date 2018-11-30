@@ -26,8 +26,6 @@ Following successful authentication, the calling application will have access to
 
 ## Prerequisites
 
-This tutorial can be used to call an API from a machine-to-machine application, such as a CLI, a daemon, or a service running on your back-end.
-
 **Before beginning this tutorial:**
 
 * [Register the M2M Application with Auth0](/applications/machine-to-machine). 
