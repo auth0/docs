@@ -22,7 +22,7 @@ To use one time passwords as an authentication factor, users need an Authenticat
 
 Upon signup, they can scan a code and set up the app, upon which it will begin generating one-time codes. 
 
-Afterwards, when logging in to the app, the user can simply check the app for the current one-time code:
+Afterwards, when logging in to the app, the user can simply check the authenticator app for the current one-time code:
 
 <div class="phone-mockup"><img src="/media/articles/multifactor-authentication/google-auth-screenshot.png" alt="Google Authenticator OTP"/></div>
 
