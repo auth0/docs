@@ -40,19 +40,20 @@ This tutorial can be used call your API from a single page app (SPA). If you wan
 
 ## Steps
 
-1. [Authorize the user](#authorize-the-user): Request the user's authorization and redirect back to your app.
-1. [Parse the response from Auth0](#parse-the-response-from-auth0): Parse the hash fragments in the URL used by Auth0 to redirect the user to get the Authorization Code, ID Token, and/or Access Token.
-1. [Exchange the Authorization Code for an Access Token](#exchange-the-authorization-code-for-an-access-token): Exchange the Authorization Code with Auth0 for an Access Token that allows you to call your protected API.
-3. [Call Your API](#call-api): Use the Access Token you retrieved by exchanging your authorization code to call your API.
-1. [Refresh Tokens](#refresh-tokens): Use a refresh token to request new Access Tokens if the existing ones are expired.
+1. [Authorize the user](#authorize-the-user): 
+Request the user's authorization and redirect back to your app with the requested credentials.
+2. [Request tokens](#request-tokens): 
+Exchange your authorization code for tokens.
+3. [Call Your API](#call-api): 
+Use the retrieved Access Token to call your API.
+4. [Refresh Tokens](#refresh-tokens): 
+Use a refresh token to request new tokens when the existing ones expire.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 <%= include('./includes/authorize-user-add-login') %>
 
-<%= include('./includes/parse-the-response-from-auth0') %>
-
-<%= include('./includes/exchange-the-authorization-code-for-an-access-token') %>
+<%= include('./includes/request-tokens') %>
 
 <%= include('./includes/call-api') %>
 
