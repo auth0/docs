@@ -58,7 +58,7 @@ Note that the returned values depend on what you requested as a `response_type`.
 
 | Response Type       | Components |
 | ------------------- | ---------- |
-| code id_token       | Authorization Code, ID Token (plus nonce) |
+| code id_token       | Authorization Code, ID Token (plus `nonce`) |
 | code token          | Authorization Code, Access Token (plus `expires_in` and `token_type` values) |
 | code id_token token | Authorization Code, ID Token, Access Token (plus `expires_in` and `token_type` values) |
 
