@@ -14,8 +14,6 @@ useCase:
 ---
 # Mobile Login Flow
 
-<%= include('../../_includes/_pipeline2') %>
-
 During authentication, mobile/native applications require additional security as they:
 
 * cannot securely store a Client Secret
