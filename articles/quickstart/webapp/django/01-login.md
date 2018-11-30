@@ -28,10 +28,10 @@ This quickstart uses Django 2, if you are using Django 1 instead, follow the [sa
 Add the following dependencies to your `requirements.txt`:
 
 ```text
-django>=2.1
-social-auth-app-django>=3.1
-python-jose>=3.0
-python-dotenv>=0.9
+django~=2.1
+social-auth-app-django~=3.1
+python-jose~=3.0
+python-dotenv~=0.9
 ```
 
 Once the dependencies are listed in requirements.txt, run the following command:
@@ -267,3 +267,17 @@ urlpatterns = [
     path('', include('social_django.urls')),
 ]
 ```
+
+## Run the Sample
+
+To run the sample from a terminal, change the directory to the root folder of the project and execute the following line:
+
+```bash
+python manage.py migrate
+python manage.py runserver 3000
+```
+
+The application will be accessible on [http://localhost:3000](http://localhost:3000). Follow the Log In link to log in or sign up to your Auth0 tenant. Upon successful login or signup, you should be redirected to the user's profile page.
+
+
+![login page](/media/articles/web/hosted-login.png)
