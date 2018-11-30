@@ -17,7 +17,7 @@ https://${account.namespace}/authorize?
     scope=YOUR_SCOPE&
     response_type=YOUR_RESPONSE_TYPE&
     client_id=${account.clientId}&
-    redirect_uri=${account.callback}&
+    redirect_uri=${account.namespace}/callback&
     state=YOUR_OPAQUE_VALUE
     nonce=NONCE
 ```
