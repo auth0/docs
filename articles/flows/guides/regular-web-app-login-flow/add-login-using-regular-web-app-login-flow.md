@@ -20,10 +20,6 @@ Auth0 makes it easy for your app to implement the regular web app login flow usi
 * [Auth0 Mobile SDKs](/libraries): The easiest way to implement the regular web app flow, which will do most of the heavy-lifting for you. Our [Regular Web App Quickstarts](/quickstart/webapp) will walk you through the process.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
-If you prefer to embed your own login pages within your regular web app, you can implement our login widget (Lock UI) directly into your app with:
-
-* [Lock v11 for Web](/libraries/lock/v11)
-
 Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens). The ID Token will contain basic user profile information, and the Access Token can be used to call the Auth0 /userinfo endpoint or your own protected APIs.
 
 ## Prerequisites
