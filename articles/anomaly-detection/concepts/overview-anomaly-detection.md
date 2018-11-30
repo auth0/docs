@@ -16,8 +16,8 @@ Auth0 can detect anomalies and stop malicious attempts to access your applicatio
 
 Auth0 has two types of **shields** to handle anomalies and attacks.  
 
-* Brute-force protection
-* Breached password detection
+* [Brute-force protection](#brute-force-protection)
+* [Breached password detection](#breached-password-detection)
 
 A **shield** specifies the **action** you wish to take given a specific **trigger**. A **trigger** is a suspicious event that is detected when someone is trying to login to your system, or there may have been a breached password with another third party service.
 
@@ -25,7 +25,7 @@ Customize the actions in the **Anomaly Detection** section on the [Dashboard](${
 
 ## Brute-force protection
 
-Brute-force protection is [enabled by default](/anomaly-detection/guides/enable-disable-brute-force-protection) for all connections. There are two different [triggers](/anomaly-detection/references/breached-password-detection-triggers-actions) for the brute-force protection shield, for two slightly different attack scenarios.
+Brute-force protection is [enabled by default](/anomaly-detection/guides/enable-disable-brute-force-protection) for all connections. There are two different [triggers](/anomaly-detection/references/brute-force-protection-triggers-actions) for the brute-force protection shield, for two slightly different attack scenarios.
 
 * 10 consecutive failed login attempts for the same user and from the same IP address
 * 100 failed login attempts from the same IP address in 24 hours *or* 50 sign up attempts per minute from the same IP address
