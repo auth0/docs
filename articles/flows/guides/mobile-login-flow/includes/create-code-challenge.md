@@ -31,7 +31,6 @@ var challenge = base64URLEncode(sha256(verifier));
 // https://commons.apache.org/proper/commons-codec/
 // Import the Base64 class.
 // import org.apache.commons.codec.binary.Base64;
-
 byte[] bytes = verifier.getBytes("US-ASCII");
 MessageDigest md = MessageDigest.getInstance("SHA-256");
 md.update(bytes, 0, bytes.length);
@@ -42,7 +41,6 @@ String challenge = Base64.encodeBase64URLSafeString(digest);</code></pre>
       <pre>
 <code class="swift hljs">// Dependency: Apple Common Crypto library
 // http://opensource.apple.com//source/CommonCrypto
-
 guard let data = verifier.data(using: .utf8) else { return nil }
 var buffer = [UInt8](repeating: 0,  count: Int(CC_SHA256_DIGEST_LENGTH))
 data.withUnsafeBytes {
@@ -59,7 +57,6 @@ let challenge = hash.base64EncodedString()
       <pre>
 <code class="objc hljs">// Dependency: Apple Common Crypto library
 // http://opensource.apple.com//source/CommonCrypto
-
 u_int8_t buffer[CC_SHA256_DIGEST_LENGTH * sizeof(u_int8_t)];
 memset(buffer, 0x0, CC_SHA256_DIGEST_LENGTH);
 NSData *data = [verifier dataUsingEncoding:NSUTF8StringEncoding];
