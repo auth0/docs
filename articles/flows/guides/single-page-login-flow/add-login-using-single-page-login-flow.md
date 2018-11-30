@@ -17,7 +17,7 @@ useCase:
 This tutorial will help you add login to your single page application (SPA) using the single page login flow. If you want to learn how the flow works and why you should use it, see [Single Page Login Flow](/flows/concepts/single-page-login-flow).
 :::
 
-Auth0 makes it easy to implement the Single Page Login Flow by using:
+Auth0 makes it easy to implement the single page login flow by using:
 
 * [Auth0 SPA Quickstarts](/libraries): The easiest way to implement the single page login flow, which will do most of the heavy-lifting for you. Our [Single Page App Quickstarts](/quickstart/spa) will walk you through the process.
 * Authentication API: If you prefer to roll your own solution, keep reading to learn how to call our API directly.
