@@ -132,4 +132,4 @@ Instead, you would use this:
 ## Keep reading
 
 * [Managing User Metadata with Auth0 APIs](/users/guides/manage-user-metadata-with-apis)
-* [User Data Storage Best Practices](/users/references/user-data-storage-best-practices)
+* [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)

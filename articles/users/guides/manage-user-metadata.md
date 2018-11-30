@@ -86,4 +86,4 @@ Instead, you would use this:
 * [Set Metadata Properties on Creation](/users/guides/set-metadata-properties-on-creation)
 * [Update Metadata Properties with the Management API](/users/guides/update-metadata-properties-with-management-api)
 * [Metadata Field Name Rules](/users/references/metadata-field-name-rules)
-* [User Data Storage Best Practices](/users/references/user-data-storage-best-practices)
+* [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)

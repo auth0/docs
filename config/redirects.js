@@ -1943,11 +1943,11 @@ module.exports = [
    },
    {
      from: '/users/search/best-practices',
-     to: '/users/references/search-best-practices'
+     to: '/best-practices/search-best-practices'
    },
    {
      from: '/users/user-data-storage',
-     to: '/users/references/user-data-storage-best-practices'
+     to: '/best-practices/user-data-storage-best-practices'
    },
    {
      from: '/user-profile/user-profile-structure',

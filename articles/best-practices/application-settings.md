@@ -13,9 +13,9 @@ useCase:
   - application-settings
 ---
 
-# Recommended Application Settings
+# Application Settings Best Practices
 
-In this article, you'll learn some best practices for configuring [applications](/applications).
+Here are some best practices for configuring [applications](/applications).
 
 ## Check the Client ID
 

@@ -55,7 +55,7 @@ The cached values for the [Normalized User Profile](/users/normalized) fields ar
 
 The User Profile is cached for several reasons. First, caching allows you the option of implementing [Single Sign-On](/sso) at the Auth0 layer to avoid going to the Connection for every request. Additionally, this provides resilience if a Connection is temporarily unavailable.
 
-You can delete a user's cached profile with the Auth0 Dashboard or the Management API. See [User Data Storage Best Practices](users/references/user-data-storage-best-practices) for more information. 
+You can delete a user's cached profile with the Auth0 Dashboard or the Management API. See [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices) for more information. 
 
 ## Keep reading
 

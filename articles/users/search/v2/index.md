@@ -138,4 +138,4 @@ Below is an example request for searching all users whose email is exactly "john
 ## Keep reading
 
 * [Query Syntax](/users/search/v2/query-syntax)
-* [Search Best Practices](/users/references/search-best-practices)
+* [Search Best Practices](/best-practices/search-best-practices)
