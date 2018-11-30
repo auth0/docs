@@ -13,7 +13,7 @@ An example POST to token URL:
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.namespace}/callback\" }"
+    "text": "{\"grant_type\":\"authorization_code\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"client_id\": \"${account.clientId}\",\"redirect_uri\": \"${account.namespace}/callback\" }"
   }
 }
 ```
@@ -23,9 +23,9 @@ An example POST to token URL:
 | Parameter Name  | Description |
 |-----------------|-------------|
 | `grant_type`    | Set this to "authorization_code". |
-| `client_id`     | Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
 | `code_verifier` | The cryptographically-random key that was generated in the first step of this tutorial. |
 | `code`          | The `authorization_code` retrieved in the previous step of this tutorial. |
+| `client_id`     | Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
 | `redirect_uri`  | The valid callback URL set in your Application settings. This must exactly match the `redirect_uri` passed to the authorization URL in the previous step of this tutorial. |
 
 
