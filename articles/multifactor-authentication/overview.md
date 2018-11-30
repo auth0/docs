@@ -32,7 +32,7 @@ In the [Dashboard > Multifactor Auth](${manage_url}/#/mfa), head to the Multifac
 
 ![MFA Dashboard Page](/media/articles/multifactor-authentication/mfa-dashboard-1.png)
 
-Any or all of these factors can be enabled simultaneously. When logging in the first time, the user will be shown a the most secure factor available, but will be allowed to choose another factor to use, if you have more than one factor enabled in the Dashboard. 
+Any or all of these factors can be enabled simultaneously. When logging in the first time, the user will be shown the most secure factor available, but will be allowed to choose another factor to use if you have more than one factor enabled in the Dashboard. 
 
 ::: note
 When you enable the SMS or the Duo factor, you will have to click on it and fill in a few further settings related specifically to that factor before continuing.
