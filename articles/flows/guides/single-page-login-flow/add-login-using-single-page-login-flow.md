@@ -41,9 +41,10 @@ This tutorial can be used to add login to your SPA. If you want to learn to call
 
 ## Steps
 
-1. [Authorize the user](#authorize-the-user): Request the user's authorization and redirect back to your app.
-2. [Request tokens](#request-tokens): Exchange the Authorization Code with Auth0 for an Access Token that allows you to call your protected API.
+1. [Authorize the user](#authorize-the-user): Request the user's authorization and redirect back to your app. We do not recommend that you call protected APIs using an Access Token obtained in this step.
+2. [Request tokens](#request-tokens): Exchange your authorization code for tokens, including a secure Access Token.
 3. [Refresh Tokens](#refresh-tokens): Use a refresh token to request new Access Tokens if the existing ones are expired.
+
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
