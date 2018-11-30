@@ -13,8 +13,6 @@ useCase:
 ---
 # Regular Web App Login Flow
 
-<%= include('../../_includes/_pipeline2') %>
-
 Because regular web apps are server-side apps where the source code is not publicly exposed, they can use the Authorization Code Flow, which exchanges an Authorization Code for a token. Your app must be server-side because during this exchange, you must also pass along your application's Client Secret, which must always be kept secure, and you will have to store it in your client.
 
 
