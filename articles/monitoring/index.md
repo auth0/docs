@@ -15,7 +15,7 @@ useCase:
 
 Learn how to monitor your Auth0 implementation and track your Auth0 usage, as well as how to send logs to your choice of logging suite.
 
-<%= include('../../_includes/_topic-links', { links: [
+<%= include('../_includes/_topic-links', { links: [
   'monitoring/how-to-monitor-auth0',
   '/monitoring/tracking-new-leads-in-salesforce-and-raplead',
   '/monitoring/track-signups-enrich-user-profile-generate-leads',
