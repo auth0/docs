@@ -31,8 +31,8 @@ https://${account.namespace}/authorize?
 | `redirect_uri`  | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. The Authorization Code will be available in the `code` URL parameter. You must specify this URL as a valid callback URL in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). <br /> <br /> **Warning:** Per the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-3.1.2), Auth0 removes everything after the hash and does *not* honor any fragments. |
 | `scope` | Specifies the [scopes](/scopes) for which you want to request authorization, which dictate which claims (or user attributes) you want returned. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, [custom claims](/scopes/current/custom-claims) conforming to a [namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a Refresh Token (make sure that the __Allow Offline Access__ field is enabled in the [Application Settings](${manage_url}/#/applications)). |
 | `audience` | The unique identifier of the API the web app wants to access. Use the **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial. |
-| `state`         | (recommended) An opaque arbitrary alphanumeric string your app adds to the initial request that Auth0 includes when redirecting back to your application. To see how to use this value to prevent cross-site request forgery (CSRF) attacks, see [Use the State Parameter Against CSRF Attacks](/protocols/oauth2/oauth-state#how-to-use-the-parameter-against-csrf-attacks). |
-| `nonce` | (required for `response_type=id_token token`, otherwise optional) A string value which will be included in the response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). |
+| `state`         | (recommended) An opaque arbitrary alphanumeric string that your app adds to the initial request and Auth0 includes when redirecting back to your application. To see how to use this value to prevent cross-site request forgery (CSRF) attacks, see [Use the State Parameter Against CSRF Attacks](/protocols/oauth2/oauth-state#how-to-use-the-parameter-against-csrf-attacks). |
+| `nonce` | (required for `response_type=id_token token`, otherwise recommended) A cryptographically random string that your app adds to the initial request and Auth0 includes in its response, [used to prevent token replay attacks](/api-auth/tutorials/nonce). |
 | `connection`    | (optional) Forces the user to sign in with a specific connection. For example, you can pass a value of `github` to send the user directly to GitHub to log in with their GitHub account. When not specified, the user sees the Auth0 Lock screen with all configured connections. You can see a list of your configured connections on the **Connections** tab of your application. |
 
 As an example, your HTML snippet for your authorization URL when adding login to your app might look like:
@@ -44,8 +44,8 @@ As an example, your HTML snippet for your authorization URL when adding login to
   redirect_uri=${account.namespace}/callback&
   scope=read:tests&
   audience=https://myapi.com&
-  state=STATE&
-  nonce=NONCE">
+  state=xyzABC123&
+  nonce=eq...hPmz">
   Sign In
 </a>
 ```
@@ -54,7 +54,7 @@ If all goes well, you'll receive an `HTTP 302` response. The requested credentia
 
 ```text
 HTTP/1.1 302 Found
-Location: https://${account.namespace}/callback/#access_token=ey...MhPw&expires_in=7200&token_type=Bearer&code=AUTHORIZATION_CODE&id_token=ey...qk&state=STATE&nonce=NONCE
+Location: https://${account.namespace}/callback/#access_token=ey...MhPw&expires_in=7200&token_type=Bearer&code=AUTHORIZATION_CODE&id_token=ey...Fyqk&state=xyzABC123&nonce=eq...hPmz
 ```
 
 Note that the returned values depend on what you requested as a `response_type`.
