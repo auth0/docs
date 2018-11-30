@@ -117,6 +117,5 @@ The `expires_in` parameter indicates how many seconds the Access Token will be v
 Implementation of token renewal will depend on the type of application and framework being used. Sample implementations for some of the common platforms can be found below:
 
 * [Plain JavaScript](/quickstart/spa/vanillajs/05-token-renewal)
-* [jQuery](/quickstart/spa/jquery/05-token-renewal)
 * [React](/quickstart/spa/react/05-token-renewal)
 * [Angular](/quickstart/spa/angular2/05-token-renewal)

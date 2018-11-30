@@ -157,7 +157,7 @@ Auth0 will initiate a logout by sending a SAML logout request to the external id
 The external SAML identity provider will need to know where to send SAML logout requests (if initiating the logout) and responses. The __SingleLogout service URL__ that will consume this SAML messages is the following:
 
 ```text
-https://${account.namespace}/v2/logout
+https://${account.namespace}/logout
 ```
 
 When viewing the logout metadata for your Auth0 Connection, you might notice two `SingleLogoutService` bindings with the above URL.
@@ -204,13 +204,9 @@ For guidance and sample code on how to implement logout functionality in your ap
 ### Single Page Apps
 
 * [Angular 2+](/quickstart/spa/angular2)
-* [AngularJS](/quickstart/spa/angularjs)
-* [Aurelia](/quickstart/spa/aurelia)
-* [Ember](/quickstart/spa/ember)
 * [JavaScript](/quickstart/spa/vanillajs)
 * [React](/quickstart/spa/react)
 * [Vue](/quickstart/spa/vuejs)
-* [jQuery](/quickstart/spa/jquery)
 
 ### Web Apps
 

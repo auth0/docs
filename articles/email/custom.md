@@ -65,6 +65,8 @@ A custom redirect is useful when you want to direct users to certain URLs based 
 
 The Auth0 Management API provides a [post_verification_email](/api/v2#!/Tickets/post_email_verification) endpoint that generates the verification link for each user. This endpoint allows you to specify the `resultUrl` to which users will be redirected after they have validated their email address by clicking the link in the verification email.
 
+We recommend whitelisting the url through the dashboard.
+
 ## Welcome Email
 
 A welcome email is sent to users once they have verified their email address. This can be implemented using a rule which sends the email only if the user's email address has been verified and the email has not been sent previously.

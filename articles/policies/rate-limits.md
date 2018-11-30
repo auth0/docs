@@ -64,7 +64,7 @@ If you are using an API endpoint **not** listed below and you receive rate limit
 
 ### Management API v2
 
-The rate limits for this API defer depending on whether your tenant is free or paid, production or not.
+The rate limits for this API differ depending on whether your tenant is free or paid, production or not.
 
 ::: note
 - The tenants that have no credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment) are free.
