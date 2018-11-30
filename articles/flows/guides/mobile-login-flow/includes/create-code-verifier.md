@@ -33,7 +33,8 @@ Create a `code_verifier`, which is a cryptographically-random key that will even
     
     <div id="verifier-java" class="tab-pane">
       <pre>
-<code class="java hljs">
+<code class="java hljs">// Dependency: Apache Commons Codec (https://commons.apache.org/proper/commons-codec/). Import the Base64 class.
+//import org.apache.commons.codec.binary.Base64;
 SecureRandom sr = new SecureRandom();
 byte[] code = new byte[32];
 sr.nextBytes(code);
