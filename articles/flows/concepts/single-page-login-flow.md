@@ -16,8 +16,6 @@ useCase:
 ---
 # Single Page Login Flow
 
-<%= include('../../_includes/_pipeline2') %>
-
 During authentication, single page applications (SPAs) have some special needs.
 
 Since SPAs are JavaScript applications running within a browser, they do not have distinct components that can be kept separate (i.e., the application and the browser are the same, so information available to one is also available to the other). In this case, no additional security is useful, so using the Implicit Flow streamlines authentication by returning tokens without introducing any unnecessary additional steps.
