@@ -8,12 +8,12 @@ To request the user's name and picture, you need to add the appropriate scopes w
 
 ```text
 https://${account.namespace}/authorize?
-    scope=openid%20name%20picture&
     response_type=code&
-    client_id=${account.clientId}&
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
-    redirect_uri=${account.namespace}/callback
+    client_id=${account.clientId}&
+    redirect_uri=${account.callback}&
+    scope=openid%20name%20picture
 ```
 
 Now, when you [request tokens](/api-auth/tutorials/mobile-login-flow/add-login-using-mobile-login-flow#request-tokens), your ID Token will contain the requested name and picture claims. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
@@ -38,12 +38,12 @@ To send users directly to the GitHub login screen, you need to pass the `connect
 
 ```text
 https://${account.namespace}/authorize?
-    scope=openid%20name%20picture&
     response_type=code&
-    client_id=${account.clientId}&
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
-    redirect_uri=${account.namespace}/callback&
+    client_id=${account.clientId}&
+    redirect_uri=${account.callback}&
+    scope=openid%20name%20picture&
     connection=github
 ```
 
