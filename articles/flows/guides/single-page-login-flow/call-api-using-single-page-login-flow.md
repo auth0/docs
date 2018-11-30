@@ -12,10 +12,8 @@ useCase:
 ---
 # Call My API Using the Single Page Login Flow
 
-<%= include('../../../_includes/_pipeline2') %>
-
 ::: note
-This tutorial will help you call your API using the single page login flow. If you want to learn how the flow works and why you should use it, see [Single Page Login Flow](/flows/concepts/single-page-login-flow).
+This tutorial will help you call your API using the single page login flow. If you want to learn how the flow works and why you should use it, see [Single Page Login Flow](/flows/concepts/single-page-login-flow). If you want to learn to add login to your single page application (SPA), see [Add Login Using the Single Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
 :::
 
 Auth0 makes it easy for your app to implement the single page login flow using:
@@ -24,8 +22,6 @@ Auth0 makes it easy for your app to implement the single page login flow using:
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
 ## Prerequisites
-
-This tutorial can be used call your API from a single page app (SPA). If you want to learn to add login to your SPA, see [Add Login Using the Single Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
 
 **Before beginning this tutorial:**
 
