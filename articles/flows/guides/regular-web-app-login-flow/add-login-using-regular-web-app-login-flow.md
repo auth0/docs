@@ -47,7 +47,7 @@ Request the user's authorization and redirect back to your app with an `authoriz
 2. [Request Tokens](#request-tokens): 
 Exchange your `authorization_code` for tokens.
 3. [Refresh Tokens](#refresh-tokens):
-Use a refresh token to request new tokens.
+Use a refresh token to request new tokens when the existing ones expire.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
