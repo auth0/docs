@@ -6,7 +6,7 @@ To call your API from a regular web application, the application must pass the r
  ```har
 {
   "method": "GET",
-  "url": "https://someapi.com/api",
+  "url": "https://myapi.com/api",
   "headers": [
     { "name": "Content-Type", "value": "application/json" },
     { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" }

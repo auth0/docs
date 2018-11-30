@@ -1,8 +1,6 @@
 ## Request Tokens
 
-Now that you have an Authorization Code, you must exchange it for tokens. Using the extracted Authorization Code (`code`) from the previous step, you will need to `POST` to the [token URL](/api/authentication#authorization-code).
-
-An example POST to token URL:
+Now that you have an authorization code, you can exchange it for tokens. The Access Token you receive will allow you to call the API specified when you authorized the user. Using the extracted Authorization Code (`code`) from the first step, you will need to `POST` to the [Token URL](/api/authentication?http#authorization-code):
 
 ```har
 {
@@ -18,17 +16,13 @@ An example POST to token URL:
 }
 ```
 
-
-### Parameters
-
-| Parameter Name  | Description |
-|-----------------|-------------|
+| Parameter | Description |
+| --------- | ----------- |
 | `grant_type`    | Set this to "authorization_code". |
 | `code`          | The `authorization_code` retrieved in the previous step of this tutorial. |
 | `client_id`     | Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
 | `client_secret` | Your application's Client Secret. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
 | `redirect_uri`  | The valid callback URL set in your Application settings. This must exactly match the `redirect_uri` passed to the authorization URL in the previous step of this tutorial. |
-
 
 If all goes well, you'll receive an HTTP 200 response with a payload containing `access_token`, `refresh_token`, `id_token`, and `token_type` values:
 
@@ -43,14 +37,4 @@ If all goes well, you'll receive an HTTP 200 response with a payload containing 
 
 ::: warning
 You should validate your tokens before saving them.
-:::
-
-[ID Tokens](/tokens/id-token) contain user information that must be [decoded and extracted](/tokens/id-token#id-token-payload). 
-
-[Access Tokens](/tokens/access-token) are used to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or another API. If you are calling your own API, the first thing your API will need to do is [verify the Access Token](/api-auth/tutorials/verify-access-token).
-
-[Refresh Tokens](/tokens/refresh-token) are used to obtain a new Access Token or ID Token after the previous one has expired. The `refresh_token` will only be present in the response if you included the `offline_access` scope and enabled __Allow Offline Access__ for your API in the Dashboard.
-
-::: warning
-Refresh Tokens must be stored securely since they allow a user to remain authenticated essentially forever.
 :::

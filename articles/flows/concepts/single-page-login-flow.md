@@ -20,9 +20,11 @@ useCase:
 
 During authentication, single page applications (SPAs) have some special needs.
 
-Since SPAs are JavaScript applications running within a browser, they do not have distinct components that can be kept separate (i.e., the application and the browser are the same, so information available to one is also available to the other). In this case, no additional security is needed, so using the Implicit Flow streamlines authentication by returning tokens without introducing any unnecessary additional steps.
+Since SPAs are JavaScript applications running within a browser, they do not have distinct components that can be kept separate (i.e., the application and the browser are the same, so information available to one is also available to the other). In this case, no additional security is useful, so using the Implicit Flow streamlines authentication by returning tokens without introducing any unnecessary additional steps.
 
-However, SPAs can also have a lightweight back-end (perhaps containing their own API and using a cookie-based session to authorize incoming requests), in which case they could benefit from the Authorization Code Flow, which requests an authorization code and then exchanges it for tokens.
+However, SPAs can also have a lightweight back-end (perhaps containing their own API and using a cookie-based session to authorize incoming requests), in which case they could benefit from the Authorization Code Flow, which requests an authorization code and then authenticates the back-end when it exchanges it for tokens. Because this flow allows for authentication of the back-end, it also allows for persistent authentication using Refresh Tokens.
+
+It provides flexibility to allow the front end and back end of an application to receive their own scoped tokens. 
 
 To handle both the client-side and server-side authentication needs of SPAs, the Hybrid Flow combines the client-side Implicit Flow with the server-side Authorization Code Flow.
 

@@ -52,7 +52,7 @@ Exchange your `authorization_code` and `code_verifier` for tokens.
 5. [Call Your API](#call-your-api):
 Use the retrieved Access Token to call your API.
 6. [Refresh Tokens](#refresh-tokens):
-Use a refresh token to request new tokens.
+Use a refresh token to request new tokens when the existing ones expire.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 

@@ -5,11 +5,11 @@
 This example shows the most basic request you can make when authorizing the user in step 1. It displays the Auth0 Lock login screen and allows the user to sign in with any of your configured connections:
 
 ```text
-https://${account.namespace}/authorize
-  ?response_type=code
-  &client_id=${account.clientId}
-  &redirect_uri=${account.namespace}/callback&
-  &scope=openid
+https://${account.namespace}/authorize?
+  response_type=code&
+  client_id=${account.clientId}&
+  redirect_uri=${account.namespace}/callback&
+  scope=openid
 ```
 
 Now, when you [request tokens](/api-auth/tutorials/regular-web-app-login-flow/request-tokens), your ID Token will contain the most basic claims. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
