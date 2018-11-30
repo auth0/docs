@@ -35,7 +35,8 @@ https://${account.namespace}/authorize?
     response_type=code&
     client_id=${account.clientId}&
     redirect_uri=${account.callback}&
-    scope=openid%20name%20picture
+    scope=openid%20name%20picture&
+    state=STATE
 ```
 
 Now, when you [request tokens](/api-auth/tutorials/regular-web-app-login-flow/request-tokens), your ID Token will contain the requested name and picture claims. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
@@ -64,6 +65,7 @@ https://${account.namespace}/authorize?
     client_id=${account.clientId}&
     redirect_uri=${account.callback}&
     scope=openid%20name%20picture&
+    state=STATE&
     connection=github
 ```
 
