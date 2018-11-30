@@ -15,7 +15,9 @@ Generate a `code_challenge` from the `code_verifier` that will be sent to Auth0 
   <div class="tab-content">
     <div id="challenge-javascript" class="tab-pane active">
       <pre>
-<code class="javascript hljs">function sha256(buffer) {
+<code class="javascript hljs">// Dependency: Node.js crypto module (https://nodejs.org/api/crypto.html#crypto_crypto
+)
+function sha256(buffer) {
     return crypto.createHash('sha256').update(buffer).digest();
 }
 
@@ -23,17 +25,17 @@ var challenge = base64URLEncode(sha256(verifier));</code></pre>
     </div>
     <div id="challenge-java" class="tab-pane">
       <pre>
-<code class="java hljs">byte[] bytes = verifier.getBytes("US-ASCII");
+<code class="java hljs">// Dependency: Apache Commons Codec (https://commons.apache.org/proper/commons-codec/). Import the Base64 class.
+//import org.apache.commons.codec.binary.Base64;
+byte[] bytes = verifier.getBytes("US-ASCII");
 MessageDigest md = MessageDigest.getInstance("SHA-256");
 md.update(bytes, 0, bytes.length);
 byte[] digest = md.digest();
-//Use Apache "Commons Codec" dependency. Import the Base64 class
-//import org.apache.commons.codec.binary.Base64;
 String challenge = Base64.encodeBase64URLSafeString(digest);</code></pre>
     </div>
     <div id="challenge-swift" class="tab-pane">
       <pre>
-<code class="swift hljs"> // You need to import CommonCrypto
+<code class="swift hljs"> // Dependency: Apple Common Crypto library (http://opensource.apple.com//source/CommonCrypto/)
 guard let data = verifier.data(using: .utf8) else { return nil }
 var buffer = [UInt8](repeating: 0,  count: Int(CC_SHA256_DIGEST_LENGTH))
 data.withUnsafeBytes {
@@ -48,7 +50,7 @@ let challenge = hash.base64EncodedString()
     </div>
     <div id="challenge-objc" class="tab-pane">
       <pre>
-<code class="objc hljs"> // You need to import CommonCrypto
+<code class="objc hljs"> // Dependency: Apple Common Crypto library (http://opensource.apple.com//source/CommonCrypto/)
 u_int8_t buffer[CC_SHA256_DIGEST_LENGTH * sizeof(u_int8_t)];
 memset(buffer, 0x0, CC_SHA256_DIGEST_LENGTH);
 NSData *data = [verifier dataUsingEncoding:NSUTF8StringEncoding];
