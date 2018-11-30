@@ -32,12 +32,28 @@ https://${account.namespace}/authorize?
 | `scope` | Specifies the [scopes](/scopes) for which you want to request authorization, which dictate which claims (or user attributes) you want returned. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, [custom claims](/scopes/current/custom-claims) conforming to a [namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a Refresh Token (make sure that the __Allow Offline Access__ field is enabled in the [Application Settings](${manage_url}/#/applications)). |
 | `audience` | The unique identifier of the API the web app wants to access. Use the **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial. |
 | `state`         | (recommended) An opaque arbitrary alphanumeric string your app adds to the initial request that Auth0 includes when redirecting back to your application. To see how to use this value to prevent cross-site request forgery (CSRF) attacks, see [Use the State Parameter Against CSRF Attacks](/protocols/oauth2/oauth-state#how-to-use-the-parameter-against-csrf-attacks). |
-| `nonce` | A string value which will be included in the response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`. |
+| `nonce` | (required for `response_type=id_token token`, otherwise optional) A string value which will be included in the response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). |
 
-For example, the HTML snippet for your authorization URL when adding login to your app might look as follows:
+As an example, your HTML snippet for your authorization URL when adding login to your app might look like:
 
 ```html
-<a href="https://${account.namespace}/authorize?audience=https://my-api.com&scope=read:tests&response_type=code id_token&client_id=${account.clientId}&redirect_uri=${account.callback}&state=STATE&nonce=NONCE">
+<a href="https://${account.namespace}/authorize?
+  response_type=code id_token&
+  client_id=${account.clientId}&
+  redirect_uri=${account.namespace}/callback&
+  scope=read:tests&
+  audience=https://my-api.com&
+  state=STATE&
+  nonce=NONCE">
   Sign In
 </a>
 ```
+
+
+If all goes well, you'll receive an `HTTP 302` response. The requested credentials are included at the end of the URL:
+
+```text
+HTTP/1.1 302 Found
+Location: https://${account.namespace}/callback?code=AUTHORIZATION_CODE&id_token=ID_TOKEN
+```
+
