@@ -13,7 +13,7 @@ useCase:
 # Add Login Using the Mobile Login Flow
 
 ::: note
-This tutorial will help you add login to your native/mobile app using the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/flows/concepts/mobile-login-flow).
+This tutorial will help you add login to your native/mobile app using the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/flows/concepts/mobile-login-flow). If you want to learn to call your API from a native/mobile app, see [Call My API from a Native/Mobile App](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
 :::
 
 Auth0 makes it easy for your app to implement the mobile login flow using:
@@ -21,27 +21,20 @@ Auth0 makes it easy for your app to implement the mobile login flow using:
 * [Auth0 Mobile SDKs](/libraries): The easiest way to implement the mobile login flow, which will do most of the heavy-lifting for you. Our [Mobile Quickstarts](/quickstart/native) will walk you through the process.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
-If you prefer to embed your own login pages within your native/mobile app, you can implement our login widget (Lock UI) directly into your app with our:
-
-* [iOS Lock UI Component library](/libraries/lock-ios/v2)
-* [Android Lock UI Component library](/libraries/lock-android/v2)
-
 Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens). The ID Token will contain basic user profile information, and the Access Token can be used to call the Auth0 /userinfo endpoint or your own protected APIs.
 
 ## Prerequisites
-
-This tutorial can be used to add login to your native/mobile app. If you want to learn to call your API from a native/mobile app, see [Call your API from a Native/Mobile App](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
 
 **Before beginning this tutorial:**
 
 * [Register your Application with Auth0](/applications/native). 
   * Select an **Application Type** of **Native**.
-  * Add an **Allowed Callback URL** of **`https://${account.namespace}/callback`**.
+  * Add an **Allowed Callback URL** of **`https://YOUR_APP/CALLBACK`**.
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code**.
 
 ## Steps
 
-When your user chooses to authenticate you will need to:
+Each time your user chooses to authenticate you will need to:
 
 1. [Create a code verifier](#create-a-code-verifier): 
 Generate a `code_verifier` that will be sent to Auth0 to request tokens.
