@@ -17,7 +17,6 @@ https://${account.namespace}/authorize?
     client_id=${account.clientId}&
     redirect_uri=${account.namespace}/callback&
     scope=YOUR_SCOPE&
-    audience=YOUR_API_AUDIENCE&
     state=STATE&
     nonce=NONCE
 ```
@@ -30,7 +29,6 @@ https://${account.namespace}/authorize?
 | `client_id` | Your application's Client ID. You can find this value at your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings). |
 | `redirect_uri`  | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. The Authorization Code will be available in the `code` URL parameter. You must specify this URL as a valid callback URL in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). <br /> <br /> **Warning:** Per the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-3.1.2), Auth0 removes everything after the hash and does *not* honor any fragments. |
 | `scope` | Specifies the [scopes](/scopes) for which you want to request authorization, which dictate which claims (or user attributes) you want returned. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, [custom claims](/scopes/current/custom-claims) conforming to a [namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a Refresh Token (make sure that the __Allow Offline Access__ field is enabled in the [Application Settings](${manage_url}/#/applications)). |
-| `audience` | The unique identifier of the API the web app wants to access. Use the **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial. |
 | `state`         | (recommended) An opaque arbitrary alphanumeric string that your app adds to the initial request and Auth0 includes when redirecting back to your application. To see how to use this value to prevent cross-site request forgery (CSRF) attacks, see [Use the State Parameter Against CSRF Attacks](/protocols/oauth2/oauth-state#how-to-use-the-parameter-against-csrf-attacks). |
 | `nonce` | (required for `response_type=id_token token`, otherwise recommended) A cryptographically random string that your app adds to the initial request and Auth0 includes in its response, [used to prevent token replay attacks](/api-auth/tutorials/nonce). |
 | `connection`    | (optional) Forces the user to sign in with a specific connection. For example, you can pass a value of `github` to send the user directly to GitHub to log in with their GitHub account. When not specified, the user sees the Auth0 Lock screen with all configured connections. You can see a list of your configured connections on the **Connections** tab of your application. |
@@ -43,7 +41,6 @@ As an example, your HTML snippet for your authorization URL when adding login to
   client_id=${account.clientId}&
   redirect_uri=${account.namespace}/callback&
   scope=read:tests&
-  audience=https://myapi.com&
   state=xyzABC123&
   nonce=eq...hPmz">
   Sign In
