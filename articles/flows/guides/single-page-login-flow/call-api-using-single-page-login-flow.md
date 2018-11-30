@@ -29,7 +29,7 @@ This tutorial can be used call your API from a single page app (SPA). If you wan
 
 **Before beginning this tutorial:**
 
-* [Register your Application with Auth0](/applications/webapps). 
+* [Register your Application with Auth0](/applications/spa). 
   * Select an **Application Type** of **Single Page App**.
   * Add an **Allowed Callback URL** of **https://${account.namespace}/callback**.
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code** and **Implicit**.
