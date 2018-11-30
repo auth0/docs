@@ -27,7 +27,7 @@ Auth0 makes it easy for your app to implement the single page login flow using:
 
 * [Register your Application with Auth0](/applications/spa). 
   * Select an **Application Type** of **Single Page App**.
-  * Add an **Allowed Callback URL** of **https://${account.namespace}/callback**.
+  * Add an **Allowed Callback URL** of **`${account.callback}`**.
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code** and **Implicit**.
 
 * [Register your API with Auth0](/architecture-scenarios/spa-api/part-2#create-the-api)
