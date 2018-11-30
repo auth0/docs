@@ -2,7 +2,7 @@
 
 ### Basic Authentication Request
 
-This example shows the most basic request you can make when authorizing the user in step 1. It displays the Auth0 Lock login screen and allows the user to sign in with any of your configured connections:
+This example shows the most basic request you can make when authorizing the user in step 1. It displays the Auth0 login screen and allows the user to sign in with any of your configured connections:
 
 ```text
 https://${account.namespace}/authorize?
