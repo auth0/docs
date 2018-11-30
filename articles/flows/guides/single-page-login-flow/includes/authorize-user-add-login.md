@@ -66,3 +66,7 @@ Note that the returned values depend on what you requested as a `response_type`.
 | code id_token token | Authorization Code, ID Token, Access Token (plus `expires_in` and `token_type` values) |
 
 Auth0 will also return any state value you included in your call to the authorization URL.
+
+::: warning
+We do not recommend that the Access Token obtained in this step be used to call APIs.
+:::
