@@ -54,7 +54,7 @@ If all goes well, you'll receive an `HTTP 302` response. The requested credentia
 
 ```text
 HTTP/1.1 302 Found
-Location: https://${account.namespace}/callback/#access_token=ey...MhPw&expires_in=7200&token_type=Bearer&code=AUTHORIZATION_CODE&id_token=ey...Fyqk&state=xyzABC123&nonce=eq...hPmz
+Location: https://${account.namespace}/callback/#access_token=ey...MhPw&expires_in=7200&token_type=Bearer&code=AUTHORIZATION_CODE&id_token=ey...Fyqk&nonce=eq...hPmz&state=xyzABC123
 ```
 
 Note that the returned values depend on what you requested as a `response_type`.
