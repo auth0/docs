@@ -14,12 +14,12 @@ useCase:
 <%= include('../../../_includes/_pipeline2') %>
 
 ::: note
-This tutorial will help you add login to your single page appplication (SPA) using the single page login flow. If you want to learn how the flow works and why you should use it, see [Single Page Login Flow](/flows/concepts/single-page-login-flow).
+This tutorial will help you add login to your single page application (SPA) using the single page login flow. If you want to learn how the flow works and why you should use it, see [Single Page Login Flow](/flows/concepts/single-page-login-flow).
 :::
 
-Auth0 makes it easy to implement the Single Page Application Login Flow by using:
+Auth0 makes it easy to implement the Single Page Login Flow by using:
 
-* [Auth0 SPA Quickstarts](/libraries): The easiest way to implement the SPA flow, which will do most of the heavy-lifting for you. Our [SPA Quickstarts](/quickstart/spa) will walk you through the process.
+* [Auth0 SPA Quickstarts](/libraries): The easiest way to implement the single page login flow, which will do most of the heavy-lifting for you. Our [Single Page App Quickstarts](/quickstart/spa) will walk you through the process.
 * Authentication API: If you prefer to roll your own solution, keep reading to learn how to call our API directly.
 
 If you prefer to embed your own login pages within your SPA, you can implement our login widget (Lock UI) directly into your app with:
@@ -30,12 +30,12 @@ Following successful login, your application will have access to the user's [ID 
 
 ## Prerequisites
 
-This tutorial can be used to add login to your SPA. If you want to learn to call your API from a SPA, see [Call My API Using an SPA](/flows/guides/single-page-login-flow/call-api-using-single-page-app-login-flow).
+This tutorial can be used to add login to your SPA. If you want to learn to call your API from a SPA, see [Call My API Using the Single Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow).
 
 **Before beginning this tutorial:**
 
 * [Register your Application with Auth0](applications/spa)
-    * Select an **Application Type** of **Single Page Web App**.
+    * Select an **Application Type** of **Single Page App**.
     * Add an **Allowed Callback URL** of **https://${account.namespace}/callback**.
     * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code** and **Implicit**.
 
