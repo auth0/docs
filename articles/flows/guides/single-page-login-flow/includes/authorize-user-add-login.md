@@ -16,7 +16,8 @@ https://${account.namespace}/authorize?
     response_type=YOUR_RESPONSE_TYPE&
     client_id=${account.clientId}&
     redirect_uri=${account.namespace}/callback&
-    nonce=NONCE
+    nonce=NONCE&
+    state=STATE
 ```
 
 #### Parameters
