@@ -56,6 +56,8 @@ Use a refresh token to request new tokens when the existing ones expire.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
+Once your API receives a request with an Access Token, it will need to validate the token. For details, see Validate Access Tokens.
+
 <%= include('./includes/create-code-verifier') %>
 
 <%= include('./includes/create-code-challenge') %>
