@@ -151,7 +151,7 @@ If you have an IdP-initiated authentication flow, you will need to update the Id
 
 If you want to use SAML applications with your custom domain, you must update your Service Provider with new Identity Provider metadata from Auth0 (You can obtain the metadata reflecting the custom domain from: `https://<YOUR-CUSTOM-DOMAIN>/samlp/metadata/<YOUR-CLIENT-ID>`). Note that the issuer entity ID for the assertion returned by Auth0 will change when using a custom domain (from something like `urn:northwind.auth0.com` to the custom domain such as `urn:login.northwind.com`).
 
-If you have an IdP-initiated authentication flow, you will need to update the URL used to invoke the IdP-initiated authentication flow to reflect the custom domain. Instead of `https://<TENANT>.auth0.com/saml/<CLIENTID>` you should use `https://<CNAME>/saml/<CLIENTID>`.
+If you have an IdP-initiated authentication flow, you will need to update the URL used to invoke the IdP-initiated authentication flow to reflect the custom domain. Instead of `https://<TENANT>.auth0.com/samlp/<CLIENTID>` you should use `https://<CNAME>/samlp/<CLIENTID>`.
 
 If you use the Auth0 APIs, such as the Management API, the API identifier will use your default tenant domain name (such as `https://${account.namespace}/userinfo` and `https://${account.namespace}/api/v2/`)
 
