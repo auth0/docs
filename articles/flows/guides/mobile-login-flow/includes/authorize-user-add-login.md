@@ -56,5 +56,5 @@ If all goes well, you'll receive an `HTTP 302` response. The authorization code 
 
 ```text
 HTTP/1.1 302 Found
-Location: https://${account.callback}?code=AUTHORIZATION_CODE&state=xyzABC123
+Location: ${account.callback}?code=AUTHORIZATION_CODE&state=xyzABC123
 ```
