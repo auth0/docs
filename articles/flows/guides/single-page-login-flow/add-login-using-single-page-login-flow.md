@@ -12,17 +12,13 @@ useCase:
 # Add Login Using the Single Page Login Flow
 
 ::: note
-This tutorial will help you add login to your single page application (SPA) using the single page login flow. If you want to learn how the flow works and why you should use it, see [Single Page Login Flow](/flows/concepts/single-page-login-flow). If you want to learn to call your API from a SPA, see [Call My API Using the Single Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow).
+This tutorial will help you add login to your single page application (SPA) using the single page login flow. If you want to learn how the flow works and why you should use it, see [Single Page Login Flow](/flows/concepts/single-page-login-flow). If you want to learn to call your API from a single page application (SPA), see [Call My API Using the Single Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow).
 :::
 
 Auth0 makes it easy to implement the single page login flow by using:
 
 * [Auth0 SPA Quickstarts](/libraries): The easiest way to implement the single page login flow, which will do most of the heavy-lifting for you. Our [Single Page App Quickstarts](/quickstart/spa) will walk you through the process.
 * Authentication API: If you prefer to roll your own solution, keep reading to learn how to call our API directly.
-
-If you prefer to embed your own login pages within your SPA, you can implement our login widget (Lock UI) directly into your app with:
-
-* [Lock v11 for Web](/libraries/lock/v11)
 
 Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens), as well as an authorization code that can be exchanged with Auth0 for an additional Access Token. The ID Token will contain basic user profile information, and the Access Token can be used to call the Auth0 /userinfo endpoint or your own protected APIs.
 
