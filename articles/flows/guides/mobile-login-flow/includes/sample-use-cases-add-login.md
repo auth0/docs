@@ -1,5 +1,31 @@
 ## Sample Use Cases
 
+### Basic Authentication Request
+
+This example shows the most basic request you can make when authorizing the user in step 1. It displays the Auth0 login screen and allows the user to sign in with any of your configured connections:
+
+```text
+https://${account.namespace}/authorize?
+  response_type=code&
+  code_challenge=CODE_CHALLENGE&
+  code_challenge_method=S256&
+  client_id=${account.clientId}&
+  redirect_uri=${account.callback}&
+  scope=openid
+```
+
+Now, when you [request tokens](/api-auth/tutorials/regular-web-app-login-flow/request-tokens), your ID Token will contain the most basic claims. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
+
+```json
+{
+  "iss": "https://auth0pnp.auth0.com/",
+  "sub": "auth0|581...",
+  "aud": "xvt9...",
+  "exp": 1478112929,
+  "iat": 1478076929
+}
+```
+
 ### Request the User's Name and Profile Picture
 
 In addition to the usual user authentication, this example shows how to request additional user details, such as name and picture.
