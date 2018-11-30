@@ -6,20 +6,14 @@ This example shows the most basic request you can make when authorizing the user
 
 ```text
 https://${account.namespace}/authorize?
-    response_type=code id_token token&client_id=VBoUDhnnZUR9j2KFkxcdERMlIkJK731h&redirect_uri=http://example.com&
+    response_type=code id_token&
+    client_id=${account.clientId}&
+    redirect_uri=${account.namespace}/callback&
     nonce=NONCE
 ```
 
-To get your authorization code, Access Token, and ID Token, you can parse the values for these items from the URL Auth0 uses to redirect the end user back to your app:
+This will return an authorization code and ID Token, which you can parse from your redirect URL.
 
-```text
-https://YOUR_REDIRECT_URI
-  /#access_token=ey...MhPw
-  &expires_in=7200
-  &token_type=Bearer
-  &code=AUTHORIZATION_CODE
-  &id_token=ey...qk
-```
 
 ### Request the User's Name and Profile Picture
 
@@ -29,9 +23,11 @@ To request the user's name and picture, you need to add the appropriate scopes w
 
 ```text
 https://${account.namespace}/authorize?
-    response_type=code id_token token&client_id=VBoUDhnnZUR9j2KFkxcdERMlIkJK731h&redirect_uri=http://example.com&
-    nonce=NONCE&
-    scope=openid%20name%20picture
+    response_type=code id_token token&
+    client_id=${account.clientId}&
+    redirect_uri=${account.namespace}/callback&
+    scope=openid%20name%20picture&
+    nonce=NONCE
 ```
 
 Now, your ID Token will contain the requested name and picture claims. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
@@ -56,9 +52,11 @@ To send users directly to the GitHub login screen, you need to pass the `connect
 
 ```text
 https://${account.namespace}/authorize?
-    response_type=code id_token token&client_id=VBoUDhnnZUR9j2KFkxcdERMlIkJK731h&redirect_uri=http://example.com&
-    nonce=NONCE&
+    response_type=code id_token token&
+    client_id=${account.clientId}&
+    redirect_uri=${account.namespace}/callback&
     scope=openid%20name%20picture&
+    nonce=NONCE&
     connection=github
 ```
 
