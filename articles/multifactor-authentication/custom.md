@@ -104,7 +104,7 @@ Some older rules may use the field `ignoreCookie` here. While deprecated, that f
 
 ### Access from an extranet
 
-You can have Auth0 request MFA from users whose requests originate from outside the corporate network:
+Assuming that access to the specified network of internal IP addresses is well controlled, you can also have Auth0 request MFA from only users whose requests originate from outside the corporate network:
 
 ```js
 function (user, context, callback) {
