@@ -9,12 +9,12 @@ contentType: tutorial
 useCase:
   - add-login
 ---
-# Add Login Using the Single Page Application (SPA) Flow
+# Add Login Using the Single Page Login Flow
 
 <%= include('../../../_includes/_pipeline2') %>
 
 ::: note
-This tutorial will help you add login to your single page appplication (SPA) using the SPA login flow. If you want to learn how the flow works and why you should use it, see [Single Page Login Flow](/flows/concepts/single-page-login-flow).
+This tutorial will help you add login to your single page appplication (SPA) using the single page login flow. If you want to learn how the flow works and why you should use it, see [Single Page Login Flow](/flows/concepts/single-page-login-flow).
 :::
 
 Auth0 makes it easy to implement the Single Page Application Login Flow by using:
