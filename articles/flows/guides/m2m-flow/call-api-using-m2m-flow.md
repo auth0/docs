@@ -34,7 +34,7 @@ This tutorial can be used to call an API from a machine-to-machine application, 
   * Select an **Application Type** of **Machine to Machine Applications**.
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Client Credentials**.
   
-* [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
+* [Register your API with Auth0](/architecture-scenarios/server-api/part-2#configure-the-api)
   
  * Authorize the M2M Application to call your API [using the dashboard](/api-auth/config/using-the-auth0-dashboard) or [using our Management API](/api-auth/config/using-the-management-api).
 
