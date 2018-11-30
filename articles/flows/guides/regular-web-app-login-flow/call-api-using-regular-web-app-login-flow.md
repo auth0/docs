@@ -42,13 +42,13 @@ This tutorial can be used call your API from a regular web app. If you want to l
 ## Steps
 
 1. [Authorize the user](#authorize-the-user): 
-Request the user's authorization and redirect back to your app with an `authorization_code`.
+Request the user's authorization and redirect back to your app with an authorization code.
 2. [Request Tokens](#request-tokens): 
-Exchange your `authorization_code` for tokens.
+Exchange your authorization code for tokens.
 3. [Call Your API](#call-api):
 Use the retrieved Access Token to call your API.
 4. [Refresh Tokens](#refresh-tokens):
-Use a refresh token to request new tokens.
+Use a refresh token to request new tokens when the existing ones expire.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
