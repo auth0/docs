@@ -11,10 +11,8 @@ useCase:
 ---
 # Add Login Using the Regular Web App Login Flow
 
-<%= include('../../../_includes/_pipeline2') %>
-
 ::: note
-This tutorial will help you add login to your regular web application using the regular web app login flow. If you want to learn how the flow works and why you should use it, see [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow).
+This tutorial will help you add login to your regular web application using the regular web app login flow. If you want to learn how the flow works and why you should use it, see [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow). If you want to learn to call your API from a regular web app, see [Call My API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
 :::
 
 Auth0 makes it easy for your app to implement the regular web app login flow using:
@@ -29,8 +27,6 @@ If you prefer to embed your own login pages within your regular web app, you can
 Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens). The ID Token will contain basic user profile information, and the Access Token can be used to call the Auth0 /userinfo endpoint or your own protected APIs.
 
 ## Prerequisites
-
-This tutorial can be used to add login to your regular web app. If you want to learn to call your API from a regular web app, see [Call My API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
 
 **Before beginning this tutorial:**
 
