@@ -12,8 +12,6 @@ useCase:
 ---
 # Add Login Using the Mobile Login Flow
 
-<%= include('../../../_includes/_pipeline2') %>
-
 ::: note
 This tutorial will help you add login to your native/mobile app using the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/flows/concepts/mobile-login-flow).
 :::
@@ -38,10 +36,12 @@ This tutorial can be used to add login to your native/mobile app. If you want to
 
 * [Register your Application with Auth0](/applications/native). 
   * Select an **Application Type** of **Native**.
-  * Add an **Allowed Callback URL** of **https://${account.namespace}/callback**.
+  * Add an **Allowed Callback URL** of **`https://${account.namespace}/callback`**.
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code**.
 
 ## Steps
+
+When your user chooses to authenticate you will need to:
 
 1. [Create a code verifier](#create-a-code-verifier): 
 Generate a `code_verifier` that will be sent to Auth0 to request tokens.
@@ -56,7 +56,6 @@ Use a refresh token to request new tokens.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
-
 <%= include('./includes/create-code-verifier') %>
 
 <%= include('./includes/create-code-challenge') %>
@@ -68,7 +67,6 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 <%= include('./includes/refresh-tokens') %>
 
 <%= include('./includes/sample-use-cases-add-login') %>
-
 
 ## Keep Reading
 

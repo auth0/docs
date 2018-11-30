@@ -11,12 +11,10 @@ useCase:
   - secure-api
   - call-api
 ---
-# Call My API Using the Mobile Login Flow
-
-<%= include('../../../_includes/_pipeline2') %>
+# Call Your API Using the Mobile Login Flow
 
 ::: note
-This tutorial will help you call your API from a native/mobile app using the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/flows/concepts/mobile-login-flow).
+This tutorial will help you call your own API from a native/mobile app using the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/flows/concepts/mobile-login-flow).
 :::
 
 Auth0 makes it easy for your app to implement the mobile login flow using:
@@ -24,22 +22,24 @@ Auth0 makes it easy for your app to implement the mobile login flow using:
 * [Auth0 Mobile SDKs](/libraries): The easiest way to implement the mobile login flow, which will do most of the heavy-lifting for you. Our [Mobile Quickstarts](/quickstart/native) will walk you through the process.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
-## Prerequisites
-
 This tutorial can be used to call your API from a native/mobile app. If you want to learn to add login to your native/mobile app, see [Add Login to Your Native/Mobile App](/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow).
+
+## Prerequisites
 
 **Before beginning this tutorial:**
 
 * [Register the Application with Auth0](/applications/native). 
   * Select an **Application Type** of **Native**.
-  * Add an **Allowed Callback URL** of **https://${account.namespace}/callback**.
+  * Add an **Allowed Callback URL** of **`https://${account.namespace}/callback`**.
   * Make sure the Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code**.
 
 * [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
-  * Add an **Allowed Callback URL** of **com.myapi://myapi.com/callback**.
+  * Add an **Allowed Callback URL** of **`com.myapi://myapi.com/callback`**.
   * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
 
 ## Steps
+
+When your app needs to access 
 
 1. [Create a code verifier](#create-a-code-verifier): 
 Generate a `code_verifier` that will be sent to Auth0 to request tokens.
@@ -56,7 +56,6 @@ Use a refresh token to request new tokens.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
-
 <%= include('./includes/create-code-verifier') %>
 
 <%= include('./includes/create-code-challenge') %>
@@ -70,7 +69,6 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 <%= include('./includes/refresh-tokens') %>
 
 <%= include('./includes/sample-use-cases-call-api') %>
-
 
 ## Keep Reading
 
