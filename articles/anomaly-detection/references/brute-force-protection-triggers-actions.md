@@ -1,12 +1,13 @@
 ---
 title: Brute-Force Protection Triggers and Actions
-description: Learn how brute-force protection triggers work and what actions are taken. Also learn how to clear blocks.
+description: Brute-force protection triggers and actions taken upon anomaly detection and how blocks are cleared.
 topics:
     - security
     - anomaly-detection
     - brute-force-protection
 contentType: reference
 useCase: customize-anomaly-detection
+v2: true
 ---
 # Brute-Force Protection Triggers and Actions
 
@@ -51,3 +52,10 @@ If this block is triggered, additional access attempts are released one-at-a-tim
 ### Remove block
 
 Auth0 emails the dashboard administrator(s) when this block is triggered. Within this email there's a link the owner can click on to clear the block.
+
+## Keep reading
+* Understand [how Auth0 detects anomalies](/anomaly-detection/concepts/overview-anomaly-detection).
+* Learn how to [set anomaly detection preferences](/anomaly-detection/guides/set-anomaly-detection-preferences) in the Dashboard.
+* Learn how to [disable and enable brute-force protection](/anomaly-detection/guides/enable-disable-brute-force-protection).
+* [Restrictions and limitations](/anomaly-detection/references/anomaly-detection-restrictions-limitations) of Auth0 anomaly detection.
+* [Frequently asked questions](/anomaly-detection/references/anomaly-detection-faqs) about anomaly detection.

@@ -1,6 +1,6 @@
 ---
 title: Breached Password Detection Triggers and Actions
-description: Learn how breached password detection triggers work and what actions are taken. Also learn how to clear blocks.
+description: Breached password detection triggers and actions taken upon anomaly detection and how blocks are cleared.
 url: /anomaly-detection
 topics:
     - security
@@ -8,6 +8,7 @@ topics:
     - breached-password-detection
 contentType: reference
 useCase: customize-anomaly-detection
+v2: true
 ---
 # Breached Password Detection Triggers and Actions
 
@@ -28,3 +29,9 @@ Watch our [Breached Password Detection 101 video tutorial](https://auth0.com/res
 ## Remove block
 
 This block remains in place until the user changes their password.
+
+## Keep reading
+* Understand [how Auth0 detects anomalies](/anomaly-detection/concepts/overview-anomaly-detection).
+* Understand why a user receives a [breached password email](/anomaly-detection/concepts/breached-passwords) and general web security tips.
+* [Restrictions and limitations](/anomaly-detection/references/anomaly-detection-restrictions-limitations) of Auth0 anomaly detection.
+* [Frequently asked questions](/anomaly-detection/references/anomaly-detection-faqs) about anomaly detection.
