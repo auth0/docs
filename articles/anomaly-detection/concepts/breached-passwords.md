@@ -55,4 +55,4 @@ Applications release patches and updates when they find security vulnerabilities
 ## Keep reading
 * Understand how Auth0 [detects anomalies](/anomaly-detection/concepts/overview-anomaly-detection).
 * Learn how to [customize blocked account emails](/anomaly-detection/guides/customize-blocked-account-emails).
-* Responses to frequently asked questions about [anomaly detection](/anomaly-detection/references/anomaly-detection-faqs).
+* [Frequently asked questions](/anomaly-detection/references/anomaly-detection-faqs) about anomaly detection.
