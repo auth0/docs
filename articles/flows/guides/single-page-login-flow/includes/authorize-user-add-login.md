@@ -55,5 +55,5 @@ If all goes well, you'll receive an `HTTP 302` response. The requested credentia
 
 ```text
 HTTP/1.1 302 Found
-Location: https://${account.namespace}/callback/#access_token=ACCESS_TOKEN&expires_in=7200&token_type=Bearer&code=AUTHORIZATION_CODE&id_token=ID_TOKEN
+Location: https://${account.namespace}/callback/#access_token=ACCESS_TOKEN&expires_in=7200&token_type=Bearer&code=AUTHORIZATION_CODE&id_token=ID_TOKEN&state=STATE&nonce=NONCE
 ```
