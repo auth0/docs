@@ -17,7 +17,6 @@ Generate a `code_challenge` from the `code_verifier` that will be sent to Auth0 
       <pre>
 <code class="javascript hljs">// Dependency: Node.js crypto module
 // https://nodejs.org/api/crypto.html#crypto_crypto
-
 function sha256(buffer) {
     return crypto.createHash('sha256').update(buffer).digest();
 }
@@ -64,8 +63,8 @@ CC_SHA256([data bytes], (CC_LONG)[data length], buffer);
 NSData *hash = [NSData dataWithBytes:buffer length:CC_SHA256_DIGEST_LENGTH];
 NSString *challenge = [[[[hash base64EncodedStringWithOptions:0]
                          stringByReplacingOccurrencesOfString:@"+" withString:@"-"]
-                        stringByReplacingOccurrencesOfString:@"/" withString:@"_"]
-                       stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];</code></pre>
+                         stringByReplacingOccurrencesOfString:@"/" withString:@"_"]
+                         stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];</code></pre>
     </div>
   </div>
 </div>
