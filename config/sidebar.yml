@@ -509,7 +509,7 @@ articles:
             hidden: true
 
 
-  - title: "Multifactor Authentication"
+  - title: "Multi-factor Authentication"
     url: "/multifactor-authentication"
     children:
       - title: "Overview"
