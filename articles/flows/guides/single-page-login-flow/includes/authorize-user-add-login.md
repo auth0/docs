@@ -64,5 +64,5 @@ Note that the returned values depend on what you requested as a `response_type`.
 Auth0 will also return any state value you included in your call to the authorization URL.
 
 ::: warning
-We do not recommend that the Access Token obtained in this step be used to call APIs.
+We do not recommend that the Access Token obtained in this step be used to call protected APIs.
 :::
