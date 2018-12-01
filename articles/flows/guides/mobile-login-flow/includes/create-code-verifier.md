@@ -12,12 +12,10 @@ Create a `code_verifier`, which is a cryptographically-random key that will even
       <li><a href="#verifier-objc" data-toggle="tab">Objective-C</a></li>
     </ul>
   </div>
-  
   <div class="tab-content">
-    <div id="verifier-javascript" class="tab-pane active">
-      <pre>
-        <code class="javascript hljs">// Dependency: Node.js crypto module
-        //https://nodejs.org/api/crypto.html#crypto_crypto
+    <div id="verifier-javascript" class="tab-pane active"><pre>
+    <code class="javascript hljs">// Dependency: Node.js crypto module
+//https://nodejs.org/api/crypto.html#crypto_crypto
 function base64URLEncode(str) {
 return str.toString('base64')
 .replace(/\+/g, '-')
@@ -25,8 +23,7 @@ return str.toString('base64')
 .replace(/=/g, '');
 }
 var verifier = base64URLEncode(crypto.randomBytes(32));</code></pre>
-    </div>
-    
+  </div>
     <div id="verifier-java" class="tab-pane">
       <pre>
 <code class="java hljs">// Dependency: Apache Commons Codec
