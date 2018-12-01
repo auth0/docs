@@ -18,17 +18,13 @@ Create a `code_verifier`, which is a cryptographically-random key that will even
       <pre>
         <code class="javascript hljs">// Dependency: Node.js crypto module
         //https://nodejs.org/api/crypto.html#crypto_crypto
-        
-          function base64URLEncode(str) {
-             return str.toString('base64')
-             .replace(/\+/g, '-')
-             .replace(/\//g, '_')
-             .replace(/=/g, '');
-          }
-
-          var verifier = base64URLEncode(crypto.randomBytes(32));
-        </code>
-      </pre>
+function base64URLEncode(str) {
+return str.toString('base64')
+.replace(/\+/g, '-')
+.replace(/\//g, '_')
+.replace(/=/g, '');
+}
+var verifier = base64URLEncode(crypto.randomBytes(32));</code></pre>
     </div>
     
     <div id="verifier-java" class="tab-pane">
