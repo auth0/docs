@@ -15,13 +15,15 @@ Create a `code_verifier`, which is a cryptographically-random key that will even
   <div class="tab-content">
     <div id="verifier-javascript" class="tab-pane active"><pre>
     <code class="javascript hljs">// Dependency: Node.js crypto module
-//https://nodejs.org/api/crypto.html#crypto_crypto
+// https://nodejs.org/api/crypto.html#crypto_crypto
+
 function base64URLEncode(str) {
-return str.toString('base64')
-.replace(/\+/g, '-')
-.replace(/\//g, '_')
-.replace(/=/g, '');
+    return str.toString('base64')
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=/g, '');
 }
+
 var verifier = base64URLEncode(crypto.randomBytes(32));</code></pre>
   </div>
     <div id="verifier-java" class="tab-pane">
@@ -52,7 +54,7 @@ int result __attribute__((unused)) = SecRandomCopyBytes(kSecRandomDefault, 32, d
 NSString *verifier = [[[[data base64EncodedStringWithOptions:0]
                         stringByReplacingOccurrencesOfString:@"+" withString:@"-"]
                         stringByReplacingOccurrencesOfString:@"/" withString:@"_"]
-                             stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];</code></pre>
+                        stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];</code></pre>
     </div>
   </div>
 </div>
