@@ -22,7 +22,6 @@ function base64URLEncode(str) {
         .replace(/\//g, '_')
         .replace(/=/g, '');
 }
-
 var verifier = base64URLEncode(crypto.randomBytes(32));</code></pre>
   </div>
     <div id="verifier-java" class="tab-pane">
