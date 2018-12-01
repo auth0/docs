@@ -66,6 +66,16 @@ Note that the returned values depend on what you requested as a `response_type`.
 
 Auth0 will also return any state value you included in your call to the authorization URL.
 
+[ID Tokens](/tokens/id-token) contain user information that must be [decoded and extracted](/tokens/id-token#id-token-payload). 
+
+[Access Tokens](/tokens/access-token) are used to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or another API. If you are calling your own API, the first thing your API will need to do is [verify the Access Token](/api-auth/tutorials/verify-access-token).
+
 ::: warning
 We do not recommend that the Access Token obtained in this step be used to call protected APIs.
+:::
+
+[Refresh Tokens](/tokens/refresh-token) are used to obtain a new Access Token or ID Token after the previous one has expired. The `refresh_token` will only be present in the response if you included the `offline_access` scope and enabled __Allow Offline Access__ for your API in the Dashboard.
+
+::: warning
+Refresh Tokens must be stored securely since they allow a user to remain authenticated essentially forever.
 :::
