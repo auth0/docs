@@ -77,11 +77,11 @@ The following rate limits apply:
 - For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
 - For __paid__ tenants, usage of the Management API is restricted to 15 requests per second (and bursts up to 50 requests).
 
-The aforementioned rate limits include calls made via [Rules](/rules).
+The aforementioned rate limits include calls made via [Rules](/rules) and via the Manage Dashboard.
 
-Note, that the limit is set by tenant and not by endpoint.
+Note, that the limit is set by tenant and not by endpoint. Calls made to any of the Management API endpoints count towards this global limit and all endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
 
-The following Auth0 Management API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
+On top of the global limit mentioned above, the following endpoints have specific rate limits applied: 
 
 <!-- markdownlint-disable MD033 -->
 
@@ -89,103 +89,19 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
   <thead>
     <tr>
       <th><strong>Endpoint</strong></th>
-      <th><strong>GET</strong></th>
-      <th><strong>POST</strong></th>
-      <th><strong>DELETE</strong></th>
-      <th><strong>PATCH</strong></th>
+      <th><strong>Method</strong></th>
+      <th><strong>Path</strong></th>
+      <th><strong>Affected Tenants</strong></th>
+      <th><strong>Limit</strong></th>
     </tr>
   </thead>
   <tbody>
   <tr>
-      <td>Application Grants</td>
-      <td>/client-grants</td>
-      <td>/client-grants</td>
-      <td>/client-grants/{id}</td>
-      <td>/client-grants/{id}</td>
-  </tr>
-  <tr>
-      <td>Applications</td>
-      <td>/client <br />/client/{id}</td>
-      <td>/client</td>
-      <td>/client/{id}</td>
-      <td>/client/{id}</td>
-  </tr>
-  <tr>
-      <td>Connections</td>
-      <td>/connections <br />/connections/{id}</td>
-      <td>/connections</td>
-      <td>/connections/{id} <br />/connections/{id}/users</td>
-      <td>/connections/{id}</td>
-  </tr>
-  <tr>
-      <td>Device Credentials</td>
-      <td>/device-credentials</td>
-      <td>/device-credentials</td>
-      <td>/device-credentials/{id}</td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>Logs</td>
-      <td>/logs <br />/log/{id}</td>
-      <td></td>
-      <td></td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>Rules</td>
-      <td>/rules <br />/rules/{id}</td>
-      <td>/rules</td>
-      <td>/rules/{id}</td>
-      <td>/rules/{id}</td>
-  </tr>
-  <tr>
-      <td>User Blocks</td>
-      <td>/user-blocks <br />/user-blocks/{id}</td>
-      <td></td>
-      <td>/user-blocks <br />/user-blocks/{id}</td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>Users</td>
-      <td>/users <br /> /users/{id} <br />/users/{id}/logs <br />/users/{id}/enrollments</td>
-      <td>/users <br />/users/{id}/identities</td>
-      <td>/users/{id} <br />/users/{id}/identities <br />/users/{id}/multifactor/{provider}</td>
-      <td>/users/{id}</td>
-  </tr>
-  <tr>
-      <td>Emails</td>
-      <td>/emails/provider</td>
-      <td>/emails/provider</td>
-      <td></td>
-      <td>/emails/provider</td>
-  </tr>
-  <tr>
-      <td>Jobs</td>
-      <td>/jobs/{id} <br /> /jobs/{id}/errors</td>
-      <td>/jobs/verification-email <br />/jobs/users-imports</td>
-      <td></td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>Resource Servers</td>
-      <td>/resource-servers <br />/resource-servers/{id}</td>
-      <td>/resource-servers</td>
-      <td>/resource-servers/{id}</td>
-      <td>/resource-servers/{id}</td>
-  </tr>
-  <tr>
-      <td>Stats</td>
-      <td>/stats/active-users <br />/stats/daily</td>
-      <td></td>
-      <td></td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>Tenants</td>
-      <td>/tenants/settings</td>
-      <td></td>
-      <td></td>
-      <td>/tenants/settings</td>
+      <td>Custom Domains</td>
+      <td>POST</td>
+      <td>/api/v2/custom-domains/{id}/verify</td>
+      <td>All</td>
+      <td>5 requests per minute</td>
   </tr>
   </tbody>
 </table>
