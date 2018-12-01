@@ -13,9 +13,9 @@ Create a `code_verifier`, which is a cryptographically-random key that will even
     </ul>
   </div>
   <div class="tab-content">
-    <div id="verifier-javascript" class="tab-pane active"><pre>
-    <code class="javascript hljs">
-// Dependency: Node.js crypto module
+    <div id="verifier-javascript" class="tab-pane active">
+      <pre>
+<code class="javascript hljs">// Dependency: Node.js crypto module
 // https://nodejs.org/api/crypto.html#crypto_crypto
 function base64URLEncode(str) {
     return str.toString('base64')
