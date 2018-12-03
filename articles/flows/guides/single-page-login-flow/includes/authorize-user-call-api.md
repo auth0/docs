@@ -49,6 +49,9 @@ As an example, your HTML snippet for your authorization URL when adding login to
 </a>
 ```
 
+
+### Response
+
 If all goes well, you'll receive an `HTTP 302` response. The requested credentials are included in a hash fragment at the end of the URL:
 
 ```text
