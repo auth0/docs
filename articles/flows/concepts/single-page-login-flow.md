@@ -43,8 +43,8 @@ For SPAs without a lightweight back-end, the Single Page Login Flow looks very s
 * An authorization code and an ID Token;
 * An authorization code and an Access Token;
 * An authorization code, an Access Token, and an ID Token.
-9. Your application can use the Access Token to call an API.
-10. The API responds with requested data.
+6. Your application can use the Access Token to call an API.
+7. The API responds with requested data.
 
 
 ### SPA with lightweight back-end
