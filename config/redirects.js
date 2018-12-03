@@ -1872,13 +1872,5 @@ module.exports = [
    {
      from: '/tokens/access-token',
      to: '/tokens/overview-access-tokens'
-   },
-  {
-     from: '/flows/concepts',
-     to: 'flows'
-  },
-  {  
-     from: '/flows/guides',
-     to: 'flows'
-  }
+   }
 ];
