@@ -39,11 +39,11 @@ Auth0 makes it easy for your app to implement the single page login flow using:
 1. [Authorize the user](#authorize-the-user): 
 Request the user's authorization and redirect back to your app with the requested credentials. We do not recommend that you call protected APIs using an Access Token obtained in this step.
 2. [Request tokens](#request-tokens): 
-Exchange your authorization code for tokens, including a secure Access Token.
+If the SPA has a back-end, exchange your authorization code for tokens, including a secure Access Token.
 3. [Call Your API](#call-api): 
-Use the retrieved secure Access Token to call your API.
+Use the retrieved Access Token to call your API.
 4. [Refresh Tokens](#refresh-tokens): 
-Use a refresh token to request new tokens when the existing secure ones expire.
+If the SPA has a back-end, use a refresh token to request new tokens when the existing secure ones expire.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
