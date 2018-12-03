@@ -2,7 +2,7 @@
 
 Now that you have an Authorization Code, you must exchange it for tokens. Using the extracted Authorization Code (`code`) from the previous step, you will need to `POST` to the [token URL](/api/authentication#authorization-code-pkce-) sending along the `code_verifier`.
 
-An example POST to token URL:
+### Example POST to token URL
 
 ```har
 {
@@ -18,7 +18,7 @@ An example POST to token URL:
 }
 ```
 
-### Parameters
+#### Parameters
 
 | Parameter Name  | Description |
 |-----------------|-------------|
@@ -29,6 +29,7 @@ An example POST to token URL:
 | `redirect_uri`  | The valid callback URL set in your Application settings. This must exactly match the `redirect_uri` passed to the authorization URL in the previous step of this tutorial. |
 
 
+### Response
 
 If all goes well, you'll receive an HTTP 200 response with a payload containing `access_token`, `refresh_token`, `id_token`, and `token_type` values:
 
