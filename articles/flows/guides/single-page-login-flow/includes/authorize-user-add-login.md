@@ -46,6 +46,8 @@ As an example, your HTML snippet for your authorization URL when adding login to
 </a>
 ```
 
+### Response
+
 If all goes well, you'll receive an `HTTP 302` response. The requested credentials are included in a hash fragment at the end of the URL:
 
 ```text
@@ -55,11 +57,21 @@ Location: ${account.callback}#access_token=ey...MhPw&expires_in=7200&token_type=
 
 Note that the returned values depend on what you requested as a `response_type`.
 
+For SPAs with a back-end, using the Hybrid Flow:
+
 | Response Type       | Components |
 | ------------------- | ---------- |
-| code id_token       | Authorization Code, ID Token (plus `nonce`) |
+| code id_token       | Authorization Code, ID Token (plus `nonce` value) |
 | code token          | Authorization Code, Access Token (plus `expires_in` and `token_type` values) |
-| code id_token token | Authorization Code, ID Token, Access Token (plus `expires_in` and `token_type` values) |
+| code id_token token | Authorization Code, ID Token (plus `nonce` value), Access Token (plus `expires_in` and `token_type` values) |
+
+For SPAs without a back-end, using the Implicit Flow:
+
+| Response Type       | Components |
+| ------------------- | ---------- |
+| id_token       | ID Token (plus `nonce` value) |
+| token          | Access Token (plus `expires_in` and `token_type` values) |
+| id_token token | ID Token (plus `nonce` value), Access Token (plus `expires_in` and `token_type` values) |
 
 Auth0 will also return any state value you included in your call to the authorization URL.
 
