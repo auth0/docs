@@ -16,9 +16,9 @@ The Auth0 Command-Line Interface (CLI) allows you to enable or disable existing 
 Tenants created after **July 16, 2018** will not have access to the underlying Webtask Sandbox via the Webtask CLI. Please contact [Auth0](https://auth0.com/?contact=true) to request access.
 :::
 
-## Set up the CLI
+## Prerequisite: set up the CLI
 
-You can find instructions for installing and configuring the Webtask CLI in the [Dashboard > Webtask page](${manage_url}/#/account/webtasks). 
+Before proceeding, you'll need to set up the Webtask CLI. You can find instructions for installing and configuring the Webtask CLI in the [Dashboard > Webtask page](${manage_url}/#/account/webtasks). 
 
 The `wt-cli` package also includes the `auth0` binary, allowing you to use the Auth0 CLI.
 
@@ -34,7 +34,7 @@ For each extensibility point, you may have either no associated Hooks enabled or
 
 By default, the Auth0 CLI creates new Hooks in a disabled state.
 
-## Enable Your Hook
+## Enable your Hook
 
 The following command enables your Hook:
 
@@ -42,7 +42,7 @@ The following command enables your Hook:
 
 By enabling a given Hook, the Auth0 CLI disables all other Hooks associated with the same extensibility point.
 
-## Disable Your Hook
+## Disable your Hook
 
 The following command disables your Hook:
 

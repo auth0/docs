@@ -16,9 +16,9 @@ The Auth0 Command-Line Interface (CLI) allows you to gather real-time logging in
 Tenants created after **July 16, 2018** will not have access to the underlying Webtask Sandbox via the Webtask CLI. Please contact [Auth0](https://auth0.com/?contact=true) to request access.
 :::
 
-## Set up the CLI
+## Prerequisite: set up the CLI
 
-You can find instructions for installing and configuring the Webtask CLI in the [Dashboard > Webtask page](${manage_url}/#/account/webtasks). 
+Before proceeding, you'll need to set up the Webtask CLI. You can find instructions for installing and configuring the Webtask CLI in the [Dashboard > Webtask page](${manage_url}/#/account/webtasks). 
 
 The `wt-cli` package also includes the `auth0` binary, allowing you to use the Auth0 CLI.
 

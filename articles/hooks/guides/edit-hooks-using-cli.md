@@ -8,7 +8,7 @@ contentType: how-to
 useCase: extensibility-hooks
 v2: true
 ---
-# Edit Existing Hooks Using the Command-Line Interface
+# Edit Hooks Using the Command-Line Interface
 
 The Auth0 Command-Line Interface (CLI) allows you to edit existing Hooks associated with specific extensibility points within the Auth0 platform.
 
@@ -16,17 +16,7 @@ The Auth0 Command-Line Interface (CLI) allows you to edit existing Hooks associa
 Tenants created after **July 16, 2018** will not have access to the underlying Webtask Sandbox via the Webtask CLI. Please contact [Auth0](https://auth0.com/?contact=true) to request access.
 :::
 
-## Set up the CLI
-
-You can find instructions for installing and configuring the Webtask CLI in the [Dashboard > Webtask page](${manage_url}/#/account/webtasks). 
-
-The `wt-cli` package also includes the `auth0` binary, allowing you to use the Auth0 CLI.
-
-![Install Webtasks Instructions](/media/articles/hooks/mgmt-dashboard-webtasks.png)
-
-::: note
-All of the examples on this page use `auth0-profile` as the name of the profile. This is the same profile name used when installing `wt-cli` and can be obtained from *Step 2* of the instructions set located on [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks).
-:::
+<%= include('../../_includes/set-up-webtask-cli') %>
 
 ## Edit your Hook
 
@@ -42,7 +32,7 @@ If the CLI cannot open the Editor window automatically, you can copy and paste t
 Please see the [Webtask docs](https://webtask.io/docs/editor) for detailed information on using the Webtask Editor.
 :::
 
-## Test Your Hook
+## Test your Hook
 
 The Webtask Editor allows you to test your Hook using the Runner. By default, the Runner is hidden until you choose to display it by clicking its icon in the top left of the Editor.
 
@@ -64,7 +54,7 @@ If you run multiple tests, the Runner keeps track of the calls you've made in it
 If you created your Hook early on during the beta testing period, your Webtask Editor/Test Runner window might not populate with the schema required to successfully use the Test Runner. If that is the case, you'll need to save the Hook's code, delete the Hook, and create a new Hook using your existing code.
 :::
 
-## Manipulate Secrets
+## Manipulate secrets
 
 If you [provisioned a secret to your Hook](/hooks/cli/create-delete#provision-secrets-to-new-hooks) during creation, you can manipulate it by clicking on the **wrench** at the top left of the Webtask Editor window and selecting **Secrets** from the dropdown menu.
 

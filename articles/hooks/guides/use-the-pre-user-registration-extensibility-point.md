@@ -15,11 +15,11 @@ For [Database Connections](/connections/database), the Pre-User Registration ext
 
 This allows you to implement scenarios such as setting conditional information (in the form of [metadata](/users/concepts/overview-user-metadata) on users that do not exist yet.
 
-## How to Implement This
+## How to implement this
 
 You can implement a [Hook](/hooks/concepts/overview-hooks) using this extensibility point with either the [Dashboard](/hooks/guides/create-delete-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-delete-hooks-using-cli). 
 
-## Starter Code and Parameters
+## Starter code and parameters
 
 After you've created a new Hook that uses the Pre-User Registration extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
 
@@ -91,7 +91,7 @@ If you specify `app_metadata` and `user_metadata` in the response object, Auth0 
 Metadata property names must not start with the `$` character or contain the `.` character.
 :::
 
-## Testing Your Hook
+## Testing your Hook
 
 ::: note
 Executing the code using the Runner requires a save, which means that your original code will be overwritten.
@@ -127,7 +127,7 @@ Once you've modified the sample code with the specific scopes of additional clai
 }
 ```
 
-## Example: Add Metadata to New Users
+## Example: Add metadata to new users
 
 ```js
 module.exports = function (user, context, cb) {

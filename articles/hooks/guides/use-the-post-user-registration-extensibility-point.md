@@ -14,11 +14,11 @@ For [Database Connections](/connections/database), the `post-user-registration` 
 
 [Hooks](/hooks/concepts/overview-hooks) associated with the `post-user-registration` extensibility point execute asynchronously from the actions that are a part of the Auth0 authentication process.
 
-## How to Implement This
+## How to implement this
 
 You can implement a [Hook](/hooks/concepts/overview-hooks) using this extensibility point with either the [Dashboard](/hooks/guides/create-delete-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-delete-hooks-using-cli). 
 
-### Starter Code and Parameters
+### Starter code and parameters
 
 After you've created a new Hook that uses the Post-User Registration extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
 
@@ -57,7 +57,7 @@ The callback function `cb` at the end of the sample code is used to signal compl
 
 The Post-User Registration extensibility point ignores any response object.
 
-### Testing Your Hook
+### Testing your Hook
 
 ::: note
 Executing the code using the Runner requires a save, which means that your original code will be overwritten.
@@ -92,7 +92,7 @@ Once you've modified the sample code with the specific scopes of additional clai
 }
 ```
 
-## Example: Integrate with Slack
+## Example: integrate with Slack
 
 ```js
 module.exports = function (user, context, cb) {

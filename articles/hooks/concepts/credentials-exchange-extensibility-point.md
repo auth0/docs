@@ -10,7 +10,7 @@ contentType:
 useCase: extensibility-hooks
 v2: true
 ---
-# The Credentials Exchange Extensibility Point
+# Credentials Exchange Extensibility Point
 
 The `credentials-exchange` extensibility point allows you to change the scopes and add custom claims to the [Access Tokens](/tokens/overview-access-tokens) issued by the [Auth0 API's `POST /oauth/token` endpoint](/api/authentication#authorization-code) during runtime.
 
@@ -18,7 +18,7 @@ The `credentials-exchange` extensibility point allows you to change the scopes a
 Please see [Calling APIs from a Service](/api-auth/grant/client-credentials) for more information on the Client Credentials Grant.
 :::
 
-## Types of claims available
+## Claim types
 
 You can add the following as claims to the issued token:
 

@@ -61,7 +61,7 @@ The default response object every time you run this Hook is as follows:
 }
 ```
 
-### Testing your hook
+### Testing your Hook
 
 Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, you can test your Hook using the Runner. Executing the code using the Runner requires a save, which means that your original code will be overwritten.
 

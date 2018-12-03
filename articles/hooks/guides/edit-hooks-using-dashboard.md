@@ -33,7 +33,7 @@ To open up the Webtask Editor:
   Please see the [Webtask docs](https://webtask.io/docs/editor) for detailed information on using the Webtask Editor.
   :::
 
-## Test Your Hook
+## Test your Hook
 
 The Webtask Editor allows you to test your Hook using the Runner. By default, the Runner is hidden until you choose to display it by clicking its icon in the top left of the Editor.
 
