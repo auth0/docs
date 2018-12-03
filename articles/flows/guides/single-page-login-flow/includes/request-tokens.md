@@ -2,7 +2,7 @@
 
 Now that you have an authorization code, you can exchange it for tokens. The Access Token you receive will allow you to call the API specified when you authorized the user. Using the extracted Authorization Code (`code`) from the first step, you will need to `POST` to the [Token URL](/api/authentication?http#authorization-code).
 
-## Example Token URL
+### Example POST to Token URL
 
 ```har
 {
@@ -25,6 +25,9 @@ Now that you have an authorization code, you can exchange it for tokens. The Acc
 | `client_id`     | Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
 | `client_secret` | Your application's Client Secret. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
 | `redirect_uri`  | The valid callback URL set in your Application settings. This must exactly match the `redirect_uri` passed to the authorization URL in the previous step of this tutorial. |
+
+
+### Response
 
 If all goes well, you'll receive an HTTP 200 response with a payload containing `access_token`, `refresh_token`, `id_token`, and `token_type` values:
 
