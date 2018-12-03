@@ -33,7 +33,7 @@ Because the Hybrid Flow combines the Implicit Flow with the Authorization Code F
 
 ### SPA with back-end
 
-For SPAs with a back-end, the back-end can be trusted with the application's Client Secret and can request a long-lived Access Token to use with your API. Refresh Tokens can also be requested with this version of the Single Page Login Flow.
+For SPAs with a back-end, the back-end can be trusted with the application's Client Secret and can request a long-lived Access Token to use with your API. Refresh Tokens can also be requested.
 
 ![Single Page Login Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-single-page-login-flow-with-backend.png)
 
