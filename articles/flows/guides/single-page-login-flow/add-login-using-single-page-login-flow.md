@@ -34,7 +34,7 @@ Following successful login, your application will have access to the user's [ID 
 ## Steps
 
 1. [Authorize the user](#authorize-the-user): Request the user's authorization and redirect back to your app. We do not recommend that you call protected APIs using an Access Token obtained in this step.
-2. [Request tokens](#request-tokens): Exchange your authorization code for tokens, including a secure Access Token.
+2. [Request tokens](#request-tokens): If the SPA has a back-end, exchange your authorization code for tokens, including a secure Access Token.
 
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
