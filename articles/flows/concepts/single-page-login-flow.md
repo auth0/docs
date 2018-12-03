@@ -31,7 +31,7 @@ Because the Hybrid Flow combines the Implicit Flow with the Authorization Code F
 
 ### SPA without lightweight back-end
 
-For SPAs without a lightweight back-end, the Single Page Login Flow looks very similar to the Implicit Flow; the main difference is that the SPA requests an authorization code in addition to the credentials it would normally request. Tokens issued are short-lived, and Refresh Tokens are not available during this part of the flow.
+For SPAs without a lightweight back-end, the Single Page Login Flow looks very similar to the Implicit Flow; the main difference is that the SPA requests an authorization code in addition to the credentials it would normally request. Tokens issued are short-lived, and Refresh Tokens are not available with this version of the flow.
 
 ![Single Page Login Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-single-page-login-flow-without-backend.png)
 
