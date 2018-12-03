@@ -1960,9 +1960,38 @@ module.exports = [
    {
      from: '/metadata/apis',
      to: '/users/guides/manage-user-metadata'
+   },
+   {
+     from: '/multifactor-authentication/administrator/twilio-configuration',
+     to: '/multifactor-authentication/twilio-configuration'
+   },
+   {
+     from: '/multifactor-authentication/administrator/sms-templates',
+     to: '/multifactor-authentication/sms-templates'
+   },
+   {
+     from: '/multifactor-authentication/guardian',
+     to: '/multifactor-authentication/factors/push'
+   },
+   {
+     from: '/multifactor-authentication/google-authenticator',
+     to: '/multifactor-authentication/factors/otp'
+   },
+   {
+     from: '/multifactor-authentication/duo',
+     to: '/multifactor-authentication/factors/duo'
+   },
+   {
+     from: '/multifactor-authentication/sms',
+     to: '/multifactor-authentication/factors/sms'
+   },
+   {
+     from: '/multifactor-authentication/yubikey',
+     to: '/multifactor-authentication'
    }
   //  {
   //    from: '/metadata/lock',
   //    to: '/users/guides/manage-user-metadata'
   //  }
 ];
+

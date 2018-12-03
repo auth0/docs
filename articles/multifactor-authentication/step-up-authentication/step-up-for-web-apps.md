@@ -111,7 +111,7 @@ function (user, context, callback) {
     // ask for MFA only if the web app said so in the authentication request
     if (context.request.query.acr_values === 'http://schemas.openid.net/pape/policies/2007/06/multi-factor'){
       context.multifactor = {
-        provider: 'guardian',
+        provider: 'any',
         allowRememberBrowser: false
       };
     }
