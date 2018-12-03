@@ -44,8 +44,6 @@ Generate a `code_challenge` from the `code_verifier` that will be sent to Auth0 
 Request the user's authorization and redirect back to your app with an `authorization_code`.
 4. [Request Tokens](#request-tokens): 
 Exchange your `authorization_code` and `code_verifier` for tokens.
-5. [Refresh Tokens](#refresh-tokens):
-Use a refresh token to request new tokens when the existing ones expire.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
@@ -56,8 +54,6 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 <%= include('./includes/authorize-user-add-login') %>
 
 <%= include('./includes/request-tokens') %>
-
-<%= include('./includes/refresh-tokens') %>
 
 <%= include('./includes/sample-use-cases-add-login') %>
 
