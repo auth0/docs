@@ -2,7 +2,7 @@
 
 Now that you have an authorization code, you can exchange it for tokens. The Access Token you receive will allow you to call the API specified when you authorized the user. Using the extracted Authorization Code (`code`) from the first step, you will need to `POST` to the [Token URL](/api/authentication?http#authorization-code).
 
-### Example POST to Token URL
+### Example POST to token URL
 
 ```har
 {
@@ -17,6 +17,8 @@ Now that you have an authorization code, you can exchange it for tokens. The Acc
   }
 }
 ```
+
+#### Parameters
 
 | Parameter | Description |
 | --------- | ----------- |
