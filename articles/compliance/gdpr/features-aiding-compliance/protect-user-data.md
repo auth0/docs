@@ -75,7 +75,7 @@ With step-up authentication, applications can ask users to authenticate with a s
 
 You can check if a user has logged in with MFA by reviewing the contents of their ID Token or Access Token. You can then configure your application to deny access to sensitive resources if the token indicates that the user did not log in with MFA.
 
-For details see [Step-up Authentication](/multifactor-authentication/developer/step-up-authentication).
+For details see [Step-up Authentication](/multifactor-authentication/step-up-authentication).
 
 ## Availability and resilience
 

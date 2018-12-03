@@ -71,7 +71,7 @@ function (user, context, callback) {
      // ask for MFA only if scope transfer:funds was requested
      if (context.request.query.scope.indexOf('transfer:funds') > -1) {
        context.multifactor = {
-         provider: 'guardian',
+         provider: 'any',
          allowRememberBrowser: false
        };
      }
