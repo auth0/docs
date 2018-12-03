@@ -20,7 +20,7 @@ Your user will authenticate, and Auth0 will generate an ID Token and Access Toke
 
 ## How it works
 
-In a native/mobile application, the default experience will open a SafariViewController in iOS, or a Custom Chrome Tab in Android. 
+In a native/mobile application, the default experience will open a SafariViewController in iOS or a Custom Chrome Tab in Android. 
 
 1. The user clicks your **Login** button or link.
 2. Our SDK redirects the user to your Auth0 Authorization Server.
