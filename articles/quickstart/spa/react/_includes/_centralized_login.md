@@ -161,6 +161,10 @@ import loading from './loading.svg';
 class Callback extends Component {
   render() {
     const style = //...
+    
+    componentDidMount () {
+      this.props.testAuthHash(this.props.location.hash);
+    }
 
     return (
       <div style={style}>
@@ -173,13 +177,13 @@ class Callback extends Component {
 export default Callback;
 ```
 
-After authentication, your users are taken to the `/callback` route. They see the loading indicator while the application sets up a client-side session for them. After the session is set up, the users are redirected to the `/home` route.
+After authentication, your users are taken to the `/callback` route. On mounting, the component calls a function passed down as a prop that handles verifying the authentication. They will see the loading indicator while the application sets up a client-side session for them. After the session is set up, the users are redirected to the `/home` route.
 
 ### Process the Authentication Result
 
 When a user authenticates at the login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `Auth` service processes the hash. 
 
-Call the `handleAuthentication` method after you render the `Callback` route. The method processes the authentication hash fragment when the `Callback` component initializes.
+Pass a custom `handleAuthentication` function as a prop to `Callback` via its `Route`, where it is called on `componentDidMount`, as shown above. The function tests the authentication hash fragment and calls the `Auth` method that processes the fragment.
 
 ```js
 // src/routes.js
@@ -194,8 +198,8 @@ import history from './history';
 
 const auth = new Auth();
 
-const handleAuthentication = (nextState, replace) => {
-  if (/access_token|id_token|error/.test(nextState.location.hash)) {
+const testAuthHash = locationHash => {
+  if (/access_token|id_token|error/.test(locationHash)) {
     auth.handleAuthentication();
   }
 }
@@ -206,10 +210,7 @@ export const makeMainRoutes = () => {
       <div>
         <Route path="/" render={(props) => <App auth={auth} {...props} />} />
         <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
-        <Route path="/callback" render={(props) => {
-          handleAuthentication(props);
-          return <Callback {...props} /> 
-        }}/>
+        <Route path="/callback" render={(props) => <Callback testAuthHash={testAuthHash} {...props} }/> 
       </div>
     </Router>
   );
