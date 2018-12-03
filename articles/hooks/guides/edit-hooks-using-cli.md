@@ -12,13 +12,7 @@ v2: true
 
 The Auth0 Command-Line Interface (CLI) allows you to edit existing Hooks associated with specific extensibility points within the Auth0 platform.
 
-::: warning
-Tenants created after **July 16, 2018** will not have access to the underlying Webtask Sandbox via the Webtask CLI. Please contact [Auth0](https://auth0.com/?contact=true) to request access.
-:::
-
-<%= include('../../_includes/set-up-webtask-cli') %>
-
-## Edit your Hook
+<%= include('../_includes/set-up-webtask-cli') %>
 
 You can edit the code of your Hook using the [Webtask Editor](https://webtask.io/docs/editor). The following command will open up the code for your Hook in the Webtask Editor window:
 

@@ -12,21 +12,7 @@ v2: true
 
 The Auth0 Command-Line Interface (CLI) allows you to enable or disable existing Hooks associated with specific extensibility points within the Auth0 platform.
 
-::: warning
-Tenants created after **July 16, 2018** will not have access to the underlying Webtask Sandbox via the Webtask CLI. Please contact [Auth0](https://auth0.com/?contact=true) to request access.
-:::
-
-## Prerequisite: set up the CLI
-
-Before proceeding, you'll need to set up the Webtask CLI. You can find instructions for installing and configuring the Webtask CLI in the [Dashboard > Webtask page](${manage_url}/#/account/webtasks). 
-
-The `wt-cli` package also includes the `auth0` binary, allowing you to use the Auth0 CLI.
-
-![Install Webtasks Instructions](/media/articles/hooks/mgmt-dashboard-webtasks.png)
-
-::: note
-All of the examples on this page use `auth0-profile` as the name of the profile. This is the same profile name used when installing `wt-cli` and can be obtained from *Step 2* of the instructions set located on [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks).
-:::
+<%= include('../_includes/set-up-webtask-cli') %>
 
 ## Hooks status
 
