@@ -31,6 +31,26 @@ To handle both the client-side and server-side authentication needs of SPAs, the
 
 Because the Hybrid Flow combines the Implicit Flow with the Authorization Code Flow, its steps are very similar to the steps required to implement the other two flows.
 
+### SPA without Lightweight Back-end
+
+
+1. The user clicks **Login** within the single page application.
+2. Auth0's SDK redirects the user to the Auth0 Authorization Server (**/authorize** endpoint) passing along a `response_type` parameter that indicates the type of requested credential.
+3. Your Auth0 Authorization Server redirects the user to the login and authorization prompt.
+4. The user authenticates using one of the configured login options and may see a consent page listing the permissions Auth0 will give to the single page application.
+5. Your Auth0 Authorization Server redirects the user back to the application with any of the following, depending on the provided `response_type` parameter (step 2):
+* An authorization code and an ID Token;
+* An authorization code and an Access Token;
+* An authorization code, an Access Token, and an ID Token.
+9. Your application can use the Access Token to call an API.
+10. The API responds with requested data.
+
+::: warning
+
+:::
+
+
+
 ![Single Page Login Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-single-page-login-flow.png)
 
 
