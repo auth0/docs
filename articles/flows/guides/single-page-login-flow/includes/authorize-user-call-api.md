@@ -32,7 +32,7 @@ https://${account.namespace}/authorize?
 | `scope` | Specifies the [scopes](/scopes) for which you want to request authorization, which dictate which claims (or user attributes) you want returned. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, [custom claims](/scopes/current/custom-claims) conforming to a [namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a Refresh Token (make sure that the __Allow Offline Access__ field is enabled in the [Application Settings](${manage_url}/#/applications)). |
 | `audience` | The unique identifier of the API the web app wants to access. Use the **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial. |
 | `state`         | (recommended) An opaque arbitrary alphanumeric string that your app adds to the initial request and Auth0 includes when redirecting back to your application. To see how to use this value to prevent cross-site request forgery (CSRF) attacks, see [Use the State Parameter Against CSRF Attacks](/protocols/oauth2/oauth-state#how-to-use-the-parameter-against-csrf-attacks). |
-| `nonce` | (required for `response_type` containing  `id_token token`, otherwise recommended) A cryptographically random string that your app adds to the initial request and Auth0 includes in the ID Token, [used to prevent token replay attacks](/api-auth/tutorials/nonce). |
+| `nonce` | (required for `response_type` containing  `id_token token`, otherwise recommended) A cryptographically random string that your app adds to the initial request and Auth0 includes inside the ID Token, [used to prevent token replay attacks](/api-auth/tutorials/nonce). |
 
 As an example, your HTML snippet for your authorization URL when adding login to your app might look like:
 
@@ -56,7 +56,7 @@ If all goes well, you'll receive an `HTTP 302` response. The requested credentia
 
 ```text
 HTTP/1.1 302 Found
-Location: ${account.callback}#access_token=ey...MhPw&expires_in=7200&token_type=Bearer&code=AUTHORIZATION_CODE&id_token=ey...Fyqk&nonce=eq...hPmz&state=xyzABC123
+Location: ${account.callback}#access_token=ey...MhPw&expires_in=7200&token_type=Bearer&code=AUTHORIZATION_CODE&id_token=ey...Fyqk&state=xyzABC123
 ```
 
 Note that the returned values depend on what you requested as a `response_type`.
@@ -65,17 +65,17 @@ For SPAs with a back-end, using the Hybrid Flow:
 
 | Response Type       | Components |
 | ------------------- | ---------- |
-| code id_token       | Authorization Code, ID Token (plus `nonce` value) |
+| code id_token       | Authorization Code, ID Token |
 | code token          | Authorization Code, Access Token (plus `expires_in` and `token_type` values) |
-| code id_token token | Authorization Code, ID Token (plus `nonce` value), Access Token (plus `expires_in` and `token_type` values) |
+| code id_token token | Authorization Code, ID Token, Access Token (plus `expires_in` and `token_type` values) |
 
 For SPAs without a back-end, using the Implicit Flow:
 
 | Response Type       | Components |
 | ------------------- | ---------- |
-| id_token       | ID Token (plus `nonce` value) |
+| id_token       | ID Token |
 | token          | Access Token (plus `expires_in` and `token_type` values) |
-| id_token token | ID Token (plus `nonce` value), Access Token (plus `expires_in` and `token_type` values) |
+| id_token token | ID Token, Access Token (plus `expires_in` and `token_type` values) |
 
 Auth0 will also return any state value you included in your call to the authorization URL.
 
