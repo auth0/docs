@@ -30,23 +30,18 @@ In a native/mobile application, the default experience will open a SafariViewCon
 
 For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows/concepts/mobile-login-flow).
 
-![Flow Overview for Native/Mobile Apps](/media/articles/microsites/add-login/overview-flow-native-mobile-app.png)<!-- .element style="width: 100%" -->
+<img src="/media/articles/microsites/add-login/overview-flow-native-mobile-app.png" alt="Flow Overview for Native/Mobile Apps" width-"100%">
 
 ## Implementation overview
 
 ::: steps
-  1. **Configure the sign-in methods.** 
-  
-  Auth0 supports a wide range of authentication methods: regular username/password (users can be stored in Auth0 or your own database), social (like Google, Facebook, and 50+ other providers), passwordless (email magic link, email code, and phone code), and enterprise (e.g., SAML-based, ADFS, Ping, Okta). 
-  
-  Go to the dashboard and turn on the methods you want to allow; they will automatically show up in the login/signup page. By default, email/password and Google are enabled.
+  1. <strong>Configure the sign-in methods.</strong><br><br>
+Auth0 supports a wide range of authentication methods: regular username/password (users can be stored in Auth0 or your own database), social (like Google, Facebook, and 50+ other providers), passwordless (email magic link, email code, and phone code), and enterprise (e.g., SAML-based, ADFS, Ping, Okta).<br><br>
+Go to the dashboard and turn on the methods you want to allow; they will automatically show up in the login/signup page. By default, email/password and Google are enabled.
 
-  2. **Customize the sign-in UI (optional).** 
-  
-  The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.
-  
-  ![Default Login Screen for Native/Mobile Apps](/media/articles/microsites/add-login/login-screen-native-mobile-app.png)
-  
+  2. <strong>Customize the sign-in UI (optional).</strong><br><br>
+The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.<br><br>  
+<img src="/media/articles/microsites/add-login/login-screen-native-mobile-app.png" alt="Default Login Screen for Native/Mobile Apps">
   3. **Use the Auth0 SDK to trigger the flow.** 
   
   The SDK will take care of the details of opening the SafariViewController or Chrome Custom Tab, parsing the response back from Auth0, and validating the ID Token. 
