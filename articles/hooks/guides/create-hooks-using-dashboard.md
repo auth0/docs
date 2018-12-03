@@ -20,7 +20,7 @@ Hooks utilize the Webtask Editor. For additional information on how to work with
 
 ## Create a new Hook
 
-1. Navigate to [the Hooks page of the Dashboard](${manage_url}/#/hooks). You can create new Hooks in one of two ways:
+1. Navigate to [the Hooks page of the Dashboard](${manage_url}/#/hooks). Create new Hooks in one of two ways:
 
     * Clicking on the **+ Create New Hook** button at the top right of the Hooks page.
     * Finding the extensibility hook you want to work with and then clicking the **Create New Hook** link below.
@@ -29,12 +29,12 @@ Hooks utilize the Webtask Editor. For additional information on how to work with
 
   ![Create Hook Dialog](/media/articles/hooks/create-new-hook.png)
 
-  * **Name**: The name for your new Hook
-  * **Hook**: The extensibility point associated with your Hook
+  * **Name**: The name for the new Hook
+  * **Hook**: The extensibility point associated with the Hook
 
-  Click **Create** to create your Hook.
+  Click **Create** to create the Hook.
 
-  At this point, you will see your newly-created Hook listed under its associated extensibility point.
+  At this point, you will see the newly-created Hook listed under its associated extensibility point.
 
 :::panel New Hooks
 For any given extensibility point, you may create multiple Hooks. However, you may only have **one** Hook enabled per extensibility point at any given time.

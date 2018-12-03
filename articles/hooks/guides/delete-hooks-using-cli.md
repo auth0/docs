@@ -14,6 +14,6 @@ The Auth0 Command-Line Interface (CLI) allows you to delete Hooks associated wit
 
 <%= include('../_includes/set-up-webtask-cli') %>
 
-If you need to delete an existing Hook, you can do so using the following command:
+If you need to delete an existing Hook, use the following command:
 
 `auth0 rm my-extension-1 -p auth0-default`

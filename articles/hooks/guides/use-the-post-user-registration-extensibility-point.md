@@ -14,11 +14,11 @@ For [Database Connections](/connections/database), the `post-user-registration` 
 
 [Hooks](/hooks/concepts/overview-hooks) associated with the `post-user-registration` extensibility point execute asynchronously from the actions that are a part of the Auth0 authentication process.
 
-You can implement a [Hook](/hooks/concepts/overview-hooks) using this extensibility point with either the [Dashboard](/hooks/guides/create-delete-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-delete-hooks-using-cli). 
+Implement a [Hook](/hooks/concepts/overview-hooks) using this extensibility point with either the [Dashboard](/hooks/guides/create-delete-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-delete-hooks-using-cli). 
 
 ### Starter code and parameters
 
-After you've created a new Hook that uses the Post-User Registration extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
+After you've created a new Hook that uses the Post-User Registration extensibility point, open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
 
 The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. 
 
@@ -55,13 +55,13 @@ The callback function `cb` at the end of the sample code is used to signal compl
 
 The Post-User Registration extensibility point ignores any response object.
 
-### Testing your Hook
+### Testing Hooks
 
 ::: note
-Executing the code using the Runner requires a save, which means that your original code will be overwritten.
+Executing the code using the Runner requires a save, which means that the original code will be overwritten.
 :::
 
-Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, you can test your Hook using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
+Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, test Hooks using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
 
 ```json
 {

@@ -18,7 +18,7 @@ For detailed steps on implementing the grant, please refer to [Using Hooks with 
 
 ## Starter code and parameters
 
-After you've created a new Hook that uses the Credentials Exchange extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
+After you've created a new Hook that uses the Credentials Exchange extensibility point, open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
 
 The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. For example, the `client` object comes with the following parameters: client name, client ID, the Auth0 tenant name with which the client is associated, and client metadata. 
 
@@ -49,7 +49,7 @@ module.exports = function(client, scope, audience, context, cb) {
 
 Pay attention to the following:
 - The callback function `cb` at the end of the sample code is used to signal completion and must not be omitted.
-- The line `access_token.scope = scope` ensures that all granted scopes will be present in the Access Token. Removing it will reset all scopes and your token will include only any additional ones you might add with your script.
+- The line `access_token.scope = scope` ensures that all granted scopes will be present in the Access Token. Removing it will reset all scopes and the token will include only any additional ones you might add with the script.
 
 #### Response
 
@@ -61,9 +61,9 @@ The default response object every time you run this Hook is as follows:
 }
 ```
 
-### Testing your Hook
+### Testing Hooks
 
-Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, you can test your Hook using the Runner. Executing the code using the Runner requires a save, which means that your original code will be overwritten.
+Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, test Hooks using the Runner. Executing the code using the Runner requires a save, which means that the original code will be overwritten.
 
 The runner simulates a call to the Hook with the same body/payload that you would get with a Credentials Exchange. 
 

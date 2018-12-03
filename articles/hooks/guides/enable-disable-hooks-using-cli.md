@@ -16,7 +16,7 @@ The Auth0 Command-Line Interface (CLI) allows you to enable or disable existing 
 
 ## Enable Hooks
 
-The following command enables your Hook:
+The following command enables the Hook:
 
   `auth0 enable my-extension-1 -p auth0-default`
 
@@ -31,6 +31,6 @@ By default, the Auth0 CLI creates new Hooks in a disabled state.
 
 ## Disable Hooks
 
-The following command disables your Hook:
+The following command disables the Hook:
 
   `auth0 disable my-extension-1 -p auth0-default`

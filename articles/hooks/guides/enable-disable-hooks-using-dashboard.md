@@ -18,7 +18,7 @@ Each extensibility point may be associated with **zero** or **one** active Hook.
 Hooks utilize the Webtask Editor. For additional information on how to work with the Webtask Editor, you can review its docs [here](https://webtask.io/docs/editor/).
 :::
 
-When creating new Hooks, Auth0 enables your Hook for that extensibility point if there are no other Hooks associated with that point. In any other circumstance, Auth0 does *not* enable your new Hook.
+When creating new Hooks, Auth0 enables the Hook for that extensibility point if there are no other Hooks associated with that point. In any other circumstance, Auth0 does *not* enable the new Hook.
 
 ## Enable Hooks
 

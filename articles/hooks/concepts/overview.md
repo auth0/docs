@@ -16,9 +16,9 @@ When using [Database Connections](/connections/database), Hooks allow you to cus
 
 ## Hooks
 
-Hooks are Webtasks associated with specific extensibility points of the Auth0 platform. When using [Database Connections](/connections/database), Auth0 invokes the Hooks at runtime to execute your custom logic.
+Hooks are Webtasks associated with specific extensibility points of the Auth0 platform. When using [Database Connections](/connections/database), Auth0 invokes the Hooks at runtime to execute custom logic.
 
-You can manage your Hooks using:
+Manage Hooks using:
 
 * The Dashboard
 * The Command-Line Interface
@@ -45,4 +45,4 @@ Hooks allow you to customize the behavior of Auth0 with Node.js code, but they a
 
 ## Use the Webtask Editor to edit Hooks
 
-You can edit Hooks directly using the Webtask Editor. Please see the [Webtask documentation](https://webtask.io/docs/editor) for detailed information.
+Edit Hooks directly using the Webtask Editor. Please see the [Webtask documentation](https://webtask.io/docs/editor) for detailed information.

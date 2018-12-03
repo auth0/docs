@@ -10,7 +10,7 @@ v2: true
 ---
 # Delete Hooks Using the Dashboard
 
-The Auth0 Management Dashboard provides a visual interface for working with Hooks. With the Dashboard, you can delete Hooks that you no longer need.
+The Auth0 Management Dashboard provides a visual interface for working with Hooks. With the Dashboard, delete Hooks that you no longer need.
 
 ![Management Dashboard Hooks Page](/media/articles/hooks/hooks-dashboard.png)
 
@@ -22,8 +22,8 @@ Hooks utilize the Webtask Editor. For additional information on how to work with
 ## Delete an existing Hook
 
 1. In the Hooks page of the Management Dashboard, find the Hook you want to edit.
-2. Click the **Gear** icon next to your Hook.
+2. Click the **Gear** icon next to overview Hook.
 3. Click **Delete**.
-4. Confirm that you want to delete your Hook by clicking **YES, DELETE HOOK**.
+4. Confirm that you want to delete overview Hook by clicking **YES, DELETE HOOK**.
 
 ![Delete Hook Confirmation](/media/articles/hooks/delete-hook.png)
