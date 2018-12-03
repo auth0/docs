@@ -9,7 +9,7 @@ You can use the Refresh Token to get a new Access Token. Usually, a user will ne
 
 To refresh your token, make a `POST` request to the `/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
 
-An example POST to token URL:
+### Example POST to token URL
 
 ```har
 {
@@ -25,7 +25,7 @@ An example POST to token URL:
 }
 ```
 
-### Parameters
+#### Parameters
 
 | Parameter Name  | Description |
 |-----------------|-------------|
@@ -33,6 +33,8 @@ An example POST to token URL:
 | `client_id`     | Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
 | `refresh_token` | The Refresh Token to use. |
 | `scope`         | (Optional) A space-delimited list of requested scope permissions. If not sent, the original scopes will be used; otherwise you can request a reduced set of scopes. |
+
+### Response
 
 If all goes well, you'll receive an HTTP 200 response with a payload containing a new `access_token`, its lifetime in seconds (`expires_in`), granted `scope` values, and `token_type`. If the scope of the initial token included `openid`, then the response will also include a new `id_token`:
 
