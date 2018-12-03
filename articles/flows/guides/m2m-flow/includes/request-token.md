@@ -1,4 +1,4 @@
-## Request Tokens
+## Request Token
 
  To access your API, you must request an Access Token for it. To do so, you will need to `POST` to the [token URL](https://auth0.com/docs/api/authentication#client-credentials).
  
@@ -45,10 +45,3 @@
 You should validate your token before saving it. To learn how, see [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 :::
 
-[Access Tokens](/tokens/access-token) are used to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or another API. If you are calling your own API, the first thing your API will need to do is [verify the Access Token](/api-auth/tutorials/verify-access-token).
-
-[Refresh Tokens](/tokens/refresh-token) are used to obtain a new Access Token after the previous one has expired. The `refresh_token` will only be present in the response if you included the `offline_access` scope and enabled __Allow Offline Access__ for your API in the Dashboard.
-
-::: warning
-Refresh Tokens must be stored securely since they allow a user to remain authenticated essentially forever.
-:::
