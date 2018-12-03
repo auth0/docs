@@ -10,7 +10,7 @@ Once you've created the `code_verifier` and the `code_challenge`, you'll need to
 To authorize the user, your app must send the user to the [authorization URL](/api/authentication#authorization-code-grant-pkce-), including the `code_challenge` you generated in the previous step and the method you used to generate the `code_challenge`.
 
 
-### Example authorization URL:
+### Example authorization URL
 
 ```text
 https://${account.namespace}/authorize?
@@ -51,6 +51,9 @@ As an example, your HTML snippet for your authorization URL when adding login to
   Sign In
 </a>
 ```
+
+
+### Response
 
 If all goes well, you'll receive an `HTTP 302` response. The authorization code is included at the end of the URL:
 
