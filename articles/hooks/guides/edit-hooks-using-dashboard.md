@@ -16,10 +16,6 @@ The Auth0 Management Dashboard provides a visual interface for working with Hook
 Hooks utilize the Webtask Editor. For additional information on how to work with the Webtask Editor, you can review its docs [here](https://webtask.io/docs/editor/).
 :::
 
-## Edit your Hook
-
-To open up the Webtask Editor:
-
 1. Navigate to [the Hooks page of the Dashboard](${manage_url}/#/hooks) and find the Hook you want to edit.
 2. Click the **Pencil and Paper** icon to the right of the Hook to open the Webtask Editor.
 
@@ -55,7 +51,7 @@ If you run multiple tests, the Runner keeps track of the calls you've made in it
 If you created your Hook early on during the beta testing period, your Webtask Editor/Test Runner window might not populate with the schema required to successfully use the Test Runner. If that is the case, you'll need to save the Hook's code, delete the Hook, and create a new Hook using your existing code.
 :::
 
-## Rename your Hook
+## Rename Hooks
 
 You can rename your Hook using the Management Dashboard.
 
