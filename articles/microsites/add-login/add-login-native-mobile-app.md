@@ -30,7 +30,7 @@ In a native/mobile application, the default experience will open a SafariViewCon
 
 For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows/concepts/mobile-login-flow).
 
-<img src="/media/articles/microsites/add-login/overview-flow-native-mobile-app.png" alt="Flow Overview for Native/Mobile Apps" width-"100%">
+<img src="/media/articles/microsites/add-login/overview-flow-native-mobile-app.png" alt="Flow Overview for Native/Mobile Apps" width="100%">
 
 ## Implementation overview
 
