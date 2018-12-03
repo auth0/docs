@@ -43,7 +43,7 @@ GET https://${account.namespace}/authorize
 
 The `prompt=none` parameter will cause Auth0 to immediately send a result to the specified `redirect_uri` (callback URL) using the specified `response_mode` with one of two possible responses:
 
-* A successful authentication response if the user already has a valid session in Auth0 and consent or other prompts are needed.
+* A successful authentication response if the user already has a valid session in Auth0 and no consent or other prompts are needed.
 * An error response if the user doesn't have a valid session or some interactive prompt is required.
 
 ::: note
