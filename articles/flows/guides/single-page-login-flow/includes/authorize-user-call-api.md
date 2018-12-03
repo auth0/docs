@@ -58,11 +58,21 @@ Location: ${account.callback}#access_token=ey...MhPw&expires_in=7200&token_type=
 
 Note that the returned values depend on what you requested as a `response_type`.
 
+For SPAs with a back-end, using the Hybrid Flow:
+
 | Response Type       | Components |
 | ------------------- | ---------- |
-| code id_token       | Authorization Code, ID Token (plus `nonce`) |
+| code id_token       | Authorization Code, ID Token (plus `nonce` value) |
 | code token          | Authorization Code, Access Token (plus `expires_in` and `token_type` values) |
-| code id_token token | Authorization Code, ID Token, Access Token (plus `expires_in` and `token_type` values) |
+| code id_token token | Authorization Code, ID Token (plus `nonce` value), Access Token (plus `expires_in` and `token_type` values) |
+
+For SPAs without a back-end, using the Implicit Flow:
+
+| Response Type       | Components |
+| ------------------- | ---------- |
+| id_token       | ID Token (plus `nonce` value) |
+| token          | Access Token (plus `expires_in` and `token_type` values) |
+| id_token token | ID Token (plus `nonce` value), Access Token (plus `expires_in` and `token_type` values) |
 
 Auth0 will also return any state value you included in your call to the authorization URL.
 
@@ -71,7 +81,7 @@ Auth0 will also return any state value you included in your call to the authoriz
 [Access Tokens](/tokens/access-token) are used to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or another API. If you are calling your own API, the first thing your API will need to do is [verify the Access Token](/api-auth/tutorials/verify-access-token).
 
 ::: warning
-We do not recommend that the Access Token obtained in this step be used to call protected APIs.
+If the SPA has a back-end, we do not recommend that the Access Token obtained in this step be used to call protected APIs. In a later step, you will exchange your authorization code for a secure Access Token and use that to call your API instead.
 :::
 
 [Refresh Tokens](/tokens/refresh-token) are used to obtain a new Access Token or ID Token after the previous one has expired. The `refresh_token` will only be present in the response if you included the `offline_access` scope and enabled __Allow Offline Access__ for your API in the Dashboard.
