@@ -10,7 +10,7 @@ To begin the flow, you'll need to get the user's authorization. This step may in
 To authorize the user, your app must send the user to the [authorization URL](/api/authentication#authorization-code-grant).
 
 
-### Example authorization URL:
+### Example authorization URL
 
 ```text
 https://${account.namespace}/authorize?
