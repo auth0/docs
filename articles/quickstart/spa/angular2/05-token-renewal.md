@@ -16,9 +16,9 @@ useCase: quickstart
 
 ## Add Token Renewal
 
-To the `AuthService` service, add a method which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in memory.
+To the `AuthService` service, add a method which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
 
-```ts
+```typescript
 // src/app/auth/auth.service.ts
 
 public renewToken() {
@@ -49,7 +49,7 @@ export class AuthService {
     if (!this.isAuthenticated()) { return; }
     this.unscheduleRenewal();
 
-    const expiresAt = this._expiresAt;
+    const expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
 
     const expiresIn$ = Observable.of(expiresAt).pipe(
       mergeMap(
@@ -83,19 +83,18 @@ export class AuthService {
 
 This lets you schedule token renewal any time. For example, you can schedule a renewal after the user logs in and then again, if the page is refreshed.
 
-In the `setSession` method, add the function right after setting the Access Token and ID Token into memory.
+In the `setSession` method, add the function right after setting the Access Token and ID Token into local storage.
 
 ```ts
 // src/app/auth/auth.service.ts
 
 private setSession(authResult): void {
-  // Set isLoggedIn flag in localStorage
-  localStorage.setItem('isLoggedIn', 'true');
-  // Set the time that the access token will expire at
-  const expiresAt = (authResult.expiresIn * 1000) + Date.now();
-  this._accessToken = authResult.accessToken;
-  this._idToken = authResult.idToken;
-  this._expiresAt = expiresAt;
+  // Set the time that the Access Token will expire at
+  const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + Date.now());
+
+  localStorage.setItem('access_token', authResult.accessToken);
+  localStorage.setItem('id_token', authResult.idToken);
+  localStorage.setItem('expires_at', expiresAt);
 
   this.scheduleRenewal();
 }
@@ -122,12 +121,10 @@ Since client-side sessions should not be renewed after the user logs out, call t
 // src/app/auth/auth.service.ts
 
 public logout(): void {
-  // Remove tokens and expiry time
-  this._idToken = '';
-  this._accessToken = '';
-  this._expiresAt = 0;
-  // Remove isLoggedIn flag from localStorage
-  localStorage.removeItem('isLoggedIn');
+  // Remove tokens and expiry time from localStorage
+  localStorage.removeItem('access_token');
+  localStorage.removeItem('id_token');
+  localStorage.removeItem('expires_at');
   this.unscheduleRenewal();
   // Go back to the home route
   this.router.navigate(['/']);
