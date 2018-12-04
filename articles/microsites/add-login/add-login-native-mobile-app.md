@@ -2,7 +2,7 @@
 title: Add Login to My Native/Mobile App
 description: Everything you need to know to implement login for a native/mobile app.
 ctaText: Go to Quickstart
-ctaLink: /docs/quickstarts/native
+ctaLink: /docs/quickstart/native
 template: microsite
 topics:
   - authentication
