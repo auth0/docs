@@ -11,8 +11,6 @@ template: microsite
 v2: True
 ---
 
-# Define and Maintain Custom User Data - DRAFT
-
 After you have set up your [user profiles](/microsites/manage-my-users/manage-users-and-user-profiles), Auth0 can help you define custom user data using the [metadata](/users/concepts/overview-user-metadata) within the user profiles.
 
 ## How it works
@@ -45,45 +43,35 @@ console.log(user.app_metadata.plan); // "full"
 
 ## Customize and maintain user data
 
-There are a few different ways you can choose to customize the user metadata:
+There are a few different ways you can customize the user metadata:
 
-* You can use [Rules](/rules), which execute after a user has been authenticated, to augment the user profile during the authentication transaction, and optionally persist those changes back to Auth0. 
+* Use [Rules](/rules), which execute after a user has been authenticated, to augment the user profile during the authentication transaction, and optionally persist those changes back to Auth0. 
 
-* You can use the `GET/userinfo` endpoint to get a user's `user-metadata`, however you must first write a Rule to [copy metadata properties to the ID Token](/rules/current#copy-user-metadata-to-id-token). 
+* Use the `GET/userinfo` endpoint to get a user's `user-metadata`, however you must first write a Rule to [copy metadata properties to the ID Token](/rules/current#copy-user-metadata-to-id-token). 
 
-* If you have a database connection, you can use the [Authentication API](/api/authentication) with the [Signup](/api/authentication?shell#signup) endpoint to set the `user-metadata` for a user. For an example, refer to [Custom Signup > Using the API](/libraries/custom-signup#using-the-api).
+* If you have a database connection, use the [Authentication API](/api/authentication) with the [Signup](/api/authentication?shell#signup) endpoint to set the `user-metadata` for a user. For an example, refer to [Custom Signup > Using the API](/libraries/custom-signup#using-the-api).
 
 * You can use the [Management API](/api/management/v2) to create, retrieve, or update both the `user-metadata` and `app-metadata` fields. 
 
-After you have customized the user metadata, there are a couple of ways that Auth0 can help you maintain it.
-
-* Use Auth0 [Lock](https://github.com/auth0/lock) or the [Management API](/metadata/manage-user-metadata-with-apis) depending on how complex your apps are and how much metadata you have.
-* Manage and store data related to each of your users (that doesn't originate from identity providers) in the Auth0 data store or your own custom database.
+After you have customized the user metadata, you can manage and store data related to each of your users (that doesn't originate from identity providers) in the Auth0 data store or your own custom database.
 
 :::: further-reading
 ::: concepts
-  * [User Metadata Overview](/users/concepts/overview-user-metadata)
-  * [GDPR Overview](/compliance/overview-gdpr)
+  * [User Metadata](/users/concepts/overview-user-metadata)
 :::
 
 ::: guides
-  * [Search for Users](/users/search/v3)
   * [Manage User Metadata with Auth0 APIs](/users/guides/manage-user-metadata-with-apis)
   * [User Metadata in Rules](/rules/current/metadata-in-rules)
-  * [Implement Progressive Profiling](/users/guides/implement-progressive-profiling)
   :::
 
 ::: references
-  * [User Search Query Syntax](/users/search/v3/query-syntax)
   * [User Data Storage Best Practices](/users/references/user-data-storage-best-practices)
-  * [User Search Best Practices](/users/references/search-best-practices)
-  * [Lock Library](https://github.com/auth0/lock)
-  * [User Import/Export Extension](/extensions/user-import-export)
   * [Authorization Extension](/extensions/authorization-extension/v2)
-  * [Auth0 Identity Glossary](https://auth0.com/identity-glossary)
 :::
 ::::
 
 ::: whats-next
+* [Manage Users and User Profiles](/microsites/manage-my-users/manage-users-and-user-profiles)
 * [Connect Users to My Identity Platform](/microsites/manage-my-users/connect-users-to-my-identity-platform)
 :::
