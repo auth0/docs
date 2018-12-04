@@ -21,9 +21,9 @@ Your user will authenticate, and Auth0 will generate an ID Token that will be pa
 
 In a single-page application (SPA): 
 
-1. The user clicks your "login" button or link.
-2. Our SDK redirects the user to your Auth0 Authorization Server.
-3. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML).
+1. The user clicks your "login" button or link, and our SDK redirects the user to your Auth0 Authorization Server.
+2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML).
+3. Your app requests tokens.
 4. Auth0 responds with the user's ID Token.
 
 For security in server-side web apps, Auth0 uses the [Single-Page Login Flow](/flows/concepts/single-page-login-flow).
