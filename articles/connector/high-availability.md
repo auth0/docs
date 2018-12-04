@@ -13,11 +13,20 @@ useCase:
 
 The connector is a very important component, therefore we recommend a highly available deployment through redundancy: installing multiple instances of it.
 
+Each instance of the high-availability cluster will be always up and running, connected to Auth0. Auth0 will send login transactions and other requests to any of the available connectors.
+
 If one of the instances fails either because of a network issue or hardware issue, Auth0 will redirect the login transactions to the other connector.
 
 Having a highly available deployment also allows updating the connector with zero downtime.
 
-## Instructions for Windows
+## Installing multiple instances
+
+Installing multiple instances of the connector in a high-availability deployment involves:
+
+- a regular first-time installation. This is where you provide the ticket URL that links the connector to a specific connection in your Auth0 tenant and other configuration parameters.
+- making copies of this installation to other servers. This ensures that the same configuration and certificates used to secure communications are used in each instance.
+
+### Instructions for Windows
 
 1. Install the connector as explained [here](/connector/install).
 2. Make sure all steps are complete and the connector is up and running.
@@ -27,7 +36,7 @@ Having a highly available deployment also allows updating the connector with zer
 
 ![](/media/articles/connector/high-availability/connector-high-avail-console.png)
 
-## Instructions for Linux
+### Instructions for Linux
 
 1. Install the connector as explained [here](/connector/install).
 2. Make sure all steps are complete and the connector is up and running.
