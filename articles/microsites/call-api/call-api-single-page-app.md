@@ -1,69 +1,81 @@
 ---
-title: Call My API from a Single Page App
-description: Learn how to call your API from Single Page Apps (SPAs).
+title: Call My API from My Single-Page App
+description: Everything you need to know to call your API from your single-page app (SPA).
+ctaText: Go to Quickstart
+ctaLink: /docs/quickstart/spa
 template: microsite
+topics:
+  - authentication
+  - oauth2
+  - single-page-apps
+  - client-side-apps
+useCase:
+  - call-api
 ---
 
-# Call My API from a Single Page App - DRAFT
+Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to [accounts.google.com](http://accounts.google.com) whenever a user signs in.
 
-Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to accounts.google.com whenever a user signs in.
-
-Your user will authenticate, and Auth0 will generate an ID Token and Access Token that will be passed back to your application. The Access Token can then be used to call an API and extract attributes for that user (such as name, email, role, or a custom attribute).
+Your user will authenticate, and Auth0 will generate an ID Token and Access Token that will be passed back to your application. The Access Token can then be used to call your API and extract attributes for that user (such as name, email, role, or a custom attribute)
 
 ## How it works
 
-In a single page application:
+When your app needs to fetch user data from your API:
 
-::: steps 
-  1. The user clicks your **Login** button or link.
-  2. Our SDK redirects the user to your Auth0 Authorization Server.
-  3. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML).
-  4. Auth0 responds with the user's ID Token.
-  5. The Access Token can be used to call an API and retrieve their information.
-:::
+1. If the user is not already authenticated, our SDK redirects the user to your Auth0 Authorization Server.
+2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML).
+3. Your app requests tokens.
+4. Auth0 responds with an ID Token, an Access Token, and optionally, a Refresh Token.
+5. The Access Token can be used to call your API and retrieve requested data.
 
-For security in single page applications, Auth0 uses the 0Auth 2.0 Hybrid Login Flow.
+For single-page web apps, Auth0 uses the [Single-Page Login Flow](/flows/concepts/single-page-login-flow).
 
-*insert data flow diagram here*
+<img src="/media/articles/microsites/overview-flow-call-api-single-page-app.png" alt="Flow Overview for Single-Page Apps" width="100%">
 
-## How to implement it
+## Implementation overview
 
 ::: steps
-  1. Configure the sign in methods. 
-     - Auth0 supports a wide range of authentication methods: regular username/password (users can be stored in Auth0 or your own database), social (like Google, Facebook, and 50+ other providers), passwordless (email magic link, email code, and phone code), and enterprise (e.g., SAML-based, ADFS, Ping, Okta).
-     - Go to the dashboard and turn on the methods you want to allow; they will automatically show up in the login/signup page. By default, email/password and Google are enabled.
-  2. Customize the sign in UI (optional). 
-     - The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.
-  3. Use the Auth0 SDK to trigger the flow.
-     - Our SDK will take care of the details of opening the login screen, parsing the response back from Auth0, and validating the ID Token. Your application can store the Access Token and a Refresh Token used to renew the Access Token without asking the user to re-enter their credentials. Follow one of our [Single Page App Quickstarts](/quickstart/spa) to get started with the integration.
+  1. <strong>Configure your API</strong><br/><br/>Once you have created your API, you will need to configure any scopes that applications can request during authorization.
 
-### Alternative method: Use Embedded Login
+  2. <strong>Get an Access Token</strong><br/><br/>Your app requests an Access Token (and optionally, a Refresh Token) from your Auth0 Authorization Server using the [Single-Page Login Flow](/flows/concepts/single-page-login-flow).
 
-If you prefer to embed your own login pages within your single page application, you can implement our login widget (Lock UI) directly into your application with our [Lock v11 for Web](/libraries/lock/v11).
+  3. <strong>Call your API</strong><br/><br/>When your app calls your API, it includes the retrieved Access Token in the HTTP Authorization header.
+  
+  4. <strong>Refresh your Access Token</strong><br/><br/>When the Access Token expires you can use the Refresh Token to get a new one from your Auth0 Authorization Server.
 
-
-:::: further-reading
-::: concepts
-  * [Universal vs. Embedded Login](/guides/login/universal-vs-embedded)
-  * [ID Tokens](/tokens/id-token)
-  * [Access Tokens](/tokens/access-token)
 :::
 
+
+The easiest way to implement the Single-Page Login Flow is to [follow our Single-Page App Quickstarts](/quickstart/spa).
+
+You can also use our SDK:
+
+* [Auth0.js](/libraries#auth0-sdks)
+
+Finally, to use our API endpoints, you can follow our tutorial: [Call My API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow).
+
+:::: further-reading
+
 ::: guides
-  * [Implement the Hybrid Login Flow](/api-auth/tutorials/hybrid-flow)
-  * [Customize Hosted Login Page](/hosted-pages/login#how-to-customize-your-login-page)
-  * [Refresh Users' Sessions](/api-auth/tutorials/silent-authentication)
+  * [Auth0 Single-Page App Quickstarts](/quickstart/spa)
+  * [Call My API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow)
+  * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 :::
 
 ::: references
-  * [Where to Store Tokens](/security/store-tokens)
-  * [Identity Providers Supported by Auth0](/identityproviders)
-  * [Single Page App Quickstart](/quickstart/spa)
-  * [Auth0 SDKs](/libraries)
+  * [SDKs](/libraries)
+  * [Auth0 Authentication API](/api/authentication)
+  * [OAuth 2.0](/protocols/oauth2)
 :::
+
+::: concepts  
+  * [Access Tokens](/tokens/access-token)
+  * [Where to store tokens](/security/store-tokens)
+:::
+
 ::::
 
 ::: whats-next
-  * Auth0 offers many ways to personalize your user's login experience using [rules](/rules/current) and [hooks](/hooks).
-  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-my-api).
+  * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
+  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-api/protect-api).
+  * If you need to add login to your own single-page app, learn how at: [Add Login to My Single-Page App](/microsites/add-login/add-login-single-page-app)
 :::
