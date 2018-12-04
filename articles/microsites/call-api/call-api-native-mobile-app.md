@@ -48,32 +48,30 @@ For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows
 :::
 
 
-## How to implement
-
-The easiest way to implement the Mobile Login Flow is to follow our Mobile/Native Quickstarts.
+The easiest way to implement the Mobile Login Flow is to [follow our Mobile/Native Quickstarts](/quickstart/native).
 
 You can also use our mobile SDKs:
 
-Auth0 Swift SDK
-Auth0 Android SDK
-Finally, to use our API endpoints, you can follow our tutorial: Call My API Using the Mobile Login Flow.
+* [Auth0 Swift SDK](/libraries/auth0-swift)
+* [Auth0 Android SDK](/libraries/auth0-android)
+
+Finally, to use our API endpoints, you can follow our tutorial: [Call My API Using the Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
 
 :::: further-reading
 
 ::: guides
   * [Auth0 Mobile/Native App Quickstarts](/quickstart/native)
-  * [Add login using the mobile login flow](/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow)
-  * [Customize the hosted login page](/hosted-pages/login#how-to-customize-your-login-page)
+  * [Call My API Using the Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow)
+  * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 :::
 
 ::: references
   * [SDKs](/libraries)
-  * [Identity Providers supported by Auth0](/connections/identity-providers-supported)
+  * [Auth0 Authentication API](/api/authentication)
+  * [OAuth 2.0](/protocols/oauth2)
 :::
 
 ::: concepts  
-  * [Universal vs. Embedded Login](/guides/login/universal-vs-embedded)
-  * [ID Tokens](/tokens/id-token)
   * [Access Tokens](/tokens/access-token)
   * [Where to store tokens](/security/store-tokens)
 :::
@@ -82,6 +80,7 @@ Finally, to use our API endpoints, you can follow our tutorial: Call My API Usin
 
 ::: whats-next
   * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
-  * Most native/mobile apps access APIs to retrieve data, which can also be done using Auth0. Learn how to call your API from your app in our tutorial: [Call My API from My Native/Mobile App](/microsites/call-api/call-api-native-mobile-app).
   * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-api/protect-api).
+  * Most native/mobile apps access APIs to retrieve data, which can also be done using Auth0. Learn how to call your API from your app in our tutorial: [Call My API from My Native/Mobile App](/microsites/call-api/call-api-native-mobile-app).
+
 :::
