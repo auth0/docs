@@ -22,11 +22,10 @@ Your user will authenticate, and Auth0 will generate an ID Token and Access Toke
 
 In a native/mobile application, the default experience will open a SafariViewController in iOS or a Custom Chrome Tab in Android. 
 
-1. The user clicks your **Login** button or link.
+1. The user clicks your "login" button or link.
 2. Our SDK redirects the user to your Auth0 Authorization Server.
 3. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML).
-4. Auth0 responds with the user's ID Token and Access Token.
-5. The Access Token can be used to call an API and retrieve their information.
+4. Auth0 responds with the user's ID Token.
 
 For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows/concepts/mobile-login-flow).
 
@@ -35,11 +34,11 @@ For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows
 ## Implementation overview
 
 ::: steps
-  1. <strong>Configure the sign-in methods.</strong><br/><br/>Auth0 supports a wide range of authentication methods: regular username/password (users can be stored in Auth0 or your own database), social (like Google, Facebook, and 50+ other providers), passwordless (email magic link, email code, and phone code), and enterprise (e.g., SAML-based, ADFS, Ping, Okta).<br/><br/>Go to the dashboard and turn on the methods you want to allow; they will automatically show up in the login/signup page. By default, email/password and Google are enabled.
+  1. <strong>Configure the sign-in methods</strong><br/><br/>Auth0 supports a wide range of authentication methods: regular username/password (users can be stored in Auth0 or your own database), social (like Google, Facebook, and 50+ other providers), passwordless (email magic link, email code, and phone code), and enterprise (e.g., SAML-based, ADFS, Ping, Okta).<br/><br/>Go to the dashboard and turn on the methods you want to allow; they will automatically show up in the login/signup page. By default, email/password and Google are enabled.
 
-  2. <strong>Customize the sign-in UI (optional).</strong><br/><br/>The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.<br/><br/><img src="/media/articles/microsites/add-login/login-screen-mobile-native-app.png" alt="Default Login Screen for Native/Mobile Apps" width="30%">
+  2. <strong>Customize the sign-in UI (optional)</strong><br/><br/>The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.<br/><br/><img src="/media/articles/microsites/add-login/login-screen-mobile-native-app.png" alt="Default Login Screen for Native/Mobile Apps" width="30%">
 
-  3. <strong>**Use the Auth0 SDK to trigger the flow.**</strong><br/><br/>The SDK will take care of the details of opening the SafariViewController or Chrome Custom Tab, parsing the response back from Auth0, and validating the ID Token.<br/><br/>Your app can store the Access Token and a Refresh Token used to renew the Access Token without asking the user to re-enter their credentials. Follow one of our [Native/Mobile Quickstarts](/quickstart/native) to get started with the integration.
+  3. <strong>**Use the Auth0 SDK to trigger the flow**</strong><br/><br/>The SDK will take care of the details of opening the SafariViewController or Chrome Custom Tab, parsing the response back from Auth0, and validating the ID Token.<br/><br/>Your app can store the Access Token and a Refresh Token used to renew the Access Token without asking the user to re-enter their credentials. Follow one of our [Native/Mobile Quickstarts](/quickstart/native) to get started with the integration.
 
 :::
 
