@@ -68,5 +68,5 @@ Or, to use our API endpoints, you can follow our tutorial: [Call My API Using th
 ::: whats-next
   * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
   * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-api/protect-api).
-  * Learn more about the ways Auth0 can help you [manage user profiles](/microsites/manage-users/manage-users-and-user-profiles) and [maintain custom user data]().
+  * Learn more about the ways Auth0 can help you [manage user profiles](/microsites/manage-users/manage-users-and-user-profiles) and [maintain custom user data](/microsites/manage-users/define-maintain-custom-user-data).
 :::
