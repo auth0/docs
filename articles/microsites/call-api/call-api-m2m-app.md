@@ -1,51 +1,72 @@
 ---
-title: Call My API from Another API
-description: Learn how to call your API from another API.
+title: Call My API from My Machine-to-Machine (M2M) App
+description: Everything you need to know to call your API from your machine-to-machine (M2M) app.
+ctaText: Go to Quickstart
+ctaLink: /docs/quickstart/backend
 template: microsite
+topics:
+  - authentication
+  - oauth2
+  - m2m
+useCase:
+  - call-api
 ---
 
-# Call My API from Another API - DRAFT
+Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to [accounts.google.com](http://accounts.google.com) whenever a user signs in.
 
-With machine-to-machine (M2M) apps, the system authenticates and authorizes the app rather than a user. For this scenario, typical authentication schemes like username + password or social logins don't make sense. Instead, M2M apps use the Client Credentials Flow, in which they pass along their Client ID and Client Secret to authenticate themselves and get a token.
+With machine-to-machine (M2M) apps, however, the system authenticates and authorizes the app rather than a user.
 
 ## How it works
 
-*insert data flow diagram here*
+When your app needs to fetch user data from your API:
+
+1. Your M2M application authenticates with your Auth0 Authorization Server.
+2. Auth0 responds with an Access Token.
+3. The Access Token can be used to call your API and retrieve requested data.
+
+For M2M applications, Auth0 uses the [M2M Flow](/flows/concepts/m2m-flow).
+
+<img src="/media/articles/microsites/overview-flow-call-api-m2m-app.png" alt="Flow Overview for Machine-to-Machine Apps" width="100%">
+
+## Implementation overview
 
 ::: steps
-  1. Your app authenticates with the Auth0 Authorization Server using its Client ID and Client Secret (/authorize endpoint).
-  2. Your Auth0 Authorization Server validates the Client ID and Client Secret.
-  3. Your Auth0 Authorization Server responds with an Access Token.
-  4. Your application can use the Access Token to call an API on behalf of itself.
+  1. <strong>Configure your API</strong><br/><br/>Once you have created your API, you will need to authorize your M2M application and configure any scopes that applications can request during authorization.
+
+  2. <strong>Get an Access Token</strong><br/><br/>Your app requests an Access Token from your Auth0 Authorization Server using the [M2M Flow](/flows/concepts/m2m-flow).
+
+  3. <strong>Call your API</strong><br/><br/>When your app calls your API, it includes the retrieved Access Token in the HTTP Authorization header.
+
 :::
 
-## How to implement it
 
-The easiest way to implement the M2M Flow is to follow our [M2M Quickstarts](/quickstart/backend).
+The easiest way to implement the M2M Flow is to [follow our Backend/API Quickstarts](/quickstart/backend).
 
-You can also follow our tutorial to [Implement the M2M Flow](/flows/guides/m2m-flow/implement-m2m-flow) using our API endpoints.
+Or, to use our API endpoints, you can follow our tutorial: [Call My API Using the M2M Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow).
 
 :::: further-reading
-::: concepts
-  * [Client Credentials Grant](/api-auth/grant/client-credentials)
-  * [Architecture Scenario: Server + API](/architecture-scenarios/application/server-api)
-  * [Access Tokens](/tokens/access-token)
-  * [Scopes](/scopes/current)
-::::
 
 ::: guides
-  * [Implement the Client Credentials Grant](/api-auth/tutorials/client-credentials)
-  * [Change Scopes and Add Custom Claims to Tokens Using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
+  * [Auth0 Backend/API Quickstarts](/quickstart/backend)
+  * [Call My API Using the M2M Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow)
+  * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 :::
 
 ::: references
-  * [API Authorization](/api-auth)
-  * [Authentication API](/api/authentication)
-  * [0Auth 2.0](/protocols/oauth2)
+  * [SDKs](/libraries)
+  * [Auth0 Authentication API](/api/authentication)
+  * [OAuth 2.0](/protocols/oauth2)
 :::
+
+::: concepts  
+  * [Access Tokens](/tokens/access-token)
+  * [Where to store tokens](/security/store-tokens)
+:::
+
 ::::
 
 ::: whats-next
-  * Auth0 offers many ways to personalize your user's login experience using [rules](/rules/current) and [hooks](/hooks).
-  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-my-api).
+  * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
+  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-api/protect-api).
+  * Learn more about the ways Auth0 can help you [manage user profiles]() and [maintain custom user data]().
 :::
