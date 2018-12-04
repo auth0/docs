@@ -22,7 +22,7 @@ Your API will receive a request including an Access Token: 
 4. Your API validates the Access Token.
 5. Your API responds with the requested information.
 
-<img src="/media/articles/microsites/protect-api/overview-flow-protect-api.png" alt="Flow Overview for Protect API" width="100%">
+<img src="/media/articles/microsites/overview-flow-protect-api.png" alt="Flow Overview for Protect API" width="100%">
 
 ## Implementation overview
 
