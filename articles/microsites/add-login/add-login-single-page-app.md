@@ -2,7 +2,7 @@
 title: Add Login to My Single-Page App
 description: Everything you need to know to implement login for a single-page app (SPA).
 ctaText: Go to Quickstart
-ctaLink: /docs/quickstarts/spa
+ctaLink: /docs/quickstart/spa
 template: microsite
 topics:
   - authentication
