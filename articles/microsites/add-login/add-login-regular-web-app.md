@@ -74,7 +74,7 @@ Please note that embedded login requires the use of a custom domain, which is cu
 
 ::: whats-next
   * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
-  * Most native/mobile apps access APIs to retrieve data, which can also be done using Auth0. Learn how to call your API from your native/mobile app in our tutorial: [Call My API from a Regular Web App](/microsites/call-my-api/call-my-api-regular-web-app).
+  * Most regular web apps access APIs to retrieve data, which can also be done using Auth0. Learn how to call your API from your app in our tutorial: [Call My API from My Regular Web App](/microsites/call-my-api/call-my-api-regular-web-app).
   * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-my-api/protect-my-api).
 :::
 
