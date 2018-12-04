@@ -83,7 +83,7 @@ Please note that adding custom claims to ID Tokens through this method will also
 
 ## Token refresh flow and custom claims
 
-When an application requests new tokens using a [Refresh Token](/tokens/refresh-token/current), the new tokens will not automatically inherit any custom claims previously added. But since rules run on a token refresh flow as well, the same claim customization code will be executed in these cases. This gives the flexibility of adding or changing claims in issued tokens without forcing applications to obtain a new refresh token.
+When an application requests new tokens using a [Refresh Token](/tokens/refresh-token/current), the new tokens will not automatically inherit any custom claims previously added. But since rules run on a token refresh flow as well, the same claim customization code will be executed in these cases. This gives the flexibility of adding or changing claims in newly issued tokens without forcing applications to obtain a new refresh token.
 
 ## Further reading
 
