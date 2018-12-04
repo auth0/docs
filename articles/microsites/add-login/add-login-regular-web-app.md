@@ -28,14 +28,14 @@ In a regular web application: 
 
 For security in server-side web apps, Auth0 uses the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow).
 
-<img src="/media/articles/microsites/add-login/overview-flow-add-login-regular-web-app.png" alt="Flow Overview for Regular Web Apps" width="100%">
+<img src="/media/articles/microsites/overview-flow-add-login-regular-web-app.png" alt="Flow Overview for Regular Web Apps" width="100%">
 
 ## Implementation overview
 
 ::: steps
   1. <strong>Configure the sign-in methods</strong><br/><br/>Auth0 supports a wide range of authentication methods: regular username/password (users can be stored in Auth0 or your own database), social (i.e., Google, Facebook, and 50+ other providers), passwordless (email magic link, email code, and phone code), and enterprise (e.g., SAML-based, ADFS, Ping, Okta).<br/><br/>Go to the dashboard and turn on the methods you want to allow; they will automatically show up in the login/sign-up page. By default, email/password and Google are enabled.
 
-  2. <strong>Customize the sign-in UI (optional)</strong><br/><br/>The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.<br/><br/><img src="/media/articles/microsites/add-login/login-screen-default-web.png" alt="Default Login Screen for Native/Mobile Apps" width="70%">
+  2. <strong>Customize the sign-in UI (optional)</strong><br/><br/>The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.<br/><br/><img src="/media/articles/microsites/login-screen-default-web.png" alt="Default Login Screen for Native/Mobile Apps" width="70%">
 
   3. <strong>Use the Auth0 SDK to trigger the flow</strong><br/><br/>The SDK will take care of the details of opening the SafariViewController or Chrome Custom Tab, parsing the response back from Auth0, and validating the ID Token.<br/><br/>Your app can store the Access Token and a Refresh Token used to renew the Access Token without asking the user to re-enter their credentials. Follow one of our [Regular Web App Quickstarts](/quickstart/webapp) to get started with the integration.
 
