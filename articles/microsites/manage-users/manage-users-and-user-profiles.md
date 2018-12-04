@@ -63,6 +63,6 @@ You can modify the information contained in a user profile and in an ID Token in
 ::::
 
 ::: whats-next
-* [Define and Maintain Custom User Data](/microsites/manage-my-users/define-maintain-custom-user-data)
-* [Connect Users to my Identity Platform](/microsites/manage-my-users/connect-users-to-my-identity-platform)
+* [Define and Maintain Custom User Data](/microsites/manage-users/define-maintain-custom-user-data)
+* [Connect Users to my Identity Platform](/microsites/manage-users/connect-users-to-my-identity-platform)
 :::

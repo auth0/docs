@@ -11,7 +11,7 @@ template: microsite
 v2: True
 ---
 
-After you have set up your [user profiles](/microsites/manage-my-users/manage-users-and-user-profiles), Auth0 can help you define custom user data using the [metadata](/users/concepts/overview-user-metadata) within the user profiles.
+After you have set up your [user profiles](/microsites/manage-users/manage-users-and-user-profiles), Auth0 can help you define custom user data using the [metadata](/users/concepts/overview-user-metadata) within the user profiles.
 
 ## How it works
 
@@ -72,6 +72,6 @@ After you have customized the user metadata, you can manage and store data relat
 ::::
 
 ::: whats-next
-* [Manage Users and User Profiles](/microsites/manage-my-users/manage-users-and-user-profiles)
-* [Connect Users to My Identity Platform](/microsites/manage-my-users/connect-users-to-my-identity-platform)
+* [Manage Users and User Profiles](/microsites/manage-users/manage-users-and-user-profiles)
+* [Connect Users to My Identity Platform](/microsites/manage-users/connect-users-to-my-identity-platform)
 :::
