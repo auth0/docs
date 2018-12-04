@@ -1,68 +1,81 @@
 ---
-title: Call My API from a Regular Web App
-description: Learn how to call your API from Regular Web Apps.
+title: Call My API from My Regular Web App
+description: Everything you need to know to call your API from your regular web app.
+ctaText: Go to Quickstart
+ctaLink: /docs/quickstarts/webapp
 template: microsite
+topics:
+  - authentication
+  - oauth2
+  - regular-web-apps
+  - server-side-apps
+useCase:
+  - call-api
 ---
 
-# Call My API from a Regular Web App
+Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to [accounts.google.com](http://accounts.google.com) whenever a user signs in.
 
-Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to accounts.google.com whenever a user signs in.
-
-Your user will authenticate, and Auth0 will generate an ID Token and Access Token that will be passed back to your application. The Access Token can then be used to call an API and extract attributes for that user (such as name, email, role, or a custom attribute).
+Your user will authenticate, and Auth0 will generate an ID Token and Access Token that will be passed back to your application. The Access Token can then be used to call your API and extract attributes for that user (such as name, email, role, or a custom attribute)
 
 ## How it works
 
-In a regular web application:
+When your app needs to fetch user data from your API:
 
-::: steps 
-  1. The user clicks your **Login** button or link.
-  2. Our SDK redirects the user to your Auth0 Authorization Server.
-  3. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML).
-  4. Auth0 responds with the user's ID Token.
-:::
+1. If the user is not already authenticated, our SDK redirects the user to your Auth0 Authorization Server.
+2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML).
+3. Your app requests tokens.
+4. Auth0 responds with an ID Token, an Access Token, and optionally, a Refresh Token.
+5. The Access Token can be used to call your API and retrieve requested data.
 
-For security in server-side web apps, Auth0 uses the OAuth 2.0 Regular Web App Login Flow.
+For server-side web apps, Auth0 uses the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow).
 
-*insert flow diagram here*
+<img src="/media/articles/microsites/overview-flow-call-api-regular-web-app.png" alt="Flow Overview for Regular Web Apps" width="100%">
 
-## How to implement it
-
-Before you can proceed with calling your API, you will need to get an Access Token. This implementation assumes you've already registered your application with Auth0. 
+## Implementation overview
 
 ::: steps
-  1. Configure your API. 
-     - Once the application has been created you will need to configure the Scopes which applications can request during authorization.
-  2. Get an Access Token. 
-     - When your application receives the authorization code, it exchanges it for an Access Token. It sends the authorization code and the code verifier to Auth0's token endpoint.
-  3. Call your API.
-     - To include the Access Token that grants you the right to call the API, Auth0 and the OAuth 2.0 specification recommends for its inclusion in the [HTTP Authorization header](/api-auth/tutorials/authorization-code-grant#3-call-the-api) whenever possible.
-  4. Refresh your Access Token.
-     - Your Access Token has a limited lifetime and therefore your Access Token will eventually expire. Use Refresh Tokens to get new Access Tokens without having to bother the end user for permissions again.
-     - We recommend that you request Auth0 send a Refresh Token whenever it grants an Access Token. You can use it to refresh your Access Token without going through the authorization process again.
+  1. <strong>Configure your API</strong><br/><br/>Once you have created your API, you will need to configure any scopes that applications can request during authorization.
+
+  2. <strong>Get an Access Token</strong><br/><br/>Your app requests an Access Token (and optionally, a Refresh Token) from your Auth0 Authorization Server using the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow).
+
+  3. <strong>Call your API</strong><br/><br/>When your app calls your API, it includes the retrieved Access Token in the HTTP Authorization header.
+  
+  4. <strong>Refresh your Access Token</strong><br/><br/>When the Access Token expires you can use the Refresh Token to get a new one from your Auth0 Authorization Server.
+
 :::
+
+
+The easiest way to implement the Regular Web App Login Flow is to [follow our Regular Web App Quickstarts](/quickstart/webapp).
+
+You can also use our SDK:
+
+* [Auth0.js](/libraries#auth0-sdks)
+
+Finally, to use our API endpoints, you can follow our tutorial: [Call My API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
 
 :::: further-reading
-::: concepts
-  * [Application Grant Types](/applications/application-grant-types)
-  * [Access Tokens](/tokens/access-token)
-  * [Scopes](/scopes/current)
-:::
 
 ::: guides
-  * [Register Web Applications](/applications/webapps)
-  * [Refresh Your Access Tokens](/tokens/refresh-token/current#use-a-refresh-token)
-  * [Authorization Code Grant](/api-auth/tutorials/authorization-code-grant)
+  * [Auth0 Regular Web App Quickstarts](/quickstart/webapp)
+  * [Call My API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow)
+  * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 :::
 
 ::: references
-  * [API Authorization](/api-auth)
-  * [Authentication API](/api/authentication)
-  * [0Auth 2.0](/protocols/oauth2)
+  * [SDKs](/libraries)
+  * [Auth0 Authentication API](/api/authentication)
+  * [OAuth 2.0](/protocols/oauth2)
 :::
+
+::: concepts  
+  * [Access Tokens](/tokens/access-token)
+  * [Where to store tokens](/security/store-tokens)
+:::
+
 ::::
 
 ::: whats-next
-  * [Protect My API](/microsites/protect-my-api)
-  * Mobile Login Flow
-  * [Manage My Users](/microsites/manage-my-users/manage-users-and-user-profiles)
+  * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
+  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-api/protect-api).
+  * If you need to add login to your own regular web app, learn how at: [Add Login to My Regular Web App](/microsites/add-login/add-login-regular-web-app)
 :::
