@@ -2,7 +2,7 @@
 title: Call My API from My Native/Mobile App
 description: Everything you need to know to call your API from your native/mobile app.
 ctaText: Go to Quickstart
-ctaLink: /docs/quickstarts/native
+ctaLink: /docs/quickstart/native
 template: microsite
 topics:
   - authentication
