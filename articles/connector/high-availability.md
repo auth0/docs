@@ -23,7 +23,7 @@ Having a highly available deployment also allows updating the connector with zer
 
 Installing multiple instances of the connector in a high-availability deployment involves:
 
-- a regular first-time installation. This where you provide the ticket URL that links the connector to a specific connection in your Auth0 tenant and other configuration parameters.
+- a regular first-time installation. This is where you provide the ticket URL that links the connector to a specific connection in your Auth0 tenant and other configuration parameters.
 - making copies of this installation to other servers. This ensures that the same configuration and certificates used to secure communications are used in each instance.
 
 ### Instructions for Windows
