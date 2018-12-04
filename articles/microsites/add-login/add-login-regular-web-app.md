@@ -54,7 +54,7 @@ Please note that embedded login requires the use of a custom domain, which is cu
 
 ::: guides
   * [Auth0 Regular Web App Quickstarts](/quickstart/webapp)
-  * [Add login using the mobile login flow](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow)
+  * [Add login using the regular web app login flow](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow)
   * [Customize the hosted login page](/hosted-pages/login#how-to-customize-your-login-page)
 :::
 
