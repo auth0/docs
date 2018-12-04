@@ -46,7 +46,7 @@ Here is a list of tips our customers have found most useful when first getting s
 
 * If you make use of [user_metadata](/users/concepts/overview-user-metadata) confirm that this is data that users should be able to change on their own (eg. not “payment status”).
 
-* Review your [Anomaly Detection settings](${manage_url}/#/anomaly) and read the [Anomaly Detection doc](/anomaly-detection/concepts/overview-anomaly-detection) to understand how to unblock users that have been blocked.
+* Review your [Anomaly Detection settings](${manage_url}/#/anomaly) and read the [Anomaly Detection doc](/anomaly-detection) to understand how to unblock users that have been blocked.
 
 * Review your [Tenant Settings Admin section](${manage_url}/#/tenant/admins) to make sure that only appropriate admins have access to the Auth0 dashboard.
 

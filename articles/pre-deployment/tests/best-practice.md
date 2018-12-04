@@ -18,7 +18,7 @@ The following checks cannot be automated, so we recommend manually checking thes
 
 | Check | Description |
 | ---- | ----------- |
-| [Anomaly Detection](/anomaly-detection/concepts/overview-anomaly-detection) | Review your account's [Anomaly Detection capability and configuration](${manage_url}/#/anomaly). |
+| [Anomaly Detection](/anomaly-detection) | Review your account's [Anomaly Detection capability and configuration](${manage_url}/#/anomaly). |
 | Externalize [Configuration Parameters](/connections/database/mysql#4-add-configuration-parameters) | [Externalize, instead of hard code, all configuration parameters](${manage_url}/#/connections/database), such as credentials, connection strings, API keys, and so on, when developing Rules, Hooks, or custom database connections. |
 | [Restrict Delegation](/applications/application-settings/single-page-app#oauth) | If not using Delegation, set the Allowed Apps and APIs field of your Application Settings to the current Client ID. |
 | SSO Timeout Values | Review the default [SSO cookie timeout values](${manage_url}/#/account/advanced) and ensure they align with your requirements. |

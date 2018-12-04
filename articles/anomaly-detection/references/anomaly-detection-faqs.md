@@ -37,6 +37,6 @@ The **RedirectTo** URL is the URL listed in the Dashboard in [Emails > Templates
 You can configure the **URL Lifetime** and **Redirect To** values in the Dashboard by going to [Emails > Templates > Change Password Template](${manage_url}/#/emails).
 
 ## Keep reading
-* Understand [how Auth0 detects anomalies](/anomaly-detection/concepts/overview-anomaly-detection).
+* Understand [how Auth0 detects anomalies](/anomaly-detection).
 * Understand why a user receives a [breached password email](/anomaly-detection/concepts/breached-passwords) and general web security tips.
 * [Restrictions and limitations](/anomaly-detection/references/anomaly-detection-restrictions-limitations) of Auth0 anomaly detection.

@@ -55,7 +55,7 @@ Set preferences for breached password detection actions. For more information, s
 4. Click **Save** when you are finished.
 
 ## Keep reading
-* Understand [how Auth0 detects anomalies](/anomaly-detection/concepts/overview-anomaly-detection).
+* Understand [how Auth0 detects anomalies](/anomaly-detection).
 * Understand why a user receives a [breached password email](/anomaly-detection/concepts/breached-passwords) and general web security tips.
 * [Restrictions and limitations](/anomaly-detection/references/anomaly-detection-restrictions-limitations) of Auth0 anomaly detection.
 * [Frequently asked questions](/anomaly-detection/references/anomaly-detection-faqs) about anomaly detection.

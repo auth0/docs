@@ -59,7 +59,7 @@ API requests to selected [Authentication](/api/authentication) or [Management AP
 ## Endpoints with Rate Limits
 
 ::: note
-If you are using an API endpoint **not** listed below and you receive rate limit headers as part of your response, please see the page on [Anomaly Detection](/anomaly-detection/concepts/overview-anomaly-detection) for additional information.
+If you are using an API endpoint **not** listed below and you receive rate limit headers as part of your response, please see the page on [Anomaly Detection](/anomaly-detection) for additional information.
 :::
 
 ### Management API v2

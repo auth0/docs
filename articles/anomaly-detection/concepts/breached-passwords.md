@@ -53,6 +53,6 @@ The longer a password is, the harder it becomes to guess. Try to make passwords 
 Applications release patches and updates when they find security vulnerabilities in their systems. Keeping applications, web browsers, and operating systems up to date can help prevent security breaches.
 
 ## Keep reading
-* Understand how Auth0 [detects anomalies](/anomaly-detection/concepts/overview-anomaly-detection).
+* Understand how Auth0 [detects anomalies](/anomaly-detection).
 * Learn how to [customize blocked account emails](/anomaly-detection/guides/customize-blocked-account-emails).
 * [Frequently asked questions](/anomaly-detection/references/anomaly-detection-faqs) about anomaly detection.

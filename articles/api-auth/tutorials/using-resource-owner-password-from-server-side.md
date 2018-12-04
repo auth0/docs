@@ -30,7 +30,7 @@ Before you continue, make sure to have [brute force protection](/anomaly-detecti
 
 3. Your server submits the credentials to Auth0 using the [Resource Owner Password Grant](/api-auth/grant/password) flow.
 
-4. Auth0 validates the credentials and returns an Access Token. As part of the validation process Auth0 might also execute [anomaly-detection verifications](/anomaly-detection/concepts/overview-anomaly-detection) and perform appropriate actions if an anomaly is detected.
+4. Auth0 validates the credentials and returns an Access Token. As part of the validation process Auth0 might also execute [anomaly-detection verifications](/anomaly-detection) and perform appropriate actions if an anomaly is detected.
 
 ## Brute-force protection and server-side APIs
 

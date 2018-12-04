@@ -54,7 +54,7 @@ If this block is triggered, additional access attempts are released one-at-a-tim
 Auth0 emails the dashboard administrator(s) when this block is triggered. Within this email there's a link the owner can click on to clear the block.
 
 ## Keep reading
-* Understand [how Auth0 detects anomalies](/anomaly-detection/concepts/overview-anomaly-detection).
+* Understand [how Auth0 detects anomalies](/anomaly-detection).
 * Learn how to [set anomaly detection preferences](/anomaly-detection/guides/set-anomaly-detection-preferences) in the Dashboard.
 * Learn how to [disable and enable brute-force protection](/anomaly-detection/guides/enable-disable-brute-force-protection).
 * [Restrictions and limitations](/anomaly-detection/references/anomaly-detection-restrictions-limitations) of Auth0 anomaly detection.

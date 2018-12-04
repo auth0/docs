@@ -31,7 +31,7 @@
 <% } else if (screen === "logs") { %>
   In this page you can view log data of both actions taken in the dashboard by the administrators, as well as authentications made by your users. [More info on logs](/logs).
 <% } else if (screen === "anomaly") { %>
-  Here you can configure extra layers of security by enabling shields​ that protect you and your users against different types of attacks and user access anomalies. This is not available for free accounts and does require the purchase of an addon to your Auth0 subscription. [More info on anomaly detection](/anomaly-detection/concepts/overview-anomaly-detection).
+  Here you can configure extra layers of security by enabling shields​ that protect you and your users against different types of attacks and user access anomalies. This is not available for free accounts and does require the purchase of an addon to your Auth0 subscription. [More info on anomaly detection](/anomaly-detection).
 <% } else if (screen === "extensions") { %>
   In this page you can see a list of pre-built addons that we have created for you. You can use them to extend the functionality of the Auth0 base product. You can enable extensions in order to import or export users, export logs to external services, expose the Users dashboard to a group of users (without allowing them access to the rest of the dashboard), manage user authorization, and more. [More info on extensions](/extensions).
 <% } else { %>

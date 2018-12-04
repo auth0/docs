@@ -628,12 +628,11 @@ articles:
         hidden: true
 
   - title: "Anomaly Detection"
-    url: "/anomaly-detection/concepts/overview-anomaly-detection"
+    url: "/anomaly-detection"
     children:
 
       - title: "Overview"
-        url: "/anomaly-detection/concepts/overview-anomaly-detection"
-        hidden: true
+        url: "/anomaly-detection"
 
       - title: "Breached Password Security"
         url: "/anomaly-detection/concepts/breached-passwords"
