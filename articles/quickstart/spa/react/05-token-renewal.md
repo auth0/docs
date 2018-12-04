@@ -16,27 +16,26 @@ useCase: quickstart
 
 ## Add Token Renewal
 
-In the `Auth` service, we already have a method which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set new tokens in local storage.
+To the `Auth` service, add a method which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set new tokens in local storage.
 
 ```js
 // src/Auth/Auth.js
 
-renewSession() {
-  this.auth0.checkSession({}, (err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setSession(authResult);
-      } else if (err) {
-        this.logout();
+renewToken() {
+  this.auth0.checkSession({}, (err, result) => {
+      if (err) {
         console.log(err);
-        alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
+      } else {
+        this.setSession(result);
       }
-  });
+    }
+  );
 }
 ```
 
-The Access Token should be renewed when it expires. In this tutorial, we'll make sure it automatically reviews when the token expires. The expiry time of the token is stored in the Auth service `this.expiresAt`.
+The Access Token should be renewed when it expires. In this tutorial, the expiry time of the token is stored in local storage as `expires_at`.
 
-Define a timing mechanism for renewing the token.
+Define a timing mechanism for renewing the token. 
 
 ::: note
 You can define any timing mechanism you want. You can choose any library that handles timers. This example shows how to use a `setTimeout` call.
@@ -51,27 +50,15 @@ The `setTimeout` call call is assigned to the `tokenRenewalTimeout` property. Wh
 ```js
 // src/Auth/Auth.js
 
+tokenRenewalTimeout
 // ...
-
-export default class Auth {
-  // ...
-
-  tokenRenewalTimeout;
-
-  // ...
-
-  scheduleRenewal() {
-    let expiresAt = this.expiresAt;
-    const timeout = expiresAt - Date.now();
-    if (timeout > 0) {
-      this.tokenRenewalTimeout = setTimeout(() => {
-        this.renewSession();
-      }, timeout);
-    }
-  }
-
-  getExpiryDate() {
-    return JSON.stringify(new Date(this.expiresAt));
+scheduleRenewal() {
+  const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+  const delay = expiresAt - Date.now();
+  if (delay > 0) {
+    this.tokenRenewalTimeout = setTimeout(() => {
+      this.renewToken();
+    }, delay);
   }
 }
 ```
@@ -82,20 +69,21 @@ You can now include a call to the `scheduleRenewal` method in the `setSession` m
 // src/Auth/Auth.js
 
 // ...
+setSession(authResult) {
+  // Set the time that the Access Token will expire at
+  let expiresAt = JSON.stringify(
+    authResult.expiresIn * 1000 + new Date().getTime()
+  );
 
-export default class Auth {
-  // ...
+  localStorage.setItem('access_token', authResult.accessToken);
+  localStorage.setItem('id_token', authResult.idToken);
+  localStorage.setItem('expires_at', expiresAt);
 
-  setSession(authResult) {
-    // ...
+  // schedule a token renewal
+  this.scheduleRenewal();
 
-    // schedule a token renewal
-    this.scheduleRenewal();
-
-    // ...
-  }
-
-  // ...
+  // navigate to the home route
+  history.replace('/home');
 }
 ```
 
@@ -105,17 +93,9 @@ To schedule renewing the tokens when the page is refreshed, in the constructor o
 // src/Auth/Auth.js
 
 // ...
-
-export default class Auth {
-  // ,..
-
-  constructor() {
-    // ...
-
-    this.scheduleRenewal();
-  }
-
-  // ,..
+constructor() {
+  // ...
+  this.scheduleRenewal();
 }
 ```
 
@@ -124,21 +104,9 @@ Since client-side sessions should not be renewed after the user logs out, call `
 ```js
 // src/Auth/Auth.js
 
-// ...
-
-export default class Auth {
+logout() {
   // ...
-
-  logout() {
-    // ...
-
-    // Clear token renewal
-    clearTimeout(this.tokenRenewalTimeout);
-
-    // ...
-  }
-
-  // ...
+  clearTimeout(this.tokenRenewalTimeout);
 }
 ```
 
