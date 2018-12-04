@@ -26,7 +26,7 @@ When your app needs to fetch user data from your API:
 
 1. If the user is not already authenticated, our SDK redirects the user to your Auth0 Authorization Server.
 2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML).
-3. Your app requests tokens on behalf of the user.
+3. Your app requests tokens.
 4. Auth0 responds with the user's ID Token and an Access Token.
 5. The Access Token can be used to call your API and retrieve requested data.
 
@@ -81,6 +81,5 @@ Finally, to use our API endpoints, you can follow our tutorial: [Call My API Usi
 ::: whats-next
   * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
   * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-api/protect-api).
-  * Many APIs have a matching front-end, which can also be protected using Auth0.  and you want to log users in using Auth0, learn to add login to your app: [Add Login to My Native/Mobile App](/microsites/add-login/add-login-native-mobile-app), [Add Login to My Regular Web App](/microsites/add-login/add-login-regular-web-app), or [Add Login to My Single-Page App](/microsites/add-login/add-login-single-page-app).
-
+  * If you need to add login to your own native/mobile app, learn how at: [Add Login to My Native/Mobile App](/microsites/add-login/add-login-native-mobile-app)
 :::
