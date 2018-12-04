@@ -63,7 +63,7 @@ Due to security considerations, the configuration stated on Step 3 will not be a
 
 ### Sending the end-user IP from your server
 
-To send the end-user IP from your server, include a `auth0-forwarded-for` header with the value of the end-user IP address. If the IP is valid, Auth0 will use it as the source IP for brute-force protection. It is important to make sure the provided IP address really belongs to your end user.
+To send the end-user IP from your server, include a `auth0-forwarded-for` header with the value of the end-user IP address. If the IP is valid, Auth0 will use it as the source IP for brute-force protection. It is important to make sure the provided IP address really belongs to your end user. Both the `auth0-forwarded-for` IP address and the IP address of the proxy server will be taken into account for IP address whitelists
 
 ::: warning
 <strong>Warning!</strong> Trusting headers like the <code>x-forwarded-for</code> (or, in general, data from application) as source for the end-user IP can be a big risk. This should not be done unless you know you can trust that header, since it is easy to spoof and makes possible to bypass the anomaly-detection validation.
