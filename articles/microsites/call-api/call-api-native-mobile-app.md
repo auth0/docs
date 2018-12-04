@@ -32,7 +32,7 @@ When your app needs to fetch user data from your API:
 
 For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows/concepts/mobile-login-flow).
 
-<img src="/media/articles/microsites/call-api/overview-flow-call-api-native-mobile-app.png" alt="Flow Overview for Native/Mobile Apps" width="100%">
+<img src="/media/articles/microsites/overview-flow-call-api-native-mobile-app.png" alt="Flow Overview for Native/Mobile Apps" width="100%">
 
 ## Implementation overview
 
