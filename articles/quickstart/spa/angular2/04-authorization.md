@@ -26,8 +26,6 @@ Add a local member to your `AuthService` service and initialize it with all the 
 ```ts
 // src/app/auth/auth.service.ts
 
-private _scopes: string;
-
 requestedScopes: string = 'openid profile read:messages write:messages';
 
 auth0 = new auth0.WebAuth({
@@ -46,7 +44,7 @@ private setSession(authResult): void {
   const scopes = authResult.scope || this.requestedScopes || '';
 
   // ...
-  this._scopes = JSON.stringify(scopes);
+  localStorage.setItem('scopes', JSON.stringify(scopes));
 }
 ```
 
