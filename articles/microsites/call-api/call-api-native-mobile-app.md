@@ -39,21 +39,24 @@ For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows
 ::: steps
   1. <strong>Configure your API</strong><br/><br/>Once you have created your API, you will need to configure any scopes that applications can request during authorization.
 
-  2. <strong>Get an Access Token</strong><br/><br/>Your app requests an Access Token (and optionally, a Refresh Token) from your Auth0 Authorization Server using the Mobile Login Flow.
+  2. <strong>Get an Access Token</strong><br/><br/>Your app requests an Access Token (and optionally, a Refresh Token) from your Auth0 Authorization Server using the [Mobile Login Flow](/flows/concepts/mobile-login-flow).
 
-  3. <strong>Use the Auth0 SDK to trigger the flow</strong><br/><br/>The SDK will take care of the details of opening the SafariViewController or Chrome Custom Tab, parsing the response back from Auth0, and validating the ID Token.<br/><br/>Your app can store the Access Token and a Refresh Token used to renew the Access Token without asking the user to re-enter their credentials. Follow one of our [Native/Mobile Quickstarts](/quickstart/native) to get started with the integration.
+  3. <strong>Call your API</strong><br/><br/>When your app calls your API, it includes the retrieved Access Token in the HTTP Authorization header.
+  
+  4. <strong>Refresh your Access Token</strong><br/><br/>When the Access Token expires you can use the Refresh Token to get a new one from your Auth0 Authorization Server.
 
 :::
 
 
-## Alternative: Use Embedded Login
+## How to implement
 
-While we strongly recommend that you use our hosted universal login page, if you prefer to embed your own login pages within your native/mobile app, you can implement our login widget (Lock UI) directly into your app with our:
+The easiest way to implement the Mobile Login Flow is to follow our Mobile/Native Quickstarts.
 
-* [iOS Lock UI Component library](/libraries/lock-ios/v2)
-* [Android Lock UI Component library](/libraries/lock-android/v2)
+You can also use our mobile SDKs:
 
-Please note that embedded login requires the use of a custom domain, which is currently a paid feature.
+Auth0 Swift SDK
+Auth0 Android SDK
+Finally, to use our API endpoints, you can follow our tutorial: Call My API Using the Mobile Login Flow.
 
 :::: further-reading
 
