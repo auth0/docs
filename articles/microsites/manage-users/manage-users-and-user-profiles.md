@@ -44,7 +44,7 @@ You can modify the information contained in a user profile and in an ID Token in
   * [User Profiles](/users/concepts/overview-user-profile)
   * [User Metadata](/users/concepts/overview-user-metadata)
   * [Normalized User Profiles](/users/normalized/auth0)
- ::
+ :::
 
 ::: guides
   * [Scopes](/scopes)
