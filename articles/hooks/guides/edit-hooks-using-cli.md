@@ -53,3 +53,5 @@ If you created the Hook early on during the beta testing period, the Webtask Edi
 If you [provisioned a secret to the Hook](/hooks/cli/create-delete#provision-secrets-to-new-hooks) during creation, manipulate the secret by clicking on the **wrench** at the top left of the Webtask Editor window and selecting **Secrets** from the dropdown menu.
 
   ![Webtask Editor Secrets pane](/media/articles/hooks/webtask-editor-secrets.png)
+
+To the right, you will see a Secrets window where you can add key/value pairs. These pairs can then be accessed in the code in the `context.webtask.secrets` object (e.g., context.webtask.secrets.SECRET_NAME).
