@@ -23,7 +23,7 @@ appTypes:
 
   - title: Regular Web App
     name: webapp
-    description: "Server-side rendered web app."
+    description: "Server-side web app."
     example: "e.g., Express.js, Java ASP.NET"
     question: "What technology are you using for your web app?"
     budicon: 349
@@ -32,7 +32,7 @@ appTypes:
   - title: Backend/API
     name: backend
     description: "A CLI, Daemon, or Service running on your backend."
-    example: "e.g., Shell Script, Hapi.js API"
+    example: "e.g., Hapi.js API, shell script"
     question: "Select an API or backend platform"
     budicon: 649
     slug: server-apis
