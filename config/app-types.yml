@@ -7,14 +7,15 @@
 appTypes:
   - title: Native/Mobile App
     name: native
-    description: "e.g., iOS, Android"
+    description: "Mobile or Desktop, an app that runs natively in a device."
+    example: "e.g., iOS, Android"
     question: "Select a native SDK"
     budicon: 243
     slug: native-platforms
 
   - title: Single-Page Web App
     name: spa
-    description: " JavaScript front-end app that uses an API."
+    description: "JavaScript front-end app that uses an API."
     example: "e.g., Angular.JS + NodeJS, React"
     question: "What technology are you using for your web app?"
     budicon: 349
@@ -22,16 +23,16 @@ appTypes:
 
   - title: Regular Web App
     name: webapp
-    description: "Traditional server-side rendered web app."
-    example: "e.g., Java ASP.NET"
+    description: "Server-side rendered web app."
+    example: "e.g., Express.js, Java ASP.NET"
     question: "What technology are you using for your web app?"
     budicon: 349
     slug: server-platforms
     
-  - title: Machine-to-Machine App
+  - title: Backend/API
     name: backend
     description: "A CLI, Daemon, or Service running on your backend."
-    example: "e.g., Shell Script"
+    example: "e.g., Shell Script, Hapi.js API"
     question: "Select an API or backend platform"
     budicon: 649
     slug: server-apis
