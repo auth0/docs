@@ -18,7 +18,7 @@ https://${account.namespace}/authorize?
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
     client_id=${account.clientId}&
-    redirect_uri=${account.callback}&
+    redirect_uri=YOUR_PACKAGE_ID//${account.namespace}/YOUR_PLATFORM/YOUR_PACKAGE_ID/callback&
     scope=SCOPE&
     state=STATE
 ```
@@ -45,7 +45,7 @@ As an example, your HTML snippet for your authorization URL when adding login to
   code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&
   code_challenge_method=S256&
   client_id=${account.clientId}&
-  redirect_uri=${account.callback}&
+  redirect_uri=YOUR_PACKAGE_ID//${account.namespace}/YOUR_PLATFORM/YOUR_PACKAGE_ID/callback&
   scope=openid%20profile&
   state=xyzABC123">
   Sign In
@@ -59,5 +59,5 @@ If all goes well, you'll receive an `HTTP 302` response. The authorization code 
 
 ```text
 HTTP/1.1 302 Found
-Location: ${account.callback}?code=AUTHORIZATION_CODE&state=xyzABC123
+Location: YOUR_PACKAGE_ID//${account.namespace}/YOUR_PLATFORM/YOUR_PACKAGE_ID/callback?code=AUTHORIZATION_CODE&state=xyzABC123
 ```
