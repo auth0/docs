@@ -53,11 +53,14 @@ There are a few different ways you can customize the user metadata:
 
 * You can use the [Management API](/api/management/v2) to create, retrieve, or update both the `user-metadata` and `app-metadata` fields. 
 
-After you have customized the user metadata, you can manage and store data related to each of your users (that doesn't originate from identity providers) in the Auth0 data store or your own custom database.
+After you have customized the user metadata, you can manage and store data related to each of your users that doesn't originate from identity providers in the Auth0 data store or your own custom database.
 
 :::: further-reading
 ::: concepts
+  * [User Management](/users/concepts/overview-users)
+  * [User Profiles](/users/concepts/overview-user-profile)
   * [User Metadata](/users/concepts/overview-user-metadata)
+  * [Normalized User Profiles](/users/normalized/auth0)
 :::
 
 ::: guides
@@ -72,6 +75,6 @@ After you have customized the user metadata, you can manage and store data relat
 ::::
 
 ::: whats-next
-* [Manage Users and User Profiles](/microsites/manage-users/manage-users-and-user-profiles)
-* [Connect Users to My Identity Platform](/microsites/manage-users/connect-users-to-my-identity-platform)
+* Learn more about the tools availabe to [Manage Users and User Profiles](/microsites/manage-users/manage-users-and-user-profiles).
+* Understand how Auth0 enables you to [Connect Users to Your Identity Platform](/microsites/manage-users/connect-users-to-my-identity-platform).
 :::

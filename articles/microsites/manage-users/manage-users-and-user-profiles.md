@@ -41,9 +41,9 @@ You can modify the information contained in a user profile and in an ID Token in
 :::: further-reading
 ::: concepts
   * [User Management](/users/concepts/overview-users)
-  * [User Profile](/users/concepts/overview-user-profile)
+  * [User Profiles](/users/concepts/overview-user-profile)
   * [User Metadata](/users/concepts/overview-user-metadata)
-  * [Normalized User Profile](/users/normalized/auth0)
+  * [Normalized User Profiles](/users/normalized/auth0)
  ::
 
 ::: guides
@@ -63,6 +63,6 @@ You can modify the information contained in a user profile and in an ID Token in
 ::::
 
 ::: whats-next
-* [Define and Maintain Custom User Data](/microsites/manage-users/define-maintain-custom-user-data)
-* [Connect Users to my Identity Platform](/microsites/manage-users/connect-users-to-my-identity-platform)
+* Learn about the tools available to [Define and Maintain Custom User Data](/microsites/manage-users/define-maintain-custom-user-data).
+* Understand how Auth0 enables you to [Connect Users to Your Identity Platform](/microsites/manage-users/connect-users-to-my-identity-platform).
 :::
