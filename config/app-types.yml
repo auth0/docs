@@ -7,7 +7,7 @@
 appTypes:
   - title: Native/Mobile App
     name: native
-    description: "e.g., iOS SDK"
+    description: "e.g., iOS, Android"
     question: "Select a native SDK"
     budicon: 243
     slug: native-platforms
@@ -15,7 +15,7 @@ appTypes:
   - title: Single-Page Web App
     name: spa
     description: " JavaScript front-end app that uses an API."
-    example: "e.g., Angular.JS + NodeJS"
+    example: "e.g., Angular.JS + NodeJS, React"
     question: "What technology are you using for your web app?"
     budicon: 349
     slug: application-platforms
