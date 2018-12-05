@@ -1,6 +1,6 @@
 ## Call your API
 
-To call your API from a single page application, the application must pass the retrieved Access Token as a Bearer token in the Authorization header of your HTTP request.
+To call your API from a SPA, the application must pass the retrieved Access Token as a Bearer token in the Authorization header of your HTTP request.
 
 
  ```har
