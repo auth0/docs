@@ -16,7 +16,7 @@ useCase:
 ---
 # Single Page Login Flow
 
-During authentication, single page applications (SPAs) have some special needs.
+During authentication, single-page applications (SPAs) have some special needs.
 
 Since SPAs are JavaScript applications running within a browser, they do not have distinct components that can be kept separate (i.e., the application and the browser are the same, so information available to one is also available to the other). 
 
@@ -35,13 +35,13 @@ Because the Hybrid Flow combines the Implicit Flow with the Authorization Code F
 
 For SPAs with a back-end, the back-end can be trusted with the application's Client Secret and can request a long-lived Access Token to use with your API. Refresh Tokens can also be requested.
 
-![Single Page Login Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-single-page-login-flow-with-backend.png)
+![Single-Page Login Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-single-page-login-flow-with-backend.png)
 
-1. The user clicks **Login** within the single page application.
+1. The user clicks **Login** within the SPA.
 2. Auth0's SDK redirects the user to the Auth0 Authorization Server (**/authorize** endpoint) passing along a `response_type` parameter that indicates the type of requested credential.
 3. Your Auth0 Authorization Server redirects the user to the login and authorization prompt.
-4. The user authenticates using one of the configured login options and may see a consent page listing the permissions Auth0 will give to the single page application.
-5. Your Auth0 Authorization Server redirects the user back to the application with any of the following, depending on the provided `response_type` parameter (step 2):
+4. The user authenticates using one of the configured login options and may see a consent page listing the permissions Auth0 will give to the SPA.
+5. Your Auth0 Authorization Server redirects the user back to the SPA with any of the following, depending on the provided `response_type` parameter (step 2):
 * An authorization code and an ID Token;
 * An authorization code and an Access Token;
 * An authorization code, an Access Token, and an ID Token.
@@ -56,27 +56,27 @@ For SPAs with a back-end, the back-end can be trusted with the application's Cli
 
 For SPAs without a back-end, you should use the Implicit Flow in which issued tokens are short-lived. Refresh Tokens are not available in this flow.
 
-![Single Page Login Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-single-page-login-flow-without-backend.png)
+![Single-Page Login Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-single-page-login-flow-without-backend.png)
 
-1. The user clicks **Login** within the single page application.
+1. The user clicks **Login** within the SPA.
 2. Auth0's SDK redirects the user to the Auth0 Authorization Server (**/authorize** endpoint) passing along a `response_type` parameter that indicates the type of requested credential.
 3. Your Auth0 Authorization Server redirects the user to the login and authorization prompt.
-4. The user authenticates using one of the configured login options and may see a consent page listing the permissions Auth0 will give to the single page application.
-5. Your Auth0 Authorization Server redirects the user back to the application with any of the following, depending on the provided `response_type` parameter (step 2):
+4. The user authenticates using one of the configured login options and may see a consent page listing the permissions Auth0 will give to the SPA.
+5. Your Auth0 Authorization Server redirects the user back to the SPA with any of the following, depending on the provided `response_type` parameter (step 2):
 * An ID Token;
 * An Access Token;
 * An ID Token and an Access Token.
-6. Your application can use the Access Token to call an API.
+6. Your SPA can use the Access Token to call an API.
 7. The API responds with requested data.
 
 
 ## How to implement it
 
-The easiest way to implement the Single Page Login Flow is to follow our [Single Page App Quickstarts](/quickstart/spa).
+The easiest way to implement the Single-Page Login Flow is to follow our [Single-Page App Quickstarts](/quickstart/spa).
 
 You can also use our [SDKs](/libraries).
 
-Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Single Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow) or [Call My API Using the Single Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow).
+Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow) or [Call My API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow).
 
 ## Keep reading
 
