@@ -29,7 +29,8 @@ Following successful login, your application will have access to the user's [ID 
 
 * [Register your Application with Auth0](/applications/native). 
   * Select an **Application Type** of **Native**.
-  * Add an **Allowed Callback URL** of **`${account.callback}`**.
+  * Add an **Allowed Callback URL** of **`YOUR_PACKAGE_ID//${account.namespace}/YOUR_PLATFORM/YOUR_PACKAGE_ID/callback`**.
+  Your callback URL format will vary depending on your platform. For details about the callback URL format for your platform, see our [Native/Mobile Quickstarts](/quickstart/native)
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code**.
 
 ## Steps
