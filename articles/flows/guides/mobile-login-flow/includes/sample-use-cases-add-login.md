@@ -10,7 +10,7 @@ https://${account.namespace}/authorize?
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
     client_id=${account.clientId}&
-    redirect_uri=YOUR_PACKAGE_ID//${account.namespace}/YOUR_PLATFORM/YOUR_PACKAGE_ID/callback&
+    redirect_uri=YOUR_CALLBACK_URL&
     scope=openid
 ```
 
@@ -38,7 +38,7 @@ https://${account.namespace}/authorize?
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
     client_id=${account.clientId}&
-    redirect_uri=YOUR_PACKAGE_ID//${account.namespace}/YOUR_PLATFORM/YOUR_PACKAGE_ID/callback&
+    redirect_uri=YOUR_CALLBACK_URL&
     scope=openid%20name%20picture&
     state=STATE
 ```
@@ -69,7 +69,7 @@ https://${account.namespace}/authorize?
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
     client_id=${account.clientId}&
-    redirect_uri=YOUR_PACKAGE_ID//${account.namespace}/YOUR_PLATFORM/YOUR_PACKAGE_ID/callback&
+    redirect_uri=YOUR_CALLBACK_URL&
     scope=openid%20name%20picture&
     state=STATE&
     connection=github
