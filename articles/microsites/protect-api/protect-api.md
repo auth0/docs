@@ -27,11 +27,11 @@ Your API will receive a request including an Access Token: 
 ## Implementation overview
 
 ::: steps
-  1. <strong>Configure your API</strong><br/><br/>Auth0 supports access from various application types. If you expect a machine-to-machine (M2M) app to call your API, go to the dashboard and authorize them to request Access Tokens.<br/><br/>You can also allow your API to skip user consent for your own apps and identify your API's scopes. If you're building a public-facing API, you'll need to let external callers know which of these scopes are available to them and provide guidance on how they can call your API.
+  1. <h4>Configure your API</h4>Auth0 supports access from various application types. If you expect a machine-to-machine (M2M) app to call your API, go to the dashboard and authorize them to request Access Tokens.<br/>You can also allow your API to skip user consent for your own apps and identify your API's scopes. If you're building a public-facing API, you'll need to let external callers know which of these scopes are available to them and provide guidance on how they can call your API.
 
-  2. <strong>Use the Auth0 SDK to validate tokens</strong><br/><br/>The SDK will take care of the details of parsing and validating the received tokens. This consists of a series of steps, and if any of these fails, then you must reject the application's request. Follow one of our [Backend/API Quickstarts](/quickstart/backend) to get started.
+  2. <h4>Use the Auth0 SDK to validate tokens</h4>The SDK will take care of the details of parsing and validating the received tokens. This consists of a series of steps, and if any of these fails, then you must reject the application's request. Follow one of our [Backend/API Quickstarts](/quickstart/backend) to get started.
 
-  3. <strong>Respond to the request</strong><br/><br/>Once your token has been successfully validated, respond to the calling application with their requested data.
+  3. <h4>Respond to the request</h4>Once your token has been successfully validated, respond to the calling application with their requested data.
 
 :::
 

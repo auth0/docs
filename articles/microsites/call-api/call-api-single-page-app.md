@@ -34,13 +34,13 @@ For single-page web apps, Auth0 uses the [Single-Page Login Flow](/flows/concept
 ## Implementation overview
 
 ::: steps
-  1. <strong>Configure your API</strong><br/><br/>Once you have created your API, you will need to configure any scopes that applications can request during authorization.
+  1. <h4>Configure your API</h4>Once you have created your API, you will need to configure any scopes that applications can request during authorization.
 
-  2. <strong>Get an Access Token</strong><br/><br/>Your app requests an Access Token (and optionally, a Refresh Token) from your Auth0 Authorization Server using the [Single-Page Login Flow](/flows/concepts/single-page-login-flow).
+  2. <h4>Get an Access Token</h4>Your app requests an Access Token (and optionally, a Refresh Token) from your Auth0 Authorization Server using the [Single-Page Login Flow](/flows/concepts/single-page-login-flow).
 
-  3. <strong>Call your API</strong><br/><br/>When your app calls your API, it includes the retrieved Access Token in the HTTP Authorization header.
+  3. <h4>Call your API</h4>When your app calls your API, it includes the retrieved Access Token in the HTTP Authorization header.
   
-  4. <strong>Refresh your Access Token</strong><br/><br/>When the Access Token expires you can use the Refresh Token to get a new one from your Auth0 Authorization Server.
+  4. <h4>Refresh your Access Token</h4>When the Access Token expires you can use the Refresh Token to get a new one from your Auth0 Authorization Server.
 
 :::
 
