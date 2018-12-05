@@ -9,7 +9,7 @@ useCase: customize-hosted-pages
 ---
 # Guardian Multi-factor Login Page
 
-In the [Auth0 Dashboard](${manage_url}/#/guardian_mfa_page), you can enable 2nd factor authentication, using Guardian Multi-factor. You can customize the page that Auth0 displays to your users, allowing you to require MFA on logins which meet certain criteria, or just across the board. For more information on Guardian, refer to [Guardian MFA](/multifactor-authentication/guardian).
+In the [Auth0 Dashboard](${manage_url}/#/guardian_mfa_page), you can enable 2nd factor authentication, using Guardian Multi-factor. You can customize the page that Auth0 displays to your users, allowing you to require MFA on logins which meet certain criteria, or just across the board. For more information on the MFA page, refer to [Hosted Pages > MFA](/hosted-pages/guardian).
 
 ![Hosted Guardian MFA Page](/media/articles/hosted-pages/guardian.png)
 
