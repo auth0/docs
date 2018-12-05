@@ -2003,7 +2003,7 @@ module.exports = [
    },
    {
     from: '/hooks/cli/index',
-    to: '/hooks/concepts/overview-hooks'
+    to: '/hooks'
    },
    {
     from: '/hooks/cli/logs',
@@ -2023,7 +2023,7 @@ module.exports = [
    },
    {
     from: '/hooks/dashboard/index',
-    to: '/hooks/concepts/overview'
+    to: '/hooks'
   },
    {
     from: '/hooks/extensibility-points/credentials-exchange',
@@ -2031,7 +2031,7 @@ module.exports = [
    },
    {
     from: '/hooks/extensibility-points/index',
-    to: '/hooks/concepts/overview-extensibility-points'
+    to: '/hooks'
    },
    {
     from: '/hooks/extensibility-points/post-user-registration',
@@ -2043,11 +2043,11 @@ module.exports = [
    },
    {
     from: '/hooks',
-    to: '/hooks/concepts/overview'
+    to: '/hooks'
    },
    {
     from: '/hooks/overview',
-    to: '/hooks/concepts/overview'
+    to: '/hooks'
    }
 ];
 
