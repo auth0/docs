@@ -1,5 +1,5 @@
 ---
-title: Call My API from My Regular Web App
+title: Call Your API from Your Regular Web App
 description: Everything you need to know to call your API from your regular web app.
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/webapp
@@ -49,13 +49,13 @@ The easiest way to implement the Regular Web App Login Flow is to [follow our Re
 
 You can also use our [Auth0.js](/libraries#auth0-sdks) SDK.
 
-Finally, to use our API endpoints, you can follow our tutorial: [Call My API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
+Finally, to use our API endpoints, you can follow our tutorial: [Call Your API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
 
 :::: further-reading
 
 ::: guides
   * [Auth0 Regular Web App Quickstarts](/quickstart/webapp)
-  * [Call My API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow)
+  * [Call Your API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow)
   * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 :::
 
@@ -74,6 +74,6 @@ Finally, to use our API endpoints, you can follow our tutorial: [Call My API Usi
 
 ::: whats-next
   * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
-  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-api/protect-api).
-  * If you need to add login to your own regular web app, learn how at: [Add Login to My Regular Web App](/microsites/add-login/add-login-regular-web-app).
+  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect Your API](/microsites/protect-api/protect-api).
+  * If you need to add login to your own regular web app, learn how at: [Add Login to Your Regular Web App](/microsites/add-login/add-login-regular-web-app).
 :::

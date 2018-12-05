@@ -1,5 +1,5 @@
 ---
-title: Call My API from My Native/Mobile App
+title: Call Your API from Your Native/Mobile App
 description: Everything you need to know to call your API from your native/mobile app.
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/native
@@ -61,7 +61,7 @@ Finally, to use our API endpoints, you can follow our tutorial: [Call My API Usi
 
 ::: guides
   * [Auth0 Mobile/Native App Quickstarts](/quickstart/native)
-  * [Call My API Using the Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow)
+  * [Call Your API Using the Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow)
   * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 :::
 
@@ -80,6 +80,6 @@ Finally, to use our API endpoints, you can follow our tutorial: [Call My API Usi
 
 ::: whats-next
   * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
-  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-api/protect-api).
-  * If you need to add login to your own native/mobile app, learn how at: [Add Login to My Native/Mobile App](/microsites/add-login/add-login-native-mobile-app).
+  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect Your API](/microsites/protect-api/protect-api).
+  * If you need to add login to your own native/mobile app, learn how at: [Add Login to Your Native/Mobile App](/microsites/add-login/add-login-native-mobile-app).
 :::

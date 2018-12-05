@@ -1,5 +1,5 @@
 ---
-title: Protect My API
+title: Protect Your API
 description: Everything you need to know to protect your API.
 template: microsite
 topics:
@@ -60,8 +60,8 @@ Your API will receive a request including an Access Token: 
 
 ::: whats-next
   * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
-  * Learn how to call your API from your app: [Call My API from My Native/Mobile App](/microsites/call-api/call-api-native-mobile-app), [Call My API from My Regular Web App](/microsites/call-api/call-api-regular-web-app), [Call My API from My Single-Page App](/microsites/call-api/call-api-single-page-app), or [Call My API from My M2M App](/microsites/call-api/call-api-m2m-app).
-  * If you are building your own application and you want to log users in using Auth0, learn to add login to your app: [Add Login to My Native/Mobile App](/microsites/add-login/add-login-native-mobile-app), [Add Login to My Regular Web App](/microsites/add-login/add-login-regular-web-app), or [Add Login to My Single-Page App](/microsites/add-login/add-login-single-page-app).
+  * Learn how to call your API from your app: [Call Your API from My Native/Mobile App](/microsites/call-api/call-api-native-mobile-app), [Call Your API from My Regular Web App](/microsites/call-api/call-api-regular-web-app), [Call Your API from Your Single-Page App](/microsites/call-api/call-api-single-page-app), or [Call Your API from a M2M App](/microsites/call-api/call-api-m2m-app).
+  * If you are building your own application and you want to log users in using Auth0, learn to add login to your app: [Add Login to Your Native/Mobile App](/microsites/add-login/add-login-native-mobile-app), [Add Login to Your Regular Web App](/microsites/add-login/add-login-regular-web-app), or [Add Login to Your Single-Page App](/microsites/add-login/add-login-single-page-app).
 :::
 
 

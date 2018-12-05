@@ -1,5 +1,5 @@
 ---
-title: Call My API from My Machine-to-Machine App
+title: Call Your API from a Machine-to-Machine App
 description: Everything you need to know to call your API from your machine-to-machine (M2M) app.
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/backend
@@ -48,7 +48,7 @@ Or, to use our API endpoints, you can follow our tutorial: [Call My API Using th
 
 ::: guides
   * [Auth0 Backend/API Quickstarts](/quickstart/backend)
-  * [Call My API Using the M2M Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow)
+  * [Call Your API Using the M2M Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow)
   * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 :::
 
@@ -67,6 +67,6 @@ Or, to use our API endpoints, you can follow our tutorial: [Call My API Using th
 
 ::: whats-next
   * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
-  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-api/protect-api).
+  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect Your API](/microsites/protect-api/protect-api).
   * Learn more about the ways Auth0 can help you [manage user profiles](/microsites/manage-users/manage-users-and-user-profiles) and [maintain custom user data](/microsites/manage-users/define-maintain-custom-user-data).
 :::

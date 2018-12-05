@@ -1,5 +1,5 @@
 ---
-title: Call My API from My Single-Page App
+title: Call Your API from Your Single-Page App
 description: Everything you need to know to call your API from your single-page app (SPA).
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/spa
@@ -49,13 +49,13 @@ The easiest way to implement the Single-Page Login Flow is to [follow our Single
 
 You can also use our [Auth0.js](/libraries#auth0-sdks) SDK.
 
-Finally, to use our API endpoints, you can follow our tutorial: [Call My API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow).
+Finally, to use our API endpoints, you can follow our tutorial: [Call Your API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow).
 
 :::: further-reading
 
 ::: guides
   * [Auth0 Single-Page App Quickstarts](/quickstart/spa)
-  * [Call My API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow)
+  * [Call Your API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow)
   * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 :::
 
@@ -74,6 +74,6 @@ Finally, to use our API endpoints, you can follow our tutorial: [Call My API Usi
 
 ::: whats-next
   * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
-  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-api/protect-api).
-  * If you need to add login to your own single-page app, learn how at: [Add Login to My Single-Page App](/microsites/add-login/add-login-single-page-app).
+  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect Your API](/microsites/protect-api/protect-api).
+  * If you need to add login to your own single-page app, learn how at: [Add Login to Your Single-Page App](/microsites/add-login/add-login-single-page-app).
 :::

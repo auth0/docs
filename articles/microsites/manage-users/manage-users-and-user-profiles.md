@@ -63,6 +63,6 @@ You can modify the information contained in a user profile and in an ID Token in
 ::::
 
 ::: whats-next
-* Learn about the tools available to [Define and Maintain Custom User Data](/microsites/manage-users/define-maintain-custom-user-data).
-* Learn more about how to [protect your API](/microsites/protect-api/protect-api).
-:::
+* Learn about the tools available to [define and maintain custom user data](/microsites/manage-users/define-maintain-custom-user-data).
+* If you are building your own API and you want to secure the endpoints using Auth0, see [Protect Your API](/microsites/protect-api/protect-api).
+ :::
