@@ -23,7 +23,7 @@ appTypes:
 
   - title: Regular Web App
     name: webapp
-    description: "Traditional server rendered web app"
+    description: "Traditional web app (with refresh)."
     example: "eg: Express.js, ASP.NET"
     question: "What technology are you using for your web app?"
     budicon: 349
@@ -31,7 +31,7 @@ appTypes:
     
   - title: Machine to Machine App
     name: backend
-    description: "An API or service that does JWT validation"
+    description: "A CLI, Daemon, or Service running on your backend."
     example: "eg: Hapi.js API, ASP.NET API"
     question: "Select an API or backend platform"
     budicon: 649
