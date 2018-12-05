@@ -13,7 +13,7 @@ useCase:
 # Call My API Using the Single-Page Login Flow
 
 ::: note
-This tutorial will help you call your API using the single-page login flow. If you want to learn how the flow works and why you should use it, see [Single-Page Login Flow](/flows/concepts/single-page-login-flow). If you want to learn to add login to your single-page application (SPA), see [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
+This tutorial will help you call your own API using the single-page login flow. If you want to learn how the flow works and why you should use it, see [Single-Page Login Flow](/flows/concepts/single-page-login-flow). If you want to learn to add login to your single-page application (SPA), see [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
 :::
 
 Auth0 makes it easy for your app to implement the single-page login flow using:
