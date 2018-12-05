@@ -112,7 +112,7 @@ export class AuthService {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
       } else if (err) {
-        alert(`Could not get a new token (<%= "${err.error}" =>: <%= "${err.error_description}" %>).`);
+        alert(`Could not get a new token (<%= "${err.error}" %>: <%= "${err.error_description}" %>).`);
         this.logout();
       }
     });
