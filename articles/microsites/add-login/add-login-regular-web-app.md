@@ -1,5 +1,5 @@
 ---
-title: Add Login to Regular Web App
+title: Add Login to Your Regular Web App
 description: Everything you need to know to implement login for a regular web app.
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/webapp
@@ -72,8 +72,8 @@ Please note that embedded login requires the use of a custom domain, which is cu
 
 ::: whats-next
   * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
-  * Most regular web apps access APIs to retrieve data, which can also be done using Auth0. Learn how to call your API from your app: [Call API from Regular Web App](/microsites/call-api/call-api-regular-web-app).
-  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect API](/microsites/protect-api/protect-api).
+  * Most regular web apps access APIs to retrieve data, which can also be done using Auth0. Learn how to call your API from your app: [Call API from Your Regular Web App](/microsites/call-api/call-api-regular-web-app).
+  * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect Your API](/microsites/protect-api/protect-api).
 :::
 
 
