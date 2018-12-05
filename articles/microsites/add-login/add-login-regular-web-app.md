@@ -44,9 +44,7 @@ For security in server-side web apps, Auth0 uses the [Regular Web App Login Flow
 
 ## Alternative: Use Embedded Login
 
-While we strongly recommend that you use our hosted universal login page, if you prefer to embed your own login pages within your regular web app, you can implement our login widget (Lock UI) directly into your app with our:
-
-* [Lock v11 web library](/libraries/lock/v11)
+While we strongly recommend that you use our hosted universal login page, if you prefer to embed your own login pages within your regular web app, you can implement our login widget (Lock UI) directly into your app with our [Lock v11 web library](/libraries/lock/v11).
 
 Please note that embedded login requires the use of a custom domain, which is currently a paid feature.
 
