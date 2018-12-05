@@ -13,7 +13,7 @@ appTypes:
     budicon: 243
     slug: native-platforms
 
-  - title: Single-Page Web App
+  - title: Single-Page App
     name: spa
     description: "JavaScript front-end app that uses an API."
     example: "e.g., Angular.JS + NodeJS, React"
@@ -23,7 +23,7 @@ appTypes:
 
   - title: Regular Web App
     name: webapp
-    description: "Server-side web app."
+    description: "Regular, server-side rendered web app."
     example: "e.g., Express.js, Java ASP.NET"
     question: "What technology are you using for your web app?"
     budicon: 349
@@ -31,7 +31,7 @@ appTypes:
     
   - title: Backend/API
     name: backend
-    description: "A CLI, Daemon, or Service running on your backend."
+    description: "A CLI, daemon, or service running on your backend."
     example: "e.g., Hapi.js API, shell script"
     question: "Select an API or backend platform"
     budicon: 649
