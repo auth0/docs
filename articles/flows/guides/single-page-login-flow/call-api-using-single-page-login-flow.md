@@ -10,7 +10,7 @@ useCase:
   - secure-api
   - call-api
 ---
-# Call My API Using the Single-Page Login Flow
+# Call Your API Using the Single-Page Login Flow
 
 ::: note
 This tutorial will help you call your own API using the single-page login flow. If you want to learn how the flow works and why you should use it, see [Single-Page Login Flow](/flows/concepts/single-page-login-flow). If you want to learn to add login to your single-page application (SPA), see [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).

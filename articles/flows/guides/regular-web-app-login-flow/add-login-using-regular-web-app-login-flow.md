@@ -12,7 +12,7 @@ useCase:
 # Add Login Using the Regular Web App Login Flow
 
 ::: note
-This tutorial will help you add login to your regular web application using the regular web app login flow. If you want to learn how the flow works and why you should use it, see [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow). If you want to learn to call your API from a regular web app, see [Call My API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
+This tutorial will help you add login to your regular web application using the regular web app login flow. If you want to learn how the flow works and why you should use it, see [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow). If you want to learn to call your API from a regular web app, see [Call Your API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
 :::
 
 Auth0 makes it easy for your app to implement the regular web app login flow using:

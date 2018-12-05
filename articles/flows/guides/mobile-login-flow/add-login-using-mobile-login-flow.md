@@ -13,7 +13,7 @@ useCase:
 # Add Login Using the Mobile Login Flow
 
 ::: note
-This tutorial will help you add login to your native/mobile app using the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/flows/concepts/mobile-login-flow). If you want to learn to call your API from a native/mobile app, see [Call My API from a Native/Mobile App](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
+This tutorial will help you add login to your native/mobile app using the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/flows/concepts/mobile-login-flow). If you want to learn to call your API from a native/mobile app, see [Call Your API from a Native/Mobile App](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
 :::
 
 Auth0 makes it easy for your app to implement the mobile login flow using:

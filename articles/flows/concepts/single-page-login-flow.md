@@ -76,7 +76,7 @@ The easiest way to implement the Single-Page Login Flow is to follow our [Single
 
 You can also use our [SDKs](/libraries).
 
-Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow) or [Call My API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow).
+Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow) or [Call Your API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow).
 
 ## Keep reading
 
