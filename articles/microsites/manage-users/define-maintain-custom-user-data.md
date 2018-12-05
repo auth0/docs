@@ -75,6 +75,6 @@ After you have customized the user metadata, you can manage and store data relat
 ::::
 
 ::: whats-next
-* Learn more about the tools availabe to [Manage Users and User Profiles](/microsites/manage-users/manage-users-and-user-profiles).
-* Understand how Auth0 enables you to [Connect Users to Your Identity Platform](/microsites/manage-users/connect-users-to-my-identity-platform).
+* Learn more about the tools availabe to [manage users and user profiles](/microsites/manage-users/manage-users-and-user-profiles).
+* Learn more about how to [protect your API](/microsites/protect-api/protect-api).
 :::

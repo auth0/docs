@@ -64,5 +64,5 @@ You can modify the information contained in a user profile and in an ID Token in
 
 ::: whats-next
 * Learn about the tools available to [Define and Maintain Custom User Data](/microsites/manage-users/define-maintain-custom-user-data).
-* Understand how Auth0 enables you to [Connect Users to Your Identity Platform](/microsites/manage-users/connect-users-to-my-identity-platform).
+* Learn more about how to [protect your API](/microsites/protect-api/protect-api).
 :::
