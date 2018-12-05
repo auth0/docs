@@ -26,8 +26,8 @@ When your app needs to fetch user data from your API:
 
 1. If the user is not already authenticated, our SDK redirects the user to your Auth0 Authorization Server.
 2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML).
-3. Your app requests tokens.
-4. Auth0 responds with an ID Token, an Access Token, and optionally, a Refresh Token.
+3. Your app requests an ID Token, Access Token, and Refresh token.
+4. Auth0 responds with the requested tokens.
 5. The Access Token can be used to call your API and retrieve requested data.
 
 For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows/concepts/mobile-login-flow).
