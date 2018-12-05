@@ -5,7 +5,7 @@
 ## ------------------------------------------------------------
 
 appTypes:
-  - title: Native App
+  - title: Native/Mobile App
     name: native
     description: "e.g., iOS SDK"
     question: "Select a native SDK"
