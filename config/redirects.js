@@ -2042,10 +2042,6 @@ module.exports = [
     to: '/hooks/concepts/pre-user-registration-extensibility-point'
    },
    {
-    from: '/hooks',
-    to: '/hooks'
-   },
-   {
     from: '/hooks/overview',
     to: '/hooks'
    }

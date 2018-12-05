@@ -41,7 +41,7 @@ Hooks allow you to customize the behavior of Auth0 with Node.js code, but they a
 - [Pre-User Registration](/hooks/concepts/pre-user-registration-extensibility-point): prevent user registration and add custom metadata to a newly-created user
 - [Post-User Registration](/hooks/concepts/post-user-registration-extensibility-point): implement custom actions that execute asynchronously from the Auth0 authentication process after a new user registers and is added to the database
 
-<%= include('../../_includes/_ip_whitelist') %>
+<%= include('../_includes/_ip_whitelist') %>
 
 ## Use the Webtask Editor to edit Hooks
 
