@@ -28,7 +28,7 @@ appTypes:
     budicon: 349
     slug: server-platforms
     
-  - title: Machine to Machine App
+  - title: Machine-to-Machine App
     name: backend
     description: "A CLI, Daemon, or Service running on your backend."
     example: "e.g., Shell Script"
