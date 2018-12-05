@@ -47,9 +47,7 @@ For server-side web apps, Auth0 uses the [Regular Web App Login Flow](/flows/con
 
 The easiest way to implement the Regular Web App Login Flow is to [follow our Regular Web App Quickstarts](/quickstart/webapp).
 
-You can also use our SDK:
-
-* [Auth0.js](/libraries#auth0-sdks)
+You can also use our [Auth0.js](/libraries#auth0-sdks) SDK.
 
 Finally, to use our API endpoints, you can follow our tutorial: [Call My API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
 
@@ -77,5 +75,5 @@ Finally, to use our API endpoints, you can follow our tutorial: [Call My API Usi
 ::: whats-next
   * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
   * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect My API](/microsites/protect-api/protect-api).
-  * If you need to add login to your own regular web app, learn how at: [Add Login to My Regular Web App](/microsites/add-login/add-login-regular-web-app)
+  * If you need to add login to your own regular web app, learn how at: [Add Login to My Regular Web App](/microsites/add-login/add-login-regular-web-app).
 :::

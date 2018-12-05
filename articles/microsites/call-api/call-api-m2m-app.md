@@ -1,5 +1,5 @@
 ---
-title: Call My API from My Machine-to-Machine (M2M) App
+title: Call My API from My Machine-to-Machine App
 description: Everything you need to know to call your API from your machine-to-machine (M2M) app.
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/backend
