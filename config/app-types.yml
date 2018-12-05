@@ -5,15 +5,15 @@
 ## ------------------------------------------------------------
 
 appTypes:
-  - title: Mobile / Native App
+  - title: Native App
     name: native
     description: "Native and hybrid mobile, desktop"
-    example: "eg: iOS, Android, Chrome"
+    example: "Mobile or Desktop, an app that runs natively in a device."
     question: "Select a native SDK"
     budicon: 243
     slug: native-platforms
 
-  - title: Single Page App
+  - title: Single Page Web App
     name: spa
     description: "A JavaScript front-end app that uses an API"
     example: "eg: AngularJS, React"
@@ -21,7 +21,7 @@ appTypes:
     budicon: 349
     slug: application-platforms
 
-  - title: Web App
+  - title: Regular Web App
     name: webapp
     description: "Traditional server rendered web app"
     example: "eg: Express.js, ASP.NET"
@@ -29,7 +29,7 @@ appTypes:
     budicon: 349
     slug: server-platforms
     
-  - title: Backend / API
+  - title: Machine to Machine App
     name: backend
     description: "An API or service that does JWT validation"
     example: "eg: Hapi.js API, ASP.NET API"
