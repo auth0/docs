@@ -66,7 +66,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 You can now use `HttpClient` and `HttpHeaders` to make secure calls to your API from anywhere in the application.
 
-If you have an API that sends messages from the protected `/private` endpoint, you can create an API call. Set the `headers` option to a new instance of `HttpHeaders()` to attach an `Authorization` header with a value of `Bearer` and the Access token stored in local storage.
+If you have an API that sends messages from the protected `/private` endpoint, you can create an API call. Set the `headers` option to a new instance of `HttpHeaders()` to attach an `Authorization` header with a value of `Bearer` and the Access token stored in memory.
 
 ```ts
 // src/app/ping/ping.component.ts
@@ -84,13 +84,13 @@ export class PingComponent {
   API_URL: string = 'http://<your-application-domain>/api';
   message: string;
 
-  constructor(public http: HttpClient) {}
+  constructor(public auth: AuthService, private http: HttpClient) {}
 
   public securedPing(): void {
     this.message = '';
     this.http
       .get<IApiResponse>(`<%= "${this.API_URL}" %>/private`, {
-        headers: new HttpHeaders().set('Authorization', `Bearer <%= "${localStorage.getItem('access_token')}" %>`)
+        headers: new HttpHeaders().set('Authorization', `Bearer <%= "${this.auth.accessToken}" %>`)
       })
       .subscribe(
         data => this.message = data.message,
@@ -98,17 +98,6 @@ export class PingComponent {
       );
   }
 
-  public securedScopedPing(): void {
-    this.message = '';
-    this.http
-      .get<IApiResponse>(`<%= "${this.API_URL}" %>/private-scoped`, {
-        headers: new HttpHeaders().set('Authorization', `Bearer <%= "${localStorage.getItem('access_token')}" %>`)
-    })
-      .subscribe(
-        data => this.message = data.message,
-        error => this.message = error
-      );
-    }
 }
 ```
 
