@@ -22,9 +22,9 @@ Since SPAs are JavaScript applications running within a browser, they do not hav
 
 Most SPAs have back-ends (perhaps containing their own API and using a cookie-based session to authorize incoming requests), which can benefit from the Authorization Code Flow, which requests an authorization code and then authenticates the back-end when it exchanges it for tokens. Because this flow allows for authentication of the back-end, it also allows for persistent authentication using Refresh Tokens.
 
-To handle both the client-side and server-side authentication needs of SPAs, the Hybrid Flow combines the client-side Implicit Flow with the server-side Authorization Code Flow, which provides flexibility to allow the front-end and back-end of an application to receive their own scoped tokens.
+To handle both the client-side and server-side authentication needs of SPAs, the Hybrid Flow (defined in [OpenID Connect Core, section 3.3](https://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth)) combines the client-side Implicit Flow with the server-side Authorization Code Flow, which provides flexibility to allow the front-end and back-end of an application to receive their own scoped tokens.
 
-In the case of a SPA with no back-end, no additional security is useful, so using the Implicit Flow streamlines authentication by returning tokens without introducing any unnecessary additional steps.
+In the case of a SPA with no back-end, no additional security is useful, so using the Implicit Flow (defined in [OAuth RFC 6749, section 4.2](https://tools.ietf.org/html/rfc6749#section-4.2)) streamlines authentication by returning tokens without introducing any unnecessary additional steps.
 
 
 ## How it works
