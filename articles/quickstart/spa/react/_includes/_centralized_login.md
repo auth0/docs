@@ -89,7 +89,7 @@ export default class Auth {
       } else if (err) {
         history.replace('/home');
         console.log(err);
-        alert(`Error: ${err.error}. Check the console for further details.`);
+        alert(`Error: <%= "${err.error}" %>. Check the console for further details.`);
       }
     });
   }
@@ -123,7 +123,7 @@ export default class Auth {
        } else if (err) {
          this.logout();
          console.log(err);
-         alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
+         alert(`Could not get a new token (<%= "${err.error}" %>: <%= "${err.error_description}" %>).`);
        }
     });
   }
@@ -174,7 +174,7 @@ Depending on whether the user is authenticated or not, they see the **Log In** o
 
 ### Add a Callback Component
 
-When you use the login page, your users are taken away from your application. After they authenticate, the users automatically return to your application and a client-side session is set for them. 
+When you use the login page, your users are taken away from your application. After they authenticate, the users automatically return to your application and a client-side session is set for them.
 
 ::: note
 This example assumes you are using path-based routing with `<BrowserRouter>`. If you are using hash-based routing, you will not be able to specify a dedicated callback route. The URL hash will be used to hold the user's authentication information.
