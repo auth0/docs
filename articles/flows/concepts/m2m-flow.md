@@ -11,7 +11,7 @@ useCase:
   - secure-api
   - call-api
 ---
-# Machine-to-Machine (M2M) Flow
+# Machine-to-Machine Flow
 
 With machine-to-machine (M2M) applications, such as CLIs, daemons, or services running on your back-end, the system authenticates and authorizes the app rather than a user. For this scenario, typical authentication schemes like username + password or social logins don't make sense. Instead, M2M apps use the Client Credentials Flow, in which they pass along their Client ID and Client Secret to authenticate themselves and get a token.
 
@@ -31,7 +31,7 @@ With machine-to-machine (M2M) applications, such as CLIs, daemons, or services r
 
 The easiest way to implement the M2M Flow is to follow our [Machine-to-Machine Quickstarts](/quickstart/backend).
 
-You can also follow our tutorial to use our API endpoints to [Call My API Using the M2M Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow).
+You can also follow our tutorial to use our API endpoints to [Call Your API Using the M2M Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow).
 
 ## Keep reading
 

@@ -39,7 +39,7 @@ The easiest way to implement the Regular Web App Login Flow is to follow our [Re
 
 You can also use our [SDKs](/libraries).
 
-Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow) or [Call My API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
+Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow) or [Call Your API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
 
 ## Keep reading
 

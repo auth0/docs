@@ -11,7 +11,7 @@ useCase:
   - secure-api
   - call-api
 ---
-# Call My API Using the M2M Flow
+# Call Your API Using the M2M Flow
 
 ::: note
 This tutorial will help you implement the M2M flow. If you want to learn how the flow works and why you should use it, see [M2M Flow](/flows/concepts/m2m-flow).

@@ -17,7 +17,7 @@ useCase:
 During authentication, mobile/native applications require additional security as they:
 
 * cannot securely store a Client Secret
-* may make use of a custom URL scheme to capture redirects (e.g., MyApp:// ) potentially allowing malicious applications to receive an Authorization Code from your Authorization Server.
+* may make use of a custom URL scheme to capture redirects (e.g., MyApp://) potentially allowing malicious applications to receive an Authorization Code from your Authorization Server.
 
 To mitigate this, OAuth 2.0 provides a version of the Authorization Code Flow which makes use of a Proof Key for Code Exchange (PKCE). The PKCE-enhanced Authorization Code Flow introduces a secret created by the calling application that can be verified by the authorization server; this secret is called the Code Verifier. Additionally, the calling app creates a transform value of the Code Verifier called the Code Challenge and sends this value over HTTPS to retrieve an Authorization Code. This way, a malicious attacker can only intercept the Authorization Code, and they cannot exchange it for a token without the Code Verifier.
 
@@ -50,7 +50,7 @@ You can also use our mobile SDKs:
 * [Auth0 Swift SDK](/libraries/auth0-swift)
 * [Auth0 Android SDK](/libraries/auth0-android)
 
-Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Mobile Login Flow](/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow) or [Call My API Using the Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
+Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Mobile Login Flow](/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow) or [Call Your API Using the Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
 
 ## Keep reading
 
