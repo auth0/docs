@@ -113,8 +113,8 @@ You must also explicitly request permission to retrieve user email addresses for
 
 1. Login to [Twitter Developer App Management](https://developer.twitter.com/en/apps).
 1. Choose your app.
-1. Go to the **Settings** tab, and enter the appropriate links in the **Terms of Service URL** and **Privacy Policy URL** fields.
-1. Click **Update Settings**.
+1. Click **Edit**, then **Edit details** and enter the appropriate links in the **Terms of Service URL** and **Privacy Policy URL** fields.
+1. Click **Save**.
 1. Go to the **Permissions** tab and click **Edit**.
 1. Select the **Request email address from users** option.
 1. Click **Save**.
