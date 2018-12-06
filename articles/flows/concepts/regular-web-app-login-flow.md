@@ -37,8 +37,6 @@ Because regular web apps are server-side apps where the source code is not publi
 
 The easiest way to implement the Regular Web App Login Flow is to follow our [Regular Web App Quickstarts](/quickstart/webapp).
 
-You can also use our [SDKs](/libraries).
-
 Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow) or [Call Your API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
 
 ## Keep reading
