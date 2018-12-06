@@ -1006,9 +1006,6 @@ libraries:
       - title: "Customizing Errors"
         url: "/libraries/lock/v11/customizing-error-messages"
 
-      - title: "Lock with auth0.js"
-        url: "/libraries/lock/v11/auth0js"
-
       - title: "Authentication Modes"
         url: "/libraries/lock/v11/authentication-modes"
 

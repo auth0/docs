@@ -1988,6 +1988,10 @@ module.exports = [
    {
      from: '/multifactor-authentication/yubikey',
      to: '/multifactor-authentication'
+   },
+   {
+     from: ['/libraries/lock/v10/auth0js', '/libraries/lock/v11/auth0js'],
+     to: '/libraries/auth0js'
    }
   //  {
   //    from: '/metadata/lock',
