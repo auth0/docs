@@ -16,7 +16,7 @@ useCase:
 ---
 # Single Page Login Flow
 
-During authentication, single-page applications (SPAs) have some special requirements. Since the SPA is a public client, it is unable to securely store information such as a Client Secret. As such a special authentication flow exists called the OAuth 2.0 Implicit Flow. Using the Implicit Flow (defined in [OAuth 2.0 RFC 6749, section 4.2](https://tools.ietf.org/html/rfc6749#section-4.2)) streamlines authentication by returning tokens without introducing any unnecessary additional steps.
+During authentication, single-page applications (SPAs) have some special requirements. Since the SPA is a public client, it is unable to securely store information such as a Client Secret. As such a special authentication flow exists called the OAuth 2.0 Implicit Flow (defined in [OAuth 2.0 RFC 6749, section 4.2](https://tools.ietf.org/html/rfc6749#section-4.2)). Using the Implicit Flow streamlines authentication by returning tokens without introducing any unnecessary additional steps.
 
 
 ## How it works
