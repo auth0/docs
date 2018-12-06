@@ -50,7 +50,7 @@ For security in server-side web apps, Auth0 uses the [Regular Web App Login Flow
 
 ::: references
   * [SDKs](/libraries)
-  * [Identity Providers supported by Auth0](/connections/identity-providers-supported)
+  * [Identity Providers supported by Auth0](/connections)
 :::
 
 ::: concepts  
