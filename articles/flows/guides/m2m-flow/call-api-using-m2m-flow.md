@@ -17,9 +17,7 @@ useCase:
 This tutorial will help you implement the M2M flow. If you want to learn how the flow works and why you should use it, see [M2M Flow](/flows/concepts/m2m-flow).
 :::
 
-Auth0 makes it easy for your app to implement the M2M flow.
-
-Following successful authentication, the calling application will have access to an [Access Token](/tokens/overview-access-tokens), which can be used to call your protected APIs.
+Auth0 makes it easy for your app to implement the M2M flow. Following successful authentication, the calling application will have access to an [Access Token](/tokens/overview-access-tokens), which can be used to call your protected APIs.
 
 ## Prerequisites
 
@@ -29,7 +27,7 @@ Following successful authentication, the calling application will have access to
 
 * [Register the M2M Application with Auth0](/applications/machine-to-machine). 
   * Select an **Application Type** of **Machine to Machine Applications**.
-  * Choose your previously registered API and select your scopes.    
+  * Choose your previously registered API.    
   * Authorize the M2M Application to call your API.
 
 ## Steps

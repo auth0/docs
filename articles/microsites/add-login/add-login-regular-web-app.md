@@ -33,11 +33,11 @@ For security in server-side web apps, Auth0 uses the [Regular Web App Login Flow
 ## Implementation overview
 
 ::: steps
-  1. <h4>Configure the sign-in methods</h4>Auth0 supports a wide range of authentication methods: regular username/password (users can be stored in Auth0 or your own database), social (i.e., Google, Facebook, and 50+ other providers), passwordless (email magic link, email code, and phone code), and enterprise (e.g., SAML-based, ADFS, Ping, Okta).<br/>Go to the dashboard and turn on the methods you want to allow; they will automatically show up in the login/sign-up page. By default, email/password and Google are enabled.
+  1. <h4>Configure the sign-in methods</h4>Auth0 supports a wide range of authentication methods: regular username/password (users can be stored in Auth0 or your own database), social (i.e., Google, Facebook, and 50+ other providers), passwordless (email magic link, email code, and phone code), and enterprise (e.g., SAML-based, ADFS, Ping, Okta).<br/><br/>Go to the dashboard and turn on the methods you want to allow; they will automatically show up in the login/sign-up page. By default, email/password and Google are enabled.
 
-  2. <h4>Customize the sign-in UI (optional)</h4>The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.<br/><img src="/media/articles/microsites/login-screen-default-web.png" alt="Default Login Screen for Native/Mobile Apps" width="70%">
+  2. <h4>Customize the sign-in UI (optional)</h4>The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.<br/><br/><img src="/media/articles/microsites/login-screen-default-web.png" alt="Default Login Screen for Native/Mobile Apps" width="70%">
 
-  3. <h4>Use an OpenID Connect SDK to trigger the flow</h4>The SDK will redirect to the Auth0 Universal login page and handle the response validating the ID Token.<br/>Your app can store the ID Token. Follow one of our <a href="/quickstart/webapp">Regular Web App Quickstarts</a> to get started with the integration.
+  3. <h4>Use an SDK for your chosen platform to trigger the flow</h4>An open-source OpenID Connect SDK for your chosen platform can redirect to the Auth0 Universal Login page and handle the response, validating the ID Token.<br/><br/>Your app can store the ID Token. Follow one of our <a href="/quickstart/webapp">Regular Web App Quickstarts</a> to get started with the integration.
 :::
 
 :::: further-reading
