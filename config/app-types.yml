@@ -31,7 +31,7 @@ appTypes:
     
   - title: Backend/API
     name: backend
-    description: "A CLI, daemon, or service that runs on your backend"
+    description: "CLI, daemon, or service that runs on your backend"
     example: "e.g., Hapi.js API, shell script"
     question: "Select an API or backend platform"
     budicon: 649
