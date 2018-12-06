@@ -17,10 +17,7 @@ useCase:
 This tutorial will help you implement the M2M flow. If you want to learn how the flow works and why you should use it, see [M2M Flow](/flows/concepts/m2m-flow).
 :::
 
-Auth0 makes it easy for your app to implement the M2M flow using:
-
-* [Auth0 SDKs](/libraries): The easiest way to implement the M2M flow, which will do most of the heavy-lifting for you. Our [Backend/API Quickstarts](/quickstart/backend) will walk you through the process.
-* Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
+Auth0 makes it easy for your app to implement the M2M flow.
 
 Following successful authentication, the calling application will have access to an [Access Token](/tokens/overview-access-tokens), which can be used to call your protected APIs.
 
@@ -28,13 +25,12 @@ Following successful authentication, the calling application will have access to
 
 **Before beginning this tutorial:**
 
+* [Register your API with Auth0](/architecture-scenarios/server-api/part-2#configure-the-api)
+
 * [Register the M2M Application with Auth0](/applications/machine-to-machine). 
   * Select an **Application Type** of **Machine to Machine Applications**.
-  * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Client Credentials**.
-  
-* [Register your API with Auth0](/architecture-scenarios/server-api/part-2#configure-the-api)
-  
- * Authorize the M2M Application to call your API [using the dashboard](/api-auth/config/using-the-auth0-dashboard) or [using our Management API](/api-auth/config/using-the-management-api).
+  * Choose your previously registered API and select your scopes.    
+  * Authorize the M2M Application to call your API.
 
 ## Steps
 
