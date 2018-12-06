@@ -1,6 +1,6 @@
 ---
 title: Manage Users and User Profiles
-description: An introduction to the concepts and tasks related to how Auth0 helps you manage your users and their profile information. 
+description: An introduction to the concepts and tasks related to how Auth0 helps you manage your users and their profile information
 contentType: microsite
 topics:
   - users
