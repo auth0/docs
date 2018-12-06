@@ -1,6 +1,6 @@
 ---
 title: Define and Maintain Custom User Data
-description: An introduction to the concepts and tasks related to how Auth0 helps you manage metadata associated with your users' profile information. 
+description: An introduction to the concepts and tasks related to how Auth0 helps you manage metadata associated with your users' profile information 
 contentType: microsite
 topics:
   - users
