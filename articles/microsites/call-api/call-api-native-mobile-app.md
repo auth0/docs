@@ -55,7 +55,7 @@ You can also use our mobile SDKs:
 * [Auth0 Swift SDK](/libraries/auth0-swift)
 * [Auth0 Android SDK](/libraries/auth0-android)
 
-Finally, to use our API endpoints, you can follow our tutorial: [Call My API Using the Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
+Finally, to use our API endpoints, you can follow our tutorial: [Call Your API Using the Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
 
 :::: further-reading
 
