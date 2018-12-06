@@ -32,7 +32,7 @@ appTypes:
   - title: Backend/API
     name: backend
     description: "An API or service protected by Auth0"
-    example: "e.g., Hapi.js API, shell script"
+    example: "e.g., Express.js API, ASP.NET API"
     question: "Select an API or backend platform"
     budicon: 649
     slug: server-apis
