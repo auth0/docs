@@ -15,7 +15,7 @@ appTypes:
 
   - title: Single-Page App
     name: spa
-    description: "JavaScript front-end app that uses an API"
+    description: "JavaScript web app that runs in the browser"
     example: "e.g., Angular.JS + NodeJS, React"
     question: "What technology are you using for your web app?"
     budicon: 349
