@@ -1,6 +1,6 @@
 ---
 title: Call Your API from Your Single-Page App
-description: Everything you need to know to call your API from your single-page app (SPA).
+description: Everything you need to know to call your API from your single-page app (SPA)
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/spa
 template: microsite
@@ -13,7 +13,7 @@ useCase:
   - call-api
 ---
 
-Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to [accounts.google.com](http://accounts.google.com) whenever a user signs in.
+Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to accounts.google.com whenever a user signs in.
 
 Your user will authenticate, and Auth0 will generate an ID Token and Access Token that will be passed back to your application. The Access Token can then be used to call your API.
 
