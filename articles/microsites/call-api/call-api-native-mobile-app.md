@@ -1,6 +1,6 @@
 ---
 title: Call Your API from Your Native/Mobile App
-description: Everything you need to know to call your API from your native/mobile app.
+description: Everything you need to know to call your API from your native/mobile app
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/native
 template: microsite
@@ -14,9 +14,9 @@ useCase:
   - call-api
 ---
 
-Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to [accounts.google.com](http://accounts.google.com) whenever a user signs in.
+Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to accounts.google.com whenever a user signs in.
 
-Your user will authenticate, and Auth0 will generate an ID Token and Access Token that will be passed back to your application. The Access Token can then be used to call your API and extract attributes for that user (such as name, email, role, or a custom attribute)
+Your user will authenticate, and Auth0 will generate an ID Token and Access Token that will be passed back to your application. The Access Token can then be used to call your API.
 
 ## How it works
 
@@ -39,7 +39,7 @@ For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows
 ::: steps
   1. <h4>Configure your API</h4>Once you have created your API, you will need to configure any scopes that applications can request during authorization.
 
-  2. <h4>Get an Access Token</h4>Your app requests an Access Token (and optionally, a Refresh Token) from your Auth0 Authorization Server using the [Mobile Login Flow](/flows/concepts/mobile-login-flow).
+  2. <h4>Get an Access Token</h4>Your app requests an Access Token (and optionally, a Refresh Token) from your Auth0 Authorization Server using the <a href="/flows/concepts/mobile-login-flow">Mobile Login Flow</a>.
 
   3. <h4>Call your API</h4>When your app calls your API, it includes the retrieved Access Token in the HTTP Authorization header.
   
@@ -55,7 +55,7 @@ You can also use our mobile SDKs:
 * [Auth0 Swift SDK](/libraries/auth0-swift)
 * [Auth0 Android SDK](/libraries/auth0-android)
 
-Finally, to use our API endpoints, you can follow our tutorial: [Call My API Using the Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
+Finally, to use our API endpoints, you can follow our tutorial: [Call Your API Using the Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
 
 :::: further-reading
 

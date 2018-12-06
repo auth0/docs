@@ -1,6 +1,6 @@
 ---
 title: Manage Users and User Profiles
-description: An introduction to the concepts and tasks related to how Auth0 helps you manage your users and their profile information. 
+description: An introduction to how Auth0 helps you manage users and their profile information
 contentType: microsite
 topics:
   - users
@@ -18,19 +18,20 @@ You can manage and store custom user attributes such as favorite color or phone 
 
 Within the Auth0 database:
 
-1. Auth0 creates a user profile for each unique user to your applications and fills that profile with information either provided by the user directly or from their chosen connection. 
-2. If the information is sourced from a connection, Auth0 refreshes that data each time the user authenticates.
-3. Each connection may return a set of attributes about the user, and each provider may use different names for the same attribute, such as surname, last name, and family name. To handle such differences, Auth0 applies a Normalized User Profile, which returns a basic set of information using specific attribute names.
+1. Auth0 creates a user profile for each unique user of your applications.
+2. Auth0 fills that profile with information provided by the user directly or from their chosen connection. 
+3. If the information is sourced from a connection, Auth0 refreshes that data each time the user authenticates.
+4. Each connection may return a set of attributes about the user, and each provider may use different names for the same attribute, such as surname, last name, and family name. To handle such differences, Auth0 applies a Normalized User Profile, which returns a basic set of information using specific attribute names.
 
 <img src="/media/articles/microsites/manage-users.png" alt="Manage Users and User Profiles" width="100%">
 
-## Manage user identities and their user profile information
+## Manage user identities and profile information
 
-You can modify the information contained in a user profile and in an ID Token in a number of ways.
+There are several ways you can modify information in a user profile or an ID Token.
 
-* **Scopes**: The authentication flows supported by Auth0 includes an optional parameter that allows you to specify a scope. This controls the user profile information (claims) included in the ID Token (JWT).
+* **Scopes**: The authentication flows supported by Auth0 include an optional parameter that allows you to specify a scope. This controls the user profile information (claims) included in the ID Token (JWT).
 
-* **Management Dashboard**: The dashboard allows administrators to manually edit portions of the user profile for a particular user. This mechanism can be used to alter the user_metadata and app_metadata portions of the user profile.
+* **Management Dashboard**: On the dashboard administrators can manually edit portions of the user profile for a particular user. This mechanism can be used to alter the user_metadata and app_metadata portions of the user profile.
 
 * **Management API**: Provides access to read, update, and delete user profiles stored in the Auth0 database.
 

@@ -1,6 +1,6 @@
 ---
 title: Call Your API from a Machine-to-Machine App
-description: Everything you need to know to call your API from your machine-to-machine (M2M) app.
+description: Everything you need to know to call your API from your machine-to-machine (M2M) app
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/backend
 template: microsite
@@ -12,7 +12,7 @@ useCase:
   - call-api
 ---
 
-Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to [accounts.google.com](http://accounts.google.com) whenever a user signs in.
+Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to accounts.google.com whenever a user signs in.
 
 With machine-to-machine (M2M) apps, however, the system authenticates and authorizes the app rather than a user.
 
@@ -33,16 +33,15 @@ For M2M applications, Auth0 uses the [M2M Flow](/flows/concepts/m2m-flow).
 ::: steps
   1. <h4>Configure your API</h4>Once you have created your API, you will need to authorize your M2M application and configure any scopes that applications can request during authorization.
 
-  2. <h4>Get an Access Token</h4>Your app requests an Access Token from your Auth0 Authorization Server using the [M2M Flow](/flows/concepts/m2m-flow).
+  2. <h4>Get an Access Token</h4>Your app requests an Access Token from your Auth0 Authorization Server using the <a href="/flows/concepts/m2m-flow">M2M Flow</a>.
 
   3. <h4>Call your API</h4>When your app calls your API, it includes the retrieved Access Token in the HTTP Authorization header.
-
 :::
 
 
-The easiest way to implement the M2M Flow is to [follow our Backend/API Quickstarts](/quickstart/backend).
+To implement the M2M flow [follow our Backend/API Quickstarts](/quickstart/backend). The "Calling your API" section shows the steps required.
 
-Or, to use our API endpoints, you can follow our tutorial: [Call My API Using the M2M Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow).
+Or, to use our API endpoints, you can follow our tutorial: [Call Your API Using the M2M Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow).
 
 :::: further-reading
 

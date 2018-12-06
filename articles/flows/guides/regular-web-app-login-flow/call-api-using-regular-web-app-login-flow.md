@@ -18,7 +18,7 @@ This tutorial will help you call your own API using the regular web app login fl
 
 Auth0 makes it easy for your app to implement the regular web app login flow using:
 
-* [Auth0 Mobile SDKs](/libraries): The easiest way to implement the regular web app flow, which will do most of the heavy-lifting for you. Our [Regular Web App Quickstarts](/quickstart/webapp) will walk you through the process.
+* [Regular Web App Quickstarts](/quickstart/webapp): The easiest way to implement the regular web app flow.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
 

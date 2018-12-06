@@ -1,6 +1,6 @@
 ---
 title: Protect Your API
-description: Everything you need to know to protect your API.
+description: Everything you need to know to protect your API
 template: microsite
 topics:
   - authentication
@@ -29,7 +29,7 @@ Your API will receive a request including an Access Token: 
 ::: steps
   1. <h4>Configure your API</h4>Auth0 supports access from various application types. If you expect a machine-to-machine (M2M) app to call your API, go to the dashboard and authorize them to request Access Tokens.<br/>You can also allow your API to skip user consent for your own apps and identify your API's scopes. If you're building a public-facing API, you'll need to let external callers know which of these scopes are available to them and provide guidance on how they can call your API.
 
-  2. <h4>Use the Auth0 SDK to validate tokens</h4>The SDK will take care of the details of parsing and validating the received tokens. This consists of a series of steps, and if any of these fails, then you must reject the application's request. Follow one of our [Backend/API Quickstarts](/quickstart/backend) to get started.
+  2. <h4>Use a JWT validation library to validate tokens</h4>The library will take care of the details of parsing and validating the received tokens. This consists of a series of steps, and if any of these fails, then you must reject the application's request. Follow one of our <a href="/quickstart/backend">Backend/API Quickstarts</a> to get started.
 
   3. <h4>Respond to the request</h4>Once your token has been successfully validated, respond to the calling application with their requested data.
 
