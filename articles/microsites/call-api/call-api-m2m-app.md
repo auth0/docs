@@ -1,6 +1,6 @@
 ---
 title: Call Your API from a Machine-to-Machine App
-description: Everything you need to know to call your API from your machine-to-machine (M2M) app.
+description: Everything you need to know to call your API from your machine-to-machine (M2M) app
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/backend
 template: microsite
@@ -12,7 +12,7 @@ useCase:
   - call-api
 ---
 
-Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to [accounts.google.com](http://accounts.google.com) whenever a user signs in.
+Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to accounts.google.com whenever a user signs in.
 
 With machine-to-machine (M2M) apps, however, the system authenticates and authorizes the app rather than a user.
 
