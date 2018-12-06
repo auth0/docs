@@ -13,7 +13,7 @@ Now that you have an Authorization Code, you must exchange it for tokens. Using 
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"client_id\": \"${account.clientId}\",\"redirect_uri\": \"${account.callback}\" }"
+    "text": "{\"grant_type\":\"authorization_code\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"client_id\": \"${account.clientId}\",\"redirect_uri\": \"YOUR_CALLBACK_URL\" }"
   }
 }
 ```

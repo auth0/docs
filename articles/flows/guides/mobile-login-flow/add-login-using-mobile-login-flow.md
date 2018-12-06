@@ -13,7 +13,7 @@ useCase:
 # Add Login Using the Mobile Login Flow
 
 ::: note
-This tutorial will help you add login to your native/mobile app using the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/flows/concepts/mobile-login-flow). If you want to learn to call your API from a native/mobile app, see [Call My API from a Native/Mobile App](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
+This tutorial will help you add login to your native/mobile app using the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/flows/concepts/mobile-login-flow). If you want to learn to call your API from a native/mobile app, see [Call Your API from a Native/Mobile App](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
 :::
 
 Auth0 makes it easy for your app to implement the mobile login flow using:
@@ -29,7 +29,7 @@ Following successful login, your application will have access to the user's [ID 
 
 * [Register your Application with Auth0](/applications/native). 
   * Select an **Application Type** of **Native**.
-  * Add an **Allowed Callback URL** of **`${account.callback}`**.
+  * Add an **Allowed Callback URL** of **`YOUR_CALLBACK_URL`**. Your callback URL format will vary depending on your platform. For details about the format for your platform, see our [Native/Mobile Quickstarts](/quickstart/native).
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code**.
 
 ## Steps

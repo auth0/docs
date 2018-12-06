@@ -1,5 +1,5 @@
 ---
-description: Learn how to call your API using the single page login flow
+description: Learn how to call your API using the single-page login flow
 toc: true
 topics:
   - api-authentication
@@ -10,15 +10,15 @@ useCase:
   - secure-api
   - call-api
 ---
-# Call My API Using the Single Page Login Flow
+# Call Your API Using the Single-Page Login Flow
 
 ::: note
-This tutorial will help you call your API using the single page login flow. If you want to learn how the flow works and why you should use it, see [Single Page Login Flow](/flows/concepts/single-page-login-flow). If you want to learn to add login to your single page application (SPA), see [Add Login Using the Single Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
+This tutorial will help you call your own API using the single-page login flow. If you want to learn how the flow works and why you should use it, see [Single-Page Login Flow](/flows/concepts/single-page-login-flow). If you want to learn to add login to your single-page application (SPA), see [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
 :::
 
-Auth0 makes it easy for your app to implement the single page login flow using:
+Auth0 makes it easy for your app to implement the single-page login flow using:
 
-* [Auth0 Mobile SDKs](/libraries): The easiest way to implement the single page login flow, which will do most of the heavy-lifting for you. Our [Single Page App Quickstarts](/quickstart/spa) will walk you through the process.
+* [Auth0 Mobile SDKs](/libraries): The easiest way to implement the single-page login flow, which will do most of the heavy-lifting for you. Our [Single-Page App Quickstarts](/quickstart/spa) will walk you through the process.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
 ## Prerequisites
@@ -26,12 +26,11 @@ Auth0 makes it easy for your app to implement the single page login flow using:
 **Before beginning this tutorial:**
 
 * [Register your Application with Auth0](/applications/spa). 
-  * Select an **Application Type** of **Single Page App**.
+  * Select an **Application Type** of **Single-Page App**.
   * Add an **Allowed Callback URL** of **`${account.callback}`**.
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code** and **Implicit**.
 
 * [Register your API with Auth0](/architecture-scenarios/spa-api/part-2#create-the-api)
-  * Add an **Allowed Callback URL** of **com.myapi://myapi.com/callback**.
   * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
 
 ## Steps
@@ -43,7 +42,7 @@ If the SPA has a back-end, exchange your authorization code for tokens, includin
 3. [Call Your API](#call-api): 
 Use the retrieved Access Token to call your API.
 4. [Refresh Tokens](#refresh-tokens): 
-If the SPA has a back-end, use a refresh token to request new tokens when the existing secure ones expire.
+If the SPA has a back-end, use a Refresh Token to request new tokens when the existing secure ones expire.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 

@@ -1,5 +1,5 @@
 ---
-description: Learn how to call your API using the regular web app login flow.
+description: Learn how to call your own API using the regular web app login flow.
 toc: true
 topics:
   - api-authentication
@@ -10,10 +10,10 @@ useCase:
   - secure-api
   - call-api
 ---
-# Call My API Using the Regular Web App Login Flow
+# Call Your API Using the Regular Web App Login Flow
 
 ::: note
-This tutorial will help you call your API using the regular web app login flow. If you want to learn how the flow works and why you should use it, see [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow). If you want to learn to add login to your regular web app, see [Add Login Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow).
+This tutorial will help you call your own API using the regular web app login flow. If you want to learn how the flow works and why you should use it, see [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow). If you want to learn to add login to your regular web app, see [Add Login Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow).
 :::
 
 Auth0 makes it easy for your app to implement the regular web app login flow using:
@@ -32,7 +32,6 @@ Auth0 makes it easy for your app to implement the regular web app login flow usi
   * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code**.
 
 * [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
-  * Add an **Allowed Callback URL** of **com.myapi://myapi.com/callback**.
   * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
 
 ## Steps
