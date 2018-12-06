@@ -60,7 +60,7 @@ While we strongly recommend that you use our hosted universal login page, if you
 
 ::: references
   * [SDKs](/libraries)
-  * [Identity Providers supported by Auth0](/connections/identity-providers-supported)
+  * [Identity Providers supported by Auth0](/connections)
 :::
 
 ::: concepts  
