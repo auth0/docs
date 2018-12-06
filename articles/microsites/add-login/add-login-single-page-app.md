@@ -49,7 +49,7 @@ For security in server-side web apps, Auth0 uses the [Single-Page Login Flow](/f
 
 ::: references
   * [SDKs](/libraries)
-  * [Identity Providers supported by Auth0](/connections/identity-providers-supported)
+  * [Identity Providers supported by Auth0](/connections)
 :::
 
 ::: concepts  
