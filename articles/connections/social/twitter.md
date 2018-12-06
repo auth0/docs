@@ -42,7 +42,7 @@ If you're using a [custom domain](/custom-domains), you'll need to add that doma
 
 1. Your **Consumer Key** and **Consumer Secret** will be displayed in the **Keys and tokens** tab of your app on Twitter:
 
-    ![Consumer Key and Consumer Secret](/media/articles/connections/social/twitter/twitter-api-4.png)
+    ![Consumer Key and Consumer Secret](/media/articles/connections/social/twitter/twitter-api-3.png)
 
 2. Leave this window open.
 
@@ -54,7 +54,7 @@ If you're using a [custom domain](/custom-domains), you'll need to add that doma
 
 3. Copy the **Consumer Key** and **Consumer Secret** from your app's **Keys and Access Tokens** tab on Twitter into the fields on this page on Auth0.
 
-    ![Update Auth0 connection settings](/media/articles/connections/social/twitter/twitter-api-5.png)
+    ![Update Auth0 connection settings](/media/articles/connections/social/twitter/twitter-api-4.png)
 
 4. Click **Save**.
 
@@ -66,7 +66,7 @@ Unlike many social identity providers, Twitter manages profile attribute permiss
 
 1. Go to the **Applications** tab of the Twitter connection on Auth0 and select each of your existing Auth0 applications for which you want to enable this connection:
 
-    ![Enable connection for applications](/media/articles/connections/social/twitter/twitter-api-6.png)
+    ![Enable connection for applications](/media/articles/connections/social/twitter/twitter-api-5.png)
 
 2. Click **Save**.
 
@@ -74,19 +74,19 @@ Unlike many social identity providers, Twitter manages profile attribute permiss
 
 1. Go back to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard. If you have configured your app correctly, you will see a **Try** icon next to the Twitter logo:
 
-    ![Try connection](/media/articles/connections/social/twitter/twitter-api-7.png)
+    ![Try connection](/media/articles/connections/social/twitter/twitter-api-6.png)
 
 2. Click the Twitter logo to return to the **Settings** page of this connection and click **Try**:
 
-    ![Try connection](/media/articles/connections/social/twitter/twitter-api-8.png)
+    ![Try connection](/media/articles/connections/social/twitter/twitter-api-7.png)
 
 3. You will be asked to sign-in to Twitter to authorize your new app to access your Twitter account:
 
-    ![Authorize the new app](/media/articles/connections/social/twitter/twitter-api-9.png)
+    ![Authorize the new app](/media/articles/connections/social/twitter/twitter-api-8.png)
 
 4. If you have configured everything correctly, you will see the **It works!!!** page:
 
-    ![Test results](/media/articles/connections/social/twitter/twitter-api-10.png)
+    ![Test results](/media/articles/connections/social/twitter/twitter-api-9.png)
 
 ## 6. Access Twitter API
 
