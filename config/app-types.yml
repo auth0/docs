@@ -7,7 +7,7 @@
 appTypes:
   - title: Native/Mobile App
     name: native
-    description: "Mobile or Desktop app that runs natively in a device"
+    description: "Mobile or Desktop app that runs natively on a device"
     example: "e.g., iOS, Android"
     question: "Select a native SDK"
     budicon: 243
@@ -31,7 +31,7 @@ appTypes:
     
   - title: Backend/API
     name: backend
-    description: "CLI, daemon, or service that runs on your backend"
+    description: "An API or service protected by Auth0"
     example: "e.g., Hapi.js API, shell script"
     question: "Select an API or backend platform"
     budicon: 649
