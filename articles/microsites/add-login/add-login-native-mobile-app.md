@@ -50,8 +50,6 @@ While we strongly recommend that you use our hosted universal login page, if you
 * [iOS Lock UI Component library](/libraries/lock-ios/v2)
 * [Android Lock UI Component library](/libraries/lock-android/v2)
 
-Please note that embedded login requires the use of a custom domain, which is currently a paid feature.
-
 :::: further-reading
 
 ::: guides
