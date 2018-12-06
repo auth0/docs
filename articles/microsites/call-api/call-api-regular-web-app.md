@@ -47,7 +47,7 @@ For server-side web apps, Auth0 uses the [Regular Web App Login Flow](/flows/con
 
 The easiest way to implement the Regular Web App Login Flow is to [follow our Regular Web App Quickstarts](/quickstart/webapp).
 
-Finally, to use our API endpoints, you can follow our tutorial: [Call Your API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
+Or, to use our API endpoints, you can follow our tutorial: [Call Your API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
 
 :::: further-reading
 

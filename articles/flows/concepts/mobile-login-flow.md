@@ -14,7 +14,7 @@ useCase:
 ---
 # Mobile Login Flow
 
-During authentication, mobile/native applications can use the OAuth 2.0 Authorization Code Flow however they require additional security as they:
+During authentication, mobile/native applications can use the OAuth 2.0 Authorization Code Flow, but they require additional security because they:
 
 * cannot securely store a Client Secret
 * may make use of a custom URL scheme to capture redirects (e.g., MyApp://) potentially allowing malicious applications to receive an Authorization Code from your Authorization Server.
