@@ -36,7 +36,7 @@ For server-side web apps, Auth0 uses the [Regular Web App Login Flow](/flows/con
 ::: steps
   1. <h4>Configure your API</h4>Once you have created your API, you will need to configure any scopes that applications can request during authorization.
 
-  2. <h4>Get an Access Token</h4>Your app requests an Access Token (and optionally, a Refresh Token) from your Auth0 Authorization Server using the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow).
+  2. <h4>Get an Access Token</h4>Your app requests an Access Token (and optionally, a Refresh Token) from your Auth0 Authorization Server using the <a href="/flows/concepts/regular-web-app-login-flow">Regular Web App Login Flow</a>.
 
   3. <h4>Call your API</h4>When your app calls your API, it includes the retrieved Access Token in the HTTP Authorization header.
   

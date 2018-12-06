@@ -33,7 +33,7 @@ For M2M applications, Auth0 uses the [M2M Flow](/flows/concepts/m2m-flow).
 ::: steps
   1. <h4>Configure your API</h4>Once you have created your API, you will need to authorize your M2M application and configure any scopes that applications can request during authorization.
 
-  2. <h4>Get an Access Token</h4>Your app requests an Access Token from your Auth0 Authorization Server using the [M2M Flow](/flows/concepts/m2m-flow).
+  2. <h4>Get an Access Token</h4>Your app requests an Access Token from your Auth0 Authorization Server using the <a href="/flows/concepts/m2m-flow">M2M Flow</a>.
 
   3. <h4>Call your API</h4>When your app calls your API, it includes the retrieved Access Token in the HTTP Authorization header.
 :::

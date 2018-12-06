@@ -38,7 +38,7 @@ For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows
 
   2. <h4>Customize the sign-in UI (optional)</h4>The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.<br/><img src="/media/articles/microsites/login-screen-default-mobile.png" alt="Default Login Screen for Native/Mobile Apps" width="30%">
 
-  3. <h4>Use the Auth0 SDK to trigger the flow</h4>The SDK will take care of the details of opening the SafariViewController or Chrome Custom Tab, parsing the response back from Auth0, and validating the ID Token.<br/>Your app can store the Access Token and a Refresh Token used to renew the Access Token without asking the user to re-enter their credentials. Follow one of our [Native/Mobile Quickstarts](/quickstart/native) to get started with the integration.
+  3. <h4>Use the Auth0 SDK to trigger the flow</h4>The SDK will take care of the details of opening the SafariViewController or Chrome Custom Tab, parsing the response back from Auth0, and validating the ID Token.<br/>Your app can store the Access Token and a Refresh Token used to renew the Access Token without asking the user to re-enter their credentials. Follow one of our <a href="/quickstart/native">Native/Mobile Quickstarts</a> to get started with the integration.
 
 :::
 

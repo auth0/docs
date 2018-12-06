@@ -36,7 +36,7 @@ For security in server-side web apps, Auth0 uses the [Single-Page Login Flow](/f
 
   2. <h4>Customize the sign-in UI (optional)</h4>The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.<br/><img src="/media/articles/microsites/login-screen-default-web.png" alt="Default Login Screen for Native/Mobile Apps" width="70%">
 
-  3. <h4>Use the Auth0 SDK to trigger the flow</h4>The SDK will take care of the details of opening the SafariViewController or Chrome Custom Tab, parsing the response back from Auth0, and validating the ID Token.<br/>Your app can keep the ID Token in memory. Follow one of our [Single-Page App Quickstarts](/quickstart/spa) to get started with the integration.
+  3. <h4>Use the Auth0 SDK to trigger the flow</h4>The SDK will take care of the details of opening the SafariViewController or Chrome Custom Tab, parsing the response back from Auth0, and validating the ID Token.<br/>Your app can keep the ID Token in memory. Follow one of our <a href="/quickstart/spa">Single-Page App Quickstarts</a> to get started with the integration.
 :::
 
 :::: further-reading

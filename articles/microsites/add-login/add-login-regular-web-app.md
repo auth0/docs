@@ -37,7 +37,7 @@ For security in server-side web apps, Auth0 uses the [Regular Web App Login Flow
 
   2. <h4>Customize the sign-in UI (optional)</h4>The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.<br/><img src="/media/articles/microsites/login-screen-default-web.png" alt="Default Login Screen for Native/Mobile Apps" width="70%">
 
-  3. <h4>Use an OpenID Connect SDK to trigger the flow</h4>The SDK will redirect to the Auth0 Universal login page and handle the response validating the ID Token.<br/>Your app can store the ID Token. Follow one of our [Regular Web App Quickstarts](/quickstart/webapp) to get started with the integration.
+  3. <h4>Use an OpenID Connect SDK to trigger the flow</h4>The SDK will redirect to the Auth0 Universal login page and handle the response validating the ID Token.<br/>Your app can store the ID Token. Follow one of our <a href="/quickstart/webapp">Regular Web App Quickstarts</a> to get started with the integration.
 :::
 
 :::: further-reading
