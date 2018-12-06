@@ -24,7 +24,7 @@ In a regular web application: 
 1. The user clicks your "login" button or link, and our SDK redirects the user to your Auth0 Authorization Server.
 3. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML).
 3. Your app requests the user's ID Token.
-4. Auth0 responds with their ID Token.
+4. Auth0 responds with the user's ID Token.
 
 For security in server-side web apps, Auth0 uses the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow).
 
