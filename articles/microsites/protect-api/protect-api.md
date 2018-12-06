@@ -1,6 +1,6 @@
 ---
 title: Protect Your API
-description: Everything you need to know to protect your API.
+description: Everything you need to know to protect your API
 template: microsite
 topics:
   - authentication
