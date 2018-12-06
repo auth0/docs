@@ -1,6 +1,6 @@
 ---
 title: Add Login to Your Regular Web App
-description: Everything you need to know to implement login for a regular web app.
+description: Everything you need to know to implement login for a regular web app
 ctaText: Go to Quickstart
 ctaLink: /docs/quickstart/webapp
 template: microsite
@@ -13,7 +13,7 @@ useCase:
   - add-login
 ---
 
-Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to [accounts.google.com](http://accounts.google.com) whenever a user signs in.
+Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to accounts.google.com whenever a user signs in.
 
 Your user will authenticate, and Auth0 will generate an ID Token that will be passed back to your application.
 
