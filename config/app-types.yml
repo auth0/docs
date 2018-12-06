@@ -7,7 +7,7 @@
 appTypes:
   - title: Native/Mobile App
     name: native
-    description: "Mobile or Desktop, an app that runs natively in a device"
+    description: "Mobile or Desktop app that runs natively in a device"
     example: "e.g., iOS, Android"
     question: "Select a native SDK"
     budicon: 243
@@ -23,7 +23,7 @@ appTypes:
 
   - title: Regular Web App
     name: webapp
-    description: "Traditional web app running on the server"
+    description: "Traditional web app that runs on the server"
     example: "e.g., Express.js, Java ASP.NET"
     question: "What technology are you using for your web app?"
     budicon: 349
@@ -31,7 +31,7 @@ appTypes:
     
   - title: Backend/API
     name: backend
-    description: "A CLI, daemon, or service running on your backend"
+    description: "A CLI, daemon, or service that runs on your backend"
     example: "e.g., Hapi.js API, shell script"
     question: "Select an API or backend platform"
     budicon: 649
