@@ -27,7 +27,7 @@ Auth0 makes it easy for your app to implement the M2M flow. Following successful
 
 * [Register the M2M Application with Auth0](/applications/machine-to-machine). 
   * Select an **Application Type** of **Machine to Machine Applications**.
-  * Choose your previously registered API.    
+  * Choose your previously-registered API.    
   * Authorize the M2M Application to call your API.
 
 ## Steps

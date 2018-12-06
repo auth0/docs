@@ -18,7 +18,7 @@ This tutorial will help you call your own API using the single-page login flow. 
 
 Auth0 makes it easy for your app to implement the single-page login flow using:
 
-* [Auth0 Mobile SDKs](/libraries): The easiest way to implement the single-page login flow, which will do most of the heavy-lifting for you. Our [Single-Page App Quickstarts](/quickstart/spa) will walk you through the process.
+* [Auth0.js](/libraries/auth0js): The easiest way to implement the single-page login flow, which will do most of the heavy-lifting for you. Our [Single-Page App Quickstarts](/quickstart/spa) will walk you through the process.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
 ## Prerequisites
