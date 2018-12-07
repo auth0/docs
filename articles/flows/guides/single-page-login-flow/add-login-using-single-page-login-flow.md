@@ -34,7 +34,7 @@ Following successful login, your application will have access to the user's [ID 
 
 ## Steps
 
-1. [Authorize the user](#authorize-the-user): Request the user's authorization and redirect back to your app.
+[Authorize the user](#authorize-the-user): Request the user's authorization and redirect back to your app.
 
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
