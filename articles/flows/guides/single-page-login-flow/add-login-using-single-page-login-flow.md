@@ -30,19 +30,17 @@ Following successful login, your application will have access to the user's [ID 
 * [Register your Application with Auth0](applications/spa)
     * Select an **Application Type** of **Single-Page App**.
     * Add an **Allowed Callback URL** of **`${account.callback}`**.
-    * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code** and **Implicit**.
+    * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Implicit**.
 
 ## Steps
 
-1. [Authorize the user](#authorize-the-user): Request the user's authorization and redirect back to your app. If the SPA has a back-end, we do not recommend that you call protected APIs using an Access Token obtained in this step.
+1. [Authorize the user](#authorize-the-user): Request the user's authorization and redirect back to your app.
 2. [Request tokens](#request-tokens): If the SPA has a back-end, exchange your authorization code for tokens, including a secure Access Token.
 
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 <%= include('./includes/authorize-user-add-login') %>
-
-<%= include('./includes/request-tokens') %>
 
 <%= include('./includes/sample-use-cases-add-login') %>
 

@@ -21,11 +21,10 @@ Your user will authenticate, and Auth0 will generate an ID Token and Access Toke
 
 When your app needs to fetch user data from your API:
 
-1. If the user is not already authenticated, our SDK redirects the user to your Auth0 Authorization Server, requesting an Authorization Code and ID Token.
-2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML), and Auth0 responds with the code and ID Token.
-3. Your app's API back-end can use the code to request an ID Token, Access Token, and Refresh Token from Auth0's Token endpoint.
-4. Auth0 responds with the user's requested tokens.
-5. The Access Token can be used to call your API and retrieve requested data.
+1. If the user is not already authenticated, our SDK redirects the user to your Auth0 Authorization Server, requesting an ID Token.
+2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML), 
+3. Auth0 responds with the user's ID Token and Access Token.
+3. The Access Token can be used to call your API and retrieve requested data.
 
 For single-page web apps, Auth0 uses the [Single-Page Login Flow](/flows/concepts/single-page-login-flow).
 
@@ -36,11 +35,9 @@ For single-page web apps, Auth0 uses the [Single-Page Login Flow](/flows/concept
 ::: steps
   1. <h4>Configure your API</h4>Once you have created your API, you will need to configure any scopes that applications can request during authorization.
 
-  2. <h4>Get an Access Token</h4>Your app requests an Access Token (and optionally, a Refresh Token) from your Auth0 Authorization Server using the <a href="/flows/concepts/single-page-login-flow">Single-Page Login Flow</a>.
+  2. <h4>Get an Access Token</h4>Your app requests an Access Token from your Auth0 Authorization Server using the <a href="/flows/concepts/single-page-login-flow">Single-Page Login Flow</a>.
 
   3. <h4>Call your API</h4>When your app calls your API, it includes the retrieved Access Token in the HTTP Authorization header.
-  
-  4. <h4>Refresh your Access Token</h4>When the Access Token expires you can use the Refresh Token to get a new one from your Auth0 Authorization Server.
 :::
 
 
