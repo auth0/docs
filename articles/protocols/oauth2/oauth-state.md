@@ -90,7 +90,7 @@ The process in order to do that looks like the following:
 ```json
 {
   "xyzABC123" : {
-    rediretUrl: '/protectedResource',
+    redirectUrl: '/protectedResource',
     expiresOn: [...]
   }
 }
