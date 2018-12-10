@@ -897,14 +897,6 @@ module.exports = [
     to: '/security/blacklisting-attributes'
   },
   {
-    from: '/brute-force-protection',
-    to: '/anomaly-detection/brute-force-protection'
-  },
-  {
-    from: '/breached-password',
-    to: '/anomaly-detection/breached-passwords'
-  },
-  {
     from: '/office365-deprecated',
     to: '/tutorials/office365-connection-deprecation-guide'
   },
@@ -1044,10 +1036,6 @@ module.exports = [
   {
     from: '/connections',
     to: '/identityproviders'
-  },
-  {
-    from: '/anomaly-detection/brute-force-protection',
-    to: '/anomaly-detection#brute-force-protection'
   },
   {
     from: '/libraries/lock-android/error-messages',

@@ -244,4 +244,4 @@ The following macros are available in the **Password Breach Alert** template:
 * `{application.name}`
 * `{connection.name}`
 
-[Learn more about Breached Password Detection](/anomaly-detection#breached-password-detection)
+Learn more about [Breached Password Detection](/anomaly-detection#breached-password-detection)

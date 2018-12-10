@@ -67,4 +67,4 @@ If this setting is on, all configured connections are enabled for new applicatio
 
 ## Turn on Anomaly Detection
 
-To protect against brute force attacks, [turn on and configure Auth0 Anomaly Detection](/anomaly-detection). Also configure [Breached Password Protection](/anomaly-detection/breached-passwords) in Anomaly Detection, if you have purchased it.
+To protect against brute force attacks and breached passwords, [turn on and configure Auth0 Anomaly Detection](/anomaly-detection/guides/set-anomaly-detection-preferences). 
