@@ -1,5 +1,5 @@
 ---
-description: How to update user profiles when using your own database as an identity provider.
+description: Learn how to update user profiles when using your own database as an identity provider.
 topics:
     - updating-users
     - user-management
