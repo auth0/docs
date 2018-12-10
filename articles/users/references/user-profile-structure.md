@@ -56,7 +56,7 @@ Auth0 also supports the ability for users to [link their profile to multiple ide
 
 * `last_login`: The timestamp of when the user last logged in. In case you are this property from inside a [Rule](/rules) using the `user` object, its value will be the one associated with the login that triggered the rule (since rules execute after the actual login).
 
-* `logins_count`: The number of times the user has logged in.
+* `logins_count`: The number of times the user has logged in. If a user is blocked and logs in, the blocked session is counted in `logins_count` and updates the `last_login` value.
 
 * `name`: The user's name.
 
