@@ -1877,10 +1877,6 @@ module.exports = [
      from: '/user-profile',
      to: '/users/concepts/overview-user-profile'
    },
-   {
-     from: '/users',
-     to: '/users/concepts/overview-users'
-   },
   //  {
   //    from: '/user-profile#block-and-unblock-a-user',
   //    to: '/users/guides/block-and-unblock-users'
