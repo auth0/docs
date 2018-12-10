@@ -66,7 +66,6 @@ Lock 10 does _allow_ some configuration methods to be added to the show() method
 ### Removed Methods
 
 - The `showSignin`, `showSignup` and `showReset` methods are no longer available. You can emulate the behavior of this options with the [initialScreen](/libraries/lock/v10/configuration#initialscreen-string-), [allowLogin](/libraries/lock/v10/configuration#allowlogin-boolean-), [allowSignUp](/libraries/lock/v10/configuration#allowsignup-boolean-) and [allowForgotPassword](/libraries/lock/v10/configuration#allowforgotpassword-boolean-) options.
-- The `getClient` method and the `$auth0` property are no longer available. You can, instead, simply instantiate `Auth0` when using functionality from `auth0.js`. If you need help with how to do this, see the [Using Lock with auth0js page](/libraries/lock/v10/auth0js).
 
 ## Changes to configuration Options
 
