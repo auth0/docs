@@ -23,7 +23,7 @@ Attributes can also come from custom databases and web services. Auth0 refers to
 
 ## Data normalization
 
-Auth0 supports a wide variety of connections. Each connection may return a different set of attributes about the user, and each provider may use different names for the same attribute, such as *surname*, *last name* and *family name*. To handle the increased complexity this presents, Auth0 provides a [Normalized User Profile](/users/normalized/auth0). Auth0 returns a basic set of information using specific attribute names so programs can rely on using those same names to retrieve information such as `user_id`, `name`, `nickname`, and `picture`. If available, additional attributes such as `given_name` and `family_name` are also included in the Normalized User Profile.
+Auth0 supports a wide variety of connections. Each connection may return a different set of attributes about the user, and each provider may use different names for the same attribute, such as *surname*, *last name* and *family name*. To handle the increased complexity this presents, Auth0 provides a [Normalized User Profile](/users/normalized). Auth0 returns a basic set of information using specific attribute names so programs can rely on using those same names to retrieve information such as `user_id`, `name`, `nickname`, and `picture`. If available, additional attributes such as `given_name` and `family_name` are also included in the Normalized User Profile.
 
 ## Caching user profiles
 

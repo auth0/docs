@@ -108,6 +108,6 @@ This reveals fields to make it easier to [Impersonate a User Using the Impersona
 ## Keep reading
 
 * [User Profile Structure](/users/references/user-profile-structure)
-* [Normalized User Profile](/users/normalized)
+* [Normalized User Profiles](/users/normalized)
 * [Metadata Overview](/users/concepts/overview-user-metadata)
 * [View Users](/users/guides/view-users)

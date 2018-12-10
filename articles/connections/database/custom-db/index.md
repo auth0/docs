@@ -25,7 +25,7 @@ For more information refer to [Auth0 pricing plans](https://auth0.com/pricing).
 In this tutorial, you'll learn how to connect your user database to Auth0 and configure it for use as an identity provider. More specifically, you will:
 
 * [Create and configure a custom database connection](/connections/database/custom-db/create-db-connection) using the [Auth0 dashboard](${manage_url}).
-* Make sure that your database has the appropriate fields to store user profiles attributes, such as **id**, **nickname**, **email**, and **password**. See [Auth0 Normalized User Profile](/users/normalized) for details on Auth0's user profile schema and the expected fields.
+* Make sure that your database has the appropriate fields to store user profiles attributes, such as **id**, **nickname**, **email**, and **password**. See [Normalized User Profile](/users/normalized) for details on Auth0's user profile schema and the expected fields.
 * Provide database action scripts to configure the database for use as an identity provider.
 
 ## Before you begin

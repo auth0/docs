@@ -386,8 +386,8 @@ articles:
           - title: "Structure"
             url: "/users/references/user-profile-structure"
 
-          - title: "Normalized User Profile"
-            url: "/users/normalized/auth0"
+          - title: "Normalized User Profiles"
+            url: "/users/normalized"
 
           - title: "Link Accounts"
             url: "/link-accounts"

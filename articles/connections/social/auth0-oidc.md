@@ -87,7 +87,7 @@ The user will be redirected to the built-in login page of the OIDC Provider Auth
 
 ## The resulting profile
 
-Once the user is authenticated, the resulting profile will contain the [Auth0 Normalized User Profile](/users/normalized) fields. For example:
+Once the user is authenticated, the resulting profile will contain the [Normalized User Profile](/users/normalized) fields. For example:
 
 ```js
 {

@@ -30,7 +30,7 @@ The query string is parsed into a series of terms and operators:
 
 You can search for users using the following fields:
 
-* All the [normalized user profile](/users/normalized/auth0) fields.
+* All the [normalized user profile](/users/normalized/auth0/normalized-user-profile-schema) fields.
 * User metadata fields may be used with:
     * Booleans
     * Numeric (integer or double)

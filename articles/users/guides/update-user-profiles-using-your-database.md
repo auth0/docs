@@ -51,7 +51,7 @@ Once a user has been migrated, you will also be able to update fields such as `e
 
 Auth0 caches the user profile received from a [database connection](/connections/database) before sending it to the client application. This cache is stored in the Auth0 database and is refreshed each time the user authenticates.
 
-The cached values for the [Normalized User Profile](/users/normalized) fields are based on the values returned from the Login Script of your custom database connection.
+The cached values for the [Normalized User Profile](/users/normalized/auth0/normalized-user-profile-schema) fields are based on the values returned from the Login Script of your custom database connection.
 
 The User Profile is cached for several reasons. First, caching allows you the option of implementing [Single Sign-On](/sso) at the Auth0 layer to avoid going to the Connection for every request. Additionally, this provides resilience if a Connection is temporarily unavailable.
 
