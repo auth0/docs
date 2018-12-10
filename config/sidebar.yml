@@ -388,7 +388,7 @@ articles:
             url: "/users/references/user-profile-structure"
 
           - title: "Normalized User Profiles"
-            url: "/users/normalized"
+            url: "/users/normalized/auth0"
             children:
 
               - title: "Identify Users"
@@ -413,6 +413,7 @@ articles:
 
               - title: "OIDC-Compliant Pipelines"  
                 url: "/users/normalized/oidc"
+                hidden: true 
 
           - title: "Link Accounts"
             url: "/link-accounts"
