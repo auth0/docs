@@ -378,7 +378,7 @@ articles:
         url: "/connections/database/password-strength"
 
   - title: "User Management"
-    url: "/users/concepts/overview-users"
+    url: "/users"
     children:
       - title: "User Profiles"
         url: "/users/concepts/overview-user-profile"

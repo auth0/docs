@@ -1,13 +1,16 @@
 ---
-description: Learn about working with users in Auth0
+url: /users
+title: User Management
+description: Learn about working with users, user profiles, and user metadata in Auth0.
 topics:
   - users
   - user-management
-contentType: concept
-useCase: manage-users
+contentType:
+  - index
+useCase:
+  - manage-users
 v2: true
 ---
-
 # User Management
 
 Auth0's hosted cloud database stores a variety of information on your users that is accessible to you. This information is available to you via a *user profile*, and your users are grouped by tenant. The user information itself can come from a variety of sources, including identity providers, your own databases, and enterprise connections (Active Directory, SAML).

@@ -1,11 +1,9 @@
 ---
-description: Describes how metadata works with Auth0.
-toc: true
+description: Understand how metadata works with Auth0.
 topics: 
    - metadata
    - rules
    - endpoints
-   - lock
 contentType: concept
 useCase: manage-users
 v2: true
