@@ -39,5 +39,6 @@ Every day, malicious hackers penetrate websites and applications, exposing thous
 Auth0 tracks large security breaches that are happening on major third party sites to help keep your users and system secure. By [enabling breached password detection](/anomaly-detection/guides/set-anomaly-detection-preferences), when a [trigger](/anomaly-detection/references/breached-password-detection-triggers-actions) occurs, your users can be notified and/or blocked from logging in if we suspect their credentials were part of a published security breach. You can [customize blocked account emails](/anomaly-detection/guides/customize-blocked-account-emails).
 
 ## Keep reading
+
 * [Restrictions and limitations](/anomaly-detection/references/anomaly-detection-restrictions-limitations) of Auth0 anomaly detection.
 * [Frequently asked questions](/anomaly-detection/references/anomaly-detection-faqs) about anomaly detection.

@@ -25,5 +25,6 @@ The email sent to the user looks like this:
 You can customize the template used for this message on the [Dashboard](${manage_url}/#/emails) under __Emails > Templates > Blocked Account Email__.
 
 ## Keep reading
+
 * Learn more about [email templates](/email/templates).
 * Understand [why a user receives a breached password email](/anomaly-detection/concepts/breached-passwords) and general web security tips.

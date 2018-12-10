@@ -18,7 +18,7 @@ Customize the actions that occur after the triggers in the **Anomaly Detection**
 Auth0 recommends that you **do not** make changes to your anomaly detection features with the Management API.
 :::
 
-![](/media/articles/anomaly-detection/anomaly-detection-overview.png)
+![Anomaly Detection Dashboard](/media/articles/anomaly-detection/anomaly-detection-overview.png)
 
 ## Brute-force protection preferences
 
@@ -32,7 +32,7 @@ Limit the amount of signups and failed logins from a suspicious IP address. For 
 
 1. Click on the **Brute-force Protection** shield. 
 
-![](/media/articles/anomaly-detection/brute-force-shield.png)
+![Brute-Force Protection Shield](/media/articles/anomaly-detection/brute-force-shield.png)
 
 2. Use the toggles to enable or disable actions for single or multiple user accounts. 
 
@@ -46,7 +46,7 @@ Set preferences for breached password detection actions. For more information, s
 
 1. Click on the **Breached-password Detection** shield.
 
-![](/media/articles/anomaly-detection/breached-password-shield.png)
+![Breached Password Detection Shield](/media/articles/anomaly-detection/breached-password-shield.png)
 
 2. Use the toggles to enable or disable actions when login security breaches are detected. 
 
@@ -55,6 +55,7 @@ Set preferences for breached password detection actions. For more information, s
 4. Click **Save** when you are finished.
 
 ## Keep reading
+
 * Understand [how Auth0 detects anomalies](/anomaly-detection).
 * Understand why a user receives a [breached password email](/anomaly-detection/concepts/breached-passwords) and general web security tips.
 * [Restrictions and limitations](/anomaly-detection/references/anomaly-detection-restrictions-limitations) of Auth0 anomaly detection.

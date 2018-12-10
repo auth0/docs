@@ -21,5 +21,6 @@ Both brute-force protection and breached password detection depend on the IP add
 * **Authenticating many users from the same IP address.** For example, users that are behind a proxy are more likely to reach these limits and trigger the associated protection. It is possible to configure a whitelist for the proxy's IP and CIDR range and avoid erroneously triggering the protection.
 
 ## Keep reading
+
 * Understand [how Auth0 detects anomalies](/anomaly-detection).
 * Learn how to [set anomaly detection preferences](/anomaly-detection/guides/set-anomaly-detection-preferences) in the Dashboard.
