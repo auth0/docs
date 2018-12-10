@@ -383,12 +383,14 @@ articles:
       - title: "User Profiles"
         url: "/users/concepts/overview-user-profile"
         children:
+
           - title: "Structure"
             url: "/users/references/user-profile-structure"
 
           - title: "Normalized User Profiles"
             url: "/users/normalized"
             children:
+
               - title: "Identify Users"
                 url: "/users/normalized/auth0/identify-users"
                 hidden: true 
@@ -408,6 +410,9 @@ articles:
               - title: "Sample User Profiles"
                 url: "/users/normalized/auth0/sample-user-profiles"
                 hidden: true   
+
+              - title: "OIDC-Compliant Pipelines"  
+                url: "/users/normalized/oidc"
 
           - title: "Link Accounts"
             url: "/link-accounts"

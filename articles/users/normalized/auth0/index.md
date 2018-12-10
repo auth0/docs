@@ -29,7 +29,7 @@ The Auth0 claims included in the normalized user profile differ from the standar
 
 * [Store User Data](/users/normalized/auth0/store-user-data)
 * [Identify Users](/users/normalized/auth0/identify-users)
-* [Retrieve User Profiles](/users/normalized/auth0/retieve-user-profiles)
+* [Retrieve User Profiles](/users/normalized/auth0/retrieve-user-profiles)
 * [Normalized User Profile Schema](/users/normalized/auth0/normalized-user-profile-schema) 
 * [Sample User Profiles](/users/normalized/auth0/sample-user-profiles)
 * [Claims for User Profile Returned via OIDC-Compliant Authorization Flow](/users/normalized/oidc)
