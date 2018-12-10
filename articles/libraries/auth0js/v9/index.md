@@ -142,6 +142,7 @@ Hosted login with popup:
 
 ```js
 webAuth.popup.authorize({
+  redirectUri: 'https://YOUR_APP/popup_response_handler.html'
   //Any additional options can go here
 }, function(err, authResult) {
   //do something
@@ -152,11 +153,35 @@ And for social login with popup using `authorize`:
 
 ```js
 webAuth.popup.authorize({
+  redirectUri: 'https://YOUR_APP/popup_response_handler.html',
   connection: 'twitter'
 }, function(err, authResult) {
   //do something
 });
 ```
+
+#### Handling popup authentication results
+
+When using popup authentication, you'll have to provide a `redirectUri` where the destination page communicates the authorization results back to the main page by using the `webAuth.popup.callback` method. A simple implementation would be something like this:
+
+```HTML
+<!-- popup_response_handler.html -->
+<html>
+  <body>
+    <script src="${auth0js_url}"></script>
+    <script type="text/javascript">
+      var webAuth = new auth0.WebAuth({
+        domain:       'YOUR_AUTH0_DOMAIN',
+        clientID:     'YOUR_CLIENT_ID'
+      });
+      webAuth.popup.callback();
+    </script>
+  </body>
+</html>
+```
+
+An ideal handler would contain just this minimal functionality (i.e. avoid reloading the whole application just to handle the response). 
+You will need to add the `redirectUri` to the application's **Allowed Callback URLs** list in the application configuration page on the Dashboard.
 
 ### webAuth.login()
 
