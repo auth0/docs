@@ -54,9 +54,9 @@ The following tables describe operational and feature differences between these 
         <tr>
             <th class="info"><strong>Updates</strong></th>
             <td>Unscheduled. <br /> Multiple times per day. <br /><br />Staged in two zones.</td>
-            <td>Cumulative. Deployed post multi-tenant update after coordination with Customer.</td>
-            <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (such as vulnerabilities, security updates)</td>
-            <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (such as vulnerabilities, security updates)</td>
+            <td>Scheduled with Customer. <br /><br />Monthly, bi-monthly, or quarterly, except critical updates (such as security updates).</td>
+            <td>Scheduled with Customer. <br /><br />Monthly, bi-monthly, or quarterly, except critical updates (such as security updates)</td>
+            <td>Scheduled with Customer. <br /><br />Monthly, bi-monthly, or quarterly, except critical updates (such as security updates)</td>
         </tr>
         <tr>
             <th class="info"><strong>Deployment Configurations</strong></th>
@@ -69,15 +69,15 @@ The following tables describe operational and feature differences between these 
             <th class="info"><strong>Service & Uptime Reporting</strong></th>
             <td><a href="https://status.auth0.com">https://status.auth0.com</a><br /><a href="http://uptime.auth0.com">http://uptime.auth0.com</a></td>
             <td>Monitored by Auth0</td>
-            <td>Monitored by Auth0 and Customer's tools</td>
-            <td>Monitored by Auth0 and Customer's tools</td>
+            <td>Monitored by Customer</td>
+            <td>Monitored by Customer</td>
         </tr>
         <tr>
             <th class="info"><strong>Uptime SLA Provided</strong></th>
             <td>Yes</td>
             <td>Yes</td>
-            <td>No</td>
-            <td>No</td>
+            <td>Limited to PSaaS Appliance*</td>
+            <td>Limited to PSaaS Appliance*</td>
         </tr>
         <tr>
             <th class="info"><strong>Support Channels & Levels</strong></th>
@@ -85,6 +85,7 @@ The following tables describe operational and feature differences between these 
         </tr>
     </tbody>
 </table>
+<p>*See "PSaaS Appliance" section in <a href="https://auth0.com/legal">Service Level Description</a></p>
 
 ## Feature Differences
 
