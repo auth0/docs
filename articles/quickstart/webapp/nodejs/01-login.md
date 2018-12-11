@@ -30,7 +30,7 @@ AUTH0_CLIENT_SECRET=YOUR_CLIENT_SECRET
 ```
 
 ::: warning
-Do not to put the `env` file into source control. Otherwise, your history will contain references to your application secrets!
+Do not to put the `.env` file into source control. Otherwise, your history will contain references to your application secrets!
 :::
 
 If you are using git, create a `.gitignorefile` (or edit your existing one, if you have one already) and add `.env` to it. The .gitignore file tells source control to ignore the files (or file patterns) you list.
