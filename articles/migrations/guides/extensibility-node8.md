@@ -29,7 +29,7 @@ We will **NOT** be shutting down the Node 4 runtime after the April 30 LTS deadl
 In this document, we:
 
 * Provide recommendations on how you can ensure a smooth migration for your environment
-* Detail the specific modules effected
+* Detail the specific modules affected
 
 ## Summary of the migration
 
