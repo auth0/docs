@@ -29,7 +29,7 @@ Configure the custom database connection.
 
 2. Connect the database to the application. Navigate to the **Applications** tab of your database settings, under the **Applications Using This Connection** heading you can enable the database connection for each application.
    
-![Database Connection Applications](/media/articles/users/migrations/enable-applications.png)
+![Database Connection Applications](/media/articles/users/migrations/enable-clients.png)
 
 ## Scenario 1: Migrate Users from Gigya to Auth0
 

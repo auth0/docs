@@ -25,7 +25,7 @@ Each affected user will need to reset their password when they log in the first 
 
 Using the bulk import endpoints, you can:
 
-1. [Request a bulk import of users to a connection](/api/management/v2#!/Jobs/post_users_imports) and eceive a response.
+1. [Request a bulk import of users to a connection](/api/management/v2#!/Jobs/post_users_imports) and receive a response.
 3. [Query job's status](/api/management/v2#!/Jobs/get_jobs_by_id).
 4. [Check for details on any failed entries in your job](/api/management/v2#!/Jobs/get_errors).
 
@@ -35,7 +35,7 @@ Before you launch the import users job, a database (to which the users will be i
 
 ## Request bulk import
 
-[The users import endpoint](/api/management/v2#!/Jobs/post_users_imports) requires that your `POST` request be of encoding type `multipart/form-data`.
+The [users import endpoint](/api/management/v2#!/Jobs/post_users_imports) requires that your `POST` request be of encoding type `multipart/form-data`.
 
 Create a request that contains the following parameters:
 
@@ -79,4 +79,4 @@ You can query and retrieve details on failed entries via the API using the [GET 
 * [Configure Automatic Migration from Your Database](/users/guides/configure-automatic-migration)
 * [User Import/Export Extension](//extensions/user-import-export)
 * [Bulk Import Database Schema and Example](/users/references/bulk-import-database-schema-examples)
-* [User Migration Scenarios](users/references/user-migraton-scenarios)
+* [User Migration Scenarios](users/references/user-migration-scenarios)
