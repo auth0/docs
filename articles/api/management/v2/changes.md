@@ -16,7 +16,6 @@ This document describes the major differences between Auth0's Management API v1 
 ## tl;dr
 
 * v2 uses JWTs instead of opaque tokens.
-* v2 allows you to send an ID Token to perform operations on the user to which the ID Token refers.
 * v2 includes `user_metadata` for trivial data about users and `app_metadata` for data that affects how your application functions. Unlike `metadata` in API v1, these fields are not merged into the root `user` object.
 * Fewer endpoints on existing features make development easier.
 * All endpoints work with ids. Strings (such as `connection_name`) are no longer used.
