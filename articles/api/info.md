@@ -43,7 +43,7 @@ The Authentication API exposes Auth0 identity functionality, as well as those of
             <span href="#" class="illustration i-postman"></span>
             <h4>Postman</h4>
             <p>Try the Auth0 Authentication API in Postman.</p>
-            <p><a href="https://app.getpostman.com/run-collection/2a9bc47495ab00cda178"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+            <p><a href="https://app.getpostman.com/run-collection/90d43da958b7e910ff1a"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
             <p><a href="/api/postman">How to use our Postman Collections</a></p>
           </div>
         </div>
