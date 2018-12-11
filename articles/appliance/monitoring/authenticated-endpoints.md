@@ -56,13 +56,13 @@ There are two ways you can call a specific API endpoint:
 If you're checking the status of a specific node, it's best to submit your request to the node directly:
 
 ```text
-curl -v http://{node-ip}/health/status/cpu --user api_keys_health:YOUR_API_KEY
+curl -v https://{node-ip}/health/status/cpu --user api_keys_health:YOUR_API_KEY
 ```
 
 Otherwise, you can issue your request through the load balancer using the **manage** domain:
 
 ```text
-curl -v http://{manage-dashboard-domain}/health/status/cpu --user api_keys_health:YOUR_API_KEY
+curl -v https://{manage-dashboard-domain}/health/status/cpu --user api_keys_health:YOUR_API_KEY
 ```
 
 ### Response Codes
