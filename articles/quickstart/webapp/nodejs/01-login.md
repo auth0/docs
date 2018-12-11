@@ -42,7 +42,7 @@ var session = require('express-session');
 
 // config express-session
 var sess = {
-  secret: 'CHANGE THIS SECRET',
+  secret: 'CHANGE THIS TO A RANDOM SECRET',
   cookie: {},
   resave: false,
   saveUninitialized: true
