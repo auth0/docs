@@ -18,6 +18,28 @@ github:
 
 ## Configure Node.js to use Auth0
 
+### Create the .env file
+
+Create the `.env` file in the root of your app and add your Auth0 variables and values to it.
+
+```
+# .env
+AUTH0_CLIENT_ID=${account.clientId}
+AUTH0_DOMAIN=${account.namespace}
+AUTH0_CLIENT_SECRET=YOUR_CLIENT_SECRET
+```
+
+::: warning
+Do not to put the `env` file into source control. Otherwise, your history will contain references to your application secrets!
+:::
+
+If you are using git, create a `.gitignorefile` (or edit your existing one, if you have one already) and add `.env` to it. The .gitignore file tells source control to ignore the files (or file patterns) you list.
+
+```
+# .gitignore
+.env
+```
+
 ### Install the dependencies
 
 To get started, install the following dependencies.
@@ -25,10 +47,11 @@ To get started, install the following dependencies.
 * [passport](http://www.passportjs.org/) - an authentication middleware for Node.js
 * [passport-auth0](https://github.com/auth0/passport-auth0) - an Auth0 authentication strategy for Passport
 * [express-session](https://www.npmjs.com/package/express-session) - a middleware to manage sessions
+* [dotenv](https://www.npmjs.com/package/dotenv) - a module to load environment variables from a `.env` file
 
 ```bash
 # installation with npm
-npm install passport passport-auth0 express-session --save
+npm install passport passport-auth0 express-session dotenv --save
 ```
 
 ### Configure express-session
@@ -62,6 +85,11 @@ In `app.js`, include the `passport` and `passport-auth0` modules, and configure 
 ```js
 // app.js
 
+// Load environment variables from .env
+var dotenv = require('dotenv');
+dotenv.config();
+
+// Load Passport
 var passport = require('passport');
 var Auth0Strategy = require('passport-auth0');
 
