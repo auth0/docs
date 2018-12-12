@@ -14,11 +14,11 @@ v2: true
 
 # Update User Profiles Using Your Database
 
-You can update user profiles when using [your own database as an identity provider](/connections/database/custom-db) by:
+Uupdate user profiles when using [your own database as an identity provider](/connections/database/custom-db) by doing the following tasks:
 
-* Using the [Management API](/api/management/v2#!/Users/patch_users_by_id).
-* Updating the user in your database.
-* [Enabling user migration](/users/migrations/automatic) from your database to Auth0.
+* Use the [Management API](/api/management/v2#!/Users/patch_users_by_id).
+* Update the user in your database.
+* [Configure user migration](/users/guides/configure-automatic-migration) from your database to Auth0.
 
 ## Update users with the Management API
 
