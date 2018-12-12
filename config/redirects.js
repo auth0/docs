@@ -1976,7 +1976,7 @@ module.exports = [
    {
      from: ['/libraries/lock/v10/auth0js', '/libraries/lock/v11/auth0js'],
      to: '/libraries/auth0js'
-   }
+   },
   //  {
   //    from: '/metadata/lock',
   //    to: '/users/guides/manage-user-metadata'
