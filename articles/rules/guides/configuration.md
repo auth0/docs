@@ -1,13 +1,12 @@
 ---
 title: Store Configuration for Rules
 description: A list of the Node.js modules and libraries that are available when creating Rules.
+toc: true
 topics:
   - rules
   - extensibility
-contentType:
-  - reference
-useCase:
-  - extensibility-rules
+contentType: how-to
+useCase: extensibility-rules
 ---
 
 # Store Configuration for Rules

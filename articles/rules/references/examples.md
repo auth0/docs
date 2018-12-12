@@ -1,13 +1,12 @@
 ---
 title: Examle Rules
 description: A collection of example Rules.
+toc: true
 topics:
   - rules
   - extensibility
-contentType:
-  - reference
-useCase:
-  - extensibility-rules
+contentType: reference
+useCase: extensibility-rules
 ---
 
 # Example Rules

@@ -5,12 +5,8 @@ topics:
   - rules
   - extensibility
   - management-api
-contentType:
-  - reference
-  - concept
-  - how-to
-useCase:
-  - extensibility-rules
+contentType: how-to
+useCase: extensibility-rules
 ---
 
 # Use the Management API in Rules

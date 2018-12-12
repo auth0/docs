@@ -1,13 +1,12 @@
 ---
 title: User Object in Rules
 description: Available properties of the user object in Rules.
+toc: true
 topics:
   - rules
   - extensibility
-contentType:
-  - reference
-useCase:
-  - extensibility-rules
+contentType: reference
+useCase: extensibility-rules
 ---
 
 # User Object in Rules

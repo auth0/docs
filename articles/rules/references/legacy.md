@@ -7,8 +7,7 @@ topics:
 contentType:
   - reference
   - how-to
-useCase:
-  - extensibility-rules
+useCase: extensibility-rules
 ---
 
 # Rules

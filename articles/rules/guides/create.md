@@ -1,12 +1,12 @@
 ---
 description: How to create a new Rule from the Dashboard or with the Management API.
+toc: true
 topics:
   - rules
   - extensibility
   - create
 contentType: how-to
-useCase:
-  - extensibility-rules
+useCase: extensibility-rules
 ---
 
 # Create a New Rule

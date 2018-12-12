@@ -8,8 +8,7 @@ contentType:
   - reference
   - concept
   - index
-useCase:
-  - extensibility-rules
+useCase: extensibility-rules
 ---
 
 # Rules

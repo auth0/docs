@@ -4,10 +4,8 @@ description: A list of the Node.js modules and libraries that are available when
 topics:
   - rules
   - extensibility
-contentType:
-  - reference
-useCase:
-  - extensibility-rules
+contentType: reference
+useCase: extensibility-rules
 ---
 
 # Node.js Modules Available in Rules

@@ -1,12 +1,12 @@
 ---
 description: How to debug your Auth0 Rules.
+toc: true
 topics:
   - rules
   - extensibility
   - debug
 contentType: how-to
-useCase:
-  - extensibility-rules
+useCase: extensibility-rules
 ---
 
 # Debug Rules

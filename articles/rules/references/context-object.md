@@ -1,13 +1,12 @@
 ---
 title: Context Object in Rules
 description: Available properties of the context object in Rules.
+toc: true
 topics:
   - rules
   - extensibility
-contentType:
-  - reference
-useCase:
-  - extensibility-rules
+contentType: reference
+useCase: extensibility-rules
 ---
 
 # Context Object in Rules

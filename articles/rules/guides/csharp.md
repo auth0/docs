@@ -1,15 +1,12 @@
 ---
 title: Use C# in Rules
 description: Learn how to use C# in Rules with Edge.js
-toc: true
 topics:
   - rules
   - extensibility
   - csharp
-contentType:
-  - reference
-useCase:
-  - extensibility-rules
+contentType: how-to
+useCase: extensibility-rules
 ---
 # Use C<span>#</span> in Rules
 
