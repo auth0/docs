@@ -155,4 +155,4 @@ Approximately once a day (though this frequency might vary under certain circums
 
 ### Receive a "postUrl is required" error
 
-This is usually thrown if a custom domain is configured for your tenant, but the `PROVISIONING_TICKET` in the `config.json` still uses the Auth0 tenant domain. Try changing the `PROVISIONING_TICKET` URL to use your custom domain.
+This is usually thrown if additional configuration for custom domains have not been made. See [the custom domains documentation](/custom-domains/additional-configuration#configure-ad-ldap-connections) for more info.
