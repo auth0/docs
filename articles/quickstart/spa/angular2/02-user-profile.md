@@ -41,13 +41,12 @@ userProfile: any;
 
 //...
 public getProfile(cb): void {
-  const accessToken = localStorage.getItem('access_token');
-  if (!accessToken) {
+  if (!this._accessToken) {
     throw new Error('Access Token must exist to fetch profile');
   }
 
   const self = this;
-  this.auth0.client.userInfo(accessToken, (err, profile) => {
+  this.auth0.client.userInfo(this._accessToken, (err, profile) => {
     if (profile) {
       self.userProfile = profile;
     }

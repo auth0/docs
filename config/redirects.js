@@ -315,6 +315,18 @@ module.exports = [
     from: `/quickstart/spa/emberjs`,
     to: '/quickstart/spa/ember'
   },
+
+  /* --- Removed Quickstarts --- */
+
+  {
+    from: [
+      '/quickstart/spa/angularjs',
+      '/quickstart/spa/aurelia',
+      '/quickstart/spa/ember',
+      '/quickstart/spa/jquery'
+    ],
+    to: '/quickstart/spa'
+  },
   
   /* --- Connections --- */
 
@@ -885,14 +897,6 @@ module.exports = [
     to: '/security/blacklisting-attributes'
   },
   {
-    from: '/brute-force-protection',
-    to: '/anomaly-detection/brute-force-protection'
-  },
-  {
-    from: '/breached-password',
-    to: '/anomaly-detection/breached-passwords'
-  },
-  {
     from: '/office365-deprecated',
     to: '/tutorials/office365-connection-deprecation-guide'
   },
@@ -1032,10 +1036,6 @@ module.exports = [
   {
     from: '/connections',
     to: '/identityproviders'
-  },
-  {
-    from: '/anomaly-detection/brute-force-protection',
-    to: '/anomaly-detection#brute-force-protection'
   },
   {
     from: '/libraries/lock-android/error-messages',
@@ -1361,10 +1361,10 @@ module.exports = [
     from: '/dashboard-account-settings',
     to: '/dashboard-tenant-settings'
   },
-  {
-    from: '/metadata/lock',
-    to: '/metadata#using-lock-to-manage-metadata'
-  },
+  // {
+  //   from: '/metadata/lock',
+  //   to: '/metadata#using-lock-to-manage-metadata'
+  // },
   {
     from: ['/libraries/lock/v10/customization'],
     to: '/libraries/lock/v10/configuration',
@@ -1531,15 +1531,15 @@ module.exports = [
   },
   {
     from: '/tutorials/redirecting-users',
-    to: '/users/redirecting-users',
+    to: '/users/guides/redirect-users-after-login',
   },
   {
     from: '/tutorials/get-user-information-with-unbounce-landing-pages',
-    to: '/users/get-user-information-with-unbounce-landing-pages',
+    to: '/users/guides/get-user-information-with-unbounce-landing-pages',
   },
   {
     from: '/tutorials/bulk-importing-users-into-auth0',
-    to: '/users/bulk-importing-users-into-auth0',
+    to: '/users/migrations/bulk-import',
   },
   {
     from: '/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise',
@@ -1800,7 +1800,7 @@ module.exports = [
   {
     from: '/architecture-scenarios/business/b2b-b2e',
     to: '/architecture-scenarios/b2b-b2e'
-  },,
+  },
   {
     from: '/architecture-scenarios/business/b2b',
     to: '/architecture-scenarios/b2b'
@@ -1873,6 +1873,114 @@ module.exports = [
      from: '/tokens/access-token',
      to: '/tokens/overview-access-tokens'
    },
+   {
+     from: '/user-profile',
+     to: '/users/concepts/overview-user-profile'
+   },
+  //  {
+  //    from: '/user-profile#block-and-unblock-a-user',
+  //    to: '/users/guides/block-and-unblock-users'
+  //  },
+   {
+     from: '/user-profile/user-picture',
+     to: '/users/guides/change-user-pictures'
+   },
+  //  {
+  //    from: '/user-profile#create-a-user',
+  //    to: '/users/guides/create-users'
+  //  },
+  //  {
+  //    from: '/user-profile#delete-a-user',
+  //    to: '/users/guides/delete-users'
+  //  },
+  //  {
+  //    from: '/user-profile#user-access-to-applications',
+  //    to: '/users/guides/manage-user-access-to-applications'
+  //  },
+  //  {
+  //    from: '/user-profile#manage-users-using-the-dashboard',
+  //    to: '/users/guides/manage-users-using-the-dashboard'
+  //  },
+  //  {
+  //    from: '/user-profile#manage-users-using-the-management-api',
+  //    to: '/users/guides/manage-users-using-the-management-api'
+  //  },
+   {
+     from: '/user-profile/progressive-profiling',
+     to: '/users/guides/implement-progressive-profiling'
+   },
+   {
+     from: '/user-profile/customdb.md',
+     to: '/users/guides/update-user-profiles-using-your-database'
+   },
+  //  {
+  //    from: '/user-profile#view-users',
+  //    to: '/users/guides/view-users'
+  //  },
+   {
+     from: '/user-profile/normalized/auth0',
+     to: '/users/normalized/auth0'
+   },
+   {
+     from: '/user-profile/normalized/oidc',
+     to: '/users/normalized/oidc'
+   },
+   {
+     from: '/users/search/best-practices',
+     to: '/best-practices/search-best-practices'
+   },
+   {
+     from: '/users/user-data-storage',
+     to: '/best-practices/user-data-storage-best-practices'
+   },
+   {
+     from: '/user-profile/user-profile-structure',
+     to: '/users/references/user-profile-structure'
+   },
+   {
+     from: '/metadata',
+     to: '/users/concepts/overview-user-metadata'
+   },
+   {
+     from: '/metadata/apis',
+     to: '/users/guides/manage-user-metadata'
+   },
+   {
+     from: '/multifactor-authentication/administrator/twilio-configuration',
+     to: '/multifactor-authentication/twilio-configuration'
+   },
+   {
+     from: '/multifactor-authentication/administrator/sms-templates',
+     to: '/multifactor-authentication/sms-templates'
+   },
+   {
+     from: '/multifactor-authentication/guardian',
+     to: '/multifactor-authentication/factors/push'
+   },
+   {
+     from: '/multifactor-authentication/google-authenticator',
+     to: '/multifactor-authentication/factors/otp'
+   },
+   {
+     from: '/multifactor-authentication/duo',
+     to: '/multifactor-authentication/factors/duo'
+   },
+   {
+     from: '/multifactor-authentication/sms',
+     to: '/multifactor-authentication/factors/sms'
+   },
+   {
+     from: '/multifactor-authentication/yubikey',
+     to: '/multifactor-authentication'
+   },
+   {
+     from: ['/libraries/lock/v10/auth0js', '/libraries/lock/v11/auth0js'],
+     to: '/libraries/auth0js'
+   }
+  //  {
+  //    from: '/metadata/lock',
+  //    to: '/users/guides/manage-user-metadata'
+  //  }
   { from: '/rules/current', to: '/rules' },
   { from: '/rules/legacy', to: '/rules/references/legacy' },
   { from: '/rules/current/context', to: '/rules/references/context-object' },
@@ -1881,3 +1989,4 @@ module.exports = [
   { from: '/rules/current/csharp', to: '/rules/guides/csharp' },
   { from: '/rules/current/management-api', to: '/rules/guides/management-api' }
 ];
+

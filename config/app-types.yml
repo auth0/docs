@@ -5,34 +5,34 @@
 ## ------------------------------------------------------------
 
 appTypes:
-  - title: Mobile / Native App
+  - title: Native/Mobile App
     name: native
-    description: "Native and hybrid mobile, desktop"
-    example: "eg: iOS, Android, Chrome"
+    description: "Mobile or Desktop app that runs natively on a device"
+    example: "e.g., iOS, Android"
     question: "Select a native SDK"
     budicon: 243
     slug: native-platforms
 
-  - title: Single Page App
+  - title: Single-Page App
     name: spa
-    description: "A JavaScript front-end app that uses an API"
-    example: "eg: AngularJS, React"
+    description: "JavaScript web app that runs in the browser"
+    example: "e.g., Angular.JS + NodeJS, React"
     question: "What technology are you using for your web app?"
     budicon: 349
     slug: application-platforms
 
-  - title: Web App
+  - title: Regular Web App
     name: webapp
-    description: "Traditional server rendered web app"
-    example: "eg: Express.js, ASP.NET"
+    description: "Traditional web app that runs on the server"
+    example: "e.g., Express.js, ASP.NET"
     question: "What technology are you using for your web app?"
     budicon: 349
     slug: server-platforms
     
-  - title: Backend / API
+  - title: Backend/API
     name: backend
-    description: "An API or service that does JWT validation"
-    example: "eg: Hapi.js API, ASP.NET API"
+    description: "An API or service protected by Auth0"
+    example: "e.g., Express.js API, ASP.NET API"
     question: "Select an API or backend platform"
     budicon: 649
     slug: server-apis

@@ -53,7 +53,7 @@ This tutorial assumes that you have already done the following:
 - [Register an application](/applications#how-to-configure-an-application). For the purposes of this example we'll be using a single-page web app
 - [Create a database connection](${manage_url}/#/connections/database)
 - [Register the API](/apis#how-to-configure-an-api-in-auth0). It should include two scopes: `view:balance` and `transfer:funds`
-- [Enable Multi-factor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [Guardian push notifications](/multifactor-authentication/administrator/push-notifications)
+- [Enable Multi-factor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [push notifications](/multifactor-authentication/factors/push)
 
 
 ### 1. Create the rule
@@ -71,7 +71,7 @@ function (user, context, callback) {
      // ask for MFA only if scope transfer:funds was requested
      if (context.request.query.scope.indexOf('transfer:funds') > -1) {
        context.multifactor = {
-         provider: 'guardian',
+         provider: 'any',
          allowRememberBrowser: false
        };
      }
@@ -83,7 +83,7 @@ function (user, context, callback) {
 
 The `CLIENTS_WITH_MFA` variable holds the Client IDs of all the applications you want to use this rule. You can remove this (and the `if` statement that follows) if you don't need it.
 
-The `context.request.query.scope` property contains all the scopes that the authentication request asked for. If it includes the value `transfer:funds` then we ask for MFA by setting the `context.multifactor` property to the appropriate value. In this case we are asking for MFA using [Guardian](/multifactor-authentication/guardian).
+The `context.request.query.scope` property contains all the scopes that the authentication request asked for. If it includes the value `transfer:funds` then we ask for MFA by setting the `context.multifactor` property to the appropriate value. In this case we are asking for MFA using [Push](/multifactor-authentication/factors/push).
 
 ### 2. Configure your application
 
@@ -214,4 +214,4 @@ That's it, you're done! Now your application allows access to different types of
 * [Rules](/rules)
 * [Scopes](/scopes)
 * [How to verify Access Tokens](/api-auth/tutorials/verify-access-token)
-* [Step-up Authentication for Web Apps](/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps)
+* [Step-up Authentication for Web Apps](/multifactor-authentication/step-up-authentication/step-up-for-web-apps)

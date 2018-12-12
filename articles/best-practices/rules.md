@@ -10,9 +10,9 @@ useCase:
   - rules
 ---
 
-# Best Practices: Rules
+# Rules Best Practices
 
-In this article, you'll learn some best practices for using [rules](/rules). Before you start writing rules, review [what you can use rules for](/rules/current#what-can-i-use-rules-for-) and take a look at some [examples](/rules/current#examples)
+Here are some best practices for using [rules](/rules). Before you start writing rules, review [what you can use rules for](/rules/current#what-can-i-use-rules-for-) and take a look at some [examples](/rules/current#examples)
 
 ## Handle errors
 

@@ -401,50 +401,66 @@ articles:
   - title: "User Management"
     url: "/users"
     children:
-      - title: "User Profile"
-        url: "/user-profile"
+      - title: "User Profiles"
+        url: "/users/concepts/overview-user-profile"
         children:
+
           - title: "Structure"
-            url: "/user-profile/user-profile-structure"
+            url: "/users/references/user-profile-structure"
 
-          - title: "Details"
-            url: "/user-profile/user-profile-details"
+          - title: "Normalized User Profiles"
+            url: "/users/normalized/auth0"
+            children:
 
-          - title: "Normalized User Profile"
-            url: "/user-profile/normalized/auth0"
+              - title: "Identify Users"
+                url: "/users/normalized/auth0/identify-users"
+                hidden: true 
 
-          - title: "Picture"
-            url: "/user-profile/user-picture"
+              - title: "Retrieve User Profiles"
+                url: "/users/normalized/auth0/retrieve-user-profiles"
+                hidden: true 
 
-      - title: "User Search"
-        url: "/users/search/v3"
-        children:
-          - title: "Query Syntax"
-            url: "/users/search/v3/query-syntax"
+              - title: "Store User Data"
+                url: "/users/normalized/auth0/store-user-data"
+                hidden: true 
 
-          - title: "Best Practices"
-            url: "/users/search/best-practices"
+              - title: "Normalized User Profile Schema"
+                url: "/users/normalized/auth0/normalized-user-profile-schema"
+                hidden: true 
+                
+              - title: "Sample User Profiles"
+                url: "/users/normalized/auth0/sample-user-profiles"
+                hidden: true   
 
-      - title: "User Search"
-        url: "/users/search/v2"
-        hidden: true
-        children:
-          - title: "Query Syntax"
-            url: "/users/search/v2/query-syntax"
+              - title: "OIDC-Compliant Pipelines"  
+                url: "/users/normalized/oidc"
+                hidden: true 
+
+          - title: "Link Accounts"
+            url: "/link-accounts"
             hidden: true
 
-          - title: "Best Practices"
-            url: "/users/search/best-practices"
+          - title: "Custom Database"
+            url: "/users/guides/update-user-profiles-using-your-database"  
+
+          - title: "Progressive Profiling"
+            url: "/users/guides/implement-progressive-profiling"
+            hidden: true
+
+          - title: "Blacklist Attributes"
+            url: "/security/blacklisting-attributes"
             hidden: true
 
       - title: "User Metadata"
-        url: "/metadata"
+        url: "/users/concepts/overview-user-metadata"
 
       - title: "User Impersonation"
-        url: "/user-profile/user-impersonation"
+        url: "/users/guides/impersonate-users-using-the-dashboard"
+        hidden: true
 
       - title: "Delegated Administration"
         url: "/extensions/delegated-admin/v3"
+        hidden: true
 
       - title: "Authorization Extension"
         url: "/extensions/authorization-extension/v2"
@@ -478,11 +494,9 @@ articles:
             url: "/extensions/authorization-extension/v2/import-export-data"
             hidden: true
 
-      - title: "Progressive Profiling"
-        url: "/user-profile/progressive-profiling"
-
       - title: "Data Storage"
-        url: "/user-profile/user-data-storage"
+        url: "/best-practices/user-data-storage-best-practices"
+        hidden: true
 
       - title: "User Migration"
         url: "/users/migrations"
@@ -508,55 +522,64 @@ articles:
           - title: "Azure Access Control"
             url: "/users/migrations/azure-access-control"
             hidden: true
+ 
+      - title: "Redirect Users"
+        url: "/users/guides/redirect-users-after-login"
+        children:
+          - title: "Redirect Users from Rules"
+            url: "/rules/current/redirect"
+            hidden: true
 
-  - title: "Multifactor Authentication"
+          - title: "Redirect Users After Logout"
+            url: "/logout#redirect-users-after-logout"
+            hidden: true
+
+      - title: "User Search"
+        url: "/users/search/v3"
+        children:
+          - title: "Query Syntax"
+            url: "/users/search/v3/query-syntax"
+
+          - title: "Best Practices"
+            url: "/best-practices/search-best-practices"
+
+      - title: "User Search"
+        url: "/users/search/v2"
+        hidden: true
+        children:
+          - title: "Query Syntax"
+            url: "/users/search/v2/query-syntax"
+            hidden: true
+
+          - title: "Best Practices"
+            url: "/best-practices/search-best-practices"
+            hidden: true
+
+
+  - title: "Multi-factor Authentication"
     url: "/multifactor-authentication"
     children:
       - title: "Overview"
         url: "/multifactor-authentication"
 
-      - title: "Guardian"
-        url: "/multifactor-authentication/guardian"
+      - title: "Factors"
+        url: "/multifactor-authentication/factors"
         children:
-          - title: "For Administrators"
-            url: "/multifactor-authentication/administrator"
+          - title: "Push"
+            url: "/multifactor-authentication/factors/push"
 
-          - title: "For Developers"
-            url: "/multifactor-authentication/developer"
+          - title: "One Time Passwords"
+            url: "/multifactor-authentication/factors/otp"
 
-          - title: "For Users"
-            url: "/multifactor-authentication/guardian/user-guide"
+          - title: "SMS"
+            url: "/multifactor-authentication/factors/sms"
 
-      - title: "Google Authenticator"
-        url: "/multifactor-authentication/google-authenticator"
-        children:
-          - title: "For Administrators"
-            url: "/multifactor-authentication/google-auth/admin-guide"
-
-          - title: "For Developers"
-            url: "/multifactor-authentication/google-auth/dev-guide"
-
-          - title: "For Users"
-            url: "/multifactor-authentication/google-auth/user-guide"
-
-      - title: "Duo Security"
-        url: "/multifactor-authentication/duo"
-        children:
-          - title: "For Administrators"
-            url: "/multifactor-authentication/duo/admin-guide"
-
-          - title: "For Developers"
-            url: "/multifactor-authentication/duo/dev-guide"
-
-          - title: "For Users"
-            url: "/multifactor-authentication/duo/user-guide"
+          - title: "Duo"
+            url: "/multifactor-authentication/factors/duo"
 
       - title: "Custom MFA"
         url: "/multifactor-authentication/custom"
 
-      - title: "Yubikey NEO Example"
-        url: "/multifactor-authentication/yubikey"
-        
       - title: "Step-up Authentication"
         url: "/multifactor-authentication/step-up-authentication"
         children:
@@ -568,7 +591,7 @@ articles:
             url: "/multifactor-authentication/step-up-authentication/step-up-for-apis"
             hidden: true
 
-      - title: "API"
+      - title: "MFA API"
         url: "/multifactor-authentication/api"
         children:
           - title: "Trigger MFA"
@@ -634,8 +657,32 @@ articles:
       - title: "Overview"
         url: "/anomaly-detection"
 
-      - title: "Breached Passwords"
-        url: "/anomaly-detection/breached-passwords"
+      - title: "Breached Password Security"
+        url: "/anomaly-detection/concepts/breached-passwords"
+
+      - title: "Set Preferences"
+        url: "/anomaly-detection/guides/set-anomaly-detection-preferences"
+
+      - title: "Customize Emails"
+        url: "/anomaly-detection/guides/customize-blocked-account-emails" 
+
+      - title: "Enable and Disable Brute Force Protection"
+        url: "/anomaly-detection/guides/enable-disable-brute-force-protection"
+        hidden: true
+
+      - title: "Breached Password Detection Triggers"
+        url: "/anomaly-detection/references/breached-password-detection-triggers-actions"
+        hidden: true
+
+      - title: "Brute-Force Protection Triggers"
+        url: "/anomaly-detection/references/brute-force-protection-triggers-actions"
+        hidden: true 
+
+      - title: "Restrictions and Limitations"
+        url: "/anomaly-detection/references/anomaly-detection-restrictions-limitations"
+
+      - title: "FAQs"
+        url: "/anomaly-detection/references/anomaly-detection-faqs"    
 
   - title: "Analytics"
     url: "/analytics/integrations"
@@ -866,8 +913,8 @@ articles:
   - title: "Best Practices"
     url: "/best-practices"
     children:
-      - title: "Tenant Settings"
-        url: "/best-practices/tenant-settings"
+      - title: "General Usage and Operations"
+        url: "/best-practices/operations"
 
       - title: "Application Settings"
         url: "/best-practices/application-settings"
@@ -875,11 +922,17 @@ articles:
       - title: "Connection Settings"
         url: "/best-practices/connection-settings"
 
-      - title: "General Operations"
-        url: "/best-practices/operations"
-
       - title: "Rules"
         url: "/best-practices/rules"
+
+      - title: "Search"
+        url: "/best-practices/search-best-practices"
+
+      - title: "Tenant Settings"
+        url: "/best-practices/tenant-settings"
+
+      - title: "User Data Storage"
+        url: "/best-practices/user-data-storage-best-practices"
 
   - title: "Troubleshoot"
     url: "/troubleshoot"
@@ -1023,9 +1076,6 @@ libraries:
 
       - title: "Customizing Errors"
         url: "/libraries/lock/v11/customizing-error-messages"
-
-      - title: "Lock with auth0.js"
-        url: "/libraries/lock/v11/auth0js"
 
       - title: "Authentication Modes"
         url: "/libraries/lock/v11/authentication-modes"

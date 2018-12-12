@@ -24,7 +24,7 @@ To begin, you will need to disable automatic emails by deselecting **Status** un
 
 A verification email should be sent to every user for which the `email_verified` property is `false`. Typically, these are users in database connections or users authenticating with Social Providers that do not validate email addresses upon new user registration.
 
-Using a [Rule](/rules), you can call your API when a user logs in for the first time with an email address that has not been verified. After calling your API, [add a flag](/rules/metadata-in-rules) to the user's profile metadata that indicates that the verification email has been sent:
+Using a [Rule](/rules), you can call your API when a user logs in for the first time with an email address that has not been verified. After calling your API, [add a flag](/users/concepts/overview-user-metadata) to the user's profile metadata that indicates that the verification email has been sent:
 
 ```js
 function (user, context, callback) {
@@ -65,6 +65,8 @@ A custom redirect is useful when you want to direct users to certain URLs based 
 
 The Auth0 Management API provides a [post_verification_email](/api/v2#!/Tickets/post_email_verification) endpoint that generates the verification link for each user. This endpoint allows you to specify the `resultUrl` to which users will be redirected after they have validated their email address by clicking the link in the verification email.
 
+We recommend whitelisting the url through the dashboard.
+
 ## Welcome Email
 
 A welcome email is sent to users once they have verified their email address. This can be implemented using a rule which sends the email only if the user's email address has been verified and the email has not been sent previously.
@@ -88,7 +90,7 @@ function (user, context, callback) {
       return callback(new Error(err));
 
     // Email sent flag persisted in the user's profile.
-    user.persistent.welcome_email_sent = true;
+    user.app_metadata.welcome_email_sent = true;
     return callback(null, user, context);
   });
 }

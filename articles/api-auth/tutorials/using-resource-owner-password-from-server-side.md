@@ -20,7 +20,7 @@ Server-side applications can use the [Resource Owner Password Grant](/api-auth/g
 
 ## Prerequisites
 
-Before you continue, make sure to have [brute force protection](/anomaly-detection#brute-force-protection) enabled from your dashboard.
+Before you continue, make sure to have [brute force protection](/anomaly-detection/guides/enable-disable-brute-force-protection) enabled from your dashboard.
 
 ## The flow
 

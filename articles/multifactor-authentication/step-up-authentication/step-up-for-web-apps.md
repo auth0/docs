@@ -94,7 +94,7 @@ This tutorial assumes that you have already done the following:
 
 - [Register an application](/applications#how-to-configure-an-application). For the purposes of this example we'll be using a regular web app
 - [Create a database connection](${manage_url}/#/connections/database)
-- [Enable Multi-factor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [Guardian push notifications](/multifactor-authentication/administrator/push-notifications)
+- [Enable Multi-factor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [push notifications](/multifactor-authentication/factors/push)
 
 ### 1. Create the rule
 
@@ -111,7 +111,7 @@ function (user, context, callback) {
     // ask for MFA only if the web app said so in the authentication request
     if (context.request.query.acr_values === 'http://schemas.openid.net/pape/policies/2007/06/multi-factor'){
       context.multifactor = {
-        provider: 'guardian',
+        provider: 'any',
         allowRememberBrowser: false
       };
     }
@@ -123,7 +123,7 @@ function (user, context, callback) {
 
 The `CLIENTS_WITH_MFA` variable holds the Client IDs of all the applications you want to use this rule. You can remove this (and the `if` statement that follows) if you don't need it.
 
-The `context.request.query.acr_values` property exists only if the web app included it in the authentication request, using the request parameter `acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor`. The web app will only include this parameter in the authentication request (as we will see in a while) if the user tries to access salary information and has not authenticated with MFA. In this case we ask for MFA using [Guardian](/multifactor-authentication/guardian) by setting the `context.multifactor` property to the appropriate value.
+The `context.request.query.acr_values` property exists only if the web app included it in the authentication request, using the request parameter `acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor`. The web app will only include this parameter in the authentication request (as we will see in a while) if the user tries to access salary information and has not authenticated with MFA. In this case we ask for MFA using [Push](/multifactor-authentication/factors/push) by setting the `context.multifactor` property to the appropriate value.
 
 ### 2. Configure your application
 

@@ -20,7 +20,7 @@ When you write [Rules](/rules), you can use the `auth0` object to update a user'
 If you wish to access more [Management API](/api/management/v2) endpoints inside Rules, you have to use another version of the library.
 
 :::warning
-[Searching for users](/users/search/best-practices) inside Rules may affect the performance of your logins, and we advise against it. 
+[Searching for users](/best-practices/search-best-practices) inside Rules may affect the performance of your logins, and we advise against it. 
 :::
 
 ## Access a newer version of the library
@@ -47,5 +47,5 @@ For a filtered list of available libraries that can be set as required, check th
 :::
 
 ::: note
-The Access Token for the Management API, which is available through `auth0.accessToken`, is limited to the `read:users` and `update:users` scopes. If you require a broader range of scopes, you can [Get Access Tokens for Production](/api/management/v2/tokens/get-access-tokens-for-production) to request a token using the Client Credentials Grant.
+The Access Token for the Management API, which is available through `auth0.accessToken`, is limited to the `read:users` and `update:users` scopes. If you require a broader range of scopes, you can [Get Access Tokens for Production](/api/management/v2/get-access-tokens-for-production) to request a token using the Client Credentials Grant.
 :::

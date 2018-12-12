@@ -135,9 +135,7 @@ Below is an example request for searching all users whose email is exactly "john
 }
 ```
 
-## Next steps
+## Keep reading
 
-::: next-steps
-* [Learn how you can use the query string syntax to build custom queries](/users/search/v2/query-syntax)
-* [Learn about the Auth0 best practices for user search](/users/search/best-practices)
-:::
+* [Query Syntax](/users/search/v2/query-syntax)
+* [Search Best Practices](/best-practices/search-best-practices)

@@ -10,7 +10,7 @@ useCase: compliance
 ---
 # Track Consent with Custom UI
 
-In this tutorial we will see how you can use auth0.js or the Auth0 APIs to ask for consent information and save the input at the user's [metadata](/metadata).
+In this tutorial we will see how you can use auth0.js or the Auth0 APIs to ask for consent information and save the input at the user's [metadata](/users/concepts/overview-user-metadata).
 
 <%= include('../_legal-warning.md') %>
 
@@ -18,7 +18,7 @@ In this tutorial we will see how you can use auth0.js or the Auth0 APIs to ask f
 
 We will capture consent information, under various scenarios, and save this at the user's metadata.
 
-All scenarios will save the following properties at the [user's metadata](/metadata):
+All scenarios will save the following properties at the user's metadata:
 - a `consentGiven` property, with true/false values, shows if the user has provided consent (true) or not (false)
 - a `consentTimestamp` property, holding the Unix timestamp of when the user provided consent
 
@@ -169,7 +169,7 @@ Once you have a valid token, use the following snippet to update the user's meta
 }
 ```
 
-Note that in order to make this call you need to know the unique `user_id`. You can retrieve this from the `sub` claim of the [ID Token](/tokens/id-token), if you got one from the response. Alternatively, if all you have is the email, you can retrieve the Id by calling another endpoint of the Management API. For more information see [Search Users by Email](/users/search/best-practices#users-by-email).
+Note that in order to make this call you need to know the unique `user_id`. You can retrieve this from the `sub` claim of the [ID Token](/tokens/id-token), if you got one from the response. Alternatively, if all you have is the email, you can retrieve the Id by calling another endpoint of the Management API. For more information see [Search Users by Email](/best-practices/search-best-practices#users-by-email).
 
 ## Option 4: Redirect to another page
 

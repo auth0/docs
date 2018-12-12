@@ -36,7 +36,7 @@ There are several ways you can handle multi-tenancy with Auth0. When using a sin
 
 * Use multiple [connections](/connections).
 * Identify different tenants by application (using client IDs).
-* Store tenant details in [app_metadata](/metadata).
+* Store tenant details in [app_metadata](/users/concepts/overview-user-metadata).
 
 Another approach would be to use separate Auth0 tenants for each of your customers.
 

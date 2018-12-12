@@ -49,7 +49,13 @@ MyApp support@mail128-21.atl41.mandrillapp.com on behalf of MyApp support@fabrik
 
 #### SPF Configuration
 
-You can configure the SPF by adding a TXT record to your domain's zone file. You should set the host name to `@`, or leave it empty, depending on the provider.
+You can configure the SPF by adding a TXT record to your domain's zone file. You should set the host name to `@`, or leave it empty, depending on the provider. The value of the record should look something like the following.
+
+ ```text
+"v=spf1 include:spf.mandrillapp.com -all"
+```
+
+If you already have an SPF record you can simply add `include:spf.mandrillapp.com` to the existing record.
 
 #### DKIM Configuration
 
@@ -130,7 +136,7 @@ Liquid syntax is the currently supported templating syntax to use when accessing
 * `app_metadata` - stores information (such as a user's support plan, security roles, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
 * `user_metadata` - stores user attributes (such as user preferences) that do not impact a user's core functionality.
 
-[Learn more about `app_metadata` and `user_metadata`](/metadata)
+[Learn more about `app_metadata` and `user_metadata`](/users/concepts/overview-user-metadata)
 
 For example, you can refer to attributes in the template to control flow as follows:
 
@@ -244,4 +250,4 @@ The following macros are available in the **Password Breach Alert** template:
 * `{application.name}`
 * `{connection.name}`
 
-[Learn more about Breached Password Detection](/anomaly-detection#breached-password-detection)
+Learn more about [Breached Password Detection](/anomaly-detection#breached-password-detection)

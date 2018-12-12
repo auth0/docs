@@ -66,49 +66,85 @@ import history from '../history';
 
 // ...
 export default class Auth {
+  accessToken;
+  idToken;
+  expiresAt;
+
   // ...
+
   constructor() {
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
+    this.getAccessToken = this.getAccessToken.bind(this);
+    this.getIdToken = this.getIdToken.bind(this);
+    this.renewSession = this.renewSession.bind(this);
   }
 
   handleAuthentication() {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
-        history.replace('/home');
       } else if (err) {
         history.replace('/home');
         console.log(err);
+        alert(`Error: <%= "${err.error}" %>. Check the console for further details.`);
       }
     });
   }
 
+  getAccessToken() {
+    return this.accessToken;
+  }
+
+  getIdToken() {
+    return this.idToken;
+  }
+
   setSession(authResult) {
-    // Set the time that the Access Token will expire at
-    let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
-    localStorage.setItem('access_token', authResult.accessToken);
-    localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('expires_at', expiresAt);
+    // Set isLoggedIn flag in localStorage
+    localStorage.setItem('isLoggedIn', 'true');
+
+    // Set the time that the access token will expire at
+    let expiresAt = (authResult.expiresIn * 1000) + new Date().getTime();
+    this.accessToken = authResult.accessToken;
+    this.idToken = authResult.idToken;
+    this.expiresAt = expiresAt;
+
     // navigate to the home route
     history.replace('/home');
   }
 
+  renewSession() {
+    this.auth0.checkSession({}, (err, authResult) => {
+       if (authResult && authResult.accessToken && authResult.idToken) {
+         this.setSession(authResult);
+       } else if (err) {
+         this.logout();
+         console.log(err);
+         alert(`Could not get a new token (<%= "${err.error}" %>: <%= "${err.error_description}" %>).`);
+       }
+    });
+  }
+
   logout() {
-    // Clear Access Token and ID Token from local storage
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
+    // Remove tokens and expiry time
+    this.accessToken = null;
+    this.idToken = null;
+    this.expiresAt = 0;
+
+    // Remove isLoggedIn flag from localStorage
+    localStorage.removeItem('isLoggedIn');
+
     // navigate to the home route
     history.replace('/home');
   }
 
   isAuthenticated() {
-    // Check whether the current time is past the 
-    // Access Token's expiry time
-    let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    // Check whether the current time is past the
+    // access token's expiry time
+    let expiresAt = this.expiresAt;
     return new Date().getTime() < expiresAt;
   }
 }
@@ -138,7 +174,7 @@ Depending on whether the user is authenticated or not, they see the **Log In** o
 
 ### Add a Callback Component
 
-When you use the login page, your users are taken away from your application. After they authenticate, the users automatically return to your application and a client-side session is set for them. 
+When you use the login page, your users are taken away from your application. After they authenticate, the users automatically return to your application and a client-side session is set for them.
 
 ::: note
 This example assumes you are using path-based routing with `<BrowserRouter>`. If you are using hash-based routing, you will not be able to specify a dedicated callback route. The URL hash will be used to hold the user's authentication information.
@@ -177,7 +213,7 @@ After authentication, your users are taken to the `/callback` route. They see th
 
 ### Process the Authentication Result
 
-When a user authenticates at the login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `Auth` service processes the hash. 
+When a user authenticates at the login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `Auth` service processes the hash.
 
 Call the `handleAuthentication` method after you render the `Callback` route. The method processes the authentication hash fragment when the `Callback` component initializes.
 

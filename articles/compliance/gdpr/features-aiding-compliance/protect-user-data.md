@@ -26,16 +26,28 @@ There are several Auth0 features than can help you achieve that, like user profi
 
 ## Enable brute-force protection
 
-You can enable the brute-force protection shield in order to stop malicious attempts to access your application. 
+Auth0's brute-force protection shield is enabled by default to stop malicious attempts to access your application. 
+
+There are two types of triggers for this shield:
+
+* 10 consecutive failed login attempts for the same user and from the same IP address
+* 100 failed login attempts from the same IP address in 24 hours *or* 50 sign up attempts per minute from the same IP address
+
+For example, if a user with *user_id1* signs in from *IP1* and fails to login consecutively for 10 attempts, their log in attempt from this *IP1* will be blocked. Another user, *user_id2*, signing in from *IP1* will not be blocked.
 
 Every time Auth0 detects 10 failed login attempts into a single account from the same IP, we will:
 
-- Send a notification email to the user
-- Block the suspicious IP address
+- Send a notification email to the user.
+- Block the suspicious IP address for that user.
+
+Every time Auth0 detects 100 failed login attempts in 24 hours or 50 sign up attempts from the same IP address, we will:
+
+- Notify dashboard administrator(s).
+- Block suspicious addresses for 15 minutes.
 
 You can enable brute-force protection, configure which actions you want to take, and customize the blocked account email using the Dashboard. 
 
-For more information and configuration steps, see [Brute Force Protection](/anomaly-detection#brute-force-protection).
+For more information, see [Brute Force Protection](/anomaly-detection#brute-force-protection).  
 
 ## Enable breached password detection
 
@@ -75,7 +87,7 @@ With step-up authentication, applications can ask users to authenticate with a s
 
 You can check if a user has logged in with MFA by reviewing the contents of their ID Token or Access Token. You can then configure your application to deny access to sensitive resources if the token indicates that the user did not log in with MFA.
 
-For details see [Step-up Authentication](/multifactor-authentication/developer/step-up-authentication).
+For details see [Step-up Authentication](/multifactor-authentication/step-up-authentication).
 
 ## Availability and resilience
 

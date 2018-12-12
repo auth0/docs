@@ -68,21 +68,21 @@ The following table lists the codes associated with the appropriate log events.
 | `coff` | Connector Offline | AD/LDAP Connector is offline | [Active Directory/LDAP Connector](/connector) |
 | `con` | Connector Online | AD/LDAP Connector is online and working | [Active Directory/LDAP Connector](/connector) |
 | `cs` | Code Sent | Passwordless login code has been sent | [Passwordless](/passwordless) |
-| `du` | Deleted User | User has been deleted. | [User Profile](/user-profile) |
+| `du` | Deleted User | User has been deleted. | [User Profile](/users/concepts/overview-user-profile) |
 | `f` | Failed Login | | |
 | `fapi` | Failed API Operation | | |
 | `fc` | Failed by Connector | | [Active Directory/LDAP Connector](/connector) |
-| `fce` | Failed Change Email | Failed to change user email | [User Profile](/user-profile) |
+| `fce` | Failed Change Email | Failed to change user email | [User Profile](/users/concepts/overview-user-profile) |
 | `fco` | Failed by CORS | Origin is not in the Allowed Origins list for the specified application | [Applications](/applications#application-settings) |
 | `fcoa` | Failed cross-origin authentication | | |
 | `fcp` | Failed Change Password | | [Changing a User's Password](/connections/database/password-change) |
 | `fcph` | Failed Post Change Password Hook | | |
-| `fcpn` | Failed Change Phone Number | | [User Profile](/user-profile) |
+| `fcpn` | Failed Change Phone Number | | [User Profile](/users/concepts/overview-user-profile) |
 | `fcpr` | Failed Change Password Request | | [Changing a User's Password](/connections/database/password-change) |
 | `fcpro` | Failed Connector Provisioning | Failed to provision a AD/LDAP connector | [Active Directory/LDAP Connector](/connector) |
-| `fcu` | Failed Change Username | Failed to change username | [User Profile](/user-profile) |
+| `fcu` | Failed Change Username | Failed to change username | [User Profile](/users/concepts/overview-user-profile) |
 | `fd` | Failed Delegation | Failed to generate delegation token | [Delegation Tokens](/tokens/delegation) |
-| `fdu` | Failed User Deletion | | [User Profile](/user-profile) |
+| `fdu` | Failed User Deletion | | [User Profile](/users/concepts/overview-user-profile) |
 | `feacft` | Failed Exchange | Failed to exchange authorization code for Access Token | [Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant) 
 | `feccft` | Failed Exchange | Failed exchange of Access Token for a Client Credentials Grant | [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens) |
 | `feoobft` | Failed Exchange | Failed exchange of Password and OOB Challenge for Access Token | |
@@ -108,14 +108,14 @@ The following table lists the codes associated with the appropriate log events.
 | `gd_recovery_failed` | Recovery failed | Multi-factor recovery code failed. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_recovery_rate_limit_exceed` | Too many failures | Multi-factor recovery code has failed too many times. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_recovery_succeed` | Recovery success | Multi-factor recovery code succeeded authorization. | [Multi-factor Authentication](/multifactor-authentication) |
-| `gd_send_pn` | Push notification sent | Push notification for MFA sent successfully sent with Guardian. | [Auth0 Guardian](/multifactor-authentication/guardian) |
-| `gd_send_sms` | SMS Sent | SMS for MFA sent successfully sent. | [Using SMS for MFA](/multifactor-authentication/guardian/admin-guide#support-for-sms) |
+| `gd_send_pn` | Push notification sent | Push notification for MFA sent successfully sent. | [MFA with Push Notifications](/multifactor-authentication/factors/push) |
+| `gd_send_sms` | SMS Sent | SMS for MFA sent successfully sent. | [Using SMS for MFA](/multifactor-authentication/factors/sms) |
 | `gd_start_auth` | Second factor started | Second factor authentication event started for MFA. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_start_enroll` | Enroll started | Multi-factor authentication enroll has started. | [Multi-factor Authentication](/multifactor-authentication) |
-| `gd_tenant_update` | Guardian tenant update | | [Auth0 Guardian](/multifactor-authentication/guardian) |
+| `gd_tenant_update` | Guardian tenant update | | [Hosted MFA Page](/hosted-pages/guardian) |
 | `gd_unenroll` | Unenroll device account | Device used for second factor authentication has been unenrolled. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_update_device_account` | Update device account | Device used for second factor authentication has been updated. | [Multi-factor Authentication](/multifactor-authentication) |
-| `gd_user_delete` | User delete | Deleted multi-factor user account. | [User Profile](/user-profile) |
+| `gd_user_delete` | User delete | Deleted multi-factor user account. | [User Profile](/users/concepts/overview-user-profile) |
 | `limit_delegation` | Too Many Calls to /delegation | Rate limit exceeded to `/delegation` endpoint | [API Rate Limit Policy](/policies/rate-limits) |
 | `limit_mu` | Blocked IP Address | An IP address is blocked with 100 failed login attempts using different usernames, all with incorrect passwords in 24 hours, or 50 sign-up attempts per minute from the same IP address. | [Anomaly Detection](/anomaly-detection) |
 | `limit_ui` | Too Many Calls to /userinfo | Rate limit exceeded to `/limit_ui` endpoint | [API Rate Limit Policy](/policies/rate-limits) |
@@ -131,7 +131,7 @@ The following table lists the codes associated with the appropriate log events.
 | `scpr` | Success Change Password Request | | |
 | `scu` | Success Change Username | | |
 | `sd` | Success Delegation | | [Delegation Tokens](/tokens/delegation) |
-| `sdu` | Success User Deletion | User successfully deleted | [User Profile](/user-profile) |
+| `sdu` | Success User Deletion | User successfully deleted | [User Profile](/users/concepts/overview-user-profile) |
 | `seacft` | Success Exchange | Successful exchange of authorization code for Access Token | [Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant) |
 | `seccft` | Success Exchange | Successful exchange of Access Token for a Client Credentials Grant | [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens) |
 | `seoobft` | Success Exchange | Successful exchange of Password and OOB Challenge for Access Token | |

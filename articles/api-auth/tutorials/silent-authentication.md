@@ -43,7 +43,7 @@ GET https://${account.namespace}/authorize
 
 The `prompt=none` parameter will cause Auth0 to immediately send a result to the specified `redirect_uri` (callback URL) using the specified `response_mode` with one of two possible responses:
 
-* A successful authentication response if the user already has a valid session in Auth0 and consent or other prompts are needed.
+* A successful authentication response if the user already has a valid session in Auth0 and no consent or other prompts are needed.
 * An error response if the user doesn't have a valid session or some interactive prompt is required.
 
 ::: note
@@ -117,6 +117,5 @@ The `expires_in` parameter indicates how many seconds the Access Token will be v
 Implementation of token renewal will depend on the type of application and framework being used. Sample implementations for some of the common platforms can be found below:
 
 * [Plain JavaScript](/quickstart/spa/vanillajs/05-token-renewal)
-* [jQuery](/quickstart/spa/jquery/05-token-renewal)
 * [React](/quickstart/spa/react/05-token-renewal)
 * [Angular](/quickstart/spa/angular2/05-token-renewal)

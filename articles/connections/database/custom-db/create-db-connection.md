@@ -128,7 +128,7 @@ Be sure to **Save** your changes. Note that clicking **Try** to test your script
 
 ### User Metadata and Custom Databases
 
-Depending on your custom database script, you may return a user profile to Auth0 apps. This profile includes the user metadata fields. The **app_metadata** field(s) should be [referred to as **metadata** in scripts for custom databases](/metadata#metadata-and-custom-databases).
+Depending on your custom database script, you may return a user profile to Auth0 apps. This profile includes the user metadata fields. The **app_metadata** field(s) should be [referred to as **metadata** in scripts for custom databases](/users/concepts/overview-user-metadata#metadata-and-custom-databases).
 
 ## Step 3: Add configuration parameters
 

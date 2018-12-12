@@ -10,7 +10,7 @@ useCase: compliance
 ---
 # Track Consent with Lock
 
-In this tutorial we will see how you can use Lock to ask for consent information, and then save this input at the user's [metadata](/metadata).
+In this tutorial we will see how you can use Lock to ask for consent information, and then save this input at the user's [metadata](/users/concepts/overview-user-metadata).
 
 <%= include('../_legal-warning.md') %>
 
@@ -22,7 +22,7 @@ Instead of building an app from scratch, we will use [Auth0's JavaScript Quickst
 
 We will capture consent information, under various scenarios, and save this at the user's metadata.
 
-All scenarios will save the following properties at the [user's metadata](/metadata):
+All scenarios will save the following properties at the [user's metadata](/users/concepts/overview-user-metadata):
 - a `consentGiven` property, with true/false values, shows if the user has provided consent (true) or not (false)
 - a `consentTimestamp` property, holding the Unix timestamp of when the user provided consent
 
