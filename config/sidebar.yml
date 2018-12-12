@@ -478,29 +478,26 @@ articles:
         hidden: true
 
       - title: "User Migration"
-        url: "/users/migrations"
+        url: "/users/concepts/overview-user-migration"
         children:
           - title: "Automatic Migration"
-            url: "/users/migrations/automatic"
+            url: "/users/guides/configure-automatic-migration"
 
           - title: "Bulk Migration"
-            url: "/users/migrations/bulk-import"
+            url: "/users/guides/bulk-user-import"
 
           - title: "User Import/Export Extension"
             url: "/extensions/user-import-export"
 
-          - title: "Gigya"
-            url: "/users/migrations/gigya"
-
-          - title: "Okta"
-            url: "/users/migrations/okta"
-
-          - title: "Stormpath"
-            url: "/users/migrations/stormpath"
+          - title: "Scenarios"
+            url: "/users/references/user-migration-scenarios"
 
           - title: "Azure Access Control"
-            url: "/users/migrations/azure-access-control"
+            url: "/users/guides/azure-access-control"
             hidden: true
+
+          - title: "Import File Schema"
+            url: "/users/references/bulk-import-database-schema-examples"
  
       - title: "Redirect Users"
         url: "/users/guides/redirect-users-after-login"

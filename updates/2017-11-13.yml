@@ -5,11 +5,11 @@ added:
       - migration
       - gigya
     description: |
-      A new document on how to [Migrate Users from Gigya to Auth0](https://auth0.com/docs/users/migrations/gigya) was added.
+      A new document on how to [Migrate Users from Gigya to Auth0](https://auth0.com/docs/users/references/user-migration-scenarios) was added.
   -
     title: "Migrate Users from Stormpath to Auth0"
     tags:
       - migration
       - stormpath
     description: |
-      A new document on how to [Migrate Users from Stormpath to Auth0](https://auth0.com/docs/users/migrations/stormpath) was added.
+      A new document on how to [Migrate Users from Stormpath to Auth0](https://auth0.com/docs/users/references/user-migration-scenarios) was added.

@@ -37,7 +37,7 @@ Auth0 provides multiple places to [store data](/users/reference/data-store-best-
 
 ## User migration
 
-Auth0 supports importing users from external applications using [custom database connections](/users/migrations/automatic), the [Management API](/users/migrations/bulk-import), or the [User Import/Export Extension](/extensions/user-import-export).
+Auth0 supports importing users from external applications using [automatic migration](/users/guides/configure-automatic-migration), the [Management API](/users/guides/bulk-user-import), or the [User Import/Export Extension](/extensions/user-import-export).
 
 ## Redirect users
 
