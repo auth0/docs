@@ -310,5 +310,5 @@ function getByEmail(email, callback) {
 
 * [Configure Automatic Migration from Your Database](/users/guides/configure-automatic-migration)
 * [Bulk User Imports with the Management API](/users/guides/bulk-user-import)
-* [User Import/Export Extension](//extensions/user-import-export)
+* [User Import/Export Extension](/extensions/user-import-export)
 * [Migrating Stormpath Users to Auth0 Demo](https://github.com/auth0-blog/migrate-stormpath-users-to-auth0)

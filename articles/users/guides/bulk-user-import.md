@@ -77,6 +77,6 @@ You can query and retrieve details on failed entries via the API using the [GET 
 
 * [User Migration Overview](/users/concepts/overview-user-migration)
 * [Configure Automatic Migration from Your Database](/users/guides/configure-automatic-migration)
-* [User Import/Export Extension](//extensions/user-import-export)
+* [User Import/Export Extension](/extensions/user-import-export)
 * [Bulk Import Database Schema and Example](/users/references/bulk-import-database-schema-examples)
-* [User Migration Scenarios](users/references/user-migration-scenarios)
+* [User Migration Scenarios](/users/references/user-migration-scenarios)

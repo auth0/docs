@@ -94,6 +94,6 @@ By doing this, you are changing the **Login** and **Get User** [Database Action 
 
 * [User Migration Overview](/users/concepts/overview-user-migration)
 * [Bulk User Imports with the Management API](/users/guides/bulk-user-import)
-* [User Import/Export Extension](//extensions/user-import-export)
+* [User Import/Export Extension](/extensions/user-import-export)
 * [Bulk Import Database Schema and Example](/users/references/bulk-import-database-schema-examples)
-* [User Migration Scenarios](users/references/user-migration-scenarios)
+* [User Migration Scenarios](/users/references/user-migration-scenarios)

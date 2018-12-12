@@ -14,7 +14,7 @@ v2: true
 
 # Update User Profiles Using Your Database
 
-Uupdate user profiles when using [your own database as an identity provider](/connections/database/custom-db) by doing the following tasks:
+Update user profiles when using [your own database as an identity provider](/connections/database/custom-db) by doing the following tasks:
 
 * Use the [Management API](/api/management/v2#!/Users/patch_users_by_id).
 * Update the user in your database.

@@ -1538,7 +1538,7 @@ module.exports = [
     to: '/users/guides/get-user-information-with-unbounce-landing-pages',
   },
   {
-    from: '/tutorials/bulk-importing-users-into-auth0',
+    from: ['/tutorials/bulk-importing-users-into-auth0', '/users/migrations/bulk-import'],
     to: '/users/guides/bulk-user-import',
   },
   {
@@ -1642,15 +1642,15 @@ module.exports = [
     to: '/i18n'
   },
   {
-    from: '/users/bulk-importing-users-into-auth0',
+    from: ['/users/bulk-importing-users-into-auth0', '/users/migrations/bulk-import'],
     to: '/users/guides/bulk-user-import'
   },
   {
-    from: '/connections/database/migrating',
+    from: ['/connections/database/migrating', '/users/migrations/automatic'],
     to: '/users/guides/configure-automatic-migration'
   },
   {
-    from: '/connections/database/migrating-okta',
+    from: ['/connections/database/migrating-okta', '/users/migrations/okta'],
     to: '/users/references/user-migration-scenarios'
   },
   {
