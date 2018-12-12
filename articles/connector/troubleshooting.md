@@ -155,4 +155,4 @@ Approximately once a day (though this frequency might vary under certain circums
 
 ### Receive a "postUrl is required" error
 
-This is usually thrown if additional configuration for custom domains have not been made. See [the custom domains documentation](https://auth0.com/docs/custom-domains/additional-configuration#configure-ad-ldap-connections) for more info.
+This is usually thrown if additional configuration for custom domains have not been made. See [the custom domains documentation](/custom-domains/additional-configuration#configure-ad-ldap-connections) for more info.
