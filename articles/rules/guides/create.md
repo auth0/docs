@@ -15,11 +15,7 @@ You can create new Rules from the [Dashboard](${manage_url}) or using the Auth0 
 
 ## From the Dashboard
 
-To create a new Rule from the Dashboard, go to [Rules > New Rule](${manage_url}/#/rules/new).
-
-![Create New Rule]()
-
-You can pick the empty Rule template to start from scratch, or use a pre-made Rule template adjust it to suit your needs.
+To create a new Rule from the Dashboard, go to [Rules > New Rule](${manage_url}/#/rules/new). You can pick the empty Rule template to start from scratch, or use a pre-made Rule template adjust it to suit your needs.
 
 ## With the Management API
 
