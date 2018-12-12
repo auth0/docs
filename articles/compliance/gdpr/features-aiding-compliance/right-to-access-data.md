@@ -89,7 +89,7 @@ The following user information are **not** editable:
 
 You can search for users using the following:
 
-- All the [normalized user profile fields](/users/normalized/auth0)
+- All the [normalized user profile fields](/users/normalized/auth0/normalized-user-profile-schema)
 - The profile information under the **user_metadata** object:
   - name
   - nickname

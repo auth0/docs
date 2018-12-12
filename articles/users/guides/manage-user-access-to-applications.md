@@ -25,6 +25,6 @@ All users associated with a single Auth0 tenant are shared between the tenant's 
 ## Keep reading
 
 * [User Profile Structure](/users/references/user-profile-structure)
-* [Normalized User Profile](/users/normalized)
+* [Normalized User Profiles](/users/normalized)
 * [Metadata Overview](/users/concepts/overview-user-metadata)
 * [Update Users Using Your Database](/users/guides/update-user-profiles-using-your-database)

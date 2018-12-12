@@ -166,6 +166,6 @@ Congratulations, you are done!
 ## Keep reading
 
 * [User Profile Structure](/users/references/user-profile-structure)
-* [Normalized User Profile](/users/normalized)
+* [Normalized User Profiles](/users/normalized)
 * [Metadata Overview](/users/concepts/overview-user-metadata)
 * [View Users](/users/guides/view-users)

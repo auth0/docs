@@ -383,11 +383,37 @@ articles:
       - title: "User Profiles"
         url: "/users/concepts/overview-user-profile"
         children:
+
           - title: "Structure"
             url: "/users/references/user-profile-structure"
 
-          - title: "Normalized User Profile"
+          - title: "Normalized User Profiles"
             url: "/users/normalized/auth0"
+            children:
+
+              - title: "Identify Users"
+                url: "/users/normalized/auth0/identify-users"
+                hidden: true 
+
+              - title: "Retrieve User Profiles"
+                url: "/users/normalized/auth0/retrieve-user-profiles"
+                hidden: true 
+
+              - title: "Store User Data"
+                url: "/users/normalized/auth0/store-user-data"
+                hidden: true 
+
+              - title: "Normalized User Profile Schema"
+                url: "/users/normalized/auth0/normalized-user-profile-schema"
+                hidden: true 
+                
+              - title: "Sample User Profiles"
+                url: "/users/normalized/auth0/sample-user-profiles"
+                hidden: true   
+
+              - title: "OIDC-Compliant Pipelines"  
+                url: "/users/normalized/oidc"
+                hidden: true 
 
           - title: "Link Accounts"
             url: "/link-accounts"

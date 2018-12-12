@@ -29,7 +29,7 @@ The query string is parsed into a series of *terms* and *operators*. A term can 
 
 You can search for users using the following fields:
 
-* All the [normalized user profile](/users/normalized/auth0) fields
+* All the [normalized user profile](/users/normalized/auth0/normalized-user-profile-schema) fields
 
 * __Only__ the profile information under the `user_metadata` object:
   - `name`

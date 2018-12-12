@@ -44,7 +44,7 @@ There are several ways you can modify information in a user profile or an ID Tok
   * [User Management](/users)
   * [User Profiles](/users/concepts/overview-user-profile)
   * [User Metadata](/users/concepts/overview-user-metadata)
-  * [Normalized User Profiles](/users/normalized/auth0)
+  * [Normalized User Profiles](/users/normalized)
  :::
 
 ::: guides

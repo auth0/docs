@@ -88,7 +88,7 @@ If there are user fields that should not be stored by Auth0 due to privacy reaso
 
 ## Keep reading
 
-* [Normalized User Profile](/users/normalized/auth0)
+* [Normalized User Profiles](/users/normalized)
 * [User Metadata](/users/concepts/overview-user-metadata)
 * [View Users](/users/guides/view-users)
 * [Update User Profiles Using Your Database](/users/guides/update-user-profiles-using-your-database)
