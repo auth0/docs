@@ -261,23 +261,44 @@ articles:
         url: "/hosted-pages/version-control"
 
   - title: "Rules"
-    url: "/rules/current"
+    url: "/rules"
     children:
 
-      - title: "Overview"
-        url: "/rules/current"
+      - title: "Create a New Rule"
+        url: "/rules/guides/create"
 
-      - title: "User Metadata in Rules"
-        url: "/rules/metadata-in-rules"
+      - title: "Store Configuration for Rules"
+        url: "/rules/guides/configuration"
 
-      - title: "Use the Management API in rules"
-        url: "/rules/current/management-api"
-      
-      - title: "Using C# in Rules"
-        url: "/rules/current/csharp"
+      - title: "Cache Expensive Resources"
+        url: "/rules/guides/cache-resources"
 
-      - title: "Deploy Rules with GitHub"
-        url: "/extensions/github-deploy"
+      - title: "Redirect Rules"
+        url: "/rules/guides/redirect"
+
+      - title: "Debug Rules"
+        url: "/rules/guides/debug"
+
+      - title: "Management API in Rules"
+        url: "/rules/guides/management-api"
+
+      - title: "Metadata in Rules"
+        url: "/rules/guides/metadata"
+
+      - title: "C# in Rules"
+        url: "/rules/guides/csharp"
+
+      - title: "Redirect Users from Rules"
+        url: "/rules/guides/redirect"
+
+      - title: "User Object"
+        url: "/rules/references/user-object"
+
+      - title: "Context Object"
+        url: "/rules/references/context-object"
+
+      - title: "Available Node.js Modules"
+        url: "/rules/references/modules"
 
       - title: "Deploy Rules with Bitbucket"
         url: "/extensions/bitbucket-deploy"
