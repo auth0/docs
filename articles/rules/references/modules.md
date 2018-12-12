@@ -24,7 +24,7 @@ Rules run in a JavaScript sandbox. The sandbox supports the ECMAScript 5 languag
 | [crypto](http://nodejs.org/docs/v0.10.24/api/crypto.html)
 | [ip](https://github.com/keverw/range_check) | 0.0.1 |
 | [jwt](https://github.com/auth0/node-jsonwebtoken) | ~0.4.1 |
-| [knex](http://knexjs.org) (the function returned by `require('knex')` is available as `Knex`) | ~0.6.3 |
+| [knex](http://knexjs.org) | ~0.6.3 |
 | [lodash](https://github.com/lodash/lodash) | ~2.4.1 |
 | [mongodb](https://github.com/mongodb/node-mongodb-native) | ~1.3.15 |
 | [BSON (mongodb)](http://mongodb.github.io/node-mongodb-native/api-bson-generated/bson.html) | |
