@@ -49,7 +49,13 @@ MyApp support@mail128-21.atl41.mandrillapp.com on behalf of MyApp support@fabrik
 
 #### SPF Configuration
 
-You can configure the SPF by adding a TXT record to your domain's zone file. You should set the host name to `@`, or leave it empty, depending on the provider.
+You can configure the SPF by adding a TXT record to your domain's zone file. You should set the host name to `@`, or leave it empty, depending on the provider. The value of the record should look something like the following.
+
+ ```text
+"v=spf1 include:spf.mandrillapp.com -all"
+```
+
+If you already have an SPF record you can simply add `include:spf.mandrillapp.com` to the existing record.
 
 #### DKIM Configuration
 
