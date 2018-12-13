@@ -1,5 +1,7 @@
 # #!/bin/bash
 #
+echo "Running Tests" 
+make test
 
 if [ -d "docs" ]; then
   pushd docs
