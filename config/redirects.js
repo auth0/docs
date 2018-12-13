@@ -33,15 +33,10 @@ module.exports = [
   /* Quickstart aliases */
 
   {
-    from: ['/android-tutorial', '/native-platforms/android'],
-    to: '/quickstart/native/android'
+    from: '/testin',
+    to: '/shouldbreak'
   },
   {
-    from: [
-      '/angular-tutorial',
-      '/client-platforms/angularjs',
-      '/quickstart/spa/angular/:client?'
-    ],
     to: '/quickstart/spa/angularjs'
   },
   {

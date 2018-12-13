@@ -6,6 +6,7 @@
   "scripts": {
     "heroku-prebuild": "bash prebuild.sh",
     "heroku-postbuild": "bash postbuild.sh",
+    "test": "make test",
     "precommit": "lint-staged"
   },
   "lint-staged": {
