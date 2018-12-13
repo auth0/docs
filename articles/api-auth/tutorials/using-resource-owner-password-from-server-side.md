@@ -75,7 +75,7 @@ When using the resource owner password grant from your webserver with brute-forc
 
 ::: note
 Both the IP address passed as part of the `auth0-forwarded-for` header, and the IP address of the request itself, will be matched against the configured whitelist for brute-force protection. 
-The IP address in the header will only be used if it is marked as trusted for the connections. This change only extends the whitelist functionality to the `auth0-forwarded-for` header IP address without removing previous functionality.
+The IP address in the header will only be used if it is marked as trusted for the connections.
 :::
 
 ### Example
