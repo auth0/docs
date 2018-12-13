@@ -1,7 +1,5 @@
 ---
-title: Using the Pre-User Registration Extensibility Point
 description: The pre-user-registration extensibility point for use with Hooks
-toc: true
 beta: true
 topics:
     - hooks
@@ -9,21 +7,19 @@ topics:
 contentType:
   - how-to
 useCase: extensibility-hooks
+v2: true
 ---
-
-# Pre-User Registration
+# Implement Custom Actions Using Pre-User Registration Extensibility Points
 
 For [Database Connections](/connections/database), the Pre-User Registration extensibility point allows you to add custom data points to a newly-created user's profile.
 
 This allows you to implement scenarios such as setting conditional information (in the form of [metadata](/users/concepts/overview-user-metadata) on users that do not exist yet.
 
-## How to Implement This
+Implement a [Hook](/hooks/concepts/overview-hooks) using this extensibility point with either the [Dashboard](/hooks/guides/create-delete-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-delete-hooks-using-cli). 
 
-You can implement a [Hook](/hooks#work-with-hooks) using this extensibility point with either the [Dashboard](/hooks/dashboard) or the [Command Line Interface](/hooks/cli). 
+## Starter code and parameters
 
-## Starter Code and Parameters
-
-After you've created a new Hook that uses the Pre-User Registration extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
+After you've created a new Hook that uses the Pre-User Registration extensibility point, open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
 
 The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function.
 
@@ -93,13 +89,13 @@ If you specify `app_metadata` and `user_metadata` in the response object, Auth0 
 Metadata property names must not start with the `$` character or contain the `.` character.
 :::
 
-## Testing Your Hook
+## Testing your Hook
 
 ::: note
 Executing the code using the Runner requires a save, which means that your original code will be overwritten.
 :::
 
-Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, you can test your Hook using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
+Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, test your Hook using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
 
 ```json
 {
@@ -129,7 +125,7 @@ Once you've modified the sample code with the specific scopes of additional clai
 }
 ```
 
-## Example: Add Metadata to New Users
+## Example: Add metadata to new users
 
 ```js
 module.exports = function (user, context, cb) {

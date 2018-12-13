@@ -1,8 +1,6 @@
 ---
-title: Using the Post-User Registration Extensibility Point
-description: The post-user-registration extensibility point for use with Hooks
+description: How to use the post-user-registration extensibility point
 beta: true
-toc: true
 topics:
     - hooks
     - extensibility-points   
@@ -10,23 +8,17 @@ contentType:
   - how-to
 useCase: extensibility-hooks
 ---
+# Implement Custom Actions Using Post-User Registration Extensibility Points
 
-# Post-User Registration
+For [Database Connections](/connections/database), the `post-user-registration` extensibility point allows you to implement custom actions that execute after a new user registers and is added to the database.
 
-For [Database Connections](/connections/database), the `post-user-registration` extensibility point allows you to implement custom actions that execute after a new user registers and is added to the database. [Hooks](/hooks#work-with-hooks) associated with the `post-user-registration` extensibility point execute asynchronously from the actions that are a part of the Auth0 authentication process.
+[Hooks](/hooks/concepts/overview-hooks) associated with the `post-user-registration` extensibility point execute asynchronously from the actions that are a part of the Auth0 authentication process.
 
-This allows you to implement scenarios including (but not limited to):
+Implement a [Hook](/hooks/concepts/overview-hooks) using this extensibility point with either the [Dashboard](/hooks/guides/create-delete-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-delete-hooks-using-cli). 
 
-* Sending notifications to Slack or via email about the user's new account;
-* Creating a new user record in a CRM system.
+### Starter code and parameters
 
-## How to Implement This
-
-You can implement a [Hook](/hooks#work-with-hooks) using this extensibility point with either the [Dashboard](/hooks/dashboard) or the [Command Line Interface](/hooks/cli). 
-
-### Starter Code and Parameters
-
-After you've created a new Hook that uses the Post-User Registration extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
+After you've created a new Hook that uses the Post-User Registration extensibility point, open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
 
 The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. 
 
@@ -63,13 +55,13 @@ The callback function `cb` at the end of the sample code is used to signal compl
 
 The Post-User Registration extensibility point ignores any response object.
 
-### Testing Your Hook
+### Testing Hooks
 
 ::: note
-Executing the code using the Runner requires a save, which means that your original code will be overwritten.
+Executing the code using the Runner requires a save, which means that the original code will be overwritten.
 :::
 
-Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, you can test your Hook using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
+Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, test Hooks using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
 
 ```json
 {
@@ -98,7 +90,7 @@ Once you've modified the sample code with the specific scopes of additional clai
 }
 ```
 
-## Example: Integrate with Slack
+## Example: integrate with Slack
 
 ```js
 module.exports = function (user, context, cb) {
