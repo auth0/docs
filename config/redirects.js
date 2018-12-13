@@ -1046,70 +1046,6 @@ module.exports = [
     to: '/api-auth/tutorials/client-credentials/customize-with-hooks'
   },
   {
-    from: '/auth0-hooks',
-    to: '/hooks'
-  },
-  {
-    from: '/auth0-hooks/cli/create-delete',
-    to: '/hooks/cli/create-delete'
-  },
-  {
-    from: '/auth0-hooks/cli/edit',
-    to: '/hooks/cli/edit'
-  },
-  {
-    from: '/auth0-hooks/cli/enable-disable',
-    to: '/hooks/cli/enable-disable'
-  },
-  {
-    from: '/auth0-hooks/cli',
-    to: '/hooks/cli'
-  },
-  {
-    from: '/auth0-hooks/cli/logs',
-    to: '/hooks/cli/logs'
-  },
-  {
-    from: '/auth0-hooks/dashboard',
-    to: '/hooks/dashboard'
-  },
-  {
-    from: '/auth0-hooks/dashboard/create-delete',
-    to: '/hooks/dashboard/create-delete'
-  },
-  {
-    from: '/auth0-hooks/dashboard/edit',
-    to: '/hooks/dashboard/edit'
-  },
-  {
-    from: '/auth0-hooks/dashboard/enable-disable',
-    to: '/hooks/dashboard/enable-disable'
-  },
-  {
-    from: '/auth0-hooks/extensibility-points',
-    to: '/hooks/extensibility-points'
-  },
-  {
-    from: '/auth0-hooks/extensibility-points/client-credentials-exchange',
-    to: '/hooks/extensibility-points/client-credentials-exchange'
-  },
-  {
-    from: '/auth0-hooks/extensibility-points/credentials-exchange',
-    to: '/hooks/extensibility-points/credentials-exchange'
-  },
-  {
-    from: '/auth0-hooks/extensibility-points/post-user-registration',
-    to: '/hooks/extensibility-points/post-user-registration'
-  },
-  {
-    from: '/auth0-hooks/extensibility-points/pre-user-registration',
-    to: '/hooks/extensibility-points/pre-user-registration'
-  },
-  {
-    from: '/auth0-hooks/overview',
-    to: '/hooks/overview'
-  },
-  {
     from: '/libraries/lock-ios/delegation-api',
     to: '/libraries/lock-ios/v1/delegation-api'
   },
@@ -1950,10 +1886,6 @@ module.exports = [
      to: '/users/guides/manage-user-metadata'
    },
    {
-     from: '/hooks/cli/create-delete',
-     to: '/hooks/guides/create-hooks-using-cli'
-   },
-   {
      from: '/hooks/cli/edit',
      to: '/hooks/guides/edit-hooks-using-cli'
    },
@@ -1985,10 +1917,6 @@ module.exports = [
   //    from: '/metadata/lock',
   //    to: '/users/guides/manage-user-metadata'
   //  }
-  {
-    from: '/hooks/dashboard/create-delete',
-    to: '/hooks/guides/create-delete-hooks-using-dashboard'
-  },
   {
     from: '/hooks/cli/create-delete',
     to: '/hooks/guides/create-hooks-using-cli'
