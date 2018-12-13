@@ -40,8 +40,6 @@ var userProfile;
 
 function getProfile() {
   if (!userProfile) {
-    var accessToken = localStorage.getItem('access_token');
-
     if (!accessToken) {
       console.log('Access Token must exist to fetch profile');
     }

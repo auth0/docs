@@ -16,7 +16,7 @@ useCase: quickstart
 
 ## Add Token Renewal
 
-In the `app.js` file, add a function which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
+In the `app.js` file, add a function which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in memory.
 
 ```js
 // app.js
@@ -34,7 +34,7 @@ function renewToken() {
 }
 ```
 
-The Access Token should be renewed when it expires. In this tutorial, the expiry time of the token is stored in local storage as `expires_at`.
+The Access Token should be renewed when it expires. In this tutorial, the expiry time of the token is stored in memory as `expiresAt`.
 
 ::: note
 You can define any timing mechanism you want. You can choose any library that handles timers. This example shows how to use a `setTimeout` call. 
@@ -53,7 +53,6 @@ The `setTimeout` call is assigned to the `tokenRenewalTimeout` property. When th
 var tokenRenewalTimeout;
 // ...
 function scheduleRenewal() {
-  var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
   var delay = expiresAt - Date.now();
   if (delay > 0) {
     tokenRenewalTimeout = setTimeout(function() {
@@ -71,13 +70,14 @@ You can now include a call to the `scheduleRenewal` method in the `setSession` f
 
 // ...
 function setSession(authResult) {
-  // Set the time that the Access Token will expire at
-  var expiresAt = JSON.stringify(
+  // Set isLoggedIn flag in localStorage
+  localStorage.setItem('isLoggedIn', 'true');
+  // Set the time that the access token will expire at
+  expiresAt = JSON.stringify(
     authResult.expiresIn * 1000 + new Date().getTime()
   );
-  localStorage.setItem('access_token', authResult.accessToken);
-  localStorage.setItem('id_token', authResult.idToken);
-  localStorage.setItem('expires_at', expiresAt);
+  accessToken = authResult.accessToken;
+  idToken = authResult.idToken;
   scheduleRenewal();
 }
 ```
