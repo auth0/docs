@@ -77,6 +77,16 @@ The Settings page is broken down into the following sections:
 * **MFA Session Absolute Timeout**: the absolute time window for which the user can have an MFA session. After this period of time elapses, the user will be prompted again for MFA;
 * **MFA Session Inactive Timeout**: the maximum time window for which the user can have an MFA session without logging in again. If the user logs in prior to the expiration of this time period, the window will be extended.
 
+::: note 
+Please use the following shorthands to mention the correct time
+        weeks -  w
+        days  -  d
+       hours  -  h
+     minutes  -  m
+     seconds  -  s
+milliseconds  -  ms
+:::
+
 ## Update Settings
 
 * **Update Proxy**: unless your specific configuration is set up for offline updates, please leave this field blank.
