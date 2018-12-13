@@ -13,10 +13,11 @@ useCase:
 ---
 # Auth0 Deployment Models
 
-Auth0 is offered in four deployment models:
+Auth0 is offered in five deployment models:
 
 - As a **multi-tenant cloud service** running on Auth0's cloud
 - As a **dedicated cloud service** running on Auth0's cloud
+- As an **enterprise cloud service** running on Auth0's cloud
 - As a **dedicated cloud service** running on Customer's cloud infrastructure
 - As an **on-premises virtual Private SaaS (PSaaS) Appliance** running on Customer's data centers
 
@@ -32,20 +33,22 @@ The following tables describe operational and feature differences between these 
     <thead>
         <tr>
             <th class="info"><strong>Where It Runs</strong></th>
-            <th class="info" colspan="2"><strong>Auth0's Infrastructure</strong></th>
+            <th class="info" colspan="3"><strong>Auth0's Infrastructure</strong></th>
             <th class="info" colspan="2"><strong>Customer's Infrastructure</strong></th>
         </tr>
         <tr>
             <th class="info"><strong>How It Runs</strong></th>
             <th class="info">Multi-Tenant</th>
-            <th class="info">Dedicated</th>
-            <th class="info">Cloud</th>
+            <th class="info">Dedicated Cloud</th>
+            <th class="info">Enterprise Cloud</th>
+            <th class="info">Private Cloud</th>
             <th class="info">On-Premises</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <th class="info"><strong>Public Facing</strong></th>
+            <td>Yes</td>
             <td>Yes</td>
             <td>Yes</td>
             <td>Configurable</td>
@@ -55,6 +58,7 @@ The following tables describe operational and feature differences between these 
             <th class="info"><strong>Updates</strong></th>
             <td>Unscheduled. <br /> Multiple times per day. <br /><br />Staged in two zones.</td>
             <td>Scheduled with Customer. <br /><br />Monthly, bi-monthly, or quarterly, except critical updates (such as security updates).</td>
+            <td>Updates are automatically deployed at least once per quarter; target is monthly.</td>
             <td>Scheduled with Customer. <br /><br />Monthly, bi-monthly, or quarterly, except critical updates (such as security updates)</td>
             <td>Scheduled with Customer. <br /><br />Monthly, bi-monthly, or quarterly, except critical updates (such as security updates)</td>
         </tr>
@@ -64,16 +68,19 @@ The following tables describe operational and feature differences between these 
             <td>High Availability (HA);<br />Geo HA;<br />High Capacity;<br />Geo HA and High Capacity</td>
             <td>High Availability (HA);<br />Geo HA;<br />High Capacity;<br />Geo HA and High Capacity</td>
             <td>High Availability (HA);<br />Geo HA;<br />High Capacity;<br />Geo HA and High Capacity</td>
+            <td>High Availability (HA);<br />Geo HA;<br />High Capacity;<br />Geo HA and High Capacity</td>
         </tr>
         <tr>
             <th class="info"><strong>Service & Uptime Reporting</strong></th>
             <td><a href="https://status.auth0.com">https://status.auth0.com</a><br /><a href="http://uptime.auth0.com">http://uptime.auth0.com</a></td>
+            <td>Monitored by Auth0</td>
             <td>Monitored by Auth0</td>
             <td>Monitored by Customer</td>
             <td>Monitored by Customer</td>
         </tr>
         <tr>
             <th class="info"><strong>Uptime SLA Provided</strong></th>
+            <td>Yes</td>
             <td>Yes</td>
             <td>Yes</td>
             <td>Limited to PSaaS Appliance*</td>
@@ -93,14 +100,15 @@ The following tables describe operational and feature differences between these 
     <thead>
         <tr>
             <th class="info"><strong>Where It Runs</strong></th>
-            <th class="info" colspan="2"><strong>Auth0's Infrastructure</strong></th>
+            <th class="info" colspan="3"><strong>Auth0's Infrastructure</strong></th>
             <th class="info" colspan="2"><strong>Customer's Infrastructure</strong></th>
         </tr>
         <tr>
             <th class="info"><strong>How It Runs</strong></th>
             <th class="info">Multi-Tenant</th>
             <th class="info">Dedicated</th>
-            <th class="info">Cloud</th>
+            <th class="info">Enterprise Cloud</th>
+            <th class="info">Private Cloud</th>
             <th class="info">On-Premises</th>
         </tr>
     </thead>
@@ -111,10 +119,12 @@ The following tables describe operational and feature differences between these 
             <td>Configurable</td>
             <td>Configurable</td>
             <td>Configurable</td>
+            <td>Configurable</td>
         </tr>
         <tr>
             <th class="info"><strong>User Search</strong></th>
             <td>Lucene queries</td>
+            <td>Simple attribute search or Lucene queries</td>
             <td>Simple attribute search or Lucene queries</td>
             <td>Simple attribute search or Lucene queries</td>
             <td>Simple attribute search or Lucene queries</td>
@@ -125,10 +135,12 @@ The following tables describe operational and feature differences between these 
             <td>Simple attribute search</td>
             <td>Simple attribute search</td>
             <td>Simple attribute search</td>
+            <td>Simple attribute search</td>
         </tr>
         <tr>
             <th class="info"><strong>Log Retention</strong></th>
             <td>Up to 30 days (depends on subscription plan)</td>
+            <td>Limited to 30 days</td>
             <td>Limited to 30 days</td>
             <td>Limited to 30 days</td>
             <td>Limited to 30 days</td>
@@ -139,10 +151,12 @@ The following tables describe operational and feature differences between these 
             <td>Webtask or in-process</td>
             <td>Webtask or in-process</td>
             <td>Webtask or in-process</td>
+            <td>Webtask or in-process</td>
         </tr>
         <tr>
             <th class="info"><strong>Webtask</strong></th>
             <td>Multi-Tenant</td>
+            <td>Dedicated (Fixed NPM modules)</td>
             <td>Dedicated (Fixed NPM modules)</td>
             <td>Dedicated (Fixed NPM modules)</td>
             <td>On-Premises (Fixed NPM modules)</td>
@@ -153,11 +167,13 @@ The following tables describe operational and feature differences between these 
             <td>Brute Force</td>
             <td>Brute Force</td>
             <td>Brute Force</td>
+            <td>Brute Force</td>
         </tr>
         <tr>
             <th class="info"><strong>Extensions</strong></th>
             <td>Yes</td>
-            <td>Yes <sup>*</sup></td>
+            <td>Yes</td>
+            <td>Yes</td>
             <td>Yes <sup>*</sup></td>
             <td>Yes <sup>*</sup></td>
         </tr>
@@ -167,9 +183,11 @@ The following tables describe operational and feature differences between these 
             <td>Yes</td>
             <td>Yes</td>
             <td>Yes</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <th class="info"><strong>Connecting IP Address Filtering Restrictions</strong></th>
+            <td>No</td>
             <td>No</td>
             <td>No</td>
             <td>Yes</td>
@@ -178,13 +196,15 @@ The following tables describe operational and feature differences between these 
         <tr>
             <th class="info"><strong><a href="/custom-domains">Custom Domains</a></strong></th>
             <td>Yes</td>
-            <td><a href="/appliance/custom-domains">Yes</a><sup>**</sup></td>
+            <td>Yes</td>
+            <td>Yes</td>
             <td><a href="/appliance/custom-domains">Yes</a><sup>**</sup></td>
             <td><a href="/appliance/custom-domains">Yes</a><sup>**</sup></td> 
         </tr>
         <tr>
             <th class="info"><strong>Shared Resources Among Multiple Customers</strong></th>
             <td>Yes</td>
+            <td>No</td>
             <td>No</td>
             <td>No</td>
             <td>No</td>
@@ -195,9 +215,11 @@ The following tables describe operational and feature differences between these 
           <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK.</td>
           <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK.</td>
           <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK.</td>
+          <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK.</td>
         </tr>
         <tr>
           <th class="info"><strong>Lock</strong></th>
+          <td>Yes</td>
           <td>Yes</td>
           <td>Yes</td>
           <td>Yes</td>
@@ -205,6 +227,7 @@ The following tables describe operational and feature differences between these 
         </tr>
         <tr>
           <th class="info"><strong>Internet Restricted</strong></th>
+          <td>No</td>
           <td>No</td>
           <td>No</td>
           <td>No</td>
