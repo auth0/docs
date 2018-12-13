@@ -25,7 +25,7 @@ Manage Hooks using:
 
 ### Use the Dashboard
 
-With the Dashboard, you can [create](/hooks/guides/delete-hooks-using-dashboard) or [delete](/hooks/guides/create-hooks-using-dashboard) a Hook, [edit an existing Hook](/hooks/guides/edit-hooks-using-dashboard), and [enable or disable an existing Hook](/hooks/guides/enable-disable-hooks-using-dashboard) using the Dashboard.
+With the Dashboard, you can [create](/hooks/guides/create-hooks-using-dashboard) or [delete](/hooks/guides/delete-hooks-using-dashboard) a Hook, [edit an existing Hook](/hooks/guides/edit-hooks-using-dashboard), and [enable or disable an existing Hook](/hooks/guides/enable-disable-hooks-using-dashboard) using the Dashboard.
 
 ### Use the command-line interface
 

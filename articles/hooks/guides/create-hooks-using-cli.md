@@ -24,6 +24,6 @@ Create the hook:
 
 ### Provision secrets to new Hooks
 
-Optionally, you can add provision secrets (such as Twilio Keys or database connection strings) to new Hooks by adding `--secret KEY=VALUE` to the *Create* command. The information you attach will be encrypted, and it can only be decrypted by the Webtask server.
+Optionally, you can add secrets (such as Twilio Keys or database connection strings) to new Hooks by adding `--secret KEY=VALUE` to the *Create* command. The information you attach will be encrypted, and it can only be decrypted by the Webtask server.
 
 At this point, you have created a new, disabled Hook using the `pre-user-registration` [extensibility point](/hooks/concepts/overview-extensibility-points). You can repeat this process and create Hooks for any of the other extensibility points.

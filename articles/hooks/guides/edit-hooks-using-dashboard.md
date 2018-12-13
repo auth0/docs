@@ -12,10 +12,6 @@ v2: true
 
 The Auth0 Management Dashboard provides a visual interface for working with Hooks. With the Dashboard, edit the code for the existing Hooks using the [Webtask Editor](https://webtask.io/docs/editor). 
 
-::: note
-Hooks utilize the Webtask Editor. For additional information on how to work with the Webtask Editor, you can review its docs [here](https://webtask.io/docs/editor/).
-:::
-
 1. Navigate to [the Hooks page of the Dashboard](${manage_url}/#/hooks) and find the Hook you want to edit.
 2. Click the **Pencil and Paper** icon to the right of the Hook to open the Webtask Editor.
 
@@ -24,10 +20,6 @@ Hooks utilize the Webtask Editor. For additional information on how to work with
 3. Edit the Hook using the Webtask Editor.
 
   ![Webtask Editor](/media/articles/hooks/webtask-editor.png)
-
-  ::: note
-  Please see the [Webtask docs](https://webtask.io/docs/editor) for detailed information on using the Webtask Editor.
-  :::
 
 ## Test Hooks
 
