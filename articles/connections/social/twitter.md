@@ -36,7 +36,7 @@ If you're using a [custom domain](/custom-domains), you'll need to add that doma
 
 4. Ensure the **Enabled Sign in with Twitter** option is selected. 
 
-5. Click **Create** and review the developer terms then **Create** again.
+5. Click **Create** and review the developer terms. Then, click **Create** again.
 
 ## 2. Get your Consumer Key and Consumer Secret
 
