@@ -19,14 +19,16 @@ To create a new Rule from the Dashboard, go to [Rules > New Rule](${manage_url}/
 
 ## With the Management API
 
-Rules can also be created by creating a POST request to `/api/v2/rules` using the [Management APIv2](/api/management/v2#!/Rules/post_rules).
+Rules can also be created with a POST request to `/api/v2/rules` using the [Management APIv2](/api/management/v2#!/Rules/post_rules).
 
-This will creates a new Rule according to the following input arguments:
+This creates a new Rule according to the following input parameters:
 
-* **name**: The name of the Rule. It can only contain alphanumeric characters, spaces and '-', and cannot start, nor end, with '-' or spaces.
-* **script** : Τhe script that contains the Rule's code. This is the same as what you would enter when creating a new Rule using the [Dashboard](${manage_url}/#/rules/create).
-* **order**: This field is optional and contains a `number`. This number represents the Rule's order in relation to other Rules. A Rule with a lower order than another Rule executes first. If no order is provided, it will automatically be one greater than the current maximum.
-* **enabled**: This field can contain an optional `boolean`. If `true`, the Rule will be enabled; if it's `false`, the Rule will be disabled.
+| Parameter | Type | Description |
+|-|-|-|
+| **name** | `string` | The name of the Rule. It can only contain alphanumeric characters, spaces, and hypens (`-`). The name cannot start or end with hyphens or spaces.
+| **script** | `string` | Τhe script that contains the Rule's code. This is the same as what you would enter when creating a new Rule using the [Dashboard](${manage_url}/#/rules/create).
+| **order** | `number` | (optional) This number represents the Rule's order in relation to other Rules. A Rule with a lower order than another Rule executes first. If no order is provided, it will automatically be one greater than the current maximum. |
+| **enabled** | `boolean` | (optional) If set to `true`, the Rule is enabled. If `false`, the Rule is disabled.
 
 Example of a body schema:
 

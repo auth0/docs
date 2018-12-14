@@ -62,7 +62,7 @@ State is an opaque value, used to prevent [CSRF attacks](/security/common-threat
 
 ## Resume authentication
 
-After the redirect, resume authentication by redirecting the user to the `/continue` endpoint and include the `state` parameter you received in the URL. If you do not send the original state back to the `/continue` endpoint, Auth0 will lose the context of the login transaction and the user will not be able to login due to an `invalid_request` error.
+After the redirect, resume authentication by redirecting the user to the `/continue` endpoint and include the `state` parameter you received in the URL. If you do not send the original state back to the `/continue` endpoint, Auth0 will lose the context of the login transaction and the user will not be able to log in due to an `invalid_request` error.
 
 For example:
 

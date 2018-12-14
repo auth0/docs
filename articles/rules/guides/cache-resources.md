@@ -1,5 +1,5 @@
 ---
-description: How to cache expension resources in your Rules code.
+description: How to cache expensive resources in your Rules code.
 topics:
   - rules
   - extensibility
@@ -12,7 +12,7 @@ useCase: extensibility-rules
 
 In your Rules you can store expensive resources using the `global` object. The `global` object survives individual execution, so you can reuse things stored there instead of creating them every time a Rule is run. However, the Rules environment can be recycled at any time so your code __must__ always check that `global` contains what you expect.
 
-This example shows how to use the `global` object to keep a mongodb connection:
+This example shows how to use the `global` object to keep a [MongoDB](https://www.mongodb.com/) connection:
 
 ```js
 //If the db object is there, use it.

@@ -41,7 +41,7 @@ A Rule is a function with the following arguments:
 
 * `user`: the user object as it comes from the identity provider. Check out the [User Object in Rules](/rules/references/user-object) page for a list of the available user properties.
 
-* `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, or location. Check out the [Context Object in Rules](/rules/references/context-object) page for a list of the available context properties.
+* `context`: an object containing contextual information of the current authentication transaction, such as the user's IP address, application, or location. Check out the [Context Object in Rules](/rules/references/context-object) page for a list of the available context properties.
 
 * `callback`: a function to send potentially modified tokens back to Auth0, or an error. Because of the async nature of Node.js, it is important to always call the `callback` function or else the script will timeout.
 

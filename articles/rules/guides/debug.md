@@ -27,9 +27,9 @@ The **TRY THIS RULE** feature functions outside a specific client context. When 
 
 The [Real-time Webtask Logs](/extensions/realtime-webtask-logs) extension displays all logs, in real-time, for all custom code in your account. This includes all `console.log` output and exceptions.
 
-## Debug rule CLI
+## Debug Rule CLI
 
-Similar to the above, the **DEBUG RULE** button displays instructions for installing, configuring, and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
+Similar to the above, the **DEBUG RULE** button displays instructions for installing, configuring, and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging Rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
 
 For example:
 
