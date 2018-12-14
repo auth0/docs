@@ -34,7 +34,7 @@ Another use of roles is to group together permissions from various APIs. If you 
 
 ### Create user roles
 
-To create roles, head to the [Dashboard > Users & Roles > Roles](${manage_url/#/roles}) screen.
+To create roles, head to the [Dashboard > Users & Roles > Roles](${manage_url}/#/roles) screen.
 
 ![Roles](/media/articles/authorization/roles.png)
 
