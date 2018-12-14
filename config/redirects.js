@@ -1917,6 +1917,13 @@ module.exports = [
   //    from: '/metadata/lock',
   //    to: '/users/guides/manage-user-metadata'
   //  }
+  { from: '/rules/current', to: '/rules' },
+  { from: '/rules/legacy', to: '/rules/references/legacy' },
+  { from: '/rules/current/context', to: '/rules/references/context-object' },
+  { from: '/rules/current/redirect', to: '/rules/guides/redirect' },
+  { from: '/rules/current/metadata-in-rules', to: '/rules/guides/metadata' },
+  { from: '/rules/current/csharp', to: '/rules/guides/csharp' },
+  { from: '/rules/current/management-api', to: '/rules/guides/management-api' },
   {
     from: '/hooks/cli/create-delete',
     to: '/hooks/guides/create-hooks-using-cli'

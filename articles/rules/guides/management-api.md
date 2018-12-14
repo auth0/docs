@@ -5,16 +5,13 @@ topics:
   - rules
   - extensibility
   - management-api
-contentType:
-  - reference
-  - concept
-  - how-to
-useCase:
-  - extensibility-rules
+contentType: how-to
+useCase: extensibility-rules
 ---
+
 # Use the Management API in Rules
 
-When you write [Rules](/rules), you can use the `auth0` object to update a user's `app_metadata` or `user_metadata` (for details on how to do this, see [User Metadata in Rules](/rules/current/metadata-in-rules)).
+When you write [Rules](/rules), you can use the `auth0` object to update a user's `app_metadata` or `user_metadata` (for details on how to do this, see [Metadata in Rules](/rules/guides/metadata)).
 
 If you wish to access more [Management API](/api/management/v2) endpoints inside Rules, you have to use another version of the library.
 
@@ -22,7 +19,7 @@ If you wish to access more [Management API](/api/management/v2) endpoints inside
 [Searching for users](/best-practices/search-best-practices) inside Rules may affect the performance of your logins, and we advise against it. 
 :::
 
-## How to access a newer version of the library
+## Access a newer version of the library
 
 You can load a newer version of the Auth0 Node.js client library by requiring the specific version on the library (check the [repository](https://github.com/auth0/node-auth0) for up-to-date version information). The sample code below loads version `2.9.1` of the library, then queries the list of users and logs the users to the console (to be inspected with the [Real-time Webtask Logs Extension](/extensions/realtime-webtask-logs)):
 

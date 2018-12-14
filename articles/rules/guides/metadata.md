@@ -1,20 +1,17 @@
 ---
+description: How to work with app metadata, user metadata, and client metadata in Rules.
 toc: true
-description: How to use metadata in rules.
 topics:
   - rules
   - extensibility
   - metadata
-contentType:
-  - reference
-  - concept
-  - how-to
-useCase:
-  - extensibility-rules
+contentType: how-to
+useCase: extensibility-rules
 ---
-# User Metadata in Rules
 
-This article explains how to [read](#reading-metadata), [update](#updating-metadata) and [delete](#deleting-metadata) [metadata](/users/concepts/overview-user-metadata) using [Rules](/rules).
+# Metadata in Rules
+
+This article explains how to read, update and delete [metadata](/metadata) using [Rules](/rules).
 
 Each sample rule in this article assumes that the user and their information is represented by the following JSON snippet:
 
@@ -33,11 +30,11 @@ Each sample rule in this article assumes that the user and their information is 
 }
 ```
 
-## Reading Metadata
+## Read Metadata
 
 To read the available metadata, you will need to access the correct user property.
 
-### Reading `app_metadata`
+### Read `app_metadata`
 
 Make a decision based on the user's roles:
 
@@ -51,7 +48,7 @@ function(user, context, callback){
 }
 ```
 
-### Reading `user_metadata`
+### Read `user_metadata`
 
 Similarly, you can use the color preference:
 
@@ -65,7 +62,7 @@ function(user, context, callback){
 }
 ```
 
-### Reading `client_metadata`
+### Read `client_metadata`
 
 `clientMetadata` is an optional, top-level property of the context object. Existing applications will have no value for this property.
 
@@ -79,15 +76,15 @@ function(user, context, callback){
 }
 ```
 
-#### Reading via the API
+#### Read `client_metadata` with the Management API
 
 `client_metadata` is included amongst in the response to the `GET /api/v2/clients` and `GET /api/v2/client/{id}` endpoints
 
-#### Creating applications with `client_metadata` properties
+#### Create applications with `client_metadata` properties
 
 A `client_metadata` object can be included when creating a new application via the `POST /api/v2/` applications endpoint.
 
-#### Creating `client_metadata` properties in the dashboard
+#### Create `client_metadata` properties in the dashboard
 
 `client_metadata` key value pairs can also be added in [the dashboard](${manage_url}/#/applications), by going to **Applications**. Then select the settings(the gear icon) of the application you wish to edit.
 
@@ -95,11 +92,11 @@ Scroll down and click the link **Show Advanced Settings**. Then you will be in t
 
 ![Create application metadata](/media/articles/rules/adv-settings-create.png)
 
-## Updating Metadata
+## Update Metadata
 
 All rules include an `auth0` object (which is an instance of the [node-auth0 SDK](https://github.com/auth0/node-auth0)) that is capable of calling the [Auth0 Management API v2](/api/management/v2). The `auth0` object is preconfigured with the necessary permissions to update users.
 
-### Updating `app_metadata`
+### Update `app_metadata`
 
 To add an administrative role to the user:
 
@@ -138,7 +135,7 @@ This results in the following JSON representation of the user profile details:
 }
 ```
 
-### Updating `user_metadata`
+### Update `user_metadata`
 
 To add the user's `fontSize` preference to the user profile:
 
@@ -178,7 +175,7 @@ This results in the following JSON representation of the user profile details:
 }
 ```
 
-### Updating `app_metadata` and `user_metadata` simultaneously
+### Update `app_metadata` and `user_metadata` simultaneously
 
 To reduce the rule's processing time, you may update both the `app_metadata` and `user_metadata` in the same rule:
 
@@ -229,7 +226,7 @@ This results in the following JSON representation of the user profile details:
 }
 ```
 
-### Updating `client_metadata`
+### Update `client_metadata`
 
 Application metadata can be updated using the [`PATCH /api/v2/clients/{id}`](/api/management/v2#!/Users/patch_users_by_id) endpoint, supplying an application object with the `client_metadata property`, whose value is an object containing the metadata you'd like to change.
 
@@ -266,7 +263,7 @@ Request: `PATCH /api/v2/client/myclientid123` with body:
 }
 ```
 
-#### Updating `client_metadata` in the dashboard
+#### Update `client_metadata` in the dashboard
 
 Application metadata can also be updated in [the dashboard](${manage_url}/#/applications), by going to **Applications**. Then select the settings(the gear icon) of the application you wish to edit.
 
@@ -276,9 +273,9 @@ Click **UPDATE**. A popup window will appear to confirm your overwrite.
 
 ![Confirm Update](/media/articles/rules/confirm-overwrite.png)
 
-## Deleting Metadata
+## Delete Metadata
 
-### Deleting `app_metadata` properties and values
+### Delete `app_metadata` properties and values
 
 To delete a property, set the property's value to `null`.
 
@@ -362,7 +359,7 @@ This results in the following JSON representation of the user profile details:
 
 Note that the `roles` property still exists but does not contain any value.
 
-### Deleting `user_metadata` properties and values
+### Delete `user_metadata` properties and values
 
 To delete the user's color preference:
 
@@ -399,11 +396,11 @@ This results in the following JSON representation of the user profile details:
 }
 ```
 
-### Deleting `client_metadata` properties and values
+### Delete `client_metadata` properties and values
 
 `client_metadata` keys can be removed by issuing a PATCH, [as described above](#updating-application_metadata), but supplying a null for the key value. This behavior matches that of the `user_metadata` and `app_metadata` properties in the `PATCH` [/api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) endpoint.
 
-#### Deleting`client_metadata` properties and values in the dashboard
+#### Delete `client_metadata` properties and values in the dashboard
 
 `client_metadata` keys can also be removed in [the dashboard](${manage_url}/#/applications), by going to **Applications**. Then select the settings(the gear icon) of the application you wish to edit.
 
