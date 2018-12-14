@@ -1,7 +1,5 @@
 ---
-title: Using the Credentials Exchange Extensibility Point
-description: The credentials-exchange extensibility point for use with Hooks
-toc: true
+description: How to use the credentials exchange extensibility point for use with Hooks
 beta: true
 topics:
     - hooks
@@ -9,43 +7,18 @@ topics:
     - credentials-exchange
 contentType:
   - how-to
-  - concept
 useCase: extensibility-hooks
+v2: true
 ---
+# Change Scopes and Add Custom Claims to Access Tokens
 
-# Credentials Exchange
-
-The `credentials-exchange` extensibility point allows you to change the scopes and add custom claims to the [Access Tokens](/tokens/overview-access-tokens) issued by the [Auth0 API's `POST /oauth/token` endpoint](/api/authentication#authorization-code) during runtime.
-
-::: note
-Please see [Calling APIs from a Service](/api-auth/grant/client-credentials) for more information on the Client Credentials Grant.
-:::
-
-## Types of claims available
-
-You can add the following as claims to the issued token:
-
-* The `scope` property of the response object;
-* Any properties with namespaced property names:
-
-  * URLs with HTTP or HTTPS schemes
-  * URLs with hostnames that *aren't* auth0.com, webtask.io, webtask.run, or the associated subdomain names
-
-The extensibility point will ignore all other response object properties.
-
-::: note
-If you need to configure client secrets and access them within your Hook, you can do so using `context.webtask.secrets.SECRET_NAME`.
-:::
-
-## How to implement this
-
-You can implement a [Hook](/hooks#work-with-hooks) using this extensibility point with either the [Dashboard](/hooks/dashboard) or the [Command Line Interface](/hooks/cli). 
+To use the Credentials Exchange Extensibility Point, you can implement a Hook with either the [Dashboard](/hooks/guides/create-delete-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-delete-hooks-using-cli). 
 
 For detailed steps on implementing the grant, please refer to [Using Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks).
 
-### Starter code and parameters
+## Starter code and parameters
 
-After you've created a new Hook that uses the Credentials Exchange extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
+After you've created a new Hook that uses the Credentials Exchange extensibility point, open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
 
 The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. For example, the `client` object comes with the following parameters: client name, client ID, the Auth0 tenant name with which the client is associated, and client metadata. 
 
@@ -76,7 +49,7 @@ module.exports = function(client, scope, audience, context, cb) {
 
 Pay attention to the following:
 - The callback function `cb` at the end of the sample code is used to signal completion and must not be omitted.
-- The line `access_token.scope = scope` ensures that all granted scopes will be present in the Access Token. Removing it will reset all scopes and your token will include only any additional ones you might add with your script.
+- The line `access_token.scope = scope` ensures that all granted scopes will be present in the Access Token. Removing it will reset all scopes and the token will include only any additional ones you might add with the script.
 
 #### Response
 
@@ -88,9 +61,9 @@ The default response object every time you run this Hook is as follows:
 }
 ```
 
-### Testing your hook
+### Testing Hooks
 
-Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, you can test your Hook using the Runner. Executing the code using the Runner requires a save, which means that your original code will be overwritten.
+Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, test Hooks using the Runner. Executing the code using the Runner requires a save, which means that the original code will be overwritten.
 
 The runner simulates a call to the Hook with the same body/payload that you would get with a Credentials Exchange. 
 
@@ -113,7 +86,7 @@ The following is the sample body that populates the Runner by default (these are
 }
 ```
 
-## Example: Add scope to the Access Token
+## Example: add an additional scope to the Access Token
 
 This example shows you how to use the Hook to add an additional [scope](/scopes) to the scopes already existing on the Access Token.
 
@@ -147,7 +120,7 @@ Using the [test runner](https://webtask.io/docs/editor/runner), we see that the 
 }
 ```
 
-## Example: Add a claim to the Access Token
+## Example: add a claim to the Access Token
 
 This example show you have to add a namespaced claim and its value to the Access Token.
 

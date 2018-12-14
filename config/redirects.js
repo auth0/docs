@@ -1046,70 +1046,6 @@ module.exports = [
     to: '/api-auth/tutorials/client-credentials/customize-with-hooks'
   },
   {
-    from: '/auth0-hooks',
-    to: '/hooks'
-  },
-  {
-    from: '/auth0-hooks/cli/create-delete',
-    to: '/hooks/cli/create-delete'
-  },
-  {
-    from: '/auth0-hooks/cli/edit',
-    to: '/hooks/cli/edit'
-  },
-  {
-    from: '/auth0-hooks/cli/enable-disable',
-    to: '/hooks/cli/enable-disable'
-  },
-  {
-    from: '/auth0-hooks/cli',
-    to: '/hooks/cli'
-  },
-  {
-    from: '/auth0-hooks/cli/logs',
-    to: '/hooks/cli/logs'
-  },
-  {
-    from: '/auth0-hooks/dashboard',
-    to: '/hooks/dashboard'
-  },
-  {
-    from: '/auth0-hooks/dashboard/create-delete',
-    to: '/hooks/dashboard/create-delete'
-  },
-  {
-    from: '/auth0-hooks/dashboard/edit',
-    to: '/hooks/dashboard/edit'
-  },
-  {
-    from: '/auth0-hooks/dashboard/enable-disable',
-    to: '/hooks/dashboard/enable-disable'
-  },
-  {
-    from: '/auth0-hooks/extensibility-points',
-    to: '/hooks/extensibility-points'
-  },
-  {
-    from: '/auth0-hooks/extensibility-points/client-credentials-exchange',
-    to: '/hooks/extensibility-points/client-credentials-exchange'
-  },
-  {
-    from: '/auth0-hooks/extensibility-points/credentials-exchange',
-    to: '/hooks/extensibility-points/credentials-exchange'
-  },
-  {
-    from: '/auth0-hooks/extensibility-points/post-user-registration',
-    to: '/hooks/extensibility-points/post-user-registration'
-  },
-  {
-    from: '/auth0-hooks/extensibility-points/pre-user-registration',
-    to: '/hooks/extensibility-points/pre-user-registration'
-  },
-  {
-    from: '/auth0-hooks/overview',
-    to: '/hooks/overview'
-  },
-  {
     from: '/libraries/lock-ios/delegation-api',
     to: '/libraries/lock-ios/v1/delegation-api'
   },
@@ -1538,8 +1474,8 @@ module.exports = [
     to: '/users/guides/get-user-information-with-unbounce-landing-pages',
   },
   {
-    from: '/tutorials/bulk-importing-users-into-auth0',
-    to: '/users/migrations/bulk-import',
+    from: ['/tutorials/bulk-importing-users-into-auth0', '/users/migrations/bulk-import'],
+    to: '/users/guides/bulk-user-import',
   },
   {
     from: '/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise',
@@ -1642,16 +1578,16 @@ module.exports = [
     to: '/i18n'
   },
   {
-    from: '/users/bulk-importing-users-into-auth0',
-    to: '/users/migrations/bulk-import'
+    from: ['/users/bulk-importing-users-into-auth0', '/users/migrations/bulk-import'],
+    to: '/users/guides/bulk-user-import'
   },
   {
-    from: '/connections/database/migrating',
-    to: '/users/migrations/automatic'
+    from: ['/connections/database/migrating', '/users/migrations/automatic'],
+    to: '/users/guides/configure-automatic-migration'
   },
   {
-    from: '/connections/database/migrating-okta',
-    to: '/users/migrations/okta'
+    from: ['/connections/database/migrating-okta', '/users/migrations/okta'],
+    to: '/users/references/user-migration-scenarios'
   },
   {
     from: `/metadata/management-api`,
@@ -1946,32 +1882,32 @@ module.exports = [
      to: '/users/guides/manage-user-metadata'
    },
    {
-     from: '/multifactor-authentication/administrator/twilio-configuration',
-     to: '/multifactor-authentication/twilio-configuration'
+     from: '/metadata/lock',
+     to: '/users/guides/manage-user-metadata'
    },
    {
-     from: '/multifactor-authentication/administrator/sms-templates',
-     to: '/multifactor-authentication/sms-templates'
+     from: '/hooks/cli/edit',
+     to: '/hooks/guides/edit-hooks-using-cli'
    },
    {
-     from: '/multifactor-authentication/guardian',
-     to: '/multifactor-authentication/factors/push'
+     from: '/hooks/cli/enable-disable',
+      to: '/hooks/guides/enable-disable-hooks-using-cli'
    },
    {
-     from: '/multifactor-authentication/google-authenticator',
-     to: '/multifactor-authentication/factors/otp'
+     from: '/hooks/cli/logs',
+     to: '/hooks/guides/logging-hooks-using-cli'
    },
    {
-     from: '/multifactor-authentication/duo',
-     to: '/multifactor-authentication/factors/duo'
-   },
-   {
-     from: '/multifactor-authentication/sms',
-     to: '/multifactor-authentication/factors/sms'
+     from: '/hooks/cli',
+     to: '/hooks'
    },
    {
      from: '/multifactor-authentication/yubikey',
      to: '/multifactor-authentication'
+   },
+   {
+     from: '/hooks/dashboard/create-delete',
+     to: '/hooks/guides/create-hooks-using-dashboard'
    },
    {
      from: ['/libraries/lock/v10/auth0js', '/libraries/lock/v11/auth0js'],
@@ -1987,6 +1923,62 @@ module.exports = [
   { from: '/rules/current/redirect', to: '/rules/guides/redirect' },
   { from: '/rules/current/metadata-in-rules', to: '/rules/guides/metadata' },
   { from: '/rules/current/csharp', to: '/rules/guides/csharp' },
-  { from: '/rules/current/management-api', to: '/rules/guides/management-api' }
+  { from: '/rules/current/management-api', to: '/rules/guides/management-api' },
+  {
+    from: '/hooks/cli/create-delete',
+    to: '/hooks/guides/create-hooks-using-cli'
+   },
+   {
+    from: '/hooks/cli/edit',
+    to: '/hooks/guides/edit-hooks-using-cli'
+   },
+   {
+    from: '/hooks/cli/enable-disable',
+    to: '/hooks/guides/enable-disable-hooks-using-cli'
+   },
+   {
+    from: '/hooks/cli/index',
+    to: '/hooks'
+   },
+   {
+    from: '/hooks/cli/logs',
+    to: '/hooks/guides/logging-hooks-using-cli'
+   },
+   {
+    from: '/hooks/dashboard/create-delete',
+    to: '/hooks/guides/create-hooks-using-dashboard'
+   },
+   {
+    from: '/hooks/dashboard/edit',
+    to: '/hooks/guides/edit-hooks-using-dashboard'
+   },
+   {
+    from: '/hooks/dashboard/enable-disable',
+    to: '/hooks/guides/enable-disable-hooks-using-dashboard'
+   },
+   {
+    from: '/hooks/dashboard/index',
+    to: '/hooks'
+  },
+   {
+    from: '/hooks/extensibility-points/credentials-exchange',
+    to: '/hooks/concepts/credentials-exchange-extensibility-point'
+   },
+   {
+    from: '/hooks/extensibility-points/index',
+    to: '/hooks'
+   },
+   {
+    from: '/hooks/extensibility-points/post-user-registration',
+    to: '/hooks/concepts/post-user-registration-extensibility-point'
+   },
+   {
+    from: '/hooks/extensibility-points/pre-user-registration',
+    to: '/hooks/concepts/pre-user-registration-extensibility-point'
+   },
+   {
+    from: '/hooks/overview',
+    to: '/hooks'
+   }
 ];
 
