@@ -13,7 +13,7 @@ useCase: manage-users
 
 You can store the application state parameter before you redirect users to authenticate, so you can redirect them to a URL. For example, if a user intends to access a protected page in your application, and that action triggers the request to authenticate, you can store that URL to redirect the user back to their intended page after the authentication finishes.
 
-Use the `state` parameter to lookup and restore the previous state of your application.
+Use the `state` parameter to lookup and restore the previous state of your application. Generate and store a `nonce` locally (cookies/session/localstorage), along with any desired state data (like the redirect URL). Use the `nonce` as a state in the protocol message. If the returned state matches the stored nonce, accept the OAuth2 message and fetch the corresponding state data from storage. This is the approach used by Auth0.js.
 
 1. Generate the `nonce` that you will use to protect against CSRF attacks as explained before. Store the `nonce` locally, using it as the key to store all the other application state like the URL where the user intended to go. For example:
 
@@ -42,6 +42,8 @@ var state = context.request.query.state || context.request.body.state;
 ```
 
 :::
+
+Alternatively, you can generate and store a `nonce` locally. Encode any desired state (like the redirect URL) along with the nonce in a protected message (that will need to be encrypted/signed to avoid tampering). In the response processing, unprotect the message, getting the nonce and other properties stored. Validate that the included nonce matches what was stored locally and, if so, accept the OAuth2 message.
 
 ## Keep reading
 
