@@ -32,7 +32,7 @@ Auth0 only supports user creation with Database Connections.
      - **memberships**: An array of memberships that were selected in the UI when creating the user
      - **email**: The email address of the user
      - **password**: The password of the user
-     - **connection**: The name of the user
+     - **connection**: The name of the database connection
      - **app_metadata**: The data that's included if a Custom Field being modified is saved in `app_metadata`.
      - **user_metadata**: The data that's included if a Custom Field being modified is saved in `user_metadata`.
    - **userFields**: The user fields array (if specified in the [settings query](#the-settings-query-hook))
