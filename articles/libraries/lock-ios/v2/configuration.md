@@ -72,7 +72,27 @@ By default Lock will use Auth0's [Terms of Service](https://auth0.com/terms) and
 }
 ```
 
-## Database Options
+### Show Terms of Service
+
+Database connections display the Terms of Service dialog. Default is `true`. Note that the Terms of Service will always be shown if the `mustAcceptTerms` flag is enabled.
+
+```swift
+.withOptions {
+    $0.showTerms = true
+}
+```
+
+### Require users to accept the Terms of Service
+
+Database connection require explicit acceptance of the Terms of Service.
+
+```swift
+.withOptions {
+    $0.mustAcceptTerms = true
+}
+```
+
+## Database options
 
 ### allow
 
