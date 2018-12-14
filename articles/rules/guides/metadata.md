@@ -11,7 +11,7 @@ useCase: extensibility-rules
 
 # Metadata in Rules
 
-This article explains how to [read](#read-metadata), [update](#update-metadata) and [delete](#delete-metadata) [metadata](/metadata) using [Rules](/rules).
+This article explains how to read, update and delete [metadata](/metadata) using [Rules](/rules).
 
 Each sample rule in this article assumes that the user and their information is represented by the following JSON snippet:
 

@@ -11,7 +11,7 @@ useCase: extensibility-rules
 
 # Store Configuration for Rules
 
-The global `configuration` object is available in your Rules for storing commonly used values, such as URLs. Sensitive information, such as credentials or API keys, should be stored through the `configuration` object and kept out of your Rules code.
+The global `configuration` object is available in Rules for storing commonly used values, such as URLs. Sensitive information, such as credentials or API keys, should be stored through the `configuration` object and kept out of your Rules code.
 
 ## Configure values
 

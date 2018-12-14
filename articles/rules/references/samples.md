@@ -1,6 +1,6 @@
 ---
-title: Examle Rules
-description: A collection of example Rules.
+title: Sample Rules
+description: A collection of sample Rules.
 toc: true
 topics:
   - rules
@@ -9,9 +9,9 @@ contentType: reference
 useCase: extensibility-rules
 ---
 
-# Example Rules
+# Sample Rules
 
-In this article you'll find a collection of example Rules. For more examples, see our Github repo at [auth0/rules](https://github.com/auth0/rules).
+In this article you'll find a collection of sample Rules. For more examples, see our Github repo at [auth0/rules](https://github.com/auth0/rules).
 
 ## Hello World
 
