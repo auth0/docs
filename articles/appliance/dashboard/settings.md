@@ -77,15 +77,18 @@ The Settings page is broken down into the following sections:
 * **MFA Session Absolute Timeout**: the absolute time window for which the user can have an MFA session. After this period of time elapses, the user will be prompted again for MFA;
 * **MFA Session Inactive Timeout**: the maximum time window for which the user can have an MFA session without logging in again. If the user logs in prior to the expiration of this time period, the window will be extended.
 
-::: note 
-Please use the following shorthands to mention the correct time
-        weeks -  w
-        days  -  d
-       hours  -  h
-     minutes  -  m
-     seconds  -  s
-milliseconds  -  ms
-:::
+### Units of time
+
+When providing time values to Auth0, please use the following abbreviations to ensure the correct units are used:
+
+| Abbreviation | Description |
+| - | - |
+| w | weeks |
+| d | days |
+| h | hours |
+| m | minutes |
+| s | seconds |
+| ms | milliseconds |
 
 ## Update Settings
 
