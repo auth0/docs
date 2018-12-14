@@ -20,14 +20,8 @@ A **CSRF attack** can occur when a malicious program causes a user's web browser
 By using the state parameter to hold a correlation value for verification, malicious requests can be denied.
 
 ::: note
-Most modern OIDC and OAuth2 SDKs, including Auth0.js in Single Page Applications, handle the state generation and validation automatically. 
+Most modern OIDC and OAuth2 SDKs, including Auth0.js in single-page Applications, handle the state generation and validation automatically. 
 :::
-
-*need steps here*
-
-## Keep reading
-
-* 
 
 1. Before redirecting a request to the [IdP](/identityproviders), have the application generate a random string. For example:
 

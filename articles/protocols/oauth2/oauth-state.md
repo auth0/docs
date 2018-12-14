@@ -6,6 +6,8 @@ topics:
     - oauth
     - state-parameter
     - csrf
+    - redirecting
+    - manage-users
 contentType:
   - concept
 useCase:
@@ -14,19 +16,31 @@ useCase:
 
 # State Parameter
 
-Authorization protocols provide a `state` parameter. During authentication, the application sends this parameter in the authorization request, and the Authorization Server (Auth0) returns this parameter unchanged in the response. This allows you to restore the previous state of your application to do the following:
+Authorization protocols provide a `state` parameter that allows you to restore the previous state of your application. The `state` parameter preserves some state object set by the client in the Authorization request, and makes it available to the client in the response.  
 
-- [Mitigate CSRF attacks](/protocols/oauth2/mitigate-csrf-attacks).  
-- [Redirect users](/protocols/oauth2/redirect-users)
+## CSRF attacks
 
-The usage of `state` for CSRF mitigation on the redirection endpoint implies that within the `state` value there is a unique and non-guessable value associated with each authentication request about to be initiated. It’s that unique and non-guessable value that allows you to prevent the attack by confirming if the value coming from the response matches the one you expect (the one you generated when initiating the request).
+The primary reason for using the `state` parameter is to [mitigate CSRF attacks](/protocols/oauth2/mitigate-csrf-attacks). 
 
-Besides that usage, the state parameter can also be used to encode application state that will round-trip to the client application after the transaction completes; this is sometimes useful so that the application can put the user where they were before the authentication process happened.
+When you use `state` for CSRF mitigation on the redirection endpoint, that means that within the `state` value there is a unique and non-guessable value associated with each authentication request about to be initiated. It’s that unique and non-guessable value that allows you to prevent the attack by confirming if the value coming from the response matches the one you expect (the one you generated when initiating the request).
 
-In essence, you send a random value when starting an authentication request and validate the received value when processing the response (this implies you store something on the client application side, in session or other medium, that allows you to perform the validation). If you receive a response with a state that does not match, you were likely the target of an attack because this is either a response for an unsolicited request or someone trying to forge the real response.
+The way this works is that you send a random value when starting an authentication request and validate the received value when processing the response. This requires you to store something on the client application side (in session or other medium) that allows you to perform the validation. If you receive a response with a state that does not match, you may be the target of an attack because this is either a response for an unsolicited request or someone trying to forge the response.
+
+An example of this would be a hash of the session cookie or a random value stored in the server linked to the session. If the OAuth client verifies the value returned than it will reject authentication responses that were generated as the result of requests by third-party attackers trying to log the user in in the background without the users knowledge. The `state` parameter is just a string so any other information can be encoded in it.
+
+## Redirect users
+
+You can also use the `state` parameter to encode an application state that will round-trip to the client application after the transaction completes. In this way, the application can put the user where they were before the authentication process happened. For more information, see [Redirect Users With State Parameters](/protocols/oauth2/redirect-users). 
+
+## Limitations
+
+* From a security perspective, nether the request nor the response are integrity-protected so a user can manipulate them. That is true for adding a parameter to the `redirect_uri` as well.
+* The allowed length for `state` is not unlimited. If you get the error `414 Request-URI Too Large` try a smaller value.
 
 ## Keep reading
 
 * [0Auth 2.0 Authorization Framework](/protocols/oauth2)
 * [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
 * [API Authorization](/api-auth)
+* [Mitigate CSRF Attacks With State Parameters](/protocols/oauth2/mitigate-csrf-attacks)
+* [Redirect Users With State Parameters](/protocols/oauth2/redirect-users)

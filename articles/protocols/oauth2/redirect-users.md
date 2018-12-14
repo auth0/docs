@@ -43,10 +43,20 @@ var state = context.request.query.state || context.request.body.state;
 
 :::
 
-Alternatively, you can generate and store a `nonce` locally. Encode any desired state (like the redirect URL) along with the nonce in a protected message (that will need to be encrypted/signed to avoid tampering). In the response processing, unprotect the message, getting the nonce and other properties stored. Validate that the included nonce matches what was stored locally and, if so, accept the OAuth2 message.
+Alternatively, you can:
+
+1. Generate and store a `nonce` locally. 
+
+2. Encode any desired state (like the redirect URL) along with the nonce in a protected message (that will need to be encrypted/signed to avoid tampering). 
+
+3. In the response processing, unprotect the message, getting the nonce and other properties stored. 
+
+4. Validate that the included nonce matches what was stored locally and, if so, accept the OAuth2 message.
 
 ## Keep reading
 
+* [0Auth 2.0 Authorization Framework](/protocols/oauth2)
+* [State Parameter](/protocols/oauth2/oauth-state)
+* [Redirect Users After Login](/users/guides/redirect-users-after-login)
 * [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
 * [API Authorization](/api-auth)
-* [State Parameter](/protocols/oauth2/oauth-state)
