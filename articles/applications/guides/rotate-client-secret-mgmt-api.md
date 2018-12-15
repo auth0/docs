@@ -15,7 +15,7 @@ useCase:
 To make calls to the Management API, you must [get and use a valid Access Token](/api/management/v2/tokens).
 :::
 
-This guide will show you how to change your application's client secret using Auth0's Management API. The global client secret can also be rotated via the Management API. Your global client ID can be found in your [Advanced Tenant Settings](${manage_url}/#/tenant/advanced).
+This guide will show you how to change your application's client secret using Auth0's Management API.
 
 ::: warning 
 New secrets may be delayed while rotating. To make sure that you see as little downtime as possible, we suggest you store the new client secret in your application's code as a fallback to the previous secret. This way, if the connection doesn't work with the old secret, your app will use the new secret.
