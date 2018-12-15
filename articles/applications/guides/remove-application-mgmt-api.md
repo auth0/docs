@@ -18,6 +18,25 @@ This guide will show you how to remove an application using Auth0's Management A
 1. Make a `DELETE` call to the [Delete a Client endpoint](/api/management/v2#!/Clients/delete_clients_by_id). Be sure to replace the `YOUR_CLIENT_ID` placeholder value with your client ID.
 
 
+```har
+{
+	"method": "DELETE",
+	"url": "https://${account.namespace}/api/v2/clients/YOUR_CLIENT_ID",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}],
+	"queryString": [],
+	"postData": {},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
+
+curl -X DELETE  https://khoriander.auth0.com/api/v2/clients/184248121999401
 
 
 1, Make a DELETE se the [DELETE /api/v2/clients/{id} endpoint](/api/management/v2#!/Clients/delete_clients_by_id).
