@@ -1,5 +1,5 @@
 ---
-description: Learn to enable Universal Links support for your Auth0 app in Xcode
+description: Learn to enable universal links support for your Auth0 app in Xcode.
 topics:
   - applications
   - ios
@@ -16,6 +16,8 @@ Universal links establish a *verified relationship between domains and applicati
 
 * `Team ID`;
 * `Bundle identifier`.
+
+This guide will show you how to enable universal links support for your Auth0-registered application using the Auth0 Dashboard.
 
 ## Find Your Apple `Team ID` and `Bundle Identifier`
 
@@ -46,7 +48,7 @@ To find your iOS application's `Bundle identifier`, go to its [Xcode project set
 
 ## Test Your Universal Link
 
-To test, check whether the universal links apple app site association file is available for your application by using your browser to navigate to: `${account.namespace}/apple-app-site-association`
+Check whether the universal links `apple-app-site-association` file is available for your application by using your browser to navigate to: `${account.namespace}/apple-app-site-association`.
 
 If the link is successful, you will see the following JSON (formatted for readability):
 
