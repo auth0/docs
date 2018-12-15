@@ -11,7 +11,7 @@ useCase:
 ---
 # View Connections
 
-You can configure any number of [connections](/connections) through the Dashboard, and then enable them for any application or API.
+You can configure any number of [connections](/connections) through the Dashboard, and then enable them for any application or API. /#/
 
 To view all the connections that you have configured or to create new ones, navigate to the [Auth0 Dashboard](${manage_url}/#/) and select a connection type:
 
@@ -20,13 +20,9 @@ To view all the connections that you have configured or to create new ones, navi
 - [Enterprise](${manage_url}/#/connections/enterprise)
 - [Passwordless](${manage_url}/#/connections/passwordless)
 
-For more details on the connections you can configure, see [Identity Providers Supported by Auth0](/identityproviders).
-
-
-
-
-/design/using-auth0-with-multi-tenant-apps
 
 ## Keep reading
 
+- [Identity Providers Supported by Auth0](/identityproviders)
 - [Configure Connections](/applications/multiple-tenants)
+- [Using Auth0 with Multi-Tenant Applications](/design/using-auth0-with-multi-tenant-apps)
