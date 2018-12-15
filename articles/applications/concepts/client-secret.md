@@ -1,5 +1,5 @@
 ---
-description: Describes the basic concept of a client secret.
+description: Learn about client secrets.
 crews: crew-2
 topics:
   - applications
