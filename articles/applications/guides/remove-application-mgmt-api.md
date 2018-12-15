@@ -1,5 +1,5 @@
 ---
-description: Explains how to remove an Auth0-registered application using the Auth0 Management API.
+description: Learn how to remove an Auth0-registered application using the Auth0 Management API.
 toc: false
 topics:
   - applications
