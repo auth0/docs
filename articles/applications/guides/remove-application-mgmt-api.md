@@ -13,6 +13,10 @@ useCase:
 
 # Remove an Application using the Management API
 
+::: note
+To make calls to the Management API, you must [get and use a valid Access Token](/api/management/v2/tokens).
+:::
+
 This guide will show you how to remove an application using Auth0's Management API.
 
 1. Make a `DELETE` call to the [Delete a Client endpoint](/api/management/v2#!/Clients/delete_clients_by_id). Be sure to replace the `YOUR_CLIENT_ID` placeholder value with your client ID.
