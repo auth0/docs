@@ -18,6 +18,6 @@ This guide will show you how to view all of the available [add-ons](/application
 
 2. Click the name of your Application to show its settings.
 
-3. Select the Add-ons view.
+3. Click on **Add-ons**.
 
 ![Application Addons List](/media/articles/applications/addons-dashboard-list.png)
