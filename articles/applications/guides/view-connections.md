@@ -11,9 +11,11 @@ useCase:
 ---
 # View Connections
 
-You can configure any number of [connections](/connections) through the Dashboard, and then enable them for any application or API. /#/
+You can configure any number of [connections](/connections) through the Auth0 Dashboard, and then enable them for any application or API. This guide will show you how to view all of the connections that you have configured using Auth0's Dashboard.
 
-To view all the connections that you have configured or to create new ones, navigate to the [Auth0 Dashboard](${manage_url}/#/) and select a connection type:
+1. Navigate to the [Auth0 Dashboard](${manage_url}/#/), and click on _Connections_ in the left nav.
+
+2. Select a connection type:
 
 - [Database](${manage_url}/#/connections/database)
 - [Social](${manage_url}/#/connections/social)
