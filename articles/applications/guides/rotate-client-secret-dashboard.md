@@ -11,6 +11,15 @@ useCase:
 
 # Rotate a Client Secret using the Dashboard
 
+This guide will show you how to change your application's client secret using Auth0's Dashboard. The global client secret can also be rotated via the Dashboard. Your global client ID can be found in your [Advanced Tenant Settings](${manage_url}/#/tenant/advanced).
+
+::: warning 
+New secrets may be delayed while rotating. To make sure that you see as little downtime as possible, we suggest you store the new client secret in your application's code as a fallback to the previous secret. This way, if the connection doesn't work with the old secret, your app will use the new secret.
+
+Secrets can be stored in a list (or similar structure) to track keys until they're no longer needed. Once you're sure that an old secret is obsolete, you can remove its value from your app's code.
+:::
+
+
 1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/). 
 
 2. Click the name of your application to see its settings.
@@ -23,11 +32,6 @@ useCase:
 
 ![](/media/articles/clients/change-client-secret/client-settings.png)
 
+5. Update authorized applications
 
-## Update Authorized Applications
-
-Once you've rotated your client secret, you must update any authorized applications with the new value. 
-
-New secrets may be delayed while rotating. To make sure that you see as little downtime as possible, we suggest you store the new client secret in your application's code as a fallback to the previous secret. This way, if the connection doesn't work with the old secret, your app will use the new secret.
-
-Secrets can be stored in a list (or similar structure) to track keys until they're no longer needed. Once you're sure that an old secret is obsolete, you can remove its value from your app's code.
+After you rotate your client secret, you must update any authorized applications with the new value.
