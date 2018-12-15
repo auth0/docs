@@ -15,7 +15,16 @@ useCase:
 To make calls to the Management API, you must [get and use a valid Access Token](/api/management/v2/tokens).
 :::
 
-Rotate your application's secret by making a `POST` call to the [Rotate a Client Secret endpoint](/api/management/v2#!/Clients/post_rotate_secret) of the Management API, as seen below. Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and Access Token, respectively.
+This guide will show you how to change your application's client secret using Auth0's Management API. The global client secret can also be rotated via the Management API. Your global client ID can be found in your [Advanced Tenant Settings](${manage_url}/#/tenant/advanced).
+
+::: warning 
+New secrets may be delayed while rotating. To make sure that you see as little downtime as possible, we suggest you store the new client secret in your application's code as a fallback to the previous secret. This way, if the connection doesn't work with the old secret, your app will use the new secret.
+
+Secrets can be stored in a list (or similar structure) to track keys until they're no longer needed. Once you're sure that an old secret is obsolete, you can remove its value from your app's code.
+:::
+
+
+1.Make a `POST` call to the [Rotate a Client Secret endpoint](/api/management/v2#!/Clients/post_rotate_secret). Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and Access Token, respectively.
 
 
 ```har
@@ -36,13 +45,7 @@ Rotate your application's secret by making a `POST` call to the [Rotate a Client
 }
 ```
 
-The global client secret can also be rotated via the Management API. Your global client ID can be found in your [Advanced Tenant Settings](${manage_url}/#/tenant/advanced).
 
+2. Update authorized applications
 
-## Update Authorized Applications
-
-Once you've rotated your client secret, you must update any authorized applications with the new value. 
-
-New secrets may be delayed while rotating. To make sure that you see as little downtime as possible, we suggest you store the new client secret in your application's code as a fallback to the previous secret. This way, if the connection doesn't work with the old secret, your app will use the new secret.
-
-Secrets can be stored in a list (or similar structure) to track keys until they're no longer needed. Once you're sure that an old secret is obsolete, you can remove its value from your app's code.
+When you rotate a client secret, you must update any authorized applications with the new value. 
