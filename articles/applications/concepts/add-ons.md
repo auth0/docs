@@ -1,5 +1,5 @@
 ---
-description: Explains what add-ons are and how they are associated with Auth0 Applications.
+description: Learn about add-ons are and how they are associated with Auth0-registered Applications.
 topics:
   - applications
   - add-ons
