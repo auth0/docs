@@ -34,9 +34,34 @@ This is typically caused by a server set to an incorrect time. If the error mess
 
 If you get this error, make sure you are requesting an email from each provider in the Auth0 Dashboard under Connections -> Social (expand each provider). Take into account that not all providers return email addresses for users (e.g. Twitter). If this happens, you can always add an Email address to any logged in user through the Auth0 Dashboard (or API). See Users -> Edit.
 
+For Connections that don't provide an `email_verified` flag (some Enterprise connections will not include this) or to skip this validation for specific Social Connections, add the strategy for that Connection in the "Skip Strategies" field just below the "Require Verified Email" switch on the wp-admin > Auth0 > Settings > Advanced tab screen. **Please note:** this field should only be used when necessary as it circumvents recommended Auth0 security precautions. 
+
+### I'm seeing the error message "There is a user with the same email" that prevents me from logging in
+
+This means that there is a user in WordPress that has the same email as the one being used to login associated to a different Auth0 user. If you're in the process of testing the plugin or want to associate the existing user with the new Auth user instead:
+
+1. Log in as an admin
+1. Go to wp-admin > Users and search for the email being used
+1. View the user's profile and scroll down to the bottom
+1. Click **Delete Auth0 Data** and confirm
+
 ### I'm seeing the error message "Failed cross origin authentication" or "No verifier returned from client" in my browser's console logs when trying to log in
 
 Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the [Application](${manage_url}/#/applications) settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, review our [docs page on cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) to make sure you don't have third-party cookies turned off.  
+
+### I need to rerun the Setup Wizard and don't see that menu option anymore. 
+
+This means that the plugin is already configured with a Domain, Client ID, and Client Secret. Running the Setup Wizard a second time can have unpredictable results. If you're setting up WordPress for the first time and want to start over before any logins have occurred:
+
+1. Go to wp-admin > Auth0 > Settings > Basic tab.
+1. Delete the Domain and Client ID, then scroll down and click **Save Changes**.
+1. Go to the [Auth0 Dashboard > Applications](${manage_url}/#/applications)
+1. Find the Application that was created by WordPress (should be the site name of your WordPress site)
+1. Click on the Application to view the settings, scroll down to the bottom, and click the **Delete Application** button. 
+1. Go to the [Auth0 Dashboard > Connections > Database](${manage_url}/#/connections/database)
+1. Find the Connection that was created by WordPress (should be the site name of your WordPress site prepended with "DB-")
+1. Click on the Connection to view the settings, scroll down to the bottom, and click the **I Want To Delete This Connection* button. **Please note:** This will delete the Connection and all users that were created within. 
+1. Return to WordPress and you should see the Setup Wizard option under Auth0 in the admin menu. 
 
 ### How do I setup Passwordless login?
 
