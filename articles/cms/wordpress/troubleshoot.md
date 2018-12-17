@@ -169,6 +169,43 @@ We implemented additional parameters in the login methods used by the plugin to 
 
 This is a current limitation of the plugin but something we're looking at in a future release. The one exception to this is the user password. If the password is changed in WordPress and it passes the security policy set for the database connection being used then that password will update for the Auth0 user as well. We'll be adding an error message in a future release to stop the process if the password is not strong enough.
 
+### How do I migrate from "Social Login with Auth0" to "Login by Auth0"
+
+Auth0 has historically maintained 2 WordPress plugins:
+
+- [Login by Auth0](https://wordpress.org/plugins/auth0/)
+- [Social Login with Auth0](https://wordpress.org/plugins/social-login-with-auth0/)
+
+These two plugins are effectively the same but, past version 3.7.0 (8/13/2018), the second plugin will no longer receive updates. Migration from the second to the first is simple and will not result an any data loss in Auth0 or WordPress. 
+
+**Please note:** Moving to the new plugin will update the version so make sure to test this change out on a staging or development server first, just as you would if you were updating the plugin in wp-admin. Also, this process will break logins while the plugin is being changed so use a maintenance mode plugin or complete the changes during low-traffic times. 
+
+The easiest way to migrate is done via (S)FTP:
+
+1. Login to the WordPress site as an adminstrator.
+1. [Download Login by Auth0](https://downloads.wordpress.org/plugin/auth0.zip) and unzip it locally.
+1. Deactivate the "Social Login with Auth0" plugin from the WordPress admin > Plugins screen.
+1. Log into the server you want to migrate and navigate to `wp-content/plugins`.
+1. Move the `social-login-with-auth0` folder out of the plugins folder to back up the contents.
+1. Upload the new `auth0` plugin folder to the plugins directory.
+1. Activate the new "Login by Auth0" plugin from the WordPress admin > Plugins screen.
+
+If you're not able to access the site via FTP, you can also run the process directly from the WordPress admin:
+
+1. Login to the WordPress site as an adminstrator.
+1. Go to Auth0 > Import-Export Settings.
+1. Click **Export Settings**, then **Export**.
+1. Deactivate the "Social Login with Auth0" plugin from the WordPress admin > Plugins screen.
+1. Delete the "Social Login with Auth0" plugin and confirm.
+1. Go to Plugins > Add New and search for "Auth0".
+1. For the "Login by Auth0" plugin (make sure to check the name), click **Install Now**.
+1. When this completes, click **Activate**.
+1. Go to Auth0 > Import-Export Settings.
+1. Click **Choose File**, select the previously-exported JSON file, and click **Import**.
+1. Completely delete the settings file export JSON (it contains sensitive information).
+
+Everything should now be working as expected with the new plugin and updates will resume as usual. 
+
 ### Keep Reading
 
 More information on the Login by Auth0 WordPress plugin:
