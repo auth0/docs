@@ -19,7 +19,7 @@ We support scenarios for mobile, desktop, server-side, or client-side applicatio
 You can get more details on implementing these flows by following one of the following links:
 
 <%= include('../../_includes/_topic-links', { links: [
-  'application-auth/current/mobile-desktop',
-  'application-auth/current/server-side-web',
-  'application-auth/current/client-side-web'
+  'flows/guides/mobile-login-flow/add-login-using-mobile-login-flow',
+  'flows/guides/single-page-login-flow/add-login-using-single-page-login-flow',
+  'flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow'
 ] }) %>
