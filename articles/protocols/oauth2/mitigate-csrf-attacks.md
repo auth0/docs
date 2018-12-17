@@ -26,9 +26,9 @@ Most modern OIDC and OAuth2 SDKs, including Auth0.js in single-page applications
 
 1. Before redirecting a request to the [IdP](/identityproviders), have the application generate a random string. For example:
 
-```text
-xyzABC123
-```
+   ```text
+   xyzABC123
+   ```
 
 ::: note
 The allowed length for state is not unlimited. If you get the error `414 Request-URI Too Large` try a smaller value.
@@ -40,34 +40,34 @@ The allowed length for state is not unlimited. If you get the error `414 Request
    * For a single-page app, use local storage in the browser
    * For a native app, use memory or local storage
 
-```text
-storeStateLocally(xyzABC123)
-```
+   ```text
+   storeStateLocally(xyzABC123)
+   ```
 
 3. Add the `state` parameter to the request (URL-encoding if necessary).
 
-```js
-// Encode the String
-tenant.auth0.com/authorize?...&state=xyzABC123
-```
+   ```js
+   // Encode the String
+   tenant.auth0.com/authorize?...&state=xyzABC123
+   ```
 
    After the request is sent, the user is redirected back to the application by Auth0. The `state` value will be included in this redirect. Note that depending on the type of connection used, this value might be in the body of the request or in the query string.
 
-```text
-/callback?...&state=xyzABC123
-```
+   ```text
+   /callback?...&state=xyzABC123
+   ```
 
 4.  Retrieve the returned `state` value and compare it with the one you stored earlier. If the values match, then approve the authentication response, else deny it.
 
-```js
-// Decode the String
-var decodedString = Base64.decode(encodedString);
-if(receivedState === retrieveStateStoredLocally()) {
-	// Authorized request
-} else {
-	// This response is not for us, reject it
-}
-```
+   ```js
+   // Decode the String
+   var decodedString = Base64.decode(encodedString);
+   if(receivedState === retrieveStateStoredLocally()) {
+    	// Authorized request
+   } else {
+    	// This response is not for us, reject it
+   }
+   ```
 
 ## Keep reading
 
