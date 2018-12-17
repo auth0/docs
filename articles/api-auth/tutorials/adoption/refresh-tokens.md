@@ -30,9 +30,6 @@ There are some changes to how Refresh Tokens are used in the OIDC-conformant aut
     </ul>
   </div>
   <div class="tab-content">
-    <div id="refresh-legacy" class="tab-pane active">
-      <pre class="text hljs"></pre>
-   </div>
     <div id="refresh-oidc" class="tab-pane">
       <pre class="text hljs"><code>POST /oauth/token
 Content-Type: application/json
@@ -47,9 +44,8 @@ Content-Type: application/json
 </code></pre>
 <ul><li>The <code>audience</code> and <code>client_secret</code> parameters are optional. The <code>client_secret</code> is not needed when requesting a <code>refresh_token</code> for a mobile app.</li></ul>
    </div>
-  </div>
-</div>
-<code>POST /delegation
+       <div id="refresh-legacy" class="tab-pane active">
+      <pre class="text hljs"><code>POST /delegation
 Content-Type: 'application/json'
 {
   "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
@@ -57,7 +53,10 @@ Content-Type: 'application/json'
   "refresh_token": "...",
   "scope": "openid profile"
 }
-</code>
+</code></pre>
+   </div>
+  </div>
+</div>
 
 Please note that Refresh Tokens must be kept confidential in transit and storage, and they should be shared only among the authorization server and the client to whom the Refresh Tokens were issued.
 
