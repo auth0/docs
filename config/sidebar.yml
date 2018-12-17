@@ -134,22 +134,21 @@ articles:
       - title: "Add Login to Regular Web App"
         url: "/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow"
 
-
-     - title: "Old-Current"
-       url: "/application-auth/current"
-       hidden: true
-       children:
-         - title: "Server-side App"
-           url: "/application-auth/current/server-side-web"
-           hidden: true
+      - title: "Old-Current"
+        url: "/application-auth/current"
+        hidden: true
+        children:
+          - title: "Server-side App"
+            url: "/application-auth/current/server-side-web"
+            hidden: true
       
-         - title: "Client-side App"
-           url: "/application-auth/current/client-side-web"
-           hidden: true
+          - title: "Client-side App"
+            url: "/application-auth/current/client-side-web"
+            hidden: true
         
-         - title: "Mobile App"
-           url: "/application-auth/current/mobile-desktop"
-           hidden: true
+          - title: "Mobile App"
+            url: "/application-auth/current/mobile-desktop"
+            hidden: true
       
       - title: "Legacy"
         url: "/application-auth/legacy"
