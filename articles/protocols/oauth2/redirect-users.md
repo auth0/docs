@@ -17,14 +17,14 @@ Use the `state` parameter to lookup and restore the previous state of your appli
 
 1. Generate the `nonce` that you will use to protect against CSRF attacks as explained before. Store the `nonce` locally, using it as the key to store all the other application state like the URL where the user intended to go. For example:
 
-```json
-{
-  "xyzABC123" : {
-    redirectUrl: '/protectedResource',
-    expiresOn: [...]
-  }
-}
-```
+   ```json
+   {
+     "xyzABC123" : {
+       redirectUrl: '/protectedResource',
+       expiresOn: [...]
+     }
+   }
+   ```
 
 2. Authenticate the user, sending the generated `nonce` as the state.
 
@@ -32,7 +32,9 @@ Use the `state` parameter to lookup and restore the previous state of your appli
 
 4. Once you complete the callback processing, redirect the user to the URL previously stored.
 
-Again, how you store the `nonce` and the URL or other information pertinent to the application state depends on your application's type. It can be local storage in single-page or native apps or a cookie in a regular web app. 
+   Again, how you store the `nonce` and the URL or other information pertinent to the application state depends on your application's type. It can be local storage in single-page or native apps or a cookie in a regular web app. 
+
+## Alternate method
 
 Alternatively, you can:
 
