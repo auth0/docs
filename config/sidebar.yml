@@ -125,13 +125,13 @@ articles:
     url: "/application-auth/current"
     children:
 
-      - title: "Add Login to Native/Mobile App"
+      - title: "Native/Mobile Apps"
         url: "/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow"
         
-      - title: "Add Login to Single-Page App"
+      - title: "Single-Page Apps"
         url: "/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow"
         
-      - title: "Add Login to Regular Web App"
+      - title: "Regular Web Apps"
         url: "/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow"
 
       - title: "Old-Current"
@@ -186,17 +186,17 @@ articles:
       - title: "Which OAuth Flow to Use"
         url: "/api-auth/which-oauth-flow-to-use"
         
-      - title: "Call API from Native/Mobile App"
-        url: "/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow"
+      - title: "APIs & Mobile Apps"
+        url: "/flows/concepts/mobile-login-flow"
         
-      - title: "Call API from Single-Page App"
-        url: "/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow"
+      - title: "APIs & Single-Page Apps"
+        url: "/flows/concepts/single-page-login-flow"
         
-      - title: "Call API from Regular Web App"
-        url: "/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow"
+      - title: "APIs & Regular Web Apps"
+        url: "/flows/concepts/regular-web-app-login-flow"
         
-      - title: "Call API from M2M App"
-        url: "/flows/guides/m2m-flow/call-api-using-m2m-flow"
+      - title: "APIs & M2M Apps"
+        url: "/flows/concepts/m2m-flow"
 
       - title: "APIs & Server-side Apps"
         url: "/api-auth/grant/authorization-code"
