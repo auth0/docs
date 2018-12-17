@@ -1,4 +1,5 @@
 ---
+title: Add Login to Single-Page Applications
 description: Learn how to add login to your application using the single-page login flow.
 toc: true
 topics:
