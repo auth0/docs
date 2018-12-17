@@ -1,32 +1,41 @@
-<%= include('../../_includes/_login_preamble', { library: 'Vue.js', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-vue-samples/tree/embedded-login/01-Embedded-Login'}) %>
+<%= include('../../\_includes/\_login_preamble', { library: 'Vue.js', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-vue-samples/tree/master/01-Login'}) %>
 
 ### Create an Authentication Service
 
-The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `AuthService` and the filename will be `AuthService.js`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
+The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `AuthService` and the filename will be `authService.js`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
 
 Create a service and instantiate `auth0.WebAuth`. Provide a method called `login` which calls the `authorize` method from auth0.js.
 
 ```js
-// src/Auth/AuthService.js
+// src/auth/authService.js
 
-import auth0 from 'auth0-js'
-import EventEmitter from 'eventemitter3'
-import router from './../router'
+import auth0 from 'auth0-js';
+import EventEmitter from 'events';
+import { AUTH_CONFIG } from './auth0-variables';
 
-export default class AuthService {
+const webAuth = new auth0.WebAuth({
+  domain: AUTH_CONFIG.domain,
+  redirectUri: 'http://localhost:3000/callback',
+  clientID: AUTH_CONFIG.clientId,
+  responseType: 'id_token',
+  scope: 'openid profile email'
+});
 
-  auth0 = new auth0.WebAuth({
-    domain: '${account.namespace}',
-    clientID: '${account.clientId}',
-    redirectUri: 'http://localhost:3000/callback',
-    responseType: 'token id_token',
-    scope: 'openid'
-  })
-
-  login () {
-    this.auth0.authorize()
+class AuthService extends EventEmitter {
+  login() {
+    this.auth0.authorize();
   }
 }
+```
+
+To provide the values for `clientID` and `domain`, create a new file `auth0-variables.js` in the same directory as `authService.js` and populate it with your tenant values:
+
+```js
+export const AUTH_CONFIG = {
+  domain: '${account.tenant}',
+  clientId: '${account.clientId}',
+  callbackUrl: 'http://localhost:3000/callback'
+};
 ```
 
 ::: note
@@ -37,99 +46,143 @@ export default class AuthService {
 
 ## Handle Authentication Tokens
 
-Add some additional methods to the `Auth` service to fully handle authentication in the app.
-
-Install the [`eventemitter3` package](https://github.com/primus/eventemitter3) required by the service.
-
-`npm install --save eventemitter3`
+Add some additional methods to `AuthService` to fully handle authentication in the app.
 
 ```js
-// src/Auth/AuthService.js
+// src/auth/authService.js
 
-import auth0 from 'auth0-js'
-import EventEmitter from 'eventemitter3'
-import router from './../router'
+const localStorageKey = 'loggedIn';
+const loginEvent = 'loginEvent';
 
-class AuthService {
-  accessToken
-  idToken
-  expiresAt
-  authenticated = this.isAuthenticated()
-  authNotifier = new EventEmitter()
+class AuthService extends EventEmitter {
+  idToken = null;
+  profile = null;
+  tokenExpiry = null;
 
-  // ...
-  handleAuthentication () {
-    this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setSession(authResult)
-        router.replace('home')
-      } else if (err) {
-        router.replace('home')
-        console.log(err)
-        alert(`Error: <%= "${err.error}" %>. Check the console for further details.`)
-      }
-    })
+  // Handles the callback request from Auth0
+  handleCallback() {
+    return new Promise((resolve, reject) => {
+      webAuth.parseHash((err, authResult) => {
+        if (err) {
+          reject(err);
+        } else {
+          this.localLogin(authResult);
+          resolve(authResult.idToken);
+        }
+      });
+    });
   }
 
-  setSession (authResult) {
-    this.accessToken = authResult.accessToken
-    this.idToken = authResult.idToken
-    this.expiresAt = authResult.expiresIn * 1000 + new Date().getTime()
+  localLogin(authResult) {
+    this.idToken = authResult.idToken;
+    this.profile = authResult.idTokenPayload;
+    this.tokenExpiry = new Date(this.profile.exp * 1000);
 
-    this.authNotifier.emit('authChange', { authenticated: true })
+    localStorage.setItem(localStorageKey, 'true');
 
-    localStorage.setItem('loggedIn', true)
+    this.emit(loginEvent, {
+      loggedIn: true,
+      profile: authResult.idTokenPayload
+    });
   }
 
-  renewSession () {
-    this.auth0.checkSession({}, (err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setSession(authResult)
-      } else if (err) {
-        this.logout()
-        console.log(err)
-        alert(`Could not get a new token (<%= "${err.error}" %>: <%= "${err.error_description}" %>).`)
-      }
-    })
+  renewTokens() {
+    return new Promise((resolve, reject) => {
+      webAuth.checkSession({}, (err, authResult) => {
+        if (err) {
+          reject(err);
+        } else {
+          this.localLogin(authResult);
+          resolve(authResult);
+        }
+      });
+    });
   }
 
-  logout () {
-    // Clear access token and ID token from local storage
-    this.accessToken = null
-    this.idToken = null
-    this.expiresAt = null
+  logOut() {
+    localStorage.removeItem(localStorageKey);
 
-    this.userProfile = null
-    this.authNotifier.emit('authChange', false)
+    this.idToken = null;
+    this.tokenExpiry = null;
+    this.profile = null;
 
-    localStorage.removeItem('loggedIn')
+    webAuth.logout({
+      returnTo: 'http://localhost:3000'
+    });
 
-    // navigate to the home route
-    router.replace('home')
+    this.emit(loginEvent, { loggedIn: false });
   }
 
-  isAuthenticated () {
-    // Check whether the current time is past the
-    // access token's expiry time
-    return new Date().getTime() < this.expiresAt && localStorage.getItem('loggedIn') === 'true'
+  isAuthenticated() {
+    return localStorage.getItem(localStorageKey) === 'true';
   }
 }
 
-export default new AuthService()
-
+export default new AuthService();
 ```
 
 The service now includes several other methods for handling authentication.
 
-* `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
-* `setSession` - sets the user's Access Token, ID Token, and a time at which the Access Token will expire
-* `renewSession` - uses the `checkSession` method from auth0.js to renew the user's authentication status, and calls `setSession` if the login session is still valid
-* `logout` - removes the user's tokens from browser storage
-* `isAuthenticated` - checks whether the expiry time for the Access Token has passed
+- `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
+- `localLogin` - sets the user's Access Token, ID Token, and a time at which the Access Token will expire
+- `renewTokens` - uses the `checkSession` method from auth0.js to renew the user's authentication status, and calls `localLogin` if the login session is still valid
+- `logout` - removes the user's tokens from browser storage
+- `isAuthenticated` - checks whether the expiry time for the Access Token has passed
 
 ### About the Authentication Service
 
-<%= include('../../_includes/_auth_service_method_description_auth0js') %>
+<%= include('../../\_includes/\_auth_service_method_description_auth0js') %>
+
+### Create a Vue Plugin
+
+So that the authentication service may be passed around easily to each component, create a Vue.js plugin that will inject the service into everywhere that needs it:
+
+```js
+// src/plugins/auth.js
+import authService from '../auth/authService';
+
+export default {
+  install(Vue) {
+    Vue.prototype.$auth = authService;
+
+    Vue.mixin({
+      created() {
+        if (this.handleLoginEvent) {
+          authService.addListener('loginEvent', this.handleLoginEvent);
+        }
+      },
+
+      destroyed() {
+        if (this.handleLoginEvent) {
+          authService.removeListener('loginEvent', this.handleLoginEvent);
+        }
+      }
+    });
+  }
+};
+```
+
+Open `main.js` and install the plugin:
+
+```js
+// src/main.js
+
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import AuthPlugin from "./plugins/auth";
+
+// Install the authentication plugin here
+Vue.use(AuthPlugin);
+
+Vue.config.productionTip = false;
+
+new Vue({
+  router,
+  render: h => h(App)
+}).$mount("#app");
+
+```
 
 ### Provide a Login Control
 
@@ -143,11 +196,13 @@ This example uses Bootstrap styles, but that's unimportant. Use whichever style 
 
 The `@click` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `AuthService` to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
 
+Also notice the use of `this.$auth` to access the `AuthService` instance given to us through the plugin that we created. Login events can be handled by providing a `handleLoginEvent` method on any component.
+
 When the **Log In** button is clicked, the user will be redirected to login page.
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
-When the application first starts up, a call to `renewSession` is made that tries to reinitialize the user's login session, if it is detected that they should already be logged in. This would be the case, for example, if the user logged in and then refreshed the browser window.
+When the application first starts up, a call to `renewTokens` is made that tries to reinitialize the user's login session, if it is detected that they should already be logged in. This would be the case, for example, if the user logged in and then refreshed the browser window.
 
 ### Add a Callback Component
 
@@ -164,21 +219,24 @@ Create a component named `CallbackComponent` and populate it with a loading indi
 
 <template>
   <div class="spinner">
-    <img src="../assets/loading.svg" alt="loading"/>
+    <img src="../assets/loading.svg" alt="Loading">
   </div>
 </template>
 
 <script>
   export default {
-    name: 'callback',
-    props: ['auth'],
+    methods: {
+      handleLoginEvent() {
+        this.$router.push("/");
+      }
+    },
     created () {
-      this.auth.handleAuthentication()
+      this.$auth.handleAuthentication()
     }
   }
 </script>
 
-<style>
+<style scoped>
   .spinner {
     position: absolute;
     display: flex;
@@ -193,13 +251,13 @@ Create a component named `CallbackComponent` and populate it with a loading indi
   }
 </style>
 
-```
+````
 
 ::: note
 This example assumes some kind of loading spinner is available in the `assets` directory. See the downloadable sample for a demonstration.
 :::
 
-After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. During this time, their client-side session will be set, after which they will be redirected to the `/home` route.
+After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. During this time, their client-side session will be set, after which they will be redirected to the `/` route.
 
 ::: note
 This example assumes you are using path-based routing with `mode: 'history'`. If you are using hash-based routing, you won't be able to specify a dedicated callback route because the URL hash will be used to hold the user's authentication information.

@@ -34,38 +34,34 @@
     </nav>
 
     <div class="container">
-      <router-view
-        :auth="auth"
-        :authenticated="authenticated">
-      </router-view>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-import auth from './auth/AuthService'
-
 export default {
   name: 'app',
-  data () {
+  data() {
     return {
-      auth,
-      authenticated: auth.authenticated
+      isAuthenticated: false
     }
   },
-  created () {
-    auth.authNotifier.on('authChange', authState => {
-      this.authenticated = authState.authenticated
-    })
-
-    auth.renewSession()
+  created() {
+    if (this.$auth.isAuthenticated()) {
+      this.$auth.renewTokens();
+    }
   },
   methods: {
     login () {
-      auth.login()
+      this.$auth.login()
     },
     logout () {
-      auth.logout()
+      this.$auth.logout()
+    },
+    handleLoginEvent(data) {
+      this.isAuthenticated = data.loggedIn;
+      this.profile = data.profile;
     }
   }
 }
