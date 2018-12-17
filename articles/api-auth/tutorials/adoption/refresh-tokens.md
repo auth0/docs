@@ -25,8 +25,8 @@ There are some changes to how Refresh Tokens are used in the OIDC-conformant aut
 <div class="code-picker">
   <div class="languages-bar">
     <ul>
-      <li><a href="#refresh-legacy" data-toggle="tab">Legacy (delegation)</a></li>
       <li><a href="#refresh-oidc" data-toggle="tab">OIDC-conformant (token endpoint)</a></li>
+      <li><a href="#refresh-legacy" data-toggle="tab">Legacy (delegation)</a></li>
     </ul>
   </div>
   <div class="tab-content">
