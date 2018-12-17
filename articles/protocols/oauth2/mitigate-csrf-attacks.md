@@ -6,6 +6,7 @@ topics:
     - oauth
     - state-parameter
     - csrf
+    - xsrf
 contentType: how-to
 useCase: development
 ---

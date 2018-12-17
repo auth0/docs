@@ -6,6 +6,7 @@ topics:
     - oauth
     - state-parameter
     - csrf
+    - xsrf
     - redirecting
     - manage-users
 contentType:
@@ -22,11 +23,9 @@ Authorization protocols provide a `state` parameter that allows you to restore t
 
 The primary reason for using the `state` parameter is to [mitigate CSRF attacks](/protocols/oauth2/mitigate-csrf-attacks). 
 
-When you use `state` for CSRF mitigation on the redirection endpoint, that means that within the `state` value there is a unique and non-guessable value associated with each authentication request about to be initiated. It’s that unique and non-guessable value that allows you to prevent the attack by confirming if the value coming from the response matches the one you expect (the one you generated when initiating the request).
+When you use `state` for CSRF mitigation on the redirection endpoint, that means that within the `state` value there is a unique and non-guessable value associated with each authentication request about to be initiated. It’s that unique and non-guessable value that allows you to prevent the attack by confirming if the value coming from the response matches the one you expect (the one you generated when initiating the request). The `state` parameter is a string so you can encode any other information in it. 
 
 The way this works is that you send a random value when starting an authentication request and validate the received value when processing the response. This requires you to store something on the client application side (in session or other medium) that allows you to perform the validation. If you receive a response with a state that does not match, you may be the target of an attack because this is either a response for an unsolicited request or someone trying to forge the response.
-
-An example of this would be a hash of the session cookie or a random value stored in the server linked to the session. If the OAuth client verifies the value returned than it will reject authentication responses that were generated as the result of requests by third-party attackers trying to log the user in in the background without the users knowledge. The `state` parameter is just a string so any other information can be encoded in it.
 
 ## Redirect users
 

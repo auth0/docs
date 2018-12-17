@@ -28,35 +28,27 @@ Use the `state` parameter to lookup and restore the previous state of your appli
 
 2. Authenticate the user, sending the generated `nonce` as the state.
 
-3. As part of the callback processing and response validation, verify that the state returned matches the nonce stored locally. If it does, retrieve the rest of the application state (like the `redirectUrl`). 
+3. As part of the callback processing and response validation, verify that the state returned matches the `nonce` stored locally. If it does, retrieve the rest of the application state (like the `redirectUrl`). 
 
-4. Once you complete the callback processing redirect the user to the URL previously stored.
+4. Once you complete the callback processing, redirect the user to the URL previously stored.
 
-Again, how you store the nonce and the URL or other information pertinent to the application state depends on your application's type. It can be local storage in single page or native apps or a cookie in a regular web app. 
-
-::: panel Obtain State Parameters From Rules
-You can access the `state` parameter value within a [rule](/rules). How you can get this value will depend on the type of flow used; either from the body of the request or from the query string. You can obtain it using the following:
-
-```js
-var state = context.request.query.state || context.request.body.state;
-```
-
-:::
+Again, how you store the `nonce` and the URL or other information pertinent to the application state depends on your application's type. It can be local storage in single-page or native apps or a cookie in a regular web app. 
 
 Alternatively, you can:
 
 1. Generate and store a `nonce` locally. 
 
-2. Encode any desired state (like the redirect URL) along with the nonce in a protected message (that will need to be encrypted/signed to avoid tampering). 
+2. Encode any desired `state` (like the redirect URL) along with the `nonce` in a protected message (that will need to be encrypted/signed to avoid tampering). 
 
-3. In the response processing, unprotect the message, getting the nonce and other properties stored. 
+3. In the response processing, unprotect the message, getting the `nonce` and other properties stored. 
 
-4. Validate that the included nonce matches what was stored locally and, if so, accept the OAuth2 message.
+4. Validate that the included `nonce` matches what was stored locally and, if so, accept the OAuth2 message.
 
 ## Keep reading
 
 * [0Auth 2.0 Authorization Framework](/protocols/oauth2)
 * [State Parameter](/protocols/oauth2/oauth-state)
+* [Rules](/rules)
 * [Redirect Users After Login](/users/guides/redirect-users-after-login)
 * [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
 * [API Authorization](/api-auth)
