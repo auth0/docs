@@ -1,4 +1,5 @@
 ---
+title: Call API from Single-Page Applications
 description: Learn how to call your API using the single-page login flow
 toc: true
 topics:
