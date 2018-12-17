@@ -38,7 +38,7 @@ In this page you can find a list of resources that can help you secure your APIs
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/flows/concepts/mobile-login-flow">Call API from Native/Mobile Apps</a>
+    <i class="icon icon-budicon-715"></i><a href="/flows/concepts/mobile-login-flow">Call Your API from a Native/Mobile App</a>
     <p>
       If your application is a native app and you want to configure it to use OAuth 2.0 to access an API, read these docs.
     </p>
@@ -52,7 +52,7 @@ In this page you can find a list of resources that can help you secure your APIs
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/flows/concepts/single-page-login-flow">Call API from Single-Page Apps</a>
+    <i class="icon icon-budicon-715"></i><a href="/flows/concepts/single-page-login-flow">Call Your API from a Single-Page App</a>
     <p>
       If your application is a JavaScript-centric app executing on the browser, and you want to configure it to use OAuth 2.0 to access an API, read these docs.
     </p>
@@ -75,7 +75,7 @@ In this page you can find a list of resources that can help you secure your APIs
     </ul>
   </li>
    <li>
-    <i class="icon icon-budicon-715"></i><a href="/flows/concepts/regular-web-app-login-flow">Call API from Regular Web Apps</a>
+    <i class="icon icon-budicon-715"></i><a href="/flows/concepts/regular-web-app-login-flow">Call Your API from a Regular Web App</a>
     <p>
       If your application executes on a server and you want to configure it to use OAuth 2.0 to access an API, read these docs.
     </p>
@@ -89,7 +89,7 @@ In this page you can find a list of resources that can help you secure your APIs
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/flows/concepts/m2m-flow">Call API from Machine-to-Machine Apps</a>
+    <i class="icon icon-budicon-715"></i><a href="/flows/concepts/m2m-flow">Call Your API from a Machine-to-Machine App</a>
     <p>
       If you want to implement server-to-server interaction, and you want to configure it to use OAuth 2.0, read these docs.
     </p>
