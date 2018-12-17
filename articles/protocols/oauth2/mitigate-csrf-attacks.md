@@ -12,16 +12,16 @@ useCase: development
 ---
 # Mitigate CSRF Attacks With State Parameters
 
-The state parameter helps mitigate [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery) to ensure that the response belongs to a request that was initiated by the same user. For the most basic cases the state parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce), used to correlate the request with the response received from the authentication. 
+You can deny malicious requests by using the `state` parameter to hold a correlation value for verification.
 
-A **CSRF attack** can occur when a malicious program causes a user's web browser to perform an unwanted action on a trusted site that the user is currently authenticated. This type of attack specifically target state-changing requests to initiate a type of action instead of getting user data because the attacker has no way to see the response of the forged request.
+A CSRF attack can occur when a malicious program causes a user's web browser to perform an unwanted action on a trusted site that the user is currently authenticated. This type of attack specifically targets state-changing requests to initiate a type of action instead of getting user data because the attacker has no way to see the response to the forged request.
 
 ![Diagram of CSRF attack](/media/articles/protocols/CSRF_Diagram.png)
 
-By using the state parameter to hold a correlation value for verification, malicious requests can be denied.
+The state parameter helps mitigate [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery) to ensure that the response belongs to a request that was initiated by the same user. For the most basic cases the state parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce), used to correlate the request with the response received from the authentication. 
 
 ::: note
-Most modern OIDC and OAuth2 SDKs, including Auth0.js in single-page Applications, handle the state generation and validation automatically. 
+Most modern OIDC and OAuth2 SDKs, including Auth0.js in single-page applications, handle the state generation and validation automatically. 
 :::
 
 1. Before redirecting a request to the [IdP](/identityproviders), have the application generate a random string. For example:
@@ -44,20 +44,20 @@ The allowed length for state is not unlimited. If you get the error `414 Request
 storeStateLocally(xyzABC123)
 ```
 
-3. Add the state parameter to the request (URL-encoding if necessary).
+3. Add the `state` parameter to the request (URL-encoding if necessary).
 
 ```js
 // Encode the String
 tenant.auth0.com/authorize?...&state=xyzABC123
 ```
 
-   After the request is sent, the user is redirected back to the application by Auth0. The state value will be included in this redirect. Note that depending on the type of connection used, this value might be in the body of the request or in the query string.
+   After the request is sent, the user is redirected back to the application by Auth0. The `state` value will be included in this redirect. Note that depending on the type of connection used, this value might be in the body of the request or in the query string.
 
 ```text
 /callback?...&state=xyzABC123
 ```
 
-4.  Retrieve the returned state value and compare it with the one you stored earlier. If the values match, then approve the authentication response, else deny it.
+4.  Retrieve the returned `state` value and compare it with the one you stored earlier. If the values match, then approve the authentication response, else deny it.
 
 ```js
 // Decode the String
