@@ -15,7 +15,7 @@ useCase:
 
 # Invalid State Errors
 
-We added state validation to the WordPress plugin in [version 3.6.0](https://github.com/auth0/wp-auth0/releases/tag/3.6.0). This security measure helps mitigate CSRF attacks by ensuring that the response belongs to a request initiated by the same user ([more information on state validation here](/protocols/oauth2/oauth-state)).
+We added state validation to the WordPress plugin in [version 3.6.0](https://github.com/auth0/wp-auth0/releases/tag/3.6.0). This security measure helps mitigate CSRF attacks by ensuring that the response belongs to a request initiated by the same user For more information, see [State Parameter](/protocols/oauth2/oauth-state).
 
 ## How state validation works
 

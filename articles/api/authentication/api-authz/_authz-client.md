@@ -76,7 +76,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 - [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
 - [Executing an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant)
-- [Using the State Parameter](/protocols/oauth2/oauth-state)
+- [State Parameter](/protocols/oauth2/oauth-state)
 - [Silent Authentication](/api-auth/tutorials/silent-authentication)
 
 
@@ -223,6 +223,6 @@ This is the OAuth 2.0 grant that web apps utilize in order to access an API.
 
 - [Calling APIs from Client-side Web Apps](/api-auth/grant/implicit)
 - [Executing the Implicit Grant Flow](/api-auth/tutorials/implicit-grant)
-- [Using the State Parameter](/protocols/oauth2/oauth-state)
+- [State Parameter](/protocols/oauth2/oauth-state)
 - [Mitigate replay attacks when using the Implicit Grant](/api-auth/tutorials/nonce)
 - [Silent Authentication](/api-auth/tutorials/silent-authentication)

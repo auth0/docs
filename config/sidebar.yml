@@ -788,7 +788,7 @@ articles:
         url: "/protocols/oauth2"
         children:
 
-        - title: "The State Parameter"
+        - title: "State Parameter"
           url: "/protocols/oauth2/oauth-state"
           hidden: true
           

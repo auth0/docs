@@ -23,7 +23,7 @@ See [How to Read Your Results Set](/pre-deployment/how-to-run-test#how-to-read-y
 | Check | Description |
 | ---- | ----------- |
 | [Allow ID Tokens for Management API v2 Authentication](/migrations/guides/calling-api-with-idtokens) is disabled | The capabilities for using ID Tokens to authorize some of the Users and Device Credentials endpoints of the Management API are being deprecated. After completing migration to Access Tokens, make sure the [`Allow ID Tokens for Management API v2 Authentication` toggle is turned off](${manage_url}/#/account/advanced). |
-| [Allowed Callback URLs](/tutorials/redirecting-users) are not Localhost | Validates the [Application Allowed Callback URLs do not point to localhost](${manage_url}/#/applications), 127.0.0.1, and so on. |
+| [Allowed Callback URLs](/protocols/oauth2/redirect-users) are not Localhost | Validates the [Application Allowed Callback URLs do not point to localhost](${manage_url}/#/applications), 127.0.0.1, and so on. |
 | [Allowed Origins (CORS)](/cross-origin-authentication) is not Localhost | Validates that the [Location URL for the page does not point to localhost](${manage_url}/#/applications). |
 | [Allowed Web Origins are not Localhost](/applications/application-settings) | Validates that the [Allowed Web Origins URLs do not point to localhost](${manage_url}/#/applications). |
 | [Email Provider](/email/providers) is configured | Verifies that the [custom email provider has been configured](${manage_url}/#/emails/provider). |
