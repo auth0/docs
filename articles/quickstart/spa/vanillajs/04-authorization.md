@@ -39,7 +39,7 @@ var auth0 = new auth0.WebAuth({
 ```js
 // app.js
 
-function setSession(authResult) {
+function localLogin(authResult) {
   
   scopes = authResult.scope || requestedScopes || '';
 

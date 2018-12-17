@@ -50,8 +50,8 @@ Add more functions to the `app.js` file to handle authentication in the app.
 
 The example below shows the following functions:
 * `handleAuthentication`: looks for the result of authentication in the URL hash and processes it with the `parseHash` method from auth0.js.
-* `renewSession`: performs silent authentication to renew the session.
-* `setSession`: sets the user's Access Token, ID Token, and the Access Token's expiry time.
+* `renewTokens`: performs silent authentication to renew the session.
+* `localLogin`: sets the user's Access Token, ID Token, and the Access Token's expiry time.
 * `logout`: removes the user's tokens and expiry time from browser memory.
 * `isAuthenticated`: checks whether the expiry time for the user's Access Token has passed.
 
@@ -81,7 +81,7 @@ window.addEventListener('load', function() {
     webAuth.parseHash(function(err, authResult) {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
-        setSession(authResult);
+        localLogin(authResult);
         loginBtn.style.display = 'none';
         homeView.style.display = 'inline-block';
       } else if (err) {
@@ -95,7 +95,7 @@ window.addEventListener('load', function() {
     });
   }
 
-  function setSession(authResult) {
+  function localLogin(authResult) {
     // Set isLoggedIn flag in localStorage
     localStorage.setItem('isLoggedIn', 'true');
     // Set the time that the access token will expire at
@@ -106,10 +106,10 @@ window.addEventListener('load', function() {
     idToken = authResult.idToken;
   }
 
-function renewSession() {
+function renewTokens() {
   webAuth.checkSession({}, (err, authResult) => {
     if (authResult && authResult.accessToken && authResult.idToken) {
-      setSession(authResult);
+      localLogin(authResult);
     } else if (err) {
       alert(
           'Could not get a new token '  + err.error + ':' + err.error_description + '.'
@@ -213,7 +213,7 @@ window.addEventListener('load', function() {
 
   // ...
   if (localStorage.getItem('isLoggedIn') === 'true') {
-    renewSession();
+    renewTokens();
   } else {
     handleAuthentication();
   }
