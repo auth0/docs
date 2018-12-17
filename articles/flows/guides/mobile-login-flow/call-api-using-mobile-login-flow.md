@@ -1,4 +1,5 @@
 ---
+title: Call API from Native/Mobile Applications
 description: Learn how to call your API using the mobile login flow.
 toc: true
 topics:
