@@ -201,7 +201,7 @@ If you have just executed the [Authorization Code Grant (PKCE)](#authorization-c
 - [Call API Using the Native/Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow)
 
 
-## Client Credentials
+## Machine-to-Machine (M2M) Flow
 
 ```http
 POST https://${account.namespace}/oauth/token
@@ -286,6 +286,7 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 ### More Information
 
 - [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow)
+- [Call API using the Machine-to-Machine (M2M) Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow)
 - [Setting up a Client Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard)
 - [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 
