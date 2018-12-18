@@ -42,19 +42,8 @@ To learn how to accept and validate Access Tokens in your API implementation, se
 
 The Settings tab lets you edit different application settings:
 
-<%= include('./application-settings/_settings') %>
-
 - **Application Type**: The type of application you are implementing. Select **Machine to Machine Application**.
 
-<%= include('./application-settings/_token-endpoint-auth-method') %>
-
-<%= include('./application-settings/_settings-pt2') %>
-
-### Advanced Settings
-
-<%= include('./application-settings/_adv-settings') %>
-
-<%= include('./application-settings/_trust-token-endpoint-ip-header') %>
 
 ## APIs
 
