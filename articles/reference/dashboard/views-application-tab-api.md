@@ -16,6 +16,10 @@ useCase:
 
 # Application Views: API Tab
 
+:::note
+This tab is only available for applications with an application type of **Machine-to-Machine**.
+:::
+
 The **APIs** tab:
 
 * Lists all available APIs for the tenant
