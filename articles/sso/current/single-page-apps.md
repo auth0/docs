@@ -1,5 +1,5 @@
 ---
-description: Tutorial on implementing client-side SSO on single page applications.
+description: Tutorial on implementing client-side SSO on single-page applications.
 toc: true
 topics:
   - sso
@@ -99,7 +99,7 @@ https://${account.namespace}/authorize?
 ```
 
 :::note
-For details on the request parameters, refer to [How to implement the Implicit Grant](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow#authorize-the-user).
+For details on the request parameters, refer to our tutorial, [Add Login Using the Single-Page Login Flow: Authorize the user](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow#authorize-the-user).
 :::
 
 For requests received with the parameter **prompt=none**, Auth0 redirects to the **redirect_uri** specified. There are two possible outcomes:
