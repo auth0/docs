@@ -13,16 +13,16 @@ useCase: integrate-saas-sso
 Authentication in CLI programs is straightforward if the identity provider supports sending credentials, like database connections, SMS passwordless and AD. If the identity provider requires a browser redirect, then the process is slightly more complicated.
 
 ::: note
-   If your identity provider supports sending credentials, then you should use the [Machine-to-Machine (M2M) Flow](/flows/guides/m2m-flow). For details on how to implement this refer to [How to implement the Client Credentials Grant](/flows/guides/m2m-flow/call-api-using-m2m-flow).
+   If your identity provider supports sending credentials, then you should use the [Machine-to-Machine (M2M) Flow](/flows/guides/m2m-flow). For details on how to implement this, refer to [How to implement the Client Credentials Grant](/flows/guides/m2m-flow/call-api-using-m2m-flow).
 :::
 
-Auth0 implements the [Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636). This addition makes it easy to add authentication to a CLI while keeping higher standards of security.
+Auth0 implements the [Proof Key for Code Exchange (PKCE) by OAuth Public Clients](https://tools.ietf.org/html/rfc7636). This addition makes it easy to add authentication to a CLI while keeping higher standards of security.
 
 ## How PKCE works
 
-Traditionally, public applications (such as mobile apps, SPAs and CLIs) have used the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to obtain a token. In this flow, there's no __application authentication__ because there's no easy way of storing a `client_secret`.
+Traditionally, public applications (such as mobile apps, SPAs, and CLIs) have used the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to obtain a token. In this flow, there's no __application authentication__ because there's no easy way of storing a `client_secret`.
 
-The [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow), increases security by adding a cryptographic challenge in the token exchange. This prevents rogue apps to intercept the response from Auth0, and get hold of the token.
+The [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow), increases security by adding a cryptographic challenge in the token exchange. This prevents rogue apps from intercepting the response from Auth0 and getting hold of the token.
 
 ## How to implement PKCE
 
