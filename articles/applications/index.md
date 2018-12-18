@@ -28,7 +28,8 @@ To add authentication to your application, you must first register it with Auth0
 
 - **Regular Web Apps**: Traditional web applications that run on a server (e.g., ASP .NET, Java, Ruby on Rails, Node.js). Learn to [configure your Regular Web App using the Dashboard](/applications/webapps).
 
-- **Machine-to-Machine (M2M) Apps**: Server-to-server applications, such as command-line tools, daemons, IoT devices, or services running on your back-end. Typically, you use this option if you have a service that requires access to an API. Learn to [configure your M2M App using the Dashboard](/applications/machine-to-machine).
+- **Machine-to-Machine (M2M) Apps**: Non-interactive applications, such as command-line tools, daemons, IoT devices, or services running on your back-end. Typically, you use this option if you have a service that requires access to an API. Learn to [configure your M2M App using the Dashboard](/applications/machine-to-machine).
+
 
 
 ::: note
