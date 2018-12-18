@@ -7,13 +7,13 @@ The purpose of this call is to obtain consent from the user to invoke the API (s
 The OAuth 2.0 flows that require user authorization are:
 - [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
 - [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow)
-- [Implicit Grant](/flows/concepts/regular-web-app-login-flow)
+- [Single-Page Login Flow](/flows/concepts/single-page-login-flow)
 
-On the other hand, the [Resource Owner Password Grant](/api-auth/grant/password) and [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow) do not use this endpoint since there is no user authorization involved. Instead they invoke directly the `POST /oauth/token` endpoint to retrieve an Access Token.
+On the other hand, the [Resource Owner Password Grant](/api-auth/grant/password) and [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow) do not use this endpoint since there is no user authorization involved. Instead, they directly invoke the `POST /oauth/token` endpoint to retrieve an Access Token.
 
-Based on the OAuth 2.0 flow you are implementing, the parameters slightly change. To determine which flow is best suited for your case refer to: [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use).
+Based on the OAuth 2.0 flow you are implementing, the parameters slightly change. To determine which flow is best suited for your case, refer to: [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use).
 
-## Authorization Code Grant
+## Regular Web App Login Flow
 
 ```http
 GET https://${account.namespace}/authorize?
@@ -80,7 +80,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 - [Silent Authentication](/api-auth/tutorials/silent-authentication)
 
 
-## Authorization Code Grant (PKCE)
+## Native/Mobile Login Flow
 
 ```http
 GET https://${account.namespace}/authorize?
@@ -153,7 +153,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 - [Silent Authentication](/api-auth/tutorials/silent-authentication)
 
 
-## Implicit Grant
+## Single-Page Login Flow
 
 ```http
 GET https://${account.namespace}/authorize?
