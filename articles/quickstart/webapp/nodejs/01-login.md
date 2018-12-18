@@ -33,7 +33,7 @@ AUTH0_CLIENT_SECRET=YOUR_CLIENT_SECRET
 Do not put the `.env` file into source control. Otherwise, your history will contain references to your client secret.
 :::
 
-If you are using git, create a `.gitignorefile` (or edit your existing one, if you have one already) and add `.env` to it. The `.gitignore` file tells source control to ignore the files (or file patterns) you list. Be careful to add `.env` to your `.gitignore` file and commit that change before you add your `.env`.
+If you are using git, create a `.gitignore` file (or edit your existing one, if you have one already) and add `.env` to it. The `.gitignore` file tells source control to ignore the files (or file patterns) you list. Be careful to add `.env` to your `.gitignore` file and commit that change before you add your `.env`.
 
 ```
 # .gitignore

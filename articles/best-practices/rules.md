@@ -36,7 +36,7 @@ Avoid calling the Management API if possible, especially in high volume environm
 
 ## Cache results
 
-Rules have a [global variable you can use to cache information](/rules/current#cache-expensive-resources). For API calls that are not user-specific, use this variable to cache the results between users. For example, getting an access token to your API.
+Rules have a [global variable you can use to cache information](/rules/guides/cache-resources). For API calls that are not user-specific, use this variable to cache the results between users. For example, getting an access token to your API.
 
 ## Limited read or update users scopes
 
