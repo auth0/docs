@@ -78,6 +78,9 @@ The Settings tab lets you edit different application settings:
 
 - **Application Type**: The type of application you are implementing. Select **Machine to Machine Application**.
 
+::: note
+After creating your first application, set the environment for your tenant to: development, staging, or production. For more information refer to [Set Up Multiple Environments](/dev-lifecycle/setting-up-env#set-the-environment).
+:::
 
 ## Next Steps
 
