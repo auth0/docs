@@ -11,7 +11,7 @@ useCase: manage-users
 ---
 # Redirect Users with State Parameters
 
-You can store the application state parameter before you redirect users to authenticate, so you can redirect them to a URL. For example, if a user intends to access a protected page in your application, and that action triggers the request to authenticate, you can store that URL to redirect the user back to their intended page after the authentication finishes.
+You can store the application state parameter before you redirect users to authenticate so that you can redirect them to a URL. For example, if a user intends to access a protected page in your application, and that action triggers the request to authenticate, you can store that URL to redirect the user back to their intended page after the authentication finishes.
 
 Use the `state` parameter to lookup and restore the previous state of your application. Generate and store a `nonce` locally (cookies/session/localstorage), along with any desired state data (like the redirect URL). Use the `nonce` as a state in the protocol message. If the returned state matches the stored nonce, accept the OAuth2 message and fetch the corresponding state data from storage. This is the approach used by Auth0.js.
 
