@@ -38,7 +38,7 @@ The recommended implementation is to use [Universal Login](/hosted-pages/login).
 
 If you choose instead to embed the [Lock](/libraries/lock/v11) widget in your app, you can review the sample code for this tutorial in the [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) repo on Github.
 
-If you don't use Lock at all, but call the Authentication API directly, follow the [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant) tutorial.
+If you don't use Lock at all, but call the Authentication API directly, follow our tutorial, [Call API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
 
 ## Step 2: Search for users with identical email addresses
 

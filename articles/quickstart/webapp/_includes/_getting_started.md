@@ -1,5 +1,5 @@
 ::: note
-**New to Auth?** Learn [How Auth0 works](/overview), how it [integrates with Regular Web Applications](/architecture-scenarios/application/web-app-sso) and which [protocol](/application-auth/current/server-side-web) it uses.
+**New to Auth?** Learn [How Auth0 works](/overview), how it [integrates with Regular Web Applications](/architecture-scenarios/application/web-app-sso) and which [protocol](/flows/concepts/regular-web-app-login-flow) it uses.
 :::
 
 <%= include('../../../_includes/_new_app') %>

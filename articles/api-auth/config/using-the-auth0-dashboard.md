@@ -29,7 +29,7 @@ To authorize the applications to call an API:
 ## Keep reading
 
 :::next-steps
-* [How to implement the Client Credentials Grant](/api-auth/tutorials/client-credentials)
+* [How to implement the Client Credentials Grant](/flows/guides/m2m-flow/call-api-using-m2m-flow)
 * [How to change the scopes and add custom claims to a token using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 * [How to add custom claims to a token using Rules](/scopes#custom-claims)
 :::

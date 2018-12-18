@@ -23,9 +23,9 @@ useCase:
 
 ## Proof Key for Code Exchange (PKCE)
 
-OAuth 2 provides several grant types for different use cases. In this particular use case, we want to access the API from a mobile application, which will use the OAuth 2.0 [Proof Key for Code Exchange](/api-auth/grant/authorization-code-pkce) to do so.
+OAuth 2 provides several grant types for different use cases. In this particular use case, we want to access the API from a mobile application, which will use the [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow) to do so.
 
-The [Authorization Code Grant](/api-auth/grant/authorization-code) has some security issues, when implemented on native applications. For instance, a malicious attacker can intercept the `authorization_code` returned by Auth0 and exchange it for an [Access Token](/tokens/overview-access-tokens) (and possibly a [Refresh Token](/tokens/refresh-token)).
+The [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow) has some security issues when implemented on native applications. For instance, a malicious attacker can intercept the `authorization_code` returned by Auth0 and exchange it for an [Access Token](/tokens/overview-access-tokens) (and possibly a [Refresh Token](/tokens/refresh-token)).
 
 The Proof Key for Code Exchange (PKCE) (defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)) is a technique used to mitigate this authorization code interception attack.
 

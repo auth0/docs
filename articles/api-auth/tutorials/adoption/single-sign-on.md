@@ -26,7 +26,7 @@ We are planning on providing support for SSO from applications in future release
 
 At a general level, this is what happens when performing SSO:
 
-1. If the user is not logged in locally, redirect them to Auth0 for authentication. This is done using the [authorization code](/api-auth/grant/authorization-code) or [implicit](/api-auth/grant/implicit) grants, depending on the type of application.
+1. If the user is not logged in locally, redirect them to Auth0 for authentication. This is done using the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow) or [Single-Page Login Flow](/flows/concepts/single-page-login-flow), depending on the type of application.
 2. If the user was logged in through SSO, Auth0 will immediately authenticate them without needing to re-enter credentials.
 
 An application that does not use SSO might decide to use embedded login to authenticate users instead of redirecting to Auth0 for authentication.
@@ -45,8 +45,8 @@ Since cross-origin requests cannot set cookies, this means that SSO sessions mus
 
 The following flows are redirect-based and are capable of SSO:
 
-* [Authorization code grant](/api-auth/grant/authorization-code)
-* [Implicit grant](/api-auth/grant/implicit)
+* [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
+* [Single-Page Login Flow](/flows/concepts/single-page-login-flow)
 
 The following flows are request-based and are currently not capable of SSO:
 

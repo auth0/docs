@@ -2,13 +2,13 @@
 description: Explains the basics of creating and using Auth0 Machine to Machine Applications.
 toc: true
 ---
-# Machine to Machine Applications
+# Machine-to-Machine Applications
 
-You can use machine-to-machine applications when you want to invoke an API using a non-interactive application, such as a service, command line tool, or IoT device using the [OAuth 2.0 Client Credentials Grant](/api-auth/grant/client-credentials).
+You can use machine-to-machine applications when you want to invoke an API using a non-interactive application, such as a service, command line tool, or IoT device using the [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow).
 
 ## Create a new Machine to Machine Application
 
-To create a new Machine to Machine Application:
+To create a new Machine-to-Machine Application:
 
 1. Log in to the Dashboard and navigate to [Applications](${manage_url}/#/applications).
 

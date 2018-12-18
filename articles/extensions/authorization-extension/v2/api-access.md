@@ -55,7 +55,7 @@ If you make any changes to the scopes, click **Update** to save.
 
 ### Get the Access Token
 
-To access the API, you'll need to [ask for and obtain the appropriate token](https://auth0.com/docs/api-auth/tutorials/client-credentials#ask-for-a-token).
+To access the API, you'll need to [ask for and obtain the appropriate token](/flows/guides/m2m-flow/call-api-using-m2m-flow#request-token).
 
 ### Call the API
 

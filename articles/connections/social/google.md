@@ -127,12 +127,12 @@ You can do this by setting the `access_type=offline` parameter when you call the
 If you use [Lock](/libraries/lock) you can set this parameter in the [params object](/libraries/lock/configuration#params-object-).
 
 Note that you can only get a Refresh Token, if you are using one of the following OAuth 2.0 flows:
-* [Authorization Code](/api-auth/grant/authorization-code)
-* [Authorization Code with PKCE](/api-auth/grant/authorization-code-pkce)
+* [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
+* [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow)
 * [Resource Owner Password](/api-auth/grant/password)
 
 :::note
-A Single Page Application (normally implementing the [Implicit Grant](/api-auth/grant/implicit)) should not under any circumstances get a Refresh Token. The reason for that is that the SPA is a public client and as such **cannot hold credentials securely**.
+A Single Page Application (normally implementing the [Single-Page Login Flow](/flows/concepts/single-page-login-flow)) should not under any circumstances get a Refresh Token. The reason for that is that the SPA is a public client and as such **cannot hold credentials securely**.
 :::
 
 <%= include('../_quickstart-links.md') %>

@@ -23,7 +23,7 @@ The sample application contains:
 * 1 Single Page Application (SPA);
 * 2 APIs (called `contacts` and `calendar`).
 
-We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two namespaced scopes to demonstrate how you can use the [Implicit Grant](/api-auth/grant/implicit) to access the `calendar` and `contacts` APIs from the SPA. The SPA also uses [Lock](/libraries/lock) to implement the signin screen.
+We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two namespaced scopes to demonstrate how you can use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to access the `calendar` and `contacts` APIs from the SPA. The SPA also uses [Lock](/libraries/lock) to implement the signin screen.
 
 Please see the `README` for additional information on setting up the sample on your local environment.
 
@@ -100,10 +100,10 @@ You are now ready to provide access to your APIs by granting Access Tokens to th
 
 :::panel Authorization Flows
 
-The rest of this article covers use of the [Implicit Grant](/api-auth/grant/implicit) to reflect the sample. You can, however, use whichever flow best suits your needs.
+The rest of this article covers use of the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to reflect the sample. However, you can use whichever flow best suits your needs.
 
-* If you have a **Machine to Machine Application**, you can authorize it to request Access Tokens to your API by executing a [client credentials exchange](/api-auth/grant/client-credentials).
-* If you are building a **Native App**, you can implement the use of [Authorization Codes using PKCE](/api-auth/grant/authorization-code-pkce).
+* If you have a **Machine-to-Machine Application**, you can authorize it to request Access Tokens to your API by executing a [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow).
+* If you are building a **Native App**, you can implement the [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow).
 
 For a full list of available Authorization flows, see [API Authorization](/api-auth).
 :::
@@ -120,7 +120,7 @@ redirect_uri=http://localhost:3000&
 nonce=NONCE
 ```
 
-For additional information on the call's parameters, refer to the [docs on executing an implementing the Implicit Grant](/api-auth/tutorials/implicit-grant#1-get-the-user-s-authorization).
+For additional information on the call's parameters, refer to our tutorial, [Call Your API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow#authorize-the-user).
 
 The SPA executes this call whenever the user clicks **Login**.
 

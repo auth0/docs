@@ -424,7 +424,7 @@ The [Access Token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [machine-to-machine flow implementation guide](/flows/guides/m2m-flow/call-api-using-m2m-flow) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group whose mappings you want to delete |
 
 ## Get Group Members

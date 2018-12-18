@@ -22,7 +22,7 @@ Until recently you could generate a Management APIv2 Token directly from the Man
 
 That way was very easy but it was also __very insecure__. So we changed it.
 
-The new way uses the [OAuth 2.0 Client Credentials grant](/api-auth/grant/client-credentials).
+The new way uses the [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow).
 
 ::: note
 For details on how to follow this new process refer to [Access Tokens for the Management API](/api/management/v2/tokens).

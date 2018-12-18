@@ -31,7 +31,7 @@ For single page applications (SPAs), you will need to [get an Access Token from 
 * [Access Tokens](/tokens/overview-access-tokens)
 * [Management API Access Token FAQs](/api/management/v2/faq-management-api-access-tokens)
 * [Changes in Auth0 Management API Tokens](/api/management/v2/tokens-flows)
-* [Calling APIs from a Service](/api-auth/grant/client-credentials)
+* [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow)
 * [Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 * [Search for Users](/users/search)
 * [Information on the query string syntax](/users/search/v3/query-syntax)

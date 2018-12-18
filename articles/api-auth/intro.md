@@ -57,7 +57,7 @@ For more information, refer to [User consent and third-party applications](/api-
 We implemented the OAuth 2.0 Client Credentials grant which allows applications to authenticate as themselves (that is, not on behalf of any user), in order to programmatically and securely obtain access to an API.
 
 ::: note
-For more information on the Client Credentials grant, refer to [How to Implement the Client Credentials Grant](/api-auth/tutorials/client-credentials).
+For more information on the Client Credentials grant, refer to [How to Implement the Client Credentials Grant](/flows/guides/m2m-flow/call-api-using-m2m-flow).
 :::
 
 ## What is Changing
@@ -76,12 +76,12 @@ Historically, you were able to define and request arbitrary application-specific
 
 In order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims.
 
-To customize the tokens, use Hooks for Client Credentials, and Rules for the rest of the grants:
-- __Client Credentials__: [Customize Tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
-- __Resource Owner__: [Customize Tokens using Rules](/api-auth/grant/password#customizing-the-returned-tokens)
-- __Implicit Grant__: [Customize Tokens using Rules](/api-auth/tutorials/implicit-grant#optional-customize-the-tokens)
-- __Authorization Code__: [Customize Tokens using Rules](/api-auth/tutorials/authorization-code-grant#optional-customize-the-tokens)
-- __Authorization Code (PKCE)__: [Customize Tokens using Rules](/api-auth/tutorials/authorization-code-grant-pkce#optional-customize-the-tokens)
+To customize the tokens, use Hooks for the Machine-to-Machine (M2M Flow), and Rules for the rest of the flows:
+- __M2M Flow__: [Customize Tokens using Hooks](/flows/guides/m2m-flow/call-api-using-m2m-flow#customize-tokens)
+- __Trusted App Flow__: [Customize Tokens using Rules](/api-auth/grant/password#customizing-the-returned-tokens)
+- __Single-Page Flow__: [Customize Tokens using Rules](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow#customize-tokens)
+- __Regular Web App Flow__: [Customize Tokens using Rules](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow#customize-tokens)
+- __Native/Mobile Flow__: [Customize Tokens using Rules](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow#customize-tokens)
 
 ::: note
 For more information, refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
@@ -106,15 +106,15 @@ Not all [OAuth 2.0 grants](/protocols/oauth2#authorization-grant-types) support 
   </thead>
   <tbody>
     <tr>
-      <th><a href="/api-auth/grant/authorization-code">Authorization Code</a></th>
+      <th><a href="/flows/concepts/regular-web-app-login-flow">Authorization Code</a></th>
       <td>Yes</td>
     </tr>
     <tr>
-      <th><a href="/api-auth/grant/authorization-code-pkce">Authorization Code (PKCE)</a></th>
+      <th><a href="/flows/concepts/mobile-login-flow">Authorization Code (PKCE)</a></th>
       <td>Yes</td>
     </tr>
     <tr>
-      <th><a href="/api-auth/grant/implicit">Implicit</a></th>
+      <th><a href="/flows/concepts/single-page-login-flow">Implicit</a></th>
       <td>Yes</td>
     </tr>
     <tr>

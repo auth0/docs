@@ -2,7 +2,7 @@
 
 The deprecated `getSSOData()` function was reimplemented in Auth0.js v9 to simplify migration from older versions, but the behavior is not exactly the same. 
 
-The function will not work as expected when you use it in Web Applications that use the [Authorization Code Flow](/api-auth/grant/authorization-code) (such as when you specify `response_type='code'`). It will always return that there is not a current session.
+The function will not work as expected when you use it in Web Applications that use the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow) (such as when you specify `response_type='code'`). It will always return that there is not a current session.
 
 If you want to avoid showing the Lock dialog when there is an existing session in the server, you can use the [checkSession()](/libraries/auth0js#using-checksession-to-acquire-new-tokens) function in Auth0.js.
 
