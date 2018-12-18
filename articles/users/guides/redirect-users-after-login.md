@@ -21,7 +21,7 @@ To make your login process as easy-to-use and seamless as possible, you'll need 
 
   Because callback URLs can be manipulated by unauthorized parties, Auth0 recognizes only whitelisted URLs set in the **Allowed Callback URLs** field of an [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings) as valid.
 
-  However the callback URL is not necessarily the same URL to which you want users redirected after authentication.
+  However, the callback URL is not necessarily the same URL to which you want users redirected after authentication.
 
 * **Non-callback URLs**: To redirect authenticated users to a URL that is *not* the callback URL, you can store the desired URL using the following methods:
 
