@@ -40,7 +40,7 @@ The most common cause of the invalid state error is when the callback URL is cac
 
 Remove caching from all the URLs listed in the **Allowed Callback URLs** field for your Application in the Auth0 dashboard and test again. If that does not solve the issue, continue with the troubleshooting steps below. 
 
-If you're on a managed host like WP-Engine, you might need to contact their support team for additional work to be done. We've had reports of issues accessing the `auth0_state` cookie on the callback URL as well as problems with checking authentication on the final page that users land on after logging in. 
+If you're on a managed host like WP-Engine, you may need to contact their support team for additional assistance. We've had reports of issues accessing the `auth0_state` cookie on the callback URL, as well as problems with checking authentication on the final page that users see after logging in.
 
 ### Page refresh after error message
 
@@ -71,7 +71,7 @@ Note that some of the steps below will require the login process to be broken du
 2. Check if the `auth0_state` cookie is being set (in Chrome, View > Developer > JavaScript Console > Application tab > Storage on the left > Cookies > domain being tested, look for an `auth0_state` cookie with a non-empty value).
 
 	* If this value is not set, check for errors in the JS console and that your browser can accept cookies (login will not work without cookies). This is set in `/assets/js/lock-init.js` ([code on GitHub](https://github.com/auth0/wp-auth0/blob/master/assets/js/lock-init.js#L22))
-	* If the value is set, copy the value and view the source code of the page (in Chrome, View > Developer > View Source). Search for that value in the code and it should appear in JavaScript as the value of `wpAuth0LockGlobal.settings.auth.params.state` ([sample JSON](https://gist.github.com/joshcanhelp/1b8bb990048325eb7214e2b3d7136b78)). Make a note of this value by copying and pasting into a text file.
+	* If the value is set, copy the value and view the source code of the page (in Chrome, **View** > **Developer** > **View Source**). Search for the value, and it should appear as the value associated with parameter `wpAuth0LockGlobal.settings.auth.params.state` ([sample JSON](https://gist.github.com/joshcanhelp/1b8bb990048325eb7214e2b3d7136b78)). Make a note of this value (you'll need it in a following step).
 
 3. If the value appears there and the Lock form is loading normally then steps 1 and 2 from the first list above are functioning properly.
 4. Before logging in, add [this snippet](https://gist.github.com/joshcanhelp/ba98f748747c7fd2ecdf54e73c6110f3) to the top of your `wp-config.php`. **WARNING**: This will break login for the WordPress site being tested so use it only on a non-production install.
