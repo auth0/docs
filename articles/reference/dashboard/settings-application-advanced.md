@@ -1,6 +1,6 @@
 ---
 title: Auth0 Dashboard Advanced Application Settings
-description: Learn about the AdvancedApplication Settings available through the Auth0 Dashboard.
+description: Learn about the Advanced Application Settings available through the Auth0 Dashboard.
 topics:
   - applications
   - oidc
