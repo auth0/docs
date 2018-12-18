@@ -34,7 +34,9 @@ This is typically caused by a server set to an incorrect time. If the error mess
 
 If you get this error, make sure you are requesting an email from each provider in the Auth0 Dashboard under Connections -> Social (expand each provider). Take into account that not all providers return email addresses for users (e.g. Twitter). If this happens, you can always add an Email address to any logged in user through the Auth0 Dashboard (or API). See Users -> Edit.
 
-For Connections that don't provide an `email_verified` flag (some Enterprise connections will not include this) or to skip this validation for specific Social Connections, add the strategy for that Connection in the "Skip Strategies" field just below the "Require Verified Email" switch on the wp-admin > Auth0 > Settings > Advanced tab screen. **Please note:** this field should only be used when necessary as it circumvents recommended Auth0 security precautions. 
+For Connections that don't provide an `email_verified` flag (some Enterprise connections will not include this) *or* to skip this validation for specific Social Connections, add the strategy for that Connection in the "Skip Strategies" field. This field is located below the **Require Verified Email** switch accessible via **wp-admin** > **Auth0** > **Settings** > **Advanced**. 
+
+**This field should only be used if necessary because it circumvents the security precautions recommended Auth0.**
 
 ### I'm seeing the error message "There is a user with the same email" that prevents me from logging in
 
@@ -49,19 +51,19 @@ This means that there is a user in WordPress that has the same email as the one 
 
 Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the [Application](${manage_url}/#/applications) settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, review our [docs page on cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) to make sure you don't have third-party cookies turned off.  
 
-### I need to rerun the Setup Wizard and don't see that menu option anymore. 
+### I need to rerun the Setup Wizard, but I don't see that menu option anymore. 
 
 This means that the plugin is already configured with a Domain, Client ID, and Client Secret. Running the Setup Wizard a second time can have unpredictable results. If you're setting up WordPress for the first time and want to start over before any logins have occurred:
 
-1. Go to wp-admin > Auth0 > Settings > Basic tab.
-1. Delete the Domain and Client ID, then scroll down and click **Save Changes**.
-1. Go to the [Auth0 Dashboard > Applications](${manage_url}/#/applications)
-1. Find the Application that was created by WordPress (should be the site name of your WordPress site)
-1. Click on the Application to view the settings, scroll down to the bottom, and click the **Delete Application** button. 
+1. Go to **wp-admin** > **Auth0** > **Settings** > **Basic**.
+1. Delete the Domain and Client ID. Scroll down and click **Save Changes**.
+1. Go to [Auth0 Dashboard > Applications](${manage_url}/#/applications)
+1. Find the Application that was created by WordPress (its name should be the site name of your WordPress site)
+1. Click on the Application to view its settings. Scroll to the bottom of the screen and click the **Delete Application** button. 
 1. Go to the [Auth0 Dashboard > Connections > Database](${manage_url}/#/connections/database)
-1. Find the Connection that was created by WordPress (should be the site name of your WordPress site prepended with "DB-")
-1. Click on the Connection to view the settings, scroll down to the bottom, and click the **I Want To Delete This Connection* button. **Please note:** This will delete the Connection and all users that were created within. 
-1. Return to WordPress and you should see the Setup Wizard option under Auth0 in the admin menu. 
+1. Find the Connection that was created by WordPress (its name should be the site name of your WordPress site prepended with "DB-")
+1. Click on the Connection to view the settings. Scroll down to the bottom, and click **I Want To Delete This Connection*. ***Please note that this will delete the Connection and all users that were created within.***
+1. Return to WordPress. You will now see the Setup Wizard option under Auth0 in the admin menu. 
 
 ### How do I setup Passwordless login?
 
@@ -169,38 +171,40 @@ We implemented additional parameters in the login methods used by the plugin to 
 
 This is a current limitation of the plugin but something we're looking at in a future release. The one exception to this is the user password. If the password is changed in WordPress and it passes the security policy set for the database connection being used then that password will update for the Auth0 user as well. We'll be adding an error message in a future release to stop the process if the password is not strong enough.
 
-### How do I migrate from "Social Login with Auth0" to "Login by Auth0"
+### How do I migrate from "Social Login with Auth0" to "Login by Auth0"?
 
-Auth0 has historically maintained 2 WordPress plugins:
+Historically, Auth0 has maintained two WordPress plugins:
 
 - [Login by Auth0](https://wordpress.org/plugins/auth0/)
 - [Social Login with Auth0](https://wordpress.org/plugins/social-login-with-auth0/)
 
-These two plugins are effectively the same but, past version 3.7.0 (8/13/2018), the second plugin will no longer receive updates. Migration from the second to the first is simple and will not result an any data loss in Auth0 or WordPress. 
+These two plugins are effectively the same, but **Social Login with Auth** will not receive any updates past version 3.7.0 (released 13 August 2018). Migrating from **Social Login with Auth** to **Login by Auth0** is simple and won't result in any Auth0 or WordPress data loss.
 
-**Please note:** Moving to the new plugin will update the version so make sure to test this change out on a staging or development server first, just as you would if you were updating the plugin in wp-admin. Also, this process will break logins while the plugin is being changed so use a maintenance mode plugin or complete the changes during low-traffic times. 
+::: note
+Moving from **Social Login with Auth** to **Login by Auth0** will update the version number you see, so make sure to test this change out on a staging or development server first (just as you would if you were updating the plugin in wp-admin). Furthermore, logins may not work during the migration process, so be sure to use a maintenance mode plugin or complete the migration during off-peak hours. 
+:::
 
-The easiest way to migrate is done via (S)FTP:
+The easiest way to migrate is via (S)FTP:
 
 1. Login to the WordPress site as an adminstrator.
 1. [Download Login by Auth0](https://downloads.wordpress.org/plugin/auth0.zip) and unzip it locally.
-1. Deactivate the "Social Login with Auth0" plugin from the WordPress admin > Plugins screen.
-1. Log into the server you want to migrate and navigate to `wp-content/plugins`.
+1. Deactivate the **Social Login with Auth0** plugin from the WordPress admin > Plugins screen.
+1. Log in to the server you want to migrate to and navigate to `wp-content/plugins`.
 1. Move the `social-login-with-auth0` folder out of the plugins folder to back up the contents.
 1. Upload the new `auth0` plugin folder to the plugins directory.
-1. Activate the new "Login by Auth0" plugin from the WordPress admin > Plugins screen.
+1. Activate the new "Login by Auth0" plugin from the WordPress **Admin** > **Plugins** screen.
 
-If you're not able to access the site via FTP, you can also run the process directly from the WordPress admin:
+If you're unable to access the site via FTP, you can also run the process directly from the WordPress admin:
 
 1. Login to the WordPress site as an adminstrator.
-1. Go to Auth0 > Import-Export Settings.
+1. Go to **Auth0** > **Import-Export Settings**.
 1. Click **Export Settings**, then **Export**.
-1. Deactivate the "Social Login with Auth0" plugin from the WordPress admin > Plugins screen.
-1. Delete the "Social Login with Auth0" plugin and confirm.
-1. Go to Plugins > Add New and search for "Auth0".
-1. For the "Login by Auth0" plugin (make sure to check the name), click **Install Now**.
+1. Deactivate the **Social Login with Auth0** plugin from the WordPress **Admin** > **Plugins** screen.
+1. Delete the **Social Login with Auth0** plugin and confirm.
+1. Go to **Plugins** > **Add New** and search for "Auth0".
+1. For the **Login by Auth0** plugin (make sure to check the name), click **Install Now**.
 1. When this completes, click **Activate**.
-1. Go to Auth0 > Import-Export Settings.
+1. Go to **Auth0** > **Import-Export Settings**.
 1. Click **Choose File**, select the previously-exported JSON file, and click **Import**.
 1. Completely delete the settings file export JSON (it contains sensitive information).
 
