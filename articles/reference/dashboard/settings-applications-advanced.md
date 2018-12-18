@@ -41,7 +41,7 @@ Set the OAuth-related settings on this tab:
 
 
 
-### For Single Page Applications
+### For Single-Page and M2M Apps
 
 - **Trust Token Endpoint IP Header**: When enabled, the auth0-forwarded-for is set as trusted and used as a source of end-user IP information for protection against brute-force attacks on the token endpoint.
 
