@@ -22,7 +22,7 @@ Browser local storage (or session storage) is not secure. Any data stored there 
 
 ## If a backend is present
 
-If your application has a backend server at all, then tokens should be handled server-side using the [Authorization Code flow](/flows/concepts/regular-web-app-login-flow), [Authorization Code flow with Proof Key for Code Exchange](/flows/concepts/mobile-login-flow), or hybrid flow.
+If your application has a backend server at all, then tokens should be handled server-side using the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow), or [Hybrid Flow](/api-auth/grant/hybrid).
 
 ## Single page applications
 
