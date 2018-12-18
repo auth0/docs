@@ -25,12 +25,12 @@ There are some changes to how Refresh Tokens are used in the OIDC-conformant aut
 <div class="code-picker">
   <div class="languages-bar">
     <ul>
-      <li><a href="#refresh-legacy" data-toggle="tab">Legacy (delegation)</a></li>
       <li><a href="#refresh-oidc" data-toggle="tab">OIDC-conformant (token endpoint)</a></li>
+      <li><a href="#refresh-legacy" data-toggle="tab">Legacy (delegation)</a></li>
     </ul>
   </div>
   <div class="tab-content">
-    <div id="refresh-legacy" class="tab-pane active">
+    <div id="refresh-legacy" class="tab-pane">
       <pre class="text hljs"><code>POST /delegation
 Content-Type: 'application/json'
 {
@@ -41,7 +41,7 @@ Content-Type: 'application/json'
 }
 </code></pre>
    </div>
-    <div id="refresh-oidc" class="tab-pane">
+    <div id="refresh-oidc" class="tab-pane active">
       <pre class="text hljs"><code>POST /oauth/token
 Content-Type: application/json
 {

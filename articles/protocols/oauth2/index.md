@@ -10,11 +10,9 @@ contentType:
 useCase:
   - development
 ---
-# OAuth 2.0
+# OAuth 2.0 Authorization Framework
 
 [OAuth 2.0](https://oauth.net/2/) is a protocol that allows a user to grant limited access to their resources on one site, to another site, without having to expose their credentials.
-
-## Overview
 
 According to [OAuth‘s website](http://oauth.net/about/) the protocol is not unlike a valet key.
 
@@ -39,7 +37,7 @@ For example, a Contacts API may accept three different levels of authorization: 
 For more information refer to [Scopes](/scopes).
 
 
-## OAuth Roles
+## OAuth roles
 
 In any OAuth 2.0 flow we can identify the following roles:
 
@@ -52,7 +50,7 @@ In any OAuth 2.0 flow we can identify the following roles:
 - **Authorization Server**: the server that authenticates the Resource Owner, and issues Access Tokens after getting proper authorization. In this case, Auth0.
 
 
-## Protocol Flow
+## Protocol flow
 
 We will now have a more detailed look on how the protocol works. As we will see in a while, OAuth has many "flavors" (called authorization grant types) that you can use. For now we will have a more generic look into the flow.
 
@@ -71,7 +69,7 @@ We will now have a more detailed look on how the protocol works. As we will see 
 1. Provided that the Access Token is valid, the Resource Server serves the Application's request.
 
 
-## Authorization Grant Types
+## Authorization grant types
 
 The [OAuth 2.0 Authorization Framework specification](https://tools.ietf.org/html/rfc6749) defines four flows to get an Access Token. These flows are called **grant types**. Deciding which one is suited for your case depends mostly on the type of your application.
 
@@ -88,11 +86,11 @@ The specification also provides an extensibility mechanism for defining addition
 For details on how each grant type works and when it should be used refer to [API Authorization](/api-auth).
 
 
-## OAuth Endpoints
+## OAuth endpoints
 
 OAuth 2.0 utilizes two endpoints: the **Authorization** endpoint and the **Token** endpoint.
 
-### Authorization Endpoint
+### Authorization endpoint
 
 The Authorization endpoint is used to interact with the resource owner and get the authorization to access the protected resource. To better understand this, imagine that you want to log in to a service using your Google account. First, the service will redirect you to Google in order to authenticate (if you are not already logged in) and then you will get a consent screen, where you will be asked to authorize the service to access some of your data (protected resources), for example your email address and your list of contacts.
 
@@ -103,7 +101,7 @@ The request parameters of the Authorization endpoint are:
 - `scope`: A space-delimited list of permissions that the application requires.
 - `state`: An opaque value, used for security purposes. If this request parameter is set in the request, then it is returned to the application as part of the `redirect_uri`.
 
-#### How Response Type works
+#### How response type works
 
 This endpoint is used by the **Authorization Code** and the **Implicit** [grant types](#authorization-grant-types). The authorization server needs to know which grant type the application wants to use, since it affects the kind of credential it will issue: for **Authorization Code** grant it will issue an authorization code  (which later can be exchanged with an Access Token), while for **Implicit** grant it will issue an **Access Token**.
 
@@ -121,7 +119,7 @@ In order to inform the authorization server which grant type to use, the `respon
 The ID Token is a JWT that contains information about the logged in user. It was introduced by **OpenID Connect**. For more information refer to [OpenID Connect](/protocols/oidc) and [ID Token](/tokens/id-token).
 :::
 
-#### How Response Mode works
+#### How response mode works
 
 The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html) specification, added a new parameter that specifies how the result of the authorization request is formatted. This parameter is called `response_mode`, it's optional, and it can take the following values:
 
@@ -166,7 +164,7 @@ The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/spe
 
 - `web_message`: This response mode is defined by the [OAuth 2.0 Web Message Response Mode specification](https://tools.ietf.org/html/draft-sakimura-oauth-wmrm-00). It uses HTML5 Web Messaging instead of the redirect for the Authorization Response from the Authorization Endpoint. This is particularly useful when using [Silent Authentication](/api-auth/tutorials/silent-authentication). To use this response mode you have to register your app's URL at the __Allowed Web Origins__ field of your [Application's settings](${manage_url}/#/applications/${account.clientId}/settings).
 
-### Token Endpoint
+### Token endpoint
 
 The Token endpoint is used by the application in order to get an [Access Token](/tokens/overview-access-tokens) or a [Refresh Token](/tokens/refresh-token). It is used by all flows, except for the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) (since an Access Token is issued directly).
 
@@ -176,8 +174,8 @@ In the [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow) and [Resource O
 
 ## Keep reading
 
-::: next-steps
 * [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
-* [More docs on API Authorization](/api-auth)
-* [Read about the state parameter and how it can help you mitigate CSRF attacks](/protocols/oauth2/oauth-state)
-:::
+* [API Authorization](/api-auth)
+* [State Parameter](/protocols/oauth2/oauth-state)
+* [Mitigate CSRF Attacks](/protocols/oauth2/mitigate-csrf-attacks)
+* [Redirect Users](/protocols/oauth2/redirect-users)

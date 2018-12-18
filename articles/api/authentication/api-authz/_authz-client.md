@@ -76,7 +76,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 - [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
 - [Call API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow)
-- [Using the State Parameter](/protocols/oauth2/oauth-state)
+- [State Parameter](/protocols/oauth2/oauth-state)
 - [Silent Authentication](/api-auth/tutorials/silent-authentication)
 
 
@@ -223,6 +223,6 @@ This is the OAuth 2.0 grant that web apps utilize in order to access an API.
 
 - [Single-Page Login Flow](/flows/concepts/single-page-login-flow)
 - [Call Your API using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow)
-- [Use the State Parameter](/protocols/oauth2/oauth-state)
+- [State Parameter](/protocols/oauth2/oauth-state)
 - [Mitigate replay attacks when using the Implicit Grant](/api-auth/tutorials/nonce)
 - [Silent Authentication](/api-auth/tutorials/silent-authentication)

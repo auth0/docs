@@ -34,7 +34,7 @@ Impersonation **does not work** with the [API Authorization](/api-auth) features
 
 ## Login CSRF attacks mitigation and Impersonation
 
-To avoid [Login CSRF attacks](/protocols/oauth2/oauth-state#how-to-use-the-parameter-against-csrf-attacks), the OAuth 2.0 specification recommends that applications use the **state** parameter to make sure that the response they receive matches the authentication request and originates from the same session.
+To avoid [Login CSRF attacks](/protocols/oauth2/mitigate-csrf-attacks), the OAuth 2.0 specification recommends that applications use the **state** parameter to make sure that the response they receive matches the authentication request and originates from the same session.
 
 However, applications that check for a valid **state** parameter will *not* work with Impersonation, since Impersonation works by sending authenticated responses to applications that never requested authentication. If you are building a single page application where the authentication results are processed by Lock or Auth0.js, you can disable checking of **state** to allow Impersonation.
 
@@ -103,7 +103,7 @@ This reveals fields to make it easier to [Impersonate a User Using the Impersona
 - **Response mode**: `GET` or `POST`. This is only for server side apps, client side apps default to `GET`.
 - **Response type**: `Code` or `Token`. This is only for server side apps, client side apps default to `Token`.
 - **Scope**: This field will have `openid` in it is as default, [other scopes](/scopes) can be added as a list using whitespace as separator.
-- **State**: The `state` is a required parameter and leaving it blank may lead to errors like `Impersonation - Bad mac`. Learn more about [using the state parameter here](/protocols/oauth2/oauth-state).
+- **State**: The `state` is a required parameter and leaving it blank may lead to errors like `Impersonation - Bad mac`. For more information, see [State Parameter](/protocols/oauth2/oauth-state).
 
 ## Keep reading
 

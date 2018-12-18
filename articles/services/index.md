@@ -43,9 +43,3 @@ useCase:
   'services/auth0-advanced',
   'services/private-saas-management'
 ] }) %>
-
-## Jumpstart
-
-<%= include('../_includes/_topic-links', { links: [
-  'services/jumpstart'
-] }) %>

@@ -115,7 +115,7 @@ The `authorize()` method can be used for logging in users via [Universal Login](
 | `responseType` | optional | (String) It can be any space separated list of the values `code`, `token`, `id_token`.  It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
 | `clientID` | optional | (String)  Your Auth0 client ID. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
-| `state` | optional | (String)  An arbitrary value that should be maintained across redirects. It is useful to mitigate CSRF attacks and for any contextual information (for example, a return URL) that you might need after the authentication process is finished. For more information, see the [state parameter documentation](/protocols/oauth2/oauth-state). |
+| `state` | optional | (String)  An arbitrary value that should be maintained across redirects. It is useful to mitigate CSRF attacks and for any contextual information (for example, a return URL) that you might need after the authentication process is finished. For more information, see [State Parameter](/protocols/oauth2/oauth-state). |
 | `prompt` | optional | (String) A value of `login` will force the login page to show regardless of current session. A value of `none` will attempt to bypass the login prompts if a session already exists (see the [silent authentication](/sso/current/single-page-apps#silent-authentication) documentation for more details). |
 
 For hosted login, one must call the `authorize()` method.
@@ -227,7 +227,7 @@ var url = webAuth.client.buildAuthorizeUrl({
 ```
 
 ::: note
-The `state` parameter is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks, and it needs to be specified if you redirect to the URL yourself instead of calling `webAuth.authorize()`. The [OAuth state documentation](/protocols/oauth2/oauth-state) describes how to do use it correctly.
+The `state` parameter is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks, and it needs to be specified if you redirect to the URL yourself instead of calling `webAuth.authorize()`. For more information, see [State Parameter](/protocols/oauth2/oauth-state).
 :::
 
 <%= include('../../_includes/_embedded_sso') %>

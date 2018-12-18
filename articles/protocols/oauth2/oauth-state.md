@@ -1,12 +1,14 @@
 ---
 title: State Parameter
 description: Explains how to use the state parameter in authentication requests to help prevent CSRF attacks and restore state
-toc: true
 topics:
     - protocols
     - oauth
     - state-parameter
     - csrf
+    - xsrf
+    - redirecting
+    - manage-users
 contentType:
   - concept
 useCase:
@@ -15,105 +17,31 @@ useCase:
 
 # State Parameter
 
-Authorization protocols provide a **state** parameter. During authentication, the application sends this parameter in the authorization request, and the Authorization Server (Auth0) will return this parameter unchanged in the response.
+Authorization protocols provide a `state` parameter that allows you to restore the previous state of your application. The `state` parameter preserves some state object set by the client in the Authorization request and makes it available to the client in the response.  
 
-Your application can use this parameter in order to:
+## CSRF attacks
 
-- Make sure that the response belongs to a request that was initiated by the same user. Therefore, **state** helps mitigate [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
+The primary reason for using the `state` parameter is to mitigate [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
-- Restore the previous state of your application.
+When you use `state` for CSRF mitigation on the redirection endpoint, that means that within the `state` value there is a unique and non-guessable value associated with each authentication request about to be initiated. It’s that unique and non-guessable value that allows you to prevent the attack by confirming if the value coming from the response matches the one you expect (the one you generated when initiating the request). The `state` parameter is a string so you can encode any other information in it. 
 
-## Format and Limitations
-
-For the most basic cases the **state** parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce), used to correlate the request with the response received from the authentication (see below).
-
-Note that the allowed length for state is not unlimited. If you get the error `414 Request-URI Too Large` try a smaller value.
-
-## How to use the parameter against CSRF attacks
-
-A **CSRF attack** can occur when a malicious program causes a user's web browser to perform an unwanted action on a trusted site that the user is currently authenticated. This type of attack specifically target state-changing requests to initiate a type of action instead of getting user data because the attacker has no way to see the response of the forged request.
+The way this works is that you send a random value when starting an authentication request and validate the received value when processing the response. This requires you to store something on the client application side (in session or another medium) that allows you to perform the validation. If you receive a response with a state that does not match, you may be the target of an attack because this is either a response for an unsolicited request or someone trying to forge the response. For more information, see [Mitigate CSRF Attacks With State Parameters](/protocols/oauth2/mitigate-csrf-attacks).
 
 ![Diagram of CSRF attack](/media/articles/protocols/CSRF_Diagram.png)
 
-By using the state parameter to hold a correlation value for verification, malicious requests can be denied.
+## Redirect users
 
-::: note
-Most modern OIDC and OAuth2 SDKs, including Auth0.js in Single Page Applications, handle the state generation and validation automatically. 
-:::
+You can also use the `state` parameter to encode an application state that will round-trip to the client application after the transaction completes. In this way, the application can put the user where they were before the authentication process happened. For more information, see [Redirect Users With State Parameters](/protocols/oauth2/redirect-users). 
 
-1. Before redirecting a request to the [IdP](/identityproviders), have the application generate a random string.
+## Limitations
 
-```text
-xyzABC123
-```
-
-2. Remember this string locally. The method will vary depending on the type of application: could be a cookie or session in a regular web application, local storage in the browser for a single page app, or memory or local storage for a native application.
-
-```text
-storeStateLocally(xyzABC123)
-```
-
-3. Add the **state** parameter in the request (URL-encoding if necessary).
-
-```js
-// Encode the String
-tenant.auth0.com/authorize?...&state=xyzABC123
-```
-
-4. After the request is sent, the user is redirected back to the application by Auth0. The **state** value will be included in this redirect. Note that depending on the type of connection used, this value might be in the body of the request or in the query string.
-
-```text
-/callback?...&state=xyzABC123
-```
-
-5.  Retrieve the returned **state** value and compare it with the one you stored earlier. If the values match, then approve the authentication response, else deny it.
-
-```js
-// Decode the String
-var decodedString = Base64.decode(encodedString);
-if(receivedState === retrieveStateStoredLocally()) {
-	// Authorized request
-} else {
-	// This response is not for us, reject it
-}
-```
-## How to use the parameter to restore application state
-
-Before you redirect the user to authenticate you might want to store some application state. For instance, if a user intended to access a protected page in your app, and that action triggered the request to authenticate, you will store that URL to redirect the user back to the intended page after the authentication finishes.
-
-You can use the same `state` parameter to lookup and restore the previous state of your application.
-
-The process in order to do that looks like the following:
-
-1. Generate the nonce that you will use to protect against CSRF attacks as explained before. Store the nonce locally, using it as the key to store all the other application state like the URL where the user intended to go. E.g.:
-
-```json
-{
-  "xyzABC123" : {
-    redirectUrl: '/protectedResource',
-    expiresOn: [...]
-  }
-}
-```
-
-2. Authenticate the user, sending the generated nonce as the state.
-3. As part of the callback processing and response validation, verify that the state returned matches the nonce stored locally. If it does, retrieve the rest of the application state (like the `redirectUrl`). 
-4. Once you complete the callback processing redirect the user to the URL previously stored.
-
-Again, how you store the nonce and the URL or other information pertinent to the application state depends on your application's type. It can be local storage in single page or native apps or a cookie in a regular web app. 
-
-## How to get the parameter value in a rule
-
-You can access the **state** parameter value within a [rule](/rules). How you can get this value will depend on the type of flow used; either from the body of the request or from the query string. 
-
-You can obtain it using the following:
-
-```js
-var state = context.request.query.state || context.request.body.state;
-```
+* From a security perspective, neither the request nor the response is integrity-protected so a user can manipulate them. That is true for adding a parameter to the `redirect_uri` as well.
+* The allowed length for `state` is not unlimited. If you get the error `414 Request-URI Too Large` try a smaller value.
 
 ## Keep reading
 
-::: next-steps
-* [Protecting against other common threats](/security/common-threats)
-:::
+* [0Auth 2.0 Authorization Framework](/protocols/oauth2)
+* [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
+* [API Authorization](/api-auth)
+* [Mitigate CSRF Attacks With State Parameters](/protocols/oauth2/mitigate-csrf-attacks)
+* [Redirect Users With State Parameters](/protocols/oauth2/redirect-users)
