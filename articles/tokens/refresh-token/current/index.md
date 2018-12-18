@@ -36,9 +36,9 @@ A Refresh Token allows the application to request Auth0 to issue a new Access To
 
 ## Restrictions
 
-You can only get a Refresh Token if you are implementing: [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow) or [Resource Owner Password Grant](/api-auth/grant/password).
+You can only get a Refresh Token if you are implementing the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow), or [Resource Owner Password Grant](/api-auth/grant/password).
 
-A Single Page Application (normally implementing [Single-Page Login Flow](/flows/concepts/single-page-login-flow)) should not under any circumstances get a Refresh Token. The reason for that is the sensitivity of this piece of information. You can think of it as user credentials, since a Refresh Token allows a user to remain authenticated essentially forever. Therefore you cannot have this information in a browser, it must be stored securely.
+A Single-Page Application (normally implementing [Single-Page Login Flow](/flows/concepts/single-page-login-flow)) should not under any circumstances get a Refresh Token. The reason for that is the sensitivity of this piece of information. You can think of it as user credentials, since a Refresh Token allows a user to remain authenticated essentially forever. Therefore you cannot have this information in a browser, it must be stored securely.
 
 If you are implementing an SPA using [Single-Page Login Flow](/flows/concepts/single-page-login-flow) and you need to renew a token, the only secure option is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
 
