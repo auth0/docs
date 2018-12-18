@@ -183,7 +183,7 @@ For details on the validations that should be performed refer to [Verify Access 
 - [How to refresh a token](/tokens/refresh-token)
 - [How to configure an API in Auth0](/apis)
 - [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Application Authentication for Server-side Web Apps](/flows/concepts/regular-web-app-login-flow)
-- [Application authentication for client-side web apps](/flows/concepts/single-page-login-flow)
+- [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
+- [Single-Page Login Flow](/flows/concepts/single-page-login-flow)
 - [Tokens used by Auth0](/tokens)
 :::
