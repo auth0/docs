@@ -16,8 +16,8 @@ useCase:
 Auth0 is offered in five deployment models:
 
 - As a **multi-tenant cloud service** running on Auth0's cloud
-- As a **dedicated cloud service** running on Auth0's cloud
 - As an **enterprise cloud service** running on Auth0's cloud
+- As a **dedicated cloud service** running on Auth0's cloud
 - As a **dedicated cloud service** running on Customer's cloud infrastructure
 - As an **on-premises virtual Private SaaS (PSaaS) Appliance** running on Customer's data centers
 
@@ -39,8 +39,8 @@ The following tables describe operational and feature differences between these 
         <tr>
             <th class="info"><strong>How It Runs</strong></th>
             <th class="info">Multi-Tenant</th>
-            <th class="info">Dedicated Cloud</th>
             <th class="info">Enterprise Cloud</th>
+            <th class="info">Dedicated Cloud</th>
             <th class="info">Private Cloud</th>
             <th class="info">On-Premises</th>
         </tr>
@@ -57,15 +57,15 @@ The following tables describe operational and feature differences between these 
         <tr>
             <th class="info"><strong>Updates</strong></th>
             <td>Unscheduled. <br /> Multiple times per day. <br /><br />Staged in two zones.</td>
-            <td>Scheduled with Customer. <br /><br />Monthly, bi-monthly, or quarterly, except critical updates (such as security updates).</td>
             <td>Updates are automatically deployed at least once per quarter; target is monthly.</td>
+            <td>Scheduled with Customer. <br /><br />Monthly, bi-monthly, or quarterly, except critical updates (such as security updates).</td>
             <td>Scheduled with Customer. <br /><br />Monthly, bi-monthly, or quarterly, except critical updates (such as security updates)</td>
             <td>Scheduled with Customer. <br /><br />Monthly, bi-monthly, or quarterly, except critical updates (such as security updates)</td>
         </tr>
         <tr>
             <th class="info"><strong>Deployment Configurations</strong></th>
             <td>N/A</td>
-            <td>High Availability (HA);<br />Geo HA;<br />High Capacity;<br />Geo HA and High Capacity</td>
+            <td>N/A</td>
             <td>High Availability (HA);<br />Geo HA;<br />High Capacity;<br />Geo HA and High Capacity</td>
             <td>High Availability (HA);<br />Geo HA;<br />High Capacity;<br />Geo HA and High Capacity</td>
             <td>High Availability (HA);<br />Geo HA;<br />High Capacity;<br />Geo HA and High Capacity</td>
@@ -87,6 +87,14 @@ The following tables describe operational and feature differences between these 
             <td>Limited to PSaaS Appliance*</td>
         </tr>
         <tr>
+            <th class="info"><strong>PCI Compliant</strong></th>
+            <td>No</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>No</td>
+        </tr>
+        <tr>
             <th class="info"><strong>Support Channels & Levels</strong></th>
             <td colspan="4">Same across all models</td>
         </tr>
@@ -106,8 +114,8 @@ The following tables describe operational and feature differences between these 
         <tr>
             <th class="info"><strong>How It Runs</strong></th>
             <th class="info">Multi-Tenant</th>
-            <th class="info">Dedicated</th>
             <th class="info">Enterprise Cloud</th>
+            <th class="info">Dedicated</th>
             <th class="info">Private Cloud</th>
             <th class="info">On-Premises</th>
         </tr>
@@ -116,7 +124,7 @@ The following tables describe operational and feature differences between these 
         <tr>
             <th class="info"><strong>SSO Lifetime</strong></th>
             <td>Default Settings</td>
-            <td>Configurable</td>
+            <td>Default Settings</td>
             <td>Configurable</td>
             <td>Configurable</td>
             <td>Configurable</td>
