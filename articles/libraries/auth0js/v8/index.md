@@ -224,7 +224,7 @@ var url = webAuth.client.buildAuthorizeUrl({
 ```
 
 ::: note
-The `state` parameter is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks, and it needs to be specified if you redirect to the URL yourself instead of calling `webAuth.authorize()`. The [OAuth state documentation](/protocols/oauth2/oauth-state) describes how to do use it correctly.
+The `state` parameter is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks, and it needs to be specified if you redirect to the URL yourself instead of calling `webAuth.authorize()`. For more information, see [State Parameter](/protocols/oauth2/oauth-state).
 :::
 
 ## Passwordless login

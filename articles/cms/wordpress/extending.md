@@ -377,7 +377,7 @@ Use this filter to modify the cookie name used for nonce validation. See the `au
 
 ### auth0_state_cookie_name
 
-Use this filter to modify the cookie name used for [state validation](https://auth0.com/docs/protocols/oauth2/oauth-state). This can add a prefix or suffix or replace the name entirely. Make sure to use valid characters in any modifications made:
+Use this filter to modify the cookie name used for the [state](/protocols/oauth2/oauth-state) parameter value. This can add a prefix or suffix or replace the string entirely. Make sure to use valid characters in any modifications made:
 
 > A `<cookie-name>` can be any US-ASCII characters except control characters (CTLs), spaces, or tabs. It also must not contain a separator character like the following: ( ) < > @ , ; : \ " /  [ ] ? = { }.
 
