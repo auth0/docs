@@ -15,7 +15,7 @@ import { AUTH_CONFIG } from './auth0-variables';
 
 const webAuth = new auth0.WebAuth({
   domain: AUTH_CONFIG.domain,
-  redirectUri: 'http://localhost:3000/callback',
+  redirectUri: AUTH_CONFIG.callbackUrl,
   clientID: AUTH_CONFIG.clientId,
   responseType: 'id_token',
   scope: 'openid profile email'
@@ -23,9 +23,11 @@ const webAuth = new auth0.WebAuth({
 
 class AuthService extends EventEmitter {
   login() {
-    this.auth0.authorize();
+    webAuth.authorize();
   }
 }
+
+export default new AuthService();
 ```
 
 To provide the values for `clientID` and `domain`, create a new file `auth0-variables.js` in the same directory as `authService.js` and populate it with your tenant values:
@@ -34,7 +36,7 @@ To provide the values for `clientID` and `domain`, create a new file `auth0-vari
 export const AUTH_CONFIG = {
   domain: '${account.tenant}',
   clientId: '${account.clientId}',
-  callbackUrl: 'http://localhost:3000/callback'
+  callbackUrl: `<%= "${window.location.origin}" %>/callback`
 };
 ```
 
@@ -107,7 +109,7 @@ class AuthService extends EventEmitter {
     this.profile = null;
 
     webAuth.logout({
-      returnTo: 'http://localhost:3000'
+      returnTo: window.location.origin
     });
 
     this.emit(loginEvent, { loggedIn: false });
@@ -123,11 +125,11 @@ export default new AuthService();
 
 The service now includes several other methods for handling authentication.
 
-- `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
+- `handleCallback` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
 - `localLogin` - sets the user's Access Token, ID Token, and a time at which the Access Token will expire
 - `renewTokens` - uses the `checkSession` method from auth0.js to renew the user's authentication status, and calls `localLogin` if the login session is still valid
 - `logout` - removes the user's tokens from browser storage
-- `isAuthenticated` - checks whether the expiry time for the Access Token has passed
+- `isAuthenticated` - checks whether the local storage flag is present and equals "true"
 
 ### About the Authentication Service
 
@@ -188,10 +190,14 @@ new Vue({
 
 Provide a component with controls for the user to log in and log out.
 
+::: node
+This example was created from a [Vue CLI](https://cli.vuejs.org/) template and uses Single-File Components.
+:::
+
 ${snippet(meta.snippets.use)}
 
 ::: note
-This example uses Bootstrap styles, but that's unimportant. Use whichever style library you like, or don't use one at all.
+This example uses Bootstrap styles, but that's unimportant. Use whichever style library you like, or don't use one at all. You can install these styles using `npm install bootstrap` on the command line.
 :::
 
 The `@click` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `AuthService` to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
@@ -212,7 +218,62 @@ Using Universal Login means that users are taken away from your application to a
 
 When a user authenticates at the login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsible for processing the hash.
 
-Create a component named `CallbackComponent` and populate it with a loading indicator. The component should also call `handleAuthentication` from the `AuthService`.
+Install `vue-router` to allow callbacks to be routed properly to the `Callback` component:
+
+```bash
+npm install vue-router
+```
+
+Add a new file `router.js` inside the `src` folder with the following content:
+
+```js
+import VueRouter from 'vue-router';
+import Callback from './components/Callback';
+
+const routes = [
+  {
+    path: '/callback',
+    component: Callback
+  }
+];
+
+export default new VueRouter({
+  mode: 'history',
+  routes
+});
+
+```
+
+::: note
+This example relies on using path-based routing with `mode: 'history'`. If you are using hash-based routing, you won't be able to specify a dedicated callback route because the URL hash will be used to hold the user's authentication information.
+:::
+
+Updated `main.js` to register the router:
+
+```js
+import Vue from 'vue';
+import App from './App.vue';
+import AuthPlugin from './plugins/auth';
+
+// NEW - import the router types
+import router from './router';
+import VueRouter from 'vue-router';
+
+Vue.use(AuthPlugin);
+
+// NEW - register the Vue router
+Vue.use(VueRouter);
+
+Vue.config.productionTip = false;
+
+new Vue({
+  router,   // NEW - register our routes with the application
+  render: h => h(App)
+}).$mount('#app');
+
+```
+
+Create a component named `Callback` and populate it with a loading indicator. The component should also call `handleAuthentication` from the `AuthService`.
 
 ```js
 // src/components/Callback.vue
@@ -224,32 +285,33 @@ Create a component named `CallbackComponent` and populate it with a loading indi
 </template>
 
 <script>
-  export default {
-    methods: {
-      handleLoginEvent() {
-        this.$router.push("/");
-      }
-    },
-    created () {
-      this.$auth.handleAuthentication()
+export default {
+  methods: {
+    handleLoginEvent() {
+      this.$router.push("/");
     }
+  },
+  created() {
+    this.$auth.handleCallback();
   }
+};
 </script>
 
 <style scoped>
-  .spinner {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: white;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
+.spinner {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 </style>
+
 
 ````
 
@@ -258,7 +320,3 @@ This example assumes some kind of loading spinner is available in the `assets` d
 :::
 
 After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. During this time, their client-side session will be set, after which they will be redirected to the `/` route.
-
-::: note
-This example assumes you are using path-based routing with `mode: 'history'`. If you are using hash-based routing, you won't be able to specify a dedicated callback route because the URL hash will be used to hold the user's authentication information.
-:::

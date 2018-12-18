@@ -3,33 +3,23 @@
 
 <template>
   <div>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">Auth0 - Vue</a>
-
-          <router-link to="/"
-            class="btn btn-primary btn-margin">
-              Home
-          </router-link>
-
-          <button
-            id="qsLoginBtn"
-            class="btn btn-primary btn-margin"
-            v-if="!authenticated"
-            @click="login">
-              Log In
-          </button>
-
-          <button
-            id="qsLogoutBtn"
-            class="btn btn-primary btn-margin"
-            v-if="authenticated"
-            @click="logout">
-              Log Out
-          </button>
-
         </div>
+
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <router-link to="/" class="nav-link">Home</router-link>
+          </li>
+          <li class="nav-item" v-if="!isAuthenticated">
+            <a href="#" class="nav-link" @click.prevent="login">Login</a>
+          </li>
+          <li class="nav-item" v-if="isAuthenticated">
+            <a href="#" class="nav-link" @click.prevent="logout">Log out</a>
+          </li>
+        </ul>
       </div>
     </nav>
 
@@ -41,11 +31,11 @@
 
 <script>
 export default {
-  name: 'app',
+  name: "app",
   data() {
     return {
       isAuthenticated: false
-    }
+    };
   },
   created() {
     if (this.$auth.isAuthenticated()) {
@@ -53,26 +43,22 @@ export default {
     }
   },
   methods: {
-    login () {
-      this.$auth.login()
+    login() {
+      this.$auth.login();
     },
-    logout () {
-      this.$auth.logout()
+    logout() {
+      this.$auth.logOut();
     },
     handleLoginEvent(data) {
       this.isAuthenticated = data.loggedIn;
       this.profile = data.profile;
     }
   }
-}
+};
 </script>
 
 <style>
-@import '../node_modules/bootstrap/dist/css/bootstrap.css';
-
-.btn-margin {
-  margin-top: 7px
-}
+@import "~bootstrap/dist/css/bootstrap.css";
 </style>
 
 ```
