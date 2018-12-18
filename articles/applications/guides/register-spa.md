@@ -28,6 +28,10 @@ You can explore all available settings at [Dashboard Reference: Application Sett
 
 You can explore all available settings at [Dashboard Reference: Advanced Application Settings](/reference/dashboard/settings-applications-advanced). 
 
+::: note
+After creating your first application, set the environment for your tenant to: development, staging, or production. For more information refer to [Set Up Multiple Environments](/dev-lifecycle/setting-up-env#set-the-environment).
+:::
+
 ## Next Steps
 
 Once you have configured your Application, some common next steps to take are:
