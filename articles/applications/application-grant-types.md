@@ -13,7 +13,7 @@ useCase:
 ---
 # Application Grant Types
 
-Auth0 provides many different authentication and authorization flows to suit your needs. For example, if you are securing a mobile app, you'd use the [Authorization Code using Proof Key for Code Exchange (PKCE) OAuth 2.0 Grant](/flows/concepts/mobile-login-flow), or if you're securing a client-side app (such as a mobile app that's *not* native), you'd use the [Implicit Grant](/flows/concepts/regular-web-app-login-flow).
+Auth0 provides many different authentication and authorization flows to suit your needs. For example, if you are securing a mobile app, you'd use the [Authorization Code using Proof Key for Code Exchange (PKCE) OAuth 2.0 Grant](/flows/concepts/mobile-login-flow), or if you're securing a client-side app (such as a mobile app that's *not* native), you'd use the [Implicit Grant](/flows/concepts/single-page-login-flow).
 
 However, you might want to limit the use of certain flows (which we'll refer to as "grant types" in this doc) depending on the type of app you're securing. You can set and manage these limitations using the `grant_types` property that each Application has.
 
