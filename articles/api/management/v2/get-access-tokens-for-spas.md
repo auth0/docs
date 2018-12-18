@@ -57,7 +57,7 @@ Notice the following:
 - We asked for the scope `read:current_user`
 - We set the `response_type` to `id_token token` so Auth0 will sent us both an ID Token and an Access Token
 
-If we decode the Access Token and review its consstents we can see the following:
+If we decode the Access Token and review its contents, we can see the following:
 
 ```text
 {
