@@ -260,7 +260,7 @@ Content-Type: application/json
   "link": "#client-credentials"
 }) %>
 
-This is the OAuth 2.0 grant that server processes utilize in order to access an API. Use this endpoint to directly request an Access Token by using the Client Credentials (a Client ID and a Client Secret).
+This is the OAuth 2.0 grant that server processes use to access an API. Use this endpoint to directly request an Access Token by using the Client's credentials (a Client ID and a Client Secret).
 
 ### Request Parameters
 
@@ -358,10 +358,10 @@ Content-Type: application/json
 }) %>
 
 :::warning
-This flow should only be used from highly trusted applications that **cannot do redirects**. If you can use redirect-based flows from your apps we recommend using the [Authorization Code Grant](#authorization-code-grant) instead.
+This flow should only be used from highly-trusted applications that **cannot do redirects**. If you can use redirect-based flows from your app, we recommend using the [Regular Web App Login Flow](#regular-web-app-login-flow) instead.
 :::
 
-This is the OAuth 2.0 grant that highly trusted apps use in order to access an API. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form in the user-agent (browser). This information is sent to the backend and from there to Auth0. It is therefore imperative that the application is absolutely trusted with this information. For [single-page applications](/flows/concepts/regular-web-app-login-flow) applications and [native/mobile apps](/flows/concepts/mobile-login-flow) we recommend using web flows instead.
+This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In this flow, the end-user is asked to fill in credentials (username/password), typically using an interactive form in the user-agent (browser). This information is sent to the backend and from there to Auth0. It is therefore imperative that the application is absolutely trusted with this information. For [single-page applications](/flows/concepts/single-page-login-flow) and [native/mobile apps](/flows/concepts/mobile-login-flow) we recommend using web flows instead.
 
 
 ### Request Parameters
@@ -402,7 +402,7 @@ This is the OAuth 2.0 grant that highly trusted apps use in order to access an A
 - In addition to username and password, Auth0 may also require the end-user to provide an additional factor as proof of identity before issuing the requested scopes. In this case, the request described above will return an `mfa_required` error along with an `mfa_token`. You can use these tokens to request a challenge for the possession factor and validate it accordingly. For details refer to [Resource Owner Password and MFA](#resource-owner-password-and-mfa).
 
 ### More Information
-- [Calling APIs from Highly Trusted Applications](/api-auth/grant/password)
+- [Calling APIs from Highly-Trusted Applications](/api-auth/grant/password)
 - [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
 - [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password)
 
