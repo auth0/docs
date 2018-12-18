@@ -24,9 +24,9 @@ Browser local storage (or session storage) is not secure. Any data stored there 
 
 If your application has a backend server at all, then tokens should be handled server-side using the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow), or [Hybrid Flow](/api-auth/grant/hybrid).
 
-## Single page applications
+## Single-page applications
 
-If you have a single page application (SPA) with no corresponding backend server, your SPA should request new tokens on page load and store them in memory without any persistence. To make API calls, your SPA would then use the in-memory copy of the token.
+If you have a single-page application (SPA) with no corresponding backend server, your SPA should request new tokens on page load and store them in memory without any persistence. To make API calls, your SPA would then use the in-memory copy of the token.
 
 ## Using cookies
 
