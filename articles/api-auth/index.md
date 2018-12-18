@@ -88,20 +88,6 @@ In this page you can find a list of resources that can help you secure your APIs
       </li>
     </ul>
   </li>
-   <li>
-    <i class="icon icon-budicon-715"></i><a href="/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow">Call Your API from a Regular Web App</a>
-    <p>
-      If your application executes on a server and you want to configure it to use OAuth 2.0 to access an API, read these docs.
-    </p>
-    <ul>
-      <li>
-        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/regular-web-app-login-flow">Overview of the flow</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-695"></i><a href="/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow">Executing the flow</a>
-      </li>
-    </ul>
-  </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/flows/guides/m2m-flow/call-api-using-m2m-flow">Call Your API from a Machine-to-Machine App</a>
     <p>
