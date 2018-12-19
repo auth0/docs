@@ -87,6 +87,22 @@ For example, to search for logs with connections that match `Username-Password-A
 }
 ```
 
+### Searchable Fields
+
+The following list of fields are searchable and case sensitive
+
+- `connection`
+- `connection_id`
+- `client_id`
+- `client_name`
+- `user_agent`
+- `hostname`
+- `user_id`
+- `user_name`
+- `strategy`
+- `strategy_type`
+- `description`
+
 ### Example Queries
 
 Below are some examples to show the kinds of queries you can make with the Management API.
@@ -125,9 +141,9 @@ Search by date | `updated_at:>2018-01-15` | `updated_at:{2018-01-15 TO *]`
 Search by date | `updated_at:<=2018-01-15` | `updated_at:[* TO 2018-01-15]`
 Search by date | `updated_at:<2018-01-15` | `updated_at:[* TO 2018-01-15}`
 Search by date | `last_login:<=2017-12` | `last_login:[* TO 2017-12]`
-String exact match | `name.raw:"john richard doe"` | `name:"john richard doe"`
-Phrase contains a word | `name:"richard"`, `name:richard` | `name:*richard*`
-Phrase contains a word (with less than 3 characters) | `name:*ri`,`name:*a`, `name:*ab*` | _(not supported)_
+String exact match | `user_name.raw:"janedoe"` | `name:"janedoe"`
+Phrase contains a word | `description:"works"`, `description:works` | `description:*works*`
+Phrase contains a word (with less than 3 characters) | `user_name:*ri`,`user_name:*a`, `user_name:*ab*` | _(not supported)_
 
 ### Impacted SDKs
 
