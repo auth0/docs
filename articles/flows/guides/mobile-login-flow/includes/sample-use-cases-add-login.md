@@ -14,7 +14,7 @@ https://${account.namespace}/authorize?
     scope=openid
 ```
 
-Now, when you [request tokens](#request-tokens), your ID Token will contain the most basic claims. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
+Now, when you [request tokens](/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow#request-tokens), your ID Token will contain the most basic claims. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
 
 ```json
 {
