@@ -37,6 +37,7 @@ In this page you can find a list of resources that can help you secure your APIs
       OAuth 2.0 supports several different grants. Deciding which one is suited for your case depends mostly on your Application's type, but other parameters weight in as well, like the level of trust for the Application, or the experience you want your users to have. Start here if you are not familiar with all that and you need directions in order to decide the proper flow for your case.
     </p>
   </li>
+  <li>
       <i class="icon icon-budicon-715"></i><a href="/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow">Call Your API from a Regular Web App</a>
     <p>
       If your application executes on a server and you want to configure it to use OAuth 2.0 to access an API, read these docs.
@@ -50,7 +51,6 @@ In this page you can find a list of resources that can help you secure your APIs
       </li>
     </ul>
   </li>
-  <li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow">Call Your API from a Native/Mobile App</a>
     <p>
