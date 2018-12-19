@@ -24,10 +24,10 @@ Set the following configuration variables:
 - **GITHUB_REPOSITORY**: The repository from which you want to deploy rules and database scripts. This can be either a public or private repository.
 - **GITHUB_BRANCH**: The branch that the extension will monitor for commits.
 - **GITHUB_TOKEN**: Your GitHub personal Access Token. Follow the instructions at [Creating an Access Token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/#creating-a-token) to create a token with `repo` scope.
-- **GITHUB_HOST**: The public accessible GitHub Enterprise _(version 2.11.3 and later)_ host name, no value is required when using github.com (optional).
+- **GITHUB_HOST**: The public accessible GitHub Enterprise _(version 2.11.3 and later)_ hostname, no value is required when using github.com (optional).
 - **GITHUB_API_PATH**: GitHub Enterprise API path prefix, no value is required when using github.com (optional).
 * **BASE_DIR**: The base directory, where all your tenant settings are stored
-- **SLACK_INCOMING_WEBHOOK_URL**: The Webhook URL for Slack, used in order to receive Slack notifications for successful and failed deployments (optional).
+- **SLACK_INCOMING_WEBHOOK_URL**: The Webhook URL for Slack, used to receive Slack notifications for successful and failed deployments (optional).
 
 
 Once you have provided this information, click **Install**.
@@ -54,7 +54,7 @@ You can find details on how to configure a webhook at [Creating Webhooks](https:
 
 ## Deployment
 
-Once you have setup the webhook in GitHub using the provided information, you are ready to start committing to your repository.
+Once you have set up the webhook in GitHub using the provided information, you are ready to start committing to your repository.
 
 With each commit you push to your configured GitHub repository, the webhook will call the extension to initiate a deployment if changes were made to one of these folders:
 - `clients`
@@ -64,7 +64,7 @@ With each commit you push to your configured GitHub repository, the webhook will
 - `rules`
 - `pages`
 
-The __Deploy__ button on the **Deployments** tab of the  extension allows you to manually deploy the rules and database connection scripts you already have in your GitHub repository. This is useful if you already have a repository filled with scripts that you want to deploy once you have setup the extension, or if you have accidentally deleted some scripts in Auth0 and need to redeploy the latest version of your repository.
+The __Deploy__ button on the **Deployments** tab of the extension allows you to manually deploy the rules and database connection scripts you already have in your GitHub repository. This is useful if you already have a repository filled with scripts that you want to deploy once you have set up the extension, or if you have accidentally deleted some scripts in Auth0 and need to redeploy the latest version of your repository.
 
 ::: panel-warning Deleting Rules and Scripts from GitHub
 To maintain a consistent state, the extension will always do a full redeployment of the contents of these folders. Any rules or database connection scripts that exist in Auth0 but not in your GitHub repository will be __deleted__.
@@ -72,7 +72,7 @@ To maintain a consistent state, the extension will always do a full redeployment
 
 ### Deploy database connection scripts
 
-In order to deploy database connection scripts, you must first create a directory under `database-connections`. The name of the directory must __exactly__ match the name of your [database connection](${manage_url}/#/connections/database) in Auth0. Of course, you can create as many directories as you have database connections.
+To deploy database connection scripts, you must first create a directory under `database-connections`. The name of the directory must __exactly__ match the name of your [database connection](${manage_url}/#/connections/database) in Auth0. Of course, you can create as many directories as you have database connections.
 
 Under the created directory, create one file for every script you want to use. The allowed scripts are:
 
@@ -97,14 +97,14 @@ The supported hosted pages are:
 - `login`
 - `password_reset`
 
-To deploy a page, you must create an HTML file under the `pages` directory of your GitHub repository. For each HTML page you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, in order to deploy an `error_page`, you would create two files:
+To deploy a page, you must create an HTML file under the `pages` directory of your GitHub repository. For each HTML page, you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, to deploy an `error_page`, you would create two files:
 
 ```text
 your-github-repo/pages/error_page.html
 your-github-repo/pages/error_page.json
 ```
 
-To enable the page the `error_page.json` would contain the following:
+To enable the page, the `error_page.json` would contain the following:
 
 ```json
 {
@@ -114,7 +114,7 @@ To enable the page the `error_page.json` would contain the following:
 
 ### Deploy rules
 
-In order to deploy a rule, you must first create a JavaScript file under the `rules` directory of your GitHub repository. Each rule must be in its own `.js` file.
+To deploy a rule, you must first create a JavaScript file under the `rules` directory of your GitHub repository. Each rule must be in its own JavaScript file.
 
 For example, if you create the file `rules/set-country.js`, then the extension will create a rule in Auth0 with the name `set-country`.
 
@@ -167,7 +167,7 @@ __secret_number.json__
 
 ### Deploy Clients
 
-To deploy a client, you must create a JSON file under the `clients` directory of your GitHub repository. For each JSON page you can create a meta file (with the same name - `name.meta.json`) if you want specify any client grants. Example:
+To deploy a client, you must create a JSON file under the `clients` directory of your GitHub repository. For each JSON page, you can create a metafile (with the same name - `name.meta.json`) if you want to specify any client grants. Example:
 
 __my-client.json__
 ```json
@@ -228,19 +228,19 @@ See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connecti
 
 ### Deploy Email Provider
 
-To deploy a email provider, you must create `provider.json` file under the `emails` directory of your GitHub repository. Example:
+To deploy an email provider, you must create `provider.json` file under the `emails` directory of your GitHub repository. Example:
 
 __provider.json__
 ```json
 {
-	"name": "smtp",
-	"enabled": true,
-	"credentials": {
-		"smtp_host": "smtp.server.com",
-		"smtp_port": 25,
-		"smtp_user": "smtp_user",
-		"smtp_pass": "smtp_secret_password"
-	}
+    "name": "smtp",
+    "enabled": true,
+    "credentials": {
+        "smtp_host": "smtp.server.com",
+        "smtp_port": 25,
+        "smtp_user": "smtp_user",
+        "smtp_pass": "smtp_secret_password"
+    }
 }
 ```
 
@@ -257,7 +257,7 @@ The supported email templates are:
 - `enrollment_email`
 - `mfa_oob_code`
 
-To deploy a email template, you must create an HTML file under the `emails` directory of your GitHub repository. For each HTML file you need to create a JSON file (with the same name) with additional options for that template. For example, in order to deploy an `blocked_account` template, you would create two files:
+To deploy an email template, you must create an HTML file under the `emails` directory of your GitHub repository. For each HTML file, you need to create a JSON file (with the same name) with additional options for that template. For example, to deploy a `blocked_account` template, you would create two files:
 
 ```text
 your-github-repo/emails/blocked_account.html
