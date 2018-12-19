@@ -24,7 +24,7 @@ Set the following configuration variables:
 * **TFS_PROJECT**: The project from which you want to deploy rules and database scripts.
 * **TFS_BRANCH**: The branch we should monitor for commits.
 * **TFS_INSTANCE**: Your Visual Studio Team Services instance name (without .visualstudio.com).
-* **TFS_COLLECTION**: Your visualstudio collection (DefaultCollection for Azure DevOps).
+* **TFS_COLLECTION**: Your Visual Studio collection (DefaultCollection for Azure DevOps).
 * **TFS_USERNAME**: Your Visual Studio Team Services username
 * **TFS_TOKEN**: Your personal Access Token for Visual Studio Team Services, for details on how to configure one refer to [Configure a Personal Access Token](#configure-a-personal-access-token) below.
 * **BASE_DIR**: The base directory, where all your tenant settings are stored
@@ -48,7 +48,7 @@ Once you have provided this information, click **Install**.
 
 ![Creating the Access Token](/media/articles/extensions/visual-studio-ts/create-token.png)
 
-5. Once the token is created, you will need to copy right away as it is not saved. Use this value as your **TFS_TOKEN**.
+5. Once the token is created, you will need to save its value manually right away. Use this value as your **TFS_TOKEN**.
 
 ![Copy Access Token](/media/articles/extensions/visual-studio-ts/copy-token.png)
 
@@ -66,7 +66,7 @@ Once you agree, you will be directed to the **Visual Studio Team Services Integr
 
 ![Visual Studio Team Services Integration Page](/media/articles/extensions/visual-studio-ts/vsts-integration.png)
 
-Copy the **Payload URL** and **HTTP headers** values. You will use them in order to configure the Visual Studio Team Services Webhook in the next step.
+Copy the **Payload URL** and **HTTP headers** values. You will use them to configure the Visual Studio Team Services Webhook in the next step.
 
 ## Configure the Visual Studio Team Services Webhook
 
@@ -80,7 +80,7 @@ Then click the link **Create the first subscription for this project**. Then sel
 
 ![Select Web Hooks](/media/articles/extensions/visual-studio-ts/web-hooks.png)
 
-Then click the **Next** button, choose the trigger for the event and the filters are optional. Then click **Next**.
+Then click the **Next** button, choose the trigger for the event, and the filters are optional. Then click **Next**.
 
 ![Configure Web Hook](/media/articles/extensions/visual-studio-ts/configure-web-hook.png)
 
@@ -98,7 +98,7 @@ With each commit you push to your configured Visual Studio Team Services project
 - `rules`
 - `pages`
 
-The **Deploy** button on the **Deployments** tab of the extension allows you to manually deploy the Rules, Pages and Database Connection scripts that you already have in your Visual Studio Team Services project. This is useful if your project already contains items that you want to deploy once you have set up the extension or if you have accidentally deleted some scripts in Auth0 and need to redeploy the latest version of your project.
+The **Deploy** button on the **Deployments** tab of the extension allows you to manually deploy the Rules, Pages, and Database Connection scripts that you already have in your Visual Studio Team Services project. This is useful if your project already contains items that you want to deploy once you have set up the extension or if you have accidentally deleted some scripts in Auth0 and need to redeploy the latest version of your project.
 
 ::: panel-warning Full Deployment
 To maintain a consistent state, the extension will always do a full deployment of the contents of these folders. **Any rules, pages or database connection scripts that exist in Auth0 but not in your Visual Studio Team Services project will be deleted**.
@@ -129,14 +129,14 @@ The supported hosted pages are:
 - `login`
 - `password_reset`
 
-To deploy a page, you must create an HTML file under the `pages` directory of your Visual Studio Team Services project. For each HTML page you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, in order to deploy an `error_page`, you would create two files:
+To deploy a page, you must create an HTML file under the `pages` directory of your Visual Studio Team Services project. For each HTML page, you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, to deploy an `error_page`, you would create two files:
 
 ```text
 your-project/pages/error_page.html
 your-project/pages/error_page.json
 ```
 
-To enable the page the `error_page.json` would contain the following:
+To enable the page, the `error_page.json` would contain the following:
 
 ```json
 {
@@ -145,7 +145,7 @@ To enable the page the `error_page.json` would contain the following:
 ```
 ### Deploy Rules
 
-To deploy a rule, you must first create a JavaScript file under the `rules` directory of your Visual Studio Team Services project. Each Rule must be in its own `.js` file.
+To deploy a rule, you must first create a JavaScript file under the `rules` directory of your Visual Studio Team Services project. Each Rule must be in its own JavaScript file.
 
 For example, if you create the file `rules/set-country.js`, the extension will create a Rule in Auth0 with the name `set-country`.
 
@@ -182,11 +182,11 @@ You can find a `login_success` example in [the Auth0 Samples repository](https:/
 
 #### Set Rule Order
 
-To avoid conflicts, you are cannot set multiple Rules of the same order. However, you can create a JSON file for each rule, and within each file, assign a value for `order`. We suggest using number values that allow for reordering with less risk for conflict. For example, assign a value of `10` to the first Rule and `20` to the second Rule, rather than using values of `1` and `2`, respectively).
+To avoid conflicts, you cannot set multiple Rules of the same order. However, you can create a JSON file for each rule, and within each file, assign a value for `order`. We suggest using number values that allow for reordering with less risk of conflict. For example, assign a value of `10` to the first Rule and `20` to the second Rule, rather than using values of `1` and `2`, respectively).
 
 #### Set the Stage
 
-After you deploy a Rule, you cannot change its stage, or the area where the Rule executes.
+After you deploy a Rule, you cannot change its stage or the area where the Rule executes.
 
 If you need the rule to execute in a different stage, you must create a new Rule with the updated stage and delete the original Rule.
 
@@ -206,7 +206,7 @@ __secret_number.json__
 
 ### Deploy Clients
 
-To deploy a client, you must create a JSON file under the `clients` directory of your Visual Studio Team Services project. For each JSON page you can create a meta file (with the same name - `name.meta.json`) if you want specify any client grants. Example:
+To deploy a client, you must create a JSON file under the `clients` directory of your Visual Studio Team Services project. For each JSON page, you can create a metafile (with the same name - `name.meta.json`) if you want to specify any client grants. Example:
 
 __my-client.json__
 ```json
@@ -267,19 +267,19 @@ See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connecti
 
 ### Deploy Email Provider
 
-To deploy a email provider, you must create `provider.json` file under the `emails` directory of your Visual Studio Team Services project. Example:
+To deploy an email provider, you must create `provider.json` file under the `emails` directory of your Visual Studio Team Services project. Example:
 
 __provider.json__
 ```json
 {
-	"name": "smtp",
-	"enabled": true,
-	"credentials": {
-		"smtp_host": "smtp.server.com",
-		"smtp_port": 25,
-		"smtp_user": "smtp_user",
-		"smtp_pass": "smtp_secret_password"
-	}
+    "name": "smtp",
+    "enabled": true,
+    "credentials": {
+        "smtp_host": "smtp.server.com",
+        "smtp_port": 25,
+        "smtp_user": "smtp_user",
+        "smtp_pass": "smtp_secret_password"
+    }
 }
 ```
 
@@ -296,7 +296,7 @@ The supported email templates are:
 - `enrollment_email`
 - `mfa_oob_code`
 
-To deploy a email template, you must create an HTML file under the `emails` directory of your Visual Studio Team Services project. For each HTML file you need to create a JSON file (with the same name) with additional options for that template. For example, in order to deploy an `blocked_account` template, you would create two files:
+To deploy an email template, you must create an HTML file under the `emails` directory of your Visual Studio Team Services project. For each HTML file, you need to create a JSON file (with the same name) with additional options for that template. For example, to deploy a `blocked_account` template, you would create two files:
 
 ```text
 your-project/emails/blocked_account.html
