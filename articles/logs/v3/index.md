@@ -121,9 +121,9 @@ Search for all logs from December 10, 2018 forward | `date:[2018-12-10 TO *]`
 
 ## Migrate from Search Engine v2 to v3
 
-The logs search engine v2 has been deprecated as of **January 22nd 2018** and will be removed from service on **June 13th 2018**. We recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible. Before you start migrating, there are a few things you should know:
+The logs search engine v2 has been deprecated as of **January 22nd 2018** and will be removed from service on **June 13th 2018**. We recommend migrating logs search functionality to search engine v3 (`search_engine=v3`) as soon as possible. Before you start migrating, there are a few things you should know:
 
-* You must update all your calls to the `GET /api/v2/logs` endpoint to include the `search_engine=v3` parameter. This will ensure you are running the latest version of the search engine and that you will not experience downtime when search v2 is fully removed.
+* You must update all your calls to the `GET /api/v2/logs`, `GET /api/v2/logs/{id}`, and `GET /api/v2/users/{id}/logs` endpoints to include the `search_engine=v3` parameter. This will ensure you are running the latest version of the search engine and that you will not experience downtime when search v2 is fully removed.
 * If you are performing log search operations through any of the [impacted SDKs](#impacted-sdks), you must also pass the `search_engine=v3` parameter.
 * Search values for log fields are case sensitive.
 * v3 limits the number of logs you can retrieve per request to 100, and may be paged through up to 10 times, yielding a max of 1,000 logs for a search(see [page results](#page-results)). If you are reaching this limit, we recommend that you redefine your search query to obtain more granular results, or you export your logs to an external service using one of our extensions or a custom exporting script.
