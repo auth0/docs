@@ -270,6 +270,6 @@ function queryGenre(user_id, res){
 
 ## Keep reading
 
-* [User Data Storage Best Practices](/best-practices/user-data-store-best-practices)
+* [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)
 * [Metadata Field Name Rules](/users/references/metadata-field-name-rules)
 * [Rules](/rules)
