@@ -893,7 +893,7 @@ module.exports = [
     to: '/libraries/lock/v11/selecting-the-connection-for-multiple-logins'
   },
   {
-    from: '/blacklist-attributes',
+    from: ['/blacklist-attributes', '/security/blacklist-user-attributes'],
     to: '/security/blacklisting-attributes'
   },
   {
