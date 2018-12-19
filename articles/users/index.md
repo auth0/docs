@@ -15,11 +15,9 @@ v2: true
 
 Auth0's hosted cloud database stores a variety of information on your users that is accessible to you. This information is available to you via a *user profile*, and your users are grouped by tenant. The user information itself can come from a variety of sources, including identity providers, your own databases, and enterprise connections (Active Directory, SAML).
 
-To reconcile the formatting differences between various identity providers, you can normalize your user data.
-
 ## User profiles
 
-Auth0 [user profiles](/users/concepts/overview-user-profile) contain information about your users such as name and contact information. Auth0 provides a variety of tools to help you manage user profiles such as the Dashboard and the Management API. You can create, search, view, and delete users. You can also define, manage, and store custom user profile attributes such as favorite color or location.
+Auth0 [user profiles](/users/concepts/overview-user-profile) contain information about your users such as name and contact information. Auth0 provides a variety of tools to help you manage user profiles such as the Dashboard and the Management API. You can create, search, view, and delete users. You can also define, manage, and store custom user profile attributes such as favorite color or location. To reconcile the formatting differences between various identity providers, you can normalize your user data.
 
 ## User metadata
 
@@ -33,7 +31,7 @@ You can store authorization data like groups, roles, or permissions in the outgo
 
 ## Data storage
 
-Auth0 provides multiple places to [store data](/users/reference/data-store-best-practices) used to authenticate an application's users. 
+Auth0 stores user information for your tenant in a hosted cloud database, or you can choose to store user data in your own custom external database. Auth0 provides a [data storage example](/users/references/user-data-storage-scenario), so you can see how data storage works and also provides some [best practices](/best-practices/user-data-storage-best-practices). 
 
 ## User migration
 
