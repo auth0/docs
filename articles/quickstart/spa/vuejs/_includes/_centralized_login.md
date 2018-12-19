@@ -128,7 +128,7 @@ The service now includes several other methods for handling authentication.
 - `handleCallback` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
 - `localLogin` - sets the user's Access Token, ID Token, and a time at which the Access Token will expire
 - `renewTokens` - uses the `checkSession` method from auth0.js to renew the user's authentication status, and calls `localLogin` if the login session is still valid
-- `logout` - removes the user's tokens from browser storage
+- `logout` - removes the user's tokens from browser storage. It also calls `webAuth.logout` to log the user out at the authorization server
 - `isAuthenticated` - checks whether the local storage flag is present and equals "true"
 
 ### About the Authentication Service
@@ -164,6 +164,8 @@ export default {
 };
 ```
 
+This plugin provides access to the `AuthService` class from each component, through the `this.$auth` property. It also provides a mechanism for when the login state changes, for components that implement a `handleLoginEvent` method.
+
 Open `main.js` and install the plugin:
 
 ```js
@@ -190,7 +192,7 @@ new Vue({
 
 Provide a component with controls for the user to log in and log out.
 
-::: node
+::: note
 This example was created from a [Vue CLI](https://cli.vuejs.org/) template and uses Single-File Components.
 :::
 
