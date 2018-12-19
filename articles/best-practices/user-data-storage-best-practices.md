@@ -15,7 +15,7 @@ useCase: manage-users
 
 # User Data Storage Best Practices
 
-Auth0 provides multiple places to store data used to authenticate an application's users. 
+Auth0 stores user information for your tenant in a hosted cloud database, or you can choose to store user data in your own custom external database. 
 
 ## External database vs. Auth0 data store
 
