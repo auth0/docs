@@ -57,3 +57,4 @@ For information on adding `user_metadata` on signup, see the section on Lock [Ad
 * [Read Metadata](/users/guides/read-metadata)
 * [Update Metadata Properties with the Management API](users/guides/update-metadata-properties-with-management-api)
 * [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)
+* [User Data Storage Scenario](/users/references/user-data-storage-scenario)

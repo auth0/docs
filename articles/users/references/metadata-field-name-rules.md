@@ -133,3 +133,4 @@ Instead, you would use this:
 
 * [Managing User Metadata with Auth0 APIs](/users/guides/manage-user-metadata-with-apis)
 * [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)
+* [User Data Storage Scenario](/users/references/7user-data-storage-scenario)

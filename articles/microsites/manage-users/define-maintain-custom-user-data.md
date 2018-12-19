@@ -70,6 +70,7 @@ After you have customized the user metadata, you can manage and store data relat
 
 ::: references
   * [User Data Storage Best Practices](/users/references/user-data-storage-best-practices)
+  * [User Data Storage Scenario](/users/references/user-data-storage-scenario)
   * [Authorization Extension](/extensions/authorization-extension/v2)
 :::
 ::::
