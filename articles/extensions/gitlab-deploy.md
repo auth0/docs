@@ -23,7 +23,7 @@ The **GitLab Deployments** extension allows you to deploy [rules](/rules), rules
 
 * **GITLAB_REPOSITORY**: The name of your GitLab repository.
 * **GITLAB_BRANCH**: The branch of your GitLab repository your extension should monitor.
-* **GITLAB_URL**: The url of your GitLab instance, in case of gitlab.com use `https://gitlab.com`
+* **GITLAB_URL**: The URL of your GitLab instance, in case of gitlab.com use `https://gitlab.com`
 * **GITLAB_TOKEN**: The personal Access Token to your GitLab repository for this account. For details on how to configure one refer to [Configure a GitLab Token](configure-a-gitlab-token).
 * **BASE_DIR**: The base directory, where all your tenant settings are stored
 * **SLACK_INCOMING_WEBHOOK**: The URL used to integrate with Slack to deliver notifications.
@@ -58,7 +58,7 @@ Make sure that you create the token with the `api` permission in Gitlab settings
 
 ![](/media/articles/extensions/gitlab-deploy/gitlab-integration-page.png)
 
-4. Copy the **Payload URL** and **Secret** values. You will use them in order to configure the GitLab Webhook in the next step.
+4. Copy the **Payload URL** and **Secret** values. You will use them to configure the GitLab Webhook in the next step.
 
 ## Configure the GitLab Webhook
 
@@ -122,14 +122,14 @@ The supported hosted pages are:
 - `login`
 - `password_reset`
 
-To deploy a page, you must create an HTML file under the `pages` directory of your GitLab repository. For each HTML page you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, in order to deploy an `error_page`, you would create two files:
+To deploy a page, you must create an HTML file under the `pages` directory of your GitLab repository. For each HTML page, you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, to deploy an `error_page`, you would create two files:
 
 ```text
 your-gitlab-repo/pages/error_page.html
 your-gitlab-repo/pages/error_page.json
 ```
 
-To enable the page the `error_page.json` would contain the following:
+To enable the page, the `error_page.json` would contain the following:
 
 ```json
 {
@@ -139,7 +139,7 @@ To enable the page the `error_page.json` would contain the following:
 
 ### Deploy rules
 
-To deploy a rule, you must first create a JavaScript file under the `rules` directory of your GitLab repository. Each Rule must be in its own `.js` file.
+To deploy a rule, you must first create a JavaScript file under the `rules` directory of your GitLab repository. Each Rule must be in its own JavaScript file.
 
 For example, if you create the file `rules/set-country.js`, the extension will create a Rule in Auth0 with the name `set-country`.
 
@@ -176,11 +176,11 @@ You can find a `login_success` example in [the Auth0 Samples repository](https:/
 
 #### Set rule order
 
-To avoid conflicts, you cannot set multiple Rules of the same order. However, you can create a JSON file for each rule, and within each file, assign a value for `order`. We suggest using number values that allow for reordering with less risk for conflict. For example, assign a value of `10` to the first Rule and `20` to the second Rule, rather than using values of `1` and `2`, respectively).
+To avoid conflicts, you cannot set multiple Rules of the same order. However, you can create a JSON file for each rule, and within each file, assign a value for `order`. We suggest using number values that allow for reordering with less risk of conflict. For example, assign a value of `10` to the first Rule and `20` to the second Rule, rather than using values of `1` and `2`, respectively).
 
 #### Set the stage
 
-After you deploy a Rule, you cannot change its stage, or the area where the Rule executes.
+After you deploy a Rule, you cannot change its stage or the area where the Rule executes.
 
 If you need the rule to execute in a different stage, you must create a new Rule with the updated stage and delete the original Rule.
 
@@ -202,7 +202,7 @@ __secret_number.json__
 
 ### Deploy Clients
 
-To deploy a client, you must create a JSON file under the `clients` directory of your GitLab repository. For each JSON page you can create a meta file (with the same name - `name.meta.json`) if you want specify any client grants. Example:
+To deploy a client, you must create a JSON file under the `clients` directory of your GitLab repository. For each JSON page, you can create a metafile (with the same name - `name.meta.json`) if you want to specify any client grants. Example:
 
 __my-client.json__
 ```json
@@ -263,19 +263,19 @@ See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connecti
 
 ### Deploy Email Provider
 
-To deploy a email provider, you must create `provider.json` file under the `emails` directory of your GitLab repository. Example:
+To deploy an email provider, you must create `provider.json` file under the `emails` directory of your GitLab repository. Example:
 
 __provider.json__
 ```json
 {
-	"name": "smtp",
-	"enabled": true,
-	"credentials": {
-		"smtp_host": "smtp.server.com",
-		"smtp_port": 25,
-		"smtp_user": "smtp_user",
-		"smtp_pass": "smtp_secret_password"
-	}
+    "name": "smtp",
+    "enabled": true,
+    "credentials": {
+        "smtp_host": "smtp.server.com",
+        "smtp_port": 25,
+        "smtp_user": "smtp_user",
+        "smtp_pass": "smtp_secret_password"
+    }
 }
 ```
 
@@ -292,7 +292,7 @@ The supported email templates are:
 - `enrollment_email`
 - `mfa_oob_code`
 
-To deploy a email template, you must create an HTML file under the `emails` directory of your GitLab repository. For each HTML file you need to create a JSON file (with the same name) with additional options for that template. For example, in order to deploy an `blocked_account` template, you would create two files:
+To deploy an email template, you must create an HTML file under the `emails` directory of your GitLab repository. For each HTML file, you need to create a JSON file (with the same name) with additional options for that template. For example, to deploy a `blocked_account` template, you would create two files:
 
 ```text
 your-gitlab-repo/emails/blocked_account.html
