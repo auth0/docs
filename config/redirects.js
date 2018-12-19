@@ -1920,6 +1920,7 @@ module.exports = [
   { from: '/rules/current', to: '/rules' },
   { from: '/rules/legacy', to: '/rules/references/legacy' },
   { from: '/rules/current/context', to: '/rules/references/context-object' },
+  { from: '/rules/context', to: '/rules/references/context-object' },
   { from: '/rules/current/redirect', to: '/rules/guides/redirect' },
   { from: '/rules/current/metadata-in-rules', to: '/rules/guides/metadata' },
   { from: '/rules/current/csharp', to: '/rules/guides/csharp' },
