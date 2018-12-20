@@ -45,7 +45,7 @@ https://${account.namespace}/authorize?
   state=YOUR_OPAQUE_VALUE
 ```
 
-Notice that the `scope` value includes three values: `openid` (to indicate that the application intends to use OIDC and would like an ID Token, `profile` (to get `name`, `nickname`, and `picture`) and email (to get `email` and `email_verified`).
+Notice that the `scope` parameter includes three values: `openid` (to indicate that the application intends to use OIDC and would like an ID Token, `profile` (to get `name`, `nickname`, and `picture`) and email (to get `email` and `email_verified`).
 
 2. After Auth0 redirects back to your app, extract the ID Token from the hash fragment of the URL and decode it.
 
