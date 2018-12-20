@@ -11,16 +11,16 @@ useCase:
 
 OpenID Connect (OIDC) is an authentication protocol that sits on top of OAuth 2.0, and allows an application to verify the identity of a user and request basic profile information for them. The requested information can be returned in the ID Token and/or in a response from the [/userinfo endpoint](/api/authentication#get-user-info), depending on the type of request.
 
-The basic (and required) scope for OpenID Connect is `openid`, which indicates that the application intends to use the OIDC protocol to verify the user's identity.
+The basic (and required) scope for OIDC is `openid`, which indicates that the application intends to use the OIDC protocol to verify the user's identity.
 
 Beyond that, an application can ask for additional scopes, but this will depend on which user attributes that the application needs. In OIDC, each scope returns a set of user attributes, which are called _claims_ and fall into two categories:
 
-* [Standard](#standard-claims): Claims that provide user details, such as name and email. Defined and identified in the OpenID Connect specification.
+* [Standard](#standard-claims): Claims that provide user details, such as name and email. Defined and identified in the OIDC specification.
 * [Custom](/scopes/current/custom-claims): 
 
 ## Standard claims
 
-Standard claims are intended to provide an appliction with user details, such as name, email, and avatar. These are defined and identified for the OpenID Connect protocol. Some information on the most commonly used scopes is included below, but for a full list, refer to the [OpenID Connect specification: Standard Claims] (https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
+Standard claims are intended to provide an appliction with user details, such as name, email, and picture. These are defined and identified for the OIDC protocol. Some information on the most commonly used scopes is included below, but for a full list, refer to the [OIDC specification: Standard Claims] (https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
 
 
 | Scope     | Claims          |
@@ -29,11 +29,11 @@ Standard claims are intended to provide an appliction with user details, such as
 | `profile` | Returns claims that represent basic profile information, including `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture`, and `updated_at`. |
 | `email`   | Returns the `email` claim, which contains the user's email address, and `email_verified`, which is a boolean indicating whether the email address was verified by the user. |
 
-## Example: ask for standard claims
+## Example: Request standard claims
 
-In this example, we will use the [OAuth 2.0 Implicit Grant](/api-auth/grant/implicit) to authenticate a user and retrieve an ID Token that contains the user's name, nickname, profile picture, and email information.
+In this example, we will use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to authenticate a user and retrieve an ID Token that contains the user's name, nickname, profile picture, and email information. For details on the parameters or to learn how to implement this flow, refer to our tutorial: [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
 
-To initiate the authentication flow, send the user to the authorization URL and request an ID Token:
+1. Initiate the authentication flow by sending the user to the authorization URL and requesting an ID Token:
 
 ```text
 https://${account.namespace}/authorize?
@@ -45,15 +45,11 @@ https://${account.namespace}/authorize?
   state=YOUR_OPAQUE_VALUE
 ```
 
-::: note
-For details on the params and how to implement this flow refer to [How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant).
-:::
+Notice that the `scope` value includes three values: `openid` (to indicate that the application intends to use OIDC and would like an ID Token, `profile` (to get `name`, `nickname`, and `picture`) and email (to get `email` and `email_verified`).
 
-Notice that we included three values at the `scope` param: `openid`, `profile` (to get `name`, `nickname` and `picture`) and email (to get the `email` claim).
+2. After Auth0 redirects back to your app, extract the ID Token from the hash fragment of the URL and decode it.
 
-After Auth0 has redirected back to the app, you can extract the ID Token from the hash fragment of the URL.
-
-When decoded, the ID Token contains the following claims:
+You should see the following claims:
 
 ```json
 {
