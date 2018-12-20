@@ -72,6 +72,6 @@ This example shows a custom claim being added to an ID Token, which uses the `co
 :::
 
 
-## Token refresh flow and custom claims
+## Refresh tokens and custom claims
 
 As long as your rule is in place, your custom claims will appear in new tokens issued when using a [Refresh Token](/tokens/refresh-token/current). Although new tokens do not automatically inherit custom claims, rules run during the refresh token flow, so the same code will be executed. This allows you to add or change claims in newly-issued tokens without forcing previously-authorized applications to obtain a new refresh token.
