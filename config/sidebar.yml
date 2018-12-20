@@ -529,6 +529,10 @@ articles:
       - title: "Data Storage"
         url: "/best-practices/user-data-storage-best-practices"
         hidden: true
+        children:
+          - title: "User Data Storage Scenario"
+            url: "/users/references/user-data-storage-scenario"
+            hidden: true 
 
       - title: "User Migration"
         url: "/users/concepts/overview-user-migration"
