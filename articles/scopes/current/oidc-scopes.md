@@ -9,23 +9,25 @@ useCase:
 ---
 # OpenID Connect Scopes
 
-OpenID Connect (OIDC) is an authentication protocol that sits on top of OAuth2, and allows the application to verify the identity of the users and obtain basic profile information about them in a interoperable way. This information can be returned in the ID Token and/or in the response from [the /userinfo endpoint](/api/authentication#get-user-info) (depending on the type of request).
+OpenID Connect (OIDC) is an authentication protocol that sits on top of OAuth 2.0, and allows an application to verify the identity of a user and request basic profile information for them. The requested information can be returned in the ID Token and/or in a response from the [/userinfo endpoint](/api/authentication#get-user-info), depending on the type of request.
 
-The basic (and required) scope for OpenID Connect is the `openid` scope. This scope represents the intent of the application to use the OIDC protocol to verify the identity of the user.
+The basic (and required) scope for OpenID Connect is `openid`, which indicates that the application intends to use the OIDC protocol to verify the user's identity.
 
-In OpenID Connect (OIDC), we have the notion of __claims__. There are two types of claims:
+Beyond that, an application can ask for additional scopes, but this will depend on which user attributes that the application needs. In OIDC, each scope returns a set of user attributes, which are called _claims_ and fall into two categories:
 
-* [Standard](#standard-claims) (which means that they meet OIDC specification)
-* [Custom](/scopes/current/custom-claims)
+* [Standard](#standard-claims): Claims that provide user details, such as name and email. Defined and identified in the OpenID Connect specification.
+* [Custom](/scopes/current/custom-claims): 
 
 ## Standard claims
 
-OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). These claims are user attributes and are intended to provide the application with user details such as email, name and picture.
+Standard claims are intended to provide an appliction with user details, such as name, email, and avatar. These are defined and identified for the OpenID Connect protocol. Some information on the most commonly used scopes is included below, but for a full list, refer to the [OpenID Connect specification: Standard Claims] (https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
 
-The basic claim returned for the `openid` scope is the `sub` claim, which uniquely identifies the user (`iss`, `aud`, `exp`, `iat` and `at_hash` claims will also be present in the ID Token). Applications can ask for additional scopes, separated by spaces, to request more information about the user. The following additional scopes apply:
 
-- `profile`: will request the claims representing basic profile information. These are `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture` and `updated_at`.
-- `email`: will request the `email` and `email_verified` claims.
+| Scope     | Claims          |
+|-----------|-----------------|
+| `openid`  | Returns the `sub` claim, which uniquely identified the user. In an ID Token, `iss`, `aud`, `exp`, `iat`, and `at_hash` claims will also be present. |
+| `profile` | Returns claims that represent basic profile information, including `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture`, and `updated_at`. |
+| `email`   | Returns the `email` claim, which contains the user's email address, and `email_verified`, which is a boolean indicating whether the email address was verified by the user. |
 
 ## Example: ask for standard claims
 
