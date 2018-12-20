@@ -37,9 +37,9 @@ Understand your use case and choose the most restrictive scope possible. Are you
 
 ### Requested scopes versus granted scopes
 
-Remember that a user gets to consent to the access level you are requesting. While usually the scopes returned will be identical to the scopes you requested, users can edit their scopes (both during and after initial consent), thereby granting your app less access that you requested. Be aware of this possibility and handle these cases in your app. 
+Remember that a user gets to consent to the access level you are requesting. While usually the scopes returned will be identical to the scopes you requested, users can edit their scopes (both during and after initial consent), thereby granting your app less access that you requested. 
 
-For example, your app could warn the user that they will see reduced functionality. It could also send the user back through the authorization flow to ask for additional permissions. But again, remember that users can always say no.
+Be aware of this possibility and handle these cases in your app. For example, your app could warn the user that they will see reduced functionality. It could also send the user back through the authorization flow to ask for additional permissions. But again, remember that users can always say no.
 
 ## Scopes for API developers
 
