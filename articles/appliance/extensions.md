@@ -25,7 +25,7 @@ Extensions make use of Webtasks. When you activate a Webtask in the PSaaS Applia
 `webtask.<auth0applianceurl>`
 
 ::: note
-To enable Webtasks, go to the [Webtasks Settings page of the Management Dashboard](${manage_url}/#/account/webtasks).
+To set up your Webtasks, go to the [Webtasks page under Tenant Settings](${manage_url}/#/tenant/webtasks) in the Management Dashboard.
 
 See [Enable Webtasks, Web Extensions, and User Search](/appliance/infrastructure/extensions) for additional information.
 :::
