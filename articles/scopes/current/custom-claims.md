@@ -56,7 +56,7 @@ The Auth0-stored profile is:
 
 We want to add the `favorite_color` and `preferred_contact` claims to the ID Token. To do this, we create a [rule](/rules) to customize the token by adding these claims using a namespaced format. Once added, you will also be able to obtain the custom claims when calling the `/userinfo` endpoint, but the rule will run only during the authentication process. 
 
-Sample Rule:
+Sample rule:
 
 ```js
 function (user, context, callback) {
