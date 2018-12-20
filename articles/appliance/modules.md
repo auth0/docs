@@ -12,12 +12,7 @@ applianceId: appliance60
 
 # Node.js Modules Available in Rules and Custom Database Connections
 
-For security reasons, rules and custom database connections for PSaaS Appliance run in a JavaScript sandbox. You can use the full power of the ECMAScript 5 language and a few selected libraries.
-
-The latest version of the PSaaS Appliance supports the use of three different modes:
-* Webtask - This model has the same functionality as the Auth0 cloud version. It provides a balance between performance and isolation, supports a greater number of node modules, and is the recommended model for most customers;
-* In process - This model executes within the Node.js process of the Auth0 service. This provides the best raw performance. The model provides no isolation between custom code and the Auth0 service, and supports only the limited set of modules listed below. The recommended approach for high scale is to allocate additional resources and use the Webtask model. In some very demanding conditions where isolation is not a concern, this model may be considered;
-* Out-of-process - This is the original model that provides high isolation. It has significantly higher performance overhead compared to the other two models and supports the limited set of modules listed below.
+For security reasons, you must execute rules and custom database logic for PSaaS Appliance using [the Webtask stage/sandbox](/appliance/webtasks). The sandbox offers you a performant environment running ECMAScript 6 and provides isolation for the code you've written.
 
 The current sandbox supports:
 
