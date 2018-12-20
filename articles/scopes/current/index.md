@@ -1,23 +1,55 @@
 ---
 title: Scopes
-description: Overview of scopes
+description: Understand the principle of scopes and explore general examples of their use.
 topics:
   - scopes
 contentType:
-  - reference
   - concept
   - index
 useCase:
   - development
+  - add-login
+  - secure-api
+  - call-api
 ---
 # Scopes
 
-The OAuth 2.0 protocol is a delegated authorization mechanism, where an application requests access to resources controlled by the user (the resource owner) and hosted by an API (the resource server). The authorization server issues the application a more restricted set of credentials than those of the user in the form of an Access Token.
+Scopes let you control the type of access your users need; they are a method of limiting the access given to a user by a [token](/tokens). 
 
-The permissions represented by the Access Token in OAuth 2.0 terms are known as scopes. The `scope` parameter allows the application to express the desired scope of the access request. The `scope` parameter can also be used by the authorization server in the response to indicate which scopes were actually granted (if they are different than the ones requested).
+When an app requests access to a resource through an authorization server, it uses the `scope` parameter to specify what type of access it desires, and the authorization server uses the `scope` parameter to respond with the type of access that was actually granted (if the granted access level was different from what was requested).
 
-You can use scopes to:
+## Scopes for application developers
 
-- Let an application verify the identity of a user (by using [Open ID Connect](/protocols/oidc)) and get basic profile information about the user, such as their email or picture. For details, refer to [OpenID Connect Scopes](/scopes/current/oidc-scopes).
+As an [application](/applications) developer, when you make your initial authorization request, you specify the scopes you want your users to have for your application. When the user responds, they are asked to authorize these scopes for your app. In this case, the scopes available to you include those implemented by the [Open ID Connect](/protocols/oidc) protocol. For details, refer to [OpenID Connect Scopes](/scopes/current/oidc-scopes).
 
-- Implement granular access control to your API. In this case, you need to define [custom scopes](/scopes/current/api-scopes) for your API and add these newly-created scopes to your `scope` request parameter: `scope=read:contacts`.
+For example, let's say you have built a regular web application, registered it with Auth0, and have configured it to allow a user to log in using Google. Once logged into your app, you auto-generate and send a personalized welcome email, including the user's name.
+
+1. A user clicks Login within your app.
+2. Your app redirect the user to the Auth0 Authorization Server (/authorize endpoint), including the following scopes: `profile` (so you can access the user's name) and `email` (so you can send them the email).
+3. Your Auth0 Authorization Server redirects the user to the login prompt.
+4. The user authenticates using Google and sees a consent page listing the permissions Auth0 will give to your app, which include access to their profile information and email address.
+5. The user accepts and authorizes your app to have this level of access to the information stored by Google.
+6. Your app now has access to the user's profile information and email address.
+
+### Best practices
+
+Understand your use case and choose the most restrictive scope possible. Are you establishing a user's identity or asking the user to allow you to interact with their data? There's a big difference between importing a user's Facebook profile information and posting to their wall. Only request what you absolutely need. By doing so, you are also more likely to gain user consent. Users are more likely to grant access for limited, clearly-specified scopes.
+
+### Requested scopes versus granted scopes
+
+Remember that a user gets to consent to the access level you are requesting. While usually the scopes returned will be identical to the scopes you requested, users can edit their scopes (both during and after initial consent), thereby granting your app less access that you requested. Be aware of this possibility and handle these cases in your app. 
+
+For example, your app could warn the user that they will see reduced functionality. It could also send the user back through the authorization flow to ask for additional permissions. But again, remember that users can always say no.
+
+## Scopes for API developers
+
+As an [API](/apis) developer, you need to define the scopes available for applications that might call your API. This way, you can apply fine-grained control to the information and actions available to your users. In this case, you need to define [custom scopes](/scopes/current/api-scopes) for your API and then identify these scopes so that calling applications can use them.
+
+For example, let's say you are building an API that provides data to a calendar application. You want some users to be able to edit items on the calendar, others to only be able to read them, and others to be able to both read and write to calendar items. To do this, you create two scopes for your API: one that authorizes write access (say, `write:appointments`) and one that authorizes read-only access (say, `read:appointments`. 
+
+Now, when an app calls your API, it will specify the scope it needs in its request. The app may request read access by including `read:appointments` as its scope, write access by including `write:appointments` as its scope, or both read and write access by including both scopes.
+
+## Keep reading
+
+* [Open ID Connect Scopes](/scopes/current/oidc-scopes)
+* [Custom Scopes](/scopes/current/api-scopes)
