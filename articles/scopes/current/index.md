@@ -20,7 +20,9 @@ When an app requests access to a resource through an authorization server, it us
 
 ## Scopes for application developers
 
-As an [application](/applications) developer, when you make your initial authorization request, you specify the scopes you want your users to have for your application. When the user responds, they are asked to authorize these scopes for your app. In this case, the scopes available to you include those implemented by the [Open ID Connect](/protocols/oidc) protocol. For details, refer to [OpenID Connect Scopes](/scopes/current/oidc-scopes).
+As an [application](/applications) developer, when you make your initial authorization request, you specify the scopes you want your users to have for your application. When the user responds, they are asked to authorize these scopes for your app.
+
+In this case, the scopes available to you include those implemented by the [Open ID Connect](/protocols/oidc) protocol. For details, refer to [OpenID Connect Scopes](/scopes/current/oidc-scopes).
 
 For example, let's say you have built a regular web application, registered it with Auth0, and have configured it to allow a user to log in using Google. Once logged into your app, you auto-generate and send a personalized welcome email, including the user's name.
 
@@ -43,7 +45,9 @@ Be aware of this possibility and handle these cases in your app. For example, yo
 
 ## Scopes for API developers
 
-As an [API](/apis) developer, you need to define the scopes available for applications that might call your API. This way, you can apply fine-grained control to the information and actions available to your users. In this case, you need to define [custom scopes](/scopes/current/api-scopes) for your API and then identify these scopes so that calling applications can use them.
+As an [API](/apis) developer, you need to define the scopes available for applications that might call your API. This way, you can apply fine-grained control to the information and actions available to your users. 
+
+In this case, you need to define [custom scopes](/scopes/current/api-scopes) for your API and then identify these scopes so that calling applications can use them.
 
 For example, let's say you are building an API that provides data to a calendar application. You want some users to be able to edit items on the calendar, others to only be able to read them, and others to be able to both read and write to calendar items. To do this, you create two scopes for your API: one that authorizes write access (say, `write:appointments`) and one that authorizes read-only access (say, `read:appointments`. 
 
