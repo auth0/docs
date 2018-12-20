@@ -20,7 +20,7 @@ Beyond that, an application can ask for additional scopes, but this will depend 
 
 ## Standard claims
 
-Standard claims are intended to provide an appliction with user details, such as name, email, and picture. These are defined and identified for the OIDC protocol. Some information on the most commonly used scopes is included below, but for a full list, refer to the [OIDC specification: Standard Claims] (https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
+Standard claims are intended to provide an appliction with user details, such as name, email, and picture. These are defined and identified for the OIDC protocol. Some information on the most commonly used scopes is included below, but for a full list, refer to the [OIDC specification: Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
 
 
 | Scope     | Claims          |
