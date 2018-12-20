@@ -46,10 +46,10 @@ If you're on a managed host like WP-Engine, you may need to contact their suppor
 
 **Cookie:** `auth0_state`
 **Cookie:** `auth0_nonce`
-**Arg/URL parameter: `auth0`
-**Arg/URL parameter: `code`
-**Arg/URL parameter: `state`
-**Arg/URL parameter: `id_token`
+**Arg/URL parameter:** `auth0`
+**Arg/URL parameter:** `code`
+**Arg/URL parameter:** `state`
+**Arg/URL parameter:** `id_token`
 
 ### Page refresh after error message
 
