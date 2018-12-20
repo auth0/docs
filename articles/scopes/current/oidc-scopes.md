@@ -16,7 +16,7 @@ The basic (and required) scope for OIDC is `openid`, which indicates that the ap
 Beyond that, an application can ask for additional scopes, but this will depend on which user attributes that the application needs. In OIDC, each scope returns a set of user attributes, which are called _claims_ and fall into two categories:
 
 * [Standard](#standard-claims): Claims that provide user details, such as name and email. Defined and identified in the OIDC specification.
-* [Custom](/scopes/current/custom-claims): 
+* [Custom](/scopes/current/custom-claims): Additional claims that an identity provider returns as part of its user profile.
 
 ## Standard claims
 
