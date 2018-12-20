@@ -36,11 +36,11 @@ A Refresh Token allows the application to request Auth0 to issue a new Access To
 
 ## Restrictions
 
-You can only get a Refresh Token if you are implementing: [Authorization Code Grant](/api-auth/grant/authorization-code), [Authorization Code Grant (PKCE)](/api-auth/grant/authorization-code-pkce) or [Resource Owner Password Grant](/api-auth/grant/password).
+You can only get a Refresh Token if you are implementing the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow), or [Resource Owner Password Grant](/api-auth/grant/password).
 
-A Single Page Application (normally implementing [Implicit Grant](/api-auth/grant/implicit)) should not under any circumstances get a Refresh Token. The reason for that is the sensitivity of this piece of information. You can think of it as user credentials, since a Refresh Token allows a user to remain authenticated essentially forever. Therefore you cannot have this information in a browser, it must be stored securely.
+A Single-Page Application (normally implementing [Single-Page Login Flow](/flows/concepts/single-page-login-flow)) should not under any circumstances get a Refresh Token. The reason for that is the sensitivity of this piece of information. You can think of it as user credentials, since a Refresh Token allows a user to remain authenticated essentially forever. Therefore you cannot have this information in a browser, it must be stored securely.
 
-If you are implementing an SPA using [Implicit Grant](/api-auth/grant/implicit) and you need to renew a token, the only secure option is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
+If you are implementing an SPA using [Single-Page Login Flow](/flows/concepts/single-page-login-flow) and you need to renew a token, the only secure option is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
 
 Another safeguard is that the API should allow offline access. This is configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis). If the switch is disabled, Auth0 will not return a Refresh Token for this API, even if you included the `offline_access` scope.
 
@@ -48,7 +48,7 @@ Another safeguard is that the API should allow offline access. This is configure
 
 To get a Refresh Token, you must include the `offline_access` [scope](/scopes) when you initiate an authentication request through the [authorize](/api/authentication/reference#authorize-application) endpoint.
 
-For example, if you are using [Authorization Code Grant](/api-auth/grant/authorization-code), the authentication request would look like the following:
+For example, if you are using the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), the authentication request would look like the following:
 
 ```text
 https://${account.namespace}/authorize?
@@ -92,7 +92,7 @@ If you are requesting a Refresh Token for a mobile app using the corresponding N
 Refresh Tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
 :::
 
-For more information on how to implement this using Authorization Code Grant, refer to [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant). For other grants, refer to [API Authorization](/api-auth).
+For more information on how to implement this using the Regular Web App Login Flow, refer to our tutorial, [Call API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow). For other grants, refer to [API Authorization](/api-auth).
 
 ::: note
 If the response did not include a Refresh Token, check that you comply with the [Restrictions](#restrictions) listed in this document.

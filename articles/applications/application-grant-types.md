@@ -13,7 +13,7 @@ useCase:
 ---
 # Application Grant Types
 
-Auth0 provides many different authentication and authorization flows to suit your needs. For example, if you are securing a mobile app, you'd use the [Authorization Code using Proof Key for Code Exchange (PKCE) OAuth 2.0 Grant](/api-auth/grant/authorization-code-pkce), or if you're securing a client-side app (such as a mobile app that's *not* native), you'd use the [Implicit Grant](api-auth/grant/implicit).
+Auth0 provides many different authentication and authorization flows to suit your needs. For example, if you are securing a mobile app, you'd use the [Authorization Code using Proof Key for Code Exchange (PKCE) OAuth 2.0 Grant](/flows/concepts/mobile-login-flow), or if you're securing a client-side app (such as a mobile app that's *not* native), you'd use the [Implicit Grant](/flows/concepts/single-page-login-flow).
 
 However, you might want to limit the use of certain flows (which we'll refer to as "grant types" in this doc) depending on the type of app you're securing. You can set and manage these limitations using the `grant_types` property that each Application has.
 
@@ -49,9 +49,9 @@ The following `grant_types`, are either:
 
 | `grant_type` | More info |
 |:-----|:----|
-| `implicit` | [Implicit Grant](/api-auth/grant/implicit) |
-| `authorization_code` | [Authorization Code Grant](/api-auth/grant/authorization-code) |
-| `client_credentials` | [Client Credentials Grant](/api-auth/grant/client-credentials) |
+| `implicit` | [Implicit Grant](/flows/concepts/single-page-login-flow) |
+| `authorization_code` | [Authorization Code Grant](/flows/concepts/regular-web-app-login-flow) |
+| `client_credentials` | [Client Credentials Grant](/flows/concepts/m2m-flow) |
 | `password` | [Resource Owner Password Grant](/api-auth/grant/password) |
 | `refresh_token` | [Use a Refresh Token](/tokens/refresh-token/current#use-a-refresh-token) |
 | `http://auth0.com/oauth/grant-type/password-realm` | [Use an extension grant similar to the Resource Owner Password Grant that includes the ability to indicate a specific realm](/api-auth/grant/password#realm-support) |

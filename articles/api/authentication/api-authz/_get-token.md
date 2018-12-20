@@ -5,11 +5,11 @@ Use this endpoint to:
 - Refresh your Access Token, using a Refresh Token you got during authorization.
 
 Note that the only OAuth 2.0 flows that can retrieve a Refresh Token are:
-- [Authorization Code](/api-auth/grant/authorization-code)
-- [Authorization Code with PKCE](/api-auth/grant/authorization-code-pkce)
+- [Regular Web App Login Flow (Authorization Code)](/flows/concepts/regular-web-app-login-flow)
+- [Native/Mobile Login Flow (Authorization Code with PKCE)](/flows/concepts/mobile-login-flow)
 - [Resource Owner Password](/api-auth/grant/password)
 
-## Authorization Code
+## Regular Web App Login Flow
 
 ```http
 POST https://${account.namespace}/oauth/token
@@ -72,7 +72,7 @@ Content-Type: application/json
   "link": "#authorization-code"
 }) %>
 
-This is the OAuth 2.0 grant that regular web apps utilize in order to access an API. Use this endpoint to exchange an Authorization Code for a Token.
+This is the flow that regular web apps use to access an API. Use this endpoint to exchange an Authorization Code for a Token.
 
 
 ### Request Parameters
@@ -106,11 +106,11 @@ If you have just executed the [Authorization Code Grant](#authorization-code-gra
 
 ### More Information
 
-- [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
-- [Executing an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant)
+- [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
+- [Call API using Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow)
 
 
-## Authorization Code (PKCE)
+## Native/Mobile Login Flow
 
 ```http
 POST https://${account.namespace}/oauth/token
@@ -167,7 +167,7 @@ Content-Type: application/json
   "link": "#authorization-code-pkce-"
 }) %>
 
-This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. Use this endpoint to exchange an Authorization Code for a Token.
+This is the flow that mobile apps use to access an API. Use this endpoint to exchange an Authorization Code for a Token.
 
 
 
@@ -197,11 +197,11 @@ If you have just executed the [Authorization Code Grant (PKCE)](#authorization-c
 
 ### More Information
 
-- [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
-- [Executing an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
+- [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow)
+- [Call API Using the Native/Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow)
 
 
-## Client Credentials
+## Machine-to-Machine (M2M) Flow
 
 ```http
 POST https://${account.namespace}/oauth/token
@@ -260,7 +260,7 @@ Content-Type: application/json
   "link": "#client-credentials"
 }) %>
 
-This is the OAuth 2.0 grant that server processes utilize in order to access an API. Use this endpoint to directly request an Access Token by using the Client Credentials (a Client ID and a Client Secret).
+This is the OAuth 2.0 grant that server processes use to access an API. Use this endpoint to directly request an Access Token by using the Client's credentials (a Client ID and a Client Secret).
 
 ### Request Parameters
 
@@ -285,7 +285,8 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 
 ### More Information
 
-- [Calling APIs from a Service](/api-auth/grant/client-credentials)
+- [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow)
+- [Call API using the Machine-to-Machine (M2M) Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow)
 - [Setting up a Client Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard)
 - [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 
@@ -357,10 +358,10 @@ Content-Type: application/json
 }) %>
 
 :::warning
-This flow should only be used from highly trusted applications that **cannot do redirects**. If you can use redirect-based flows from your apps we recommend using the [Authorization Code Grant](#authorization-code-grant) instead.
+This flow should only be used from highly-trusted applications that **cannot do redirects**. If you can use redirect-based flows from your app, we recommend using the [Regular Web App Login Flow](#regular-web-app-login-flow) instead.
 :::
 
-This is the OAuth 2.0 grant that highly trusted apps use in order to access an API. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form in the user-agent (browser). This information is sent to the backend and from there to Auth0. It is therefore imperative that the application is absolutely trusted with this information. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead.
+This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In this flow, the end-user is asked to fill in credentials (username/password), typically using an interactive form in the user-agent (browser). This information is sent to the backend and from there to Auth0. It is therefore imperative that the application is absolutely trusted with this information. For [single-page applications](/flows/concepts/single-page-login-flow) and [native/mobile apps](/flows/concepts/mobile-login-flow) we recommend using web flows instead.
 
 
 ### Request Parameters
@@ -401,7 +402,7 @@ This is the OAuth 2.0 grant that highly trusted apps use in order to access an A
 - In addition to username and password, Auth0 may also require the end-user to provide an additional factor as proof of identity before issuing the requested scopes. In this case, the request described above will return an `mfa_required` error along with an `mfa_token`. You can use these tokens to request a challenge for the possession factor and validate it accordingly. For details refer to [Resource Owner Password and MFA](#resource-owner-password-and-mfa).
 
 ### More Information
-- [Calling APIs from Highly Trusted Applications](/api-auth/grant/password)
+- [Calling APIs from Highly-Trusted Applications](/api-auth/grant/password)
 - [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
 - [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password)
 

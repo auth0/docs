@@ -144,7 +144,7 @@ There are cases where you might want to renew your ID Token. In order to do so, 
 
 When performing the initial authorization flow, you can ask for a Refresh Token, by adding `offline_access` at the `scope` parameter, for example `scope=openid offline_access`. The Refresh Token is stored in session, along with the ID Token. Then, when a session needs to be refreshed (for example, a preconfigured timeframe has passed or the user tries to perform a sensitive operation), the app uses the Refresh Token on the backend to obtain a new ID Token, using the `/oauth/token` endpoint with `grant_type=refresh_token`.
 
-This method is not an option for Single Page Apps (SPAs), since for security reasons you cannot get a Refresh Token from the [Implicit Grant](/api-auth/grant/implicit) (the OAuth flow typically used from Client-side Web Apps). In that case, you would have to use [silent authentication](/api-auth/tutorials/silent-authentication).
+This method is not an option for Single-Page Apps (SPAs), since for security reasons you cannot get a Refresh Token from the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) (the OAuth flow typically used for client-side web apps). In this case, you would have to use [silent authentication](/api-auth/tutorials/silent-authentication).
 
 If you are using [auth0.js](/libraries/auth0js) on an SPA, then you can fetch a new token using the `checkSession()` method.
 

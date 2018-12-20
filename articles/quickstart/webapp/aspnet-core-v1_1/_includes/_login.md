@@ -305,4 +305,4 @@ if (User.Identity.IsAuthenticated)
 }
 ```
 
-For general information on using APIs with web applications, please read [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code).
+For general information on using APIs with web applications, please read [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow).
