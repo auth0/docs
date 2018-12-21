@@ -1,5 +1,5 @@
 ---
-title: Define Scopes for an API Using the Auth0 Dashboard
+title: How to Define Scopes for an API Using the Auth0 Dashboard
 description: Learn how to define custom scopes for your API using the Auth0 Dashboard.
 topics:
   - scopes
