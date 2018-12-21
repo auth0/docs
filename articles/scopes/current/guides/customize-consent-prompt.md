@@ -10,7 +10,7 @@ useCase:
   - development
   - secure-api
 ---
-# Customize the Consent Prompt
+# How to Customize the Consent Prompt
 
 When users are asked to authorize scopes, they see a consent prompt. By default, this prompt groups all scopes for a resource and displays the actions for the resource in a single line using the scope **name** to generate the text.
 
