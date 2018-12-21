@@ -18,7 +18,7 @@ For example, let's say you are building an API that provides data to a calendar 
 
 Now, when an app calls your API, it will specify the scope it needs in its request. The app may request read access by including `read:appointments` in its scope, write access by including `write:appointments` in its scope, or both read and write access by including both `read:appointments` and `write:appointments` in its scope.
 
-For an example showing how to request custom API access for your application, see [Sample Use Cases: Scopes](/scopes/current/sample-use-cases).
+For an example showing how to request custom API access for your application, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#request-custom-API-access).
 
 
 ## Limit API scopes
