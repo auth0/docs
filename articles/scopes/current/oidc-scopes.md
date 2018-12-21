@@ -1,10 +1,10 @@
 ---
+title: OpenID Connect Scopes
 description: Understand scopes and claims used with the OpenID Connect (OIDC) protocol.
 topics:
   - scopes
 contentType:
   - concept
-  - how-to
 useCase:
   - development
   - add-login
