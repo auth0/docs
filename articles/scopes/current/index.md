@@ -24,7 +24,7 @@ Generally, you use scopes in three ways:
 
 * In an [API](/apis), to implement granular access control. In this case, you need to define custom scopes for your API and then identify these scopes so that calling applications can use them. For details, refer to [API Scopes](/scopes/current/api-scopes).
 
-* From an application, to call an API that has implemented its own custom scopes. In this case, you need to know what custom scopes are defined for the API you are calling. You can see an example of this in [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#request-custom-API-access)
+* From an application, to call an API that has implemented its own custom scopes. In this case, you need to know which custom scopes are defined for the API you are calling. For an example of calling a custom API from an application, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#request-custom-API-access)
 
 
 ## Best practices
