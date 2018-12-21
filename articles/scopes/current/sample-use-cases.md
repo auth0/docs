@@ -146,8 +146,9 @@ This example shows a custom claim being added to an ID Token, which uses the `co
 
 - [Scopes](/scopes)
 - [OpenID Connect Scopes](/scopes/current/oidc-scopes)
-- [API Scopes](/scopes/current/api-scopes)
-- [Define API Scopes Using the Auth0 Dashboard](/scopes/current/guides/define-api-scopes-dashboard)
-- [Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)
 - [Custom Claims](/scopes/current/custom-claims)
+- [API Scopes](/scopes/current/api-scopes)
+- [How to Define API Scopes Using the Auth0 Dashboard](/scopes/current/guides/define-api-scopes-dashboard)
+- [How to Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)
+- [How to Represent Multiple APIs Using a Single Auth0 API](/api-auth/tutorials/represent-multiple-apis)
 
