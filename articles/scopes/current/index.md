@@ -42,3 +42,4 @@ Be aware of this possibility and handle these cases in your app. For example, yo
 - [OpenID Connect Scopes](/scopes/current/oidc-scopes)
 - [API Scopes](/scopes/current/api-scopes)
 - [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases)
+- [How to Represent Multiple APIs Using a Single Auth0 API](/api-auth/tutorials/represent-multiple-apis)
