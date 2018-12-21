@@ -102,6 +102,20 @@ The following list of fields are searchable and case sensitive
 - `strategy`
 - `strategy_type`
 - `description`
+- `log_id`
+- `date`
+
+### Fields Searchable Against Bare Terms
+
+If a search term is entered without a field name, it will only be searched against the following fields:
+
+- `user_name`
+- `connection`
+- `client_name`
+- `type`
+- `ip`
+- `log_id`
+- `description`
 
 ### Example Queries
 
@@ -131,16 +145,17 @@ The logs search engine v2 has been deprecated as of **January 22nd 2018** and wi
 * Log fields are not tokenized like in v2, so `user_id:auth0` will not match a `user_id` with value `auth0|12345`, instead, use `user_id:auth0*`. See [wildcards](/logs/v3/query-syntax#wildcards) and [exact matching](/logs/v3/query-syntax#exact-match).
 * Wildcards can be used for prefix matching, for example `application:j*`. For other uses of wildcards (e.g. suffix matching), literals must have 3 characters or more. For example, `name:*usa` is allowed, but `name:*sa` is not.
 * The `.raw` field extension is no longer supported and must be removed. In v3, fields match the whole value that is provided and are not tokenized as they were in v2 without the `.raw` suffix.
+* Logs returned from searches against `v2` are not guaranteed to have the same `log_id` as their counterparts in `v3`. This is important to note when comparing result sets as you upgrade from `v2` to `v3`. The logs themselves are not changed despite having different identifiers.
 
 ### Queries to Migrate
 
 Use case | v2 | v3
 ---------|----|---
 Search by date | `updated_at:>=2018-01-15` | `updated_at:[2018-01-15 TO *]`
-Search by date | `updated_at:>2018-01-15` | `updated_at:{2018-01-15 TO *]`
-Search by date | `updated_at:<=2018-01-15` | `updated_at:[* TO 2018-01-15]`
+Search by date | `updated_at:>2018-01-15` | `updated_at:[2018-01-16 TO *]`
+Search by date | `updated_at:<=2018-01-15` | `updated_at:[* TO 2018-01-16}`
 Search by date | `updated_at:<2018-01-15` | `updated_at:[* TO 2018-01-15}`
-Search by date | `last_login:<=2017-12` | `last_login:[* TO 2017-12]`
+Search by date | `last_login:<=2017-12` | `last_login:[* TO 2018-01-01}`
 String exact match | `user_name.raw:"janedoe"` | `name:"janedoe"`
 Phrase contains a word | `description:"works"`, `description:works` | `description:*works*`
 Phrase contains a word (with less than 3 characters) | `user_name:*ri`,`user_name:*a`, `user_name:*ab*` | _(not supported)_
@@ -161,15 +176,9 @@ SDK | Version with Support for v3 | Impacted Methods | Considerations
 
 ### Impacted Extensions
 
-The following Extensions make use of the Log Search engine. If you have them installed, make sure you are using the versions listed below (or a later version).
+Our log export extensions do not utilize search functionality, but rather export via our checkpoint functionality. They are not impacted by this change.
 
-(TODO: Machuga fill out)
-Extension | Version with Support for v3 | Considerations
-----------|-----------------------------|---------------
-[Authorization Extension](/extensions/authorization-extension/v2) | 2.5.0 | If you are using an earlier version, you need to manually update the extension from the [Extensions](https://manage.auth0.com/#/extensions) page.
-[Delegated Administration](/extensions/delegated-admin/v3) | 3.1 | If you are using an earlier version, you need to manually update the extension from the [Extensions](https://manage.auth0.com/#/extensions) page. The `SEARCH_ENGINE` configuration setting no longer exists in 3.1, because only User Search v3 is available.
-
-## Keep reading
+## Keep Reading
 
 * [Query Syntax](/users/search/v3/query-syntax)
 * [Search Best Practices](/best-practices/search-best-practices)
