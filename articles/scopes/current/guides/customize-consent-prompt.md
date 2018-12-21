@@ -1,5 +1,5 @@
 ---
-title: Customize the Consent Dialog
+title: How to Customize the Consent Prompt
 description: Learn how to customize the consent dialog for your users.
 topics:
   - scopes
