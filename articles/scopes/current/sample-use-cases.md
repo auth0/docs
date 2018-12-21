@@ -64,7 +64,7 @@ You should see the following claims:
 Your app now can retrieve the user attributes and use them to personalize your UI.
 
 
-## Request custom API access for your application
+## Request custom API access
 
 In this example, we expand on our previous example requesting standard claims to also include a custom scope for a calendar API that will allow the calling application to read appointments for the user. To do this, we want to get an additional token--an Access Token with a scope that allows us to read appointments from the API.
 
@@ -103,7 +103,7 @@ Notice that in this example:
 3. Call the API using the Access Token as credentials.
 
 
-## Add custom claims to an ID Token
+## Add custom claims to a token
 
 In this example, we add a user's favorite color and preferred contact method to the ID Token. To do this, we create a [rule](/rules) to customize the token by adding these claims using a namespaced format. Once added, we will also be able to obtain the custom claims when calling the `/userinfo` endpoint (though the rule will run only during the authentication process).
 
