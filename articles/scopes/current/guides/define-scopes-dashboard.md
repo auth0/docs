@@ -20,15 +20,15 @@ This guide will show you how to define custom scopes for an API using Auth0's Da
 
 1. Navigate to the [APIs](${manage_url}/#/apis) section of the Dashboard, and select the API you want to edit.
 
-2. Click the **Scopes** tab.
-
-3. Provide the following values for your custom scope:
+2. Click the **Scopes** tab and provide the following values for your custom scope:
 
 | Parameter   | Description |
 | ----------- | ----------- |
 | Name        | The name of your scope. |
 | Description | A friendly description for your scope. |
 
-2. Click **Add**.
-
 ![API Scopes](/media/articles/scopes/api-scopes.png)
+
+3. Click **Add**.
+
+
