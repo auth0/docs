@@ -14,7 +14,7 @@ useCase:
 
 In these examples, we use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to authenticate a user and request the necessary scopes and tokens. For details on the request parameters or to learn how to fully implement this flow, refer to our tutorial: [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
 
-## Authenticate a user and request user details
+## Authenticate a user and request standard claims
 
 In this example, we want to authenticate a user and get user details that will allow us to personalize our UI. To do this, we want to get an ID Token that contains the user's name, nickname, profile picture, and email information.
 
