@@ -40,4 +40,4 @@ Be aware of this possibility and handle these cases in your app. For example, yo
 ## Keep reading
 
 * [OpenID Connect Scopes](/scopes/current/oidc-scopes)
-* [Custom API Scopes](/scopes/current/api-scopes)
+* [API Scopes](/scopes/current/api-scopes)
