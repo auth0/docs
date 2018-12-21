@@ -12,9 +12,11 @@ useCase:
 ---
 # API Scopes
 
-As an API developer, you need to define the scopes available for applications that might call your API. This way, you can apply fine-grained control to the information and actions available to your users.
+As an API developer, you need to define the scopes available for applications that might call your [API](/apis). This way, you can apply fine-grained control to the information and actions available to your users.
 
 For example, if you are creating an address book and want some users to be able to read contact information, others to be able to delete contact information, and still others to be able to both read and delete contact information, you would create two scopes: `read:contacts` and `delete:contacts`.
+
+Now, when an app calls your API, it will specify the scope it needs in its request. The app may request read access by including `read:contacts` in its scope, delete access by including `delete:contacts` in its scope, or both read and delete access by including both `read:contacts` and `delete:contacts` in its scope.
 
 
 
