@@ -30,8 +30,8 @@ We discuss this approach in more depth in our [SPA+API Architecture Scenario](/a
 ## Keep reading
 
 - [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases)
-- [How to Define Scopes for an API Using the Auth0 Dashboard](/scopes/guides/define-api-scopes-dashboard)
-- [How to Customize the Consent Prompt](/scopes/guides/customize-consent-prompt)
+- [How to Define Scopes for an API Using the Auth0 Dashboard](/scopes/current/guides/define-api-scopes-dashboard)
+- [How to Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)
 - [How to Represent Multiple APIs Using a Single Auth0 API](/api-auth/tutorials/represent-multiple-apis)
 - [How to Restrict Application or User Requests for API Scopes](/api-auth/restrict-requests-for-scopes)
 - [SPA + API Architecture Scenario: Restrict API Scopes Based on Authorization Extension Groups](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension)
