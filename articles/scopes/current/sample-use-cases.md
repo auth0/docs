@@ -1,6 +1,20 @@
-## Example: Request standard claims
+---
+description: Learn how to use scopes with applications and APIs.
+topics:
+  - scopes
+contentType:
+  - how-to
+useCase:
+  - development
+  - add-login
+  - call-api
+  - secure-api
+---
+# Sample Use Cases: Scopes
 
-In this example, we will use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to authenticate a user and retrieve an ID Token that contains the user's name, nickname, profile picture, and email information. For details on the parameters or to learn how to fully implement this flow, refer to our tutorial: [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
+## Request standard claims
+
+In this example, we use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to authenticate a user and retrieve an ID Token that contains the user's name, nickname, profile picture, and email information. For details on the parameters or to learn how to fully implement this flow, refer to our tutorial: [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
 
 1. Initiate the authentication flow by sending the user to the authorization URL and requesting an ID Token:
 
