@@ -47,3 +47,9 @@ Standard claims are intended to provide an application with user details, such a
 | `email`   | Returns the `email` claim, which contains the user's email address, and `email_verified`, which is a boolean indicating whether the email address was verified by the user. |
 
 For an example showing how to request standard claims for your application, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#authenticate-a-user-and-request-user-details).
+
+## Keep reading
+
+- [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases)
+- [Scopes](/scopes)
+- [Custom Claims](/scopes/current/custom-claims)
