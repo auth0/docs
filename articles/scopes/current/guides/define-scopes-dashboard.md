@@ -18,7 +18,7 @@ By default, any user of any application can ask for any scope defined here. You 
 This guide will show you how to define custom scopes for an API using Auth0's Dashboard.
 
 
-1. Navigate to the [APIs](${manage_url}/#/apis) section of the dashboard, and select the API you want to edit.
+1. Navigate to the [APIs](${manage_url}/#/apis) section of the Dashboard, and select the API you want to edit.
 
 2. Click the **Scopes** tab.
 
