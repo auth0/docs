@@ -13,13 +13,13 @@ useCase:
 This document discusses scopes included within the OpenID Connect authentication protocol. For more info about OIDC itself, see our docs on [OpenID Connect](/protocols/oidc).
 :::
 
-The basic (and required) scope for OIDC is `openid`, which indicates that an application intends to use the OIDC protocol to verify a user's identity and would like to receive an ID Token.
+The basic (and required) scope for OIDC is `openid`, which indicates that an application intends to use the OIDC protocol to verify a user's identity and would like to receive an ID Token. Beyond that, an application can ask for additional scopes by listing the requested scope names in the `scope` parameter, separated by spaces. 
 
-Beyond that, an application can ask for additional scopes by listing the requested scope names in the `scope` parameter, separated by spaces. In OIDC, each scope returns a set of user attributes, which are called _claims_. The scopes an application should request depend on which user attributes that the application needs. 
+In OIDC, each scope returns a set of user attributes, which are called _claims_. The scopes an application should request depend on which user attributes the application needs. 
 
 ## Standard claims
 
-Standard claims are intended to provide an appliction with user details, such as name, email, and picture. Standard claims included in the most commonly used scopes are listed below, but for a full list of available standard claims, refer to the [OIDC specification: Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
+Standard claims are intended to provide an application with user details, such as name, email, and picture. Standard claims included in the most commonly-used scopes are listed below, but for a full list of available standard claims, refer to the [OIDC specification: Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
 
 
 | Scope     | Claims          |
@@ -46,7 +46,7 @@ https://${account.namespace}/authorize?
 
 Notice that the `scope` parameter includes three values: 
 
-* `openid` (to indicate that the application intends to use OIDC and would like an ID Token 
+* `openid` (to indicate that the application intends to use OIDC and would like an ID Token)
 * `profile` (to get `name`, `nickname`, and `picture`)
 * `email` (to get `email` and `email_verified`)
 
@@ -73,4 +73,4 @@ You should see the following claims:
 }
 ```
 
-Your app now can retrieve these values and use them to personalize the UI.
+Your app now can retrieve these values and use them to personalize your UI.
