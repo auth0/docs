@@ -10,7 +10,7 @@ useCase:
   - call-api
   - secure-api
 ---
-# Sample Use Cases: Scopes
+# Sample Use Cases: Scopes and Claims
 
 In these examples, we use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to authenticate a user and request the necessary scopes and tokens. For details on the request parameters or to learn how to fully implement this flow, refer to our tutorial: [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
 
@@ -101,3 +101,43 @@ Notice that in this example:
 2. As in the previous example, after the user consents and Auth0 redirects back to your app, extract the ID Token from the hash fragment of the URL, decode it, and retrieve the user attributes and use them to personalize your UI.
 
 3. Call the API using the Access Token as credentials.
+
+
+## Add custom claims to an ID Token
+
+In this example, we add a user's favorite color and preferred contact method to the ID Token. To do this, we create a [rule](/rules) to customize the token by adding these claims using a namespaced format. Once added, we will also be able to obtain the custom claims when calling the `/userinfo` endpoint (though the rule will run only during the authentication process).
+
+Suppose that:
+
+* The user logged in using an identity provider that returned a `favorite_color` claim as part of the user profile.
+* At some point, the user selected a `preferred_contact` method of `email`, and we saved it as part of the [user's `user_metadata`](/users/concepts/overview-user-metadata).
+* We've used the Auth0 Management API to set application-specific information for this user.
+
+In this case, the Auth0-stored profile is:
+
+```json
+{
+  "email": "jane@example.com",
+  "email_verified": true,
+  "user_id": "custom|123",
+  "favorite_color": "blue",
+  "user_metadata": {
+    "preferred_contact": "email"
+  }
+}
+```
+
+Create a rule to customize the token:
+
+```js
+function (user, context, callback) {
+  const namespace = 'https://myapp.example.com/';
+  context.idToken[namespace + 'favorite_color'] = user.favorite_color;
+  context.idToken[namespace + 'preferred_contact'] = user.user_metadata.preferred_contact;
+  callback(null, user, context);
+}
+```
+
+::: note
+This example shows a custom claim being added to an ID Token, which uses the `context.idToken` property. To add to an Access Token, use the `context.accessToken` property instead.
+:::
