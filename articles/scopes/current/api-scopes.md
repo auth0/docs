@@ -12,11 +12,15 @@ useCase:
 ---
 # API Scopes
 
-As an API developer, you need to define the scopes available for applications that might call your [API](/apis). This way, you can apply fine-grained control to the information and actions available to your users.
+## Scopes for API developers
 
-For example, if you are creating an address book and want some users to be able to read contact information, others to be able to delete contact information, and still others to be able to both read and delete contact information, you would create two scopes: `read:contacts` and `delete:contacts`.
+As an [API](/apis) developer, you need to define the scopes available for applications that might call your API. This way, you can apply fine-grained control to the information and actions available to your users. 
 
-Now, when an app calls your API, it will specify the scope it needs in its request. The app may request read access by including `read:contacts` in its scope, delete access by including `delete:contacts` in its scope, or both read and delete access by including both `read:contacts` and `delete:contacts` in its scope.
+In this case, you need to define custom scopes for your API and then identify these scopes so that calling applications can use them.
+
+For example, let's say you are building an API that provides data to a calendar application. You want some users to be able to edit items on the calendar, others to only be able to read them, and others to be able to both read and write to calendar items. To do this, you create two scopes for your API: one that authorizes write access (`write:appointments`) and one that authorizes read-only access (`read:appointments`). 
+
+Now, when an app calls your API, it will specify the scope it needs in its request. The app may request read access by including `read:appointments` in its scope, write access by including `write:appointments` in its scope, or both read and write access by including both `read:appointments` and `write:appointments` in its scope.
 
 
 
