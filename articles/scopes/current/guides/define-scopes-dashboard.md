@@ -15,15 +15,20 @@ useCase:
 By default, any user of any application can ask for any scope defined here. You can implement access policies to limit this behavior via [Rules](/rules).
 :::
 
-You can define API scopes using the [Dashboard](${manage_url}/#/apis). Select the API you want to edit, and open up its **Scopes** tab.
+This guide will show you how to define custom scopes for an API using Auth0's Dashboard.
 
-Provide the following parameters:
 
-| Parameter | Description |
-| - | - |
-| Name | The name of your scope |
-| Description | A friendly description for your scope |
+1. Navigate to the [APIs](${manage_url}/#/apis) section of the dashboard, and select the API you want to edit.
 
-Click **Add** when you've provided the requested values.
+2. Click the **Scopes** tab.
+
+3. Provide the following values for your custom scope:
+
+| Parameter   | Description |
+| ----------- | ----------- |
+| Name        | The name of your scope. |
+| Description | A friendly description for your scope. |
+
+2. Click **Add**.
 
 ![API Scopes](/media/articles/scopes/api-scopes.png)
