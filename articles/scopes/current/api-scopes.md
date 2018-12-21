@@ -12,21 +12,15 @@ useCase:
 ---
 # API Scopes
 
-When creating an API, you can define custom scopes that allow you to provide finely-grained
+As an API developer, you need to define the scopes available for applications that might call your API. This way, you can apply fine-grained control to the information and actions available to your users.
+
+For example, if you are creating an address book and want some users to be able to read contact information, others to be able to delete contact information, and still others to be able to both read and delete contact information, you would create two scopes: `read:contacts` and `delete:contacts`.
 
 
-OpenID Connect (OIDC) scopes are used during authentication to authorize access to a user's details. The basic (and required) scope for OIDC is `openid`, which indicates that an application intends to use the OIDC protocol to verify a user's identity. Beyond that, an application can ask for additional scopes by listing the requested scope names in the `scope` parameter, separated by spaces. 
 
-In OIDC, each scope returns a set of user attributes, which are called _claims_. The scopes an application should request depend on which user attributes the application needs. Once the user authorizes the requested scopes, the claims are returned in an ID Token and are also available through the [/userinfo endpoint](/api/authentication#get-user-info).
 
-API scopes allow you to define the API data accessible to your applications. 
 
-## Background
 
-When you [create an API in Auth0](/apis), you can use scopes to control how and what someone can access. For example, if you want users to be able to **read** and **delete** contact information, you would create the follow two scopes to reflect these two actions:
-
-* `read:contacts` 
-* `delete:contacts`
 
 If you wanted to expand [our example on asking for standard claims](/scopes/current/oidc-scopes#example-asking-for-standard-claims) to include also the `read:contacts` permission, then you would using something like the following sample URL to initiate the authentication flow using the Implicit grant:
 
