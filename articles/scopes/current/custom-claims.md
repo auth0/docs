@@ -4,7 +4,6 @@ topics:
   - scopes
   - claims
 contentType:
-  - how-to
   - concept
 useCase:
   - development
