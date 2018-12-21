@@ -3,7 +3,6 @@ description: Understand scopes used with APIs.
 topics:
   - scopes
 contentType:
-  - how-to
   - concept
 useCase:
   - development
