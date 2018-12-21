@@ -113,7 +113,7 @@ To avoid changes in functionality for current Auth0 customers, we will populate 
 
 ### New Applications
 
-Depending on whether a newly-created Application is [public](/applications/client-types#public-applications) or [confidential](/applications/client-types#confidential-applications), the Application will have varying access to grant types. Trusted first-party applications have access to additional grant types.
+Depending on whether a newly-created Application is [public or confidential](/applications/application-types#confidential-vs-public-applications), the Application will have varying access to grant types. Trusted first-party applications have access to additional grant types.
 
 #### Public Applications
 
