@@ -1,16 +1,18 @@
 ---
-description: Overview of OIDC Connect scopes
+description: Understand scopes and claims used with the OpenID Connect (OIDC) protocol.
 topics:
   - scopes
 contentType:
+  - concept
   - how-to
 useCase:
   - development
+  - add-login
 ---
 # OpenID Connect Scopes
 
 :::note 
-This document discusses scopes included within the OpenID Connect authentication protocol. For more info about OIDC itself, see our docs on [OpenID Connect](/protocols/oidc).
+This document discusses scopes included within the OpenID Connect (OIDC) authentication protocol. For more info about OIDC itself, see our docs on [OpenID Connect](/protocols/oidc).
 :::
 
 The basic (and required) scope for OIDC is `openid`, which indicates that an application intends to use the OIDC protocol to verify a user's identity and would like to receive an ID Token. Beyond that, an application can ask for additional scopes by listing the requested scope names in the `scope` parameter, separated by spaces. 
