@@ -11,8 +11,6 @@ useCase:
 ---
 # Application Types
 
-<%= include('../_includes/_pipeline2') %>
-
 When working with Auth0 applications, which are used to represent your applications, there are several terms you should know in terms of how applications are classified:
 
 * [Confidential vs public](#confidential-vs-public-applications)
