@@ -1,4 +1,16 @@
-## Consent dialog
+---
+title: Customize the Consent Dialog
+description: Learn how to customize the consent dialog for your users.
+topics:
+  - scopes
+  - apis
+contentType:
+  - how-to
+useCase:
+  - development
+  - secure-api
+---
+# Consent dialog
 
 By default, the user consent page groups scopes for the same resource and displays all actions for that resource in a single line. For example, let's say you have an API defined with the following scopes:
 
