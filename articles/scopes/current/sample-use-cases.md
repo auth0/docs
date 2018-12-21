@@ -1,5 +1,6 @@
 ---
-description: Learn how to use scopes with applications and APIs.
+title: Sample Use Cases: Scopes and Claims
+description: Learn how to use scopes and claims with applications and APIs.
 topics:
   - scopes
 contentType:
