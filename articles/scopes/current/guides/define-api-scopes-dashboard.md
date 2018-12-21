@@ -9,7 +9,7 @@ useCase:
   - development
   - secure-api
 ---
-# Define Scopes for an API Using the Auth0 Dashboard
+# How to Define Scopes for an API Using the Auth0 Dashboard
 
 ::: warning
 By default, any user of any application can ask for any scope defined here. You can implement access policies to limit this behavior via [Rules](/rules).
