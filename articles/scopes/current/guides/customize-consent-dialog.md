@@ -10,20 +10,22 @@ useCase:
   - development
   - secure-api
 ---
-# Consent dialog
+# Customize the Consent Prompt
 
-By default, the user consent page groups scopes for the same resource and displays all actions for that resource in a single line. For example, let's say you have an API defined with the following scopes:
+When users are asked to authorize scopes, they see a consent prompt. By default, this prompt groups all scopes for a resource and displays the actions for the resource in a single line.
+
+For example, let's say you have an Auth0-registered API with the following defined scopes:
 
 * `read:messages`: Be able to read your email messages
 * `write:messages`: Write messages
 
-The consent page would display: **Messages: read and write your messages**.
+The consent prompt will display: **Messages: read and write your messages**. Notice that this uses the defined scope **name** to generate the text.
 
-However, you can set your tenant's **use_scope_descriptions_for_consent** flag to **true** to have the consent page display the **Description** field instead. This affects consent prompts for all APIs on the tenant.
+Instead, you can use your defined scope **description** to generate this text. In this case, the consent dialog would display: **Be able to read your email messages**, **Write messages**.
 
-With this flag enabled, the consent page would display: **Be able to read your email messages**, **Write messages**.
+## Use scope descriptions to generate consent prompt text
 
-To set the **use_scope_descriptions_for_consent** flag, you will need to make the following call to the API:
+ Set your tenant's **use_scope_descriptions_for_consent** flag to `true` by making the following API call:
 
 ```har
 {
@@ -37,6 +39,29 @@ To set the **use_scope_descriptions_for_consent** flag, you will need to make th
   "postData": {
       "mimeType": "application/json",
       "text" : "{ \"flags\": { \"use_scope_descriptions_for_consent\": true } }"
+  }
+}
+```
+::: warning
+This change made at the tenant level will affect consent prompts for all APIs on the tenant.
+:::
+
+## Use scope names to generate consent prompt text
+
+Set your tenant's **use_scope_descriptions_for_consent** flag to `false` by making the following API call:
+
+```har
+{
+  "method": "PATCH",
+  "url": "https://${account.namespace}/api/v2/tenants/settings",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" },
+    { "name": "Authorization", "value": "Bearer API_ACCESS_TOKEN" },
+    { "name": "Cache-Control", "value": "no-cache" }
+  ],
+  "postData": {
+      "mimeType": "application/json",
+      "text" : "{ \"flags\": { \"use_scope_descriptions_for_consent\": false } }"
   }
 }
 ```
