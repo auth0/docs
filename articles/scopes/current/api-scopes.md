@@ -1,5 +1,5 @@
 ---
-description: Understand how to 
+description: Understand scopes used with APIs.
 topics:
   - scopes
 contentType:
@@ -11,6 +11,9 @@ useCase:
   - secure-api
 ---
 # API Scopes
+
+When creating an API, you can define custom scopes that allow you to provide finely-grained
+
 
 OpenID Connect (OIDC) scopes are used during authentication to authorize access to a user's details. The basic (and required) scope for OIDC is `openid`, which indicates that an application intends to use the OIDC protocol to verify a user's identity. Beyond that, an application can ask for additional scopes by listing the requested scope names in the `scope` parameter, separated by spaces. 
 
