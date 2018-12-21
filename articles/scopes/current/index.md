@@ -55,5 +55,5 @@ Now, when an app calls your API, it will specify the scope it needs in its reque
 
 ## Keep reading
 
-* [Open ID Connect Scopes](/scopes/current/oidc-scopes)
-* [Custom Scopes](/scopes/current/api-scopes)
+* [OpenID Connect Scopes](/scopes/current/oidc-scopes)
+* [Custom API Scopes](/scopes/current/api-scopes)
