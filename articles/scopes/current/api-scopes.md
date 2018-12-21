@@ -29,6 +29,6 @@ We discuss this approach in more depth in our [SPA+API Architecture Scenario](/a
 
 ## Keep reading
 
-- [Sample Use Cases: Scopes](/scopes/current/sample-use-cases)
+- [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases)
 - [Define Scopes for an API Using the Auth0 Dashboard](/scopes/guides/define-api-scopes-dashboard)
 - [Customize the Consent Prompt](/scopes/guides/customize-consent-prompt)
