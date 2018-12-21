@@ -1,4 +1,15 @@
-## Define scopes using the Dashboard
+---
+title: Define Scopes for an API Using the Auth0 Dashboard
+description: Learn how to define custom scopes for your API using the Auth0 Dashboard.
+topics:
+  - scopes
+contentType:
+  - how-to
+useCase:
+  - development
+  - secure-api
+---
+# Define Scopes for an API Using the Auth0 Dashboard
 
 ::: warning
 By default, any user of any application can ask for any scope defined here. You can implement access policies to limit this behavior via [Rules](/rules).
