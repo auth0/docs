@@ -32,44 +32,7 @@ Some rules:
 :::
 
 
-## Example: Add custom claims
 
-In this example, we will add a user's favorite color and a preferred contact method to the ID Token. Suppose that:
-
-* The user logged in using an identity provider that returned a `favorite_color` claim as part of the user profile.
-* At some point, the user selected a `preferred_contact` method of `email` in our application, and we saved it as part of the user's `user_metadata`.
-* We've used the Auth0 Management API to set application-specific information for this user.
-
-The Auth0-stored profile is:
-
-```json
-{
-  "email": "jane@example.com",
-  "email_verified": true,
-  "user_id": "custom|123",
-  "favorite_color": "blue",
-  "user_metadata": {
-    "preferred_contact": "email"
-  }
-}
-```
-
-We want to add the `favorite_color` and `preferred_contact` claims to the ID Token. To do this, we create a [rule](/rules) to customize the token by adding these claims using a namespaced format. Once added, you will also be able to obtain the custom claims when calling the `/userinfo` endpoint, but the rule will run only during the authentication process. 
-
-Sample rule:
-
-```js
-function (user, context, callback) {
-  const namespace = 'https://myapp.example.com/';
-  context.idToken[namespace + 'favorite_color'] = user.favorite_color;
-  context.idToken[namespace + 'preferred_contact'] = user.user_metadata.preferred_contact;
-  callback(null, user, context);
-}
-```
-
-::: note
-This example shows a custom claim being added to an ID Token, which uses the `context.idToken` property. To add to an Access Token, use the `context.accessToken` property instead.
-:::
 
 
 ## Refresh tokens and custom claims
