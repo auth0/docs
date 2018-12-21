@@ -9,23 +9,22 @@ useCase:
 ---
 # OpenID Connect Scopes
 
-OpenID Connect (OIDC) is an authentication protocol that sits on top of OAuth 2.0, and allows an application to verify the identity of a user and request basic profile information for them. The requested information can be returned in the ID Token and/or in a response from the [/userinfo endpoint](/api/authentication#get-user-info), depending on the type of request.
+:::note 
+This document discusses scopes included within the OpenID Connect authentication protocol. For more info about OIDC itself, see our docs on [OpenID Connect](/protocols/oidc).
+:::
 
-The basic (and required) scope for OIDC is `openid`, which indicates that the application intends to use the OIDC protocol to verify the user's identity.
+The basic (and required) scope for OIDC is `openid`, which indicates that an application intends to use the OIDC protocol to verify a user's identity and would like to receive an ID Token.
 
-Beyond that, an application can ask for additional scopes, but this will depend on which user attributes that the application needs. In OIDC, each scope returns a set of user attributes, which are called _claims_ and fall into two categories:
-
-* [Standard](#standard-claims): Claims that provide user details, such as name and email. Defined and identified in the OIDC specification.
-* [Custom](/scopes/current/custom-claims): Additional claims that an identity provider returns as part of its user profile.
+Beyond that, an application can ask for additional scopes by listing the requested scope names in the `scope` parameter, separated by spaces. In OIDC, each scope returns a set of user attributes, which are called _claims_. The scopes an application should request depend on which user attributes that the application needs. 
 
 ## Standard claims
 
-Standard claims are intended to provide an appliction with user details, such as name, email, and picture. These are defined and identified for the OIDC protocol. Some information on the most commonly used scopes is included below, but for a full list, refer to the [OIDC specification: Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
+Standard claims are intended to provide an appliction with user details, such as name, email, and picture. Standard claims included in the most commonly used scopes are listed below, but for a full list of available standard claims, refer to the [OIDC specification: Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
 
 
 | Scope     | Claims          |
 |-----------|-----------------|
-| `openid`  | Returns the `sub` claim, which uniquely identified the user. In an ID Token, `iss`, `aud`, `exp`, `iat`, and `at_hash` claims will also be present. |
+| `openid`  | Returns the `sub` claim, which uniquely identifies the user. In an ID Token, `iss`, `aud`, `exp`, `iat`, and `at_hash` claims will also be present. For more information about the ID Token claims, see [ID Tokens](/tokens/id-token#id-token-payload). |
 | `profile` | Returns claims that represent basic profile information, including `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture`, and `updated_at`. |
 | `email`   | Returns the `email` claim, which contains the user's email address, and `email_verified`, which is a boolean indicating whether the email address was verified by the user. |
 
@@ -45,7 +44,12 @@ https://${account.namespace}/authorize?
   state=YOUR_OPAQUE_VALUE
 ```
 
-Notice that the `scope` parameter includes three values: `openid` (to indicate that the application intends to use OIDC and would like an ID Token, `profile` (to get `name`, `nickname`, and `picture`) and email (to get `email` and `email_verified`).
+Notice that the `scope` parameter includes three values: 
+
+* `openid` (to indicate that the application intends to use OIDC and would like an ID Token 
+* `profile` (to get `name`, `nickname`, and `picture`)
+* `email` (to get `email` and `email_verified`)
+
 
 2. After Auth0 redirects back to your app, extract the ID Token from the hash fragment of the URL and decode it.
 
