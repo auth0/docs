@@ -14,7 +14,7 @@ useCase:
 ---
 # Scopes
 
-Scopes let you control the type of access your users need; they are a method of limiting the access given to a user by a [token](/tokens). 
+Scopes are a method by which you can control the specific types of access a user's [token](/tokens) will grant. 
 
 When an app requests access to a resource through an authorization server, it uses the `scope` parameter to specify what type of access it desires, and the authorization server uses the `scope` parameter to respond with the type of access that was actually granted (if the granted access level was different from what was requested).
 
