@@ -44,4 +44,4 @@ Be aware of this possibility and handle these cases in your app. For example, yo
 - [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases)
 - [How to Represent Multiple APIs Using a Single Auth0 API](/api-auth/tutorials/represent-multiple-apis)
 - [How to Restrict Application or User Requests for API Scopes](/api-auth/restrict-requests-for-scopes)
-restrict scopes based on Authorization Extension groups
+SPA + API Architecture Scenario: Restrict API Scopes based on Authorization Extension groups(/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension)
