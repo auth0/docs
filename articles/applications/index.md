@@ -18,8 +18,8 @@ The term application does not imply any particular implementation characteristic
 Auth0 categorizes applications in three ways:
 
 
-* Registered Auth0 application type: To add authentication to your application, you must first register it with Auth0 and select an application type.
-* Public versus Private
+* Auth0 application type: To add authentication to your application, you must first register it with Auth0 and select an application type.
+* Public versus Confidential
 * First-party versus Third-party
 
 
