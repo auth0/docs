@@ -23,7 +23,10 @@ Now, when an app calls your API, it will specify the scope it needs in its reque
 For an example showing how to request custom API access for your application, see [Sample Use Cases: Scopes](/scopes/current/sample-use-cases).
 
 
+## Keep reading
 
+* [Define Scopes for an API Using the Auth0 Dashboard](/scopes/guides/define-api-scopes-dashboard)
+* [Customize the Consent Prompt](/scopes/guides/customize-consent-prompt)
 
 
 
