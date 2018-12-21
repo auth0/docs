@@ -12,7 +12,7 @@ useCase:
 ---
 # Sample Use Cases: Scopes
 
-## Request standard claims
+## Authenticate a user and request standard claims using OIDC scopes
 
 In this example, we use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to authenticate a user and retrieve an ID Token that contains the user's name, nickname, profile picture, and email information. For details on the parameters or to learn how to fully implement this flow, refer to our tutorial: [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
 
