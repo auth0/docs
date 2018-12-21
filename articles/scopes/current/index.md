@@ -18,20 +18,17 @@ Scopes let you control the type of access your users need; they are a method of 
 
 When an app requests access to a resource through an authorization server, it uses the `scope` parameter to specify what type of access it desires, and the authorization server uses the `scope` parameter to respond with the type of access that was actually granted (if the granted access level was different from what was requested).
 
-## Scopes for application developers
+Generally, you use scopes in two ways:
 
-As an [application](/applications) developer, when you make your initial authorization request, you specify the scopes you want your users to have for your application. When the user responds, they are asked to authorize these scopes for your app.
+* In an [application](/applications), to verify the identity of a user and get basic profile information about the user, such as their email or picture. In this scenario, the scopes available to you include those implemented by the [OpenID Connect](/protocols/oidc) protocol. For details, refer to [OpenID Connect Scopes](/scopes/current/oidc-scopes).
 
-For example, let's say you have built a regular web application, registered it with Auth0, and have configured it to allow a user to log in using Google. Once a user is logged into your app, you want to auto-generate and send a personalized welcome email, including the user's name.
+* In an [API](/apis), to implement granular access control. In this case, you need to define custom scopes for your API and then identify these scopes so that calling applications can use them. For details, refer to [API Scopes](/scopes/current/api-scopes).
 
-1. A user clicks Login within your app.
-2. Your app redirect the user to the Auth0 Authorization Server (/authorize endpoint), including the following scopes: `profile` (so you can personalize the email with the user's name) and `email` (so you know where to send the welcome email).
-3. Your Auth0 Authorization Server redirects the user to the login prompt.
-4. The user authenticates using Google and sees a consent page listing the permissions Auth0 will give to your app, which include access to their profile information and email address.
-5. The user accepts and authorizes your app to have this level of access to the information stored by Google.
-6. Your app now has access to the user's profile information and email address.
 
-In this scenario, the scopes available to you include those implemented by the [OpenID Connect](/protocols/oidc) protocol. For details, refer to [OpenID Connect Scopes](/scopes/current/oidc-scopes).
+
+
+
+
 
 ### Best practices
 
