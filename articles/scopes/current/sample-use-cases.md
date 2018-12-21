@@ -39,7 +39,7 @@ Notice that in this example:
   * `profile` (to get `name`, `nickname`, and `picture`)
   * `email` (to get `email` and `email_verified`)
 
-2. After Auth0 redirects back to your app, extract the ID Token from the hash fragment of the URL and decode it.
+2. After the user consents and Auth0 redirects back to your app, extract the ID Token from the hash fragment of the URL and decode it.
 
 You should see the following claims:
 
@@ -98,6 +98,6 @@ Notice that in this example:
 * the `audience` parameter is new and includes one value:
   * the unique identifier of the API from which we want to read the user's appointments
 
-2. As in the previous example, after Auth0 redirects back to your app, extract the ID Token from the hash fragment of the URL, decode it, and retrieve the user attributes and use them to personalize your UI.
+2. As in the previous example, after the user consents and Auth0 redirects back to your app, extract the ID Token from the hash fragment of the URL, decode it, and retrieve the user attributes and use them to personalize your UI.
 
 3. Call the API using the Access Token as credentials.
