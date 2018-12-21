@@ -69,4 +69,5 @@ For details on how to initialize `lock` refer to [Auth0Lock(clientID, domain, op
 * [Manage User Metadata](/users/guides/manage-user-metadata)
 * [Update Metadata Properties with the Management API](/users/guides/update-metadata-properties-with-management-api)
 * [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)
+* [User Data Storage Scenario](/users/references/user-data-storage-scenario)
 * [Metadata Field Name Rules](/users/references/metadata-field-name-rules)

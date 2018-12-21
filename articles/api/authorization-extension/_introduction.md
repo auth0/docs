@@ -46,6 +46,6 @@ Follow these steps to setup your application (you will have to do this only once
 3. Go to the `Machine to Machine Applications` tab, find the application you created at the first step, and toggle the `Unauthorized` to `Authorized`.
 4. Select the [scopes](/scopes#api-scopes) that should be granted to your application, based on the endpoints you want to access. For example, `read:users` to [get all users](#get-all-users).
 
-In order to get an Access Token you need to `POST` to the `/oauth/token` endpoint. You can find detailed instructions [here](/api-auth/tutorials/client-credentials#ask-for-a-token).
+In order to get an Access Token you need to `POST` to the `/oauth/token` endpoint. You can find detailed instructions [here](/flows/guides/m2m-flow/call-api-using-m2m-flow#request-token).
 
 Use this Access Token to access the Authorization Extension API.

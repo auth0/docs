@@ -38,44 +38,44 @@ In this page you can find a list of resources that can help you secure your APIs
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/grant/authorization-code">Calling APIs from Server-side Web Apps</a>
+      <i class="icon icon-budicon-715"></i><a href="/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow">Call Your API from a Regular Web App</a>
     <p>
       If your application executes on a server and you want to configure it to use OAuth 2.0 to access an API, read these docs.
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/api-auth/grant/authorization-code">Overview of the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/regular-web-app-login-flow">Overview of the flow</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/api-auth/tutorials/authorization-code-grant">Executing the flow</a>
+        <i class="icon icon-budicon-695"></i><a href/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow">Executing the flow</a>
       </li>
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/grant/authorization-code-pkce">Calling APIs from Mobile Apps</a>
+    <i class="icon icon-budicon-715"></i><a href="/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow">Call Your API from a Native/Mobile App</a>
     <p>
       If your application is a native app and you want to configure it to use OAuth 2.0 to access an API, read these docs.
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/api-auth/grant/authorization-code-pkce">Overview of the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/mobile-login-flow">Overview of the flow</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/api-auth/tutorials/authorization-code-grant-pkce">Executing the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow">Executing the flow</a>
       </li>
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/grant/implicit">Calling APIs from Client-side Web Apps</a>
+    <i class="icon icon-budicon-715"></i><a href="/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow">Call Your API from a Single-Page App</a>
     <p>
       If your application is a JavaScript-centric app executing on the browser, and you want to configure it to use OAuth 2.0 to access an API, read these docs.
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/api-auth/grant/implicit">Overview of the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/single-page-login-flow">Overview of the flow</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/api-auth/tutorials/implicit-grant">Executing the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow">Executing the flow</a>
       </li>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/api-auth/tutorials/silent-authentication">Silent authentication for SPAs</a>
@@ -89,13 +89,16 @@ In this page you can find a list of resources that can help you secure your APIs
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/grant/client-credentials">Calling APIs from a Service</a>
+    <i class="icon icon-budicon-715"></i><a href="/flows/guides/m2m-flow/call-api-using-m2m-flow">Call Your API from a Machine-to-Machine App</a>
     <p>
       If you want to implement server-to-server interaction, and you want to configure it to use OAuth 2.0, read these docs.
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/api-auth/grant/client-credentials">Overview of the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/m2m-flow">Overview of the flow</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/flows/guides/m2m-flow/call-api-using-m2m-flow">Executing the flow</a>
       </li>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/api-auth/config/using-the-auth0-dashboard">How to set up a Client Grant using the Dashboard</a>

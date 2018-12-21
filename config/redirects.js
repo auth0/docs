@@ -893,7 +893,7 @@ module.exports = [
     to: '/libraries/lock/v11/selecting-the-connection-for-multiple-logins'
   },
   {
-    from: '/blacklist-attributes',
+    from: ['/blacklist-attributes', '/security/blacklist-user-attributes'],
     to: '/security/blacklisting-attributes'
   },
   {
@@ -932,6 +932,34 @@ module.exports = [
   {
     from: ['/oauth-web-protocol', '/protocols/oauth-web-protocol', '/protocols/oauth2/oauth-web-protocol'],
     to: '/application-auth/current/server-side-web'
+  },
+  {
+    from: ['/application-auth/current/server-side-web'],
+    to: '/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow'
+  },
+  {
+    from: ['/application-auth/current/client-side-web'],
+    to: '/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow'
+  },
+  {
+    from: ['/application-auth/current/mobile-desktop'],
+    to: '/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow'
+  },
+    {
+    from: ['/api-auth/grant/authorization-code-pkce'],
+    to: '/flows/concepts/mobile-login-flow'
+  },
+    {
+    from: ['/api-auth/grant/implicit'],
+    to: '/flows/concepts/single-page-login-flow'
+  },
+    {
+    from: ['/api-auth/grant/authorization-code'],
+    to: '/flows/concepts/regular-web-app-login-flow'
+  },
+    {
+    from: ['/api-auth/grant/client-credentials'],
+    to: '/flows/concepts/m2m-flow'
   },
   {
     from: '/oauth-implicit-protocol',

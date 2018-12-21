@@ -73,13 +73,13 @@ We will now have a more detailed look on how the protocol works. As we will see 
 
 The [OAuth 2.0 Authorization Framework specification](https://tools.ietf.org/html/rfc6749) defines four flows to get an Access Token. These flows are called **grant types**. Deciding which one is suited for your case depends mostly on the type of your application.
 
-- [Authorization Code](/api-auth/grant/authorization-code): used by Web Apps executing on a server. This is also used by mobile apps, using the [Proof Key for Code Exchange (PKCE) technique](/api-auth/grant/authorization-code-pkce).
+- [Authorization Code](/flows/concepts/regular-web-app-login-flow): used by Web Apps executing on a server. This is also used by mobile apps, using the [Proof Key for Code Exchange (PKCE) technique](/flows/concepts/mobile-login-flow).
 
-- [Implicit](/api-auth/grant/implicit): used by JavaScript-centric apps (Single Page Applications) executing on the user's browser.
+- [Implicit](/flows/concepts/regular-web-app-login-flow): used by JavaScript-centric apps (Single Page Applications) executing on the user's browser.
 
 - [Resource Owner Password Credentials](/api-auth/grant/password): used by trusted apps.
 
-- [Client Credentials](/api-auth/grant/client-credentials): used for machine to machine communication.
+- [Client Credentials](/flows/concepts/m2m-flow): used for machine-to-machine communication.
 
 The specification also provides an extensibility mechanism for defining additional types.
 
@@ -166,11 +166,11 @@ The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/spe
 
 ### Token endpoint
 
-The Token endpoint is used by the application in order to get an [Access Token](/tokens/overview-access-tokens) or a [Refresh Token](/tokens/refresh-token). It is used by all grant types, except for [Implicit](/api-auth/grant/implicit) grant (since an Access Token is issued directly).
+The Token endpoint is used by the application in order to get an [Access Token](/tokens/overview-access-tokens) or a [Refresh Token](/tokens/refresh-token). It is used by all flows, except for the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) (since an Access Token is issued directly).
 
-In the [Authorization Code](/api-auth/grant/authorization-code) grant, the application exchanges the authorization code it got from the Authorization endpoint for an Access Token.
+In the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), the application exchanges the authorization code it got from the Authorization endpoint for an Access Token.
 
-In the [Client Credentials](/api-auth/grant/client-credentials) and [Resource Owner Password Credentials](/api-auth/grant/password) grants, the application authenticates using a set of credentials and then gets an Access Token.
+In the [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow) and [Resource Owner Password Credentials Grant](/api-auth/grant/password), the application authenticates using a set of credentials and then gets an Access Token.
 
 ## Keep reading
 
