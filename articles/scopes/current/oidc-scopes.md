@@ -15,7 +15,7 @@ useCase:
 This document discusses scopes included within the OpenID Connect (OIDC) authentication protocol. For more info about OIDC itself, see our docs on [OpenID Connect](/protocols/oidc).
 :::
 
-As an [application](/applications) developer, you specify the access level you want your app to have to a user's details in the `scope` parameter when you make your authorization request. Then, during the login process, the user is asked to authorize this access level to your app. In this scenario, the scopes available to you include those implemented by the OpenID Connect (OIDC) protocol.
+As an [application](/applications) developer, you specify the access level you want your app to have to a user's details in the `scope` parameter when you make your authorization request. Then, during the login process, the user is asked to allow this access level for your app. In this scenario, the scopes available to you include those implemented by the OpenID Connect (OIDC) protocol.
 
 For example, let's say you have built a regular web application, registered it with Auth0, and have configured it to allow a user to log in using Google. Once a user logs in to your app, you want to auto-generate and send a personalized welcome email, including the user's name.
 
