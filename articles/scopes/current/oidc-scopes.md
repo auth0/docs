@@ -46,7 +46,7 @@ Standard claims are intended to provide an application with user details, such a
 | `profile` | Returns claims that represent basic profile information, including `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture`, and `updated_at`. |
 | `email`   | Returns the `email` claim, which contains the user's email address, and `email_verified`, which is a boolean indicating whether the email address was verified by the user. |
 
-For an example showing how to request standard claims for your application, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#authenticate-a-user-and-request-user-details).
+For an example showing how to request standard claims for your application, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#authenticate-a-user-and-request-standard-claims).
 
 ## Keep reading
 
