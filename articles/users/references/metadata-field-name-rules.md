@@ -131,5 +131,6 @@ Instead, you would use this:
 
 ## Keep reading
 
-* [Managing User Metadata with Auth0 APIs](/users/guides/manage-user-metadata-with-apis)
+* [Managing User Metadata](/users/guides/manage-user-metadata)
 * [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)
+* [User Data Storage Scenario](/users/references/user-data-storage-scenario)

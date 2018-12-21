@@ -24,9 +24,9 @@ useCase:
 
 OAuth 2.0 provides several __grant types__ for different use cases. In this particular use case, we want to access the API from a [client-side app](/quickstart/spa).
 
-The SPA will use the OAuth 2.0 [Implicit Grant](/api-auth/grant/implicit) to do so.
+The SPA will use the [Single-Page Login Flow (Implicit Grant)](/flows/concepts/single-page-login-flow) to do so.
 
-The Implicit Grant (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) is similar to the [Authorization Code Grant](/api-auth/grant/authorization-code), but the main difference is that the application receives an Access Token directly, without the need for an `authorization_code`. This happens because the application, which is typically a JavaScript app running within a browser, is less trusted than a web app running on the server, hence cannot be trusted with the `client_secret` (which is required in the Authorization Code Grant).
+The Implicit Grant (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) is similar to the grant used in the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), but the main difference is that the application receives an Access Token directly, without the need for an `authorization_code`. This happens because the application, which is typically a JavaScript app running within a browser, is less trusted than a web app running on the server, hence cannot be trusted with the `client_secret` (which is required in the Authorization Code Grant).
 
 Once the user authenticates, the application receives the ID Token and Access Token in the hash fragment of the URI. The application can now use the ID Token to obtain information about the user, and Access Token to call the API on behalf of the user.
 

@@ -28,7 +28,7 @@ You can obtain JWTs for testing using any of the following methods:
 
 Unless your server-side application allows the generation of artificial sessions for testing, you'll need a way to perform a login through Auth0 manually.
 
-For a high-level overview of how to do this, see [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code). For detailed implementation instructions, see [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant).
+For a high-level overview of how to do this, see [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow). For detailed implementation instructions, see our tutorial, [Call API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
 
 ## Use local domains with Auth0
 

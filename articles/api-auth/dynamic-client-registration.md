@@ -186,7 +186,7 @@ Also, keep in mind that third-party developers are not allowed to modify the app
 
 Now that you have a Client ID and Secret, you can configure your application to authenticate users with Auth0.
 
-We will go through a simple example, that shows how to call an API from a client-side web app, using the [Implicit Grant](/api-auth/tutorials/implicit-grant). For a list of tutorials on how to authenticate and authorize users, based on your application type, see the [API Authorization](/api-auth) page.
+We will go through a simple example, that shows how to call an API from a client-side web app, using the [Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow). For a list of tutorials on how to authenticate and authorize users, based on your application type, see the [API Authorization](/api-auth) page.
 
 First, you need to configure your application to send the user to the authorization URL:
 
@@ -225,4 +225,4 @@ For example:
 
 This call will redirect the user to Auth0, and upon successful authentication, back to your application (specifically to the **redirect_uri**).
 
-If you need API access, then following the authentication, you need to [extract the Access Token](/api-auth/tutorials/implicit-grant#2-extract-the-access-token) from the hash fragment of the URL, and use it to make calls to the API, by passing it as a `Bearer` token in the `Authorization` header of the HTTP request.
+If you need API access, then following the authentication, you need to extract the Access Token from the hash fragment of the URL, and use it to make calls to the API, by passing it as a `Bearer` token in the `Authorization` header of the HTTP request.

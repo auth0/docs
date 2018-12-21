@@ -49,8 +49,8 @@ Confidential applications are able to hold credentials (such as a client ID and 
 
 The following application types use confidential applications:
 
-* A web application with a secure backend using the [Authorization Code grant](/api-auth/grant/authorization-code), [Password](/api-auth/grant/password) or [Password Realm](/api-auth/tutorials/password-grant#realm-support) grants
-* A machine to machine application using the [Client Credentials grant](/api-auth/grant/client-credentials)
+* A web application with a secure backend using the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), or[Password](/api-auth/grant/password) or [Password Realm](/api-auth/tutorials/password-grant#realm-support) grants
+* A machine-to-machine application using the [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow)
 
 All of these grants require applications to authenticate by specifying their client ID and secret when calling the token endpoint.
 
@@ -63,8 +63,8 @@ Since confidential applications are capable of holding secrets, you can choose t
 
 Public applications **cannot** hold credentials securely. The following application types use public applications:
 
-* Native desktop or mobile applications using the [Authorization Code grant with PKCE](/api-auth/grant/authorization-code-pkce)
-* JavaScript-based client-side web applications (such as single-page apps) using the [Implicit](/api-auth/grant/implicit) grant
+* Native desktop or mobile applications using the [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow)
+* JavaScript-based client-side web applications (such as single-page apps) using the [Single-Page Login Flow](/flows/concepts/single-page-login-flow)
 
 Since public applications are unable to hold secrets, [ID Tokens](/tokens/id-token) issued to them must be:
 

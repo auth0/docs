@@ -13,16 +13,16 @@ useCase:
 
 The Hybrid Flow is an OpenID Connect (OIDC) flow that draws from the following:
 
-1. [Authorization Code Grant](/api-auth/grant/authorization-code)
-2. [Implicit Grant](/articles/api-auth/grant/implicit)
+1. [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
+2. [Single-Page Login Flow](/flows/concepts/single-page-login-flow)
 
 The Hybrid Flow enables use cases where your application can immediately use an ID token to access information about the user while obtaining an authorization code that can be exchanged for an Access Token (therefore gaining access to protected resources for an extended period of time).
 
 ## Background
 
-With the [Authorization Code Grant](/api-auth/grant/authorization-code), Auth0 sends you an authorization code, which your app then sends in to retrieve tokens. Your application authenticates itself with a Client ID and Client Secret stored securely on your server.
+With the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), Auth0 sends you an authorization code, which your app then sends in to retrieve tokens. Your application authenticates itself with a Client ID and Client Secret stored securely on your server.
 
-On the other hand, the [Implicit Grant](/articles/api-auth/grant/implicit) allows you to request Access Tokens without needing to authenticate your application. Auth0 verifies your app's identity based on the provided redirect URI. Because of this, you shouldn't utilize long-lived Access Tokens, and you cannot use Refresh Tokens.
+On the other hand, the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) allows you to request Access Tokens without needing to authenticate your application. Auth0 verifies your app's identity based on the provided redirect URI. Because of this, you shouldn't utilize long-lived Access Tokens, and you cannot use Refresh Tokens.
 
 ## The Hybrid Flow
 
@@ -60,7 +60,7 @@ For details on how to implement this using Auth0, refer to [Execute the Hybrid F
 - [Execute the Hybrid Flow](/api-auth/tutorials/hybrid-flow)
 - [How to configure an API in Auth0](/apis)
 - [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Application authentication for server-side web apps](/application-auth/server-side-web)
-- [Application authentication for client-side web apps](client-side-web)
+- [Application authentication for regular web apps](/flows/concepts/regular-web-app-login-flow)
+- [Application authentication for single-page apps](/flows/concepts/single-page-login-flow)
 - [Tokens used by Auth0](/tokens)
 :::
