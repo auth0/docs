@@ -1,5 +1,5 @@
 ---
-title: Sample Use Cases
+title: Sample Use Cases - Scopes and Claims
 description: Learn how to use scopes and claims with applications and APIs.
 topics:
   - scopes
@@ -11,7 +11,7 @@ useCase:
   - call-api
   - secure-api
 ---
-# Sample Use Cases: Scopes and Claims
+# Sample Use Cases - Scopes and Claims
 
 In these examples, we use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to authenticate a user and request the necessary scopes and tokens. For details on the request parameters or to learn how to fully implement this flow, refer to our tutorial: [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
 
