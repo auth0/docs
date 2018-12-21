@@ -1,5 +1,6 @@
 ---
-description: Custom Claims
+title: Custom Claims
+description: Understand custom claims and how they function in Auth0.
 topics:
   - scopes
   - claims
