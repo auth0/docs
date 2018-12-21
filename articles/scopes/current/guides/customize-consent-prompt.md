@@ -69,4 +69,4 @@ Set your tenant's **use_scope_descriptions_for_consent** flag to `false` by maki
 
 ## Keep reading
 
-* Define scopes for 
+* [Define Scopes for an API Using the Auth0 Dashboard](/scopes/guides/define-api-scopes-dashboard)
