@@ -22,7 +22,7 @@ For an example showing how to request custom API access for your application, se
 
 ## Limit API scopes
 
-An application can request any defined scope and the user will be prompted to approve that scope during the authorization flow. Instead, you may want to limit available scopes based on, for example, the role of a user. To do this, you can use the [Authorization Extension](/extensions/authorization-extension) and a custom [Rule](/rules).
+An application can include any defined scope in its request. Instead of including _all_ available scopes in every request, however, the scopes can be limited. For example, a user of your application can be given a role so that requests on their behalf are limited to just the scopes assigned to that role. To do this, you can use the [Authorization Extension](/extensions/authorization-extension) and a custom [Rule](/rules).
 
 We discuss this approach in more depth in our [SPA+API Architecture Scenario](/architecture-scenarios/spa-api). Specifically, you can review the [Configure the Authorization Extension](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension) section to learn how to configure the Authorization Extension and create a custom Rule that will ensure scopes are granted based on a user's role.
 
