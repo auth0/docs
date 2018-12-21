@@ -15,6 +15,17 @@ useCase:
 This document discusses scopes included within the OpenID Connect (OIDC) authentication protocol. For more info about OIDC itself, see our docs on [OpenID Connect](/protocols/oidc).
 :::
 
+As an [application](/applications) developer, when you make your initial authorization request, you specify the scopes you want your users to have for your application. When the user responds, they are asked to authorize these scopes for your app.
+
+For example, let's say you have built a regular web application, registered it with Auth0, and have configured it to allow a user to log in using Google. Once a user is logged into your app, you want to auto-generate and send a personalized welcome email, including the user's name.
+
+1. A user clicks Login within your app.
+2. Your app redirect the user to the Auth0 Authorization Server (/authorize endpoint), including the following scopes: `profile` (so you can personalize the email with the user's name) and `email` (so you know where to send the welcome email).
+3. Your Auth0 Authorization Server redirects the user to the login prompt.
+4. The user authenticates using Google and sees a consent page listing the permissions Auth0 will give to your app, which include access to their profile information and email address.
+5. The user accepts and authorizes your app to have this level of access to the information stored by Google.
+6. Your app now has access to the user's profile information and email address.
+
 OpenID Connect (OIDC) scopes are used during authentication to authorize access to a user's details. The basic (and required) scope for OIDC is `openid`, which indicates that an application intends to use the OIDC protocol to verify a user's identity. Beyond that, an application can ask for additional scopes by listing the requested scope names in the `scope` parameter, separated by spaces. 
 
 In OIDC, each scope returns a set of user attributes, which are called _claims_. The scopes an application should request depend on which user attributes the application needs. Once the user authorizes the requested scopes, the claims are returned in an ID Token and are also available through the [/userinfo endpoint](/api/authentication#get-user-info).
