@@ -75,7 +75,7 @@ SOCIAL_AUTH_AUTH0_KEY = '${account.clientId}'
 SOCIAL_AUTH_AUTH0_SECRET = 'YOUR_CLIENT_SECRET'
 ```
 
-Set the `SOCIAL_AUTH_AUTH0_SCOPE` variable with the scopes the application will request when authenticating. Check the [Scopes documentation](/scopes/current) for more information.
+Set the `SOCIAL_AUTH_AUTH0_SCOPE` variable with the scopes the application will request when authenticating. Check the [Scopes documentation](/scopes) for more information.
 
 ```python
 # webappexample\settings.py

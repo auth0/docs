@@ -28,7 +28,7 @@ There will already be an **Auth0 Management API** that represents Auth0's APIv2.
 
 3. Select the scopes you want to grant to the Machine to Machine Application.
 
-A **scope** is a claim that may be issued as part of the Access Token. With this information, the API can enforce fine-grained authorization. You can define scopes in the [API's scopes tab](/scopes/current#define-scopes-using-the-dashboard).
+A **scope** is a claim that may be issued as part of the Access Token. With this information, the API can enforce fine-grained authorization. You can define scopes in the [API's scopes tab](/scopes/current/guides/define-api-scope-dashboard).
 
 ![Select Scopes](/media/articles/applications/m2m-select-scopes.png)
 

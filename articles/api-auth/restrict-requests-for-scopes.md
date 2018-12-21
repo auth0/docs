@@ -12,7 +12,7 @@ useCase:
 
 # Restrict Application or User Requests for API Scopes
 
-By default, any user associated with an [Auth0 application](/applications) can request an API's [scope(s)](/scopes#api-scopes). If you would like to restrict access to the API's scopes based on the user's role, application association, location, and so on, you can do so via [rules](/rules). Then, if a restricted user attempts to request scopes not permitted to them, they will receive an `HTTP 401` response.
+By default, any user associated with an [Auth0 application](/applications) can request an API's [scope(s)](/scopes/current/api-scopes). If you would like to restrict access to the API's scopes based on the user's role, application association, location, and so on, you can do so via [rules](/rules). Then, if a restricted user attempts to request scopes not permitted to them, they will receive an `HTTP 401` response.
 
 ## Example: Deny access based on the API audience
 

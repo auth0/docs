@@ -33,7 +33,7 @@ The first question to answer before getting into the changes is why to migrate y
 
 There are often situations where your APIs will need to authorize limited access to users, servers, or servers on behalf of users. Managing these types of authorization flows and access to your APIs is much easier with Auth0. If you need to use these [API Auth](/api-auth) features, we recommend that you upgrade to [auth0.js v8](/libraries/auth0js/v8).
 
-Alternatively, you could also simply request the metadata in a different way, for example with a rule to add custom claims to either the returned ID Token or Access Token as described in the [custom claims](/scopes/current#custom-claims) section of the scopes documentation.
+Alternatively, you could also simply request the metadata in a different way, for example with a rule to add custom claims to either the returned ID Token or Access Token as described in the [custom claims](/scopes/current/custom-claims) section of the scopes documentation.
 
 ::: note
 You can find detailed information about supported methods in the [Auth0.js v8](/libraries/auth0js) documentation, and generated documentation on all methods [here](http://auth0.github.io/auth0.js/global.html) for further reading.

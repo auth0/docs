@@ -44,7 +44,7 @@ Follow these steps to setup your application (you will have to do this only once
 1. Go to [Dashboard > Applications](${manage_url}/#/applications) and create a new application of type `Machine to Machine`.
 2. Go to the [Dashboard > APIs](${manage_url}/#/apis) and select the `auth0-authorization-extension-api`.
 3. Go to the `Machine to Machine Applications` tab, find the application you created at the first step, and toggle the `Unauthorized` to `Authorized`.
-4. Select the [scopes](/scopes#api-scopes) that should be granted to your application, based on the endpoints you want to access. For example, `read:users` to [get all users](#get-all-users).
+4. Select the [scopes](/scopes/current/api-scopes) that should be granted to your application, based on the endpoints you want to access. For example, `read:users` to [get all users](#get-all-users).
 
 In order to get an Access Token you need to `POST` to the `/oauth/token` endpoint. You can find detailed instructions [here](/api-auth/tutorials/client-credentials#ask-for-a-token).
 

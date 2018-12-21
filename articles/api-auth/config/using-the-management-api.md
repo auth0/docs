@@ -66,5 +66,5 @@ That's it, you are done! Now that all the elements are in place, you can request
 :::next-steps
 * [How to implement the Client Credentials Grant](/api-auth/tutorials/client-credentials)
 * [How to change the scopes and add custom claims to a token using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
-* [How to add custom claims to a token using Rules](/scopes#custom-claims)
+* [How to add custom claims to a token using Rules](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)
 :::
