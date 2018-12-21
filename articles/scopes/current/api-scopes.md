@@ -14,9 +14,7 @@ useCase:
 
 ## Scopes for API developers
 
-As an [API](/apis) developer, you need to define the scopes available for applications that might call your API. This way, you can apply fine-grained control to the information and actions available to your users. 
-
-In this case, you need to define custom scopes for your API and then identify these scopes so that calling applications can use them.
+As an [API](/apis) developer, you need to define the scopes available for applications that might call your API. This way, you can apply fine-grained control to the information and actions available to your users. In this case, you need to define custom scopes for your API and then identify these scopes so that calling applications can use them.
 
 For example, let's say you are building an API that provides data to a calendar application. You want some users to be able to edit items on the calendar, others to only be able to read them, and others to be able to both read and write to calendar items. To do this, you create two scopes for your API: one that authorizes write access (`write:appointments`) and one that authorizes read-only access (`read:appointments`). 
 
