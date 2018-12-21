@@ -81,9 +81,7 @@ https://${account.namespace}/authorize?
   state=YOUR_OPAQUE_VALUE
 ```
 
-Notice that in this example, we have added an `audience` parameter. Its value is the unique identifier of the API to which we want to gain access.
-
-Also notice:
+Notice that in this example:
 
 * the `response_type` parameter now includes two values:
   * `id_token` (to get an ID Token)
@@ -93,6 +91,8 @@ Also notice:
   * `profile` (to get `name`, `nickname`, and `picture`)
   * `email` (to get `email` and `email_verified`)
   * `read:appointments` (to allow us to read the user's appointments from the API)
+* the `audience` parameter is new and includes one value:
+  * the unique identifier of the API from which we want to read the user's appointments
 
 2. As in the previous example, after Auth0 redirects back to your app, extract the ID Token from the hash fragment of the URL, decode it, and retrieve the user attributes and use them to personalize your UI.
 
