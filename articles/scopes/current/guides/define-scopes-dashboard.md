@@ -32,3 +32,6 @@ This guide will show you how to define custom scopes for an API using Auth0's Da
 3. Click **Add**.
 
 
+## Keep reading
+
+* Use scope name and description to [customize the consent dialog]() for your users.
