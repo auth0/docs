@@ -68,6 +68,10 @@ Your app now can retrieve the user attributes and use them to personalize your U
 
 In this example, we expand on our previous example requesting standard claims to also include a custom scope for a calendar API that will allow the calling application to read appointments for the user. To do this, we want to get an additional token--an Access Token with a scope that allows us to read appointments from the API.
 
+::: note
+Before using a custom API scope, you need to [define it for your Auth0-registered API using the Auth0 Dashboard]().
+:::
+
 1. Initiate the authentication flow by sending the user to the authorization URL and requesting tokens:
 
 ```text
