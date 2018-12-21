@@ -44,12 +44,12 @@ Remove caching from all the URLs listed in the **Allowed Callback URLs** field f
 
 If you're on a managed host like WP-Engine, you may need to contact their support team for additional assistance. We've had reports of issues accessing required cookies on the callback URL, as well as problems with checking authentication on the final page that users see after logging in. Specifically, ask to have cache exclusions added for:
 
-**Cookie:** `auth0_state`
-**Cookie:** `auth0_nonce`
-**Arg/URL parameter:** `auth0`
-**Arg/URL parameter:** `code`
-**Arg/URL parameter:** `state`
-**Arg/URL parameter:** `id_token`
+- **Cookie:** `auth0_state`
+- **Cookie:** `auth0_nonce`
+- **Arg/URL parameter:** `auth0`
+- **Arg/URL parameter:** `code`
+- **Arg/URL parameter:** `state`
+- **Arg/URL parameter:** `id_token`
 
 ### Page refresh after error message
 
