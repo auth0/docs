@@ -48,7 +48,6 @@ You can access the following common variables when using Liquid Syntax in the **
   * `friendly_name` 
   * `support_email`
   * `support_url`
-  * `home_url`
 
 Variables are referenced using the `{{ variable_name }}` syntax in Liquid. E.g.:
 
