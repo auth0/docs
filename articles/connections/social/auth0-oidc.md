@@ -26,7 +26,7 @@ You can use an application on another Auth0 tenant (referred to below as the **O
 
 4. Ensure that the **OIDC-Conformant** toggle in the **OAuth** tab under the application's **Advance Settings** is turned **off**.
 
-5. Ensure that the tenant has the **Legacy User Profile** toggle enabled under the **Migrations** section of the [Tenant Advanced Settings](${manageUrl}/#/tenant/advanced). If you don't see this toggle for your tenant, please open a support case to request this feature to be enabled.
+5. Ensure that the tenant has the **Legacy User Profile** toggle enabled under the **Migrations** section of the [Tenant Advanced Settings](${manage_url}/#/tenant/advanced). If you don't see this toggle for your tenant, please open a support case to request this feature to be enabled.
 
 ::: note
 The above requirements are temporary and will be removed in the future.
