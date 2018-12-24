@@ -43,28 +43,26 @@ For more information, please see:
 * [Disaster Recovery](/appliance/geo-ha/disaster-recovery)
 
 ## VM Snapshots
-If you have some tolerance for downtime (either in terms of minutes or hours), you can consider using the Virtual Machine (VM) snapshot approach. A VM snapshot contains everything you need to rebuild an PSaaS Appliance. You would be responsible for regularly taking VM snapshots and either storing them either offsite or replicating them to other regions in the cloud.
+If you have some tolerance for downtime (either in terms of minutes or hours), you can consider using the Virtual Machine (VM) snapshot approach. A VM snapshot contains everything needed to rebuild an PSaaS Appliance. You would be responsible for regularly taking VM snapshots and either storing them either offsite or replicating them to other regions in the cloud.
 
 **Advantages**:
-* Recovery via VM snapshots is faster than using database backups (though the process is slower than GEO-HA).
-* You may not need manual intervention from an Auth0 Customer Success Engineer (CSE) to restore your cluster.
+* Recovery via VM snapshots is quicker than using database backups (though the process is slower than GEO-HA).
 
 **Disadvantages**:
+* You will need manual intervention from an Auth0 Managed Services Engineer (MSE) to restore your cluster.
 * VM snapshots can become very large in size (snapshots are not compressed, and you would need a snapshot of each VM/drive), which makes storage tricky.
 * The backup and recovery process requires manual intervention.
 
 ### Basic Steps for Recovering with VM Snapshots
 
-The following outlines the basic steps required for restoring your PSaaS Appliance instances using VM snapshots:
+The following outlines the basic steps required for restoring PSaaS Appliance instances using VM snapshots:
 
 1. Ensure that you have a snapshot of your VM(s) and that it is stored at a secondary site. In the event of a disaster, your primary site may not be accessible.
 2. Restore your VM(s) using your snapshots at your secondary site.
-Use the [PSaaS Appliance Command Line Interface (CLI)](/appliance/cli) to [reconfigure the IP addresses](/appliance/cli/reconfiguring-ip) of the VM(s).
+3. Contact a Managed Services engineer via support ticket to complete the recovery of your environment
 
 ::: panel VMWare's Site Recovery Manager
-If you are hosting your PSaaS Appliance instances using VMware, you may also implement a similar backup/recovery scenario using VMWare's  Site Recovery Manager (SRM). SRM provides an automated mechanism to move your snapshots to a secondary site, where they can be retrieved if you ever need your data restored. If you choose this option, Auth0 will help you set up and test your implementation.
-
-We have tested that it will change the IP for the box and you can [run re-ip](/appliance/cli/reconfiguring-ip) as long as you have prepared the [PSaaS Appliance Command Line Interface (CLI)](/appliance/cli) ahead of time and uploaded the certificate.
+Site Recovery Manager is not supported on current versions of Auth0 PSaaS Appliance. If you rely on this VMWare feature please contact your Customer Success Manager for guidance.
 :::
 
 ## Database Backups
@@ -79,7 +77,7 @@ If you choose to use database backups as your DR strategy, please note that this
 * Database backups are smaller and easier to move offsite than VM snapshots.
 
 **Disadvantage**:
-* You will need manual intervention from an Auth0 CSE to restore your PSaaS Appliance.
+* You will need manual intervention from an Auth0 MSE to restore your PSaaS Appliance.
 * Recovering with a database backup requires the greatest amount of time.
 
 For more information, please see:
