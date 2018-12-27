@@ -38,25 +38,25 @@ While SmartLock is not yet universal, using browser-based login flows allows you
 
 ## Phishing and security issues
 
-With a native login flow, an unauthorized party could decompile or intercepting traffic to/from your application to get the Client ID and authentication URL. With this information the unauthorized party could create a rogue application, upload it to an application store, and use it to phish for usernames, passwords, and Access Tokens.
+With a native login flow, an unauthorized party could decompile or intercept traffic to/from your application to get the Client ID and authentication URL. With this information the unauthorized party could create a rogue application, upload it to an application store, and use it to phish for usernames, passwords, and Access Tokens.
 
 Using a browser-based flow protects you from this, since the callback URL is linked to the application through [universal app links](https://developer.apple.com/ios/universal-links/) (iOS) or [App Links](/applications/enable-android-app-links) (Android). Note, however, that this is **not** a universally supported feature.
 
 ## Implementation time
 
-Using browser-based flows reduces the implementation time required, since everything is handled by the login page (including multi-factor authentication and anomaly detection).
+Using browser-based flows reduces the implementation time required, since everything is handled by the hosted login page (including multi-factor authentication and anomaly detection).
 
 By default, [Lock](/libraries/lock) provides the user experience, but you can customize it with your own templates written in HTML and CSS, then integrate it with [auth0.js](libraries/auth0js)
 
 ## Automatic improvements
 
-By relying on a Universal Login experience, you will automatically receive new features without requiring you to make any changes to your native application. For example, if Auth0 adds support for FIDO/U2F, you would not need to make any code changes to your application before you can use this functionality.
+By relying on a Universal Login experience, you will automatically receive new features without requiring you to make any changes to your native application. For example, if Auth0 adds support for [FIDO/U2F](https://www.yubico.com/solutions/fido-u2f/), you would not need to make any code changes to your application before you can use this functionality.
 
 ## Load time and user experience
 
 When using a native login flow, the login UI and logic is included in the application. With a browser-based login flow, the user sees some loading time as the page loads.
 
-However, it's worth noting that the number of times a user logs in with the mobile devices most commonly used today is low. Once the user logs in, your application should only log them out if you revoke their access or if the user opts to log out.
+However, it's worth noting that the number of times a user logs in with the mobile devices is low. Once the user logs in, your application should only log them out if you revoke their access or if the user opts to log out.
 
 ## Compliance with best practices
 
