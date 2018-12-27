@@ -21,11 +21,11 @@ In cases where the data centers have very low latency, you can run individual PS
 
 If your requirements demand regional resilience with little downtime, we recommend a [Geographic High-Availability PSaaS Appliance](/appliance/geo-ha) implementation. This is the only implementation that has automatic failover between data centers.
 
-Issue detection and failover typically occur at the database level in 30 seconds or less. However, switching over and rerouting traffic from one datacenter to another is an expensive operation, so we've configured the infrastructure to detect false positives and *not* switch over in the event that one occurs. This secondary detection process reroutes client traffic through failure detection time-out mechanisms that result in an *effective* failover time of approximately ten minutes.
+Issue detection and failover typically occur at the database level in 30 seconds or less. However, switching over and rerouting traffic from one data center to another is an expensive operation, so we've configured the infrastructure to detect false positives and *not* switch over if one occurs. This secondary detection process reroutes client traffic through failure detection time-out mechanisms that result in an *effective* failover time of approximately ten minutes.
 
 **Advantages**:
 
-Geo-HA is an PSaaS Appliance implementation that provides:
+Geo-HA is a PSaaS Appliance implementation that provides:
 * Data center redundancy;
 * Automatic failure handling;
 * The highest form of PSaaS Appliance availability offered by Auth0.
@@ -43,14 +43,14 @@ For more information, please see:
 * [Disaster Recovery](/appliance/geo-ha/disaster-recovery)
 
 ## VM Snapshots
-If you have some tolerance for downtime (either in terms of minutes or hours), you can consider using the Virtual Machine (VM) snapshot approach. A VM snapshot contains everything needed to rebuild an PSaaS Appliance. You would be responsible for regularly taking VM snapshots and either storing them either offsite or replicating them to other regions in the cloud.
+If you have some tolerance for downtime (either in terms of minutes or hours), you can consider using the Virtual Machine (VM) snapshot approach. A VM snapshot contains everything needed to rebuild a PSaaS Appliance. You would be responsible for regularly taking VM snapshots and either storing them either offsite or replicating them to other regions in the cloud.
 
 **Advantages**:
 * Recovery via VM snapshots is quicker than using database backups (though the process is slower than GEO-HA).
 
 **Disadvantages**:
 * You will need manual intervention from an Auth0 Managed Services Engineer (MSE) to restore your cluster.
-* VM snapshots can become very large in size (snapshots are not compressed, and you would need a snapshot of each VM/drive), which makes storage tricky.
+* VM snapshots can become very large (snapshots are not compressed, and you would need a snapshot of each VM/drive), which makes storage tricky.
 * The backup and recovery process requires manual intervention.
 
 ### Basic Steps for Recovering with VM Snapshots
@@ -59,10 +59,10 @@ The following outlines the basic steps required for restoring PSaaS Appliance in
 
 1. Ensure that you have a snapshot of your VM(s) and that it is stored at a secondary site. In the event of a disaster, your primary site may not be accessible.
 2. Restore your VM(s) using your snapshots at your secondary site.
-3. Contact a Managed Services engineer via support ticket to complete the recovery of your environment
+3. Contact a Managed Services Engineer via support ticket to complete the recovery of your environment
 
 ::: panel VMWare's Site Recovery Manager
-Site Recovery Manager is not supported on current versions of Auth0 PSaaS Appliance. If you rely on this VMWare feature please contact your Customer Success Manager for guidance.
+Site Recovery Manager is not supported on current versions of Auth0 PSaaS Appliance. If you rely on this VMWare feature, please contact your Customer Success Manager for guidance.
 :::
 
 ## Database Backups
@@ -87,6 +87,6 @@ For more information, please see:
 
 ## Combining VM Snapshots and Database Backups
 
-A middle ground between using VM snapshots and database backups is to take weekly VM snapshots, while scheduling nightly database backups.
+A middle ground between using VM snapshots and database backups is to take weekly VM snapshots while scheduling nightly database backups.
 
 The recovery process still requires the assistance of an Auth0 CSE, but because the VMs can be automatically restored, only the database needs manual intervention/assistance. This eliminates some of the downtime resulting from using just database backups.
