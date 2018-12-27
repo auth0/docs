@@ -115,6 +115,20 @@ In some cases the requirement could be to automatically sign in the user if Kerb
 </script>
 ```
 
+## Skipping Kerberos at runtime
+
+You can prevent Kerberos from being used, even if the user is logging in from an IP address within the range configured in the connection's settings, by passing `rememberLastLogin: false` to `lock.show()`
+
+
+```js
+
+function useKerberos() {
+  // return true to use Kerberos, false to bypass
+};
+
+lock.show({rememberLastLogin: useKerberos()});
+```
+
 ## Troubleshooting
 
 To enable verbose logging of Kerberos requests, add a system level environment variable `DEBUG=kerberos-server`. Then restart the Connector. Try logging in again, and check the logs for more information.
