@@ -20,7 +20,7 @@ To enable [third-party applications](/application-types#third-party-applications
 
 ## Update the login page
 
-To use the Auth0's [Universal Login](/hosted-pages/login) with third-party Applications, you must:
+If you use Lock in the [Hosted Login Page](/hosted-pages/login) you will need to:
 
 - use at least version `10.7.x` of Lock
 - set `__useTenantInfo: config.isThirdPartyClient` when instantiating Lock
