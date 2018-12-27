@@ -73,7 +73,7 @@ The Management API allows you to manage every aspect of your Auth0 account. For 
             <span href="#" class="illustration i-postman"></span>
             <h4>Postman</h4>
             <p>Try the Auth0 Management API in Postman.</p>
-            <p><a href="https://app.getpostman.com/run-collection/cc9e83969d9e70160054"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+            <p><a href="https://app.getpostman.com/run-collection/b98c6e2ef2ba7ff59fe5"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
             <p><a href="/api/postman">How to use our Postman Collections</a></p>
           </div>
         </div>
