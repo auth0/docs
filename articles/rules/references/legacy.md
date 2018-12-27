@@ -48,7 +48,7 @@ A Rule is a function with the following arguments:
 
 * `user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Structure](/users/references/user-profile-structure).
 
-* `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/context).
+* `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/references/context-object).
 
 ::: note
 Due to the asynchronous nature of Node.js, you __must__ call the `callback` function. If not, this acts as a blocker and the next rule will not execute. The entire rules sequence must complete within __20 seconds__, otherwise the process times out.
