@@ -29,7 +29,7 @@ If you use Lock in the [Hosted Login Page](/hosted-pages/login) you will need to
 Sample script:
 
 ```html
-<script src="https://cdn.auth0.com/js/lock/10.7/lock.min.js"></script>
+ <script src="https://cdn.auth0.com/js/lock/11.x.y/lock.min.js"></script>
 ...
 <script>
   // Decode utf8 characters properly
