@@ -57,7 +57,7 @@ The User Import/Export Extension allows you to:
 You must be a Dashboard Admin to use this extension.
 :::
 
-You can import and export user data using the User Import/Export Extension available on the [Extensions](${manage_url}/#/extensions) section of the Dashboard. Select the **User Import / Export** extension and install it. For more information, see [User Import/Export Extension](//extensions/user-import-export).
+You can import and export user data using the User Import/Export Extension available on the [Extensions](${manage_url}/#/extensions) section of the Dashboard. Select the **User Import / Export** extension and install it. For more information, see [User Import/Export Extension](/extensions/user-import-export).
 
 ## Keep reading
 
