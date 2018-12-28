@@ -1,5 +1,5 @@
 ---
-title: Tenant's and Application’s Default Login Pages
+title: Tenant's and Application’s Default Login Page
 description: How to configure your tenant's and application's default login page.
 toc: true
 topics:
@@ -7,7 +7,7 @@ topics:
 contentType: how-to
 ---
 
-# Configuring Tenant and Application’s Default Login Pages
+# Configuring Tenant and Application’s Default Login Page
 
 In certain cases that will be described below, Auth0 could need to redirect back to the application’s login screen, using [OIDC Third Party Initiated Login](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin).
 
@@ -54,7 +54,7 @@ The `login_url` should link to a route in the application that ends up redirecti
 
 ### Users Bookmarking the login page
 
-When an application initiates the login process, it navigates to the `https://${account.namespace}/authorize` page with a set of required parameters. Auth0 then redirects end-users to a `https://${account.namespace}/login` page , with an URL that looks like:
+When an application initiates the login process, it navigates to the `https://${account.namespace}/authorize` page with a set of required parameters. Auth0 then redirects end-users to a `https://${account.namespace}/login` page, with an URL that looks like:
 
 https://${account.namespace}/login?state=g6Fo2SBjNTRyanlVa3ZqeHN4d1htTnh&...
 

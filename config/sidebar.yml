@@ -223,9 +223,6 @@ articles:
       - title: "Verify Access Tokens"
         url: "/api-auth/tutorials/verify-access-token"
 
-      - title: "Default Login Pages"
-        url: "/api-auth/default-login-pages"
-
   - title: "Connections"
     url: "/connections"
     children:
@@ -294,6 +291,9 @@ articles:
 
       - title: "Version Control"
         url: "/hosted-pages/version-control"
+
+      - title: "Default Login Page"
+        url: "/hosted-pages/default-login-page"
 
   - title: "Rules"
     url: "/rules"
