@@ -11,9 +11,9 @@ contentType: how-to
 
 In certain cases that will be described below, Auth0 could need to redirect back to the application’s login screen, using [OIDC Third Party Initiated Login](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin).
 
-You can configure the url for the tenant or client login screen using a Management API call:
+You can configure the url for the tenant or application login screen using a Management API call:
 
-Client-level
+**Application level**
 
 ```har
 {
@@ -30,7 +30,7 @@ Client-level
 }
 ```
 
-Tenant-level:
+**Tenant level**
 
 ```har
 {
@@ -47,8 +47,7 @@ Tenant-level:
 }
 ```
 
-The `login_url` should link to a route in the application that ends up redirecting to Auth0's `/authorize` endpoint, e.g. `http://yoursite.com/login'.
-
+The `login_url` should point to a route in the application that ends up redirecting to Auth0's `/authorize` endpoint, e.g. `http://yoursite.com/login'.
 
 ## Scenarios for Redirecting to the Default Login Page
 
