@@ -28,7 +28,7 @@ useCase: quickstart
 
 flask
 python-dotenv
-python-jose-cryptodome
+python-jose
 flask-cors
 six
 ```
