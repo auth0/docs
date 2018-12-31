@@ -1,3 +1,3 @@
 ::: note 
-You must [configure your tenant for third-party applications](/applications/enable-third-party-applications) 
+You must [have third-party applications enabled for your Auth0 tenant](/applications/enable-third-party-applications) to use this feature.
 :::
