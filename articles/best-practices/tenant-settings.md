@@ -15,7 +15,7 @@ useCase:
 
 # Tenant Settings Best Practices
 
-Hear are some best practices for configuring [tenants](/getting-started/the-basics#account-and-tenants).
+Here are some best practices for configuring [tenants](/getting-started/the-basics#account-and-tenants).
 
 ## Specify a production tenant
 
