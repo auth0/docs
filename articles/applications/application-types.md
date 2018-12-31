@@ -1,6 +1,6 @@
 ---
 title: Application Classifications
-description: Read about the different application classifications - public vs confidential, and first vs third-party
+description: Read about the different application classifications
 toc: true
 topics:
   - applications
@@ -14,12 +14,12 @@ useCase:
 
 <%= include('../_includes/_pipeline2') %>
 
-When working with Auth0 applications, which are used to represent your applications, there are several terms you should know in terms of how applications are classified:
+When working with Auth0 applications, which are used to represent your applications, there are several terms you should know regarding how applications are classified:
 
 * [Confidential vs public application types](#confidential-vs-public-applications)
 * [First vs third-party application ownership](#first-vs-third-party-applications) 
 
-## Confidential vs public applications
+## Confidential vs. public applications
 
 The OAuth 2.0 specification [defines two types of applications](https://tools.ietf.org/html/rfc6749#section-2.1): public and confidential. 
 
@@ -38,8 +38,8 @@ Auth0 determines the **Application Type** based on the **Token Endpoint Authenti
 The `Token Endpoint Authentication Method` defines how a Confidential Application authenticates against the [token endpoint](/api/authentication#authorization-code). Its valid values are:
 
 * `None`, for a public application without a client secret
-* `Post`, for a application using HTTP POST parameters
-* `Basic`, for a application using HTTP Basic parameters 
+* `Post`, for an application using HTTP POST parameters
+* `Basic`, for an application using HTTP Basic parameters 
 
 Additionally, any Application where the Token Endpoint Authentication Method is unspecified is confidential.
 
@@ -48,7 +48,7 @@ You can find this field at the [Application Settings page](${manage_url}/#/appli
 
 ### Confidential applications
 
-Confidential applications are able to hold credentials (such as a client ID and secret) in a secure way without exposing them to unauthorized parties. This means that you will need a trusted backend server to store the secret(s).
+Confidential applications can hold credentials (such as a client ID and secret) securely without exposing them to unauthorized parties. This means that you will need a trusted backend server to store the secret(s).
 
 The following application types use confidential applications:
 
@@ -74,13 +74,13 @@ Since public applications are unable to hold secrets, [ID Tokens](/tokens/id-tok
 * Signed asymmetrically using a private key (`RS256`)
 * Verified using the public key corresponding to the private key used to sign the token
 
-## First vs third-party applications
+## First vs. third-party applications
 
-First-party and third-party refer to the ownership of the application. This has implications in terms of who has administrative access to your Auth0 domain.
+First-party and third-party refer to the ownership of the application. This has implications regarding who has administrative access to your Auth0 domain.
 
 ### Check your application ownership setting
 
-You can use the Management API's [Get a Client endpoint](/api/management/v2#!/Clients/get_clients_by_id) to check your existing Application's ownership configuration. If the application is first party, the `is_first_party` equals `true`, else `false`. Be sure to replace `CLIENT_ID` with the ID of your application.
+You can use the Management API's [Get a Client endpoint](/api/management/v2#!/Clients/get_clients_by_id) to check your existing Application's ownership configuration. If the application is classified as first-party, the `is_first_party` equals `true`, else `false`. Be sure to replace `CLIENT_ID` with the ID of your application.
 
 ```har
 {
@@ -99,13 +99,13 @@ See [Access Tokens for the Management API](/api/management/v2/tokens) for instru
 
 ### First-party applications
 
-First-party applications are those controlled by the same organization or person who owns the Auth0 domain. For example, if you wanted to access the Contoso API, you'd use a first-party applications to log into `contoso.com`.
+First-party applications are those controlled by the same organization or person who owns the Auth0 domain. For example, if you wanted to access the Contoso API, you'd use a first-party application to log into `contoso.com`.
 
 All applications created via the [Dashboard](${manage_url}/#/applications) are first-party by default.
 
 ### Third-party applications
 
-Third-party applications are controlled by someone who most likely should *not* have administrative access to your Auth0 domain. Third-party applications enable external parties or partners to access protected resources behind your API securely. For example, if you were to create a developer center that allows users to obtain credentials to integrate their apps with your API (this functionality is similar to those provided by well-known APIs such as Facebook, Twitter, and GitHub), you would use a third-party applications.
+Third-party applications are controlled by someone who most likely should *not* have administrative access to your Auth0 domain. Third-party applications enable external parties or partners to access protected resources behind your API securely. For example, if you were to create a developer center that allows users to obtain credentials to integrate their apps with your API (this functionality is similar to those provided by well-known APIs such as Facebook, Twitter, and GitHub), you would use third-party applications.
 
 Third-party applications must be created through the [Management API](/api/management/v2#!/Clients/post_clients) by setting `is_first_party` to `false`.
 
@@ -113,7 +113,7 @@ Third-party applications must be created through the [Management API](/api/manag
 
 Third party applications have the following characteristics:
 
-- They cannot skip user consent when consuming APIs. This is for security purposes, as anyone can create an applications, but each applications relies on the final user to provide consent.
+- They cannot skip user consent when consuming APIs. This is for security purposes, as anyone can create an application, but each application relies on the final user to provide consent.
 - The [ID Tokens](/tokens/id-token) generated for these applications, hold minimum user profile information.
 - They can use only tenant [level connections (domain connections)](/applications/enable-third-party-applications#promote-connections). 
 - They cannot use [ID Tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should get a Management APIv2 Token (see the *How to get a Management APIv2 Token* panel for details). Note that the applications should be granted the `current_user_*` scopes, as required by each endpoint.
@@ -128,4 +128,3 @@ In order to access the [Management APIv2](/api/management/v2) endpoints from a t
 - `audience=https://${account.namespace}/api/v2/`
 - `scope=read:current_user update:current_user_metadata`
 :::
-
