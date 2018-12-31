@@ -1,6 +1,6 @@
 ---
-title: Enabling Third-party Applications
-description: Read about the requirements to set up a third party application
+title: Enabling Third-Party Applications
+description: How to enable a third-party application
 toc: true
 topics:
   - applications
@@ -11,22 +11,22 @@ useCase:
   - build-an-app
 ---
 
-# Enabling third-party applications
+# Enable third-party applications
 
-To enable [third-party applications](/application-types#third-party-applications) for your Tenant you must:
+To enable [third-party applications](/application-types#third-party-applications) for your tenant, you must:
 
-- update your application's login page (if you use [Lock](/libraries/lock/v11))
-- promote the connections you will use with your third-party applications to **domain connections**
+1. Update your application's login page (if you use [Lock](/libraries/lock/v11))
+2. Promote the connections you will use with your third-party applications to **domain connections**
 
-## Update the login page
+## Step 1: Update the login page
 
-If you use Lock in the [Hosted Login Page](/hosted-pages/login) you will need to:
+If you use Lock in the [Hosted Login Page](/hosted-pages/login), you must:
 
-- use at least version `10.7.x` of Lock
-- set `__useTenantInfo: config.isThirdPartyClient` when instantiating Lock
-- [PSaaS Appliance](/appliance) users must use `https://{config.auth0Domain}/` as the value for [the `configurationBaseUrl` option](https://github.com/auth0/lock#other-options) when instantiating Lock
+- Upgrade to Lock version 10.7.x or later
+- Set the `__useTenantInfo: config.isThirdPartyClient` flag when instantiating Lock
+- *For [PSaaS Appliance](/appliance) users only*: Set the [`configurationBaseUrl` option](https://github.com/auth0/lock#other-options) to `https://{config.auth0Domain}/` when instantiating Lock
 
-Sample script:
+### Sample script:
 
 ```html
  <script src="https://cdn.auth0.com/js/lock/11.x.y/lock.min.js"></script>
@@ -65,11 +65,11 @@ Sample script:
 </script>
 ```
 
-## Promote connections
+## Step 2: Promote connections
 
-Third-party applications can only authenticate users from connections flagged as **Domain Connections**. These connections will be open for any third-party application to allow users to authenticate and can still also be enabled for selected first party (standard) applications.
+Third-party applications can only authenticate users from connections flagged as **Domain Connections**. Domain connections can be enabled for selected first-party applications while also being open to third-party application users for authentication.
 
-You can promote a connection to domain level using the [Update a Connection endpoint](/api/management/v2#!/Connections/patch_connections_by_id).
+Promote a connection to domain level using the [Update a Connection endpoint](/api/management/v2#!/Connections/patch_connections_by_id).
 
 ```har
 {
@@ -86,8 +86,7 @@ You can promote a connection to domain level using the [Update a Connection endp
   }
 }
 ```
-
-Where:
-- `API2_ACCESS_TOKEN`: [Access Tokens for the Management API](/api/management/v2/tokens) with the scope `update:connections`
-- `CONNECTION_ID`: Τhe Id of the connection to be promoted
-
+| Value | Description |
+| - | - |
+| `API2_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the scope `update:connections` |
+| `CONNECTION_ID` | Τhe ID of the connection to be promoted |
