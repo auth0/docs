@@ -113,21 +113,13 @@ To avoid changes in functionality for current Auth0 customers, we will populate 
 
 ### New Applications
 
-Depending on whether a newly-created Application is [public](/applications/client-types#public-applications) or [confidential](/applications/client-types#confidential-applications), the Application will have varying access to grant types. Trusted first-party applications have access to additional grant types.
+Your newly-created Application will have access to different grant types based on whether it is [public or confidential](/applications/application-types#confidential-vs-public-applications).
+
+Trusted first-part applications have access to additional grant types.
 
 #### Public Applications
 
-Public Applications, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications. 
-
-::: panel Token Endpoint Authentication Method
-The `Token Endpoint Authentication Method` defines how a Application authenticates against the [token endpoint](/api/authentication#authorization-code). Its valid values are:
-
-* `None`, for a public application without a client secret
-* `Post`, for a application using HTTP POST parameters
-* `Basic`, for a application using HTTP Basic parameters 
-
-You can find this field at the [Application Settings page](${manage_url}/#/applications/${account.clientId}/settings) of the [Auth0 Dashboard](${manage_url}).
-:::
+Public applications are those created in the Dashboard for **Native Applications** and **Single Page Applications**. The application's `token_endpoint_auth_method` flag is set to `none`.
 
 By default, Public Applications are created with the following `grant_types`:
 
@@ -141,7 +133,7 @@ Public Applications **cannot** utilize the `client_credentials` grant type. To a
 
 #### Confidential Applications
 
-Confidential Applications, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Machine to Machine Applications. Additionally, any Application where `token_endpoint_auth_method` is unspecified is confidential. By default, Confidential Applications are created with the following `grant_types`:
+Confidential applications are created in the Dashboard for **Regular Web Applications** or **Machine-to-Machine Applications**. The application's `token_endpoint_auth_method` flag can be set to any value *except* `none`. By default, Auth0 creates confidential applications with the following `grant_types` enabled:
 
 * `implicit`;
 * `authorization_code`;

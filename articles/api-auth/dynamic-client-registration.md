@@ -19,21 +19,15 @@ Dynamic Client Registration enables you to register [third-party applications](/
 
 This feature is based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html) and in this article we will see how you can enable and use it.
 
+<%= include('../_includes/_enable-third-party-apps-info') %>
+
 ## Enable dynamic registration
-
-By default, the feature is disabled for all tenants. To change this, you have to:
-
-- update your tenant settings
-- promote the connections you will use with your dynamic applications to **domain connections**, and
-- update your application's login page (if you use [Lock](/libraries/lock/v11))
 
 ::: warning
 Auth0 supports **Open Dynamic Registration**, which means that if you enable this feature, **anyone** will be able to create applications in your tenant without a token.
 :::
 
-### Update tenant settings
-
-Set the `enable_dynamic_client_registration` flag to `true` in your tenant's settings.
+By default, the feature is disabled for all tenants. To change this, you have to set the `enable_dynamic_client_registration` flag to `true` in your tenant's settings.
 
 This can be done by enabling the **OIDC Dynamic Application Registration** toggle on your tenant's [Advanced Settings page](${manage_url}/#/tenant/advanced).
 
@@ -56,75 +50,6 @@ Alternatively, you can update this flag using the [Update tenant settings endpoi
 ```
 
 You need to update the `API2_ACCESS_TOKEN` with a valid token with the scope `update:tenant_settings`. See [Access Tokens for the Management API](/api/management/v2/tokens) for details on how to do so.
-
-### Promote connections
-
-Applications registered via the [Dynamic Application Registration Endpoint](#register-your-application) can only authenticate users using connections flagged as **Domain Connections**. These connections will be open for any dynamic application to allow users to authenticate.
-
-You can promote a connection to domain level using the [Update a Connection endpoint](/api/management/v2#!/Connections/patch_connections_by_id).
-
-```har
-{
-  "method": "PATCH",
-  "url": "https://${account.namespace}/api/v2/connections/CONNECTION_ID",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" },
-    { "name": "Authorization", "value": "Bearer API2_ACCESS_TOKEN" },
-    { "name": "Cache-Control", "value": "no-cache" }
-  ],
-  "postData": {
-      "mimeType": "application/json",
-      "text" : "{ \"is_domain_connection\": true }"
-  }
-}
-```
-
-Where:
-- `API2_ACCESS_TOKEN`: [Access Tokens for the Management API](/api/management/v2/tokens) with the scope `update:connections`
-- `CONNECTION_ID`: Τhe Id of the connection to be promoted
-
-
-### Update the login page
-
-To use the Auth0's [Universal Login](/hosted-pages/login) with the Dynamic Application feature, you need to use at least version `10.7.x` of Lock, and set `__useTenantInfo: config.isThirdPartyClient` when instantiating Lock.
-
-Sample script:
-
-```html
-<script src="https://cdn.auth0.com/js/lock/10.7/lock.min.js"></script>
-...
-<script>
-  // Decode utf8 characters properly
-  var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
-
-  var connection = config.connection;
-  var prompt = config.prompt;
-  var languageDictionary;
-  var language;
-  if (config.dict && config.dict.signin && config.dict.signin.title) {
-    languageDictionary = { title: config.dict.signin.title };
-  } else if (typeof config.dict === 'string') {
-    language = config.dict;
-  }
-
-  var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
-    auth: {
-      redirectUrl: config.callbackURL,
-      responseType: config.callbackOnLocationHash ? 'token' : 'code',
-      params: config.internalOptions
-    },
-    assetsUrl:  config.assetsUrl,
-    allowedConnections: connection ? [connection] : null,
-    rememberLastLogin: !prompt,
-    language: language,
-    languageDictionary: languageDictionary,
-    closable: false,
-    __useTenantInfo: config.isThirdPartyClient
-  });
-
-  lock.show();
-</script>
-```
 
 ## Use dynamic registration
 
