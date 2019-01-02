@@ -13,9 +13,7 @@ useCase:
 
 The [`GET /api/v2/users-by-email` endpoint](/api/management/v2#!/Users_By_Email/get_users_by_email) allows you to search for users using their email addresses. The search looks for an exact match to the provided email address.
 
-## Before you start
-
-To use the user search endpoints, you'll need to obtain a valid [Access Token](/api/management/v2/tokens) and provide it in the header of your call (replace the `YOUR_MGMT_API_ACCESS_TOKEN` placeholder value).
+<%= include('./_valid-access-token') %>
 
 ## Syntax
 
@@ -73,7 +71,7 @@ To use the user search endpoints, you'll need to obtain a valid [Access Token](/
 
 ## Limitations
 
-The Users by Email endpoint is immediately consistent, and as such, we recommend that you use this endpoint for:
+This endpoint is **immediately consistent**, and as such, we recommend that you use this endpoint for:
 
 * User searches run during the authentication process 
 * User searches run as part of the account linking process.

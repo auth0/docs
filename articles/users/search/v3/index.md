@@ -1,7 +1,6 @@
 ---
 title: User Search
 description: Describes how the Auth0 search endpoints allow you to search for and retrieve users.
-toc: true
 topics:
   - users
   - user-management

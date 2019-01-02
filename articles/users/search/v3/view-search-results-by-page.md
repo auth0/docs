@@ -19,6 +19,8 @@ Parameter | Description
 `per_page` | The amount of users per page.
 `include_totals` | Set to `true` to include a query summary as part of the result.
 
+## Sample request
+
 ```har
 {
     "method": "GET",
@@ -53,9 +55,9 @@ Parameter | Description
 }
 ```
 
-::: note
+## Limitation
+
 Auth0 limits the total number of users you can retrieve to 1000, so for example, 100 users per page for 10 pages.
-:::
 
 ## Keep reading
 

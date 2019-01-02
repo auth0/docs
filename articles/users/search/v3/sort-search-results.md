@@ -11,7 +11,13 @@ useCase:
 ---
 # Sort Search Results
 
-To sort user search results, pass a `field:order` value to the `sort` parameter when making your request. The `field` is the name of the field to sort by, while order can be set to `1` for ascending order and `-1` for descending. Sorting by `app_metadata` or `user_metadata` is not supported.
+To sort user search results, pass a `field:order` value to the `sort` parameter when making your request. The `field` is the name of the field to sort by, while order can be set to `1` for ascending order and `-1` for descending. 
+
+::: note
+Sorting by `app_metadata` or `user_metadata` is not supported.
+:::
+
+## Sample request
 
 For example, to sort users in ascending order by the `created_at` field you can pass the value `created_at:1` to the `sort` parameter:
 

@@ -15,14 +15,12 @@ The [`POST /api/v2/jobs/users-exports`](/api/management/v2#!/Jobs/post_users_exp
 
 When you create your job, you'll need to provide:
 
-* The ID for the connection whose users you want exported
-* The format of the export file (CSV or JSON)
-* The maximum number of user records to be exported
-* The user-related fields (such as user ID or name) that you want included in the export
+* ID for the connection whose users you want exported
+* Format of the export file (CSV or JSON)
+* Maximum number of user records to be exported
+* User-related fields (such as user ID or name) that you want included in the export
 
-## Before you start
-
-To use the user search endpoints, you'll need to obtain a valid [Access Token](/api/management/v2/tokens) and provide it in the header of your call (replace the `YOUR_MGMT_API_ACCESS_TOKEN` placeholder value).
+<%= include('./_valid-access-token') %>
 
 ## Syntax
 

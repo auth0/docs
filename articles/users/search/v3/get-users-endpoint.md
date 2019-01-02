@@ -17,9 +17,7 @@ The [`GET /api/v2/users` endpoint](/api/management/v2#!/Users/get_users) allows 
 * Select the fields to be returned
 * Sort the returned results
 
-## Before you start
-
-To use the user search endpoints, you'll need to obtain a valid [Access Token](/api/management/v2/tokens) and provide it in the header of your call (replace the `YOUR_MGMT_API_ACCESS_TOKEN` placeholder value).
+<%= include('./_valid-access-token') %>
 
 ## Search for users
 
