@@ -69,17 +69,24 @@ function (user, context, callback) {
 }
 ```
 
+::: note 
+If you need to add custom claims to the Access Token, the same applies but using `context.accessToken` instead. 
+
+Please note that adding custom claims to ID Tokens through this method will also let you obtain them when calling the `/userinfo` endpoint. However, rules run when the user is authenticating, not when `/userinfo` is called.
+:::
+
 Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. The namespace URL does not have to point to an actual resource, it’s only used as an identifier and will not be called by Auth0. 
 
 ::: warning
 `auth0.com`, `webtask.io` and `webtask.run` are Auth0 domains and therefore cannot be used as a namespace identifier.
 :::
 
-This follows a [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant. While this is not mandatory according to the specification, Auth0 will always enforce namespacing, meaning that any custom claims without HTTP/HTTPS namespaces will be silently excluded from tokens.
+This follows a [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant. While this is not mandatory according to the specification, Auth0 will always enforce namespacing when performing OIDC-conformant login flows, meaning that any custom claims without HTTP/HTTPS namespaces will be silently excluded from tokens.
 
-If you need to add custom claims to the Access Token, the same applies but using `context.accessToken` instead.
+Auth0 will only allow non-OIDC claims without a namespace (through the "legacy" user profile, from which we strongly recommend moving away) if:
 
-Please note that adding custom claims to ID Tokens through this method will also let you obtain them when calling the `/userinfo` endpoint. However, rules run when the user is authenticating, not when `/userinfo` is called.
+* You are using the non-OIDC conformant pipeline (i.e., you are not using the audience parameter in the /authorize or token request and the application does not have the OIDC-Conformant toggle enabled).
+* You have the Legacy User Profile toggle turned on in the tenant Advanced Settings, under the Migrations section. This setting is only enabled for old tenants; newly created tenants can't see or enable the Legacy User Profile. We strongly recommend moving away from the Legacy User Profile.
 
 ## Keep reading
 
