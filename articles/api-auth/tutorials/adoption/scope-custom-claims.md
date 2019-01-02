@@ -86,7 +86,7 @@ This follows a [recommendation from the OIDC specification](https://openid.net/s
 ::: note
 Auth0 will allow non-OIDC claims without a namespace (the "legacy" user profile, from which we strongly recommend moving away) if:
 
-* You are using the non-OIDC conformant pipeline (i.e., you are not using the `audience` parameter in the `/authorize` or token request and the application does not have the **OIDC-Conformant** toggle enabled).
+* You are using the non-OIDC conformant pipeline (i.e., you are not using the `audience` parameter in the `/authorize` or token request and the application does not have the **OIDC-Conformant** [toggle](https://auth0.com/docs/api-auth/tutorials/adoption/oidc-conformant) enabled).
 * You have the **Legacy User Profile** toggle turned on in the [tenant Advanced Settings](https://manage.auth0.com/#/tenant/advanced), under the **Migrations** section. This setting is only enabled for old tenants, but newly created tenants can't see or enable the **Legacy User Profile**. 
 
 We strongly recommend moving away from the Legacy User Profile.
