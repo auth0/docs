@@ -20,6 +20,10 @@ Looking for someone? You can search for users matching a custom query with the [
 
 In this article you'll learn how to search for users and sort the results.
 
+::: warning
+User Search v3 is not yet available for the PSaaS Appliance.
+:::
+
 ## Before you start
 
 * Review the [User Search Query Syntax](/users/search/query-syntax).
@@ -232,9 +236,7 @@ If no additional details are specified in the log entries, it's likely that your
 
 Please note that only one log of the same type will generated within 60 minutes. This means that even though you may be doing multiple calls to the User Search endpoint, you will only see one log of each type per hour.
 
-## Next steps
+## Keep reading
 
-::: next-steps
-* [Learn how you can use the query string syntax to build custom queries](/users/search/v3/query-syntax)
-* [Learn about the Auth0 best practices for user search](/users/search/best-practices)
-:::
+* [Query Syntax](/users/search/v3/query-syntax)
+* [Search Best Practices](/best-practices/search-best-practices)

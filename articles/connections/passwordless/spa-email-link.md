@@ -95,7 +95,7 @@ This will send an email containing the magic link. After clicking the link, the 
 ```js
 //parse hash on page load
 $(document).ready(function(){
-  webAuth.parseHash(window.location.hash, function(err, authResult) {
+  webAuth.parseHash({hash: window.location.hash}, function(err, authResult) {
     if (err) {
       return console.log(err);
     }
@@ -106,5 +106,8 @@ $(document).ready(function(){
   });
 });
 ```
+
+<%= include('./_single-browser-magic-link') %>
+
 
 Check out the [Auth0.js SDK reference documentation](/libraries/auth0js) for more information.

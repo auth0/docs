@@ -1,58 +1,48 @@
 ---
-url: /hooks
-classes: topic-page
-title: Hooks
-description: Working with Hooks
+description: Describes what Hooks and Extensibility Points are
 beta: true
 topics:
     - hooks
+    - extensibility-points
 contentType:
-  - index
+  - concept
 useCase: extensibility-hooks
 ---
+# Hooks, Webtasks, and Extensibility Points
 
-<div class="topic-page-header">
-  <div data-name="example" class="topic-page-badge"></div>
-  <h1>Hooks</h1>
-  <p>
-    Hooks allow you to extend the Auth0 platform with custom code.
-  </p>
-</div>
+Hooks allow you to extend the Auth0 platform with custom code.
 
-## What are Hooks?
+When using [Database Connections](/connections/database), Hooks allow you to customize the behavior of Auth0 using Node.js code that executes against extensibility points (which are comparable to webhooks that come with a server). Hooks allow you modularity when configuring your Auth0 implementation, and extend the functionality of base Auth0 features.
 
-When using [Database Connections](/connections/database), Hooks allow you to customize the behavior of Auth0 using Node.js code that is executed against extensibility points (which are comparable to webhooks that come with a server). Hooks allow you modularity when configuring your Auth0 implementation, and extend the functionality of base Auth0 features.
+## Hooks
 
----
+Hooks are Webtasks associated with specific extensibility points of the Auth0 platform. When using [Database Connections](/connections/database), Auth0 invokes the Hooks at runtime to execute custom logic.
 
-## Work with Hooks
+Manage Hooks using:
 
-<ul class="topic-links">
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/hooks/overview">Overview of Hooks</a>
-    <p>
-      Hooks provide an easy-to-use method for extending the functionality of the base Auth0 platform.
-    </p>
-    <ul>
-      <li>
-        <i class="icon icon-budicon-695"></i><a href="/hooks/extensibility-points">Auth0 Extensibility Points</a>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/hooks/dashboard">Work with Hooks in the Management Dashboard</a>
-    <p>
-      How to work with Hooks using the Auth0 Management Dashboard
-    </p>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/hooks/cli">Work with Hooks using the Command-Line Interface</a>
-    <p>
-      How to work with Hooks using the Auth0 Command-Line Interface
-    </p>
-  </li>
-</ul>
+* The Dashboard
+* The Command-Line Interface
 
-## Use the Webtask Editor
+### Use the Dashboard
 
-You can edit Hooks directly using the Webtask Editor. Please see the [Webtask documentation](https://webtask.io/docs/editor) for detailed information.
+With the Dashboard, you can [create](/hooks/guides/create-hooks-using-dashboard) or [delete](/hooks/guides/delete-hooks-using-dashboard) a Hook, [edit an existing Hook](/hooks/guides/edit-hooks-using-dashboard), and [enable or disable an existing Hook](/hooks/guides/enable-disable-hooks-using-dashboard) using the Dashboard.
+
+### Use the command-line interface
+
+The command-line interface offers similar functionality to the dashboard in that you can [create](/hooks/guides/create-hooks-using-cli) or [delete](/hooks/guides/delete-hooks-using-cli) a Hook, [edit an existing Hook](/hooks/guides/edit-hooks-using-cli), and [enable or disable an existing Hook](/hooks/guides/enable-disable-hooks-using-cli).
+
+The command-line interface also offers you the ability to get [logs on your Hooks usage](/hooks/guides/logging-hooks-using-cli).
+
+## Extensibility points
+
+Hooks allow you to customize the behavior of Auth0 with Node.js code, but they are executed only against selected extensibility points, which are the serverless option analogous to the webhooks that come with a server. The following is a list of currently available extensibility points:
+
+- [Credentials Exchange](/hooks/concepts/credentials-exchange-extensibility-point): change the scopes and add custom claims to the tokens issued by the Auth0 API's `POST /oauth/token` endpoint
+- [Pre-User Registration](/hooks/concepts/pre-user-registration-extensibility-point): prevent user registration and add custom metadata to a newly-created user
+- [Post-User Registration](/hooks/concepts/post-user-registration-extensibility-point): implement custom actions that execute asynchronously from the Auth0 authentication process after a new user registers and is added to the database
+
+<%= include('../_includes/_ip_whitelist') %>
+
+## Use the Webtask Editor to edit Hooks
+
+Edit Hooks directly using the Webtask Editor. Please see the [Webtask documentation](https://webtask.io/docs/editor) for detailed information.

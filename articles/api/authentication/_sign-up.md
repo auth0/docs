@@ -72,7 +72,7 @@ This endpoint only works for database connections.
 | `email` <br/><span class="label label-danger">Required</span> | The user's email address. |
 | `password` <br/><span class="label label-danger">Required</span> | The user's desired password. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database configured to your client. |
-| `user_metadata` | The [user metadata](/metadata) to be associated with the user. If set, the field must be an object containing no more than ten properties. Property names can have a maximum of 100 characters, and property values must be strings of no more than 500 characters. |
+| `user_metadata` | The [user metadata](/users/concepts/overview-user-metadata) to be associated with the user. If set, the field must be an object containing no more than ten properties. Property names can have a maximum of 100 characters, and property values must be strings of no more than 500 characters. |
 
 ### Test with Postman
 
@@ -88,4 +88,4 @@ This endpoint only works for database connections.
 - [Password Strength in Auth0 Database Connections](/connections/database/password-strength)
 - [Password Options in Auth0 Database Connections](/connections/database/password-options)
 - [Adding Username for Database Connections](/connections/database/require-username)
-- [User Metadata](/metadata)
+- [Metadata Overview](/users/concepts/overview-user-metadata)

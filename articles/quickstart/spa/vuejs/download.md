@@ -4,7 +4,11 @@ To run the sample follow these steps:
 ```text
 http://localhost:3000/callback
 ```
-2) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the sample's directory:
+2) Set **Allowed Web Origins** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to
+```text
+http://localhost:3000
+```
+3) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the sample's directory:
 ```bash
 npm install && npm start
 ```

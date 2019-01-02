@@ -25,7 +25,7 @@ When the recipient opens the invite, the current Auth0 account in the browser wi
 Admins can be removed by clicking the **REMOVE** button after they have been added.
 
 ::: note
-If you're an app-specific administrator, pages to which you don't have access (such as APIs, Rules, Hooks, Hosted Pages, and so on) may appear blank.
+If you're an app-specific administrator, you will not have user management privileges and pages to which you don't have access (such as APIs, Rules, Hooks, Hosted Pages, and so on) may appear blank.
 :::
 
 ::: note

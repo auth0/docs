@@ -28,11 +28,11 @@ You can obtain JWTs for testing using any of the following methods:
 
 Unless your server-side application allows the generation of artificial sessions for testing, you'll need a way to perform a login through Auth0 manually.
 
-For a high-level overview of how to do this, see [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code). For detailed implementation instructions, see [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant).
+For a high-level overview of how to do this, see [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow). For detailed implementation instructions, see our tutorial, [Call API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
 
 ## Use local domains with Auth0
 
-If you're developing your application locally, you can use `localhost` and other domains inaccessible by Auth0 (such as those on an intranet) as [callback URLs](/users/redirecting-users). For example, during development you could `http://localhost:3000/callback` as the callback URL.
+If you're developing your application locally, you can use `localhost` and other domains inaccessible by Auth0 (such as those on an intranet) as [callback URLs](/users/guides/redirect-users-after-login). For example, during development you could `http://localhost:3000/callback` as the callback URL.
 
 To set a callback URL, go to [Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings) and add the URL to the **Allowed Callback URLs** list.
 

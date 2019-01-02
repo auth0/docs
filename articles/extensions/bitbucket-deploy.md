@@ -11,7 +11,7 @@ useCase: extensibility-extensions
 
 # Bitbucket Deployments
 
-The **Bitbucket Deployments** extension allows you to deploy [Rules](/rules) and Database Connection scripts from Bitbucket to Auth0. You can configure a Bitbucket repository, keep all of your Rules and Database Connection scripts there, and have them automatically deployed to Auth0 whenever you push changes to your repository.
+The **Bitbucket Deployments** extension allows you to deploy [rules](/rules), rules configs, connections, database connection scripts, clients (and client grants), resource servers, hosted pages and email templates from Bitbucket to Auth0. You can configure a Bitbucket repository, keep all of your Rules and Database Connection scripts there, and have them automatically deployed to Auth0 whenever you push changes to your repository.
 
 ## Configure the Extension
 
@@ -25,6 +25,7 @@ Set the following configuration variables:
 * **BITBUCKET_BRANCH**: The branch the extension will monitor for changes
 * **BITBUCKET_USER**: The username used to access the Bitbucket account. Make sure you use the username, and not the email
 * **BITBUCKET_PASSWORD**: An app password you create through the Bitbucket settings to grant permissions to certain apps
+* **BASE_DIR**: The base directory, where all your tenant settings are stored
 * **SLACK_INCOMING_WEBHOOK**: The Webhook URL for Slack used to notify you of successful and failed deployments
 
 Once you have provided this information, click **Install**.
@@ -51,7 +52,13 @@ You can find details on how to configure a webhook at [Creating Webhooks](https:
 
 Once you have set up the webhook in Bitbucket using the provided information, you are ready to start committing to your repository.
 
-With each commit you push to your configured Bitbucket repository, the webhook will call the extension to initiate a deployment if changes were made to the `rules` and/or the `database-connection` folders.
+With each commit you push to your configured Bitbucket repository, the webhook will call the extension to initiate a deployment if changes were made to one of these folders:
+- `clients`
+- `resource-servers`
+- `database-connections`
+- `rules-configs`
+- `rules`
+- `pages`
 
 The **Deploy** button on the **Deployments** tab of the extension allows you to manually deploy the Rules and Database Connection scripts that you already have in your Bitbucket repository. This is useful if your repository already contains items that you want to deploy once you have set up the extension or if you have accidentally deleted some scripts in Auth0 and need to redeploy the latest version of your repository.
 
@@ -84,14 +91,14 @@ The supported hosted pages are:
 - `login`
 - `password_reset`
 
-To deploy a page, you must create an HTML file under the `pages` directory of your Bitbucket repository. For each HTML page you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, in order to deploy an `error_page`, you would create two files:
+To deploy a page, you must create an HTML file under the `pages` directory of your Bitbucket repository. For each HTML page, you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, to deploy an `error_page`, you would create two files:
 
 ```text
 your-bitbucket-repo/pages/error_page.html
 your-bitbucket-repo/pages/error_page.json
 ```
 
-To enable the page the `error_page.json` would contain the following:
+To enable the page, the `error_page.json` would contain the following:
 
 ```json
 {
@@ -101,7 +108,7 @@ To enable the page the `error_page.json` would contain the following:
 
 ### Deploy Rules
 
-To deploy a rule, you must first create a JavaScript file under the `rules` directory of your Bitbucket repository. Each Rule must be in its own `.js` file.
+To deploy a rule, you must first create a JavaScript file under the `rules` directory of your Bitbucket repository. Each Rule must be in its own JavaScript file.
 
 For example, if you create the file `rules/set-country.js`, the extension will create a Rule in Auth0 with the name `set-country`.
 
@@ -126,7 +133,7 @@ function (user, context, callback) {
 ```
 
 __set-country.json__
-```javascript
+```json
 {
   "enabled": false,
   "order": 15,
@@ -138,7 +145,132 @@ You can find a `login_success` example in [the Auth0 Samples repository](https:/
 
 #### Set Rule Order
 
-To avoid conflicts, you are cannot set multiple Rules of the same order. However, you can create a JSON file for each rule, and within each file, assign a value for `order`. We suggest using number values that allow for reordering with less risk for conflict. For example, assign a value of `10` to the first Rule and `20` to the second Rule, rather than using values of `1` and `2`, respectively).
+To avoid conflicts, you cannot set multiple Rules of the same order. However, you can create a JSON file for each rule, and within each file, assign a value for `order`. We suggest using number values that allow for reordering with less risk of conflict. For example, assign a value of `10` to the first Rule and `20` to the second Rule, rather than using values of `1` and `2`, respectively).
+
+### Deploy Rules Configs
+
+To deploy a rule config, you must create a JSON file under the `rules-configs` directory of your Bitbucket repository. Example:
+
+__secret_number.json__
+```json
+{
+  "key": "secret_number",
+  "value": 42
+}
+```
+
+### Deploy Clients
+
+To deploy a client, you must create a JSON file under the `clients` directory of your Bitbucket repository. For each JSON page, you can create a metafile (with the same name - `name.meta.json`) if you want to specify any client grants. Example:
+
+__my-client.json__
+```json
+{
+  "name": "my-client"
+}
+```
+
+__my-client.meta.json__
+```json
+{
+  "audience": "https://myapp.com/api/v1",
+    "scope": [
+      "read:users"
+    ]
+}
+```
+
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Clients/post_clients) for more info on allowed attributes for Clients and Client Grants.
+
+### Deploy Resource Servers
+
+To deploy a resource server, you must create a JSON file under the `resource-servers` directory of your Bitbucket repository. Example:
+
+__my-api.json__
+```json
+{
+  "name": "my-api",
+  "identifier": "https://myapp.com/api/v1",
+  "scopes": [
+    {
+      "value": "read:users",
+      "description": "Allows getting user information"
+    }
+  ]
+}
+```
+
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Resource_Servers/post_resource_servers) for more info on allowed attributes for Resource Servers.
+
+### Deploy Connections
+
+To deploy a connection, you must create a JSON file under the `connections` directory of your Bitbucket repository. Example:
+
+__facebook.json__
+```json
+{
+  "name": "facebook",
+  "strategy": "facebook",
+  "enabled_clients": [
+    "my-client"
+  ],
+  "options": {}
+}
+```
+
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
+
+### Deploy Email Provider
+
+To deploy an email provider, you must create `provider.json` file under the `emails` directory of your Bitbucket repository. Example:
+
+__provider.json__
+```json
+{
+    "name": "smtp",
+    "enabled": true,
+    "credentials": {
+        "smtp_host": "smtp.server.com",
+        "smtp_port": 25,
+        "smtp_user": "smtp_user",
+        "smtp_pass": "smtp_secret_password"
+    }
+}
+```
+
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Emails/patch_provider) for more info on allowed attributes for Email Provider.
+
+### Deploy Email Templates
+
+The supported email templates are:
+- `verify_email`
+- `reset_email`
+- `welcome_email`
+- `blocked_account`
+- `stolen_credentials`
+- `enrollment_email`
+- `mfa_oob_code`
+
+To deploy an email template, you must create an HTML file under the `emails` directory of your Bitbucket repository. For each HTML file, you need to create a JSON file (with the same name) with additional options for that template. For example, to deploy a `blocked_account` template, you would create two files:
+
+```text
+your-bitbucket-repo/emails/blocked_account.html
+your-bitbucket-repo/emails/blocked_account.json
+```
+
+__blocked_account.json__
+```json
+{
+    "template": "blocked_account",
+    "from": "",
+    "subject": "",
+    "resultUrl": "",
+    "syntax": "liquid",
+    "body": "./blocked_account.html",
+    "urlLifetimeInSeconds": 432000,
+    "enabled": true
+}
+```
 
 ## Track Deployments
 

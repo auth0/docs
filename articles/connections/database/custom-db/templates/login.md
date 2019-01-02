@@ -61,7 +61,7 @@ function login (email, password, callback) {
   //
   // There are three ways this script can finish:
   // 1. The user's credentials are valid. The returned user profile should be in
-  // the following format: https://auth0.com/docs/user-profile/normalized
+  // the following format: https://auth0.com/docs/users/normalized
   //     var profile = {
   //       user_id: ..., // user_id is mandatory
   //       email: ...,

@@ -16,6 +16,14 @@ Auth0 [integrates with Active Directory/LDAP](/connections/enterprise/active-dir
 
 The **AD/LDAP Connector** acts as a bridge between your **Active Directory** service and the **Auth0**. This is necessary, since AD typically runs and is accessible to your internal network, while Auth0 is a cloud service (and therefore running in a different context from your AD service).
 
+::: panel-warning AD/LDAP Connector and Your Customer's Servers
+The AD/LDAP Connector is designed for scenarios where your company controls the AD/LDAP server. The connector should **not** be installed on your customer's servers.
+
+For B2B scenarios where you want to allow your customer's users to access your applications using their enterprise credentials, connect to your customer's federation service (e.g., their own Auth0 service, ADFS, or any SAML identity provider) using one of the available enterprise connections.
+
+Installing an AD/LDAP connector on your customer's servers that is then connected directly to your Auth0 domain results in you handling the passwords of your customer's users directly. Auth0 strongly recommends against these types of deployments and does not support them.
+:::
+
 ![](/media/articles/connector/ad-data-flow.png)
 
 The Connector supports authentication based on the following:
@@ -32,6 +40,10 @@ To disable credential caching at the [connection](/identityproviders) level:
 1. Go to [Dashboard > Enterprise Connections](${manage_url}/#/connections/enterprise)
 2. Click on the **Settings** icon for the **Active Directory / LDAP** connection
 3. Toggle **Disable Cache**
+
+::: warning
+Values in the cache are case sensitive, which means that login attempts will only succeed if end users provide the exact username that was cached.
+:::
 
 ## Notes
 

@@ -10,7 +10,7 @@ useCase: compliance
 ---
 # Track Consent with Custom UI
 
-In this tutorial we will see how you can use auth0.js or the Auth0 APIs to ask for consent information and save the input at the user's [metadata](/metadata).
+In this tutorial we will see how you can use auth0.js or the Auth0 APIs to ask for consent information and save the input at the user's [metadata](/users/concepts/overview-user-metadata).
 
 <%= include('../_legal-warning.md') %>
 
@@ -18,7 +18,7 @@ In this tutorial we will see how you can use auth0.js or the Auth0 APIs to ask f
 
 We will capture consent information, under various scenarios, and save this at the user's metadata.
 
-All scenarios will save the following properties at the [user's metadata](/metadata):
+All scenarios will save the following properties at the user's metadata:
 - a `consentGiven` property, with true/false values, shows if the user has provided consent (true) or not (false)
 - a `consentTimestamp` property, holding the Unix timestamp of when the user provided consent
 
@@ -139,7 +139,7 @@ What you have to do instead is let your user sign up with the social provider (w
 Before you call the Management API you need to get a valid token. For details see [Get Access Tokens for Production](/api/management/v2/get-access-tokens-for-production).
 
 :::panel Get a token from an SPA
-The linked article uses the [Client Credentials OAuth 2.0 grant](/api-auth/grant/client-credentials) to get a token, which you cannot use from an app running on the browser. What you can use instead is the [Implicit Grant](/api-auth/grant/implicit). Set the **audience** request parameter to `https://${account.namespace}/api/v2/` and the **scope** parameter to the scope `create:current_user_metadata`. You can use the Access Token you will get at the response to call the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id).
+The linked article uses the [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow) to get a token, which you cannot use from an app running on the browser. What you can use instead is the [Single-Page Login Flow](/flows/concepts/single-page-login-flow). Set the **audience** request parameter to `https://${account.namespace}/api/v2/` and the **scope** parameter to the scope `create:current_user_metadata`. You can use the Access Token you will get at the response to call the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id).
 :::
 
 Once you have a valid token, use the following snippet to update the user's metadata.
@@ -169,7 +169,7 @@ Once you have a valid token, use the following snippet to update the user's meta
 }
 ```
 
-Note that in order to make this call you need to know the unique `user_id`. You can retrieve this from the `sub` claim of the [ID Token](/tokens/id-token), if you got one from the response. Alternatively, if all you have is the email, you can retrieve the Id by calling another endpoint of the Management API. For more information see [Search Users by Email](/users/search/best-practices#users-by-email).
+Note that in order to make this call you need to know the unique `user_id`. You can retrieve this from the `sub` claim of the [ID Token](/tokens/id-token), if you got one from the response. Alternatively, if all you have is the email, you can retrieve the Id by calling another endpoint of the Management API. For more information see [Search Users by Email](/best-practices/search-best-practices#users-by-email).
 
 ## Option 4: Redirect to another page
 

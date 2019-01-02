@@ -44,7 +44,7 @@ This would be the profile stored by Auth0:
 }
 ```
 
-This is a [*normalized user profile*](/user-profile/normalized), which is a protocol-agnostic representation of this user as defined by Auth0. When performing an OIDC conformant login, Auth0 would return the following ID Token claims to the application:
+This is a [*normalized user profile*](/users/normalized), which is a protocol-agnostic representation of this user as defined by Auth0. When performing an OIDC conformant login, Auth0 would return the following ID Token claims to the application:
 
 ```json
 {
@@ -87,6 +87,10 @@ Auth0 will only allow non-OIDC claims without a namespace (through the "legacy" 
 
 * You are using the non-OIDC conformant pipeline (i.e., you are not using the audience parameter in the /authorize or token request and the application does not have the OIDC-Conformant toggle enabled).
 * You have the Legacy User Profile toggle turned on in the tenant Advanced Settings, under the Migrations section. This setting is only enabled for old tenants; newly created tenants can't see or enable the Legacy User Profile. We strongly recommend moving away from the Legacy User Profile.
+
+## Token refresh flow and custom claims
+
+When an application requests new tokens using a [Refresh Token](/tokens/refresh-token/current), the new tokens will not automatically inherit any custom claims previously added. But since rules run on a token refresh flow as well, the same claim customization code will be executed in these cases. This gives the flexibility of adding or changing claims in newly issued tokens without forcing applications to obtain a new refresh token.
 
 ## Keep reading
 

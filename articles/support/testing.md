@@ -53,11 +53,3 @@ These tools should provide activity logs that help you identify anything that is
 ### HAR Files
 
 If you discover an issue that you can reproduce, you can [create a HAR file](/tutorials/troubleshooting-with-har-files) and send it to our Support team for additional assistance.
-
-## Testing Rules and Custom Database Connections
-
-If you would like to automate the testing of [Rules](/rules) or [Custom Database Connections](/connections/database/custom-db), there are a couple of NPM packages that can assist you with this.
-
-The [auth0-rules-testharness](https://www.npmjs.com/package/auth0-rules-testharness) package provides an easy way to deploy, execute, and test the output of Auth0 Rules using a real webtask sandbox environment.
-
-The [auth0-custom-db-testharness](https://www.npmjs.com/package/auth0-custom-db-testharness) package provides an easy way to deploy, execute, and test the output of Auth0 Custom DB Scripts using a real webtask sandbox environment.

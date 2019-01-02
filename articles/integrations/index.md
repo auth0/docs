@@ -36,7 +36,7 @@ useCase:
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-705"></i><a href="/analytics/integrations">Marketing Integrations</a>
+    <i class="icon icon-budicon-705"></i><a href="/integrations/marketing">Marketing Integrations</a>
     <p>
         Learn how to import your Auth0 user data into marketing tools.
     </p>

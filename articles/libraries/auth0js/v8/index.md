@@ -224,7 +224,7 @@ var url = webAuth.client.buildAuthorizeUrl({
 ```
 
 ::: note
-The `state` parameter is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks, and it needs to be specified if you redirect to the URL yourself instead of calling `webAuth.authorize()`. The [OAuth state documentation](/protocols/oauth2/oauth-state) describes how to do use it correctly.
+The `state` parameter is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks, and it needs to be specified if you redirect to the URL yourself instead of calling `webAuth.authorize()`. For more information, see [State Parameter](/protocols/oauth2/oauth-state).
 :::
 
 ## Passwordless login
@@ -541,7 +541,7 @@ auth0Manage.getUser(userId, cb);
 
 ### Updating the user profile
 
-When updating user metadata, you will need to first create a `userMetadata` object, and then call the `patchUserMetadata` method, passing it the user id and the `userMetadata` object you created. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata. Visit the [User Metadata](/metadata) documentation for more details on user metadata.
+When updating user metadata, you will need to first create a `userMetadata` object, and then call the `patchUserMetadata` method, passing it the user id and the `userMetadata` object you created. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata. See the [Metadata](/users/concepts/overview-user-metadata) documentation for more details on user metadata.
 
 ```js
 auth0Manage.patchUserMetadata(userId, userMetadata, cb);

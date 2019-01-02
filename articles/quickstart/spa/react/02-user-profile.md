@@ -36,34 +36,38 @@ Add a method that calls the `client.userInfo` method to the `Auth` service.
 ```js
 // src/Auth/Auth.js
 
+// ...
+
+userProfile;
+
+// ...
+
 constructor() {
   // ...
   this.getProfile = this.getProfile.bind(this);
 }
 
 // ...
-userProfile;
 
-// ...
-
-getAccessToken() {
-    const accessToken = localStorage.getItem('access_token');
-    if (!accessToken) {
-      throw new Error('No Access Token found');
-    }
-    return accessToken;
-  }
-
-//...
 getProfile(cb) {
-  let accessToken = this.getAccessToken();
-  this.auth0.client.userInfo(accessToken, (err, profile) => {
+  this.auth0.client.userInfo(this.accessToken, (err, profile) => {
     if (profile) {
       this.userProfile = profile;
     }
     cb(err, profile);
   });
 }
+
+logout() {
+  // ...
+
+  // Remove user profile
+  this.userProfile = null;
+
+  // ...
+}
+
+// ...
 ```
 
 <%= include('../_includes/_user_profile_in_memory') %>

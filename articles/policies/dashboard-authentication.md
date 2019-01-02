@@ -34,8 +34,6 @@ To stop using multi-factor authentication to log in to your dashboard:
 2. Scroll down to the **Multi-factor** section and click the **REMOVE** button next to the enrolled device.
 3. To verify this request you will need to login once more with multi-factor authentication.
 
-If you have lost your device after enrolling in MFA or are having trouble logging in after enabling MFA, [click here for troubleshooting tips.](/multifactor-authentication/guardian/user-guide#troubleshooting)
-
 ## Other forms of authentication
 
 At this time, other forms of authentication for dashboard authentication are not supported.

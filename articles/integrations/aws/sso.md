@@ -135,7 +135,7 @@ function (user, context, callback) {
 
 In the code snippet above, `user.awsRole` identifies the AWS role and the IdP. The AWS role identifier comes before the comma, and the IdP identifier comes after the comma.
 
-There are multiple ways by which you can obtain these two values. In the example above, both of these values are hard-coded into the rules. You might also store these values in the [user profile](/user-profile), or you might derive them using other attributes.
+There are multiple ways by which you can obtain these two values. In the example above, both of these values are hard-coded into the rules. You might also store these values in the [user profile](/users/concepts/overview-user-profile), or you might derive them using other attributes.
 
 For example, if you're using Active Directory, you can map properties associated with users, such as `group` to the appropriate AWS role:
 

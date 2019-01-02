@@ -10,18 +10,10 @@ Create a service and instantiate `auth0.WebAuth`. Provide a method called `login
 // src/Auth/AuthService.js
 
 import auth0 from 'auth0-js'
-import { AUTH_CONFIG } from './auth0-variables'
 import EventEmitter from 'eventemitter3'
 import router from './../router'
 
 export default class AuthService {
-
-  constructor () {
-    this.login = this.login.bind(this)
-    this.setSession = this.setSession.bind(this)
-    this.logout = this.logout.bind(this)
-    this.isAuthenticated = this.isAuthenticated.bind(this)
-  }
 
   auth0 = new auth0.WebAuth({
     domain: '${account.namespace}',
@@ -47,28 +39,23 @@ export default class AuthService {
 
 Add some additional methods to the `Auth` service to fully handle authentication in the app.
 
-Install the EventEmitter required by the service.
+Install the [`eventemitter3` package](https://github.com/primus/eventemitter3) required by the service.
 
-`npm install --save EventEmitter`
+`npm install --save eventemitter3`
 
 ```js
 // src/Auth/AuthService.js
 
 import auth0 from 'auth0-js'
-import EventEmitter from 'EventEmitter'
+import EventEmitter from 'eventemitter3'
 import router from './../router'
 
-export default class AuthService {
-
+class AuthService {
+  accessToken
+  idToken
+  expiresAt
   authenticated = this.isAuthenticated()
   authNotifier = new EventEmitter()
-
-  constructor () {
-    this.login = this.login.bind(this)
-    this.setSession = this.setSession.bind(this)
-    this.logout = this.logout.bind(this)
-    this.isAuthenticated = this.isAuthenticated.bind(this)
-  }
 
   // ...
   handleAuthentication () {
@@ -79,45 +66,64 @@ export default class AuthService {
       } else if (err) {
         router.replace('home')
         console.log(err)
+        alert(`Error: <%= "${err.error}" %>. Check the console for further details.`)
       }
     })
   }
 
   setSession (authResult) {
-    // Set the time that the Access Token will expire at
-    let expiresAt = JSON.stringify(
-      authResult.expiresIn * 1000 + new Date().getTime()
-    )
-    localStorage.setItem('access_token', authResult.accessToken)
-    localStorage.setItem('id_token', authResult.idToken)
-    localStorage.setItem('expires_at', expiresAt)
+    this.accessToken = authResult.accessToken
+    this.idToken = authResult.idToken
+    this.expiresAt = authResult.expiresIn * 1000 + new Date().getTime()
+
     this.authNotifier.emit('authChange', { authenticated: true })
+
+    localStorage.setItem('loggedIn', true)
+  }
+
+  renewSession () {
+    this.auth0.checkSession({}, (err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        this.setSession(authResult)
+      } else if (err) {
+        this.logout()
+        console.log(err)
+        alert(`Could not get a new token (<%= "${err.error}" %>: <%= "${err.error_description}" %>).`)
+      }
+    })
   }
 
   logout () {
-    // Clear Access Token and ID Token from local storage
-    localStorage.removeItem('access_token')
-    localStorage.removeItem('id_token')
-    localStorage.removeItem('expires_at')
+    // Clear access token and ID token from local storage
+    this.accessToken = null
+    this.idToken = null
+    this.expiresAt = null
+
     this.userProfile = null
     this.authNotifier.emit('authChange', false)
+
+    localStorage.removeItem('loggedIn')
+
     // navigate to the home route
     router.replace('home')
   }
 
   isAuthenticated () {
     // Check whether the current time is past the
-    // Access Token's expiry time
-    let expiresAt = JSON.parse(localStorage.getItem('expires_at'))
-    return new Date().getTime() < expiresAt
+    // access token's expiry time
+    return new Date().getTime() < this.expiresAt && localStorage.getItem('loggedIn') === 'true'
   }
 }
+
+export default new AuthService()
+
 ```
 
 The service now includes several other methods for handling authentication.
 
 * `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
 * `setSession` - sets the user's Access Token, ID Token, and a time at which the Access Token will expire
+* `renewSession` - uses the `checkSession` method from auth0.js to renew the user's authentication status, and calls `setSession` if the login session is still valid
 * `logout` - removes the user's tokens from browser storage
 * `isAuthenticated` - checks whether the expiry time for the Access Token has passed
 
@@ -140,6 +146,8 @@ The `@click` events on the **Log In** and **Log Out** buttons make the appropria
 When the **Log In** button is clicked, the user will be redirected to login page.
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
+
+When the application first starts up, a call to `renewSession` is made that tries to reinitialize the user's login session, if it is detected that they should already be logged in. This would be the case, for example, if the user logged in and then refreshed the browser window.
 
 ### Add a Callback Component
 
@@ -164,9 +172,8 @@ Create a component named `CallbackComponent` and populate it with a loading indi
   export default {
     name: 'callback',
     props: ['auth'],
-    data () {
+    created () {
       this.auth.handleAuthentication()
-      return {}
     }
   }
 </script>
@@ -185,6 +192,7 @@ Create a component named `CallbackComponent` and populate it with a loading indi
     right: 0;
   }
 </style>
+
 ```
 
 ::: note

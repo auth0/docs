@@ -156,6 +156,12 @@ The following table details the task division for configuring, creating, and mon
             <td>R, A</td>
             <td>The subscriber is responsible for restoring a VM Snapshot..</td>
         </tr>
+        <tr>
+            <td>Recover Auth0 Environment</td>
+            <td>R</td>
+            <td>I, A</td>
+            <td>Auth0 is responsible for recovering the authentication environment.</td>
+        </tr>
     </tbody>
 </table>
 <!-- markdownlint-enable MD033 -->
