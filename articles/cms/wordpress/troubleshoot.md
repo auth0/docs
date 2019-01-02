@@ -204,8 +204,9 @@ If you're unable to access the site via FTP, you can also run the process direct
 1. Go to **Plugins** > **Add New** and search for "Auth0".
 1. For the **Login by Auth0** plugin (make sure to check the name), click **Install Now**.
 1. When this completes, click **Activate**.
-1. Go to **Auth0** > **Import-Export Settings**.
-1. Click **Choose File**, select the previously-exported JSON file, and click **Import**.
+1. Check **Auth0** > **Settings** and make sure the previous settings remain. If not:
+    1. Go to **Auth0** > **Import-Export Settings**.
+    1. Click **Choose File**, select the previously-exported JSON file, and click **Import**.
 1. Completely delete the settings file export JSON (it contains sensitive information).
 
 Everything should now be working as expected with the new plugin and updates will resume as usual. 
