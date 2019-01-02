@@ -83,10 +83,10 @@ Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any n
 
 This follows a [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant. While this is not mandatory according to the specification, Auth0 will always enforce namespacing when performing OIDC-conformant login flows, meaning that any custom claims without HTTP/HTTPS namespaces will be silently excluded from tokens.
 
-Auth0 will only allow non-OIDC claims without a namespace (through the "legacy" user profile, from which we strongly recommend moving away) if:
+Auth0 will allow non-OIDC claims without a namespace (the "legacy" user profile, from which we strongly recommend moving away) if:
 
-* You are using the non-OIDC conformant pipeline (i.e., you are not using the audience parameter in the /authorize or token request and the application does not have the OIDC-Conformant toggle enabled).
-* You have the Legacy User Profile toggle turned on in the tenant Advanced Settings, under the Migrations section. This setting is only enabled for old tenants; newly created tenants can't see or enable the Legacy User Profile. We strongly recommend moving away from the Legacy User Profile.
+* You are using the non-OIDC conformant pipeline (i.e., you are not using the `audience` parameter in the `/authorize` or token request and the application does not have the **OIDC-Conformant** toggle enabled).
+* You have the **Legacy User Profile** toggle turned on in the [tenant Advanced Settings](https://manage.auth0.com/#/tenant/advanced), under the **Migrations** section. This setting is only enabled for old tenants, but newly created tenants can't see or enable the **Legacy User Profile**. We strongly recommend moving away from the Legacy User Profile.
 
 ## Token refresh flow and custom claims
 
