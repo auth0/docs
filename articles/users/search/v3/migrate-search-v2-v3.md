@@ -1,6 +1,6 @@
 ---
-title: Migrate from Search V2 to V3
-description: Learn how to retrieve lists of users using the get_users endpoint.
+title: Migrate from Search v2 to v3
+description: Learn how to migrate from Auth0 Search v2 to v3.
 topics:
   - users
   - user-management
@@ -9,7 +9,7 @@ contentType: how-to
 useCase:
   - manage-users
 ---
-# Migrate from Search V2 to V3
+# Migrate from Search v2 to v3
 
 The user search engine v2 has been deprecated as of **June 6th 2018** and will be removed from service on **November 13th 2018**. We recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible. Before you start migrating, there are a few things you should know:
 
