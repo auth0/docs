@@ -11,14 +11,15 @@ useCase:
 ---
 # API Scopes
 
-As an [API](/apis) developer, you need to define custom scopes available for applications that might call your API and then identify these scopes so that calling applications can use them. This way, you can apply fine-grained control to the information and actions available to your users.
+As an [API](/apis) developer, you need to decide which user information you would like external applications to be able to access on a user's behalf, then define access levels as custom scopes and identify these scopes so that calling applications can use them. 
 
-For example, let's say you are building an API that provides data to a calendar application. You want some users to be able to edit items on the calendar, others to only be able to read them, and others to be able to both read and write to calendar items. To do this, you create two scopes for your API: one that authorizes write access (`write:appointments`) and one that authorizes read-only access (`read:appointments`). 
+For example, let's say you are building an API that provides data to a calendar application. At various times, the app may need to edit items on the calendar, read them, or both read and write to calendar items for a user. To do this, you create two scopes for your API: one that authorizes write access (`write:appointments`) and one that authorizes read-only access (`read:appointments`). 
 
-Now, when an app calls your API, it will specify the scope it needs in its request. The app may request read access by including the `read:appointments` scope in its request, write access by including the `write:appointments` scope in its request, or both read and write access by including both the `read:appointments` and `write:appointments` scopes in its request.
+A calling application will request authorization from the user to access the requested scopes, and the user will approve or deny the request. The app may request read access by including the `read:appointments` scope in its request, write access by including the `write:appointments` scope in its request, or both read and write access by including both the `read:appointments` and `write:appointments` scopes in its request. 
+
+Now, when the app calls your API, it will include a token which verifies that the user has provided authorization to access their content and also indicates which scopes the user has approved. Your API should respect the approved scopes and only release information that was authorized by the user to the calling application.
 
 For an example showing how to request custom API access for your application, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#request-custom-API-access).
-
 
 ## Limit API scopes
 
