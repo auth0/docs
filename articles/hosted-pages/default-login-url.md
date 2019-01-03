@@ -46,7 +46,7 @@ You can configure the URL for the tenant or application login route using a Mana
 }
 ```
 
-The `login_url` should point to a route in the application that ends up redirecting to Auth0's `/authorize` endpoint, e.g. `http://yoursite.com/login'.
+The `login_url` should point to a route in the application that ends up redirecting to Auth0's `/authorize` endpoint, e.g. `http://yoursite.com/login`.
 
 ## Scenarios for redirecting to the default login route
 
