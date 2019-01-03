@@ -1,5 +1,6 @@
 ---
-description: Describes the different ways to reset the users' passwords for your Auth0 applications.
+title: Change Users' Passwords for Database Connections
+description: Understand the different ways to reset users' passwords for your Auth0 applications that use database connections.
 toc: true
 topics:
     - connections
@@ -9,7 +10,7 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Change Users' Passwords
+# Change Users' Passwords for Database Connections
 
 ::: note
 If you are an admin, this article will help you learn how to reset a user's password for a database connection. If you are trying to configure the custom Password Reset page, see [Password Reset Page](/hosted-pages/password-reset). If you are an Auth0 user trying to reset your own Auth0 password, see [Reset Your Auth0 Account Password](/support/reset-account-password). If you are an end user trying to log in through a login screen, contact support for the provider through which you are attempting to log in.
