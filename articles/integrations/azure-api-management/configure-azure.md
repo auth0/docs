@@ -39,7 +39,7 @@ You'll be asked to provide the following configuration variables:
 | Location | Choose the location that services your API instance |
 | Organization name | The name of your organization |
 | Administrator email | The email address of the person who will be administering this instance |
-| Pricing tier | The pricing tier you want, which determines the number of calls you can make to your API, as well as the maximum amount of data transfer allowed. Make sure you select Developer plan or superior. The Consumption plan does not support many features required for this to work. |
+| Pricing tier | The pricing tier you want, which determines the number of calls you can make to your API, as well as the maximum amount of data transfer allowed. You must opt for the [Developer plan](https://azure.microsoft.com/en-us/pricing/details/api-management/) or higher; the Consumption plan does not offer sufficient functionality for this integration to work. |
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/api-mgmt-service-config.png)
 
