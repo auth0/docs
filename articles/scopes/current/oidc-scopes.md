@@ -15,7 +15,7 @@ useCase:
 This document discusses scopes included within the OpenID Connect (OIDC) authentication protocol. For more info about OIDC itself, see our docs on [OpenID Connect](/protocols/oidc).
 :::
 
-As an [application](/applications) developer, you specify the access level you want your app to have to a user's details in the `scope` parameter when you make your authorization request. Then, during the login process, the user is asked to allow this access level for your app. In this scenario, the scopes available to you include those implemented by the OpenID Connect (OIDC) protocol.
+OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a set of user attributes, which are called _claims_. The scopes an application should request depend on which user attributes the application needs. Once the user authorizes the requested scopes, the claims are returned in an ID Token and are also available through the [/userinfo endpoint](/api/authentication#get-user-info).
 
 For example, let's say you have built a regular web application, registered it with Auth0, and have configured it to allow a user to log in using Google. Once a user logs in to your app, you want to auto-generate and send a personalized welcome email, including the user's name.
 
@@ -28,17 +28,13 @@ For example, let's say you have built a regular web application, registered it w
 5. The user accepts and authorizes your app to have this level of access to their information stored by Google.
 6. Your app now has access to the user's profile information and email address.
 
-
-## OIDC Scopes
-
-OIDC scopes are used during authentication to authorize access to a user's details. The basic (and required) scope for OIDC is `openid`, which indicates that an application intends to use the OIDC protocol to verify a user's identity. Beyond that, an application can ask for additional scopes by listing the requested scope names in the `scope` parameter, separated by spaces. 
-
-In OIDC, each scope returns a set of user attributes, which are called _claims_. The scopes an application should request depend on which user attributes the application needs. Once the user authorizes the requested scopes, the claims are returned in an ID Token and are also available through the [/userinfo endpoint](/api/authentication#get-user-info).
-
-
 ## Standard claims
 
-Standard claims are intended to provide an application with user details, such as name, email, and picture, and are pre-defined for the OIDC protocol. Standard claims included in the most commonly-used scopes are listed below, but for a full list of available standard claims, refer to the [OIDC specification: Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
+Standard claims are intended to provide an application with user details, such as name, email, and picture, and are pre-defined for the OIDC protocol. You can also create [custom claims](/scopes/current/custom-claims).
+
+The basic (and required) scope for OIDC is `openid`, which indicates that an application intends to use the OIDC protocol to verify a user's identity. Beyond that, an application can ask for additional scopes by listing the requested scope names in the `scope` parameter, separated by spaces. 
+
+Standard claims included in the most commonly-used scopes are listed below, but for a full list of available standard claims, refer to the [OIDC specification: Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
 
 
 | Scope     | Claims          |
