@@ -71,6 +71,11 @@ Once you've imported your users, you can manage them individually using the [Use
 
 ### Export Users
 
+::: note
+The format of the export file is a ndjson which is a common format for exporting large files (http://ndjson.org/). Converting between the two formats (json and ndjson) is quite easy and libraries exist to do so like so: https://stedolan.github.io/jq/.
+You will have to convert the file to a json file to import users.
+:::
+
 To export your existing Auth0 users associated with database connections, select **Export** in the left-hand navigation bar.
 
 ![](/media/articles/extensions/user-import-export/export-users.png)
