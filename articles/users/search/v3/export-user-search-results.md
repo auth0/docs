@@ -93,7 +93,7 @@ For example, for metadata structured like this:
 {
   "consent": {
       "given": true,
-      "date": "01/23/2018",
+      "date": "01/23/2019",
       "text_details": "some-url"
   }
 }
@@ -230,4 +230,7 @@ The download link is valid for 60 seconds. If this time period has expired, you'
 
 ## Keep reading
 
-* 
+* [User Metadata](/users/concepts/overview-user-metadata)
+* [Sort Search Results](/users/search/v3/sort-search-results)
+* [User Search Query Syntax](/users/search/v3/query-syntax)
+* [Normalized User Profile Schema](/users/normalized/auth0/normalized-user-profile-schema)
