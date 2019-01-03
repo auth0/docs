@@ -293,7 +293,7 @@ articles:
         url: "/hosted-pages/version-control"
 
       - title: "Default Login Page"
-        url: "/hosted-pages/default-login-page"
+        url: "/hosted-pages/default-login-url"
 
   - title: "Rules"
     url: "/rules"
