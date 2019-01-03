@@ -43,4 +43,4 @@ To make your login process as easy-to-use and seamless as possible, you'll need 
 
 ## User search
 
-Learn about how [search](/users/search/v3) works and the best ways to search for users using the Management API.
+Learn about how to [search](/users/search/v3) for users and sort, view, and export the search results using the Management API endpoints.

@@ -18,7 +18,7 @@ You can read metadata using rules with the Management API and with Lock. You can
 - `family_name`
 
 ::: note 
-When using the deprecated [Search V2](/users/search/v2), beginning **1 September 2017** new tenants cannot search any of the  `app_metadata` fields. Only tenants associated with paid subscriptions that were created on/before **31 August 2017** can search the `app_metadata` fields.
+When using the deprecated [Search v2](/users/search/v2), beginning **1 September 2017** new tenants cannot search any of the  `app_metadata` fields. Only tenants associated with paid subscriptions that were created on/before **31 August 2017** can search the `app_metadata` fields.
 This limitation does not apply to [Search v3](/users/search/v3).
 :::
 

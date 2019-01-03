@@ -135,5 +135,5 @@ We do **not** recommend that you use this endpoint for:
 * [View Search Results by Page](/users/search/v3/view-search-results-by-page)
 * [Export User Search Results](/users/search/v3/export-user-search-results)
 * [Migrate from Search V2 to V3](/users/search/v3/migrate-search-v2-v3)
-* [Query Syntax](/users/search/v3/query-syntax)
+* [User Search Query Syntax](/users/search/v3/query-syntax)
 * [Search Best Practices](/best-practices/search-best-practices)
