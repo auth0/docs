@@ -18,7 +18,7 @@ Different pieces of user information are often stored across a number of online 
 
 Often, new applications will want to make use of the information that has already been created in an online resource. To do so, the application must ask for authorization to access this information on a user's behalf. Scopes define the specific actions third-party applications can be allowed to do on a user's behalf. 
 
-When an app requests access to a resource through an authorization server, it uses the `scope` parameter to specify what type of access it desires, and the authorization server uses the `scope` parameter to respond with the type of access that was actually granted (if the granted access level was different from what was requested).
+When an app requests access to a resource through an authorization server, it uses the `scope` parameter to specify what type of access it needs, and the authorization server uses the `scope` parameter to respond with the type of access that was actually granted (if the granted access level was different from what was requested).
 
 Generally, you use scopes in three ways:
 
