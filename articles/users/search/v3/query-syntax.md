@@ -70,11 +70,19 @@ For example, to find users with the name `jane smith`, use `q=name:"jane smith"`
 
 ## Wildcards
 
-Wildcard searches can be run on terms using the asterisk character (`*`) to replace zero or more characters: `name:john*`. They can be used for prefix matching, for example `name:j*`. For other uses of wildcards (e.g. suffix matching), literals must have 3 characters or more. For example, `name:*usa` is allowed, but `name:*sa` is not.
+Wildcard searches can be run on terms using the asterisk character (`*`) to replace zero or more characters. 
 
-The question mark character (`?`), is currently not supported.
+Here are some examples: 
 
-For example, to find all users whose names start with `john`, use `q=name:john*`:
+* `name:john*` returns all users with `john` at the beginning of their names. 
+
+* `name:j*` returns all users with `j` at the beginning of their names.
+
+* `q=name:john*` returns all users whose names start with `john`.
+
+* For suffix matching, literals must have 3 characters or more. For example, `name:*usa` is allowed, but `name:*sa` is not.
+
+### Sample query with wildcards
 
 ```har
 {
@@ -98,15 +106,19 @@ For example, to find all users whose names start with `john`, use `q=name:john*`
 }
 ```
 
-Wildcard searches are not available on [user metadata](/users/guides/read-metadata) fields.
-
 ## Ranges
 
-You can use ranges in your user search queries. For inclusive ranges use square brackets: `[min TO max]`, and for exclusive ranges use curly brackets: `{min TO max}`.
+You can use ranges in your user search queries. 
 
-Curly and square brackets can be combined in the same range expression: `logins_count:[100 TO 200}`. You can also use wildcards within ranges.
+* For inclusive ranges use square brackets: `[min TO max]`.
 
-For example, to find all users with more than 100 logins, use `q=logins_count:{100 TO *]`.
+* For exclusive ranges use curly brackets: `{min TO max}`.
+
+* Curly and square brackets can be combined in the same range expression: `logins_count:[100 TO 200}`. 
+
+* Use ranges in combination with wildcards. For example, to find all users with more than 100 logins, use `q=logins_count:{100 TO *]`.
+
+### Sample query with ranges
 
 ```har
 {
@@ -130,4 +142,14 @@ For example, to find all users with more than 100 logins, use `q=logins_count:{1
 }
 ```
 
-Range searches are not available on [user metadata](/metadata) fields.
+## Limitation
+
+Range and wildcard searches are not available on user metadata fields.
+
+## Keep reading
+
+* [Sort Search Results](/users/search/v3/sort-search-results)
+* [View Search Results by Page](/users/search/v3/view-search-results-by-page)
+* [Export User Search Results](/users/search/v3/export-user-search-results)
+* [Metadata Field Name Rules](/users/references/metadata-field-name-rules)
+* [Search Best Practices](/best-practices/search-best-practices)

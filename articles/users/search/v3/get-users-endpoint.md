@@ -17,6 +17,8 @@ The [`GET /api/v2/users` endpoint](/api/management/v2#!/Users/get_users) allows 
 * Select the fields to be returned
 * Sort the returned results
 
+This endpoint is **eventually consistent**, and as such, we recommend that you use this endpoint for back office processes such as changing the display name of an existing user.
+
 <%= include('./_valid-access-token') %>
 
 ## Search for users
@@ -116,8 +118,6 @@ Successful calls to the endpoint return a JSON object similar to the following:
 
 ## Limitations
 
-This endpoint is **eventually consistent**, and as such, we recommend that you use this endpoint for back office processes such as changing the display name of an existing user.
-
 This endpoint allows you to retrieve a maximum of 1000 users. If your results exceed this threshold, redefine your search. If you need a complete export of all of your users, instead use the [export job](/api/management/v2#!/Jobs/post_users_exports) or the [User Import / Export](/extensions/user-import-export) extension.
 
 If you get the error `414 Request-URI Too Large` this means that your query string is larger than the supported length. In this case, refine your search.
@@ -131,4 +131,9 @@ We do **not** recommend that you use this endpoint for:
 
 ## Keep reading
 
-* 
+* [Sort Search Results](/users/search/v3/sort-search-results)
+* [View Search Results by Page](/users/search/v3/view-search-results-by-page)
+* [Export User Search Results](/users/search/v3/export-user-search-results)
+* [Migrate from Search V2 to V3](/users/search/v3/migrate-search-v2-v3)
+* [Query Syntax](/users/search/v3/query-syntax)
+* [Search Best Practices](/best-practices/search-best-practices)

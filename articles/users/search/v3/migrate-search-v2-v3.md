@@ -11,12 +11,16 @@ useCase:
 ---
 # Migrate from Search v2 to v3
 
-The user search engine v2 has been deprecated as of **June 6th 2018** and will be removed from service on **November 13th 2018**. We recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible. Before you start migrating, there are a few things you should know:
+The user search engine v2 has been deprecated as of **June 6th 2018** and was removed from service on **November 13th 2018**. We highly recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible. 
+
+## Migration considerations
+
+Before you start migrating, there are a few things you should know:
 
 * You must update all your calls to the `GET /api/v2/users` endpoint to include the `search_engine=v3` parameter. This will ensure you are running the latest version of the search engine and that you will not experience downtime when search v2 is fully removed.
 * If you are performing user search operations through any of the [impacted SDKs](#impacted-sdks), you must also pass the `search_engine=v3` parameter.
 * Search values for the normalized user fields (`email`, `name`, `given_name`, `family_name`, and `nickname`) are case insensitive. All other fields (including all `app_metadata`/`user_metadata` fields) are case sensitive.
-* v3 limits the number of users you can retrieve to 1000 (see [page results](#page-results)). If you are reaching this limit, we recommend that you redefine your search query to obtain more granular results. If you need a list of more than 1000 users at a given time, we recommend that you use the [export job](/api/management/v2#!/Jobs/post_users_exports) API endpoint or [User Import / Export extension](/extensions/user-import-export) instead.
+* v3 limits the number of users you can retrieve to 1000. If you are reaching this limit, we recommend that you redefine your search query to obtain more granular results. If you need a list of more than 1000 users at a given time, we recommend that you use the [export job](/api/management/v2#!/Jobs/post_users_exports) API endpoint or [User Import / Export extension](/extensions/user-import-export) instead.
 * Range and wildcard searches are not available on `app_metadata`/`user_metadata` fields. See [searchable fields](/users/search/v3/query-syntax#searchable-fields).
 * User fields are not tokenized like in v2, so `user_id:auth0` will not match a `user_id` with value `auth0|12345`, instead, use `user_id:auth0*`. See [wildcards](/users/search/v3/query-syntax#wildcards) and [exact matching](/users/search/v3/query-syntax#exact-match).
 * Wildcards can be used for prefix matching, for example `name:j*`. For other uses of wildcards (e.g. suffix matching), literals must have 3 characters or more. For example, `name:*usa` is allowed, but `name:*sa` is not.
@@ -69,8 +73,14 @@ Use the following query to retrieve all the logs related to User Search v2: `typ
 
 If no additional details are specified in the log entries, it's likely that your queries are compatible with v3. Our recommendation, however, is still that you test the queries before deploying your changes to production.
 
-Please note that only one log of the same type will generated within 60 minutes. This means that even though you may be doing multiple calls to the User Search endpoint, you will only see one log of each type per hour.
+::: note
+Please note that only one log of the same type will be generated within 60 minutes. This means that even though you may be doing multiple calls to the User Search endpoint, you will only see one log of each type per hour.
+:::
 
 ## Keep reading
 
-*
+* [User Search Overview](/users/search)
+* [Authorization Extension](/extensions/authorization-extension/v2)
+* [Delegated Administration](/extensions/delegated-admin/v3)
+* [User Import/Export Extension](/extensions/user-import-export)
+* [Management API Explorer documentation](/api/management/v2#!/users/get_users)

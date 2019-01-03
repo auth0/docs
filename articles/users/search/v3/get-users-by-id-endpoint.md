@@ -13,6 +13,11 @@ useCase:
 
 The [`GET /api/v2/users/{id}` endpoint](/api/management/v2#!/Users/get_users_by_id) allows you to retrieve a specific user using their Auth0 user ID.
 
+This endpoint is **immediately consistent**, and as such, we recommend that you use this endpoint for:
+
+* User searches run during the authentication process 
+* User searches run as part of the account linking process.
+
 ::: note
 The user ID should be URL encoded since it may contain characters that do not work well in a URL.
 :::
@@ -71,13 +76,12 @@ The user ID should be URL encoded since it may contain characters that do not wo
 }
 ```
 
-## Limitations
-
-This endpoint is **immediately consistent**, and as such, we recommend that you use this endpoint for:
-
-* User searches run during the authentication process 
-* User searches run as part of the account linking process.
-
 ## Keep reading
 
-* 
+* [Sort Search Results](/users/search/v3/sort-search-results)
+* [View Search Results by Page](/users/search/v3/view-search-results-by-page)
+* [Export User Search Results](/users/search/v3/export-user-search-results)
+* [Migrate from Search V2 to V3](/users/search/v3/migrate-search-v2-v3)
+* [Query Syntax](/users/search/v3/query-syntax)
+* [Search Best Practices](/best-practices/search-best-practices)
+* [Management API Explorer documentation](/api/management/v2#!/users/get_users)
