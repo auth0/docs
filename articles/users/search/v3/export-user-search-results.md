@@ -234,4 +234,4 @@ The download link is valid for 60 seconds. If this time period has expired, you'
 * [Sort Search Results](/users/search/v3/sort-search-results)
 * [User Search Query Syntax](/users/search/v3/query-syntax)
 * [Normalized User Profile Schema](/users/normalized/auth0/normalized-user-profile-schema)
-* [Management API Explorer documentation](/api/management/v2#!/users/get_users)
+* [Management API Explorer](/api/management/v2#!/users/get_users)

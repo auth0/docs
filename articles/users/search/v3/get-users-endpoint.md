@@ -124,10 +124,10 @@ If you get the error `414 Request-URI Too Large` this means that your query stri
 
 We do **not** recommend that you use this endpoint for:
 
-* Operations that require immediate consistency. Instead, use the [Users by Email endpoint](/users/search/v3/get-users-by-email-endpoint) or the [Users by ID endpoint](/users/search/v3/get-users-by-id-endpoint).
+* Operations that require immediate consistency. Instead, use the [Get Users by Email endpoint](/users/search/v3/get-users-by-email-endpoint) or the [Get Users by ID endpoint](/users/search/v3/get-users-by-id-endpoint).
 * User exports. Instead, use the [User Export endpoint](/users/search/v3/export-users-metadata).
-* Operations that require user search as part of authentication processes. Instead, use the [Users by Email endpoint](/users/search/v3/get-users-by-email-endpoint) or the [Users by ID endpoint](/users/search/v3/get-users-by-id-endpoint).
-* Searching for Users for [Account Linking](/link-accounts) by Email. Instead, use the [Users by Email endpoint](/users/search/v3/get-users-by-email-endpoint).
+* Operations that require user search as part of authentication processes. Instead, use the [Get Users by Email endpoint](/users/search/v3/get-users-by-email-endpoint) or the [Get Users by ID endpoint](/users/search/v3/get-users-by-id-endpoint).
+* Searching for Users for [Account Linking](/link-accounts) by Email. Instead, use the [Get Users by Email endpoint](/users/search/v3/get-users-by-email-endpoint).
 
 ## Keep reading
 
@@ -137,3 +137,5 @@ We do **not** recommend that you use this endpoint for:
 * [Migrate from Search V2 to V3](/users/search/v3/migrate-search-v2-v3)
 * [User Search Query Syntax](/users/search/v3/query-syntax)
 * [Search Best Practices](/best-practices/search-best-practices)
+* [Management API Explorer](/api/management/v2#!/users/get_users)
+
