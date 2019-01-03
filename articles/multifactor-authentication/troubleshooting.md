@@ -42,11 +42,11 @@ If you did not receive your six digit code via SMS, check that the phone number 
 
 If you attempt to send more than ten SMS to your device within an hour, you will see an error message about a rate limit exception. If you have exceeded the limit of ten, you will need to wait at least an hour from your first SMS send to send another message. Each hour after the first attempt you will gain one more message request maxing out at ten requests.
 
-## OTP Issues
+## OTP issues
 
 If the 6-digit code in the Guardian or the Google Authenticator app are being rejected for sign in (often with the message `Incorrect Code`), first check that you are selecting the right application from the list in your authenticator app.
 
-If you know you are selecting the correct item, make sure that your mobile device's clock settings are correct. One-time passwords are generated using Coordinated Universal Time(UTC) so your device time must be correct to generate the correct OTP.
+If you know you are selecting the correct item, make sure that your mobile device's clock settings are correct. One-time passwords are generated using Coordinated Universal Time (UTC) so your device time must be correct to generate the correct OTP.
 
 * **Android Devices** - Go to the authenticator app's settings, and check to see if there is a setting by which to re-sync the clock.
 * **iOS Devices** - for iOS devices, the time shift can be resolved from device settings. Go to your device's settings, **Date and Time**, and enable **Set Automatically**. If it was already enabled, disable it for a moment and then re-enable it.
