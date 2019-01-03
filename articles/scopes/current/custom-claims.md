@@ -16,7 +16,7 @@ useCase:
 
 Custom claims are claims that you define, control, and add to a [token](/tokens) using a [rule](/rules). For example, you may want to add a user's email address to an Access Token and use that to uniquely identify the user, or you may want to add custom information stored in an Auth0 user profile to an ID Token.
 
-Remember that all claims included in a token must have unique names. To keep your custom claims from colliding with standard OIDC claims, you must give them an identifier that [conforms to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). For example, your custom claim could be named `http://www.myexample.com/favorite_color`. 
+Remember that all claims included in a token must have unique names. To keep your custom claims from colliding with the OpenID Connect (OIDC) [standard claims](/scopes/current/oidc-scopes#standard-claims), you must give them an identifier that [conforms to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). For example, your custom claim could be named `http://www.myexample.com/favorite_color`. 
 
 ::: warning
 Auth0 always enforces namespacing; any custom claims with non-namespaced identifiers will be silently excluded from tokens.
