@@ -9,7 +9,7 @@ useCase: customize-hosted-pages
 # Password Reset Page
 
 ::: note
-This article will help you learn how to configure the custom Password Reset page. If you are an admin trying to reset a user's password, see [Change Users' Passwords](/connections/database/password-change). If you are a user trying to reset your own password, see [Reset Your Auth0 Account Password](/support/reset-account-password).
+This article will help you learn how to configure the custom Password Reset page. If you are an admin trying to reset a user's password, see [Change Users' Passwords](/connections/database/password-change). If you are an Auth0 user trying to reset your own password in the Dashboard, see [Reset Your Auth0 Account Password](/support/reset-account-password). If you are an end user trying to log in through a login screen, contact support for the provider through which you are attempting to log in.
 :::
 
 The Password Reset Page allows users to change their passwords in the event that they're unable to log in. Using this page, you can maintain consistency in the appearance of your pages (login, password reset, and so on), and your users can easily change their passwords as needed.
