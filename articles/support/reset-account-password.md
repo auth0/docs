@@ -15,7 +15,7 @@ useCase:
 # Reset Your Auth0 Account Password
 
 ::: note
-If you are an Auth0 user, this article will help you learn how to reset your own password in the Dashboard. If you are an end user trying to log in through a login screen, contact support for the provider through which you are attempting to log in. If you are an admin trying to reset a user's password, see [Change Users' Passwords](/connections/database/password-change). If you are an admin trying to configure the custom Password Reset page, see [Password Reset Page](/hosted-pages/password-reset).
+If you are an Auth0 user, this article will help you learn how to reset your own Auth0 password. If you are an end user trying to log in through a login screen, contact support for the provider through which you are attempting to log in. If you are an admin trying to reset a user's password, see [Change Users' Passwords](/connections/database/password-change). If you are an admin trying to configure the custom Password Reset page, see [Password Reset Page](/hosted-pages/password-reset).
 :::
 
 You can reset the password associated with your Auth0 account at any time by invoking the password reset flow.
