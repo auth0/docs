@@ -59,4 +59,5 @@ https://${account.namespace}/login?state=g6Fo2SBjNTRyanlVa3ZqeHN4d1htTnh&...
 
 The ‘state’ parameter points to a record in an internal database where we track the status of the authorization transaction. Whenever the transaction completes, or after X time passes, the record is deleted from the internal database.
 
-Sometimes users bookmark the login page, and when they navigate to the bookmarked URL, the transaction record is no longer there and Auth0 can’t continue with the login flow. In that case, Auth0 will read the default login URL configured at the client level / tenant level, and redirect to it. If the default login URL is not configured, Auth0 will render an error page.
+Sometimes users bookmark the login page, and when they navigate to the bookmarked URL, the transaction record is no longer there and Auth0 can’t continue with the login flow. In that case, Auth0 will redirect to the default client URL if configured, or the tenant level onURLe if not. If no default login URL is set, Auth0 will render an error page.
+
