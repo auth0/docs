@@ -1,5 +1,5 @@
 ---
-description: Guide on how to use the hosted password reset page
+description: Understand the hosted password reset page and how to use it.
 topics:
   - password-reset
   - hosted-pages
