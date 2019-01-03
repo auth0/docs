@@ -14,7 +14,9 @@ useCase:
 ---
 # Scopes
 
-Scopes are a method by which you can control the specific types of access a user's [token](/tokens) will grant. 
+Different pieces of user information are often stored across a number of online resources. Users may upload and store photos with a service like Flickr, keep digital files on Dropbox, and store contacts and events in Google Calendar or on Facebook.
+
+Often, new applications will want to make use of the information that has already been created in an online resource. To do so, the application must ask for authorization to access this information on a user's behalf. Scopes define the specific actions third-party applications can be allowed to do on a user's behalf. 
 
 When an app requests access to a resource through an authorization server, it uses the `scope` parameter to specify what type of access it desires, and the authorization server uses the `scope` parameter to respond with the type of access that was actually granted (if the granted access level was different from what was requested).
 
@@ -28,13 +30,17 @@ Generally, you use scopes in three ways:
 
 ## Best practices
 
-Understand your use case and choose the most restrictive scope possible. Are you establishing a user's identity or asking the user to allow you to interact with their data? There's a big difference between importing a user's Facebook profile information and posting to their wall. Only request what you absolutely need. By doing so, you are also more likely to gain user consent since users are more likely to grant access for limited, clearly-specified scopes.
+Understand your use case and choose the most restrictive scope possible. 
+
+If you are requesting scopes, make sure you ask for enough access for your application to function, but only request what you absolutely need. Are you establishing a user's identity or asking the user to allow you to interact with their data? There's a big difference between importing a user's Facebook profile information and posting to their wall. By only requesting what you need, you are more likely to gain user consent since users are more likely to grant access for limited, clearly-specified scopes. 
+
+Similarly, when creating custom scopes for an API, consider what levels of granular access applications may need and design your scopes accordingly.
 
 ## Requested scopes versus granted scopes
 
-Remember that a user gets to consent to the access level you are requesting. While usually the scopes returned will be identical to the scopes you requested, users can edit their scopes (both during initial consent and sometimes after, depending on the resource to which you are requesting access), thereby granting your app less access than you requested. 
+Remember that a user gets to consent to the access level being requested. While usually the scopes returned will be identical to the scopes requested, users can edit their scopes (both during initial consent and sometimes after, depending on the resource), thereby granting an app less access than it requested. 
 
-Be aware of this possibility and handle these cases in your app. For example, your app could warn the user that they will see reduced functionality. It could also send the user back through the authorization flow to ask for additional permissions. But again, remember that users can always say no.
+As an application developer, you should be aware of this possibility and handle these cases in your app. For example, your app could warn the user that they will see reduced functionality. It could also send the user back through the authorization flow to ask for additional permissions. But again, remember that users can always say no.
 
 ## Keep reading
 
