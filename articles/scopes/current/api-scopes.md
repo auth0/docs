@@ -11,7 +11,11 @@ useCase:
 ---
 # API Scopes
 
-As an [API](/apis) developer, you need to decide which user information you would like external applications to be able to access on a user's behalf, then define access levels as custom scopes and identify these scopes so that calling applications can use them. 
+As an [API](/apis) developer, you need to:
+
+1. Decide which user information you would like external applications to be able to access on a user's behalf.
+2. Define these access levels as custom scopes.
+3. Identify these scopes so that calling applications can use them. 
 
 For example, let's say you are building an API that provides data to a calendar application. At various times, the app may need to edit items on the calendar, read them, or both read and write to calendar items for a user. To do this, you create two scopes for your API: one that authorizes write access (`write:appointments`) and one that authorizes read-only access (`read:appointments`). 
 
