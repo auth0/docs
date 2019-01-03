@@ -1930,7 +1930,7 @@ module.exports = [
      to: '/hooks'
    },
    {
-     from: '/multifactor-authentication/yubikey',
+     from: ['/multifactor-authentication/yubikey', 'multifactor-authentication/guardian', 'multifactor-authentication/guardian/user-guide'],
      to: '/multifactor-authentication'
    },
    {
