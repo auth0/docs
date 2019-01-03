@@ -1,6 +1,6 @@
 ---
 title: View Search Results by Page
-description: Learn how to retrieve lists of users using the get_users endpoint.
+description: Learn how to view search results page by page and include totals.
 topics:
   - users
   - user-management

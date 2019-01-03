@@ -1,6 +1,6 @@
 ---
 title: User Search Query Syntax
-description: Learn about Auth0's user search query string syntax.
+description: Describes Auth0's user search query string syntax.
 toc: true
 topics:
   - users

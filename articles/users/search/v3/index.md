@@ -1,12 +1,13 @@
 ---
 title: User Search
-description: Describes how the Auth0 search endpoints allow you to search for and retrieve users.
+description: Understand how the Auth0 search endpoints allow you to search for and retrieve users.
 topics:
   - users
   - user-management
   - search
 contentType:
   - index
+  - concept
 useCase:
   - manage-users
 ---

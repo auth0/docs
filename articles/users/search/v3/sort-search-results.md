@@ -1,6 +1,6 @@
 ---
 title: Sort Search Results
-description: Learn how to retrieve lists of users using the get_users endpoint.
+description: Learn how to sort search results by passing a field:order value to the sort parameter.
 topics:
   - users
   - user-management
