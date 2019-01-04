@@ -125,7 +125,8 @@ The service now includes several other methods for handling authentication.
 * `setSession` - sets the user's Access Token, ID Token, and a time at which the Access Token will expire
 * `renewSession` - uses the `checkSession` method from auth0.js to renew the user's authentication status, and calls `setSession` if the login session is still valid
 * `logout` - removes the user's tokens from browser storage
-* `isAuthenticated` - checks for the presence of the `loggedIn` flag in local storage
+* `isAuthenticated` - checks whether the expiry time for the Access Token has passed
+* `getAuthenticationFlag` - returns the value of the `loggedIn` flag from local storage
 
 ### About the Authentication Service
 
