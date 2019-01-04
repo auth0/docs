@@ -1,6 +1,6 @@
 ---
 title: How to Customize the Consent Prompt
-description: Learn how to customize the consent dialog for your users.
+description: Learn how to customize the consent prompt for your users.
 topics:
   - scopes
   - apis
