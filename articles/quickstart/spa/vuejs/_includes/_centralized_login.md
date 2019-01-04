@@ -66,7 +66,6 @@ class AuthService {
       } else if (err) {
         router.replace('home')
         console.log(err)
-        alert(`Error: <%= "${err.error}" %>. Check the console for further details.`)
       }
     })
   }
@@ -109,9 +108,7 @@ class AuthService {
   }
 
   isAuthenticated () {
-    // Check whether the current time is past the
-    // access token's expiry time
-    return new Date().getTime() < this.expiresAt && localStorage.getItem('loggedIn') === 'true'
+    return localStorage.getItem('loggedIn') === 'true'
   }
 }
 
@@ -125,7 +122,7 @@ The service now includes several other methods for handling authentication.
 * `setSession` - sets the user's Access Token, ID Token, and a time at which the Access Token will expire
 * `renewSession` - uses the `checkSession` method from auth0.js to renew the user's authentication status, and calls `setSession` if the login session is still valid
 * `logout` - removes the user's tokens from browser storage
-* `isAuthenticated` - checks whether the expiry time for the Access Token has passed
+* `isAuthenticated` - checks for the presence of the `loggedIn` flag in local storage
 
 ### About the Authentication Service
 
