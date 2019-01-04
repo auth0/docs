@@ -31,3 +31,9 @@ The `auth0-deploy-cli` tool was updated to include the following changes.
 - To simplify the tool the slack hook was removed. You can invoke the tool programmatically to support calling your own hooks
 - Support referencing clients by their name vs client_id (automatic mapping during export/import)
 - Simplified to support future Auth0 object types
+
+## Keep reading
+
+* [Deploy CLI Tool Overview](/extensions/deploy-cli/concepts/overview-deploy-cli-tool)
+* [Import/Export Tenant Configuration to a Directory Structure](/extensions/deploy-cli/guides/import-export-directory-structure)
+* [Import/Export Tenant Configuration to a YAML File](/extensions/deploy-cli/guides/import-export-yaml-file)

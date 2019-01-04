@@ -33,11 +33,10 @@ This tool can be destructive to your Auth0 tenant. Please ensure you have read t
 ## Keep reading
 
 * [Install the Deploy CLI Tool](/extensions/deploy-cli/guides/install-deploy-cli)
-* [Upgrade from Deploy CLI v1 to v2](/extensions/deploy-cli/guides/upgrade-v1-v2)
 * [Incorporate Deploy CLI into Build Environment](/extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment)
+* [Call Deploy CLI Tool Programmatically](/egtensions/deploy-cli/guides/call-deploy-cli-programmatically)
 * [Import/Export Tenant Configuration to a Directory Structure](/extensions/deploy-cli/guides/import-export-directory-structure)
 * [Import/Export Tenant Configuration to a YAML File](/extensions/deploy-cli/guides/import-export-yaml-file)
-* [Call Deploy CLI Tool Programmatically](/egtensions/deploy-cli/guides/call-deploy-cli-programmatically)
 * [Deploy CLI Tool Options](/extensions/deploy-cli/references/deploy-cli-options)
 * [Test Deploy CLI Operations Locally](/extensions/deploy-cli/guides/test-locally)
 * [What's New in Deploy CLI Tool v2](/extensions/deploy-cli/references/whats-new-v2)

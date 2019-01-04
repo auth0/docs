@@ -234,7 +234,6 @@ For more information, see [Environment Variables and Keyword Mappings](/extensio
 ## Keep reading
 
 * [Incorporate Deploy CLI into Build Environment](/extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment)
-* [Import/Export Tenant Configuration to a Directory Structure](/extensions/deploy-cli/guides/import-export-directory-structure)
 * [Call Deploy CLI Tool Programmatically](/egtensions/deploy-cli/guides/call-deploy-cli-programmatically)
 * [Deploy CLI Tool Options](/extensions/deploy-cli/references/deploy-cli-options)
-* [Test Deploy CLI Operations Locally](/extensions/deploy-cli/guides/test-locally)
+* [Test Deploy CLI Operations Locally](/extensions/deploy-cli/guides/test-locally)* [Import/Export Tenant Configuration to a Directory Structure](/extensions/deploy-cli/guides/import-export-directory-structure)
