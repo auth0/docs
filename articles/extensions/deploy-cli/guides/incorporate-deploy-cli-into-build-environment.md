@@ -64,7 +64,7 @@ For more information, see [Environment Variables and Keyword Mappings](/extensio
 ## Keep reading
 
 * [Install the Deploy CLI Tool](/extensions/deploy-cli/guides/install-deploy-cli)
-* [Call Deploy CLI Tool Programmatically](/egtensions/deploy-cli/guides/call-deploy-cli-programmatically)
+* [Call Deploy CLI Tool Programmatically](/extensions/deploy-cli/guides/call-deploy-cli-programmatically)
 * [Deploy CLI Tool Options](/extensions/deploy-cli/references/deploy-cli-options)
 * [Test Deploy CLI Operations Locally](/extensions/deploy-cli/guides/test-locally)
 * [Import/Export Tenant Configuration to a Directory Structure](/extensions/deploy-cli/guides/import-export-directory-structure)
