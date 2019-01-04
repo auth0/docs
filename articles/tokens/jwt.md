@@ -190,5 +190,5 @@ _Comparison of the length of an encoded JWT and an encoded SAML_
 ::: next-steps
 * [JWT Handbook](https://auth0.com/resources/ebooks/jwt-handbook)
 * [10 Things You Should Know About Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
-* [Web Apps vs Web APIs / Cookies vs Tokens](https://auth0.com/docs/design/web-apps-vs-web-apis-cookies-vs-tokens)
+* [Web Apps vs Web APIs / Cookies vs Tokens](/design/web-apps-vs-web-apis-cookies-vs-tokens)
 :::
