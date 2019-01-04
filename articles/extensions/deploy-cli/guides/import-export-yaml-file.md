@@ -224,9 +224,9 @@ To export your current tenant configuration, use a command like the following ex
 
 `a0deploy export -c config.json --strip -f yaml -o path/to/export`
 
-<%= include('./_strip-option') %>
+<%= include('../_includes/_strip-option') %>
 
-<%= include('./_limitations') %>
+<%= include('../_includes/_limitations') %>
 
 For more information, see [Environment Variables and Keyword Mappings](/extensions/deploy-cli/references/environment-variables-keyword-mappings).
 
