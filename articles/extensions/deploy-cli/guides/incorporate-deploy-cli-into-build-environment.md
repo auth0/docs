@@ -59,3 +59,13 @@ The deploy task should follow these steps:
 
 You should not have to store differences between environments in the Deploy Configuration Repository. Use the keyword mappings to allow the repository to be environment agnostic, and instead store the differences in the separate config.json files for each environment that are stored on the CI server.
 
+For more information, see [Environment Variables and Keyword Mappings](/extensions/deploy-cli/references/environment-variables-keyword-mappings).
+
+## Keep reading
+
+* [Install the Deploy CLI Tool](/extensions/deploy-cli/guides/install-deploy-cli)
+* [Call Deploy CLI Tool Programmatically](/egtensions/deploy-cli/guides/call-deploy-cli-programmatically)
+* [Deploy CLI Tool Options](/extensions/deploy-cli/references/deploy-cli-options)
+* [Import/Export Tenant Configuration to a Directory Structure](/extensions/deploy-cli/guides/import-export-directory-structure)
+* [Import/Export Tenant Configuration to a YAML File](/extensions/deploy-cli/guides/import-export-yaml-file)
+* [Test Deploy CLI Operations Locally](/extensions/deploy-cli/guides/test-locally)

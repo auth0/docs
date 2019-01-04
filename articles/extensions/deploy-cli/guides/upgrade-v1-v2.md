@@ -17,4 +17,5 @@ The `auth0-deploy-cli` was completely rewritten from version 1 to version 2 whic
 
 ## Keep reading
 
-* 
+* [Deploy CLI Tool Overview](/extensions/deploy-cli/concepts/overview-deploy-cli-tool)
+* [What's New in Deploy CLI Tool v2](/extensions/deploy-cli/references/whats-new-v2)
