@@ -24,7 +24,7 @@ The following steps assume that you have two apps, `app1` and `app2`, and you wa
    - **Option A: Use the Management API**
      First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that see [Access Tokens for the Management API](/api/management/v2/concepts/tokens).
 
-     The Management APIv2 Token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API, or be prepared to handle a high volume of  `401` responses.
+     The Management APIv2 Token will be valid for 24 hours, so you should ask for a token every time you make a request to the API, or be prepared to handle a high volume of  `401` responses.
 
      After you have a token, you will have to use the token to retrieve the user id of the user that you want to impersonate (in this example, a user of `app2`). You can retrieve this information with the [Management API /api/v2/users](/api/management/v2#!/Users/get_users) endpoint.
 
@@ -43,7 +43,7 @@ The following steps assume that you have two apps, `app1` and `app2`, and you wa
    - **Option B: Use the Dashboard**
      Alternatively, you can retrieve the `user_id` information from the Dashboard. Go to the [Users](${manage_url}/#/users) section and look at the user's profile. The `user_id` is displayed under the **Identity Provider Attributes** section.
 
-2. Get an Authorization Code. Before calling the call the [Impersonation API](/api/authentication/reference#impersonation) you will need to generate a Bearer token. You can generate it with the [Management API V1 /oauth/token endpoint](/api/management/v1#authentication) with your **Global Client ID** and **Global Client Secret** which both can be found in the dashboard under [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
+2. Get an Authorization Code. Before calling the call the [Impersonation API](/api/authentication/reference#impersonation) you will need to generate a Bearer token. You can generate it with the [Management API V1 /oauth/token endpoint](/api/management/v1#authentication) with your **Global Client ID** and **Global Client Secret** which both can be found in the Dashboard under [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 
 ![Global Client Information](/media/articles/user-profile/global-client-info.png)
 
@@ -74,13 +74,13 @@ The following steps assume that you have two apps, `app1` and `app2`, and you wa
 
    - `scope`: There are various possible values for `scope`:
 
-     - `scope: 'openid'`: _(default)_ It will return, not only an opaque Access Token, but also an [ID Token](/tokens/id-token) which is a JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
-     - `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the [ID Token](/tokens/id-token) (for example, `scope: 'openid name email picture'`).
+     - `scope: 'openid'`: _(default)_ Returns an opaque Access Token **and** an [ID Token](/tokens/id-token), which is a JSON Web Token ([JWT](/jwt)). The JWT will only contain the user ID (`sub` claim).
+     - `scope: 'openid {attr1} {attr2} {attrN}'`: Returns only specific user's attributes to be part of the [ID Token](/tokens/id-token) (for example, `scope: 'openid name email picture'`).
 
      For more information, see [Scopes documentation](/scopes).
 
      ::: note
-     Impersonation cannot be used to return [JWT Access Tokens](/tokens/concepts/overview-access-tokens) to your APIs.
+     Impersonation cannot be used to return [Access Tokens](/tokens/concepts/overview-access-tokens) to your APIs.
      :::
 
      Your request should look like the following:
@@ -124,13 +124,13 @@ The following steps assume that you have two apps, `app1` and `app2`, and you wa
    - `code` is the authorization code you need
 
    ::: panel Single Page Apps
-   The process described applies to regular web apps. In case yours is a single page app (SPA) you should use `"response_type":"token"` when invoking the [Impersonation API](/api/authentication/reference#impersonation). Auth0 will redirect to your SPA _Callback URL_ with Access Token and ID Token in the `#` params. You can read more on the OAuth2 Implicit flow [here](/protocols/oauth2/oauth-implicit-protocol).
+   The process described applies to regular web apps. In case yours is a single page app (SPA) you should use `"response_type":"token"` when invoking the [Impersonation API](/api/authentication/reference#impersonation). Auth0 will redirect to your SPA _Callback URL_ with Access Token and ID Token in the `#` params. You can read more on the OAuth 2.0 Implicit flow [here](/protocols/oauth2/oauth-implicit-protocol).
    :::
 
 6. Exchange the authorization code you received for a token. 
 
    ::: note
-   This should already be implemented if you have a regular web app and are using OAuth Server Side flow for authenticating normal users. If not, you should send a `POST` request to the [Token endpoint in Auth0](/api/authentication#authorization-code). You will need to send the authorization code obtained before along with your Client ID and Client Secret.
+   This should already be implemented if you have a regular web app and are using the OAuth Server Side flow for authenticating normal users. If not, you should send a `POST` request to the [Token endpoint in Auth0](/api/authentication#authorization-code). You will need to send the authorization code obtained before along with your Client ID and Client Secret.
    :::
 
    ```har
