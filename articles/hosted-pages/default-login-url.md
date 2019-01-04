@@ -25,7 +25,7 @@ You can configure the URL for the tenant or application login route using a Mana
   ],
   "postData": {
       "mimeType": "application/json",
-      "initiate_login_uri": "<login_url>"
+      "text": "{\"initiate_login_uri\": \"<login_url>\"}"
   }
 }
 ```
@@ -43,7 +43,7 @@ You can configure the URL for the tenant or application login route using a Mana
   ],
   "postData": {
       "mimeType": "application/json",
-      "default_redirection_uri": "<login_url>"
+      "text": "{\"default_redirection_uri\": \"<login_url>\"}"
   }
 }
 ```
