@@ -7,7 +7,7 @@ topics:
   - libraries
   - lock
   - auth0js
-contentType: 
+contentType:
     - index
     - concept
 ---
@@ -24,7 +24,7 @@ contentType:
 
 <%= include('../_includes/_embedded_login_warning') %>
 
-## Lock 
+## Lock
 
 ### Lock documentation
 
@@ -60,6 +60,9 @@ contentType:
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="https://auth0.github.io/node-auth0/"> Node-Auth0</a>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/auth0-php"> Auth0-PHP</a>
   </li>
 </ul>
 
