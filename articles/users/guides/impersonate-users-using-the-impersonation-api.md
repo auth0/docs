@@ -1,7 +1,6 @@
 ---
 description: Learn how to impersonate a user using the Impersonation API.
 sitemap: false
-public: false
 topics:
     - users
     - user-management
