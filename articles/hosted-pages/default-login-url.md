@@ -24,7 +24,8 @@ You can configure the URL for the tenant or application login route using a Mana
     { "name": "Cache-Control", "value": "no-cache" }
   ],
   "postData": {
-      "initiate_login_uri": "<login_url>"
+      "mimeType": "application/json",
+      "text": "{\"initiate_login_uri\": \"<login_url>\"}"
   }
 }
 ```
@@ -41,7 +42,8 @@ You can configure the URL for the tenant or application login route using a Mana
     { "name": "Cache-Control", "value": "no-cache" }
   ],
   "postData": {
-      "default_redirection_uri": "<login_url>"
+      "mimeType": "application/json",
+      "text": "{\"default_redirection_uri\": \"<login_url>\"}"
   }
 }
 ```
