@@ -18,7 +18,8 @@ You can read metadata using rules with the Management API and with Lock. You can
 - `family_name`
 
 ::: note 
-Beginning **1 September 2017**, new tenants cannot search any of the  `app_metadata` fields. Only tenants associated with paid subscriptions that were created on/before **31 August 2017** can search the `app_metadata` fields.
+When using the deprecated [Search V2](/users/search/v2), beginning **1 September 2017** new tenants cannot search any of the  `app_metadata` fields. Only tenants associated with paid subscriptions that were created on/before **31 August 2017** can search the `app_metadata` fields.
+This limitation does not apply to [Search v3](/users/search/v3).
 :::
 
 As an example, assume the following metadata is stored for a user with the email address `jane.doe@example.com`:
@@ -69,4 +70,5 @@ For details on how to initialize `lock` refer to [Auth0Lock(clientID, domain, op
 * [Manage User Metadata](/users/guides/manage-user-metadata)
 * [Update Metadata Properties with the Management API](/users/guides/update-metadata-properties-with-management-api)
 * [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)
+* [User Data Storage Scenario](/users/references/user-data-storage-scenario)
 * [Metadata Field Name Rules](/users/references/metadata-field-name-rules)

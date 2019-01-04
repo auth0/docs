@@ -16,17 +16,17 @@ useCase: quickstart
 
 ## Add Token Renewal
 
-To the `AuthService` service, add a method which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in memory.
+To the `AuthService` service, add a method which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `localLogin` method to set the new tokens in memory.
 
 ```ts
 // src/app/auth/auth.service.ts
 
-public renewToken() {
+public renewTokens() {
   this.auth0.checkSession({}, (err, result) => {
     if (err) {
       console.log(err);
     } else {
-      this.setSession(result);
+      this.localLogin(result);
     }
   });
 }
@@ -67,7 +67,7 @@ export class AuthService {
     // additional refreshes
     this.refreshSub = expiresIn$.subscribe(
       () => {
-        this.renewToken();
+        this.renewTokens();
         this.scheduleRenewal();
       }
     );
@@ -83,12 +83,12 @@ export class AuthService {
 
 This lets you schedule token renewal any time. For example, you can schedule a renewal after the user logs in and then again, if the page is refreshed.
 
-In the `setSession` method, add the function right after setting the Access Token and ID Token into memory.
+In the `localLogin` method, add the function right after setting the Access Token and ID Token into memory.
 
 ```ts
 // src/app/auth/auth.service.ts
 
-private setSession(authResult): void {
+private localLogin(authResult): void {
   // Set isLoggedIn flag in localStorage
   localStorage.setItem('isLoggedIn', 'true');
   // Set the time that the access token will expire at

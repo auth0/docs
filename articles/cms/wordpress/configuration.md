@@ -45,12 +45,14 @@ First, we'll check for the Application created for your WordPress site.
 
 1. **Application Type** must be set to **Regular Web Application**
 
-1. Scroll down to **Allowed Callback URLs** and input your WordPress site's homepage URL, login URL, and index.php URL with `?auth0=1` appended to it, separated by a comma. It should look like this:
+1. Scroll down to **Allowed Callback URLs** and provide the WordPress site URL with `?auth0=1` appended:
 
-    ![Application - allowed callback field](/media/articles/cms/wordpress/client-allowed-callbacks.png)
+```
+https://yourdomain.com/index.php?auth0=1
+```
 
     ::: warning
-    These URLs must **not** be cached or you might see an "Invalid state" error on login. Please see our [troubleshooting steps for this error](https://github.com/joshcanhelp/troubleshooting-invalid-state-wp/) for more information.
+    Do **not** cache Callback URLs, or you might see an "Invalid state" error during login. Please see our [troubleshooting steps for this error](https://auth0.com/docs/cms/wordpress/invalid-state#cached-callback-urls) for more information.
     :::
 
 

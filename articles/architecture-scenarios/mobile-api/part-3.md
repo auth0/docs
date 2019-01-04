@@ -29,7 +29,7 @@ In this section we will see how we can implement a mobile application for our sc
 
 ### Authorize the User
 
-To authorize the user we will implement an [Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce). The mobile application should first send the user to the [authorization URL](/api/authentication#authorization-code-grant-pkce-) along with the `code_challenge` and the method used to generate it:
+To authorize the user we will implement the [Native/Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow). The mobile application should first send the user to the [authorization URL](/api/authentication#authorization-code-grant-pkce-) along with the `code_challenge` and the method used to generate it:
 
 ```text
 https://${account.namespace}/authorize?
@@ -50,7 +50,7 @@ __client_id__ | The value of your Auth0 Client Id. You can retrieve it from the 
 __audience__ | The value of your API Identifier. You can retrieve it from the Settings of your API at the [Auth0 Dashboard](${manage_url}/#/apis).
 __scope__ | The [scopes](/scopes) which determine the claims to be returned in the ID Token and Access Token. For example, a scope of `openid` will return an ID Token in the response. In our example mobile app, we use the following scopes: `create:timesheets read:timesheets openid profile email offline_access`. These scopes allow the mobile app to call the API, obtain a Refresh Token, and return the user's `name`, `picture`, and `email` claims in the ID Token.
 __response_type__ | Indicates the Authentication Flow to use. For a mobile application using PKCE, this should be set to `code`.
-__code_challenge__ | The generated code challenge from the code verifier. You can find instructions on generating a code challenge [here](/api-auth/tutorials/authorization-code-grant-pkce#1-create-a-code-verifier).
+__code_challenge__ | The generated code challenge from the code verifier. You can find instructions on generating a code challenge [here](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow#authorize-the-user#create-a-code-verifier).
 __code_challenge_method__ | Method used to generate the challenge. Auth0 supports only `S256`.
 __redirect_uri__ | The URL which Auth0 will redirect the browser to after authorization has been granted by the user. The Authorization Code will be available in the code URL parameter. This URL must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
 

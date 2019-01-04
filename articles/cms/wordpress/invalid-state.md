@@ -15,7 +15,7 @@ useCase:
 
 # Invalid State Errors
 
-We added state validation to the WordPress plugin in [version 3.6.0](https://github.com/auth0/wp-auth0/releases/tag/3.6.0). This security measure helps mitigate CSRF attacks by ensuring that the response belongs to a request initiated by the same user ([more information on state validation here](/protocols/oauth2/oauth-state)).
+We added state validation to the WordPress plugin in [version 3.6.0](https://github.com/auth0/wp-auth0/releases/tag/3.6.0). This security measure helps mitigate CSRF attacks by ensuring that the response belongs to a request initiated by the same user For more information, see [State Parameter](/protocols/oauth2/oauth-state).
 
 ## How state validation works
 
@@ -38,7 +38,18 @@ Below are some common causes of the invalid state error as well troubleshooting 
 
 The most common cause of the invalid state error is when the callback URL is cached on the server.
 
-Remove caching from all the URLs listed in the **Allowed Callback URLs** field for your Application in the Auth0 dashboard and test again. If that does not solve the issue, continue with the troubleshooting steps below.
+Remove caching from all the URLs listed in the **Allowed Callback URLs** field for your Application in the Auth0 dashboard and test again. If that does not solve the issue, continue with the troubleshooting steps below. 
+
+### Cached cookies and URL parameters. 
+
+If you're on a managed host like WP-Engine, you may need to contact their support team for additional assistance. We've had reports of issues accessing required cookies on the callback URL, as well as problems with checking authentication on the final page that users see after logging in. Specifically, ask to have cache exclusions added for:
+
+- **Cookie:** `auth0_state`
+- **Cookie:** `auth0_nonce`
+- **Arg/URL parameter:** `auth0`
+- **Arg/URL parameter:** `code`
+- **Arg/URL parameter:** `state`
+- **Arg/URL parameter:** `id_token`
 
 ### Page refresh after error message
 
@@ -57,7 +68,7 @@ If your site is using the Universal Login Page and you're building the link your
 
 Alternatively, you can go to Settings > Features tab > Universal Login Page and redirect login requests to the `wp-login.php` page where that cookie and URL parameter will be set automatically. The code that runs this process is [here](https://github.com/auth0/wp-auth0/blob/master/lib/WP_Auth0_LoginManager.php#L90) if you want to continue to use a custom-built `/authorize` URL.
 
-### Visiting callback URL
+### Visiting the callback URL directly
 
 If you visit your callback URL (typically `yourdomain.com/index.php?auth0=1`) directly or a second time after the authorization code has been exchanged, the invalid state error might display. This indicates that the state has already been verified and deleted.
 
@@ -69,7 +80,7 @@ Note that some of the steps below will require the login process to be broken du
 2. Check if the `auth0_state` cookie is being set (in Chrome, View > Developer > JavaScript Console > Application tab > Storage on the left > Cookies > domain being tested, look for an `auth0_state` cookie with a non-empty value).
 
 	* If this value is not set, check for errors in the JS console and that your browser can accept cookies (login will not work without cookies). This is set in `/assets/js/lock-init.js` ([code on GitHub](https://github.com/auth0/wp-auth0/blob/master/assets/js/lock-init.js#L22))
-	* If the value is set, copy the value and view the source code of the page (in Chrome, View > Developer > View Source). Search for that value in the code and it should appear in JavaScript as the value of `wpAuth0LockGlobal.auth.settings.state` ([sample JSON](https://gist.github.com/joshcanhelp/1b8bb990048325eb7214e2b3d7136b78)). Make a note of this value by copying and pasting into a text file.
+	* If the value is set, copy the value and view the source code of the page (in Chrome, **View** > **Developer** > **View Source**). Search for the value, and it should appear as the value associated with parameter `wpAuth0LockGlobal.settings.auth.params.state` ([sample JSON](https://gist.github.com/joshcanhelp/1b8bb990048325eb7214e2b3d7136b78)). Make a note of this value (you'll need it in a following step).
 
 3. If the value appears there and the Lock form is loading normally then steps 1 and 2 from the first list above are functioning properly.
 4. Before logging in, add [this snippet](https://gist.github.com/joshcanhelp/ba98f748747c7fd2ecdf54e73c6110f3) to the top of your `wp-config.php`. **WARNING**: This will break login for the WordPress site being tested so use it only on a non-production install.
@@ -109,5 +120,5 @@ If none of the steps above resolve the issue, please collect the results of the 
 
 ## Related posts:
 
-- ["Invalid state" error during Auth0 WordPress redirect](https://community.auth0.com/t/invalid-state-error-during-auth0-wordpress-redirect/12552/9)
+- ["Invalid state" error during Auth0 WordPress redirect](https://community.auth0.com/t/invalid-state-error-during-auth0-wordpress-redirect/12552/16)
 - [Invalid state when visiting the callback URL directly](https://wordpress.org/support/topic/unable-to-resolve-troubleshooting-with-a-client-grant-for-already-exists/)

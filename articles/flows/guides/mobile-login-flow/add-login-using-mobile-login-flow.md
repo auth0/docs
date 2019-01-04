@@ -1,5 +1,6 @@
 ---
-description: Learn how to add login using the mobile login flow.
+title: Add Login to Native/Mobile Applications
+description: Learn how to add login to your application using the mobile login flow.
 toc: true
 topics:
   - api-authentication

@@ -41,7 +41,7 @@ auth0 = new auth0.WebAuth({
 ```ts
 // src/app/auth/auth.service.ts
 
-private setSession(authResult): void {
+private localLogin(authResult): void {
 
   const scopes = authResult.scope || this.requestedScopes || '';
 

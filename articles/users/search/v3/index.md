@@ -20,6 +20,10 @@ Looking for someone? You can search for users matching a custom query with the [
 
 In this article you'll learn how to search for users and sort the results.
 
+::: warning
+User Search v3 is not yet available for the PSaaS Appliance.
+:::
+
 ## Before you start
 
 * Review the [User Search Query Syntax](/users/search/query-syntax).

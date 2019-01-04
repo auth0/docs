@@ -69,6 +69,12 @@ function (user, context, callback) {
 }
 ```
 
+::: note 
+If you need to add custom claims to the Access Token, you can use the code sample above with the following change: use `context.accessToken` in place of `context.idToken`.
+
+Please note that adding custom claims to tokens through this method will also let you obtain them when calling the `/userinfo` endpoint. However, rules run when the user is authenticating, not when `/userinfo` is called.
+:::
+
 Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. The namespace URL does not have to point to an actual resource, it’s only used as an identifier and will not be called by Auth0. 
 
 ::: warning
@@ -77,14 +83,19 @@ Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any n
 
 This follows a [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant. While this is not mandatory according to the specification, Auth0 will always enforce namespacing when performing OIDC-conformant login flows, meaning that any custom claims without HTTP/HTTPS namespaces will be silently excluded from tokens.
 
-If you need to add custom claims to the Access Token, the same applies but using `context.accessToken` instead.
+::: note
+Auth0 will allow non-OIDC claims without a namespace (the "legacy" user profile, from which we strongly recommend moving away) if:
 
-Please note that adding custom claims to ID Tokens through this method will also let you obtain them when calling the `/userinfo` endpoint. However, rules run when the user is authenticating, not when `/userinfo` is called.
+* You are using the non-OIDC conformant pipeline (i.e., you are not using the `audience` parameter in the `/authorize` or token request and the application does not have the [**OIDC-Conformant** toggle](https://auth0.com/docs/api-auth/tutorials/adoption/oidc-conformant) enabled).
+* You have the **Legacy User Profile** toggle turned on in the [tenant Advanced Settings](https://manage.auth0.com/#/tenant/advanced), under the **Migrations** section. This setting is only enabled for old tenants, but newly created tenants can't see or enable the **Legacy User Profile**. 
+
+We strongly recommend moving away from the Legacy User Profile.
+:::
 
 ## Token refresh flow and custom claims
 
 When an application requests new tokens using a [Refresh Token](/tokens/refresh-token/current), the new tokens will not automatically inherit any custom claims previously added. But since rules run on a token refresh flow as well, the same claim customization code will be executed in these cases. This gives the flexibility of adding or changing claims in newly issued tokens without forcing applications to obtain a new refresh token.
 
-## Further reading
+## Keep reading
 
 <%= include('./_index.md') %>

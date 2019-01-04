@@ -1,4 +1,5 @@
 ---
+title: Add Login to Regular Web Applications
 description: Learn how to add login to your application using the regular web app login flow.
 toc: true
 topics:

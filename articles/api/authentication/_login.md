@@ -86,7 +86,7 @@ Social connections only support browser-based (passive) authentication because m
 
 - [Supported Social Identity Providers](/identityproviders#social)
 - [Custom Social Connections](/connections/social/oauth2)
-- [Using the State Parameter](/protocols/oauth2/oauth-state)
+- [State Parameter](/protocols/oauth2/oauth-state)
 - [Auth0.js /authorize Method Reference](/libraries/auth0js#webauth-authorize-)
 
 
@@ -167,7 +167,7 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 - [Database Identity Providers](/connections/database)
 - [Rate Limits on User/Password Authentication](/connections/database/rate-limits)
 - [Active Directory/LDAP Connector](/connector)
-- [Using the State Parameter](/protocols/oauth2/oauth-state)
+- [State Parameter](/protocols/oauth2/oauth-state)
 - [Auth0.js /authorize Method Reference](/libraries/auth0js#webauth-authorize-)
 
 ## Enterprise (SAML and Others)
@@ -254,5 +254,5 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 
 - [SAML](/protocols/saml)
 - [Obtain a Client Id and Client Secret for Microsoft Azure Active Directory](/connections/enterprise/azure-active-directory)
-- [Using the State Parameter](/protocols/oauth2/oauth-state)
+- [State Parameter](/protocols/oauth2/oauth-state)
 - [Auth0.js /authorize Method Reference](/libraries/auth0js#webauth-authorize-)

@@ -69,7 +69,7 @@ The data part of the request should include the following:
   }
   ```
 
-The `state` is an optional parameter, but we strongly recommend you [use it as it mitigates CSRF attacks](/protocols/oauth2/oauth-state).
+The `state` is an optional parameter, but we strongly recommend you use it [mitigate CSRF attacks](/protocols/oauth2/mitigate-csrf-attacks).
 
 The `callback_url` must match what is defined in your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
 

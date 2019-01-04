@@ -70,3 +70,4 @@ Here are some things to know before you begin the process of setting up your dat
 * [Write Custom Database Action Scripts](/connections/database/custom-db/templates)
 * [Update User Profile Using Your Database](/users/guides/update-user-profiles-using-your-database)
 * [Handle Errors and Troubleshoot Your Custom DB Scripts](/connections/database/custom-db/error-handling)
+* [Migrate Your Users to Auth0](/users/concepts/overview-user-migration)
