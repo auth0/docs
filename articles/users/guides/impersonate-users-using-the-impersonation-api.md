@@ -5,7 +5,6 @@ topics:
     - users
     - user-management
     - user-profiles
-    - impersonation
 contentType: how-to
 useCase: manage-users
 v2: true
