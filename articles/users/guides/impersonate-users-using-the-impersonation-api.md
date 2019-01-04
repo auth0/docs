@@ -24,7 +24,7 @@ The following steps assume that you have two apps, `app1` and `app2`, and you wa
    - **Option A: Use the Management API**
      First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that see [Access Tokens for the Management API](/api/management/v2/concepts/tokens).
 
-     The Management APIv2 Token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API, or vigorously handle `401` responses.
+     The Management APIv2 Token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API, or be prepared to handle a high volume of  `401` responses.
 
      After you have a token, you will have to use the token to retrieve the user id of the user that you want to impersonate (in this example, a user of `app2`). You can retrieve this information with the [Management API /api/v2/users](/api/management/v2#!/Users/get_users) endpoint.
 
