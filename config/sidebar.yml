@@ -648,6 +648,9 @@ articles:
           - title: "FAQ"
             url: "/multifactor-authentication/api/faq"
 
+      - title: "MFA Troubleshooting"
+        url: "/multifactor-authentication/troubleshooting"
+
   - title: "Security"
     url: "/security"
     children:
