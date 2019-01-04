@@ -24,17 +24,17 @@ When searching for users in Auth0, there are three different API endpoints you c
 | Actions requiring user search as part of authentication processes | [Get Users by ID](/users/search/v3/get-users-by-id-endpoint) or [Get Users by Email](/users/search/v3/get-users-by-email-endpoint) |
 | Searching for users for account linking by email | [Get Users by Email](/users/search/v3/get-users-by-email-endpoint) |
 
-In discussing user search, we use the following terms:
+You can sort, view, and export your search results. 
 
-* **Eventually consistent**: When you request information about a user (or a group of users), the response might not reflect the results of a recently-complete write operation. However, if you repeat your request after a short period of time, the response will return up-to-date data.
+In discussing user search, we use the following terms related to the search results:
 
-* **Immediately consistent**: When you request information about a user (or a group of users), the response will reflect the results of all successful write operations, including those that occurred shortly prior to your request.
+* **Eventually consistent**: The search results may not reflect the results of a recently-completed write operation. However, if you repeat your request after a short period of time, the response will return up-to-date data.
+
+* **Immediately consistent**: The search results will reflect the results of all successful write operations, including those that occurred shortly prior to your request.
 
 ::: note
 User Search v3 is not available for the PSaaS Appliance.
 :::
-
-You can sort, view, and export your search results. 
 
 ## Keep reading
 
