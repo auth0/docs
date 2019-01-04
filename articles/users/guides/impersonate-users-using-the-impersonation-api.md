@@ -1,6 +1,7 @@
 ---
-title: Impersonate Users Using the Impersonation API
-description: This page explains how to impersonate a user using the Impersonation API.
+description: Learn how to impersonate a user using the Impersonation API.
+sitemap: false
+public: false
 topics:
     - users
     - user-management
