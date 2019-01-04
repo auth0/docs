@@ -50,6 +50,8 @@ Follow the on-screen instructions to complete your enrollment.
 
 If you want to allow employees of your organization to have access to our [Support Center](https://support.auth0.com), but you don't want to give them complete Administrator access over the tenant or a particular application, you can alternatively add them as Support-Only users. If that's the case, please follow the instructions described in our [Support Options](/support#add-support-only-users) documentation.
 
-## Troubleshooting
+## Missing Tenants
 
-Sometimes Dashboard Admins accidentally create multiple accounts by signing up with social providers like Google/Github or/and create an account using their email and password. If a Dashboard Admin is reporting when they are signing in they can not see the tenants, they most likely have multiple Auth0 accounts. We recommend going to **Tenant Settings** and choosing the [Dashboard Admins](${manage_url}/#/tenant/admins) tab and then, providing them with which signup mehtod they used for that tenant and to try attemp logging in that way.
+We've occasionally found that Dashboard administrations inadvertantly create multiple Auth0 accounts. For example, they might sign up with a social provider (e.g., Google, GitHub), then sign up again using the email address. If you have a Dashboard administrator that reports that they cannot see all of their tenants after logging in, check to see if they have multiple Auth0 accounts.
+
+You can confirm the signup method used by the Dashboard adminsitrator by going to **Tenant Settings** > [**Dashboard Admins**](${manage_url}/#/tenant/admins). 
