@@ -10,40 +10,42 @@ useCase: extensibility-extensions
 ---
 # Import/Export Tenant Configuration to a YAML File
 
-The YAML option supports exporting and importing the Auth0 tenant configuration via a [YAML](http://yaml.org/) file.
+The `auth0-deploy-cli` tool YAML option supports exporting and importing the Auth0 tenant configuration via a [YAML](http://yaml.org/) file.
 
-## Example Export
+## Import tenant configuration
 
-You can export your current tenant configuration. For example the following command will export your tenant configuration.
+1. Copy `config.json.example` and fill out details.
 
-`a0deploy export -c config.json --strip -f yaml -o path/to/export`
+   ```json
+   {
+     "AUTH0_DOMAIN": "<YOUR_TENANT>.auth0.com",
+     "AUTH0_CLIENT_ID": "<client_id>",
+     "AUTH0_CLIENT_SECRET": "<client_secret>",
+     "AUTH0_KEYWORD_REPLACE_MAPPINGS": {
+       "AUTH0_TENANT_NAME": "<NAME>",
+       "ENV": "DEV"
+    },
+     "AUTH0_ALLOW_DELETE": false,
+     "AUTH0_EXCLUDED_RULES": [
+       "rule-1-name",
+       "rule-2-name"
+    ]
+   }
+   ```
 
-> NOTE: The option --strip is used to remove the identifier fields from the Auth0 objects. This means when importing into another Auth0 Tenant new id's are generated otherwise the import will fail as the tool cannot find the existing objects by their id.
+   Use the `client ID` and secret from your newly created client (the client is named `auth0-deploy-cli-extension` if you used the extension).
 
-> NOTE: Some of the settings cannot be exported for example emailProvider credentials, rulesConfigs values and others. After export you may need to update the `tenant.yaml` values if you experience schema errors on import.
+   By default the tool merges your current environment variables and overrides `config.json` which has the same top key. Use the `--no-env` option to disable the override via the command line.
+   
+   You can either set env variables or place the values in a config file anywhere on the file system.
 
-## Example Import
-Please refer to [tenant.yaml](tenant.yaml) for an example configuration.
+2. Run deploy.
 
-### Instructions
+   ```bash
+   a0deploy import -c config.json -i tenant.yaml
+   ```
 
-1. Copy config.json.example and fill out details
-2. Run deploy
-```bash
-a0deploy import -c config.json -i tenant.yaml
-```
-
-# Usage
-
-## Configuration
-
-The config will need the client ID and secret from your newly created client (the client is named `auth0-deploy-cli-extension` if you used the extension).
-
-You can either set env variables or place the values in a config file anywhere on the filesystem.
-
-::: note
-By default the tool will also merge in your current environment variables and override the config.json which have the same top key. You can disable this via the command line with the `--no-env` option.
-:::
+### Config file example
 
 Here is the example of a `config.json` file:
 
@@ -64,43 +66,171 @@ Here is the example of a `config.json` file:
 }
 ```
 
-## ENV Variables and AUTH0_KEYWORD_REPLACE_MAPPINGS
+### Import configuration example
 
-The mappings are there so that you can use the same configuration file for all of your environments (e.g. dev, uat, staging, and prod) without having to have different versions of the files for each environment.  The mappings allow you to replace certain values in your configuration repo with envrionment specic values.  There are two ways to use the keyword mappings.  You can either wrap the key in `@@key@@` or `##key##`.  If you use the `@` symbols, it will do a JSON.stringify on your value before replacing it.  So if it is a string it will add quotes, if it is an array or object it will add braces.  If you use the `#` symbol instead, till just do a literal replacement.  It will not add quotes or brackets.
+Here is an example of an import config file `tenant.jaml`:
 
-> NOTE: By default the tool will also merge in your current environment variables and override the AUTH0_KEYWORD_REPLACE_MAPPINGS which have the same top key. You can disable this via the command line with the `--no-env` option.
-
-For example, you could specify a different JWT timeout in your dev environment then prod for testing and a different environment URL:
-
-Client .json:
 ```json
-{
-  ... 
-  "callbacks": [
-    "##ENVIRONMENT_URL##/auth/callback"
-  ],
-  "jwt_configuration": {
-    "lifetime_in_seconds": @@JWT_TIMEOUT@@,
-    "secret_encoded": true
-  }
-  ...
-}
+tenant:
+  # Any tenant settings can go here https://auth0.com/docs/api/management/v2#!/Tenants/get_settings
+  friendly_name: 'Auth0 Deploy Example'
+
+pages:
+  - name: "login"
+    html: "pages/login.html"
+
+  - name: "password_reset"
+    html: "pages/password_reset.html"
+
+  - name: "guardian_multifactor"
+    html: "pages/guardian_multifactor.html"
+    enabled: false
+
+  - name: "error_page"
+    html: "pages/error_page.html"
+
+
+clients:
+  -
+    name: "My SPA"
+    app_type: "spa"
+    # Add other client settings https://auth0.com/docs/api/management/v2#!/Clients/post_clients
+  -
+    name: "My M2M"
+    app_type: "non_interactive"
+    # Add other client settings https://auth0.com/docs/api/management/v2#!/Clients/post_clients
+
+
+databases:
+  - name: "users"
+    enabled_clients:
+      - "My SPA"
+    options:
+      enabledDatabaseCustomization: true
+      customScripts:
+        login: "databases/users/login.js"
+        create: "databases/users/create.js"
+        delete: "databases/users/delete.js"
+        get_user: "databases/users/get_user.js"
+        change_email: "databases/users/change_email.js"
+        change_password: "databases/users/change_password.js"
+        verify: "databases/users/verify.js"
+
+connections:
+  - name: "myad-waad"
+    strategy: "waad"
+    enabled_clients:
+      - "My SPA"
+    options:
+      tenant_domain: 'office.com'
+      client_id: 'some_client_id'
+      client_secret: 'some_client_secret'
+      domain: 'office.com'
+      waad_protocol: 'openid-connect'
+      api_enable_users: true
+      basic_profile: true
+      ext_profile: true
+      ext_groups: true
+    # Add other connection settings (https://auth0.com/docs/api/management/v2#!/Connections/post_connections)
+
+
+rules:
+  - name: "Common-Functions"
+    order: 10
+    script: "rules/enrich_tokens.js"
+
+
+rulesConfigs:
+  # Key/Value pairs for Rule configuration settings
+  - key: "SOME_SECRET"
+    value: 'some_key'
+
+
+resourceServers:
+  -
+    name: "My API"
+    identifier: "https://##ENV##.myapp.com/api/v1"
+    scopes:
+      - value: "update:account"
+        description: "update account"
+      - value: "read:account"
+        description: "read account"
+    # Add other resource server settings (https://auth0.com/docs/api/management/v2#!/Resource_Servers/post_resource_servers)
+
+
+emailProvider:
+  name: "smtp"
+  enabled: true
+  credentials:
+    smtp_host: "smtp.mailtrap.io"
+    smtp_port: 2525
+    smtp_user: "smtp_user"
+    smtp_pass: "smtp_secret_password"
+
+
+emailTemplates:
+  - template: "verify_email"
+    enabled: true
+    syntax: "liquid"
+    from: "test@email.com"
+    subject: "something"
+    body: "emails/change_email.html"
+
+  - template: "welcome_email"
+    enabled: true
+    syntax: "liquid"
+    from: "test@email.com"
+    subject: "something"
+    body: "emails/change_email.html"
+
+
+clientGrants:
+  - client_id: "My M2M"
+    audience: "https://##ENV##.myapp.com/api/v1"
+    scope:
+      - "update:account"
+
+
+guardianFactors:
+  - name: sms
+    enabled: true
+  - name: push-notification
+    enabled: true
+  - name: otp
+    enabled: true
+  - name: email
+    enabled: false
+  - name: duo
+    enabled: false
+
+guardianFactorProviders:
+  - name: sms
+    provider: twilio
+    auth_token: "some_token"
+    sid: "some_sid"
+    messaging_service_sid: "some_message_sid"
+
+guardianFactorTemplates:
+  - name: sms
+    enrollment_message: >-
+      {{code}} is your verification code for {{tenant.friendly_name}}. Please
+      enter this code to verify your enrollment.
+    verification_message: '{{code}} is your verification code for {{tenant.friendly_name}}'
 ```
 
-Dev Config .json:
-```json
-  "AUTH0_KEYWORD_REPLACE_MAPPINGS": {
-    "ENVIRONMENT_URL": "http://dev.fabrikam.com",
-    "JWT_TIMEOUT": 120,
-    ...
-  }
-```
+## Export tenant configuration
 
-Prod Config .json:
-```json
-  "AUTH0_KEYWORD_REPLACE_MAPPINGS": {
-    "ENVIRONMENT_URL": "http://fabrikam.com",
-    "JWT_TIMEOUT": 3600,
-    ...
-  }
-```
+To export your current tenant configuration, use a command like the following example:
+
+`a0deploy export -c config.json --strip -f yaml -o path/to/export`
+
+<%= include('./_includes/_strip-option') %>
+
+<%= include('./_includes/_limitations') %>
+
+For more information, see [Environment Variables and Keyword Mappings](/extensions/deploy-cli/references/environment-variables-keyword-mappings).
+
+
+## Keep reading
+
+* 

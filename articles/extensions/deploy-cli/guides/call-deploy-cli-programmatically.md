@@ -5,8 +5,7 @@ topics:
   - extensions
   - deploy-cli
 contentType:
-  - index
-  - concept
+  - how-to
 useCase: extensibility-extensions
 ---
 # Call Deploy CLI Tool Programmatically
@@ -52,10 +51,15 @@ dump({
 
 ## Troubleshooting
 
-The `auth0-deploy-cli` tool leverages the [Auth0 Management API](https://auth0.com/docs/api/management/v2) passing through objects for creates, updates and deletions.
+The `auth0-deploy-cli` tool leverages the [Auth0 Management API](/api/management/v2) passing through objects for creates, updates, and deletions.
 
-You may experience `Bad Request` and `Payload validation` errors. These errors are returned from the Auth0 Management API, and usually mean the object has attributes which are not writable or no longer available (legacy). This can happen when exporting from an older Auth0 tenant and importing into a newly created tenant. In this scenario you may need to update your configuration to support the new object format. See #45 for a potential fix.
+You may experience `Bad Request` and `Payload validation` errors. These errors are returned from the Auth0 Management API, and usually mean the object has attributes which are not writable or no longer available (legacy). This can happen when exporting from an older Auth0 tenant and importing into a newly created tenant. In this scenario you may need to update your configuration to support the new object format. For more information, see * [Upgrade from Deploy CLI v1 to v2](/extensions/deploy-cli/guides/upgrade-v1-v2) and [What's New in Deploy CLI Tool v2](/extensions/deploy-cli/references/whats-new-v2). 
 
 ## Keep reading
 
-* 
+* [Install the Deploy CLI Tool](/extensions/deploy-cli/guides/install-deploy-cli)
+* [Incorporate Deploy CLI into Build Environment](/extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment)
+* [Import/Export Tenant Configuration to a Directory Structure](/extensions/deploy-cli/guides/import-export-directory-structure)
+* [Import/Export Tenant Configuration to a YAML File](/extensions/deploy-cli/guides/import-export-yaml-file)
+* [Deploy CLI Tool Options](/extensions/deploy-cli/references/deploy-cli-options)
+* [Test Deploy CLI Operations Locally](/extensions/deploy-cli/guides/test-locally)

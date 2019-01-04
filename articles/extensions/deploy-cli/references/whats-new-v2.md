@@ -11,7 +11,7 @@ useCase: extensibility-extensions
 ---
 # What's New in Deploy CLI Tool v2
 
-The `auth0-deploy-cli` tool was refactored bringing the following updates.
+The `auth0-deploy-cli` tool was updated to include the following changes.
 
 - Added YAML support
 - Added support for export (deprecation of separate auth0 dump tool)

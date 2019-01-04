@@ -52,6 +52,8 @@ Copy these values into the **Add Webhook** page for your GitHub repository:
 You can find details on how to configure a webhook at [Creating Webhooks](https://developer.github.com/webhooks/creating/) on GitHub.
 :::
 
+You can also use the `auth0-deploy-cli` tool to export and import tenant configuration data to a directory structure or a YAML file. For more information, see [Deploy CLI Tool Overview](/extensions/deploy-cli/concepts/overview-deploy-cli-tool).
+
 ## Deployment
 
 Once you have set up the webhook in GitHub using the provided information, you are ready to start committing to your repository.
