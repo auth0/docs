@@ -28,3 +28,13 @@ This is a common issue with latest PHP versions under **Windows OS** (related to
 > My host does not allow using Composer
 
 This SDK uses Composer for maintaining dependencies (required external PHP libraries). If Composer is not allowed or installed on your host, install Composer locally, follow the installation instructions there, then upload your entire application, vendor folder included, to your host.
+
+**Read More**
+
+::: next-steps
+* [Auth0-PHP Introduction](/libraries/auth0-php)
+* [Auth0-PHP Basic Use](/libraries/auth0-php/basic-use)
+* [Auth0-PHP Authentication API](/libraries/auth0-php/authentication-api)
+* [Auth0-PHP Management API](/libraries/auth0-php/management-api)
+* [Auth0-PHP JWT Verification](/libraries/auth0-php/jwt-validation)
+:::
