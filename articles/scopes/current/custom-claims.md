@@ -37,3 +37,8 @@ For an example showing how to add custom claims to a token, see [Sample Use Case
 ## Refresh tokens and custom claims
 
 As long as your rule is in place, the custom claims it adds will appear in new tokens issued when using a [Refresh Token](/tokens/refresh-token/current). Although new tokens do not automatically inherit custom claims, rules run during the refresh token flow, so the same code will be executed. This allows you to add or change custom claims in newly-issued tokens without forcing previously-authorized applications to obtain a new refresh token.
+
+## Keep reading
+
+* [Sample Use Cases: Permissions and Claims](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)
+* [OpenID Connect Permissions: Standard Claims](/scopes/current/oidc-scopes#standard-claims)
