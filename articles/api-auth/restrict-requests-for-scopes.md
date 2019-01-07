@@ -1,22 +1,30 @@
 ---
-  description: Writing rules to restrict user/client access to an API
+  title: Restrict Application or User Requests for API Permissions
+  description: Learn how to write rules that will restrict user/client access to permissions (scopes) for an API.
   topics:
   - api-authentication
   - oidc
   - scopes
+  - permissions
 contentType: how-to
 useCase:
   - secure-api
   - call-api
 ---
 
-# Restrict Application or User Requests for API Scopes
+# Restrict Application or User Requests for API Permissions
 
-By default, any user associated with an [Auth0 application](/applications) can request an API's [scope(s)](/scopes/current/api-scopes). If you would like to restrict access to the API's scopes based on the user's role, application association, location, and so on, you can do so via [rules](/rules). Then, if a restricted user attempts to request scopes not permitted to them, they will receive an `HTTP 401` response.
+By default, any user associated with an [Auth0 application](/applications) can request any [custom API permissions] (/scopes/current/api-scopes) that have been created. Sometimes you may not want to allow an application to request certain permissions, though. For example, you may want to restrict access to an API's permissions based on the calling application or a user's role or location. To do so, we use [rules](/rules).
 
-## Example: Deny access based on the API audience
+## Example: Deny access to anyone calling the API
 
-The following [rule](/rules), demonstrates how you would deny access on an API, depending on the `audience` parameter. In this example, we deny access to all users, if the API they are trying to access has the `audience` set to `http://todoapi2.api`.
+In this example, we want to deny access to all users who are calling the API. To do this, we create a [rule](/rules) to deny access depending on the `audience` parameter. In this case, the `audience` value for our API is `http:://todoapi2.api`, so this is the audience we will refuse.
+
+::: note
+The value of an API's `audience` is displayed in the **API Audience** field in the [APIs section of the Auth0 Dashboard](${manage_url}/#/apis).
+:::
+
+When a restricted user attempts to access the API, they will receive an `HTTP 401` response.
 
 ```js
 function (user, context, callback) {
@@ -39,13 +47,15 @@ function (user, context, callback) {
 }
 ```
 
+## Example: Deny access to users from a specific calling application
+
+In this example, we want to deny access to all users who are accessing the API from a specific calling application. To do this, we create a [rule](/rules) to deny access depending on the `client_id` parameter. This is equivalent to disabling all connections for an application.
+
 ::: note
-The value of an API's `audience` is displayed at the **API Audience** field, at [Dashboard > APIs](${manage_url}/#/apis).
+The value of an application's `client_id` is displayed in the **Client ID** field in the [Applications section of the Auth0 Dashboard](${manage_url}/#/applications).
 :::
 
-## Example: Deny access based on the Client ID
-
-The following [rule](/rules), demonstrates how you would deny access on an API, depending on the application the user is associated with. In this example, we deny access to all users, if the application through which they login, has an ID equal to `CLIENT_ID` (this is equivalent to disabling **all** Connections for the application).
+When a restricted user attempts to access the API, they will receive an `HTTP 401` response.
 
 ```js
 function (user, context, callback) {
@@ -64,7 +74,3 @@ function (user, context, callback) {
   return callback(null, user, context);
 }
 ```
-
-::: note
-The value of a client's Id is displayed at the **Client ID** field, at [Dashboard > Applications](${manage_url}/#/applications).
-:::
