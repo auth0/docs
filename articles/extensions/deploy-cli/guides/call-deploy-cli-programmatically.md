@@ -33,7 +33,7 @@ deploy({
   secret                                        // Optionally pass in auth0 client secret seperate from config
 })
   .then(() => console.log('yey deploy was successful'))
-  .catch(err => console.log(`Oh no, something went wrong. Error: ${err}`));
+  .catch(err => console.log(`Oh no, something went wrong. <%= "Error: ${err}" %>`));
 
 
 // Import tenant config
@@ -46,7 +46,7 @@ dump({
   secret                                    // Optionally pass in auth0 client secret seperate from config
 })
   .then(() => console.log('yey deploy was successful'))
-  .catch(err => console.log(`Oh no, something went wrong. Error: ${err}`));
+  .catch(err => console.log(`Oh no, something went wrong. <%= "Error: ${err}" %>`));
 ```
 
 ## Troubleshooting
