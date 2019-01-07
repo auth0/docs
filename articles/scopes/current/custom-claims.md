@@ -41,4 +41,3 @@ As long as your rule is in place, the custom claims it adds will appear in new t
 ## Keep reading
 
 * [Sample Use Cases: Permissions and Claims](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)
-* [OpenID Connect Permissions: Standard Claims](/scopes/current/oidc-scopes#standard-claims)
