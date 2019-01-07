@@ -1,6 +1,6 @@
 ---
-title: Import/Export YAML File
-description: Learn how to use the YAML Option of the Auth0-deploy-cli tool.
+title: Import/Export Tenant Configuration to YAML File
+description: Learn how to use the YAML option of the Auth0-deploy-cli tool.
 topics:
   - extensions
   - deploy-cli
@@ -8,9 +8,9 @@ contentType:
   - how-to
 useCase: extensibility-extensions
 ---
-# Import/Export Tenant Configuration to a YAML File
+# Import/Export Tenant Configuration to YAML File
 
-The `auth0-deploy-cli` tool YAML option supports exporting and importing the Auth0 tenant configuration via a [YAML](http://yaml.org/) file.
+The `auth0-deploy-cli` tool YAML option supports exporting and importing the Auth0 tenant configuration to a [YAML](http://yaml.org/) file.
 
 ## Import tenant configuration
 
@@ -70,7 +70,7 @@ Here is the example of a `config.json` file:
 
 Here is an example of an import config file `tenant.jaml`:
 
-```json
+```yaml
 tenant:
   # Any tenant settings can go here https://auth0.com/docs/api/management/v2#!/Tenants/get_settings
   friendly_name: 'Auth0 Deploy Example'
