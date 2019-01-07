@@ -24,6 +24,8 @@ If you'd like to revert to an earlier design, you have two options:
 * Reverting to the last saved template by clicking **Reset to Last**;
 * Reverting to the default template provided by Auth0 by clicking **Reset to Default**.
 
+Note that the page works for basic use cases without being customized. The included scripts are updated as required by Auth0. However, when the customization toggle is flipped on, you then become responsible for the updating and maintenance of the script, as it can no longer be automatically updated by Auth0. This includes updating the version for any included script, such as the MFA widget.
+
 ## Theming Options
 
 There are a few theming options for MFA-Widget, namespaced under the `theme` property.
