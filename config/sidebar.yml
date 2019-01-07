@@ -1016,7 +1016,7 @@ articles:
         url: "/pre-deployment/prelaunch-tips"
 
       - title: "Deploy CLI Tool"
-        url: "/extensions/deploy-cli/concepts/overview-deploy-cli-tool"
+        url: "/extensions/deploy-cli"
         children:
           - title: "Install Deploy CLI"
             url: "/extensions/deploy-cli/guides/install-deploy-cli"

@@ -14,7 +14,7 @@ useCase: extensibility-extensions
 The **GitHub Deployments** extension allows you to deploy [rules](/rules), rules configs, connections, database connection scripts, clients (and client grants), resource servers, hosted pages and email templates from GitHub to Auth0. You can configure a GitHub repository, keep all your rules and database connection scripts there, and have them automatically deployed to Auth0 each time you push to your repository.
 
 ::: note
-You can use the `auth0-deploy-cli` tool to export and import tenant configuration data to a directory structure or a YAML file. For more information, see [Deploy CLI Tool Overview](/extensions/deploy-cli/concepts/overview-deploy-cli-tool).
+You can use the `auth0-deploy-cli` tool to export and import tenant configuration data to a directory structure or a YAML file. For more information, see [Deploy CLI Tool Overview](/extensions/deploy-cli).
 :::
 
 ## Configure the extension

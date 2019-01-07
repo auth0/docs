@@ -34,6 +34,6 @@ The `auth0-deploy-cli` tool was updated to include the following changes.
 
 ## Keep reading
 
-* [Deploy CLI Tool Overview](/extensions/deploy-cli/concepts/overview-deploy-cli-tool)
+* [Deploy CLI Tool Overview](/extensions/deploy-cli)
 * [Import/Export Tenant Configuration to a Directory Structure](/extensions/deploy-cli/guides/import-export-directory-structure)
 * [Import/Export Tenant Configuration to a YAML File](/extensions/deploy-cli/guides/import-export-yaml-file)
