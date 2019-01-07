@@ -74,3 +74,8 @@ function (user, context, callback) {
   return callback(null, user, context);
 }
 ```
+## Example: Deny access to users based on a role
+
+To limit a user's permissions, you can assign them a role so that requests on their behalf are limited to just the permissions assigned to that role. To do this, you can use the [Authorization Extension](/extensions/authorization-extension) and a custom [Rule](/rules).
+
+We discuss this approach in more depth in our [SPA+API Architecture Scenario](/architecture-scenarios/spa-api). Specifically, you can review the [Configure the Authorization Extension](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension) section to learn how to configure the Authorization Extension and create a custom Rule that will ensure permissions are granted based on a user's role.
