@@ -31,7 +31,7 @@ Some guidelines:
 `auth0.com`, `webtask.io` and `webtask.run` are Auth0 domains and therefore cannot be used as a namespace identifier.
 :::
 
-For an example showing how to add custom claims to a token, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)
+For an example showing how to add custom claims to a token, see [Sample Use Cases: Permissions and Claims](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)
 
 
 ## Refresh tokens and custom claims
