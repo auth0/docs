@@ -27,7 +27,7 @@ Each bulletin contains a description of the vulnerability, how to identify if yo
 
 | **Date** | **Bulletin number** | **Title** | **Affected software** |
 |-|-|-|-|
-| January 9, 2019 | N/A | Security bulletin for Rules | Auth0 Rules |
+| January 9, 2019 | [Auth0 bulletin](/security/bulletins/2019-01-09_rules) | Security bulletin for Rules | Auth0 Rules |
 | August 6, 2018 | [CVE 2018-15121](/security/bulletins/cve-2018-15121) | Security vulnerability in deprecated Auth0 middleware for ASP.NET | [auth0-aspnet](https://github.com/auth0/auth0-aspnet), [auth0-aspnet-owin](https://github.com/auth0/auth0-aspnet-owin) |
 | June 5, 2018 | [CVE 2018-11537](/security/bulletins/cve-2018-11537) | Security update for angular-jwt whitelist bypass | [angular-jwt](https://github.com/auth0/angular-jwt) |
 | April 4, 2018 | [CVE 2018-6874](/security/bulletins/cve-2018-6874) | Security vulnerability for Auth0 authentication service | Auth0 Authentication Service |
