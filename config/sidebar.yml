@@ -1022,7 +1022,7 @@ articles:
             url: "/extensions/deploy-cli/guides/install-deploy-cli"
 
           - title: "Call Deploy CLI"
-            url: "extensions/deploy-cli/guides/call-deploy-cli-tool-programmatically"
+            url: "extensions/deploy-cli/guides/call-deploy-cli-programmatically"
 
           - title: "Incorporate into Build"
             url: "extensions/deploy-cli/guides/incorporate-deploy-cli-into-build"
