@@ -25,11 +25,11 @@ When an app requests permission to access a resource through an authorization se
 
 Generally, you use permissions in three ways:
 
-* From an [application](/applications), to verify the identity of a user and get basic profile information about the user, such as their email or picture. In this scenario, the permissions available to you include those implemented by the [OpenID Connect](/protocols/oidc) protocol. For details, refer to [OpenID Connect Scopes](/scopes/current/oidc-scopes).
+* From an [application](/applications), to verify the identity of a user and get basic profile information about the user, such as their email or picture. In this scenario, the permissions available to you include those implemented by the [OpenID Connect](/protocols/oidc) protocol. For details, refer to [OpenID Connect Permissions](/scopes/current/oidc-scopes).
 
 * In an [API](/apis), to implement granular access control. In this case, you need to define custom permissions for your API and then identify these permissions so that calling applications can use them. For details, refer to [API Permissions](/scopes/current/api-scopes).
 
-* From an application, to call an API that has implemented its own custom permissions. In this case, you need to know which custom permissions are defined for the API you are calling. For an example of calling a custom API from an application, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#request-custom-API-access)
+* From an application, to call an API that has implemented its own custom permissions. In this case, you need to know which custom permissions are defined for the API you are calling. For an example of calling a custom API from an application, see [Sample Use Cases: Permissions and Claims](/scopes/current/sample-use-cases#request-custom-API-access)
 
 ## Best practices
 
@@ -41,15 +41,15 @@ Similarly, when creating custom permissions for an API, consider what levels of 
 
 ## Requested scopes versus granted scopes
 
-Remember that a user gets to consent to the permission levels being requested. While usually the permission levels returned will be identical to the permission levels requested, users can edit the granted permission levels (both during initial consent and sometimes after, depending on the resource), thereby granting an app less access than it requested. 
+Remember that a user gets to consent to the permissions being requested. While usually the permissions returned will be identical to those requested, users can edit granted permissions (both during initial consent and sometimes after, depending on the resource), thereby granting an app less access than it requested. 
 
 As an application developer, you should be aware of this possibility and handle these cases in your app. For example, your app could warn the user that they will see reduced functionality. It could also send the user back through the authorization flow to ask for additional permissions. But again, remember that users can always say no.
 
 ## Keep reading
 
-- [OpenID Connect Scopes](/scopes/current/oidc-scopes)
+- [OpenID Connect Permissions](/scopes/current/oidc-scopes)
 - [API Permissions](/scopes/current/api-scopes)
-- [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases)
+- [Sample Use Cases: Permissions and Claims](/scopes/current/sample-use-cases)
 - [How to Represent Multiple APIs Using a Single Auth0 API](/api-auth/tutorials/represent-multiple-apis)
-- [How to Restrict Application or User Requests for API Scopes](/api-auth/restrict-requests-for-scopes)
-- [SPA + API Architecture Scenario: Restrict API Scopes Based on Authorization Extension Groups](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension)
+- [How to Restrict Application or User Requests for API Permissions](/api-auth/restrict-requests-for-scopes)
+- [SPA + API Architecture Scenario: Restrict API Permissions Based on Authorization Extension Groups](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension)
