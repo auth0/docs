@@ -10,9 +10,9 @@ useCase: extensibility-extensions
 ---
 # Deploy Command Line Interface Tool
 
-Auth0 supports continuous integration and deployment (CI/CD) of Auth0 tenants through our [source control extensions](/extensions#deploy-hosted-pages-rules-and-database-connections-scripts-from-external-repositories) and integration into existing CI/CD pipelines by using the **auth0-deploy-cli** tool.
+Auth0 supports continuous integration and deployment (CI/CD) of Auth0 tenants through our [source control extensions](/extensions#deploy-hosted-pages-rules-and-database-connections-scripts-from-external-repositories) and integration into existing CI/CD pipelines by using the Deploy CLI tool.
 
-The `auth0-deploy-cli` tool supports multiple methods to import and export the following Auth0 tenant configuration objects: 
+The Deploy CLI tool (`auth0-deploy-cli`) supports multiple methods to import and export the following Auth0 tenant configuration objects: 
 
 - Tenant Settings
 - Rules (Including Secrets/Settings)
