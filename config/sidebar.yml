@@ -1025,7 +1025,7 @@ articles:
             url: "extensions/deploy-cli/guides/call-deploy-cli-programmatically"
 
           - title: "Incorporate into Build"
-            url: "extensions/deploy-cli/guides/incorporate-deploy-cli-into-build"
+            url: "extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment"
 
           - title: "Import/Export Directory Structure"
             url: "/extensions/deploy-cli/guides/import-export-directory-structure"
@@ -1037,7 +1037,7 @@ articles:
             url: "/extensions/deploy-cli/guides/test-locally"
 
           - title: "Environment Variables"
-            url: "/extensions/deploy-cli/references/environment-variables-keywords"
+            url: "/extensions/deploy-cli/references/environment-variables-keyword-mappings"
 
           - title: "Deploy CLI Options"
             url: "/extensions/deploy-cli/references/deploy-cli-options"
