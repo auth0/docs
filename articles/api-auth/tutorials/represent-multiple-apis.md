@@ -40,10 +40,10 @@ Before beginning this tutorial:
 ## Steps
 
 1. [Enable a Connection for your Application](#enable-a-connection-for-your-application): Configure a source of users for your new application.
-2. [Create a Test User](#create-a-test-user): Associate a test user with your new connection.
+2. [Create a test user](#create-a-test-user): Associate a test user with your new connection.
 3. [Register a proxy API in Auth0](#register-a-proxy-api-in-auth0): Register a proxy API to represent your actual APIs.
 4. [Configure permissions for the proxy API](#configure-permissions-for-the-proxy-API): Create the permission levels that will allow the proxy API to represent multiple APIs.
-5. [Grant access to the proxy API]: 
+5. [Grant access to the proxy API](grant-access-to-the-proxy-api): Configure the login link in your sample application, initiate the authorization flow, and extract the Access Token to be used to call your multiple APIs.
 
 ## Enable a connection for your Application
 
@@ -119,7 +119,7 @@ The rest of this article covers use of the [Single-Page Login Flow](/flows/conce
 For a full list of available Authorization flows, see [API Authorization](/api-auth).
 :::
 
-1. The user clicks Login within the SPA, and the app redirects the user to the Auth0 Authorization Server (`/authorize` endpoint), so the user can authenticate using Lock.
+1. The user clicks Login within the SPA, and the app redirects the user to the Auth0 Authorization Server (`/authorize` endpoint).
 
 ```text
 https://YOUR_AUTH0_DOMAIN/authorize?
@@ -137,15 +137,15 @@ For additional information on the call's parameters, refer to our tutorial, [Cal
 
 ![SPA Home before Login](/media/articles/api-auth/tutorials/represent-multiple-apis/home.png)
 
-Lock handles the login process.
+2. Your Auth0 Authorization Server redirects the user to the login page, where the user authenticates using one of the configured login options.
 
 ![SPA Login](/media/articles/api-auth/tutorials/represent-multiple-apis/lock.png)
 
-Next, Auth0 authenticates the user. If this is the first time the user goes through this flow, they will be asked to consent to the scopes that are given to the Application. In this case, the user's asked to consent to the app reading their contacts and calendar.
+3. If this is the first time the user has been through this flow, they see a consent prompt listing the permissions Auth0 will give to the SPA. In this case, the user is asked to consent to the app reading their contacts and calendar.
 
 ![Consent Screen](/media/articles/api-auth/tutorials/represent-multiple-apis/consent-screen.png)
 
-If the user consents, Auth0 continues the authentication process, and upon completion, redirects them back to the app with an Access Token in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this is done using JavaScript.
+4. If the user consents, Auth0 redirects the user back to the SPA with tokens in the hash fragment of the URI. The SPA can now extract the tokens from the hash fragment using JavaScript and use the Access Token to call your APIs on behalf of the user.
 
 ```js
 function getParameterByName(name) {
@@ -158,11 +158,10 @@ function getAccessToken() {
 }
 ```
 
-The app can then use the Access Token to call the API on behalf of the user.
-
-After logging in, you can see buttons that allow you to call either of your APIs.
+In our sample, after you successfully log in, you will see buttons that allow you to call either of your APIs using the Access Token obtained from the proxy API.
 
 ![SPA Home after Login](/media/articles/api-auth/tutorials/represent-multiple-apis/apis.png)
+
 
 ## Polling checkSession() to attain SSO or SLO
 
