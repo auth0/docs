@@ -1,6 +1,6 @@
 ---
 title: Deploy CLI Options
-description: Describes the Auth0 Deploy CLI options.
+description: Describes the Auth0 Deploy CLI tool options.
 topics:
   - extensions
   - deploy-cli
@@ -11,9 +11,7 @@ useCase: extensibility-extensions
 ---
 # Deploy CLI Options
 
-The following options are supported by the cli.
-
-`a0deploy --help`
+The following options are supported by the Deploy CLI tool `a0deploy`.
 
 ## Commands
 
@@ -27,6 +25,7 @@ The following options are supported by the cli.
 - `--proxy_url, -p` A url for proxying requests, only set this if you are behind a proxy.  `[string]`
 
 ## Examples
+
 ```
   a0deploy export -c config.json --strip -f yaml -o path/to/export       Dump Auth0 config to folder in YAML format
   a0deploy export -c config.json --strip -f directory -o path/to/export  Dump Auth0 config to folder in directory format
