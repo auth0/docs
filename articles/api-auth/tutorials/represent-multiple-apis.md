@@ -15,7 +15,7 @@ useCase:
 
 # Represent Multiple APIs Using a Single Auth0 API
 
-If you have multiple APIs, you can simplify your authentication process by creating a single [API](/apis) in the Auth0 Dashboard to represent all of your APIs. Doing this allows you to implement just one authentication flow, while still controlling access to the individual APIs--by assigning the appropriate permissions.
+If you have multiple APIs, you can simplify your authentication process by creating a single [API](/apis) in the Auth0 Dashboard that can act as a proxy and represent all of your APIs. Doing this allows you to implement just one authentication flow, while still controlling access to the individual APIs--by assigning the appropriate permissions.
 
 This tutorial explains how to use and represent multiple APIs as a single Resource Server in Auth0. As a learning tool, we provide a sample application that you can follow along with as you read.
 
@@ -39,15 +39,15 @@ Before beginning this tutorial:
 
 ## Steps
 
-1. Enable a Connection for your Application: Configure a source of users for your new application.
-2. Create a Test User: Associate a test user with your source of users.
-3. Register the API with Auth0
-4. Configure the Auth0 API
-5. Grant access to the Auth0 API
+1. [Enable a Connection for your Application](#enable-a-connection-for-your-application): Configure a source of users for your new application.
+2. [Create a Test User](#create-a-test-user): Associate a test user with your new connection.
+3. [Register a proxy API in Auth0](#register-a-proxy-api-in-auth0): Register a proxy API to represent your actual APIs.
+4. [Configure permissions for the proxy API](#configure-permissions-for-the-proxy-API): Create the permission levels that will allow the proxy API to represent multiple APIs.
+5. Grant access to the proxy API: 
 
-### Enable a connection for your Application
+## Enable a connection for your Application
 
-You will need a source of users for your newly-registered application, so you will need to configure a [Connection](/identityproviders). For the purposes of this sample, we'll create a simple [Database Connection](/connections/database) that asks only for the user's email address and a password.
+You will need a source of users for your newly-registered application, so you will need to configure a [Connection](/identityproviders). For the purpose of this sample, we'll create a simple [Database Connection](/connections/database) that asks only for the user's email address and a password.
 
 1. Navigate to the [Auth0 Dashboard](${manage_url}), and click on [Connections > Database](${manage_url}/#/connections/database) in the left-hand nav. Click **Create DB Connection**.
 2. The **Create DB Connection** window will open. Provide a **Name** for your Connection, and click **Create** to proceed.
@@ -61,48 +61,50 @@ Since you're working with a newly-created Connection, there won't be any users a
 2. Provide the requested information about the new user (**email address** and **password**), and select your newly-created **Connection**.
 3. Click **Save**.
 
-## Create the Auth0 API
+## Register a proxy API in Auth0
+
+Create the single [API](/apis) that you will use to represent the multiple APIs contained within the sample application.
 
 1. Navigate to the [Auth0 Dashboard](${manage_url}), and click on [APIs](${manage_url}/#/apis) in the left-hand nav. Click **Create API**.
 
 ![](/media/articles/api-auth/tutorials/represent-multiple-apis/dashboard-apis.png)
 
-::: note
-  For detailed information on working with APIs in the <a href="${manage_url}">Dashboard</a>, refer to <a href="/apis">APIs</a>.
-:::
+2. When prompted, provide a **name** and **identifier** for the new API, and choose the **signing algorithm** for the tokens obtained for this API.
 
+For the purpose of this sample, we'll call our API `Organizer Service` and set its unique identifier to `organize`. By default, the signing algorithm for the tokens obtained for this API is **RS256**, which we will leave as is.
 
-
-
-You will be prompted to provide a **name** and **identifier**, as well as choose the **signing algorithm**, for your new API.
-
-For the purposes of this article, we'll call our API `Organizer Service` and set its unique identifier to `organize`. By default, the signing algorithm for the tokens this API issues is **RS256**, which we will leave as is.
+When finished, click **Create**.
 
 ![](/media/articles/api-auth/tutorials/represent-multiple-apis/create-new-api.png)
 
-Once you've provided the required details, click **Create** to proceed.
+## Configure permissions for the proxy API
 
-### Configure the Auth0 API
+To allow the proxy API to represent the APIs included within the sample application, you will need to create the proper permissions.
 
-After Auth0 creates your API, you'll be directed to its *Quick Start* page. At this point, you'll need to create the appropriate **Scopes**, which you can do via the *Scopes* page.
+Permissions allow you to define which API actions will be accessible to calling applications. One permission (or scope) will represent one API/action combination. 
 
-![](/media/articles/api-auth/tutorials/represent-multiple-apis/scopes-page.png)
-
-Scopes allow you to define the API data accessible to your applications. You'll need one scope for each API represented and action. For example, if you want to `read` and `delete` from an API called `samples`, you'll need to create the following scopes:
+For example, if you want calling applications to be able to `read` and/or `delete` from an API called `samples`, you would need to create the following scopes:
 
 * `read:samples`
 * `delete:samples`
 
-For our sample application, we'll add two scopes:
+1. In your newly-created proxy API, click the **Scopes** (or **Permissions**) tab. 
+
+![](/media/articles/api-auth/tutorials/represent-multiple-apis/scopes-page.png)
+
+2. Add two scopes:
 
 * `read:calendar`;
 * `read:contacts`.
 
 You can think of each one as a microservice.
 
+Add these two scopes to your API, and **Save** your changes.
+
 ![](/media/articles/api-auth/tutorials/represent-multiple-apis/new-scopes.png)
 
-Add these two scopes to your API and **Save** your changes.
+
+
 
 ## Grant Access to the Auth0 API
 
