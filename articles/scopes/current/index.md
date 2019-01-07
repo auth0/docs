@@ -17,7 +17,7 @@ useCase:
 
 Different pieces of user information are often stored across a number of online resources. Users may upload and store photos with a service like Flickr, keep digital files on Dropbox, and store contacts and events in Google Calendar or on Facebook.
 
-Often, new applications will want to make use of the information that has already been created in an online resource. To do so, the application must ask for authorization to access this information on a user's behalf. Permissions (also known as scopes in the OAuth 2.0 specs) define the specific actions third-party applications can be allowed to do on a user's behalf.
+Often, new applications will want to make use of the information that has already been created in an online resource. To do so, the application must ask for authorization to access this information on a user's behalf. Permissions (also known as _scopes_ in the OAuth 2.0 specs) define the specific actions third-party applications can be allowed to do on a user's behalf.
 
 ## Ways to use permissions
 
