@@ -151,7 +151,7 @@ This example shows a custom claim being added to an ID Token, which uses the `co
 - [API Permissions](/scopes/current/api-scopes)
 - [How to Define API Permissions Using the Auth0 Dashboard](/scopes/current/guides/define-api-scopes-dashboard)
 - [How to Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)
-- [How to Represent Multiple APIs Using a Single Auth0 API](/api-auth/tutorials/represent-multiple-apis)
+- [Represent Multiple APIs Using a Proxy API in Auth0](/api-auth/tutorials/represent-multiple-apis)
 - [How to Restrict Application or User Requests for API Permissions](/api-auth/restrict-requests-for-scopes)
 - [SPA + API Architecture Scenario: Restrict API Permissions Based on Authorization Extension Groups](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension)
 
