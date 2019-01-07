@@ -72,7 +72,7 @@ https://${account.namespace}/continue?state=THE_ORIGINAL_STATE
 
 Or if you're using a using a custom domain:
 
-```
+```http
 https://YOUR_AUTH0_CUSTOM_DOMAIN/continue?state=THE_ORIGINAL_STATE
 ```
 
