@@ -158,7 +158,7 @@ In this page you can find a list of resources that can help you secure your APIs
   <li>
     <i class="icon icon-budicon-715"></i><a href="/api-auth/restrict-requests-for-scopes">Restrict User/Application Requests for API Permissions</a>
     <p>
-      Learn how to restrict users/applications from requesting API permissions (scopes) for which they don't have access.
+      Learn how to restrict users/applications from requesting API permissions for which they don't have access.
     </p>
   </li>
   <li>
