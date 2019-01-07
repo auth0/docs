@@ -69,15 +69,15 @@ npm i -g auth0-deploy-cli
 
 To create the client application manually: 
 
-1.  Log into your dashboard.
- 1.  Click the applications tab.
- 1.  Click the **Create Application** button.
-     1.  Name it something like **Deploy Client**.
-     1.  Select **Machine-to-Machine** as the application type.
-     1.  Click **Create**.
- 1.  Use the **Select an API** dropdown to choose: **Auth0 Management API**.
- 1.  Select the [scopes](#scopes) defined in the [section](#scopes) above
- 1.  Click **Authorize**.
+1. Log into your dashboard.
+   1.  Click the applications tab.
+   1.  Click the **Create Application** button.
+       1.  Name it something like **Deploy Client**.
+       1.  Select **Machine-to-Machine** as the application type.
+       1.  Click **Create**.
+   1.  Use the **Select an API** dropdown to choose: **Auth0 Management API**.
+   1.  Select the [scopes](#scopes) as defined above.
+   1.  Click **Authorize**.
 
 ## Keep reading
 

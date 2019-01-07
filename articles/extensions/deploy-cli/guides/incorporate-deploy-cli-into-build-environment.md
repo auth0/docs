@@ -57,7 +57,7 @@ The deploy task should follow these steps:
 
 ### Use keyword mappings to handle differences between the environments
 
-You should not have to store differences between environments in the Deploy Configuration Repository. Use the keyword mappings to allow the repository to be environment agnostic, and instead store the differences in the separate config.json files for each environment that are stored on the CI server.
+You should not have to store differences between environments in the Deploy Configuration Repository. Use the keyword mappings to allow the repository to be environment agnostic, and instead store the differences in the separate `config.json` files for each environment that are stored on the CI server.
 
 For more information, see [Environment Variables and Keyword Mappings](/extensions/deploy-cli/references/environment-variables-keyword-mappings).
 

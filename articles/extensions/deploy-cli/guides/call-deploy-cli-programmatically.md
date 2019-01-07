@@ -12,7 +12,7 @@ useCase: extensibility-extensions
 
 The tool can be called programmatically as in the following example. 
 
-```js
+```
 import { deploy, dump } from 'auth0-deploy-cli';
 
 const config = {
@@ -53,7 +53,7 @@ dump({
 
 The `auth0-deploy-cli` tool leverages the Management API passing through objects for creates, updates, and deletions.
 
-You may experience `Bad Request` and `Payload validation` errors. These errors are returned from the Management API, and usually mean the object has attributes which are not writable or no longer available (legacy). This can happen when exporting from an older Auth0 tenant and importing into a newly created tenant. In this scenario you may need to update your configuration to support the new object format. For more information, see [What's New in Deploy CLI Tool v2](/extensions/deploy-cli/references/whats-new-v2). 
+You may experience `Bad Request` and `Payload validation` errors. These errors are returned from the Management API, and usually mean the object has attributes which are not writable or no longer available (legacy). This can happen when exporting from an older Auth0 tenant and importing into a newly created tenant. In this scenario, you may need to update your configuration to support the new object format. For more information, see [What's New in Deploy CLI Tool v2](/extensions/deploy-cli/references/whats-new-v2). 
 
 ## Keep reading
 
