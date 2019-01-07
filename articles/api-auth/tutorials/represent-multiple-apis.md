@@ -1,6 +1,6 @@
 ---
-title: Represent Multiple APIs Using a Single Auth0 API
-description: How to use a single Auth0 API to represent and control access to multiple APIs.
+title: Represent Multiple APIs Using a Proxy API in Auth0
+description: How to use a single proxy API in Auth0 to represent and control access to multiple APIs.
 topics:
   - api-authentication
   - oidc
@@ -13,7 +13,7 @@ useCase:
   - call-api
 ---
 
-# Represent Multiple APIs Using a Single Auth0 API
+# Represent Multiple APIs Using a Proxy API in Auth0
 
 If you have multiple APIs, you can simplify your authentication process by creating a single [API](/apis) in the Auth0 Dashboard that can act as a proxy and represent all of your APIs. Doing this allows you to implement just one authentication flow, while still controlling access to the individual APIs--by assigning the appropriate permissions.
 
