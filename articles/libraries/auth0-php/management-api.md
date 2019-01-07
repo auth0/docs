@@ -23,8 +23,8 @@ Auht0-PHP also provides a wrapper for the Management API, which is used to perfo
 
 In order to use the Management API, you must authenticate one of two ways:
 
-- For temporary access or testing, you can [manually generate an API token](/api/management/v2/tokens#get-a-token-manually) and save it in your `.env` file
-- For extended access, you can create and execute and Client Credentials grant ([detailed above](#client-credentials-grant)) when access is required
+- For temporary access or testing, you can [manually generate an API token](/api/management/v2/tokens#get-a-token-manually) and save it in your `.env` file.
+- For extended access, you must create and execute and Client Credentials grant when access is required. This process is detailed on the [Authentication API page](/libraries/auth0-php/authentication-api#regular-web-app-login-flow).
 
 Regardless of the method, the token generated must have the scopes required for the operations your app wants to execute. Consult the [API documentation](/api/management/v2) for the scopes required for the specific endpoint you're trying to access.
 
@@ -39,15 +39,17 @@ Now you can authenticate one of the two ways above and use that token to perform
 ```php
 use Auth0\SDK\API\Management;
 
-$access_token = getenv('AUTH0_MANAGEMENT_API_TOKEN');
-if ( empty( $access_token ) ) {
-	// See "Client Credentials Grant" above
-	$access_token = get_access_token();
+if ( 'test' === getenv('APPLICATION_ENVIRONMENT') ) {
+    // Use a temporary testing token.
+    $access_token = getenv('AUTH0_MANAGEMENT_API_TOKEN');
+} else {
+    // See Authentication API page to implement this function.
+    $access_token = getManagementAccessToken();
 }
 $mgmt_api = new Management( $access_token, getenv('AUTH0_DOMAIN') );
 ```
 
-The `Management` class stores access to endpoints as properties of its instances. The best way to see what endpoints are covered is to read through the `\Auth0\SDK\API\Management::__construct()` method.
+The `Management` class stores access to endpoints as properties of its instances. The best way to see what endpoints are covered is to read through the `\Auth0\SDK\API\Management` constructor method.
 
 ### Example - Search Users by Email
 
@@ -94,6 +96,6 @@ if (! empty($results)) {
 * [Auth0-PHP Introduction](/libraries/auth0-php)
 * [Auth0-PHP Basic Use](/libraries/auth0-php/basic-use)
 * [Auth0-PHP Authentication API](/libraries/auth0-php/authentication-api)
-* [Auth0-PHP JWT Verification](/libraries/auth0-php/jwt-verification)
+* [Auth0-PHP JWT Validation](/libraries/auth0-php/jwt-validation)
 * [Auth0-PHP Troubleshooting](/libraries/auth0-php/troubleshooting)
 :::

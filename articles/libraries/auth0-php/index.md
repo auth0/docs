@@ -15,7 +15,7 @@ contentType:
 The Auth0 PHP SDK provides straight-forward and tested methods for accessing Authentication and Management API endpoints.
 
 ::: note
-Check out the [Auth0-PHP repository](https://github.com/auth0/auth0-PHP) on GitHub.
+The Auth0-PHP repository is [hosted on GitHub](https://github.com/auth0/auth0-PHP). We appreciate any and all contributions, including bug reports, enhancement proposals, and pull requests.
 :::
 
 ## Requirements
@@ -53,7 +53,7 @@ use Auth0\SDK\Auth0;
 
 ### Install Manually
 
-If your project does not use Composer or you want to maintain the connection to GitHub, Auth0-PHP can be installed manually. This process still requires Composer to download dependencies but does not use it to manage the package.
+If your project does not use Composer or you want to maintain a connection to the Git repo, Auth0-PHP can be installed manually. This process still requires Composer to download dependencies but does not use it to manage the package.
 
 First, navigate to the directory that should contain the Auth0-PHP library and clone the Github repo:
 
@@ -68,6 +68,7 @@ Now, [download Composer locally](https://getcomposer.org/download/) and install 
 $ mv ./composer.phar auth0/composer.phar
 $ cd auth0
 $ php composer.phar install
+$ rm composer.phar
 ```
 
 Finally, require the Auth0-PHP autoloader and you're ready to use the SDK:
@@ -87,7 +88,7 @@ To use the Auth0 Authentication and Management APIs, you'll need a free Auth0 ac
 3. Give your Application a name, select **Regular Web Application**, then **Create**
 4. Click the **Settings** tab for the required credentials used below. More information about these settings is [here](https://auth0.com/docs/applications/webapps#settings).
 
-The examples in this documentation use [environment variables](https://secure.php.net/manual/en/reserved.variables.environment.php) to store and load sensitive Auth0 credentials (specifically, the Client Secret) from the environment rather than hard-coding them into your application.
+The examples in this documentation use [environment variables](https://secure.php.net/manual/en/reserved.variables.environment.php) to store and load sensitive Auth0 credentials from the environment rather than hard-coding them into your application.
 
 The easiest way to use environment variables in your project is to use a library like [PHP Dotenv](https://github.com/josegonzalez/php-dotenv) along with a local `.env` file. Create a `.env` file (make sure this is not accessible publicly and is excluded from version control) and add the following values:
 
@@ -135,7 +136,7 @@ $auth0 = new Auth0([
 ]);
 ```
 
-You're now ready to use Auth0-PHP. Use one of the articles below to add authentication to your existing app or one of our quickstarts to build a test application from scratch:
+You are now ready to use Auth0-PHP. Use one of the articles below to add authentication to your existing app or one of our quickstarts to build a test application from scratch:
 
 * [Basic PHP application quickstart](https://auth0.com/docs/quickstart/webapp/php/)
 * [PHP API quickstart](https://auth0.com/docs/quickstart/backend/php/)
@@ -146,6 +147,6 @@ You're now ready to use Auth0-PHP. Use one of the articles below to add authenti
 * [Auth0-PHP Basic Use](/libraries/auth0-php/basic-use)
 * [Auth0-PHP Authentication API](/libraries/auth0-php/authentication-api)
 * [Auth0-PHP Management API](/libraries/auth0-php/management-api)
-* [Auth0-PHP JWT Verification](/libraries/auth0-php/jwt-validation)
+* [Auth0-PHP JWT Validation](/libraries/auth0-php/jwt-validation)
 * [Auth0-PHP Troubleshooting](/libraries/auth0-php/troubleshooting)
 :::

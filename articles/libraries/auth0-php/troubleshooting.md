@@ -36,5 +36,5 @@ This SDK uses Composer for maintaining dependencies (required external PHP libra
 * [Auth0-PHP Basic Use](/libraries/auth0-php/basic-use)
 * [Auth0-PHP Authentication API](/libraries/auth0-php/authentication-api)
 * [Auth0-PHP Management API](/libraries/auth0-php/management-api)
-* [Auth0-PHP JWT Verification](/libraries/auth0-php/jwt-validation)
+* [Auth0-PHP JWT Validation](/libraries/auth0-php/jwt-validation)
 :::
