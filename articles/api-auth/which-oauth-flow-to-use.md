@@ -1,5 +1,5 @@
 ---
-title: Which OAuth 2.0 flow should I use?
+title: Which OAuth 2.0 Grant should I use?
 toc: true
 description: Helps the user identify the proper OAuth 2.0 grant for each use case.
 topics:
@@ -18,7 +18,7 @@ useCase:
 
 OAuth 2.0 supports several different **grants**. By grants, we mean ways of retrieving an Access Token. Deciding which one is suited for your case depends mostly on your Application's type, but other parameters weigh in as well, like the level of trust for the Application, or the experience you want your users to have.
 
-Follow this flow to identify the grant that best matches your case.
+Follow this flow to identify the grant that best matches your case. If you need user information then please check OIDC flows, these grants will only provide access token to the application.
 
 ![Flowchart for OAuth 2.0 Grants](/media/articles/api-auth/oauth2-grants-flow.png)
 
