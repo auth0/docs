@@ -44,7 +44,7 @@ Before beginning this tutorial:
 3. [Register a proxy API in Auth0](#register-a-proxy-api-in-auth0): Register a proxy API to represent your actual APIs.
 4. [Configure permissions for the proxy API](#configure-permissions-for-the-proxy-API): Create the permission levels that will allow the proxy API to represent multiple APIs.
 5. [Grant access to the proxy API](#grant-access-to-the-proxy-api): Configure the login link in your sample application, initiate the authorization flow, and extract the Access Token to be used to call your multiple APIs.
-Optional: [Implement Single Log Out (SLO) or Single Sign On (SSO)](#implement-single-log-out-(slo)-or-single-sign-on-(sso))
+Optional: [Implement Single Log Out (SLO) or Single Sign On (SSO)](#implement-single-log-out-slo-or-single-sign-on-sso)
 
 ## Enable a connection for your Application
 
