@@ -26,7 +26,7 @@ The sample application contains:
 * 1 Single Page Application (SPA);
 * 2 APIs (called `contacts` and `calendar`).
 
-We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two namespaced permission levels to demonstrate how you can use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to access the `calendar` and `contacts` APIs from the SPA. The SPA also uses [Lock](/libraries/lock) to implement the sign-in screen.
+We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two namespaced permission levels to demonstrate how you can use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to access the `calendar` and `contacts` APIs from the SPA.
 
 ## Prerequisites
 
