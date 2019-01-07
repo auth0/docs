@@ -43,7 +43,7 @@ Before beginning this tutorial:
 2. [Create a Test User](#create-a-test-user): Associate a test user with your new connection.
 3. [Register a proxy API in Auth0](#register-a-proxy-api-in-auth0): Register a proxy API to represent your actual APIs.
 4. [Configure permissions for the proxy API](#configure-permissions-for-the-proxy-API): Create the permission levels that will allow the proxy API to represent multiple APIs.
-5. Grant access to the proxy API: 
+5. [Grant access to the proxy API]: 
 
 ## Enable a connection for your Application
 
@@ -53,7 +53,7 @@ You will need a source of users for your newly-registered application, so you wi
 2. The **Create DB Connection** window will open. Provide a **Name** for your Connection, and click **Create** to proceed.
 3. Click the **Applications** tab, and enable the Connection.
 
-### Create a test user
+## Create a test user
 
 Since you're working with a newly-created Connection, there won't be any users associated with it. Before we can test the sample application's login process, we'll need to create and associate a user with the Connection.
 
@@ -83,10 +83,14 @@ To allow the proxy API to represent the APIs included within the sample applicat
 
 Permissions allow you to define which API actions will be accessible to calling applications. One permission (or scope) will represent one API/action combination. 
 
-For example, if you want calling applications to be able to `read` and/or `delete` from an API called `samples`, you would need to create the following scopes:
+For example, if you want calling applications to be able to `read` and/or `delete` from one API called `samples` and another one called `examples`, you would need to create the following permissions:
 
 * `read:samples`
 * `delete:samples`
+* `read:examples`
+* `delete: examples`
+
+You can think of each one as a microservice.
 
 1. In your newly-created proxy API, click the **Scopes** (or **Permissions**) tab. 
 
@@ -97,30 +101,25 @@ For example, if you want calling applications to be able to `read` and/or `delet
 * `read:calendar`;
 * `read:contacts`.
 
-You can think of each one as a microservice.
-
-Add these two scopes to your API, and **Save** your changes.
+**Save** your changes.
 
 ![](/media/articles/api-auth/tutorials/represent-multiple-apis/new-scopes.png)
 
+## Grant access to the proxy API
 
-
-
-## Grant Access to the Auth0 API
-
-You are now ready to provide access to your APIs by granting Access Tokens to the Auth0 API. By including specific scopes, you can control an application to some or all of the APIs represented by the Auth0 API.
+You are now ready to provide access to your APIs by allowing the proxy API to obtain Access Tokens. By including the necessary permission (scope), you can control an application's access to the APIs represented by the proxy API.
 
 :::panel Authorization Flows
 
-The rest of this article covers use of the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to reflect the sample. However, you can use whichever flow best suits your needs.
+The rest of this article covers use of the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to reflect the sample. However, you can use whichever flow best suits your needs. For example:
 
-* If you have a **Machine-to-Machine Application**, you can authorize it to request Access Tokens to your API by executing a [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow).
+* If you have a **Machine-to-Machine Application**, you can authorize it to request Access Tokens for your API by executing a [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow).
 * If you are building a **Native App**, you can implement the [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow).
 
 For a full list of available Authorization flows, see [API Authorization](/api-auth).
 :::
 
-The app initiates the flow and redirects the browser to Auth0 (specifically to the `/authorize` endpoint), so the user can authenticate.
+1. The user clicks Login within the SPA, and the app redirects the user to the Auth0 Authorization Server (`/authorize` endpoint), so the user can authenticate using Lock.
 
 ```text
 https://YOUR_AUTH0_DOMAIN/authorize?
@@ -132,9 +131,9 @@ redirect_uri=http://localhost:3000&
 nonce=NONCE
 ```
 
+::: note
 For additional information on the call's parameters, refer to our tutorial, [Call Your API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow#authorize-the-user).
-
-The SPA executes this call whenever the user clicks **Login**.
+:::
 
 ![SPA Home before Login](/media/articles/api-auth/tutorials/represent-multiple-apis/home.png)
 
