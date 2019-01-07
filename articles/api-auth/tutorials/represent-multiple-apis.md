@@ -1,20 +1,23 @@
 ---
-description: How to use multiple APIs and represent them as a single API in Auth0.
+title: Represent Multiple APIs Using a Single Auth0 API
+description: How to use a single Auth0 API to represent and control access to multiple APIs.
 topics:
   - api-authentication
   - oidc
   - apis
+  - scopes
+  - permissions
 contentType: tutorial
 useCase:
   - secure-api
   - call-api
 ---
 
-# How to Represent Multiple APIs Using a Single Auth0 API
+# Represent Multiple APIs Using a Single Auth0 API
 
-To simplify your authentication process, you can create a single [API](/apis) using the Auth0 Dashboard to represent all of your existing APIs. Doing this allows you to implement just one authentication flow. You can then control access to the individual APIs by assigning the appropriate scopes.
+If you have multiple APIs, you can simplify your authentication process by creating a single [API](/apis) in the Auth0 Dashboard to represent all of your APIs. Doing this allows you to implement just one authentication flow, while still controlling access to the individual APIs--by assigning the appropriate permissions.
 
-This article shows you how to use and represent multiple APIs as a single Resource Server in Auth0 using a [sample application you can download](https://github.com/auth0-samples/auth0-api-auth-implicit-sample) if you would like to follow along as you read. Before you set up the sample on your local environment, please make sure you [set up your application in Auth0](#the-auth0-application).
+This tutorial explains how to use and represent multiple APIs as a single Resource Server in Auth0. As a learning tool, we provide a sample application that you can follow along with as you read.
 
 ## The Sample Application
 
@@ -23,46 +26,53 @@ The sample application contains:
 * 1 Single Page Application (SPA);
 * 2 APIs (called `contacts` and `calendar`).
 
-We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two namespaced scopes to demonstrate how you can use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to access the `calendar` and `contacts` APIs from the SPA. The SPA also uses [Lock](/libraries/lock) to implement the signin screen.
+We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two namespaced permission levels to demonstrate how you can use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to access the `calendar` and `contacts` APIs from the SPA. The SPA also uses [Lock](/libraries/lock) to implement the sign-in screen.
 
-Please see the `README` for additional information on setting up the sample on your local environment.
+## Prerequisites
 
-## The Auth0 Application
+Before beginning this tutorial:
 
-If you don't already have an Auth0 Application (of type **Single Page Web Applications**) with the **OIDC Conformant** flag enabled, you'll need to create one. This represents your application.
+* [Register your Application with Auth0](/applications/spa)
+  * Select an **Application Type** of **Single-Page App**.
+  * Add **Allowed Callback URLs** of `http://localhost:3000` and `http://localhost:3000/callback.html`.
+* [Download the sample application](https://github.com/auth0-samples/auth0-api-auth-implicit-sample), so you can follow along as you read. Please see the `README` for additional information on setting up the sample on your local environment.
 
-1. In the [Auth0 Dashboard](${manage_url}), click on [Applications](${manage_url}/#/applications) in the left-hand navigation bar. Click **Create Application**.
-2. The **Create Application** window will open, allowing you to enter the name of your new Application. Choose **Single Page Web Applications** as the **Application Type**. When done, click on **Create** to proceed.
-3. Navigate to the [Auth0 Application Settings](${manage_url}/#/applications/${account.clientId}/settings) page. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
-4. Scroll to the bottom of the [Settings](${manage_url}/#/applications/${account.clientId}/settings) page, where you'll find the *Advanced Settings* section. Under the *OAuth* tab, enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.
+## Steps
 
-### Enable a Connection for Your Application
+1. Enable a Connection for your Application: Configure a source of users for your new application.
+2. Create a Test User: Associate a test user with your source of users.
+3. Register the API with Auth0
+4. Configure the Auth0 API
+5. Grant access to the Auth0 API
 
-[Connections](/identityproviders) are sources of users to your application, and if you don't have a sample Connection you can use with your newly-created Application, you will need to configure one. For the purposes of this sample, we'll create a simple [Database Connection](/connections/database) that asks only for the user's email address and a password.
+### Enable a connection for your Application
 
-1. In the [Auth0 Dashboard](${manage_url}), click on [Connections > Database](${manage_url}/#/connections/database) in the left-hand navigation bar. Click **Create DB Connection**.
+You will need a source of users for your newly-registered application, so you will need to configure a [Connection](/identityproviders). For the purposes of this sample, we'll create a simple [Database Connection](/connections/database) that asks only for the user's email address and a password.
+
+1. Navigate to the [Auth0 Dashboard](${manage_url}), and click on [Connections > Database](${manage_url}/#/connections/database) in the left-hand nav. Click **Create DB Connection**.
 2. The **Create DB Connection** window will open. Provide a **Name** for your Connection, and click **Create** to proceed.
-3. Once your Connection is ready, click over to the *Applications* tab, and enable the Connection for your Application.
+3. Click the **Applications** tab, and enable the Connection.
 
-### Create a Test User
+### Create a test user
 
-If you're working with a newly-created Connection, you won't have any users associated with the Connection. Before you can test your sample's login process, you'll need to create and associate a user with your Connection.
+Since you're working with a newly-created Connection, there won't be any users associated with it. Before we can test the sample application's login process, we'll need to create and associate a user with the Connection.
 
-1. In the [Auth0 Dashboard](${manage_url}), click on [Users](${manage_url}/#/users) in the left-hand navigation bar. Click **Create User**.
+1. Navigate to the [Auth0 Dashboard](${manage_url}), and click on [Users](${manage_url}/#/users) in the left-hand nav. Click **Create User**.
 2. Provide the requested information about the new user (**email address** and **password**), and select your newly-created **Connection**.
-3. Click **Save** to proceed.
+3. Click **Save**.
 
 ## Create the Auth0 API
 
-Log in to your Auth0 Dashboard, and navigate to the APIs section.
+1. Navigate to the [Auth0 Dashboard](${manage_url}), and click on [APIs](${manage_url}/#/apis) in the left-hand nav. Click **Create API**.
+
+![](/media/articles/api-auth/tutorials/represent-multiple-apis/dashboard-apis.png)
 
 ::: note
   For detailed information on working with APIs in the <a href="${manage_url}">Dashboard</a>, refer to <a href="/apis">APIs</a>.
 :::
 
-Click **Create API**.
 
-![](/media/articles/api-auth/tutorials/represent-multiple-apis/dashboard-apis.png)
+
 
 You will be prompted to provide a **name** and **identifier**, as well as choose the **signing algorithm**, for your new API.
 
