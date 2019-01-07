@@ -341,6 +341,9 @@ articles:
       - title: "Deploy Rules with GitLab"
         url: "/extensions/gitlab-deploy"
 
+      - title: "Deploy Rules with Github"
+        url: "/extensions/github-deploy"
+
   - title: "Hooks (Beta)"
     url: "/hooks"
     children:
@@ -1011,6 +1014,36 @@ articles:
         
       - title: "Pre-Launch Tips"
         url: "/pre-deployment/prelaunch-tips"
+
+      - title: "Deploy CLI Tool"
+        url: "/extensions/deploy-cli/concepts/overview-deploy-cli-tool"
+        children:
+          - title: "Install Deploy CLI"
+            url: "/extensions/deploy-cli/guides/install-deploy-cli"
+
+          - title: "Call Deploy CLI"
+            url: "extensions/deploy-cli/guides/call-deploy-cli-tool-programmatically"
+
+          - title: "Incorporate into Build"
+            url: "extensions/deploy-cli/guides/incorporate-deploy-cli-into-build"
+
+          - title: "Import/Export Directory Structure"
+            url: "/extensions/deploy-cli/guides/import-export-directory-structure"
+
+          - title: "Import/Export YAML File"
+            url: "/extensions/deploy-cli/guides/import-export-yaml-file"
+
+          - title: "Test Locally"
+            url: "/extensions/deploy-cli/guides/test-locally"
+
+          - title: "Environment Variables"
+            url: "/extensions/deploy-cli/references/environment-variables-keywords"
+
+          - title: "Deploy CLI Options"
+            url: "/extensions/deploy-cli/references/deploy-cli-options"
+
+          - title: "What's New in v2"
+            url: "/extensions/deploy-cli/references/whats-new-v2"
 
   - title: "Professional Services"
     url: "/services"
