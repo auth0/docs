@@ -13,7 +13,7 @@ useCase:
 ---
 # How to Customize the Consent Prompt
 
-When users are asked to authorize permissions, they see a consent prompt. By default, this prompt groups all permissions for a resource and displays the actions for the resource in a single line using the permission **name** to generate the text.
+When users are asked to authorize permissions, they see a consent prompt. By default, this prompt uses the permission **name** to generate text and groups all permissions for a resource, displaying the resource's actions in a single line.
 
 For example, let's say you have an Auth0-registered API with the following defined permissions:
 
