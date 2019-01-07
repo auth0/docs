@@ -12,7 +12,7 @@ useCase: extensibility-extensions
 
 The tool can be called programmatically as in the following example. 
 
-```
+```js
 import { deploy, dump } from 'auth0-deploy-cli';
 
 const config = {
