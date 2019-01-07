@@ -35,18 +35,18 @@ For information on how the files are expected to be laid out to work with the so
    }
    ```
 
-  Use the `client ID` and secret from your newly created client (the client is named `auth0-deploy-cli-extension` if you used the extension).
+   Use the `client ID` and secret from your newly created client (the client is named `auth0-deploy-cli-extension` if you used the extension).
 
-  By default the tool merges your current environment variables and overrides `config.json` which has the same top key. Use the `--no-env` option to disable the override via the command line.
+   By default the tool merges your current environment variables and overrides `config.json` which has the same top key. Use the `--no-env` option to disable the override via the command line.
 
-  You can either set env variables or place the values in a config file anywhere on the file system.
+   You can either set env variables or place the values in a config file anywhere on the file system.
 
 2. Run deploy.
 
-    ```
-    bash
-    a0deploy import -c config.json -i .
-    ```
+   ```
+   bash
+   a0deploy import -c config.json -i .
+   ```
 
 ### Config file example
 
