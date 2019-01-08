@@ -1,5 +1,5 @@
 ---
-title: Deploy CLI Tool Overview
+title: Deploy CLI Tool
 description: Understand how the Auth0 Deploy CLI tool works.
 topics:
   - extensions
@@ -8,7 +8,7 @@ contentType:
   - index
 useCase: extensibility-extensions
 ---
-# Deploy CLI Tool Overview
+# Deploy CLI Tool
 
 Auth0 supports continuous integration and deployment (CI/CD) of Auth0 tenants through our [source control extensions](/extensions#deploy-hosted-pages-rules-and-database-connections-scripts-from-external-repositories) and integration into existing CI/CD pipelines by using the Deploy CLI tool.
 
