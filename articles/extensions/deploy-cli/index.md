@@ -14,15 +14,15 @@ Auth0 supports continuous integration and deployment (CI/CD) of Auth0 tenants th
 
 The Deploy CLI tool (`auth0-deploy-cli`) supports two methods to import and export the following Auth0 tenant configuration objects: 
 
-- Tenant Settings
-- Rules (Including Secrets/Settings)
+- Tenant settings
+- Rules (Including secrets/settings)
 - Connections
-- Custom Databases
-- Clients / Applications
-- Resource Servers (APIs)
+- Custom databases
+- Clients/applications
+- Resource servers (APIs)
 - Pages
-- Email Templates and Provider 
-- Guardian Settings
+- Email templates and providers
+- Guardian settings
 
 You can export the data to a predefined [directory structure](/extensions/deploy-cli/guides/import-export-directory-structure) or a [YAML configuration file](/extensions/deploy-cli/guides/import-export-yaml-file). You can call the tool [programmatically](/extensions/deploy-cli/guides/call-deploy-cli-programmatically). You can also use the tool to replace environment variables. 
 
