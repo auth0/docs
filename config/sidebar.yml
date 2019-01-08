@@ -1033,9 +1033,6 @@ articles:
           - title: "Import/Export YAML File"
             url: "/extensions/deploy-cli/guides/import-export-yaml-file"
 
-          - title: "Test Locally"
-            url: "/extensions/deploy-cli/guides/test-locally"
-
           - title: "Environment Variables"
             url: "/extensions/deploy-cli/references/environment-variables-keyword-mappings"
 

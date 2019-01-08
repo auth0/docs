@@ -62,4 +62,3 @@ You may experience `Bad Request` and `Payload validation` errors. These errors a
 * [Import/Export Tenant Configuration to a Directory Structure](/extensions/deploy-cli/guides/import-export-directory-structure)
 * [Import/Export Tenant Configuration to a YAML File](/extensions/deploy-cli/guides/import-export-yaml-file)
 * [Deploy CLI Tool Options](/extensions/deploy-cli/references/deploy-cli-options)
-* [Test Deploy CLI Operations Locally](/extensions/deploy-cli/guides/test-locally)

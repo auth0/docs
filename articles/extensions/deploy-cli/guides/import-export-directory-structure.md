@@ -142,5 +142,4 @@ repository =>
 * [Incorporate Deploy CLI into Build Environment](/extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment)
 * [Call Deploy CLI Tool Programmatically](/extensions/deploy-cli/guides/call-deploy-cli-programmatically)
 * [Deploy CLI Tool Options](/extensions/deploy-cli/references/deploy-cli-options)
-* [Test Deploy CLI Operations Locally](/extensions/deploy-cli/guides/test-locally)
 * [Import/Export Tenant Configuration to a YAML File](/extensions/deploy-cli/guides/import-export-yaml-file)
