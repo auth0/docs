@@ -63,7 +63,7 @@ update:email_templates
 
 1. Go to the [Extensions](${manage_url}/#/extensions) tab in the Dashboard. 
 
-![Entensions Tab](/media/articles/extensions/deploy-cli/step1-extensions-overview.png)
+   ![Entensions Tab](/media/articles/extensions/deploy-cli/step1-extensions-overview.png)
 
 2. Click **CREATE EXTENSION** and install the extension from this [repository](https://github.com/auth0-extensions/auth0-deploy-cli-extension).
 
