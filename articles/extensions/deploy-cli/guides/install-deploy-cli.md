@@ -16,7 +16,7 @@ For this tool to function it must be authorized to the Auth0 Management API. You
 
 ### Scopes
 
-```
+```js
 read:client_grants
 create:client_grants
 delete:client_grants
