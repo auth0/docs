@@ -69,6 +69,9 @@ update:email_templates
 
    ![Extension Link](/media/articles/extensions/deploy-cli/step2-extension-link.png)
 
+   
+3. Click **Install**.
+
    You can now open the extension which will now show instructions on how it can be used:
 
    ![Deploy CLI Homepage](/media/articles/extensions/deploy-cli/step3-auth0-deploy-cli-homepage.png)
