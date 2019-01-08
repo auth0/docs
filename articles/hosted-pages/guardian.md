@@ -24,7 +24,7 @@ If you'd like to revert to an earlier design, you have two options:
 * Reverting to the last saved template by clicking **Reset to Last**;
 * Reverting to the default template provided by Auth0 by clicking **Reset to Default**.
 
-Please note that Hosted Pages work for without customization, with the included scripts updated by Auth0 as required. However, once you toggle the customization to **on**, you are responsible for the updating and maintaining the script (including changing version numbers, such as that for the MFA widget), since Auth0 can no longer update it automatically.
+Please note that Hosted Pages work without customization (Auth0 will also update the included scripts as required). However, once you toggle the customization to **on**, you are responsible for the updating and maintaining the script (including changing version numbers, such as that for the MFA widget), since Auth0 can no longer update it automatically.
 
 ## Theming Options
 
