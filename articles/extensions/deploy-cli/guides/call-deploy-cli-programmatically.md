@@ -10,7 +10,7 @@ useCase: extensibility-extensions
 ---
 # Call Deploy CLI Tool Programmatically
 
-The tool can be called programmatically as in the following example. 
+You can call he tool programmatically as in the following example: 
 
 ```js
 import { deploy, dump } from 'auth0-deploy-cli';
