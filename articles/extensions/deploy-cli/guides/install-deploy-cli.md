@@ -15,63 +15,77 @@ useCase: extensibility-extensions
 For this tool to function it must be authorized to the Auth0 Management API. You can do this by creating an application in your Auth0 service that has access to the management API with the following scopes before.
 
 ### Scopes
-  * read:client_grants
-  * create:client_grants
-  * delete:client_grants
-  * update:client_grants
-  * read:clients
-  * update:clients
-  * delete:clients
-  * create:clients
-  * read:client_keys
-  * update:client_keys
-  * delete:client_keys
-  * create:client_keys
-  * read:connections
-  * update:connections
-  * delete:connections
-  * create:connections
-  * read:resource_servers
-  * update:resource_servers
-  * delete:resource_servers
-  * create:resource_servers
-  * read:rules
-  * update:rules
-  * delete:rules
-  * create:rules
-  * read:rules_configs
-  * update:rules_configs
-  * delete:rules_configs
-  * read:email_provider
-  * update:email_provider
-  * delete:email_provider
-  * create:email_provider
-  * read:tenant_settings
-  * update:tenant_settings
-  * read:grants
-  * delete:grants
-  * read:guardian_factors
-  * update:guardian_factors
-  * read:email_templates
-  * create:email_templates
-  * update:email_templates
-
-Use the [Auth0 Deploy CLI Extension](https://github.com/auth0-extensions/auth0-deploy-cli-extension/blob/master/README.md) to create the application. 
-
-## Install the tool using `bash`
 
 ```
-bash
+read:client_grants
+create:client_grants
+delete:client_grants
+update:client_grants
+read:clients
+update:clients
+delete:clients
+create:clients
+read:client_keys
+update:client_keys
+delete:client_keys
+create:client_keys
+read:connections
+update:connections
+delete:connections
+create:connections
+read:resource_servers
+update:resource_servers
+delete:resource_servers
+create:resource_servers
+read:rules
+update:rules
+delete:rules
+create:rules
+read:rules_configs
+update:rules_configs
+delete:rules_configs
+read:email_provider
+update:email_provider
+delete:email_provider
+create:email_provider
+read:tenant_settings
+update:tenant_settings
+read:grants
+delete:grants
+read:guardian_factors
+update:guardian_factors
+read:email_templates
+create:email_templates
+update:email_templates
+```
+
+## Install the tool using the Dashboard
+
+1. Go to the [Extensions](${manage_url}/#/extensions) tab in the Dashboard. 
+
+![Entensions Tab](/media/articles/extensions/deploy-cli/step1-extensions-overview.png)
+
+2. Click **CREATE EXTENSION** and install the extension from this [repository](https://github.com/auth0-extensions/auth0-deploy-cli-extension).
+
+   ![Extension Link](/media/articles/extensions/deploy-cli/step2-extension-link.png)
+
+   You can now open the extension which will now show instructions on how it can be used:
+
+   ![Deploy CLI Homepage](/media/articles/extensions/deploy-cli/step3-auth0-deploy-cli-homepage.png)
+
+## Install the tool using the command line
+
+```bash
 npm i -g auth0-deploy-cli
 ```
 
-## Alternative installation method
+## Install the tool manually
 
 To create the client application manually: 
 
-1. Log into your dashboard.
-2.  Click the applications tab.
-3.  Click the **Create Application** button.
+1. Log into your Dashboard.
+2.  Click the Applications tab.
+3.  Click **CREATE APPLICATION**.
     - Name it something like **Deploy Client**.
     - Select **Machine-to-Machine** as the application type.
     - Click **Create**.

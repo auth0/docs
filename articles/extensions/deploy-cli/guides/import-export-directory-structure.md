@@ -26,7 +26,7 @@ For information on how the files are expected to be laid out to work with the so
      "AUTH0_KEYWORD_REPLACE_MAPPINGS": {
        "AUTH0_TENANT_NAME": "<NAME>",
        "ENV": "DEV"
-   },
+     },
      "AUTH0_ALLOW_DELETE": false,
      "AUTH0_EXCLUDED_RULES": [
        "rule-1-name",
@@ -43,8 +43,7 @@ For information on how the files are expected to be laid out to work with the so
 
 2. Run deploy.
 
-   ```
-   bash
+   ```bash
    a0deploy import -c config.json -i .
    ```
 
