@@ -72,6 +72,8 @@ update:email_templates
    
 3. Click **Install**.
 
+4. Click the checkmark to allow the extension to access your data. 
+
    You can now open the extension which will now show instructions on how it can be used:
 
    ![Deploy CLI Homepage](/media/articles/extensions/deploy-cli/step3-auth0-deploy-cli-homepage.png)
