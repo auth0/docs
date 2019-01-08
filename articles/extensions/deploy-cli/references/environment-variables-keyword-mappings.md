@@ -24,7 +24,7 @@ The mappings allow you to do the following:
 By default the tool will also merge your current environment variables and override the **AUTH0_KEYWORD_REPLACE_MAPPINGS** which have the same top key. You can disable this via the command line with the `--no-env` option.
 :::
 
-For example, you could specify a different JWT timeout in your dev environment then prod for testing and a different environment URL. 
+For example, you could specify a different JWT timeout in your dev environment, and then use prod for testing and a different environment URL. 
 
 See the examples below.
 

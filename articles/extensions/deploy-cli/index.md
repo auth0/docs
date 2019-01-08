@@ -19,7 +19,7 @@ The Deploy CLI tool (`auth0-deploy-cli`) supports two methods to import and expo
 - Connections
 - Custom Databases
 - Clients / Applications
-- Resource Servers (API's)
+- Resource Servers (APIs)
 - Pages
 - Email Templates and Provider 
 - Guardian Settings

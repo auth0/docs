@@ -19,8 +19,8 @@ The following options are supported by the Deploy CLI tool `a0deploy`.
 - `a0deploy export` Export Auth0 Tenant Configuration
 
 ## Options
-- `--help` Show help  [boolean]
-- `--version` Show version number  [boolean]
+- `--help` Show help  `[boolean]`
+- `--version` Show version number  `[boolean]`
 - `--verbose, -v` Dump extra debug information.  `[string] [default: false]`
 - `--proxy_url, -p` A url for proxying requests, only set this if you are behind a proxy.  `[string]`
 
