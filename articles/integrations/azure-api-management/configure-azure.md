@@ -39,7 +39,7 @@ You'll be asked to provide the following configuration variables:
 | Location | Choose the location that services your API instance |
 | Organization name | The name of your organization |
 | Administrator email | The email address of the person who will be administering this instance |
-| Pricing tier | The pricing tier you want, which determines the number of calls you can make to your API, as well as the maximum amount of data transfer allowed |
+| Pricing tier | The pricing tier you want, which determines the number of calls you can make to your API, as well as the maximum amount of data transfer allowed. You must opt for the [Developer plan](https://azure.microsoft.com/en-us/pricing/details/api-management/) or higher; the Consumption plan does not offer sufficient functionality for this integration to work. |
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/api-mgmt-service-config.png)
 
@@ -92,7 +92,7 @@ Click on **Add Authorization Server**. You'll see the configuration screen that 
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/new-oauth2-server-config.png)
 
-For the purposes of this example, we'll use the **Authorization Code grant type**, but you're free to use whichever grant type is most appropriate for your use case. Azure currently supports the following grant types: [Authorization Code](/api-auth/grant/authorization-code), [Implicit](/api-auth/grant/implicit), [Resource Owner Password](/api-auth/grant/password), [Client Credentials](/api-auth/grant/client-credentials).
+For the purposes of this example, we'll use the **Authorization Code grant type**, but you're free to use whichever grant type is most appropriate for your use case. Azure currently supports the following grant types: [Authorization Code](/flows/concepts/regular-web-app-login-flow), [Implicit](/flows/concepts/single-page-login-flow), [Resource Owner Password](/api-auth/grant/password), [Client Credentials](/flows/concepts/m2m-flow).
 
 Set the following parameters:
 
@@ -102,7 +102,7 @@ Set the following parameters:
 | Description | A description for your authorization server, such as `Auth0 API Authentication` |
 | Application registration page URL | The page where users can create or manage their accounts; for the purposes of this example, we'll use `https://placeholder.contoso.com` as the placeholder |
 | Authorization code grant types | The grant type used for authorization. Select `authorization code` |
-| Authorization endpoint URL | The URL Azure uses to make the authorization request. See the [Auth0 docs on generating the URL](/api-auth/tutorials/authorization-code-grant#1-get-the-user-s-authorization) |
+| Authorization endpoint URL | The URL Azure uses to make the authorization request. See the [Auth0 docs on generating the URL](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow#authorize-the-user) |
 | Authorization request method | The HTTP method used by Azure to make the authorization request. By default, this is `GET` |
 | Token endpoint URL | The endpoint used to exchange authorization grants for Access Tokens; Auth0's can be reached at `https://auth0user.auth0.com/oauth/token` |
 | Application authentication methods | Method used to authenticate the application; Auth0's is `BASIC` |

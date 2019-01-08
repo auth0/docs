@@ -70,6 +70,12 @@ For example:
 https://${account.namespace}/continue?state=THE_ORIGINAL_STATE
 ```
 
+If you're using a using a custom domain:
+
+```http
+https://YOUR_AUTH0_CUSTOM_DOMAIN/continue?state=THE_ORIGINAL_STATE
+```
+
 By `THE_ORIGINAL_STATE` we mean the value that Auth0 generated and sent to the redirect URL.
 
 For example, if your rule redirected to `https://example.com/foo`, Auth0 would use a redirect URL similar to `https://example.com/foo?state=abc123`. So `abc123` would be the `THE_ORIGINAL_STATE`. To resume the authentication transaction you would redirect to

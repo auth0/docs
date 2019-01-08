@@ -42,11 +42,9 @@ These tokens **cannot be revoked** so long expiration times are not recommended.
 
 To use the Access Token you just created for testing purposes, use the [Management API v2 explorer page](/api/management/v2) to manually call an endpoint with the token.
 
-You will also need your tenant's domain (`${account.namespace}`). You can find this on the _Settings_ of any of your [Applications](${manage_url}/#/applications/${account.clientId}/settings).
-
 1. Go to the [Management API v2 explorer page](/api/management/v2#!).
 1. Click the __Set API Token__ button at the top left.
-1. Set the __Domain__ and __API Token__ fields, and click __Set Token__.
+1. Set the __API Token__ field, and click __Set Token__.
 1. Under the __Set API Token__ button at the top left, some new information is now displayed: the domain and token set, and the scopes that have been granted to this application.
 1. Go to the endpoint you want to call, fill any parameters that might be required and click __Try__.
 

@@ -49,7 +49,7 @@ https://${account.namespace}/authorize?
 ```
 
 ::: note
-If you are not familiar with authentication for single page applications, see [Authentication for Client-side Web Apps](/application-auth/current/client-side-web).
+If you are not familiar with authentication for single-page applications, see [Single-Page Login Flow](/flows/concepts/single-page-login-flow).
 :::
 
 Notice the following:
@@ -57,7 +57,7 @@ Notice the following:
 - We asked for the scope `read:current_user`
 - We set the `response_type` to `id_token token` so Auth0 will sent us both an ID Token and an Access Token
 
-If we decode the Access Token and review its contents we can see the following:
+If we decode the Access Token and review its contents, we can see the following:
 
 ```text
 {

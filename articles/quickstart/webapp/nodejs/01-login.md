@@ -33,7 +33,7 @@ AUTH0_CLIENT_SECRET=YOUR_CLIENT_SECRET
 Do not put the `.env` file into source control. Otherwise, your history will contain references to your client secret.
 :::
 
-If you are using git, create a `.gitignorefile` (or edit your existing one, if you have one already) and add `.env` to it. The `.gitignore` file tells source control to ignore the files (or file patterns) you list. Be careful to add `.env` to your `.gitignore` file and commit that change before you add your `.env`.
+If you are using git, create a `.gitignore` file (or edit your existing one, if you have one already) and add `.env` to it. The `.gitignore` file tells source control to ignore the files (or file patterns) you list. Be careful to add `.env` to your `.gitignore` file and commit that change before you add your `.env`.
 
 ```
 # .gitignore
@@ -341,6 +341,6 @@ block content
 
 ## See it in action
 
-Install the dependencies, svtart your app and point your browser to [http://localhost:3000](http://localhost:3000). Follow the **Log In** link to log in or sign up to your Auth0 tenant. Upon successful login or signup, you should be redirected to the user's profile page.
+Install the dependencies, start your app and point your browser to [http://localhost:3000](http://localhost:3000). Follow the **Log In** link to log in or sign up to your Auth0 tenant. Upon successful login or signup, you should be redirected to the user's profile page.
 
 ![login page](/media/articles/web/hosted-login.png)

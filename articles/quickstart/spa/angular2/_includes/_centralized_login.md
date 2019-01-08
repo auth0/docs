@@ -71,8 +71,8 @@ Add more methods to the `AuthService` service to handle authentication in the ap
 
 The example below shows the following methods:
 * `handleAuthentication`: looks for the result of authentication in the URL hash. Then, the result is processed with the `parseHash` method from auth0.js.
-* `setSession`: stores the user's Access Token, ID Token, and the Access Token's expiry time in `AuthService` properties.
-* `renewSession`: performs silent authentication to renew the session.
+* `localLogin`: stores the user's Access Token, ID Token, and the Access Token's expiry time in `AuthService` properties.
+* `renewTokens`: performs silent authentication to renew the session.
 * `logout`: removes the user's tokens and expiry time from `AuthService` properties.
 * `isAuthenticated`: checks whether the expiry time for the user's Access Token has passed.
 
@@ -88,7 +88,7 @@ export class AuthService {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
-        this.setSession(authResult);
+        this.localLogin(authResult);
         this.router.navigate(['/home']);
       } else if (err) {
         this.router.navigate(['/home']);
@@ -97,7 +97,7 @@ export class AuthService {
     });
   }
 
-  private setSession(authResult): void {
+  private localLogin(authResult): void {
     // Set isLoggedIn flag in localStorage
     localStorage.setItem('isLoggedIn', 'true');
     // Set the time that the access token will expire at
@@ -107,10 +107,10 @@ export class AuthService {
     this._expiresAt = expiresAt;
   }
 
-  public renewSession(): void {
+  public renewTokens(): void {
     this.auth0.checkSession({}, (err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setSession(authResult);
+        this.localLogin(authResult);
       } else if (err) {
         alert(`Could not get a new token (<%= "${err.error}" %>: <%= "${err.error_description}" %>).`);
         this.logout();
@@ -238,7 +238,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('isLoggedIn') === 'true') {
-      this.auth.renewSession();
+      this.auth.renewTokens();
     }
   }
 

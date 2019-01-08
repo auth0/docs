@@ -17,17 +17,21 @@ useCase: quickstart
 
 ## Create a Django Application configured to use Auth0
 
-This guide will use [`social_django`](https://github.com/python-social-auth/social-app-django) which is the Django implementation of [Python Social Auth](http://python-social-auth.readthedocs.io/en/latest/). It adds an OAuth stack to the [user authentication & authorization system](https://docs.djangoproject.com/en/1.11/topics/auth/) bundled by the Django Web Framework.
+This guide will use [`social_django`](https://github.com/python-social-auth/social-app-django) which is the Django implementation of [Python Social Auth](http://python-social-auth.readthedocs.io/en/latest/). It adds an OAuth stack to the [user authentication & authorization system](https://docs.djangoproject.com/en/2.1/topics/auth/) bundled by the Django Web Framework.
+
+::: note
+This quickstart uses Django 2, if you are using Django 1 instead, follow the [sample](https://github.com/auth0-samples/auth0-django-web-app/tree/v1).
+:::
 
 ### Install the Dependencies
 
 Add the following dependencies to your `requirements.txt`:
 
 ```text
-django
-social-auth-app-django
-python-dotenv
-requests
+django~=2.1
+social-auth-app-django~=3.1
+python-jose~=3.0
+python-dotenv~=0.9
 ```
 
 Once the dependencies are listed in requirements.txt, run the following command:
@@ -38,7 +42,7 @@ pip install -r requirements.txt
 
 ### Create a Django Project
 
-This guide assumes you already have a Django application set up. If that is not the case, follow the steps in the [Django Tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial01/).
+This guide assumes you already have a Django application set up. If that is not the case, follow the steps in the [Django Tutorial](https://docs.djangoproject.com/en/2.1/intro/tutorial01/).
 
 The sample project was created with the following commands:
 
@@ -50,7 +54,7 @@ $ python manage.py startapp auth0login
 
 ### Django Settings
 
-The `settings.py` file contains the configuration of your Django project. 
+The `settings.py` file contains the configuration of your Django project.
 
 Add one entry for `social_django` and for your application into the `INSTALLED_APPS` entry.
 
@@ -69,7 +73,7 @@ Add your Auth0 domain, the Client Id and the Client Secret. You can get this inf
 ```python
 # webappexample\settings.py
 
-SOCIAL_AUTH_TRAILING_SLASH = False                    # Remove end slash from routes
+SOCIAL_AUTH_TRAILING_SLASH = False  # Remove trailing slash from routes
 SOCIAL_AUTH_AUTH0_DOMAIN = '${account.namespace}'
 SOCIAL_AUTH_AUTH0_KEY = '${account.clientId}'
 SOCIAL_AUTH_AUTH0_SECRET = 'YOUR_CLIENT_SECRET'
@@ -98,12 +102,13 @@ $ python manage.py migrate
 
 The `social_django` application is now configured. The next step is to create an authentication backend that bridges `social_django` with Auth0.
 
-Create a file to implement the custom `Auth0` authentication backend. 
+Create a file to implement the custom `Auth0` authentication backend.
 
 ```python
 # auth0login/auth0backend.py
 
-import requests
+from urllib import request
+from jose import jwt
 from social_core.backends.oauth import BaseOAuth2
 
 
@@ -115,29 +120,29 @@ class Auth0(BaseOAuth2):
     EXTRA_DATA = [
         ('picture', 'picture')
     ]
-    
+
     def authorization_url(self):
-        """Return the authorization endpoint."""
-        return "https://" + self.setting('DOMAIN') + "/authorize"
-    
+        return 'https://' + self.setting('DOMAIN') + '/authorize'
+
     def access_token_url(self):
-        """Return the token endpoint."""
-        return "https://" + self.setting('DOMAIN') + "/oauth/token"
-    
+        return 'https://' + self.setting('DOMAIN') + '/oauth/token'
+
     def get_user_id(self, details, response):
         """Return current user id."""
         return details['user_id']
-    
-    def get_user_details(self, response):
-        url = 'https://' + self.setting('DOMAIN') + '/userinfo'
-        headers = {'authorization': 'Bearer ' + response['access_token']}
-        resp = requests.get(url, headers=headers)
-        userinfo = resp.json()
 
-        return {'username': userinfo['nickname'],
-                'first_name': userinfo['name'],
-                'picture': userinfo['picture'],
-                'user_id': userinfo['sub']}
+    def get_user_details(self, response):
+        # Obtain JWT and the keys to validate the signature
+        id_token = response.get('id_token')
+        jwks = request.urlopen('https://' + self.setting('DOMAIN') + '/.well-known/jwks.json')
+        issuer = 'https://' + self.setting('DOMAIN') + '/'
+        audience = self.setting('KEY')  # CLIENT_ID
+        payload = jwt.decode(id_token, jwks.read(), algorithms=['RS256'], audience=audience, issuer=issuer)
+
+        return {'username': payload['nickname'],
+                'first_name': payload['name'],
+                'picture': payload['picture'],
+                'user_id': payload['sub']}
 ```
 
 ::: note
@@ -160,9 +165,9 @@ Configure the login, redirect login and redirect logout URLs as set below. The L
 ```python
 # webappexample\settings.py
 
-LOGIN_URL = "/login/auth0"
-LOGIN_REDIRECT_URL = "/dashboard"
-LOGOUT_REDIRECT_URL = "/"
+LOGIN_URL = '/login/auth0'
+LOGIN_REDIRECT_URL = '/dashboard'
+LOGOUT_REDIRECT_URL = '/'
 ```
 
 ## Trigger Authentication
@@ -203,13 +208,13 @@ import json
 @login_required
 def dashboard(request):
     user = request.user
-    auth0user = user.social_auth.get(provider="auth0")
+    auth0user = user.social_auth.get(provider='auth0')
     userdata = {
         'user_id': auth0user.uid,
         'name': user.first_name,
         'picture': auth0user.extra_data['picture']
     }
-    
+
     return render(request, 'dashboard.html', {
         'auth0User': auth0user,
         'userdata': json.dumps(userdata, indent=4)
@@ -248,7 +253,7 @@ To log a user out, add a link to `/logout` in `dashboard.html`.
 
 In previous steps we added methods to the `views.py` file. We need to map those methods to URLs.
 
-Django has a [URL dispatcher](https://docs.djangoproject.com/en/1.11/topics/http/urls/) that lets you map URL patterns to views.
+Django has a [URL dispatcher](https://docs.djangoproject.com/en/2.1/topics/http/urls/) that lets you map URL patterns to views.
 
 Add mappings for the root folder, the dashboard folder, and the authentication applications in `urls.py`.
 
@@ -256,9 +261,23 @@ Add mappings for the root folder, the dashboard folder, and the authentication a
 # auth0login\urls.py
 
 urlpatterns = [
-    url('^$', views.index),
-    url(r'^dashboard', views.dashboard),
-    url(r'^', include('django.contrib.auth.urls', namespace='auth')),
-    url(r'^', include('social_django.urls', namespace='social')),
+    path('', views.index),
+    path('dashboard/', views.dashboard),
+    path('', include('django.contrib.auth.urls')),
+    path('', include('social_django.urls')),
 ]
 ```
+
+## Run the Sample
+
+To run the sample from a terminal, change the directory to the root folder of the project and execute the following line:
+
+```bash
+python manage.py migrate
+python manage.py runserver 3000
+```
+
+The application will be accessible on [http://localhost:3000](http://localhost:3000). Follow the Log In link to log in or sign up to your Auth0 tenant. Upon successful login or signup, you should be redirected to the user's profile page.
+
+
+![login page](/media/articles/web/hosted-login.png)

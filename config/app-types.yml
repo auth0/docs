@@ -16,7 +16,7 @@ appTypes:
   - title: Single-Page App
     name: spa
     description: "JavaScript web app that runs in the browser"
-    example: "e.g., Angular.JS + NodeJS, React"
+    example: "e.g., AngularJS + Node.js, React"
     question: "What technology are you using for your web app?"
     budicon: 349
     slug: application-platforms

@@ -29,7 +29,7 @@ The basic claim returned for the `openid` scope is the `sub` claim, which unique
 
 ## Example: ask for standard claims
 
-In this example, we will use the [OAuth 2.0 Implicit Grant](/api-auth/grant/implicit) to authenticate a user and retrieve an ID Token that contains the user's name, nickname, profile picture, and email information.
+In this example, we will use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to authenticate a user and retrieve an ID Token that contains the user's name, nickname, profile picture, and email information.
 
 To initiate the authentication flow, send the user to the authorization URL and request an ID Token:
 
@@ -44,7 +44,7 @@ https://${account.namespace}/authorize?
 ```
 
 ::: note
-For details on the params and how to implement this flow refer to [How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant).
+For details on the params and how to implement this flow refer to our tutorial, [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
 :::
 
 Notice that we included three values at the `scope` param: `openid`, `profile` (to get `name`, `nickname` and `picture`) and email (to get the `email` claim).

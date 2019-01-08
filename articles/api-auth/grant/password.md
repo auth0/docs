@@ -17,8 +17,8 @@ useCase:
 Highly trusted applications can use this flow to access APIs. In this flow the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is sent to the backend and from there to Auth0.
 
 You should use this flow **only if** the following apply:
-- The application is absolutely trusted with the user's credentials. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead.
-- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application you should use the [Authorization Code Grant](/api-auth/grant/authorization-code) instead.
+- The application is absolutely trusted with the user's credentials. For [Single-Page Applications](/flows/concepts/single-page-login-flow) and [Native/Mobile Apps](/flows/concepts/mobile-login-flow) we recommend using web flows instead.
+- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application, you should use the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow) instead.
 
 ::: note
 If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.

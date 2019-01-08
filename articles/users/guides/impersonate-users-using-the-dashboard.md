@@ -1,5 +1,6 @@
 ---
-description: Describes how to impersonate users using the Dashboard to view their information as they would see it. 
+description: Learn how to impersonate users using the Dashboard to view their information as they would see it. 
+sitemap: false
 topics:
     - users
     - user-management
@@ -12,17 +13,17 @@ v2: true
 
 <%= include('../../_includes/_deprecate-impersonation') %>
 
-Often you may need to impersonate other users for testing or troubleshooting purposes. Using impersonation, you can:
+You may need to impersonate other users for testing or troubleshooting purposes. You can:
 
-* Log in to an app as a specific user
-* See everything exactly as that user sees it
-* Do everything exactly as that user does it
+* Log in to an app as a specific user.
+* See everything exactly as that user sees it.
+* Do everything exactly as that user does it.
 
 Auth0 provides a __Sign in As__ feature for user impersonation, and provides the following features and information:
 
-* Detailed auditing of who impersonated when
-* Restrictions on impersonation which allows you to reject an impersonated authentication transaction based on, for instance, corporate policies around privacy and sensitive data
-* Unlimited customization on who can impersonate who, when, depending on whatever context, using our [Rules](/rules) engine. In a Rule, you have access to `user.impersonated` (the impersonated login) and `user.impersonator` (the impersonating login) and you can write arbitrary Javascript to define how it works
+* Detailed auditing of who impersonated when.
+* Restrictions on impersonation which allows you to reject an impersonated authentication transaction based on, for instance, corporate policies around privacy and sensitive data.
+* Unlimited customization on who can impersonate who, when, depending on whatever context, using our [Rules](/rules) engine. In a Rule, you have access to `user.impersonated` (the impersonated login) and `user.impersonator` (the impersonating login) and you can write arbitrary Javascript to define how it works.
 
 ::: note
 Any [Rules](/rules) that you have implemented will run when you impersonate a user, including any actions that update the user.
@@ -32,9 +33,9 @@ Any [Rules](/rules) that you have implemented will run when you impersonate a us
 Impersonation **does not work** with the [API Authorization](/api-auth) features. This means that the `audience` parameter will be ignored, and the [Access Token](/tokens/concepts/overview-access-tokens) returned to applications when using this flow is only valid for requests to [the /userinfo endpoint](/api/authentication#get-user-info). 
 :::
 
-## Login CSRF attacks mitigation and Impersonation
+## Login CSRF attack mitigation
 
-To avoid [Login CSRF attacks](/protocols/oauth2/oauth-state#how-to-use-the-parameter-against-csrf-attacks), the OAuth 2.0 specification recommends that applications use the **state** parameter to make sure that the response they receive matches the authentication request and originates from the same session.
+To avoid [Login CSRF attacks](/protocols/oauth2/mitigate-csrf-attacks), the OAuth 2.0 specification recommends that applications use the **state** parameter to make sure that the response they receive matches the authentication request and originates from the same session.
 
 However, applications that check for a valid **state** parameter will *not* work with Impersonation, since Impersonation works by sending authenticated responses to applications that never requested authentication. If you are building a single page application where the authentication results are processed by Lock or Auth0.js, you can disable checking of **state** to allow Impersonation.
 
@@ -84,7 +85,7 @@ Can't see the button? The following conditions are required for the button displ
 
 A popup displays the URL to be used in order to impersonate the user. You can choose either to copy the URL into the clipboard (white button) or open it in a separate browser tab/window (blue button).
 
-3. You can copy the URL into the clipboard (white button) or open the URL in a separate browser tab/window (blue button).
+3. Copy the URL into the clipboard (white button) or open the URL in a separate browser tab/window (blue button).
 
 ![Impersonate a User](/media/articles/user-profile/user3.png)
 
@@ -103,7 +104,7 @@ This reveals fields to make it easier to [Impersonate a User Using the Impersona
 - **Response mode**: `GET` or `POST`. This is only for server side apps, client side apps default to `GET`.
 - **Response type**: `Code` or `Token`. This is only for server side apps, client side apps default to `Token`.
 - **Scope**: This field will have `openid` in it is as default, [other scopes](/scopes) can be added as a list using whitespace as separator.
-- **State**: The `state` is a required parameter and leaving it blank may lead to errors like `Impersonation - Bad mac`. Learn more about [using the state parameter here](/protocols/oauth2/oauth-state).
+- **State**: The `state` is a required parameter and leaving it blank may lead to errors like `Impersonation - Bad mac`. For more information, see [State Parameter](/protocols/oauth2/oauth-state).
 
 ## Keep reading
 

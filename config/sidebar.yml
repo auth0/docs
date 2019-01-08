@@ -125,14 +125,30 @@ articles:
     url: "/application-auth/current"
     children:
 
-      - title: "Server-side App"
-        url: "/application-auth/current/server-side-web"
-      
-      - title: "Client-side App"
-        url: "/application-auth/current/client-side-web"
+      - title: "Native/Mobile Apps"
+        url: "/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow"
         
-      - title: "Mobile App"
-        url: "/application-auth/current/mobile-desktop"
+      - title: "Single-Page Apps"
+        url: "/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow"
+        
+      - title: "Regular Web Apps"
+        url: "/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow"
+
+      - title: "Old-Current"
+        url: "/application-auth/current"
+        hidden: true
+        children:
+          - title: "Server-side App"
+            url: "/application-auth/current/server-side-web"
+            hidden: true
+      
+          - title: "Client-side App"
+            url: "/application-auth/current/client-side-web"
+            hidden: true
+        
+          - title: "Mobile App"
+            url: "/application-auth/current/mobile-desktop"
+            hidden: true
       
       - title: "Legacy"
         url: "/application-auth/legacy"
@@ -169,19 +185,35 @@ articles:
 
       - title: "Which OAuth Flow to Use"
         url: "/api-auth/which-oauth-flow-to-use"
+        
+      - title: "APIs & Mobile Apps"
+        url: "/flows/concepts/mobile-login-flow"
+        
+      - title: "APIs & Single-Page Apps"
+        url: "/flows/concepts/single-page-login-flow"
+        
+      - title: "APIs & Regular Web Apps"
+        url: "/flows/concepts/regular-web-app-login-flow"
+        
+      - title: "APIs & M2M Apps"
+        url: "/flows/concepts/m2m-flow"
 
       - title: "APIs & Server-side Apps"
         url: "/api-auth/grant/authorization-code"
+        hidden: true
 
       - title: "APIs & Mobile Apps"
         url: "/api-auth/grant/authorization-code-pkce"
+        hidden: true
 
       - title: "APIs & Client-side Apps"
         url: "/api-auth/grant/implicit"
+        hidden: true
 
       - title: "APIs & CLIs"
         url: "/api-auth/grant/client-credentials"
-
+        hidden: true
+        
       - title: "APIs & Trusted Applications"
         url: "/api-auth/grant/password"
 
@@ -259,6 +291,9 @@ articles:
 
       - title: "Version Control"
         url: "/hosted-pages/version-control"
+
+      - title: "Default Login Page"
+        url: "/hosted-pages/default-login-url"
 
   - title: "Rules"
     url: "/rules"
@@ -497,6 +532,10 @@ articles:
       - title: "Data Storage"
         url: "/best-practices/user-data-storage-best-practices"
         hidden: true
+        children:
+          - title: "User Data Storage Scenario"
+            url: "/users/references/user-data-storage-scenario"
+            hidden: true 
 
       - title: "User Migration"
         url: "/users/concepts/overview-user-migration"
@@ -608,6 +647,9 @@ articles:
 
           - title: "FAQ"
             url: "/multifactor-authentication/api/faq"
+
+      - title: "MFA Troubleshooting"
+        url: "/multifactor-authentication/troubleshooting"
 
   - title: "Security"
     url: "/security"
@@ -809,7 +851,7 @@ articles:
         url: "/protocols/oauth2"
         children:
 
-        - title: "The State Parameter"
+        - title: "State Parameter"
           url: "/protocols/oauth2/oauth-state"
           hidden: true
           

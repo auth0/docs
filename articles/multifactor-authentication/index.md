@@ -80,3 +80,7 @@ With most MFA factors, upon signup, the end user will be given a recovery code w
 ::: note
 If a recovery code is used, a new recovery code will be provided at that time.
 :::
+
+## Troubleshooting
+
+See the [MFA Troubleshooting Guide](/multifactor-authentication/troubleshooting) for help troubleshooting common end-user issues.

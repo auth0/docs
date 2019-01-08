@@ -139,7 +139,7 @@ What you have to do instead is let your user sign up with the social provider (w
 Before you call the Management API you need to get a valid token. For details see [Get Access Tokens for Production](/api/management/v2/get-access-tokens-for-production).
 
 :::panel Get a token from an SPA
-The linked article uses the [Client Credentials OAuth 2.0 grant](/api-auth/grant/client-credentials) to get a token, which you cannot use from an app running on the browser. What you can use instead is the [Implicit Grant](/api-auth/grant/implicit). Set the **audience** request parameter to `https://${account.namespace}/api/v2/` and the **scope** parameter to the scope `create:current_user_metadata`. You can use the Access Token you will get at the response to call the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id).
+The linked article uses the [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow) to get a token, which you cannot use from an app running on the browser. What you can use instead is the [Single-Page Login Flow](/flows/concepts/single-page-login-flow). Set the **audience** request parameter to `https://${account.namespace}/api/v2/` and the **scope** parameter to the scope `create:current_user_metadata`. You can use the Access Token you will get at the response to call the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id).
 :::
 
 Once you have a valid token, use the following snippet to update the user's metadata.

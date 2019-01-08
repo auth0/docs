@@ -14,7 +14,7 @@ useCase:
 
 <%= include('./_about.md') %>
 
-The [Authorization Code grant](/api-auth/grant/authorization-code) is used by server-side applications that are capable of securely storing secrets, or by [native applications through PKCE](/api-auth/grant/authorization-code-pkce).
+The [Authorization Code Grant](/flows/concepts/regular-web-app-login-flow) is used by server-side applications that are capable of securely storing secrets, or by [native applications through PKCE](/flows/concepts/mobile-login-flow).
 This document describes the differences of this flow between the legacy and OIDC-conformant authentication pipelines.
 
 ## Authentication request

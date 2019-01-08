@@ -85,7 +85,7 @@ The following tables describe operational and feature differences between these 
         </tr>
     </tbody>
 </table>
-<p>*See "PSaaS Appliance" section in <a href="https://auth0.com/legal">Service Level Description</a></p>
+<p>* See "PSaaS Appliance" section in <a href="https://auth0.com/legal">Service Level Description</a>.</p>
 
 ## Feature Differences
 
@@ -114,10 +114,10 @@ The following tables describe operational and feature differences between these 
         </tr>
         <tr>
             <th class="info"><strong>User Search</strong></th>
-            <td>Lucene queries</td>
-            <td>Simple attribute search or Lucene queries</td>
-            <td>Simple attribute search or Lucene queries</td>
-            <td>Simple attribute search or Lucene queries</td>
+            <td>V3</td>
+            <td>V2</td>
+            <td>V2</td>
+            <td>V2</td>
         </tr>
         <tr>
             <th class="info"><strong>Tenant Log Search</strong></th>
