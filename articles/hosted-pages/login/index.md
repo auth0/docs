@@ -62,6 +62,8 @@ In the [Dashboard](${manage_url}), you can enable a custom login page by navigat
 
 Note that the login page works for basic use cases without being customized. The included scripts are updated as required by Auth0. However, when the customization toggle is flipped on, you then become responsible for the updating and maintenance of the script, as it can no longer be automatically updated by Auth0. This includes updating the version for any included script, such as Lock or Auth0.js.
 
+Please note that Hosted Pages work without customization (Auth0 will also update the included scripts as required). However, once you toggle the customization to **on**, you are responsible for the updating and maintaining the script (including changing version numbers, such as that for Lock and Auth0.js), since Auth0 can no longer update it automatically.
+
 ::: note
 If, after looking at the page code and customization options, you decide **not** to customize your login page, you should disable the **Customize Login Page** toggle, to allow your page to receive the automatic updates it might need from Auth0.
 :::
