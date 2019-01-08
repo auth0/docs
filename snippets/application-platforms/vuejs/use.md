@@ -37,9 +37,11 @@ export default {
       isAuthenticated: false
     };
   },
-  created() {
-    if (this.$auth.isAuthenticated()) {
-      this.$auth.renewTokens();
+  async created() {
+    try {
+      await this.$auth.renewTokens();
+    } catch (e) {
+      console.log(e);
     }
   },
   methods: {

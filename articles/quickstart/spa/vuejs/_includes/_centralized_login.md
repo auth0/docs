@@ -90,14 +90,18 @@ class AuthService extends EventEmitter {
 
   renewTokens() {
     return new Promise((resolve, reject) => {
-      webAuth.checkSession({}, (err, authResult) => {
-        if (err) {
-          reject(err);
-        } else {
-          this.localLogin(authResult);
-          resolve(authResult);
-        }
-      });
+      if (localStorage.getItem(localStorageKey) === 'true') {
+        webAuth.checkSession({}, (err, authResult) => {
+          if (err) {
+            reject(err);
+          } else {
+            this.localLogin(authResult);
+            resolve(authResult);
+          }
+        });
+      } else {
+        reject('Not logged in');
+      }
     });
   }
 
@@ -116,7 +120,10 @@ class AuthService extends EventEmitter {
   }
 
   isAuthenticated() {
-    return localStorage.getItem(localStorageKey) === 'true';
+    return (
+      new Date().getTime() < this.expiresAt &&
+      localStorage.getItem(localStorageKey) === 'true'
+    );
   }
 }
 
@@ -129,7 +136,7 @@ The service now includes several other methods for handling authentication.
 - `localLogin` - sets the user's Access Token, ID Token, and a time at which the Access Token will expire
 - `renewTokens` - uses the `checkSession` method from auth0.js to renew the user's authentication status, and calls `localLogin` if the login session is still valid
 - `logout` - removes the user's tokens from browser storage. It also calls `webAuth.logout` to log the user out at the authorization server
-- `isAuthenticated` - checks whether the local storage flag is present and equals "true"
+- `isAuthenticated` - checks whether the local storage flag is present and equals "true", and that the expiry time for the Access Token has passed
 
 ### About the Authentication Service
 
