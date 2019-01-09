@@ -10,7 +10,7 @@ useCase: extensibility-extensions
 ---
 # Call Deploy CLI Tool Programmatically
 
-You can call he tool programmatically as in the following example: 
+You can call the CLI tool programmatically as shown in the following example: 
 
 ```js
 import { deploy, dump } from 'auth0-deploy-cli';
@@ -51,9 +51,11 @@ dump({
 
 ## Troubleshooting
 
-The `auth0-deploy-cli` tool leverages the Management API passing through objects for creates, updates, and deletions.
+The `auth0-deploy-cli` tool uses the Management API to pass through objects for create, update, and delete actions.
 
-You may experience `Bad Request` and `Payload validation` errors. These errors are returned from the Management API, and usually mean the object has attributes which are not writable or no longer available (legacy). This can happen when exporting from an older Auth0 tenant and importing into a newly created tenant. In this scenario, you may need to update your configuration to support the new object format. For more information, see [What's New in Deploy CLI Tool v2](/extensions/deploy-cli/references/whats-new-v2). 
+You may occasionally see `Bad Request` and `Payload validation` errors returned by the Management API. These errors usually mean the object you're working with has attributes which are not writable or no longer available. This can happen when you are exporting from an older Auth0 tenant and importing into a newly-created tenant.
+
+If this is the case, update your configuration to support the new object format used by Auth0. For more information, see [What's New in Deploy CLI Tool v2](/extensions/deploy-cli/references/whats-new-v2). 
 
 ## Keep reading
 
