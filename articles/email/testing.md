@@ -21,6 +21,10 @@ You can either:
 
 Once you have either your own SMTP server set up or a test service available, you can provide its credentials the way you typically would for a [custom email provider](/email/providers#configure-a-custom-smtp-server-for-sending-email).
 
+::: warning
+We suggest establishing real email addresses for quality assurance purposes and using these addresses when testing. This will help you avoid disruption caused by the blacklisting of certain "false" domains that are commonly used to test.
+:::
+
 ## Resources to Consider
 
 ::: next-steps
@@ -29,8 +33,4 @@ Once you have either your own SMTP server set up or a test service available, yo
 * [Haraka](https://haraka.github.io/)
 * [MailTrap](https://mailtrap.io/)
 * [smtp4dev](https://smtp4dev.codeplex.com/)
-:::
-
-::: warning
-We suggest establishing real email addresses for quality assurance purposes and using these addresses when testing. This will help you avoid disruption caused by the blacklisting of certain "false" domains that are commonly used to test.
 :::
