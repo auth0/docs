@@ -13,7 +13,7 @@ useCase:
 
 # Enable third-party applications
 
-To enable [third-party applications](/application-types#third-party-applications) for your tenant, you must:
+To enable [third-party applications](/applications/application-types#third-party-applications) for your tenant, you must:
 
 1. Update your application's login page (if you use [Lock](/libraries/lock/v11))
 2. Promote the connections you will use with your third-party applications to **domain connections**
