@@ -14,9 +14,12 @@ alias:
   - node-connect
   - passport
 seo_alias: nodejs
-default_article: 01-login
+default_article: 01-Create-express-app
 articles:
-  - 01-login
+  - 01-Create-express-app
+  - 02-Implement-profile-page
+  - 03-Protect-profile-page
+  - 04-Authenticate-users
 show_steps: true
 github:
   org: auth0-samples
@@ -26,7 +29,7 @@ requirements:
   - NodeJS 4.3 or higher
   - Express 4.16
 next_steps:
-  - path: 01-login
+  - path: 01-Create-express-app
     list:
     - text: Configure other identity providers
       icon: 345
