@@ -119,6 +119,7 @@ class Auth0ResourceOwner extends GenericOAuth2ResourceOwner
         $resolver->setNormalizer('authorization_url', $normalizer);
         $resolver->setNormalizer('access_token_url', $normalizer);
         $resolver->setNormalizer('infos_url', $normalizer);
+        $resolver->setNormalizer('audience', $normalizer);
     }
 }
 ```
