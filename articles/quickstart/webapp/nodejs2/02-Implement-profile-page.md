@@ -16,7 +16,7 @@ github:
     path: 02-Implement-profile-page
 ---
 
-If your existing Node.js application already has a user profile page that you would like to protect you can [skip to the next section: Protecting the profile page](/docs/quickstart/webapp/nodejs2/03-Protect-profile-page).
+If your existing Node.js application already has a user profile page that you would like to protect you can skip to the next section: [Protecting the profile page](/quickstart/webapp/nodejs2/03-Protect-profile-page).
 
 Following from the previous stage you should now have a working Node.js server that renders a basic Welcome home page.
 
@@ -124,5 +124,5 @@ Restart the node application and navigate to `localhost:3000/users`. You should 
 
 **Insert image here empty profile page**
 
-In the next section we will protect this route by making the `users/profile` URL only accessible to users that are authenticated. Head over to [Protecting the profile page to get started](/docs/quickstart/webapp/nodejs2/03-Protect-profile-page)
+In the next section we will protect this route by making the `users/profile` URL only accessible to users that are authenticated. Head over to [Protecting the profile page to get started](/quickstart/webapp/nodejs2/03-Protect-profile-page)
 

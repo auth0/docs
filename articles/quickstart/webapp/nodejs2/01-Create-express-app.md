@@ -16,7 +16,7 @@ github:
     path: 01-Create-express-app
 ---
 
-This section will get you started with a simple Node Express application. If you have an existing Express application that you would like to use for this Quickstart you can skip to the next section: [Implementing a user profile page](/docs/quickstart/webapp/nodejs2/02-Implement-profile-page).
+This section will get you started with a simple Node Express application. If you have an existing Express application that you would like to use for this Quickstart you can skip to the next section: [Implementing a user profile page](/quickstart/webapp/nodejs2/02-Implement-profile-page).
 
 ## Create your application using Express-Generator
 
@@ -79,4 +79,4 @@ Navigate your browser to [http://localhost:3000](http://localhost:3000/) and you
 
 ![Express welcome screen](/media/articles/quickstart/express_running.png)
 
-In the next section we will [Implement a user profile page](/docs/quickstart/webapp/nodejs2/02-Implement-profile-page).
+In the next section we will [Implement a user profile page](/quickstart/webapp/nodejs2/02-Implement-profile-page).

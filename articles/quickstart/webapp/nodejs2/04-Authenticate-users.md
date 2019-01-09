@@ -16,7 +16,7 @@ github:
     path: 04-Authenticate-users
 ---
 
-in the previous sections we [created a basic node server using Express](/docs/quickstart/webapp/nodejs2/01-Create-express-app), [configured a profile page](/docs/quickstart/webapp/nodejs2/02-Implement-profile-page) which will show basic user profile information when accessed at the `users/profile` URL, and implemented middleware to [Protect our profile page](/docs/quickstart/webapp/nodejs2/03-Protect-profile-page) and make it accessible to only people with an active user session.
+in the previous sections we [created a basic node server using Express](/quickstart/webapp/nodejs2/01-Create-express-app), [configured a profile page](/quickstart/webapp/nodejs2/02-Implement-profile-page) which will show basic user profile information when accessed at the `users/profile` URL, and implemented middleware to [Protect the profile page](/quickstart/webapp/nodejs2/03-Protect-profile-page) making it accessible only to people with an active user session.
 
 The final piece of the puzzle is to quickly enable users to get a user session by logging in with Auth0. 
 
@@ -36,7 +36,6 @@ $ npm install passport passport-auth0 --save
 ```
 
 Inside our `middleware/auth.js` file we'll update it to include both modules and configure the auth strategy.
-
 ```javascript
 // middleware/auth.js
 
@@ -231,7 +230,9 @@ module.exports = router;
 
 ```
 
-Here we unpack the `req.user` object and convert the userProfile into a JSON string representation of the object. We assign this to a `userProfile` value.
+With this code we unpack the `req.user` object and convert the userProfile into a JSON string representation of the user object (minus the `_raw` and `_json` elements). We assign this to a `userProfile` value. Which is rendered in the Pug template.
+
+The final step would be for us to implement logout functionality within our app. We can do this in the same way that we do the login process by creating a route for the `/logout` URL and using that to trigger a call to Auth0's logout endpoints.
 
 
 

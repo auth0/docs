@@ -16,7 +16,7 @@ github:
     path: 03-Protect-profile-page
 ---
 
-in the previous sections we [created a basic node server using Express](/docs/quickstart/webapp/nodejs2/01-Create-express-app) and [configured a profile page](/docs/quickstart/webapp/nodejs2/02-Implement-profile-page) which will show basic user profile information when accessed at the `users/profile` URL.
+in the previous sections we [created a basic node server using Express](/quickstart/webapp/nodejs2/01-Create-express-app) and [configured a profile page](/quickstart/webapp/nodejs2/02-Implement-profile-page) which will show basic user profile information when accessed at the `users/profile` URL.
 
 In order to ensure certain pages in our application are only accessible to users with an authenticated user session we first need to implement session functionality within our app.
 
@@ -30,7 +30,6 @@ $ npm install express-session --save
 ```
 
 Then require and configure `express-session` inside `app.js`
-
 ```javascript
 // app.js
 
@@ -73,7 +72,6 @@ app.use(session(sess));
 In this section we are going to restrict access to the `/users/profile` URL so that only users that with an authenticated session can access it. Let's implement some basic middleware to check for the existence of a user session (`req.user`) and if no user session exists we will redirect to a `/login` URL.
 
 Go ahead and create a `middleware` folder in the root of your application directory. Inside this folder we will create a `secured.js` file.
-
 ```shell
 .
 |-- app.js
@@ -130,7 +128,6 @@ If we test our application at this point we will be redirected to the `/login` U
  In order to have this work as expected we need to create a `/login` route. We don't actually want to implement login within our application, but rather make use of Auth0's login and user management functionality. To do this we will create an `auth.js` include that will handle authentication and redirection to Auth0 for us.
 
 Inside our `middleware` folder create an `auth.js` file.
-
 ```javascript
 // middleware/auth.js
 
@@ -165,5 +162,5 @@ app.use(auth(app));
 
 Now when we navigate to any URL in our application that is `secured` we will be successfully redirected to the `/login` URL. Protecting any URL on our site is as simple as including the call to `secured();` in our router.
 
-In the next section we will successfully avoid building our own entire login and user management system by [Implementing user authentication with Auth0](/docs/quickstart/webapp/nodejs2/04-Authenticate-users)
+In the next section we will successfully avoid building our own entire login and user management system by [Implementing user authentication with Auth0](/quickstart/webapp/nodejs2/04-Authenticate-users)
 
