@@ -12,53 +12,58 @@ useCase:
 
 # Rules Best Practices
 
-Here are some best practices for using [rules](/rules). Before you start writing rules, review [what you can use rules for](/rules#what-can-i-use-rules-for-) and take a look at some [examples](/rules/references/samples)
+This article covers best practices for using [rules](/rules). Before you start writing rules, we recommend that you:
+
+* Review [what you can use rules for](/rules#what-can-i-use-rules-for-)
+* Take a look at some [sample rules](/rules/references/samples)
 
 ## General recommendations
 
+The following suggestions are designed to optimize the performance of your Auth0 implementation when using rules.
+
 ### Handle errors
 
-Make sure your rules code catches errors after calls which may trigger an error. Also, ensure every branch through the code ends with a return statement to call the callback.
+Make sure your rules code catches errors (especially after calls with a higher likelihood of triggering an error). Also, ensure every branch through the code ends with a return statement to call the callback function.
 
 ### Review rule order
 
-Rules execute in the order shown on the Auth0 Dashboard. If a rule depends on the execution of another rule, move the dependent rule lower in the rules list.
+Rules execute in the order shown on the Auth0 Dashboard. If a rule depends on the execution of another rule, move the dependent rule to a lower position in the rules list.
 
-### Exit soon
+### Exit the rule as soon as possible
 
 To improve performance, write rules that exit as soon as possible.
 
-For example, if a rule has 3 checks to decide if it should run, the first check should eliminate the most cases. Followed by the check that eliminates the second-highest number of cases for the rule to run, and so on.
+For example, if a rule has three checks to decide if it should run, the first check should eliminate the most cases. It should then be followed by the check that eliminates the second-highest number of cases for the rule to run, and so on.
 
 ### Reduce API requests
 
-Try not to use a lot of API calls in rules. Too many can slow down login response time and may cause failures during a timeout.
+Try to minimize the number of API calls you make in your rules. Too many can slow down login response time, as well as cause failures during a timeout.
 
-Avoid calling the Management API if possible, especially in high volume environments.
+Avoid calling the Management API if at all possible, especially in high traffic environments.
 
-### Avoid calls to Management API to get Connection details
+### Avoid calls to Management API to get Connection-related details
 
-We have recently expanded the connection properties available in the rules [context object](/rules/references/context-object). You should now obtain connection info from the context object instead of calling the Auth0 Management API.
+We have recently expanded the connection properties available in rules [context object](/rules/references/context-object). You should now obtain connection info from the context object instead of calling the Auth0 Management API.
 
-Removing the call to the Management API (and the extra call to get the access token) will make your rule code more performant and reliable. 
+Removing calls to the Management API (as well as the extra call required to get the appropriate Access Token) will make your rule code more performant and reliable. 
 
-In particular, if you are using the “Check if user email domain matches configured domain” Rule template, check out its latest version [on Github](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or on the [Auth0 dashboard](${manage_url}/#/rules/new) to see the new best practice.
+In particular, if you are using the **Check if user email domain matches configured domain** rule template, check out the latest version [on Github](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or on the [Auth0 dashboard](${manage_url}/#/rules/new) to see the new best practices.
 
-This change should not alter any functionality and should improve the performance of rules that called the management API for connection details.
+The included changes should not alter any functionality while still improving the performance of rules that had once relied on calls to the Management API.
 
 ### Cache results
 
-Rules have a [global variable you can use to cache information](/rules/guides/cache-resources). For API calls that are not user-specific, use this variable to cache the results between users. For example, getting an access token to your API.
+Rules have a [global variable you can use to cache information](/rules/guides/cache-resources). For API calls that are not user-specific, use this variable to cache the results between users (e.g. getting an access token for your API).
 
 ### Limited read or update users scopes
 
-If you use the [Management API in rules](/rules/current/management-api) for the limited scope of reading or updating the current user, use the `auth0.accessToken` variable instead. This token will suffice if you only need the `read:users` and `update:users` scopes.
+If you use the [Management API in rules](/rules/current/management-api) just to read or update the current user, use the `auth0.accessToken` variable instead. This token will suffice if you only need the `read:users` and `update:users` scopes.
 
 ### Rules for specific applications
 
 To run a rule for only specific applications, check for a [client metadata field](/rules/references/context-object) instead of comparing the client.
 
-This can improve performance as the rule only executes for clients with a certain metadata field, rather than checking Client IDs. It also makes adding new clients and reading the rule code easier.
+This can improve performance as the rule only executes for clients with a particular metadata field, rather than checking Client IDs. It also makes adding new clients and reading the rule code easier.
 
 You can set client metadata for your application on the dashboard by going to [Application Settings -> Advanced Settings -> Application Metadata](${manage_url}/#/applications/). To access client metadata in rules, use the [context object](/rules/references/context-object).
 
@@ -66,19 +71,19 @@ You can set client metadata for your application on the dashboard by going to [A
 
 If you have rules that call a paid service, such as sending SMS messages using Twilio, make sure that you only use the service when necessary to avoid extra charges. To help reduce calls to paid services:
 
-* Disallow public sign-ups, if not needed, to reduce the numbers of users who can sign up and trigger calls to paid services.
+* Disallow public sign-ups to reduce the numbers of users who can sign up and trigger calls to paid services.
 * Mitigate the risk of credential theft to avoid account takeover by hackers who might use hijacked accounts to trigger calls to paid services.
 * Ensure your users have [strong passwords when using Database connections](/connections/database/password-strength).
 * Ensure your users utilize multi-factor authentication.
-* Ensure that the rule only gets triggered for an authorized subset of users, or under other appropriate conditions.  For example, you may wish to add logic that checks if a user has a particular email domain, role/group, or subscription level before triggering the call to the paid service.
+* Ensure that the rule only gets triggered for an authorized subset of users or under other appropriate conditions. For example, you may want to add logic that checks if a user has a particular email domain, role/group, or subscription level before triggering the call to the paid service.
 
 ## Security recommendations
 
-We’ve put together some best practices for rule security. Follow these recommendations to keep your rules in good shape.
+We’ve put together the following tips to help you stay secure when writing rules. Follow these recommendations to keep your rules in good shape.
 
 ### Store sensitive values in settings
 
-Sensitive information, such as credentials or API keys, should be stored in your [rules settings](${manage_url}/#/rules) where they will be encrypted and not in your rule code. For example do not write code like this:
+Sensitive information, such as credentials or API keys, should be stored in your [rules settings](${manage_url}/#/rules) where they will be encrypted and not in your rule code. For example, do not write code like this:
 
 ```js
 const myApiKey = 'abc123';
@@ -94,7 +99,7 @@ const myApiKey = configuration.myApiKey;
 
 For rules that send information to an external service, make sure you are not sending the entire [context object](/rules/references/context-object) as it may contain tokens or other sensitive data.
 
-If you are sending the context object to an external service for debugging purposes, you should use the Auth0 Real-time Webtask Logs Extension for debugging Rules instead. For Rules that send information to an external service, you should only send a subset of attributes from the context object that are less sensitive.
+If you are sending the context object to an external service for debugging purposes, you should use the Auth0 Real-time Webtask Logs Extension for debugging Rules instead. For Rules that send information to an external service, you should only send a subset of attributes from the context object that is less sensitive.
 
 ### Use HTTPS
 
@@ -232,7 +237,3 @@ const userEmailDomain = emailSplit[emailSplit.length - 1].toLowerCase();
 ```
 
 Seee the “Check if user email domain matches configured domain” rule template [on Github](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or on the [Auth0 dashboard](${manage_url}/#/rules/new) for more information.
-
-
-
-
