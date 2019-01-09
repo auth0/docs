@@ -10,11 +10,13 @@ useCase: extensibility-extensions
 ---
 # Import/Export Tenant Configuration to YAML File
 
-The `auth0-deploy-cli` tool YAML option supports exporting and importing the Auth0 tenant configuration to a [YAML](http://yaml.org/) file.
+The `auth0-deploy-cli` tool's **YAML option** supports the exporting to and importing of an Auth0 tenant configuration using a [YAML](http://yaml.org/) file.
 
 ## Import tenant configuration
 
-1. Copy `config.json.example` and fill out details.
+To import an Auth0 tenant configuration:
+
+1. Copy `config.json.example`, making sure to replace the placeholder values with the values specific to your configuration.
 
    ```json
    {
@@ -33,19 +35,19 @@ The `auth0-deploy-cli` tool YAML option supports exporting and importing the Aut
    }
    ```
 
-   Use the `client ID` and secret from your newly created client (the client is named `auth0-deploy-cli-extension` if you used the extension).
+   Use the `client ID` and secret from your newly-created client (the client is named `auth0-deploy-cli-extension` if you used the extension).
 
-   By default the tool merges your current environment variables and overrides `config.json` which has the same top key. Use the `--no-env` option to disable the override via the command line.
+   By default, the tool merges with your current environment variables and overrides the `config.json` file (which has the same top key). You can use the `--no-env` option to disable the override via the command line.
    
-   You can either set env variables or place the values in a config file anywhere on the file system.
-
-2. Run deploy.
+   You can either set the environment variables, or you can place the values in a configuration file anywhere on the file system that is accessible by the CLI tool.
+   
+2. Deploy using the following command:
 
    ```bash
    a0deploy import -c config.json -i tenant.yaml
    ```
 
-### Config file example
+### Example: configuration file
 
 Here is the example of a `config.json` file:
 
@@ -89,7 +91,6 @@ pages:
   - name: "error_page"
     html: "pages/error_page.html"
 
-
 clients:
   -
     name: "My SPA"
@@ -99,7 +100,6 @@ clients:
     name: "My M2M"
     app_type: "non_interactive"
     # Add other client settings https://auth0.com/docs/api/management/v2#!/Clients/post_clients
-
 
 databases:
   - name: "users"
@@ -133,18 +133,15 @@ connections:
       ext_groups: true
     # Add other connection settings (https://auth0.com/docs/api/management/v2#!/Connections/post_connections)
 
-
 rules:
   - name: "Common-Functions"
     order: 10
     script: "rules/enrich_tokens.js"
 
-
 rulesConfigs:
   # Key/Value pairs for Rule configuration settings
   - key: "SOME_SECRET"
     value: 'some_key'
-
 
 resourceServers:
   -
@@ -157,7 +154,6 @@ resourceServers:
         description: "read account"
     # Add other resource server settings (https://auth0.com/docs/api/management/v2#!/Resource_Servers/post_resource_servers)
 
-
 emailProvider:
   name: "smtp"
   enabled: true
@@ -166,7 +162,6 @@ emailProvider:
     smtp_port: 2525
     smtp_user: "smtp_user"
     smtp_pass: "smtp_secret_password"
-
 
 emailTemplates:
   - template: "verify_email"
@@ -183,13 +178,11 @@ emailTemplates:
     subject: "something"
     body: "emails/change_email.html"
 
-
 clientGrants:
   - client_id: "My M2M"
     audience: "https://##ENV##.myapp.com/api/v1"
     scope:
       - "update:account"
-
 
 guardianFactors:
   - name: sms
@@ -220,7 +213,7 @@ guardianFactorTemplates:
 
 ## Export tenant configuration
 
-To export your current tenant configuration, use a command like the following example:
+To export your current tenant configuration, run a command that's similar to:
 
 `a0deploy export -c config.json --strip -f yaml -o path/to/export`
 
@@ -229,7 +222,6 @@ To export your current tenant configuration, use a command like the following ex
 <%= include('../_includes/_limitations') %>
 
 For more information, see [Environment Variables and Keyword Mappings](/extensions/deploy-cli/references/environment-variables-keyword-mappings).
-
 
 ## Keep reading
 
