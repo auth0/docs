@@ -1329,6 +1329,7 @@ appliance:
         url: /appliance/cli
       - title: Automatic Tenant Creation
         url: /appliance/admin/creating-tenants
+        hidden: true
       - title: Node Module Availability
         url: /appliance/modules
       - title: Webtasks
