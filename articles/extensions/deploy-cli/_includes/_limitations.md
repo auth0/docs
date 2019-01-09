@@ -1,3 +1,3 @@
 ### Limitations
 
-Some of the settings cannot be exported. For example, `emailProvider` credentials, `rulesConfigs` values and others. After export you may need to update the `tenant.yaml` values if you experience schema errors on import.
+Some of the settings cannot be exported, such as `emailProvider` credentials and `rulesConfigs` values. After exporting, you may need to update the values in `tenant.yaml` if you see schema-related errors during the import process.
