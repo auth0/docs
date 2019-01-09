@@ -140,7 +140,7 @@ The service now includes several other methods for handling authentication.
 
 ### About the Authentication Service
 
-<%= include('../../_includes/_auth_service_method_description_auth0js') %>
+<%= include('_auth_service_method_description') %>
 
 ### Create a Vue Plugin
 
