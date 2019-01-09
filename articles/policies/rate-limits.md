@@ -48,6 +48,10 @@ Actions such as rapidly updating configuration settings, aggressive polling, or 
 
 If your app triggers the rate limit, please refrain from making additional requests until the appropriate amount of time has elapsed.
 
+::: note How to Handle Rate Limits
+For the scripts and rules that you control, you should always check the X-RateLimit-Remaining header and act appropriately when the number returned nears 0. You should also add logic to handle cases in which you exceed the provided rate limits and receive the HTTP Status Code 429 (Too Many Requests); in this case, if a re-try is needed, it is best to allow for a back-off to avoid going into an infinite re-try loop.
+:::
+
 ## HTTP Response Headers
 
 API requests to selected [Authentication](/api/authentication) or [Management API](/api/management/v2) endpoints will return HTTP Response Headers that provide relevant data on the current status of your rate limits for that endpoint. If you receive a rate limit-related response header, it will include numeric information detailing your status.
