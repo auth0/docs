@@ -62,7 +62,7 @@ class AuthService extends EventEmitter {
   tokenExpiry = null;
 
   // Handles the callback request from Auth0
-  handleCallback() {
+  handleAuthentication() {
     return new Promise((resolve, reject) => {
       webAuth.parseHash((err, authResult) => {
         if (err) {
@@ -148,6 +148,7 @@ So that the authentication service may be passed around easily to each component
 
 ```js
 // src/plugins/auth.js
+
 import authService from '../auth/authService';
 
 export default {
@@ -236,6 +237,8 @@ npm install vue-router
 Add a new file `router.js` inside the `src` folder with the following content:
 
 ```js
+// src/router.js
+
 import VueRouter from 'vue-router';
 import Callback from './components/Callback';
 
@@ -260,6 +263,8 @@ This example relies on using path-based routing with `mode: 'history'`. If you a
 Updated `main.js` to register the router:
 
 ```js
+// src/main.js
+
 import Vue from 'vue';
 import App from './App.vue';
 import AuthPlugin from './plugins/auth';
@@ -301,7 +306,7 @@ export default {
     }
   },
   created() {
-    this.$auth.handleCallback();
+    this.$auth.handleAuthentication();
   }
 };
 </script>
