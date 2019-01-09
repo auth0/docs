@@ -61,7 +61,7 @@ update:email_templates
 
 ## Install the Deploy CLI tool
 
-There are two ways to install the Deploy CLI tool:
+There are three ways to install the Deploy CLI tool:
 
 1. Using the Dashboard
 2. Using the command-line interface
