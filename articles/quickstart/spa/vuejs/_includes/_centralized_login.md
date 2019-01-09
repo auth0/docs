@@ -239,7 +239,7 @@ Add a new file `router.js` inside the `src` folder with the following content:
 ```js
 // src/router.js
 
-import VueRouter from 'vue-router';
+import Router from 'vue-router';
 import Callback from './components/Callback';
 
 const routes = [
@@ -249,11 +249,12 @@ const routes = [
   }
 ];
 
-export default new VueRouter({
+const router = new VueRouter({
   mode: 'history',
   routes
 });
 
+export default router;
 ```
 
 ::: note
@@ -325,12 +326,132 @@ export default {
   right: 0;
 }
 </style>
-
-
-````
+```
 
 ::: note
 This example assumes some kind of loading spinner is available in the `assets` directory. See the downloadable sample for a demonstration.
 :::
 
 After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. During this time, their client-side session will be set, after which they will be redirected to the `/` route.
+
+## Display the User's Profile
+
+The `AuthService` has already extracted the user's profile information and stored it in memory. We can access it using `this.$auth.profile` inside one of our Vue components.
+
+To display the profile information, create a new component `Profile` in the `views` folder:
+
+```js
+// src/views/Profile.vue
+
+<template>
+  <div class="container">
+    <div class="row align-items-center profile-header">
+      <div class="col-md-2">
+        <img :src="profile.picture" class="rounded-circle img-fluid profile-picture">
+      </div>
+      <div class="col-md">
+        <h2>{{ profile.name }}</h2>
+        <p class="lead text-muted">{{ profile.email }}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <pre class="rounded">{{ JSON.stringify(profile, null, 2) }}</pre>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      profile: this.$auth.profile
+    };
+  },
+  methods: {
+    handleLoginEvent(data) {
+      this.profile = data.profile;
+    }
+  }
+};
+</script>
+```
+
+Add the `Profile` component to the Vue Router:
+
+```js
+// src/router.js
+
+//.. other imports
+import Profile from "./views/Profile.vue";
+
+const router = new Router({
+  mode: "history",
+  base: process.env.BASE_URL,
+  routes: [
+    // .. other routes
+    {
+      path: "/profile",
+      name: "profile",
+      component: Profile
+    }
+  ]
+});
+
+```
+
+Then add the `/profile` route to your navigation bar:
+
+```html
+// src/App.vue
+
+//... other navigation code
+
+<ul class="navbar-nav mr-auto">
+  <li class="nav-item">
+    <router-link to="/" class="nav-link">Home</router-link>
+  </li>
+  <li class="nav-item" v-if="!isAuthenticated">
+    <a href="#" class="nav-link" @click.prevent="login">Login</a>
+  </li>
+
+  <!-- new link to /profile - only show if authenticated -->
+  <li class="nav-item" v-if="isAuthenticated">
+    <router-link to="/profile" class="nav-link">Profile</router-link>
+  </li>
+  <!-- /profile -->
+
+  <li class="nav-item" v-if="isAuthenticated">
+    <a href="#" class="nav-link" @click.prevent="logout">Log out</a>
+  </li>
+</ul>
+```
+
+### Securing the profile route
+
+Even though we only show the `/profile` route if the user is authenticated, the user could still manually type the URL into the browser and access the page if they have not logged in — although there will be nothing to see.
+
+We can add a catch-all rule to the router so that access is only permitted if the user is logged in. If they are not logged in, we will prompt them to log in before redirecting the user to the location they tried to access in the first place.
+
+Open `router.js` and add a rule that exhibits this behavior:
+
+```js
+// src/router.js
+
+// .. other imports
+import auth from "./auth/authService";
+
+// .. router definition
+
+router.beforeEach((to, from, next) => {
+  if (to.path === "/" || to.path === "/callback" || auth.isAuthenticated()) {
+    return next();
+  }
+
+  auth.login({ target: to.path });
+});
+
+export default router;
+```
+
+Given this, any page that is not either the home page or the callback URL will cause the application to show the login prompt if the user is not authenticated.
