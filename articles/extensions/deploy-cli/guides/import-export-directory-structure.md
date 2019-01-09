@@ -10,13 +10,15 @@ useCase: extensibility-extensions
 ---
 # Import/Export Tenant Configuration to Directory Structure
 
-The `auth0-deploy-cli` tool directory option supports exporting and importing the Auth0 tenant configuration into a predefined directory structure.
+The `auth0-deploy-cli` tool includes a **directory option** that allows you to export and import an existing Auth0 tenant configuration into a predefined directory structure.
 
-For information on how the files are expected to be laid out to work with the source control configuration utilities, see [Github Deployments](/extensions/github-deploy).
+::: note
+For information on how the files are expected to be laid out to work with the source control configuration utilities, see [GitHub Deployments](/extensions/github-deploy).
+:::
 
 ## Import tenant configuration
 
-1. Copy `config.json.example` and fill out details.
+1. Copy `config.json.example`, making sure to replace the placeholder values with the values specific to your configuration.
 
    ```json
    {
@@ -35,19 +37,19 @@ For information on how the files are expected to be laid out to work with the so
    }
    ```
 
-   Use the `client ID` and secret from your newly created client (the client is named `auth0-deploy-cli-extension` if you used the extension).
+   Use the `client ID` and secret from your newly-created client (the client is named `auth0-deploy-cli-extension` if you used the extension).
 
-   By default the tool merges your current environment variables and overrides `config.json` which has the same top key. Use the `--no-env` option to disable the override via the command line.
+   By default, the tool merges with your current environment variables and overrides the `config.json` file (which has the same top key). You can use the `--no-env` option to disable the override via the command line.
 
-   You can either set env variables or place the values in a config file anywhere on the file system.
+   You can either set the environment variables, or you can place the values in a configuration file anywhere on the file system that is accessible by the CLI tool.
 
-2. Run deploy.
+2. Deploy using the following command:
 
    ```bash
    a0deploy import -c config.json -i .
    ```
 
-### Config file example
+### Example: configuration file
 
 Here is an example of a `config.json` file:
 
@@ -73,7 +75,7 @@ Here is an example of a `config.json` file:
 
 ## Export tenant configuration
 
-To export your current tenant configuration, use a command like the following example:
+To export your current tenant configuration, run a command that's similar to:
 
 `a0deploy export -c config.json --strip -f directory -o path/to/export`
 
@@ -85,7 +87,7 @@ For more information, see [Environment Variables and Keyword Mappings](/extensio
 
 ### Directory structure example
 
-Here is an example of a export directory structure:
+Here is an example of what the export directory structure looks like:
 
 ```
 repository =>
