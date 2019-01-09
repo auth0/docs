@@ -15,7 +15,7 @@ Hooks allow you to extend the Auth0 platform with custom code.
 When using [Database Connections](/connections/database), Hooks allow you to customize the behavior of Auth0 using Node.js code that executes against extensibility points (which are comparable to webhooks that come with a server). Hooks allow you modularity when configuring your Auth0 implementation, and extend the functionality of base Auth0 features.
 
 ::: note How to Handle Rate Limits when calling Auth0 APIs
-For the scripts and rules that you control, you should always check the X-RateLimit-Remaining header and act appropriately when the number returned nears 0. You should also add logic to handle cases in which you exceed the provided rate limits and receive the HTTP Status Code 429 (Too Many Requests); in this case, if a re-try is needed, it is best to allow for a back-off to avoid going into an infinite re-try loop. For more information about rate limits on Auth0 APIS, see [Auth0 Rate Limits](/).
+For the scripts and rules that you control, you should always check the X-RateLimit-Remaining header and act appropriately when the number returned nears 0. You should also add logic to handle cases in which you exceed the provided rate limits and receive the HTTP Status Code 429 (Too Many Requests); in this case, if a re-try is needed, it is best to allow for a back-off to avoid going into an infinite re-try loop. For more information about rate limits on Auth0 APIS, see [Auth0 Rate Limits](/policies/rate-limits).
 :::
 
 ## Hooks
