@@ -45,7 +45,7 @@ Standard claims included in the most commonly-used scopes are listed below, but 
 
 | Scope     | Claims          |
 |-----------|-----------------|
-| `openid`  | Returns the `sub` claim, which uniquely identifies the user. In an ID Token, `iss`, `aud`, `exp`, `iat`, and `at_hash` claims will also be present. For more information about the ID Token claims, see [ID Tokens](/tokens/id-token#id-token-payload). |
+| `openid`  | (required) Returns the `sub` claim, which uniquely identifies the user. In an ID Token, `iss`, `aud`, `exp`, `iat`, and `at_hash` claims will also be present. For more information about the ID Token claims, see [ID Tokens](/tokens/id-token#id-token-payload). |
 | `profile` | Returns claims that represent basic profile information, including `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture`, and `updated_at`. |
 | `email`   | Returns the `email` claim, which contains the user's email address, and `email_verified`, which is a boolean indicating whether the email address was verified by the user. |
 
