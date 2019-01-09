@@ -48,7 +48,7 @@ Actions such as rapidly updating configuration settings, aggressive polling, or 
 
 If your app triggers the rate limit, please refrain from making additional requests until the appropriate amount of time has elapsed.
 
-::: note How to Handle Rate Limits when calling Auth0 APIs
+::: warning How to Handle Rate Limits when calling Auth0 APIs
 For scripts and rules in your control that call Auth0 APIs, you should always handle rate limiting by checking the X-RateLimit-Remaining header and acting appropriately when the number returned nears 0. You should also add logic to handle cases in which you exceed the provided rate limits and receive the HTTP Status Code 429 (Too Many Requests); in this case, if a re-try is needed, it is best to allow for a back-off to avoid going into an infinite re-try loop. For more information about rate limits, see [Rate Limit Policy For Auth0 APIs](/policies/rate-limits).
 :::
 
