@@ -22,7 +22,7 @@ For example, let's say you have built a regular web application, registered it w
 
 1. A user clicks **Login** within your app.
 2. Your app redirects the user to the Auth0 Authorization Server (**/authorize** endpoint), including the following scopes: 
-* `openid` ()
+* `openid` (required; to indicate that the application intends to use OIDC to verify the user's identity)
 * `profile` (so you can personalize the email with the user's name)
 * `email` (so you know where to send the welcome email)
 3. Your Auth0 Authorization Server redirects the user to the login prompt.
