@@ -22,7 +22,7 @@ You can either:
 Once you have either your own SMTP server set up or a test service available, you can provide its credentials the way you typically would for a [custom email provider](/email/providers#configure-a-custom-smtp-server-for-sending-email).
 
 ::: warning
-We suggest establishing real email addresses for quality assurance purposes and using these addresses when testing. This will help you avoid disruption caused by the blacklisting of certain "false" domains that are commonly used to test.
+We suggest establishing real email addresses for quality assurance purposes and using these addresses when testing. Since we blacklist certain "false" domains that are commonly used to test, this will help you avoid disruption and the accompanying error in your logs stating that `the domain is blacklisted`.
 :::
 
 ## Resources to Consider
