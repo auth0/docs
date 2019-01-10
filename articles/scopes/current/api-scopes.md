@@ -22,7 +22,11 @@ For example, let's say you are building an API that provides data to a calendar 
 
 A calling application will request authorization from the user to access the requested permissions, and the user will approve or deny the request. The app may request read access by including the `read:appointments` permission in its request, write access by including the `write:appointments` permission in its request, or both read and write access by including both the `read:appointments` and `write:appointments` permissions in its request. 
 
-Now, when the app calls your API, it will include a token which verifies that the user has provided authorization to access their content and also indicates which permissions the user has approved. Your API should respect the approved permissions and only release information that was authorized by the user to the calling application.
+Now, when the app calls your API, it will include a token which verifies that the user has provided authorization to access their content and also indicates which permissions the user has approved. Your API should respect the approved permissions and only release information that was authorized by the user to the calling application. 
+
+::: note
+Your API may also use additional logic beyond the token to enforce additional access control mechanisms if you so choose.
+:::
 
 For an example showing how to request custom API access for your application, see [Sample Use Cases: Permissions and Claims](/scopes/current/sample-use-cases#request-custom-API-access).
 
