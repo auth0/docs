@@ -10,9 +10,13 @@ contentType: how-to
 
 # Using the Authentication API with Auth0-PHP
 
-This SDK provides easy-to-implement methods to access the [Authentication API](https://auth0.com/docs/api/authentication). Some common authentication operations are explained below with examples. For additional information and capabilities, please see the methods in the `\Auth0\SDK\API\Authentication` class. Avoid using any methods marked `@deprecated` as they will be removed in the next major version and may not be enabled for your account.
+The Auth0 PHP SDK provides easy-to-implement methods to access the [Authentication API](/api/authentication). In this article, you'll find examples of common authentication operations. For further information, please see the methods in the `\Auth0\SDK\API\Authentication` class.
 
-The examples below assume that you followed the steps in the [Installation and Getting Started sections](/libraries/auth0-php#installation) and are using a `.env` file and loader to store credentials.
+::: warning
+Avoid using any methods marked `@deprecated`. Deprecated methods will be removed in the next major version and may not be enabled for your account.
+:::
+
+The examples below assume you completed the [Installation and Getting Started sections](/libraries/auth0-php#installation) and are using a `.env` file and loader to store credentials.
 
 ## Regular Web App Login Flow
 
@@ -194,7 +198,7 @@ Array
 
 See the [Management API page](/libraries/auth0-php/management-api) for more information on how to use this access token.
 
-## Register a New Database User
+## Register a new database user
 
 Creating a new database user is done using the `/dbconnections/signup` endpoint, [documented here](/api/authentication#signup).
 
