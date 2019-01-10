@@ -53,7 +53,7 @@ The included changes should not alter any functionality while still improving th
 
 ### Cache results
 
-Rules have a [global variable you can use to cache information](/rules/guides/cache-resources). For API calls that are not user-specific, use this variable to cache the results between users (e.g. getting an access token for your API).
+Rules have a [global variable you can use to cache information](/rules/guides/cache-resources). For API calls that are not user-specific, use this variable to cache the results between users (e.g., getting an access token for your API).
 
 ### Limited read or update users scopes
 
@@ -79,17 +79,17 @@ If you have rules that call a paid service, such as sending SMS messages using T
 
 ## Security recommendations
 
-We’ve put together the following tips to help you stay secure when writing rules. Follow these recommendations to keep your rules in good shape.
+We’ve put together the following tips to help you keep your Auth0 implementation secure when writing rules.
 
 ### Store sensitive values in settings
 
-Sensitive information, such as credentials or API keys, should be stored in your [rules settings](${manage_url}/#/rules) where they will be encrypted and not in your rule code. For example, do not write code like this:
+Sensitive information, such as credentials or API keys, should be stored in your [rules settings](${manage_url}/#/rules) where they will be encrypted. Do not store these values in your rules code. For example, do not write code like this:
 
 ```js
 const myApiKey = 'abc123';
 ```
 
-Instead store secrets in the rules settings and access them with the [configuration object](/rules/guides/configuration):
+Instead, store secrets in the rules settings and access them using the [configuration object](/rules/guides/configuration):
 
 ```js
 const myApiKey = configuration.myApiKey;
@@ -97,17 +97,19 @@ const myApiKey = configuration.myApiKey;
 
 ### Don’t send the entire context object to external services
 
-For rules that send information to an external service, make sure you are not sending the entire [context object](/rules/references/context-object) as it may contain tokens or other sensitive data.
+For rules that send information to an external service, make sure you are not sending the entire [context object](/rules/references/context-object), since this object may contain tokens or other sensitive data.
 
-If you are sending the context object to an external service for debugging purposes, you should use the Auth0 Real-time Webtask Logs Extension for debugging Rules instead. For Rules that send information to an external service, you should only send a subset of attributes from the context object that is less sensitive.
+Instead of sending the context object to an external service to debug your rules, you should use the **Auth0 Real-Time Webtask Logs Extension** instead. For rules that send information to external services, you should only send a *subset* of the less sensitive attributes from the context object.
 
 ### Use HTTPS
 
-Always use HTTPS, not HTTP, when making calls to external services in your rules code.
+Always use HTTPS, not HTTP, connections when making calls to external services in your rules code.
 
 ### Don’t use conditional logic for MFA based on silent authentication, device fingerprint, or geolocation
 
-Don’t use rules that determine if multi-factor authentication should trigger based on silent authentication, a known device, or a known location. For example:
+Don’t use rules that trigger multi-factor authentication based on silent authentication, a known device, or a known location. 
+
+The following code examples are ones we **do not recommend** you use (scroll past these examples for a more secure alternative). 
 
 Silent authentication or “prompt === none”:
 
@@ -160,7 +162,7 @@ Geolocation:
   }
 ```
 
-If you have MFA rules based on these checks, remove the conditional logic and use the `allowRememberBrowser` parameter instead. Setting `allowRememberBrowser` to `true` lets users check a box so they will only be prompted for multi-factor authentication every 30 days. 
+If you have any MFA-related rules based on these checks, remove the conditional logic and **use the `allowRememberBrowser` parameter** instead. Setting `allowRememberBrowser` to `true` lets users check a box so they will only be prompted for multi-factor authentication every 30 days. 
 
 For example:
 
@@ -175,7 +177,7 @@ context.multi-factor = {
 
 ### Don’t use conditional logic based on silent authentication to redirect to custom MFA provider
 
-Don’t use rules that determine whether to redirect to custom multi-factor authentication based on silent authentication as this can allow MFA to be skipped in some unusual circumstances. For example, do not do the following:
+Don’t use rules that redirect users to custom multi-factor authentication providers based on silent authentication. Doing so can lead to edge cases where the user can skip the MFA process. For example, we **do not recommend** the following:
 
 Silent authentication or “prompt === none”
 
@@ -192,9 +194,8 @@ function (user, context, callback) {
 }
 ```
 
-Instead, you should remove the check for silent authentication and switch to an Auth0-supported multi-factor authentication provider. As described above, remove the conditional logic and use the `allowRememberBrowser` parameter instead. Setting `allowRememberBrowser` to `true` lets users check a box so they will only be prompted for multi-factor authentication every 30 days.
+Instead, you should **remove the check for silent authentication and switch to an Auth0-supported multi-factor authentication provider**. Remove the conditional logic from your code, and use the `allowRememberBrowser` parameter instead. Setting `allowRememberBrowser` to `true` lets users check a box so they will only be prompted for multi-factor authentication every 30 days.
 
-For example:
 ```js
 context.multi-factor = {
     provider: 'guardian', 
@@ -204,7 +205,7 @@ context.multi-factor = {
 
 ### Always check if an email is verified
 
-Whenever granting authorization based on an email address, you should always start by checking if the email is verified:
+Whenever granting authorization based on an email address, always start by checking if the user has verified the email address:
 
 ```js
 function (user, context, callback) {
@@ -217,7 +218,9 @@ function (user, context, callback) {
 
 ### Check for exact string matches, not substring matches
 
-For rules that determine access control based on a particular string, such as an email domain, you should check for an exact string match instead of only checking for a substring. If you just check for a substring, your rule may not function as you intend. For example:
+For rules that determine access control based on a particular string, such as an email domain, check for an exact string match instead of checking for a substring. If you check only for a substring, your rule may not function as you intend.
+
+For example:
 
 ```js
 if( _.findIndex(connection.options.domain_aliases, function(d){
@@ -229,11 +232,11 @@ The code above would return true given emails such as these:
 * `user.domain.com@not-domain.com`
 * `“user@domain.com”@not-domain.com` (quotes included)
 
-Instead, for exact matches you should use code such as:
+Instead, for exact matches, you should use code such as:
 
 ```js
 const emailSplit = user.email.split('@');
 const userEmailDomain = emailSplit[emailSplit.length - 1].toLowerCase();
 ```
 
-Seee the “Check if user email domain matches configured domain” rule template [on Github](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or on the [Auth0 dashboard](${manage_url}/#/rules/new) for more information.
+See the **Check if user email domain matches configured domain rule template** [on GitHub](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or on the [Auth0 dashboard](${manage_url}/#/rules/new) for more information.
