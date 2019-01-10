@@ -25,7 +25,7 @@ A calling application will request authorization from the user to access the req
 Now, when the app calls your API, it will include a token which verifies that the user has provided authorization to access their content and also indicates which permissions the user has approved. Your API should respect the approved permissions and only release information that was authorized by the user to the calling application. 
 
 ::: note
-Your API may also use additional logic beyond the token to enforce additional access control mechanisms if you so choose.
+If you so choose, your API may also use additional logic beyond the token to enforce more extensive access control.
 :::
 
 For an example showing how to request custom API access for your application, see [Sample Use Cases: Permissions and Claims](/scopes/current/sample-use-cases#request-custom-API-access).
