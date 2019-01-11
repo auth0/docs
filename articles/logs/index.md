@@ -15,7 +15,7 @@ useCase:
 
 # Logs
 
-Using the [Dashboard](${manage_url}), you can pull log data on actions performed by administrators using the Dashboard, and authentications made by your users.
+Using the [Dashboard](${manage_url}/#/logs) or the [Management API logs endpoint](/api/v2#!/Logs/get_logs), you can pull log data on actions performed by administrators using the Dashboard, operations performed via the Management API and authentications made by your users.
 
 ::: warning
 Auth0 does not provide real-time logs for your tenant. While we do our best to index events as they arrive, you may see some delays.
@@ -23,7 +23,7 @@ Auth0 does not provide real-time logs for your tenant. While we do our best to i
 
 ## How to View Log Data
 
-The **Logs** page of the [Dashboard](${manage_url}) displays all events that occur, including user authentication and administrative actions such as adding/updating Applications, Connections, and Rules.
+The **Logs** page of the [Dashboard](${manage_url}/#/logs) displays all events that occur, including user authentication and administrative actions such as adding/updating Applications, Connections, and Rules.
 
 ![](/media/articles/logs/dashboard-logs.png)
 
@@ -47,13 +47,14 @@ Enterprise | 30 days
 If you would like to store log data longer than the time period offered by your subscription plan, we recommend you use the [Management API feature that allows you to retrieve the relevant data](api/management/v2#!/Logs/get_logs). Once you've retrieved your data, you can:
 
 * Store the data yourself
-* Send the data to an external service such as Splunk (consider using the [Auth0 Logs to Splunk Extension](/extensions/splunk))
+* Send the data to an external service. You can install and configure an Auth0 Extension in order to export logs automatically to another provider, like Sumo Logic or Loggly. For a list of available providers and detailed steps to configure each, see [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service).
 
-#### Retrieving logs from the Management API
+
+### Retrieving logs from the Management API
 
 You can use the Management API v2 retrieve your logs. There are the two available endpoints, each providing slightly different quantities of information:
 
-* [/api/v2/logs](/api/v2#!/Logs/get_logs): Retrieves log entries that match the provided search criteria. If you do not provide any search criteria, you will get a list of all available entries;
+* [/api/v2/logs](/api/v2#!/Logs/get_logs): Retrieves log entries that match the provided search criteria. If you do not provide any search criteria, you will get a list of all available entries. Refer to the [Logs Query Syntax](/logs/query-syntax) for more details. 
 * [/api/v2/logs/{id}](/api/v2#!/Logs/get_logs_by_id): Retrieves the single log entry associated with the provided ID.
 
 ## Log data event listing
@@ -151,8 +152,3 @@ The following table lists the codes associated with the appropriate log events.
 | `sys_update_start` | Auth0 Update Started | | |
 | `ublkdu` | User login block released | User block setup by anomaly detection has been released | |
 | `w` | Warnings During Login | | |
-
-### Tools to process logs
-
-* [Auth0 Logs Processor](https://www.npmjs.com/package/auth0-logs-processor)
-* [GitHub Repo for the Auth0 Logs Processor](https://github.com/auth0/logs-processor)
