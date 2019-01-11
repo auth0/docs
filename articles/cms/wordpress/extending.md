@@ -479,7 +479,7 @@ add_filter( 'auth0_authorize_url', 'auth0_docs_hook_authorize_url', 10, 2 );
 
 ### auth0_die_on_login_output
 
-This filter allows developers to modify or replace the HTML content passed to `wp_die()` when there is an error during login. This filter does not affect the verify email content (see [auth0_verify_email_page](#auth0_verify_email_page)).
+This filter lets you modify or replace the HTML content passed to `wp_die()` when there is an error during login. This filter does not affect the verify email content (see [auth0_verify_email_page](#auth0_verify_email_page)).
 
 ```php
 /**
