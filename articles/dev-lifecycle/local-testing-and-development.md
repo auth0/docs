@@ -41,3 +41,5 @@ Because Auth0's main identity protocol is [OpenID Connect](/protocols), Auth0 ne
 ## Divert emails for testing
 
 If you want to test your local application and do not want the emails (creation, validation, etc.) to be delivered to the actual email address of the users your application creates or validates, Auth0 recommends using a custom email provider. For example, a service like [Mailtrap](https://mailtrap.io/signin) or your own custom SMTP server implementation can apply whatever logic you require to trap the emails. This ensures that users do not receive emails but you can access them for validation and troubleshooting. 
+
+<%= include('../_includes/_email-domain-blacklist') %>
