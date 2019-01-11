@@ -71,7 +71,7 @@ app.listen(3001, () => console.log('API listening on 3001'));
 ```
 
 ::: note
-When validating an ID Token using the Json Web Key Set, the application client ID can be used as the `audience` value, rather than the API identifier that you would normally use if you were calling a third-part API.
+When validating an ID Token using the Json Web Key Set, the application client ID can be used as the `audience` value, rather than the API identifier that you would normally use if you were calling a third-party API.
 :::
 
 Modify `package.json` to add two new scripts `dev` and `api` that can be used to start the frontend and the backend API together:
@@ -94,6 +94,31 @@ Modify `package.json` to add two new scripts `dev` and `api` that can be used to
 ```
 
 You can now start the project using `npm run dev` in the terminal, and the frontend Vue.js application will start up alongside the backend API.
+
+### Set up a proxy to the backend API
+
+In order to call the API from the frontend application, the development server must be configured to proxy requests through to the backend API. To do this, add a `vue.config.js` file to the root of the project and populate it with the following code:
+
+```js
+// vue.config.js
+
+module.exports = {
+  devServer: {
+    port: 3000,
+    proxy: {
+      "/api": {
+        target: "http://localhost:3001"
+      }
+    }
+  }
+};
+```
+
+::: note
+This assumes that your project was created using [Vue CLI 3](https://cli.vuejs.org/guide/). If your project was not created in the same way, the above should be included as part of your Webpack configuration.
+:::
+
+With this in place, the frontend application can make a request to `/api/private` and it will be correctly proxied through to our backend API at `http://localhost:3001/api/private`.
 
 ## Augment the Authentication Service
 
@@ -233,4 +258,36 @@ const router = new Router({
     }
   ]
 });
+```
+
+### Modify the navigation bar
+
+Add a new entry into the navigation bar that will allow the user to access the new page. Open `App.vue` and add a link to the new page, to be shown only when the user is authenticated:
+
+```html
+<!-- src/App.vue -->
+
+//... other navigation code
+
+<ul class="navbar-nav mr-auto">
+  <li class="nav-item">
+    <router-link to="/" class="nav-link">Home</router-link>
+  </li>
+  <li class="nav-item" v-if="!isAuthenticated">
+    <a href="#" class="nav-link" @click.prevent="login">Login</a>
+  </li>
+  <li class="nav-item" v-if="isAuthenticated">
+    <router-link to="/profile" class="nav-link">Profile</router-link>
+  </li>
+
+  <!-- new link to /backend-api - only show if authenticated -->
+  <li class="nav-item" v-if="isAuthenticated">
+    <router-link to="/backend-api" class="nav-link">Backend API</router-link>
+  </li>
+  <!-- /backend-api -->
+
+  <li class="nav-item" v-if="isAuthenticated">
+    <a href="#" class="nav-link" @click.prevent="logout">Log out</a>
+  </li>
+</ul>
 ```
