@@ -15,7 +15,7 @@ The [`GET /api/v2/users/{id}` endpoint](/api/management/v2#!/Users/get_users_by_
 
 This endpoint is **immediately consistent**, and as such, we recommend that you use this endpoint for:
 
-* User searches run during the authentication process 
+* User searches run during the authentication process. 
 * User searches run as part of the account linking process.
 
 ::: note
