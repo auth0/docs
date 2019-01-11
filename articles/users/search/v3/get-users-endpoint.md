@@ -125,7 +125,7 @@ If you get the error `414 Request-URI Too Large` this means that your query stri
 We do **not** recommend that you use this endpoint for:
 
 * Operations that require immediate consistency. Instead, use the [Get Users by Email endpoint](/users/search/v3/get-users-by-email-endpoint) or the [Get Users by ID endpoint](/users/search/v3/get-users-by-id-endpoint).
-* User exports. Instead, use the [User Export endpoint](/users/search/v3/export-users-metadata).
+* User exports. Instead, use the [User Export endpoint](/users/guides/bulk-user-exports).
 * Operations that require user search as part of authentication processes. Instead, use the [Get Users by Email endpoint](/users/search/v3/get-users-by-email-endpoint) or the [Get Users by ID endpoint](/users/search/v3/get-users-by-id-endpoint).
 * Searching for Users for [Account Linking](/link-accounts) by Email. Instead, use the [Get Users by Email endpoint](/users/search/v3/get-users-by-email-endpoint).
 
@@ -133,9 +133,8 @@ We do **not** recommend that you use this endpoint for:
 
 * [Sort Search Results](/users/search/v3/sort-search-results)
 * [View Search Results by Page](/users/search/v3/view-search-results-by-page)
-* [Export User Search Results](/users/search/v3/export-user-search-results)
+* [Bulk User Exports](/users/guides/bulk-user-exports)
 * [Migrate from Search V2 to V3](/users/search/v3/migrate-search-v2-v3)
 * [User Search Query Syntax](/users/search/v3/query-syntax)
 * [Search Best Practices](/best-practices/search-best-practices)
 * [Management API Explorer](/api/management/v2#!/users/get_users)
-

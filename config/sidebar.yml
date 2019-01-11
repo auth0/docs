@@ -540,8 +540,11 @@ articles:
           - title: "Automatic Migration"
             url: "/users/guides/configure-automatic-migration"
 
-          - title: "Bulk Migration"
-            url: "/users/guides/bulk-user-import"
+          - title: "Bulk User Imports"
+            url: "/users/guides/bulk-user-imports"
+
+          - title: "Bulk User Exports"
+            url: "/users/guides/bulk-user-exports"
 
           - title: "User Import/Export Extension"
             url: "/extensions/user-import-export"
@@ -585,8 +588,8 @@ articles:
           - title: "View Search Results"
             url: "/users/search/v3/view-search-results-by-page"
 
-          - title: "Export Search Results"
-            url: "/users/search/v3/export-user-search-results"    
+          - title: "Bulk User Exports"
+            url: "/users/guides/builk-user-exports"    
 
           - title: "Query Syntax"
             url: "/users/search/v3/query-syntax"

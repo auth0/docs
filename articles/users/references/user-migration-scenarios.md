@@ -44,7 +44,7 @@ Configure the custom database connection.
 
      Drag your exported Gigya users JSON file into the designated upload area and select the database you created earlier. Click the **Start Importing Users** button to begin your import. For more information, see [User Import/Export Extension](//extensions/user-import-export).
    
-   - Alternatively, you can use the Management API. [Create a job](/api/management/v2#!/Jobs/post_users_imports) to import your users to Auth0. For detailed instructions, see [Bulk User Imports with the Management API](/users/guides/bulk-user-import).
+   - Alternatively, you can use the Management API. [Create a job](/api/management/v2#!/Jobs/post_users_imports) to import your users to Auth0. For detailed instructions, see [Bulk User Imports](/users/guides/bulk-user-imports).
 
 ## Scenario 2: Migrate Users from Okta to Auth0
 
@@ -309,6 +309,6 @@ function getByEmail(email, callback) {
 ## Keep reading
 
 * [Configure Automatic Migration from Your Database](/users/guides/configure-automatic-migration)
-* [Bulk User Imports with the Management API](/users/guides/bulk-user-import)
+* [Bulk User Imports](/users/guides/bulk-user-imports)
 * [User Import/Export Extension](/extensions/user-import-export)
 * [Migrating Stormpath Users to Auth0 Demo](https://github.com/auth0-blog/migrate-stormpath-users-to-auth0)

@@ -1,5 +1,5 @@
 ---
-title: Export User Search Results 
+title: Bulk User Exports
 description: Learn how to export lists of users and user metadata based on search criteria.
 topics:
   - users
@@ -9,9 +9,9 @@ contentType: how-to
 useCase:
   - manage-users
 ---
-# Export User Search Results 
+# Bulk User Exports
 
-The [`POST /api/v2/jobs/users-exports`](/api/management/v2#!/Jobs/post_users_exports) endpoint allows you to create a job that exports all users associated with a [connection](/identityproviders).
+You can use the [`POST /api/v2/jobs/users-exports`](/api/management/v2#!/Jobs/post_users_exports) endpoint to create a job that exports all users associated with a [connection](/identityproviders).
 
 When you create your job, you'll need to provide:
 
