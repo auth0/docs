@@ -74,6 +74,7 @@ Search for all users whose last login was in December 2017 | `last_login:{2017-1
 Search for all users with logins count >= 100 and <= 200 | `logins_count:[100 TO 200]`
 Search for all users with logins count >= 100 | `logins_count:[100 TO *]`
 Search for all users with logins count > 100 and < 200 | `logins_count:{100 TO 200}`
+Search for all users whose email domain is "exampleco.com" | `email.domain:"exampleco.com"`
 
 ### Sample results
 

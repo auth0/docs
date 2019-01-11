@@ -35,7 +35,7 @@ Auth0 stores user information for your tenant in a hosted cloud database, or you
 
 ## User migration
 
-Auth0 supports importing users from external applications using [automatic migration](/users/guides/configure-automatic-migration), the [Management API](/users/guides/bulk-user-imports), or the [User Import/Export Extension](/extensions/user-import-export).
+Auth0 supports importing and exporting users from external applications and data sorces using [automatic migration](/users/guides/configure-automatic-migration), the [Management API](/users/guides/bulk-user-imports), or the [User Import/Export Extension](/extensions/user-import-export).
 
 ## Redirect users
 

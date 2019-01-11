@@ -28,15 +28,28 @@ The query string is parsed into a series of terms and operators:
 
 ## Searchable fields
 
-You can search for users using the following fields:
+You can search for users using the all the [normalized user profile](/users/normalized/auth0/normalized-user-profile-schema) fields:
 
-* All the [normalized user profile](/users/normalized/auth0/normalized-user-profile-schema) fields.
-* User metadata fields may be used with:
-    * Booleans
-    * Numeric (integer or double)
-    * Text
-    * Objects. In order to search a scalar value nested in another object, use the path to the field. For example, `app_metadata.subscription.plan:"gold"`
-    * Arrays. In order to search fields in objects nested arrays, use the path to the field and ignore the array level. For example, `user_metadata.addresses.city:"Paris"`
+Field | Data Type
+------|------
+`phone_number` | text
+`phone_verified` | boolean
+`logins_count` | integer
+`created_at` | date time
+`updated_at` | date time
+`last_login` | date time
+`last_ip` | text (valid IP address)
+`blocked` | boolean
+`incomplete` | boolean
+`email.domain` | text
+
+User metadata fields may be used with:
+    
+* Booleans
+* Numeric (integer or double)
+* Text
+* Objects. In order to search a scalar value nested in another object, use the path to the field. For example, `app_metadata.subscription.plan:"gold"`
+* Arrays. In order to search fields in objects nested arrays, use the path to the field and ignore the array level. For example, `user_metadata.addresses.city:"Paris"`
 
 Range and wildcard searches are not available on [user metadata](/users/concepts/overview-user-metadata) fields.
 

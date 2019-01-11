@@ -209,10 +209,10 @@ Provide the ID of the job (which you received in the response when creating the 
 
 ## Find export data
 
-You can access your export using the URL provided as the value for the **location** parameter. When you navigate to the URL, you'll automatically begin downloading the file. The name of your tenant is also the name of your file. For example, if your tenant name is `auth0docs`, then your file will be `auth0docs.csv` or `auth0docs.json`.
+You can access your export files using the URL provided as the value for the **location** parameter. The name of your tenant is also the name of your file. For example, if your tenant name is `auth0docs`, then your file will be `auth0docs.csv` or `auth0docs.json`. When you navigate to the URL, you will automatically begin downloading the file. 
 
 ::: note
-The download link is valid for 60 seconds. If this time period has expired, you'll need to initiate a new job.
+The download link is valid for 60 seconds. If this time period expires, you will need to initiate a new job.
 :::
 
 ![Exported user data](/media/articles/users/data.png)
