@@ -291,3 +291,5 @@ Add a new entry into the navigation bar that will allow the user to access the n
   </li>
 </ul>
 ```
+
+Now you will be able to run the application, browse to the "Backend API" page and press the "Ping" button. The application will make a call to the backend API and produce a message on the screen that says "Your ID token was successfully validated!".
