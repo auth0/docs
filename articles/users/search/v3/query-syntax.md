@@ -43,15 +43,15 @@ Field | Data Type
 `incomplete` | boolean
 `email.domain` | text
 
-User metadata fields may be used with:
+[User metadata](/users/concepts/overview-user-metadata) fields may be used with:
     
 * Booleans
-* Numeric (integer or double)
+* Numeric: (integer or double)
 * Text
-* Objects. In order to search a scalar value nested in another object, use the path to the field. For example, `app_metadata.subscription.plan:"gold"`
-* Arrays. In order to search fields in objects nested arrays, use the path to the field and ignore the array level. For example, `user_metadata.addresses.city:"Paris"`
+* Objects: In order to search a scalar value nested in another object, use the path to the field. For example, `app_metadata.subscription.plan:"gold"`
+* Arrays: In order to search fields in objects nested arrays, use the path to the field and ignore the array level. For example, `user_metadata.addresses.city:"Paris"`
 
-Range and wildcard searches are not available on [user metadata](/users/concepts/overview-user-metadata) fields.
+Range and wildcard searches are not available on user metadata fields.
 
 ## Exact match
 
