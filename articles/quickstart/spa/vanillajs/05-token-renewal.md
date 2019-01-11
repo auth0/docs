@@ -16,25 +16,25 @@ useCase: quickstart
 
 ## Add Token Renewal
 
-In the `app.js` file, add a function which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
+In the `app.js` file, add a function which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `localLogin` method to set the new tokens in memory.
 
 ```js
 // app.js
 
-function renewToken() {
+function renewTokens() {
   webAuth.checkSession({},
     function(err, result) {
       if (err) {
         console.log(err);
       } else {
-        setSession(result);
+        localLogin(result);
       }
     }
   );
 }
 ```
 
-The Access Token should be renewed when it expires. In this tutorial, the expiry time of the token is stored in local storage as `expires_at`.
+The Access Token should be renewed when it expires. In this tutorial, the expiry time of the token is stored in memory as `expiresAt`.
 
 ::: note
 You can define any timing mechanism you want. You can choose any library that handles timers. This example shows how to use a `setTimeout` call. 
@@ -43,7 +43,7 @@ You can define any timing mechanism you want. You can choose any library that ha
 In the `app.js` file, add a variable called `tokenRenewalTimeout`. The variable refers to the `setTimeout` call used to schedule the renewal. Next, add a function called `scheduleRenewal` to set up the time when authentication is silently renewed.
 
 The method subtracts the current time from the Access Token's expiry time and calculates delay. 
-The `setTimeout` call uses the calculated delay and makes a call to `renewToken`.
+The `setTimeout` call uses the calculated delay and makes a call to `renewTokens`.
 
 The `setTimeout` call is assigned to the `tokenRenewalTimeout` property. When the user logs out, the timeout is cleared. 
 
@@ -53,31 +53,31 @@ The `setTimeout` call is assigned to the `tokenRenewalTimeout` property. When th
 var tokenRenewalTimeout;
 // ...
 function scheduleRenewal() {
-  var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
   var delay = expiresAt - Date.now();
   if (delay > 0) {
     tokenRenewalTimeout = setTimeout(function() {
-      renewToken();
+      renewTokens();
     }, delay);
   }
 }
 ```
 
-You can now include a call to the `scheduleRenewal` method in the `setSession` function.
+You can now include a call to the `scheduleRenewal` method in the `localLogin` function.
 
 
 ```js
 // app.js
 
 // ...
-function setSession(authResult) {
-  // Set the time that the Access Token will expire at
-  var expiresAt = JSON.stringify(
+function localLogin(authResult) {
+  // Set isLoggedIn flag in localStorage
+  localStorage.setItem('isLoggedIn', 'true');
+  // Set the time that the access token will expire at
+  expiresAt = JSON.stringify(
     authResult.expiresIn * 1000 + new Date().getTime()
   );
-  localStorage.setItem('access_token', authResult.accessToken);
-  localStorage.setItem('id_token', authResult.idToken);
-  localStorage.setItem('expires_at', expiresAt);
+  accessToken = authResult.accessToken;
+  idToken = authResult.idToken;
   scheduleRenewal();
 }
 ```
