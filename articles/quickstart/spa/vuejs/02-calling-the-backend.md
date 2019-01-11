@@ -15,18 +15,18 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-<%= include('../_includes/_calling_api_preamble') %>
+Most single-page apps use resources from data APIs. You may want to restrict access to those resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
 
 In the case where your SPA is calling your backend API (as opposed to a third-party API that might potentially be accessed by lots of clients), we are able to use the ID Token to verify whether or not the client should be able to access the resource. This is in contrast to using an access token, which would be used if we were accessing a third-party API.
 
-## Creating the Backend API
+## Create the Backend API
 
 For this example, we will create a simple [Express](https://expressjs.com/) server that will act as our backend API. We can then expose an endpoint that will validate our ID Token before returning a response.
 
 Install the packages that we will need to provide this functionality:
 
 ```bash
-npm install --save express express-jwt jwks-rsa npm-run-all
+npm install express express-jwt jwks-rsa npm-run-all
 ```
 
 * [`express`](https://github.com/expressjs/express) - a lightweight web server for Node
@@ -68,4 +68,129 @@ app.get("/api/private", checkJwt, (req, res) => {
 });
 
 app.listen(3001, () => console.log('API listening on 3001'));
+```
+
+::: note
+When validating an ID Token using the Json Web Key Set, the application client ID can be used as the `audience` value, rather than the API identifier that you would normally use if you were calling a third-part API.
+:::
+
+Modify `package.json` to add two new scripts `dev` and `api` that can be used to start the frontend and the backend API together:
+
+```json
+{
+  "name": "01-login",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "dev": "npm-run-all --parallel serve api",
+    "api": "node server.js"
+  },
+
+  // .. package dependencies and other JSON nodes
+}
+```
+
+You can now start the project using `npm run dev` in the terminal, and the frontend Vue.js application will start up alongside the backend API.
+
+## Augment the Authentication Service
+
+Open `authService.js` and add two methods to aid in retrieving and validating the ID Token:
+
+```js
+// src/auth/authService.js
+
+class AuthService extends EventEmitter {
+
+  // .. other methods
+
+  isIdTokenValid() {
+    return this.idToken && this.tokenExpiry && this.tokenExpiry > Date.now();
+  }
+
+  getIdToken() {
+    return new Promise((resolve, reject) => {
+      if (this.isIdTokenValid()) {
+        resolve(this.idToken);
+      } else if (this.isAuthenticated()) {
+        this.renewTokens().then(authResult => {
+          resolve(authResult.idToken);
+        }, reject);
+      } else {
+        reject("The user is not authenticated");
+      }
+    });
+  }
+}
+```
+
+* `isIdTokenValid` performs some validation on the presence of the ID Token and whether its expiry date is still valid
+* `getIdToken` will return the ID Token if it is valid. If the ID Token is not valid, it calls `renewTokens` to fetch a new ID Token
+
+## Call the API
+
+Install the [`axios`](https://www.npmjs.com/package/axios) HTTP library, which will allow us to make HTTP calls out to the backend API:
+
+```bash
+npm install --save-dev axios
+```
+
+Create a new file `BackendApi.vue` inside the `views` folder. This will provide a UI that will allow the user to test calling our backend Express API:
+
+```js
+// src/views/BackendApi.vue
+
+<template>
+ <div>
+    <div class="mb-5">
+      <h1>Backend API</h1>
+      <p>Ping your back-end API by clicking the button below. This will call the API endpoint using an ID token, and the backend API will
+        validate it using your Client ID as the audience.
+      </p>
+
+      <button class="btn btn-primary" @click="callApi">Ping</button>
+    </div>
+
+    <div v-if="apiMessage">
+      <h2>Result</h2>
+      <p>{{ apiMessage }}</p>
+    </div>
+
+ </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  name: "Api",
+  data() {
+    return {
+      apiMessage: null
+    };
+  },
+  methods: {
+    async callApi() {
+      const idToken = await this.$auth.getIdToken();
+
+      try {
+        const { data } = await axios.get("/api/private", {
+          headers: {
+            Authorization: `Bearer ${idToken}`
+          }
+        });
+
+        this.apiMessage = `Response from the server: ${data.msg}`;
+      } catch (e) {
+        this.apiMessage = `Error: the server responded with '${
+          e.response.status
+        }: ${e.response.statusText}'`;
+      }
+    }
+  }
+};
+</script>
+
 ```
