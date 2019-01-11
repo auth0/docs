@@ -178,19 +178,61 @@ export default {
       try {
         const { data } = await axios.get("/api/private", {
           headers: {
-            Authorization: `Bearer ${idToken}`
+            Authorization: `Bearer <%= "${idToken}" %>`
           }
         });
 
-        this.apiMessage = `Response from the server: ${data.msg}`;
+        this.apiMessage = `Response from the server: <%= "${data.msg}" %>`;
       } catch (e) {
-        this.apiMessage = `Error: the server responded with '${
+        this.apiMessage = `Error: the server responded with '<%= "${
           e.response.status
-        }: ${e.response.statusText}'`;
+        }" %>: <%= " ${e.response.statusText}" %>'`;
       }
     }
   }
 };
 </script>
 
+```
+
+### Modify the Vue router
+
+Add a new route into the Vue router so that we can access this new page and call the backend API. Open `router.js`, import the view, and then add the route underneath the others:
+
+```js
+// src/router.js
+
+// ... other imports and declarations
+import BackendApi from "./views/BackendApi.vue";
+
+Vue.use(Router);
+
+const router = new Router({
+  mode: "history",
+  base: process.env.BASE_URL,
+  routes: [
+    {
+      path: "/",
+      name: "home",
+      component: Home
+    },
+    {
+      path: "/profile",
+      name: "profile",
+      component: Profile
+    },
+    {
+      path: "/callback",
+      name: "callback",
+      component: Callback
+    },
+
+    // Add a new route here for the backend API view
+    {
+      path: "/backend-api",
+      name: "backend-api",
+      component: BackendApi
+    }
+  ]
+});
 ```
