@@ -184,9 +184,7 @@ export default {
 
         this.apiMessage = `Response from the server: <%= "${data.msg}" %>`;
       } catch (e) {
-        this.apiMessage = `Error: the server responded with '<%= "${
-          e.response.status
-        }" %>: <%= " ${e.response.statusText}" %>'`;
+        this.apiMessage = `Error: the server responded with '<%= "${e.response.status}" %>: <%= " ${e.response.statusText}" %>'`;
       }
     }
   }
