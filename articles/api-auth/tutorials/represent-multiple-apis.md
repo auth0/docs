@@ -15,7 +15,7 @@ useCase:
 
 # Represent Multiple APIs Using a Single Logical API in Auth0
 
-If you have multiple distinct API implementations that are all logically a part of the same API, you can simplify your authorization process by representing them with a single logical [API](/apis) in the Auth0 Dashboard. Doing this allows you to implement just one authorization flow, while still controlling access to the individual APIs--by assigning the appropriate scopes.
+If you have multiple distinct API implementations that are all logically a part of the same API, you can simplify your authorization process by representing them with a single logical [API](/apis) in the Auth0 Dashboard. Doing this allows you to implement just one authorization flow, while still controlling access to the individual APIs by assigning the appropriate scopes.
 
 This tutorial explains how to use and represent multiple APIs as a single Resource Server in Auth0. As a learning tool, we provide a sample application that you can follow along with as you read.
 
