@@ -1,6 +1,6 @@
 ---
-title: Represent Multiple APIs Using a Proxy API in Auth0
-description: How to use a single proxy API in Auth0 to represent and control access to multiple APIs.
+title: Represent Multiple APIs Using a Single Logical API in Auth0
+description: How to use a single logical API in Auth0 to represent and control access to multiple APIs.
 topics:
   - api-authentication
   - oidc
