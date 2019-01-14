@@ -1,6 +1,6 @@
 ---
 title: Bulk User Exports
-description: Learn how to export lists of users and user metadata based on search criteria.
+description: Learn how to export lists of users and user metadata.
 topics:
   - users
   - user-management
