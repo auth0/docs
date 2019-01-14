@@ -17,11 +17,15 @@ useCase: quickstart
 
 Most single-page apps use resources from data APIs. You may want to restrict access to those resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
 
-In the case where your SPA is calling your backend API (as opposed to a third-party API that might potentially be accessed by lots of clients), we are able to use the ID Token to verify whether or not the client should be able to access the resource. This is in contrast to using an access token, which would be used if we were accessing a third-party API.
+In the case where your SPA is calling your backend API (as opposed to a third-party API that might potentially be accessed by lots of clients), we are able to use the ID Token to verify whether or not the client should be able to access the resource. This is in contrast to using an access token, which would be used if we were accessing a third-party API. In this case, the Auth0 application client ID can be used as the `audience` value when validating the token against the Json Web Key Set.
 
 ## Create the Backend API
 
 For this example, we will create a simple [Express](https://expressjs.com/) server that will act as our backend API. We can then expose an endpoint that will validate our ID Token before returning a response.
+
+::: note
+If you already have a backend API that you would like to call from your frontend, you can safely skip this section
+:::
 
 Install the packages that we will need to provide this functionality:
 
