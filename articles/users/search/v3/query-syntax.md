@@ -40,7 +40,6 @@ Search Field | Data Type | Description
 `last_login` | date time | The timestamp of when the user last logged in. In case you are this property from inside a [Rule](/rules) using the `user` object, its value will be the one associated with the login that triggered the rule (since rules execute after the actual login).
 `last_ip` | text (valid IP address) | The IP address associated with the user's last login.
 `blocked` | boolean | The `true/false` value indicating if the user has been blocked.
-`incomplete` | boolean 
 `email.domain` | text | The domain part of the user's email.
 
 [User metadata](/users/concepts/overview-user-metadata) fields may be used with:
