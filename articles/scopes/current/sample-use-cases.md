@@ -13,7 +13,7 @@ useCase:
 ---
 # Sample Use Cases: Scopes and Claims
 
-In these examples, we use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to authenticate a user and request the necessary permissions and tokens. For details on the request parameters or to learn how to fully implement this flow, refer to our tutorial: [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
+In these examples, we use the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow) to authenticate a user and request the necessary permissions and tokens. For details on the request parameters or to learn how to fully implement this flow, refer to our tutorial: [Add Login to Regular Web Applications](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow).
 
 ## Authenticate a user and request standard claims
 
@@ -23,24 +23,26 @@ In this example, we want to authenticate a user and get user details that will a
 
 ```text
 https://${account.namespace}/authorize?
-  scope=openid%20profile%20email&
-  response_type=id_token&
+  response_type=code&
   client_id=${account.clientId}&
   redirect_uri=${account.callback}&
-  nonce=YOUR_CRYPTOGRAPHIC_NONCE
+  scope=openid%20profile%20email&
+  nonce=YOUR_CRYPTOGRAPHIC_NONCE&
   state=YOUR_OPAQUE_VALUE
 ```
 
 Notice that in this example: 
 
 * the `response_type` parameter includes one value:
-  * `id_token` (to get an ID Token)
+  * `code` (because we are using the regular web app flow, our initial request is for an authorization code; when we request our tokens using this code, we will receive the ID Token we need for authentication)
 * the `scope` parameter includes three values: 
   * `openid` (to indicate that the application intends to use OIDC to verify the user's identity)
   * `profile` (to get `name`, `nickname`, and `picture`)
   * `email` (to get `email` and `email_verified`)
 
-2. After the user consents and Auth0 redirects back to your app, extract the ID Token from the hash fragment of the URL and decode it.
+2. After the user consents and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow#request-tokens).)
+
+3. Extract the ID Token from the response and [decode it](/tokens/id-token#id-token-payload).
 
 You should see the following claims:
 
