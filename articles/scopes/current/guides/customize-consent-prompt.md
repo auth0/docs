@@ -13,7 +13,7 @@ useCase:
 ---
 # How to Customize the Consent Prompt
 
-When users are asked to authorize requested scopes, they see a consent prompt. By default, this prompt uses the scope **name** to generate text and groups all scopes for a resource, displaying the resource's actions in a single line.
+When a third-party application requests scopes, users see a consent prompt. By default, this prompt uses the scope **name** to generate text and groups all scopes for a resource, displaying the resource's actions in a single line.
 
 For example, let's say you have an Auth0-registered API with the following defined scopes:
 
