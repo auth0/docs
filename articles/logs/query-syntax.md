@@ -15,14 +15,10 @@ useCase:
 
 # Logs Query Syntax
 
-The [Management API logs endpoint](/api/v2#!/Logs/get_logs) allows to retrieve logs either by checkpoint (last retrieved log id) or by search criteria. We highly recommend to use the checkpoint approach to export logs to the external system of your choice and perform any search or analysis there as logs stored in our system are subject to [the retention period](). You can use any of the [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service) extensions to export the logs to the system of your choice (like Sumo Logic, Splunk or Loggly).
+The [Management API logs endpoint](/api/v2#!/Logs/get_logs) allows to retrieve logs either by checkpoint (last retrieved log id) or by search criteria. We highly recommend to use the checkpoint approach to export logs to the external system of your choice and perform any search or analysis there, as logs stored in our system are subject to [the retention period](/logs#how-long-is-log-file-data-available). You can use any of the [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service) extensions to export the logs to the system of your choice (like Sumo Logic, Splunk or Loggly).
 
-For eventual searches that you require to perform on the Manage Dashboard or via the Management API, you can use the syntax described in 
+For eventual searches that you require to perform on the Manage Dashboard or via the Management API, you can use the syntax described in this article to find your logs.
 
-
-
-
-.
 
 ## Query Syntax
 
@@ -133,7 +129,7 @@ We are currently migrating our logs search engine to provide customers with the 
 While the query syntax described in [this doc](/logs/query-syntax#query-syntax) is compliant with both the old and new engines, there are some special queries that behave different in v2 and v3:
  
 * The `include_totals` field is no longer supported. While in search engine v3 the parameter is accepted and will throw a response with an object format, that object will not contain the `total` field anymore.
-The details field is not searcheable anymore, only the [list of searcheable fields]() can be used for search and sort.
+* The details field is not searcheable anymore, only the [list of searcheable fields](/logs/query-syntax#searchable-fields) can be used for search and sort.
 * Log fields are not tokenized like in v2, so `description:rule` will not match a description with value `Create a rule` nor `Update a rule` like in v2. Instead, use `description:*rule`. See [wildcards](/logs/query-syntax#wildcards) and [exact matching](/logs/query-syntax#exact-matching).
 * The .raw field extension is no longer supported and must be removed. In v3, fields match the whole value that is provided and are not tokenized as they were in v2 without the .raw suffix.
-* Ranges for dates for which the exact time is not provided, will behave different than in v2. For example, the following query `q=date:[2018-12-18 TO 2018-12-19]` will return logs from start of first date 2018-12-18T00:00:00Z to end of last date 2019-12-19T23:59:59Z on search engine v2, but it in v3, as all dates that don't include the time will be filled with zeros, it will return logs from start of first date 2018-12-18T00:00:00Z to start of second date 2018-12-19T00:00:00Z, which means that all logs from 2018-12-19 will be excluded. In order to include the desired date, either the time should be provided or the following date should be added to the range, i.e. `q=date:[2018-12-18 TO 2018-12-20}`.
+* Ranges for dates for which the exact time is not provided, will behave different than in v2. For example, the following query `q=date:[2018-12-18 TO 2018-12-19]` will return logs from start of 2018-12-18 *to end of day of* 2019-12-19 on search engine v2, but it in v3, as all dates that don't include the time will be filled with zeros, it will return logs from start of 2018-12-18 *to start of day* of 2018-12-19T00:00:00Z, which means that all logs from 2018-12-19 will actually be excluded. In order to include the desired date, either the time should be provided or the following date should be added to the range, i.e. `q=date:[2018-12-18 TO 2018-12-20}`.
