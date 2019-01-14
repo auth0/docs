@@ -15,7 +15,7 @@ useCase:
 
 As an [API](/apis) developer, you need to:
 
-1. Decide which user information you would like external applications to be able to access on a user's behalf.
+1. Decide which information you would like external applications to be able to access on a user's behalf.
 2. Define these access levels as custom scopes.
 3. Identify these scopes so that calling applications can use them. 
 
