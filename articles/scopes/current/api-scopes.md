@@ -1,5 +1,6 @@
 ---
-description: Understand permissions (scopes) used with APIs.
+title: API Scopes
+description: Understand the principle of scopes and how it is used with APIs.
 topics:
   - scopes
   - permissions
@@ -10,7 +11,7 @@ useCase:
   - call-api
   - secure-api
 ---
-# API Permissions
+# API Scopes
 
 As an [API](/apis) developer, you need to:
 
