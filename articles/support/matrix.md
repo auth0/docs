@@ -83,10 +83,6 @@ This section covers the browsers that Auth0 will support when using the Auth0 Da
       <td><div class="label label-warning">Sustained</div></td>
     </tr>
     <tr>
-      <td>Microsoft Internet Explorer 11</td>
-      <td><div class="label label-warning">Sustained</div></td>
-    </tr>
-    <tr>
       <td>Microsoft Edge (Latest version)</td>
       <td><div class="label label-warning">Sustained</div></td>
     </tr>
