@@ -19,7 +19,7 @@ In these examples, we use the [Regular Web App Login Flow](/flows/concepts/regul
 
 In this example, we want to authenticate a user and get user details that will allow us to personalize our UI. To do this, we want to get an ID Token that contains the user's name, nickname, profile picture, and email information.
 
-1. Initiate the authentication flow by sending the user to the authorization URL and requesting an ID Token:
+1. Initiate the authentication flow by sending the user to the authorization URL:
 
 ```text
 https://${account.namespace}/authorize?
@@ -27,14 +27,13 @@ https://${account.namespace}/authorize?
   client_id=${account.clientId}&
   redirect_uri=${account.callback}&
   scope=openid%20profile%20email&
-  nonce=YOUR_CRYPTOGRAPHIC_NONCE&
   state=YOUR_OPAQUE_VALUE
 ```
 
 Notice that in this example: 
 
 * the `response_type` parameter includes one value:
-  * `code` (because we are using the regular web app flow, our initial request is for an authorization code; when we request our tokens using this code, we will receive the ID Token we need for authentication)
+  * `code` (because we are using the regular web app flow, our initial request is for an authorization code; when we request our tokens using this code, we will receive the ID Token we need for authentication.)
 * the `scope` parameter includes three values: 
   * `openid` (to indicate that the application intends to use OIDC to verify the user's identity)
   * `profile` (to get `name`, `nickname`, and `picture`)
@@ -75,24 +74,22 @@ In this example, we expand on our previous example requesting standard claims to
 Before using a custom API, you need to know what scopes are available for the API you are calling. If the custom API is under your control, you need to register both your application and API with Auth0 and [define the scopes for your API using the Auth0 Dashboard](/scopes/current/guides/define-api-scope-dashboard). You can also use defined permissions to [customize the consent prompt](/scopes/current/guides/customize-consent-prompt) for your users.
 :::
 
-1. Initiate the authentication flow by sending the user to the authorization URL and requesting tokens:
+1. Initiate the authentication flow by sending the user to the authorization URL:
 
 ```text
 https://${account.namespace}/authorize?
-  audience=YOUR_API_AUDIENCE&
-  scope=openid%20profile%20email%20read:appointments&
-  response_type=id_token%20token&
+  response_type=code&
   client_id=${account.clientId}&
-  redirect_uri=${account.callback}&
-  nonce=YOUR_CRYPTOGRAPHIC_NONCE
+  redirect_uri=${account.callback}& 
+  scope=openid%20profile%20email%20read:appointments&
+  audience=YOUR_API_AUDIENCE&
   state=YOUR_OPAQUE_VALUE
 ```
 
 Notice that in this example:
 
-* the `response_type` parameter now includes two values:
-  * `id_token` (to get an ID Token)
-  * `token` (to get an Access Token)
+* the `response_type` parameter still includes one value:
+  * `code` (because we are using the regular web app flow, our initial request is for an authorization code; when we request our tokens using this code, we will receive both the ID Token we need for authentication and the Access Token that we can use to call our API.)
 * the `scope` parameter is used for both OIDC scopes and API scopes, so now includes four values: 
   * `openid` (to indicate that the application intends to use OIDC to verify the user's identity)
   * `profile` (to get `name`, `nickname`, and `picture`)
@@ -101,9 +98,11 @@ Notice that in this example:
 * the `audience` parameter is new and includes one value:
   * the unique identifier of the API from which we want to read the user's appointments
 
-2. As in the previous example, after the user consents and Auth0 redirects back to your app, extract the ID Token from the hash fragment of the URL, decode it, and retrieve the user attributes and use them to personalize your UI.
+2. As in the previous example, after the user consents and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow#request-tokens).)
 
-3. Call the API using the Access Token as credentials.
+3. As in the previous example, extract the ID Token from the response, [decode it](/tokens/id-token#id-token-payload), and retrieve the user attributes and use them to personalize your UI.
+
+4. Call the API using the Access Token as credentials.
 
 
 ## Add custom claims to a token
