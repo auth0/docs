@@ -1078,9 +1078,6 @@ articles:
       - title: "Private SaaS Management Workshop"
         url: "/services/private-saas-management"
 
-      - title: "Jumpstart"
-        url: "/services/jumpstart"
-
 apis:
 
   - title: "Overview"
