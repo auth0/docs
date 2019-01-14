@@ -13,22 +13,22 @@ useCase:
 ---
 # How to Customize the Consent Prompt
 
-When users are asked to authorize permissions, they see a consent prompt. By default, this prompt uses the permission **name** to generate text and groups all permissions for a resource, displaying the resource's actions in a single line.
+When users are asked to authorize requested scopes, they see a consent prompt. By default, this prompt uses the scope **name** to generate text and groups all scopes for a resource, displaying the resource's actions in a single line.
 
-For example, let's say you have an Auth0-registered API with the following defined permissions:
+For example, let's say you have an Auth0-registered API with the following defined scopes:
 
 * `read:messages`: Be able to read your email messages
 * `write:messages`: Write messages
 
 The consent prompt will display: **Messages: read and write your messages**.
 
-Instead, you can use your defined permission **description** to generate this text. In this case, the consent dialog would display: **Be able to read your email messages**, **Write messages**.
+Instead, you can use your defined scope **description** to generate this text. In this case, the consent dialog would display: **Be able to read your email messages**, **Write messages**.
 
 ::: warning
 This change is made at the tenant level, so it will affect consent prompts for all APIs on the tenant.
 :::
 
-## Use permission descriptions to generate consent prompt text
+## Use scope descriptions to generate consent prompt text
 
  Set your tenant's **use_scope_descriptions_for_consent** flag to `true` by making the following API call:
 
@@ -48,7 +48,7 @@ This change is made at the tenant level, so it will affect consent prompts for a
 }
 ```
 
-## Use permission names to generate consent prompt text
+## Use scope names to generate consent prompt text
 
 Set your tenant's **use_scope_descriptions_for_consent** flag to `false` by making the following API call:
 
@@ -70,4 +70,4 @@ Set your tenant's **use_scope_descriptions_for_consent** flag to `false` by maki
 
 ## Keep reading
 
-- [How to Define Permissions for an API Using the Auth0 Dashboard](/scopes/current/guides/define-api-scopes-dashboard)
+- [How to Define Scopes for an API Using the Auth0 Dashboard](/scopes/current/guides/define-api-scopes-dashboard)
