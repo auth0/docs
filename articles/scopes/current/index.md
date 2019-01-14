@@ -21,7 +21,7 @@ Often, new applications will want to make use of the information that has alread
 
 ## Ways to use scopes
 
-When an app requests permission to access a resource through an authorization server, it uses the `scope` parameter to specify what type of access it needs, and the authorization server uses the `scope` parameter to respond with the type of access that was actually granted (if the granted access was different from what was requested).
+When an app requests permission to access a resource through an authorization server, it uses the `scope` parameter to specify what access it needs, and the authorization server uses the `scope` parameter to respond with the access that was actually granted (if the granted access was different from what was requested).
 
 Generally, you use scopes in three ways:
 
