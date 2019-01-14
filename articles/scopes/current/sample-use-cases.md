@@ -1,5 +1,5 @@
 ---
-title: Sample Use Cases - Permissions and Claims
+title: Sample Use Cases - Scopes and Claims
 description: Learn how to use scopes and claims with applications and APIs.
 topics:
   - scopes
@@ -11,7 +11,7 @@ useCase:
   - call-api
   - secure-api
 ---
-# Sample Use Cases: Permissions and Claims
+# Sample Use Cases: Scopes and Claims
 
 In these examples, we use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to authenticate a user and request the necessary permissions and tokens. For details on the request parameters or to learn how to fully implement this flow, refer to our tutorial: [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
 
@@ -67,10 +67,10 @@ Your app now can retrieve the user attributes and use them to personalize your U
 
 ## Request custom API access
 
-In this example, we expand on our previous example requesting standard claims to also include a custom permission for a calendar API that will allow the calling application to read appointments for the user. To do this, we want to get an additional token--an Access Token containing the proper permission level to read appointments from the API.
+In this example, we expand on our previous example, which requested standard claims, to also include a custom scope for a calendar API that will allow the calling application to read appointments for the user. To do this, we want to get an additional token--an Access Token containing the proper scope to read appointments from the API.
 
 ::: note
-Before using a custom API, you need to know what permissions are available for the API you are calling. If the custom API is under your control, you need to register both your application and API with Auth0 and [define the permissions for your API using the Auth0 Dashboard](/scopes/current/guides/define-api-scope-dashboard). You can also use defined permissions to [customize the consent prompt](/scopes/current/guides/customize-consent-prompt) for your users.
+Before using a custom API, you need to know what scopes are available for the API you are calling. If the custom API is under your control, you need to register both your application and API with Auth0 and [define the scopes for your API using the Auth0 Dashboard](/scopes/current/guides/define-api-scope-dashboard). You can also use defined permissions to [customize the consent prompt](/scopes/current/guides/customize-consent-prompt) for your users.
 :::
 
 1. Initiate the authentication flow by sending the user to the authorization URL and requesting tokens:
@@ -91,7 +91,7 @@ Notice that in this example:
 * the `response_type` parameter now includes two values:
   * `id_token` (to get an ID Token)
   * `token` (to get an Access Token)
-* the `scope` parameter is used for both OpenID scopes and API permissions, so now includes four values: 
+* the `scope` parameter is used for both OpenID scopes and API scopes, so now includes four values: 
   * `openid` (to indicate that the application intends to use OIDC to verify the user's identity)
   * `profile` (to get `name`, `nickname`, and `picture`)
   * `email` (to get `email` and `email_verified`)
@@ -145,13 +145,13 @@ This example shows a custom claim being added to an ID Token, which uses the `co
 
 ## Keep reading
 
-- [Permissions](/scopes)
-- [OpenID Connect Permissions](/scopes/current/oidc-scopes)
+- [Scopes](/scopes)
+- [OpenID Connect Scopes](/scopes/current/oidc-scopes)
 - [Custom Claims](/scopes/current/custom-claims)
-- [API Permissions](/scopes/current/api-scopes)
-- [How to Define API Permissions Using the Auth0 Dashboard](/scopes/current/guides/define-api-scopes-dashboard)
+- [API Scopes](/scopes/current/api-scopes)
+- [How to Define API Scopes Using the Auth0 Dashboard](/scopes/current/guides/define-api-scopes-dashboard)
 - [How to Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)
 - [Represent Multiple APIs Using a Proxy API in Auth0](/api-auth/tutorials/represent-multiple-apis)
-- [How to Restrict Application or User Requests for API Permissions](/api-auth/restrict-requests-for-scopes)
-- [SPA + API Architecture Scenario: Restrict API Permissions Based on Authorization Extension Groups](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension)
+- [How to Restrict Application or User Requests for API Scopes](/api-auth/restrict-requests-for-scopes)
+- [SPA + API Architecture Scenario: Restrict API Scopes Based on Authorization Extension Groups](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension)
 
