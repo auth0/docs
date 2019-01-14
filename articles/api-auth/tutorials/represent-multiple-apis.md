@@ -13,20 +13,20 @@ useCase:
   - call-api
 ---
 
-# Represent Multiple APIs Using a Proxy API in Auth0
+# Represent Multiple APIs Using a Single Logical API in Auth0
 
-If you have multiple APIs, you can simplify your authentication process by creating a single [API](/apis) in the Auth0 Dashboard that can act as a proxy and represent all of your APIs. Doing this allows you to implement just one authentication flow, while still controlling access to the individual APIs--by assigning the appropriate permissions.
+If you have multiple distinct API implementations that are all logically a part of the same API, you can simplify your authorization process by representing them with a single logical [API](/apis) in the Auth0 Dashboard. Doing this allows you to implement just one authorization flow, while still controlling access to the individual APIs--by assigning the appropriate scopes.
 
 This tutorial explains how to use and represent multiple APIs as a single Resource Server in Auth0. As a learning tool, we provide a sample application that you can follow along with as you read.
 
 ## The Sample Application
 
-The sample application contains:
+The sample application uses a microservices architecture and contains:
 
-* 1 Single Page Application (SPA);
-* 2 APIs (called `contacts` and `calendar`).
+* 1 Single Page Application (SPA)
+* 2 APIs (services), called `contacts` and `calendar`
 
-We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two namespaced permission levels to demonstrate how you can use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to access the `calendar` and `contacts` APIs from the SPA.
+We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two namespaced scopes to demonstrate how you can use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to access the `calendar` and `contacts` APIs from the SPA.
 
 ## Prerequisites
 
@@ -41,9 +41,9 @@ Before beginning this tutorial:
 
 1. [Enable a Connection for your Application](#enable-a-connection-for-your-application): Configure a source of users for your new application.
 2. [Create a test user](#create-a-test-user): Associate a test user with your new connection.
-3. [Register a proxy API in Auth0](#register-a-proxy-api-in-auth0): Register a proxy API to represent your multiple APIs.
-4. [Configure permissions for the proxy API](#configure-permissions-for-the-proxy-API): Create the permission levels that will allow the proxy API to represent your multiple APIs.
-5. [Grant access to the proxy API](#grant-access-to-the-proxy-api): Configure the login link in your sample application, initiate the authorization flow, and extract the Access Token to be used to call your multiple APIs.
+3. [Register a logical API in Auth0](#register-a-logical-api-in-auth0): Register a single logical API to represent your multiple APIs.
+4. [Configure scopes for the logical API](#configure-scopes-for-the-logical-API): Create the scopes that will allow the logical API to represent your multiple APIs.
+5. [Grant access to the logical API](#grant-access-to-the-logical-api): Configure the login link in your sample application, initiate the authorization flow, and extract the Access Token to be used to call your multiple APIs.
 Optional: [Implement Single Log Out (SLO) or Single Sign On (SSO)](#implement-single-log-out-slo-or-single-sign-on-sso)
 
 ## Enable a connection for your Application
@@ -62,9 +62,9 @@ Since you're working with a newly-created Connection, there won't be any users a
 2. Provide the requested information about the new user (**email address** and **password**), and select your newly-created **Connection**.
 3. Click **Save**.
 
-## Register a proxy API in Auth0
+## Register a logical API in Auth0
 
-Create the single [API](/apis) that you will use to represent the multiple APIs contained within the sample application.
+Register a single logical [API](/apis) that you will use to represent the multiple APIs contained within the sample application.
 
 1. Navigate to the [Auth0 Dashboard](${manage_url}), and click on [APIs](${manage_url}/#/apis) in the left-hand nav. Click **Create API**.
 
@@ -78,37 +78,37 @@ When finished, click **Create**.
 
 ![](/media/articles/api-auth/tutorials/represent-multiple-apis/create-new-api.png)
 
-## Configure permissions for the proxy API
+## Configure scopes for the logical API
 
-To allow the proxy API to represent the APIs included within the sample application, you will need to create the proper permissions.
+To allow the logical API to represent the APIs included within the sample application, you will need to create the proper scopes.
 
-Permissions allow you to define which API actions will be accessible to calling applications. One permission (or scope) will represent one API/action combination. 
+Scopes allow you to define which API actions will be accessible to calling applications. One scope will represent one API/action combination. 
 
 For example, if you want calling applications to be able to `read` and/or `delete` from one API called `samples` and another one called `examples`, you would need to create the following permissions:
 
 * `read:samples`
 * `delete:samples`
 * `read:examples`
-* `delete: examples`
+* `delete:examples`
 
 You can think of each one as a microservice.
 
-1. In your newly-created proxy API, click the **Scopes** (or **Permissions**) tab. 
+1. In your newly-created logical API, click the **Scopes** (or **Permissions**) tab. 
 
 ![](/media/articles/api-auth/tutorials/represent-multiple-apis/scopes-page.png)
 
 2. Add two scopes:
 
-* `read:calendar`;
-* `read:contacts`.
+* `read:calendar`
+* `read:contacts`
 
 **Save** your changes.
 
 ![](/media/articles/api-auth/tutorials/represent-multiple-apis/new-scopes.png)
 
-## Grant access to the proxy API
+## Grant access to the logical API
 
-You are now ready to provide access to your APIs by allowing the proxy API to obtain Access Tokens. By including the necessary permission (scope), you can control an application's access to the APIs represented by the proxy API.
+You are now ready to provide access to your APIs by allowing the logical API to obtain Access Tokens. By including the necessary scopes, you can control an application's access to the APIs represented by the logical API.
 
 :::panel Authorization Flows
 
@@ -159,7 +159,7 @@ function getAccessToken() {
 }
 ```
 
-In our sample, after you successfully log in, you will see buttons that allow you to call either of your APIs using the Access Token obtained from the proxy API.
+In our sample, after you successfully log in, you will see buttons that allow you to call either of your APIs using the Access Token obtained from the logical API.
 
 ![SPA Home after Login](/media/articles/api-auth/tutorials/represent-multiple-apis/apis.png)
 
