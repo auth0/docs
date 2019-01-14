@@ -1,6 +1,6 @@
 ---
-title: OpenID Connect Permissions
-description: Understand permissions (scopes) and claims used with the OpenID Connect (OIDC) protocol.
+title: OpenID Connect Scopes
+description: Understand scopes and claims used with the OpenID Connect (OIDC) protocol.
 topics:
   - scopes
   - permissions
@@ -10,13 +10,13 @@ useCase:
   - development
   - add-login
 ---
-# OpenID Connect Permissions
+# OpenID Connect Scopes
 
 :::note 
-This document discusses permissions included within the OpenID Connect (OIDC) authentication protocol. For more info about OIDC itself, see our docs on [OpenID Connect](/protocols/oidc).
+This document discusses scopes included within the OpenID Connect (OIDC) authentication protocol. For more info about OIDC itself, see our docs on [OpenID Connect](/protocols/oidc).
 :::
 
-OpenID Connect (OIDC) permissions are used by an application during authentication to authorize access to a user's details, like name and picture. They are known as _scopes_ in the OIDC specification. Each scope returns a set of user attributes, which are called _claims_. The scopes an application should request depend on which user attributes the application needs. Once the user authorizes the requested scopes, the claims are returned in an ID Token and are also available through the [/userinfo endpoint](/api/authentication#get-user-info).
+OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details, like name and picture. Each scope returns a set of user attributes, which are called _claims_. The scopes an application should request depend on which user attributes the application needs. Once the user authorizes the requested scopes, the claims are returned in an ID Token and are also available through the [/userinfo endpoint](/api/authentication#get-user-info).
 
 For example, let's say you have built a regular web application, registered it with Auth0, and have configured it to allow a user to log in using Google. Once a user logs in to your app, you want to auto-generate and send a personalized welcome email, including the user's name.
 
@@ -49,10 +49,10 @@ Standard claims included in the most commonly-used scopes are listed below, but 
 | `profile` | Returns claims that represent basic profile information, including `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture`, and `updated_at`. |
 | `email`   | Returns the `email` claim, which contains the user's email address, and `email_verified`, which is a boolean indicating whether the email address was verified by the user. |
 
-For an example showing how to request standard claims for your application, see [Sample Use Cases: Permissions and Claims](/scopes/current/sample-use-cases#authenticate-a-user-and-request-standard-claims).
+For an example showing how to request standard claims for your application, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#authenticate-a-user-and-request-standard-claims).
 
 ## Keep reading
 
-- [Sample Use Cases: Permissions and Claims](/scopes/current/sample-use-cases)
-- [Permissions](/scopes)
+- [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases)
+- [Scopes](/scopes)
 - [Custom Claims](/scopes/current/custom-claims)
