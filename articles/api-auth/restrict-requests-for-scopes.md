@@ -1,6 +1,6 @@
 ---
-  title: Restrict Application or User Requests for API Permissions
-  description: Learn how to write rules that will restrict user/client access to permissions (scopes) for an API.
+  title: Restrict Application or User Requests for API Scopes
+  description: Learn how to write rules that will restrict user/client access to scopes for an API.
   topics:
   - api-authentication
   - oidc
@@ -12,9 +12,9 @@ useCase:
   - call-api
 ---
 
-# Restrict Application or User Requests for API Permissions
+# Restrict Application or User Requests for API Scopes
 
-By default, any user associated with an [Auth0 application](/applications) can request any [custom API permissions] (/scopes/current/api-scopes) that have been created. Sometimes you may not want to allow an application to request certain permissions, though. For example, you may want to restrict access to an API's permissions based on the calling application or a user's role or location. To do so, we use [rules](/rules).
+By default, any user associated with an [Auth0 application](/applications) can request any [custom API scopes](/scopes/current/api-scopes) that have been created. Sometimes you may not want to allow an application to request certain scopes, though. For example, you may want to restrict access to an API's scopes based on the calling application or a user's role or location. To do so, we use [rules](/rules).
 
 ## Example: Deny access to anyone calling the API
 
@@ -76,6 +76,6 @@ function (user, context, callback) {
 ```
 ## Example: Deny access to users based on a role
 
-To limit a user's permissions, you can assign them a role so that requests on their behalf are limited to just the permissions assigned to that role. To do this, you can use the [Authorization Extension](/extensions/authorization-extension) and a custom [Rule](/rules).
+To limit a user's scopes, you can assign them a role so that requests on their behalf are limited to just the scopes assigned to that role. To do this, you can use the [Authorization Extension](/extensions/authorization-extension) and a custom [Rule](/rules).
 
-We discuss this approach in more depth in our [SPA+API Architecture Scenario](/architecture-scenarios/spa-api). Specifically, you can review the [Configure the Authorization Extension](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension) section to learn how to configure the Authorization Extension and create a custom Rule that will ensure permissions are granted based on a user's role.
+We discuss this approach in more depth in our [SPA+API Architecture Scenario](/architecture-scenarios/spa-api). Specifically, you can review the [Configure the Authorization Extension](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension) section to learn how to configure the Authorization Extension and create a custom Rule that will ensure scopes are granted based on a user's role.
