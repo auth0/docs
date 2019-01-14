@@ -91,7 +91,7 @@ Notice that in this example:
 * the `response_type` parameter now includes two values:
   * `id_token` (to get an ID Token)
   * `token` (to get an Access Token)
-* the `scope` parameter is used for both OpenID scopes and API scopes, so now includes four values: 
+* the `scope` parameter is used for both OIDC scopes and API scopes, so now includes four values: 
   * `openid` (to indicate that the application intends to use OIDC to verify the user's identity)
   * `profile` (to get `name`, `nickname`, and `picture`)
   * `email` (to get `email` and `email_verified`)
