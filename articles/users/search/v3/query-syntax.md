@@ -28,24 +28,24 @@ The query string is parsed into a series of terms and operators:
 
 ## Searchable fields
 
-You can search for users using the all the [normalized user profile](/users/normalized/auth0/normalized-user-profile-schema) fields:
+You can search for users using all the [normalized user profile fields](/users/normalized/auth0/normalized-user-profile-schema) and the fields below:
 
-Field | Data Type
-------|------
-`phone_number` | text
-`phone_verified` | boolean
-`logins_count` | integer
-`created_at` | date time
-`updated_at` | date time
-`last_login` | date time
-`last_ip` | text (valid IP address)
-`blocked` | boolean
-`incomplete` | boolean
-`email.domain` | text
+Search Field | Data Type | Description
+------|------|-----
+`phone_number` | text | The user's phone number. Only valid for users with SMS connections.
+`phone_verified` | boolean | The `true/false` value indicating whether the user's phone number has been verified. Only valid for users with SMS connections.
+`logins_count` | integer | The number of times the user has logged in. If a user is blocked and logs in, the blocked session is counted in `logins_count` and updates the `last_login` value.
+`created_at` | date time | The timestamp of when the user profile was first created.
+`updated_at` | date time | The timestamp of when the user's profile was last updated/modified.
+`last_login` | date time | The timestamp of when the user last logged in. In case you are this property from inside a [Rule](/rules) using the `user` object, its value will be the one associated with the login that triggered the rule (since rules execute after the actual login).
+`last_ip` | text (valid IP address) | The IP address associated with the user's last login.
+`blocked` | boolean | The `true/false` value indicating if the user has been blocked.
+`incomplete` | boolean 
+`email.domain` | text | The domain part of the user's email.
 
 [User metadata](/users/concepts/overview-user-metadata) fields may be used with:
     
-* Booleans
+* Boolean
 * Numeric: (integer or double)
 * Text
 * Objects: In order to search a scalar value nested in another object, use the path to the field. For example, `app_metadata.subscription.plan:"gold"`
