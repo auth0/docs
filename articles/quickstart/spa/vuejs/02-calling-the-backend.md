@@ -19,7 +19,7 @@ Most single-page apps use resources from data APIs. You may want to restrict acc
 
 In the case where your SPA is calling your backend API (as opposed to a third-party API that might potentially be accessed by lots of clients), we are able to use the ID Token to verify whether or not the client should be able to access the resource. This is in contrast to using an access token, which would be used if we were accessing a third-party API. In this case, the Auth0 application client ID can be used as the `audience` value when validating the token against the Json Web Key Set.
 
-<%= include("../_includes/_auth_service_backend_api.md") %>
+<%= include("../_includes/_calling_api_create_backend.md") %>
 
 Modify `package.json` to add two new scripts `dev` and `api` that can be used to start the frontend and the backend API together:
 
