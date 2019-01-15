@@ -16,14 +16,14 @@ Open `server.js` and add a new Express route to serve as the API endpoint, right
 // This is the existing endpoint for sample 2
 app.get("/api/private", checkJwt, (req, res) => {
   res.send({
-    msg: "Your ID token was successfully validated!"
+    msg: "Your ID Token was successfully validated!"
   });
 });
 
 // Add the new endpoint here:
 app.get("/api/external", checkJwt, (req, res) => {
   res.send({
-    msg: "Your access token was successfully validated!"
+    msg: "Your Access Token was successfully validated!"
   });
 });
 ```
