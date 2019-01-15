@@ -66,7 +66,7 @@ Cross-origin authentication is only necessary when authenticating against a dire
 
 If you are implementing passwordless with embedded login using Lock or Auth0.js from within your app, rather than Universal Login, you will need to have [custom domains](/custom-domains) set up.
 
-In addition, if you have not enabled custom domain names (`cnames`) the end user must have a browser that supports third-party cookies, otherwise, in some browsers, cross-origin authentication will fail. For more information refer to [Limitations of Cross-Origin Authentication](/cross-origin-authentication).
+In addition, if you have not enabled custom domain names (`cnames`), the end user must have a browser that supports third-party cookies. Otherwise, in some browsers, cross-origin authentication will fail. For more information, see  [Limitations of Cross-Origin Authentication](/cross-origin-authentication).
 
 
 ### Security risks
