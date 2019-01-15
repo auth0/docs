@@ -29,6 +29,22 @@ The **Logs** page of the [Dashboard](${manage_url}/#/logs) displays all events t
 
 Please note that administrative actions will show up in the logs as `API Operation` events.
 
+## What Can I Use Logs For?
+
+### As an Administrator
+If you are operating your service as an administrator, there are many helpful metrics and bits of information you can gather from the Logs. If a customer has raised a support ticket that they are unable to sign in to your service or application, you can verify in the logs that they have indeed tried, and are attempting in the manner they say they are. They may think it's a password issue, but you may discover they never completed setting up their Multi-Factor Authentication. Additionally, Logs can help expose some business metrics you may not have had available before. These could include:
+
+- Finding prime times of usage for different regions
+- Identifying a target audience
+- Detecting patterns in user behavior that can be optimized
+- Identifying problematic actors by IP address
+- Calculating frequency and type of Anomaly Detection triggers
+
+ The deeper the analysis, the more you can learn about your customers and your business.
+
+### As a Developer
+When debugging an issue, or setting up an integrations, logs are as good as gold. You can utilize the logs as a history of events to see where a flow may be broken, or where customers are getting confused. You can also detect nefarious behavior, or verify that Auth0 anomaly detection is being triggered during questionable behavior. We support searching the logs for specific events using our Dashboard or Management API directly, but also support exporting logs to your existing log processing systems, like Splunk or Sumo Logic, for deeper analysis over time.
+
 ## Frequently Asked Questions
 
 ### How long is log file data available?
@@ -49,13 +65,52 @@ If you would like to store log data longer than the time period offered by your 
 * Store the data yourself
 * Send the data to an external service. You can install and configure an Auth0 Extension in order to export logs automatically to another provider, like Sumo Logic or Loggly. For a list of available providers and detailed steps to configure each, see [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service).
 
+## Retrieving logs from the Management API
 
-### Retrieving logs from the Management API
+You can use the Management API v2 retrieve your logs using the [/api/v2/logs](/api/v2#!/Logs/get_logs) endpoint, which allows for two types of consumption: [by checkpoint](/logs#get-logs-by-checkpoint) or [by search criteria](#get-logs-by-search-criteria).
 
-You can use the Management API v2 retrieve your logs. There are the two available endpoints, each providing slightly different quantities of information:
+::: info
+We highly recommend using [the checkpoint approach](/logs#get-logs-by-checkpoint) to export logs to the external system of your choice and perform any search or analysis there, as logs stored in our system are subject to [the retention period](/logs#how-long-is-log-file-data-available). You can use any of the [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service) extensions to export the logs to the system of your choice (like Sumo Logic, Splunk or Loggly).
+:::
 
-* [/api/v2/logs](/api/v2#!/Logs/get_logs): Retrieves log entries that match the provided search criteria. If you do not provide any search criteria, you will get a list of all available entries. Refer to the [Logs Query Syntax](/logs/query-syntax) for more details. 
-* [/api/v2/logs/{id}](/api/v2#!/Logs/get_logs_by_id): Retrieves the single log entry associated with the provided ID.
+If you would like to perform a search for specific events you can also use the [search criteria approach](/logs#get-logs-by-search-criteria), which is also the one used by the Management Dashboard.
+
+**Limitation**: When you query for logs with the [list or search logs](/api/v2#!/Logs/get_logs) endpoint, you can retrieve a maximium of 100 logs per request.
+
+### Get Logs By Checkpoint
+This method allows to retrieve logs from a particular log_id. For searching by checkpoint use the following parameters:
+
+- `from`: Log Event Id to start retrieving logs. You can limit the amount of logs using the take parameter. 
+- `take`: The total amount of entries to retrieve when using the from parameter.
+
+Important: When fetching logs by checkpoint, the `q` or any other parameter other than `from` and `take` will be ignored. Also the order by date is not guaranteed.
+
+### Get logs by Search Criteria
+Retrieves log entries that match the specified search criteria (or list all entries if no criteria is used).
+
+For searching by criteria use the following parameters:
+- `q`: Search Criteria using Query String Syntax. Checkout the [Query Syntax docs](/logs/query-syntax) for information of how to build the queries.
+- `page`: The page number. Zero based
+- `per_page`: The amount of entries per page
+- `sort`: The field to use for sorting. Use field:order, where order is 1 for ascending and -1 for descending. For example date:-1
+- `fields`: A comma separated list of fields to include or exclude (depending on include_fields) from the result, empty to retrieve all fields
+- `include_fields`: true if the fields specified are to be included in the result, false otherwise. Defaults to true
+- `include_totals`: true if a query summary must be included in the result, false otherwise. Default false. *This field is **deprecated**, please refer to the [Search Engine Migration](/logs/query-syntax#search-engine-migration)for more info.*
+
+For the list of fields that can be used in the search query and the `fields` and `sort` params, checkout the list of [searcheable fields](logs/query-syntax#searchable-fields).
+
+**Limitations**:
+
+Besides the limitation of 100 logs per request to retrieve logs, you may only paginate through up to 1,000 search results.
+
+If you get the error `414 Request-URI Too Large` this means that your query string is larger than the supported length. In this case, refine your search.
+
+## Other Log Endpoints
+
+As an alternative or complement to retrieving logs by checkpoint or search criteria using the [/api/v2/logs](/api/v2#!/Logs/get_logs) endpoint, you can also use the following endpoints to look for logs:
+
+* [/api/v2/logs/{id}](/api/v2#!/Logs/get_logs_by_id): Retrieves the single log entry associated with the provided log id.
+* [/api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user): Retrieves every log event for a specific user id.
 
 ## Log data event listing
 
