@@ -52,6 +52,10 @@ Then you can trigger the login using the `callbackURL` option to specify the end
 <a href="javascript:login()">Login</a>
 ```
 
+::: note
+If you use custom domains, replace `account.namespace` with your custom domain.
+:::
+
 This will open a dialog that asks the user for their email address:
 
 ![](/media/articles/connections/passwordless/passwordless-email-request-web.png)
