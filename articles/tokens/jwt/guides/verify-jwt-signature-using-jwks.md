@@ -14,7 +14,7 @@ useCase:
 
 Auth0 exposes a discovery endpoint, which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to automatically configure your application and locate the JWKS endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued JWTs for your API.
 
-When verifying a JWT using a JWKS, here are the high level steps you will need to follow:
+When verifying a JWT using a JWKS, you will need to:
 
 1. Retrieve the JWKS and filter for potential signing keys. You will want to filter our any keys missing a public key or a `kid` property.
 2. Extract the JWT from the request's authorization header and decode it.
