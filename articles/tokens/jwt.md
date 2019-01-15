@@ -20,8 +20,6 @@ useCase:
 For more information on all the types of tokens used by Auth0, see [Tokens](/tokens).
 :::
 
-<%= include('../_includes/_video', { id: 'dxfz716cw9' }) %>
-
 ## What is JSON Web Token?
 
 JSON Web Token (JWT), pronounced "jot", is an open standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. The information contained within the JSON object can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the **HMAC** algorithm) or a public/private key pair using **RSA** or **ECDSA**.
@@ -32,9 +30,9 @@ Although JWTs can be encrypted to also provide secrecy between parties, we will 
 
 Here are some scenarios where JSON Web Tokens are useful:
 
-- **Authorization**: This is the most common scenario for using JWT. Once the user is logged in, each subsequent request will include the JWT, allowing the user to access routes, services, and resources that are permitted with that token. Single Sign On widely uses JWT nowadays because of its small overhead and its ability to easily be used across different domains.
+- **Authorization**: This is the most common scenario for using a JWT. Once the user is logged in, each subsequent request will include the JWT, allowing the user to access routes, services, and resources that are permitted with that token. Single Sign On widely uses JWT nowadays because of its small overhead and its ability to easily be used across different domains.
 
-- **Information Exchange**: JSON Web Tokens are a good way of securely transmitting information between parties because since they can be signed, you can be sure that the senders are who they say they are. Additionally, the structure of a JWT allows you to verify that the content hasn't been tampered with.
+- **Information Exchange**: JWTs are a good way of securely transmitting information between parties because they can be signed, ywhich means you can be sure that the senders are who they say they are. Additionally, the structure of a JWT allows you to verify that the content hasn't been tampered with.
 
 ## What is the JSON Web Token structure?
 
