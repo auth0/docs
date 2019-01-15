@@ -46,9 +46,7 @@ In certain cases, users get to consent to the access being requested. While usua
 As an application developer, you should be aware of this possibility and handle these cases in your app. For example, your app could warn the user that they will see reduced functionality. It could also send the user back through the authorization flow to ask for additional permissions. But again, remember that when asked for consent, users can always say no.
 
 ::: note
-By default, Auth0 skips user consent for first-party applications, which are applications that you control and are registered under the same Auth0 domain as the API they are calling; however, you can configure your API in Auth0 to require user consent from first-party applications.
-
-Third-party applications, which are external applications that can access protected resources behind your API, require user consent.
+By default, Auth0 skips user consent for first-party applications, which are applications that are registered under the same Auth0 domain as the API they are calling; however, you can configure your API in Auth0 to require user consent from first-party applications. Third-party applications, which are external applications, require user consent.
 :::
 
 ## Keep reading
