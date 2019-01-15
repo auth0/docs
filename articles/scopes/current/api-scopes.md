@@ -15,9 +15,17 @@ useCase:
 
 As an [API](/apis) developer, you need to:
 
-1. Decide which information you would like external applications to be able to access on a user's behalf.
+1. Decide which information you would like applications to be able to access on a user's behalf.
 2. Define these access levels as custom scopes.
 3. Identify these scopes so that calling applications can use them. 
+
+## Ways to use API scopes
+
+You can use API scopes in a few different ways:
+
+* In an API where the calling application is a third-party, or external, application. In this case, the calling application will request authorization from the user to access the requested scopes, and the user will approve or deny the request.
+* In an API where the calling application is a first-party application, 
+* In a back-end integration, where no user exists. In this case, user consent is never requested.
 
 For example, let's say you are building an API that provides data to a calendar application. At various times, the app may need to edit items on the calendar, read them, or both read and write to calendar items for a user. To do this, you create two scopes for your API: one that authorizes write access (`write:appointments`) and one that authorizes read-only access (`read:appointments`). 
 
