@@ -654,6 +654,25 @@ articles:
       - title: "MFA Troubleshooting"
         url: "/multifactor-authentication/troubleshooting"
 
+  - title: "Logout"
+    url: "/logout"
+    children:
+
+      - title: "Logout of Applications"
+        url: "/logout/guides/logout-applications"
+
+      - title: "Logout of Auth0"
+        url: "/logout/guides/logout-auth0"
+
+      - title: "Logout of IdPs"
+        url: "/logout/guides/logout-idps"
+
+      - title: "Logout of SAML IdPs"
+        urls: "/logout/guides/logout-saml-idps"
+
+      - title: "Redirect Users After Logout"
+        url: "/logout/guides/redirect-users-after-logout"
+
   - title: "Security"
     url: "/security"
     children:
