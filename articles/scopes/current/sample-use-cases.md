@@ -39,7 +39,7 @@ Notice that in this example:
   * `profile` (to get `name`, `nickname`, and `picture`)
   * `email` (to get `email` and `email_verified`)
 
-2. After the user consents and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow#request-tokens).)
+2. After the user consents (if necessary) and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow#request-tokens).)
 
 3. Extract the ID Token from the response and [decode it](/tokens/id-token#id-token-payload).
 
@@ -95,7 +95,7 @@ Notice that in this example:
 * the `audience` parameter is new and includes one value:
   * the unique identifier of the API from which we want to read the user's appointments
 
-2. As in the previous example, after the user consents and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow#request-tokens).)
+2. As in the previous example, after the user consents (if necessary) and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow#request-tokens).)
 
 3. Extract the Access Token from the response, and call the API using the Access Token as credentials.
 
@@ -132,7 +132,7 @@ Notice that in this example:
 * the `audience` parameter includes one value:
   * the unique identifier of the API from which we want to read the user's appointments
 
-2. As in the previous examples, after the user consents and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow#request-tokens).)
+2. As in the previous examples, after the user consents (if necessary) and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow#request-tokens).)
 
 3. Extract the ID Token from the response, [decode it](/tokens/id-token#id-token-payload), and retrieve the user attributes and use them to personalize your UI.
 
