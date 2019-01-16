@@ -3,7 +3,6 @@ title: Log Users Out of Auth0
 description: Learn how to force a user to log out of Auth0 using the Auth0 logout endpoint. 
 topics:
   - logout
-  - federated-logout
 contentType: how-to
 useCase:
   - manage-logout
