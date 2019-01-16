@@ -14,7 +14,7 @@ useCase:
 
 To logout users from an external SAML identity provider, you must configure a [SAML logout URL](/saml-sp-generic#1-obtain-information-from-idp) in the SAML connection settings. If you don't configure a logout URL, Auth0 will use the __SAML login URL__.
 
-Auth0 will initiate a logout by sending a SAML logout request to the external identity provider if the `federated` query string parameter is included when redirecting the user to the [logout endpoint](/api/authentication?javascript#logout) as [described above](#log-out-a-user).
+Auth0 will initiate a logout by sending a SAML logout request to the external identity provider if the `federated` query string parameter is included when redirecting the user to the [logout endpoint](/api/authentication?javascript#logout).
 
 The external SAML identity provider will need to know where to send SAML logout requests (if initiating the logout) and responses. The __SingleLogout service URL__ that will consume this SAML messages is the following:
 
