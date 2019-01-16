@@ -48,5 +48,5 @@ The Auth0 [logout endpoint](/api/authentication?javascript#logout) logs you out 
 
 * [Log Users Out of Auth0](/logout/guides/logout-auth0)
 * [Log Users Out of Applications](logout/guides/logout-applications)
-* [Log Users Out of SAML Identity Providers](/logout/guides/logout-saml-identity-providers)
+* [Log Users Out of SAML Identity Providers](/logout/guides/logout-saml-idps)
 * [Log Users Out of Auth0 as the SAML Identity Provider](/protocols/saml/saml-configuration/logout)

@@ -25,5 +25,5 @@ Redirecting the user to this URL clears all single sign-on cookies set by Auth0 
 
 * [Log Users Out of Applications](logout/guides/logout-applications)
 * [Log Users Out of Identity Providers](/logout/guides/logout-idps)
-* [Log Users Out of SAML Identity Providers](/logout/guides/logout-saml-identity-providers)
+* [Log Users Out of SAML Identity Providers](/logout/guides/logout-saml-idps)
 * [Log Users Out of Auth0 as the SAML Identity Provider](/protocols/saml/saml-configuration/logout)

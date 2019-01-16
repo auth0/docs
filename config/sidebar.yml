@@ -582,8 +582,8 @@ articles:
             url: "/logout/guides/logout-idps"
             hidden: true 
 
-          - title: "SAML Service Providers"
-            url: "/logout/guides/logout-saml-service-providers"
+          - title: "SAML Identity Providers"
+            url: "/logout/guides/logout-saml-ids"
 
           - title: "Redirect After Logout"
             url: "/logout/guides/redirect-users-after-logout"

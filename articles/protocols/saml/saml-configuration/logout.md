@@ -72,5 +72,5 @@ If your service provider does not support SAML SLO, but provides a redirect URL 
 
 ## Keep reading
 
-* [Log Users Out of SAML Service Providers](/logout/guides/logout-saml-service-providers)
+* [Log Users Out of SAML Identity Providers](/logout/guides/logout-saml-idps)
 * [Logout](/logout)
