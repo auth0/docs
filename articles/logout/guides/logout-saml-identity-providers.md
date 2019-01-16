@@ -1,15 +1,16 @@
 ---
-title: Log Users Out of SAML Service Providers
-description: Learn how to log users out of an external SAML service provider. 
+title: Log Users Out of SAML Identity Providers
+description: Learn how to log users out of an external SAML identity provider. 
 topics:
   - logout
   - SAML-logout
+  - identity-providers
 contentType: how-to
 useCase:
   - manage-logout
 ---
 
-# Log Users Out of SAML Service Providers
+# Log Users Out of SAML Identity Providers
 
 To logout users from an external SAML identity provider, you must configure a [SAML logout URL](/saml-sp-generic#1-obtain-information-from-idp) in the SAML connection settings. If you don't configure a logout URL, Auth0 will use the __SAML login URL__.
 
@@ -40,4 +41,4 @@ In these cases, Auth0 may not be able to complete a logout request to the SAML i
 * [Log Users Out of Auth0](/logout/guides/logout-auth0)
 * [Log Users Out of Applications](logout/guides/logout-applications)
 * [Log Users Out of Identity Providers](/logout/guides/logout-idps)
-* [Log Users Out of SAML Identity Providers](/protocols/saml/saml-configuration/logout)
+* [Log Users Out of Auth0 as the SAML Identity Provider](/protocols/saml/saml-configuration/logout)

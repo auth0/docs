@@ -9,11 +9,7 @@ useCase:
 
 # Logout
 
-You can log a user out of the Auth0 session and (optionally) from the identity provider (IdP) session. 
-
-## Session Layers
-
-When you're implementing the logout functionality, there are typically three session layers you need to consider:
+You can log a user out of the Auth0 session and (optionally) from the identity provider (IdP) session. When you're implementing the logout functionality, there are typically three session layers you need to consider:
 
 1. **Application Session Layer**: The first layer is the session inside your application. Though your application uses Auth0 to authenticate users, you'll still need to track that the user has logged in to your application. In a regular web application, you achieve this by storing information inside a cookie. [Log users out of your applications](/logout/guides/logout-application) by clearing their session. You should handle the application session in your application.
 
@@ -65,5 +61,5 @@ After users log out, you can [redirect users](/logout/guides/redirect-users-afte
 * [Log Users Out of Auth0](/logout/guides/logout-auth0)
 * [Log Users Out of Applications](logout/guides/logout-applications)
 * [Log Users Out of Identity Providers](/logout/guides/logout-idps)
-* [Log Users Out of SAML Service Providers](/logout/guides/logout-saml-service-providers)
+* [Log Users Out of SAML Identity Providers](/logout/guides/logout-saml-identity-providers)
 * [Log Users Out of SAML Identity Providers](/protocols/saml/saml-configuration/logout)
