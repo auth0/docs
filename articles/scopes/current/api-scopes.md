@@ -25,7 +25,7 @@ You can use API scopes in a few different ways:
 
 * In an API where the calling application is a third-party, or external, application. In this case, the calling application will request authorization from the user to access the requested scopes, and the user will approve or deny the request.
 * In an API where the calling application is a first-party application, or application that is registered under the same Auth0 domain as the API it is calling. In this case, by default, user consent is not requested, but you may configure consent to be required.
-* In an API where the calling application is a back-end service and no user exists. In this case, user consent is never requested.
+* In an API where the calling application is a back-end service, whether third-party or first-party, and no user exists. In this case, user consent is never requested.
 
 ::: note
 All of these examples use scopes to limit access through use of a token. If you so choose, your API may also use additional logic beyond the token to enforce more extensive access control.
