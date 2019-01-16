@@ -36,7 +36,7 @@ You can redirect users to a specific URL after they logout. You will need to reg
      * Specify multiple, valid, comma-separated URLs
      * Use `*` as a wildcard for subdomains (such as `http://*.example.com`)
 
-   - **Auth0 Apprlication Settings**: For logout requests that include the `client_id` parameter you must add the `returnTo` URL (for example `http://www.example.com`) to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. For example:
+   - **Auth0 Application Settings**: For logout requests that include the `client_id` parameter you must add the `returnTo` URL (for example `http://www.example.com`) to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. For example:
 
      ```text
      https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com&client_id=CLIENT_ID
