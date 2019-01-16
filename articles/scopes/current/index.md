@@ -54,6 +54,6 @@ By default, Auth0 skips user consent for first-party applications, which are app
 - [OpenID Connect Scopes](/scopes/current/oidc-scopes)
 - [API Scopes](/scopes/current/api-scopes)
 - [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases)
-- [Represent Multiple APIs Using a Proxy API in Auth0](/api-auth/tutorials/represent-multiple-apis)
+- [Represent Multiple APIs Using a Single Logical API in Auth0](/api-auth/tutorials/represent-multiple-apis)
 - [How to Restrict Application or User Requests for API Scopes](/api-auth/restrict-requests-for-scopes)
 - [SPA + API Architecture Scenario: Restrict API Scopes Based on Authorization Extension Groups](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension)
