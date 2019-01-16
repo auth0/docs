@@ -1,6 +1,6 @@
 ---
-title: Logs Query Syntax
-description: Learn about Auth0's log search query string syntax.
+title: Logs Search Query Syntax
+description: Learn about how to search for Auth0's logs.
 toc: true
 topics:
   - logs
@@ -13,14 +13,7 @@ useCase:
   - manage-logs
 ---
 
-# Logs Query Syntax
-
-The [Management API logs endpoint](/api/v2#!/Logs/get_logs) allows to retrieve logs either by checkpoint (last retrieved log id) or by search criteria. We highly recommend to use the checkpoint approach to export logs to the external system of your choice and perform any search or analysis there, as logs stored in our system are subject to [the retention period](/logs#how-long-is-log-file-data-available). You can use any of the [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service) extensions to export the logs to the system of your choice (like Sumo Logic, Splunk or Loggly).
-
-For eventual searches that you require to perform on the Manage Dashboard or via the Management API, you can use the syntax described in this article to find your logs.
-
-
-## Query Syntax
+## Logs Search Query Syntax
 
 When searching for logs, you can create queries using a subset of [Lucene query syntax](http://www.lucenetutorial.com/lucene-query-syntax.html) to refine your search.
 
@@ -49,7 +42,6 @@ The following list of fields are searchable and case sensitive:
 - `description`: The description of the event.
 - `user_agent`: The user agent that is related to the event.
 - `type`: One of the [possible event types](#log-data-event-listing).
-- `details`: The details object of the event.
 - `strategy`: The connection strategy related to the event.
 - `strategy_type`: The connection strategy type related to the event.
 - `hostname`: the hostname that is being used for the authentication flow.
@@ -116,7 +108,7 @@ Search for all logs from December 10, 2018 forward | `date:[2018-12-10 TO *]`
 
 ### Limitations
 
-When you query for logs with the [list or search logs]() endpoint, you can retrieve a maximium of 100 logs. Additionally, you may only paginate through up to 1,000 search results. If would like to receive more logs, please retrieve your logs [by checkpoint] retrieval.
+When you query for logs with the [list or search logs](/api/v2#!/Logs/get_logs) endpoint, you can retrieve a maximium of 100 logs per request. Additionally, you may only paginate through up to 1,000 search results. If would like to receive more logs, please retrieve your logs [by checkpoint] retrieval.
 
 If you get the error `414 Request-URI Too Large` this means that your query string is larger than the supported length. In this case, refine your search.
 
@@ -124,9 +116,9 @@ If you get the error `414 Request-URI Too Large` this means that your query stri
 
 We are currently migrating our logs search engine to provide customers with the most scalable, robust and fastest search experience. All tenants in the cloud US region were migrated to the latest engine (v3) starting November 15, 2018. Tenants in other cloud regions are still on the previous engine (v2) and will be notified on the migration soon.
 
-### Search Engine v3 Breaking changes
+### Search Engine v3 Breaking Changes
 
-While the query syntax described in [this doc](/logs/query-syntax#query-syntax) is compliant with both the old and new engines, there are some special queries that behave different in v2 and v3:
+While the query syntax described in this article is compliant with both the old and new engines, there are some special queries that behave different in v2 and v3:
  
 * The `include_totals` field is no longer supported. While in search engine v3 the parameter is accepted and will throw a response with an object format, that object will not contain the `total` field anymore.
 * The details field is not searcheable anymore, only the [list of searcheable fields](/logs/query-syntax#searchable-fields) can be used for search and sort.
