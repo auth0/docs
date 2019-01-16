@@ -18,7 +18,7 @@ Redirecting users to the logout endpoint **does not** cover the scenario where u
 
 ## Single Sign-out configuration example
 
-The following example shows how to use this information to sign out from each application before clearing the SSO cookie in Auth0. The example uses an Angular.js application which is also registered as an application in Auth0.
+The following example shows how to use this information to sign out of each application before clearing the SSO cookie in Auth0. The example uses an Angular.js application which is also registered as an application in Auth0.
 
 ![Single Sign-Out Screen](/media/articles/logout/single-sign-out.png)
 
