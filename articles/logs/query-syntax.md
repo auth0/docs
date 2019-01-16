@@ -74,7 +74,7 @@ For example, to find all logs for users whose usernames start with `john`, use `
 
 ### Dates
 
-A date will always be converted to a zeroed-out state if all fields are not supported; if `2018-12-18` is provided, it will be converted to `2018-12-18T00:00:00.000Z` internally. Below are some more examples of how various date formats will be converted.
+A date will always be converted to a zeroed-out state if all values are provided; if `2018-12-18` is provided, it will be converted to `2018-12-18T00:00:00.000Z` internally. Below are some more examples of how various date formats will be converted.
 
 Example | Converted Value
 --------|----------------
