@@ -1503,7 +1503,7 @@ module.exports = [
   },
   {
     from: ['/tutorials/bulk-importing-users-into-auth0', '/users/migrations/bulk-import'],
-    to: '/users/guides/bulk-user-import',
+    to: '/users/guides/bulk-user-imports',
   },
   {
     from: '/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise',
@@ -1607,7 +1607,7 @@ module.exports = [
   },
   {
     from: ['/users/bulk-importing-users-into-auth0', '/users/migrations/bulk-import'],
-    to: '/users/guides/bulk-user-import'
+    to: '/users/guides/bulk-user-imports'
   },
   {
     from: ['/connections/database/migrating', '/users/migrations/automatic'],
@@ -1930,7 +1930,7 @@ module.exports = [
      to: '/hooks'
    },
    {
-     from: '/multifactor-authentication/yubikey',
+     from: ['/multifactor-authentication/yubikey', '/multifactor-authentication/guardian', '/multifactor-authentication/guardian/user-guide'],
      to: '/multifactor-authentication'
    },
    {
@@ -1948,6 +1948,7 @@ module.exports = [
   { from: '/rules/current', to: '/rules' },
   { from: '/rules/legacy', to: '/rules/references/legacy' },
   { from: '/rules/current/context', to: '/rules/references/context-object' },
+  { from: '/rules/context', to: '/rules/references/context-object' },
   { from: '/rules/current/redirect', to: '/rules/guides/redirect' },
   { from: '/rules/current/metadata-in-rules', to: '/rules/guides/metadata' },
   { from: '/rules/current/csharp', to: '/rules/guides/csharp' },

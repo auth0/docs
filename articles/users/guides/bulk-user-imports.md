@@ -1,5 +1,5 @@
 ---
-title: Bulk User Imports with the Management API
+title: Bulk User Imports
 description: Learn how to perform bulk user imports with the Management API.
 crews: crew-2
 toc: true
@@ -15,9 +15,9 @@ useCase:
   - migrate
 ---
 
-# Bulk User Imports with the Management API
+# Bulk User Imports
 
-If you already have a user database, you can use our [/post_users_imports Management API endpoint](/api/management/v2#!/Jobs/post_users_imports) to populate a database connection with this information. The user data should first be exported in JSON format. You can then import that file using our API. 
+If you already have a user database, you can use the [`POST /api/v2/jobs/users/post_users_imports`](/api/management/v2#!/Jobs/post_users_imports) endpoint to populate a database connection with this information. The user data should first be exported in JSON format. You can then import that file using our API. 
 
 ::: note
 Each affected user will need to reset their password when they log in the first time after the bulk import.

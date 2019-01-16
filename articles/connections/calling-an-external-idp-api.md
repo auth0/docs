@@ -201,10 +201,6 @@ If you don't have a backend server, and you don't want to set up one, then you c
 
 Webtasks are the Auth0 way to create HTTP endpoints with Node.js and access them from anywhere. It's a way to safely execute server-side logic, when you do not have a backend. They come with a command line tool and an editor. For more information refer to [the webtask.io documentation](https://webtask.io/).
 
-:::note
-This option comes with an additional cost, for details see [Auth0 Extend pricing](https://auth0.com/extend/pricing).
-:::
-
 In this scenario, you will create a webtask and implement the steps of [the backend section](#from-the-backend). Then the webtask will call the IdP's API so the Access Token is never exposed to your public application.
 
 Your application will invoke the webtask with a simple HTTP request and manipulate the response appropriately (for example, render the user's GitHub repositories in the UI).

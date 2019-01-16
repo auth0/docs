@@ -35,6 +35,10 @@ Among many possibilities, rules can be used to:
 * Enable counters or persist other information. For information on storing user data, see: [Metadata in Rules](/rules/guides/metadata).
 * Modify tokens: Change the returned __scopes__ of the Access Token and/or add claims to it, and to the ID Token.
 
+::: warning How to Handle Rate Limits when calling Auth0 APIs
+For rules that call Auth0 APIs, you should always handle rate limiting by checking the X-RateLimit-Remaining header and acting appropriately when the number returned nears 0. You should also add logic to handle cases in which you exceed the provided rate limits and receive the HTTP Status Code 429 (Too Many Requests); in this case, if a re-try is needed, it is best to allow for a back-off to avoid going into an infinite re-try loop. For more information about rate limits, see [Rate Limit Policy For Auth0 APIs](/policies/rate-limits).
+:::
+
 ## Syntax
 
 A Rule is a function with the following arguments:

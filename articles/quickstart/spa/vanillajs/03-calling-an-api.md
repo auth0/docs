@@ -63,7 +63,7 @@ function callAPI(endpoint, secured) {
   if (secured) {
     xhr.setRequestHeader(
       'Authorization',
-      'Bearer ' + localStorage.getItem('access_token')
+      'Bearer ' + accessToken
     );
   }
   xhr.onload = function() {
