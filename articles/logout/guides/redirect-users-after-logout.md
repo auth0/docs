@@ -11,51 +11,49 @@ useCase:
 
 # Redirect Users After Logout
 
-To redirect a user after logout, add a `returnTo` querystring parameter with the target URL as the value. We suggest that you encode the target URL being passed in. For example, to redirect the user to `http://www.example.com` after logout, you can make the following request:
+## Prerequisite
 
-```text
-https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com
-```
+To redirect users after logout, register the redirect URL in your tenant or application settings. Auth0 only redirects to whitelisted URLs after logout. If you need different redirects for each application, you can whitelist the URLs in your application settings.
 
-You will need to add the non-encoded `returnTo` URL (for these examples, it is `http://www.example.com`) as an **Allowed Logout URLs** in one of two places:
+## Add target URL
 
-* For logout requests that do not include the `client_id` parameter, such as:
+1. Add a `returnTo` querystring parameter with the target URL as the value. Encode the target URL being passed in. For example, to redirect the user to `http://www.example.com` after logout, make the following request:
 
-    ```text
-    https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com
-    ```
+   ```text
+   https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com
+   ```
 
-  you must add the `returnTo` URL (for example `http://www.example.com`) to the **Allowed Logout URLs** list in the [Advanced tab of your Tenant Settings](${manage_url}/#/tenant/advanced). See [Set the Allowed Logout URLs at the Tenant Level](#set-the-allowed-logout-urls-at-the-tenant-level) for more information.
+2. Add the non-encoded `returnTo` URL (for these examples, it is `http://www.example.com`) as an **Allowed Logout URLs** in one of two places:
 
-* For logout requests that include the `client_id` parameter, such as:
+   - **Tenant Settings**: For logout requests that do not include the `client_id` parameter you must add the `returnTo` URL (for example `http://www.example.com`) to the **Allowed Logout URLs** list in the [Advanced tab of your Tenant Settings](${manage_url}/#/tenant/advanced). For example:
 
-    ```text
-    https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com&client_id=CLIENT_ID
-    ```
+     ```text
+     https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com
+     ```
 
-  you must add the `returnTo` URL (for example `http://www.example.com`) to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Set the Allowed Logout URLs at the Application Level](#set-the-allowed-logout-urls-at-the-application-level) for more information.
+     To add a list of URLs that the user may be redirected to after logging out at the tenant level, go to the [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced) of the Auth0 Dashboard.
 
-## Set the Allowed Logout URLs at the tenant level
+     ![Tenant level logout screen](/media/articles/logout/tenant-level-logout.png)
 
-To add a list of URLs that the user may be redirected to after logging out at the tenant level, go to the [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced) of the Auth0 Dashboard.
+     When providing the URL list, you can:
 
-![Tenant level logout screen](/media/articles/logout/tenant-level-logout.png)
+     * Specify multiple, valid, comma-separated URLs
+     * Use `*` as a wildcard for subdomains (such as `http://*.example.com`)
 
-When providing the URL list, you can:
+   - **Auth0 Apprlication Settings**: For logout requests that include the `client_id` parameter you must add the `returnTo` URL (for example `http://www.example.com`) to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. For example:
 
-* Specify multiple, valid, comma-separated URLs
-* Use `*` as a wildcard for subdomains (such as `http://*.example.com`)
+     ```text
+     https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com&client_id=CLIENT_ID
+     ```
+    
+     To redirect the user after they log out from a specific application, you must add the URL used in the `returnTo` parameter of the redirect URL to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 application that is associated with the `CLIENT_ID` parameter.
 
-## Set the Allowed Logout URLs at the application level
+    ![Application level logout screen](/media/articles/logout/client-level-logout.png)
 
-To redirect the user after they log out from a specific application, you must add the URL used in the `returnTo` parameter of the redirect URL to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 application that is associated with the `CLIENT_ID` parameter.
+    When providing the URL list, you can:
 
-![Application level logout screen](/media/articles/logout/client-level-logout.png)
-
-When providing the URL list, you can:
-
-* Specify multiple, valid, comma-separated URLs
-* Use `*` as a wildcard for subdomains (such as `http://*.example.com`)
+    * Specify multiple, valid, comma-separated URLs
+    * Use `*` as a wildcard for subdomains (such as `http://*.example.com`)
 
 ::: note
 In order to avoid validation errors, make sure that you include the protocol part of the URL. For example, setting the value to `*.example.com` will result in a validation error, so you should use `http://*.example.com` instead.
@@ -75,15 +73,10 @@ If you are working with social identity providers such as Google or Facebook, yo
 
 ## Additional requirements for Facebook
 
-If you are using Facebook, please be aware of the additional requirements when triggering a logout.
-
-You will also need to encode the `returnTo` parameter.
+If you are using Facebook, you will also need to encode the `returnTo` parameter. For example:
 
 ```text
 https://${account.namespace}/v2/logout?federated&
       returnTo=https%3A%2F%2F${account.namespace}%2Flogout%3FreturnTo%3Dhttp%3A%2F%2Fwww.example.com
       &access_token=[facebook access_token]
 ```
-
-## Keep reading
-

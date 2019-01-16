@@ -21,6 +21,5 @@ https://${account.namespace}/v2/logout
 
 Redirecting the user to this URL clears all single sign-on cookies set by Auth0 for the user.
 
-
 ## Keep reading
 
