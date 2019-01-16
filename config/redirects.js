@@ -1503,7 +1503,7 @@ module.exports = [
   },
   {
     from: ['/tutorials/bulk-importing-users-into-auth0', '/users/migrations/bulk-import'],
-    to: '/users/guides/bulk-user-import',
+    to: '/users/guides/bulk-user-imports',
   },
   {
     from: '/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise',
@@ -1607,7 +1607,7 @@ module.exports = [
   },
   {
     from: ['/users/bulk-importing-users-into-auth0', '/users/migrations/bulk-import'],
-    to: '/users/guides/bulk-user-import'
+    to: '/users/guides/bulk-user-imports'
   },
   {
     from: ['/connections/database/migrating', '/users/migrations/automatic'],

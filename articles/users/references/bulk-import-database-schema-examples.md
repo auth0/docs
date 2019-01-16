@@ -95,7 +95,7 @@ The file size limit for a bulk import is 500KB. You will need to start multiple 
 
 * [User Migration Overview](/users/concepts/overview-user-migration)
 * [Configure Automatic Migration](/users/guides/configure-automatic-migration)
-* [Bulk User Imports with the Management API](/users/guides/bulk-user-import)
+* [Bulk User Imports](/users/guides/bulk-user-imports)
 * [User Import/Export Extension](/extensions/user-import-export)
 * [User Migration Scenarios](/users/references/user-migration-scenarios)
 * [Migrating Stormpath Users to Auth0 Demo](https://github.com/auth0-blog/migrate-stormpath-users-to-auth0)

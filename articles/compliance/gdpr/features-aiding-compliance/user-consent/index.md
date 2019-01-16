@@ -71,7 +71,7 @@ With Auth0 you can save the user's consent information as part of the `user_meta
 To access the Management API you will need an Access Token. For information on how to get one, refer to the [Access Tokens for the Management API](/api/management/v2/tokens).
 :::
 
-The Management API offers several offers several options when it comes to user search and endpoints to update `user_metadata` or batch export users.
+The Management API offers several options when it comes to user search and endpoints to update `user_metadata` or batch export users.
 
 ### Search for a user using their email address
 
