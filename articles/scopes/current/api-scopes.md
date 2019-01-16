@@ -51,13 +51,13 @@ Now, when the app calls your API, it will include a token which verifies that it
 
 ### Example: An API called by a back-end service
 
-Let's say you are building an API that tracks local train and bus schedules, and the calling application is an automated service for a smart alarm clock, which you have also written. The smart alarm clock interface lets you select your train route to work and if you so desire, lets you select a bus route as a back-up method of transportation, before defaulting to driving your own vehicle. During the four hours prior to your train's scheduled departure time, the automated service checks your API to see if your train is canceled, and if so, checks your back-up bus route. If the bus route is active, it determines the extra time you'll need to catch your bus; otherwise, it calculates the extra time you'll need to drive yourself to work. Then, it adjusts your wake time accordingly.
+Let's say you work for a hospital and have an API that produces large amounts of imaging data whenever a patient gets an MRI. You store the imaging data locally for six months, but the hospital needs the images to be stored long-term for regulatory compliance purposes. Because of this, the hospital has a service that copies imaging data to an offsite cold storage solution on a nightly basis and deletes all local medical data after six months of storage.
 
-For this purpose, the automated service will need to read your train schedule and potentially, read your bus schedule. To do this, you create two scopes for your API: one that authorizes read-only access to a train schedule (`read:train_schedule`) and one that authorizes read-only access to a bus schedule (`read:bus_schedule`). Both your API and automated service are registered with Auth0 and you have authorized the automated service to request tokens for your API.
+To do this, you create two scopes for your API: one that authorizes read access to your imaging data (`read:images`) and one that authorizes delete access to your imaging data (`delete:images`). Your API and automated service are registered with Auth0, and you have authorized the automated service to request tokens for your API.
 
-The calling automated service will request the necessary scopes, but because there is no user, consent will not be requested. The service may request read access to the train schedule by including the `read:train_schedule` scope in its request, read access to the bus schedule by including the `read:bus_schedule` scope in its request, or read access to both the train and bus schedules by including both the `read:train_schedule` and `read:bus_schedule` scopes in its request. 
+The calling automated service will request the necessary scopes, but because there is no user, consent will not be requested. The service may request read access to your imaging data by including the `read:images` scope in its request, delete access by including the `delete:images` scope in its request, or both read and delete access by including the `read:images` and `delete:images` scopes in its request.
 
-Now, when the service calls your API, it will include a token which verifies that it has authorization for the requested scopes.
+Now, when the automated service calls your API, it will include a token which verifies that it has authorization for the requested scopes.
 
 ## Limit API scopes
 
