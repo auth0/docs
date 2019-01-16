@@ -100,5 +100,5 @@ In IE for example a setting called "Protected Mode" should be disabled or your a
 
 * [Log Users Out of Auth0](/logout/guides/logout-auth0)
 * [Log Users Out of Identity Providers](/logout/guides/logout-idps)
-* [Log Users Out of SAML Service Providers](/logout/guides/logout-saml-idps)
-* [Log Users Out of SAML Identity Providers](/protocols/saml/saml-configuration/logout)
+* [Log Users Out of SAML Identity Providers](/logout/guides/logout-saml-idps)
+* [Log Users Out of Auth0 as the SAML Identity Provider](/protocols/saml/saml-configuration/logout)
