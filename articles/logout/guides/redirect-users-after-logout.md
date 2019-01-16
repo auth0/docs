@@ -11,11 +11,7 @@ useCase:
 
 # Redirect Users After Logout
 
-## Prerequisite
-
-To redirect users after logout, register the redirect URL in your tenant or application settings. Auth0 only redirects to whitelisted URLs after logout. If you need different redirects for each application, you can whitelist the URLs in your application settings.
-
-## Add target URL
+You can redirect users to a specific URL after they logout. You will need to register the redirect URL in your tenant or application settings. Auth0 only redirects to whitelisted URLs after logout. If you need different redirects for each application, you can whitelist the URLs in your application settings.
 
 1. Add a `returnTo` querystring parameter with the target URL as the value. Encode the target URL being passed in. For example, to redirect the user to `http://www.example.com` after logout, make the following request:
 

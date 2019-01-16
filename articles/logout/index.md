@@ -9,7 +9,7 @@ useCase:
 
 # Logout
 
-You can log a user out of the Auth0 session and (optionally) from the Identity Provider session. 
+You can log a user out of the Auth0 session and (optionally) from the identity provider (IdP) session. 
 
 ## Session Layers
 
