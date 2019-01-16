@@ -27,7 +27,6 @@ If you are following along with the sample project you downloaded from the top o
 # replace YOUR_PACKAGE_ID with your app package ID
 YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
 ```
-:::
 
 Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
 ```bash
