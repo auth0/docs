@@ -15,7 +15,7 @@ useCase:
 
 # Logs
 
-Using the [Dashboard](${manage_url}/#/logs) or the [Management API logs endpoint](/api/v2#!/Logs/get_logs), you can pull log data on actions performed by administrators using the Dashboard, operations performed via the Management API and authentications made by your users.
+Using the [Dashboard](${manage_url}/#/logs) or the [Management API logs endpoint](/api/v2#!/Logs/get_logs), you can pull log data on actions performed by administrators using the Dashboard, operations performed via the Management API, and authentications made by your users.
 
 ::: warning
 Auth0 does not provide real-time logs for your tenant. While we do our best to index events as they arrive, you may see some delays.
@@ -65,9 +65,9 @@ If you would like to store log data longer than the time period offered by your 
 * Store the data yourself
 * Send the data to an external service. You can install and configure an Auth0 Extension in order to export logs automatically to another provider, like Sumo Logic or Loggly. For a list of available providers and detailed steps to configure each, see [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service).
 
-## Retrieving logs from the Management API
+## Retrieving Logs from the Management API
 
-You can use the Management API v2 retrieve your logs using the [/api/v2/logs](/api/v2#!/Logs/get_logs) endpoint, which allows for two types of consumption: [by checkpoint](/logs#get-logs-by-checkpoint) or [by search criteria](#get-logs-by-search-criteria).
+You can use the Management API v2 to retrieve your logs using the [/api/v2/logs](/api/v2#!/Logs/get_logs) endpoint, which suports two types of consumption: [by checkpoint](/logs#get-logs-by-checkpoint) or [by search criteria](#get-logs-by-search-criteria).
 
 ::: info
 We highly recommend using [the checkpoint approach](/logs#get-logs-by-checkpoint) to export logs to the external system of your choice and perform any search or analysis there, as logs stored in our system are subject to [the retention period](/logs#how-long-is-log-file-data-available). You can use any of the [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service) extensions to export the logs to the system of your choice (like Sumo Logic, Splunk or Loggly).
@@ -77,7 +77,7 @@ If you would like to perform a search for specific events you can also use the [
 
 **Limitation**: When you query for logs with the [list or search logs](/api/v2#!/Logs/get_logs) endpoint, you can retrieve a maximium of 100 logs per request.
 
-### Get Logs By Checkpoint
+### Get Logs by Checkpoint
 This method allows to retrieve logs from a particular log_id. For searching by checkpoint use the following parameters:
 
 - `from`: Log Event Id to start retrieving logs. You can limit the amount of logs using the take parameter. 
@@ -85,7 +85,7 @@ This method allows to retrieve logs from a particular log_id. For searching by c
 
 Important: When fetching logs by checkpoint, the `q` or any other parameter other than `from` and `take` will be ignored. Also the order by date is not guaranteed.
 
-### Get logs by Search Criteria
+### Get Logs by Search Criteria
 Retrieves log entries that match the specified search criteria (or list all entries if no criteria is used).
 
 For searching by criteria use the following parameters:
@@ -110,9 +110,10 @@ If you get the error `414 Request-URI Too Large` this means that your query stri
 As an alternative or complement to retrieving logs by checkpoint or search criteria using the [/api/v2/logs](/api/v2#!/Logs/get_logs) endpoint, you can also use the following endpoints to look for logs:
 
 * [/api/v2/logs/{id}](/api/v2#!/Logs/get_logs_by_id): Retrieves the single log entry associated with the provided log id.
-* [/api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user): Retrieves every log event for a specific user id.
+* [/api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user): Retrieves log events for a specific user id.
+`every`.
 
-## Log data event listing
+## Log Data Event Listing
 
 The following table lists the codes associated with the appropriate log events.
 
