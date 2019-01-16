@@ -76,3 +76,11 @@ https://${account.namespace}/v2/logout?federated&
       returnTo=https%3A%2F%2F${account.namespace}%2Flogout%3FreturnTo%3Dhttp%3A%2F%2Fwww.example.com
       &access_token=[facebook access_token]
 ```
+
+## Keep reading
+
+* [Log Users Out of Auth0](/logout/guides/logout-auth0)
+* [Log Users Out of Applications](logout/guides/logout-applications)
+* [Log Users Out of Identity Providers](/logout/guides/logout-idps)
+* [Log Users Out of SAML Service Providers](/logout/guides/logout-saml-service-providers)
+* [Log Users Out of SAML Identity Providers](/protocols/saml/saml-configuration/logout)

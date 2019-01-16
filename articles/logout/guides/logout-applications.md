@@ -10,7 +10,6 @@ useCase:
 
 # Log Users Out of Applications
 
-
 Enterprise users will typically have SSO enabled for multiple applications (e.g.: SharePoint, a few .NET applications, a few Java applications, Zendesk). In this case it's very common that when users sign out, this needs to happen for all of their applications.
 
 <%= include('../_includes/_logout-endpoint') %>
@@ -99,5 +98,7 @@ In IE for example a setting called "Protected Mode" should be disabled or your a
 
 ## Keep reading
 
-* 
-
+* [Log Users Out of Auth0](/logout/guides/logout-auth0)
+* [Log Users Out of Identity Providers](/logout/guides/logout-idps)
+* [Log Users Out of SAML Service Providers](/logout/guides/logout-saml-service-providers)
+* [Log Users Out of SAML Identity Providers](/protocols/saml/saml-configuration/logout)

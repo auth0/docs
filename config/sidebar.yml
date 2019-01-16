@@ -572,20 +572,20 @@ articles:
       - title: "User Logout"
         url: "/logout"
         children:
-
-          - title: "Logout of Applications"
+          - title: "Applications"
             url: "/logout/guides/logout-applications"
 
-          - title: "Logout of Auth0"
+          - title: "Auth0"
             url: "/logout/guides/logout-auth0"
 
-          - title: "Logout of IdPs"
+          - title: "Identity Providers"
             url: "/logout/guides/logout-idps"
+            hidden: true 
 
-          - title: "Logout of SAML Service Providers"
+          - title: "SAML Service Providers"
             url: "/logout/guides/logout-saml-service-providers"
 
-          - title: "Redirect Users After Logout"
+          - title: "Redirect After Logout"
             url: "/logout/guides/redirect-users-after-logout"
 
       - title: "User Search"
