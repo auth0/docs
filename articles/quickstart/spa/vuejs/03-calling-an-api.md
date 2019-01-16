@@ -64,6 +64,27 @@ class AuthService extends EventEmitter {
 }
 ```
 
+Modify the `localLogin` function to record the Access Token and Access Token expiry:
+
+```js
+localLogin(authResult) {
+    this.idToken = authResult.idToken;
+    this.profile = authResult.idTokenPayload;
+    this.tokenExpiry = new Date(this.profile.exp * 1000);
+
+    // NEW - Save the Access Token and expiry time in memory
+    this.accessToken = authResult.accessToken;
+    this.accessTokenExpiry = new Date(Date.now() + authResult.expiresIn * 1000);
+
+    localStorage.setItem(localStorageKey, 'true');
+
+    this.emit(loginEvent, {
+      loggedIn: true,
+      profile: authResult.idTokenPayload
+    });
+  }
+```
+
 Add two methods to the class which validate the Access Token and provide access to the token itself:
 
 ```js
