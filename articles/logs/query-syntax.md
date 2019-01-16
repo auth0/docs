@@ -58,7 +58,7 @@ If a search term is entered without a field name, it will only be searched again
 - `log_id`
 - `description`
 
-### Exact matching
+### Exact Matching
 
 To find exact matches, use double quotes: `description:"Username invalid"`.
 
