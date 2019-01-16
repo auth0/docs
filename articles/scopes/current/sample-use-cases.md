@@ -190,7 +190,7 @@ When creating your rule, make sure to set some logic that determines when to inc
 - [API Scopes](/scopes/current/api-scopes)
 - [How to Define API Scopes Using the Auth0 Dashboard](/scopes/current/guides/define-api-scopes-dashboard)
 - [How to Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)
-- [Represent Multiple APIs Using a Proxy API in Auth0](/api-auth/tutorials/represent-multiple-apis)
+- [Represent Multiple APIs Using a Single Logical API in Auth0](/api-auth/tutorials/represent-multiple-apis)
 - [How to Restrict Application or User Requests for API Scopes](/api-auth/restrict-requests-for-scopes)
 - [SPA + API Architecture Scenario: Restrict API Scopes Based on Authorization Extension Groups](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension)
 
