@@ -51,7 +51,7 @@ Now, when the app calls your API, it will include a token which verifies that it
 
 ### Example: An API called by a back-end service
 
-Let's say you work for a hospital and have an API that produces large amounts of imaging data whenever a patient gets an MRI. You store the imaging data locally for six months, but the hospital needs the images to be stored long-term for regulatory compliance purposes. Because of this, the hospital has a service that copies imaging data to an offsite cold storage solution on a nightly basis and deletes all local medical data after six months of storage.
+Let's say you work for a hospital and have an API that produces large amounts of imaging data whenever a patient gets an MRI. You store the imaging data locally for six months, but the hospital needs the images to be stored long-term for the purpose of regulatory compliance. Because of this, the hospital has a service that copies imaging data to an offsite cold storage solution on a nightly basis and deletes all local medical data after six months of storage.
 
 To do this, you create two scopes for your API: one that authorizes read access to your imaging data (`read:images`) and one that authorizes delete access to your imaging data (`delete:images`). Your API and automated service are registered with Auth0, and you have authorized the automated service to request tokens for your API.
 
@@ -71,6 +71,6 @@ We discuss this approach in more depth in our [SPA+API Architecture Scenario](/a
 - [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases)
 - [How to Define Scopes for an API Using the Auth0 Dashboard](/scopes/current/guides/define-api-scopes-dashboard)
 - [How to Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)
-- [Represent Multiple APIs Using a Proxy API in Auth0](/api-auth/tutorials/represent-multiple-apis)
+- [Represent Multiple APIs Using a Single Logical API in Auth0](/api-auth/tutorials/represent-multiple-apis)
 - [How to Restrict Application or User Requests for API Scopes](/api-auth/restrict-requests-for-scopes)
 - [SPA + API Architecture Scenario: Restrict API Scopes Based on Authorization Extension Groups](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension)
