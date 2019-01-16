@@ -583,7 +583,7 @@ articles:
             hidden: true 
 
           - title: "SAML Identity Providers"
-            url: "/logout/guides/logout-saml-ids"
+            url: "/logout/guides/logout-saml-idps"
 
           - title: "Redirect After Logout"
             url: "/logout/guides/redirect-users-after-logout"
