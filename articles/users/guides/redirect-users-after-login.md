@@ -39,4 +39,4 @@ You can [redirect users from rules](/rules/current/redirect) or you can [redirec
 * [OAuth 2.0 Authorization Framework](/protocols/oauth2)
 * [State Parameter](/protocols/oauth2/oauth-state)
 * [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
-* [Redirect Users After Logout](/logout#redirect-users-after-logout)
+* [Redirect Users After Logout](/logout/guides/redirect-users-after-logout)

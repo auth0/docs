@@ -569,10 +569,6 @@ articles:
             url: "/rules/current/redirect"
             hidden: true
 
-          - title: "Redirect Users After Logout"
-            url: "/logout#redirect-users-after-logout"
-            hidden: true
-
       - title: "User Search"
         url: "/users/search/v3"
         children:

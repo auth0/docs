@@ -39,7 +39,7 @@ Auth0 supports importing users from external applications using [automatic migra
 
 ## Redirect users
 
-To make your login process as easy-to-use and seamless as possible, you'll need to keep track of where you want to route users inside your application once Auth0 [redirects](/users/guides/redirect-users-after-login) users back to your application after authentication and after they [log out](/logout#redirect-users-after-logout). You can also [redirect users from rules](/rules/current/redirect).
+To make your login process as easy-to-use and seamless as possible, you'll need to keep track of where you want to route users inside your application once Auth0 [redirects](/users/guides/redirect-users-after-login) users back to your application after authentication and after they [log out](/logout/guides/redirect-users-after-logout). You can also [redirect users from rules](/rules/current/redirect).
 
 ## User search
 

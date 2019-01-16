@@ -2008,6 +2008,10 @@ module.exports = [
    {
     from: '/hooks/overview',
     to: '/hooks'
+   },
+   {
+    from: '/logout#redirect-users-after-logout',
+    to: '/logout/guides/redirect-users-after-logout'
    }
 ];
 

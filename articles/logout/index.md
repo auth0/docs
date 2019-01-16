@@ -58,7 +58,7 @@ For guidance on how to implement logout functionality in your specific type of a
 
 ## Redirect users after logout
 
-You can [redirect users](/logout/guides/redirect-users-after-logout) to a specific URL after they logout. You will need to register the redirect URL in your tenant or application settings. Auth0 only redirects to whitelisted URLs after logout. If you need different redirects for each application, you can whitelist the URLs in your application settings.
+After users log out, you can [redirect users](/logout/guides/redirect-users-after-logout) to a specific URL. You need to register the redirect URL in your tenant or application settings. Auth0 only redirects to whitelisted URLs after logout. If you need different redirects for each application, you can whitelist the URLs in your application settings.
 
 ## Keep reading
 
