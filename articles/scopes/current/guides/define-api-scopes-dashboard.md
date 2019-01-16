@@ -35,4 +35,4 @@ This guide will show you how to define custom scopes for an API using Auth0's Da
 ## Keep reading
 
 - [How to Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)
-- [How to Represent Multiple APIs Using a Proxy API in Auth0](/api-auth/tutorials/represent-multiple-apis)
+- [How to Represent Multiple APIs Using a Single Logical API in Auth0](/api-auth/tutorials/represent-multiple-apis)
