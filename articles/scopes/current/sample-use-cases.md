@@ -27,7 +27,7 @@ https://${account.namespace}/authorize?
   client_id=${account.clientId}&
   redirect_uri=${account.callback}&
   scope=openid%20profile%20email&
-  state=YOUR_OPAQUE_VALUE
+  state=YOUR_STATE_VALUE
 ```
 
 Notice that in this example: 
@@ -83,7 +83,7 @@ https://${account.namespace}/authorize?
   redirect_uri=${account.callback}& 
   scope=read:appointments&
   audience=YOUR_API_AUDIENCE&
-  state=YOUR_OPAQUE_VALUE
+  state=YOUR_STATE_VALUE
 ```
 
 Notice that in this example:
@@ -117,7 +117,7 @@ https://${account.namespace}/authorize?
   redirect_uri=${account.callback}& 
   scope=openid%20profile%20email%20read:appointments&
   audience=YOUR_API_AUDIENCE&
-  state=YOUR_OPAQUE_VALUE
+  state=YOUR_STATE_VALUE
 ```
 
 Notice that in this example:
