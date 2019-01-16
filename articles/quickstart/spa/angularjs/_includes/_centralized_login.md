@@ -175,7 +175,7 @@ The example below shows the following methods:
       // Set isLoggedIn flag in localStorage
       localStorage.setItem('isLoggedIn', 'true');
       // Set the time that the access token will expire at
-      expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+      expiresAt = (authResult.expiresIn * 1000) + new Date().getTime();
       accessToken = authResult.accessToken;
       idToken = authResult.idToken;
     }
