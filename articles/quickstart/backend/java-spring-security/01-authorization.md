@@ -28,8 +28,8 @@ ${snippet(meta.snippets.setup)}
 
 | Attribute | Description|
 | --- | --- |
-| `auth0.issuer` | The issuer of the JWT Token. Typically, this is your Auth0 domain with a `https://` prefix and a `/` suffix. For example, if your Auth0 domain is `example.auth0.com`, the `auth0.issuer` must be set to `https://example.auth0.com/` (the trailing slash is important). |
-| `auth0.apiAudience` | The unique identifier for your API. If you are following the steps in this tutorial it would be `https://quickstarts/api`.|
+| `security.oauth2.resource.jwk.keySetUri` | Location of your tenant's JWKS. Typically, this is your Auth0 domain with a `https://` prefix and a `/.well-known/jwks.json` suffix. For example, if your Auth0 domain is `example.auth0.com`, the `security.oauth2.resource.jwk.keySetUri` must be set to `https://example.auth0.com/.well-known/jwks.json`. |
+| `security.oauth2.resource.id` | The unique identifier for your API. If you are following the steps in this tutorial it would be `https://quickstarts/api`.|
 
 ## Validate Access Tokens
 
@@ -47,7 +47,7 @@ ${snippet(meta.snippets.dependenciesGradle)}
 
 ### Configure JSON Web Token signature algorithm
 
-Configure your API to use the RS256 signing algorithm. 
+Configure your API to use the RS256 signing algorithm.
 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java
