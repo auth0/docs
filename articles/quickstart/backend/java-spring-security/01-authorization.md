@@ -70,7 +70,7 @@ public class SecurityConfig extends ResourceServerConfigurerAdapter {
 
 <%= include('../_includes/_api_endpoints') %>
 
-The example below shows how to implement secure API methods. In the `AppConfig` class, add route matchers to the snippet. The `hasAuthority()` method provides a way to specify the required scope for the resource.
+The example below shows how to implement secure API methods. In the `AppConfig` class, add route matchers to the snippet. The `access()` method provides a way to specify the required scope for the resource.
 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java
@@ -145,4 +145,6 @@ public class APIController {
 }
 ```
 
-To build and run the seed project, use the command: `mvn spring-boot:run`.
+To build and run the seed project with Maven, use the command: `mvn spring-boot:run`.
+To build and run the seed project with Gradle, use the command: `./gradlew bootRun` in the project's root
+directory.
