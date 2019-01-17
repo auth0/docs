@@ -64,9 +64,7 @@ Embedded logins in web apps with Auth0 use [Cross-Origin Authentication](/cross-
 Cross-origin authentication is only necessary when authenticating against a directory using a username and password. Social identity providers and enterprise federation use a different mechanism, redirecting via standard protocols like OpenID Connect and SAML.
 :::
 
-If you are implementing passwordless with embedded login using Lock or Auth0.js from within your app, rather than Universal Login, you will need to have [custom domains](/custom-domains) set up.
-
-In addition, if you have not enabled custom domain names (`cnames`), the end user must have a browser that supports third-party cookies. Otherwise, in some browsers, cross-origin authentication will fail. For more information, see  [Limitations of Cross-Origin Authentication](/cross-origin-authentication).
+In addition, if you have not enabled [custom domains](/custom-domains), the end user must have a browser that supports third-party cookies. Otherwise, in some browsers, cross-origin authentication will fail. For more information, see  [Limitations of Cross-Origin Authentication](/cross-origin-authentication). This limitation applies to both traditional username/password database connections as well as to passwordless database connections.
 
 
 ### Security risks
