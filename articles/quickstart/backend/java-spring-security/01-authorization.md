@@ -54,7 +54,7 @@ Register your API identifier with Spring Security OAuth
 
 @EnableResourceServer
 @Configuration
-public class SecurityConfig extends ResourceServerConfigurerAdapter {
+public class AppConfig extends ResourceServerConfigurerAdapter {
 
     @Value(value = "<%= "${security.oauth2.resource.id}" %>")
     private String resourceId;
@@ -77,7 +77,7 @@ The example below shows how to implement secure API methods. In the `AppConfig` 
 
 @EnableResourceServer
 @Configuration
-public class SecurityConfig extends ResourceServerConfigurerAdapter {
+public class AppConfig extends ResourceServerConfigurerAdapter {
 
   @Value(value = "<%= "${security.oauth2.resource.id}" %>")
   private String resourceId;
