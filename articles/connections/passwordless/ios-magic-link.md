@@ -29,6 +29,8 @@ iOS needs to know which domains your application handles. To configure this:
 2. Find the *Associated Domains* section, and move the slider (located near the top right) so that it displays **On**. This enables the use of Associated Domains.
 3. Click on the **plus sign** to add your Auth0 Application's domain. You'll need to use the following format: `applinks:${account.namespace}`
 
+<%= include('./_custom-domains') %>
+
 ![Associated Domains](/media/articles/connections/passwordless/associated-domains.png)
 
 ## Pass callbacks to Lock
