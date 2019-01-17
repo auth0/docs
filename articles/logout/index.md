@@ -11,7 +11,7 @@ useCase:
 
 You can log a user out of the Auth0 session and (optionally) from the identity provider (IdP) session. When you're implementing the logout functionality, there are typically three session layers you need to consider:
 
-1. **Application Session Layer**: The first layer is the session inside your application. Though your application uses Auth0 to authenticate users, you'll still need to track that the user has logged in to your application. In a regular web application, you achieve this by storing information inside a cookie. [Log users out of your applications](/logout/guides/logout-application) by clearing their session. You should handle the application session in your application.
+1. **Application Session Layer**: The first layer is the session inside your application. Though your application uses Auth0 to authenticate users, you'll still need to track that the user has logged in to your application. In a regular web application, you achieve this by storing information inside a cookie. [Log users out of your applications](/logout/guides/logout-applications) by clearing their session. You should handle the application session in your application.
 
 2. **Auth0 Session Layer**: Auth0 also maintains a session for the user and stores their information inside a cookie. The next time a user is redirected to the Auth0 Lock screen, the user's information will be remembered. [Log users out of Auth0](/logout/guides/logout-auth0) by clearing the single sign-on (SSO) cookie.
 
