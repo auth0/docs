@@ -45,27 +45,23 @@ If you are using Gradle, add the dependency to the dependencies block:
 
 ${snippet(meta.snippets.dependenciesGradle)}
 
-### Configure JSON Web Token signature algorithm
+### Configure Your API with Spring Security OAuth
 
-Configure your API to use the RS256 signing algorithm.
+Register your API identifier with Spring Security OAuth
 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java
 
-@EnableWebSecurity
+@EnableResourceServer
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Value(value = "<%= "${auth0.apiAudience}" %>")
-    private String apiAudience;
-    @Value(value = "<%= "${auth0.issuer}" %>")
-    private String issuer;
+    @Value(value = "<%= "${security.oauth2.resource.id}" %>")
+    private String resourceId;
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        JwtWebSecurityConfigurer
-                .forRS256(apiAudience, issuer)
-                .configure(http);
+    public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
+        resources.resourceId(resourceId);
     }
 }
 ```

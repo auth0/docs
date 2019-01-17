@@ -1,3 +1,3 @@
 ```groovy
-compile 'com.auth0:auth0-spring-security-api:1.1.0'
+compile 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.5.RELEASE'
 ```

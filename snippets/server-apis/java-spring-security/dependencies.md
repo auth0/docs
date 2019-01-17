@@ -1,7 +1,7 @@
 ```xml
 <dependency>
-  <groupId>com.auth0</groupId>
-  <artifactId>auth0-spring-security-api</artifactId>
-  <version>1.1.0</version>
+  <groupId>org.springframework.security.oauth.boot</groupId>
+  <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+  <version>2.0.5.RELEASE</version>
 </dependency>
 ```
