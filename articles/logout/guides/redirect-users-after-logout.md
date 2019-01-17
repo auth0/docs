@@ -31,11 +31,6 @@ You can redirect users to a specific URL after they logout. You will need to reg
 
      ![Tenant level logout screen](/media/articles/logout/tenant-level-logout.png)
 
-     When providing the URL list, you can:
-
-     * Specify multiple, valid, comma-separated URLs
-     * Use `*` as a wildcard for subdomains (such as `http://*.example.com`)
-
    - **Auth0 Application Settings**: For logout requests that include the `client_id` parameter you must add the `returnTo` URL (for example `http://www.example.com`) to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. For example:
 
      ```text
@@ -46,10 +41,10 @@ You can redirect users to a specific URL after they logout. You will need to reg
 
     ![Application level logout screen](/media/articles/logout/client-level-logout.png)
 
-    When providing the URL list, you can:
+   When providing the URL list, you can:
 
-    * Specify multiple, valid, comma-separated URLs
-    * Use `*` as a wildcard for subdomains (such as `http://*.example.com`)
+   * Specify multiple, valid, comma-separated URLs.
+   * Use `*` as a wildcard for subdomains (such as `http://*.example.com`).
 
 ::: note
 In order to avoid validation errors, make sure that you include the protocol part of the URL. For example, setting the value to `*.example.com` will result in a validation error, so you should use `http://*.example.com` instead.
