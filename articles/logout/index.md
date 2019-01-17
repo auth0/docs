@@ -62,4 +62,4 @@ After users log out, you can [redirect users](/logout/guides/redirect-users-afte
 * [Log Users Out of Applications](logout/guides/logout-applications)
 * [Log Users Out of Identity Providers](/logout/guides/logout-idps)
 * [Log Users Out of SAML Identity Providers](/logout/guides/logout-saml-idps)
-* [Log Users Out of SAML Identity Providers](/protocols/saml/saml-configuration/logout)
+* [Log Users Out of Auth0 as the SAML Identity Provider](/protocols/saml/saml-configuration/logout)
