@@ -17,7 +17,7 @@ Note that Email is not true 'Multi-factor Authentication' as it's not a differen
 
 ## End user experience
 
-After the login step, users will be sent an email with a six-digit code that they'll need to enter to complete the authentication flow.
+After the login step, users will be presented with the most secure enabled factor. If they select 'Other login options', and then pick Email, they will be  sent an email with a six-digit code that they'll need to enter to complete the authentication flow.
 
 ![Email End User 1](/media/articles/multifactor-authentication/mfa-email.png)
 
