@@ -10,7 +10,7 @@ useCase: extensibility-rules
 
 # Node.js Modules Available in Rules
 
-Rules run in a JavaScript sandbox. The sandbox supports the ECMAScript 5 language and the following Node.js modules and libraries:
+Rules run in a JavaScript sandbox. The sandbox supports the ECMAScript 6 language and the following Node.js (version 8+) modules and libraries:
 
 | Module | Version |
 |--------|--------:|
