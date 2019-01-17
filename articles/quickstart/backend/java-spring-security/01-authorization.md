@@ -54,7 +54,7 @@ Register your API identifier with Spring Security OAuth
 
 @EnableResourceServer
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends ResourceServerConfigurerAdapter {
 
     @Value(value = "<%= "${security.oauth2.resource.id}" %>")
     private String resourceId;
@@ -75,38 +75,27 @@ The example below shows how to implement secure API methods. In the `AppConfig` 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java
 
-@EnableWebSecurity
+@EnableResourceServer
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends ResourceServerConfigurerAdapter {
 
-    @Value(value = "<%= "${auth0.apiAudience}" %>")
-    private String apiAudience;
-    @Value(value = "<%= "${auth0.issuer}" %>")
-    private String issuer;
+  @Value(value = "<%= "${security.oauth2.resource.id}" %>")
+  private String resourceId;
 
-    @Bean
-    CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
-        configuration.setAllowedMethods(Arrays.asList("GET","POST"));
-        configuration.setAllowCredentials(true);
-        configuration.addAllowedHeader("Authorization");
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.cors();
-        JwtWebSecurityConfigurer
-                .forRS256(apiAudience, issuer)
-                .configure(http)
-                .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/api/public").permitAll()
-                .antMatchers(HttpMethod.GET, "/api/private").authenticated()
-                .antMatchers(HttpMethod.GET, "/api/private-scoped").hasAuthority("read:messages");
-    }
+  @Override
+  public void configure(HttpSecurity http) throws Exception {
+      http.authorizeRequests()
+              .mvcMatchers("/api/public").permitAll()
+              .antMatchers("/api/private-scoped").access("#oauth2.hasScope('read:messages')")
+              .mvcMatchers("/api/**").authenticated()
+              .anyRequest().permitAll();
+  }
+
+  @Override
+  public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
+      resources.resourceId(resourceId);
+  }
 }
 ```
 
