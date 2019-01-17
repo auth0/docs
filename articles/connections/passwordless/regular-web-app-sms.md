@@ -49,9 +49,7 @@ Then you can trigger the login widget with the following code:
 <a href="javascript:login()">Login</a>
 ```
 
-::: note
-If you use custom domains, replace `account.namespace` with your custom domain.
-:::
+<%= include('./_custom-domains') %>
 
 This will open a dialog that asks the user for their phone number.
 

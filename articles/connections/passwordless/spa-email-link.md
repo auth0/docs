@@ -51,9 +51,7 @@ Then you can trigger the passwordless authentication using a magic link with the
 <a href="javascript:login()">Login</a>
 ```
 
-::: note
-If you use custom domains, replace `account.namespace` with your custom domain.
-:::
+<%= include('./_custom-domains') %>
 
 The user will receive an email with the magic link. Once the user clicks on this link, Auth0 will handle the authentication and redirect back to the application.
 
