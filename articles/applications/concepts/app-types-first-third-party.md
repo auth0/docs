@@ -31,32 +31,37 @@ Third-party applications must be created through the [Auth0 Management API](/api
 
 ### Characteristics of Third-Party Applications
 
-#### General
+#### User Consent
 
-- Third-party applications cannot skip user consent when consuming APIs. Because anyone can create an application, requiring a final user to provide consent improves security.
-- [ID Tokens](/tokens/id-token) generated for third-party applications hold minimum user profile information.
-- Third-party applications can use only tenant-level [connections] (domain connections).
+Third-party applications cannot skip user consent when consuming APIs. Because anyone can create an application, requiring a final user to provide consent improves security.
+
+#### ID Tokens
+
+[ID Tokens](/tokens/id-token) generated for third-party applications hold minimum user profile information.
+
+#### Connections
+
+Third-party applications can use only tenant-level [connections] (domain connections). Configured connections are enabled for every third-party application.
 
 #### When used with Lock
 
-- To authenticate users using [Lock](/libraries/lock), you will have to use a version greater than `10.7`.
-  - [PSaaS Appliance](/appliance) users must use `https://{config.auth0Domain}/` as the value for [the `configurationBaseUrl` option](https://github.com/auth0/lock#other-options).
+To authenticate users from third-party applications using [Lock](/libraries/lock), you will have to use a version greater than `10.7`.
+
+[PSaaS Appliance](/appliance) users must use `https://{config.auth0Domain}/` as the value for [the `configurationBaseUrl` option](https://github.com/auth0/lock#other-options).
 
 #### When used with the Management APIv2
   
-- They cannot use [ID Tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should get a Management APIv2 Token (see the *How to get a Management APIv2 Token* panel for details). Note that the applications should be granted the `current_user_*` scopes, as required by each endpoint.
-  - `read:current_user`: [List or search users](/api/management/v2#!/Users/get_users), [Get a user](/api/management/v2#!/Users/get_users_by_id), [Get user Guardian enrollments](/api/management/v2#!/Users/get_enrollments)
-  - `update:current_user_metadata`: [Update a user](/api/management/v2#!/Users/patch_users_by_id), [Delete a user's multi-factor provider](/api/management/v2#!/Users/delete_multifactor_by_provider)
-  - `create:current_user_device_credentials`: [Create a device public key](/api/management/v2#!/Device_Credentials/post_device_credentials)
-  - `delete:current_user_device_credentials`: [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id)
-  - `update:current_user_identities`: [Link a user account](/api/management/v2#!/Users/post_identities), [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id)
+Third-party applications cannot use [ID Tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should [get a Management APIv2 Token]().
 
-::: panel How to get a Management APIv2 Token
-To access the [Management APIv2](/api/management/v2) endpoints from a third-party application, the application needs a Management APIv2 Token. To get one, the application can use any of the [API Authorization Flows](/api-auth), with the following request parameters:
+Third-party applications should be granted the `current_user_*` scopes, as required by each endpoint.
 
-- `audience=https://${account.namespace}/api/v2/`
-- `scope=read:current_user update:current_user_metadata`
-:::
+- `read:current_user`: [List or search users](/api/management/v2#!/Users/get_users), [Get a user](/api/management/v2#!/Users/get_users_by_id), [Get user Guardian enrollments](/api/management/v2#!/Users/get_enrollments)
+- `update:current_user_metadata`: [Update a user](/api/management/v2#!/Users/patch_users_by_id), [Delete a user's multi-factor provider](/api/management/v2#!/Users/delete_multifactor_by_provider)
+- `create:current_user_device_credentials`: [Create a device public key](/api/management/v2#!/Device_Credentials/post_device_credentials)
+- `delete:current_user_device_credentials`: [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id)
+- `update:current_user_identities`: [Link a user account](/api/management/v2#!/Users/post_identities), [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id)
+
+
 
 ## Keep reading
 * [View Application Type: First-Party or Third-Party](/applications/guides/view-application-type-first-party)
