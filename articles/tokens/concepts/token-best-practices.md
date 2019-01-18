@@ -1,3 +1,18 @@
+---
+title: Best Practices for Tokens
+description: Lean about the best practices when using tokens in authentication and authorization.
+toc: true
+topics:
+  - tokens
+  - jwt
+contentType:
+  - concept
+useCase:
+  - invoke-api
+  - secure-api
+  - add-login
+---
+
 ## Best Practices
 
 * **Keep it secret. Keep it safe.** The signing key should be treated like any other credentials and revealed only to services that absolutely need it.
