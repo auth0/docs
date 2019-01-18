@@ -43,30 +43,14 @@ Remember that JWT is a standard, which means that all JWTs are tokens, but not a
 
 - **Information Exchange**: JWTs are a good way of securely transmitting information between parties because they can be signed, which means you can be sure that the senders are who they say they are. Additionally, the structure of a JWT allows you to verify that the content hasn't been tampered with.
 
-
-
 ::: warning
-However you use JWTs, be sure to follow [best practices for tokens](/tokens/concepts/token-best-practices).
+However you use JWTs, be sure to follow [best practices for tokens](/tokens/concepts/token-best-practices) and make sure you [verify the signature](/tokens/guides/id-token/validate-id-token#verify-the-signature) before storing and using a JWT. For more information on how to implement JWT, see [How to Implement JWT]().
 :::
 
 
 
 
-## How to implement JWT
 
-
-
-
-::: warning
-However you use a JWT, you must [verify its signature](/tokens/guides/id-token/validate-id-token#verify-the-signature) before storing and using it.
-:::
-
-The safest way to implement JWT-based authentication, is to use one of the existing open source libraries. In [JWT.io](https://jwt.io/#libraries-io) you can find several, for .NET, Python, Java, Ruby, Objective-C, Swift, PHP, and more.
-
-JSON Tokens contain three pieces: a header, payload (which contains _claims_ about an entity), and a signature. To learn about the structure of a JWT, refer to [JSON Web Token (JWT) Structure](/tokens/reference/jwt/jwt-structure).
-
-
-To verify JWT (or manually create one), you can use the [JWT.io Debugger](https://jwt.io/#debugger-io).
 
 
 ## Read More
@@ -77,4 +61,6 @@ To verify JWT (or manually create one), you can use the [JWT.io Debugger](https:
 * [Cookies vs Tokens. Getting auth right with Angular.JS](https://auth0.com/blog/angularjs-authentication-with-cookies-vs-token/)
 * [Best Practices for Tokens](/tokens/concepts/token-best-practices)
 * [Why Use JSON Web Token (JWT)](/tokens/concepts/why-use-jwt)
+* [JSON Web Token (JWT) Structure] (/tokens/reference/jwt)
+* [JSON Web Token (JWT) Claims]()
 :::
