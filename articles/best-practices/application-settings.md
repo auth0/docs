@@ -33,7 +33,7 @@ You should flag [first-party and third-party applications](/applications/applica
 
 Set the [ID Token expiration time](/tokens/id-token#token-lifetime) in your Application Settings. By default ID Tokens expire after 10 hours.
 
-Once issued, [an ID Token cannot be revoked](/tokens/id-token#revoke-access). So use a short expiration time and renew the session, if the user remains active.
+Once issued, [an ID Token cannot be revoked](/tokens/guides/revoke-tokens). So use a short expiration time and renew the session, if the user remains active.
 
 ## Do not use wildcards or localhost in callbacks or origins fields
 
