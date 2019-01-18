@@ -1,10 +1,8 @@
 To run it from the command line:
 
 ```bash
-# In Linux / macOS
-./gradlew clean appRun
-# In Windows
-gradlew clean appRun
+# In Linux / macOS / Windows
+mvn spring-boot:run
 ```
 
 The sample includes a [Docker](https://www.docker.com) image ready to run with the following command:
