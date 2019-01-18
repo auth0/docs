@@ -1,5 +1,4 @@
 ---
-url: /jwt-claims
 title: JSON Web Token Claims
 description: Learn about the JSON Web Token (JWT) claims and the rules you should be aware of when naming them.
 toc: true
