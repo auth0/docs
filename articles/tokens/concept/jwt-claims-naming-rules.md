@@ -1,7 +1,7 @@
 ---
 url: /overview-jwt-claims
 title: Naming Rules for JSON Web Token (JWT) Claims
-description: Describes the rules you should be aware of when naming JSON Web Token (JWT) claims.
+description: Learn about the rules you should be aware of when naming JSON Web Token (JWT) claims.
 toc: true
 topics:
   - tokens
@@ -16,18 +16,18 @@ useCase:
 
 # Naming Rules for JSON Web Token (JWT) Claims
 
-When naming JSON Web Token (JWT) claims, make sure you avoid name collisions, especially if you are using self-defined [custom claims]. When collisions occur, it can be difficult to tease apart two claims of the same name that contain differing information.
+When naming JSON Web Token (JWT) claims, make sure you avoid name collisions, especially if you are using self-defined [custom claims](/scopes/current/custom-claims). When collisions occur, it can be difficult to tease apart two claims of the same name that contain differing information.
 
 ## Types of claims
 
 There are two types of claims:
 
-* Reserved
-* Custom
+* Reserved: Claims defined by the [JWT specification](https://tools.ietf.org/html/rfc7519) to ensure interoperability with third-party, or external, applications.
+* Custom: Claims that you define yourself. Name these claims carefully to avoid collision with reserved claims or other custom claims.
 
 ### Reserved claims
 
-The JWT specification defines seven reserved claims that are not required, but are recommended to allow interoperability with other third-party applications. These are:
+The JWT specification defines seven reserved claims that are not required, but are recommended to allow interoperability with [third-party applications](/applications/application-types#third-party-applications). These are:
 
 * iss (issuer): Issuer of the JWT
 * sub (subject): Subject of the JWT (the user)
@@ -59,4 +59,3 @@ In the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jw
 You can create private custom claims to share information specific to your application. For example, while a public claim might contain generic information like "name" and "email", private claims would be more specific, such as "employee ID", "authorization scope", and "department name".
 
 Name private claims cautiously to avoid collision. They should not share names with reserved or public claims.
-
