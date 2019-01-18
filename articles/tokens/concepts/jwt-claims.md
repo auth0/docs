@@ -19,9 +19,7 @@ useCase:
 There are two types of JSON Web Token (JWT) claims:
 
 * **Reserved**: Claims defined by the [JWT specification](https://tools.ietf.org/html/rfc7519) to ensure interoperability with third-party, or external, applications.
-* **Custom**: Claims that you define yourself. Name these claims carefully to avoid collision with reserved claims or other custom claims.
-
-When naming JSON Web Token (JWT) claims, make sure you avoid name collisions, especially if you are using self-defined [custom claims](/scopes/current/custom-claims). When collisions occur, it can be difficult to tease apart two claims of the same name that contain differing information.
+* **Custom**: Claims that you define yourself. Name these claims carefully to avoid collision with reserved claims or other custom claims. When collisions occur, it can be difficult to tease apart two claims of the same name that contain differing information.
 
 ### Reserved claims
 
@@ -39,7 +37,7 @@ You can see a full list of reserved claims at the [IANA JSON Web Token Claims Re
 
 ### Custom claims
 
-For your specific use case, you can define your own custom claims. You can name a custom claim anything that is not already listed in the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims). 
+For your specific use case, you can define your own [custom claims](/scopes/current/custom-claims). You can name a custom claim anything that is not already listed in the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims). 
 
 #### Public claims
 
