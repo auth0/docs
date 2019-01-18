@@ -62,5 +62,6 @@ However you use JWTs, be sure to follow [best practices for tokens](/tokens/conc
 * [Best Practices for Tokens](/tokens/concepts/token-best-practices)
 * [Why Use JSON Web Token (JWT)](/tokens/concepts/why-use-jwt)
 * [JSON Web Token (JWT) Structure](/tokens/reference/jwt/jwt-structure)
-* [JSON Web Token (JWT) Claims]()
+* [JSON Web Token (JWT) Claims](/tokens/jwt-claims)
+* [Programmatically Parse and Validate JWT]()
 :::
