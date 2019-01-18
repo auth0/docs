@@ -12,9 +12,9 @@ useCase:
   - add-login
 ---
 
-# Why Use JSON Web Tokens (JWT)
+# Why Use JSON Web Token (JWT)
 
-Let's talk about the benefits of **JSON Web Tokens (JWT)** when compared to **Simple Web Tokens (SWT)** and **Security Assertion Markup Language (SAML) Tokens**.
+Let's talk about the benefits of **JSON Web Token (JWT)** when compared to **Simple Web Token (SWT)** and **Security Assertion Markup Language (SAML) tokens**.
 
 ## More compact
 
