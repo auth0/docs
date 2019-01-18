@@ -1,5 +1,6 @@
 ---
-description: Learn how to validate an ID Token.
+title: Validate an ID Token
+description: Understand how to validate an ID Token.
 toc: true
 topics:
   - tokens
