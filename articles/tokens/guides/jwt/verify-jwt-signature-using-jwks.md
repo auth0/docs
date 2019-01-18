@@ -12,9 +12,9 @@ useCase:
   - secure-api
   - add-logi n
 ---
-# How to Verify a JSON Web Token's Signature using the JWKS Endpoint
+# How to Verify a JSON Web Token's Signature using the JSON Web Key Set Endpoint
 
-Auth0 exposes a discovery endpoint, which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to automatically configure your application and locate the JWKS endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued JSON Web Tokens (JWTs) for your API.
+Auth0 exposes a discovery endpoint, which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to automatically configure your application and locate the JSON Web Key Set (JWKS) endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued JSON Web Tokens (JWTs) for your API.
 
 When verifying a JWT using a JWKS, you will need to:
 
@@ -25,7 +25,7 @@ When verifying a JWT using a JWKS, you will need to:
 5. Build a certificate using the corresponding `x5c` property in your JWKS.
 6. Use the certificate to verify the JWT's signature.
 
-For more information about the structure of a JWT, see 
+For more information about the structure of a JWT, see [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure).
 
 
 ## How many signing keys should I expect?
