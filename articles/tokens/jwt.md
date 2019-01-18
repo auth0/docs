@@ -29,6 +29,10 @@ The information contained within the JSON object can be verified and trusted bec
 
 JWTs can be signed using a secret (with the **HMAC** algorithm) or a public/private key pair using **RSA** or **ECDSA**. When tokens are signed using public/private key pairs, the signature also certifies that only the party holding the private key is the one that signed it.
 
+::: note
+For additional informatiom about why to use JWT over other token formats, including Simple Web Tokens (SWT) and SAML tokens, see [Why Use JSON Web Token (JWT)](/tokens/concepts/why-use-jwt).
+:::
+
 ## Use of JWTs
 
 Remember that JWT is a standard, which means that all JWTs are tokens, but not all tokens are JWTs. Keeping that in mind, JWTs can be used in varying ways:
@@ -38,6 +42,8 @@ Remember that JWT is a standard, which means that all JWTs are tokens, but not a
 - **Authorization**: Once a user is successfully logged in, an application may request to access routes, services, or resources on behalf of that user. To do so, it uses an [Access Token](/tokens/overview-access-token), which may be in the form of a JWT. Each subsequent request includes the JWT. Single Sign On widely uses JWT nowadays because of JWT's small overhead and its ability to easily be used across different domains.
 
 - **Information Exchange**: JWTs are a good way of securely transmitting information between parties because they can be signed, which means you can be sure that the senders are who they say they are. Additionally, the structure of a JWT allows you to verify that the content hasn't been tampered with.
+
+
 
 ::: warning
 However you use JWTs, be sure to follow [best practices for tokens](/tokens/concepts/token-best-practices).
@@ -70,4 +76,5 @@ To verify JWT (or manually create one), you can use the [JWT.io Debugger](https:
 * [10 Things You Should Know About Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
 * [Cookies vs Tokens. Getting auth right with Angular.JS](https://auth0.com/blog/angularjs-authentication-with-cookies-vs-token/)
 * [Best Practices for Tokens](/tokens/concepts/token-best-practices)
+* [Why Use JSON Web Token (JWT)](/tokens/concepts/why-use-jwt)
 :::
