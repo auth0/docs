@@ -14,7 +14,7 @@ useCase:
   - secure-api
 ---
 
-# JSON Web Tokens (JWT) in Auth0
+# JSON Web Token (JWT)
 
 ::: note
 For more information on all the types of tokens used by Auth0, see [Tokens](/tokens).
@@ -44,7 +44,7 @@ Remember that JWT is a standard, which means that all JWTs are tokens, but not a
 - **Information Exchange**: JWTs are a good way of securely transmitting information between parties because they can be signed, which means you can be sure that the senders are who they say they are. Additionally, the structure of a JWT allows you to verify that the content hasn't been tampered with.
 
 ::: warning
-However you use JWTs, be sure to follow [best practices for tokens](/tokens/concepts/token-best-practices) and make sure you [verify the signature](/tokens/guides/id-token/validate-id-token#verify-the-signature) before storing and using a JWT. For more information on how to implement JWT, see [How to Implement JWT]().
+However you use JWTs, be sure to follow [best practices for tokens](/tokens/concepts/token-best-practices) and make sure you [verify the signature](/tokens/guides/id-token/validate-id-token#verify-the-signature) before storing and using a JWT. For more information on how to implement JWT, see [Programmatically Parse and Validate JWT]().
 :::
 
 
@@ -61,6 +61,6 @@ However you use JWTs, be sure to follow [best practices for tokens](/tokens/conc
 * [Cookies vs Tokens. Getting auth right with Angular.JS](https://auth0.com/blog/angularjs-authentication-with-cookies-vs-token/)
 * [Best Practices for Tokens](/tokens/concepts/token-best-practices)
 * [Why Use JSON Web Token (JWT)](/tokens/concepts/why-use-jwt)
-* [JSON Web Token (JWT) Structure] (/tokens/reference/jwt)
+* [JSON Web Token (JWT) Structure](/tokens/reference/jwt/jwt-structure)
 * [JSON Web Token (JWT) Claims]()
 :::
