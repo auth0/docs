@@ -21,6 +21,14 @@ To programmatically parse and validate a JWT, you can either:
 * use any existing middleware for your web framework
 * manually implement all the checks as described in [specification RFC 7519 > 7.2 Validating a JWT](https://tools.ietf.org/html/rfc7519#section-7.2)
 
+## Third-party libraries
+
+The safest way is to use one of the existing open source third-party libraries. At [JWT.io](https://jwt.io/#libraries), you can find libraries for various languages and technologies, such as .NET, Python, Java, Ruby, Objective-C, Swift, and PHP.
+
 If you choose a third-party library, remember to pick a library that supports the signing algorithm you selected when you registered your API with Auth0.
 
 Also, be aware that not all libraries validate all JWT claims. At [JWT.io](https://jwt.io/), you can see which validations each library supports (look for the green check marks).
+
+## Keep reading
+
+* [JSON Web Token (JWT) Structure](/tokens/reference/jwt/)
