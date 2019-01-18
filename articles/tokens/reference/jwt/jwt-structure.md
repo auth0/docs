@@ -54,7 +54,7 @@ The payload contains statements about the entity (typically, the user) and addit
 ```
 
 ::: note
-When working with [JWT claims](https://tools.ietf.org/html/rfc7519#section-4), you should be aware of [naming rules](/tokens/concepts/jwt-claims-naming-rules). 
+When working with [JWT claims](https://tools.ietf.org/html/rfc7519#section-4), you should be aware of the different [claim types and naming rules](/tokens/concepts/jwt-claims). 
 :::
 
 
