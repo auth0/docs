@@ -20,10 +20,10 @@ useCase:
 For more information on all the types of tokens used by Auth0, see [Tokens](/tokens).
 :::
 
-JSON Web Token (JWT), pronounced "jot", is an open standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. 
+JSON Web Token (JWT), pronounced "jot", is an open standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.  
 
 * Compact: Because of its relatively small size, a JWT can be sent through a URL, through a POST parameter, or inside an HTTP header. Additionally, it is transmitted quickly.
-* Self-contained: The payload of the JWT contains all the required information about an entity to avoid querying a database more than once.
+* Self-contained: A JWT contains all the required information about an entity to avoid querying a database more than once.
 
 ## Use of JWTs
 
@@ -37,13 +37,11 @@ Remember that JWT is a standard, which means that all JWTs are tokens, but not a
 
 
 
+
+
 ## How do JSON Web Tokens work?
 
 In authentication, when the user successfully logs in using their credentials, a JSON Web Token will be returned. Since tokens are credentials, great care must be taken to prevent security issues. In general, you should not keep tokens longer than required.
-
-::: warning
-You __must__ [verify a JWT's signature](/tokens/id-token#verify-the-signature) before storing and using it.
-:::
 
 Whenever the user wants to access a protected route or resource, the user agent should send the JWT, typically in the **Authorization** header using the **Bearer** schema. The content of the header should look like the following:
 
@@ -68,6 +66,13 @@ The following diagram shows how a JWT is obtained and used to access APIs or res
 The information contained within the JSON object can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the **HMAC** algorithm) or a public/private key pair using **RSA** or **ECDSA**.
 
 Although JWTs can be encrypted to also provide secrecy between parties, we will focus on *signed* tokens. Signed tokens can *verify the integrity* of the claims contained within them, while encrypted tokens *hide* those claims from other parties. When tokens are signed using public/private key pairs, the signature also certifies that only the party holding the private key is the one that signed it.
+
+
+To learn about the structure of a JWT, refer to [JSON Web Token (JWT) Structure](/tokens/reference/jwt/jwt-structure).
+
+::: warning
+However you use a JWT, you must [verify its signature](/tokens/id-token#verify-the-signature) before storing and using it.
+:::
 
 The safest way to implement JWT-based authentication, is to use one of the existing open source libraries. In [JWT.io](https://jwt.io/#libraries-io) you can find several, for .NET, Python, Java, Ruby, Objective-C, Swift, PHP, and more.
 
