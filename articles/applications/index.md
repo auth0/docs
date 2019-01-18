@@ -18,9 +18,9 @@ The term application does not imply any particular implementation characteristic
 Auth0 categorizes applications in three ways:
 
 
-* Auth0 application type: To add authentication to your application, you must first register it with Auth0 and select an application type.
-* Public versus Confidential
-* First-party versus Third-party: First-party and third-party refer to the ownership of the application. This has implications in terms of who has administrative access to your Auth0 domain.
+* [Auth0 application type](): To add authentication to your application, you must first register it with Auth0 and select an application type.
+* [Public versus Confidential](): 
+* [First-party versus Third-party](): First-party and third-party refer to the ownership of the application. This has implications in terms of who has administrative access to your Auth0 domain. First-party applications are those controlled by the same organization or person who owns the Auth0 domain. Third-party applications are controlled by someone who most likely should not have administrative access to your Auth0 domain. Third-party applications enable external parties or partners to access protected resources behind your API securely.
 
 
 
