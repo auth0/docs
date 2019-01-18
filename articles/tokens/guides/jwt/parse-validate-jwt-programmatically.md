@@ -1,6 +1,6 @@
 ---
 title: Programmatically Parse and Validate a JSON Web Token
-description: Learn how to programmatically parse and validate a JSON Web Token (JWT).
+description: Understand how to programmatically parse and validate a JSON Web Token (JWT).
 toc: true
 topics:
   - jwt
