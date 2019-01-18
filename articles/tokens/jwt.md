@@ -35,7 +35,9 @@ Remember that JWT is a standard, which means that all JWTs are tokens, but not a
 
 - **Information Exchange**: JWTs are a good way of securely transmitting information between parties because they can be signed, which means you can be sure that the senders are who they say they are. Additionally, the structure of a JWT allows you to verify that the content hasn't been tampered with.
 
+::: warning
 However you use JWTs, be sure to follow [best practices for tokens](/tokens/concepts/token-best-practices).
+:::
 
 
 ## How do JSON Web Tokens work?
