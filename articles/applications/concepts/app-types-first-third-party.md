@@ -11,28 +11,6 @@ useCase:
 ---
 # Application Types: First-party vs. Third-party
 
-### Check your application type
-
-You can use the Management API's [Get a Client endpoint](/api/management/v2#!/Clients/get_clients_by_id) to check your existing Application's type. If the application is first party, the `is_first_party` equals `true`, else `false`. Be sure to replace `CLIENT_ID` with the ID of your application.
-
-```har
-{
-	"method": "GET",
-	"url": "https://${account.namespace}/api/v2/clients/CLIENT_ID?fields=is_first_party&include_fields=true",
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer MGMT_API_ACCESS_TOKEN"
-	}]
-}
-```
-
-::: note
-See [Access Tokens for the Management API](/api/management/v2/tokens) for instructions on obtaining the Access Token required to call the Management API.
-:::
-
-
-
-
 ## First vs third-party applications
 
 First-party and third-party refer to the ownership of the application. This has implications in terms of who has administrative access to your Auth0 domain.
