@@ -46,7 +46,7 @@ Check that the algorithm (`alg`) specified in the header of the decoded token ma
 
 ### Confirm that the token is correctly signed using the proper key
 
-Since the ID Token is always a JWT, the signature is created using its header and payload, a secret, and the selected hashing algorithm (e.g., `HMAC`, `SHA256`, `RSA`). Thus, the method of verifying the signature depends on the hashing algorithm:
+Since the ID Token is always a JWT, the signature is created using its header and payload, a secret, and the selected hashing algorithm (e.g., HMAC SHA256, RSA). Thus, the method of verifying the signature depends on the hashing algorithm:
 
 - For `RS256` (the most secure practic and our recommendation), the tenant's [JSON Web Key Set (JWKS)](/jwks) is used. Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
 
