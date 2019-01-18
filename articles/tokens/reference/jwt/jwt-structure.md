@@ -1,18 +1,37 @@
-## What is the JSON Web Token structure?
+---
+title: JSON Web Token (JWT) Structure
+description: Learn how JSON Web Tokens (JWTs) are structured.
+toc: true
+topics:
+  - tokens
+  - jwt
+contentType:
+  - reference
+useCase:
+  - invoke-api
+  - secure-api
+  - add-login
+---
 
-JSON Web Tokens consist of three Base64-encoded strings separated by dots (`.`), which can easily be passed in HTML and HTTP environments and are more compact than XML-based standards like SAML. These strings include:
+# JSON Web Token Structure
 
-- Header
-- Payload
-- Signature
+A well-formed JWT consists of three concatenated Base64-encoded strings, separated by dots (`.`): 
 
-Therefore, a JWT typically looks like the following:
+- **Header**: contains metadata about the type of token and the cryptographic algorithms used to secure its contents.
+- **Payload** (set of claims): contains verifiable security statements, such as the identity of the user and the permissions they are allowed.
+- **Signature**: used to validate that the token is trustworthy and has not been tampered with.
+
+A JWT typically looks like this:
 ![Encoded JWT](/media/articles/jwt/encoded-jwt3.png)
 
+To see for yourself what is inside a JWT, use the [jwt.io Debugger](http://jwt.io). It will allow you to quickly check that a JWT is well formed and manually inspect the values of the various claims.
 
-### Header
+![JWT.IO Debugger](/media/articles/jwt/legacy-app-auth-5.png)
 
-The header *typically* consists of two parts: the type of the token (JWT) and the hashing algorithm being used (e.g., HMAC SHA256 or RSA):
+
+## Header
+
+The header *typically* consists of two parts: the hashing algorithm being used (e.g., HMAC SHA256 or RSA) and the type of the token (JWT).
 
 ```
 {
@@ -22,9 +41,9 @@ The header *typically* consists of two parts: the type of the token (JWT) and th
 ```
 
 
-### Payload
+## Payload
 
-The payload contains statements about the entity (typically, the user) and additional data, which are called claims:
+The payload contains statements about the entity (typically, the user) and additional entity attributes, which are called claims. In this example, our entity is a user.
 
 ```
 {
@@ -34,15 +53,18 @@ The payload contains statements about the entity (typically, the user) and addit
 }
 ```
 
+::: note
 When working with [JWT claims](https://tools.ietf.org/html/rfc7519#section-4), you should be aware of [naming rules]. 
+:::
 
 
+## Signature
 
-### Signature
+The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
 
-To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that.
+To create the signature, the Base64-encoded header and payload are taken, along with a secret, and signed with the algorithm specified in the header.
 
-For example if you want to use the HMAC SHA256 algorithm, the signature will be created in the following way:
+For example, if you are creating a signature for a token using the HMAC SHA256 algorithm, you would do the following:
 
 ```
 HMACSHA256(
@@ -50,10 +72,3 @@ HMACSHA256(
   base64UrlEncode(payload),
   secret)
 ```
-
-The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
-
-## Practice
-To play with JWT and put these concepts into practice, you can use [jwt.io Debugger](http://jwt.io) to decode, verify, and generate JWTs.
-
-![JWT.IO Debugger](/media/articles/jwt/legacy-app-auth-5.png)
