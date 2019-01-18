@@ -31,4 +31,4 @@ This guide will show you how to use Auth0's Management API to check whether an a
 }
 ```
 
-If the application is first-party, the `is_first_party` field will have a value of `true`. If the application is third-party, the `is_first_party` field will have a value of `false`. 
+If the application is first-party, the `is_first_party` field will have a value of `true`. If the application is third-party, the `is_first_party` field will have a value of `false`.
