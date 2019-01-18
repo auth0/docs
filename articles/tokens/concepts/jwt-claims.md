@@ -1,7 +1,7 @@
 ---
 url: /overview-jwt-claims
-title: Naming Rules for JSON Web Token (JWT) Claims
-description: Learn about the rules you should be aware of when naming JSON Web Token (JWT) claims.
+title: JSON Web Token (JWT) Claims
+description: Learn about the JSON Web Token (JWT) claims and the rules you should be aware of when naming them.
 toc: true
 topics:
   - tokens
@@ -14,16 +14,14 @@ useCase:
   - secure-api
 ---
 
-# Naming Rules for JSON Web Token (JWT) Claims
+# JSON Web Token (JWT) Claims
 
-When naming JSON Web Token (JWT) claims, make sure you avoid name collisions, especially if you are using self-defined [custom claims](/scopes/current/custom-claims). When collisions occur, it can be difficult to tease apart two claims of the same name that contain differing information.
-
-## Types of claims
-
-There are two types of claims:
+There are two types of JSON Web Token (JWT) claims:
 
 * **Reserved**: Claims defined by the [JWT specification](https://tools.ietf.org/html/rfc7519) to ensure interoperability with third-party, or external, applications.
 * **Custom**: Claims that you define yourself. Name these claims carefully to avoid collision with reserved claims or other custom claims.
+
+When naming JSON Web Token (JWT) claims, make sure you avoid name collisions, especially if you are using self-defined [custom claims](/scopes/current/custom-claims). When collisions occur, it can be difficult to tease apart two claims of the same name that contain differing information.
 
 ### Reserved claims
 
@@ -39,14 +37,13 @@ The JWT specification defines seven reserved claims that are not required, but a
 
 You can see a full list of reserved claims at the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims).
 
-
 ### Custom claims
 
-For your specific use case, you can define your own custom claim names. You can name a custom claim anything that is not already listed in the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims). 
+For your specific use case, you can define your own custom claims. You can name a custom claim anything that is not already listed in the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims). 
 
 #### Public claims
 
-If you have created custom claims for public consumption, you should either register them or use collision-resistant names, such as by adding your domain name as the prefix.
+You can create custom claims for public consumption, which might contain generic information like "name" and "email". If you create public claims, you should either register them or use collision-resistant names, such as by adding your domain name as the prefix.
 
 In the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims), you can see some examples of public claims registered by OpenID Connect: 
 
