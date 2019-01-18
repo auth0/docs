@@ -51,7 +51,7 @@ To authenticate users from third-party applications using [Lock](/libraries/lock
 
 #### When used with the Management APIv2
   
-Third-party applications cannot use [ID Tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should [get a Management APIv2 Token]().
+Third-party applications cannot use [ID Tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should [get a Management APIv2 Token](/applications/guides/get-mgmt-api-token).
 
 Third-party applications should be granted the `current_user_*` scopes, as required by each endpoint.
 
