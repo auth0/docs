@@ -1,18 +1,20 @@
 ---
-description: Learn how to verify a JSON Web Token (JWT)'s signature using JSON Web Keys (JWKS).
-toc: true
+title: How to Verify a JSON Web Token's Signature using the JWKS Endpoint
+description: Learn how to verify a JSON Web Token's signature using JSON Web Keys (JWKS).
 topics:
   - tokens
   - jwks
+  - jwt
 contentType:
   - how-to
 useCase:
   - invoke-api
   - secure-api
+  - add-logi n
 ---
-# Verify a JWT's Signature using the JWKS Endpoint
+# How to Verify a JSON Web Token's Signature using the JWKS Endpoint
 
-Auth0 exposes a discovery endpoint, which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to automatically configure your application and locate the JWKS endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued JWTs for your API.
+Auth0 exposes a discovery endpoint, which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to automatically configure your application and locate the JWKS endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued JSON Web Tokens (JWTs) for your API.
 
 When verifying a JWT using a JWKS, you will need to:
 
@@ -23,6 +25,8 @@ When verifying a JWT using a JWKS, you will need to:
 5. Build a certificate using the corresponding `x5c` property in your JWKS.
 6. Use the certificate to verify the JWT's signature.
 
+For more information about the structure of a JWT, see 
+
 
 ## How many signing keys should I expect?
 
@@ -32,3 +36,4 @@ It's good practice to assume that multiple signing keys could be present in your
 ## Should I cache my signing keys?
 
 You can cache your signing keys to improve application performance and avoid running into [rate limits](/policies/rate-limits#authentication-api), but you will want to make sure that if decoding a token fails, you invalidate the cache and retrieve new signing keys before trying **only one** more time.
+
