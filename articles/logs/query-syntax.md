@@ -114,7 +114,7 @@ If you get the error `414 Request-URI Too Large` this means that your query stri
 
 ## Search Engine Migration
 
-We are currently migrating our logs search engine to provide customers with the most scalable, robust and fastest search experience. All tenants in the cloud US region were migrated to the latest engine (v3) starting November 15, 2018. Tenants in other cloud regions are still on the previous engine (v2) and will be notified on the migration soon.
+We are currently migrating our logs search engine to provide customers with the most scalable, robust and fastest search experience. All tenants in the cloud US region were migrated to the latest engine (v3) starting November 15, 2018. Tenants in other cloud regions are still on the previous engine (v2) and will be migrated soon. Tenants whose search queries are incompatible with v3 will be notified.
 
 ### Search Engine v3 Breaking Changes
 
@@ -124,4 +124,4 @@ While the query syntax described in this article is compliant with both the old 
 * The details field is not searcheable anymore, only the [list of searcheable fields](/logs/query-syntax#searchable-fields) can be used for search and sort.
 * Log fields are not tokenized like in v2, so `description:rule` will not match a description with value `Create a rule` nor `Update a rule` like in v2. Instead, use `description:*rule`. See [wildcards](/logs/query-syntax#wildcards) and [exact matching](/logs/query-syntax#exact-matching).
 * The .raw field extension is no longer supported and must be removed. In v3, fields match the whole value that is provided and are not tokenized as they were in v2 without the .raw suffix.
-* Ranges for dates for which the exact time is not provided, will behave different than in v2. For example, the following query `q=date:[2018-12-18 TO 2018-12-19]` will return logs from start of 2018-12-18 *to end of day of* 2019-12-19 on search engine v2, but it in v3, as all dates that don't include the time will be filled with zeros, it will return logs from start of 2018-12-18 *to start of day* of 2018-12-19T00:00:00Z, which means that all logs from 2018-12-19 will actually be excluded. In order to include the desired date, either the time should be provided or the following date should be added to the range, i.e. `q=date:[2018-12-18 TO 2018-12-20}`.
+* Ranges for dates for which the exact time is not provided, will behave different than in v2. For example, the following query `q=date:[2018-12-18 TO 2018-12-19]` will return logs from start of 2018-12-18 *to end of day of* 2019-12-19 on search engine v2, but it in v3, as all dates that don't include the time will be filled with zeros, it will return logs from start of 2018-12-18 *to start of day* of 2018-12-19T00:00:00Z, which means that all logs from 2018-12-19 will actually be excluded. In order to include the desired date, either the time should be provided or one more day should be added to the range, i.e. `q=date:[2018-12-18 TO 2018-12-20}`.
