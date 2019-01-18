@@ -1,7 +1,9 @@
 ---
+title: Programmatically Parse and Validate a JWT
 description: Learn how to programmatically parse and validate a JSON Web Token (JWT).
 toc: true
 topics:
+  - jwt
   - tokens
   - id-tokens
 contentType:
@@ -9,14 +11,15 @@ contentType:
 useCase:
   - invoke-api
   - secure-api
+  - add-login
 ---
 # Programmatically Parse and Validate a JWT
 
-To programmatically parse and verify a JWT, you can either:
+To programmatically parse and validate a JWT, you can either:
 
-* manually implement all the checks as described in [specification RFC 7519 > 7.2 Validating a JWT](https://tools.ietf.org/html/rfc7519#section-7.2)
 * choose a third-party library from [JWT.io](https://jwt.io/#libraries)
 * use any existing middleware for your web framework
+* manually implement all the checks as described in [specification RFC 7519 > 7.2 Validating a JWT](https://tools.ietf.org/html/rfc7519#section-7.2)
 
 If you choose a third-party library, remember to pick a library that supports the signing algorithm you selected when you registered your API with Auth0.
 
