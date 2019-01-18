@@ -24,7 +24,7 @@ A well-formed JWT consists of three concatenated Base64-encoded strings, separat
 A JWT typically looks like this:
 ![Encoded JWT](/media/articles/jwt/encoded-jwt3.png)
 
-To see for yourself what is inside a JWT, use the [jwt.io Debugger](http://jwt.io). It will allow you to quickly check that a JWT is well formed and manually inspect the values of the various claims.
+To see for yourself what is inside a JWT, use the [JWT.io Debugger](http://jwt.io). It will allow you to quickly check that a JWT is well formed and manually inspect the values of the various claims.
 
 ![JWT.IO Debugger](/media/articles/jwt/legacy-app-auth-5.png)
 
