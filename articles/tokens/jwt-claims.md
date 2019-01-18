@@ -14,7 +14,7 @@ useCase:
   - secure-api
 ---
 
-# JSON Web Token (JWT) Claims
+# JSON Web Token Claims
 
 There are two types of JSON Web Token (JWT) claims:
 
