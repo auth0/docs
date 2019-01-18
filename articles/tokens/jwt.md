@@ -1,6 +1,6 @@
 ---
 url: /jwt
-title: JSON Web Tokens (JWT) in Auth0
+title: JSON Web Tokens
 description: JSON Web Token (JWT) is an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This article introduces you to all of the concepts needed to fully understand JWTs.
 toc: true
 topics:
@@ -14,7 +14,7 @@ useCase:
   - secure-api
 ---
 
-# JSON Web Token (JWT)
+# JSON Web Token
 
 ::: note
 For more information on all the types of tokens used by Auth0, see [Tokens](/tokens).
@@ -30,7 +30,7 @@ The information contained within the JSON object can be verified and trusted bec
 JWTs can be signed using a secret (with the **HMAC** algorithm) or a public/private key pair using **RSA** or **ECDSA**. When tokens are signed using public/private key pairs, the signature also certifies that only the party holding the private key is the one that signed it.
 
 ::: note
-For additional informatiom about why to use JWT over other token formats, including Simple Web Tokens (SWT) and SAML tokens, see [Why Use JSON Web Token (JWT)](/tokens/concepts/why-use-jwt).
+For additional informatiom about why to use JWT over other token formats, including Simple Web Tokens (SWT) and SAML tokens, see [Why Use JSON Web Token](/tokens/concepts/why-use-jwt).
 :::
 
 ## Use of JWTs
@@ -44,7 +44,7 @@ Remember that JWT is a standard, which means that all JWTs are tokens, but not a
 - **Information Exchange**: JWTs are a good way of securely transmitting information between parties because they can be signed, which means you can be sure that the senders are who they say they are. Additionally, the structure of a JWT allows you to verify that the content hasn't been tampered with.
 
 ::: warning
-However you use JWTs, be sure to follow [best practices for tokens](/tokens/concepts/token-best-practices) and make sure you [verify the signature](/tokens/guides/id-token/validate-id-token#verify-the-signature) before storing and using a JWT. For more information on how to implement JWT, see [Programmatically Parse and Validate JSON Web Tokens (JWT)](/tokens/guides/jwt/parse-validate-jwt-programmatically).
+However you use JWTs, be sure to follow [best practices for tokens](/tokens/concepts/token-best-practices) and make sure you [verify the signature](/tokens/guides/id-token/validate-id-token#verify-the-signature) before storing and using a JWT. For more information on how to implement JWT, see [Programmatically Parse and Validate JSON Web Tokens](/tokens/guides/jwt/parse-validate-jwt-programmatically).
 :::
 
 ## Read More
@@ -54,8 +54,8 @@ However you use JWTs, be sure to follow [best practices for tokens](/tokens/conc
 * [10 Things You Should Know About Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
 * [Cookies vs Tokens. Getting auth right with Angular.JS](https://auth0.com/blog/angularjs-authentication-with-cookies-vs-token/)
 * [Best Practices for Tokens](/tokens/concepts/token-best-practices)
-* [Why Use JSON Web Token (JWT)](/tokens/concepts/why-use-jwt)
-* [JSON Web Token (JWT) Structure](/tokens/reference/jwt/jwt-structure)
-* [JSON Web Token (JWT) Claims](/tokens/jwt-claims)
-* [Programmatically Parse and Validate JSON Web Tokens (JWTs)](/tokens/guides/jwt/parse-validate-jwt-programmatically)
+* [Why Use JSON Web Token](/tokens/concepts/why-use-jwt)
+* [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure)
+* [JSON Web Token Claims](/tokens/jwt-claims)
+* [Programmatically Parse and Validate JSON Web Tokens](/tokens/guides/jwt/parse-validate-jwt-programmatically)
 :::
