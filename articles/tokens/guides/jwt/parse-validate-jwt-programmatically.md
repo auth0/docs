@@ -31,4 +31,4 @@ Also, be aware that not all libraries validate all JWT claims. At [JWT.io](https
 
 ## Keep reading
 
-* [JSON Web Token (JWT) Structure](/tokens/reference/jwt/)
+* [JSON Web Token (JWT) Structure](/tokens/reference/jwt/jwt-structure)
