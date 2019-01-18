@@ -19,7 +19,7 @@ A well-formed JWT consists of three concatenated Base64-encoded strings, separat
 
 - **Header**: contains metadata about the type of token and the cryptographic algorithms used to secure its contents.
 - **Payload** (set of claims): contains verifiable security statements, such as the identity of the user and the permissions they are allowed.
-- **Signature**: used to validate that the token is trustworthy and has not been tampered with. You must verify this signature before storing and using a JWT.
+- **Signature**: used to validate that the token is trustworthy and has not been tampered with. You must [verify this signature](/tokens/guides/id-token/validate-id-token.md#verify-the-signature) before storing and using a JWT.
 
 A JWT typically looks like this:
 ![Encoded JWT](/media/articles/jwt/encoded-jwt3.png)
@@ -74,5 +74,5 @@ HMACSHA256(
 ```
 
 ::: warning
-However you use a JWT, you must [verify its signature](/tokens/id-token#verify-the-signature) before storing and using it.
+However you use a JWT, you must [verify its signature](/tokens/guides/id-token/validate-id-token.md#verify-the-signature) before storing and using it.
 :::
