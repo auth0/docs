@@ -23,7 +23,7 @@ To programmatically parse and validate a JSON Web Token (JWT), you can either:
 
 ## Third-party libraries
 
-The safest way is to use one of the existing open source third-party libraries. At [JWT.io](https://jwt.io/#libraries), you can find libraries for various languages and technologies, such as .NET, Python, Java, Ruby, Objective-C, Swift, and PHP.
+The safest way is to use one of the existing open source third-party libraries. At [JWT.io](https://jwt.io/#libraries), you can find libraries for various platforms and languages, such as .NET, Python, Java, Ruby, Objective-C, Swift, and PHP.
 
 If you choose a third-party library, remember to pick a library that supports the signing algorithm you selected when you registered your application or API with Auth0.
 
