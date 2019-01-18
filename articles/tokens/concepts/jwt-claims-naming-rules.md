@@ -22,8 +22,8 @@ When naming JSON Web Token (JWT) claims, make sure you avoid name collisions, es
 
 There are two types of claims:
 
-* Reserved: Claims defined by the [JWT specification](https://tools.ietf.org/html/rfc7519) to ensure interoperability with third-party, or external, applications.
-* Custom: Claims that you define yourself. Name these claims carefully to avoid collision with reserved claims or other custom claims.
+* **Reserved**: Claims defined by the [JWT specification](https://tools.ietf.org/html/rfc7519) to ensure interoperability with third-party, or external, applications.
+* **Custom**: Claims that you define yourself. Name these claims carefully to avoid collision with reserved claims or other custom claims.
 
 ### Reserved claims
 
