@@ -25,38 +25,30 @@ useCase:
     - add-idp
 ---
 
-# Native Azure Active Directory applications with Auth0 (Resource Owner flow)
+# Connect Native Applications to Azure Active Directory
 
-In addition to the **WS-Federation** and **OpenID Connect** flows, it's also possible to use the **Resource Owner** flow with Azure AD. This flow allows you to capture and validate a user's credentials (email and password) instead of showing the Azure AD login page. While this is not the recommended approach for security and SSO reasons, **Resource Owner** flow could be used in Native mobile scenarios or to batch process authentication with Azure AD.
+In this article, you'll learn how to connect native applications that use the [Resource Owner Password](/docs/api-auth/grant/password) flow to [Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/).
 
-This setup will require two applications, a *Web Application and/or Web API* and a *Native Client Application*. From Azure AD's point of view, users will be authenticated using the *Native Client Application* to gain access to the *Web Application and/or Web API*. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+The steps below apply to applications implementing the Resource Owner Password flow through the [/oauth/token endpoint](/api/authentication?http#resource-owner-password)as well as the legacy [/oauth/ro endpoint](/api/authentication?http#resource-owner).
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-ad-native-app.png)
+## Before you begin
 
-## 1. Define a *Web Application and/or Web API* in Azure Active Directory
+This setup requires two applications configured in Azure AD, a **Web app/API** and a **Native** application. Why two applications? From Azure AD's point of view, users authenticate using the **Native Client Application** to get access to the **Web Application and/or Web API**.
 
-The first step is to define the "Web Application and/or Web API".
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-active-directory-new-api.png)
 
-During setup, you'll need to specify the `App ID Uri` which will be needed later to configure the connection in Auth0.
+## 1. Configure applications with Web app/API and Native types in Azure AD
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-active-directory-new-api-properties.png)
+To start, you'll need to configure two applications in Azure AD. The first with the type **Web app/API** and second with the **Native** type. For instructions on adding applications to Azure AD, check out the [Register an app](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v1-add-azure-ad-app) Azure AD documentation.
 
-## 2. Define a *Native Client Application* in Azure Active Directory
+When creating the **Web app/API** application in Azure AD, make a note of the `App ID Uri`. You'll need this value later when configuring the connection in Auth0.
 
-After creating the first application, you'll need to define a *Native Client Application*.
+For the **Native** application, configure the following permissions to other applications:
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-active-directory-new-native-app.png)
+- **Windows Azure Active Directory**: *Read directory data* and *Enable sign-on and read users' profiles*
+- Your **Web app/API**: *Access your API*
 
-In this application, you'll need to configure the following permissions to other applications:
-
- - **Windows Azure Active Directory**: *Read directory data* and *Enable sign-on and read users' profiles*
- - Your **Web Application and/or Web API**: *Access your API*
-
-![](/media/articles/connections/enterprise/azure-active-directory/azure-active-directory-native-app-permissions.png)
-
-## 3. Configure the connection in Auth0
+## 2. Configure the connection in Auth0
 
 After creating both applications in Azure Active Directory, you can configure the Auth0 connection.
 
@@ -64,13 +56,29 @@ Login to your [Auth0 Dashboard](${manage_url}), and select the **Connections > E
 
 ![Add connection](/media/articles/connections/enterprise/azure-active-directory/enterprise-connections.png)
 
-Select **Microsoft Azure AD**. You will be asked to provide the appropriate settings, including data about the app registration you just created in Auth0.
+Create a new **Microsoft Azure AD** connection and enter the appropriate settings.
+
+Set the `App ID Uri` to the Uri previously configured for the **Web app/API** in Azure AD. The `Client ID` must be set to the `Client ID` of the **Native** application in Azure AD. In this setup, the `Client Secret` does not matter and can be set to any value.
 
 ![Dashboard Config](/media/articles/connections/enterprise/azure-active-directory/create-azure-ad-connection.png)
 
-::: note
-The `App ID Uri` must be set to the Uri which was configured previously in the *Web Application and/or Web API* and the `Client ID` must be set to the `Client ID` of the *Native Client Application*. In this setup, the `Client Secret` does not matter and can be set to any value.
-:::
+### H3 TITLE
+
+To let users log in to the same Azure AD from both web applications and native applications that use the Resource Owner Password flow, you'll need to set up two connections in Auth0.
+
+One meant to be used by the traditional flow with UI. This will inherit the client id and secret from the global configuration settings, and should match the values from the "web app" registration in Azure AD
+Another connection that overrides the client_id (and has any client_secret), using the values from a "Native" app registration in Azure AD.
+Since you are going to have two connections pointing to the same Azure AD domain, the Auth0 dashboard will not let you do this (because the name is automatically assigned to match the name of the domain), so the second connection (the one used for the native app) for Azure will have to be created using the Management API v2 , with a payload like this:
+
+```
+{
+"name" : "the_connection_name",
+"strategy" : "waad",
+"options" :
+
+{ "tenant_domain" : "your_azure_ad_domain", "app_id":"the_app_id_of_the_regular_webapp", "client_id": "the_client_id_of_the_native_azure_app", "client_secret": "any_value" }
+```
+
 
 ## 4. Test the connection
 
