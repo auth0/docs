@@ -39,7 +39,7 @@ Remember that JWT is a standard, which means that all JWTs are tokens, but not a
 
 - **Authentication**: When a user successfully logs in using their credentials, an [ID Token](/tokens/id-token) is returned. According to the [OpenID specs](https://openid.net/specs/openid-connect-core-1_0.html#IDToken), an ID Token is always a JWT.
 
-- **Authorization**: Once a user is successfully logged in, an application may request to access routes, services, or resources on behalf of that user. To do so, it uses an [Access Token](/tokens/overview-access-token), which may be in the form of a JWT. Each subsequent request includes the JWT. Single Sign On widely uses JWT nowadays because of JWT's small overhead and its ability to easily be used across different domains.
+- **Authorization**: Once a user is successfully logged in, an application may request to access routes, services, or resources on behalf of that user. To do so, it uses an [Access Token](/tokens/overview-access-tokens), which may be in the form of a JWT. Each subsequent request includes the JWT. Single Sign On widely uses JWT nowadays because of JWT's small overhead and its ability to easily be used across different domains.
 
 - **Information Exchange**: JWTs are a good way of securely transmitting information between parties because they can be signed, which means you can be sure that the senders are who they say they are. Additionally, the structure of a JWT allows you to verify that the content hasn't been tampered with.
 
