@@ -13,7 +13,7 @@ useCase:
   - add-login
 ---
 
-## Best Practices
+# Best Practices for Tokens
 
 * **Keep it secret. Keep it safe.** The signing key should be treated like any other credentials and revealed only to services that absolutely need it.
 
