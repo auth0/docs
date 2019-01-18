@@ -10,6 +10,7 @@ contentType: how-to
 useCase:
   - build-an-app
 ---
+
 # View Application Type: First-Party or Third-Party
 
 ::: note
