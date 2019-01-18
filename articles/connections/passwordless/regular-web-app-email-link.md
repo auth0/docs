@@ -10,7 +10,7 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Passwordless Authentication with a magic link via e-mail on Regular Web Apps
+# Passwordless Authentication with a magic link via email on Regular Web Apps
 
 :::warning
 Passwordless is designed to be called from the client-side, and has a [rate limit](/policies/rate-limits#authentication-api) of 50 requests per hour per IP. If you call it from the server-side, your backend's IP may easily hit these rate limits.
@@ -50,11 +50,16 @@ Then you can trigger the login using the `callbackURL` option to specify the end
 <a href="javascript:login()">Login</a>
 ```
 
+<%= include('./_custom-domains') %>
+
 This will open a dialog that asks the user for their email address.
 
 ![](/media/articles/connections/passwordless/passwordless-email-request-web.png)
 
 Then Auth0 will send an email to the user containing the magic link. After clicking the link, the user will be signed in to your application automatically and redirected to the specified `callbackURL`.
+
+<%= include('./_single-browser-magic-link') %>
+
 
 ::: note
 You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback server side. A sample application is available in the [Node.js Passwordless Authentication repository](https://github.com/auth0/auth0-node-passwordless-sample) on GitHub.

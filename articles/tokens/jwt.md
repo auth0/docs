@@ -52,7 +52,7 @@ However you use JWTs, be sure to follow [best practices for tokens](/tokens/conc
 ::: next-steps
 * [JWT Handbook](https://auth0.com/resources/ebooks/jwt-handbook)
 * [10 Things You Should Know About Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
-* [Cookies vs Tokens. Getting auth right with Angular.JS](https://auth0.com/blog/angularjs-authentication-with-cookies-vs-token/)
+* [Web Apps vs Web APIs / Cookies vs Tokens](/design/web-apps-vs-web-apis-cookies-vs-tokens)
 * [Best Practices for Tokens](/tokens/concepts/token-best-practices)
 * [Why Use JSON Web Token](/tokens/concepts/why-use-jwt)
 * [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure)

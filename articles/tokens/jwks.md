@@ -18,13 +18,10 @@ When creating applications and APIs in Auth0, two algorithms are supported for s
 
 Auth0 uses the [JSON Web Key (JWK) specification](https://tools.ietf.org/html/rfc7517) to represent the cryptographic keys used for signing RS256 tokens. This specification defines two high level data structures: **JSON Web Key (JWK)** and **JSON Web Key Set (JWKS)**. Here are the definitions directly from the specification:
 
-> **JSON Web Key (JWK)**
->
-> A JSON object that represents a cryptographic key. The members of the object represent properties of the key, including its value.
-
-> **JSON Web Key Set (JWKS)**
-> 
-> A JSON object that represents a set of JWKs. The JSON object MUST have a `keys` member, which is an array of JWKs.
+| Item | Description |
+| - | - |
+| **JSON Web Key (JWK)** | A JSON object that represents a cryptographic key. The members of the object represent properties of the key, including its value. |
+| **JSON Web Key Set (JWKS)** | A JSON object that represents a set of JWKs. The JSON object MUST have a `keys` member, which is an array of JWKs. |
 
 At the most basic level, the JWKS is a set of keys containing the public keys that should be used to verify any JWT issued by the authorization server. Auth0 exposes a JWKS endpoint for each tenant, which is found at `https://${account.namespace}/.well-known/jwks.json`. This endpoint will contain the JWK used to sign all Auth0-issued JWTs for this tenant. 
 

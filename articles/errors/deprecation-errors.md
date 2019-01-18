@@ -21,7 +21,7 @@ There are two different ways to search for warning messages showing usage of dep
 
 ### Search logs via the Dashboard
 
-If your application uses a deprecated feature, a Deprecation Notice message will show up in the Logs section of the [Dashboard](/${manage_url}).
+If your application uses a deprecated feature, a Deprecation Notice message will show up in the Logs section of the [Dashboard](${manage_url}/#/).
 
 ::: note
 In order to not overwhelm the logs with repetitive messages, deprecation notes will only be shown once per hour (the first time it occurs within that hour) rather than for each authentication transaction involving the deprecated feature.

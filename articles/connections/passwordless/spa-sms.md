@@ -50,6 +50,8 @@ You can then trigger the login widget with the following code:
 <a href="javascript:login()">Login</a>
 ```
 
+<%= include('./_custom-domains') %>
+
 This will open a dialog that asks the user for their phone number.
 
 ![](/media/articles/connections/passwordless/passwordless-sms-enter-phone-web.png)
@@ -84,6 +86,8 @@ var webAuth = new auth0.WebAuth({
   responseType: 'token id_token'
 });
 ```
+
+<%= include('./_custom-domains') %>
 
 You must provide a way for the user to enter a phone number to which the SMS will be sent. Then you can begin the passwordless authentication as follows (assuming the name of your form input as `input.phone-number`):
 
@@ -131,7 +135,7 @@ The `passwordlessLogin` method will verify the Passwordless transaction, then re
 ```js
 $(document).ready(function() {
   if(window.location.hash){
-    webAuth.parseHash(window.location.hash, function(err, authResult) {
+    webAuth.parseHash({hash: window.location.hash}, function(err, authResult) {
       if (err) {
         return console.log(err);
       } else if (authResult){

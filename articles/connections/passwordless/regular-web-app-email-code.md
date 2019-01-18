@@ -10,7 +10,7 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Passwordless Authentication with a one-time code via e-mail on Regular Web Apps
+# Passwordless Authentication with a one-time code via email on Regular Web Apps
 
 :::warning
 Passwordless is designed to be called from the client-side, and has a [rate limit](/policies/rate-limits#authentication-api) of 50 requests per hour per IP. If you call it from the server-side, your backend's IP may easily hit these rate limits.
@@ -51,6 +51,8 @@ Then you can trigger the login using the `callbackURL` option to specify the end
 
 <a href="javascript:login()">Login</a>
 ```
+
+<%= include('./_custom-domains') %>
 
 This will open a dialog that asks the user for their email address:
 

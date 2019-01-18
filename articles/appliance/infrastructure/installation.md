@@ -52,10 +52,9 @@ Auth0 provides a project plan methodology to help customers get up and running w
 The following basic steps are required to get the infrastructure up and running and the PSaaS Appliance deployed:
 
 1. Understand the PSaaS Appliance infrastructure requirements as detailed in this document;
-2. Complete and submit the [Pre-PSaaS Appliance Installation Checklist](https://docs.google.com/forms/d/e/1FAIpQLSckWRi2MWpzhBkUXoqjaEzMPGUsyL4ICbOetcGvSnn64dSM-A/viewform?c=0&w=1) to ensure that you have everything you need ready and on hand for the PSaaS Appliance deployment;
-3. Access and install the PSaaS Appliance;
-4. Complete and submit the Post-PSaaS Appliance Install Checklist to notify Auth0 that you have everything in place and that Auth0 can commence configuring the PSaaS Appliance;
-5. Complete the steps detailed in the PSaaS Appliance Setup Guide.
+2. Set up the infrastructure after the Appliance Project Manager has shared the required OVA/VHD/AMI file with you;
+3. Complete and submit the [PSaaS Appliance Install Checklist](https://docs.google.com/forms/d/e/1FAIpQLSckWRi2MWpzhBkUXoqjaEzMPGUsyL4ICbOetcGvSnn64dSM-A/viewform?c=0&w=1) to notify Auth0 that you have the required infrastructure in place and that Auth0 can begin configuring the PSaaS Appliance;
+4. Meet with Auth0 to deploy the DEV and PROD environments (the Appliance Project Manager will set up this meeting).
 
 ## Development/Test/Production Lifecycle
 

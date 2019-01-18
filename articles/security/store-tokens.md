@@ -22,11 +22,11 @@ Browser local storage (or session storage) is not secure. Any data stored there 
 
 ## If a backend is present
 
-If your application has a backend server at all, then tokens should be handled server-side using the [Authorization Code flow](/application-auth/current/server-side-web), [Authorization Code flow with Proof Key for Code Exchange](/application-auth/current/mobile-desktop), or hybrid flow.
+If your application has a backend server at all, then tokens should be handled server-side using the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow), or [Hybrid Flow](/api-auth/grant/hybrid).
 
-## Single page applications
+## Single-page applications
 
-If you have a single page application (SPA) with no corresponding backend server, your SPA should request new tokens on page load and store them in memory without any persistence. To make API calls, your SPA would then use the in-memory copy of the token.
+If you have a single-page application (SPA) with no corresponding backend server, your SPA should request new tokens on page load and store them in memory without any persistence. To make API calls, your SPA would then use the in-memory copy of the token.
 
 ## Using cookies
 
@@ -41,10 +41,6 @@ There are different options to control the lifetime of a cookie:
 * You can set the `secure=true` flag so cookies can only be set over an encrypted connection.
 
 ### Understanding sessions and cookies
-
-:::warning
-Please be sure to refer to the [Lock API documentation](/libraries/lock/v10/api) for the most up-to-date code snippets.
-:::
 
 <%= include('../_includes/_video', { id: 'paxlbixuya' }) %>
 

@@ -33,7 +33,7 @@ Take a look at just a few of Auth0's use cases::
 - You have a web app which needs to authenticate users using SAML.
 - You believe passwords are broken and you want your users to log in with one-time codes delivered by email or SMS.
 - If one of your user's email addresses is compromised in some site's public data breach, you want to be notified, and you want to notify the users and/or block them from logging in to your app until they reset their password.
-- You want to act proactively and block suspicious IP addresses if they make consecutive failed login attempts, in order to avoid DDoS attacks.
+- You want to act proactively to block suspicious IP addresses if they make consecutive failed login attempts, in order to avoid DDoS attacks.
 - You are part of a large organization who wants to federate their existing enterprise directory service to allow employees to log in to the various internal and third-party applications using their existing enterprise credentials.
 - You don't want (or you don't know how) to implement your own user management solution. Password resets, creating, provisioning, blocking, and deleting users, and the UI to manage all these. You just want to focus on your app.
 - You want to enforce [multi-factor authentication](/multifactor-authentication) when your users want to access sensitive data.

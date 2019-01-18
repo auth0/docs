@@ -159,7 +159,6 @@ This document has shown how to use Lock 10 within a Single Page Application (SPA
 [lock-configuration]: /libraries/lock/v10/configuration
 [ui-customization]: /libraries/lock/v10/ui-customization
 [lock-api]: /libraries/lock/v10/api
-[lock-auth0js]: /libraries/lock/v10/auth0js
 [lock-issues]: /libraries/lock/v10/issues
 [migration-guide]: /libraries/lock/v10/migration-guide
 [i18n-notes]: /libraries/lock/v10/i18n

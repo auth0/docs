@@ -38,7 +38,7 @@ The project contains also five Controllers:
 - `LogoutController.java`: Invoked when the user clicks the logout link. The controller invalidates the user session and redirects the user to the login page, handled by the `LoginController`.
 - `ErrorController.java`: The controller triggers upon any non-handled exception and redirects the user to the `/login` path.
 
-Lastly, the project defines a helper class: the `AuthController.java` which will be in charge of creating new instances of `AuthenticationController`. By defining it as a Spring Component, the framework will handle it's creation.
+Lastly, the project defines a helper class: the `AuthController.java` which will be in charge of creating new instances of `AuthenticationController`. By defining it as a Spring Component, the framework will handle its creation.
 
 ## Trigger Authentication
 

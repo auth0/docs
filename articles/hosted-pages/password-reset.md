@@ -8,19 +8,23 @@ useCase: customize-hosted-pages
 ---
 # Password Reset Page
 
-The Password Reset Page allows users to change their passwords in the event that they're unable to log in. Using this page, you can maintain consistency in the appearance of your pages (login, password reset, and so on), and your users can easily change their passwords as needed.
+::: note
+This article will help you learn how to configure the custom Password Reset page. If you are an admin trying to reset a user's password, see [Change Users' Passwords](/connections/database/password-change). If you are a user trying to reset your own password, see [Reset Your Auth0 Account Password](/support/reset-account-password).
+:::
 
-This article will help you learn how to configure the custom Password Reset page. If you are trying to reset your own password, see [Reset Your Auth0 Account Password](/support/reset-account-password).
+The Password Reset Page allows users to change their passwords in the event that they're unable to log in. Using this page, you can maintain consistency in the appearance of your pages (login, password reset, and so on), and your users can easily change their passwords as needed.
 
 ## Enable the Password Reset Page
 
-Using the [Auth0 Dashboard](${manage_url}/#/password_reset), you can enable your Hosted Password Reset Page by flipping the toggle switch.
+Using the [Auth0 Dashboard](${manage_url}/#/password_reset), you can customize your Hosted Password Reset Page by flipping the toggle switch to enable customizations and providing a custom script.
 
 ![Hosted Password Reset Page](/media/articles/hosted-pages/password-reset.png)
 
 ## Edit the Password Reset Page
 
-Once you've enabled the Password Reset Page for your tenant, you'll be able to use the text editor built into the Auth0 Dashboard to change your HTML, style your page using CSS, and alter the JavaScript used to retrieve custom variables. After you've made your changes, and make sure to click _Save_.
+Once you've flipped the customization toggle for the Password Reset Page, you'll be able to use the text editor built into the Auth0 Dashboard to change your HTML, style your page using CSS, and alter the JavaScript used to retrieve custom variables. After you've made your changes, make sure to click _Save_.
+
+Please note that Hosted Pages work without customization (Auth0 will also update the included scripts as required). However, once you toggle the customization to **on**, you are responsible for the updating and maintaining the script (including changing version numbers, such as that for the Reset Password widget), since Auth0 can no longer update it automatically.
 
 ### Custom variables
 
@@ -103,45 +107,6 @@ Notice that the sample template uses the `tenant.picture_url` variable to return
     });
   </script>
 ```
-
-## Set the minimum password length value
-
-![](/media/articles/connections/database/password-strength/pw-manage.png)
-
-Customers currently using a customized Password Reset Page who want to use the new password length parameter must:
-
-1. Update their templates to include library version 1.5.1 or later
-2. Add `password_complexity_options` to leverage the new parameter
-
-If you do not update the Password Reset Page, Auth0 ignores any attempt to set the minimum password length.
- ### Step 1: Update the change password library version
- To use the new minimum password length feature, you should update the change password library used to version 1.5.1 (or later):
- ```text
-<script src="https://cdn.auth0.com/js/change-password-1.4.0.min.js"></script>
-```
-
-### Step 2: Add `password_complexity_options` to leverage the new parameter
-
-You'll need to add `password_complexity_options` to leverage the new parameter. Add this option to the page's script as follows:
-
-```text
-<script>
-    //code omitted for brevity
-    new Auth0ChangePassword({
-    container:                    "change-password-widget-container",     // required
-    email:                        '{{email}}',                            // DO NOT CHANGE THIS
-    csrf_token:                   '{{csrf_token}}',                       // DO NOT CHANGE THIS
-    ticket:                       '{{ticket}}',                           // DO NOT CHANGE THIS
-    password_policy:              '{{password_policy}}',                  // DO NOT CHANGE THIS
-    password_complexity_options:  '{{password_complexity_options}}'       // DO NOT CHANGE THIS
-    
-    //code omitted for brevity
-  
-  });
-</script>
-```
-
-Scroll to the bottom and click **Save**.
 
 ## Revert Your Changes
 

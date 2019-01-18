@@ -44,7 +44,7 @@ Here is a list of tips our customers have found most useful when first getting s
 
 * Check your [grant types](/applications/application-grant-types) for your applications. Make sure you have the right ones enabled and more importantly, disable any grant types that aren't needed.
 
-* If you make use of [user_metadata](/metadata) confirm that this is data that users should be able to change on their own (eg. not “payment status”).
+* If you make use of [user_metadata](/users/concepts/overview-user-metadata) confirm that this is data that users should be able to change on their own (eg. not “payment status”).
 
 * Review your [Anomaly Detection settings](${manage_url}/#/anomaly) and read the [Anomaly Detection doc](/anomaly-detection) to understand how to unblock users that have been blocked.
 

@@ -261,7 +261,7 @@ func UserHandler(w http.ResponseWriter, r *http.Request) {
 </div>
 ```
 
-[Click here](/user-profile) to check all the information that the userinfo hash has.
+For information about the userinfo hash, see [User Profile](/users/concepts/overview-user-profile).
 
 ## Logout
 

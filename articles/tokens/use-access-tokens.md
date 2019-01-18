@@ -38,7 +38,7 @@ Access Tokens can also be issued directly to applications. Such scenarios involv
 
 For example, a reverse geocoding API that accepts latitude/longitude coordinates and returns a readable place name does not access user-owned data. In such cases, a backend server needs to call the geocoding API in order to perform the translation.
 
-Server-to-server Access Tokens can be obtained using the [Client Credentials flow](/api-auth/grant/client-credentials). In order to get a token using this flow, the application has to provide its credentials (`client_id`, `client_secret`).
+Server-to-server Access Tokens can be obtained using the [Machine-to-Machine (M2M) Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow). In order to get a token using this flow, the application has to provide its credentials (`client_id`, `client_secret`).
 
 ```har
 {

@@ -144,7 +144,7 @@ You can choose the key names and value types for subscripting the `user_metadata
 The `appMetadata` map contains fields that are usually added with a [Rule](/rules) or a [Hook](/hooks). For native platforms, this information is read-only.
 
 ::: note
-To learn more about metadata, see the [metadata documentation](/metadata).
+To learn more about metadata, see [Metadata](/users/concepts/overview-user-metadata).
 :::
 
 #### C. Extra information

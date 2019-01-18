@@ -31,7 +31,7 @@ One of the first things you'll want to set up is a user signup and login page. T
 
 First name, last name, email, confirm email, username, password, confirm password, phone number, company name, country, address line 1, address line 2, city, state, zip code, date of birth, favorite color, shoe size, highest scrabble score.
 
-A signup screen with 10-20 fields makes users hesitate before signing up. Many may not even sign up at all. To reduce barriers to entry, only require the minimum fields for signup and collect more information later. This is called [progressive profiling](/user-profile/progressive-profiling). There are two ways you can perform progressive profiling with Auth0: the Management API and Rules.
+A signup screen with 10-20 fields makes users hesitate before signing up. Many may not even sign up at all. To reduce barriers to entry, only require the minimum fields for signup and collect more information later. This is called [progressive profiling](/users/guides/implement-progressive-profiling). There are two ways you can perform progressive profiling with Auth0: the Management API and Rules.
 
 With the Auth0 Management API you can update user profiles at any time after signup. You can collect data while a user uses your application, then make incremental updates their profile.
 
@@ -79,9 +79,9 @@ Auth0 provides a variety of ways to implement multi-factor authentication. For m
 
 ## Branding
 
-Branding is an important part of any application. Your logo, colors and styles should be consistent in all parts of the application. You can [customize](/libraries/custom-signup) the login, signup, and error pages displayed by Auth0 so it matches your application. Add your own logo, text, and colors. There's also I18N/L10N support for global rollouts. [Emails for verification or password resets](/email/templates) are customizable too. 
+Branding is an important part of any application. Your logo, colors and styles should be consistent in all parts of the application. You can [customize](/hosted-pages#customize-your-hosted-page) the login, signup, and error pages displayed by Auth0 so it matches your application. Add your own logo, text, and colors. There's also I18N/L10N support for global rollouts. [Emails for verification or password resets](/email/templates) are customizable too. 
 
-[Login screens](/libraries/lock/v11/ui-customization) should appear to come from your application’s branded domain name. To maintain consistency, you can define a [custom domain name](/custom-domains) for the login screen displayed by Auth0.
+Login screens should appear to come from your application’s branded domain name. To maintain consistency, you can define a [custom domain name](/custom-domains) for the login screen displayed by Auth0.
 
 ## Privacy consent page
 

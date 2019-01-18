@@ -13,9 +13,9 @@ useCase:
   - connection-settings
 ---
 
-# Recommended Connection Settings
+# Connection Settings Best Practices
 
-In this article, you'll learn some best practices for configuring [connections](/connections). Before you set up connections, take a moment to review [what connections are](/applications/connections) and [the basics of authentication](/application-auth) for your application type.
+Here are some best practices for configuring [connections](/connections). Before you set up connections, take a moment to review [what connections are](/applications/connections) and [the basics of authentication](/application-auth) for your application type.
 
 ## Use your credentials for social connections
 
@@ -43,4 +43,4 @@ For each connection, review the list of allowed applications. Make sure there ar
 
 ## Use RSA-SHA256 for SAML connections
 
-Configure any SAML connections to sign requests and use RSA-SHA256 as the signature algorithm. This ensures the remote SAML Identity Provider can validate if authentication requests come from a legitimate application.
+Configure any SAML connections to sign requests and use RSA-SHA256 as the signature algorithm. This ensures the remote SAML Identity Provider can validate whether the authentication requests came from a legitimate application or not.

@@ -380,7 +380,7 @@ To verify MFA using a recovery code your app must prompt the user for the recove
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For OTP MFA use  `http://auth0.com/oauth/grant-type/mfa-otp`. |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For recovery code use `http://auth0.com/oauth/grant-type/mfa-recovery-code`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The `mfa_token` you received from `mfa_required` error. |

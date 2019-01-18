@@ -52,7 +52,7 @@ To see this, navigate to the Applications section of the [Dashboard](${manage_ur
 
 ![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 
-You have the option to enable or disable the **Use Auth0 instead of the IdP to do Single Sign Up** feature.
+You have the option to enable or disable the **Use Auth0 instead of the IdP to do Single Sign On** feature.
 
 ![](/media/articles/sso/single-sign-on/sso-flag.png)
 

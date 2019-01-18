@@ -13,9 +13,9 @@ useCase:
   - application-settings
 ---
 
-# Recommended Application Settings
+# Application Settings Best Practices
 
-In this article, you'll learn some best practices for configuring [applications](/applications).
+Here are some best practices for configuring [applications](/applications).
 
 ## Check the Client ID
 
@@ -67,7 +67,7 @@ This setting only applies to older tenants, created before Dec 27th 2017. Newer 
 
 If you are not using delegation, provide your application's Client ID in the **Allowed Apps / APIs** field to restrict delegation requests. You can find this field in [Applications > Settings > Advanced Settings > OAuth](${manage_url}/#/applications) on the dashboard.
 
-Delegation is a deprecated feature and new applications should not use it.
+<%= include('../_includes/_deprecate-delegation') %>
 
 ### Remove unnecessary grant types
 

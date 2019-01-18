@@ -19,7 +19,7 @@ useCase:
 To configure an AOL Reader connection with Auth0, contact [AOL Reader Support](http://help.reader.aol.com/knowledgebase) and provide the following information:
 
 * Your name
-* Your e-mail address
+* Your email address
 * The name of your app
 * Your callback URL:
 

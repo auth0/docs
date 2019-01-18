@@ -1,5 +1,5 @@
 ---
-title: Using Passwordless Authentication on iOS with e-mails - Swift
+title: Using Passwordless Authentication on iOS with emails - Swift
 languages:
   - name: Swift
     url: swift

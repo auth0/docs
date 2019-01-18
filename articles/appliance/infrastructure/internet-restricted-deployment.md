@@ -43,9 +43,9 @@ You may, however, restrict server-side access to the Management Dashboard.
 
 To properly render the Dashboard, it accesses the following sites:
 
-* **cdn.auth0.com**: resources loaded from this CDN are well-known and include CSS, JavaScript, and images
-* **fonts.googleapis.com**: resources loaded include CSS and font files
-* **s.gravatar.com** and **i2.wp.com**: resources include user profile images loaded from WordPress' Gravatar service
+* **cdn.auth0.com**: resources loaded from this CDN are well-known and include CSS, JavaScript, and images.
+* **fonts.googleapis.com**: resources loaded include CSS and font files.
+* **s.gravatar.com** and **i2.wp.com**: resources include user profile images loaded from WordPress' Gravatar service.
 * **fast.fonts.net**: resources include CSS files for font support.
 
 ### Multi-factor Authentication (MFA)

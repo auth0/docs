@@ -51,6 +51,8 @@ Then you can trigger the login with the following code:
 <a href="javascript:login()">Login</a>
 ```
 
+<%= include('./_custom-domains') %>
+
 First, this will open a dialog that asks the user for their email address:
 
 ![](/media/articles/connections/passwordless/passwordless-email-request-web.png)
@@ -125,7 +127,7 @@ The `passwordlessVerify` method will verify the Passwordless transaction, then r
 ```js
 $(document).ready(function() {
   if(window.location.hash){
-    webAuth.parseHash(window.location.hash, function(err, authResult) {
+    webAuth.parseHash({hash: window.location.hash}, function(err, authResult) {
       if (err) {
         return console.log(err);
       } else if (authResult){

@@ -42,7 +42,7 @@
   title: "Authentication Flows"
   icon: "icon-budicon-295"
   color: "oil"
-  description: "Learn about our new authentication flows and how you can adopt them."
+  description: "Learn about our new auth flows and how to adopt them."
   url: "/api-auth/intro"
   articles:
 

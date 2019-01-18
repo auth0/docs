@@ -41,7 +41,7 @@ end
 
 ## Display the User Profile
 
-The auth hash built by the **OmniAuth** Auth0 strategy has the user profile data under the `info` key. Each element is named according to [the normalized user profile definition](/user-profile/normalized).
+The auth hash built by the **OmniAuth** Auth0 strategy has the user profile data under the `info` key. Each element is named according to [the normalized user profile definition](/users/normalized).
 
 The auth hash also contains the full user profile under the `raw` key. The difference is that the normalized user profile data is pre-processed and guaranteed to be present, while the full user profile data may vary depending on several factors, including which social identity provider is used to log the user in.
 

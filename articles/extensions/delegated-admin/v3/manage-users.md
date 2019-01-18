@@ -97,3 +97,5 @@ For example, users with the `Delegated Admin - Administrator` role can see the *
 On the other hand, Kelly who has the `Delegated Admin - User` role and belongs to the Finance department cannot see this field. The user she creates will be automatically assigned to the Finance department.
 
 ![](/media/articles/extensions/delegated-admin/create-user-kelly.png)
+
+<%= include('./_session-timeout.md') %>

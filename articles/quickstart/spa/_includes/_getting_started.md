@@ -1,5 +1,5 @@
 ::: note
-**New to Auth?** Learn [How Auth0 works](/overview), how it [integrates with Single Page Applications](/architecture-scenarios/application/spa-api) and which [protocol](/application-auth/current/client-side-web) it uses.
+**New to Auth?** Learn [How Auth0 works](/overview), how it [integrates with Single Page Applications](/architecture-scenarios/application/spa-api) and which [protocol](/flows/concepts/single-page-login-flow) it uses.
 :::
 <%= include('../../../_includes/_new_app') %>
 <%= include('../../../_includes/_callback_url') %>

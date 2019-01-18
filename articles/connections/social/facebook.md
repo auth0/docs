@@ -130,7 +130,7 @@ You can find additional information at Facebook docs: [Add Facebook Login to You
 
 ### Create a Test App
 
-Facebook now allows you to test your application by creating a copy of it to use for testing purposes. If you create a test application it will have it's own separate **App ID** and **App Secret**. Auth0 only allows one Facebook connection to be configured per tenant. One option for testing is that create the connection to the test connection and then change the values when you are ready to connect to the production application.
+Facebook now allows you to test your application by creating a copy of it to use for testing purposes. If you create a test application it will have its own separate **App ID** and **App Secret**. Auth0 only allows one Facebook connection to be configured per tenant. One option for testing is that create the connection to the test connection and then change the values when you are ready to connect to the production application.
 
 Another option is to create another Auth0 tenant used for testing purposes. A new tenant can be created in the [Dashboard](${manage_url}) by clicking on your tenant name in the top right corner and selecting **+ Create Tenant** from the dropdown. See the [Setting Up Multiple Environments](/dev-lifecycle/setting-up-env) for more information on multiple environments.
 

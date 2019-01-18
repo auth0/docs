@@ -47,7 +47,7 @@ For more information on calling APIs from Client-side Web Apps, please see [Call
 
 ## Register your Applications
 
-The first thing you need to do is to create a new applications in Auth0. An Auth0 applications maps to your application and allows it to use Auth0 for authentication.
+The first thing you need to do is to create a new application in Auth0. An Auth0 application maps to your application and allows it to use Auth0 for authentication.
 
 Navigate to the [Auth0 Dashboard](${manage_url}) and click on the [Applications](${manage_url}/#/applications) menu option on the left. Create a new Application by clicking on the **Create Applications** button.
 
@@ -55,7 +55,7 @@ The **Create Applications** window will open, allowing you to enter the name of 
 
 ![](/media/articles/client-auth/client-side-web/create-client.png)
 
-Once the applications has been created you can navigate to the **Settings** tab of the applications and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, such as `https://YOUR_APP/callback`.
+Once the application has been created you can navigate to the **Settings** tab of the applications and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, such as `https://YOUR_APP/callback`.
 
 This URL must be part of your application, as your application will need to extract the ID Token from the hash fragment of this URL.
 

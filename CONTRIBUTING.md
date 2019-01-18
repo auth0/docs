@@ -42,7 +42,7 @@ The following is a set of guidelines for contributing to the Auth0 documentation
 * Read and follow the [Style Guide](STYLEGUIDE.md).
 * Consult the [Words](WORDS.md) document for Auth0 specific spellings and definitions.
 * Always use relative URLs for internal `auth0.com/docs` links. For example, if the absolute path to the document is `https://auth0.com/docs/identityproviders`, use `/identityproviders`. These links will be correctly formatted in the build process.
-* Do not hard code links to Auth0 sites like `docs.auth0.com` or `manage.auth0.com`. Instead, use [Parameter Aliases](#parameter-aliases), such as `${manage_url}`.
+* Do not hard code links to Auth0 sites like `docs.auth0.com` or `manage.auth0.com`. Instead, use [Document Variables](#document-variables), such as `${manage_url}`.
 * Name files with all lowercase using dashes (-) to separate words. If using a date in the file name, it should be in the format YYYY-MM-DD. For example, `this-is-my-file.md` or `this-is-a-title-2015-10-01.md`.
 * Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using a relative path `![ALT_TEXT](/media/folder/image-name.png)`. The image will be uploaded to the CDN and the link will be formatted during the build process. Do not forget to set the alternate text for each image.
 * Keep images to no more than 750 pixels wide.
@@ -104,8 +104,8 @@ VALID: `# My Heading`
 ### UI Components
 
 General advice:
-- Don't add custom UI components with HTML unless it's really necessary.
-- Don't add any element before the main title. If you want to show some general information for the whole doc put the element after the main title.
+- Do not add custom UI components with HTML unless it's really necessary.
+- Do not add any element before the main title. If you want to show some general information for the whole doc put the element after the main title.
 - Try to keep the amount of UI components on your docs to a minimum. They make the documentation more difficult to read and cut the reading flow.
 - Only use the `blockquote` element (`>` in markdown) to represent actual quotes. Use a `note` or a `panel` if you want to highlight the information.
 
@@ -117,7 +117,7 @@ Only use this if the content is brief (one to four lines), if not use the `panel
 
 ```markdown
 ::: note
-  If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
+If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
 :::
 ```
 
@@ -167,7 +167,7 @@ Description
 :::
 
 ::: panel-warning Security Warning
-It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single Page Application, the Client Secret is available to the client (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Implicit Grant flow](/api-auth/grant/implicit) is more appropriate in that case.
+It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single Page Application, the Client Secret is available to the client (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) is more appropriate in that case.
 :::
 ```
 
@@ -288,7 +288,7 @@ For close-ups and other screenshots that do not include the browser window, appl
 
 You can set various properties of articles in the front matter of the document. Each document should have the `title` and `description` properties set. You can set other variables depending on the document.
 
-`toc` adds a table of content dropdown at the top of the document, that lists all the paragraphs of the doc. By default it's disabled. Set it to `true` to display the dropdown.
+`toc` adds a table of content dropdown at the top of the document, that lists all the paragraphs of the doc. By default it is disabled. Set it to `true` to display the dropdown.
 
 Example front matter:
 
@@ -319,14 +319,14 @@ url: /path/to/document
 We use a pre-commit hook that lints the edited files to ensure a consistent style in the docs.
 We use [markdownlint](https://github.com/DavidAnson/markdownlint) with the rules specified in the `.markdownlint.json` file in the root of the repo to do this. You can [check more about the linting rules](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md).
 
-You won't be able to commit if your edited file don't follow these guidelines.
+You will not be able to commit if your edited file does not follow these guidelines.
 
-If you are using VS Code as your code editor, it's highly recommended to install the [MarkdownLint VS Code Extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
+If you are using VS Code as your code editor, it is highly recommended to install the [MarkdownLint VS Code Extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
 
 ## Sidebar
 
 When you are adding a new article you should always add a link to it in the `config/sidebar.yml` file.
-It's really important to represent all our articles in the sidebar because this will help the user see where they are inside the documentation.
+It is really important to represent all our articles in the sidebar because this will help the user see where they are inside the documentation.
 
 You can add titles to the sidebar using the attribute `category`:
 
@@ -391,10 +391,10 @@ To create and submit a job to Wordy:
 You will need to provide the following pieces of information:
 * **Language**: Set to *English (US)*.
 * **Content rewrite**: Select this option if you are okay with your editor rewriting your text for improved flow and natural use of language. If this option is *not* selected, your editor will simply check for spelling, grammar, punctuation, consistency, and structure.
-* **Brief to editor**: Provide any information you'd like your editor to keep in mind when editing your work. For a starter snippet, please see our sample on [Notes to Wordy Editors](wordy-guide.md)
+* **Brief to editor**: Provide any information you would like your editor to keep in mind when editing your work. For a starter snippet, please see our sample on [Notes to Wordy Editors](wordy-guide.md)
 * **Save my brief and language settings for future jobs**: Select this box to persist your chosen settings.
 5. Upload files. You may choose to upload external files containing your text or paste in the text you want edited.
-6. After you've completed the above steps, you'll get an instant price quote and an approximate delivery time for your job. If this is acceptable to you, click on **Create Job** to begin the editing process.
+6. After you have completed the above steps, you will get an instant price quote and an approximate delivery time for your job. If this is acceptable to you, click on **Create Job** to begin the editing process.
 
 ### Word Count and Wordy Submissions
 
@@ -408,7 +408,7 @@ It is helpful to include some instructions for the Wordy editors to let them kno
 
 ### Notes
 
-* You can cancel a job if it hasn’t been picked up by an editor. If the job has been picked up, you can contact the editor and request a cancellation, though it is at the editor's discretion whether or not to cancel the job.
+* You can cancel a job if it has not been picked up by an editor. If the job has been picked up, you can contact the editor and request a cancellation, though it is at the editor's discretion whether or not to cancel the job.
 * During the editing process, you can contact your editor from the job's page. You can include last-minute instructions, corrections, and so on. Conversely, your editor can contact you during the process if they have any questions about your text. You will be notified by email if you receive any messages.
 * If you are unsatisfied with the work completed by your editor, you can send your work back. This includes issues where you find errors in the text or the instructions in your brief haven't been followed. You can contact your editor by using the **Conversation History** feature on the job's page.
 
@@ -556,7 +556,7 @@ Each framework will have a set of articles that comprise the quickstarts. The se
 
 #### Libraries
 
-As appropriate every framework/language should have libraries to help with common functions. THese libraries will include things like:
+As appropriate, every framework/language should have libraries to help with common functions. These libraries will include things like:
 
 * Management API Libraries
 * Authentication API Libraries
@@ -585,7 +585,7 @@ In this way, each section of the quickstart has a sample showing the appropriate
 
 ##### Sample README’s
 
-The README for each sample folder should be written to reflect the objectives of the sample and should also show some important code snippets. The goal is to give the reader context in a quick and concise way while outlining exactly what learning outcomes can be expected. It’s important to make content within each README specific to the subject sample.
+The README for each sample folder should be written to reflect the objectives of the sample and should also show some important code snippets. The goal is to give the reader context in a quick and concise way while outlining exactly what learning outcomes can be expected. It is important to make content within each README specific to the subject sample.
 
 * **Example**: 02-User-Profile
 * **Title**: “User Profile”
@@ -609,12 +609,12 @@ Each sample repo should have appropriate CI setup. You should use the appropriat
 In the case of things like iOS and Android samples, we should build with multiple version of Android/Xcode, etc. You can see an example here: <https://travis-ci.org/auth0/Auth0.swift>
 
 1. No need to write code or specialized guide for mobile
-2. We don't have a lot of stuff finished to be doing this one in mobile.
+2. We do not have a lot of stuff finished to be doing this one in mobile.
 3. No need to write code or specialized guide for mobile until we allow users to enroll mfa from mobile apps. Currently is web only
 
 ### Seed Projects
 
-Each quickstart should have a seed project. The seed projects are hosted in github in the `auth0-samples` organization. In order to add a seed project to a quickstart simply use the `_package` include.
+Each quickstart should have a seed project. The seed projects are hosted on github in the `auth0-samples` organization. In order to add a seed project to a quickstart simply use the `_package` include.
 
 The seed project packager service replaces placeholder configuration values with the values of the user's real application. This means the sample is ready to use without additional configuration. The strings that get set are shown below.
 
@@ -630,7 +630,7 @@ These values can be replaced in any file in the repo. Common examples of where y
 | `TENANT` | `{TENANT}` | The tenant name of the currentAuth0 account.
 | `CALLBACK_URL` | `{CALLBACK_URL}` |  This sets the callback url for the application. |
 | `MOBILE_CUSTOM_SCHEME` | `{MOBILE_CUSTOM_SCHEME}` |  This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
-| `RANDOM_STRING_64` | `{RANDOM_STRING_64}` |  This is a random string. Typically used for things like encryption keys, etc. For security reasons we set this with a reasonable default so if end-users forget to change them, they wont all be something like `YOUR_ENCRYPTION_KEY`. |
+| `RANDOM_STRING_64` | `{RANDOM_STRING_64}` |  This is a random string. Typically used for things like encryption keys, etc. For security reasons, we set this with a reasonable default so if end-users forget to change them, they won't all be something like `YOUR_ENCRYPTION_KEY`. |
 
 Example `.env` file:
 
@@ -889,7 +889,7 @@ example/
   index.yml
 ```
 
-This limitation is a result of the implementation of `AutoVersionPlugin`, and how the paths are calculated for the different versions. Fixing this is possible, but makes things a little more tricky, so I decided to cut it from the first version of the feature. If it's a desired behavior we can always add it later.
+This limitation is a result of the implementation of `AutoVersionPlugin`, and how the paths are calculated for the different versions. Fixing this is possible, but makes things a little more tricky, so I decided to cut it from the first version of the feature. If it is a desired behavior we can always add it later.
 
 #### Case Sensitive
 

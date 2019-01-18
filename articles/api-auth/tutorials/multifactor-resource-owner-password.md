@@ -22,7 +22,7 @@ Highly-trusted applications can use the [Resource Owner Password Grant](/api-aut
 
 Before you continue, make sure that you've met the following prerequisites:
 
-1. MFA is enabled on the [Auth0 dashboard](${manage_url}). Currently, the supported providers for this flow are [Google Authenticator](/multifactor-authentication/google-auth/admin-guide#enabling-google-authenticator-for-mfa) and [Guardian](/multifactor-authentication/administrator#guardian-basics). [Duo Security](/multifactor-authentication/duo) is __not__ supported.
+1. MFA is enabled on the [Auth0 dashboard](${manage_url}). [Duo Security](/multifactor-authentication/factors/duo) is __not__ supported as a factor with this flow.
 
 1. An Application is configured to execute the Resource Owner Password Grant (either [password](/api-auth/tutorials/password-grant) or [password-realm](/api-auth/tutorials/password-grant#realm-support) grant types). For details on how to implement this, refer to [Execute the Resource Owner Password Grant](/api-auth/tutorials/password-grant).
 
@@ -116,7 +116,7 @@ In this scenario, the challenge will be sent using a side channel, however, ther
 
 7. The Application asks the user to accept the delivered challenge and keeps the `oob_code` from step 6 for future use.
 
-8. The Application polls Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/docs/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
+8. The Application polls Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
 
 9. Auth0 validates the provided `oob_code`, the `mfa_token` and returns:
     - `authorization_pending` error: if the challenge has not been accepted nor rejected.

@@ -10,10 +10,6 @@ topics:
   - touch-id
 github:
   path: 08-Credentials-TouchID
-requirements:
-  - CocoaPods 1.2.1
-  - Version 8.3.2 (8E2002)
-  - Touch ID Enrolled Device
 contentType: tutorial
 useCase: quickstart
 ---

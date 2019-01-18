@@ -372,6 +372,15 @@ To retrieve the tokens, you can call `GetTokenAsync`:
 if (User.Identity.IsAuthenticated)
 {
     string accessToken = await HttpContext.GetTokenAsync("access_token");
+    
+    // if you need to check the access token expiration time, use this value
+    // provided on the authorization response and stored.
+    // do not attempt to inspect/decode the access token
+    DateTime accessTokenExpiresAt = DateTime.Parse(
+        await HttpContext.GetTokenAsync("expires_at"), 
+        CultureInfo.InvariantCulture, 
+        DateTimeStyles.RoundtripKind);
+        
     string idToken = await HttpContext.GetTokenAsync("id_token");
 
     // Now you can use them. For more info on when and how to use the
@@ -379,4 +388,4 @@ if (User.Identity.IsAuthenticated)
 }
 ```
 
-For general information on using APIs with web applications, see the [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code) article.
+For general information on using APIs with web applications, see the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow) article.

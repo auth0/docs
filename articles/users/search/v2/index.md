@@ -21,7 +21,7 @@ User search v2 has been deprecated as of **June 6th 2018**. Tenants created afte
 
 Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).
 
-This document will demonstrate how you can search for users and give some example queries. It is however suggested that you also reference the [Query String Syntax document](/api/management/v2/query-string-syntax) for more examples of the query string syntax.
+This document provides sample queries and demonstrates how you can search for users. We also suggest that you refer to [Query String Syntax](/api/management/v2/query-string-syntax) for more examples of query string syntax.
 
 ::: warning
 The user search endpoint allows you to return a maximum of **10,000** users. For additional results, please use either the [User Export Job endpoint](/api/management/v2#!/Jobs/post_users_exports) or the [User Export Extension](/extensions/user-import-export).
@@ -135,9 +135,7 @@ Below is an example request for searching all users whose email is exactly "john
 }
 ```
 
-## Next steps
+## Keep reading
 
-::: next-steps
-* [Learn how you can use the query string syntax to build custom queries](/users/search/v2/query-syntax)
-* [Learn about the Auth0 best practices for user search](/users/search/best-practices)
-:::
+* [Query Syntax](/users/search/v2/query-syntax)
+* [Search Best Practices](/best-practices/search-best-practices)

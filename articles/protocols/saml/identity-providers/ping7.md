@@ -22,13 +22,17 @@ Most options are the default values. You will just need to press __Next__ in mos
 
 If you want **IdP-Initiated SSO** make sure to include the connection parameter in the Assertion Consumer Service URL: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`.
 
-**Beginning with auth0.js v9.3.4, you must also [enable the impersonation flags](/user-profile/user-impersonation#enable-impersonation) to use IdP-initiated login.**
+**Beginning with auth0.js v9.3.4, you must also [enable the impersonation flags](/users/guides/impersonate-users-using-the-impersonation-api) to use IdP-initiated login.**
 
 <%= include('../../../_includes/_deprecate-impersonation.md') %>
 
 ### 1. Download Auth0 Metadata File
 
-Download the metadata file from [here](https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME). This will be used in [step 3](#3-configure-the-__sp-connection__) and it is used to automatically import information about your partner.
+::: note
+The following download will work only if you are logged in to Auth0. You may also need to manually provide the name of the connection in the URL.
+:::
+
+Download the [metadata file](https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME). This will be used in [step 3](#3-configure-the-__sp-connection__) and it is used to automatically import information about your partner.
 
 ### 2. Create a new __SP Connection__
 

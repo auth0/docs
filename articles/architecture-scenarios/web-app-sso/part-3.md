@@ -40,7 +40,7 @@ You may however want to avoid that first step, where the user needs to choose th
 
   There are multiple practical ways of getting the `connection` value. One of them is to use __vanity URLs__: for example, company employees will use `https://internal.yoursite.com`, while external contractors will use `https://external.yoursite.com`.
 
-- __Use email domains__: Lock can use email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. If a connection has this setup, then the password textbox gets disabled automatically when typing an e-mail with a mapped domain. Note that you can associate multiple domains to a single connection.
+- __Use email domains__: Lock can use email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. If a connection has this setup, then the password textbox gets disabled automatically when typing an email with a mapped domain. Note that you can associate multiple domains to a single connection.
 
 For additional information on this topic refer to: [Selecting the connection in Auth0 for multiple login options](/libraries/lock/v10/selecting-the-connection-for-multiple-logins).
 

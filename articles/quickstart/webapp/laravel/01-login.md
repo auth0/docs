@@ -15,15 +15,15 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Laravel', callback: 'http://localhost:3000/callback' }) %>
 
-## Install and Configure Laravel 5.5
+## Install and Configure Laravel 5.7
 
 If you are installing Auth0 to an existing app, you can skip this section. Otherwise, walk through the Laravel guides below to get started with a sample project.
 
-1. **[Installation](https://laravel.com/docs/5.5/installation)**
+1. **[Installation](https://laravel.com/docs/5.7/installation)**
     * Use any of the install methods listed to start a new project
     * PHP can be served any way that works for your development process (we use Homebrew-installed Apache and PHP)
     * Walk through the "Configuration" section completely
-2. **[Configuration](https://laravel.com/docs/5.5/configuration)**
+2. **[Configuration](https://laravel.com/docs/5.7/configuration)**
     * Create a .env file, used later for critical and sensitive Auth0 connection values
     * Make sure `APP_DEBUG` is set to `true`
     
@@ -50,7 +50,7 @@ First, we need to add the Auth0 Services to the list of Providers in `config/app
 
 ${snippet(meta.snippets.setup)}
 
-If you want to use an `Auth0` facade, add an alias in the same file (not required, [more information on facades here](http://laravel.com/docs/5.5/facades)):
+If you want to use an `Auth0` facade, add an alias in the same file (not required, [more information on facades here](http://laravel.com/docs/5.7/facades)):
 
 ```php
 // config/app.php
@@ -138,7 +138,7 @@ return array(
 
 ### Set Up Routes
 
-The plugin works with the [Laravel authentication system](https://laravel.com/docs/5.5/authentication) by creating a callback route to handle the authentication data from the Auth0 server.
+The plugin works with the [Laravel authentication system](https://laravel.com/docs/5.7/authentication) by creating a callback route to handle the authentication data from the Auth0 server.
 
 First, we'll add our route and controller to `routes/web.php`. The route used here must match the `redirect_uri` configuration option set previously:
 
@@ -199,9 +199,9 @@ Route::get('/logout', 'Auth\Auth0IndexController@logout' )->name( 'logout' )->mi
 
 ### Integrate with Laravel authentication system
 
-The [Laravel authentication system](https://laravel.com/docs/5.5/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting a user provider in `config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
+The [Laravel authentication system](https://laravel.com/docs/5.7/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting a user provider in `config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
 
-The plugin comes with an authentication driver called `auth0` which defines a user structure that wraps the [Normalized User Profile](/user-profile) defined by Auth0. This driver does not actually persist the User, it just stores it in session for future calls. This works fine for basic testing or if you don't really need to persist the user. For persistence in the database, see the "Custom User Handling" section below.
+The plugin comes with an authentication driver called `auth0` which defines a user structure that wraps the [Normalized User Profile](/users/normalized) defined by Auth0. This driver does not actually persist the User, it just stores it in session for future calls. This works fine for basic testing or if you don't really need to persist the user. For persistence in the database, see the "Custom User Handling" section below.
 
 At any point you can call `Auth::check()` to see if there is a user logged in and `Auth::user()` to get the wrapper with the user information.
 

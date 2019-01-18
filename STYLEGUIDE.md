@@ -7,8 +7,8 @@ For general software-industry styles and terminology, see the [Microsoft Writing
 ## Voice
 
 * Address the reader directly: "you". Use "we" only for Auth0's recommendations.
-* Use active voice.
-* For instructions, use imperative mood.
+* Use the active voice.
+* For instructions, use the imperative mood.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
@@ -21,11 +21,11 @@ For general software-industry styles and terminology, see the [Microsoft Writing
 | --- | --- |
 | The user enters his password. | The user enters their password. |
 
-* Avoid gerunds in headings and main body.
+* Avoid gerunds in headings and the main body.
 
 | **Incorrect** | **Correct** |
 | --- | --- |
-| Saving User Authentication Data | Save User Authentication Data |
+| Saving User Authentication Data. | Save User Authentication Data. |
 | Setting up the authorization process requires an ID Token and a valid Access Token. | To set up the authorization process, you need an ID Token and a valid Access Token. |
 
 ## Body text
@@ -180,7 +180,7 @@ For general software-industry styles and terminology, see the [Microsoft Writing
 
 ### The dashboard
 
-* Dashboard: the [Auth0 management console](${manage_url})
+* Dashboard: the [Auth0 management console](${manage_url}).
 * The dashboard elements are called "section", "tab", "field".
 * Dashboard-related terminology:
 ![](/media/readme/structure.png)

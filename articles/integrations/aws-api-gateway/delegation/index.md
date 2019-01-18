@@ -11,12 +11,9 @@ contentType:
 useCase:
   - secure-an-api
 ---
-
 # Build a Serverless Application Using Token-Based Authentication with AWS API Gateway and Lambda
 
-::: version-warning
-Delegation is considered deprecated in Auth0. Please integrate Auth0 using custom authorizers. Use the drop-down to switch to these docs.
-:::
+<%= include('./_delegation-version-warning') %>
 
 With AWS, you can create powerful, serverless, highly scalable APIs and applications through AWS Lambda, Amazon API Gateway, and a JavaScript application.
 

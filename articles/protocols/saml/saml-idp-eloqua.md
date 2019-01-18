@@ -98,7 +98,7 @@ Navigate to [https://login.eloqua.com/auth/saml2](https://login.eloqua.com/auth/
 
 ### IdP Initiated Login
 
-**Beginning with auth0.js v9.3.4, you must [enable the impersonation flags](/user-profile/user-impersonation#enable-impersonation) to use IdP-initiated login.**
+**Beginning with auth0.js v9.3.4, you must [enable the impersonation flags](/users/guides/impersonate-users-using-the-impersonation-api) to use IdP-initiated login.**
 
 <%= include('../../_includes/_deprecate-impersonation.md') %>
 

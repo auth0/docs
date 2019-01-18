@@ -45,7 +45,7 @@ You can fix this with [account linking](/link-accounts). You can link multiple a
 There are three ways to implement this:
 - **Automatic** account linking: you can configure a rule that will link accounts with the same email address. For more info and a sample rule, see [Automatic Account Linking](/link-accounts#automatic-account-linking)
 - **User-initiated** account linking: your app must provide the UI so an authenticated user can link their accounts manually. For a sample implementation, see [User Initiated Account Linking](/link-accounts/user-initiated-linking)
-- **Suggested** account linking: in this case you still configure a rule that will link accounts with the same verified e-mail address. However, instead of completing the link automatically, your app will first prompt the user to link their identities. For a sample implementation, see [Account Linking using server side code](/link-accounts/suggested-linking)
+- **Suggested** account linking: in this case you still configure a rule that will link accounts with the same verified email address. However, instead of completing the link automatically, your app will first prompt the user to link their identities. For a sample implementation, see [Account Linking using server side code](/link-accounts/suggested-linking)
 
 ## Export logs
 

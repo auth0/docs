@@ -75,7 +75,7 @@ Pick your application using the dropdown at the top, and choose your language of
 Copy and run the snippet. Extract the `access_token` property from the response. This is what you will use to access the Management API.
 
 ::: panel More info on the snippets
-The snippets make a `POST` operation to the [/oauth/token endpoint of the Auth0 Authentication API](/api/authentication#client-credentials), using the **OAuth 2.0 Client Credentials grant**. This is the grant that machine to machine processes utilize in order to access an API. For more information on the grant, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
+The snippets make a `POST` operation to the [/oauth/token endpoint of the Auth0 Authentication API](/api/authentication#client-credentials), using the **OAuth 2.0 Client Credentials grant**. This is the grant that machine-to-machine processes use to access an API. For more information on the flow, refer to [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow).
 :::
 
 #### Token expiration
@@ -188,8 +188,8 @@ You can build a process in your backend and expose it to your application as an 
 The backend process will implement the steps of [the backend section](#from-the-backend). You will call the IdP's API from the same backend process so the Access Token is never exposed to your public application.
 
 Then, you will call your proxy API from your public application using the respective flow for your case:
-- [Implicit Grant](/api-auth/tutorials/implicit-grant) if you are working with a SPA
-- [Authorization Code Grant (PKCE)](/api-auth/tutorials/authorization-code-grant-pkce) if you are working with a mobile application
+- [Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow) if you are working with a SPA
+- [Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow) if you are working with a mobile application
 
 :::panel Show me how to do it
 If you haven't implemented this before, you might find our [SPA + API](/architecture-scenarios/application/spa-api) article useful. It covers a different scenario but it does explain how to configure Auth0, call an API from a SPA, and implement the API validations. It comes with a sample that uses [Angular 2](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-spa/angular) and [Node.js](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node). We also offer a [Mobile + API](/architecture-scenarios/application/mobile-api) variation (the sample uses [Android](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-mobile/android) and [Node.js](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node)).
@@ -200,10 +200,6 @@ If you haven't implemented this before, you might find our [SPA + API](/architec
 If you don't have a backend server, and you don't want to set up one, then you can leverage serverless technology, using webtasks.
 
 Webtasks are the Auth0 way to create HTTP endpoints with Node.js and access them from anywhere. It's a way to safely execute server-side logic, when you do not have a backend. They come with a command line tool and an editor. For more information refer to [the webtask.io documentation](https://webtask.io/).
-
-:::note
-This option comes with an additional cost, for details see [Auth0 Extend pricing](https://auth0.com/extend/pricing).
-:::
 
 In this scenario, you will create a webtask and implement the steps of [the backend section](#from-the-backend). Then the webtask will call the IdP's API so the Access Token is never exposed to your public application.
 

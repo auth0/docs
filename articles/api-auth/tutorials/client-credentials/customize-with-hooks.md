@@ -188,7 +188,7 @@ Look into the last two items of the __Payload__. Both have been set by our hook:
 
 ## Manage your Hooks
 
-You can disable, enable, delete or edit hooks using either the Auth0 CLI or the [dashboard]((${manage_url}/#/hooks)). You can also review your logs using the Auth0 CLI. For details, refer to the articles below.
+You can disable, enable, delete or edit hooks using either the Auth0 CLI or the [dashboard](${manage_url}/#/hooks). You can also review your logs using the Auth0 CLI. For details, refer to the articles below.
 
 Use the Dashboard to:
 - [Delete Hooks](/auth0-hooks/dashboard/create-delete)

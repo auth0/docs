@@ -10,4 +10,9 @@ In addition, the credential used for authentication is automatically validated s
 
 These connections use an authentication channel like SMS or email. Each of these channels can be configured in the dashboard under [Connections > Passwordless](${manage_url}/#/connections/passwordless).
 
+::: note
+If you are implementing passwordless with embedded login using Lock or Auth0.js from within your app, rather than Universal Login, you will need to have custom domains set up. For more information, see [Custom Domains](/custom-domains).
+:::
+
+
 ![](/media/articles/connections/passwordless/passwordless-connections.png)

@@ -36,7 +36,7 @@ useCase: development
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/user-profile">User Management</a>
+    <i class="icon icon-budicon-715"></i><a href="/users/concepts/overview-user-profile">User Management</a>
     <p>
       Learn how to manage your users in Auth0, as well as what can be stored in the user profile
     </p>

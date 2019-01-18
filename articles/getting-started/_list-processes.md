@@ -9,7 +9,7 @@
   [More info on APIs](/apis).
 <% } else if (screen === "sso") { %>
   Single Sign On (SSO) Integrations enable the use of external services for single sign-on. In this page you can see a list of the available external services that you can use, such as Office 365, Salesforce, and others. Here you can create a new SSO integration, find tutorials on how to configure it, and review and update the settings of a particular integration.
-  [More info on SSO Integrations](/sso/integrations).
+  [More info on SSO Integrations](/integrations/sso).
 <% } else if (screen === "connections") { %>
   Use this page to manage the identity providers that you use to login to your apps. There are four types:
   - [Database](${manage_url}/#/connections/database): securely store and manage username / password credentials either in an Auth0 Database or in your own. To connect to an existing database you can use JavaScript scripts (we provide the templates) that run on Auth0's server on every authentication. Furthermore, you can migrate an existing legacy credentials database to Auth0 gradually as users authenticate (no password reset required). [More info on Database Connections](/connections/database).

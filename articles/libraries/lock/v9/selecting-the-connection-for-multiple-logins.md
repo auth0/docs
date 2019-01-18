@@ -61,7 +61,7 @@ An additional feature in the Lock is the use of email domains as a way of routin
 
 ![](/media/articles/hrd/k_LcfC8PHp.png)
 
-If a connection has this setup, then the password textbox gets disabled automatically when typing an e-mail with a mapped domain:
+If a connection has this setup, then the password textbox gets disabled automatically when typing an email with a mapped domain:
 
 ![](/media/articles/hrd/R7mvAZpSnf.png)
 

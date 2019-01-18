@@ -54,7 +54,7 @@ The following rule shows the provisioning process:
 
 The username is generated with the `createAzureADUser` function, which by default generates a username in the format `auth0-c3fb6eec-3afd-4d52-8e0a-d9f357dd19ab@fabrikamcorp.be`. You can change this to whatever you like, just make sure this value is unique for all your users.
 
-Make sure you set the correct values for the `AUTH0_OFFICE365_CLIENT_ID`, `AAD_CUSTOM_DOMAIN`, `AAD_DOMAIN`, `AAD_APPLICATION_ID` and `AAD_APPLICATION_API_KEY` values in the rule code.
+Make sure you set the correct values for the `AUTH0_OFFICE365_CLIENT_ID`, `AAD_CUSTOM_DOMAIN`, `AAD_DOMAIN`, `AAD_APPLICATION_ID` and `AAD_APPLICATION_API_KEY` values in your [configuration object](/rules/current#use-the-configuration-object) to make the values available in your rule code.
 
 In the code you'll also see that the rule will wait about 15 seconds after the user is provisioned. This is because it takes a few seconds before the provisioned user is available for Office 365.
 
@@ -72,15 +72,15 @@ function (user, context, callback) {
   // You can get it from the URL when editing the SSO integration,
   // it will look like
   // https://manage.auth0.com/#/externalapps/{the_client_id}/settings
-  var AUTH0_OFFICE365_CLIENT_ID = 'CLIENT_ID_OF_MY_THIRD_PARTY_APP_IN_AUTH0';
+  var AUTH0_OFFICE365_CLIENT_ID = configuration.AUTH0_OFFICE365_CLIENT_ID;
   // The main domain of our company.
   var YOUR_COMPANY_DOMAIN = 'mycompanyurl.com';
   // Your Azure AD domain.
-  var AAD_DOMAIN = 'mycompanyurl.onmicrosoft.com';
+  var AAD_DOMAIN = configuration.AAD_DOMAIN;
   // The Application ID generated while creating the Azure AD app.
-  var AAD_APPLICATION_ID = 'fc885c73-ce83-4d1e-9fo3-kako45460489';
+  var AAD_APPLICATION_ID = configuration.AAD_APPLICATION_ID;
   // The generated API key for the Azure AD app.
-  var AAD_APPLICATION_API_KEY = 'ZqnwPIsiMP07Wz7AQkx0RsD7mYTElny1tpKot8lizE9=';
+  var AAD_APPLICATION_API_KEY = configuration.AAD_APPLICATION_API_KEY;
   // The location of the users that are going to access Microsoft products.
   var AAD_USAGE_LOCATION = 'US';
   // Azure AD doesn't recognize the user instantly, it needs a few seconds

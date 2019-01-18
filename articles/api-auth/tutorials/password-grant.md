@@ -15,11 +15,11 @@ useCase:
 
 <%= include('../../_includes/_pipeline2') %>
 
-In this tutorial we will go through the steps required to implement the Resource Owner Password Grant.
+In this tutorial, we will go through the steps required to implement the Resource Owner Password Grant.
 
 You should use this flow **only if** the following apply:
-- The application is absolutely trusted with the user's credentials. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead.
-- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application you should use the [Authorization Code Grant](/api-auth/grant/authorization-code) instead.
+- The application is absolutely trusted with the user's credentials. For [Single-Page Apps](/flows/concepts/single-page-login-flow) and [Native/Mobile Apps](/flows/concepts/mobile-login-flow), we recommend using web flows instead.
+- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application, you should use the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow) instead.
 
 ## Before you start
 
