@@ -71,7 +71,7 @@ Although JWTs can be encrypted to also provide secrecy between parties, we will 
 To learn about the structure of a JWT, refer to [JSON Web Token (JWT) Structure](/tokens/reference/jwt/jwt-structure).
 
 ::: warning
-However you use a JWT, you must [verify its signature](/tokens/id-token#verify-the-signature) before storing and using it.
+However you use a JWT, you must [verify its signature](/tokens/guides/id-token/validate-id-token#verify-the-signature) before storing and using it.
 :::
 
 The safest way to implement JWT-based authentication, is to use one of the existing open source libraries. In [JWT.io](https://jwt.io/#libraries-io) you can find several, for .NET, Python, Java, Ruby, Objective-C, Swift, PHP, and more.
