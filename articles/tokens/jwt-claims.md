@@ -16,7 +16,7 @@ useCase:
 
 # JSON Web Token Claims
 
-There are two types of JSON Web Token (JWT) claims:
+There are two types of [JSON Web Token (JWT)](/tokens/jwt) claims:
 
 * **Reserved**: Claims defined by the [JWT specification](https://tools.ietf.org/html/rfc7519) to ensure interoperability with third-party, or external, applications.
 * **Custom**: Claims that you define yourself. Name these claims carefully to avoid collision with reserved claims or other custom claims. When collisions occur, it can be difficult to tease apart two claims of the same name that contain differing information.
