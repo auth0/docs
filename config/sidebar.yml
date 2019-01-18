@@ -565,16 +565,31 @@ articles:
           - title: "Import File Schema"
             url: "/users/references/bulk-import-database-schema-examples"
  
-      - title: "Redirect Users"
+      - title: "Redirect After Login"
         url: "/users/guides/redirect-users-after-login"
         children:
           - title: "Redirect Users from Rules"
             url: "/rules/current/redirect"
             hidden: true
 
-          - title: "Redirect Users After Logout"
-            url: "/logout#redirect-users-after-logout"
-            hidden: true
+      - title: "User Logout"
+        url: "/logout"
+        children:
+          - title: "Applications"
+            url: "/logout/guides/logout-applications"
+
+          - title: "Auth0"
+            url: "/logout/guides/logout-auth0"
+
+          - title: "Identity Providers"
+            url: "/logout/guides/logout-idps"
+            hidden: true 
+
+          - title: "SAML Identity Providers"
+            url: "/logout/guides/logout-saml-idps"
+
+          - title: "Redirect After Logout"
+            url: "/logout/guides/redirect-users-after-logout"
 
       - title: "User Search"
         url: "/users/search/v3"
