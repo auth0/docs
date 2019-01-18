@@ -22,7 +22,7 @@ For more information on all the types of tokens used by Auth0, see [Tokens](/tok
 
 JSON Web Token (JWT), pronounced "jot", is an open standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.  
 
-* Compact: Because of its relatively small size, a JWT can be sent through a URL, through a POST parameter, or inside an HTTP header. Additionally, it is transmitted quickly.
+* Compact: Because of its relatively small size, a JWT can be sent through a URL, through a POST parameter, or inside an HTTP header, and it is transmitted quickly.
 * Self-contained: A JWT contains all the required information about an entity to avoid querying a database more than once.
 
 ## Use of JWTs
