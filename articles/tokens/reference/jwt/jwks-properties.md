@@ -1,5 +1,5 @@
 ---
-title: JSON Web Key Set (JWKS) Properties
+title: JSON Web Key Set Properties
 description: Reference the properties available in a JSON Web Key Set (JWKS).
 toc: true
 topics:
@@ -11,9 +11,9 @@ useCase:
   - invoke-api
   - secure-api
 ---
-# JWKS Properties
+# JSON Web Key Set Properties
 
-This is an example of the JWKS used by a demo tenant, containing a single key:
+This is an example of the JSON Web Key Set (JWKS) used by a demo tenant, containing a single JSON Web Key (JWK):
 
 ```json
 {
