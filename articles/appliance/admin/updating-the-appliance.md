@@ -84,7 +84,28 @@ For additional information on gathering testing information, please see [PSaaS A
 * Perform the post-test check:
   * Check to see if all instances list the same update count and that they're currently running the latest version.
   * Check that all Health Checks are okay.
-  * Run smoke tests to ensure that there are no issues with the update.
+
+* Run smoke tests to ensure that there are no issues with the update.
+
+    The specifics of what constitutes a complete smoke check for your PSaaS Appliance varies, since the appropriate tests vary based on your implementation and usage of Auth0. Furthermore, each orgnaization prefers different levels of detail when it comes to testing -- some prefer more thorough testing than others. Regardless, we recommend testing at the very least:
+    
+        1. All application functionality that involves authentication flows or user identity changes
+        2. Basic access to the Auth0 Management Dashboard
+        
+    Some of the areas and processes that you might consider including in your smoke tests include:
+    
+        * Registration
+        * Login (including those involving Social or other identity providers)
+        * Logout
+        * Password reset
+        * Single sign on (SSO)
+        * Passwordless/SMS login
+        * User metadata updates
+        * Machine-to-machine interactions
+        * SDK usage
+        * Mobile and desktop usage
+        * Login and use of the Auth0 Management Dashboard
+        * Extensions (make sure that the ones you've installed are functioning as expected
 
 Please remember that you are responsible for testing and ensuring that all of your applications work as expected.
 
