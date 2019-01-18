@@ -48,4 +48,4 @@ In order to access the [Management APIv2](/api/management/v2) endpoints from a t
 :::
 
 ## Keep reading
-* [How to View an Application Type: First-Party or Third-Party](/applications/guides/view-application-type-first-party)
+* [View an Application Type: First-Party or Third-Party](/applications/guides/view-application-type-first-party)
