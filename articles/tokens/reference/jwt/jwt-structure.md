@@ -1,6 +1,6 @@
 ---
-title: JSON Web Token (JWT) Structure
-description: Learn how JSON Web Tokens (JWTs) are structured.
+title: JSON Web Token Structure
+description: Understand how JSON Web Tokens (JWTs) are structured.
 toc: true
 topics:
   - tokens
