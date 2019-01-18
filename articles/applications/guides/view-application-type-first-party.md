@@ -1,5 +1,5 @@
 ---
-title: View an Application Type: First-Party or Third-Party
+title: View an Application Type - First-Party or Third-Party
 description: Learn how to check whether an application is registered with Auth0 as a first-party or third-party app.
 toc: true
 topics:
@@ -10,7 +10,6 @@ contentType: how-to
 useCase:
   - build-an-app
 ---
-
 # View Application Type: First-Party or Third-Party
 
 ::: note
