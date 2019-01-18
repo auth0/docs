@@ -1,5 +1,5 @@
 ---
-title: Programmatically Parse and Validate a JWT
+title: Programmatically Parse and Validate a JSON Web Token
 description: Learn how to programmatically parse and validate a JSON Web Token (JWT).
 toc: true
 topics:
@@ -13,9 +13,9 @@ useCase:
   - secure-api
   - add-login
 ---
-# Programmatically Parse and Validate a JWT
+# Programmatically Parse and Validate a JSON Web Token
 
-To programmatically parse and validate a JWT, you can either:
+To programmatically parse and validate a JSON Web Token (JWT), you can either:
 
 * choose a third-party library from [JWT.io](https://jwt.io/#libraries)
 * use any existing middleware for your web framework
@@ -31,4 +31,4 @@ Also, be aware that not all libraries validate all JWT claims. At [JWT.io](https
 
 ## Keep reading
 
-* [JSON Web Token (JWT) Structure](/tokens/reference/jwt/jwt-structure)
+* [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure)
