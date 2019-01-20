@@ -117,7 +117,7 @@ Database Connections enable the typical username and password login seen on most
 
     ![Application Advanced Settings](/media/articles/cms/wordpress/database-connection-listing.png)
 
-1. Click the **Settings** tab, set **Password Strength** to the same as your wp-admin setting (default is Fair), and click **Save** at the bottom. If you want your password policy to be stronger or weaker, make sure to set it both here and at **wp-admin > Auth0 > Settings**.
+1. Click the **Password Policy** tab, set **Password Strength** to the same as your wp-admin setting (default is Fair), and click **Save** at the bottom. If you want your password policy to be stronger or weaker, make sure to set it both here and at **wp-admin > Auth0 > Settings**.
 
 1. Click the **Applications** tab and activate the Application created above.
 
