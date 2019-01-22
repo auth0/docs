@@ -1,4 +1,4 @@
-# POST /oauth/ro
+# POST /passwordless/verify
 
 ## Grant type: jwt-bearer
 
