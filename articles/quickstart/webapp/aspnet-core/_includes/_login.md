@@ -8,7 +8,7 @@ You can also create a custom login for prompting the user for their username and
 
 ### Install dependencies
 
-To integrate Auth0 with ASP.NET Core you will use the Cookie and OpenID Connect (OIDC) authentication handlers. The seed project already references the ASP.NET Core metapackage (`Microsoft.AspNetCore.All`) which includes **all** NuGet packages shipped by Microsoft as part of ASP.NET Core 2.0, including the packages for the Cookie and OIDC authentication handlers.
+To integrate Auth0 with ASP.NET Core you will use the Cookie and OpenID Connect (OIDC) authentication handlers. The seed project already references the ASP.NET Core metapackage (`Microsoft.AspNetCore.App`) which includes **all** NuGet packages shipped by Microsoft as part of ASP.NET Core 2.1, including the packages for the Cookie and OIDC authentication handlers.
 
 If you are adding this to your own existing project, and you have not referenced the metapackage, then please make sure that you add the `Microsoft.AspNetCore.Authentication.Cookies` and `Microsoft.AspNetCore.Authentication.OpenIdConnect` packages to your application.
 
