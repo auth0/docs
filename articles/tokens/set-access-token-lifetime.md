@@ -13,7 +13,7 @@ useCase:
 
 You control the Access Token lifetime on a per-API basis.
 
-Auth0 recommends that you set the validity period of your taken based on the security requirements of your API. For example, an Access Token that accesses a banking API should expire more quickly than one that accesses a ToDo API.
+Auth0 recommends that you set the validity period of your token based on the security requirements of your API. For example, an Access Token that accesses a banking API should expire more quickly than one that accesses a ToDo API.
 
 To configure the amount of time a token lives, use the **Token Expiration (Seconds)** field for your API in the [Dashboard](${manage_url}/#/apis) APIs section. 
 * Default value: `24` hours (`86400` seconds)
