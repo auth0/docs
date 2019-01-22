@@ -226,7 +226,7 @@ Once you have a verification code, use this endpoint to login the user with thei
 
 ### Error Codes
 
-For the complete error code reference for this endpoint refer to [Errors > POST /oauth/ro](#post-oauth-ro).
+For the complete error code reference for this endpoint refer to [Errors > POST /passwordless/verify](#post-passwordless-verify).
 
 ### More Information
 
