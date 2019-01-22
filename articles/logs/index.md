@@ -47,7 +47,7 @@ When debugging an issue, or setting up an integrations, logs are as good as gold
 
 ## Frequently Asked Questions
 
-### How long is log file data available?
+### How Long is Log File Data Available?
 
 The length of time log data is stored varies depending on your plan.
 
@@ -58,7 +58,7 @@ Developer | 2 days
 Developer Pro | 10 days
 Enterprise | 30 days
 
-### How do I view or export log file data?
+### How do I View or Export Log File Data?
 
 If you would like to store log data longer than the time period offered by your subscription plan, we recommend you use the [Management API feature that allows you to retrieve the relevant data](api/management/v2#!/Logs/get_logs). Once you've retrieved your data, you can:
 
@@ -80,7 +80,7 @@ If you would like to perform a search for specific events you can also use the [
 ### Get Logs by Checkpoint
 This method allows to retrieve logs from a particular log_id. For searching by checkpoint use the following parameters:
 
-- `from`: Log Event Id to start retrieving logs. You can limit the amount of logs using the take parameter. 
+- `from`: Log Event Id to start retrieving logs. You can limit the amount of logs using the take parameter.
 - `take`: The total amount of entries to retrieve when using the from parameter.
 
 Important: When fetching logs by checkpoint, the `q` or any other parameter other than `from` and `take` will be ignored. Also the order by date is not guaranteed.
@@ -140,7 +140,7 @@ The following table lists the codes associated with the appropriate log events.
 | `fcu` | Failed Change Username | Failed to change username | [User Profile](/users/concepts/overview-user-profile) |
 | `fd` | Failed Delegation | Failed to generate delegation token | [Delegation Tokens](/tokens/delegation) |
 | `fdu` | Failed User Deletion | | [User Profile](/users/concepts/overview-user-profile) |
-| `feacft` | Failed Exchange | Failed to exchange authorization code for Access Token | [Call API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow) 
+| `feacft` | Failed Exchange | Failed to exchange authorization code for Access Token | [Call API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow)
 | `feccft` | Failed Exchange | Failed exchange of Access Token for a Client Credentials Grant | [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens) |
 | `feoobft` | Failed Exchange | Failed exchange of Password and OOB Challenge for Access Token | |
 | `feotpft` | Failed Exchange | Failed exchange of Password and OTP Challenge for Access Token | |
