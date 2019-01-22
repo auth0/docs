@@ -12,7 +12,7 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
-ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access to your application based on the user's role. This tutorial shows how to add role information to the user's ID token and then use it to limit access to your application. 
+ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles) which allows you to limit access to your application based on the user's role. This tutorial shows how to add role information to the user's ID token and then use it to limit access to your application.
 
 ::: note
 To follow the tutorial, make sure you are familiar with [Rules](/rules/current).
@@ -24,7 +24,7 @@ Create a rule that assigns the following access roles to your user:
 * An admin role
 * A regular user role
 
-To assign roles, go to the [New rule page](${manage_url}/#/rules/new). In the **Access Control** section, create an empty rule. 
+To assign roles, go to the [New rule page](${manage_url}/#/rules/new). In the **Access Control** section, create an empty rule.
 
 Use the following code for your rule:
 
@@ -43,7 +43,7 @@ function (user, context, callback) {
     const endsWith = '@example.com';
 
     if (user.email && (user.email.substring(user.email.length - endsWith.length, user.email.length) === endsWith)) {
-      return ['admin']
+      return ['admin'];
     }
     return ['user'];
   };
@@ -113,7 +113,7 @@ public void ConfigureServices(IServiceCollection services)
             {
                 // ...
             }
-        };   
+        };
     });
 }
 ```

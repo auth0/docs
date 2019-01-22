@@ -97,7 +97,7 @@ public void ConfigureServices(IServiceCollection services)
 
                 return Task.CompletedTask;
             }
-        };   
+        };
     });
 
     // Add framework services.
@@ -170,7 +170,7 @@ public void ConfigureServices(IServiceCollection services)
 
                 return Task.FromResult(0);
             }
-        };   
+        };
     });
 }
 ```
@@ -266,14 +266,14 @@ public void ConfigureServices(IServiceCollection services)
 
                 return Task.CompletedTask;
             }
-        };   
+        };
     });
 }
 ```
 
 ### Add the Log In and Log Out Buttons
 
-Add the **Log In** and **Log Out** buttons to the navigation bar. In the `/Views/Shared/_Layout.cshtml` file, in the navigation bar section, add code that displays the **Log Out** button when the user is authenticated and the **Log In** button if not. The buttons link to the `Logout` and `Login` actions in the `AccountController`:  
+Add the **Log In** and **Log Out** buttons to the navigation bar. In the `/Views/Shared/_Layout.cshtml` file, in the navigation bar section, add code that displays the **Log Out** button when the user is authenticated and the **Log In** button if not. The buttons link to the `Logout` and `Login` actions in the `AccountController`:
 
 ```html
 <!-- Views/Shared/_Layout.cshtml -->
@@ -359,7 +359,7 @@ public void ConfigureServices(IServiceCollection services)
             {
                 //...
             }
-        };   
+        };
     });
 }
 ```
@@ -378,7 +378,7 @@ if (User.Identity.IsAuthenticated)
     // do not attempt to inspect/decode the access token
     DateTime accessTokenExpiresAt = DateTime.Parse(
         await HttpContext.GetTokenAsync("expires_at"), 
-        CultureInfo.InvariantCulture, 
+        CultureInfo.InvariantCulture,
         DateTimeStyles.RoundtripKind);
         
     string idToken = await HttpContext.GetTokenAsync("id_token");
