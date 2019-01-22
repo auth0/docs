@@ -609,9 +609,6 @@ articles:
           - title: "View Search Results"
             url: "/users/search/v3/view-search-results-by-page"
 
-          - title: "Bulk User Exports"
-            url: "/users/guides/bulk-user-exports"    
-
           - title: "Query Syntax"
             url: "/users/search/v3/query-syntax"
 
