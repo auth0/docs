@@ -66,9 +66,9 @@ public void ConfigureServices(IServiceCollection services)
         options.Scope.Clear();
         options.Scope.Add("openid");
 
-        // Set the callback path, so Auth0 will call back to http://localhost:5000/signin-auth0
+        // Set the callback path, so Auth0 will call back to http://localhost:3000/callback
         // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard
-        options.CallbackPath = new PathString("/signin-auth0");
+        options.CallbackPath = new PathString("/callback");
 
         // Configure the Claims Issuer to be Auth0
         options.ClaimsIssuer = "Auth0";
@@ -317,8 +317,8 @@ When the user selects the **Log In** button, the OIDC middleware redirects them 
 1. The user clicks on the **Log In** button and is directed to the `Login` route.
 2. The `ChallengeAsync` tells the ASP.NET authentication middleware to issue a challenge to the authentication handler registered with the Auth0 `authenticationScheme` parameter. The parameter uses the "Auth0" value you passed in the call to `AddOpenIdConnect` in the `Startup` class.
 3. The OIDC handler redirects the user to the Auth0 `/authorize` endpoint, which displays the Lock widget. The user can log in with their username and password, social provider or any other identity provider.
-4. Once the user has logged in, Auth0 calls back to the `/signin-auth0` endpoint in your application and passes along an authorization code.
-5. The OIDC handler intercepts requests made to the `/signin-auth0` path.
+4. Once the user has logged in, Auth0 calls back to the `/callback` endpoint in your application and passes along an authorization code.
+5. The OIDC handler intercepts requests made to the `/callback` path.
 6. The handler looks for the authorization code, which Auth0 sent in the query string.
 7. The OIDC handler calls the `/oauth/token` endpoint to exchange the authorization code for the user's ID and Access Tokens.
 8. The OIDC middleware extracts the user information from the claims on the ID Token.
