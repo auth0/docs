@@ -107,7 +107,7 @@ You have three options for [passwordless authentication](/connections/passwordle
 
 ### Error Codes
 
-For the complete error code reference for this endpoint refer to [Errors > POST /passwordless/start](#post-passwordless-start).
+For the complete error code reference for this endpoint refer to [Errors > POST /passwordless/start](#post-passwordlessstart).
 
 ### More Information
 
@@ -226,7 +226,7 @@ Once you have a verification code, use this endpoint to login the user with thei
 
 ### Error Codes
 
-For the complete error code reference for this endpoint refer to [Errors > POST /passwordless/verify](#post-passwordless-verify).
+For the complete error code reference for this endpoint refer to [Errors > POST /passwordless/verify](#post-passwordlessverify).
 
 ### More Information
 
