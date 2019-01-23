@@ -17,9 +17,8 @@ When searching for users in Auth0, there are three different API endpoints you c
 
 | Requirement | Endpoint to Use |
 | - | - |
-| Changing users' display names | [Get Users](/users/search/v3/get-users-endpoint) |
 | Searches involving user attributes | [Get Users](/users/search/v3/get-users-endpoint) |
-| Searches returning multiple users | [Get Users](/users/search/v3/get-users-endpoint) |
+| Searches returning multiple users | [Get Users](/users/search/v3/get-users-endpoint) or [Get Users by Email](/users/search/v3/get-users-by-email-endpoint) |
 | Operations requiring immediate consistency | [Get Users by ID](/users/search/v3/get-users-by-id-endpoint) or [Get Users by Email](/users/search/v3/get-users-by-email-endpoint) |
 | Actions requiring user search as part of authentication processes | [Get Users by ID](/users/search/v3/get-users-by-id-endpoint) or [Get Users by Email](/users/search/v3/get-users-by-email-endpoint) |
 | Searching for users for account linking by email | [Get Users by Email](/users/search/v3/get-users-by-email-endpoint) |
