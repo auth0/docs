@@ -12,7 +12,6 @@ useCase:
   - analyze-logs
   - integrate-analytics
 ---
-
 # Logs
 
 Using the [Dashboard](${manage_url}/#/logs) or the [Management API logs endpoint](/api/v2#!/Logs/get_logs), you can pull log data on actions performed by administrators using the Dashboard, operations performed via the Management API, and authentications made by your users.
@@ -21,7 +20,7 @@ Using the [Dashboard](${manage_url}/#/logs) or the [Management API logs endpoint
 Auth0 does not provide real-time logs for your tenant. While we do our best to index events as they arrive, you may see some delays.
 :::
 
-## How to View Log Data
+## How to view log data
 
 The **Logs** page of the [Dashboard](${manage_url}/#/logs) displays all events that occur, including user authentication and administrative actions such as adding/updating Applications, Connections, and Rules.
 
@@ -29,9 +28,10 @@ The **Logs** page of the [Dashboard](${manage_url}/#/logs) displays all events t
 
 Please note that administrative actions will show up in the logs as `API Operation` events.
 
-## What Can I Use Logs For?
+## What can I use logs for?
 
-### As an Administrator
+### As an administrator
+
 If you are operating your service as an administrator, there are many helpful metrics and bits of information you can gather from the Logs. If a customer has raised a support ticket that they are unable to sign in to your service or application, you can verify in the logs that they have indeed tried, and are attempting in the manner they say they are. They may think it's a password issue, but you may discover they never completed setting up their Multi-Factor Authentication. Additionally, Logs can help expose some business metrics you may not have had available before. These could include:
 
 - Finding prime times of usage for different regions
@@ -42,12 +42,13 @@ If you are operating your service as an administrator, there are many helpful me
 
  The deeper the analysis, the more you can learn about your customers and your business.
 
-### As a Developer
+### As a developer
+
 When debugging an issue, or setting up an integrations, logs are as good as gold. You can utilize the logs as a history of events to see where a flow may be broken, or where customers are getting confused. You can also detect nefarious behavior, or verify that Auth0 anomaly detection is being triggered during questionable behavior. We support searching the logs for specific events using our Dashboard or Management API directly, but also support exporting logs to your existing log processing systems, like Splunk or Sumo Logic, for deeper analysis over time.
 
 ## Frequently Asked Questions
 
-### How Long is Log File Data Available?
+### How long is log file data available?
 
 The length of time log data is stored varies depending on your plan.
 
@@ -58,14 +59,14 @@ Developer | 2 days
 Developer Pro | 10 days
 Enterprise | 30 days
 
-### How do I View or Export Log File Data?
+### How do I view or export log file data?
 
 If you would like to store log data longer than the time period offered by your subscription plan, we recommend you use the [Management API feature that allows you to retrieve the relevant data](api/management/v2#!/Logs/get_logs). Once you've retrieved your data, you can:
 
 * Store the data yourself
 * Send the data to an external service. You can install and configure an Auth0 Extension in order to export logs automatically to another provider, like Sumo Logic or Loggly. For a list of available providers and detailed steps to configure each, see [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service).
 
-## Retrieving Logs from the Management API
+## Retrieving logs from the Management API
 
 You can use the Management API v2 to retrieve your logs using the [/api/v2/logs](/api/v2#!/Logs/get_logs) endpoint, which suports two types of consumption: [by checkpoint](/logs#get-logs-by-checkpoint) or [by search criteria](#get-logs-by-search-criteria).
 
@@ -77,7 +78,8 @@ If you would like to perform a search for specific events you can also use the [
 
 **Limitation**: When you query for logs with the [list or search logs](/api/v2#!/Logs/get_logs) endpoint, you can retrieve a maximium of 100 logs per request.
 
-### Get Logs by Checkpoint
+### Get logs by checkpoint
+
 This method allows to retrieve logs from a particular log_id. For searching by checkpoint use the following parameters:
 
 - `from`: Log Event Id to start retrieving logs. You can limit the amount of logs using the take parameter.
@@ -85,7 +87,8 @@ This method allows to retrieve logs from a particular log_id. For searching by c
 
 Important: When fetching logs by checkpoint, the `q` or any other parameter other than `from` and `take` will be ignored. Also the order by date is not guaranteed.
 
-### Get Logs by Search Criteria
+### Get logs by search criteria
+
 Retrieves log entries that match the specified search criteria (or list all entries if no criteria is used).
 
 For searching by criteria use the following parameters:
@@ -99,13 +102,13 @@ For searching by criteria use the following parameters:
 
 For the list of fields that can be used in the search query and the `fields` and `sort` params, checkout the list of [searcheable fields](logs/query-syntax#searchable-fields).
 
-**Limitations**:
+#### Limitations
 
 Besides the limitation of 100 logs per request to retrieve logs, you may only paginate through up to 1,000 search results.
 
 If you get the error `414 Request-URI Too Large` this means that your query string is larger than the supported length. In this case, refine your search.
 
-## Other Log Endpoints
+## Other log endpoints
 
 As an alternative or complement to retrieving logs by checkpoint or search criteria using the [/api/v2/logs](/api/v2#!/Logs/get_logs) endpoint, you can also use the following endpoints to look for logs:
 
@@ -113,7 +116,7 @@ As an alternative or complement to retrieving logs by checkpoint or search crite
 * [/api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user): Retrieves log events for a specific user id.
 `every`.
 
-## Log Data Event Listing
+## Log data event listing
 
 The following table lists the codes associated with the appropriate log events.
 
