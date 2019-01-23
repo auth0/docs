@@ -46,7 +46,7 @@ For Connections that don't provide an `email_verified` flag (some Enterprise con
 
 ### I see the error message "There is a user with the same email" that prevents me from logging in
 
-This means that there is a user in that has the same email as the one being used to login associated with a different Auth0 user. If you're in the process of testing the plugin or want to associate the existing user with the new Auth user instead:
+This means that there is a user in WordPress that has the same email as the one being used to login associated with a different Auth0 user. If you're in the process of testing the plugin or want to associate the existing user with the new Auth user instead:
 
 1. Log in as an admin
 1. Go to wp-admin > Users and search for the email being used
