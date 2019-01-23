@@ -715,6 +715,9 @@ articles:
           - title: "Duo"
             url: "/multifactor-authentication/factors/duo"
 
+          - title: "Email"
+            url: "/multifactor-authentication/factors/email"
+
       - title: "Custom MFA"
         url: "/multifactor-authentication/custom"
 
