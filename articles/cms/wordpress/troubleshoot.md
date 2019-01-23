@@ -28,7 +28,7 @@ State validation is a security feature added in [version 3.6.0](https://github.c
 
 ### I'm seeing the error message "Invalid ID token" or "Expired ID token" that prevents me from logging in
 
-This is typically caused by a server set to an incorrect time. If the error message includes "used too early," then your server time is set in the future. If it says that the token is expired, then the server time is set too far in the past. Check what `echo current_time( 'c' )` outputs on your server for a clue as to whether the time on your server matches the timezone it is using. According to the [spec](https://tools.ietf.org/html/rfc7519#section-4.1.5), you can define a short leeway to account for the clock skew on your server. For example, you can insert the below code in your `functions.php` or anywhere else that would run it after the plugin loads and before the login hook runs:
+This is typically caused by a server set to an incorrect time. If the error message includes "used too early," then your server time is set in the future. If it says that the token is expired, then the server time is set too far in the past. Check what `echo current_time( 'c' )` outputs on your server for a clue as to whether the time on your server matches the timezone it is using. Clock skews is not a very uncommon and using the Auth0 WordPress plugin, you can define a short leeway to account for the clock skew on your server. For example, you can insert the below code in your `functions.php` or anywhere else that would run it after the plugin loads and before the login hook runs:
 
 ```
 if ( class_exists( 'JWT' ) ) { \JWT::$leeway = 60; }
@@ -46,7 +46,7 @@ For Connections that don't provide an `email_verified` flag (some Enterprise con
 
 ### I see the error message "There is a user with the same email" that prevents me from logging in
 
-This means that there is a user in WordPress that has the same email as the one being used to login associated with a different Auth0 user. If you're in the process of testing the plugin or want to associate the existing user with the new Auth user instead:
+This means that there is a user in that has the same email as the one being used to login associated with a different Auth0 user. If you're in the process of testing the plugin or want to associate the existing user with the new Auth user instead:
 
 1. Log in as an admin
 1. Go to wp-admin > Users and search for the email being used
