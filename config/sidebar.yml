@@ -726,6 +726,16 @@ articles:
       - title: "FAQs"
         url: "/anomaly-detection/references/anomaly-detection-faqs"    
 
+  - title: "Logs"
+    url: "/logs"
+    children:
+
+      - title: "Overview"
+        url: "/logs"
+
+      - title: "Query Syntax"
+        url: "/logs/query-syntax"
+
   - title: "Analytics"
     url: "/analytics/integrations"
     children:
