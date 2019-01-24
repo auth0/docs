@@ -28,7 +28,9 @@ This brings you to the **Rule Configuration** section of the **Configuration** p
 All of the changes you make in the sections under **Token Contents**, such as those related to groups, roles, and permissions, will be reflected in the rule you export at the completion of this step. 
 
 ### ApiKey
-The rule is using ApiKey to communicate with Authz-extension API and can be used only to get policy. ApiKey is stored as rule config and it will be created automatically, when rule is published. You can rotate ApiKey simply by pressing "Rotate" button. It will update rule config automatically.
+
+The rule is using ApiKey to communicate with the Authorization Extension API and can be used only to get the policy. ApiKey is stored as a rule config and it will be created automatically when the rule is published. You can rotate the ApiKey by pressing the "Rotate" button. It will update the rule config automatically.
+
 ![ApiKey config](/media/articles/extensions/authorization/apikey-config.png)
 
 ## Add Authorization Information to the Token Issued
