@@ -85,7 +85,7 @@ https://yourdomain.com/index.php?auth0=1
 
 In order for your WordPress site to perform certain actions on behalf of your Auth0 tenant, you'll need to authorize the Application created above to access the Management API.
 
-1. Make sure your Application allows the Client Credential grant (step 11 above)
+1. Make sure your Application allows the Client Credentials grant (step 7 above)
 
 1. Navigate to the [APIs](${manage_url}/#/apis) page
 
