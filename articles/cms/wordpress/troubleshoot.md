@@ -28,7 +28,13 @@ State validation is a security feature added in [version 3.6.0](https://github.c
 
 ### I'm seeing the error message "Invalid ID token" or "Expired ID token" that prevents me from logging in
 
-This is typically caused by a server set to an incorrect time. If the error message includes "used too early," then your server time is set in the future. If it says that the token is expired, then the server time is set too far in the past. Check what `echo current_time( 'c' )` outputs on your server for a clue as to what time is being used.
+This is typically caused by a server set to an incorrect time. If the error message includes "used too early," then your server time is set in the future. If it says that the token is expired, then the server time is set too far in the past. A difference in time between two servers is common. Output `echo date(DateTime::ISO8601)` in PHP on your server and compare that, including seconds, to the current UTC time. If your server's time is more than 30 seconds off from UTC time, then you’ll need to set a longer leeway to account for your server’s clock skew. You can paste the below code in your theme's `functions.php` or anywhere else that would run it after the plugin loads and before the login hook runs:
+
+```
+if ( class_exists( 'JWT' ) ) { \JWT::$leeway = 60; }
+```
+
+This would provide a 60 second leeway. You may need to adjust this depending upon how skewed your server's time is.
 
 ### I see the error message "This account does not have an email associated..." that prevents me from logging in
 
