@@ -58,6 +58,10 @@ The Settings tab lets you edit different application settings:
 
 ## APIs
 
+::: note
+The APIs tab is specific to Machine to Machine Applications. Other tabs appear for other application types.
+:::
+
 The **APIs** tab:
 
 * Lists all available APIs for the tenant
