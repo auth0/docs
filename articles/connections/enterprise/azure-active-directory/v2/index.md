@@ -170,6 +170,8 @@ Click the **SAVE** button. Auth0 will provide you with a URL that you will need 
 
 * If you get *Access cannot be granted to this service because the service listing is not properly configured by the publisher*, try enabling **Multi Tenanted** in the Windows Azure AD application under **Settings** -> **Properties**.
 
+* If you get an "Failed to obtain access token" error when users try to log in, the most likely reason is an invalid or expired **App Key** (**Client Secret**). Application keys in Azure AD can expire so if user suddenly can't log in using an Azure AD connection you should generate a new application key and update the client secret value in the connection configuration.
+
 ## Signing Key Rollover in Azure Active Directory
 
 Signing keys are used by the identity provider to sign the authentication token it issues, and by the consumer application (Auth0 in this case) to validate the authenticity of the generated token.
