@@ -12,7 +12,7 @@ useCase:
 ---
 # Developer Resources for Guardian
 
-At Auth0, we believe in giving developers the tools they need to get their jobs done. With Guardian, developers are able to customize their users' experience, and even build their own applications on top of our multi-factor capabilities.
+With Guardian, developers are able to customize their users' experience, and even build their own applications on top of our multi-factor capabilities.
 
 ## Getting started with Guardian within your application
 
