@@ -239,6 +239,15 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 * **Language Dictionary:** Information on this setting is [here](/libraries/lock/v11/configuration#languagedictionary-object-). Option name is `language_dictionary`.
 
+  * Please note, the object used is slightly different than specified in the emaples linked above. Quotation marks be used for the dictionary names.
+For example:
+```json
+{
+    "emailInputPlaceholder": "something@youremail.com",
+    "title":"Log me in",
+}
+```
+
 ### Advanced
 
 * **Require Verified Email:** If set, requires the user to have a verified email to log in. This can prevent some Connections from working properly if they do not provide an email address or an `email_verified` flag in the user profile data. Option name is `requires_verified_email`.
