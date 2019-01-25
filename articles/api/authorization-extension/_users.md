@@ -414,7 +414,7 @@ curl --request DELETE \
 (empty response body)
 ```
 
-<% var path = '/users/{role_id}/roles'; %>
+<% var path = '/users/{user_id}/roles'; %>
 <%=
 include('../../_includes/_http-method', {
   "http_badge": "badge-danger",
