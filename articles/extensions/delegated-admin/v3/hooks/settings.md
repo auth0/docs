@@ -38,7 +38,9 @@ function(ctx, callback) {
       menuName: ctx.request.user.name
     },
     // The CSS option allows you to inject a custom CSS file depending on the context of the current user (eg: a different CSS for every customer)
-    css: (department && department !== 'IT') && 'https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css'
+    css: (department && department !== 'IT') && 'https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css',
+    // This option allows you to restrict creating new users
+    canCreateUser: (department === 'IT')
   });
 }
 ```
@@ -57,6 +59,7 @@ function(ctx, callback) {
 - **languageDictionary**: A string URL or Dictionary Object (see [Localization](#localization))
 - **suppressRawData**: Set to **true** to skip pages that show raw JSON
 - **errorTranslator**: A function that translates error messages based on localization. Example: `(function (error, languageDictionary) { return languageDictionary.customErrors[error] || error; }).toString()`
+- **canCreateUser**: A boolean flag. If set to `false`, removes `Create User` button and forbids creating new users, `true` by default. 
 
 ## Custom Fields
 
