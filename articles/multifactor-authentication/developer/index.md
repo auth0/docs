@@ -12,31 +12,31 @@ useCase:
 ---
 # Developer Resources for Guardian
 
-With Guardian, developers are able to customize their users' experience, and even build their own applications on top of our multi-factor capabilities.
+With Guardian, you can customize your users' multi-factor experience and even build applications on top of our multi-factor capabilities.
 
 ## Getting started with Guardian within your application
 
-Most often, administrators will manage multi-factor configuration for an application from the Dasbboard. For more advanced use cases, Guardian provides developers the ability to control user access directly.
+Generally you'll manage multi-factor configuration for applications from the Dashboard. For more advanced use cases, Guardian also provides direct control of user access.
 
 * [Example Application using Guardian for multi-factor Authentication](https://github.com/auth0/guardian-example)
 * [Step-up Authentication](/multifactor-authentication/step-up-authentication)
 
 ## Customize the Guardian widget
 
-Use our Guardian client libraries to apply the look-and-feel of your organization.
+Use the Guardian client libraries to customize the look-and-feel of the Guardian widget so it matches your organization.
 
 * [Client library for Auth0 Guardian](https://github.com/auth0/auth0-guardian.js)
 * [Creating a Custom Guardian Widget](https://github.com/auth0/auth0-guardian.js/tree/master/example)
 
 ## Manage enrollments
 
-Directly customize the enrollment process for your users.
+Customize the enrollment process for your users.
 
 * [Custom enrollment](/multifactor-authentication/developer/custom-enrollment-ticket)
 
 ## Build custom mobile applications
 
-Developers can build custom _white-label_ Guardian-like applications, or add multi-factor functionality into their own applications.
+Build custom _white-label_ Guardian-like applications, or add multi-factor functionality into your applications.
 
 * [Getting Started with Guardian for Android](/multifactor-authentication/developer/libraries/android)
 * [Getting Started with Guardian for iOS](/multifactor-authentication/developer/libraries/ios)
