@@ -461,7 +461,7 @@ var options = {
 };
 ```
 
-### audience {String}
+#### audience {String}
 
 The `audience` option indicates the API which will be consuming the Access Token that is received after authentication.
 
