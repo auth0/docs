@@ -21,7 +21,9 @@ To install and configure this extension, click on the _Auth0 Logs to Papertrail_
 At this point you should set the following configuration variables:
 
 - **Schedule**: The frequency with which logs should be exported. The schedule can be customized even further after creation.
-- **BATCH_SIZE**: The amount of logs to be read on each execution. Maximum is 100.
+- **BATCH_SIZE**: Logs are batched before sending. Multiple batches are sent
+  each time the extension runs. Specify the number of logs per batch. Maximum
+  is 100.
 - **PAPERTRAIL_HOST**: The destination hostname for your logs.
 - **PAPERTRAIL_PORT**: The destination port for your logs.
 - **PAPERTRAIL_SYSTEM**: The destination system for your logs.
