@@ -28,7 +28,23 @@ At this point you should set the following configuration variables:
 - **LOG_LEVEL**: The minimal log level of events that you would like sent to Papertrail;
 - **LOG_TYPES**: The events for which logs should be exported.
 
-Once you have provided this information, click the *Install* button to finish installing the extension.
+A note about **BATCH_SIZE**: During each window (defined by your chosen
+**Schedule**), outstanding logs will be batched into groups of **BATCH_SIZE**,
+and all those batches will be sent to Papertrail. In other words, during each
+window, `NUM_BATCHES` batches of logs will be sent to Papertrail, based on the
+logic:
+
+```
+IF (NUM_LOGS modulo 100 == 0):
+  NUM_BATCHES = (NUM_LOGS / BATCH_SIZE)
+ELSE:
+  NUM_BATCHES = (NUM_LOGS / BATCH_SIZE) + 1
+```
+
+In the `ELSE` case the last batch will have < 100 logs.
+
+Once you have provided this information, click the *Install* button to finish
+installing the extension.
 
 ## Retrieve the required information from Papertrail
 
