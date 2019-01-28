@@ -1502,7 +1502,7 @@ module.exports = [
     to: '/users/guides/get-user-information-with-unbounce-landing-pages',
   },
   {
-    from: ['/tutorials/bulk-importing-users-into-auth0', '/users/migrations/bulk-import'],
+    from: ['/tutorials/bulk-importing-users-into-auth0', '/users/migrations/bulk-import', '/users/guides/bulk-user-import'],
     to: '/users/guides/bulk-user-imports',
   },
   {
