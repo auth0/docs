@@ -1,4 +1,4 @@
-lock_url: 'https://cdn.auth0.com/js/lock/11.13.2/lock.min.js'
+lock_url: 'https://cdn.auth0.com/js/lock/11.13/lock.min.js'
 lock_urlv10: 'https://cdn.auth0.com/js/lock/10.24.3/lock.min.js'
 lock_urlv11: 'https://cdn.auth0.com/js/lock/11.13.2/lock.min.js'
 auth0js_url: 'https://cdn.auth0.com/js/auth0/9.10.0/auth0.min.js'
