@@ -18,7 +18,7 @@ Auth0 exposes a discovery endpoint, which exists at `https://${account.namespace
 
 When verifying a JWT using a JWKS, you will need to:
 
-1. Retrieve the JWKS and filter for potential signing keys. You will want to filter our any keys missing a public key or a `kid` property.
+1. Retrieve the JWKS and filter for potential signing keys. You will want to filter out any keys missing a public key or a `kid` property.
 2. Extract the JWT from the request's authorization header and decode it.
 3. Grab the `kid` property from the header of the decoded JWT.
 4. Search your filtered JWKS for the key with the matching `kid` property.
