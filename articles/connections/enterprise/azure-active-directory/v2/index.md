@@ -52,7 +52,17 @@ If you have an Office 365 account, you can use the account's Azure AD instance i
 
 This will bring you to the admin center of the Azure AD instance backing your Office 365 account.
 
-## 1. Create a new application
+## Video tutorial
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tV-2nQRFCio" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+::: note
+This video tutorial may not directly correlate to the below guide.
+:::
+
+## Step-by-step guide
+
+### 1. Create a new application
 
 Login to Microsoft Azure and choose **Azure Active Directory** from the sidebar.
 
@@ -68,7 +78,7 @@ Enter a name for the application, select **Web app/API** as the **Application Ty
 
 ![Create application form](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-3.png)
 
-## 2. Configure the permissions
+### 2. Configure the permissions
 
 Once the application has been created, you will have to configure the permissions. Click on the name of the application to open the **Settings** section.
 
@@ -92,13 +102,13 @@ If you want to enable extended attributes (like *Extended Profile* or *Security 
 
 Click the **SAVE** button at the top to save these changes.
 
-## 3. Allowing access from external organizations (optional)
+### 3. Allowing access from external organizations (optional)
 
 If you want to allow users from external organizations (such as other Azure directories) to log in, you will need to enable the **Multi-Tenant** flag for this application. In the **Settings** section, click **Properties**. Locate the **Multi-tenanted** toggle at the bottom and select **Yes**. Finally click the **SAVE** button at the top to save these changes.
 
 ![Enable Multi-tenanted](/media/articles/connections/enterprise/azure-active-directory/enable-multi-tenanted.png)
 
-## 4. Create the key
+### 4. Create the key
 
 Next you will need to create a key which will be used as the **Client Secret** in the Auth0 connection. Click on **Keys** from the **Settings** menu.
 
@@ -116,7 +126,7 @@ Click on **Save** and the key will be displayed. **Make sure to copy the value o
 
 ![Creating a Key](/media/articles/connections/enterprise/azure-active-directory/azure-ad-4-2b.png)
 
-## 5. Configure Reply URLs
+### 5. Configure Reply URLs
 
  Next you need to ensure that your Auth0 callback URL is listed in allowed reply URLs for the created application. Navigate to **Azure Active Directory** -> **Apps registrations** and select your app. Then click **Settings** -> **Reply URLs** and add:
 
@@ -132,7 +142,7 @@ Click on **Save** and the key will be displayed. **Make sure to copy the value o
 
  Without this step the App consent page will return a "Bad request" error. The fine print in the footer of this error page can be used to identify the exact tenant name and missing callback url.
 
-## 6. Create Connections
+### 6. Create Connections
 
 Login to your [Auth0 Dashboard](${manage_url}), and select the **Connections > Enterprise** menu option. 
 

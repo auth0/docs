@@ -22,6 +22,16 @@ Only **Enterprise** subscription plans include the ability to use a custom datab
 For more information refer to [Auth0 pricing plans](https://auth0.com/pricing).
 :::
 
+## Video tutorial
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Go_rvdYuF5c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+::: note
+This video tutorial may not directly correlate to the below guide.
+:::
+
+## Step by step guide
+
 In this tutorial, you'll learn how to connect your user database to Auth0 and configure it for use as an identity provider. More specifically, you will:
 
 * [Create and configure a custom database connection](/connections/database/custom-db/create-db-connection) using the [Auth0 dashboard](${manage_url}).
