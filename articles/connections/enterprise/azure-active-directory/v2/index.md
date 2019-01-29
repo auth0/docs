@@ -52,14 +52,6 @@ If you have an Office 365 account, you can use the account's Azure AD instance i
 
 This will bring you to the admin center of the Azure AD instance backing your Office 365 account.
 
-## Video tutorial
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tV-2nQRFCio" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-::: note
-This video tutorial may not directly correlate to the below guide.
-:::
-
 ## Step-by-step guide
 
 ### 1. Create a new application
@@ -171,6 +163,12 @@ Next complete the **App ID Uri** field if you intend to use [active authenticati
 Click the **SAVE** button. Auth0 will provide you with a URL that you will need to give to the Azure AD administrator. This URL will allow the administrator to *give consent* to the application so that users can log in.
 
 **Congratulations!** You are now ready to accept Microsoft Azure AD users.
+
+## Video tutorial
+
+This video tutorial will show you how to integrate Azure Active Directory with Auth0.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tV-2nQRFCio" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Troubleshooting
 
