@@ -28,7 +28,7 @@ Most JWT libraries will take care of the token validation for you automatically,
 
 Auth0 will generate the ID Token in [JSON Web Token (JWT) format](https://auth0.com/docs/jwt#what-is-the-json-web-token-structure-). Before doing anything else, your app should parse the ID Token to make sure it conforms to the structure of a JWT.
 
-A correctly formatted, or well-formed, JWT consists of three concatenated Base64-encoded strings, separated by dots: 
+A correctly formatted, or well-formed, JWT consists of three concatenated Base64url-encoded strings, separated by dots (`.`): 
 
 * Header: contains metadata about the type of token and the cryptographic algorithms used to secure its contents.
 * Payload (set of claims): contains verifiable security statements such as the identity of the user and the permissions they are allowed.
@@ -39,7 +39,7 @@ To see for yourself what is inside a JWT, use the [JWT.io Debugger](https://jwt.
 
 ## Verify the signature
 
-The last part of a JWT is the signature, which is used to verify that the token was signed by the sender and not altered in any way. You will need to Base64-decode the signature to do this.
+The last part of a JWT is the signature, which is used to verify that the token was signed by the sender and not altered in any way. You will need to Base64url-decode the signature to do this.
 
 ### Check the signing algorithm
 
