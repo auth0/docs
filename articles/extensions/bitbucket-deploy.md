@@ -175,7 +175,8 @@ __my-client.json__
 See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Clients/post_clients) for more info on allowed attributes for Clients and Client Grants.
 
 ### Deploy Clients Grants
-For each client, you can specify any client grants. For that you must create a JSON file under the `grants` directory.
+
+You can specify the client grants for each client by creating a JSON file in the `grants` directory.
 
 __my-client-api.json__
 ```json
