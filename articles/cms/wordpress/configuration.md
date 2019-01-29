@@ -239,11 +239,11 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 * **Language Dictionary:** Information on this setting is [here](/libraries/lock/v11/configuration#languagedictionary-object-). Option name is `language_dictionary`.
 
-  * Please note, the object used is slightly different than specified in the emaples linked above. Quotation marks be used for the dictionary names.
-For example:
+  Please note that the dictionary object used is slightly different from the examples shown in the above link. The dictionary names are surrounded by quotation marks:
+
 ```json
 {
-    "emailInputPlaceholder": "something@youremail.com",
+    "emailInputPlaceholder": "name@example.com",
     "title":"Log me in",
 }
 ```
