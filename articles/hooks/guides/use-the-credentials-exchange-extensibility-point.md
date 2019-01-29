@@ -12,7 +12,7 @@ v2: true
 ---
 # Change Scopes and Add Custom Claims to Access Tokens
 
-To use the Credentials Exchange Extensibility Point, you can implement a Hook with either the [Dashboard](/hooks/guides/create-delete-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-delete-hooks-using-cli). 
+To use the Credentials Exchange Extensibility Point, you can implement a Hook with either the [Dashboard](/hooks/guides/create-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-hooks-using-cli). 
 
 For detailed steps on implementing the grant, please refer to [Using Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks).
 
