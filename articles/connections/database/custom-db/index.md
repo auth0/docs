@@ -22,14 +22,6 @@ Only **Enterprise** subscription plans include the ability to use a custom datab
 For more information refer to [Auth0 pricing plans](https://auth0.com/pricing).
 :::
 
-## Video tutorial
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Go_rvdYuF5c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-::: note
-This video tutorial may not directly correlate to the below guide.
-:::
-
 ## Step by step guide
 
 In this tutorial, you'll learn how to connect your user database to Auth0 and configure it for use as an identity provider. More specifically, you will:
@@ -73,6 +65,12 @@ Here are some things to know before you begin the process of setting up your dat
 * [Update User Profiles Using Your Database](/users/guides/update-user-profiles-using-your-database) has information on updating user profile fields.
 
 <%= include('../../../_includes/_ip_whitelist') %>
+
+## Video tutorial
+
+The following video tutorial will show you how to set up a custom database connection that includes user migration functionality. It will also demonstrate basic troubleshooting steps.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Go_rvdYuF5c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Keep reading
 
