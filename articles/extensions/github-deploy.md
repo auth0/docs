@@ -11,7 +11,7 @@ useCase: extensibility-extensions
 
 # GitHub Deployments
 
-The **GitHub Deployments** extension allows you to deploy [rules](/rules), rules configs, connections, database connection scripts, clients (and client grants), resource servers, hosted pages and email templates from GitHub to Auth0. You can configure a GitHub repository, keep all your rules and database connection scripts there, and have them automatically deployed to Auth0 each time you push to your repository.
+The **GitHub Deployments** extension allows you to deploy [rules](/rules), rules configs, connections, database connection scripts, clients, client grants, resource servers, hosted pages and email templates from GitHub to Auth0. You can configure a GitHub repository, keep all your rules and database connection scripts there, and have them automatically deployed to Auth0 each time you push to your repository.
 
 ::: note
 You can use the `auth0-deploy-cli` tool to export and import tenant configuration data to a directory structure or a YAML file. For more information, see [Deploy CLI Tool Overview](/extensions/deploy-cli).
@@ -62,6 +62,8 @@ Once you have set up the webhook in GitHub using the provided information, you a
 
 With each commit you push to your configured GitHub repository, the webhook will call the extension to initiate a deployment if changes were made to one of these folders:
 - `clients`
+- `grants`
+- `emails`
 - `resource-servers`
 - `database-connections`
 - `rules-configs`
@@ -171,7 +173,7 @@ __secret_number.json__
 
 ### Deploy Clients
 
-To deploy a client, you must create a JSON file under the `clients` directory of your GitHub repository. For each JSON page, you can create a metafile (with the same name - `name.meta.json`) if you want to specify any client grants. Example:
+To deploy a client, you must create a JSON file under the `clients` directory of your GitHub repository. Example:
 
 __my-client.json__
 ```json
@@ -180,17 +182,22 @@ __my-client.json__
 }
 ```
 
-__my-client.meta.json__
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Clients/post_clients) for more info on allowed attributes for Clients and Client Grants.
+
+### Deploy Clients Grants
+
+You can specify the client grants for each client by creating a JSON file in the `grants` directory.
+
+__my-client-api.json__
 ```json
 {
+  "client_id": "my-client",
   "audience": "https://myapp.com/api/v1",
     "scope": [
       "read:users"
     ]
 }
 ```
-
-See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Clients/post_clients) for more info on allowed attributes for Clients and Client Grants.
 
 ### Deploy Resource Servers
 
