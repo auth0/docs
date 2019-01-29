@@ -15,7 +15,7 @@ useCase:
 
 # JSON Web Token Structure
 
-A well-formed JSON Web Token (JWT) consists of three concatenated Base64-encoded strings, separated by dots (`.`): 
+A well-formed JSON Web Token (JWT) consists of three concatenated Base64url-encoded strings, separated by dots (`.`): 
 
 - **Header**: contains metadata about the type of token and the cryptographic algorithms used to secure its contents.
 - **Payload** (set of claims): contains verifiable security statements, such as the identity of the user and the permissions they are allowed.
