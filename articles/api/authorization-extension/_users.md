@@ -438,7 +438,7 @@ The [Access Token](#get-an-access-token) should have the following scopes:
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
 | `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> | The id of the user you want to remove from roles |
-| `body` <br/><span class="label label-danger">Required</span> | The id of the role(s) you want to remove users from (i.e. [ "{role_id}" ]) |
+| `body` <br/><span class="label label-danger">Required</span> | The id of the role(s) you want to remove users from (i.e. `[ "{role_id}" ]`) |
 
 ## Calculate Roles
 
