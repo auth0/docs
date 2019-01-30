@@ -34,4 +34,3 @@ JSON parsers are common in most programming languages because they map directly 
 ## Easier to process
 
 JWT is used at internet scale. This means that it is easier to process on user's devices, especially mobile.
-
