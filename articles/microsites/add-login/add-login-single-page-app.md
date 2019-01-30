@@ -55,7 +55,7 @@ For security in SPAs, Auth0 uses the [Single-Page Login Flow](/flows/concepts/si
 ::: concepts  
   * [Universal vs. Embedded Login](/guides/login/universal-vs-embedded)
   * [ID Tokens](/tokens/id-token)
-  * [Access Tokens](/tokens/access-token)
+  * [Access Tokens](/tokens/overview-access-tokens)
   * [Where to store tokens](/security/store-tokens)
 :::
 

@@ -53,7 +53,7 @@ OpenID Connect issues an identity token, known as an ID Token, while OAuth 2.0 i
 The **ID Token** is a [JSON Web Token (JWT)](/jwt), and it is meant for the application only. For example, in our calendar example above, Google sends an ID Token to the to-do app that tells the app who you are. The app then parses [the token's contents](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and uses this information (including details like your name and your profile picture) to customize your user experience.
 
 ::: warning
-Be sure to [validate an ID Token](/tokens/id-token#validate-an-id-token) before using the information it contains! You can use a [library](https://jwt.io/#libraries-io) to help with this task.
+Be sure to [validate an ID Token](/tokens/guides/id-token/validate-id-token) before using the information it contains! You can use a [library](https://jwt.io/#libraries-io) to help with this task.
 :::
 
 The **Access Token** (which isn't necessarily a JWT), is meant for use by an API.
