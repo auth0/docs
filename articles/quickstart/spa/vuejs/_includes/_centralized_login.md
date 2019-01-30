@@ -50,7 +50,7 @@ export const AUTH_CONFIG = {
 ```
 
 ::: note
-**Checkpoint:** Try calling the `login` method from somewhere in your application. This could be from a button click or in some lifecycle event, just something that will trigger the method so you can see the login page.
+**Checkpoint:** Try calling the `login` method from somewhere in your application. This could be from a button click or in some lifecycle event; just something that will trigger the method so you can see the login page.
 :::
 
 ![hosted login](/media/articles/web/hosted-login.png)
@@ -319,7 +319,7 @@ Vue.use(AuthPlugin);
 Vue.config.productionTip = false;
 
 new Vue({
-  router,   // NEW - register our routes with the application
+  router,   // NEW - register the routes with the application
   render: h => h(App)
 }).$mount('#app');
 
@@ -329,7 +329,7 @@ After authentication, users will be taken to the `/callback` route for a brief t
 
 ## Display the User's Profile
 
-The `AuthService` has already extracted the user's profile information and stored it in memory. We can access it using `this.$auth.profile` inside one of our Vue components.
+The `AuthService` has already extracted the user's profile information and stored it in memory, and can be accessed using `this.$auth.profile` from inside a Vue component.
 
 To display the profile information, create a new component `Profile` in the `views` folder:
 
@@ -431,7 +431,7 @@ Then add the `/profile` route to your navigation bar by inserting a new `<li>` e
 
 Even though we only show the `/profile` route if the user is authenticated, the user could still manually type the URL into the browser and access the page if they have not logged in — although there will be nothing to see.
 
-We can add a catch-all rule to the router so that access is only permitted if the user is logged in. If they are not logged in, we will prompt them to log in before redirecting the user to the location they tried to access in the first place.
+We can add a catch-all rule to the router so that access is only permitted if the user is logged in. If they are not logged in, they will be prompted to log in before being redirected to the location they tried to access in the first place.
 
 Open `router.js` and add a rule that exhibits this behavior:
 
@@ -448,8 +448,8 @@ router.beforeEach((to, from, next) => {
     return next();
   }
 
-  // Specify the current path as the customState parameter, meaning we'll
-  // get this back after auth
+  // Specify the current path as the customState parameter, meaning it
+  // will be returned to the application after auth
   auth.login({ target: to.path });
 });
 
