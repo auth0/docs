@@ -7,10 +7,9 @@ topics:
   - php
 contentType: how-to
 ---
-
 # Using the Management API with Auth0-PHP
 
-Auht0-PHP also provides a wrapper for the Management API, which is used to perform operations on your Auth0 tenant. Using this API, you can:
+Auht0-PHP provides a wrapper for the Management API, which is used to perform operations on your Auth0 tenant. Using this API, you can:
 
 - Search for and create users
 - Create and update Applications
@@ -19,9 +18,9 @@ Auht0-PHP also provides a wrapper for the Management API, which is used to perfo
 
 ... and much more. See our [documentation](/api/management/v2) for information on what's possible and the examples below for how to authenticate and access this API.
 
-### Authentication
+## Authentication
 
-In order to use the Management API, you must authenticate one of two ways:
+To use the Management API, you must authenticate one of two ways:
 
 - For temporary access or testing, you can [manually generate an API token](/api/management/v2/tokens#get-a-token-manually) and save it in your `.env` file.
 - For extended access, you must create and execute and Client Credentials grant when access is required. This process is detailed on the [Authentication API page](/libraries/auth0-php/authentication-api#regular-web-app-login-flow).
@@ -91,6 +90,8 @@ if (! empty($results)) {
     }
 }
 ```
+
+### Read more
 
 ::: next-steps
 * [Auth0-PHP Introduction](/libraries/auth0-php)
