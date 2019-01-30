@@ -197,7 +197,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>SMTP</td>
     <td>Outbound</td>
     <td>SMTP Server(s)</td>
-    <td>25/465/587</td>
+    <td>25/587</td>
     <td>Allows sending of emails from the Appliance</td>
     <td>No</td>
   </tr>
