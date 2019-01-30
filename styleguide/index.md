@@ -1,7 +1,7 @@
 # Auth0 Writing Style Guide
 
 * [About this guide](/styleguide/about-this-guide)
-* [TL;DR](/styleguide/highlights)
+* [TL;DR: Highlights](/styleguide/highlights)
 * [What's new](/styleguide/whats-new)
 
 ## General principles
