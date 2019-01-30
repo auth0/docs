@@ -7,14 +7,17 @@ topics:
   - php
 contentType: how-to
 ---
-
 # Using the Authentication API with Auth0-PHP
 
-The Auth0 PHP SDK provides easy-to-implement methods to access the [Authentication API](/api/authentication). In this article, you'll find examples of common authentication operations. For further information, please see the methods in the `\Auth0\SDK\API\Authentication` class.
+The Auth0 PHP SDK provides you with methods you can use to access the [Authentication API](/api/authentication).
+
+In this article, you'll find examples of common authentication operations. You will find additional information in the methods in the `\Auth0\SDK\API\Authentication` class.
 
 ::: warning
-Avoid using any methods marked `@deprecated`. Deprecated methods will be removed in the next major version and may not be enabled for your account.
+Do not use methods marked as `@deprecated`. Deprecated methods will be removed in the next major version release and will no longer be available.
 :::
+
+## Prerequisites
 
 The examples below assume you completed the [Installation and Getting Started sections](/libraries/auth0-php#installation) and are using a `.env` file and loader to store credentials.
 
@@ -83,7 +86,7 @@ The process above does the following:
 1. First, we check if there is a user session with `isUserAuthenticated()`. The implementation here just checks if the SDK has a persisted user. Your application might handle user sessions differently.
 1. If there is no session, then we need to log the user in by redirecting to the Universal Login Page.
 1. We set a state value with the login request and then verify that value when the code is returned on the callback URL. The `$state_handler->issue()` call above both generates a value and stores it in the PHP session store. This can also be done manually and stored in either the PHP session or cookies.
-1. The `$auth0_api->get_authorize_link()` call builds the correct `/authorize` link with the correct response type (`code` in this case), redirect URI (where in the application we will handle the response, explained below), state (from above), response mode (POST body), and scopes requested.
+1. The `$auth0_api->get_authorize_link()` call builds the correct `/authorize` link with the correct response type (`code` in this case), redirect URI (wherein the application we will handle the response, explained below), state (from above), response mode (POST body), and scopes requested.
 1. Then we redirect to this URL and wait for a response.
 
 After authentication, the user is redirected to the callback URL, which is handled with the following:
@@ -142,11 +145,11 @@ exit;
 Walking through the process in detail:
 
 1. First, we check for returned errors. Errors returned should have an `error` key containing the error code and an `error_description` key containing human-readable information.
-1. Next, we look for a non-empty `code` parameter in the POST body. In this case we kill the process but this could also redirect to a different page in case this URL is accessed directly.
+1. Next, we look for a non-empty `code` parameter in the POST body. In this case, we kill the process, but this could also redirect to a different page in case this URL is accessed directly.
 1. Now we check to make sure we have a `state` value and make sure it matches the same one we generated. This is important to avoid CSRF attacks ([more information](/protocols/oauth2/oauth-state)).
 1. After the state validation, we instantiate an instance of the `Authentication` class with the Domain, Client ID, and the Client Secret, which is used with the `code` to obtain an access token.
 1. We attempt an exchange with the `$auth0_api->code_exchange()` call, making sure to pass in the same redirect URI we used to request the `code`.
-1. If this succeeds, we know the exchange was successful and we have an access token. We call the `/userinfo` endpoint with this token, which will return an object containing the data we requested in the `scopes` parameter on the authorize URL.
+1. If this succeeds, we know the exchange was successful, and we have an access token. We call the `/userinfo` endpoint with this token, which will return an object containing the data we requested in the `scopes` parameter on the authorize URL.
 1. If this last step succeeds, we store the user and redirect back to our sensitive data.
 
 ## Machine-to-Machine (M2M) Flow
@@ -196,11 +199,11 @@ Array
 )
 ```
 
-See the [Management API page](/libraries/auth0-php/management-api) for more information on how to use this access token.
+See the [Management API page](/libraries/auth0-php/management-api) for more information on how to use this Access Token.
 
 ## Register a new database user
 
-Creating a new database user is done using the `/dbconnections/signup` endpoint, [documented here](/api/authentication#signup).
+Creating a new database user is done using the [`/dbconnections/signup` endpoint](/api/authentication#signup).
 
 ```php
 use Auth0\SDK\API\Authentication;
@@ -245,11 +248,11 @@ Array
 
 ## SSO Logout
 
-Basic logout (covered on the [Basic Use page](/libraries/auth0-php/basic-use#logout)) closes the session in your application but for customers using SSO, it's often necessary to also close the session at Auth0. This means that the next time the user sees an Auth0 login form, they will be required to provide their credentials to log in. This step should be completed **after** the session is closed in your application.
+Basic logout (covered on the [Basic Use page](/libraries/auth0-php/basic-use#logout)) closes the session in your application, but for customers using SSO, they also need to close the session at Auth0. This means that the next time the user sees an Auth0 login form, they will be required to provide their credentials to log in. This step should be completed **after** the session is closed in your application.
 
-First, determine where the user should end up after the logout has completed. Save this in the Auth0 Application settings in the "Allowed Logout URLs" field. Also add a `AUTH0_LOGOUT_RETURN_URL` key with this URL as the value in your `.env` file.
+First, determine where the user should end up after the logout has completed. Save this in the Auth0 Application settings in the "Allowed Logout URLs" field. Also, add an `AUTH0_LOGOUT_RETURN_URL` key with this URL as the value in your `.env` file.
 
-Add the following below your application logout code:
+Add the following to your application logout code:
 
 ```php
 // logout.php
@@ -273,7 +276,7 @@ header('Location: ' . $auth0_logout_url);
 exit;
 ```
 
-**Read More**
+### Read More
 
 ::: next-steps
 * [Auth0-PHP Introduction](/libraries/auth0-php)
