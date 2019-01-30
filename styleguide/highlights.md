@@ -1,17 +1,16 @@
-# TL;DR Contributor's Starter Kit
+# TL;DR: Style Guide Highlights
 
 ## Introduction
-Use this starter kit when you want to create new doc content or update existing content on auth0.com/docs. We are very flexible about how we can add content to Auth0 Documentation set. We can work with you to determine the way that works best for you.
+Use this starter kit when you want to create new doc content or update existing content on auth0.com/docs. We are very flexible about how we can add content to Auth0 Documentation set; everything from sending us a DM in Slack to have us write content for you, to writing your own content in Markdown in our GitHub repository. We can work with you to determine the way that works best for you.
 
-This is a brief list of some of the most important points and some of the most common issues. Our Auth0 Writing Style Guide is mostly intended for reference; we don't expect you to read it straight through. This page doesn't provide details or justifications; for more info about topics on this page, follow the links.
+This is a brief list of some of the most important points and some of the most common issues. Our **Auth0 Writing Style Guide** is mostly intended for reference; we don't expect you to read it straight through. This page doesn't provide details or justifications; for more info about topics on this page, follow the links.
 
-## Methods for contributing
+## Contribution methods
 Google docs drafts
-Confluence pages
+Confluence drafts
 [Markdown](/#Using-markdown) files in GitHub
-Back of a napkin
-Submit a Docs Request
-Collaborate with a doc team member.
+Collaborate with a doc team member - "Back of an envelope"
+Submit a Docs Request to our Jira board.
 
 ## Tone and content
 Be conversational and friendly without being frivolous.

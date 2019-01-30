@@ -23,7 +23,7 @@ If you're looking for a specific topic, then do a search-in-page to see if the t
 
 This guide is a reference document; instead of reading through it in linear order, you can use it to look up specific issues as needed.
 
-If you're new to the style guide and want to get a general sense of what our style is, see the [TL;DR](/styleguide/tl-dr) page.
+If you're new to the style guide and want to get a general sense of what our style is, see the [TL;DR: Style Guide Highlights](/styleguide/highlights).
 
 ## Breaking the "rules"
 
