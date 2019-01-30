@@ -12,10 +12,10 @@ contentType:
 ---
 # Auth0-PHP
 
-The Auth0 PHP SDK provides straight-forward and tested methods for accessing Authentication and Management API endpoints.
+The Auth0 PHP SDK provides you with methods for accessing Auth0's Authentication and Management API endpoints.
 
 ::: note
-The Auth0-PHP repository is [hosted on GitHub](https://github.com/auth0/auth0-PHP). We appreciate any and all contributions, including bug reports, enhancement proposals, and pull requests.
+The Auth0-PHP repository is [hosted on GitHub](https://github.com/auth0/auth0-PHP). We appreciate all contributions, including bug reports, enhancement proposals, and pull requests.
 :::
 
 ## Requirements
@@ -26,6 +26,9 @@ The Auth0-PHP repository is [hosted on GitHub](https://github.com/auth0/auth0-PH
 ## Installation
 
 Auth0-PHP can be installed one of two ways:
+
+1. With Composer
+2. Manually
 
 ### Install With Composer
 
@@ -53,16 +56,16 @@ use Auth0\SDK\Auth0;
 
 ### Install Manually
 
-If your project does not use Composer or you want to maintain a connection to the Git repo, Auth0-PHP can be installed manually. This process still requires Composer to download dependencies but does not use it to manage the package.
+If your project does not use Composer or you want to maintain a connection to the Git repo, Auth0-PHP can be installed manually. This process still requires Composer to download dependencies, but the process does not use Composer to manage the package.
 
-First, navigate to the directory that should contain the Auth0-PHP library and clone the Github repo:
+First, navigate to the directory that contains the Auth0-PHP library and clone the Github repo:
 
 ```bash
 $ cd /path/to/project/
 $ git clone https://github.com/auth0/auth0-PHP.git auth0
 ```
 
-Now, [download Composer locally](https://getcomposer.org/download/) and install the dependencies:
+[Download Composer](https://getcomposer.org/download/) and install the dependencies:
 
 ```bash
 $ mv ./composer.phar auth0/composer.phar
@@ -88,7 +91,7 @@ To use the Auth0 Authentication and Management APIs, you'll need a free Auth0 ac
 3. Give your Application a name, select **Regular Web Application**, then **Create**
 4. Click the **Settings** tab for the required credentials used below. More information about these settings is [here](https://auth0.com/docs/applications/webapps#settings).
 
-The examples in this documentation use [environment variables](https://secure.php.net/manual/en/reserved.variables.environment.php) to store and load sensitive Auth0 credentials from the environment rather than hard-coding them into your application.
+The examples in this documentation use [environment variables](https://secure.php.net/manual/en/reserved.variables.environment.php) to store and load sensitive Auth0 credentials, eliminating the need for you to hardcode them into your application.
 
 The easiest way to use environment variables in your project is to use a library like [PHP Dotenv](https://github.com/josegonzalez/php-dotenv) along with a local `.env` file. Create a `.env` file (make sure this is not accessible publicly and is excluded from version control) and add the following values:
 
@@ -109,7 +112,7 @@ AUTH0_REDIRECT_URI="https://yourdomain.com/auth/callback"
 
 The `AUTH0_REDIRECT_URI` value above is a URL for your application that will handle the callback from Auth0. This is used for both successful logins as well as errors. The processing that happens at this URL is covered later in this documentation.
 
-In your application below the Composer autoload `require`, add:
+In your application (below the Composer autoload `require`), add:
 
 ```php
 // ... other use declarations
@@ -141,7 +144,7 @@ You are now ready to use Auth0-PHP. Use one of the articles below to add authent
 * [Basic PHP application quickstart](https://auth0.com/docs/quickstart/webapp/php/)
 * [PHP API quickstart](https://auth0.com/docs/quickstart/backend/php/)
 
-**Read More**
+### Read more
 
 ::: next-steps
 * [Auth0-PHP Basic Use](/libraries/auth0-php/basic-use)
