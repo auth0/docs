@@ -12,4 +12,8 @@ If you are following along with the sample project you downloaded from the top o
 <%= include('../../../_includes/_logout_url') %>
 <% } %>
 
+<% if(typeof showWebOriginInfo !== 'undefined' && showWebOriginInfo === true) { %>
+<%= include('../../../_includes/_web_origins') %>
+<% } %>
+
 <%= include('../_includes/_install_auth0js') %>

@@ -13,6 +13,6 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-<%= include('../_includes/_getting_started', { library: 'Vue.js', callback: 'http://localhost:3000/callback', showLogoutInfo: true }) %>
+<%= include('../_includes/_getting_started', { library: 'Vue.js', callback: 'http://localhost:3000/callback', showLogoutInfo: true, showWebOriginInfo: true }) %>
 
 <%= include('_includes/_centralized_login') %>
