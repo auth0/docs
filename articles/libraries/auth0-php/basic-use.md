@@ -10,7 +10,9 @@ contentType: how-to
 
 # Auth0-PHP Basic Use
 
-The Auth0-PHP SDK comes with a base `Auth0` class that handles common authentication tasks like logging in, logging out, getting user information, and callback processing. These tasks are explained below with examples. For additional information and capabilities, please see the [documentation page for the Authentication API](/libraries/auth0-php/authentication-api).
+The Auth0-PHP SDK comes with a base `Auth0` class that handles common authentication tasks like logging in, logging out, getting user information, and callback processing. These tasks are explained below with examples. For additional information on these capabilities and more, please see the [documentation page for the Authentication API](/libraries/auth0-php/authentication-api).
+
+## Prerequisites
 
 The examples below assume that you followed the steps in the [Installation and Getting Started sections](/libraries/auth0-php#installation) and are using a `.env` file and loader to store credentials.
 
@@ -59,7 +61,7 @@ $auth0 = new Auth0([
 
 // If there is a user persisted (PHP session by default), return that.
 // Otherwise, look for a "state" and "code" URL parameter to validate and exchange.
-// If the state validation and code exchange are successful, return the userinfo.
+// If the state validation and code exchange are successful, return `userinfo`.
 try {
     $userinfo = $auth0->getUser();
 } catch (CoreException $e) {
@@ -102,7 +104,7 @@ Using the example above, we'll add additional [scopes](/api-auth/tutorials/adopt
 // login.php
 
 // ...
-	'scope' => 'openid email name nickname picture',
+    'scope' => 'openid email name nickname picture',
 // ...
 ```
 
@@ -115,10 +117,9 @@ Once someone has logged in requesting the new user claims, let's redirect to a p
 //...
 // var_dump($userinfo);
 header('Location: /profile.php');
-
 ```
 
-This profile page will return all the data we retrieved from the `/userinfo` endpoint and stored in our session. The data displayed here is controlled by the `scope` parameter we passed to the `Auth0` class. More information on the claims we can pass to `scope` is [here](/api-auth/tutorials/adoption/scope-custom-claims).
+This profile page will return all the data we retrieved from the `/userinfo` endpoint and stored in our session. The `scope` parameter controls the data displayed here we passed to the `Auth0` class. More information on the claims we can pass to `scope` is [here](/api-auth/tutorials/adoption/scope-custom-claims).
 
 
 ```php
@@ -167,9 +168,9 @@ $auth0 = new Auth0([
 $auth0->logout();
 ```
 
-If you're using SSO and want to also end their Auth0 session, see the [SSO Logout section here](/libraries/auth0-php/authentication-api#sso-logout). More information about logging out in general can be found [here](/logout).
+If you're using SSO and also want to end their Auth0 session, see the [SSO Logout section here](/libraries/auth0-php/authentication-api#sso-logout). More information about logging out, in general, can be found [here](/logout).
 
-**Read More**
+### Read more
 
 ::: next-steps
 * [Auth0-PHP Introduction](/libraries/auth0-php)
