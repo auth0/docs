@@ -7,8 +7,9 @@ topics:
   - php
 contentType: how-to
 ---
+# Troubleshooting Issues When Using the Auth0-PHP Library
 
-# Troubleshooting Auth0-PHP
+The following is a list of issues you might see when using the Auth0-PHP library and how you might troubleshoot these issues.
 
 > I'm getting an "Invalid State" exception when trying to log in.
 
@@ -20,7 +21,7 @@ If you are using `Auth0::exchange()` and a method other than `Auth0::login()` to
 
 > I am getting `curl error 60: SSL certificate problem: self-signed certificate in certificate chain` on Windows
 
-This is a common issue with latest PHP versions under **Windows OS** (related to an incompatibility between windows and openssl CAs database).
+This is a common issue with the latest PHP versions under **Windows OS** (it is related to an incompatibility between Windows and OpenSSL CA's database).
 
 1. Download this CA database `https://curl.haxx.se/ca/cacert.pem` to `c:/cacert.pem`.
 2. Edit your php.ini and add `openssl.cafile=c:/cacert.pem`. (It should point to the file you downloaded.)
@@ -29,7 +30,7 @@ This is a common issue with latest PHP versions under **Windows OS** (related to
 
 This SDK uses Composer for maintaining dependencies (required external PHP libraries). If Composer is not allowed or installed on your host, install Composer locally, follow the installation instructions there, then upload your entire application, vendor folder included, to your host.
 
-**Read More**
+### Read more
 
 ::: next-steps
 * [Auth0-PHP Introduction](/libraries/auth0-php)
