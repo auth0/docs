@@ -14,7 +14,7 @@ useCase:
 ---
 # How to Verify a JSON Web Token's Signature using the JSON Web Key Set Endpoint
 
-Auth0 exposes a discovery endpoint, which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to automatically configure your application and locate the [JSON Web Key Set (JWKS)](/tokens/jwks) endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued [JSON Web Tokens (JWTs)](/tokens/jwt) for your API.
+Auth0 exposes a discovery endpoint, which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to configure your application automatically and locate the [JSON Web Key Set (JWKS)](/tokens/jwks) endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued [JSON Web Tokens (JWTs)](/tokens/jwt) for your API.
 
 When verifying a JWT using a JWKS, you will need to:
 
@@ -34,4 +34,3 @@ It's good practice to assume that multiple signing keys could be present in your
 ## Should I cache my signing keys?
 
 You can cache your signing keys to improve application performance and avoid running into [rate limits](/policies/rate-limits), but you will want to make sure that if decoding a token fails, you invalidate the cache and retrieve new signing keys before trying **only one** more time.
-
