@@ -57,7 +57,7 @@ If you want to use an `Auth0` facade, add an alias in the same file (not require
 
 'aliases' => [
     // ...
-    'Auth0' => Auth0\Login\Facade\Auth0::class
+    'Auth0' => Auth0\Login\Facade\Auth0::class,
 ];
 ```
 
@@ -67,19 +67,15 @@ Add the following to your `AppServiceProvider::register()` method:
 
 ```php
 // app/Providers/AppServiceProvider.php
-
 // ...
-use Auth0\Login\Contract\Auth0UserRepository as Auth0Contract;
-use Auth0\Login\Repository\Auth0UserRepository as UserRepo;
-
 class AppServiceProvider extends ServiceProvider
 {
     // ...
     public function register()
     {
         $this->app->bind(
-            Auth0Contract::class,
-            UserRepo::class
+            \Auth0\Login\Contract\Auth0UserRepository::class,
+            \Auth0\Login\Repository\Auth0UserRepository::class
         );
     }
 }
@@ -104,10 +100,10 @@ Select the option for `Auth0\Login\LoginServiceProvider` and look for `Publishin
 * `persist_user` - Should the user information persist in a PHP session? Default is `true`
 * `persist_access_token` - Should the Access Token persist in a PHP session? Default is `false`
 * `persist_id_token` - Should the ID Token persist in a PHP session? Default is `false`
-* `authorized_issuers` - An array of authorized token issuers, should include at least your tenant domain
-* `api_identifier` - The authorized token audience
+* `authorized_issuers` - An array of authorized token issuers; this should include your tenant domain as a URL
+* `api_identifier` - The optional Identifier for an API meant for individual users. This is created during the [Laravel API quickstart](quickstart/backend/laravel), if needed. 
 * `secret_base64_encoded` - Is the Client Secret Base64 encoded? Look below the Client Secret field in the Auth0 dashboard to see how to set this; default is `false`
-* `supported_algs` - JWT decoding algorithms supported by your application; default is `RS256`
+* `supported_algs` - An array of JWT decoding algorithms supported by your application; the default is `[ 'RS256' ]` and the array should typically only have a single value.
 * `guzzle_options` - Specify additional [request options for Guzzle](http://docs.guzzlephp.org/en/stable/request-options.html)
 
 To keep sensitive data out of version control and allow for different testing and production instances, we recommend using the `.env` file Laravel uses to load other environment-specific variables:
@@ -172,7 +168,12 @@ class Auth0IndexController extends Controller
      */
     public function login()
     {
-        return \App::make('auth0')->login(null, null, ['scope' => 'openid email email_verified'], 'code');
+        $authorize_params = [
+            'scope' => 'openid email email_verified',
+            // Use the key below to get an access token for your API.
+            // 'audience' => config('laravel-auth0.api_identifier'),
+        ];
+        return \App::make('auth0')->login(null, null, $authorize_params);
     }
 
     /**
@@ -375,19 +376,15 @@ Finally, we'll change the binding in the `AppServiceProvider` to point to this n
 
 ```php
 // app/Providers/AppServiceProvider.php
-
 // ...
-use \Auth0\Login\Contract\Auth0UserRepository as Auth0Contract;
-use \App\Repositories\CustomUserRepository as UserRepo;
-
 class AppServiceProvider extends ServiceProvider
 {
     // ...
     public function register()
     {
         $this->app->bind(
-            Auth0Contract::class,
-            UserRepo::class
+            \Auth0\Login\Contract\Auth0UserRepository::class,
+            \App\Repositories\CustomUserRepository::class
         );
     }
 }
