@@ -15,11 +15,11 @@ useCase:
 ---
 # Programmatically Parse and Validate a JSON Web Token
 
-To programmatically parse and validate a JSON Web Token (JWT), you can either:
+To programmatically parse and validate a JSON Web Token (JWT), you can:
 
-* choose a third-party library from [JWT.io](https://jwt.io/#libraries)
-* use any existing middleware for your web framework
-* manually implement all the checks as described in [specification RFC 7519 > 7.2 Validating a JWT](https://tools.ietf.org/html/rfc7519#section-7.2)
+* Choose a third-party library from [JWT.io](https://jwt.io/#libraries)
+* Use any existing middleware for your web framework
+* Manually implement all the checks as described in [specification RFC 7519 > 7.2 Validating a JWT](https://tools.ietf.org/html/rfc7519#section-7.2)
 
 ## Third-party libraries
 
@@ -29,6 +29,6 @@ If you choose a third-party library, remember to pick a library that supports th
 
 Also, be aware that not all libraries validate all JWT claims. At [JWT.io](https://jwt.io/), you can see which validations each library supports (look for the green check marks).
 
-## Keep reading
+### Keep reading
 
 * [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure)
