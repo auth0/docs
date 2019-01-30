@@ -3,27 +3,25 @@
 
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Auth0 - Vue</a>
-        </div>
-
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <router-link to="/" class="nav-link">Home</router-link>
-          </li>
-          <li class="nav-item" v-if="!isAuthenticated">
-            <a href="#" class="nav-link" @click.prevent="login">Login</a>
-          </li>
-          <li class="nav-item" v-if="isAuthenticated">
-            <a href="#" class="nav-link" @click.prevent="logout">Log out</a>
-          </li>
-        </ul>
+    <nav>
+      <div>
+        <a href="#">Auth0 - Vue</a>
       </div>
-    </nav>
 
-    <div class="container">
+      <ul>
+        <li>
+          <router-link to="/">Home</router-link>
+        </li>
+        <li v-if="!isAuthenticated">
+          <a href="#" @click.prevent="login">Login</a>
+        </li>
+        <li v-if="isAuthenticated">
+          <a href="#" @click.prevent="logout">Log out</a>
+        </li>
+      </ul>
+  </nav>
+
+    <div>
       <router-view></router-view>
     </div>
   </div>
@@ -58,9 +56,4 @@ export default {
   }
 };
 </script>
-
-<style>
-@import "~bootstrap/dist/css/bootstrap.css";
-</style>
-
 ```
