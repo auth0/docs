@@ -16,7 +16,6 @@ The decoder can work with both HS256 and RS256 tokens. Both types require the al
 
 Here is an example of a small, URL-based JWT decoder:
 
-
 ```php
 use Auth0\SDK\JWTVerifier;
 use Auth0\SDK\Exception\InvalidTokenException;
@@ -68,7 +67,7 @@ Additional parameters for the `JWTVerifier` configuration array are:
 - **guzzle_options**: Configuration propagated to Guzzle when fetching the JWKs (RS256 only). These options are [documented here](http://docs.guzzlephp.org/en/stable/request-options.html).
 - **secret\_base64\_encoded**: When `true`, it will decode the secret used to verify the token signature. This is only used for HS256 tokens and defaults to `true`. Your Application settings will say whether the Client Secret provided is encoded or not.
 
-**Read More**
+### Read more
 
 ::: next-steps
 * [Auth0-PHP Introduction](/libraries/auth0-php)
