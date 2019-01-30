@@ -1,7 +1,7 @@
 ---
 url: /jwt
 title: JSON Web Tokens
-description: JSON Web Token (JWT) is an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This article introduces you to all of the concepts needed to fully understand JWTs.
+description: JSON Web Token (JWT) is an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This article introduces you to all of the concepts needed to understand JWTs fully.
 toc: true
 topics:
   - tokens
@@ -25,12 +25,12 @@ JSON Web Token (JWT), pronounced "jot", is an open standard ([RFC 7519](https://
 * **Compact**: Because of its relatively small size, a JWT can be sent through a URL, through a POST parameter, or inside an HTTP header, and it is transmitted quickly.
 * **Self-contained**: A JWT contains all the required information about an entity to avoid querying a database more than once. The recipient of a JWT also does not need to call a server to validate the token.
 
-The information contained within the JSON object can be verified and trusted because it is digitally signed. Although JWTs can be encrypted to also provide secrecy between parties, we will focus on *signed* tokens, which can *verify the integrity* of the claims contained within them, while encrypted tokens *hide* those claims from other parties.
+The information contained within the JSON object can be verified and trusted because it is digitally signed. Although JWTs can also be encrypted to provide secrecy between parties, we will focus on *signed* tokens, which can *verify the integrity* of the claims contained within them, while encrypted tokens *hide* those claims from other parties.
 
 JWTs can be signed using a secret (with the **HMAC** algorithm) or a public/private key pair using **RSA** or **ECDSA**. When tokens are signed using public/private key pairs, the signature also certifies that only the party holding the private key is the one that signed it.
 
 ::: note
-For additional informatiom about why to use JWT over other token formats, including Simple Web Tokens (SWT) and SAML tokens, see [Why Use JSON Web Token](/tokens/concepts/why-use-jwt).
+For additional information about why to use JWT over other token formats, including Simple Web Tokens (SWT) and SAML tokens, see [Why Use JSON Web Token](/tokens/concepts/why-use-jwt).
 :::
 
 ## Use of JWTs
