@@ -2,7 +2,7 @@
 
 ### Create an Authentication Service
 
-The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `AuthService` and the filename will be `authService.js`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
+The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you will be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `AuthService` and the filename will be `authService.js`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
 
 Create a service and instantiate `auth0.WebAuth`. Provide a method called `login` which calls the `authorize` method from auth0.js.
 
@@ -36,7 +36,7 @@ export default new AuthService();
 ```
 
 :::note
-The `login` method has been setup to support specifing custom state that will be returned to the application after authentication. This will come into play later when we start adding protected routes.
+The `login` method has been setup to support specifing custom state that will be returned to the application after authentication. This will come into play later when you start adding protected routes.
 :::
 
 To provide the values for `clientID` and `domain`, create a new file `auth0-variables.js` in the same directory as `authService.js` and populate it with your tenant values:

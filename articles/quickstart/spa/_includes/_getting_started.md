@@ -4,6 +4,10 @@
 <%= include('../../../_includes/_new_app') %>
 <%= include('../../../_includes/_callback_url') %>
 
+<% if(showLogoutInfo) { %>
+  <%= include('../../../_includes/_logout_url') %>
+<% } %>
+
 ::: note
 If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URL** to `${callback}`.
 :::
