@@ -4,8 +4,8 @@
 <%= include('../../../_includes/_new_app') %>
 <%= include('../../../_includes/_callback_url') %>
 
-<% if(showLogoutInfo) { %>
-  <%= include('../../../_includes/_logout_url') %>
+<% if(typeof showLogoutInfo !== 'undefined' && showLogoutInfo === true) { %>
+<%= include('../../../_includes/_logout_url') %>
 <% } %>
 
 ::: note
