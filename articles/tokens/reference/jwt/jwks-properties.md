@@ -40,10 +40,9 @@ Each property in the key is defined by the JWK specification [RFC 7517 Section 4
 |---------------|----------------------------|
 | `alg`         | The specific cryptographic algorithm used with the key. |
 | `kty`         | The family of cryptographic algorithms used with the key. |
-| `use`         | How the key was meant to be used; `sig` represents signature. |
+| `use`         | How the key was meant to be used; `sig` represents the signature. |
 | `x5c`         | The x.509 certificate chain. The first entry in the array is the certificate to use for token verification; the other certificates can be used to verify this first certificate.|
 | `n`           | The modulus for a standard [pem](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail). |
 | `e`           | The exponent for a standard [pem](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail). |
 | `kid`         | The unique identifier for the key. |
 | `x5t`         | The thumbprint of the x.509 cert (SHA-1 thumbprint). |
-
