@@ -22,13 +22,22 @@ const webAuth = new auth0.WebAuth({
 });
 
 class AuthService extends EventEmitter {
-  login() {
-    webAuth.authorize();
+
+  // Starts the user login flow
+  login(customState) {
+    webAuth.authorize({
+      appState: customState
+    });
   }
+
 }
 
 export default new AuthService();
 ```
+
+:::note
+The `login` method has been setup to support specifing custom state that will be returned to the application after authentication. This will come into play later when we start adding protected routes.
+:::
 
 To provide the values for `clientID` and `domain`, create a new file `auth0-variables.js` in the same directory as `authService.js` and populate it with your tenant values:
 
@@ -61,6 +70,13 @@ class AuthService extends EventEmitter {
   profile = null;
   tokenExpiry = null;
 
+  // Starts the user login flow
+  login(customState) {
+    webAuth.authorize({
+      appState: customState
+    });
+  }
+
   // Handles the callback request from Auth0
   handleAuthentication() {
     return new Promise((resolve, reject) => {
@@ -84,7 +100,8 @@ class AuthService extends EventEmitter {
 
     this.emit(loginEvent, {
       loggedIn: true,
-      profile: authResult.idTokenPayload
+      profile: authResult.idTokenPayload,
+      state: authResult.appState
     });
   }
 
@@ -181,7 +198,6 @@ Open `main.js` and install the plugin:
 
 import Vue from "vue";
 import App from "./App.vue";
-import router from "./router";
 import AuthPlugin from "./plugins/auth";
 
 // Install the authentication plugin here
@@ -205,10 +221,6 @@ This example was created from a [Vue CLI](https://cli.vuejs.org/) template and u
 :::
 
 ${snippet(meta.snippets.use)}
-
-::: note
-This example uses Bootstrap styles, but that's unimportant. Use whichever style library you like, or don't use one at all. You can install these styles using `npm install bootstrap` on the command line.
-:::
 
 The `@click` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `AuthService` to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
 
@@ -234,17 +246,46 @@ Install `vue-router` to allow callbacks to be routed properly to the `Callback` 
 npm install vue-router
 ```
 
+Create a component named `Callback` and populate it with a loading indicator. The component should also call `handleAuthentication` from the `AuthService`.
+
+```js
+// src/components/Callback.vue
+
+<template>
+  <div>
+    <p>Loading...</p>
+  </div>
+</template>
+
+<script>
+export default {
+  methods: {
+    handleLoginEvent() {
+      this.$router.push("/");
+    }
+  },
+  created() {
+    this.$auth.handleAuthentication();
+  }
+};
+</script>
+```
+
 Add a new file `router.js` inside the `src` folder with the following content:
 
 ```js
 // src/router.js
 
+import Vue from 'vue';
 import Router from 'vue-router';
 import Callback from './components/Callback';
+
+Vue.use(Router);
 
 const routes = [
   {
     path: '/callback',
+    name: 'callback',
     component: Callback
   }
 ];
@@ -272,12 +313,8 @@ import AuthPlugin from './plugins/auth';
 
 // NEW - import the router types
 import router from './router';
-import VueRouter from 'vue-router';
 
 Vue.use(AuthPlugin);
-
-// NEW - register the Vue router
-Vue.use(VueRouter);
 
 Vue.config.productionTip = false;
 
@@ -287,50 +324,6 @@ new Vue({
 }).$mount('#app');
 
 ```
-
-Create a component named `Callback` and populate it with a loading indicator. The component should also call `handleAuthentication` from the `AuthService`.
-
-```js
-// src/components/Callback.vue
-
-<template>
-  <div class="spinner">
-    <img src="../assets/loading.svg" alt="Loading">
-  </div>
-</template>
-
-<script>
-export default {
-  methods: {
-    handleLoginEvent() {
-      this.$router.push("/");
-    }
-  },
-  created() {
-    this.$auth.handleAuthentication();
-  }
-};
-</script>
-
-<style scoped>
-.spinner {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: white;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-</style>
-```
-
-::: note
-This example assumes some kind of loading spinner is available in the `assets` directory. See the downloadable sample for a demonstration.
-:::
 
 After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. During this time, their client-side session will be set, after which they will be redirected to the `/` route.
 
@@ -344,19 +337,19 @@ To display the profile information, create a new component `Profile` in the `vie
 // src/views/Profile.vue
 
 <template>
-  <div class="container">
-    <div class="row align-items-center profile-header">
-      <div class="col-md-2">
-        <img :src="profile.picture" class="rounded-circle img-fluid profile-picture">
+  <div v-if="profile">
+    <div>
+      <div>
+        <img :src="profile.picture">
       </div>
-      <div class="col-md">
+      <div>
         <h2>{{ profile.name }}</h2>
-        <p class="lead text-muted">{{ profile.email }}</p>
+        <p>{{ profile.email }}</p>
       </div>
     </div>
 
-    <div class="row">
-      <pre class="rounded">{{ JSON.stringify(profile, null, 2) }}</pre>
+    <div>
+      <pre>{{ JSON.stringify(profile, null, 2) }}</pre>
     </div>
   </div>
 </template>
@@ -377,7 +370,7 @@ export default {
 </script>
 ```
 
-Add the `Profile` component to the Vue Router:
+Import the `Profile` compnent and then modify the routes list so that the `Profile` component is mapped to `/profile`:
 
 ```js
 // src/router.js
@@ -385,46 +378,53 @@ Add the `Profile` component to the Vue Router:
 //.. other imports
 import Profile from "./views/Profile.vue";
 
-const router = new Router({
-  mode: "history",
-  base: process.env.BASE_URL,
-  routes: [
-    // .. other routes
-    {
-      path: "/profile",
-      name: "profile",
-      component: Profile
-    }
-  ]
+const routes = [
+  {
+    path: '/callback',
+    name: 'callback',
+    component: Callback
+  },
+
+  // NEW - add the route to the /profile component
+  {
+    path: "/profile",
+    name: "profile",
+    component: Profile
+  }
+];
+
+// Unchanged code
+const router = new VueRouter({
+  mode: 'history',
+  routes
 });
 
+export default router;
 ```
 
-Then add the `/profile` route to your navigation bar:
+Then add the `/profile` route to your navigation bar by inserting a new `<li>` element into the navigation bar structure:
 
 ```html
 // src/App.vue
 
 //... other navigation code
 
-<ul class="navbar-nav mr-auto">
-  <li class="nav-item">
-    <router-link to="/" class="nav-link">Home</router-link>
-  </li>
-  <li class="nav-item" v-if="!isAuthenticated">
-    <a href="#" class="nav-link" @click.prevent="login">Login</a>
-  </li>
+<li>
+  <router-link to="/">Home</router-link>
+</li>
+<li v-if="!isAuthenticated">
+  <a href="#" @click.prevent="login">Login</a>
+</li>
 
-  <!-- new link to /profile - only show if authenticated -->
-  <li class="nav-item" v-if="isAuthenticated">
-    <router-link to="/profile" class="nav-link">Profile</router-link>
-  </li>
-  <!-- /profile -->
+<!-- new link to /profile - only show if authenticated -->
+<li v-if="isAuthenticated">
+  <router-link to="/profile">Profile</router-link>
+</li>
+<!-- /profile -->
 
-  <li class="nav-item" v-if="isAuthenticated">
-    <a href="#" class="nav-link" @click.prevent="logout">Log out</a>
-  </li>
-</ul>
+<li cv-if="isAuthenticated">
+  <a href="#" @click.prevent="logout">Log out</a>
+</li>
 ```
 
 ### Securing the profile route
@@ -448,6 +448,8 @@ router.beforeEach((to, from, next) => {
     return next();
   }
 
+  // Specify the current path as the customState parameter, meaning we'll
+  // get this back after auth
   auth.login({ target: to.path });
 });
 
