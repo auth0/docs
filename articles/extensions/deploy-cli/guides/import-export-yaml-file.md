@@ -70,7 +70,7 @@ Here is the example of a `config.json` file:
 
 ### Import configuration example
 
-Here is an example of an import config file `tenant.jaml`:
+Here is an example of an import config file `tenant.yaml`:
 
 ```yaml
 tenant:
