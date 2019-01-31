@@ -8,7 +8,7 @@ useCase:
   - customize-connections
   - add-idp
 ---
-# High availability (HA)
+# Deploy the Connector in a High Availability (HA) Environment
 
 The connector is a critical component. Therefore we recommend a highly available deployment with redundancy (that is, installing multiple instances of it).
 
