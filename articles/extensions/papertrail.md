@@ -21,20 +21,22 @@ To install and configure this extension, click on the _Auth0 Logs to Papertrail_
 At this point you should set the following configuration variables:
 
 - **Schedule**: The frequency with which logs should be exported. The schedule can be customized even further after creation.
-- **BATCH_SIZE**: Logs are batched before sending. Multiple batches are sent
-  each time the extension runs. Specify the number of logs per batch. Maximum
-  is 100.
+- **BATCH_SIZE**: The number of logs per batch (up to a maximum of 100). Note that logs are batched before sending, with multiple batches sent each time the extension runs.
 - **PAPERTRAIL_HOST**: The destination hostname for your logs.
 - **PAPERTRAIL_PORT**: The destination port for your logs.
 - **PAPERTRAIL_SYSTEM**: The destination system for your logs.
 - **LOG_LEVEL**: The minimal log level of events that you would like sent to Papertrail;
 - **LOG_TYPES**: The events for which logs should be exported.
 
-A note about **BATCH_SIZE**: During each window (defined by your chosen
-**Schedule**), outstanding logs will be batched into groups of **BATCH_SIZE**,
-and all those batches will be sent to Papertrail. In other words, during each
-window, `NUM_BATCHES` batches of logs will be sent to Papertrail, based on the
-logic:
+Once you have provided this information, click the *Install* button to finish installing the extension.
+
+### Batch size
+
+When setting your **BATCH_SIZE**, please keep the following information in mind.
+
+During each time frame/window (defined by your chosen **Schedule**), outstanding logs will be batched into groups and sent to Papertrail. The size of each group is determined by the **BATCH_SIZE** value. 
+
+In other words, during each window, `NUM_BATCHES` batches of logs will be sent to Papertrail, based on the following logic:
 
 ```
 IF (NUM_LOGS modulo 100 == 0):
@@ -43,14 +45,11 @@ ELSE:
   NUM_BATCHES = (NUM_LOGS / BATCH_SIZE) + 1
 ```
 
-In the `ELSE` case the last batch will have < 100 logs.
-
-Once you have provided this information, click the *Install* button to finish
-installing the extension.
+In the `ELSE` case, the last batch will have < 100 logs.
 
 ## Retrieve the required information from Papertrail
 
-In order to configure a new system for Auth0 logs and acquire the *PAPERTRAIL_HOST* and *PAPERTRAIL_PORT* information, follow the next steps:
+To configure a new system for Auth0 logs and acquire the *PAPERTRAIL_HOST* and *PAPERTRAIL_PORT* information, follow the next steps:
 1. Login to [Papertrail](https://papertrailapp.com) and navigate to your [Dashboard](https://papertrailapp.com/dashboard).
 2. Click the *Add Systems* button.
 
@@ -72,7 +71,7 @@ If you already have a system you want to use, follow the next steps:
 
 ![](/media/articles/extensions/papertrail/view-cron-jobs.png)
 
-You can view more details by clicking on the job you created. In this page you can view details for each execution, reschedule, access realtime logs, and more.
+You can view more details by clicking on the job you created. In this page, you can view details for each execution, reschedule, access realtime logs, and more.
 
 ![](/media/articles/extensions/papertrail/view-cron-details.png)
 
