@@ -311,7 +311,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import AuthPlugin from './plugins/auth';
 
-// NEW - import the router types
+// NEW - import the router
 import router from './router';
 
 Vue.use(AuthPlugin);
