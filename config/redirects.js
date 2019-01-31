@@ -2008,6 +2008,10 @@ module.exports = [
    {
     from: '/hooks/overview',
     to: '/hooks'
+   },
+   {
+     from: '/users/redirecting-users',
+     to: '/users/guides/redirect-users-after-login'
    }
 ];
 
