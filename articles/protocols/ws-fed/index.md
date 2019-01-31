@@ -60,8 +60,14 @@ Because of this, enabling the Federation Metadata endpoint is preferred to provi
 If the Federation Metadata contains both the primary **and** secondary certificates, you can use both in Auth0.
 :::
 
-For the certificate rollover with the federation metadata endpoint you may follow the steps outlined below:
+To roll over certificates using the Federation Metadata endpoint, you must:
 
-1. Generate a new certificate and add as the secondary in your ADFS environment at least two days prior to the certificate expiry of your active primary certificate.
-1. Allow Auth0 to grab the new certificate from the metadata endpoint. Auth0 checks the metadata endpoints once per day, so make sure that you allow enough time for this step to be completed. Alternatively, you could navigate to the relevant ADFS connection on the management dashboard and click on the **SAVE** button. This will download the certificates from the configured metadata endpoint immediately.
-1. Set the secondary certificate as the primary before the old certificate expires in your ADFS environment.
+1. Generate a new certificate and add as the secondary in your ADFS environment at least two days before the certificate expiry of your current primary certificate.
+
+1. Generate a new certificate, and add it as the **secondary certificate** for your ADFS environment. This should be **done at least two days before** the expiration of your active primary certificate.
+
+1. Allow Auth0 to obtain your new certificate from the Federation Metadata endpoint. Auth0 checks your endpoints once a day, so be sure to allow sufficient time for Auth0 to complete this step. 
+	
+	Alternatively, you can manually complete this step by logging in to the Auth0 Dashboard, navigating to the appropriate ADFS connection, and click  **Save**. This action results in Auth0 downloading the certificates immediately.
+
+1. Set the now-secondary certificate as the primary certificate **before** the existing primary certificate expires in your ADFS environment.
