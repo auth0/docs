@@ -99,7 +99,8 @@ You can find an example in [this GitHub repository](https://github.com/auth0-sam
 ### Deploy Database Connection Settings
 
 To deploy Database Connection settings, you must create `database-connections/[connection-name]/settings.json`. 
-This will work only for auth0 connections (strategy === auth0), for non-auth0 connections use `connections`.
+
+_This will work only for auth0 connections (strategy === auth0), for non-auth0 connections use `connections`._
 
 See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/patch_connections_by_id) for more info on allowed attributes for Connections.
 
@@ -243,7 +244,7 @@ __facebook.json__
 }
 ```
 
-This will work only for non-auth0 connections (strategy !== auth0), for auth0 connections use `database-connections`.
+_This will work only for non-auth0 connections (strategy !== auth0), for auth0 connections use `database-connections`._
 
 See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
 
