@@ -152,17 +152,13 @@ Click on the **Create Rule** button and select the **Empty Rule** template. You 
 
 ```js
 function (user, context, callback) {
-  if (context.clientName !== 'Timesheets SPA') {
-    return callback(null, user, context);
-  }
-
   var permissions = user.permissions || [];
   var requestedScopes = context.request.body.scope || context.request.query.scope;
   var filteredScopes = requestedScopes.split(' ').filter( function(x) {
-    return x.indexOf(':') < 0;
+    return permissions.indexOf(x) > -1;
   });
-  Array.prototype.push.apply(filteredScopes, permissions);
-  context.accessToken.scope = filteredScopes.join(' ');
+  
+  context.accessToken.scope = filteredScopes;
 
   callback(null, user, context);
 }
