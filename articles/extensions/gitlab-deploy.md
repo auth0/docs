@@ -88,6 +88,7 @@ With each commit you push to your configured GitLab repository, the webhook will
 - `grants`
 - `emails`
 - `resource-servers`
+- `connections`
 - `database-connections`
 - `rules-configs`
 - `rules`
@@ -115,6 +116,13 @@ To maintain a consistent state, the extension will always do a full deployment o
 For a generic Custom Database Connection, only the `login.js` script is required. If you enable the migration feature, you will also need to provide the `get_user.js` script.
 
 You can find examples in [the Auth0 Samples repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/database-connections/my-custom-db). While the samples were authored for GitHub, it will work for a GitLab integration as well.
+
+### Deploy Database Connection Settings
+
+To deploy Database Connection settings, you must create `database-connections/[connection-name]/settings.json`. 
+This will work only for auth0 connections (strategy === auth0), for non-auth0 connections use `connections`.
+
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/patch_connections_by_id) for more info on allowed attributes for Connections.
 
 ### Deploy hosted pages
 
@@ -265,6 +273,8 @@ __facebook.json__
   "options": {}
 }
 ```
+
+This will work only for non-auth0 connections (strategy !== auth0), for auth0 connections use `database-connections`.
 
 See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
 
