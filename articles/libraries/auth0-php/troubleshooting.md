@@ -1,6 +1,5 @@
 ---
 section: libraries
-toc: true
 description: Troubleshooting the Auth0-PHP SDK
 topics:
   - libraries
