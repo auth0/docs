@@ -1,6 +1,7 @@
 ---
 description: Learn how to impersonate users using the Dashboard to view their information as they would see it. 
 sitemap: false
+robots: noindex, nofollow
 topics:
     - users
     - user-management
