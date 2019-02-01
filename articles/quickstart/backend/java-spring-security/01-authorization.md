@@ -22,7 +22,7 @@ useCase: quickstart
 
 ## Configure the Sample Project
 
-The sample project has a `/src/main/resources/auth0.properties` file which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page it will be automatically filled. If you use the example from Github, you will need to fill it yourself.
+The sample project has a `/src/main/resources/application.properties` file which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page it will be automatically filled. If you use the example from Github, you will need to fill it yourself.
 
 ${snippet(meta.snippets.setup)}
 
