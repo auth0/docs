@@ -20,7 +20,6 @@ Add a `login` method that calls the `authorize` method from auth0.js.
 
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
 import * as auth0 from 'auth0-js';
 
 @Injectable()
@@ -87,7 +86,6 @@ export class AuthService {
   public handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
-        window.location.hash = '';
         this.localLogin(authResult);
         this.router.navigate(['/home']);
       } else if (err) {
@@ -136,6 +134,20 @@ export class AuthService {
   }
 
 }
+```
+
+Then add the service `AuthService` in the set of providers in your `@NgModule`.
+
+```ts
+// src/app/app.module.ts
+
+// ...
+import { AuthService } from "./auth/auth.service";
+
+@NgModule({
+  // ...
+  providers: [AuthService]
+})
 ```
 
 ### Provide a Login Control
@@ -222,7 +234,7 @@ Call the `handleAuthentication` method in your app's root component. The method 
 ```ts
 // src/app/app.component.ts
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/auth.service';
 
 @Component({
