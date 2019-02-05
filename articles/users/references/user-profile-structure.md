@@ -43,7 +43,7 @@ Auth0 also supports the ability for users to [link their profile to multiple ide
     - `connection` (text): The name of the connection used to authenticate the user.
     - `isSocial` (boolean): The `true/false` value indicating if the connection is a social one.
     - `provider` (text): The entity that is authenticating the user (such as Facebook, Twitter, and so on).
-    - `user_id` (text): Unique. The user's identifier for this connection/provider. |
+    - `user_id` (text): The user's unique identifier for this connection/provider. |
 | `multifactor`   | text    | The list of multi-factor providers in which the user is enrolled. |
 | `last_ip`       | text    | The IP address associated with the user's last login. |
 | `last_login`    | date time   | The timestamp of when the user last logged in. If you are using this property from inside a [Rule](/rules) using the `user` object, its value will be associated with the login that triggered the rule (since rules execute after the actual login). |
