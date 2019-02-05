@@ -1,6 +1,6 @@
 ---
-title: Scopes
-description: Understand the principle of scopes and explore general examples of their use.
+title: Permissions
+description: Understand the principle of permissions and explore general examples of their use.
 topics:
   - scopes
   - permissions
