@@ -30,55 +30,37 @@ The User Profile object also has two **metadata** sub-objects, one called `user_
 
 The `Identity Provider Attributes` section contains information retrieved from the authentication provider (such as Facebook, Twitter, Google, SAML, your own provider, and so on). This section always contains at least one identity provider, and it is the one the user originally authenticated against. This data is read-only.
 
-Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API Access Token that can be used with that provider.The following attributes are available on the user profile.
+Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API Access Token that can be used with that provider. The following attributes are available on the user profile:
 
-* `app_metadata`: Custom fields storing information about a user. These attributes contain information that influences the user's access. For more infornation see [Metadata Overview](/users/concepts/overview-user-metadata).
-
-* `blocked`: The `true/false` value indicating if the user has been blocked.
-
-* `created_at`: The timestamp of when the user profile was first created.
-
-* `email` (unique): The user's email address.
-
-* `email_verified`: The `true/false` value indicating if the user has verified their email address.
-
-* `identities`: The array of objects with information about the user's identities:
+| Name | Data Type | Description |
+|------|-----------|-------------|
+| `app_metadata` | object | Custom fields storing information about a user. These attributes contain information that influences the user's access. For more infornation see [Metadata Overview](/users/concepts/overview-user-metadata). |
+| `blocked` | boolean | The `true/false` value indicating if the user has been blocked. |
+| `created_at` | datetime | The timestamp of when the user profile was first created. |
+| `email` (unique) | string | The user's email address. |
+| `email_verified` | boolean | The `true/false` value indicating if the user has verified their email address. |
+| `identities` | array (object) | The array of objects with information about the user's identities:
 
     * `connection`: The name of the connection used to authenticate the user
     * `isSocial`: The `true/false` value indicating if the connection is a social one or not
     * `provider`: The entity that is authenticating the user (such as Facebook, Twitter, and so on)
-    * `user_id`: The user's unique identifier for this connection/provider
+    * `user_id`: The user's unique identifier for this connection/provider |
 
-
-* `multifactor`: The list of multi-factor providers in which the user is enrolled.
-
-* `last_ip`: The IP address associated with the user's last login.
-
-* `last_login`: The timestamp of when the user last logged in. In case you are this property from inside a [Rule](/rules) using the `user` object, its value will be the one associated with the login that triggered the rule (since rules execute after the actual login).
-
-* `logins_count`: The number of times the user has logged in. If a user is blocked and logs in, the blocked session is counted in `logins_count` and updates the `last_login` value.
-
-* `name`: The user's name.
-
-* `nickname`: The user's nickname.
-
-* `last_password_reset`: The last time the password was reset/changed.
-
-* `password_set_date`: The date when the user's password was set. At user creation, this field exists, but `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical.
-
-* `phone_number`: The user's phone number. Only valid for users with SMS connections.
-
-* `phone_verified`: The `true/false` value indicating whether the user's phone number has been verified. Only valid for users with SMS connections.
-
-* `picture`: [The user's profile picture](/users/guides/change-user-pictures).
-
-* `updated_at`: The timestamp of when the user's profile was last updated/modified.
-
-* `user_id` (unique): The user's unique identifier.
-
-* `user_metadata`: The custom fields storing information about a user. These attributes should contain information about the user that does not impact what they can or cannot access (such as work and home addresses). For more information see [Metadata Overview](/users/concepts/overview-user-metadata).
-
-* `username` (unique): The user's username.
+| `multifactor` | | The list of multi-factor providers in which the user is enrolled. |
+| `last_ip` | | The IP address associated with the user's last login. |
+| `last_login` | | The timestamp of when the user last logged in. In case you are this property from inside a [Rule](/rules) using the `user` object, its value will be the one associated with the login that triggered the rule (since rules execute after the actual login). |
+| `logins_count` | | The number of times the user has logged in. If a user is blocked and logs in, the blocked session is counted in `logins_count` and updates the `last_login` value. |
+| `name` | | The user's name. |
+| `nickname` | | The user's nickname. |
+| `last_password_reset` | | The last time the password was reset/changed. |
+| `password_set_date` | | The date when the user's password was set. At user creation, this field exists, but `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical. |
+| `phone_number` | | The user's phone number. Only valid for users with SMS connections. |
+| `phone_verified` | | The `true/false` value indicating whether the user's phone number has been verified. Only valid for users with SMS connections. |
+| `picture` | [The user's profile picture](/users/guides/change-user-pictures). |
+| `updated_at` | | The timestamp of when the user's profile was last updated/modified. |
+| `user_id` | | (unique): The user's unique identifier. |
+| `user_metadata` | | The custom fields storing information about a user. These attributes should contain information about the user that does not impact what they can or cannot access (such as work and home addresses). For more information see [Metadata Overview](/users/concepts/overview-user-metadata). |
+| `username` | | (unique): The user's username.
 
 Most user profile fields are not returned as part of [ID Token](/tokens/id-token), nor are they included in the response from the [/userinfo endpoint](/api/authentication#get-user-info) of the Authentication API. To retrieve user datails from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) of the Management API. For more information on the endpoints you can use to retrieve users, see [User Search Best Practices](/best-practices/search-best-practices).
 
