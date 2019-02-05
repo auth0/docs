@@ -24,7 +24,7 @@ The following properties are available for the `user` object.
 | `user.created_at` | date time | The date when the user was created.
 | `user.email` | text | (unique) The user's email address. |
 | `user.email_verified` | boolean | Value (`true`/`false`) indicating if the user has verified their email address. |
-| `user.identities` | array(object) |  <%= include('../_includes/_user-prop-identities.md') %> |
+| `user.identities` | array (object) |  <%= include('../_includes/_user-prop-identities.md') %> |
 | `user.multifactor` | text | List of the user's enrolled multi-factor providers. |
 | `user.last_ip` | text | IP address associated with the user's last login. |
 | `user.last_login` | date time | Timestamp of when the user last logged in. |
