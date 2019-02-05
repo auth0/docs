@@ -1,8 +1,10 @@
 ---
-title: Sample Use Cases - Scopes and Claims
-description: Learn how to use scopes and claims with applications and APIs.
+title: Sample Use Cases - Permissions and Claims
+description: Learn how to use permissions and claims with applications and APIs.
 topics:
   - scopes
+  - permissions
+  - claims
 contentType:
   - how-to
 useCase:
@@ -11,7 +13,7 @@ useCase:
   - call-api
   - secure-api
 ---
-# Sample Use Cases: Scopes and Claims
+# Sample Use Cases: Permissions and Claims
 
 In these examples, we use the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow) to authenticate a user and request the necessary permissions and tokens. For details on the request parameters or to learn how to fully implement this flow, refer to our tutorial: [Add Login to Regular Web Applications](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow).
 
@@ -68,10 +70,10 @@ Your app now can retrieve the user attributes and use them to personalize your U
 
 ## Request custom API access
 
-In this example, we request a custom scope for a calendar API that will authorize the calling application to read appointments for the user. To do this, we want to get an Access Token containing the proper scope to read appointments from the API. Note that requesting an Access Token is not dependent on requesting an ID Token.
+In this example, we request a custom permission for a calendar API that will authorize the calling application to read appointments for the user. To do this, we want to get an Access Token containing the proper permission to read appointments from the API. Note that requesting an Access Token is not dependent on requesting an ID Token.
 
 ::: note
-Before using a custom API, you need to know what scopes are available for the API you are calling. If the custom API is under your control, you need to register both your application and API with Auth0 and [define the scopes for your API using the Auth0 Dashboard](/scopes/current/guides/define-api-scope-dashboard). You can also use defined permissions to [customize the consent prompt](/scopes/current/guides/customize-consent-prompt) for your users.
+Before using a custom API, you need to know what permissions are available for the API you are calling. If the custom API is under your control, you need to register both your application and API with Auth0 and [define the permissions for your API using the Auth0 Dashboard](/scopes/current/guides/define-api-scope-dashboard). You can also use defined permissions to [customize the consent prompt](/scopes/current/guides/customize-consent-prompt) for your users.
 :::
 
 1. Initiate the authorization flow by sending the user to the authorization URL:
@@ -90,7 +92,7 @@ Notice that in this example:
 
 * the `response_type` parameter still includes one value:
   * `code` (because we are using the regular web app flow, our initial request is for an authorization code; when we request our tokens using this code, we will receive the Access Token that we can use to call our API.)
-* the `scope` parameter includes one value, the requested API scope: 
+* the `scope` parameter includes one value, the requested API permission: 
   * `read:appointments` (to allow us to read the user's appointments from the API)
 * the `audience` parameter is new and includes one value:
   * the unique identifier of the API from which we want to read the user's appointments
@@ -102,10 +104,10 @@ Notice that in this example:
 
 ## Authenticate a user and request standard claims and custom API access
 
-In this example, we combine our previous two examples to authenticate a user, request standard claims, and also request a custom scope for a calendar API that will allow the calling application to read appointments for the user. To do this, we want to get two tokens--an ID Token that contains the user's name, nickname, profile picture, and email information, and an Access Token containing the proper scope to read appointments from the API. Note that requesting an Access Token is not dependent on requesting an ID Token.
+In this example, we combine our previous two examples to authenticate a user, request standard claims, and also request a custom permission for a calendar API that will allow the calling application to read appointments for the user. To do this, we want to get two tokens--an ID Token that contains the user's name, nickname, profile picture, and email information, and an Access Token containing the proper permission to read appointments from the API. Note that requesting an Access Token is not dependent on requesting an ID Token.
 
 ::: note
-Before using a custom API, you need to know what scopes are available for the API you are calling. If the custom API is under your control, you need to register both your application and API with Auth0 and [define the scopes for your API using the Auth0 Dashboard](/scopes/current/guides/define-api-scope-dashboard). You can also use defined permissions to [customize the consent prompt](/scopes/current/guides/customize-consent-prompt) for your users.
+Before using a custom API, you need to know what permissions are available for the API you are calling. If the custom API is under your control, you need to register both your application and API with Auth0 and [define the permissions for your API using the Auth0 Dashboard](/scopes/current/guides/define-api-scope-dashboard). You can also use defined permissions to [customize the consent prompt](/scopes/current/guides/customize-consent-prompt) for your users.
 :::
 
 1. Initiate the authentication flow by sending the user to the authorization URL:
@@ -124,7 +126,7 @@ Notice that in this example:
 
 * the `response_type` parameter still includes one value:
   * `code` (because we are using the regular web app flow, our initial request is for an authorization code; when we request our tokens using this code, we will receive both the ID Token we need for authentication and the Access Token that we can use to call our API.)
-* the `scope` parameter is used for both OIDC scopes and API scopes, so now includes four values: 
+* the `scope` parameter is used for both OIDC scopes and API permissions, so now includes four values: 
   * `openid` (to indicate that the application intends to use OIDC to verify the user's identity)
   * `profile` (to get `name`, `nickname`, and `picture`)
   * `email` (to get `email` and `email_verified`)
@@ -184,13 +186,13 @@ When creating your rule, make sure to set some logic that determines when to inc
 
 ## Keep reading
 
-- [Scopes](/scopes)
+- [Permissions](/scopes)
 - [OpenID Connect Scopes](/scopes/current/oidc-scopes)
 - [Custom Claims](/scopes/current/custom-claims)
-- [API Scopes](/scopes/current/api-scopes)
-- [How to Define API Scopes Using the Auth0 Dashboard](/scopes/current/guides/define-api-scopes-dashboard)
+- [API Permissions](/scopes/current/api-scopes)
+- [How to Define API Permissions Using the Auth0 Dashboard](/scopes/current/guides/define-api-scopes-dashboard)
 - [How to Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)
 - [Represent Multiple APIs Using a Single Logical API in Auth0](/api-auth/tutorials/represent-multiple-apis)
-- [How to Restrict Application or User Requests for API Scopes](/api-auth/restrict-requests-for-scopes)
-- [SPA + API Architecture Scenario: Restrict API Scopes Based on Authorization Extension Groups](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension)
+- [How to Restrict Application or User Requests for API Permissions](/api-auth/restrict-requests-for-scopes)
+- [SPA + API Architecture Scenario: Restrict API Permissions Based on Authorization Extension Groups](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension)
 
