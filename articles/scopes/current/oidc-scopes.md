@@ -16,12 +16,12 @@ useCase:
 This document discusses scopes included within the OpenID Connect (OIDC) authentication protocol. For more info about OIDC itself, see our docs on [OpenID Connect](/protocols/oidc).
 :::
 
-OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details, like name and picture. Each scope returns a set of user attributes, which are called _claims_. The scopes an application should request depend on which user attributes the application needs. Once the user authorizes the requested scopes, the claims are returned in an ID Token and are also available through the [/userinfo endpoint](/api/authentication#get-user-info).
+OpenID Connect (OIDC) permissions, which are called _scopes_ in the OAuth 2.0 spec, are used by an application during authentication to authorize access to a user's details, like name and picture. Each permission returns a set of user attributes, which are called _claims_. The permissions an application should request depend on which user attributes the application needs. Once the user authorizes the requested permissions, the claims are returned in an ID Token and are also available through the [/userinfo endpoint](/api/authentication#get-user-info).
 
 For example, let's say you have built a regular web application, registered it with Auth0, and have configured it to allow a user to log in using a username and password. Once a user logs in to your app, you want to auto-generate and send a personalized welcome email, including the user's name.
 
 1. A user clicks **Login** within your app.
-2. Your app redirects the user to the Auth0 Authorization Server (**/authorize** endpoint), including the following scopes: 
+2. Your app redirects the user to the Auth0 Authorization Server (**/authorize** endpoint), including the following permissions: 
 * `openid` (required; to indicate that the application intends to use OIDC to verify the user's identity)
 * `profile` (so you can personalize the email with the user's name)
 * `email` (so you know where to send the welcome email)
