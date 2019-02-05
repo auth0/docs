@@ -28,9 +28,13 @@ The User Profile object also has two **metadata** sub-objects, one called `user_
 
 ## Attributes
 
-The `Identity Provider Attributes` section contains information retrieved from the authentication provider (such as Facebook, Twitter, Google, SAML, your own provider, and so on). This section always contains at least one identity provider, and it is the one the user originally authenticated against. This data is read-only.
+The `Identity Provider Attributes` section contains information retrieved from the authentication provider (such as Facebook, Twitter, Google, SAML, your own provider, and so on). This section always contains at least one identity provider, and it is the one the user originally authenticated against. 
 
-Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API Access Token that can be used with that provider.The following attributes are available on the user profile.
+::: warning
+By default, user attributes in Auth0's normalized user profile are not editable because they are updated from the identity provider each time a user logs in. If you want to be able to edit the `name`, `nickname`, `given_name`, `family_name`, or `picture` attributes on the normalized user profile, you must [specify that user attributes be updated on user profile creation only](/connections/guides/change-user-attribute-update). User attributes will then be editable via the Management API.
+:::
+
+Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API Access Token that can be used with that provider. The following attributes are available on the user profile.
 
 * `app_metadata`: Custom fields storing information about a user. These attributes contain information that influences the user's access. For more infornation see [Metadata Overview](/users/concepts/overview-user-metadata).
 
