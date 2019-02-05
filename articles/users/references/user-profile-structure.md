@@ -39,7 +39,7 @@ Auth0 also supports the ability for users to [link their profile to multiple ide
 | `created_at`     | date time  | The timestamp of when the user profile was first created. |
 | `email`          | text   | (unique) The user's email address. |
 | `email_verified` | boolean   | The `true/false` value indicating if the user has verified their email address. |
-| `identities`     | array (objects) | The array of objects with information about the user's identities:
+| `identities`     | array (object) | The array of objects with information about the user's identities:
     * `connection` (text): The name of the connection used to authenticate the user.
     * `isSocial` (boolean): The `true/false` value indicating if the connection is a social one.
     * `provider` (text): The entity that is authenticating the user (such as Facebook, Twitter, and so on).
