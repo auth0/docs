@@ -37,7 +37,7 @@ Auth0 also supports the ability for users to [link their profile to multiple ide
 | `app_metadata`   | object    | Custom fields that store info about a user that influences the user's access. For more info, see [Metadata Overview](/users/concepts/overview-user-metadata). |
 | `blocked`        | boolean   | The `true/false` value indicating if the user has been blocked. |
 | `created_at`     | date time  | The timestamp of when the user profile was first created. |
-| `email`          | text   | Unique. The user's email address. |
+| `email`          | text   | (unique) The user's email address. |
 | `email_verified` | boolean   | The `true/false` value indicating if the user has verified their email address. |
 | `identities`     | array (objects) | The array of objects with information about the user's identities:
     * `connection` (text): The name of the connection used to authenticate the user.
@@ -56,9 +56,9 @@ Auth0 also supports the ability for users to [link their profile to multiple ide
 | `phone_verified` | boolean | The `true/false` value indicating whether the user's phone number has been verified. Only valid for users with SMS connections. |
 | `picture` | text | URL pointing to [the user's profile picture](/users/guides/change-user-pictures). |
 | `updated_at` | date time | The timestamp of when the user's profile was last updated/modified. |
-| `user_id` | text | Unique. The user's identifier. |
+| `user_id` | text | (unique) The user's identifier. |
 | `user_metadata` | object     | Custom fields that store info about a user that does not impact what they can or cannot access (such as work and home address). For more info, see [Metadata Overview](/users/concepts/overview-user-metadata). |
-| `username` | text | Unique. The user's username. |
+| `username` | text | (unique) The user's username. |
 
 Most user profile fields are not returned as part of [ID Token](/tokens/id-token), nor are they included in the response from the [/userinfo endpoint](/api/authentication#get-user-info) of the Authentication API. To retrieve user datails from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) of the Management API. For more information on the endpoints you can use to retrieve users, see [User Search Best Practices](/best-practices/search-best-practices).
 
