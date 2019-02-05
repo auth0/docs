@@ -22,7 +22,7 @@ Fields that are always generated:
 * **`picture`**: the URL of the [user's picture](/users/guides/change-user-pictures). If unavailable, Auth0 uses the Gravatar image associated with the user's email address.
 * **`user_id`**: the user's unique identifier. This is unique per Connection, but the same for all apps that authenticate via that Connection.
 
-A user's `name`, `nickname`, and `picture` attributes are not directly editable, however you can update the fields in the `user_metadata` to update them for your front-end as desired. [Click here for more details for changing a user's picture](/users/guides/change-user-pictures); the `name`, `nickname` fields can be updated in the same way.
+By default, a user's `name`, `nickname`, and `picture` attributes are not directly editable since they are updated from the identity provider each time a user logs in. If you want to be able to edit these attributes, you must [specify that user attributes be updated on user profile creation only](/connections/guides/change-user-attribute-update). These fields will then be available to be edited with the [update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
 
 Fields that are generated when the details are available:
 
@@ -32,7 +32,7 @@ Fields that are generated when the details are available:
 * **`family_name`**: the user's last name.
 
 ::: note
-When creating a user with the [create a User Management API endpoint](/api/management/v2#!/Users/post_users) you can submit the `given_name` and `family_name` but these fields are not available to be edited with the [update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
+When creating a user with the [create a User Management API endpoint](/api/management/v2#!/Users/post_users) you can submit the `given_name` and `family_name`. By default, a user's `given_name` and `family_name` attributes are not directly editable since they are updated from the identity provider each time a user logs in. If you want to be able to edit these attributes, you must [specify that user attributes be updated on user profile creation only](/connections/guides/change-user-attribute-update). These fields will then be available to be edited with the [update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
 :::
 
 ::: panel Custom Databases
