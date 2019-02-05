@@ -7,5 +7,3 @@ You will need to add this URL to the list of Allowed URLs for your application. 
 If you deploy your application to a different URL you will also need to ensure to add that URL to the **Allowed Callback URLs** and **Allowed Logout RLs**. The `web.config` in the sample projects also contain two keys named `auth0:RedirectUri` and `auth0:PostLogoutRedirectUri` with these URLs. Be sure to change those as well.
 
 That's all you need to start working with Auth0!
-
-Please continue with the [Login](/quickstart/webapp/aspnet-owin/01-login) tutorial to know how to implement basic login.
