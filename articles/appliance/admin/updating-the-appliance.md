@@ -113,6 +113,6 @@ Please remember that you are responsible for testing and ensuring that all of yo
 
 During an upgrade, we expect there to be some downtime. For single-node clusters, we expect there to be 3-5 minutes of downtime. For multi-node clusters, we can perform updates sequentially, where users may see up to 30 seconds of downtime.
 
-Downtime occurs when we restart services. Because of this, we are willing to schedule updates to Production clusters during non-business hours. Please contact your Customer Success Manager to select a time that would be best for you.
+Downtime occurs when we restart services. Because of this, we are willing to schedule updates to Production clusters during non-business hours. Please let us know your preferences in the Support Ticket.
 
 If you require your Production update during non-business hours, we ask that you confirm the day prior during normal business hours.
