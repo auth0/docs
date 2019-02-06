@@ -30,7 +30,7 @@ The query string is parsed into a series of terms and operators:
 
 You can search for users using all the [normalized user profile fields](/users/normalized/auth0/normalized-user-profile-schema) and the fields below:
 
-Search Field | Data Type | Description
+Search&nbsp;Field | Data&nbsp;Type | Description
 ------|------|-----
 `phone_number` | text | The user's phone number. Only valid for users with SMS connections.
 `phone_verified` | boolean | The `true/false` value indicating whether the user's phone number has been verified. Only valid for users with SMS connections.
