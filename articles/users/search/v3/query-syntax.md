@@ -38,7 +38,7 @@ Search&nbsp;Field | Data&nbsp;Type | Description
 `created_at` | date&nbsp;time | The timestamp of when the user profile was first created.
 `updated_at` | date&nbsp;time | The timestamp of when the user's profile was last updated/modified.
 `last_login` | date&nbsp;time | The timestamp of when the user last logged in. In case you are this property from inside a [Rule](/rules) using the `user` object, its value will be the one associated with the login that triggered the rule (since rules execute after the actual login).
-`last_ip` | text (valid IP address) | The IP address associated with the user's last login.
+`last_ip` | text (valid IP&nbsp;address) | The IP address associated with the user's last login.
 `blocked` | boolean | The `true/false` value indicating if the user has been blocked.
 `email.domain` | text | The domain part of the user's email.
 
