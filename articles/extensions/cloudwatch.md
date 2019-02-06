@@ -10,7 +10,7 @@ useCase: extensibility-extensions
 
 # Auth0 Logs to CloudWatch
 
-The **Auth0 Logs to CloudWatch** is a scheduled job that takes all of your Auth0 logs and exports them to [CloudWatch](https://aws.amazon.com/cloudwatch/). Amazon CloudWatch is a monitoring and management service built for developers, system operators, site reliability engineers (SRE), and IT managers.
+The **Auth0 Logs to CloudWatch** extension is a scheduled job that exports your Auth0 logs to [CloudWatch](https://aws.amazon.com/cloudwatch/). Amazon CloudWatch is a monitoring and management service built for developers, system operators, site reliability engineers (SRE), and IT managers.
 
 ## Configure the Extension
 
