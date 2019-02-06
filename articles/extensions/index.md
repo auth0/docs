@@ -66,3 +66,24 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 ### Create a SSO dashboard with multiple enterprise applications 
 - [SSO Dashboard Extension](extensions/sso-dashboard)
 
+### General Troubleshooting
+
+The basis of this section is a general troubleshooting for extensions.
+
+If you run into any extension issues, the first thing we suggest is to:
+- Delete the current extension you have configured
+- Logging out  of your Auth0 Dashboard
+- Logging back in
+- Re-installing the extensions and re-configuring it
+
+
+Sometimes app configurations can become cached.
+
+Additionally, many recent issues can be pinpointed to some tenants still using Node 4. Many of  our extensions rely on modules that use Node 8. We recommend to navigate to https://manage.auth0.com/#/tenant/advanced and scroll to the bottom to the Extensibility tab and to change the runtime from Node 4 to Node 8 and then, clicking save at the bottom of the page. 
+Please note, if you are still on Node 4, this extension requires Node 8. I would recommend checking out this migration guide (https://auth0.com/docs/migrations/guides/extensibility-node8)  before updating to node 8 to see what may be affected by this change.
+
+An example of errors we see in the scenario above  is this:   "Compilation failed: Cannot find module 'auth0-source-control-extension-tools'"
+
+If you are still experiencing issues, it would be helpful if you could provide errors or Real-time Webtask Logs when submitting a support ticket. Instructions to use Real-time Webtask Logs can be found here: https://auth0.com/docs/extensions/realtime-webtask-logs
+
+
