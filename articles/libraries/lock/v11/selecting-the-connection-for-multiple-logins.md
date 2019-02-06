@@ -13,7 +13,7 @@ useCase:
 ---
 # Selecting from Multiple Connection Options
 
-Auth0 allows you to offer your users multiple methods of authenticating. This is especially important with SaaS, multi-tenant apps, in which a single app is used by many different organizations, each one of which is potentially using different systems such as LDAP, Active Directory, Google Apps, or username/password stores.
+With Auth0 you can offer users multiple methods of authenticating. This is especially important with SaaS, multi-tenant apps, where a single app is used by many different organizations, each using different systems such as LDAP, Active Directory, Google Apps, or username/password stores.
 
 In Auth0, you associate a number of different *connections* (representing methods of authentication) to specific applications, or directly to a tenant (as [domain connections](/applications/enable-third-party-applications#step-2-promote-connections)). When the user logs in, one of these connections will need to be selected as the one to use.
 
@@ -25,7 +25,7 @@ Selecting the appropriate Identity Providers from multiple options is called "Ho
 
 If you use at most one database connection and zero or more social connections the selection process will be straightforward. The use will either click on one of the social identity providers buttons (e.g. "Log in with Google") or type their email and password (meaning "I will use the database connection"). 
 
-But if the application or tenant have other connection types enabled (like enterprise connections or multiple databases) the selection process might be more involved. Specifically: how do you indicate that a user wants to use a specific database connection if more than one is enabled? What if a user wants to use an enterprise connection to log in using SSO?
+But if the application or tenant have other connection types enabled (like enterprise connections or multiple databases) the selection process might be more involved. How do you indicate that a user wants to use a specific database connection if more than one is enabled? What if a user wants to use an enterprise connection to log in using SSO?
 
 If you implement [a custom login UI](/libraries/when-to-use-lock#when-to-implement-lock-vs-a-custom-ui) you have full control over the authentication flow. You decide which connection to use (either by asking the user or by making a decision based on the email address provided and/or other contextual information) and provide the `connection` parameter to one of Auth0.js' [login methods](/libraries/auth0js/v9#login).
 
