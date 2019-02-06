@@ -17,7 +17,7 @@ The `user` object represents the logged in user, returned by the identity provid
 
 The following properties are available for the `user` object.
 
-| Property | Data Type        | Description |
+| Property | Data&nbsp;Type        | Description |
 |----------|------------------|-------------|
 | `user.app_metadata` | object | Custom fields that store info about a user that influences the user's access. For more info, see [Metadata](/metadata). |
 | `user.blocked` | boolean | Value (`true`/`false`) indicating if the user has been blocked. |
