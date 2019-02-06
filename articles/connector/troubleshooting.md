@@ -65,7 +65,7 @@ These are the most common problems:
 
 Make sure the clock of your server is current.
 
-If the time is not correct, it will cause authentication requests to fail. This can be fixed by ensuring that the System is properly configured to use to pool a sync server via the NTP (Network Time Protocol).
+If the time is not correct, it will cause authentication requests to fail. This can be fixed by ensuring that the System is properly configured to use to poll a sync server via the NTP (Network Time Protocol).
 
 ::: note
 On windows environments the ntp provider is usually the same domain controller. Make sure that your Domain Controller is synchronized with some external service.
