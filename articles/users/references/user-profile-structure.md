@@ -32,7 +32,7 @@ The `Identity Provider Attributes` section contains information retrieved from t
 
 Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API Access Token that can be used with that provider. The following attributes are available on the user profile:
 
-| Name             | Data Type | Description |
+| Name             | Data&nbsp;Type | Description |
 |------------------|-----------|-------------|
 | `app_metadata`   | object    | Custom fields that store info about a user that influences the user's access. For more info, see [Metadata Overview](/users/concepts/overview-user-metadata). |
 | `blocked`        | boolean   | The `true/false` value indicating if the user has been blocked. |
