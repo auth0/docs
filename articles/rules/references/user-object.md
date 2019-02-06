@@ -21,7 +21,7 @@ The following properties are available for the `user` object.
 |----------|------------------|-------------|
 | `user.app_metadata` | object | Custom fields that store info about a user that influences the user's access. For more info, see [Metadata](/metadata). |
 | `user.blocked` | boolean | Value (`true`/`false`) indicating if the user has been blocked. |
-| `user.created_at` | date time | The date when the user was created.
+| `user.created_at` | date&nbsp;time | The date when the user was created.
 | `user.email` | text | (unique) The user's email address. |
 | `user.email_verified` | boolean | Value (`true`/`false`) indicating if the user has verified their email address. |
 | `user.identities` | array (object) |  <%= include('../_includes/_user-prop-identities.md') %> |
