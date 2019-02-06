@@ -36,22 +36,22 @@ Auth0 also supports the ability for users to [link their profile to multiple ide
 |------------------|-----------|-------------|
 | `app_metadata`   | object    | Custom fields that store info about a user that influences the user's access. For more info, see [Metadata Overview](/users/concepts/overview-user-metadata). |
 | `blocked`        | boolean   | The `true/false` value indicating if the user has been blocked. |
-| `created_at`     | date time  | The timestamp of when the user profile was first created. |
+| `created_at`     | date&nbsp;time  | The timestamp of when the user profile was first created. |
 | `email`          | text   | (unique) The user's email address. |
 | `email_verified` | boolean   | The `true/false` value indicating if the user has verified their email address. |
-| `identities`     | array (object) | <%= include('../_includes/_user-prop-identities.md') %> | 
+| `identities`     | array&nbsp;(object) | <%= include('../_includes/_user-prop-identities.md') %> | 
 | `multifactor`   | text    | The list of multi-factor providers in which the user is enrolled. |
 | `last_ip`       | text    | The IP address associated with the user's last login. |
-| `last_login`    | date time   | The timestamp of when the user last logged in. If you are using this property from inside a [Rule](/rules) using the `user` object, its value will be associated with the login that triggered the rule (since rules execute after the actual login). |
+| `last_login`    | date&nbsp;time   | The timestamp of when the user last logged in. If you are using this property from inside a [Rule](/rules) using the `user` object, its value will be associated with the login that triggered the rule (since rules execute after the actual login). |
 | `logins_count`  | integer | The number of times the user has logged in. If a user is blocked and logs in, the blocked session is counted in `logins_count` and updates the `last_login` value. |
 | `name`          | text     | The user's name. |
 | `nickname`      | text     | The user's nickname. |
-| `last_password_reset` | date time | The last time the password was reset/changed. |
-| `password_set_date`   | date time | The date when the user's password was set. At user creation, this field exists, but `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical. |
+| `last_password_reset` | date&nbsp;time | The last time the password was reset/changed. |
+| `password_set_date`   | date&nbsp;time | The date when the user's password was set. At user creation, this field exists, but `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical. |
 | `phone_number` | text | The user's phone number. Only valid for users with SMS connections. |
 | `phone_verified` | boolean | The `true/false` value indicating whether the user's phone number has been verified. Only valid for users with SMS connections. |
 | `picture` | text | URL pointing to [the user's profile picture](/users/guides/change-user-pictures). |
-| `updated_at` | date time | The timestamp of when the user's profile was last updated/modified. |
+| `updated_at` | date&nbsp;time | The timestamp of when the user's profile was last updated/modified. |
 | `user_id` | text | (unique) The user's identifier. |
 | `user_metadata` | object     | Custom fields that store info about a user that does not impact what they can or cannot access (such as work and home address). For more info, see [Metadata Overview](/users/concepts/overview-user-metadata). |
 | `username` | text | (unique) The user's username. |
