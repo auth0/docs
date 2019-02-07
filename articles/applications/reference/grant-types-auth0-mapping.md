@@ -13,7 +13,7 @@ useCase:
 
 # Auth0 Grant Types Mapping
 
-When they are registered, Auth0 Applications will have access to different grant types based on their application types. The biggest deciding factor is whether the application is [confidential or public](/applications/concepts/app-types-confidential-public).
+When registered, Auth0 Applications have access to different grant types based on [application type](/applications). The biggest deciding factor is whether the application is [confidential or public](/applications/concepts/app-types-confidential-public).
 
 ## Public Applications
 
