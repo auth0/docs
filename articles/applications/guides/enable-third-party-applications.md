@@ -12,14 +12,12 @@ useCase:
 ---
 # Enable Third-party Applications
 
-This guide
+This guide will show you how to enable [third-party applications](/applications/application-types#third-party-applications) for your tenant. To do so, you must:
 
-To enable [third-party applications](/applications/application-types#third-party-applications) for your tenant, you must:
-
-1. Update your application's login page (if you use [Lock](/libraries/lock/v11))
+1. If you use [Lock](/libraries/lock/v11), update the application's login page
 2. Promote the connections you will use with your third-party applications to **domain connections**
 
-## Step 1: Update the login page
+## Update the application's login page
 
 If you use Lock in the [Hosted Login Page](/hosted-pages/login), you must:
 
@@ -66,7 +64,7 @@ If you use Lock in the [Hosted Login Page](/hosted-pages/login), you must:
 </script>
 ```
 
-## Step 2: Promote connections
+## Promote connections
 
 Third-party applications can only authenticate users from connections flagged as **Domain Connections**. Domain connections can be enabled for selected first-party applications while also being open to third-party application users for authentication.
 
