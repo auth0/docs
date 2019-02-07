@@ -10,7 +10,7 @@ contentType: how-to
 useCase:
   - build-an-app
 ---
-# View Application Type: First-Party or Third-Party
+# View Application Ownership
 
 This guide will show you how to use Auth0's Management API to check whether an application is registered with Auth0 as a first-party or third-party application.
 
