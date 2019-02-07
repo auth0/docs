@@ -41,13 +41,7 @@ Third-party applications cannot skip user consent when consuming APIs. Because a
 
 #### Connections
 
-Third-party applications can use only tenant-level [connections] (domain connections). Configured connections are enabled for every third-party application.
-
-#### When used with Lock
-
-To authenticate users from third-party applications using [Lock](/libraries/lock), you will have to use a version greater than `10.7`.
-
-[PSaaS Appliance](/appliance) users must use `https://{config.auth0Domain}/` as the value for [the `configurationBaseUrl` option](https://github.com/auth0/lock#other-options).
+Third-party applications can use only [tenant-level connections (domain connections)](/applications/enable-third-party-applications#promote-connections).
 
 #### When used with the Management APIv2
   
