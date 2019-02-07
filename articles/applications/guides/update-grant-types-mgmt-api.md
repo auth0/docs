@@ -28,7 +28,7 @@ Grant type `grant_type` not allowed for the client.
 ```
 :::
 
-1.Make a `PATCH` call to the [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id). Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and Access Token, respectively.
+1.Make a `PATCH` call to the [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id). Be sure to replace `YOUR_CLIENT_ID`, `MGMT_API_ACCESS_TOKEN`, and GRANT_TYPE placeholder values with your client ID, Access Token, and desired grant type, respectively.
 
 
 ```har
@@ -43,7 +43,7 @@ Grant type `grant_type` not allowed for the client.
 	}],
 		"queryString": [],
 	"postData": {
-		"grant_types": []
+		"grant_types": [GRANT_TYPE]
 	},
 	"headersSize": -1,
 	"bodySize": -1,
