@@ -11,15 +11,11 @@ useCase:
 
 # Legacy Grant Types
 
-Traditional grant types supported for legacy customers only. If you are a legacy customer, we highly recommend moving to a more secure alternative.
+Legacy grant types are traditional grant types supported for legacy customers only. If you are a legacy customer, we highly recommend moving to a more secure alternative.
 
-As of 8 June 2017, all Auth0 Applications have a `grant_types` property that **must** be populated. Here's how Auth0 will handle this change based on whether you're a current customer with an existing Application or a new customer.
+As of 8 June 2017, all Auth0 Applications were given a `grant_types` property that **must** be populated. To avoid changes in functionality for Auth0 customers at that time, we populated the `grant_types` property for all existing Applications with **all** Auth0 legacy, Auth0 extension, and specification-conforming grant types.
 
-### Existing Applications
-
-To avoid changes in functionality for current Auth0 customers, we will populate the `grant_types` property for all existing Applications as of 8 June 2017 with **all** Auth0 legacy, Auth0 extension, and specification-conformant grant types.
-
-## Secure Alternatives to the Legacy Grant Types
+## Secure Alternatives to Legacy Grant Types
 
 If you're currently using a legacy grant type, refer to the chart below to see which of the secure alternatives you should use instead.
 
