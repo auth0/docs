@@ -13,7 +13,11 @@ useCase:
 
 This guide will show you how to use Auth0's Management API to check whether an application is registered with Auth0 as a confidential or public application.
 
-1. 
+1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/). 
+
+2. Click the name of your application to see its settings.
+
+3. Locate the **Token Endpoint Authentication Method**.
 
 
 Auth0 determines the **Application Type** based on the **Token Endpoint Authentication Method** setting on the application's settings page in the Dashboard.
@@ -31,6 +35,4 @@ The `Token Endpoint Authentication Method` defines how a Confidential Applicatio
 * `Basic`, for an application using HTTP Basic parameters 
 
 Additionally, any Application where the Token Endpoint Authentication Method is unspecified is confidential.
-
-You can find this field at the [Application Settings page](${manage_url}/#/applications/${account.clientId}/settings) of the [Auth0 Dashboard](${manage_url}).
 :::
