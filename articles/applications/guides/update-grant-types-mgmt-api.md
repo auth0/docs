@@ -20,7 +20,13 @@ This guide will show you how to change your application's grant types using Auth
 As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant types to their Applications. Only customers as of 8 June 2017 can add legacy grant types to their existing Applications.
 :::
 
- to update the `grant_types` field.
+::: warning
+Attempting to use any flow with a Application lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
+
+```text
+Grant type `grant_type` not allowed for the client.
+```
+:::
 
 1.Make a `PATCH` call to the [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id). Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and Access Token, respectively.
 
@@ -35,15 +41,13 @@ As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant 
 		"name": "Authorization",
 		"value": "Bearer MGMT_API_ACCESS_TOKEN"
 	}],
-	"grant_types": []
+		"queryString": [],
+	"postData": {
+		"grant_types": []
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
 }
 ```
-
-::: warning
-Attempting to use any flow with a Application lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
-
-```text
-Grant type `grant_type` not allowed for the client.
-```
-:::
 
