@@ -64,4 +64,5 @@ Third-party applications should be granted the `current_user_*` scopes, as requi
 
 
 ## Keep reading
-* [View Application Type: First-Party or Third-Party](/applications/guides/view-application-type-first-party)
+* Learn how to find out whether an application is first-party or third-party at [View Application Type: First-Party or Third-Party](/applications/guides/view-application-type-first-party)
+* Learn about other application categories, such as [confidential vs. public](/applications/concepts/app-types-confidential-public) and [Auth0 application types](/applications/concepts/app-types-auth0).
