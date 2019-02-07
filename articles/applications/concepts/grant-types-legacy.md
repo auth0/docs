@@ -19,7 +19,7 @@ As of 8 June 2017, all Auth0 Applications were given a `grant_types` property th
 At this time, new Auth0 customers were no longer able to add legacy grant types to their applications. Legacy grant types are only available for previous customers while they migrate to new flows, to avoid breaking changes. If you were a customer prior to 8 June 2017, you can [use the Dashboard](/applications/guides/update-grant-types-dashboard) or [use the Management API](/applications/guides/update-grant-types-mgmt-api) to enable a legacy grant type.
 :::
 
-## Secure Alternatives to Legacy Grant Types
+## Secure Alternatives
 
 If you're currently using a legacy grant type, refer to the chart below to see which of the secure alternatives you should use instead.
 
