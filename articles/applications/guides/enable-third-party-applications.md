@@ -64,11 +64,11 @@ If you use Lock in the [Hosted Login Page](/hosted-pages/login), you must:
 </script>
 ```
 
-## Promote connections
+## Promote connections to domain level
 
 Third-party applications can only authenticate users from connections flagged as **Domain Connections**. Domain connections can be enabled for selected first-party applications while also being open to third-party application users for authentication.
 
-Promote a connection to domain level using the [Update a Connection endpoint](/api/management/v2#!/Connections/patch_connections_by_id).
+Promote a connection to domain level by making a `PATCH` call to the [Update a Connection endpoint](/api/management/v2#!/Connections/patch_connections_by_id). Be sure to replace `CONNECTION_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your connection ID and Access Token, respectively.
 
 ```har
 {
@@ -76,7 +76,7 @@ Promote a connection to domain level using the [Update a Connection endpoint](/a
   "url": "https://${account.namespace}/api/v2/connections/CONNECTION_ID",
   "headers": [
     { "name": "Content-Type", "value": "application/json" },
-    { "name": "Authorization", "value": "Bearer API2_ACCESS_TOKEN" },
+    { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
     { "name": "Cache-Control", "value": "no-cache" }
   ],
   "postData": {
@@ -85,7 +85,8 @@ Promote a connection to domain level using the [Update a Connection endpoint](/a
   }
 }
 ```
+
 | Value | Description |
 | - | - |
-| `API2_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the scope `update:connections` |
+| `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the scope `update:connections` |
 | `CONNECTION_ID` | Τhe ID of the connection to be promoted |
