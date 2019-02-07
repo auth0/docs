@@ -30,24 +30,26 @@ Valid values include:
 
 When a Native/Mobile Application or Single-Page Application (SPA) is registered in the Dashboard, it is automatically flagged as a public application, which is indicated by setting the `token_endpoint_auth_method` flag to `none`.
 
-By default, public Applications are allowed the following `grant_types`:
+By default, public applications are allowed the following `grant_types`:
 
 * `implicit`
 * `authorization_code`
 * `refresh_token`
 
 ::: note
-Public Applications **cannot** utilize the `client_credentials` grant type. To use this grant type, you will need to indicate that the application is confidential rather than public. To do so, use the [Management API](/api/management/v2#!/Clients/patch_clients_by_id) to set the **token_endpoint_auth_method** to `client_secret_post` or `client_secret_basic`.
+Public applications **cannot** utilize the `client_credentials` grant type. To use this grant type, you will need to indicate that the application is confidential rather than public. To do so, use the [Management API](/api/management/v2#!/Clients/patch_clients_by_id) to set the **token_endpoint_auth_method** to `client_secret_post` or `client_secret_basic`.
 :::
 
 ## Confidential Applications
 
-Confidential Applications, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Machine to Machine Applications. Additionally, any Application where `token_endpoint_auth_method` is unspecified is confidential. By default, Confidential Applications are created with the following `grant_types`:
+When a Regular Web Application or Machine-to-Machine (M2M) Application is registered in the Dashboard, it is automatically flagged as a confidential applications, which is indicated by setting the `token_endpoint_auth_method` flag to anything *except* `none`. Additionally, any Application where `token_endpoint_auth_method` is unspecified is considered to be confidential. 
+
+By default, confidential applications are allowed the following `grant_types`:
 
 * `implicit`;
 * `authorization_code`;
 * `refresh_token`;
-* `client_credentials`.
+* `client_credentials`
 
 ## Trusted First-Party Applications
 
@@ -62,3 +64,5 @@ Trusted first-party applications can additionally use the following `grant_types
 ::: note
 If you are using the [Dashboard](${manage_url}) to enable or disable these grant types, note that all the Password and MFA grant types are enabled when you add the `Password` or `MFA` grant type on your Application. You cannot select these individually.
 :::
+
+For more info about first-party and third-party applications, see [Application Types: First-party versus Third-party]()
