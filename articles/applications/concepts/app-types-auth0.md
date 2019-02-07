@@ -26,6 +26,6 @@ To add authentication to your application, you must first register it with Auth0
 
 ## Keep reading
 
-- After creating your first application, you will want to set the environment for your tenant. For more information, refer to [Set Up Multiple Environments](/dev-lifecycle/setting-up-env#set-the-environment).
+- After creating your first application, you will want to set the environment for your tenant. For more information, see [Set Up Multiple Environments](/dev-lifecycle/setting-up-env#set-the-environment).
 
 - Learn about other application categories, such as [confidential vs. public](/applications/concepts/application-types-confidential-public) and [first-party vs. third-party](/applications/concepts/application-types-first-third-party).
