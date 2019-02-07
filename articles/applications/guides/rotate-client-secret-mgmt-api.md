@@ -11,10 +11,6 @@ useCase:
 
 # Rotate a Client Secret using the Management API
 
-::: note
-To make calls to the Management API, you must [get and use a valid Access Token](/api/management/v2/tokens).
-:::
-
 This guide will show you how to change your application's client secret using Auth0's Management API.
 
 ::: warning 
@@ -23,7 +19,6 @@ New secrets may be delayed while rotating. To make sure that you see as little d
 Secrets can be stored in a list (or similar structure) to track keys until they're no longer needed. Once you're sure that an old secret is obsolete, you can remove its value from your app's code.
 :::
 
-
 1. Make a `POST` call to the [Rotate a Client Secret endpoint](/api/management/v2#!/Clients/post_rotate_secret). Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and Access Token, respectively.
 
 
@@ -31,20 +26,19 @@ Secrets can be stored in a list (or similar structure) to track keys until they'
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/api/v2/clients/YOUR_CLIENT_ID/rotate-secret",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer MGMT_API_ACCESS_TOKEN"
-	}],
-	"queryString": [],
-	"postData": {},
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
+	"headers": [
+    	   { "name": "Content-Type", "value": "application/json" },
+   	   { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+    	   { "name": "Cache-Control", "value": "no-cache" }
+	],
+	"postData": {}
 }
 ```
 
+| Value | Description |
+| - | - |
+| `YOUR_CLIENT_ID` | Τhe ID of the application to be updated. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the scope `update:client_keys`. |
 
 2. Update authorized applications
 
