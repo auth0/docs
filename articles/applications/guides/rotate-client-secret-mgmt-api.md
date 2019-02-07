@@ -1,6 +1,6 @@
 ---
+title: Rotate a Client Secret using the Management API
 description: Learn how to change your application's client secret using the Management API.
-crews: crew-2
 topics:
   - applications
   - client-secrets
