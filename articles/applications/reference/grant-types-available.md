@@ -1,10 +1,21 @@
-# Avaliable Grant Types
+---
+title: Available Grant Types
+description: Learn which grant types are available with Auth0.
+toc: true
+topics:
+  - applications
+  - grant-types
+contentType: reference
+useCase:
+  - build-an-app
+---
+# Available Grant Types
 
-The following is a list of grant types valid for Auth0 Applications. The grant types can be divided into three different categories:
-
-* Grants that conform with specifications (such as [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html))
-* [Auth0 extension grants](https://tools.ietf.org/html/rfc6749#section-4.5)
-* Auth0 legacy grants
+Various grant types are valid when registering Auth0 Applications. These can be divided into the following categories:
+ 
+* **Spec-conforming grants**: Grants defined by and conforming to external specifications (such as [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html))
+* **Auth0 extension grants**: [Auth0 extension grants](https://tools.ietf.org/html/rfc6749#section-4.5)
+* **Auth0 legacy grants**: 
 
 The following `grant_types`, are either:
 
