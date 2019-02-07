@@ -1,20 +1,36 @@
-### New Applications
+---
+title: Auth0 Grant Types Mapping
+description: Learn which grant types are available to which application types with Auth0.
+toc: true
+topics:
+  - applications
+  - application-types
+  - grant-types
+contentType: reference
+useCase:
+  - build-an-app
+---
 
-Depending on whether a newly-created Application is [public](/applications/client-types#public-applications) or [confidential](/applications/client-types#confidential-applications), the Application will have varying access to grant types. Trusted first-party applications have access to additional grant types.
+# Auth0 Grant Types Mappings
 
-#### Public Applications
-
-Public Applications, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications. 
+When they are registered, Auth0 Applications will have access to different grant types based on their application types. The biggest deciding factor is whether the application is [confidential or public](/applications/concepts/app-types-confidential-public). The application type is indicated by the value contained in the `token_endpoint_auth_method` flag.
 
 ::: panel Token Endpoint Authentication Method
-The `Token Endpoint Authentication Method` defines how a Application authenticates against the [token endpoint](/api/authentication#authorization-code). Its valid values are:
+The `Token Endpoint Authentication Method` defines how a Application authenticates against the [token endpoint](/api/authentication#authorization-code) and is represented by the `token_endpoint_auth_method` flag in the Management API. In the [Auth0 Dashboard](${manage_url}), you can find this field in the [Settings](${manage_url}/#/applications/${account.clientId}/settings) for your application.
 
-* `None`, for a public application without a client secret
-* `Post`, for a application using HTTP POST parameters
-* `Basic`, for a application using HTTP Basic parameters 
+Valid values include:
 
-You can find this field at the [Application Settings page](${manage_url}/#/applications/${account.clientId}/settings) of the [Auth0 Dashboard](${manage_url}).
+* `None`: For public applications without client secrets
+* `Post`: For applications using HTTP POST parameters
+* `Basic`: For applications using HTTP Basic parameters 
 :::
+
+
+## Public Applications
+
+Public Applications are created in the Dashboard for Native/Mobile and Single-Page Applications (SPAs). They are indicated by a `token_endpoint_auth_method` flag set to `none`.
+
+
 
 By default, Public Applications are created with the following `grant_types`:
 
@@ -26,7 +42,7 @@ By default, Public Applications are created with the following `grant_types`:
 Public Applications **cannot** utilize the `client_credentials` grant type. To add this grant type to a Application using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id), set the **token_endpoint_auth_method** to `client_secret_post` or `client_secret_basic`. Either of these will indicate the Application is confidential, not public.
 :::
 
-#### Confidential Applications
+## Confidential Applications
 
 Confidential Applications, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Machine to Machine Applications. Additionally, any Application where `token_endpoint_auth_method` is unspecified is confidential. By default, Confidential Applications are created with the following `grant_types`:
 
@@ -35,7 +51,7 @@ Confidential Applications, indicated by the `token_endpoint_auth_method` flag se
 * `refresh_token`;
 * `client_credentials`.
 
-#### Trusted First-Party Applications
+## Trusted First-Party Applications
 
 Trusted first-party applications can additionally use the following `grant_types`:
 
