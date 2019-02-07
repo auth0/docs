@@ -52,7 +52,7 @@ Once you have configured your Application, some common next steps to take are:
 
 - Use our latest [API Authorization](/api-auth) features to **call an API**.
 
-- **Use [our APIs](/api/info)**.
+- **Use the [Auth0 APIs](/api/info)**.
 
   - The [Authentication API](/api/authentication) handles all the primary identity related functions (login, logout, get user profile, and so forth). Most users consume this API through our [Quickstarts](/quickstarts), the [Auth0.js library](/libraries/auth0js) or the [Lock widget](/libraries/lock). However, if you are building all of your authentication UI manually, you will have to interact with this API directly.
 
