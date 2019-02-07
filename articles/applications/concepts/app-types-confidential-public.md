@@ -57,3 +57,4 @@ Because public applications are unable to hold secrets, [ID Tokens](/tokens/id-t
 
 ## Keep reading
 * Learn about other application categories, such as [first-party vs. third-party](/applications/concepts/app-types-first-third-party) and [Auth0 application types](/applications/concepts/app-types-auth0).
+* Explore the grant types available for different application types at [Auth0 Grant Types Mapping](/applications/reference/grant-types-auth0-mapping).
