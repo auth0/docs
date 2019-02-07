@@ -1,6 +1,6 @@
 ---
+title: Client Secret
 description: Learn about client secrets.
-crews: crew-2
 topics:
   - applications
   - client-secrets
