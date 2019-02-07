@@ -1,4 +1,20 @@
-### Check your application type
+---
+title: View Application Type - Confidential vs. Public
+description: Learn how to check whether an application is registered with Auth0 as a confidential or public app.
+topics:
+  - applications
+  - application-types
+  - dashboard
+contentType: how-to
+useCase:
+  - build-an-app
+---
+# View Application Type: Confidential or Public
+
+This guide will show you how to use Auth0's Management API to check whether an application is registered with Auth0 as a confidential or public application.
+
+1. 
+
 
 Auth0 determines the **Application Type** based on the **Token Endpoint Authentication Method** setting on the application's settings page in the Dashboard.
 
