@@ -67,41 +67,6 @@ The following are legacy grant types:
 * `http://auth0.com/oauth/legacy/grant-type/delegation/id_token`
 * `http://auth0.com/oauth/legacy/grant-type/access_token`
 
-## How to Edit the Application's `grant_types` Property
-
-You can set the `grant_types` property for your Auth0 Application using the Management Dashboard.
-
-::: warning
-As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant types to their Applications. Only customers as of 8 June 2017 can add legacy grant types to their existing Applications.
-:::
-
-Begin by navigating to the [Applications page](${manage_url}/#/applications) of the Management Dashboard.
-
-![Auth0 Applications](/media/articles/clients/client-grant-types/clients.png)
-
-Click on the cog icon <i class="icon icon-budicon-329"></i> next to the Application you're interested in to launch its settings page.
-
-![Auth0 Application Settings](/media/articles/clients/client-grant-types/client-settings.png)
-
-Scroll down to the bottom of the settings page, and click **Advanced Settings**.
-
-![Auth0 Application Advanced Settings](/media/articles/clients/client-grant-types/client-advanced-settings.png)
-
-Switch to the **Grant Types** tab and enable or disable the respective grants for this application. Click **Save Changes**.
-
-![Auth0 Application Grant Types](/media/articles/clients/client-grant-types/grant-types.png)
-
-### Use the Management API
-
-In addition to setting the `grant_types` value using the Dashboard, you can make a [`PATCH` call to the Update an Application endpoint](/api/management/v2#!/Clients/patch_applications_by_id) of the Management API to update the `grant_types` field.
-
-### Errors
-
-Attempting to use any flow with a Application lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
-
-```text
-Grant type `grant_type` not allowed for the client.
-```
 
 ## Information for Existing and New Auth0 Customers
 
