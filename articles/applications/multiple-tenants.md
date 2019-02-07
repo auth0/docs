@@ -1,5 +1,5 @@
 ---
-description: Learn to configure connections using the Auth0 Dashboard.
+description: Learn why to configure multiple tenants.
 topics:
   - applications
   - connections
@@ -10,11 +10,15 @@ useCase:
   - customize-connections
 ---
 
-# Use Multiple Tenants
+# Multiple Tenants
 
-If you have two separate domains (for example, public-facing and internal) or would like to allow users to log in differently for two different applications, the best solution is to create a second Auth0 tenant. This will allow you to have separate sets of applications, connections, and users for the groups of users and applications you need to support.
+You can configure multiple tenants in Auth0 to allow for more complex configurations.
 
-For example, let's suppose that your company, Fabrikam, has two applications: an internal timesheets application (Fabrikam Employee Timesheets) and a customer portal (Fabrikam Customer Portal). You want users to be able to log in to the timesheets application using either their Active Directory credentials or Google Apps. On the other hand, you want users to be able to log in to the customer portal via Google Apps, Facebook, or LinkedIn.
+For instance, if you have two separate domains (for example, one internal and one public-facing) or would like to allow users to log in differently for different applications, the best solution is to create more than one Auth0 tenant. This will allow you to have separate sets of applications, connections, and users for the applications and groups of users you need to support.
+
+## Example: Internal Application + Public-Facing Application
+
+Let's suppose that your company, Fabrikam, has two applications: an internal timesheets application (Fabrikam Employee Timesheets) and a customer portal (Fabrikam Customer Portal). You want users to be able to log in to the timesheets application using either their Active Directory credentials or Google Apps. On the other hand, you want users to be able to log in to the customer portal via Google Apps, Facebook, or LinkedIn.
 
 For the internal timesheets application, you would configure the following in Auth0:
 
