@@ -88,5 +88,5 @@ Promote a connection to domain level by making a `PATCH` call to the [Update a C
 
 | Value | Description |
 | - | - |
-| `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the scope `update:connections` |
 | `CONNECTION_ID` | Τhe ID of the connection to be promoted |
+| `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the scope `update:connections` |
