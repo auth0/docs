@@ -13,7 +13,11 @@ useCase:
 
 Legacy grant types are traditional grant types supported for legacy customers only. If you are a legacy customer, we highly recommend moving to a more secure alternative.
 
+::: warning 
+On 8 June 2017, new Auth0 customers were no longer able to add legacy grant types to their applications. Legacy grant types are only available for previous customers while they migrate to new flows, to avoid breaking changes. If you were a customer prior to 8 June 2017, you can [use the Dashboard] or [use the Management API] to enable a legacy grant type.
+
 As of 8 June 2017, all Auth0 Applications were given a `grant_types` property that **must** be populated. To avoid changes in functionality for Auth0 customers at that time, we populated the `grant_types` property for all existing Applications with **all** Auth0 legacy, Auth0 extension, and specification-conforming grant types.
+:::
 
 ## Secure Alternatives to Legacy Grant Types
 
@@ -30,11 +34,3 @@ If you're currently using a legacy grant type, refer to the chart below to see w
 ::: note
 Those implementing Passwordless Authentication should use [Universal Login](/hosted-pages/login) instead of the `oauth/ro` endpoint.
 :::
-
-## Enable a Legacy Grant Type
-
-::: warning
-As of 8 June 2017, new Auth0 customers cannot add any of the legacy grant types to their applications. Legacy grant types are only available for previous customers while they migrate to new flows, to avoid breaking changes. To find the secure alternative for your case refer to [Secure Alternatives to the Legacy Grant Types](#secure-alternatives-to-the-legacy-grant-types).
-:::
-
-To enable a legacy grant type, you will need to update the `grant_types` property for you Application appropriately. For details on how to do so, refer to [Edit the grant_types Property](#edit-available-grant_types).
