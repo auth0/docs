@@ -38,7 +38,7 @@ You can explore all available settings at [Dashboard Reference: Advanced Applica
 
 # Machine to Machine Applications
 
-You can use machine-to-machine applications when you want to invoke an API using a non-interactive application, such as a service, command line tool, or IoT device using the [OAuth 2.0 Client Credentials Grant](/api-auth/grant/client-credentials).
+You can use machine-to-machine applications when you want to invoke an API using a non-interactive application, such as a service, command line tool, or IoT device using the [OAuth 2.0 Client Credentials Grant](/flows/concepts/m2m-flow).
 
 ## Create a new Machine to Machine Application
 
