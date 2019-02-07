@@ -34,38 +34,7 @@ OAuth 2.0 supports several types of grants, which are methods by which you can g
 Not sure which grant type is appropriate for your use case? Refer to [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use) for help.
 :::
 
-## Grant Types Available
 
-The following is a list of grant types valid for Auth0 Applications. The grant types can be divided into three different categories:
-
-* Grants that conform with specifications (such as [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html))
-* [Auth0 extension grants](https://tools.ietf.org/html/rfc6749#section-4.5)
-* Auth0 legacy grants
-
-The following `grant_types`, are either:
-
-* OIDC-conformant (that is, their implementation conforms to the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html))
-* Auth0 extension grants
-
-| `grant_type` | More info |
-|:-----|:----|
-| `implicit` | [Implicit Grant](/api-auth/grant/implicit) |
-| `authorization_code` | [Authorization Code Grant](/api-auth/grant/authorization-code) |
-| `client_credentials` | [Client Credentials Grant](/api-auth/grant/client-credentials) |
-| `password` | [Resource Owner Password Grant](/api-auth/grant/password) |
-| `refresh_token` | [Use a Refresh Token](/tokens/refresh-token/current#use-a-refresh-token) |
-| `http://auth0.com/oauth/grant-type/password-realm` | [Use an extension grant similar to the Resource Owner Password Grant that includes the ability to indicate a specific realm](/api-auth/grant/password#realm-support) |
-| `http://auth0.com/oauth/grant-type/mfa-oob` | [Multi-factor Authentication OOB Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-oob-grant-request) |
-| `http://auth0.com/oauth/grant-type/mfa-otp` | [Multi-factor Authentication OTP Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-otp-grant-request) |
-| `http://auth0.com/oauth/grant-type/mfa-recovery-code` | [Multi-factor Authentication Recovery Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-recovery-grant-request) |
-
-The following are legacy grant types:
-
-* `http://auth0.com/oauth/legacy/grant-type/ro`
-* `http://auth0.com/oauth/legacy/grant-type/ro/jwt-bearer`
-* `http://auth0.com/oauth/legacy/grant-type/delegation/refresh_token`
-* `http://auth0.com/oauth/legacy/grant-type/delegation/id_token`
-* `http://auth0.com/oauth/legacy/grant-type/access_token`
 
 
 ### New Applications
