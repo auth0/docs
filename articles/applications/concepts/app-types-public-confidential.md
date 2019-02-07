@@ -23,8 +23,8 @@ Because they use a trusted backend server, confidential applications can use gra
 
 The following are considered to be confidential applications:
 
-* A web application with a secure backend that uses the [Authorization Code grant](/api-auth/grant/authorization-code), [Password grant](/api-auth/grant/password), or [Password grant with Realm support](/api-auth/tutorials/password-grant#realm-support)
-* A machine-to-machine (M2M) application that uses the [Client Credentials grant](/api-auth/grant/client-credentials)
+* A web application with a secure backend that uses the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), [Password grant](/api-auth/grant/password), or [Password grant with Realm support](/api-auth/tutorials/password-grant#realm-support)
+* A machine-to-machine (M2M) application that uses the [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow)
 
 ### ID Tokens
 
@@ -43,8 +43,8 @@ Public applications can only use grant types that do not require the use of thei
 
 The following are public applications:
 
-* A native desktop or mobile application that uses the [Authorization Code grant with PKCE](/api-auth/grant/authorization-code-pkce)
-* A JavaScript-based client-side web application (such as a single-page app) that uses the [Implicit](/api-auth/grant/implicit) grant
+* A native desktop or mobile application that uses the Native/Mobile Login Flow](/flows/concepts/mobile-login-flow)
+* A JavaScript-based client-side web application (such as a single-page app) that uses the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) grant
 
 ### ID Tokens
 
