@@ -28,18 +28,16 @@ Valid values include:
 
 ## Public Applications
 
-Public Applications are created in the Dashboard for Native/Mobile and Single-Page Applications (SPAs). They are indicated by a `token_endpoint_auth_method` flag set to `none`.
+When a Native/Mobile Application or Single-Page Application (SPA) is registered in the Dashboard, it is automatically flagged as a public application, which is indicated by setting the `token_endpoint_auth_method` flag to `none`.
 
-
-
-By default, Public Applications are created with the following `grant_types`:
+By default, public Applications are allowed the following `grant_types`:
 
 * `implicit`
 * `authorization_code`
 * `refresh_token`
 
 ::: note
-Public Applications **cannot** utilize the `client_credentials` grant type. To add this grant type to a Application using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id), set the **token_endpoint_auth_method** to `client_secret_post` or `client_secret_basic`. Either of these will indicate the Application is confidential, not public.
+Public Applications **cannot** utilize the `client_credentials` grant type. To use this grant type, you will need to indicate that the application is confidential rather than public. To do so, use the [Management API](/api/management/v2#!/Clients/patch_clients_by_id) to set the **token_endpoint_auth_method** to `client_secret_post` or `client_secret_basic`.
 :::
 
 ## Confidential Applications
