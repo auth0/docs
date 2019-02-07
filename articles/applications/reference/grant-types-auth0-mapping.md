@@ -61,7 +61,7 @@ Trusted first-party applications can additionally use the following `grant_types
 * `http://auth0.com/oauth/grant-type/mfa-recovery-code`
 
 ::: note
-If you are using the [Dashboard](${manage_url}) to enable or disable these grant types, note that all the Password and MFA grant types are enabled when you add the `Password` or `MFA` grant type on your Application. You cannot select these individually.
+If you are using the [Dashboard](${manage_url}) to enable or disable these grant types, be aware that all the Password and MFA grant types are enabled when you add the `Password` or `MFA` grant type to your Application. You cannot select them individually.
 :::
 
 For more info about first-party and third-party applications, see [Application Types: First-party vs. Third-party](/applications/concepts/app-types-first-third-party).
