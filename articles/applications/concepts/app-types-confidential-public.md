@@ -11,30 +11,9 @@ useCase:
 ---
 # Application Types: Public vs. Confidential
 
-The OAuth 2.0 specification [defines two types of applications](https://tools.ietf.org/html/rfc6749#section-2.1): public and confidential.
+The OAuth 2.0 specification [defines two types of applications](https://tools.ietf.org/html/rfc6749#section-2.1): confidential and public.
 
-When creating an application through the [Dashboard](${manage_url}/#/applications), Auth0 will ask you what type of application you want the application to represent and use that information to determine the application type.
-
-### Check your application type
-
-You can use the Management API's [Get a Client endpoint](/api/management/v2#!/Clients/get_clients_by_id) to check your existing Application's type. If the application is first party, the `is_first_party` equals `true`, else `false`. Be sure to replace `CLIENT_ID` with the ID of your application.
-
-```har
-{
-	"method": "GET",
-	"url": "https://${account.namespace}/api/v2/clients/CLIENT_ID?fields=is_first_party&include_fields=true",
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer MGMT_API_ACCESS_TOKEN"
-	}]
-}
-```
-
-::: note
-See [Access Tokens for the Management API](/api/management/v2/tokens) for instructions on obtaining the Access Token required to call the Management API.
-:::
-
-### Confidential applications
+## Confidential applications
 
 Confidential applications are able to hold credentials (such as a client ID and secret) in a secure way without exposing them to unauthorized parties. This means that you will need a trusted backend server to store the secret(s).
 
@@ -50,7 +29,7 @@ Since confidential applications are capable of holding secrets, you can choose t
 * Symmetrically using their client secret (`HS256`)
 * Asymmetrically using a private key (`RS256`)
 
-### Public applications
+## Public applications
 
 Public applications **cannot** hold credentials securely. The following application types use public applications:
 
