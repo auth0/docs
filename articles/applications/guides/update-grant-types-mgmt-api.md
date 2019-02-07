@@ -10,10 +10,6 @@ useCase:
 ---
 # Update an Application's Grant Types using the Management API
 
-::: note
-To make calls to the Management API, you must [get and use a valid Access Token](/api/management/v2/tokens).
-:::
-
 This guide will show you how to change your application's grant types using Auth0's Management API.
 
 ::: warning
@@ -35,19 +31,20 @@ Grant type `grant_type` not allowed for the client.
 {
 	"method": "PATCH",
 	"url": "https://${account.namespace}/api/v2/clients/YOUR_CLIENT_ID",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer MGMT_API_ACCESS_TOKEN"
-	}],
-		"queryString": [],
+	"headers": [
+    	   { "name": "Content-Type", "value": "application/json" },
+   	   { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+    	   { "name": "Cache-Control", "value": "no-cache" }
+	],
 	"postData": {
-		"grant_types": [GRANT_TYPE]
-	},
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
+      	   "mimeType": "application/json",
+      	   "text" : "{ \"grant_types\": "GRANT_TYPES" }"
+	}
 }
 ```
 
+| Value | Description |
+| - | - |
+| `YOUR_CLIENT_ID` | Τhe ID of the application to be updated. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the scope `update:clients`. |
+| `GRANT_TYPES` | The grant types yo would like to enable for the specified application. |
