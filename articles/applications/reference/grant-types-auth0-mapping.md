@@ -21,7 +21,7 @@ Trusted first-party applications have access to additional grant types.
 
 When a **Native App** or **Single-Page App** is registered in the Dashboard, it is automatically flagged as a public application, which is indicated by setting the `token_endpoint_auth_method` flag to `none`.
 
-By default, public applications are allowed the following `grant_types`:
+By default, Auth0 creates public applications with the following `grant_types` enabled:
 
 * `implicit`
 * `authorization_code`
@@ -35,7 +35,7 @@ Public applications **cannot** utilize the `client_credentials` grant type. To u
 
 When a **Regular Web App** or **Machine-to-Machine (M2M) App** is registered in the Dashboard, it is automatically flagged as a confidential application, which is indicated by setting the `token_endpoint_auth_method` flag to anything *except* `none`. 
 
-By default, confidential applications are allowed the following `grant_types`:
+By default, Auth0 creates confidential applications with the following `grant_types` enabled:
 
 * `implicit`;
 * `authorization_code`;
