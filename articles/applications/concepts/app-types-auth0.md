@@ -15,7 +15,7 @@ useCase:
 
 To add authentication to your application, you must first register it with Auth0 and select an application type. Auth0 recognizes four application types:
 
-- **Native/Mobile Apps**: Mobile or Desktop app that run natively in a device (e.g., iOS, Android). Learn to [register your Native/Mobile App using the Dashboard](/applications/guides/register-native-app).
+- **Native Apps**: Mobile or Desktop app that run natively in a device (e.g., iOS, Android). Learn to [register your Native/Mobile App using the Dashboard](/applications/guides/register-native-app).
 
 - **Single-Page Apps (SPAs)**: JavaScript web apps that run in the browser (e.g., AngularJS + Node.js, React). Learn to [register your Single Page App using the Dashboard](/applications/guides/register-spa).
 
