@@ -1,27 +1,32 @@
 ---
 description: Learn to configure connections using the Auth0 Dashboard.
-crews: crew-2
 topics:
   - applications
   - connections
-contentType: how-to
+  - tenants
+contentType: concept
 useCase:
   - build-an-app
   - customize-connections
 ---
-# Configure Connections
 
+# Use Multiple Tenants
 
-# Multi-Tenant Configuration
+If you have two separate domains (for example, public-facing and internal) or would like to allow users to log in differently for two different applications, the best solution is to create a second Auth0 tenant. This will allow you to have separate sets of applications, connections, and users for the groups of users and applications you need to support.
 
-If you have two separate domains (for example, public-facing and internal), or two groups of connections you'd like to allow users, the best solution is to create a second Auth0 tenant via the settings menu in the top right on the [Dashboard](${manage_url}). This will allow you to have separate sets of users, applications, and connections for the two groups of users and applications you need to support.
+For example, let's suppose that your company, Fabrikam, has two applications: an internal timesheets application (Fabrikam Employee Timesheets) and a customer portal (Fabrikam Customer Portal). You want users to be able to log in to the timesheets application using either their Active Directory credentials or Google Apps. On the other hand, you want users to be able to log in to the customer portal via Google Apps, Facebook, or LinkedIn.
 
-For example, let's suppose that you have two applications: an internal timesheets application and a customer portal. Users should login to the timesheets application using either their Active Directory credentials or their Google apps social connection. On the other hand, users should be able to login to the customer portal via Facebook, Google, or LinkedIn.
+For the internal timesheets application, you would configure the following in Auth0:
 
-You could configure this in Auth0 as follows:
+1. Create a tenant (`Fabrikam-Internal`) for your internal domain via the Settings menu in the top right on the [Dashboard](${manage_url}). 
+2. Register an application within this tenant for your timesheet application (`Fabrikam Employee Timesheets`).
+3. Configure the following [Enterprise connections](${manage_url}/#/connections/enterprise) for this tenant: Active Directory/LDAP and Google Apps. 
+4. Once all connections are configured, navigate to the **Connections** tab in the timesheet application's application settings and enable the connections for the application.
 
-- Create a tenant `Fabrikam-Internal` for your internal domain, and an application within it `Fabrikam Employee Timesheets` for timesheets.
-- Create a second tenant `Fabrikam-Public` for your public-facing domain, and an application within it `Fabrikam Customer Portal` for the customer portal.
-- Configure the following [Enterprise connections](${manage_url}/#/connections/enterprise) for the `Fabrikam-Internal` tenant: Active Directory/LDAP and Google Apps; once each is set up, check the **Applications** tab to enable them.
-- Configure the following [Enterprise connection](${manage_url}/#/connections/enterprise) for the `Fabrikam-Public` tenant: Google Apps; once it is set up, check the **Applications** tab to enable it.
-- Configure the following [Social connections](${manage_url}/#/connections/social) for the `Fabrikam-Public` tenant: Facebook, LinkedIn; once each is set up, check the **Applications** tab to enable it.
+For the customer portal, you would configure the following in Auth0:
+
+1. Create a second tenant (`Fabrikam-Public`) for your public-facing domain. 
+2. Register an application within this tenant for your customer portal (`Fabrikam Customer Portal`).
+3. Configure the following [Enterprise connection](${manage_url}/#/connections/enterprise) for this tenant: Google Apps. 
+4. Configure the following [Social connections](${manage_url}/#/connections/social) for this tenant: Facebook and LinkedIn.
+5. Once all connections are configured, navigate to the **Connections** tab in the customer portal's application settings and enable the connections for the application.
