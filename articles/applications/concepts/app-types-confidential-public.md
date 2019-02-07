@@ -61,3 +61,6 @@ Since public applications are unable to hold secrets, [ID Tokens](/tokens/id-tok
 
 * Signed asymmetrically using a private key (`RS256`)
 * Verified using the public key corresponding to the private key used to sign the token
+
+## Keep reading
+* Learn about other application categories, such as [first-party vs. third-party](/applications/concepts/app-types-first-third-party) and [Auth0 application types](/applications/concpets/app-types-auth0).
