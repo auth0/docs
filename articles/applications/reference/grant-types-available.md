@@ -46,7 +46,7 @@ Legacy grants include:
 * `http://auth0.com/oauth/legacy/grant-type/delegation/id_token`
 * `http://auth0.com/oauth/legacy/grant-type/access_token`
 
-For info on working with legacy grant types and their alternatives, see [Work with Legacy Grant Types](/applications/concepts/grant-types-legacy).
+For info on working with legacy grant types and their alternatives, see [Legacy Grant Types](/applications/concepts/grant-types-legacy).
 
 ## Keep reading
 
