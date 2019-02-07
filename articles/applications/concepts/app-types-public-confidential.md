@@ -11,7 +11,7 @@ useCase:
 ---
 # Application Types: Public vs. Confidential
 
-The OAuth 2.0 specification [defines two types of applications](https://tools.ietf.org/html/rfc6749#section-2.1): confidential and public.
+According to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-2.1), applications can be classified as either public or confidential. The main difference relates to whether or not the application is able to hold credentials securely.
 
 ## Confidential applications
 
