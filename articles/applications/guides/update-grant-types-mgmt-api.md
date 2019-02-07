@@ -22,25 +22,20 @@ As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant 
 
  to update the `grant_types` field.
 
-
-1.Make a `PATCH` call to the [Update an Application endpoint](/api/management/v2#!/Clients/patch_applications_by_id). Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and Access Token, respectively.
+1.Make a `PATCH` call to the [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id). Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and Access Token, respectively.
 
 
 ```har
 {
 	"method": "PATCH",
-	"url": "https://${account.namespace}/api/v2/clients/YOUR_CLIENT_ID/rotate-secret",
+	"url": "https://${account.namespace}/api/v2/clients/YOUR_CLIENT_ID",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
 		"name": "Authorization",
 		"value": "Bearer MGMT_API_ACCESS_TOKEN"
 	}],
-	"queryString": [],
-	"postData": {},
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
+	"grant_types": []
 }
 ```
 
