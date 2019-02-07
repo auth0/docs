@@ -15,7 +15,7 @@ According to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-2.
 
 ## Confidential applications
 
-Confidential applications are able to hold credentials in a secure way without exposing them to unauthorized parties. They require a trusted backend server to store the secret(s).
+Confidential applications can hold credentials in a secure way without exposing them to unauthorized parties. They require a trusted backend server to store the secret(s).
 
 ### Grant types
 
@@ -28,21 +28,27 @@ The following are considered to be confidential applications:
 
 ### ID Tokens
 
-Since confidential applications are capable of holding secrets, you can have ID Tokens issued to them that have been signed in one of two ways:
+Because confidential applications are capable of holding secrets, you can have ID Tokens issued to them that have been signed in one of two ways:
 
 * Symmetrically, using their client secret (`HS256`)
 * Asymmetrically, using a private key (`RS256`)
 
-For more info, see [Signing Algorithms](//signing-algorithms)
-
 ## Public applications
 
-Public applications **cannot** hold credentials securely. The following application types use public applications:
+Public applications **cannot** hold credentials securely.
 
-* Native desktop or mobile applications using the [Authorization Code grant with PKCE](/api-auth/grant/authorization-code-pkce)
-* JavaScript-based client-side web applications (such as single-page apps) using the [Implicit](/api-auth/grant/implicit) grant
+### Grant types
 
-Since public applications are unable to hold secrets, [ID Tokens](/tokens/id-token) issued to them must be:
+Public applications can only use grant types that do not require the use of their client secret. 
+
+The following are public applications:
+
+* A native desktop or mobile application that uses the [Authorization Code grant with PKCE](/api-auth/grant/authorization-code-pkce)
+* A JavaScript-based client-side web application (such as a single-page app) that uses the [Implicit](/api-auth/grant/implicit) grant
+
+### ID Tokens
+
+Because public applications are unable to hold secrets, [ID Tokens](/tokens/id-token) issued to them must be:
 
 * Signed asymmetrically using a private key (`RS256`)
 * Verified using the public key corresponding to the private key used to sign the token
