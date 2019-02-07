@@ -26,11 +26,8 @@ Secrets can be stored in a list (or similar structure) to track keys until they'
 	"method": "POST",
 	"url": "https://${account.namespace}/api/v2/clients/YOUR_CLIENT_ID/rotate-secret",
 	"headers": [
-    	   { "name": "Content-Type", "value": "application/json" },
-   	   { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-    	   { "name": "Cache-Control", "value": "no-cache" }
-	],
-	"postData": {}
+   	   { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
+	]
 }
 ```
 
