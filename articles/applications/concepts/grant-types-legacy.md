@@ -1,3 +1,14 @@
+---
+title: Client Secret
+description: Learn about client secrets.
+topics:
+  - applications
+  - client-secrets
+contentType: concept
+useCase:
+  - build-an-app
+---
+
 ## Information for Existing and New Auth0 Customers
 
 As of 8 June 2017, all Auth0 Applications have a `grant_types` property that **must** be populated. Here's how Auth0 will handle this change based on whether you're a current customer with an existing Application or a new customer.
