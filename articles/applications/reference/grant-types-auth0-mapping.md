@@ -41,7 +41,7 @@ Public applications **cannot** utilize the `client_credentials` grant type. To u
 
 ## Confidential Applications
 
-When a Regular Web Application or Machine-to-Machine (M2M) Application is registered in the Dashboard, it is automatically flagged as a confidential application, which is indicated by setting the `token_endpoint_auth_method` flag to anything *except* `none`. Additionally, any Application where `token_endpoint_auth_method` is unspecified is considered to be confidential. 
+When a Regular Web Application or Machine-to-Machine (M2M) Application is registered in the Dashboard, it is automatically flagged as a confidential application, which is indicated by setting the `token_endpoint_auth_method` flag to anything *except* `none`. 
 
 By default, confidential applications are allowed the following `grant_types`:
 
