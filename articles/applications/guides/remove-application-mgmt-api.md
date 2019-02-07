@@ -22,11 +22,8 @@ This guide will show you how to remove an application using Auth0's Management A
 	"method": "DELETE",
 	"url": "https://${account.namespace}/api/v2/clients/YOUR_CLIENT_ID",
 	"headers": [
-    	   { "name": "Content-Type", "value": "application/json" },
-   	   { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-    	   { "name": "Cache-Control", "value": "no-cache" }
-	],
-	"postData": {}
+   	   { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
+	]
 }
 ```
 
