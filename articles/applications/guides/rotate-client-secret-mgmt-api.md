@@ -21,7 +21,6 @@ Secrets can be stored in a list (or similar structure) to track keys until they'
 
 1. Make a `POST` call to the [Rotate a Client Secret endpoint](/api/management/v2#!/Clients/post_rotate_secret). Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and Access Token, respectively.
 
-
 ```har
 {
 	"method": "POST",
