@@ -15,19 +15,9 @@ useCase:
 
 When they are registered, Auth0 Applications will have access to different grant types based on their application types. The biggest deciding factor is whether the application is [confidential or public](/applications/concepts/app-types-confidential-public). The application type is indicated by the value contained in the `token_endpoint_auth_method` flag.
 
-::: panel Token Endpoint Authentication Method
-The `Token Endpoint Authentication Method` defines how a Application authenticates against the [token endpoint](/api/authentication#authorization-code) and is represented by the `token_endpoint_auth_method` flag in the Management API. In the [Auth0 Dashboard](${manage_url}), you can find this field in the [Settings](${manage_url}/#/applications/${account.clientId}/settings) for your application.
-
-Valid values include:
-
-* `None`: For public applications without client secrets
-* `Post`: For applications using HTTP POST parameters
-* `Basic`: For applications using HTTP Basic parameters 
-:::
-
 ## Public Applications
 
-When a Native/Mobile Application or Single-Page Application (SPA) is registered in the Dashboard, it is automatically flagged as a public application, which is indicated by setting the `token_endpoint_auth_method` flag to `none`.
+When a **Native App** or **Single-Page App** is registered in the Dashboard, it is automatically flagged as a public application, which is indicated by setting the `token_endpoint_auth_method` flag to `none`.
 
 By default, public applications are allowed the following `grant_types`:
 
@@ -41,7 +31,7 @@ Public applications **cannot** utilize the `client_credentials` grant type. To u
 
 ## Confidential Applications
 
-When a Regular Web Application or Machine-to-Machine (M2M) Application is registered in the Dashboard, it is automatically flagged as a confidential application, which is indicated by setting the `token_endpoint_auth_method` flag to anything *except* `none`. 
+When a **Regular Web App** or **Machine-to-Machine (M2M) App** is registered in the Dashboard, it is automatically flagged as a confidential application, which is indicated by setting the `token_endpoint_auth_method` flag to anything *except* `none`. 
 
 By default, confidential applications are allowed the following `grant_types`:
 
