@@ -29,6 +29,8 @@ For example, let's say you created a developer center that allows users to obtai
 
 Third-party applications must be created through the [Auth0 Management API](/api/management/v2#!/Clients/post_clients) by setting `is_first_party` to `false`.
 
+<%= include('../_includes/_enable-third-party-apps-info') %>
+
 ### Characteristics of Third-Party Applications
 
 #### User Consent
@@ -54,8 +56,6 @@ Third-party applications should be granted the `current_user_*` scopes, as requi
 - `create:current_user_device_credentials`: [Create a device public key](/api/management/v2#!/Device_Credentials/post_device_credentials)
 - `delete:current_user_device_credentials`: [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id)
 - `update:current_user_identities`: [Link a user account](/api/management/v2#!/Users/post_identities), [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id)
-
-
 
 ## Keep reading
 * Learn how to find out whether an application is first-party or third-party at [View Application Type: First-Party or Third-Party](/applications/guides/view-application-type-first-party)
