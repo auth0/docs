@@ -50,4 +50,4 @@ For info on working with legacy grant types and their alternatives, see [Work wi
 
 ## Keep reading
 
-* [Auth0 Grant Type Mapping](/applications/reference/grant-types-auth0-mapping)
+* [Auth0 Grant Types Mapping](/applications/reference/grant-types-auth0-mapping)
