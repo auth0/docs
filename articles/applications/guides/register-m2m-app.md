@@ -21,7 +21,7 @@ To integrate Auth0 with an machine-to-machine (M2M) application, you must first 
 
 By default, most of the settings will be created for you. However, for an M2M application, you must:
 
-- For **Application Type**, choose Machine-to-Machine Application.
+- For **Application Type**, choose Machine-to-Machine (M2M) App.
 
 You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-applications). 
 
@@ -33,12 +33,6 @@ By default, most of the settings will be created for you. However, for an M2M ap
 
 You can explore all available settings at [Dashboard Reference: Advanced Application Settings](/reference/dashboard/settings-applications-advanced). 
 
-
-----
-
-# Machine to Machine Applications
-
-You can use machine-to-machine applications when you want to invoke an API using a non-interactive application, such as a service, command line tool, or IoT device using the [OAuth 2.0 Client Credentials Grant](/flows/concepts/m2m-flow).
 
 ## Create a new Machine to Machine Application
 
