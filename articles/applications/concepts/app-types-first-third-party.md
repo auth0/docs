@@ -5,7 +5,7 @@ toc: true
 topics:
   - applications
   - application-types
-contentType: reference
+contentType: concept
 useCase:
   - build-an-app
 ---
