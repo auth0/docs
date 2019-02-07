@@ -47,3 +47,7 @@ Legacy grants include:
 * `http://auth0.com/oauth/legacy/grant-type/access_token`
 
 For info on working with legacy grant types and their alternatives, see [Work with Legacy Grant Types](/applications/concepts/grant-types-legacy).
+
+## Keep reading
+
+* [Auth0 Grant Type Mapping](/applications/reference/grant-types-auth0-mapping)
