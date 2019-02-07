@@ -56,6 +56,6 @@ Because public applications are unable to hold secrets, [ID Tokens](/tokens/id-t
 * Verified using the public key corresponding to the private key used to sign the token
 
 ## Keep reading
-* To check whether your application is confidential or public, see [View Application Type: Confidential or Public]().
+* To check whether your application is confidential or public, see [View Application Type: Confidential or Public](/applications/guides/view-app-type-confidential-public-dashboard).
 * Learn about other application categories, such as [first-party vs. third-party](/applications/concepts/app-types-first-third-party) and [Auth0 application types](/applications/concepts/app-types-auth0).
 * Explore the grant types available for different application types at [Auth0 Grant Types Mapping](/applications/reference/grant-types-auth0-mapping).
