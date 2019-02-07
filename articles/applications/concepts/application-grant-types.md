@@ -16,9 +16,9 @@ Application grant types (or _flows_) are methods through which applications can 
 
 Based on the needs of your application, some grant types are more appropriate than others. Auth0 provides many different authentication and authorization flows and allows you to indicate which grant types are appropriate based on the `grant_types` property of your Auth0-registered Application.
 
-For example, let's say you are securing a mobile app. In this case, you'd use the [Authorization Code using Proof Key for Code Exchange (PKCE) Grant](/api-auth/grant/authorization-code-pkce).
+For example, let's say you are securing a mobile app. In this case, you'd use the [Authorization Code using Proof Key for Code Exchange (PKCE) Grant](/flows/concepts/mobile-login-flow).
 
-Alternatively, if you were securing a client-side app (such as a mobile app that's *not* native), you'd use the [Implicit Grant](api-auth/grant/implicit).
+Alternatively, if you were securing a client-side app (such as a single-page app), you'd use the [Implicit Grant](/flows/concepts/single-page-login-flow).
 
 ::: note
 Not sure which grant type is appropriate for your use case? Refer to [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use) for help.
