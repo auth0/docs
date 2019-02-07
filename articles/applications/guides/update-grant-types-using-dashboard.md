@@ -16,18 +16,18 @@ This guide will show you how to change your application's grant types using Auth
 As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant types to their Applications. Only customers as of 8 June 2017 can add legacy grant types to their existing Applications.
 :::
 
-1. Navigate to the [Applications page](${manage_url}/#/applications) of the Management Dashboard.
+1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/). 
 
 ![Auth0 Applications](/media/articles/clients/client-grant-types/clients.png)
 
-Click on the cog icon <i class="icon icon-budicon-329"></i> next to the Application you're interested in to launch its settings page.
+2. Click the name of your application to see its settings.
 
 ![Auth0 Application Settings](/media/articles/clients/client-grant-types/client-settings.png)
 
-Scroll down to the bottom of the settings page, and click **Advanced Settings**.
+3. Scroll to the bottom of the settings page, and click **Advanced Settings**.
 
 ![Auth0 Application Advanced Settings](/media/articles/clients/client-grant-types/client-advanced-settings.png)
 
-Switch to the **Grant Types** tab and enable or disable the respective grants for this application. Click **Save Changes**.
+4. Click the **Grant Types** tab, and enable or disable the appropriate grants for the application. When finish, click **Save Changes**.
 
 ![Auth0 Application Grant Types](/media/articles/clients/client-grant-types/grant-types.png)
