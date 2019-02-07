@@ -15,6 +15,8 @@ useCase:
 
 When registered, Auth0 Applications have access to different grant types based on [application type](/applications). The biggest deciding factor is whether the application is [confidential or public](/applications/concepts/app-types-confidential-public).
 
+Trusted first-party applications have access to additional grant types.
+
 ## Public Applications
 
 When a **Native App** or **Single-Page App** is registered in the Dashboard, it is automatically flagged as a public application, which is indicated by setting the `token_endpoint_auth_method` flag to `none`.
