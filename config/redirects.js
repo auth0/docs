@@ -1994,7 +1994,7 @@ module.exports = [
     to: '/hooks/concepts/credentials-exchange-extensibility-point'
    },
    {
-    from: '/hooks/extensibility-points/index',
+    from: '/hooks/extensibility-points',
     to: '/hooks'
    },
    {
