@@ -20,7 +20,7 @@ useCase:
 The algorithm used to sign tokens issued for your application or API. The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
 
 ::: note
-A signature is part of a [JSON Web Token (JWT)](). If you are not familiar with the JWT structure please refer to: [JSON Web Tokens (JWTs) in Auth0](/jwt#what-is-the-json-web-token-structure-).
+A signature is part of a [JSON Web Token (JWT)](/docs/jwt). If you are not familiar with the JWT structure please refer to: [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure).
 :::
 
 You can select from the following signing algorithms:
