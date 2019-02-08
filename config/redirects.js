@@ -1846,32 +1846,16 @@ module.exports = [
      to: '/applications/machine-to-machine#settings'
    },
    {
-     from: '/applications/machine-to-machine#settings',
-     to: '/reference/dashboard/settings-application'
-   },
-   {
      from: '/applications/application-settings/native',
      to: '/applications/native#settings'
-   },
-   {
-     from: '/applications/native#settings',
-     to: '/reference/dashboard/settings-application'
    },
    {
      from: '/applications/application-settings/regular-web-app',
      to: '/applications/webapps#settings'
    },
    {
-     from: '/applications/webapps#settings',
-     to: '/reference/dashboard/settings-application'
-   },
-   {
      from: '/applications/application-settings/single-page-app',
      to: '/applications/spa#settings'
-   },
-   {
-     from: '/applications/spa#settings',
-     to: '/reference/dashboard/settings-application'
    },
    {
      from: '/protocols/saml/saml-configuration/selecting-between-multiple-idp',
