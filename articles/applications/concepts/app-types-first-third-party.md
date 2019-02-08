@@ -43,7 +43,7 @@ Third-party applications cannot skip user consent when consuming APIs. Because a
 
 #### Connections
 
-Third-party applications can use only tenant-level connections (domain connections). Learn how to [enable third-party applications](/applications/guides/enable-third-party-applications#promote-connections-to-domain-level).
+Third-party applications can use only tenant-level connections (domain connections). Learn how to [enable third-party applications](/applications/guides/enable-third-party-applications).
 
 #### When used with the Management APIv2
   
