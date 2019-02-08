@@ -456,62 +456,64 @@ articles:
     url: "/hooks"
     children:
 
-      - title: "Index"
-        url: "/hooks"
-
-      - title: "Overview"
-        url: "/hooks/overview"
-
       - title: "Extensibility Points"
-        url: "/hooks/extensibility-points/credentials-exchange"
+        url: "/hooks/concepts/extensibility-points"
         children:
 
           - title: "Credentials Exchange"
-            url: "/hooks/extensibility-points/credentials-exchange"
+            url: "/hooks/concepts/credentials-exchange-extensibility-point"
             hidden: true
 
           - title: "Pre-User Registration"
-            url: "/hooks/extensibility-points/pre-user-registration"
+            url: "/hooks/concepts/pre-user-registration-extensibility-point"
             hidden: true
 
           - title: "Post-User Registration"
-            url: "/hooks/extensibility-points/post-user-registration"
+            url: "/hooks/concepts/post-user-registration-extensibility-point"
             hidden: true
 
       - title: "Using the Auth0 CLI"
         url: "/hooks/cli"
         children:
 
-          - title: "Create/Delete Hooks"
-            url: "/hooks/cli/create-delete"
+          - title: "Create Hooks"
+            url: "/hooks/guides/create-hooks-using-cli"
             hidden: true
 
           - title: "Edit Hooks"
-            url: "/hooks/cli/edit"
+            url: "/hooks/guides/edit-hooks-using-cli"
+            hidden: true
+            
+          - title: "Delete Hooks"
+            url: "/hooks/guides/delete-hooks-using-cli"
             hidden: true
 
           - title: "Enable/Disable Hooks"
-            url: "/hooks/cli/enable-disable"
+            url: "/hooks/guides/enable-disable-hooks-using-cli"
             hidden: true
 
-          - title: "Hooks Logs"
-            url: "/hooks/cli/logs"
+          - title: "Log Hooks"
+            url: "/hooks/guides/logging-hooks-using-cli"
             hidden: true
 
       - title: "Using the Dashboard"
         url: "/hooks/dashboard"
         children:
 
-          - title: "Create or Delete Hooks"
-            url: "/hooks/dashboard/create-delete"
+          - title: "Create Hooks"
+            url: "/hooks/guides/create-hooks-using-dashboard"
             hidden: true
 
           - title: "Edit Hooks"
-            url: "/hooks/dashboard/edit"
+            url: "/hooks/concepts/edit-hooks-using-dashboard"
+            hidden: true
+            
+          - title: "Delete Hooks"
+            url: "/hooks/concepts/delete-hooks-using-dashboard"
             hidden: true
 
-          - title: "Enable or Disable Hooks"
-            url: "/hooks/dashboard/enable-disable"
+          - title: "Enable/Disable Hooks"
+            url: "/hooks/concepts/enable-disable-hooks-using-dashboard"
             hidden: true
 
   - title: "Email"
