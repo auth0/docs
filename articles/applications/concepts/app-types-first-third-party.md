@@ -29,7 +29,7 @@ For example, let's say you created a developer center that allows users to obtai
 
 Third-party applications must be created through the [Auth0 Management API](/api/management/v2#!/Clients/post_clients) by setting `is_first_party` to `false`.
 
-<%= include('../_includes/_enable-third-party-apps-info') %>
+<%= include('../../_includes/_enable-third-party-apps-info') %>
 
 ### Characteristics of Third-Party Applications
 
