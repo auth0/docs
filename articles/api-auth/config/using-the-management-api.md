@@ -15,7 +15,7 @@ Auth0 lets you authorize applications that have the 'Client Credential' grant ty
 
 By default, all Machine-to-Machine Applications and Regular Web Applications have the 'Client Credentials' grant enabled, but they are not authorized to call any API.
 
-If you want to call an API from these applications, you first need to authorize the application to call the API and specify the scopes that will be granted. You can do that [using the Dashboard](/api-auth/config/using-the-dashboard), or follow the steps below to use the API.
+If you want to call an API from these applications, you first need to authorize the application to call the API and specify the scopes that will be granted. You can do that [using the Dashboard](/api-auth/config/using-the-auth0-dashboard), or follow the steps below to use the API.
 
 You will need the following:
 
