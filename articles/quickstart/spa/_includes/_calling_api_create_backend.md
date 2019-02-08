@@ -24,13 +24,17 @@ const express = require("express");
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
 
+// Create a new Express app
 const app = express();
 
+// Set up Auth0 configuration
 const authConfig = {
   domain: "${account.tenant}",
   audience: "${apiIdentifier}"
 };
 
+// Define middleware that validates incoming bearer tokens
+// using JWKS from ${authConfig.domain}
 const checkJwt = jwt({
   secret: jwksRsa.expressJwtSecret({
     cache: true,
@@ -44,11 +48,15 @@ const checkJwt = jwt({
   algorithm: ["RS256"]
 });
 
+// Define an endpoint that must be called with an access token
 app.get("/api/external", checkJwt, (req, res) => {
   res.send({
     msg: "Your Access Token was successfully validated!"
   });
 });
 
+// Start the app
 app.listen(3001, () => console.log('API listening on 3001'));
 ```
+
+This API has one endpoint `/api/external` available that returns a JSON response to the caller. This endpoint makes use of one piece of middleware `checkJwt`, which validates the supplied bearer token using your tenant's [JSON Web Key Set](https://auth0.com/docs/jwks). If the token is valid, the request is allowed to continue. Otherwise, the server returns a 401 Unauthorized response.
