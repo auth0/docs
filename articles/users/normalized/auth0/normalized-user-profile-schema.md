@@ -22,7 +22,7 @@ Fields that are always generated:
 * **`picture`**: the URL of the [user's picture](/users/guides/change-user-pictures). If unavailable, Auth0 uses the Gravatar image associated with the user's email address.
 * **`user_id`**: the user's unique identifier. This is unique per Connection, but the same for all apps that authenticate via that Connection.
 
-By default, a user's `name`, `nickname`, and `picture` attributes are not directly editable since they are updated from the identity provider each time a user logs in. If you want to be able to edit these attributes, you must [specify that user attributes be updated on user profile creation only](/connections/guides/change-user-attribute-update). These fields will then be available to be edited with the [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id).
+By default, a user's `name`, `nickname`, and `picture` attributes are not directly editable since they are updated from the identity provider each time a user logs in. If you want to be able to edit these attributes, you must [specify that user attributes be updated on user profile creation only](/connections/guides/change-user-attribute-update). These fields will then be available to be edited with the Management API's [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id).
 
 Fields that are generated when the details are available:
 
