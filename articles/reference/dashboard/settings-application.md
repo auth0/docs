@@ -12,7 +12,9 @@ useCase:
 ---
 # Application Settings
 
-In the [Application](${manage_url}/#/applications) section, locate your Application, and click on its *Settings* to review the available settings:
+In the [Application](${manage_url}/#/applications) section, locate your Application, and click on its *Settings* to review the available settings.
+
+## Basic Settings
 
 - **Name**: The name of your application. This information is editable and you will see in the portal, emails, logs, and so on.
 
@@ -47,3 +49,7 @@ You can provide up to 100 URLs in the **Allowed Callback URLs**, **Allowed Web O
 - **Use Auth0 instead of the IdP to do Single Sign On**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on).
 
 ![Application Settings Page](/media/articles/applications/settings.png)
+
+## Advanced Settings
+
+
