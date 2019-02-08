@@ -456,6 +456,9 @@ articles:
     url: "/hooks"
     children:
 
+      - title: "Overview"
+        url: "/hooks"
+
       - title: "Extensibility Points"
         url: "/hooks/concepts/extensibility-points"
         children:
