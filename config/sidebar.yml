@@ -112,14 +112,8 @@ articles:
       - title: Overview
         url: /applications
 
-      - title: Connections
-        url: /applications/connections
-
-      - title: Application Types
-        url: /applications/application-types
-
       - title: Grant Types
-        url: /applications/application-grant-types
+        url: /applications/concepts/application-grant-types
 
   - title: "Authentication"
     url: "/application-auth/current"
