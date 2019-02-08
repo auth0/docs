@@ -14,15 +14,11 @@ useCase:
 
 To integrate Auth0 with front-end apps that run in a browser (e.g., Angular, jQuery, React), you must first register your app as a Single Page App.
 
-<%= include('./_configure', { application_type: 'Single Page Web', application_type_create: 'Single Page Web Applications' }) %>
+<%= include('./_configure', { application_type: 'single-page', application_type_create: 'Single-Page Apps' }) %>
 
 ## Settings
 
-By default, most of the settings will be created for you. However, for an app with a JavaScript front-end that calls APIs, you must:
-
-- For **Application Type**, choose Single Page App.
-
-You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-applications). 
+By default, most of the settings will be created for you. You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-applications). 
 
 ### Advanced Settings
 
@@ -46,7 +42,7 @@ Once you have configured your Application, some common next steps to take are:
 
 - Use our latest [API Authorization](/api-auth) features to **call an API**.
 
-- **Use [our APIs](/api/info)**.
+- **Use the [Auth0 APIs](/api/info)**.
 
   - The [Authentication API](/api/authentication) handles all the primary identity related functions (login, logout, get user profile, and so forth). Most users consume this API through our [Quickstarts](/quickstarts), the [Auth0.js library](/libraries/auth0js) or the [Lock widget](/libraries/lock). However, if you are building all of your authentication UI manually, you will have to interact with this API directly.
 
