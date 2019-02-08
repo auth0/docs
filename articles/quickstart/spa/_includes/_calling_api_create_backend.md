@@ -2,10 +2,6 @@
 
 For this example, we will create a simple [Express](https://expressjs.com/) server that will act as our backend API. We can then expose an endpoint that will validate our ID Token before returning a response.
 
-::: note
-If you already have a backend API that you would like to call from your frontend, you can safely skip this section
-:::
-
 Install the packages that we will need to provide this functionality:
 
 ```bash
