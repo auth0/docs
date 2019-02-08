@@ -32,7 +32,7 @@ Fields that are generated when the details are available:
 * **`family_name`**: the user's last name.
 
 ::: note
-When creating a user with the [create a User Management API endpoint](/api/management/v2#!/Users/post_users) you can submit the `given_name` and `family_name`. By default, a user's `given_name` and `family_name` attributes are not directly editable since they are updated from the identity provider each time a user logs in. If you want to be able to edit these attributes, you must [specify that user attributes be updated on user profile creation only](/connections/guides/change-user-attribute-update). These fields will then be available to be edited with the [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id).
+When creating a user with the [create a User Management API endpoint](/api/management/v2#!/Users/post_users) you can submit the `given_name` and `family_name`. By default, a user's `given_name` and `family_name` attributes are not directly editable since they are updated from the identity provider each time a user logs in. If you want to be able to edit these attributes, you must [specify that user attributes be updated on user profile creation only](/connections/guides/change-user-attribute-update). These fields will then be available to be edited with the Management API's [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id).
 :::
 
 ::: panel Custom Databases
