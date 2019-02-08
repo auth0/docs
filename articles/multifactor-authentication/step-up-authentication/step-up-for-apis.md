@@ -50,7 +50,7 @@ In this section we will see how you would implement the scenario described in th
 
 This tutorial assumes that you have already done the following:
 
-- [Register an application](/applications/concepts/app-types/auth0). For the purposes of this example we'll be using a single-page web app
+- [Register an application](/applications#how-to-configure-an-application). For the purposes of this example we'll be using a single-page web app
 - [Create a database connection](${manage_url}/#/connections/database)
 - [Register the API](/apis#how-to-configure-an-api-in-auth0). It should include two scopes: `view:balance` and `transfer:funds`
 - [Enable Multi-factor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [Guardian push notifications](/multifactor-authentication/administrator/push-notifications)

@@ -17,7 +17,7 @@ The **Client Credentials Grant** (defined in [RFC 6749, section 4.4](https://too
 
 Before beginning this tutorial, please:
 
-* Make sure you that your application has the `Client Credentials` [grant type enabled using the Dashboard](/applications/guides/update-grant-types-dashboard) or [Management API](/applications/guides/update-grant-types-mgmt-api). Regular web applications and machine to machine applications have it enabled by default.
+* Make sure you that your application has the `Client Credentials` [grant type enabled](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property). Regular web applications and machine to machine applications have it enabled by default.
 
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0 with the required scopes.
 
@@ -94,7 +94,7 @@ This is a series of tutorials that describe a scenario for a fictitious company 
 ## Keep reading
 
 ::: next-steps
-- [Auth0 Application Types](/applications/concepts/app-types-auth0)
+- [Machine to Machine applications](/applications/machine-to-machine)
 - [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 - [Tokens used by Auth0](/tokens)
