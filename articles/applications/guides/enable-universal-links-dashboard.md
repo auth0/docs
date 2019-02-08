@@ -10,7 +10,7 @@ useCase:
   - enable-mobile-auth
 ---
 
-# Enable Universal Links Support for your Auth0 Application in Xcode
+# Enable Universal Links Support in Xcode
 
 Universal links establish a *verified relationship between domains and applications*, so both your Auth0 Application settings and your iOS application need to be in sync. To do this, you need to provide Auth0 with the following information:
 
