@@ -33,3 +33,5 @@ Auth0 categorizes applications in three ways:
 * For guidance on setting up a more complex configuration that involves two separate domains or allows users to log in differently for different applications, see [Multiple Tenants](/applications/concepts/multiple-tenants).
 
 * Learn how to [remove an application using the Auth0 Dashboard](/applications/guides/remove-application-dashboard) or the [Management API](/applications/guides/remove-application-mgmt-api).
+
+* Learn how to [rotate an application's Client Secret using the Auth0 Dashboard](/applications/guides/rotate-client-secret-dashboard) or the [Management API](/applications/guides/rotate-client-secret-mgmt-api).
