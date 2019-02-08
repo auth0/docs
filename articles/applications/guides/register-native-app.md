@@ -28,6 +28,8 @@ If you're developing a mobile app, you can provide the necessary iOS/Android par
 
 - For Android apps, provide your App Package Name and your Key Hashes
 
+For more info, see []() or []().
+
 You can explore all available settings at [Dashboard Reference: Advanced Application Settings](/reference/dashboard/settings-applications-advanced). 
 
 ::: note
