@@ -12,7 +12,7 @@ useCase:
 
 # Multiple Tenants
 
-You can configure multiple tenants in Auth0 to allow for more complex configurations.
+You can configure multiple [tenants](/getting-started/the-basics#account-and-tenants) in Auth0 to allow for more complex configurations.
 
 For instance, if you have two separate domains (for example, one internal and one public-facing) or would like to allow users to log in differently for different applications, the best solution is to create more than one Auth0 tenant. This will allow you to have separate sets of applications, connections, and users for the applications and groups of users you need to support.
 
