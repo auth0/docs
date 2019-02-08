@@ -16,7 +16,7 @@ The Quick Start tab shows all the available examples for ${application_type} app
 
 ## Addons
 
-Add-ons are extensions associated with applications. They are typically third-party APIs used by the application(s) for which Auth0 generates Access Tokens. For more details, refer to: [Addons](/applications/addons).
+Add-ons are extensions associated with applications. They are typically third-party APIs used by the application(s) for which Auth0 generates Access Tokens. For more details, refer to: [Add-ons](/applications/concepts/add-ons).
 
 ## Connections
 
