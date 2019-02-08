@@ -26,6 +26,8 @@ This guide will show you how to change when user attributes are updated for a co
 
 4. Locate **Update Attributes**, and select **On Create Only** or **On Every Login**.
 
+/media/articles/connections/allow-update-normalized-user-profile.png
+
 5. Scroll to the bottom of the Settings page, and click **Save**.
 
 
