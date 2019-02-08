@@ -35,10 +35,10 @@ Grant type `grant_type` not allowed for the client.
    	   { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
     	   { "name": "Cache-Control", "value": "no-cache" }
 	],
-	"postData": [
+	"postData": {
       	   "mimeType": "application/json",
-      	   "text" : "{ \"grant_types\": "GRANT_TYPES" }"
-	]
+      	   "text" : "{ \"grant_types\": \"GRANT_TYPES\" }"
+	}
 }
 ```
 
