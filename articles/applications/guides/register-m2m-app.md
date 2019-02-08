@@ -19,7 +19,7 @@ To integrate Auth0 with an machine-to-machine (M2M) application, you must first 
 
 2. Click the **+ Create Application** button. The *Create Application* window opens. 
 
-3. Set a descriptive name for your application, and select ${application_type_create}.
+3. Set a descriptive name for your application, and select Machine-to-Machine App.
 
 ![Create an Application](/media/articles/applications/m2m-create.png)
 
