@@ -10,6 +10,8 @@ useCase: integrate-third-party-apps
 ---
 # How to Configure an Add-on for an Application
 
+This guide will
+
 1. Navigate to the [Auth0 Dashboard] > Applications > Settings > Addons](${manage_url}/#/applications/${account.clientId}/addons) page 
 
 2. Use the appropriate toggle to enable the add-on you want to configure.
