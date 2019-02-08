@@ -41,7 +41,7 @@ A **scope** is a claim that may be issued as part of the Access Token. With this
 
 ![Select Scopes](/media/articles/applications/m2m-select-scopes.png)
 
-A new ${application_type} application will be created and you will be redirected to this application's view that has the four tabs described below.
+A new M2M application will be created and you will be redirected to this application's view that has the four tabs described below.
 
 ## Quick Start
 
