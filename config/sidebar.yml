@@ -473,7 +473,7 @@ articles:
             url: "/hooks/concepts/post-user-registration-extensibility-point"
 
       - title: "Using the Auth0 CLI"
-        url: ""
+        url: "/hooks/guides/create-hooks-using-cli"
         children:
 
           - title: "Create Hooks"
@@ -492,7 +492,7 @@ articles:
             url: "/hooks/guides/logging-hooks-using-cli"
 
       - title: "Using the Dashboard"
-        url: ""
+        url: "/hooks/guides/create-hooks-using-dashboard"
         children:
 
           - title: "Create Hooks"
