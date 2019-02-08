@@ -198,6 +198,8 @@ Open `main.js` and install the plugin:
 
 import Vue from "vue";
 import App from "./App.vue";
+
+// Import the plugin here
 import AuthPlugin from "./plugins/auth";
 
 // Install the authentication plugin here
@@ -249,7 +251,7 @@ npm install vue-router
 Create a component named `Callback` and populate it with a loading indicator. The component should also call `handleAuthentication` from the `AuthService`.
 
 ```js
-// src/components/Callback.vue
+<!-- src/components/Callback.vue -->
 
 <template>
   <div>
@@ -290,7 +292,7 @@ const routes = [
   }
 ];
 
-const router = new VueRouter({
+const router = new Router({
   mode: 'history',
   routes
 });
@@ -334,7 +336,7 @@ The `AuthService` has already extracted the user's profile information and store
 To display the profile information, create a new component `Profile` in the `views` folder:
 
 ```js
-// src/views/Profile.vue
+<!-- src/views/Profile.vue -->
 
 <template>
   <div v-if="profile">
@@ -370,7 +372,7 @@ export default {
 </script>
 ```
 
-Import the `Profile` compnent and then modify the routes list so that the `Profile` component is mapped to `/profile`:
+Import the `Profile` component into `router.js` and then modify the routes list so that the `Profile` component is mapped to `/profile`:
 
 ```js
 // src/router.js
@@ -441,8 +443,15 @@ Open `router.js` and add a rule that exhibits this behavior:
 // .. other imports
 import auth from "./auth/authService";
 
-// .. router definition
+// .. routes list
 
+// Existing router declaration
+const router = new Router({
+  mode: 'history',
+  routes
+});
+
+// NEW - add a `beforeEach` handler to each route
 router.beforeEach((to, from, next) => {
   if (to.path === "/" || to.path === "/callback" || auth.isAuthenticated()) {
     return next();
@@ -453,6 +462,7 @@ router.beforeEach((to, from, next) => {
   auth.login({ target: to.path });
 });
 
+// Existing export
 export default router;
 ```
 
