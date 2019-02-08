@@ -14,7 +14,7 @@ useCase:
 
 To integrate Auth0 with a traditional web application running on a server with the ability to refresh its pages (e.g., ASP.NET, Java, Ruby on Rails, Node.js), you must first register your app as a Regular Web App.
 
-<%= include('./_configure', { application_type: 'Regular Web', application_type_create: 'Regular Web Applications' }) %>
+<%= include('./_configure', { application_type: 'regular web', application_type_create: 'Regular Web Apps' }) %>
 
 ## Settings
 
