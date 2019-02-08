@@ -24,11 +24,9 @@ By default, most of the settings will be created for you. You can explore all av
 
 If you're developing a mobile app, you can provide the necessary iOS/Android parameters in the Advanced Settings area:
 
-- For iOS apps, provide your Team ID and App Bundle Identifier
+- For iOS apps, provide your Team ID and App Bundle Identifier. For more info, see [Enable Universal Links Support in Xcode](/applications/guides/enable-universal-links-dashboard).
 
-- For Android apps, provide your App Package Name and your Key Hashes
-
-For more info, see []() or []().
+- For Android apps, provide your App Package Name and your Key Hashes. For more info, see [Enable Android App Links Support](/applications/guides/enable-android-app-links-dashboard).
 
 You can explore all available settings at [Dashboard Reference: Advanced Application Settings](/reference/dashboard/settings-applications-advanced). 
 
