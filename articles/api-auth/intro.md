@@ -166,7 +166,7 @@ Some changes were introduced in the implementation of Resource Owner Password gr
 - The endpoint to execute token exchanges is [/oauth/token](/api/authentication#resource-owner-password).
 - [Auth0's own grant type](/api-auth/tutorials/password-grant#realm-support) is used to authenticate users from a specific connection (`realm`). The [standard OIDC password grant](/api-auth/tutorials/password-grant) is also supported, but it does not accept Auth0-specific parameters such as `realm`.
 - The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
-- The ID Token will be forcibly signed using `RS256` if requested by a [public application](/applications/concepts/app-types-confidential-public#public-applications).
+- The ID Token will be forcibly signed using `RS256` if requested by a [public application](/applications/application-types#public-applications).
 - A Refresh Token will be returned only if the `offline_access` scope was granted.
 
 ::: note

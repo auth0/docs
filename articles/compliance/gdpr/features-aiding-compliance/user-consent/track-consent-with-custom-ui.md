@@ -44,7 +44,7 @@ In this section, we will use a simple Single Page Application and customize the 
 
 This works **only** for database connections (we will use Auth0's infrastructure, instead of setting up our own database).
 
-1. Go to [Dashboard > Applications](${manage_url}/#/applications) and create a new [application](/applications/concepts/app-types-auth0). Choose `Single Web Page Applications` as type. Go to **Settings** and set the **Allowed Callback URLs** to `http://localhost:3000`. 
+1. Go to [Dashboard > Applications](${manage_url}/#/applications) and create a new [application](/applications). Choose `Single Web Page Applications` as type. Go to **Settings** and set the **Allowed Callback URLs** to `http://localhost:3000`. 
 
     :::note
     This field holds the set of URLs to which Auth0 is allowed to redirect the users after they authenticate. Our sample app will run at `http://localhost:3000` hence we set this value.

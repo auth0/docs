@@ -33,7 +33,7 @@ You can store all ExampleCo end users in a single database, since everyone will 
 
 To prevent users from signing themselves up and adding themselves to the database connection, be sure to select the **Disable Sign Ups** option on the connection to make sure users can only be created on the backend.
  
-You will need to create an [application](/applications/concepts/app-types-auth0) in the [Dashboard](${manage_url}/#/applications) with the correct parameters:
+You will need to create a [application](/applications) in the [Dashboard](${manage_url}/#/applications) with the correct parameters:
 
  - **Name**: give your application a clear name as this will be used in the emails being sent out during the invite-only workflow
  - **Application Type**: this will be a regular web application.

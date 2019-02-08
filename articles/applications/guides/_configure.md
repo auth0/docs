@@ -20,4 +20,4 @@ Add-ons are extensions associated with applications. They are typically third-pa
 
 ## Connections
 
-Connections are sources of users that can be shared among different applications. For more detail, see [Connections](/connections). For a detailed list on the supported Identity Providers, see [Identity Providers Supported by Auth0](/identityproviders).
+Connections are sources of users that can be shared among different applications. For more detail, see [Connections](/applications/connections). For a detailed list on the supported Identity Providers, see [Identity Providers Supported by Auth0](/identityproviders).

@@ -92,7 +92,7 @@ Let's say that you have a web app that authenticates users with username and pas
 
 This tutorial assumes that you have already done the following:
 
-- [Register an application](/applications/concepts/app-types-auth0). For the purposes of this example we'll be using a regular web app
+- [Register an application](/applications#how-to-configure-an-application). For the purposes of this example we'll be using a regular web app
 - [Create a database connection](${manage_url}/#/connections/database)
 - [Enable Multi-factor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [Guardian push notifications](/multifactor-authentication/administrator/push-notifications)
 

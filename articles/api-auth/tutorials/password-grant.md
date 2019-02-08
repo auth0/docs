@@ -23,7 +23,7 @@ You should use this flow **only if** the following apply:
 
 ## Before you start
 
-* Check that your application's [grant type property](/applications/concepts/application-grant-types) is set appropriately
+* Check that your application's [grant type property](/applications/application-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 * Check that the [Default Audience and/or Default Directory](/dashboard/dashboard-tenant-settings#api-authorization-settings) has been set appropriately
 

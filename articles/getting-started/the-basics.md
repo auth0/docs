@@ -103,7 +103,7 @@ In our example, `ExampleCo` wants their users to be able to login with username/
 1. Enable all three connections for the mobile app
 
 ::: note
-For more information on the supported identity providers, refer to [Identity Providers Supported by Auth0](/identityproviders). For details on how to enable a connection for an application, refer to [Application Connections](/connections).
+For more information on the supported identity providers, refer to [Identity Providers Supported by Auth0](/identityproviders). For details on how to enable a connection for an application, refer to [Application Connections](/applications/connections).
 :::
 
 ## Where to go from here
