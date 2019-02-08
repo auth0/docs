@@ -18,11 +18,7 @@ To integrate Auth0 with a traditional web application running on a server with t
 
 ## Settings
 
-By default, most of the settings will be created for you. However, for a regular web application, you must:
-
-- For **Application Type**, choose Regular Web App
-
-You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-applications). 
+By default, most of the settings will be created for you. You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-application). 
 
 ### Advanced Settings
 
@@ -30,7 +26,7 @@ By default, most of the settings will be created for you. However, for a regular
 
 - Be sure that **Trust Token Endpoint IP Header** is enabled to protect against brute-force attacks on the token endpoint.
 
-You can explore all available settings at [Dashboard Reference: Advanced Application Settings](/reference/dashboard/settings-applications-advanced). 
+You can explore all available settings at [Dashboard Reference: Advanced Application Settings](/reference/dashboard/settings-application#advanced-settings). 
 
 ::: note
 After creating your first application, set the environment for your tenant to: development, staging, or production. For more information refer to [Set Up Multiple Environments](/dev-lifecycle/setting-up-env#set-the-environment).
@@ -50,7 +46,7 @@ Once you have configured your Application, some common next steps to take are:
 
 - Use our latest [API Authorization](/api-auth) features to **call an API**.
 
-- **Use [our APIs](/api/info)**.
+- **Use the [Auth0 APIs](/api/info)**.
 
   - The [Authentication API](/api/authentication) handles all the primary identity related functions (login, logout, get user profile, and so forth). Most users consume this API through our [Quickstarts](/quickstarts), the [Auth0.js library](/libraries/auth0js) or the [Lock widget](/libraries/lock). However, if you are building all of your authentication UI manually, you will have to interact with this API directly.
 
