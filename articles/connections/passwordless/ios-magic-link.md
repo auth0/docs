@@ -18,7 +18,7 @@ useCase: customize-connections
 Using [Lock v1 for iOS](/libraries/lock-ios/v1), you can implement a Passwordless login flow using Magic Link authentication for your iOS applications.
 
 ::: note
-Before beginning this tutorial, [enable Universal Links](/applications/enable-universal-links/) between your iOS application and Auth0 Application.
+Before beginning this tutorial, [enable Universal Links](/applications/guides/enable-universal-links-dashboard) between your iOS application and Auth0 Application.
 :::
 
 ## Set Up Universal Link domains for your iOS app

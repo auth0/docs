@@ -23,7 +23,7 @@ The __Implicit Grant__ is an OAuth 2.0 flow that [client-side apps](/quickstart/
 
 Before you begin this tutorial, do the following:
 
-* Check that your Application's [Grant Type property](/applications/application-grant-types) is set appropriately
+* Check that your Application's [Grant Type property](/applications/concepts/application-grant-types) is set appropriately
 * [Register your API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 
 ## 1. Get the User's Authorization

@@ -125,7 +125,7 @@ To refresh your token, using the Refresh Token you already got during authorizat
 Where:
 - `grant_type`: The type of grant to execute (the `/token` endpoint is used for various grants, for more information refer to the [Authentication API](/api/authentication#get-token)). To refresh a token, use `refresh_token`.
 - `client_id`: Your application's Client ID.
-- `client_secret` (optional): Your application's Client Secret. Only required for [confidential applications](/applications/application-types#confidential-applications).
+- `client_secret` (optional): Your application's Client Secret. Only required for [confidential applications](/applications/concepts/app-types-confidential-public#confidential-applications).
 - `refresh_token`: The Refresh Token to use.
 
 The response will include a new Access Token, its type, its lifetime (in seconds), and the granted scopes. If the scope of the initial token included `openid`, then a new ID Token will be in the response as well.
@@ -184,7 +184,7 @@ Where:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. The application should match the one the Refresh Token was issued for. |
-| `client_secret` | Your application's Client Secret. Required for [confidential applications](/applications/application-types#confidential-applications). |
+| `client_secret` | Your application's Client Secret. Required for [confidential applications](/applications/concepts/app-types-confidential-public#confidential-applications). |
 | `token` <br/><span class="label label-danger">Required</span> | The Refresh Token you want to revoke. |
 
 The application should match the one the Refresh Token was issued for.
