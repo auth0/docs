@@ -462,59 +462,47 @@ articles:
 
           - title: "Credentials Exchange"
             url: "/hooks/concepts/credentials-exchange-extensibility-point"
-            hidden: true
 
           - title: "Pre-User Registration"
             url: "/hooks/concepts/pre-user-registration-extensibility-point"
-            hidden: true
 
           - title: "Post-User Registration"
             url: "/hooks/concepts/post-user-registration-extensibility-point"
-            hidden: true
 
       - title: "Using the Auth0 CLI"
-        url: "/hooks/cli"
+        url: "/hooks#use-the-command-line-interface"
         children:
 
           - title: "Create Hooks"
             url: "/hooks/guides/create-hooks-using-cli"
-            hidden: true
 
           - title: "Edit Hooks"
             url: "/hooks/guides/edit-hooks-using-cli"
-            hidden: true
             
           - title: "Delete Hooks"
             url: "/hooks/guides/delete-hooks-using-cli"
-            hidden: true
 
           - title: "Enable/Disable Hooks"
             url: "/hooks/guides/enable-disable-hooks-using-cli"
-            hidden: true
 
           - title: "Log Hooks"
             url: "/hooks/guides/logging-hooks-using-cli"
-            hidden: true
 
       - title: "Using the Dashboard"
-        url: "/hooks/dashboard"
+        url: "/hooks#use-the-dashboard"
         children:
 
           - title: "Create Hooks"
             url: "/hooks/guides/create-hooks-using-dashboard"
-            hidden: true
 
           - title: "Edit Hooks"
             url: "/hooks/concepts/edit-hooks-using-dashboard"
-            hidden: true
             
           - title: "Delete Hooks"
             url: "/hooks/concepts/delete-hooks-using-dashboard"
-            hidden: true
 
           - title: "Enable/Disable Hooks"
             url: "/hooks/concepts/enable-disable-hooks-using-dashboard"
-            hidden: true
 
   - title: "Email"
     url: "/email"
