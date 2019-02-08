@@ -463,7 +463,7 @@ articles:
         url: "/hooks/overview"
 
       - title: "Extensibility Points"
-        url: "/hooks/extensibility-points"
+        url: "/hooks/extensibility-points/credentials-exchange"
         children:
 
           - title: "Credentials Exchange"
