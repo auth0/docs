@@ -51,6 +51,8 @@ Then you can trigger the passwordless authentication using a magic link with the
 <a href="javascript:login()">Login</a>
 ```
 
+<%= include('./_custom-domains') %>
+
 The user will receive an email with the magic link. Once the user clicks on this link, Auth0 will handle the authentication and redirect back to the application.
 
 ::: note
@@ -95,7 +97,7 @@ This will send an email containing the magic link. After clicking the link, the 
 ```js
 //parse hash on page load
 $(document).ready(function(){
-  webAuth.parseHash(window.location.hash, function(err, authResult) {
+  webAuth.parseHash({hash: window.location.hash}, function(err, authResult) {
     if (err) {
       return console.log(err);
     }

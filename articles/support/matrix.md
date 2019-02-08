@@ -83,10 +83,6 @@ This section covers the browsers that Auth0 will support when using the Auth0 Da
       <td><div class="label label-warning">Sustained</div></td>
     </tr>
     <tr>
-      <td>Microsoft Internet Explorer 11</td>
-      <td><div class="label label-warning">Sustained</div></td>
-    </tr>
-    <tr>
       <td>Microsoft Edge (Latest version)</td>
       <td><div class="label label-warning">Sustained</div></td>
     </tr>
@@ -368,7 +364,7 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
   </thead>
   <tbody>
     <tr>
-      <td><a href="/quickstart/spa/angularjs">AngularJS</a></td>
+      <td>AngularJS</td>
       <td class="text-center"><a href="https://github.com/auth0-samples/auth0-angularjs-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
@@ -383,7 +379,7 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
-      <td><a href="/quickstart/spa/jquery">jQuery</a></td>
+      <td>jQuery</td>
       <td class="text-center"><a href="https://github.com/auth0-samples/auth0-jquery-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
@@ -398,12 +394,12 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
-      <td><a href="/quickstart/spa/aurelia">Aurelia</a></td>
+      <td>Aurelia</td>
       <td class="text-center"><a href="https://github.com/auth0-community/auth0-aurelia-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
-      <td><a href="/quickstart/spa/ember">Ember</a></td>
+      <td>Ember</td>
       <td class="text-center"><a href="https://github.com/auth0-community/auth0-ember-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-default">Community</div></td>
     </tr>

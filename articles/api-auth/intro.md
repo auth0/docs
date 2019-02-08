@@ -14,17 +14,17 @@ useCase:
 
 **Released Date**: May 10, 2017
 
-As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. This document presents an overview of these changes, explain why they were made and point you to other detailed tutorials to help you adopt these changes.
+As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. This document presents an overview of these changes, explains why they were made and points you to other detailed tutorials to help you adopt these changes.
 
-We will start by reviewing the [new features](#what-s-new), continue with [what changed](#what-is-changing) and how you can [distinguish which authentication flow is used](#how-to-use-the-new-flows) (the latest or the legacy). Towards the end of this doc, you can find a [summarizing table](#legacy-vs-new) and [links for further reading](#keep-reading).
+We will start by reviewing the [new features](#what-s-new), and then continue with [what changed](#what-is-changing) and how you can [distinguish which authentication flow is used](#how-to-use-the-new-flows) (the latest or the legacy). Towards the end of this doc, you can find a [summarizing table](#legacy-vs-new) and [links for further reading](#keep-reading).
 
 ## What should I read?
 
 If you are new to Auth0, go through the [What’s New](#what-s-new) section of this doc. There you can find all the cool new features we introduced, like the ability to create APIs, call them from services, or enable external parties or partners to access protected resources at your API in a secure way. Then head off to the [How to use the new flows](#how-to-use-the-new-flows) section and make sure that your new implementation follows our latest, and more secure, authentication pipeline.
 
-If you are already using Auth0 in your app, you should read the complete doc. We have taken great care to make sure that we do not break our existing customers with this new OIDC conformant implementation, however you should be aware of all changes and new features, and how you can use them (or avoid doing so). It goes without saying that we strongly encourage you to adopt this authentication pipeline, to improve your app’s security.
+If you are already using Auth0 in your app, you should read the complete doc. We have taken great care to make sure that we do not break our existing customers with this new OIDC conformant implementation. However, you should be aware of all changes and new features, and how you can use them (or avoid doing so). It goes without saying that we strongly encourage you to adopt this authentication pipeline, to improve your app’s security.
 
-If you using Auth0 as a [SAML or WS-Federation identity provider](/protocols/saml/saml-idp-generic) to your application (that is, you're not using OIDC/OAuth), then you do not need to make any changes.
+If you are using Auth0 as a [SAML or WS-Federation identity provider](/protocols/saml/saml-idp-generic) to your application (that is, you're not using OIDC/OAuth), then you do not need to make any changes.
 
 ## What's New
 
@@ -57,14 +57,14 @@ For more information, refer to [User consent and third-party applications](/api-
 We implemented the OAuth 2.0 Client Credentials grant which allows applications to authenticate as themselves (that is, not on behalf of any user), in order to programmatically and securely obtain access to an API.
 
 ::: note
-For more information on the Client Credentials grant, refer to [How to Implement the Client Credentials Grant](/api-auth/tutorials/client-credentials).
+For more information on the Client Credentials grant, refer to [How to Implement the Client Credentials Grant](/flows/guides/m2m-flow/call-api-using-m2m-flow).
 :::
 
 ## What is Changing
 
 ### Calling APIs with Access Tokens
 
-Historically, protecting resources on your API has been accomplished using ID Tokens issued to your users after they authenticate in your applications. From now on, you should only use Access Tokens when calling APIs. ID Tokens should only be used by the application to verify that the user is authenticated and get basic user information. The main reason behind this change is security. For details on refer to [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis).
+Historically, protecting resources on your API has been accomplished using ID Tokens issued to your users after they authenticate in your applications. From now on, you should only use Access Tokens when calling APIs. ID Tokens should only be used by the application to verify that the user is authenticated and get basic user information. The main reason behind this change is security. For details, refer to [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis).
 
 ::: note
 For more information, refer to [Calling your APIs with Auth0 tokens](/api-auth/tutorials/adoption/api-tokens).
@@ -76,12 +76,12 @@ Historically, you were able to define and request arbitrary application-specific
 
 In order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims.
 
-To customize the tokens, use Hooks for Client Credentials, and Rules for the rest of the grants:
-- __Client Credentials__: [Customize Tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
-- __Resource Owner__: [Customize Tokens using Rules](/api-auth/grant/password#customizing-the-returned-tokens)
-- __Implicit Grant__: [Customize Tokens using Rules](/api-auth/tutorials/implicit-grant#optional-customize-the-tokens)
-- __Authorization Code__: [Customize Tokens using Rules](/api-auth/tutorials/authorization-code-grant#optional-customize-the-tokens)
-- __Authorization Code (PKCE)__: [Customize Tokens using Rules](/api-auth/tutorials/authorization-code-grant-pkce#optional-customize-the-tokens)
+To customize the tokens, use Hooks for the Machine-to-Machine (M2M Flow), and Rules for the rest of the flows:
+- __M2M Flow__: [Customize Tokens using Hooks](/flows/guides/m2m-flow/call-api-using-m2m-flow#customize-tokens)
+- __Trusted App Flow__: [Customize Tokens using Rules](/api-auth/grant/password#customizing-the-returned-tokens)
+- __Single-Page Flow__: [Customize Tokens using Rules](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow#customize-tokens)
+- __Regular Web App Flow__: [Customize Tokens using Rules](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow#customize-tokens)
+- __Native/Mobile Flow__: [Customize Tokens using Rules](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow#customize-tokens)
 
 ::: note
 For more information, refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
@@ -106,15 +106,15 @@ Not all [OAuth 2.0 grants](/protocols/oauth2#authorization-grant-types) support 
   </thead>
   <tbody>
     <tr>
-      <th><a href="/api-auth/grant/authorization-code">Authorization Code</a></th>
+      <th><a href="/flows/concepts/regular-web-app-login-flow">Authorization Code</a></th>
       <td>Yes</td>
     </tr>
     <tr>
-      <th><a href="/api-auth/grant/authorization-code-pkce">Authorization Code (PKCE)</a></th>
+      <th><a href="/flows/concepts/mobile-login-flow">Authorization Code (PKCE)</a></th>
       <td>Yes</td>
     </tr>
     <tr>
-      <th><a href="/api-auth/grant/implicit">Implicit</a></th>
+      <th><a href="/flows/concepts/single-page-login-flow">Implicit</a></th>
       <td>Yes</td>
     </tr>
     <tr>
@@ -215,7 +215,7 @@ To mark your application as OIDC Conformant: go to [Dashboard](${manage_url}) > 
 
 ![OIDC Conformant flag](/media/articles/api-auth/oidc-conformant-flag.png)
 
-To use the `audience` param instead, configure your app to send it when initiating an authorization request.
+To use the `audience` parameter instead, configure your app to send it when initiating an authorization request.
 
 ## Legacy vs New
 

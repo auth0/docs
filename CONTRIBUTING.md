@@ -117,7 +117,7 @@ Only use this if the content is brief (one to four lines), if not use the `panel
 
 ```markdown
 ::: note
-  If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
+If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
 :::
 ```
 
@@ -167,7 +167,7 @@ Description
 :::
 
 ::: panel-warning Security Warning
-It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single Page Application, the Client Secret is available to the client (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Implicit Grant flow](/api-auth/grant/implicit) is more appropriate in that case.
+It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single Page Application, the Client Secret is available to the client (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) is more appropriate in that case.
 :::
 ```
 

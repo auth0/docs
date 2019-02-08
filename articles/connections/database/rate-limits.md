@@ -20,9 +20,7 @@ For database connections Auth0 limits certain types of repeat login attempts dep
 
 ## Unblocking a User
 
- The user account can be unblocked for a given IP address by the database owner following the unblock-user link or by the user properly completing a password reset procedure.
-
- [Click here to learn more about Blocking and Unblocking a User](/user-profile#blocking-and-unblocking-a-user)
+ The user account can be unblocked for a given IP address by the database owner following the unblock-user link or by the user properly completing a password reset procedure. For more information, see [Block and Unblock Users](/users/guides/block-and-unblock-users).
 
 ## Why are some successful login attempts blocked?
 

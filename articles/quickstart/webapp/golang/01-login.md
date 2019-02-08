@@ -261,7 +261,7 @@ func UserHandler(w http.ResponseWriter, r *http.Request) {
 </div>
 ```
 
-[Click here](/user-profile) to check all the information that the userinfo hash has.
+For information about the userinfo hash, see [User Profile](/users/concepts/overview-user-profile).
 
 ## Logout
 
@@ -302,7 +302,7 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 ```
 
 ::: note
-Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the application as explained in [our documentation](/logout#redirect-users-after-logout)
+The redirect URL needs to be in the list of Allowed Logout URLs in the settings section of the application, For more information, see [Redirect Users After Logout](/logout/guides/redirect-users-after-logout).
 :::
 
 Add the function to `mux` handle `/logout` route.

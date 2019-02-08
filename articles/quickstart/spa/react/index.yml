@@ -29,7 +29,7 @@ github:
   repo: auth0-react-samples
   branch: master
 requirements:
-  - React 15.5
+  - React 15.6
 next_steps:
   - path: 05-token-renewal
     list:

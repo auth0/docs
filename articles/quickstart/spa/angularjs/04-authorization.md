@@ -34,18 +34,16 @@ angularAuth0Provider.init({
   // ...
   scope: REQUESTED_SCOPES
 });
-``` 
+```
 
 <%= include('../_includes/_authz_set_session') %>
 
 ```js
 // app/auth/auth.service.js
 
-function setSession(authResult) {
+function localLogin(authResult) {
   // ...
-  var scopes = authResult.scope || REQUESTED_SCOPES || '';
-
-  localStorage.setItem('scopes', JSON.stringify(scopes));
+  scopes = authResult.scope || REQUESTED_SCOPES || '';
 }
 ```
 
@@ -55,10 +53,10 @@ function setSession(authResult) {
 // app/auth/auth.service.js
 
 // ...
-function userHasScopes(scopes) {
+function userHasScopes(requestedScopes) {
   var grantedScopes = JSON.parse(localStorage.getItem('scopes')).split(' ');
-  for (var i = 0; i < scopes.length; i++) {
-    if (grantedScopes.indexOf(scopes[i]) < 0) {
+  for (var i = 0; i < requestedScopes.length; i++) {
+    if (grantedScopes.indexOf(requestedScopes[i]) < 0) {
       return false;
     }
   }

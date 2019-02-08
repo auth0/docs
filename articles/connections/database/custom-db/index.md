@@ -16,10 +16,18 @@ useCase:
 
 If you have your own user database, you can use it as an identity provider in Auth0 to authenticate users.
 
+::: panel Feature availability
+Only **Enterprise** subscription plans include the ability to use a custom database for authentication requests.
+
+For more information refer to [Auth0 pricing plans](https://auth0.com/pricing).
+:::
+
+## Step by step guide
+
 In this tutorial, you'll learn how to connect your user database to Auth0 and configure it for use as an identity provider. More specifically, you will:
 
 * [Create and configure a custom database connection](/connections/database/custom-db/create-db-connection) using the [Auth0 dashboard](${manage_url}).
-* Make sure that your database has the appropriate fields to store user profiles attributes, such as **id**, **nickname**, **email**, and **password**. See [Auth0 Normalized User Profile](/user-profile/normalized) for details on Auth0's user profile schema and the expected fields.
+* Make sure that your database has the appropriate fields to store user profiles attributes, such as **id**, **nickname**, **email**, and **password**. See [Normalized User Profile](/users/normalized) for details on Auth0's user profile schema and the expected fields.
 * Provide database action scripts to configure the database for use as an identity provider.
 
 ## Before you begin
@@ -54,15 +62,20 @@ Here are some things to know before you begin the process of setting up your dat
 
   Essentially, you can connect to any kind of database or web service with a properly-configured custom script.
 
-* [Update Users Using Your Database](/user-profile/customdb) has information on updating user profile fields.
+* [Update User Profiles Using Your Database](/users/guides/update-user-profiles-using-your-database) has information on updating user profile fields.
 
 <%= include('../../../_includes/_ip_whitelist') %>
 
+## Video tutorial
+
+The following video tutorial will show you how to set up a custom database connection that includes user migration functionality. It will also demonstrate basic troubleshooting steps.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Go_rvdYuF5c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### Keep reading
 
-::: next-steps
-* [Create and configure a custom database connection](/connections/database/custom-db/create-db-connection)
-* [Write custom database action scripts](/connections/database/custom-db/templates)
-* [Update users using your database](/user-profile/customdb)
-* [Handle errors and troubleshoot your custom DB scripts](/connections/database/custom-db/error-handling)
-:::
+* [Create and Configure a Custom Database Connection](/connections/database/custom-db/create-db-connection)
+* [Write Custom Database Action Scripts](/connections/database/custom-db/templates)
+* [Update User Profile Using Your Database](/users/guides/update-user-profiles-using-your-database)
+* [Handle Errors and Troubleshoot Your Custom DB Scripts](/connections/database/custom-db/error-handling)
+* [Migrate Your Users to Auth0](/users/concepts/overview-user-migration)

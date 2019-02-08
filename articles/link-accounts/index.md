@@ -63,10 +63,10 @@ In the example below you can see how the resulting linked profile will be for th
   "user_id": "google-oauth2|115015401343387192604",
   "identities": [
     {
-        "provider": "google-oauth2",
-        "user_id": "115015401343387192604",
-        "connection": "google-oauth2",
-        "isSocial": true
+      "provider": "google-oauth2",
+      "user_id": "115015401343387192604",
+      "connection": "google-oauth2",
+      "isSocial": true
     }
   ],
   "user_metadata": {
@@ -74,7 +74,7 @@ In the example below you can see how the resulting linked profile will be for th
   },
   "app_metadata": {
     "roles": [
-        "Admin"
+      "Admin"
     ]
   },
   ...
@@ -92,19 +92,19 @@ In the example below you can see how the resulting linked profile will be for th
   "user_id": "sms|560ebaeef609ee1adaa7c551",
   "identities": [
     {
-        "user_id": "560ebaeef609ee1adaa7c551",
-        "provider": "sms",
-        "connection": "sms",
-        "isSocial": false
+      "user_id": "560ebaeef609ee1adaa7c551",
+      "provider": "sms",
+      "connection": "sms",
+      "isSocial": false
     }
   ],
   "user_metadata": {
-      "color": "blue"
+    "color": "blue"
   },
   "app_metadata": {
-      "roles": [
-          "AppAdmin"
-      ]
+    "roles": [
+      "AppAdmin"
+    ]
   },
   ...
 }
@@ -114,12 +114,12 @@ In the example below you can see how the resulting linked profile will be for th
     <div class="tab-pane" id="profile-linked">
       <pre class="hl">
         <code>{
-  "email": "your@email.com",
+  "email": "your0@email.com",
   "email_verified": true,
   "name": "John Doe",
   "given_name": "John",
   "family_name": "Doe",
-  "picture": "https://lh3.googleusercontent.../photo.jpg",
+  "picture": "https://lh3.googleusercontent..../photo.jpg",
   "gender": "male",
   "locale": "en",
   "user_id": "google-oauth2|115015401343387192604",
@@ -132,9 +132,9 @@ In the example below you can see how the resulting linked profile will be for th
     },
     {
       "profileData": {
-          "phone_number": "+14258831929",
-          "phone_verified": true,
-          "name": "+14258831929"
+        "phone_number": "+14258831929",
+        "phone_verified": true,
+        "name": "+14258831929"
       },
       "user_id": "560ebaeef609ee1adaa7c551",
       "provider": "sms",
@@ -143,12 +143,12 @@ In the example below you can see how the resulting linked profile will be for th
     }
   ],
   "user_metadata": {
-      "color": "red"
+    "color": "red"
   },
   "app_metadata": {
-      "roles": [
-          "Admin"
-      ]
+    "roles": [
+      "Admin"
+    ]
   },
   ...
 }
@@ -170,7 +170,7 @@ Note that:
 
 ### Merging Metadata
 
-[Metadata](/metadata) are not automatically merged during account linking. If you want to merge them you have to do it manually, using the [Auth0 APIv2 Update User endpoint](/api/v2#!/Users/patch_users_by_id).
+[Metadata](/users/concepts/overview-user-metadata) are not automatically merged during account linking. If you want to merge them you have to do it manually, using the [Auth0 APIv2 Update User endpoint](/api/v2#!/Users/patch_users_by_id).
 
 The [Auth0 Node.js SDK for APIv2](https://github.com/auth0/node-auth0/tree/v2) is also available. You can find sample code for merging metadata before linking using this SDK [here](/link-accounts/suggested-linking#4-verify-and-merge-metadata-before-linking).
 
@@ -287,7 +287,7 @@ The rule is an example of linking accounts in server-side code using the Auth0 M
 
 Note, that if the primary account changes during the authorization transaction (for example, the account the user has logged in with, becomes a secondary account to some other primary account), you could get an error in the Authorization Code flow or an ID Token with the wrong `sub` claim in the token flow. To avoid this, set `context.primaryUser = 'auth0|user123'` in the rule after account linking. This will tell the authorization server to use the user with id `auth0|user123` for the rest of the flow.
 
-For a rule template on automatic account linking, see [Link Accounts with Same Email Address](https://github.com/auth0/rules/blob/master/rules/link-users-by-email.md). If you want to merge metadata as well, see [Link Accounts with Same Email Address while Merging Metadata](https://github.com/auth0/rules/blob/master/rules/link-users-by-email-with-metadata.md).
+For a rule template on automatic account linking, see [Link Accounts with Same Email Address](https://github.com/auth0/rules/blob/master/src/rules/link-users-by-email.js). If you want to merge metadata as well, see [Link Accounts with Same Email Address while Merging Metadata](https://github.com/auth0/rules/blob/master/src/rules/link-users-by-email-with-metadata.js).
 
 ### User-initiated account linking
 

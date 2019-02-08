@@ -43,7 +43,7 @@ GET https://${account.namespace}/authorize
 
 The `prompt=none` parameter will cause Auth0 to immediately send a result to the specified `redirect_uri` (callback URL) using the specified `response_mode` with one of two possible responses:
 
-* A successful authentication response if the user already has a valid session in Auth0 and consent or other prompts are needed.
+* A successful authentication response if the user already has a valid session in Auth0 and no consent or other prompts are needed.
 * An error response if the user doesn't have a valid session or some interactive prompt is required.
 
 ::: note
@@ -54,7 +54,7 @@ Any applicable [rules](/rules) will be executed as part of the silent authentica
 
 If the user was already logged in into Auth0 and no other interactive prompts are required, Auth0 will respond exactly as if the user had authenticated manually through the login page.
 
-For example, when using the [Implicit Flow](/api-auth/grant/implicit) (`response_type=id_token token`, used for single page applications), Auth0 will respond with the requested tokens:
+For example, when using the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) (`response_type=id_token token`, used for single page applications), Auth0 will respond with the requested tokens:
 
 ```text
 GET ${account.callback}
@@ -104,7 +104,7 @@ There are two options to determine when an Access Token expires:
 1. Read the `expires_in` response parameter returned by Auth0
 2. Ignore expiration dates altogether. Instead, try to renew the Access Token if your API rejects a request from the application (such as with a 401).
 
-In the case of the [Implicit Grant](/api-auth/grant/implicit), the `expires_in` parameter is returned by Auth0 as a hash parameter following a successful authentication. For the [Authorization Code Grant](/api-auth/grant/code), it is returned to the backend server when performing the authorization code exchange.
+In the case of the [Single-Page Login Flow](/flows/concepts/single-page-login-flow), the `expires_in` parameter is returned by Auth0 as a hash parameter following a successful authentication. In the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), it is returned to the backend server when performing the authorization code exchange.
 
 The `expires_in` parameter indicates how many seconds the Access Token will be valid for, and can be used to anticipate expiration of the Access Token.
 
@@ -117,6 +117,5 @@ The `expires_in` parameter indicates how many seconds the Access Token will be v
 Implementation of token renewal will depend on the type of application and framework being used. Sample implementations for some of the common platforms can be found below:
 
 * [Plain JavaScript](/quickstart/spa/vanillajs/05-token-renewal)
-* [jQuery](/quickstart/spa/jquery/05-token-renewal)
 * [React](/quickstart/spa/react/05-token-renewal)
 * [Angular](/quickstart/spa/angular2/05-token-renewal)

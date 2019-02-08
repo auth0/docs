@@ -16,7 +16,7 @@ useCase: quickstart
 
 ## Request the Profile Scope
 
-To retrieve user information, request a scope of `openid profile` in the `angularAuth0Provider` options. 
+To retrieve user information, request a scope of `openid profile` in the `angularAuth0Provider` options.
 
 ```js
 // app/app.js
@@ -25,7 +25,7 @@ angularAuth0Provider.init({
   // ...
   scope: 'openid profile'
 });
-``` 
+```
 
 ## Retrieve User Information
 
@@ -39,7 +39,6 @@ Add a method that calls the `client.userInfo` method to the `authService` servic
 var userProfile;
 
 function getProfile(cb) {
-  var accessToken = localStorage.getItem('access_token');
   if (!accessToken) {
     throw new Error('Access Token must exist to fetch profile');
   }
@@ -64,7 +63,7 @@ function getCachedProfile() {
 
 ## Display the User Profile
 
-You can adjust how you show profile information to your users. Some applications have a dedicated profile section for displaying user information. The example below shows how to set it up. 
+You can adjust how you show profile information to your users. Some applications have a dedicated profile section for displaying user information. The example below shows how to set it up.
 
 Create a new controller and view to display the profile.
 

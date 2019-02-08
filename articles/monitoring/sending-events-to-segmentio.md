@@ -1,5 +1,6 @@
 ---
-description: How to send events to segment.io from Auth0
+title: Send Auth0 Events to Segment
+description: How to send logging events to Segment from Auth0.
 topics:
   - monitoring
   - segmentio
@@ -13,25 +14,26 @@ useCase:
 ---
 # Send Auth0 Events to Segment
 
-[Segment](http://segment.io/features) provides a large number of analytics-related functionality with a single, simple to use API.
+[Segment](https://segment.com/) provides a large number of analytics-related functionality with a single, simple to use API.
 
-This example shows how you can connect Auth0 to Segment and stream `signup` and `login` events. You'll be using [Segment's Node.js library](https://github.com/segmentio/analytics-node) to record Auth0 data.
+In this example, you will learn how to connect Auth0 to Segment and stream `signup` and `login` events. To implement this with Auth0, you just need to create one [Rule](/rule) in your pipeline.
 
 ![Segment Flow](/media/articles/monitoring/segment/segment-io-dataflow.png)
 
-## Find your Segment Write Key
+You'll be using [Segment's Node.js library](https://github.com/segmentio/analytics-node) to record Auth0 data.
 
-To configure this integration, you'll need your Segment **Write Key**. You can find this under **Settings** > **API**.
+## 1. Find your Segment Write Key
+
+To configure this integration, you'll need your Segment **Write Key**. You can find this under Segment's  **Settings** > **API**.
 
 ![Segment API Keys](/media/articles/monitoring/segment/segment-3.png)
 
-## Record sign up and login events
+## 2. Record sign-up and log-in events in Segment
 
-To record Auth0 signup and login events and send the information to Segment, you will create a [rule](/rules) implementing Segment's Node.js library.
+Create a rule to record user `signup` and `login` events for your apps and send the information to Segment using Segment's Node.js library.
 
-::: note
-Be sure to add your **Write Key** to the [Global Configuration Object](/rules#using-the-configuration-object) prior to running your rule.
-:::
+In this example, we expect your Segment credentials to be stored in the [global `configuration` object](/rules/current#use-the-configuration-object). Be sure to add your **Write Key** here before running your rule. Doing this allows you to use your key in multiple rules and prevents you from having to store it directly in the code.
+
 
 ```js
 function(user, context, callback) {
@@ -73,8 +75,16 @@ function(user, context, callback) {
 }
 ```
 
-## Check your integration
+## 3. Check your integration
 
-To see if your integration works, you can check the Segment Debugger to see if your Auth0 events are appearing.
+See if your integration works by checking the Segment Debugger to see if your Auth0 events are appearing.
 
 ![Segment Debugger](/media/articles/monitoring/segment/segment-14.png)
+
+
+## Keep reading
+
+Check out our [repository of Auth0 Rules](https://github.com/auth0/rules) for more great examples:
+
+* Rules for access control
+* Integration with other services: [MixPanel](http://mixpanel.com), [Firebase](http://firebase.com), [TowerData](https://www.towerdata.com/email-intelligence/email-enhancement), [Parse](http://parse.com), [Splunk](https://www.splunk.com), [Keen](https://keen.io/)

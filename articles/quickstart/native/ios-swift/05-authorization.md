@@ -30,27 +30,40 @@ Edit the following line from the default script to match the conditions that fit
 ```js
 function (user, context, callback) {
 
-  //Define the name of the claim. Must look like a url:
-  //Have 'http' or 'https' scheme and a hostname other than
-  //'auth0.com', 'webtask.io' and 'webtask.run'.
-  var claimName = 'https://access.control/roles';
-
-  //Check if the email has the 'admin.com' domain and give the 'admin' role.
-  //Otherwise, keep a default 'user' role.
-  var roles = ['user'];
-  if (user.email && user.email.indexOf('@admin.com') > -1) {
-      roles.push('admin');
+  // Roles should only be set to verified users.
+  if (!user.email || !user.email_verified) {
+    return callback(null, user, context);
   }
-  //Set the role claim in the ID Token
-  context.idToken[claimName] = roles;
 
-  callback(null, user, context);
+  user.app_metadata = user.app_metadata || {};
+  // You can add a Role based on what you want
+  // In this case I check domain
+  const addRolesToUser = function(user) {
+    const endsWith = '@example.com';
+
+    if (user.email && (user.email.substring(user.email.length - endsWith.length, user.email.length) === endsWith)) {
+      return ['admin'];
+    }
+    return ['user'];
+  };
+
+  const roles = addRolesToUser(user);
+
+  user.app_metadata.roles = roles;
+  auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+    .then(function() {
+      context.idToken['https://example.com/roles'] = user.app_metadata.roles;
+      callback(null, user, context);
+    })
+    .catch(function (err) {
+      callback(err);
+    });
 }
 ```
 
 The rule is checked every time a user attempts to authenticate.
 
-* If the user has a valid email and the domain is `admin.com`, the user gets the admin and user roles.
+* If the user has a valid email and the domain is `example.com`, the user gets the admin and user roles.
 * If the email contains anything else, the user gets the regular user role.
 
 The claim is saved in the ID Token under the name `https://access.control/roles`.
@@ -71,7 +84,7 @@ import JWTDecode
 guard
     let idToken = self.keychain.string(forKey: "id_token"),
     let jwt = try? decode(jwt: idToken),
-    let roles = jwt.claim(name: "https://access.control/roles").array
+    let roles = jwt.claim(name: "https://example.com/roles").array
     else { // Couldn't retrieve claim }
 
 if roles.contains("admin") {

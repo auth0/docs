@@ -92,7 +92,7 @@ contentType:
  <%= include('./errors/_oauth-access_token') %>
 </div>
 <div class="api-section" data-section="errors">
- <%= include('./errors/_oauth-ro') %>
+ <%= include('./errors/_passwordless-verify') %>
 </div>
 <div class="api-section" data-section="errors">
  <%= include('./errors/_passwordless-start') %>

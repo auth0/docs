@@ -18,6 +18,29 @@ github:
 
 ## Configure Node.js to use Auth0
 
+### Create the .env file
+
+Create the `.env` file in the root of your app and add your Auth0 variables and values to it.
+
+```
+# .env
+AUTH0_CLIENT_ID=${account.clientId}
+AUTH0_DOMAIN=${account.namespace}
+AUTH0_CLIENT_SECRET=YOUR_CLIENT_SECRET
+```
+
+::: warning
+Do not put the `.env` file into source control. Otherwise, your history will contain references to your client secret.
+:::
+
+If you are using git, create a `.gitignore` file (or edit your existing one, if you have one already) and add `.env` to it. The `.gitignore` file tells source control to ignore the files (or file patterns) you list. Be careful to add `.env` to your `.gitignore` file and commit that change before you add your `.env`.
+
+```
+# .gitignore
+.env
+```
+
+
 ### Install the dependencies
 
 To get started, install the following dependencies.
@@ -25,10 +48,11 @@ To get started, install the following dependencies.
 * [passport](http://www.passportjs.org/) - an authentication middleware for Node.js
 * [passport-auth0](https://github.com/auth0/passport-auth0) - an Auth0 authentication strategy for Passport
 * [express-session](https://www.npmjs.com/package/express-session) - a middleware to manage sessions
+* [dotenv](https://www.npmjs.com/package/dotenv) - a module to load environment variables from a `.env` file
 
 ```bash
 # installation with npm
-npm install passport passport-auth0 express-session --save
+npm install passport passport-auth0 express-session dotenv --save
 ```
 
 ### Configure express-session
@@ -42,7 +66,7 @@ var session = require('express-session');
 
 // config express-session
 var sess = {
-  secret: 'CHANGE THIS SECRET',
+  secret: 'CHANGE THIS TO A RANDOM SECRET',
   cookie: {},
   resave: false,
   saveUninitialized: true
@@ -57,11 +81,16 @@ app.use(session(sess));
 
 ### Configure Passport with the application settings
 
-In `app.js`, include the `passport` and `passport0-auth0` modules, and configure Passport to use a new instance of `Auth0Strategy` with your Auth0 application settings. Use `passport.initialize()` and `passport.session()` to initialize Passport with persistent login sessions.
+In `app.js`, include the `passport` and `passport-auth0` modules, and configure Passport to use a new instance of `Auth0Strategy` with your Auth0 application settings. Use `passport.initialize()` and `passport.session()` to initialize Passport with persistent login sessions.
 
 ```js
 // app.js
 
+// Load environment variables from .env
+var dotenv = require('dotenv');
+dotenv.config();
+
+// Load Passport
 var passport = require('passport');
 var Auth0Strategy = require('passport-auth0');
 
@@ -112,7 +141,7 @@ passport.deserializeUser(function (user, done) {
 
 In this example, following routes are implemented:
 
-* `/login` triggers the authentication by calling Passport's `authenticate` method. The user is then redirected to the login page as required.
+* `/login` triggers the authentication by calling Passport's `authenticate` method. The user is then redirected to the tenant login page hosted by Auth0.
 * `/callback`is the route the user is returned to by Auth0 after authenticating. It redirects the user to the profile page (`/user`).
 * `/user` displays the user's profile.
 * `/logout` closes the local user session and redirects the user again to the root index `/`.
@@ -272,7 +301,7 @@ Use `locals.user`, as implemented in the middleware, to customize the views. For
 
 
 ```pug
-// views/layout.pug
+//- views/layout.pug
 
   body
     // ...
@@ -292,7 +321,7 @@ Use `locals.user`, as implemented in the middleware, to customize the views. For
 Create a `views/user.pug` template. Use `locals.user` to access the user data in the session.
 
 ```pug
-// views/user.pug
+//- views/user.pug
 
 extends layout
 
@@ -312,6 +341,6 @@ block content
 
 ## See it in action
 
-Install the dependencies, svtart your app and point your browser to [http://localhost:3000](http://localhost:3000). Follow the **Log In** link to log in or sign up to your Auth0 tenant. Upon successful login or signup, you should be redirected to the user's profile page.
+Install the dependencies, start your app and point your browser to [http://localhost:3000](http://localhost:3000). Follow the **Log In** link to log in or sign up to your Auth0 tenant. Upon successful login or signup, you should be redirected to the user's profile page.
 
 ![login page](/media/articles/web/hosted-login.png)

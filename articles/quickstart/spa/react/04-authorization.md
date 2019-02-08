@@ -26,6 +26,9 @@ Add a local member to your `Auth` service and initialize it with all the scopes 
 ```js
 // src/Auth/Auth.js
 
+// ...
+
+scopes;
 requestedScopes = 'openid profile read:messages write:messages';
 
 auth0 = new auth0.WebAuth({
@@ -39,13 +42,19 @@ auth0 = new auth0.WebAuth({
 ```js
 // src/Auth/Auth.js
 
-setSession(authResult) {
+// ...
 
-  const scopes = authResult.scope || this.requestedScopes || '';
+setSession(authResult) {
+  // ...
+
+  // Set the users scopes
+  this.scopes = authResult.scope || this.requestedScopes || '';
 
   // ...
-  localStorage.setItem('scopes', JSON.stringify(scopes));
 }
+
+// ...
+
 ```
 
 <%= include('../_includes/_authz_user_has_scopes') %>
@@ -53,8 +62,10 @@ setSession(authResult) {
 ```js
 // src/Auth/Auth.js
 
+// ...
+
 userHasScopes(scopes) {
-  const grantedScopes = JSON.parse(localStorage.getItem('scopes')).split(' ');
+  const grantedScopes = this.scopes.split(' ');
   return scopes.every(scope => grantedScopes.includes(scope));
 }
 ```

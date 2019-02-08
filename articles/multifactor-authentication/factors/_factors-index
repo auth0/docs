@@ -1,0 +1,16 @@
+Auth0 supports the following factors for implementing MFA. You must enable at least one to use MFA, but you can choose to enable and make available more than one factor if you wish.
+
+<ul class="topic-links">
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/multifactor-authentication/factors/push"> Push Notifications</a>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/multifactor-authentication/factors/otp"> One Time Passwords</a>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/multifactor-authentication/factors/sms"> SMS Notifications</a>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/multifactor-authentication/factors/duo"> Duo</a>
+  </li>
+</ul>

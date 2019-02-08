@@ -83,5 +83,5 @@ end
 ```
 
 ::: note
-The final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. See the [logout documentation](/logout#redirecting-users-after-logout) for more.
+The final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. See the [logout documentation](/logout/guides/redirect-users-after-logout) for more.
 :::

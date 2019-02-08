@@ -20,7 +20,7 @@ Auth0 offers the following support plans:
 <table class="table">
   <tbody>
     <tr>
-      <th>No Plan</th>
+      <th>Community Support</th>
       <td>Customers with Auth0's free subscription plan can seek support through the Auth0 Community.</td>
     </tr>
     <tr>
@@ -32,15 +32,21 @@ Auth0 offers the following support plans:
       <td>For customers with an Enterprise subscription plan.</td>
     </tr>
     <tr>
+      <th>Premier Support</th>
+      <td>For customers with an Enterprise subscription plan that have added the Premier Support option.</td>
+    </tr>
+    <tr>
       <th>Preferred Support</th>
-      <td>For customers with an Enterprise subscription plan that have added the Preferred Support option.</td>
+      <td>For customers with an Enterprise subscription plan that have added the Preferred Support option. This offering is no longer for sale.</td>
     </tr>
   </tbody>
 </table>
 
-### No Support
+### Community Support
 
-Customers with Auth0's free subscription plan can seek support through the [Auth0 Community](${auth0_community}). Response times may vary and are not guaranteed.
+Customers with Auth0's free community subscription plan can seek support through the [Auth0 Community](${auth0_community}). Response times may vary and are not guaranteed.
+
+If you have a free account and your account has been compromised, please post in Community and reach out to us via DM on [Twitter](https://twitter.com/auth0community).
 
 :::panel Trial Subscriptions
 New Auth0 customers receive Standard Support during the 22-day trial period (customers may check on how many trial days they have left by logging into the [Dashboard](${manage_url})).
@@ -57,11 +63,9 @@ Customers with a paid Auth0 subscription plan receive Standard Support, which of
 
 The Auth0 Support Center offers ticketed support, where support specialists are available to provide assistance.
 
-### Enterprise Support (with or without Preferred Support)
+### Enterprise Support (with or without Premier Support)
 
-Customers with an Enterprise subscription plan receive extended support hours for outages, quicker response times, and Auth0 Sprint onboarding assistance.
-
-Please contact the [Auth0 Sales Team](https://auth0.com/?contact=true) if you have specific support requirements or are interested in the Enterprise Support Plan (with or without the Preferred Support option).
+Customers with an Enterprise Subscription Plan receive extended support hours for outages, quicker response times, and access to the Customer Success Team.
 
 ## Support Channels
 
@@ -107,20 +111,28 @@ Using this page, you can:
 
 The Support Program applies to **production instances** of the Auth0 Platform only. If you require support for non-production instances, then you may request [Demand Services](#demand-services) from Auth0.
 
-Your Sales Order will indicate whether you are subscribed to the **Standard** Support Program or the **Enterprise** Support Program. The features of each program are as follows:
+Your Sales Order will indicate whether you are subscribed to the **Standard** Support Program or the **Enterprise** Support Program.
 
-| Support Feature | Standard | Enterprise/Preferred |
-| - | - | - |
-| Answer questions concerning usage issues related to Auth0 Platform specific features, options and configurations | Yes | Yes |
-| Provide initial and high-level suggestions regarding the appropriate usage, features, or solution configurations for the particular type of reporting, analysis, or functionality | Yes | Yes |
-| Isolate, document, and find alternative solutions for reported Defects | Yes | Yes |
-| Work with Auth0 Operations, Product, Software Development, and QA staff to submit Change Requests, Enhancement Requests, and provide Fixes for the Auth0 Platform as necessary | Yes | Yes |
-| Address your concerns with online or printed documentation, providing additional examples or explanation for concepts requiring clarification | Yes | Yes |
-| Access to online release notes for Updates | Yes | Yes |
-| Access to Auth0’s online library of Support webinars and knowledgebase | Yes | Yes |
-| Access to Auth0’s Customer Community forums to collaborate with fellow Auth0 customers | Yes | Yes |
-| Enhanced Response Times | No | Yes |
-| Enhanced Hours of Support | No | Yes |
+The following features are provided with **every** support plan:
+
+- Answer questions concerning usage issues related to Auth0 Platform specific features, options and configurations
+- Provide initial and high-level suggestions regarding the appropriate usage, features, or solution configurations for the particular type of reporting, analysis, or functionality
+- Isolate, document, and find alternative solutions for reported Defects
+- Work with Auth0 Operations, Product, Software Development, and QA staff to submit Change Requests, Enhancement Requests, and provide Fixes for the Auth0 Platform as necessary
+- Address your concerns with online or printed documentation, providing additional examples or explanation for concepts requiring clarification
+- Access to online release notes for Updates
+- Access to Auth0’s online library of Support webinars and knowledgebase
+- Access to Auth0’s Customer Community forums to collaborate with fellow Auth0 customers
+
+The following table describes feature differences of each Auth0 support plan:
+
+| Support Feature | Standard | Enterprise | Preferred | Premier |
+| - | - | - | - | - |
+| Enhanced Response Times | No | Yes | Yes | Yes |
+| Enhanced Hours of Support | No | Yes | Yes | Yes |
+| Ticket Review | No | No | Yes | Yes |
+| Phone Support | No | No | No | Yes |
+| Dedicated team of Developer Support Engineers | No | No | No | Yes |
 
 ## Defect Resolution Procedures
 
@@ -157,12 +169,12 @@ Auth0 will assign all Defects one of four response priorities, dependent upon th
 
 The priority of a Defect will dictate the timing and nature of the response as specified in the table below:
 
-| Defect Severity Level & Business Impact| Standard Target Response Time | Enterprise Target Response Time | Preferred Target Response Time | Solution Definition (one or more of the following) |
-| --- | --- | --- | --- | --- |
-| **1 (Urgent)**<br>Emergency Issue | 1 business hour<br>24x7x365 | 30 minutes<br>24x7x365 | 30 minutes<br>24x7x365 | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
-| **2 (High)**<br>Significant Business Impact | 4 business hours<br>6AM to 6PM, Mon to Fri (local time) | 2 hours<br>24 hours a day, Mon to Fri (local time) | 1 hour<br>24 hours a day, Mon to Fri (local time) | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
-| **3 (Normal)**<br>Minor Feature / Function Issue, General Question | 1 business day<br>6AM to 6PM, Mon to Fri (local time) | 12 hours<br>24 hours a day, Mon to Fri (local time) | 8 hours<br>24 hours a day, Mon to Fri (local time) | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix incorporated into future release.</li> <li>Answer to question is provided.</li></ul> |
-| **4 (Low)**<br>Minor Problem, Enhancement Request | 2 business days<br>6AM to 6PM, Mon to Fri (local time) | 24 hours<br>24 hours a day, Mon to Fri (local time) | 12 hours<br>24 hours a day, Mon to Fri (local time) | <ul><li>Answer to question is provided.</li> <li>Enhancement request logged.</li></ul> |
+| Defect Severity Level & Business Impact | Standard Target Response Time | Enterprise Target Response Time | Preferred Target Response Time (no longer for sale) | Premier Target Response Time | Solution Definition (one or more of the following) |
+| --- | --- | --- | --- | --- | -- |
+| **1 (Urgent)**<br>Emergency Issue | 1 business hour<br>24x7x365 | 30 minutes<br>24x7x365 | 30 minutes<br>24x7x365 | 30 minutes<br>24x7x365 | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
+| **2 (High)**<br>Significant Business Impact | 4 business hours<br>6AM to 6PM, Mon to Fri (local time) | 2 hours<br>24 hours a day, Mon to Fri (local time) | 1 hour<br>24 hours a day, Mon to Fri (local time) | 1 hour<br>24x7x365 | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix is provided.</li> <li>Fix incorporated into future release.</li></ul> |
+| **3 (Normal)**<br>Minor Feature / Function Issue, General Question | 1 business day<br>6AM to 6PM, Mon to Fri (local time) | 12 hours<br>24 hours a day, Mon to Fri (local time) | 8 hours<br>24 hours a day, Mon to Fri (local time) | 8 hours<br>24x7x365 | <ul><li>Issue is resolved.</li> <li>Workaround is provided.</li> <li>Fix incorporated into future release.</li> <li>Answer to question is provided.</li></ul> |
+| **4 (Low)**<br>Minor Problem, Enhancement Request | 2 business days<br>6AM to 6PM, Mon to Fri (local time) | 24 hours<br>24 hours a day, Mon to Fri (local time) | 12 hours<br>24 hours a day, Mon to Fri (local time) | 8 hours<br>24x7x365 | <ul><li>Answer to question is provided.</li> <li>Enhancement request logged.</li></ul> |
 
 ## Program Hours
 
@@ -170,9 +182,9 @@ Auth0 will provide support for Severity Level 1 Defects on a 24x7x365 basis.
 
 For all other defects, Auth0 will provide support during the hours specified below:
 
-| Standard | Enterprise / Preferred |
-| - | - |
-| 6AM to 6PM (your local time) Monday to Friday | 24 hours a day, Monday to Friday (your local time) |
+| Standard | Enterprise/Preferred | Premier |
+| - | - | - |
+| 6AM to 6PM (your local time) Monday to Friday | 24 hours a day, Monday to Friday (your local time) | 24 hours a day, 7 days a week, 365 days a year |
 
 ## Support Languages
 
@@ -181,10 +193,6 @@ We provide all technical support in English, but we will make an effort to accom
 ## Upgrades
 
 During the Subscription Term, Auth0 will provide or install Updates if and when they are made generally commercially available by Auth0 to its customers, at no additional cost to you.
-
-## Demand Services
-
-You may from time to time request assistance from Auth0 for services that are outside the scope of the Support Program.  Auth0 will make resources available for mutually agreeable time periods to provide such assistance.  Auth0 will invoice you, and you will pay for these services (“Demand Services”) at Auth0’s then applicable rates, or such other rates as may be agreed in writing between Auth0 and you, plus any applicable expenses.
 
 ## Pricing
 

@@ -101,7 +101,7 @@ You have three options for [passwordless authentication](/connections/passwordle
 
 ### Remarks
 
-- If you sent a verification code, using either email or SMS, after you get the code, you have to authenticate the user using the [/oauth/ro endpoint](#authenticate-user), using `email` or `phone_number` as the `username`, and the verification code as the `password`.
+- If you sent a verification code, using either email or SMS, after you get the code, you have to authenticate the user using the [/passwordless/verify endpoint](#authenticate-user), using `email` or `phone_number` as the `username`, and the verification code as the `password`.
 - This endpoint is designed to be called from the client-side, and has a [rate limit](/policies/rate-limits#authentication-api) of 50 requests per hour per IP.
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
@@ -119,7 +119,7 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 ## Authenticate User
 
 ```http
-POST https://${account.namespace}/oauth/ro
+POST https://${account.namespace}/passwordless/verify
 Content-Type: application/json
 {
   "client_id": "${account.clientId}",
@@ -133,7 +133,7 @@ Content-Type: application/json
 
 ```shell
 curl --request POST \
-  --url 'https://${account.namespace}/oauth/ro' \
+  --url 'https://${account.namespace}/passwordless/verify' \
   --header 'content-type: application/json' \
   --data '{"client_id":"${account.clientId}", "connection":"email|sms", "grant_type":"password", "username":"EMAIL|PHONE", "password":"VERIFICATION_CODE", "scope":"SCOPE"}'
 ```
@@ -183,7 +183,7 @@ curl --request POST \
 <%= include('../../_includes/_http-method', {
   "http_badge": "badge-success",
   "http_method": "POST",
-  "path": "/oauth/ro",
+  "path": "/passwordless/verify",
   "link": "#authenticate-user"
 }) %>
 
@@ -226,7 +226,7 @@ Once you have a verification code, use this endpoint to login the user with thei
 
 ### Error Codes
 
-For the complete error code reference for this endpoint refer to [Errors > POST /oauth/ro](#post-oauth-ro).
+For the complete error code reference for this endpoint refer to [Errors > POST /passwordless/verify](#post-passwordless-verify).
 
 ### More Information
 

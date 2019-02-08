@@ -74,6 +74,4 @@ There is also a `connectionScopes` configuration option for Lock 10, which allow
 
 ### state {string}
 
-The `state` parameter is an arbitrary state value that will be maintained across redirects. It is useful to mitigate [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery) and for any contextual information, [such as a return url](/tutorials/redirecting-users), that you might need after the authentication process is finished.
-
-[Click here to learn more about how to send/receive the state parameter.](/protocols/oauth-state)
+The `state` parameter is an arbitrary state value that will be maintained across redirects. It is useful to mitigate [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery) and for any contextual information, [such as a return url](/protocols/oauth2/redirect-users) that you might need after the authentication process is finished. For more information, see [State Parameter](/protocols/oauth-state).

@@ -40,7 +40,7 @@ angularAuth0Provider.init({
 
 <%= include('../_includes/_calling_api_access_token') %>
 
-You can use the [angular-jwt](https://github.com/auth0/angular-jwt) module to automatically attach JSON Web Tokens to requests you make with Angular's `$http` service. 
+You can use the [angular-jwt](https://github.com/auth0/angular-jwt) module to automatically attach JSON Web Tokens to requests you make with Angular's `$http` service.
 
 Install angular-jwt using npm or yarn.
 
@@ -52,9 +52,9 @@ npm install --save angular-jwt
 yarn add angular-jwt
 ```
 
-Reference the `angular-jwt` module from your application's main module. Inject `jwtOptionsProvider` and `$httpProvider`. In the provider, specify a `tokenGetter` function which retrieves the user's Access Token from local storage. The token can then be attached as an `Authorization` header. 
+Reference the `angular-jwt` module from your application's main module. Inject `jwtOptionsProvider` and `$httpProvider`. In the provider, specify a `tokenGetter` function which retrieves the user's Access Token from memory. The token can then be attached as an `Authorization` header.
 
-Whitelist any domains you want to enable authenticated `$http` calls for. 
+Whitelist any domains you want to enable authenticated `$http` calls for.
 Push `jwtInterceptor` into the `$httpProvider.interceptors` array.
 
 ```js
@@ -81,9 +81,9 @@ Push `jwtInterceptor` into the `$httpProvider.interceptors` array.
   ) {
 
     jwtOptionsProvider.config({
-      tokenGetter: function() {
-        return localStorage.getItem('access_token');
-      },
+      tokenGetter: ['authService', function(authService) {
+        return authService.getAccessToken();
+      }],
       whiteListedDomains: ['localhost']
     });
 
@@ -95,8 +95,8 @@ Push `jwtInterceptor` into the `$httpProvider.interceptors` array.
 
 ## Call the API
 
-With `jwtInterceptor` in place, the user's Access Token is automatically attached to `$http` calls. 
-When you make `$http` calls, your protected API resources become accessible to the user. 
+With `jwtInterceptor` in place, the user's Access Token is automatically attached to `$http` calls.
+When you make `$http` calls, your protected API resources become accessible to the user.
 
 ```js
 // app/ping/ping.controller.js

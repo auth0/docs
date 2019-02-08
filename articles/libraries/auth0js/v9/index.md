@@ -115,7 +115,7 @@ The `authorize()` method can be used for logging in users via [Universal Login](
 | `responseType` | optional | (String) It can be any space separated list of the values `code`, `token`, `id_token`.  It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
 | `clientID` | optional | (String)  Your Auth0 client ID. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
-| `state` | optional | (String)  An arbitrary value that should be maintained across redirects. It is useful to mitigate CSRF attacks and for any contextual information (for example, a return URL) that you might need after the authentication process is finished. For more information, see the [state parameter documentation](/protocols/oauth2/oauth-state). |
+| `state` | optional | (String)  An arbitrary value that should be maintained across redirects. It is useful to mitigate CSRF attacks and for any contextual information (for example, a return URL) that you might need after the authentication process is finished. For more information, see [State Parameter](/protocols/oauth2/oauth-state). |
 | `prompt` | optional | (String) A value of `login` will force the login page to show regardless of current session. A value of `none` will attempt to bypass the login prompts if a session already exists (see the [silent authentication](/sso/current/single-page-apps#silent-authentication) documentation for more details). |
 
 For hosted login, one must call the `authorize()` method.
@@ -142,6 +142,7 @@ Hosted login with popup:
 
 ```js
 webAuth.popup.authorize({
+  redirectUri: 'https://YOUR_APP/popup_response_handler.html'
   //Any additional options can go here
 }, function(err, authResult) {
   //do something
@@ -152,11 +153,35 @@ And for social login with popup using `authorize`:
 
 ```js
 webAuth.popup.authorize({
+  redirectUri: 'https://YOUR_APP/popup_response_handler.html',
   connection: 'twitter'
 }, function(err, authResult) {
   //do something
 });
 ```
+
+#### Handling popup authentication results
+
+When using popup authentication, you'll have to provide a `redirectUri` where the destination page communicates the authorization results back to the main page by using the `webAuth.popup.callback` method. A simple implementation would be something like this:
+
+```HTML
+<!-- popup_response_handler.html -->
+<html>
+  <body>
+    <script src="${auth0js_url}"></script>
+    <script type="text/javascript">
+      var webAuth = new auth0.WebAuth({
+        domain:       'YOUR_AUTH0_DOMAIN',
+        clientID:     'YOUR_CLIENT_ID'
+      });
+      webAuth.popup.callback();
+    </script>
+  </body>
+</html>
+```
+
+An ideal handler would contain just this minimal functionality (i.e. avoid reloading the whole application just to handle the response). 
+You will need to add the `redirectUri` to the application's **Allowed Callback URLs** list in the application configuration page on the Dashboard.
 
 ### webAuth.login()
 
@@ -202,7 +227,7 @@ var url = webAuth.client.buildAuthorizeUrl({
 ```
 
 ::: note
-The `state` parameter is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks, and it needs to be specified if you redirect to the URL yourself instead of calling `webAuth.authorize()`. The [OAuth state documentation](/protocols/oauth2/oauth-state) describes how to do use it correctly.
+The `state` parameter is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks, and it needs to be specified if you redirect to the URL yourself instead of calling `webAuth.authorize()`. For more information, see [State Parameter](/protocols/oauth2/oauth-state).
 :::
 
 <%= include('../../_includes/_embedded_sso') %>
@@ -377,7 +402,7 @@ To sign up a user, use the `signup` method. This method accepts an options objec
 | `password` | required | (String) User's desired password |
 | `username` | required\* | (String) User's desired username. </br>\*Required if you use a database connection and you have enabled **Requires Username** |
 | `connection` | required | (String) The database connection name on your application upon which to attempt user account creation |
-| `user_metadata` | optional | (JSON object) Additional attributes used for user information. Will be stored in [user_metadata](/metadata) |
+| `user_metadata` | optional | (JSON object) Additional attributes used for user information. Will be stored in [user_metadata](/users/concepts/overview-user-metadata) |
 
 Signups should be for database connections. Here is an example of the `signup` method and some sample code for a form.
 
@@ -530,7 +555,7 @@ auth0Manage.getUser(userId, cb);
 
 ### Updating the user profile
 
-When updating user metadata, you will need to first create a `userMetadata` object, and then call the `patchUserMetadata` method, passing it the user id and the `userMetadata` object you created. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata. Visit the [User Metadata](/metadata) documentation for more details on user metadata.
+When updating user metadata, you will need to first create a `userMetadata` object, and then call the `patchUserMetadata` method, passing it the user id and the `userMetadata` object you created. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata. See the [Metadata](/users/concepts/overview-user-metadata) documentation for more details on user metadata.
 
 ```js
 auth0Manage.patchUserMetadata(userId, userMetadata, cb);

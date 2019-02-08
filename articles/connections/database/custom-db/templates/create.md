@@ -18,8 +18,35 @@ While Auth0 has populated default templates in the Dashboard script editor, you 
 
 When working on your user creation script, keep in mind that:
 
-* This script will be executed when the user signs up
-* The parameters **user.email** and **user.password** are used to create a record in the user store
+* This script will create a new entry in your database. 
+* This script executes when a user signs up or when an administrator creates the user via the Dashboard or API.
+
+When the script finishes execution, the Login script runs to verify that the user was created successfully.
+
+## The `user` object
+
+The `user` object will always contain the following properties:
+
+| Property | Description |
+| - | - |
+| email | the user's email |
+| password | the password entered by the user (in plain text) |
+| tenant | the name of the Auth0 account |
+| client_id | the client ID of the application for which the user signed up, or the API key if the user was created through the Dashboard or API |
+| connection | the name of the database connection |
+| user_metadata |  |
+
+Finally, if you [create and use custom fields](/libraries/custom-signup#using-the-api) during the registration process, these properties are included in the `user` object as well.
+
+## Script execution results
+
+There are three ways a Create Users script can finish:
+
+| Result | Description |
+| - | - |
+| `callback(null);` | A user was successfully created  |
+| `callback(new ValidationError("user_exists", "my error message"));` | This user already exists in your database |
+| `callback(new Error("my error message"));` | Something went wrong while trying to reach your database |
 
 ## Sample Scripts
 
@@ -42,29 +69,6 @@ Auth0 provides sample scripts for use with the following languages/technologies:
 
 ```
 function create (user, callback) {
-  // This script should create a user entry in your existing database. It will
-  // be executed when a user attempts to sign up, or when a user is created
-  // through the Auth0 dashboard or API.
-  // When this script has finished executing, the Login script will be
-  // executed immediately afterwards, to verify that the user was created
-  // successfully.
-  //
-  // The user object will always contain the following properties:
-  // * email: the user's email
-  // * password: the password entered by the user, in plain text
-  // * tenant: the name of this Auth0 account
-  // * client_id: the client ID of the application where the user signed up, or
-  //              API key if created through the API or Auth0 dashboard
-  // * connection: the name of this database connection
-  //
-  // There are three ways this script can finish:
-  // 1. A user was successfully created
-  //     callback(null);
-  // 2. This user already exists in your database
-  //     callback(new ValidationError("user_exists", "my error message"));
-  // 3. Something went wrong while trying to reach your database
-  //     callback(new Error("my error message"));
-
   var msg = "Please implement the Create script for this database connection " +
        "at https://manage.auth0.com/#/connections/database";
   return callback(new Error(msg));

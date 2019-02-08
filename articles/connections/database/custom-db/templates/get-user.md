@@ -47,7 +47,7 @@ function getByEmail (email, callback) {
   //
   // There are three ways this script can finish:
   // 1. A user was successfully found. The profile should be in the following
-  // format: https://auth0.com/docs/user-profile/normalized.
+  // format: https://auth0.com/docs/users/normalized.
   //     callback(null, profile);
   // 2. A user was not found
   //     callback(null);

@@ -16,6 +16,9 @@ You can also use it to hold logic for hiding and displaying DOM elements.
 // app.js
 
 window.addEventListener('load', function() {
+  var idToken;
+  var accessToken;
+  var expiresAt;
 
   var webAuth = new auth0.WebAuth({
     domain: '${account.namespace}',
@@ -46,10 +49,11 @@ window.addEventListener('load', function() {
 Add more functions to the `app.js` file to handle authentication in the app.
 
 The example below shows the following functions:
-* `handleAuthentication`: looks for the result of authentication in the URL hash and processes it with the `parseHash` method from auth0.js
-* `setSession`: sets the user's Access Token, ID Token, and the Access Token's expiry time 
-* `logout`: removes the user's tokens and expiry time from browser storage
-* `isAuthenticated`: checks whether the expiry time for the user's Access Token has passed
+* `handleAuthentication`: looks for the result of authentication in the URL hash and processes it with the `parseHash` method from auth0.js.
+* `renewTokens`: performs silent authentication to renew the session.
+* `localLogin`: sets the user's Access Token, ID Token, and the Access Token's expiry time.
+* `logout`: removes the user's tokens and expiry time from browser memory.
+* `isAuthenticated`: checks whether the expiry time for the user's Access Token has passed.
 
 ```js
 // app.js
@@ -77,7 +81,7 @@ window.addEventListener('load', function() {
     webAuth.parseHash(function(err, authResult) {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
-        setSession(authResult);
+        localLogin(authResult);
         loginBtn.style.display = 'none';
         homeView.style.display = 'inline-block';
       } else if (err) {
@@ -91,29 +95,46 @@ window.addEventListener('load', function() {
     });
   }
 
-  function setSession(authResult) {
-    // Set the time that the Access Token will expire at
-    var expiresAt = JSON.stringify(
+  function localLogin(authResult) {
+    // Set isLoggedIn flag in localStorage
+    localStorage.setItem('isLoggedIn', 'true');
+    // Set the time that the access token will expire at
+    expiresAt = JSON.stringify(
       authResult.expiresIn * 1000 + new Date().getTime()
     );
-    localStorage.setItem('access_token', authResult.accessToken);
-    localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('expires_at', expiresAt);
+    accessToken = authResult.accessToken;
+    idToken = authResult.idToken;
+  }
+
+  function renewTokens() {
+    webAuth.checkSession({}, (err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        localLogin(authResult);
+      } else if (err) {
+        alert(
+            'Could not get a new token '  + err.error + ':' + err.error_description + '.'
+        );
+        logout();
+      }
+      displayButtons();
+    });
   }
 
   function logout() {
-    // Remove tokens and expiry time from localStorage
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
+    // Remove isLoggedIn flag from localStorage
+    localStorage.removeItem('isLoggedIn');
+    // Remove tokens and expiry time
+    accessToken = '';
+    idToken = '';
+    expiresAt = 0;
     displayButtons();
   }
 
   function isAuthenticated() {
     // Check whether the current time is past the
     // Access Token's expiry time
-    var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
-    return new Date().getTime() < expiresAt;
+    var expiration = parseInt(expiresAt) || 0;
+    return localStorage.getItem('isLoggedIn') === 'true' && new Date().getTime() < expiration;
   }
 
   function displayButtons() {
@@ -191,6 +212,10 @@ Call the `handleAuthentication` method in the `app.js` file. The method processe
 window.addEventListener('load', function() {
 
   // ...
-  handleAuthentication();
+  if (localStorage.getItem('isLoggedIn') === 'true') {
+    renewTokens();
+  } else {
+    handleAuthentication();
+  }
 });
 ```

@@ -65,7 +65,7 @@ These are the most common problems:
 
 Make sure the clock of your server is current.
 
-If the time is not correct, it will cause authentication requests to fail. This can be fixed by ensuring that the System is properly configured to use to pool a sync server via the NTP (Network Time Protocol).
+If the time is not correct, it will cause authentication requests to fail. This can be fixed by ensuring that the System is properly configured to use to poll a sync server via the NTP (Network Time Protocol).
 
 ::: note
 On windows environments the ntp provider is usually the same domain controller. Make sure that your Domain Controller is synchronized with some external service.
@@ -152,3 +152,7 @@ In some AD/LDAP installations, user attributes synchronization takes few minutes
 To avoid the requirement of an open inbound port in your servers, the Connector creates a websocket connection to an available node in Auth0's server cluster and keeps it open to listen to incoming messages from Auth0. 
 
 Approximately once a day (though this frequency might vary under certain circumstances) each server node will terminate the connection to allow internal deployment processes to occur. The Connector will detect the closed connection and terminate the process, allowing the service stack to restart the process, create a new connection to an available node and resume operations. To avoid any downtime, make sure you enable [the cache for the connection](/connector/overview#cache).
+
+### Receive a "postUrl is required" error
+
+This is usually thrown if additional configuration for custom domains have not been made. See [the custom domains documentation](/custom-domains/additional-configuration#configure-ad-ldap-connections) for more info.

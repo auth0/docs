@@ -12,11 +12,11 @@ contentType:
 useCase:
   - customize-mfa
 ---
-
 # Guardian for Android
-The [Guardian for Android Software Development Kit](https://github.com/auth0/Guardian.Android) allows developers to create Android apps with Guardian functionality, providing easy and secure access to multi-factor authentication with push notifications. For example, this toolkit gives you the power to build a 'white label' version of the Guardian application for your users, using your own look-and-feel.
 
-More information can be found on Guardian [here](/multifactor-authentication/guardian). For general multi-factor discussion, read more [here](/multifactor-authentication).
+The [Guardian for Android Software Development Kit](https://github.com/auth0/Guardian.Android) helps you create Android apps with Guardian functionality, providing secure access to multi-factor authentication (MFA) with push notifications. With this toolkit you can build your own customized version of the Guardian application that matches the look and feel of your organization.
+
+For more information on MFA, read our [multi-factor authentication](/multifactor-authentication) documentation.
 
 Get started using Guardian for Android below, or, if you're looking for a specific document, try the listing of [additional documents](#additional-documents) related to Guardian for Android.
 
@@ -50,7 +50,6 @@ For your native application to receive push notifications from Guardian, you wil
 
 ## Using the SDK
 
-
 `Guardian` is the core of the SDK. You'll need to create an instance of this class for your specific tenant/url.
 
 ```java
@@ -70,7 +69,6 @@ Guardian guardian = new Guardian.Builder()
         .domain(domain)
         .build();
 ```
-
 
 ### Enroll
 
@@ -131,7 +129,7 @@ guardian
 
 ### Allow a login request
 
-Once you have the enrollment in place, you will receive a GCM push notification every time the user needs multi-factor authentication.
+Once you have the enrollment in place, you'll receive a GCM push notification every time the user needs multi-factor authentication.
 
 Guardian provides a method to parse the `Bundle` received from GCM and return a `Notification` instance ready to be used.
 
@@ -150,7 +148,7 @@ public void onMessageReceived(String from, Bundle data) {
 }
 ```
 
-Once you have the notification instance, you can easily approve the authentication request by using the `allow` method. You'll also need the enrollment that you obtained previously. If there are multiple enrollments, be sure to use the one that has the same `id` as the notification (the `enrollmentId` property).
+Once you have the notification instance, you can approve the authentication request by using the `allow` method. You'll also need the enrollment that you obtained previously. If there are multiple enrollments, be sure to use the one that has the same `id` as the notification (the `enrollmentId` property).
 
 ```java
 guardian
@@ -160,15 +158,13 @@ guardian
 
 ### Reject a login request
 
-To deny an authentication request, use `reject` instead. You can optionally add a reason for the rejection, which will be available in the guardian logs.
+To deny an authentication request, use `reject` instead. You can also add an optional reason for the rejection, which will be available in the guardian logs.
 
 ```java
 guardian
         .reject(notification, enrollment) // or reject(notification, enrollment, reason)
         .execute(); // or start(new Callback<> ...)
 ```
-
-
 
 ## Additional Documents
 

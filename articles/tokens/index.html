@@ -21,17 +21,17 @@ useCase:
 </div>
 
 <p>
-  Auth0 uses two types of tokens:</p>
+  Auth0 uses two formats for tokens:</p>
   <ul>
     <li>
-      <strong>JSON Web Tokens (JWT)</strong>: Tokens that conform to the <a href="/jwt">JSON Web Token standard</a> and contain information about an identity in the form of claims.  They are self-contained in that it is not necessary for the recipient to call a server to validate the token.
+      <strong>JSON Web Token (JWT)</strong>: Tokens that conform to the <a href="/jwt">JSON Web Token standard</a> and contain information about an entity in the form of claims. They are self-contained in that it is not necessary for the recipient to call a server to validate the token.
     </li>
     <li>
-      <strong>Opaque tokens</strong>: Tokens in a proprietary format that typically contain some identifier to information in a server’s persistent storage.  To validate an opaque token, the recipient of the token needs to call the server that issued the token.
+      <strong>Opaque tokens</strong>: Tokens in a proprietary format that typically contain some identifier to information in a server’s persistent storage. To validate an opaque token, the recipient of the token needs to call the server that issued the token.
     </li>
   </ul>
 
-<p>There are five primary tokens used in Auth0's token based authentication scenarios and referenced in Auth0 documentation.
+<p>There are five primary tokens used in Auth0's token-based authentication scenarios and referenced in Auth0 documentation.
 </p>
 
 <ul class="topic-links">
@@ -60,7 +60,7 @@ useCase:
         <i class="icon icon-budicon-695"></i><a href="/libraries/lock/v10/api#getuserinfo-">Retrieve the full user profile using Lock</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/user-profile">User profile overview</a>
+        <i class="icon icon-budicon-695"></i><a href="/users/concepts/overview-user-profile">User profile overview</a>
       </li>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/api/authentication#get-token-info">Validate a JWT and get the full user profile</a>
@@ -76,7 +76,7 @@ useCase:
   <li>
     <i class="icon icon-budicon-715"></i><a href="/tokens/overview-access-tokens">Access Token</a>
     <p>
-      The Access Token is a credential that can be used by an application to access an API. Auth0 uses Access Tokens to protect access to the Auth0 Management API.
+      The Access Token is a credential that can be used by an application to access an API.
     </p>
     <ul>
       <li>
@@ -86,7 +86,7 @@ useCase:
         <i class="icon icon-budicon-695"></i><a href="/api/authentication#get-user-info">Retrieve the full user profile with an Access Token</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/user-profile">User profile overview</a>
+        <i class="icon icon-budicon-695"></i><a href="/users/concepts/overview-user-profile">User profile overview</a>
       </li>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/protocols/oauth2">Read about OAuth 2.0</a>

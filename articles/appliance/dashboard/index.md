@@ -39,8 +39,6 @@ For additional information about the pages contained in the PSaaS Appliance conf
 
 [Activity](/appliance/dashboard/activity)
 
-[Instrumentation](/appliance/dashboard/instrumentation)
-
 [Rate Limiting](/appliance/dashboard/rate-limiting)
 
 [CLI](/appliance/dashboard/cli)

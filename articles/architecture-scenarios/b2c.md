@@ -31,7 +31,7 @@ One of the first things you'll want to set up is a user signup and login page. T
 
 First name, last name, email, confirm email, username, password, confirm password, phone number, company name, country, address line 1, address line 2, city, state, zip code, date of birth, favorite color, shoe size, highest scrabble score.
 
-A signup screen with 10-20 fields makes users hesitate before signing up. Many may not even sign up at all. To reduce barriers to entry, only require the minimum fields for signup and collect more information later. This is called [progressive profiling](/user-profile/progressive-profiling). There are two ways you can perform progressive profiling with Auth0: the Management API and Rules.
+A signup screen with 10-20 fields makes users hesitate before signing up. Many may not even sign up at all. To reduce barriers to entry, only require the minimum fields for signup and collect more information later. This is called [progressive profiling](/users/guides/implement-progressive-profiling). There are two ways you can perform progressive profiling with Auth0: the Management API and Rules.
 
 With the Auth0 Management API you can update user profiles at any time after signup. You can collect data while a user uses your application, then make incremental updates their profile.
 

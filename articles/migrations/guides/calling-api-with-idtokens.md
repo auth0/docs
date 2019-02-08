@@ -34,7 +34,7 @@ If you use ID Tokens to call any of the following endpoints, then you are affect
 | **Endpoint** | **Use Case** |
 |-|-|
 | [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id) | Retrieve a user's information |
-| [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments) | Retrieve all [Guardian](/multifactor-authentication/guardian) MFA enrollments for a user |
+| [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments) | Retrieve all [Guardian](/multifactor-authentication/factors/push) MFA enrollments for a user |
 | [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) | Update a user's information |
 | [DELETE /api/v2/users/{id}/multifactor/{provider}](/api/management/v2#!/Users/delete_multifactor_by_provider) | Delete the [multi-factor](/multifactor-authentication) provider settings for a user |
 | [POST /api/v2/device-credentials](/api/management/v2#!/Device_Credentials/post_device_credentials) | Create a public key for a device |
@@ -48,7 +48,7 @@ Note that the last two endpoints are used for Account Linking. To review these c
 
 ## Changes in scopes
 
-The actions you can perform with the Management API depend on the [scopes](/scopes#api-scopes) that your Access Token contains. With this migration you can either get a "limited" Access Token that can update only the logged-in user's data, or an Access Token that can update the data of any user. In the following matrix you can see the scopes that your token needs to have per case and per endpoint.
+The actions you can perform with the Management API depend on the [scopes](/scopes/current/api-scopes) that your Access Token contains. With this migration you can either get a "limited" Access Token that can update only the logged-in user's data, or an Access Token that can update the data of any user. In the following matrix you can see the scopes that your token needs to have per case and per endpoint.
 
 | **Endpoint** | **Scope for current user** | **Scope for any user** |
 |-|-|-|

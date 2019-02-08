@@ -111,7 +111,7 @@ With this migration, you must get an Access Token (which must contain the `updat
 First, you must get an Access Token with the `update:current_user_identities` scope. 
 
 ::: note
-In the example that follows, we use the [Implicit Grant](/api-auth/tutorials/implicit-grant), the recommended OAuth 2.0 flow for client-side apps). You can get Access Tokens though for any application type (see [Get Access Tokens](/tokens/get-access-tokens).
+In the example that follows, we use the [Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow), the recommended OAuth 2.0 flow for client-side apps). You can get Access Tokens though for any application type (see [Get Access Tokens](/tokens/get-access-tokens).
 :::
 
 <%= include('./_get-token-authorize.md', { scope: 'update:current_user_identities', idPrevious: 'authZ-id-token', idCurrent: 'authZ-access-token' }) %>

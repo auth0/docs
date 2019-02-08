@@ -12,11 +12,11 @@ contentType:
 useCase:
   - customize-mfa
 ---
-
 # Guardian for iOS
-The [Guardian for iOS Software Development Kit](https://github.com/auth0/GuardianSDK.iOS) allows developers to create iOS apps with Guardian functionality, providing easy and secure access to multi-factor authentication with push notifications. For example, this toolkit gives you the power to build a 'white label' version of the Guardian application for your users, using your own look-and-feel.
 
-More information can be found on Guardian [here](/multifactor-authentication/guardian). For general multi-factor discussion, read more [here](/multifactor-authentication).
+The [Guardian for iOS Software Development Kit](https://github.com/auth0/GuardianSDK.iOS) helps you create iOS apps with Guardian functionality, providing secure access to multi-factor authentication (MFA) with push notifications. With this toolkit you can build your own customized version of the Guardian application that matches the look and feel of your organization.
+
+For more general information on MFA, read our [multi-factor authentication](/multifactor-authentication) documentation.
 
 Get started using Guardian for iOS below, or, if you're looking for a specific document, try the listing of [additional documents](#additional-documents) related to Guardian for iOS.
 
@@ -153,7 +153,7 @@ Guardian
 
 ### Reject a login request
 
-To deny an authentication request just call `reject` instead. You can also send a reject reason if
+To deny an authentication request call `reject` instead. You can also send an optional reject reason if
 you want. The reject reason will be available in the guardian logs.
 
 ```swift

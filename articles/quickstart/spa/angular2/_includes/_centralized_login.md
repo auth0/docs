@@ -11,6 +11,8 @@ In the service add an instance of the `auth0.WebAuth` object. When creating that
 In this tutorial, the route is `/callback`, which is implemented in the [Add a Callback Component](#add-a-callback-component) step. 
 :::
 
+Add `_idToken`, `_accessToken`, `_expiresAt` properties to `AuthService` Class to store the ID Token, Access Token and Access Token's expiry time respectively. This values will be populated on successful auth. Add the getters for the ID Token and the Access Token.
+
 Add a `login` method that calls the `authorize` method from auth0.js.
 
 ```ts
@@ -18,13 +20,14 @@ Add a `login` method that calls the `authorize` method from auth0.js.
 
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
 import * as auth0 from 'auth0-js';
-
-(window as any).global = window;
 
 @Injectable()
 export class AuthService {
+
+  private _idToken: string;
+  private _accessToken: string;
+  private _expiresAt: number;
 
   auth0 = new auth0.WebAuth({
     clientID: '${account.clientId}',
@@ -34,7 +37,19 @@ export class AuthService {
     scope: 'openid'
   });
 
-  constructor(public router: Router) {}
+  constructor(public router: Router) {
+    this._idToken = '';
+    this._accessToken = '';
+    this._expiresAt = 0;
+  }
+
+  get accessToken(): string {
+    return this._accessToken;
+  }
+
+  get idToken(): string {
+    return this._idToken;
+  }
 
   public login(): void {
     this.auth0.authorize();
@@ -55,8 +70,9 @@ Add more methods to the `AuthService` service to handle authentication in the ap
 
 The example below shows the following methods:
 * `handleAuthentication`: looks for the result of authentication in the URL hash. Then, the result is processed with the `parseHash` method from auth0.js.
-* `setSession`: stores the user's Access Token, ID Token, and the Access Token's expiry time in browser storage.
-* `logout`: removes the user's tokens and expiry time from browser storage.
+* `localLogin`: stores the user's Access Token, ID Token, and the Access Token's expiry time in `AuthService` properties.
+* `renewTokens`: performs silent authentication to renew the session.
+* `logout`: removes the user's tokens and expiry time from `AuthService` properties.
 * `isAuthenticated`: checks whether the expiry time for the user's Access Token has passed.
 
 ```ts
@@ -71,7 +87,7 @@ export class AuthService {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
-        this.setSession(authResult);
+        this.localLogin(authResult);
         this.router.navigate(['/home']);
       } else if (err) {
         this.router.navigate(['/home']);
@@ -80,31 +96,59 @@ export class AuthService {
     });
   }
 
-  private setSession(authResult): void {
-    // Set the time that the Access Token will expire at
-    const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
-    localStorage.setItem('access_token', authResult.accessToken);
-    localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('expires_at', expiresAt);
+  private localLogin(authResult): void {
+    // Set isLoggedIn flag in localStorage
+    localStorage.setItem('isLoggedIn', 'true');
+    // Set the time that the access token will expire at
+    const expiresAt = (authResult.expiresIn * 1000) + new Date().getTime();
+    this._accessToken = authResult.accessToken;
+    this._idToken = authResult.idToken;
+    this._expiresAt = expiresAt;
+  }
+
+  public renewTokens(): void {
+    this.auth0.checkSession({}, (err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        this.localLogin(authResult);
+      } else if (err) {
+        alert(`Could not get a new token (<%= "${err.error}" %>: <%= "${err.error_description}" %>).`);
+        this.logout();
+      }
+    });
   }
 
   public logout(): void {
-    // Remove tokens and expiry time from localStorage
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
+    // Remove tokens and expiry time
+    this._accessToken = '';
+    this._idToken = '';
+    this._expiresAt = 0;
+    // Remove isLoggedIn flag from localStorage
+    localStorage.removeItem('isLoggedIn');
     // Go back to the home route
     this.router.navigate(['/']);
   }
 
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
-    // Access Token's expiry time
-    const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
-    return new Date().getTime() < expiresAt;
+    // access token's expiry time
+    return new Date().getTime() < this._expiresAt;
   }
 
 }
+```
+
+Then add the service `AuthService` in the set of providers in your `@NgModule`.
+
+```ts
+// src/app/app.module.ts
+
+// ...
+import { AuthService } from "./auth/auth.service";
+
+@NgModule({
+  // ...
+  providers: [AuthService]
+})
 ```
 
 ### Provide a Login Control
@@ -191,7 +235,7 @@ Call the `handleAuthentication` method in your app's root component. The method 
 ```ts
 // src/app/app.component.ts
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/auth.service';
 
 @Component({
@@ -199,10 +243,16 @@ import { AuthService } from './auth/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   constructor(public auth: AuthService) {
     auth.handleAuthentication();
+  }
+
+  ngOnInit() {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      this.auth.renewTokens();
+    }
   }
 
 }
