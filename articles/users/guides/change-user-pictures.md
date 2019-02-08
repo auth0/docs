@@ -16,7 +16,7 @@ Auth0 [normalizes](/users/normalized) common profile properties in the User Prof
 
 ![User Picture](/media/articles/user-profile/user-picture.png)
 
-1. By default, the `user.picture` attribute is not directly editable. If you want to be able to edit the `user.picture` attribute on the normalized user profile, you must [specify that user attributes be updated on user profile creation only](/connections/guides/change-user-attribute-update). This field will then be available to be edited with the Management API's [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id).
+1. By default, the `user.picture` attribute is not directly editable. If you want to be able to edit the `user.picture` attribute on the normalized user profile, you must [enable a connection to allow updates to the normalized user profile](/connections/guides/allow-update-normalized-user-profile). When enabled, user attributes will be updated from the identity provider only on user profile creation and will be available to be edited with the Management API's [Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
 
 Alternatively, you can use the [Metadata](/users/concepts/overview-user-metadata) to store the picture attribute for users, but this is not recommended for scalability.
 
