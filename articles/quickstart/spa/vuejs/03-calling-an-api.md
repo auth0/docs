@@ -53,7 +53,6 @@ In order to call the API from the frontend application, the development server m
 
 module.exports = {
   devServer: {
-    port: 3000,
     proxy: {
       "/api": {
         target: "http://localhost:3001"
@@ -73,7 +72,18 @@ With this in place, the frontend application can make a request to `/api/externa
 
 To start, open `authService.js` and make the necessary changes to the class to support retrieving an Access Token from the authorization server and exposing that token from a method.
 
-First of all, modify the `webAuth` creation to include `token` in the response type and add in the API identifier as the `audience` value:
+First of all, open `auth0-variables.js` and make sure that a value for `audience` is exported along with the other settings:
+
+```js
+export const AUTH_CONFIG = {
+  domain: '${account.tenant}',
+  clientId: '${account.clientId}',
+  callbackUrl: `<%= "${window.location.origin}" %>/callback`,
+  audience: '${apiIdentifier}'  // NEW - add the audience value
+};
+```
+
+Then, modify the `webAuth` creation to include `token` in the response type and add in the API identifier as the `audience` value:
 
 ```js
 // src/auth/authService.js
@@ -132,7 +142,7 @@ localLogin(authResult) {
   }
 ```
 
-Add two methods to the class that validate the Access Token and provide access to the token itself:
+Finally, add two methods to the class that validate the Access Token and provide access to the token itself:
 
 ```js
 // src/auth/authService.js
@@ -166,19 +176,6 @@ class AuthService extends EventEmitter {
 ::: note
 If `getAccessToken` is called and the Access Token is no longer valid, a new token will be retrieved automatically by calling `renewTokens`.
 :::
-
-Finally, add the `audience` configuration option to the `auth0-variables.js` file so that it can be pulled into the `AuthService` class:
-
-```js
-// src/auth/auth0-variables.js
-
-export const AUTH_CONFIG = {
-  domain: '${account.tenant}',
-  clientId: '${account.clientId}',
-  callbackUrl: `<%= "${window.location.origin}" %>/callback`,
-  audience: '${apiIdentifier}'  // add your API identifier as the audience
-};
-```
 
 ## Call the API Using an Access Token
 
@@ -251,6 +248,8 @@ Modify the Vue router to include a route to this new page whenever the `/externa
 // src/router.js
 
 // .. other imports
+
+// NEW - import the view for calling the API
 import ExternalApiView from "./views/ExternalApi.vue";
 
 const router = new Router({
@@ -258,6 +257,8 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     // ... other routes,
+
+    // NEW - add a new route for the new page
     {
       path: "/external-api",
       name: "external-api",
