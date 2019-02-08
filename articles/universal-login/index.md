@@ -9,6 +9,7 @@ topics:
   - error-pages
   - hosted-pages
 contentType: index
+toc: true
 useCase: customize-hosted-pages
 ---
 # Auth0 Universal Login
@@ -37,40 +38,35 @@ Universal Login is currently the only way to implement Passwordless connections 
 
 ## Implementing Universal Login
 
-Implementing Universal Login can be done with the following steps:
+In addition to configuring Universal Login for your tenant's applications, you will also need to set up a connection(s) and set up your application in Auth0's dashboard. You will also need to configure your application's code to call Auth0's `/authorize` endpoint in order to trigger Universal Login, and then to deal with the response.
 
-1. [Configure the connections](#configure-the-connections)
-2. [Configure the login page](#configure-the-login-page)
-3. [Configure the application](#configure-the-application)
+For step by step instructions on setting up your application to use Universal Login, check out our [Quickstart guides](/docs/quickstart).
 
-
-### 1. Configure the connections
-
-
-
-### 2. Configure the login page
+### Configure Universal Login Settings
 
 In the [Dashboard](${manage_url}), you can see the settings for your login page by navigating to [Hosted Pages](${manage_url}/#/login_page) and looking at the tab for the Login Page.
 
-![Login Page](/media/articles/hosted-pages/login.png)
+The settings available here are:
 
-The login page works for most basic use cases without being customized. The included scripts are updated as required by Auth0. However, when the customization toggle is flipped on, you then become responsible for the updating and maintenance of the script, as it can no longer be automatically updated by Auth0. This includes updating the version numbers for any included scripts, such as Lock or Auth0.js.
+* Logo
+* Primary Color
+* Background Color
+
+These settings, once changed, will take effect on your login page if you have not enabled customization of the login page code, or if you have enabled customization but are using the predefined templates and have not changed those options in the code.
+
+### Customizing the login page
+
+In addition to the settings above, the actual code of the page may be altered and added to. The login page works for many use cases without customizing its code, but if the customization toggle is enabled, you are able to modify it at will. Any configuration or customization changes made to the login page will affect the entire tenant, not just a single application on that tenant.
+
+When the customization toggle is flipped on, you then become responsible for updates and maintenance of the script, as it can no longer be automatically updated by Auth0. This includes updating the version numbers for any included scripts, such as Lock or Auth0.js.
 
 ::: note
 If you have enabled customization to inspect the page code, and then decide **not** to customize your login page, you should make sure to disable the **Customize Login Page** toggle, to allow your page to receive the updates it might need from Auth0.
 :::
 
-#### Appearance Settings
+#### Choose a template to begin
 
-* Logo
-* Primary Color
-* Secondary Color
-
-If you would like to customize your login page further by altering the page's code, see our documentation on [customizing the login page](/).
-
-### Choose and customize a template
-
-In order to get started customizing the login page, you'll first want to choose the template for the technology that you'd like to use to power it. You will find these templates in a dropdown just above the code editor for the login page, if you have toggled customization on. 
+If you intend to customize the login page, you'll first want to choose the template for the technology that you'd like to use to power it. You will find these templates in a dropdown just above the code editor for the login page, if you have toggled customization on. 
 
 Click one of the links below to get started. If you do not intend to customize your login page, it will use the default experience, which incorporates the Lock widget, and you may skip this step.
 
@@ -78,26 +74,15 @@ Click one of the links below to get started. If you do not intend to customize y
 - [Lock (Passwordless Mode)](/hosted-pages/login/lock-passwordless) - Lock in Passwordless Mode uses the same Lock interface, but rather than offering identity providers as login options, will simply ask the user to enter an email or SMS number to begin a passwordless authentication transaction.
 - [Auth0.js](/hosted-pages/login/auth0js) - Auth0.js is the SDK used for interacting with the Auth0 [authentication API](/api/authentication). Primarily, you would use the SDK if you need to build your own custom login UI, or implement more complex functionality than simply allowing your users to login. 
 
-### 3. Configure the application
+#### Modify the code of the login page
 
-CODE PICKER SHOWING EXAMPLES OF CALLING /AUTHORIZE FROM YOUR APP
-* Auth0.js
-* API Request (use like node or curl or w/e)
-* Swift
-* Android
+If you intend to customize the login page, once you have chosen a template, you may use it as a guide. If you are using Lock or Auth0.js in your login page, you may look at the [Lock Configuration Guide](/libraries/lock/v11/configuration) or the [Auth0.js documentation](/libraries/auth0js/v9).
 
-## Universal Login and Custom Domains
+You may perform whatever CSS customizations that you like, as long as they are included in this one file.
 
-Blurb
+## Other facets of Universal Login
 
-## Troubleshooting
-
-* Foo
-* Bar
-
-## Extensions of Universal Login
-
-Auth0 offers you the ability to customize and display several pages containing Auth0-related functionality and to which Auth0 redirects your users during the authorization process, other than just the login page. You can create the following types of pages from your [Dashboard](${manage_url}):
+Auth0 offers you the ability to customize and display several pages containing Auth0-related functionality and to which Auth0 redirects your users during the authorization process, other than just the login page. You can modify the following types of pages from your [Dashboard](${manage_url}):
 
 * [Login Page](#auth0-universal-login)
 * [Password Reset Page](/universal-login/password-reset)
