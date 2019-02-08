@@ -32,13 +32,10 @@ In the [Application](${manage_url}/#/applications) section, locate your Applicat
 
 - **Application Logo**: The URL to a logo (recommended size: 150x150 pixels) to be displayed for the application. This will appear in several areas, including the list of applications in the Dashboard, as well as things like customized consent forms.
 
-Generic
---
 - **Application Type**: 
 
-- **Token Endpoint Authentication Method**: Defines the requested authentication method for the token endpoint. Possible values are `None` (public client without a client secret), `Post` (client uses HTTP POST parameters) or `Basic` (client uses HTTP Basic).
+- **Token Endpoint Authentication Method**: Defines the requested authentication method for the token endpoint. Possible values are `None` (public client without a client secret), `Post` (client uses HTTP POST parameters) or `Basic` (client uses HTTP Basic). Only available for regular web apps.
 
---
 ::: note
 You can provide up to 100 URLs in the **Allowed Callback URLs**, **Allowed Web Origins**, **Allowed Logout URLs**, **Allowed Origins (CORS)** fields.
 :::
@@ -54,13 +51,6 @@ You can provide up to 100 URLs in the **Allowed Callback URLs**, **Allowed Web O
 - **JWT Expiration (seconds)**: The amount of time (in seconds) before the Auth0 ID Token expires. The default value is `36000`, which maps to 10 hours.
 
 - **Use Auth0 instead of the IdP to do Single Sign On**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on).
-
-For Regular Web Apps:
-
-- **Token Endpoint Authentication Method**: Defines the requested authentication method for the token endpoint. Possible values are `None` (public client without a client secret), `Post` (client uses HTTP POST parameters) or `Basic` (client uses HTTP Basic).
-
-* Toggle the **Trust Token Endpoint IP Header** setting; if this is enabled, the `auth0-forwarded-for` is set as trusted and used as a source of end user IP information for protection against brute-force attacks on the token endpoint.
-
 
 ![Application Settings Page](/media/articles/applications/settings.png)
 
@@ -95,6 +85,9 @@ Set the OAuth-related settings on this tab:
 * By default, all apps/APIs can make a delegation request, but if you want to explicitly grant permissions to selected apps/APIs, you can do so in **Allowed APPs/APIs**.
 
 * Set the algorithm used (**HS256** or **RS256**) for signing your JSON Web Tokens. See signing algorithms?
+
+* Toggle the **Trust Token Endpoint IP Header** setting; if this is enabled, the `auth0-forwarded-for` is set as trusted and used as a source of end user IP information for protection against brute-force attacks on the token endpoint.
+Only shows on regular web apps.
 
 * Toggle the switch to indicate if your application is OIDC Conformant or not. Applications flagged as OIDC Conformant will strictly follow the OIDC specification. 
 
