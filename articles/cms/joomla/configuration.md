@@ -14,7 +14,7 @@ Before you can use Auth0 to handle authentication and authorization requests for
 
 ## Configure Application Values
 
-To use Auth0 with Joomla, be sure you have a valid [Application](/applications). You'll need to provide information about your application to the Auth0-Joomla extension you [installed](/cms/joomla/installation).
+To use Auth0 with Joomla, be sure you have a valid [Application](/applications/concepts/app-types-auth0). You'll need to provide information about your application to the Auth0-Joomla extension you [installed](/cms/joomla/installation).
 
 1. Log in to the Joomla Control Panel using an admin account. Using the top navigation bar, go to **Components > Auth0 > Auth0**. Click **Options** (located in the top right of the window). 
 

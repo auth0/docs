@@ -27,5 +27,5 @@ You can configure any number of [connections](/connections) through the Auth0 Da
 
 - [Connections](/connections)
 - [Identity Providers Supported by Auth0](/identityproviders)
-- [Multiple Tenants](/applications/multiple-tenants)
+- [Multiple Tenants](/applications/concepts/multiple-tenants)
 - [Using Auth0 with Multi-Tenant Applications](/design/using-auth0-with-multi-tenant-apps)

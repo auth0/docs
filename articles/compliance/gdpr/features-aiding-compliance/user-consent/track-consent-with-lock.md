@@ -42,7 +42,7 @@ We will see three different implementations for this:
 
 ## Configure the application
 
-1. Go to [Dashboard > Applications](${manage_url}/#/applications) and create a new [application](/applications). Choose `Single Web Page Applications` as type.
+1. Go to [Dashboard > Applications](${manage_url}/#/applications) and create a new [application](/applications/concepts/app-types-auth0). Choose `Single Web Page Applications` as type.
 
 1. Go to **Settings** and set the **Allowed Callback URLs** to `http://localhost:3000`. 
 

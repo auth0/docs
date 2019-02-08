@@ -22,7 +22,7 @@ The __Authorization Code__ is an OAuth 2.0 grant that [regular web apps](/quicks
 
 Before beginning this tutorial, please:
 
-* Check that your Application's [Grant Type property](/applications/application-grant-types) is set appropriately
+* Check that your Application's [Grant Type property](/applications/concepts/application-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 
 ## 1. Get the User's Authorization

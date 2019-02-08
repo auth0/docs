@@ -23,7 +23,7 @@ The __Authorization Code with PKCE__ is the OAuth 2.0 grant that [native apps](/
 
 Before beginning this tutorial, please:
 
-* Check that your Application's [Grant Type property](/applications/application-grant-types) is set appropriately
+* Check that your Application's [Grant Type property](/applications/concepts/application-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 
 ## 1. Create a Code Verifier

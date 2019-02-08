@@ -38,7 +38,7 @@ Lock
 
 ### Passwordless Method
 
-When using Lock Passwordless the default `passwordlessMethod` is `.code` which sends the user a one time passcode to login. If you want to use [Universal Links](/applications/enable-universal-links) you can add the following:
+When using Lock Passwordless the default `passwordlessMethod` is `.code` which sends the user a one time passcode to login. If you want to use [Universal Links](/applications/guides/enable-universal-links-dashboard) you can add the following:
 
 ```swift
 .withOptions {

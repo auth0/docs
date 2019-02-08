@@ -55,6 +55,6 @@ You will also need your tenant's domain (`${account.namespace}`). You can find t
 ## Keep reading
 
 * [Get Access Tokens for Production](/api/management/v2/get-access-tokens-for-production)
-* [Machine-to-Machine Application](/applications/machine-to-machine)
+* [Auth0 Application Types](/applications/concepts/app-types-auth0)
 * [Management API Explorer](/api/management/v2#!)
 * [Management API Access Tokens FAQs](/api/management/v2/faq-management-api-access-tokens)
