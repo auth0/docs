@@ -9,7 +9,7 @@ contentType:
 useCase: extensibility-hooks
 v2: true
 ---
-# Post-User Registration Extensibility Point
+# Post-User-Registration Extensibility Point
 
 For [Database Connections](/connections/database), the `post-user-registration` extensibility point allows you to implement custom actions that execute after a new user registers and is added to the database.
 
