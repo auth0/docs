@@ -1,5 +1,5 @@
 ---
-description: Learn to enable Android App Links support for your Auth0 application
+description: Learn to enable Android App Links support for your Auth0 application.
 topics:
   - applications
   - android
@@ -10,7 +10,7 @@ useCase:
   - enable-mobile-auth
 ---
 
-# Enable Android App Links Support using the Dashboard
+# Enable Android App Links Support
 
 [Android App Links](https://developer.android.com/training/app-links/index.html) allow an application to designate itself as the default handler of a given type of link. For example, clicking a URL in an email would open the link in the designated application. This guide will show you how to enable Android App links support for your Auth0-registered application using the Auth0 Dashboard.
 
