@@ -14,15 +14,11 @@ useCase:
 
 To integrate Auth0 with mobile, desktop, or hybrid apps that run natively on deviced (e.g., Android, iOS, Windows, macOS), you must first register your app as a Native/Mobile App.
 
-<%= include('./_configure', { application_type: 'Native', application_type_create: 'Native' }) %>
+<%= include('./_configure', { application_type: 'native/mobile', application_type_create: 'Native Apps' }) %>
 
 ## Settings
 
-By default, most of the settings will be created for you. However, for a native or mobile app, you must:
-
-- For **Application Type**, choose Native/Mobile Apps
-
-You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-applications). 
+By default, most of the settings will be created for you. You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-applications). 
 
 ### Advanced Settings
 
