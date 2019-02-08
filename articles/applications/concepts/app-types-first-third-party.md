@@ -58,6 +58,6 @@ Third-party applications should be granted the `current_user_*` scopes, as requi
 - `update:current_user_identities`: [Link a user account](/api/management/v2#!/Users/post_identities), [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id)
 
 ## Keep reading
-* Learn how to find out whether an application is first-party or third-party at [View Application Type: First-Party or Third-Party](/applications/guides/view-application-type-first-party)
+* Learn how to find out whether an application is first-party or third-party at [View Application Ownership](/applications/guides/view-app-ownership-mgmt-api)
 * Learn about other application categories, such as [confidential vs. public](/applications/concepts/app-types-confidential-public) and [Auth0 application types](/applications/concepts/app-types-auth0).
 * Explore the grant types available for different application types at [Auth0 Grant Types Mapping](/applications/reference/grant-types-auth0-mapping).
