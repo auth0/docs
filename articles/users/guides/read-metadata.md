@@ -18,7 +18,7 @@ You can read metadata using rules with the Management API and with Lock. You can
 - `family_name`
 
 ::: warning
-Rather than storing profile-related information in `user_metadata`, you can edit these user attributes on the normalized user profile. If you want to be able to edit the `name`, `nickname`, `given_name`, `family_name`, or `picture` attributes on the normalized user profile, you must [specify that user attributes be updated on user profile creation only](/connections/guides/change-user-attribute-update). User attributes will then be editable via the Management API's [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id).
+Rather than storing profile-related information in `user_metadata`, you can edit these user attributes on the normalized user profile. If you want to be able to edit the `name`, `nickname`, `given_name`, `family_name`, or `picture` attributes on the normalized user profile, you must [enable a connection to allow updates to the normalized user profile](/connections/guides/allow-update-normalized-user-profile). When enabled, user attributes will be updated from the identity provider only on user profile creation and will be available to be edited with the Management API's [Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
 :::
 
 ::: note 
