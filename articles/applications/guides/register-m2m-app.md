@@ -67,7 +67,7 @@ By default, most of these settings will be created for you. You can explore all 
 
 Once you have configured your Application, some common next steps to take are:
 
-- **Configure a Connection** and enable it for your Application. For details, refer to [Application Connections](/applications/connections). For a list of the supported Identity Providers refer to [Identity Providers Supported by Auth0](/identityproviders).
+- **Configure a Connection** and enable it for your Application. For details, refer to [Connections](/connections). For a list of the supported Identity Providers refer to [Identity Providers Supported by Auth0](/identityproviders).
 
 - **Configure your app** to use your Auth0-registered Application. For detailed instructions and samples for a variety of technologies, refer to our [quickstarts](/quickstarts), where you can find information on how to implement login and logout, handle your user sessions, retrieve and display user profile information, add [Rules](/rules) to customize your flow, and more.
 

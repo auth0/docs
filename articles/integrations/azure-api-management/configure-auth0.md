@@ -21,7 +21,7 @@ To use Auth0 as an [OAuth 2.0 authorization server](/protocols/oauth2#oauth-role
 
 An API is an entity that represents an external resource that's capable of accepting and responding to requests made by applications. You'll need to create an [Auth0 API](/apis) using the Management Dashboard to represent the API managed by Azure's API Management Service that you want secured by Auth0.
 
-You'll also need a [Machine to Machine Application](/applications#application-types), which represents your application and allows use of Auth0 for authentication. When you create an API, Auth0 automatically creates an associated Machine to Machine Application by default.
+You'll also need a [Machine to Machine Application](/applications/concepts/app-types-auth0), which represents your application and allows use of Auth0 for authentication. When you create an API, Auth0 automatically creates an associated Machine to Machine Application by default.
 
 To begin, you'll need to log into the Auth0 Management Dashboard. Go the [APIs](${manage_url}/#/apis) and click **Create API**.
 
@@ -39,13 +39,12 @@ When complete, click **Create**.
 
 ![](/media/articles/integrations/azure-api-mgmt/auth0/api-config.png)
 
-When your API is ready, you'll be shown the **Quick Start** page for the API. Switch over to the **Machine to Machine Applications** tab. You'll see that Auth0 has also created and enabled a [Machine to Machine Application](/applications) for use with your API.
+When your API is ready, you'll be shown the **Quick Start** page for the API. Switch over to the **Machine to Machine Applications** tab. You'll see that Auth0 has also created and enabled a [Machine to Machine Application](/applications/concepts/app-types-auth0) for use with your API.
 
 ![](/media/articles/integrations/azure-api-mgmt/auth0/api-nic.png)
 
 ## Step 2: Create a Connection
 
-After you've created your API and your Application, you'll need to create a [Connection](/applications/connections), which is a source of users. For the purposes of this example, we'll create a [Database Connection](/connections/database).
 
 ::: note
 If you already have a set of users, you may [import them](/extensions/user-import-export) or create a [custom database connection](https://auth0.com/docs/connections/database/mysql).

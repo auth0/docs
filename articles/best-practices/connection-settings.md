@@ -15,7 +15,7 @@ useCase:
 
 # Connection Settings Best Practices
 
-Here are some best practices for configuring [connections](/connections). Before you set up connections, take a moment to review [what connections are](/applications/connections) and [the basics of authentication](/application-auth) for your application type.
+Here are some best practices for configuring [connections](/connections). Before you set up connections, take a moment to review [what connections are](/connections) and [the basics of authentication](/application-auth) for your application type.
 
 ## Use your credentials for social connections
 

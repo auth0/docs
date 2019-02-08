@@ -22,7 +22,7 @@ There are two types of [JSON Web Token (JWT)](/tokens/jwt) claims:
 
 ### Reserved claims
 
-The JWT specification defines seven reserved claims that are not required, but are recommended to allow interoperability with [third-party applications](/applications/application-types#third-party-applications). These are:
+The JWT specification defines seven reserved claims that are not required, but are recommended to allow interoperability with [third-party applications](/applications/concepts/app-types-first-third-party#third-party-applications). These are:
 
 * iss (issuer): Issuer of the JWT
 * sub (subject): Subject of the JWT (the user)

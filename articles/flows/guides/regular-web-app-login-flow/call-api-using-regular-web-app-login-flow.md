@@ -27,10 +27,10 @@ Auth0 makes it easy for your app to implement the regular web app login flow usi
 
 **Before beginning this tutorial:**
 
-* [Register your Application with Auth0](/applications/webapps). 
+* [Register your Application with Auth0](/applications/guides/register-regular-web-app). 
   * Select an **Application Type** of **Regular Web Apps**.
   * Add an **Allowed Callback URL** of **`${account.callback}`**.
-  * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Authorization Code**.
+  * Make sure your Application's **[Grant Types](/applications/guides/update-grant-types-dashboard)** include **Authorization Code**.
 
 * [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
   * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
