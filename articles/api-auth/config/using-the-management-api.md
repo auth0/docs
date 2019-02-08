@@ -9,9 +9,9 @@ contentType: how-to
 useCase: secure-api
 ---
 
-# Set up a Client Grant using the Management API
+# Set up a Client Credentials Grant using the Management API
 
-Auth0 lets you authorize applications that have the 'Client Credential' grant type enabled to call APIs using the [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow). 
+Auth0 lets you authorize applications that have the 'Client Credentials' grant type enabled to call APIs using the [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow). 
 
 By default, all Machine-to-Machine Applications and Regular Web Applications have the 'Client Credentials' grant enabled, but they are not authorized to call any API.
 
