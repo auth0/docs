@@ -32,6 +32,13 @@ In the [Application](${manage_url}/#/applications) section, locate your Applicat
 
 - **Application Logo**: The URL to a logo (recommended size: 150x150 pixels) to be displayed for the application. This will appear in several areas, including the list of applications in the Dashboard, as well as things like customized consent forms.
 
+Generic
+--
+- **Application Type**: 
+
+- **Token Endpoint Authentication Method**: Defines the requested authentication method for the token endpoint. Possible values are `None` (public client without a client secret), `Post` (client uses HTTP POST parameters) or `Basic` (client uses HTTP Basic).
+
+--
 ::: note
 You can provide up to 100 URLs in the **Allowed Callback URLs**, **Allowed Web Origins**, **Allowed Logout URLs**, **Allowed Origins (CORS)** fields.
 :::
@@ -73,16 +80,6 @@ Application metadata are custom string keys and values (each of which has a char
 
 You can create up to 10 sets of metadata.
 
-### OAuth
-
-Set the OAuth-related settings on this tab:
-
-* By default, all apps/APIs can make a delegation request, but if you want to explicitly grant permissions to selected apps/APIs, you can do so in **Allowed APPs/APIs**.
-
-* Set the algorithm used (**HS256** or **RS256**) for signing your JSON Web Tokens.
-
-* Toggle the switch to indicate if your application is OIDC Conformant or not.
-
 ### Mobile Settings
 
 If you're developing a mobile application, you can provide the necessary iOS/Android parameters here.
@@ -91,4 +88,30 @@ When developing iOS apps, you'll provide your **Team ID** and **App Bundle Ident
 
 When developing Android apps, you'll provide your **App Package Name** and your **Key Hashes**.
 
+### OAuth
+
+Set the OAuth-related settings on this tab:
+
+* By default, all apps/APIs can make a delegation request, but if you want to explicitly grant permissions to selected apps/APIs, you can do so in **Allowed APPs/APIs**.
+
+* Set the algorithm used (**HS256** or **RS256**) for signing your JSON Web Tokens. See signing algorithms?
+
+* Toggle the switch to indicate if your application is OIDC Conformant or not. Applications flagged as OIDC Conformant will strictly follow the OIDC specification. 
+
+Cross-Origin Verification Fallback
+
+Location URL for the page that will be rendered inside an iframe to perform the token verification when third party cookies are not enabled in the browser. Must be in the same domain where the embedded login form is hosted and must have a https scheme.
+
+
+### Grant Types
+Enable/disable grant types. Available based on app type?
+
+### WS-Federation
+Form template.
+
+### Certificates
+Signing certificate, fingerprint, and thumbprint.
+
+### Endpoints
+View tenant endpoints for OAuth, SAML, and WS-Fed.
 
