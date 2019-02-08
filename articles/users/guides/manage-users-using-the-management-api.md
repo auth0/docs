@@ -24,19 +24,11 @@ You can setup Access Control List (ACL)/Roles functionality by adding custom att
 
 ## Limitations
 
-By default, normalized user profile attributes are not directly editable since they are updated from the identity provider each time a user logs in. If you want to be able to edit the , you must [specify that user attributes be updated on user profile creation only](/connections/guides/change-user-attribute-update). These fields will then be available to be edited with the Management API's [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id).
-
-As with the dashboard, the API does not alter data sourced from connections such as Facebook or Active Directory.
-
-Not all user profile attributes can be altered via the API. For example, the identities array, which contains information from third party authentication providers, cannot be altered.
-
-### Modify identities array
-
-You may not be able to alter the identities array information, but there are some workarounds you could use (i.e., to modify the picture that is coming from the user's Facebook profile). You cannot change the attribute in the `Identity Provider Attributes` section, so instead you can set the `picture` attribute in the `user_metadata` property and then in your application you could use `${'<%= user.user_metadata.picture || user.picture %>'}`. This code snippet tries to use the `picture` property from `user_metadata` and if it doesn't exist it uses the default (`user.picture`). You could set this as the `src` of the image to display.
+By default, normalized user profile attributes are not directly editable since they are updated from the identity provider each time a user logs in. If you want to be able to edit the `name`, `nickname`, `given_name`, `family_name`, or `picture` attributes on the normalized user profile, you must [specify that user attributes be updated on user profile creation only](/connections/guides/change-user-attribute-update). These fields will then be available to be edited with the Management API's [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id).
 
 ### Set passwords
 
-Another example is that the password can be set via the `create` or `update` calls, but for security purposes, it cannot be viewed via the `get` or `list user` commands. The right side of the API explorer provides hints on the user profile attributes which can be viewed or modified for any given call.
+The password can be set via the `create` or `update` calls, but for security purposes, it cannot be viewed via the `get` or `list user` commands. The right side of the API explorer provides hints on the user profile attributes which can be viewed or modified for any given call.
 
 ## Endpoints
 
