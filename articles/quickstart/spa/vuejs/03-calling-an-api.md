@@ -23,6 +23,52 @@ This tutorial shows you how to create a simple API using [Express](https://expre
 
 <%= include('../_includes/_calling_api_create_backend.md') %>
 
+Finally, modify `package.json` to add two new scripts `dev` and `api` that can be used to start the frontend and the backend API together:
+
+```json
+{
+  "name": "03-calling-an-api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "dev": "npm-run-all --parallel serve api",
+    "api": "node server.js"
+  },
+
+  // .. package dependencies and other JSON nodes
+}
+```
+
+You can now start the project using `npm run dev` in the terminal, and the frontend Vue.js application will start up alongside the backend API.
+
+### Set up a proxy to the backend API
+
+In order to call the API from the frontend application, the development server must be configured to proxy requests through to the backend API. To do this, add a `vue.config.js` file to the root of the project and populate it with the following code:
+
+```js
+// vue.config.js
+
+module.exports = {
+  devServer: {
+    port: 3000,
+    proxy: {
+      "/api": {
+        target: "http://localhost:3001"
+      }
+    }
+  }
+};
+```
+
+::: note
+This assumes that your project was created using [Vue CLI 3](https://cli.vuejs.org/guide/). If your project was not created in the same way, the above should be included as part of your Webpack configuration.
+:::
+
+With this in place, the frontend application can make a request to `/api/external` and it will be correctly proxied through to the backend API at `http://localhost:3001/api/external`.
+
 ## Modify the AuthService Class
 
 To start, open `authService.js` and make the necessary changes to the class to support retrieving an Access Token from the authorization server and exposing that token from a method.
@@ -134,13 +180,19 @@ export const AUTH_CONFIG = {
 };
 ```
 
-## Calling the API Using an Access Token
+## Call the API Using an Access Token
 
 The frontend Vue.js application should be modified to include a page that calls the API using an Access Token. Similar to the previous tutorial, this includes modifying the Vue router and adding a new view with a button that calls the API.
 
-### Adding a new page
+### Add a new page
 
-Create a new file `ExternalApi.vue` inside the `views` folder, with the following content:
+First, install the [`axios`](https://www.npmjs.com/package/axios) HTTP library, which will allow us to make HTTP calls out to the backend API:
+
+```bash
+npm install --save-dev axios
+```
+
+Next, create a new file `ExternalApi.vue` inside the `views` folder, with the following content:
 
 ```js
 <!-- src/views/ExternalApi.vue -->
@@ -164,6 +216,8 @@ Create a new file `ExternalApi.vue` inside the `views` folder, with the followin
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "Api",
   data() {
@@ -176,7 +230,7 @@ export default {
       const accessToken = await this.$auth.getAccessToken();
 
       try {
-        const { data } = await this.$http.get("/api/external", {
+        const { data } = await axios.get("/api/external", {
           headers: {
             Authorization: `Bearer <%= "${accessToken}" %>`
           }
