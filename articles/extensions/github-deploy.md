@@ -65,6 +65,7 @@ With each commit you push to your configured GitHub repository, the webhook will
 - `grants`
 - `emails`
 - `resource-servers`
+- `connections`
 - `database-connections`
 - `rules-configs`
 - `rules`
@@ -76,7 +77,7 @@ The __Deploy__ button on the **Deployments** tab of the extension allows you to 
 To maintain a consistent state, the extension will always do a full redeployment of the contents of these folders. Any rules or database connection scripts that exist in Auth0 but not in your GitHub repository will be __deleted__.
 :::
 
-### Deploy database connection scripts
+### Deploy Database Connection scripts
 
 To deploy database connection scripts, you must first create a directory under `database-connections`. The name of the directory must __exactly__ match the name of your [database connection](${manage_url}/#/connections/database) in Auth0. Of course, you can create as many directories as you have database connections.
 
@@ -94,6 +95,34 @@ Only the `login.js` script is required in a custom database connection.
 If you enabled the migration feature, you will also need to provide the `get_user.js` script.
 
 You can find an example in [this GitHub repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/database-connections/my-custom-db).
+
+#### Deploy Database Connection settings
+
+To deploy Database Connection settings, you must create `database-connections/[connection-name]/settings.json`. 
+
+_This will work only for Auth0 connections (`strategy === auth0`); for non-Auth0 connections use `connections`._
+
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/patch_connections_by_id) for more info on allowed attributes for Connections.
+
+### Deploy Connections
+
+To deploy a connection, you must create a JSON file under the `connections` directory of your GitHub repository. Example:
+
+__facebook.json__
+```json
+{
+  "name": "facebook",
+  "strategy": "facebook",
+  "enabled_clients": [
+    "my-client"
+  ],
+  "options": {}
+}
+```
+
+_This will work only for non-Auth0 connections (`strategy !== auth0`); for Auth0 connections, use `database-connections`._
+
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
 
 ### Deploy Hosted Pages
 
@@ -218,24 +247,6 @@ __my-api.json__
 ```
 
 See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Resource_Servers/post_resource_servers) for more info on allowed attributes for Resource Servers.
-
-### Deploy Connections
-
-To deploy a connection, you must create a JSON file under the `connections` directory of your GitHub repository. Example:
-
-__facebook.json__
-```json
-{
-  "name": "facebook",
-  "strategy": "facebook",
-  "enabled_clients": [
-    "my-client"
-  ],
-  "options": {}
-}
-```
-
-See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
 
 ### Deploy Email Provider
 

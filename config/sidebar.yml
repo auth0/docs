@@ -456,22 +456,6 @@ articles:
       - title: "Overview"
         url: "/hooks/overview"
 
-      - title: "Extensibility Points"
-        url: "/hooks/extensibility-points"
-        children:
-
-          - title: "Credentials Exchange"
-            url: "/hooks/extensibility-points/credentials-exchange"
-            hidden: true
-
-          - title: "Pre-User Registration"
-            url: "/hooks/extensibility-points/pre-user-registration"
-            hidden: true
-
-          - title: "Post-User Registration"
-            url: "/hooks/extensibility-points/post-user-registration"
-            hidden: true
-
       - title: "Using the Auth0 CLI"
         url: "/hooks/cli"
         children:
