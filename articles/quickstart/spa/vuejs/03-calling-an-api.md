@@ -17,13 +17,13 @@ useCase: quickstart
 
 Most single-page apps use resources from data APIs. You may want to restrict access to those resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
 
-This tutorial shows you how to access protected resources in your API, as well as how to modify the API that was created in part 2 to include an endpoint that requires an access token.
+This tutorial shows you how to create a simple API using [Express](https://expressjs.com) that validates incoming JSON Web Tokens. You will then see how to call this API using an Access Token granted to you from the Auth0 authorization server.
 
 <%= include('../_includes/_calling_api_create_api') %>
 
-<%= include('../_includes/_calling_api_modify_backend.md') %>
+<%= include('../_includes/_calling_api_create_backend.md') %>
 
-## Modify the AuthService class
+## Modify the AuthService Class
 
 To start, open `authService.js` and make the necessary changes to the class to support retrieving an Access Token from the authorization server and exposing that token from a method.
 
@@ -80,12 +80,13 @@ localLogin(authResult) {
 
     this.emit(loginEvent, {
       loggedIn: true,
-      profile: authResult.idTokenPayload
+      profile: authResult.idTokenPayload,
+      state: authResult.appState
     });
   }
 ```
 
-Add two methods to the class which validate the Access Token and provide access to the token itself:
+Add two methods to the class that validate the Access Token and provide access to the token itself:
 
 ```js
 // src/auth/authService.js
@@ -145,13 +146,13 @@ Create a new file `ExternalApi.vue` inside the `views` folder, with the followin
 <!-- src/views/ExternalApi.vue -->
 <template>
  <div>
-    <div class="mb-5">
+    <div>
       <h1>External API</h1>
       <p>Ping an external API by clicking the button below. This will call the external API using an access token, and the API will validate it using
         the API's audience value.
       </p>
 
-      <button class="btn btn-primary mt-5" @click="callApi">Ping</button>
+      <button @click="callApi">Ping</button>
     </div>
 
     <div v-if="apiMessage">
@@ -217,28 +218,25 @@ Finally, modify the navigation bar to include a link to the new page:
 ```html
 <!-- src/App.vue -->
 
-<ul class="navbar-nav mr-auto">
-  <li class="nav-item">
-    <router-link to="/" class="nav-link">Home</router-link>
+<ul>
+  <li>
+    <router-link to="/">Home</router-link>
   </li>
-  <li class="nav-item" v-if="!isAuthenticated">
-    <a href="#" class="nav-link" @click.prevent="login">Login</a>
+  <li v-if="!isAuthenticated">
+    <a href="#" @click.prevent="login">Login</a>
   </li>
-  <li class="nav-item" v-if="isAuthenticated">
-    <router-link to="/profile" class="nav-link">Profile</router-link>
+  <li v-if="isAuthenticated">
+    <router-link to="/profile">Profile</router-link>
   </li>
-  <li class="nav-item" v-if="isAuthenticated">
-    <router-link to="/backend-api" class="nav-link">Backend API</router-link>
-  </li>
-  
+
   <!-- new link to /external-api - only show if authenticated -->
-  <li class="nav-item" v-if="isAuthenticated">
-    <router-link to="/external-api" class="nav-link">External API</router-link>
+  <li v-if="isAuthenticated">
+    <router-link to="/external-api">External API</router-link>
   </li>
   <!-- /external-api -->
 
-  <li class="nav-item" v-if="isAuthenticated">
-    <a href="#" class="nav-link" @click.prevent="logout">Log out</a>
+  <li v-if="isAuthenticated">
+    <a href="#" @click.prevent="logout">Log out</a>
   </li>
 </ul>
 ```

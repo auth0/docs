@@ -28,7 +28,7 @@ const app = express();
 
 const authConfig = {
   domain: "${account.tenant}",
-  clientID: "${account.clientId}"
+  audience: "${apiIdentifier}"
 };
 
 const checkJwt = jwt({
@@ -39,20 +39,16 @@ const checkJwt = jwt({
     jwksUri: `https://<%= "${authConfig.domain}" %>/.well-known/jwks.json`
   }),
 
-  audience: authConfig.clientID,
+  audience: authConfig.audience,
   issuer: `https://<%= "${authConfig.domain}" %>/`,
   algorithm: ["RS256"]
 });
 
-app.get("/api/private", checkJwt, (req, res) => {
+app.get("/api/external", checkJwt, (req, res) => {
   res.send({
-    msg: "Your ID Token was successfully validated!"
+    msg: "Your Access Token was successfully validated!"
   });
 });
 
 app.listen(3001, () => console.log('API listening on 3001'));
 ```
-
-::: note
-When validating an ID Token using the Json Web Key Set, the application client ID can be used as the `audience` value, rather than the API identifier that you would normally use if you were calling a third-party API.
-:::
