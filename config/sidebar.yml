@@ -488,7 +488,7 @@ articles:
           - title: "Enable/Disable Hooks"
             url: "/hooks/guides/enable-disable-hooks-using-cli"
 
-          - title: "Log Hooks"
+          - title: "Get Log Info"
             url: "/hooks/guides/logging-hooks-using-cli"
 
       - title: "Using the Dashboard"
@@ -499,13 +499,13 @@ articles:
             url: "/hooks/guides/create-hooks-using-dashboard"
 
           - title: "Edit Hooks"
-            url: "/hooks/concepts/edit-hooks-using-dashboard"
+            url: "/hooks/guides/edit-hooks-using-dashboard"
             
           - title: "Delete Hooks"
-            url: "/hooks/concepts/delete-hooks-using-dashboard"
+            url: "/hooks/guides/delete-hooks-using-dashboard"
 
           - title: "Enable/Disable Hooks"
-            url: "/hooks/concepts/enable-disable-hooks-using-dashboard"
+            url: "/hooks/guides/enable-disable-hooks-using-dashboard"
 
   - title: "Email"
     url: "/email"
