@@ -88,7 +88,7 @@ Set the OAuth-related settings on this tab:
 
 * Toggle the **Trust Token Endpoint IP Header** setting; if this is enabled, the `auth0-forwarded-for` is set as trusted and used as a source of end user IP information for protection against brute-force attacks on the token endpoint. This setting is only available for Regular Web Apps and M2M Apps.
 
-* Toggle the switch to indicate if your application is OIDC Conformant or not. Applications flagged as OIDC Conformant will strictly follow the OIDC specification. 
+* Toggle the switch to indicate if your application is **OIDC Conformant** or not. Applications flagged as OIDC Conformant will strictly follow the OIDC specification. 
 
 * Set the location URL for **Cross-Origin Verification Fallback**. This is the location of the page that will be rendered inside an iframe to perform the token verification when third-party cookies are not enabled in the browser. Must be in the same domain where the embedded login form is hosted and must have an `https` scheme.
 
