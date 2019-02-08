@@ -15,7 +15,7 @@ useCase:
 This guide will show you how to change when user attributes are updated for a connection using Auth0's Dashboard.
 
 ::: warning
-By default, user attributes in Auth0's normalized user profile are not editable because they are updated from the identity provider each time a user logs in. If you want to be able to edit user attributes on the normalized user profile, you must specify that user attributes be updated on user profile creation only. User attributes will then be editable via the Management API.
+<%= include('../../_includes/_users_update_normalized_profile_attributes') %>
 :::
 
 1. Navigate to the [Auth0 Dashboard](${manage_url}/).
