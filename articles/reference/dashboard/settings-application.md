@@ -48,6 +48,13 @@ You can provide up to 100 URLs in the **Allowed Callback URLs**, **Allowed Web O
 
 - **Use Auth0 instead of the IdP to do Single Sign On**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on).
 
+For Regular Web Apps:
+
+- **Token Endpoint Authentication Method**: Defines the requested authentication method for the token endpoint. Possible values are `None` (public client without a client secret), `Post` (client uses HTTP POST parameters) or `Basic` (client uses HTTP Basic).
+
+* Toggle the **Trust Token Endpoint IP Header** setting; if this is enabled, the `auth0-forwarded-for` is set as trusted and used as a source of end user IP information for protection against brute-force attacks on the token endpoint.
+
+
 ![Application Settings Page](/media/articles/applications/settings.png)
 
 ## Advanced Settings
