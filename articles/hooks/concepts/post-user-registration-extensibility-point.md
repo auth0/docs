@@ -5,7 +5,7 @@ topics:
     - hooks
     - extensibility-points   
 contentType:
-  - how-to
+  - concept
 useCase: extensibility-hooks
 v2: true
 ---
