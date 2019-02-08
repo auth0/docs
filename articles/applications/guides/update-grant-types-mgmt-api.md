@@ -37,7 +37,7 @@ Grant type `grant_type` not allowed for the client.
 	],
 	"postData": [
       	   "mimeType": "application/json",
-      	   "text" : "{ \"grant_types\": GRANT_TYPES }"
+      	   "text" : "{ \"grant_types\": "GRANT_TYPES" }"
 	]
 }
 ```
