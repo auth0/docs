@@ -1,6 +1,6 @@
 ---
 title: 
-description: Learn how to choose when to update user profile attributes for your connection using the Auth0 Dashboard.
+description: Learn how to allow updates to the Auth0 normalized user profile from a connection using the Auth0 Dashboard.
 topics:
   - applications
   - connections
@@ -10,7 +10,7 @@ useCase:
   - build-an-app
 ---
 
-# Change Update Method for User Attributes for a Connection
+# Allow Updates to Normalized User Profile
 
 This guide will show you how to change when user attributes are updated for a connection using Auth0's Dashboard.
 
