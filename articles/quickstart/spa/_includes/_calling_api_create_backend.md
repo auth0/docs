@@ -34,7 +34,7 @@ const authConfig = {
 };
 
 // Define middleware that validates incoming bearer tokens
-// using JWKS from ${authConfig.domain}
+// using JWKS from ${account.tenant}
 const checkJwt = jwt({
   secret: jwksRsa.expressJwtSecret({
     cache: true,
