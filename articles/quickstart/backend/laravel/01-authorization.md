@@ -11,6 +11,13 @@ contentType: tutorial
 useCase: quickstart
 ---
 
+This quickstart covers building an API protected by an Auth0-issued access token. This type of API is typically consumed by:
+
+- Mobile, desktop, and other native applications using the [Native login flow](https://auth0.com/docs/flows/concepts/mobile-login-flow)
+- CLIs, daemons, or services running on your back-end using the [M2M flow](https://auth0.com/docs/flows/concepts/m2m-flow)
+
+If this API is only consumed by a web application on the same domain (in the case of AJAX actions or lazy loading content for an authenticated user) then the API protection should be handled by the application itself and the [login flow secured by Auth0](https://auth0.com/docs/flows/concepts/regular-web-app-login-flow). 
+
 <%= include('../../../_includes/_api_auth_intro') %>
 
 <%= include('../_includes/_api_create_new') %>
@@ -21,7 +28,7 @@ useCase: quickstart
 
 ### Install dependencies
 
-Protecting your Laravel API requires a middleware which will check for and verify a Bearer token in the `Authorization` header of an incoming HTTP request. We'll do that using tools provided by the [laravel-auth0](https://github.com/auth0/laravel-auth0) package.
+Protecting your Laravel API requires a middleware which will check for and verify a bearer token in the `Authorization` header of an incoming HTTP request. We'll do that using tools provided by the [laravel-auth0](https://github.com/auth0/laravel-auth0) package.
 
 Install `laravel-auth0` using **Composer**.
 
@@ -58,9 +65,9 @@ return [
 
 In more detail:
 
-* `authorized_issuers` is an array of allowed token issuers. In this case it would simply be your tenant domain as a URL.
+* `authorized_issuers` is an array of allowed token issuers. In this case it would simply be an array with just your tenant URL.
 * `api_identifier` is the **Identifier** field of the API [created above](#configure-auth0-apis).
-* `supported_algs` is the **Signing Algorithm** field of the API [created above](#configure-auth0-apis). This value should be an array but only have a single value, in this case `RS256`.
+* `supported_algs` is the **Signing Algorithm** field of the API [created above](#configure-auth0-apis). This value should be an array but only have a single value, `RS256`.
 
 ### Configure Apache
 
@@ -76,13 +83,13 @@ RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 
 <%= include('../_includes/_api_endpoints') %>
 
-For the two `private` API routes, we'll need a middleware to check for a Bearer token in an Authorization header for the request and then verify that the token is valid. We'll create that middleware using the `make:middleware` Artisan command:
+For the two `private` API routes, we'll need a middleware to check for a bearer token in an `Authorization` header for the request and then verify that the token is valid. We'll create that middleware using the `make:middleware` Artisan command:
 
 ```bash
 php artisan make:middleware CheckJWT
 ```
 
-Now, let's implement the `handle()` method that Laravel will call to look for the token and verify that it came from the right place and was intended for this API:
+Now, let's implement the `handle()` method that Laravel will call automatically for the route:
 
 ```php
 <?php
@@ -94,21 +101,21 @@ class CheckJWT {
 
     public function handle($request, Closure $next) {
         $accessToken = $request->bearerToken();
-        if ( empty( $accessToken ) ) {
+        if (empty($accessToken)) {
             return response()->json(['message' => 'Bearer token missing'], 401);
         }
 
         $laravelConfig = config('laravel-auth0');
         $jwtConfig = [
             'authorized_iss' => $laravelConfig['authorized_issuers'],
-            'valid_audiences' => [ $laravelConfig['api_identifier'] ],
+            'valid_audiences' => [$laravelConfig['api_identifier']],
             'supported_algs' => $laravelConfig['supported_algs'],
         ];
 
         try {
-            $jwtVerifier = new JWTVerifier( $jwtConfig );
-            $decodedToken = $jwtVerifier->verifyAndDecode( $accessToken );
-        } catch ( \Exception $e) {
+            $jwtVerifier = new JWTVerifier($jwtConfig);
+            $decodedToken = $jwtVerifier->verifyAndDecode($accessToken);
+        } catch (\Exception $e) {
             return response()->json(['message' => $e->getMessage()], 401);
         }
 
@@ -117,7 +124,7 @@ class CheckJWT {
 }
 ```
 
-The `handle()` method does the following:
+This middleware:
 
 * Checks that there is a Bearer token and stops the request if one was not found.
 * Pulls in the configuration values needed to verify the token.
@@ -151,11 +158,9 @@ Route::get('/public', function (Request $request) {
 
 // These endpoints require a valid access token.
 Route::middleware(['jwt'])->group(function () {
-	Route::get('/private', function (Request $request) {
-		return response()->json([
-			'message' => 'Hello from a private endpoint!'
-		]);
-	});
+    Route::get('/private', function (Request $request) {
+        return response()->json(['message' => 'Hello from a private endpoint!']);
+    });
 });
 
 ```
@@ -205,20 +210,19 @@ class CheckJWT {
 
     public function handle ($request, Closure $next, $scopeRequired = null) {
         // ...
-        if ( $scopeRequired && ! $this->tokenHasScope( $decodedToken, $scopeRequired ) ) {
+        if ($scopeRequired && !$this->tokenHasScope($decodedToken, $scopeRequired)) {
             return response()->json(['message' => 'Insufficient scope'], 403);
         }
-
         return $next($request);
     }
 
-    protected function tokenHasScope( $token, $scopeRequired ) {
-        if ( empty( $token->scope ) ) {
+    protected function tokenHasScope($token, $scopeRequired) {
+        if (empty($token->scope)) {
             return false;
         }
 
-        $tokenScopes = explode( ' ', $token->scope );
-        return in_array( $scopeRequired, $tokenScopes );
+        $tokenScopes = explode(' ', $token->scope);
+        return in_array($scopeRequired, $tokenScopes);
     }
 }
 ```
@@ -238,9 +242,7 @@ Now, we can create a new middleware group that will check for both a valid token
 // These endpoints require a valid access token with a "read:messages" scope.
 Route::middleware(['jwt:read:messages'])->group(function () {
     Route::get('/private-scoped', function (Request $request) {
-        return response()->json([
-            'message' => 'Hello from a private, scoped endpoint!'
-        ]);
+        return response()->json(['message' => 'Hello from a private, scoped endpoint!']);
     });
 });
 ```
@@ -271,14 +273,15 @@ Change the `Authorization` header to use the new token and send the `GET` reques
 { "message": "Hello from a private, scoped endpoint!" }
 ```
 
-## Generating Access Tokens
+## Obtaining Access Tokens
 
-The example above uses manually-generated tokens which are not long-lived. Once your API is live on the web and ready to accept requests, the applications making the requests will need to create their own tokens using a [machine-to-machine flow](https://auth0.com/docs/flows/guides/m2m-flow/call-api-using-m2m-flow). In short, for each application or group of applications, you must:
+The example above uses manually-generated tokens which are not long-lived. Once your API is live on the web and ready to accept requests, the applications making the requests will need to create their tokens using one of a few ways:
 
-1. Create a new Machine-to-Machine Application in Auth0
-2. Authorize that Application for this API with the correct scopes
-3. Securely store the required credentials (Client ID, Client Secret, and API Identifier)
-4. Generate a token using the [machine-to-machine flow](https://auth0.com/docs/flows/guides/m2m-flow/call-api-using-m2m-flow)
+- Mobile, desktop, and other native applications will use a [Mobile/Native Login Flow](https://auth0.com/docs/flows/concepts/mobile-login-flow)
+- CLIs, daemons, or services running on your back-end will use an [Machine-to-Machine Flow](https://auth0.com/docs/flows/concepts/m2m-flow)
+- Web applications can use the [Regular Web App Login Flow](https://auth0.com/docs/flows/concepts/regular-web-app-login-flow)
+
+Regardless of the type, the application will need to request the audience of this API during the login flow to receive a correctly-formed access token. 
 
 ## Configure CORS (optional)
 
