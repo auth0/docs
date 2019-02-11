@@ -13,7 +13,7 @@ useCase:
 
 Applications are primarily meant for human interaction, as opposed to APIs, which provide data to applications through a standardized messaging system.
 
-The term application does not imply any particular implementation characteristics. For example, your application could be a native app that executes on a mobile device, a single-page app that executes on a browser, or a regular web app that executes on a server.
+The term _application_ does not imply any particular implementation characteristics. For example, your application could be a native app that executes on a mobile device, a single-page app that executes on a browser, or a regular web app that executes on a server.
 
 Auth0 categorizes applications in three ways:
 
