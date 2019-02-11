@@ -49,24 +49,6 @@ Similar to option 1, this configuration permits an external Auth0 Jumphost to co
 
 * Additional virtual Jumphost required in customer infrastructure
 
-### Option 3: VPN
-
-This configuration provides VPN access to the customer’s network either to Auth0 engineers individually or a dedicated, Jumphost-like Auth0 server.
-
-![](/media/articles/appliance/remote-access/vpn.png)
-
-*Pros*:
-
-* Customers usually have VPN infrastructure in place
-* No additional servers are required
-* Auth0 access can be enabled and disabled using existing VPN account procedures
-
-*Cons*: 
-
-* Inability to audit management activity on the command line
-* Customer responsible for provisioning VPN accounts for Auth0 engineers and Identity Management
-* Customer responsible for securing VPN traffic only to PSaaS appliance
-* Customer is responsible for VPN availability (critical to allow access during support events)
 
 ### Unsupported Configurations
 
