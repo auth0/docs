@@ -52,4 +52,4 @@ Similar to option 1, this configuration permits an external Auth0 Jumphost to co
 
 ### Unsupported Configurations
 
-We do not support other methods, such as VDI or Screen Sharing mechanisms. They introduce compliance concerns, including (but not limited to) Auth0’s inability to internally audit connections and SSH sessions, enforce identity management on Auth0 employee accounts,exposure to untrusted systems on customer’s end running non-standard software (from where the connections are generated to Auth0 VMs), and inability to verify the identity of participants on the other end.
+We do not support other methods, such as VDI or Screen Sharing mechanisms. They introduce compliance concerns, including (but not limited to) Auth0’s inability to internally audit connections and SSH sessions, enforce identity management on Auth0 employee accounts, exposure to untrusted systems on customer’s end running non-standard software (from where the connections are generated to Auth0 VMs), and inability to verify the identity of participants on the other end.
