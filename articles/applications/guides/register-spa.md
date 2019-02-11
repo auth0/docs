@@ -18,11 +18,11 @@ To integrate Auth0 with front-end apps that run in a browser (e.g., Angular, jQu
 
 ## Settings
 
-By default, most of the settings will be created for you. You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-application). 
+By default, most of the settings will be created for you. You can explore all available settings at [Dashboard Reference: Application Settings](/dashboard/reference/settings-application). 
 
 ### Advanced Settings
 
-You can explore all available settings at [Dashboard Reference: Advanced Application Settings](/reference/dashboard/settings-application#advanced-settings). 
+You can explore all available settings at [Dashboard Reference: Advanced Application Settings](/dashboard/reference/settings-application#advanced-settings). 
 
 ::: note
 After creating your first application, set the environment for your tenant to: development, staging, or production. For more information, see [Set Up Multiple Environments](/dev-lifecycle/setting-up-env#set-the-environment).

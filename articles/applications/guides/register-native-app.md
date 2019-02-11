@@ -18,7 +18,7 @@ To integrate Auth0 with mobile, desktop, or hybrid apps that run natively on dev
 
 ## Settings
 
-By default, most of the settings will be created for you. You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-application). 
+By default, most of the settings will be created for you. You can explore all available settings at [Dashboard Reference: Application Settings](/dashboard/reference/settings-application). 
 
 ### Advanced Settings
 
@@ -28,7 +28,7 @@ If you're developing a mobile app, you can provide the necessary iOS/Android par
 
 - For Android apps, provide your App Package Name and your Key Hashes. For more info, see [Enable Android App Links Support](/applications/guides/enable-android-app-links-dashboard).
 
-You can explore all available settings at [Dashboard Reference: Advanced Application Settings](/reference/dashboard/settings-application#advanced-settings). 
+You can explore all available settings at [Dashboard Reference: Advanced Application Settings](/dashboard/reference/settings-application#advanced-settings). 
 
 ::: note
 After creating your first application, set the environment for your tenant to: development, staging, or production. For more information refer to [Set Up Multiple Environments](/dev-lifecycle/setting-up-env#set-the-environment).

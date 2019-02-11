@@ -47,7 +47,7 @@ To prevent this, you may send the end-user's IP address to Auth0 along with the 
 
 1. Navigate to your [dashboard](${manage_url}) and [configure a regular web application or machine to machine application](/applications/concepts/app-types-auth0).
 
-2. Choose a __Token Endpoint Authentication Method__ other than `None` under the [Settings](/reference/dashboard/settings-application) section.
+2. Choose a __Token Endpoint Authentication Method__ other than `None` under the [Settings](/dashboard/reference/settings-application) section.
 
 ![Token Endpoint Authentication Method](/media/articles/api-auth/client-auth-method.png)
 

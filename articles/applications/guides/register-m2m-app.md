@@ -53,7 +53,7 @@ To learn how to accept and validate Access Tokens in your API implementation, se
 
 ## Settings
 
-By default, most of the settings will be created for you. You can explore all available settings at [Dashboard Reference: Application Settings](/reference/dashboard/settings-application). 
+By default, most of the settings will be created for you. You can explore all available settings at [Dashboard Reference: Application Settings](/dashboard/reference/settings-application). 
 
 ::: note
 After creating your first application, set the environment for your tenant to: development, staging, or production. For more information refer to [Set Up Multiple Environments](/dev-lifecycle/setting-up-env#set-the-environment).
@@ -61,7 +61,7 @@ After creating your first application, set the environment for your tenant to: d
 
 ### Advanced Settings
 
-By default, most of these settings will be created for you. You can explore all available settings at [Dashboard Reference: Advanced Application Settings](/reference/dashboard/settings-application#advanced-settings). 
+By default, most of these settings will be created for you. You can explore all available settings at [Dashboard Reference: Advanced Application Settings](/dashboard/reference/settings-application#advanced-settings). 
 
 ## Next Steps
 
