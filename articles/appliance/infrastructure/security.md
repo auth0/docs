@@ -91,8 +91,8 @@ Auth0 requires [remote access](/appliance/remote-access-options) to your PSaaS A
 
 ### Initial Configuration
 
-Auth0's remote access method for initial configuration requires SSH access via Jumphost (the preferred method) or VPN. After the initial setup, please feel free to disable this connection. 
+Auth0's remote access method for initial configuration requires SSH access via Jumphost. After the initial setup, please feel free to disable this connection. 
 
 ### Updates, Maintenance, and Troubleshooting
 
-Typically, updates are performed via the Auth0 Dashboard. If Auth0 needs to remote in to identify and troubleshoot issues, an Auth0 Customer Success Engineer will need access to the PSaaS Appliance through SSH access via Jumphost (the preferred method) or over VPN. This connection can be enabled for and disabled after the agreed-upon time frames for work.
+Typically, updates are performed via the Auth0 Dashboard. If Auth0 needs to remote in to identify and troubleshoot issues, an Auth0 Customer Success Engineer will need access to the PSaaS Appliance through SSH access via Jumphost. This connection can be enabled for and disabled after the agreed-upon time frames for work.
