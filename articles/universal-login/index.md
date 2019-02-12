@@ -14,7 +14,7 @@ useCase: customize-hosted-pages
 ---
 # Auth0 Universal Login
 
-Auth0's Universal Login is the most secure way to authenticate users for your applications. Universal Login centers around your Auth0 login page. The login page appearance and behavior is customizable right from the [Dashboard](${manage_url}). By default, the login page internally uses Auth0's [Lock Widget](/libraries/lock) to authenticate your users, but the code of the login page can be customized to replace the standard Lock widget with the Lock (Passwordless Mode) widget, or an entirely custom UI can be built in its place, using the [Auth0.js SDK](/libraries/auth0js) for authentication.
+Auth0's Universal Login is the most secure way to authenticate users for your applications. Universal Login centers around your Auth0 login page. The login page appearance and behavior is customizable right from the [Dashboard](${manage_url}). The logo and colors of the login widget can be changed, and in more advanced use cases, the code of the page itself can be modified.
 
 In the Universal Login flow, the user will click a login button or link in your application, which will call the `/authorize` endpoint at Auth0. If there is no session detected for the end user, Auth0 will redirect them to the login page, where they will be able to login or signup using the connections you configure, such as databases or social connections. Once the user is authenticated (or if they were already signed in) the login page will redirect them to your application, along with the requisite credentials.
 
@@ -46,7 +46,7 @@ These settings, once changed, will take effect on your login page if you have no
 
 In addition to the settings above, the actual code of the page may be altered and added to. The login page works for many use cases without customizing its code, but if the customization toggle is enabled, you are able to modify it at will. Any configuration or customization changes made to the login page will affect the entire tenant, not just a single application on that tenant.
 
-When the customization toggle is flipped on, you then become responsible for updates and maintenance of the script, as it can no longer be automatically updated by Auth0. This includes updating the version numbers for any included scripts, such as Lock or Auth0.js.
+When the customization toggle is flipped on, you then become responsible for updates and maintenance of the script, as it can no longer be automatically updated by Auth0. This includes updating the version numbers for any included Auth0 SDK or widget.
 
 ::: note
 If you have enabled customization to inspect the page code, and then decide **not** to customize your login page, you should make sure to disable the **Customize Login Page** toggle, to allow your page to receive the updates it might need from Auth0.
