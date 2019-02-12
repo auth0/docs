@@ -32,6 +32,8 @@ For step by step instructions on setting up your application to use Universal Lo
 
 ### Simple Customization
 
+![Customization Settings for Login Page](/media/articles/universal-login/settings.png)
+
 In the [Dashboard](${manage_url}), you can see the settings for your login page by navigating to [Universal Login](${manage_url}/#/login_page) and looking at the tab for the Login Page.
 
 The settings available here are:
@@ -43,6 +45,9 @@ The settings available here are:
 These settings, once changed, will take effect on your login page if you have not enabled customization of the login page code, or if you have enabled customization but are using the predefined templates and have not changed those options in the code.
 
 ### Advanced Customization
+
+![Login Page](/media/articles/universal-login/login.png)
+	
 
 In addition to the settings above, the actual code of the page may be altered and added to. The login page works for many use cases without customizing its code, but if the customization toggle is enabled, you are able to modify it at will. Any configuration or customization changes made to the login page will affect the entire tenant, not just a single application on that tenant.
 
@@ -70,9 +75,8 @@ You may perform whatever CSS customizations that you like, as long as they are i
 
 ## Other facets of Universal Login
 
-Auth0 offers you the ability to customize and display several pages containing Auth0-related functionality and to which Auth0 redirects your users during the authorization process, other than just the login page. You can modify the following types of pages from your [Dashboard](${manage_url}):
+Auth0 offers you the ability to customize and display several other pages containing Auth0-related functionality and to which Auth0 redirects your users during the authorization process, beyond just the login page described above. You can modify the following types of pages from your [Dashboard](${manage_url}):
 
-* [Login Page](#auth0-universal-login)
 * [Password Reset Page](/universal-login/password-reset)
 * [Guardian Multi-factor Page](/universal-login/guardian)
 * [Error Pages](/universal-login/error-pages)
