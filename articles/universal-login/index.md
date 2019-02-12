@@ -16,25 +16,13 @@ useCase: customize-hosted-pages
 
 Auth0's Universal Login is the most secure way to authenticate users for your applications. Universal Login centers around your Auth0 login page. The login page appearance and behavior is customizable right from the [Dashboard](${manage_url}). By default, the login page internally uses Auth0's [Lock Widget](/libraries/lock) to authenticate your users, but the code of the login page can be customized to replace the standard Lock widget with the Lock (Passwordless Mode) widget, or an entirely custom UI can be built in its place, using the [Auth0.js SDK](/libraries/auth0js) for authentication.
 
-![Login Page](/media/articles/hosted-pages/hlp-lock.png)
-
 In the Universal Login flow, the user will click a login button or link in your application, which will call the `/authorize` endpoint at Auth0. If there is no session detected for the end user, Auth0 will redirect them to the login page, where they will be able to login or signup using the connections you configure, such as databases or social connections. Once the user is authenticated (or if they were already signed in) the login page will redirect them to your application, along with the requisite credentials.
 
-## How does Universal Login work
+::: note
+If the incoming authentication request includes a `connection` parameter that uses an external identity provider (such as a social provider), the login page will not display. Instead, Auth0 will direct the user to the [identity provider's](/identityproviders) login page.
+:::
 
-Auth0 shows the login page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a SAML login request.
-
-Users will see the login page, typically with either the Lock widget or with your custom UI. Once they log in, they will be redirected back to your application.
-
-However if the incoming authentication request includes a `connection` parameter that uses an external identity provider (such as a social provider), the login page will not display. Instead, Auth0 will direct the user to the [identity provider's](/identityproviders) login page.
-
-## Why use Universal Login
-
-Why use Universal Login rather than embedding login functionality within your application?
-
-Security is the primary reason, followed by ease of setup. Cross-origin authentication is inherently more dangerous, and more likely to be vulnerable to [man-in-the-middle attacks](/security/common-threats#man-in-the-middle-mitm-attacks). Using Universal Login for the authentication process with Auth0 prevents that from ever being a concern. Additionally, Universal Login is often easier to implement, especially if a custom UI is not required in your login page.
-
-Universal Login is currently the only way to implement Passwordless connections for applications on native platforms (such as iOS and Android).
+For information on the diffences between Universal Login and traditional embedded login within your application, see [our comparison guide](/guides/login/universal-vs-embedded).
 
 ## Implementing Universal Login
 
@@ -42,7 +30,7 @@ In addition to configuring Universal Login for your tenant's applications, you w
 
 For step by step instructions on setting up your application to use Universal Login, check out our [Quickstart guides](/docs/quickstart).
 
-### Configure Universal Login Settings
+### Simple Customization
 
 In the [Dashboard](${manage_url}), you can see the settings for your login page by navigating to [Hosted Pages](${manage_url}/#/login_page) and looking at the tab for the Login Page.
 
@@ -54,7 +42,7 @@ The settings available here are:
 
 These settings, once changed, will take effect on your login page if you have not enabled customization of the login page code, or if you have enabled customization but are using the predefined templates and have not changed those options in the code.
 
-### Customizing the login page
+### Advanced Customization
 
 In addition to the settings above, the actual code of the page may be altered and added to. The login page works for many use cases without customizing its code, but if the customization toggle is enabled, you are able to modify it at will. Any configuration or customization changes made to the login page will affect the entire tenant, not just a single application on that tenant.
 
