@@ -14,7 +14,7 @@ useCase: customize-hosted-pages
 ---
 # Auth0 Universal Login
 
-Auth0's Universal Login is the most secure way to authenticate users for your applications. Universal Login centers around your Auth0 login page. The login page appearance and behavior is customizable right from the [Dashboard](${manage_url}). The logo and colors of the login widget can be changed, and in more advanced use cases, the code of the page itself can be modified.
+Auth0's Universal Login is the most secure way to authenticate users for your applications. Universal Login centers around your Auth0 login page. The login page appearance and behavior is customizable right from the [Dashboard](${manage_url}). The logo and colors of the login pages can be changed, and in more advanced use cases, the code of each page itself can be modified.
 
 In the Universal Login flow, the user will click a login button or link in your application, which will call the `/authorize` endpoint at Auth0. If there is no session detected for the end user, Auth0 will redirect them to the login page, where they will be able to login or signup using the connections you configure, such as databases or social connections. Once the user is authenticated (or if they were already signed in) the login page will redirect them to your application, along with the requisite credentials.
 
