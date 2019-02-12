@@ -49,7 +49,7 @@ These settings, once changed, will take effect on your login page if you have no
 ![Login Page](/media/articles/universal-login/login.png)
 	
 
-In addition to the settings above, the actual code of the page may be altered and added to. The login page works for many use cases without customizing its code, but if the customization toggle is enabled, you are able to modify it at will. Any configuration or customization changes made to the login page will affect the entire tenant, not just a single application on that tenant.
+In addition to the settings above, the actual code of the pages may be altered and added to. The universal login pages works for many use cases without customizing its code, but if the customization toggle is enabled, you are able to modify each page at will.
 
 When the customization toggle is flipped on, you then become responsible for updates and maintenance of the script, as it can no longer be automatically updated by Auth0. This includes updating the version numbers for any included Auth0 SDK or widget.
 
