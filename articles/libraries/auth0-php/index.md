@@ -89,7 +89,7 @@ To use the Auth0 Authentication and Management APIs, you'll need a free Auth0 ac
 1. Go to [auth0.com/signup](https://auth0.com/signup) and create your account.
 2. Once you are in the dashboard, go to **Applications**, then **Create Application**.
 3. Give your Application a name, select **Regular Web Application**, then **Create**
-4. Click the **Settings** tab for the required credentials used below. More information about these settings is [here](https://auth0.com/docs/applications/webapps#settings).
+4. Click the **Settings** tab for the required credentials used below. More information about these settings is [here](/dashboard/reference/settings-application).
 
 The examples in this documentation use [environment variables](https://secure.php.net/manual/en/reserved.variables.environment.php) to store and load sensitive Auth0 credentials, eliminating the need for you to hardcode them into your application.
 

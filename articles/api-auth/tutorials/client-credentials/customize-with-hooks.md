@@ -33,7 +33,7 @@ You can manage Hooks using the [Auth0 Dashboard](/hooks/dashboard) or the [Auth0
 Please ensure that:
 
 - You have created an [API defined with the appropriate scopes](${manage_url}/#/apis)
-- You have created a [machine to machine application](/applications/machine-to-machine) that is authorized to use the API created in the previous step
+- You have created a [machine to machine application](/applications/concepts/app-types-auth0) that is authorized to use the API created in the previous step
 
 If you haven't done these yet, refer to these docs for details:
 - How to set up a Client Grant:

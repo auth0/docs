@@ -1,27 +1,32 @@
 ---
 url: /addons
-description: How to setup Application Addons, like Amazon Web Services and Azure Blob Storage, with your Auth0 app.
+description: Learn how to setup add-ons, like Amazon Web Services and Azure Blob Storage, for an application registered with Auth0.
 topics:
-    - addons
+    - applications
+    - add-ons
 contentType: 
     - index
     - how-to
-useCase: integrate-third-party-apps
+useCase: 
+    - integrate-third-party-apps
 ---
+# How to Configure an Add-on for an Application
 
-# Auth0 Application Addons
+This guide will show you how to configure an [add-on](/applications/concepts/add-ons) for an application using the Auth0 Dashboard.
 
-Addons are plugins associated with an Application in Auth0. Usually, they are 3rd party APIs used by the application that Auth0 generates Access Tokens for (such as Salesforce, Azure Service Bus, Azure Mobile Services, SAP, and so on).
+1. Navigate to [Auth0 Dashboard > Applications](${manage_url}/#/applications).
 
-## How to configure an Addon
+2. Click the name of your Application to show its settings.
 
-Go to [Dashboard > Applications > Settings > Addons](${manage_url}/#/applications/${account.clientId}/addons) page and use the toggle to enable the add-on you want to configure.
+3. Click on **Add-ons**.
+
+4. Use the appropriate toggle to enable the add-on you want to configure.
 
 ![Application Addons](/media/addons/manage-addons.png)
 
-Each integration is different and requires different parameters and configuration. Once the addon is activated, you will see tailored instructions with details on how to integrate with it in the dashboard.
+Each integration is different and requires different parameters and configuration. Once the add-on is activated, you will see tailored instructions with details on how to integrate with it in the Dashboard.
 
-## Additional information for specific Addons
+## Additional information for specific Add-ons
 
 - Amazon Web Services: For more info on how to use delegation with the AWS API Gateway, see the [AWS API Gateway](/integrations/aws-api-gateway/delegation) Tutorial
 - [Azure Blob Storage](/addons/azure-blob-storage)

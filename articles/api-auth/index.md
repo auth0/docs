@@ -168,9 +168,9 @@ In this page you can find a list of resources that can help you secure your APIs
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/tutorials/represent-multiple-apis">Represent Multiple APIs Using a Proxy API in Auth0</a>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/tutorials/represent-multiple-apis">Represent Multiple APIs Using a Single Logical API in Auth0</a>
     <p>
-      Learn how to represent multiple APIs using a single Auth0 proxy API.
+      Learn how to represent multiple APIs using a single logical API.
     </p>
   </li>
   <li>

@@ -21,7 +21,7 @@ In this article, we will show you how you can use the Hybrid Flow in Auth0.
 
 Before you begin this tutorial, please:
 
-* Check that your Application's [Grant Type property](/applications/application-grant-types) is set appropriately
+* Check that your Application's [Grant Type property](/applications/concepts/application-grant-types) is set appropriately
 * [Register your API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 
 ## 1. Get the User's Authorization

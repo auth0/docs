@@ -20,7 +20,7 @@ The following checks cannot be automated, so we recommend manually checking thes
 | ---- | ----------- |
 | [Anomaly Detection](/anomaly-detection) | Review your account's [Anomaly Detection capability and configuration](${manage_url}/#/anomaly). |
 | Externalize [Configuration Parameters](/connections/database/mysql#4-add-configuration-parameters) | [Externalize, instead of hard code, all configuration parameters](${manage_url}/#/connections/database), such as credentials, connection strings, API keys, and so on, when developing Rules, Hooks, or custom database connections. |
-| [Restrict Delegation](/applications/application-settings/single-page-app#oauth) | If not using Delegation, set the Allowed Apps and APIs field of your Application Settings to the current Client ID. |
+| [Restrict Delegation](/dashboard/reference/settings-application#advanced-settings) | If not using Delegation, set the Allowed Apps and APIs field of your Application Settings to the current Client ID. |
 | SSO Timeout Values | Review the default [SSO cookie timeout values](${manage_url}/#/account/advanced) and ensure they align with your requirements. |
 | Tenants and Administrators | Review all tenants and tenant administrators to ensure they are correct. Decommission tenants that are no longer in use. Ensure that tenant administrators are limited to the necessary users. |
 | Verify Client IDs in App Code | Ensure that the Client IDs in your application code align with their Auth0 Application configurations. |

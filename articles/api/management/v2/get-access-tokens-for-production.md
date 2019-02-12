@@ -154,7 +154,7 @@ if __name__ == '__main__':
 
 ## Keep reading
 
-* [Machine-to-Machine Application](/applications/machine-to-machine)
+- [Auth0 Application Types](/applications/concepts/app-types-auth0)
 * [Management API Explorer](/api/management/v2#!)
 * [Management API Access Tokens FAQs](/api/management/v2/faq-management-api-access-tokens)
 

@@ -67,7 +67,8 @@ INSTALLED_APPS = [
 ]
 ```
 
-Add your Auth0 domain, the Client Id and the Client Secret. You can get this information the [application settings](/#/applications/${account.clientId}/settings) in the Auth0 Dashboard.
+1) Set the **Callback URL** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to:
+Add your Auth0 domain, the Client Id and the Client Secret. You can get this information the [application settings](#/applications/${account.clientId}/settings) in the Auth0 Dashboard.
 
 
 ```python

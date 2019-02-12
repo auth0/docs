@@ -133,7 +133,7 @@ The following table lists the codes associated with the appropriate log events.
 | `fapi` | Failed API Operation | | |
 | `fc` | Failed by Connector | | [Active Directory/LDAP Connector](/connector) |
 | `fce` | Failed Change Email | Failed to change user email | [User Profile](/users/concepts/overview-user-profile) |
-| `fco` | Failed by CORS | Origin is not in the Allowed Origins list for the specified application | [Applications](/applications#application-settings) |
+| `fco` | Failed by CORS | Origin is not in the Allowed Origins list for the specified application | [Applications](/dashboard/reference/settings-application) |
 | `fcoa` | Failed cross-origin authentication | | |
 | `fcp` | Failed Change Password | | [Changing a User's Password](/connections/database/password-change) |
 | `fcph` | Failed Post Change Password Hook | | |
