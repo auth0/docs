@@ -41,7 +41,7 @@ Use SVG files or crushed PNG images.
 Provide alt text.
 Provide high-resolution images when practical.
 
-## Auth0-Docs GitHub Repo
+## Auth0-Docs GitHub Repo and Markdown
 Files are organized under the /articles folder by subject matter.
 Sidebar navigation is defined in the sidebar.yml file. 
 Redirects are defined in the redirects.js file.
@@ -54,5 +54,3 @@ Break content into separate types based on what is covered.
 Overviews (conceptual articles)
 How-to guides (procedures)
 Reference articles (lists, facts, etc.)
-
-## Using Markdown
