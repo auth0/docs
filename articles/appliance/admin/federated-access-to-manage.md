@@ -43,6 +43,8 @@ Please note that how you complete the three steps above differ slightly based on
 
 [Configure Auth0 as the Service Provider (SP)](/protocols/saml/saml-configuration/auth0-as-service-provider). Follow the tutorial up through the section where you identify the Identity Provider (IdP) and Connection protocol (you will be stopping at the section where you're shown how to Configure Auth0).
 
+Please be sure to configure your mappings between Auth0 (as the SP) and your IdP in the form of Assertions. You can do so in the Dashboard by going to **Connections** > **Enterprise** > **SAMLP Identity Provider**. Find your connection, and click the cog icon to launch the **Settings** tab. Switch to the **Mappings** view, and provide mappings for **name**, the **name format** (optional), and **value**. The specifics will vary based on the IdP you're using, so please contact Auth0 if you have any questions.
+
 At this point, send Auth0 the information you've collected in a [Support Ticket](${env.DOMAIN_URL_SUPPORT}) and request that you be granted federated access to the config tenant/RTA.
 
 In your Support ticket, you should include:
@@ -52,9 +54,7 @@ In your Support ticket, you should include:
 * The Identity Provider's **public key** (encoded in PEM or CER format)
 * The **sign out URL** (optional)
 
-You can find most of this information in the XML metadata file provided by your Identity Provider.
-
-Much of this information is included in your Identity Provider's XML metadata file. If you'd prefer, you can send Auth0 this file, along with the email domains that you will be redirecting to the IdP.
+You can find most of this information in the XML metadata file provided by your Identity Provider. If you'd prefer, you can send Auth0 this file, along with the email domains that you will be redirecting to the IdP.
 
 Once Auth0 receives all of the information we need, we will:
 
