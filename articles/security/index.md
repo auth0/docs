@@ -45,3 +45,9 @@ useCase:
 <%= include('../_includes/_topic-links', { links: [
   'security/blacklisting-attributes'
 ] }) %>
+
+## OAuth2 Best Current Practice
+
+<%= include('../_includes/_topic-links', { links: [
+  'security/oauth2-bcp'
+] }) %>
