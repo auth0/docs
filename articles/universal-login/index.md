@@ -44,7 +44,7 @@ For step by step instructions on setting up your application to use Universal Lo
 
 ### Configure Universal Login Settings
 
-In the [Dashboard](${manage_url}), you can see the settings for your login page by navigating to [Hosted Pages](${manage_url}/#/login_page) and looking at the tab for the Login Page.
+In the [Dashboard](${manage_url}), you can see the settings for your login page by navigating to [Universal Login](${manage_url}/#/login_page) and looking at the tab for the Login Page.
 
 The settings available here are:
 
