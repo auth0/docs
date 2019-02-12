@@ -69,6 +69,6 @@ The allowed length for state is not unlimited. If you get the error `414 Request
 
 ## Keep reading
 
-* [State Parameter Overview](/protocols/oath2/oauth0-state)
-* [OAuth 2.0 Framework](/protocols/oath2)
+* [State Parameter Overview](/protocols/oauth2/oauth0-state)
+* [OAuth 2.0 Framework](/protocols/oauth2)
 * [Protecting against other common threats](/security/common-threats)
