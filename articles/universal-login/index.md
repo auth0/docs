@@ -42,14 +42,13 @@ The settings available here are:
 * Primary Color
 * Background Color
 
-These settings, once changed, will take effect on your login page if you have not enabled customization of the login page code, or if you have enabled customization but are using the predefined templates and have not changed those options in the code.
+These settings, once changed, will take effect on all your Universal Login pages if you have not enabled customization of the pages' code. The settings will also work if you have enabled customization, but are using the predefined templates and have not changed those options in the code.
 
 ### Advanced Customization
 
 ![Login Page](/media/articles/universal-login/login.png)
 	
-
-In addition to the settings above, the actual code of the pages may be altered and added to. The universal login pages works for many use cases without customizing its code, but if the customization toggle is enabled, you are able to modify each page at will.
+In addition to the settings above, the actual code of the pages may be altered and added to. The Universal Login pages work for many use cases without customizing their code, but if the customization toggle is enabled, you are able to modify each page at will.
 
 When the customization toggle is flipped on, you then become responsible for updates and maintenance of the script, as it can no longer be automatically updated by Auth0. This includes updating the version numbers for any included Auth0 SDK or widget.
 
