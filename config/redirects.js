@@ -1342,6 +1342,10 @@ module.exports = [
     to: '/universal-login/custom-error-pages'
   },
   {
+    from: '/hosted-pages/default-login-url',
+    to: '/universal-login/default-login-url'
+  },
+  {
     from: '/connections/database/mysql',
     to: '/connections/database/custom-db'
   },
