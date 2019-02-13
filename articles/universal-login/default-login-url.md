@@ -8,7 +8,7 @@ contentType: how-to
 ---
 # Configure Default Login Routes
 
-In certain cases (described below), Auth0 could need to redirect back to the application's login page, using [OIDC Third Party Initiated Login](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin).
+In certain cases (described below), Auth0 could need to redirect back to the application's login initiation endpoint, using [OIDC Third Party Initiated Login](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin).
 
 You can configure the URL for the tenant or application login route using a Management API call:
 
