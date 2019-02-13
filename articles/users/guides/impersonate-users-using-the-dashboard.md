@@ -33,7 +33,7 @@ Any [Rules](/rules) that you have implemented will run when you impersonate a us
 Impersonation **does not work** with the [API Authorization](/api-auth) features. This means that the `audience` parameter will be ignored, and the [Access Token](/tokens/concepts/overview-access-tokens) returned to applications when using this flow is only valid for requests to [the /userinfo endpoint](/api/authentication#get-user-info). 
 :::
 
-## Login CSRF attack mitigation
+## Impersonation and Login CSRF Attacks
 
 To avoid [Login CSRF attacks](/protocols/oauth2/mitigate-csrf-attacks), the OAuth 2.0 specification recommends that applications use the **state** parameter to make sure that the response they receive matches the authentication request and originates from the same session.
 
