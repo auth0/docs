@@ -1038,14 +1038,6 @@ module.exports = [
     to: '/protocols/saml/samlsso-auth0-to-auth0'
   },
   {
-    from: ['/error-pages', '/error-pages/generic'],
-    to: '/hosted-pages/error-pages'
-  },
-  {
-    from: '/error-pages/custom',
-    to: '/hosted-pages/custom-error-pages'
-  },
-  {
     from: '/saml/identity-providers/salesforce',
     to: '/protocols/saml/identity-providers/salesforce'
   },
@@ -1338,16 +1330,16 @@ module.exports = [
     to: '/tokens'
   },
   {
-    from: ['/hosted-pages/hosted-login-auth0js'],
-    to: '/hosted-pages/login/auth0js'
+    from: ['/hosted-pages/hosted-login-auth0js', '/hosted-pages/login/auth0js', '/hosted-pages/login/lock', '/hosted-pages/login/lock-passwordless', '/hosted-pages/hosted-login-auth0js', '/hosted-pages/hosted-login-auth0js/v7', '/hosted-pages/hosted-login-auth0js/v8', '/hosted-pages/login', '/hosted-pages'],
+    to: '/universal-login'
   },
   {
-    from: ['/hosted-pages/hosted-login-auth0js/v8'],
-    to: '/hosted-pages/login/auth0js'
+    from: ['/error-pages', '/error-pages/generic', '/hosted-pages/error-pages'],
+    to: '/universal-login/error-pages'
   },
   {
-    from: ['/hosted-pages/hosted-login-auth0js/v7'],
-    to: '/hosted-pages/login/auth0js'
+    from: ['/error-pages/custom', '/hosted-pages/custom-error-pages'],
+    to: '/universal-login/custom-error-pages'
   },
   {
     from: '/connections/database/mysql',
