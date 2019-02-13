@@ -258,9 +258,9 @@ The response will be an **HTTP 204**: The credential no longer exists.
 
 ### Use the Dashboard
 
-When you revoke a Refresh Token using the dashboard, you have to revoke the user's authorized access to the application that issued the token. This renders the Refresh Token useless.
+Strictly speaking, the following process shows you how to revoke a user's authorized access to the application that issued the token. This renders the Refresh Token valid, which is functionally identical to revoking the token itself.
 
-To do so, go to the [Users section](${manage_url}/#/users) of the [dashboard](${manage_url}). Click the name of the user to view their *Details* page.
+To do this, go to the [Users section](${manage_url}/#/users) of the [dashboard](${manage_url}). Click the name of the user to view their *Details* page.
 
 Select the *Authorized Applications* tab. This page lists all the applications to which the user has authorized access. Revoking an authorized application also revokes its associated Refresh Tokens.
 
