@@ -18,7 +18,7 @@ Duo is a multi-faceted provider and can only be used on your Auth0 tenant if all
 Your Duo account can be configured to support push notifications, SMS, OTP, phone callback, and more. See the [Duo documentation](https://duo.com/docs) for more details on Duo setup. 
 
 ::: note
-You need to create an integration in Duo Security of type **Web SDK**, and then use those credentials to fill in the Duo settings in the Auth0 Dashboard as noted below.
+Create an integration in Duo Security of type **Web SDK**, and then use those credentials to fill in the Duo settings in the Auth0 Dashboard as noted below.
 :::
 
 When enabling Duo in the Dashboard, you will need to click on the Duo factor and fill in a few settings fields in order to link your Duo account to Auth0.
