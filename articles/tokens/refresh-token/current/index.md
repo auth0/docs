@@ -17,7 +17,7 @@ A **Refresh Token** contains the information required to obtain a new [Access To
 
 Typically, a user needs a new Access Token when gaining access to a resource for the first time, or after the previous Access Token granted to them expires.
 
-Refresh Tokens are:
+Refresh Tokens:
 
 * Are subject to strict storage requirements to ensure that they are not leaked
 * [Can be revoked](#revoke-a-refresh-token) by the Authorization Server
@@ -41,11 +41,11 @@ A Refresh Token allows the application to ask Auth0 to issue a new Access Token 
 
 You can only get a Refresh Token if you are implementing the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow), or [Resource Owner Password Grant](/api-auth/grant/password).
 
-A Single-Page Application (normally implementing [Single-Page Login Flow](/flows/concepts/single-page-login-flow)) should not, under any circumstances, get a Refresh Token. The reason for that is the sensitivity of this piece of information. You can think of the token as a user credential since a Refresh Token allows a user to remain authenticated essentially forever. Therefore you cannot have this information in a browser; it must be stored securely.
+A Single-Page Application (normally implementing [Single-Page Login Flow](/flows/concepts/single-page-login-flow)) should not ever receive a Refresh Token. A Refresh Token is essentially a user credential that allows a user to remain authenticated indefinitely. This sensitive information should be stored securely and *not* exposed client-side in a browser.
 
 If you are implementing an SPA using [Single-Page Login Flow](/flows/concepts/single-page-login-flow) and you need to renew a token, the only secure option for doing so is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
 
-If you've limited offline access to your API, a safeguard configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis), Auth0 will not return a Refresh Token for the API (even if you included the `offline_access` scope in your request).
+If you limit offline access to your API, a safeguard configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis), Auth0 will not return a Refresh Token for the API (even if you include the `offline_access` scope in your request).
 
 ## Get a Refresh Token
 
@@ -258,7 +258,7 @@ The response will be an **HTTP 204**: The credential no longer exists.
 
 ### Use the Dashboard
 
-Strictly speaking, the following process shows you how to revoke a user's authorized access to the application that issued the token. This renders the Refresh Token valid, which is functionally identical to revoking the token itself.
+Strictly speaking, the following process shows you how to revoke a user's authorized access to the application that issued the token. This renders the Refresh Token invalid, which is functionally identical to revoking the token itself.
 
 To do this, go to the [Users section](${manage_url}/#/users) of the [dashboard](${manage_url}). Click the name of the user to view their *Details* page.
 
@@ -290,8 +290,6 @@ All our main SDKs support Refresh Tokens out of the box. Some are [Node.js](/qui
 - The `parseHash` method, parses a URL hash fragment to extract the result of an Auth0 authentication response.
 - The `checkSession` method, attempts to get a new token from Auth0, using [silent authentication](/api-auth/tutorials/silent-authentication). For more details refer to [Using checkSession to Acquire New Tokens](/libraries/auth0js#using-checksession-to-acquire-new-tokens).
 
-You can find additional information on the library in its [GitHub repository](https://github.com/auth0/auth0.js#api).
-
 ### Mobile / Native Apps
 
 For information on using Refresh Tokens with our mobile SDKs, see:
@@ -305,4 +303,4 @@ For information on using Refresh Tokens with our mobile SDKs, see:
 ## Next steps
 
 * [Refresh Tokens: When to use them and how they interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
-* [Using a Refresh Token with an Access Token](/tokens/set-access-token-lifetime)s
+* [Using a Refresh Token with an Access Token](/tokens/set-access-token-lifetime)
