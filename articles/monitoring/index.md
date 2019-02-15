@@ -14,7 +14,7 @@ useCase:
 
 You can monitor your Auth0 implementation and track your Auth0 status and usage, as well as send logs other data to logging sofware.
 
-<%= include('/_includes/_monitor-appliance.md') %>
+<%= include('./_includes/_monitor-appliance.md') %>
 
 ## Check availability and status
 
