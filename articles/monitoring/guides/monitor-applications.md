@@ -14,7 +14,7 @@ useCase:
 
 If you would like to monitor your own application or conduct end-to-end testing, you’ll need to set up your own tests. 
 
-If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can build a synthetic transaction that exercises these capabilities using the [Resource Owner Password Grant](/api-auth/tutorials/password-grant). One way of doing this is to [Monitor Auth0 Using SCOM](/monitoring/guides/monitor-using-SCOM).
+If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can build a synthetic transaction that exercises these capabilities using the [Resource Owner Password Grant](/api-auth/tutorials/password-grant). One way of doing this is to [Monitor Auth0 Using SCOM](/monitoring/guides/monitor-using-scom).
 
 Auth0 recommends using an authentication flow that doesn't require a user interface such as the **Resource Owner Password Grant**. That way, you can use a monitoring tool that doesn't have to mimick the actions of a user. Many monitoring services exist with this capability including:
 
