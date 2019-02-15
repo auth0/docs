@@ -47,5 +47,5 @@ Current and historical uptime is available at [Auth0 Uptime](http://uptime.auth0
 
 * [Check External Services Status](/monitoring/guides/check-external-services)
 * [Check Auth0 Authentication and Supporting Services](/monitoring/guides/test-testall-endpoints)
-* [Monitor Auth0 Using System Center Operations Manager](/monitoring/guides/monitor-using-scom)
+* [Monitor Auth0 Using System Center Operations Manager](/monitoring/guides/monitor-using-SCOM)
 * [Monitor Applications](/monitoring/guides/monitor-applications)

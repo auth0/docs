@@ -19,7 +19,7 @@ You can use the `/test` and `/testall` endpoints as a supplemental to monitoring
 
 ## Test endpoint
 
-Here is an example of a call to the `/test` endpoint**:
+Here is an example of a call to the `/test` endpoint:
 
 ```har
 {
@@ -57,5 +57,5 @@ If all services are up, the endpoint returns the `200` HTTP response code and a 
 
 * [Check Auth0 Status](/monitoring/guides/check-status)
 * [Check External Services Status](/monitoring/guides/check-external-services)
-* [Monitor Auth0 Using System Center Operations Manager](/monitoring/guides/monitor-using-scom)
+* [Monitor Auth0 Using System Center Operations Manager](/monitoring/guides/monitor-using-SCOM)
 * [Monitor Applications](/monitoring/guides/monitor-applications)
