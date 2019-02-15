@@ -11,12 +11,12 @@ Create a service and instantiate `auth0.WebAuth`. Provide a method called `login
 
 import auth0 from 'auth0-js';
 import EventEmitter from 'events';
-import { AUTH_CONFIG } from './auth0-variables';
+import authConfig from '../../auth_config.json';
 
 const webAuth = new auth0.WebAuth({
-  domain: AUTH_CONFIG.domain,
-  redirectUri: AUTH_CONFIG.callbackUrl,
-  clientID: AUTH_CONFIG.clientId,
+  domain: authConfig.domain,
+  redirectUri: authConfig.callbackUrl,
+  clientID: authConfig.clientId,
   responseType: 'id_token',
   scope: 'openid profile email'
 });
@@ -39,14 +39,14 @@ export default new AuthService();
 The `login` method has been setup to support specifing custom state that will be returned to the application after authentication. This will come into play later when you start adding protected routes.
 :::
 
-To provide the values for `clientID` and `domain`, create a new file `auth0-variables.js` in the same directory as `authService.js` and populate it with your tenant values:
+To provide the values for `clientID`, `callbackUrl`, and `domain`, create a new file `auth_config.json` in the root directory of the application alongside your `package.json` file, and populate it with your tenant values:
 
-```js
-export const AUTH_CONFIG = {
-  domain: '${account.tenant}',
-  clientId: '${account.clientId}',
-  callbackUrl: `<%= "${window.location.origin}" %>/callback`
-};
+```json
+{
+  "domain": "${account.tenant}",
+  "clientId": "${account.clientId}",
+  "callbackUrl": "http://localhost:3000/callback"
+}
 ```
 
 ::: note
@@ -61,6 +61,8 @@ Add some additional methods to `AuthService` to fully handle authentication in t
 
 ```js
 // src/auth/authService.js
+
+// Other imports and WebAuth declaration..
 
 const localStorageKey = 'loggedIn';
 const loginEvent = 'loginEvent';
@@ -94,6 +96,8 @@ class AuthService extends EventEmitter {
   localLogin(authResult) {
     this.idToken = authResult.idToken;
     this.profile = authResult.idTokenPayload;
+
+    // Convert the JWT expiry time from seconds to milliseconds
     this.tokenExpiry = new Date(this.profile.exp * 1000);
 
     localStorage.setItem(localStorageKey, 'true');
@@ -150,7 +154,7 @@ export default new AuthService();
 The service now includes several other methods for handling authentication.
 
 - `handleCallback` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
-- `localLogin` - sets the user's ID Token, and a time at which the ID Token will expire
+- `localLogin` - sets the user's ID Token, and a time at which the ID Token will expire. The expiry time is converted to milliseconds so that we can more easily work with the native JavaScript `Date` object
 - `renewTokens` - uses the `checkSession` method from auth0.js to renew the user's authentication status, and calls `localLogin` if the login session is still valid
 - `logout` - removes the user's tokens from memory. It also calls `webAuth.logout` to log the user out at the authorization server
 - `isAuthenticated` - checks whether the local storage flag is present and equals "true", and that the expiry time for the ID Token has passed
