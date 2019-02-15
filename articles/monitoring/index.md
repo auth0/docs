@@ -43,4 +43,4 @@ Need to analyze logs or store them long-term? Auth0 provides extensions to [expo
 ## Track new signups and leads
 
 * [Track New Sign-Ups in Salesforce](/monitoring/guides/track-signups-salesforce)
-* [Track New Leads in Salesforce and Raplead](/monitoring/guides/track-leads-salesforce-)
+* [Track New Leads in Salesforce and Raplead](/monitoring/guides/track-leads-salesforce)
