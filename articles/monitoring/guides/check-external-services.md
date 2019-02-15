@@ -36,4 +36,6 @@ If you see potential issues with your Auth0 service, but the monitoring endpoint
 
 ## Keep reading
 
-* 
+* [Check Auth0 Status](/monitoring/guides/check-status)
+* [Monitor Auth0 Using System Center Operations Manager](/monitoring/guides/monitor-using-SCOM)
+* [Monitor Applications](/monitoring/guides/monitor-applications)
