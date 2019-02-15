@@ -72,15 +72,14 @@ With this in place, the frontend application can make a request to `/api/externa
 
 To start, open `authService.js` and make the necessary changes to the class to support retrieving an Access Token from the authorization server and exposing that token from a method.
 
-First of all, open `auth0-variables.js` and make sure that a value for `audience` is exported along with the other settings:
+First of all, open `auth_config.json` in the root of the project and make sure that a value for `audience` is exported along with the other settings:
 
-```js
-export const AUTH_CONFIG = {
-  domain: '${account.tenant}',
-  clientId: '${account.clientId}',
-  callbackUrl: `<%= "${window.location.origin}" %>/callback`,
-  audience: '${apiIdentifier}'  // NEW - add the audience value
-};
+```json
+{
+  "domain": "${account.tenant}",
+  "clientId": "${account.clientId}",
+  "audience": "${apiIdentifier}"
+}
 ```
 
 Then, modify the `webAuth` creation to include `token` in the response type and add in the API identifier as the `audience` value:
@@ -90,7 +89,7 @@ Then, modify the `webAuth` creation to include `token` in the response type and 
 
 const webAuth = new auth0.WebAuth({
   domain: AUTH_CONFIG.domain,
-  redirectUri: AUTH_CONFIG.callbackUrl,
+  redirectUri: `${window.location.origin}/callback`,
   clientID: AUTH_CONFIG.clientId,
   audience: AUTH_CONFIG.audience,   // add the audience
   responseType: "token id_token",   // request 'token' as well as 'id_token'
@@ -130,6 +129,9 @@ localLogin(authResult) {
 
     // NEW - Save the Access Token and expiry time in memory
     this.accessToken = authResult.accessToken;
+
+    // Convert expiresIn to milliseconds and add the current time
+    // (expiresIn is a relative timestamp, we want an absolute time)
     this.accessTokenExpiry = new Date(Date.now() + authResult.expiresIn * 1000);
 
     localStorage.setItem(localStorageKey, 'true');
