@@ -33,6 +33,9 @@ You can monitor your Auth0 implementation and track your Auth0 status and usage,
 * [Send Logging Events to Keen](/monitoring/guides/send-events-to-keenio)
 * [Send Logging Events to Segment](/monitoring/guides/send-events-to-segmentio)
 * [Send Logging Events to Splunk](/monitoring/guides/send-events-to-splunk)
+* [Send Logging Events to Loggly](/extensions/loggly)
+* [Send Logging Events to Mixpanel](/extensions/mixpanel)
+* [Get Realtime Authentication Events with Realtime and Pusher](https://auth0.com/blog/get-realtime-auth-events-with-auth0-and-pusher/)
 
 ## Track new signups and leads
 

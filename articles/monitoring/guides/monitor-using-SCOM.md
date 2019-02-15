@@ -66,4 +66,6 @@ Click **Web Application Status** to bring up the information SCOM has gathered.
 
 ## Keep reading
 
-* 
+* [Check Auth0 Status](/monitoring/guides/check-status)
+* [Check External Services Status](/monitoring/guides/check-external-services)
+* [Monitor Applications](/monitoring/guides/monitor-applications)
