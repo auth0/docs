@@ -20,10 +20,12 @@ You can monitor your Auth0 implementation and track your Auth0 status and usage,
 
 * [Check Auth0 Status](/monitoring/guides/check-status)
 * [Check External Services Status](/monitoring/guides/check-external-services)
-* [Monitor Auth0 Using System Center Operations Manager](/monitoring/guides/monitor-using-SCOM)
+* [Monitor Auth0 Using System Center Operations Manager](/monitoring/guides/monitor-using-scom)
 * [Monitor Applications](/monitoring/guides/monitor-applications)
 
 ## Log events
+
+Need to analyze logs or store them long-term? Auth0 provides extensions to [export logs to external tools](/logs) for analysis and retention. You can also retrieve log data with the Management API. Auth0 only retains logs for a limited period of time, governed by the type of subscription purchased. If your required data retention period is longer than the logs retention period for your subscription, you will want to export logs so you can keep them as long as you wish.
 
 * [What to Use Logs For](/logs#what-can-i-use-logs-for-)
 * [View Logging Data](/logs#how-to-view-log-data)

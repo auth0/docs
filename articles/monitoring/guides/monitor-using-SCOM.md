@@ -66,6 +66,7 @@ Click **Web Application Status** to bring up the information SCOM has gathered.
 
 ## Keep reading
 
+* [Monitoring the AD/LDAP Connector with System Center Operations Manager](/connector/scom-monitoring)
 * [Check Auth0 Status](/monitoring/guides/check-status)
 * [Check External Services Status](/monitoring/guides/check-external-services)
 * [Monitor Applications](/monitoring/guides/monitor-applications)
