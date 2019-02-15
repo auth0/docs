@@ -14,15 +14,15 @@ useCase:
 
 You can monitor your Auth0 implementation and track your Auth0 status and usage, as well as send logs other data to logging sofware.
 
-<%= include('../_includes/_monitor-appliance.md') %>
+<%= include('/_includes/_monitor-appliance.md') %>
 
 ## Check availability and status
 
 * [Check Auth0 Status](/monitoring/guides/check-status)
 * [Check External Services Status](/monitoring/guides/check-external-services)
+* [Check Auth0 Authentication and Supporting Services](/monitoring/guides/test-testall-endpoints)
 * [Monitor Auth0 Using System Center Operations Manager](/monitoring/guides/monitor-using-scom)
 * [Monitor Applications](/monitoring/guides/monitor-applications)
-* [Check Auth0 Authentication Service](/monitoring/guides/test-testall-endpoints)
 
 ## Log events
 

@@ -1,6 +1,6 @@
 ---
-title: Check Auth0 Authentication Service
-description: Learn how check the status of the Auth0 authentication service as well as supporting services such as the Dashboard and documentation. 
+title: Check Auth0 Authentication and Supporting Services
+description: Learn how check the status of the Auth0 authentication service as well as supporting services such as the Dashboard and documentation using the test and testall endpoints. 
 topics:
   - monitoring
 contentType:
@@ -10,9 +10,9 @@ useCase:
   - analyze-logs
   - integrate-analytics
 ---
-# Check Auth0 Authentication Service
+# Check Auth0 Authentication and Supporting Services
 
-You can use the `/test` and `/testall` endpoints as a supplemental to monitoring. They are better for determining everything is functioning rather than determining if anything is down. However, even if it returns a `500`, it doesn’t mean that there’s a failure.
+You can use the `/test` and `/testall` endpoints as a supplemental to monitoring. They are better for determining everything is functioning rather than determining if anything is down. For example, even if they return a `500` response code, that doesn’t mean that there’s a failure.
 
 * **`/test` endpoint**: Checks the status of the core Auth0 authentication service
 * **`/testall` endpoint**: Checks the status of the core Auth0 authentication service, as well as supporting services such as those for the [Dashboard](${manage_url}) and documentation.

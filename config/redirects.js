@@ -1431,7 +1431,7 @@ module.exports = [
   },
   {
     from: '/tutorials/how-to-monitor-auth0',
-    to: '/monitoring/concepts/monitoring-auth0',
+    to: '/monitoring',
   },
   {
     from: '/tutorials/sending-events-to-splunk',
