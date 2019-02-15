@@ -1,6 +1,6 @@
 ---
-title: Track New Leads in Salesforce with FullContact-Enriched User Profiles, and Send Auth0 Events to MixPanel
-description: How to track your sign-ups in MixPanel, enrich your user profiles with public information gathered from FullContact, and generate new sales leads.
+title: Track New Sign-Ups
+description: Learn how to track your sign-ups in Salesforce MixPanel, enrich your user profiles with public information gathered from FullContact, and generate new sales leads.
 topics:
   - monitoring
   - marketing
@@ -13,15 +13,17 @@ useCase:
   - integrate-analytics
 ---
 
-# Track New Leads in Salesforce with FullContact-Enriched User Profiles, and Send Auth0 Events to MixPanel
+# Track New Sign-Ups
 
-Whenever a new user signs up with a website using a social credential, we want to:
+You can track new sign-ups in Salesforce with FullContact-Enriched User Profiles, and Send Auth0 Events to MixPanel.
+
+Whenever a new user signs up with a website using a social credential, you want to:
 
 1. __Record a `signup` event__ in [MixPanel](https://mixpanel.com).
 2. __Augment the user profile__ with additional public information through [FullContact](http://www.fullcontact.com/).
 3. __Record the sign-up as a New Lead__ in [Salesforce](http://www.salesforce.com/), so a sales professional can follow up.
 
-To implement this with Auth0, you just need to create three [Rules](/rules) in your pipeline:
+To implement this with Auth0, you need to create three [Rules](/rules) in your pipeline:
 
 ![](/media/articles/tutorials/signups.png)
 
