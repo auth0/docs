@@ -1,7 +1,6 @@
 ---
 title: Check External Services Status
 description: Learn how to check the status of services external to Auth0. 
-toc: true
 topics:
   - monitoring
 contentType:
@@ -14,7 +13,7 @@ useCase:
 
 # Check External Services Status
 
-If you see potential issues with your Auth0 service, but the monitoring endpoints and the [Auth0 Status page](https://status.auth0.com) aren't indicating any problems, check the status of any external services that you use alongside Auth0, such as:
+If you see potential issues with your Auth0 service, but the monitoring endpoints and [Auth0 Status](https://status.auth0.com) aren't indicating any problems, check the status of the external services that you use alongside Auth0, such as:
 
 * [Amazon Web Services](https://status.aws.amazon.com/)
 * [Azure Active Directory](https://azure.microsoft.com/en-us/status/)
@@ -39,3 +38,4 @@ If you see potential issues with your Auth0 service, but the monitoring endpoint
 * [Check Auth0 Status](/monitoring/guides/check-status)
 * [Monitor Auth0 Using System Center Operations Manager](/monitoring/guides/monitor-using-scom)
 * [Monitor Applications](/monitoring/guides/monitor-applications)
+* [Check Auth0 Authentication Service](/monitoring/guides/test-testall-endpoints)

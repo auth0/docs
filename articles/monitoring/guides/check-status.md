@@ -21,17 +21,18 @@ Last but not least your customers may have some of the same concerns, so you may
 
 ## Check status
 
-Go to the [Auth0 Status](https://status.auth0.com) page to check the service availability of the cloud version of Auth0. 
+Go to [Auth0 Status](https://status.auth0.com) to check the service availability of the cloud version of Auth0. 
 
-You can see the status of a region or click to expand a region and see the status of individual services such as the authentication API or execution of custom code (used within custom DB connections and rules).
+You can see the status of a region or expand a region and see the status of individual services such as the authentication API or execution of custom code (used within custom DB connections and rules).
 
 ## Subscribe to status updates
 
-* Click **Subscribe to Updates** to get updates for specific regions and services to tailor the notices you receive. 
+* On the [Auth0 Status](https://status.auth0.com) page, click **Subscribe to Updates** to get updates for specific regions and services to tailor the notices you receive. 
 
-* Follow Auth0 on Twitter (@auth0status) to get the latest status updates.
+* Follow Auth0 on Twitter [@auth0status](https://twitter.com/auth0status) to get the latest status updates.
 
 * Subscribe to the Atom feed to get status updates that affect your tenant.
+
 `status.auth0.com/feed?domain={YOUR-TENANT}.auth0.com`
 
 ## Incident reports
@@ -47,3 +48,4 @@ Current and historical uptime is available at [Auth0 Uptime](http://uptime.auth0
 * [Check External Services Status](/monitoring/guides/check-external-services)
 * [Monitor Auth0 Using System Center Operations Manager](/monitoring/guides/monitor-using-scom)
 * [Monitor Applications](/monitoring/guides/monitor-applications)
+* [Check Auth0 Authentication Service](/monitoring/guides/test-testall-endpoints)
