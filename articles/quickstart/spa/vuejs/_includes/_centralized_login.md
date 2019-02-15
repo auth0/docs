@@ -15,7 +15,7 @@ import authConfig from '../../auth_config.json';
 
 const webAuth = new auth0.WebAuth({
   domain: authConfig.domain,
-  redirectUri: authConfig.callbackUrl,
+  redirectUri: `${window.location.origin}/callback`,
   clientID: authConfig.clientId,
   responseType: 'id_token',
   scope: 'openid profile email'
@@ -44,8 +44,7 @@ To provide the values for `clientID`, `callbackUrl`, and `domain`, create a new 
 ```json
 {
   "domain": "${account.tenant}",
-  "clientId": "${account.clientId}",
-  "callbackUrl": "http://localhost:3000/callback"
+  "clientId": "${account.clientId}"
 }
 ```
 
@@ -111,18 +110,18 @@ class AuthService extends EventEmitter {
 
   renewTokens() {
     return new Promise((resolve, reject) => {
-      if (localStorage.getItem(localStorageKey) === 'true') {
-        webAuth.checkSession({}, (err, authResult) => {
-          if (err) {
-            reject(err);
-          } else {
-            this.localLogin(authResult);
-            resolve(authResult);
-          }
-        });
-      } else {
-        reject('Not logged in');
+      if (localStorage.getItem(localStorageKey) !== "true") {
+        return reject("Not logged in");
       }
+      
+      webAuth.checkSession({}, (err, authResult) => {
+        if (err) {
+          reject(err);
+        } else {
+          this.localLogin(authResult);
+          resolve(authResult);
+        }
+      });
     });
   }
 
