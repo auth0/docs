@@ -33,7 +33,7 @@ You can see the status of a region or expand a region and see the status of indi
 
 * Subscribe to the Atom feed to get status updates that affect your tenant.
 
-`status.auth0.com/feed?domain={YOUR-TENANT}.auth0.com`
+   `status.auth0.com/feed?domain={YOUR-TENANT}.auth0.com`
 
 ## Incident reports
 
