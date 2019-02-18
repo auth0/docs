@@ -80,7 +80,7 @@ window.addEventListener('load', function() {
   function handleAuthentication() {
     webAuth.parseHash(function(err, authResult) {
       if (authResult && authResult.accessToken && authResult.idToken) {
-        window.location.hash = '';
+        window.location.replace('#');
         localLogin(authResult);
         loginBtn.style.display = 'none';
         homeView.style.display = 'inline-block';
