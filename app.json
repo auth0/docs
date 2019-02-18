@@ -15,6 +15,9 @@
     "HEROKU_APP_NAME": {
       "required": true
     },
+    "HEROKU_PARENT_APP_NAME": {
+      "required": true
+    },
     "GIT_SSH_KEY": {
       "required": true
     }
