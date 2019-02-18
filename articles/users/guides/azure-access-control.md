@@ -35,7 +35,7 @@ Start by [signing up for Auth0](https://auth0.com/signup). After creating your a
 
 ## Create an application
 
-In order for an application to use Auth0 it must be registered as a [application](/docs/applications). Create a new application on the [Dashboard](https://manage.auth0.com/#/applications).
+In order for an application to use Auth0 it must be registered as a [application](/applications). Create a new application on the [Dashboard](https://manage.auth0.com/#/applications).
 
 ![Create Application window](/media/articles/applications/create-application-popup.png)
 

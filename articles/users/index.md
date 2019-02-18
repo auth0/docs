@@ -35,12 +35,12 @@ Auth0 stores user information for your tenant in a hosted cloud database, or you
 
 ## User migration
 
-Auth0 supports importing users from external applications using [automatic migration](/users/guides/configure-automatic-migration), the [Management API](/users/guides/bulk-user-import), or the [User Import/Export Extension](/extensions/user-import-export).
+Auth0 supports importing and exporting users from external applications and data sources using [automatic migration](/users/guides/configure-automatic-migration), the [Management API](/users/guides/bulk-user-imports), or the [User Import/Export Extension](/extensions/user-import-export).
 
 ## Redirect users
 
-To make your login process as easy-to-use and seamless as possible, you'll need to keep track of where you want to route users inside your application once Auth0 [redirects](/users/guides/redirect-users-after-login) users back to your application after authentication and after they [log out](/logout#redirect-users-after-logout). You can also [redirect users from rules](/rules/current/redirect).
+To make your login process as easy-to-use and seamless as possible, you'll need to keep track of where you want to route users inside your application once Auth0 [redirects](/users/guides/redirect-users-after-login) users back to your application after authentication and after they [log out](/logout/guides/redirect-users-after-logout). You can also [redirect users from rules](/rules/current/redirect).
 
 ## User search
 
-Learn about how [search](/users/search/v3) works and the best ways to search for users using the Management API.
+Learn about how to [search](/users/search/v3) for users and sort, view, and export the search results using the Management API endpoints.

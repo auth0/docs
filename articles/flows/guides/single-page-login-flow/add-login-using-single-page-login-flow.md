@@ -31,7 +31,7 @@ Following successful login, your application will have access to the user's [ID 
 * [Register your Application with Auth0](applications/spa)
     * Select an **Application Type** of **Single-Page App**.
     * Add an **Allowed Callback URL** of **`${account.callback}`**.
-    * Make sure your Application's **[Grant Types](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property)** include **Implicit**.
+    * Make sure your Application's **[Grant Types](/applications/guides/update-grant-types-dashboard)** include **Implicit**.
 
 ## Steps
 

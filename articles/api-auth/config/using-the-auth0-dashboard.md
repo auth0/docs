@@ -8,9 +8,9 @@ contentType: how-to
 useCase: secure-api
 ---
 
-# Set up a Client Grant using the Dashboard
+# Set up a Client Credentials Grant using the Dashboard
 
-Auth0 lets you authorize applications that have the **Client Credential** grant type enabled to call APIs using the [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow). 
+Auth0 lets you authorize applications that have the **Client Credentials** grant type enabled to call APIs using the [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow). 
 
 By default, the **Client Credentials** grant is enabled for all Machine-to-Machine Applications and Regular Web Applications, but they are _not yet_ authorized to call any API.
 
@@ -31,5 +31,5 @@ To authorize the applications to call an API:
 :::next-steps
 * [Call API using the Machine-to-Machine (M2M) Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow)
 * [How to change the scopes and add custom claims to a token using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
-* [How to add custom claims to a token using Rules](/scopes#custom-claims)
+* [How to add custom claims to a token using Rules](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)
 :::

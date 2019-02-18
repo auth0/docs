@@ -85,7 +85,7 @@ https://yourdomain.com/index.php?auth0=1
 
 In order for your WordPress site to perform certain actions on behalf of your Auth0 tenant, you'll need to authorize the Application created above to access the Management API.
 
-1. Make sure your Application allows the Client Credential grant (step 11 above)
+1. Make sure your Application allows the Client Credentials grant (step 7 above)
 
 1. Navigate to the [APIs](${manage_url}/#/apis) page
 
@@ -117,7 +117,7 @@ Database Connections enable the typical username and password login seen on most
 
     ![Application Advanced Settings](/media/articles/cms/wordpress/database-connection-listing.png)
 
-1. Click the **Settings** tab, set **Password Strength** to the same as your wp-admin setting (default is Fair), and click **Save** at the bottom. If you want your password policy to be stronger or weaker, make sure to set it both here and at **wp-admin > Auth0 > Settings**.
+1. Click the **Password Policy** tab, set **Password Strength** to the same as your wp-admin setting (default is Fair), and click **Save** at the bottom. If you want your password policy to be stronger or weaker, make sure to set it both here and at **wp-admin > Auth0 > Settings**.
 
 1. Click the **Applications** tab and activate the Application created above.
 
@@ -238,6 +238,15 @@ All sites in a WordPress multi-site network will use the same constant value mak
 * **Language:** Information on this setting is [here](/libraries/lock/v11/configuration#language-string-). Option name is `language`.
 
 * **Language Dictionary:** Information on this setting is [here](/libraries/lock/v11/configuration#languagedictionary-object-). Option name is `language_dictionary`.
+
+  Please note that the dictionary object used is slightly different from the examples shown in the above link. The dictionary names are surrounded by quotation marks:
+
+```json
+{
+    "emailInputPlaceholder": "name@example.com",
+    "title":"Log me in",
+}
+```
 
 ### Advanced
 

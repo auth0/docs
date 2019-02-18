@@ -34,7 +34,7 @@ Previously, the payload of a request to /oauth/ro looked similar to this:
 
 * The endpoint to execute token exchanges is now /oauth/token
 * [Auth0's own grant type](/api-auth/tutorials/password-grant#realm-support) is used to authenticate users from a specific connection (or `realm`). 
-* Auth0 supports the [standard OIDC scopes](/scopes/current#openid-connect-scopes), along with the scopes which you have defined in your [custom API](/api-auth/apis).
+* Auth0 supports the [standard OIDC scopes](/scopes/current/oidc-scopes), along with the scopes which you have defined in your [custom API](/api-auth/apis).
 * A scope that doesn't fit in one of these categories, such as the above `favorite_color`, is no longer a valid scope.
 * The `device` parameter is removed.
 * The `audience` parameter is optional.

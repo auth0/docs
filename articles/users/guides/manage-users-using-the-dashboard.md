@@ -28,4 +28,4 @@ User Management is included as part of the **Developer** subscription plan. You 
 * [Manage User Access to Applications](/users/guides/manage-user-access-to-applications)
 * [Manage Users Using the Management API](/users/guides/manage-users-using-the-management-api)
 * [Update User Profiles Using Your Database](/users/guides/update-user-profiles-using-your-database)
-* [Search](/users/search/v3)
+* [User Search](/users/search)

@@ -95,7 +95,7 @@ List of affected endpoints:
 | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | [Link user accounts](/link-accounts) from various identity providers |
 | [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) | [Unlink user accounts](/link-accounts#unlinking-accounts) |
 
-These endpoints can now accept regular [Access Tokens](/tokens/access-token).
+These endpoints can now accept regular [Access Tokens](/tokens/overview-access-tokens).
 
 The functionality is available and affected users are encouraged to migrate. However the ability to use ID Tokens will not be disabled in the foreseeable future so the mandatory opt-in date for this migration remains open. When this changes, customers will be notified beforehand.
 

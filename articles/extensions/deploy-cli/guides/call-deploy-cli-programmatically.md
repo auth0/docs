@@ -17,14 +17,14 @@ import { deploy, dump } from 'auth0-deploy-cli';
 
 const config = {
   AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
-  AUTH0_CLIENT_SECRET: process.env.AUTH0_CLIENT_ID,
-  AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_SECRET,
+  AUTH0_CLIENT_SECRET: process.env.AUTH0_CLIENT_SECRET,
+  AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
   AUTH0_ALLOW_DELETE: false
 };
 
 
 // Export Tenant Config
-deploy({
+dump({
   output_folder: 'path/to/yaml/or/directory',   // Input file for directory, change to .yaml for YAML
   base_path: basePath,                          // Allow to override basepath, if not take from input_file
   config_file: configFile,                      // Option to a config json
@@ -32,12 +32,12 @@ deploy({
   strip,                                        // Strip the identifier field for each object type
   secret                                        // Optionally pass in auth0 client secret seperate from config
 })
-  .then(() => console.log('yey deploy was successful'))
+  .then(() => console.log('yey dump was successful'))
   .catch(err => console.log(`Oh no, something went wrong. <%= "Error: ${err}" %>`));
 
 
 // Import tenant config
-dump({
+deploy({
   input_file: 'path/to/yaml/or/directory',  // Input file for directory, change to .yaml for YAML
   base_path: basePath,                      // Allow to override basepath, if not take from input_file
   config_file: configFile,                  // Option to a config json

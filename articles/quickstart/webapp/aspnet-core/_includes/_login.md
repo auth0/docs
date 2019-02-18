@@ -8,7 +8,7 @@ You can also create a custom login for prompting the user for their username and
 
 ### Install dependencies
 
-To integrate Auth0 with ASP.NET Core you will use the Cookie and OpenID Connect (OIDC) authentication handlers. The seed project already references the ASP.NET Core metapackage (`Microsoft.AspNetCore.All`) which includes **all** NuGet packages shipped by Microsoft as part of ASP.NET Core 2.0, including the packages for the Cookie and OIDC authentication handlers.
+To integrate Auth0 with ASP.NET Core you will use the Cookie and OpenID Connect (OIDC) authentication handlers. The seed project already references the ASP.NET Core metapackage (`Microsoft.AspNetCore.App`) which includes **all** NuGet packages shipped by Microsoft as part of ASP.NET Core 2.1, including the packages for the Cookie and OIDC authentication handlers.
 
 If you are adding this to your own existing project, and you have not referenced the metapackage, then please make sure that you add the `Microsoft.AspNetCore.Authentication.Cookies` and `Microsoft.AspNetCore.Authentication.OpenIdConnect` packages to your application.
 
@@ -26,7 +26,7 @@ Next, configure the OIDC authentication handler. Add a call to `AddOpenIdConnect
 
 Configure other parameters, such as `ClientId`, `ClientSecret` or `ResponseType`.
 
-By default, the OIDC middleware requests both the `openid` and `profile` scopes. Because of that, you may get a large ID Token in return. We suggest that you ask only for the scopes you need. You can read more about requesting additional scopes in the [User Profile step](/quickstart/webapp/aspnet-core/v2/04-user-profile).
+By default, the OIDC middleware requests both the `openid` and `profile` scopes. Because of that, you may get a large ID Token in return. We suggest that you ask only for the scopes you need. You can read more about requesting additional scopes in the [User Profile step](/quickstart/webapp/aspnet-core/02-user-profile).
 
 ::: note
 In the code sample below, only the `openid` scope is requested.
@@ -66,9 +66,9 @@ public void ConfigureServices(IServiceCollection services)
         options.Scope.Clear();
         options.Scope.Add("openid");
 
-        // Set the callback path, so Auth0 will call back to http://localhost:5000/signin-auth0
+        // Set the callback path, so Auth0 will call back to http://localhost:3000/callback
         // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard
-        options.CallbackPath = new PathString("/signin-auth0");
+        options.CallbackPath = new PathString("/callback");
 
         // Configure the Claims Issuer to be Auth0
         options.ClaimsIssuer = "Auth0";
@@ -97,7 +97,7 @@ public void ConfigureServices(IServiceCollection services)
 
                 return Task.CompletedTask;
             }
-        };   
+        };
     });
 
     // Add framework services.
@@ -170,7 +170,7 @@ public void ConfigureServices(IServiceCollection services)
 
                 return Task.FromResult(0);
             }
-        };   
+        };
     });
 }
 ```
@@ -266,14 +266,14 @@ public void ConfigureServices(IServiceCollection services)
 
                 return Task.CompletedTask;
             }
-        };   
+        };
     });
 }
 ```
 
 ### Add the Log In and Log Out Buttons
 
-Add the **Log In** and **Log Out** buttons to the navigation bar. In the `/Views/Shared/_Layout.cshtml` file, in the navigation bar section, add code that displays the **Log Out** button when the user is authenticated and the **Log In** button if not. The buttons link to the `Logout` and `Login` actions in the `AccountController`:  
+Add the **Log In** and **Log Out** buttons to the navigation bar. In the `/Views/Shared/_Layout.cshtml` file, in the navigation bar section, add code that displays the **Log Out** button when the user is authenticated and the **Log In** button if not. The buttons link to the `Logout` and `Login` actions in the `AccountController`:
 
 ```html
 <!-- Views/Shared/_Layout.cshtml -->
@@ -317,8 +317,8 @@ When the user selects the **Log In** button, the OIDC middleware redirects them 
 1. The user clicks on the **Log In** button and is directed to the `Login` route.
 2. The `ChallengeAsync` tells the ASP.NET authentication middleware to issue a challenge to the authentication handler registered with the Auth0 `authenticationScheme` parameter. The parameter uses the "Auth0" value you passed in the call to `AddOpenIdConnect` in the `Startup` class.
 3. The OIDC handler redirects the user to the Auth0 `/authorize` endpoint, which displays the Lock widget. The user can log in with their username and password, social provider or any other identity provider.
-4. Once the user has logged in, Auth0 calls back to the `/signin-auth0` endpoint in your application and passes along an authorization code.
-5. The OIDC handler intercepts requests made to the `/signin-auth0` path.
+4. Once the user has logged in, Auth0 calls back to the `/callback` endpoint in your application and passes along an authorization code.
+5. The OIDC handler intercepts requests made to the `/callback` path.
 6. The handler looks for the authorization code, which Auth0 sent in the query string.
 7. The OIDC handler calls the `/oauth/token` endpoint to exchange the authorization code for the user's ID and Access Tokens.
 8. The OIDC middleware extracts the user information from the claims on the ID Token.
@@ -359,7 +359,7 @@ public void ConfigureServices(IServiceCollection services)
             {
                 //...
             }
-        };   
+        };
     });
 }
 ```
@@ -378,7 +378,7 @@ if (User.Identity.IsAuthenticated)
     // do not attempt to inspect/decode the access token
     DateTime accessTokenExpiresAt = DateTime.Parse(
         await HttpContext.GetTokenAsync("expires_at"), 
-        CultureInfo.InvariantCulture, 
+        CultureInfo.InvariantCulture,
         DateTimeStyles.RoundtripKind);
         
     string idToken = await HttpContext.GetTokenAsync("id_token");

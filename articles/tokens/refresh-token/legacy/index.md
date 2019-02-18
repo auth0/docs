@@ -99,7 +99,6 @@ The `expires_in` parameter indicates the lifetime of the new JWT in seconds. It 
 Obtaining new tokens using the Refresh Token should occur only if the ID Token has expired. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
 :::
 
-
 ## Revoke a Refresh Token
 
 Since Refresh Tokens never expire, it is important to be able to revoke them.

@@ -63,10 +63,10 @@ In the example below you can see how the resulting linked profile will be for th
   "user_id": "google-oauth2|115015401343387192604",
   "identities": [
     {
-        "provider": "google-oauth2",
-        "user_id": "115015401343387192604",
-        "connection": "google-oauth2",
-        "isSocial": true
+      "provider": "google-oauth2",
+      "user_id": "115015401343387192604",
+      "connection": "google-oauth2",
+      "isSocial": true
     }
   ],
   "user_metadata": {
@@ -74,7 +74,7 @@ In the example below you can see how the resulting linked profile will be for th
   },
   "app_metadata": {
     "roles": [
-        "Admin"
+      "Admin"
     ]
   },
   ...
@@ -92,19 +92,19 @@ In the example below you can see how the resulting linked profile will be for th
   "user_id": "sms|560ebaeef609ee1adaa7c551",
   "identities": [
     {
-        "user_id": "560ebaeef609ee1adaa7c551",
-        "provider": "sms",
-        "connection": "sms",
-        "isSocial": false
+      "user_id": "560ebaeef609ee1adaa7c551",
+      "provider": "sms",
+      "connection": "sms",
+      "isSocial": false
     }
   ],
   "user_metadata": {
-      "color": "blue"
+    "color": "blue"
   },
   "app_metadata": {
-      "roles": [
-          "AppAdmin"
-      ]
+    "roles": [
+      "AppAdmin"
+    ]
   },
   ...
 }
@@ -114,12 +114,12 @@ In the example below you can see how the resulting linked profile will be for th
     <div class="tab-pane" id="profile-linked">
       <pre class="hl">
         <code>{
-  "email": "your@email.com",
+  "email": "your0@email.com",
   "email_verified": true,
   "name": "John Doe",
   "given_name": "John",
   "family_name": "Doe",
-  "picture": "https://lh3.googleusercontent.../photo.jpg",
+  "picture": "https://lh3.googleusercontent..../photo.jpg",
   "gender": "male",
   "locale": "en",
   "user_id": "google-oauth2|115015401343387192604",
@@ -132,9 +132,9 @@ In the example below you can see how the resulting linked profile will be for th
     },
     {
       "profileData": {
-          "phone_number": "+14258831929",
-          "phone_verified": true,
-          "name": "+14258831929"
+        "phone_number": "+14258831929",
+        "phone_verified": true,
+        "name": "+14258831929"
       },
       "user_id": "560ebaeef609ee1adaa7c551",
       "provider": "sms",
@@ -143,12 +143,12 @@ In the example below you can see how the resulting linked profile will be for th
     }
   ],
   "user_metadata": {
-      "color": "red"
+    "color": "red"
   },
   "app_metadata": {
-      "roles": [
-          "Admin"
-      ]
+    "roles": [
+      "Admin"
+    ]
   },
   ...
 }

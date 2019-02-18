@@ -79,6 +79,16 @@ Additionally, each status code conveys additional information depending on the e
 
 None of the responses will include a body.
 
+#### GET /status/cpu
+
+This endpoint returns information about the overall available CPU capacity in the last minute on the PSaaS Appliance. Overall CPU capacity means that all CPU time is aggregated and compared with the time that any core was not idle. For example if a four core PSaaS Appliance node had two cores completely utilized and two cores completely idle the CPU capacity calculated will be 50%.
+
+| Response Code | Response |
+| ------------- | -------- |
+| 204 | The system had more than 20% of the total CPU capacity available in the last minute. |
+| 429 | The status endpoint has been called too many times (limit: 10 requests per second). Please wait and try again. |
+| 520 | The system had 20% of the total CPU capacity (or less) available in the last minute. |
+
 #### GET /status/memory
 
 This endpoint returns information on the amount of memory available on the PSaaS Appliance.

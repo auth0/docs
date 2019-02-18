@@ -67,7 +67,8 @@ INSTALLED_APPS = [
 ]
 ```
 
-Add your Auth0 domain, the Client Id and the Client Secret. You can get this information the [application settings](/#/applications/${account.clientId}/settings) in the Auth0 Dashboard.
+1) Set the **Callback URL** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to:
+Add your Auth0 domain, the Client Id and the Client Secret. You can get this information the [application settings](#/applications/${account.clientId}/settings) in the Auth0 Dashboard.
 
 
 ```python
@@ -79,7 +80,7 @@ SOCIAL_AUTH_AUTH0_KEY = '${account.clientId}'
 SOCIAL_AUTH_AUTH0_SECRET = 'YOUR_CLIENT_SECRET'
 ```
 
-Set the `SOCIAL_AUTH_AUTH0_SCOPE` variable with the scopes the application will request when authenticating. Check the [Scopes documentation](/scopes/current) for more information.
+Set the `SOCIAL_AUTH_AUTH0_SCOPE` variable with the scopes the application will request when authenticating. Check the [Scopes documentation](/scopes) for more information.
 
 ```python
 # webappexample\settings.py

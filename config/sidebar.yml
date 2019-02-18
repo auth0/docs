@@ -112,14 +112,8 @@ articles:
       - title: Overview
         url: /applications
 
-      - title: Connections
-        url: /applications/connections
-
-      - title: Application Types
-        url: /applications/application-types
-
       - title: Grant Types
-        url: /applications/application-grant-types
+        url: /applications/concepts/application-grant-types
 
   - title: "Authentication"
     url: "/application-auth/current"
@@ -165,8 +159,7 @@ articles:
           - title: "Mobile App"
             url: "/application-auth/legacy/mobile-desktop"
             hidden: true
-            
-        
+
   - title: "APIs"
     url: "/apis"
     children:
@@ -222,6 +215,115 @@ articles:
 
       - title: "Verify Access Tokens"
         url: "/api-auth/tutorials/verify-access-token"
+
+  - title: "Appliance"
+    url: "/appliance"
+    children:
+      - title: "Support"
+        url: "/appliance/critical-issue"
+        children:
+          - title: Critical Issue
+            url: /appliance/critical-issue
+          - title: Enterprise Support
+            url: /onboarding/enterprise-support
+
+      - title: PSaaS Appliance Planning
+        url: /appliance/appliance-overview
+        children:
+          - title: Overview
+            url: /appliance/appliance-overview
+
+          - title: Geographic High-Availability
+            url: /appliance/geo-ha
+            children:
+              - title: Disaster Recovery
+                url: /appliance/geo-ha/disaster-recovery
+
+          - title: Infrastructure Requirements
+            url: /appliance/infrastructure
+            children:
+              - title: Installation Process
+                url: /appliance/infrastructure/installation
+              - title: Infrastructure Overview
+                url: /appliance/infrastructure/infrastructure-overview
+              - title: Webtasks and Web Extensions
+                url: /appliance/infrastructure/extensions
+
+              - title: Virtual Machines
+                url: /appliance/infrastructure/virtual-machines
+              - title: Network
+                url: /appliance/infrastructure/network
+              - title: IP/Domain and Port List
+                url: /appliance/infrastructure/ip-domain-port-list
+              - title: Security and Access
+                url: /appliance/infrastructure/security
+
+          - title: Roles and Responsibilities
+            url: /appliance/raci
+
+          - title: Customer Onboarding
+            url: /onboarding/appliance-sprint
+
+          - title: Private Cloud Requirements
+            url: /appliance/private-cloud-requirements
+
+      - title: "PSaaS Appliance Administration"
+        url: "/appliance/admin"
+        children:
+          - title: Administrator's Manual
+            url: /appliance/admin
+            children:
+              - title: Managing the Dashboard
+                url: /appliance/admin/managing-the-dashboard
+              - title: Disabling Sign-ups
+                url: /appliance/admin/disabling-sign-ups
+              - title: Inviting Co-Administrators
+                url: /appliance/admin/inviting-coadmins
+              - title: Appliance Backups
+                url: /appliance/admin/backing-up-the-appliance-instances
+              - title: Monitoring
+                url: /appliance/admin/monitoring
+              - title: Updating
+                url: /appliance/admin/updating-the-appliance
+
+          - title: Dashboard/Configuration Area
+            url: /appliance/dashboard
+            children:
+              - title: Troubleshoot
+                url: /appliance/dashboard/troubleshoot
+            
+          - title: Monitoring
+            url: /appliance/monitoring
+            children:
+              - title: Instrumentation
+                url: /appliance/instrumentation
+              - title: Testall endpoint
+                url: /appliance/monitoring/testall
+              - title: Authenticated testing endpoints
+                url: /appliance/monitoring/authenticated-endpoints
+            
+          - title: Command-Line Interface Tools
+            url: /appliance/cli
+          - title: Automatic Tenant Creation
+            url: /appliance/admin/creating-tenants
+            hidden: true
+          - title: Node Module Availability
+            url: /appliance/modules
+          - title: Webtasks
+            url: /appliance/webtasks
+          - title: Extensions
+            url: /appliance/extensions
+          - title: Disaster Recovery
+            url: /appliance/disaster-recovery
+            children:
+              - title: Roles and Responsibilities
+                url: /appliance/disaster-recovery-raci
+          - title: Migrating to Node.js v8
+            url: /appliance/extensibility-node8
+          - title: Release Notes
+            url: https://auth0.com/changelog/appliance
+            external: true
+            forceFullReload: true
 
   - title: "Connections"
     url: "/connections"
@@ -348,63 +450,56 @@ articles:
     url: "/hooks"
     children:
 
-      - title: "Index"
+      - title: "Overview"
         url: "/hooks"
 
-      - title: "Overview"
-        url: "/hooks/overview"
-
       - title: "Extensibility Points"
-        url: "/hooks/extensibility-points"
+        url: "/hooks/concepts/extensibility-points"
         children:
 
           - title: "Credentials Exchange"
-            url: "/hooks/extensibility-points/credentials-exchange"
-            hidden: true
+            url: "/hooks/concepts/credentials-exchange-extensibility-point"
 
           - title: "Pre-User Registration"
-            url: "/hooks/extensibility-points/pre-user-registration"
-            hidden: true
+            url: "/hooks/concepts/pre-user-registration-extensibility-point"
 
           - title: "Post-User Registration"
-            url: "/hooks/extensibility-points/post-user-registration"
-            hidden: true
+            url: "/hooks/concepts/post-user-registration-extensibility-point"
 
       - title: "Using the Auth0 CLI"
-        url: "/hooks/cli"
+        url: "/hooks/guides/create-hooks-using-cli"
         children:
 
-          - title: "Create/Delete Hooks"
-            url: "/hooks/cli/create-delete"
-            hidden: true
+          - title: "Create Hooks"
+            url: "/hooks/guides/create-hooks-using-cli"
 
           - title: "Edit Hooks"
-            url: "/hooks/cli/edit"
-            hidden: true
+            url: "/hooks/guides/edit-hooks-using-cli"
+            
+          - title: "Delete Hooks"
+            url: "/hooks/guides/delete-hooks-using-cli"
 
           - title: "Enable/Disable Hooks"
-            url: "/hooks/cli/enable-disable"
-            hidden: true
+            url: "/hooks/guides/enable-disable-hooks-using-cli"
 
-          - title: "Hooks Logs"
-            url: "/hooks/cli/logs"
-            hidden: true
+          - title: "Get Log Info"
+            url: "/hooks/guides/logging-hooks-using-cli"
 
       - title: "Using the Dashboard"
-        url: "/hooks/dashboard"
+        url: "/hooks/guides/create-hooks-using-dashboard"
         children:
 
-          - title: "Create or Delete Hooks"
-            url: "/hooks/dashboard/create-delete"
-            hidden: true
+          - title: "Create Hooks"
+            url: "/hooks/guides/create-hooks-using-dashboard"
 
           - title: "Edit Hooks"
-            url: "/hooks/dashboard/edit"
-            hidden: true
+            url: "/hooks/guides/edit-hooks-using-dashboard"
+            
+          - title: "Delete Hooks"
+            url: "/hooks/guides/delete-hooks-using-dashboard"
 
-          - title: "Enable or Disable Hooks"
-            url: "/hooks/dashboard/enable-disable"
-            hidden: true
+          - title: "Enable/Disable Hooks"
+            url: "/hooks/guides/enable-disable-hooks-using-dashboard"
 
   - title: "Email"
     url: "/email"
@@ -546,8 +641,11 @@ articles:
           - title: "Automatic Migration"
             url: "/users/guides/configure-automatic-migration"
 
-          - title: "Bulk Migration"
-            url: "/users/guides/bulk-user-import"
+          - title: "Bulk User Imports"
+            url: "/users/guides/bulk-user-imports"
+
+          - title: "Bulk User Exports"
+            url: "/users/guides/bulk-user-exports"
 
           - title: "User Import/Export Extension"
             url: "/extensions/user-import-export"
@@ -562,25 +660,59 @@ articles:
           - title: "Import File Schema"
             url: "/users/references/bulk-import-database-schema-examples"
  
-      - title: "Redirect Users"
+      - title: "Redirect After Login"
         url: "/users/guides/redirect-users-after-login"
         children:
           - title: "Redirect Users from Rules"
             url: "/rules/current/redirect"
             hidden: true
 
-          - title: "Redirect Users After Logout"
-            url: "/logout#redirect-users-after-logout"
-            hidden: true
+      - title: "User Logout"
+        url: "/logout"
+        children:
+          - title: "Applications"
+            url: "/logout/guides/logout-applications"
+
+          - title: "Auth0"
+            url: "/logout/guides/logout-auth0"
+
+          - title: "Identity Providers"
+            url: "/logout/guides/logout-idps"
+            hidden: true 
+
+          - title: "SAML Identity Providers"
+            url: "/logout/guides/logout-saml-idps"
+
+          - title: "Redirect After Logout"
+            url: "/logout/guides/redirect-users-after-logout"
 
       - title: "User Search"
         url: "/users/search/v3"
         children:
+          - title: "Get Users"
+            url: "/users/search/v3/get-users-endpoint"
+
+          - title: "Get Users by Email"
+            url: "/users/search/v3/get-users-by-email-endpoint"
+
+          - title: "Get Users by ID"
+            url: "/users/search/v3/get-users-by-id-endpoint"
+
+          - title: "Sort Search Results"
+            url: "/users/search/v3/sort-search-results"
+
+          - title: "View Search Results"
+            url: "/users/search/v3/view-search-results-by-page"
+
           - title: "Query Syntax"
             url: "/users/search/v3/query-syntax"
 
           - title: "Best Practices"
             url: "/best-practices/search-best-practices"
+
+          - title: "Migrate from Search v2 to V3"
+            url: "/users/search/v3/migrate-search-v2-v3"
+            hidden: true 
 
       - title: "User Search"
         url: "/users/search/v2"
@@ -725,6 +857,16 @@ articles:
 
       - title: "FAQs"
         url: "/anomaly-detection/references/anomaly-detection-faqs"    
+
+  - title: "Logs"
+    url: "/logs"
+    children:
+
+      - title: "Overview"
+        url: "/logs"
+
+      - title: "Query Syntax"
+        url: "/logs/query-syntax"
 
   - title: "Analytics"
     url: "/analytics/integrations"
@@ -1078,9 +1220,6 @@ articles:
       - title: "Private SaaS Management Workshop"
         url: "/services/private-saas-management"
 
-      - title: "Jumpstart"
-        url: "/services/jumpstart"
-
 apis:
 
   - title: "Overview"
@@ -1261,119 +1400,3 @@ libraries:
 
       - title: "Refresh Tokens"
         url: "/libraries/auth0-android/save-and-refresh-tokens"
-
-appliance:
-
-  - title: "Introduction"
-    url: "/appliance"
-
-  - title: "Support"
-    url: "/appliance/critical-issue"
-    expanded: 1
-    children:
-      - title: Critical Issue
-        url: /appliance/critical-issue
-      - title: Enterprise Support
-        url: /onboarding/enterprise-support
-
-  - title: PSaaS Appliance Planning
-    url: /appliance/appliance-overview
-    expanded: 1
-    children:
-      - title: Overview
-        url: /appliance/appliance-overview
-
-      - title: Geographic High-Availability
-        url: /appliance/geo-ha
-        children:
-          - title: Disaster Recovery
-            url: /appliance/geo-ha/disaster-recovery
-
-      - title: Infrastructure Requirements
-        url: /appliance/infrastructure
-        children:
-          - title: Installation Process
-            url: /appliance/infrastructure/installation
-          - title: Infrastructure Overview
-            url: /appliance/infrastructure/infrastructure-overview
-          - title: Webtasks and Web Extensions
-            url: /appliance/infrastructure/extensions
-
-          - title: Requirements
-            category: true
-          - title: Virtual Machines
-            url: /appliance/infrastructure/virtual-machines
-          - title: Network
-            url: /appliance/infrastructure/network
-          - title: IP/Domain and Port List
-            url: /appliance/infrastructure/ip-domain-port-list
-          - title: Security and Access
-            url: /appliance/infrastructure/security
-
-      - title: Roles and Responsibilities
-        url: /appliance/raci
-
-      - title: Customer Onboarding
-        url: /onboarding/appliance-sprint
-
-      - title: Private Cloud Requirements
-        url: /appliance/private-cloud-requirements
-
-  - title: "PSaaS Appliance Administration"
-    url: "/appliance/admin"
-    expanded: 1
-    children:
-      - title: Administrator's Manual
-        url: /appliance/admin
-        children:
-          - title: Managing the Dashboard
-            url: /appliance/admin/managing-the-dashboard
-          - title: Disabling Sign-ups
-            url: /appliance/admin/disabling-sign-ups
-          - title: Inviting Co-Administrators
-            url: /appliance/admin/inviting-coadmins
-          - title: Appliance Backups
-            url: /appliance/admin/backing-up-the-appliance-instances
-          - title: Monitoring
-            url: /appliance/admin/monitoring
-          - title: Updating
-            url: /appliance/admin/updating-the-appliance
-
-      - title: Dashboard/Configuration Area
-        url: /appliance/dashboard
-        children:
-          - title: Troubleshoot
-            url: /appliance/dashboard/troubleshoot
-        
-      - title: Monitoring
-        url: /appliance/monitoring
-        children:
-          - title: Instrumentation
-            url: /appliance/instrumentation
-          - title: Testall endpoint
-            url: /appliance/monitoring/testall
-          - title: Authenticated testing endpoints
-            url: /appliance/monitoring/authenticated-endpoints
-        
-      - title: Command-Line Interface Tools
-        url: /appliance/cli
-      - title: Automatic Tenant Creation
-        url: /appliance/admin/creating-tenants
-        hidden: true
-      - title: Node Module Availability
-        url: /appliance/modules
-      - title: Webtasks
-        url: /appliance/webtasks
-      - title: Extensions
-        url: /appliance/extensions
-      - title: Disaster Recovery
-        url: /appliance/disaster-recovery
-        children:
-          - title: Roles and Responsibilities
-            url: /appliance/disaster-recovery-raci
-      - title: Migrating to Node.js v8
-        url: /appliance/extensibility-node8
-      - title: Release Notes
-        url: https://auth0.com/changelog/appliance
-        external: true
-        forceFullReload: true

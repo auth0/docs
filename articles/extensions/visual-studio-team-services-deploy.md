@@ -10,7 +10,7 @@ useCase: extensibility-extensions
 
 # Visual Studio Team Services Deployments
 
-The **Visual Studio Team Services Deployments** extension allows you to deploy [rules](/rules), rules configs, connections, database connection scripts, clients (and client grants), resource servers, hosted pages and email templates from Visual Studio Team Services to Auth0. You can configure a Visual Studio Team Services project, keep all of your scripts there, and have them automatically deployed to Auth0 whenever you push changes to your project.
+The **Visual Studio Team Services Deployments** extension allows you to deploy [rules](/rules), rules configs, connections, database connection scripts, clients, client grants, resource servers, hosted pages and email templates from Visual Studio Team Services to Auth0. You can configure a Visual Studio Team Services project, keep all of your scripts there, and have them automatically deployed to Auth0 whenever you push changes to your project.
 
 ## Configure the Auth0 Extension
 
@@ -92,7 +92,10 @@ Once you have set up the webhook in Visual Studio Team Services using the provid
 
 With each commit you push to your configured Visual Studio Team Services project, the webhook will call the extension to initiate a deployment if changes were made to one of these folders:
 - `clients`
+- `grants`
+- `emails`
 - `resource-servers`
+- `connections`
 - `database-connections`
 - `rules-configs`
 - `rules`
@@ -120,6 +123,34 @@ Under the created directory, create one file for each script you want to use. Th
 For a generic Custom Database Connection, only the `login.js` script is required. If you enable the migration feature, you will also need to provide the `get_user.js` script.
 
 You can find examples in [the Auth0 Samples repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/database-connections/my-custom-db). While the samples were authored for GitHub, it will work for a Visual Studio Team Services integration as well.
+
+#### Deploy Database Connection Settings
+
+To deploy Database Connection settings, you must create `database-connections/[connection-name]/settings.json`. 
+
+_This will work only for Auth0 connections (`strategy === auth0`), for non-Auth0 connections, use `connections`._
+
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/patch_connections_by_id) for more info on allowed attributes for Connections.
+
+### Deploy Connections
+
+To deploy a connection, you must create a JSON file under the `connections` directory of your Visual Studio Team Services project. Example:
+
+__facebook.json__
+```json
+{
+  "name": "facebook",
+  "strategy": "facebook",
+  "enabled_clients": [
+    "my-client"
+  ],
+  "options": {}
+}
+```
+
+_This will work only for non-Auth0 connections (`strategy !== auth0`), for Auth0 connections, use `database-connections`._
+
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
 
 ### Deploy Hosted Pages
 
@@ -206,7 +237,7 @@ __secret_number.json__
 
 ### Deploy Clients
 
-To deploy a client, you must create a JSON file under the `clients` directory of your Visual Studio Team Services project. For each JSON page, you can create a metafile (with the same name - `name.meta.json`) if you want to specify any client grants. Example:
+To deploy a client, you must create a JSON file under the `clients` directory of your Visual Studio Team Services project. Example:
 
 __my-client.json__
 ```json
@@ -215,17 +246,22 @@ __my-client.json__
 }
 ```
 
-__my-client.meta.json__
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Clients/post_clients) for more info on allowed attributes for Clients and Client Grants.
+
+### Deploy Clients Grants
+
+You can specify the client grants for each client by creating a JSON file in the `grants` directory.
+
+__my-client-api.json__
 ```json
 {
+  "client_id": "my-client",
   "audience": "https://myapp.com/api/v1",
     "scope": [
       "read:users"
     ]
 }
 ```
-
-See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Clients/post_clients) for more info on allowed attributes for Clients and Client Grants.
 
 ### Deploy Resource Servers
 
@@ -246,24 +282,6 @@ __my-api.json__
 ```
 
 See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Resource_Servers/post_resource_servers) for more info on allowed attributes for Resource Servers.
-
-### Deploy Connections
-
-To deploy a connection, you must create a JSON file under the `connections` directory of your Visual Studio Team Services project. Example:
-
-__facebook.json__
-```json
-{
-  "name": "facebook",
-  "strategy": "facebook",
-  "enabled_clients": [
-    "my-client"
-  ],
-  "options": {}
-}
-```
-
-See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
 
 ### Deploy Email Provider
 

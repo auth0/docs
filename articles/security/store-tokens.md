@@ -57,5 +57,4 @@ This video will show you how to handle session data when building a web app. It 
 ::: next-steps
 * [Understanding Sessions & Cookies Video](/videos/session-and-cookies)
 * [Auth0 Blog: 10 Things You Should Know about Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
-* [Auth0 Blog: Cookies vs Tokens: The Definitive Guide](https://auth0.com/blog/cookies-vs-tokens-definitive-guide/)
 :::
