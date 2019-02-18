@@ -13,7 +13,9 @@ useCase:
 
 # Check External Services Status
 
-If you see potential issues with your Auth0 service, but the monitoring endpoints and [Auth0 Status](https://status.auth0.com) aren't indicating any problems, check the status of the external services that you use alongside Auth0, such as:
+You may want to monitor any remote identity providers you use with your Auth0 connections to quickly isolate the source of the problem. 
+
+If you see potential issues with your Auth0 service, but [Auth0 Status](https://status.auth0.com) doesn't indicate any problems, check the status of any external services that you use with Auth0, such as:
 
 * [Amazon Web Services](https://status.aws.amazon.com/)
 * [Azure Active Directory](https://azure.microsoft.com/en-us/status/)
@@ -32,6 +34,10 @@ If you see potential issues with your Auth0 service, but the monitoring endpoint
 * [Slack](https://status.slack.com/)
 * [Twilio](https://status.twilio.com/)
 * [VM Ware](https://status.vmware-services.io/)
+
+::: note
+Your customers may have some of the same concerns, so you may want to document any monitoring pages or endpoints that they can view to help them troubleshoot and narrow down the location of an issue.
+:::
 
 ## Keep reading
 

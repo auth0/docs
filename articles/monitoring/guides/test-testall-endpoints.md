@@ -9,19 +9,20 @@ useCase:
   - analyze-auth0-analytics
   - analyze-logs
   - integrate-analytics
+  - synthetic-authentication
+  - synthetic-transactions
 ---
 # Check Auth0 Authentication and Supporting Services
 
-You can use the `/test` and `/testall` endpoints as a supplement to other monitoring. 
-
-* **`/test` endpoint**: Checks the status of the core Auth0 authentication service
-* **`/testall` endpoint**: Checks the status of the core Auth0 authentication service, as well as supporting services such as those for the [Dashboard](${manage_url}) and documentation.
+You can use the `/test` and `/testall` endpoints as a supplement to your other monitoring. 
 
 ::: note
-These endpoints are best for determining if everything is functioning not for determining if something is down. For example, even if they return a `500` response code, that doesn’t mean that there’s a failure.
+These endpoints are best for determining if everything is functioning *not* for determining if something is down. For example, even if they return a `500` response code, that doesn’t mean that there’s a failure.
 :::
 
 ## Test endpoint
+
+The `/test` endpoint checks the status of the core Auth0 authentication service. 
 
 Here is an example of a call to the `/test` endpoint:
 
@@ -43,6 +44,8 @@ Additionally, this endpoint returns a JSON object:
 ```
 
 ## Testall endpoint
+
+The `/testall` endpoint checks the status of the core Auth0 authentication service, as well as supporting services such as those for the [Dashboard](${manage_url}) and documentation.
 
 Here is an example call to the `/testall` endpoint:
 

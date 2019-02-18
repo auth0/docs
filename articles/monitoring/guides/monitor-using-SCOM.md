@@ -10,6 +10,8 @@ useCase:
   - analyze-auth0-analytics
   - analyze-logs
   - integrate-analytics
+  - synthetic-authentication
+  - synthetic-transactions
 ---
 # Monitor Auth0 Using System Center Operations Manager
 
@@ -21,10 +23,12 @@ In addition to a synthetic login transaction that includes the extensions your a
 
 1. Add a new SCOM instance using the **Add Monitoring Wizard**:
 
-   * **Name**: a descriptive name for the SCOM instance
-   * **Description**: a description of what this SCOM instances monitors
-   * **Select destination management pack**: Default Management Pack
-  
+   | Field | Description |
+   | ---| ---|
+   | **Name** | Description name for the SCOM instance. |
+   | **Description** | Description of what this SCOM instance monitors. |
+   | **Select destination management pack** | Default Management Pack |
+
    When finished, click **Next** to continue.
 
    ![ss-2014-11-21T15-44-34.png](/media/articles/monitoring/ss-2014-11-21T15-44-34.png)
@@ -41,11 +45,15 @@ In addition to a synthetic login transaction that includes the extensions your a
 
 4. Set the frequency with which SCOM collects data from each endpoint:
 
-   * **Test frequency**: 60 seconds
-   * **Performance data collection interval**: 60 seconds
-   * **Test time-out**: 30 seconds
+   | Data | Frequency |
+   | --- | --- |
+   | **Test frequency** | 60 seconds |
+   | **Performance data collection interval** | 60 seconds |
+   | **Test time-out** | 30 seconds |
 
-   Additionally, under the *Alerts* section, **check** the box next to *HTTP status code* and set that to **Greater than or equals 400**. When finished, click **Next** to continue.
+   Under the *Alerts* section, check the box next to **HTTP status code** and set it to **Greater than or equals 400**. 
+   
+   When finished, click **Next** to continue.
 
    ![ss-2014-11-21T16-33-51.png](/media/articles/monitoring/ss-2014-11-21T16-33-51.png)
 

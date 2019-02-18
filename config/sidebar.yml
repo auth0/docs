@@ -1129,6 +1129,9 @@ articles:
 
       - title: "HTTP Archive (HAR)"
         url: "/troubleshoot/har"
+
+      - title: "Monitor Auth0 Implementations"
+        url: "/monitoring"
   
   - title: "Support"
     url: "/support"
