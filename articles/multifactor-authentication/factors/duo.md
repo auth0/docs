@@ -35,4 +35,4 @@ The user will see a prompt for the second factor with Duo, listing the options y
 
 ![Duo Login](/media/articles/multifactor-authentication/duo-login.png)
 
-Your end users can download Duo from [Google Play](https://play.google.com/store/apps/details?id=com.duosecurity.duomobile) or from the [App Store](https://itunes.apple.com/us/app/duo-mobile/id422663827?mt=8) for use Duo as a second factor.
+Your end users can download Duo from [Google Play](https://play.google.com/store/apps/details?id=com.duosecurity.duomobile) or from the [App Store](https://itunes.apple.com/us/app/duo-mobile/id422663827?mt=8) for use as a second factor.
