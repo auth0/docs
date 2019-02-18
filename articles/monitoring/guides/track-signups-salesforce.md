@@ -1,5 +1,5 @@
 ---
-title: Track New Sign-Ups
+title: Track New Sign-Ups in Salesforce
 description: Learn how to track your sign-ups in Salesforce MixPanel, enrich your user profiles with public information gathered from FullContact, and generate new sales leads.
 topics:
   - monitoring
@@ -13,7 +13,7 @@ useCase:
   - integrate-analytics
 ---
 
-# Track New Sign-Ups
+# Track New Sign-Ups in Salesforce
 
 You can track new sign-ups in Salesforce with FullContact-Enriched User Profiles, and Send Auth0 Events to MixPanel.
 

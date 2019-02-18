@@ -1,5 +1,5 @@
 ---
-title: Track Leads in Salesforce
+title: Track New Leads in Salesforce
 description: Learn how to track new leads in Salesforce and augment user profiles with public information gathered from TowerData.
 topics:
   - monitoring
@@ -15,7 +15,7 @@ useCase:
   - integrate-analytics
 ---
 
-# Track Leads in Salesforce
+# Track New Leads in Salesforce
 
 You can track new leads in Salesforce with TowerData-Enriched User Profiles. 
 

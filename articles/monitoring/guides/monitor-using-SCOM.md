@@ -50,9 +50,8 @@ In addition to a synthetic login transaction that includes the extensions your a
    | **Test frequency** | 60 seconds |
    | **Performance data collection interval** | 60 seconds |
    | **Test time-out** | 30 seconds |
+   | **HTTP status code** | Greater than or equals 400 |
 
-   Under the *Alerts* section, check the box next to **HTTP status code** and set it to **Greater than or equals 400**. 
-   
    When finished, click **Next** to continue.
 
    ![ss-2014-11-21T16-33-51.png](/media/articles/monitoring/ss-2014-11-21T16-33-51.png)
