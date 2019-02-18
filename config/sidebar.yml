@@ -868,16 +868,6 @@ articles:
       - title: "Query Syntax"
         url: "/logs/query-syntax"
 
-  - title: "Analytics"
-    url: "/analytics/integrations"
-    children:
-
-      - title: "Facebook Analytics"
-        url: "/analytics/integrations/facebook-analytics"
-
-      - title: "Google Analytics"
-        url: "/analytics/integrations/google-analytics"
-
   - title: "Integrations"
     url: "/integrations"
     children:
