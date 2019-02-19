@@ -21,7 +21,7 @@ Often, the concepts of scopes and permissions are unintentionally combined. For 
 
 _Scopes_ are used by an application to define the actions it would like to be allowed to do on a user's behalf.
 
-Scopes only come into play in delegation scenarios and are limited in that they cannot allow an app to do more than what the user's privileges within the resource being accessed already allow them to do. Resources are responsible for combining incoming scopes with their internal user privileges to determine an application's effective permissions and make access control decisions accordingly.
+Scopes only come into play in delegation scenarios and are limited in that they cannot allow an app to do more than what the user's privileges within the resource being accessed already allow them to do. To determine an application's effective permissions, an API should combine incoming scopes with the privileges assigned within its own internal access control system and make access control decisions accordingly.
 
 ## Ways to use scopes
 
