@@ -14,7 +14,7 @@ useCase:
 ---
 # Configure Single Sign On (SSO)
 
-Configure Single Sign On (SSO) by first configuring the identity providers for the application connections, then configuring session lifetime limits. 
+Configure Single Sign On (SSO) by first configuring the identity providers for the application connections, then configuring session lifetime limits. For more information on SSO Integrations, check out the [Single Sign On Integrations](/integrations/sso) page.
 
 ## How session lifetime limits work
 
@@ -27,8 +27,6 @@ Auth0 maintains an SSO session for any user authenticating via that Application.
 For example, if you set the **Inactivity timeout** period to 3 days and the **Require log in after** period to 30 days, when the user first logs in, both of these values are set in that user’s session. If the user remains active in the application within the 3-day inactivity timeout period, the session lifetime is extended from that point of activity. If the user returns twice within the inactivity timeout period, it extends the session for another 3 days (the duration of the inactivity timeout).
 
 If the user does not remain active within the most recent **Inactivity timeout** limit, the user will be automatically logged out. This type of session extension may continue until the **Require log in after** limit is reached, after which the user will be forced to log in again regardless of activity. 
-
-For more information on SSO Integrations, check out the [Single Sign On Integrations](/integrations/sso) page.
 
 ## Configure connections
 
