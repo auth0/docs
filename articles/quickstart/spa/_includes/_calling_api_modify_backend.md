@@ -1,6 +1,6 @@
 ## Modify the Backend API
 
-For this tutorial, let's modify the API we already to include a new endpoint that expects an Access Token to be supplied.
+For this tutorial, let's modify the API to include a new endpoint that expects an Access Token to be supplied.
 
 ::: note
 In a real scenario, this work would be done by the external API that is to be called from the frontend. This new endpoint is simply a convenience to serve as a learning exercise.

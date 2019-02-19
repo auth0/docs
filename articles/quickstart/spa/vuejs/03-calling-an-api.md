@@ -17,7 +17,7 @@ useCase: quickstart
 
 Most single-page apps use resources from data APIs. You may want to restrict access to those resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
 
-This tutorial shows you how to create a simple API using [Express](https://expressjs.com) that validates incoming JSON Web Tokens. You will then see how to call this API using an Access Token granted to you from the Auth0 authorization server.
+This tutorial shows you how to create a simple API using [Express](https://expressjs.com) that validates incoming JSON Web Tokens. You will then see how to call this API using an Access Token granted by the Auth0 authorization server.
 
 <%= include('../_includes/_calling_api_create_api') %>
 
@@ -131,7 +131,7 @@ localLogin(authResult) {
     this.accessToken = authResult.accessToken;
 
     // Convert expiresIn to milliseconds and add the current time
-    // (expiresIn is a relative timestamp, we want an absolute time)
+    // (expiresIn is a relative timestamp, but an absolute time is desired)
     this.accessTokenExpiry = new Date(Date.now() + authResult.expiresIn * 1000);
 
     localStorage.setItem(localStorageKey, 'true');
