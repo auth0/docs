@@ -124,9 +124,10 @@ _This will work only for non-Auth0 connections (`strategy !== auth0`); for Auth0
 
 See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
 
-### Deploy Hosted Pages
+### Deploy Universal Login Pages
 
-The supported hosted pages are:
+The supported pages are:
+
 - `error_page`
 - `guardian_multifactor`
 - `login`

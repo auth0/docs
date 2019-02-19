@@ -1346,6 +1346,10 @@ module.exports = [
     to: '/universal-login/default-login-url'
   },
   {
+    from: '/hosted-pages/guardian',
+    to: '/universal-login/guardian'
+  },
+  {
     from: '/connections/database/mysql',
     to: '/connections/database/custom-db'
   },

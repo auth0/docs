@@ -54,7 +54,7 @@ Note that if the incoming authentication request uses an external identity provi
 You can deploy your custom login page from an external repository, like [GitHub](/extensions/github-deploy#deploy-hosted-pages), [Bitbucket](/extensions/bitbucket-deploy#deploy-hosted-pages), [GitLab](/extensions/gitlab-deploy#deploy-hosted-pages), or [Visual Studio Team Services](/extensions/visual-studio-team-services-deploy#deployment).
 :::
 
-Our recommendation is to use Universal Login when you use Auth0. The first and foremost reason is security. Using Auth0 hosted pages instead of hosting them externally provides seamless CSRF protection. This helps prevent third-party impersonation or the hijacking of sessions.
+Our recommendation is to use Universal Login when you use Auth0. The first and foremost reason is security. Using Auth0 Universal Login instead of embedding login in your application provides seamless CSRF protection. This helps prevent third-party impersonation or the hijacking of sessions.
 
 ## Embedded login with Auth0
 
