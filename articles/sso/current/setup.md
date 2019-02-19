@@ -28,6 +28,10 @@ For example, if you set the **Inactivity timeout** period to 3 days and the **Re
 
 If the user does not remain active within the most recent **Inactivity timeout** limit, the user will be automatically logged out. This type of session extension may continue until the **Require log in after** limit is reached, after which the user will be forced to log in again regardless of activity. 
 
+::: panel Session Timeout Best Practices
+[OWASP](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet#Session_Expiration) and [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) security best practices recommend an Inactivity timeout of 30 minutes or less.
+:::
+
 When session lifetime values are extended, existing user session lifetime limits remain unchanged until the user establishes a new session. For example, if a user has an **Inactivity timeout** limit of 1 day and a **Require log in after limit** of 3 days and you increase the limits to 3 days and 7 days respectively, the user will not experience longer session lifetimes until after the existing session ends and they establish a new session.
 
 However, when session lifetime values are reduced, existing user session lifetime limits are updated immediately upon the next registered activity. This behavior enables you to correct for inadvertently long session lifetime configurations should you determine that you need to shorten session lifetime limits for security purposes.
