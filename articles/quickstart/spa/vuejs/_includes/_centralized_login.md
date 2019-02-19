@@ -15,7 +15,7 @@ import authConfig from '../../auth_config.json';
 
 const webAuth = new auth0.WebAuth({
   domain: authConfig.domain,
-  redirectUri: `${window.location.origin}/callback`,
+  redirectUri: `<%= "${window.location.origin}" %>/callback`,
   clientID: authConfig.clientId,
   responseType: 'id_token',
   scope: 'openid profile email'
