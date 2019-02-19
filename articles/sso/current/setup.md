@@ -28,6 +28,10 @@ For example, if you set the **Inactivity timeout** period to 3 days and the **Re
 
 If the user does not remain active within the most recent **Inactivity timeout** limit, the user will be automatically logged out. This type of session extension may continue until the **Require log in after** limit is reached, after which the user will be forced to log in again regardless of activity. 
 
+When session lifetime values are extended, existing user session lifetime limits remain unchanged until the user establishes a new session. For example, if a user has an **Inactivity timeout** limit of 1 day and a **Require log in after limit** of 3 days and you increase the limits to 3 days and 7 days respectively, the user will not experience longer session lifetimes until after the existing session ends and they establish a new session.
+
+However, when session lifetime values are reduced, existing user session lifetime limits are updated immediately upon the next registered activity. This behavior enables you to correct for inadvertently long session lifetime configurations should you determine that you need to shorten session lifetime limits for security purposes.
+
 ## Configure connections
 
 1. Before enabling SSO on an [application](/applications), create and configure a connection for each [Identity Provider](/identityproviders) you want to use.
@@ -65,12 +69,6 @@ For more information on how to implement this, see  [Client-Side SSO (Single Pag
 ::: note
 The [Auth0 OIDC SSO Sample](https://github.com/auth0-samples/oidc-sso-sample) repo is an example of how to implement OIDC-compliant SSO.
 :::
-
-## Impact of changing session lifetime limits on existing sessions
-
-Session lifetimes may be extended or reduced by changing the **Inactivity timeout** and **Require log in after** values. When session lifetime values are extended, existing user session lifetime limits remain unchanged until the user establishes a new session. For example, if a user has an Inactivity Timeout limit of 1 day and a Require Log In After limit of 3 days and you increase the limits to 3 days and 7 days respectively, the user will not experience longer session lifetimes until after the existing session ends and they establish a new session.
-
-However, when session lifetime values are reduced, existing user session lifetime limits are updated immediately upon the next registered activity. This behavior enables you to correct for inadvertently long session lifetime configurations should you determine that you need to shorten session lifetime limits for security purposes.
 
 ## SSO configuration for legacy tenants
 
