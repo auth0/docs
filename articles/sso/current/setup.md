@@ -28,19 +28,25 @@ For example, if you set the **Inactivity timeout** period to 3 days and the **Re
 
 If the user does not remain active within the most recent **Inactivity timeout** limit, the user will be automatically logged out. This type of session extension may continue until the **Require log in after** limit is reached, after which the user will be forced to log in again regardless of activity. 
 
-::: panel Session Timeout Best Practices
-[OWASP](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet#Session_Expiration) and [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) security best practices recommend an Inactivity timeout of 30 minutes or less.
+::: panel Session Timeout Security Best Practices
+[OWASP](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet#Session_Expiration) and [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) security best practices recommend an **Inactivity timeout** of 30 minutes or less.
 :::
 
-When session lifetime values are extended, existing user session lifetime limits remain unchanged until the user establishes a new session. For example, if a user has an **Inactivity timeout** limit of 1 day and a **Require log in after limit** of 3 days and you increase the limits to 3 days and 7 days respectively, the user will not experience longer session lifetimes until after the existing session ends and they establish a new session.
+When session lifetime values are extended, existing user session lifetime limits remain unchanged until the user establishes a new session. For example, if a user has an **Inactivity timeout** limit of 1 day and a **Require log in after** limit of 3 days and you increase the limits to 3 days and 7 days respectively, the user will not experience longer session lifetimes until after the existing session ends and they establish a new session.
 
 However, when session lifetime values are reduced, existing user session lifetime limits are updated immediately upon the next registered activity. This behavior enables you to correct for inadvertently long session lifetime configurations should you determine that you need to shorten session lifetime limits for security purposes.
 
+::: note
+Auth0 Enterprise subscribers can set session limits to the following levels:
+* **Inactivity timeout**: 100 days (144000 minutes)
+* **Require login after**: 365 days (525600 minutes)
+:::
+
 ## Configure connections
 
-1. Before enabling SSO on an [application](/applications), create and configure a connection for each [Identity Provider](/identityproviders) you want to use.
+1. Before enabling SSO on an [application](/applications), create and configure a connection for each [Pdentity Provider](/identityproviders) you want to use.
 
-2. For social identity providers, make sure the Connection is not using [developer keys](/connections/social/devkeys).
+2. For social identity providers, make sure the connection is not using [developer keys](/connections/social/devkeys).
 
 ## Configure session lifetime limits
 
@@ -50,27 +56,21 @@ However, when session lifetime values are reduced, existing user session lifetim
 
    | **Setting** | **Description** |
    | - | - |
-   | **Inactivity timeout** | The maximum session session lifetime without user activity.  |
-   | **Require log in after** | The maximum possible session lifetime regardless of user activity. |
+   | **Inactivity timeout** | The maximum session session lifetime without user activity. 144000 minutes (100 days) is the maximum for Enterprise subscribers. |
+   | **Require log in after** | The maximum possible session lifetime regardless of user activity. 525600 minutes (365 days) is the maximum for Enterprise subscribers.|
 
    ![Login Session Limits](/media/articles/sso/sso-session-mgmt-2.png)
 
    Any time a user performs a new standard login it resets the SSO session.
-   
-   ::: note
-   Enterprise subscribers can set session limits to the following levels:
-   * **Inactivity timeout**: 100 days (144000 minutes)
-   * **Require login after**: 365 days (525600 minutes)
-   :::
 
 ## Check the user's SSO status from the application
 
-Whenever you need to determine the user's SSO status, you'll need to check the following:
+To determine the user's SSO status, check the following:
 
-* The Auth0 `accessToken`, which is used to access the desired resource
-* The `expirationDate` on the `accessToken`, which is calculated using the `expires_in` response parameter after successful authentication on the part of the user
+* `accessToken`: Used to access the desired resource.
+* `expirationDate` on the `accessToken`: Calculated using the `expires_in` response parameter after successful authentication on the part of the user.
 
-If you don't have a valid `accessToken`, the user is **not** logged in. However, they may be logged in via SSO to another associated application. You can determine if this is the case or not by calling the `checkSession` method of the auth0.js SDK, which will attempt to silently authenticate the user within an iframe. Whether the authentication is successful or not indicates whether the user has an active SSO cookie.
+If you don't have a valid `accessToken`, the user is *not* logged in. However, they may be logged in via SSO to another associated application. You can determine if this is the case or not by calling the `checkSession` method of the `auth0.js` SDK, which will attempt to silently authenticate the user within an iframe. Whether the authentication is successful or not indicates whether the user has an active SSO cookie.
 
 For more information on how to implement this, see  [Client-Side SSO (Single Page Apps)](/sso/current/single-page-apps-sso).
 
