@@ -45,9 +45,7 @@ If the user does not remain active within the most recent **Inactivity timeout**
    | **Inactivity timeout** | The maximum session session lifetime without user activity.  |
    | **Require log in after** | The maximum possible session lifetime regardless of user activity. |
 
-   Any time a user performs a new standard login, the session is reset.
-
-   ![](/media/articles/sso/sso-session-mgmt-2.png)
+   ![Login Session Limits](/media/articles/sso/sso-session-mgmt-2.png)
 
    ::: note
    Any time a user performs a new standard login it resets the SSO session.
