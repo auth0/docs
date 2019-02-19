@@ -35,7 +35,7 @@ For an example showing how to request custom API access for your application, se
 
 ### Example: An API called by a third-party application
 
-Let's say you are building an API that provides bank account information to online payment applications. At various times, apps may need to read account balances or transfer funds. To do this, you create two scopes for your API: one that authorizes read access to an account balance (`read:balance`), one that authorizes fund transfers (`transfer:funds`). Your API is registered with Auth0.
+Say you are building an API that provides bank account information to online payment applications. At various times, apps may need to read account balances or transfer funds. To do this, you create two scopes for your API: one that authorizes read access to an account balance (`read:balance`), one that authorizes fund transfers (`transfer:funds`). Your API is registered with Auth0.
 
 A calling application will request authorization from the user to access the requested scopes, and the user will approve or deny the request. The app may request read access to the user's balance by including the `read:balance` scope in its request, access to make fund transfers by including the `transfer:funds` scope in its request, or access to both read the user's balance and transfer funds by including both the `read:balance` and `transfer:funds` scopes in its request. 
 
@@ -43,7 +43,7 @@ Now, when the app calls your API, it will include a token which verifies that th
 
 ### Example: An API called by a first-party application
 
-Let's say you are building an API that provides data to an events application, which you have also written. You implement role-based access control, creating a role of `organizer` and a role of `participant`. Users with a role of `organizer` need to create and update events, whereas users with a role of `participant` need to view events and register for events. To do this, you create four scopes for your API: one that authorizes create access for events(`create:events`), one that authorizes update access for events (`update:events`), one that authorizes read-only access for events (`view:events`), and one that authorizes registration access for events (`register:events`). Both your API and event application are registered with Auth0, and the **Allow Skipping User Consent** for first-party applications option is enabled for your API. You have installed the Authorization Extension and configured an `organizer` role and created the `create:events` and `update:events` scopes for it, and assigned it to User A. You have also configured a `participant` role and created the `view:events` and `register:events` scopes for it, and assigned it to User B.
+Say you are building an API that provides data to an events application, which you have also written. You implement role-based access control, creating a role of `organizer` and a role of `participant`. Users with a role of `organizer` need to create and update events, whereas users with a role of `participant` need to view events and register for events. To do this, you create four scopes for your API: one that authorizes create access for events(`create:events`), one that authorizes update access for events (`update:events`), one that authorizes read-only access for events (`view:events`), and one that authorizes registration access for events (`register:events`). Both your API and event application are registered with Auth0, and the **Allow Skipping User Consent** for first-party applications option is enabled for your API. You have installed the Authorization Extension and configured an `organizer` role and created the `create:events` and `update:events` scopes for it, and assigned it to User A. You have also configured a `participant` role and created the `view:events` and `register:events` scopes for it, and assigned it to User B.
 
 User A authenticates with the calling application, which requests the necessary scopes, but because it is a first-party application, user consent will not be requested. The app may request any combination of `create:events`, `update:events`, `view:events`, and `register:events` scopes, but User A is recognized as having the role of `organizer` and therefore is only granted the `create:events` and `update:events` scopes.
 
@@ -51,13 +51,31 @@ Now, when the app calls your API, it will include a token which verifies that it
 
 ### Example: An API called by a back-end service
 
-Let's say you work for a hospital and have an API that produces large amounts of imaging data whenever a patient gets an MRI. You store the imaging data locally for six months, but the hospital needs the images to be stored long-term for the purpose of regulatory compliance. Because of this, the hospital has a service that copies imaging data to an offsite cold storage solution on a nightly basis and deletes all local medical data after six months of storage.
+Say you work for a hospital and have an API that produces large amounts of imaging data whenever a patient gets an MRI. You store the imaging data locally for six months, but the hospital needs the images to be stored long-term for the purpose of regulatory compliance. Because of this, the hospital has a service that copies imaging data to an offsite cold storage solution on a nightly basis and deletes all local medical data after six months of storage.
 
 To do this, you create two scopes for your API: one that authorizes read access to your imaging data (`read:images`) and one that authorizes delete access to your imaging data (`delete:images`). Your API and automated service are registered with Auth0, and you have authorized the automated service to request tokens for your API.
 
 The calling automated service will request the necessary scopes, but because there is no user, consent will not be requested. The service may request read access to your imaging data by including the `read:images` scope in its request, delete access by including the `delete:images` scope in its request, or both read and delete access by including the `read:images` and `delete:images` scopes in its request.
 
 Now, when the automated service calls your API, it will include a token which verifies that it has authorization for the requested scopes.
+
+## API scope parameter format
+
+Technically, [OAuth 2.0](/protocols/oauth2) does not define a format for scopes, so you can use them in whatever way you like. For Auth0's purposes, the only restrictions are that a scope must match what you have configured in Auth0 for your registered API and cannot contain spaces.
+
+In practice, the following format is often adopted: `action:entity`. In this, the _action_ represents the extent to which the app may handle data, while the _entity_ represents the object for which an app wants to handle data.
+
+Say you are building an API that provides bank account information to online payment applications. At various times, apps may need to read account balances or transfer funds. For this app, you have two entities: balance and funds. You also have two actions: read and transfer. The scopes this app uses may look like this: `read:balance` and `transfer:funds`.
+
+For the same API, a separate application allows bank employees to update customers' profiles and deposit funds for customers. For this app, you have an additional entity: profile. You also have two additional actions: update and deposit. The scopes this app uses may look like this: `update:profile` and `deposit:funds`.
+
+To accommodate both applications, your API should have the following scopes defined for it: `read:balance`, `update:profile`, `transfer:funds`, and `deposit:funds`.
+
+::: note
+If an application omits the scope parameter or gives it an empty value, it will default to requesting all scopes defined for your API.
+:::
+
+For an example showing how to request custom API access for your application, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#request-custom-API-access).
 
 ## Limit API scopes
 

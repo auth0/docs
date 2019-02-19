@@ -15,13 +15,17 @@ useCase:
 ---
 # Scopes
 
-Different pieces of user information are often stored across a number of online resources. Users may upload and store photos with a service like Flickr, keep digital files on Dropbox, and store contacts and events in Google Calendar or on Facebook.
+::: note
+Often, the concepts of scopes and permissions are unintentionally combined. For info about permissions and the distinction between permissions and scopes, see [Permissions](/authorization/concepts/permissions).
+:::
 
-Often, new applications will want to make use of the information that has already been created in an online resource. To do so, the application must ask for authorization to access this information on a user's behalf. _Scopes_ define the specific actions applications can be allowed to do on a user's behalf.
+_Scopes_ are used by an application to define the actions it would like to be allowed to do on a user's behalf.
+
+Scopes only come into play in delegation scenarios and are limited in that they cannot allow an app to do more than what the user's privileges within the resource being accessed already allow them to do. Resources are responsible for combining incoming scopes with their internal user privileges to determine an application's effective permissions and make access control decisions accordingly.
 
 ## Ways to use scopes
 
-When an app requests permission to access a resource through an authorization server, it uses the `scope` parameter to specify what access it needs, and the authorization server uses the `scope` parameter to respond with the access that was actually granted (if the granted access was different from what was requested).
+When an app requests permission to access a resource through an authorization server, it uses the `scope` parameter to specify what scopes it needs, and the authorization server uses the `scope` parameter to respond with the scopes that were actually granted (if the granted scopes were different from what was requested).
 
 Generally, you use scopes in three ways:
 
