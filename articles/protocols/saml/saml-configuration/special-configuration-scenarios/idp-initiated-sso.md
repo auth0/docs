@@ -41,6 +41,8 @@ For example, an organization might set up a portal to ensure that users navigate
 
 ## Auth0 as Service Provider Where IdP Initiates SSO
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hZGYWeBvZQ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 If Auth0 acts as the service provider, you need to make the following changes to support IdP-initiated SSO:
 
 * Ensure the IdP includes the Connection parameter in the assertion consumer service (ACS) URL.
