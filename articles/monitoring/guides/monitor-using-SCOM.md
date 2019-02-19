@@ -23,7 +23,7 @@ In addition to a synthetic login transaction that includes the extensions your a
 
 1. Add a new SCOM instance using the **Add Monitoring Wizard**:
 
-   | Field | Description |
+   | **Field** | **Description** |
    | ---| ---|
    | **Name** | Description name for the SCOM instance. |
    | **Description** | Description of what this SCOM instance monitors. |
@@ -45,7 +45,7 @@ In addition to a synthetic login transaction that includes the extensions your a
 
 4. Set the frequency with which SCOM collects data from each endpoint:
 
-   | Data | Frequency |
+   | **Data** | **Frequency** |
    | --- | --- |
    | **Test frequency** | 60 seconds |
    | **Performance data collection interval** | 60 seconds |
