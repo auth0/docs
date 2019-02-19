@@ -36,12 +36,6 @@ When session lifetime values are extended, existing user session lifetime limits
 
 However, when session lifetime values are reduced, existing user session lifetime limits are updated immediately upon the next registered activity. This behavior enables you to correct for inadvertently long session lifetime configurations should you determine that you need to shorten session lifetime limits for security purposes.
 
-::: note
-Enterprise subscribers can set session limits to the following levels:
-* Inactivity timeout: 100 days (144000 minutes)
-* Require login aftert: 365 days (525600 minutes)
-:::
-
 ## Configure connections
 
 1. Before enabling SSO on an [application](/applications), create and configure a connection for each [Identity Provider](/identityproviders) you want to use.
@@ -61,8 +55,12 @@ Enterprise subscribers can set session limits to the following levels:
 
    ![Login Session Limits](/media/articles/sso/sso-session-mgmt-2.png)
 
-   ::: note
    Any time a user performs a new standard login it resets the SSO session.
+   
+   ::: note
+   Enterprise subscribers can set session limits to the following levels:
+   * **Inactivity timeout**: 100 days (144000 minutes)
+   * **Require login after**: 365 days (525600 minutes)
    :::
 
 ## Check the user's SSO status from the application
