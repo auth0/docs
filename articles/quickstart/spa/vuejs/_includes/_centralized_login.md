@@ -104,7 +104,7 @@ class AuthService extends EventEmitter {
     this.emit(loginEvent, {
       loggedIn: true,
       profile: authResult.idTokenPayload,
-      state: authResult.appState
+      state: authResult.appState || {}
     });
   }
 
@@ -153,7 +153,7 @@ export default new AuthService();
 The service now includes several other methods for handling authentication.
 
 - `handleCallback` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
-- `localLogin` - sets the user's ID Token, and a time at which the ID Token will expire. The expiry time is converted to milliseconds so that we can more easily work with the native JavaScript `Date` object
+- `localLogin` - sets the user's ID Token, and a time at which the ID Token will expire. The expiry time is converted to milliseconds so that the native JavaScript `Date` object can be used
 - `renewTokens` - uses the `checkSession` method from auth0.js to renew the user's authentication status, and calls `localLogin` if the login session is still valid
 - `logout` - removes the user's tokens from memory. It also calls `webAuth.logout` to log the user out at the authorization server
 - `isAuthenticated` - checks whether the local storage flag is present and equals "true", and that the expiry time for the ID Token has passed
@@ -229,11 +229,11 @@ ${snippet(meta.snippets.use)}
 
 The `@click` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `AuthService` to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
 
-Also notice the use of `this.$auth` to access the `AuthService` instance given to us through the plugin that we created. Login events can be handled by providing a `handleLoginEvent` method on any component.
+Also notice the use of `this.$auth` to access the `AuthService` instance. Login events can be handled by providing a `handleLoginEvent` method on any component.
 
 When the **Log In** button is clicked, the user will be redirected to login page.
 
-<%= include('../../_includes/_hosted_login_customization' }) %>
+<%= include('../../_includes/_hosted_login_customization') %>
 
 When the application first starts up, a call to `renewTokens` is made that tries to reinitialize the user's login session, if it is detected that they should already be logged in. This would be the case, for example, if the user logged in and then refreshed the browser window.
 
@@ -265,8 +265,8 @@ Create a component named `Callback` and populate it with a loading indicator. Th
 <script>
 export default {
   methods: {
-    handleLoginEvent() {
-      this.$router.push("/");
+    handleLoginEvent(data) {
+      this.$router.push(data.state.target || "/");
     }
   },
   created() {
@@ -330,7 +330,7 @@ new Vue({
 
 ```
 
-After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. During this time, their client-side session will be set, after which they will be redirected to the `/` route.
+After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. Their client-side session will be set during this time, after which they will be redirected to the `/` route.
 
 ## Display the User's Profile
 
@@ -434,9 +434,9 @@ Then add the `/profile` route to your navigation bar by inserting a new `<li>` e
 
 ### Securing the profile route
 
-Even though we only show the `/profile` route if the user is authenticated, the user could still manually type the URL into the browser and access the page if they have not logged in — although there will be nothing to see.
+Even though the `/profile` route is only shown if the user is authenticated, the user could still manually type the URL into the browser and access the page if they have not logged in — although there will be nothing to see.
 
-We can add a catch-all rule to the router so that access is only permitted if the user is logged in. If they are not logged in, they will be prompted to log in before being redirected to the location they tried to access in the first place.
+A catch-all rule can be added to the router so that access is only permitted if the user is logged in. If they are not logged in, they will be prompted to log in before being redirected to the location they tried to access in the first place.
 
 Open `router.js` and add a rule that exhibits this behavior:
 
