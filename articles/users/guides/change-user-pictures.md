@@ -12,11 +12,11 @@ v2: true
 
 # Change User Pictures
 
-Auth0 [normalizes](/users/normalized) common profile properties in the User Profile, this includes the `name` and `picture` field and more. The picture field is populated by either the social provider profile picture or the Gravatar image associated with the user's email address. By default all database users will have a placeholder image with their initials. When you authenticate the user, this picture field is referred by as `user.picture`.
+Auth0 [normalizes](/users/normalized) common profile properties in the User Profile, this includes the `name` and `picture` field and more. The picture field is populated by either the social provider profile picture or the Gravatar image associated with the user's email address. By default, all database users will have a placeholder image with their initials. When you authenticate the user, this picture field is referred by as `user.picture`.
 
 ![User Picture](/media/articles/user-profile/user-picture.png)
 
-1. By default, the `user.picture` attribute is not directly editable. If you want to be able to edit the `user.picture` attribute on the normalized user profile, you must [enable a connection to allow updates to the normalized user profile](/connections/guides/allow-update-normalized-user-profile). When enabled, user attributes will be updated from the identity provider only on user profile creation and will be available to be edited with the Management API's [Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
+1. By default, the `user.picture` attribute is not directly editable when provided by identity providers other than Auth0 (such as Google, Facebook, Twitter). If you want to be able to edit the `user.picture` attribute on the normalized user profile, you must [enable the connection to allow updates to the normalized user profile](/connections/guides/allow-update-normalized-user-profile). When enabled, user attributes will be updated from the identity provider only on user profile creation and will be available to be edited with the Management API's [Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
 
 Alternatively, you can use the [Metadata](/users/concepts/overview-user-metadata) to store the picture attribute for users, but this is not recommended for scalability.
 
