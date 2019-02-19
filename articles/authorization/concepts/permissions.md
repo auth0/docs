@@ -1,6 +1,5 @@
 ---
 description: Understand the concept of permissions, how it relates to scopes, and how both apply to the role-based access control model used in Auth0.
-beta: true
 toc: true
 topics:
   - authorization
