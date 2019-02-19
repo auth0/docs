@@ -1,5 +1,5 @@
 ---
-description: The Visual Studio Team Services Deployments extension allows you to deploy Rules, Hosted Pages and Database Connection scripts from Visual Studio Team Services to Auth0.
+description: The Visual Studio Team Services Deployments extension allows you to deploy Rules, Universal Login pages and database connection scripts from Visual Studio Team Services to Auth0.
 topics:
   - extensions
   - vs-team-services-deployments
@@ -10,7 +10,7 @@ useCase: extensibility-extensions
 
 # Visual Studio Team Services Deployments
 
-The **Visual Studio Team Services Deployments** extension allows you to deploy [rules](/rules), rules configs, connections, database connection scripts, clients, client grants, resource servers, hosted pages and email templates from Visual Studio Team Services to Auth0. You can configure a Visual Studio Team Services project, keep all of your scripts there, and have them automatically deployed to Auth0 whenever you push changes to your project.
+The **Visual Studio Team Services Deployments** extension allows you to deploy [rules](/rules), rules configs, connections, database connection scripts, clients, client grants, resource servers, Universal Login pages and email templates from Visual Studio Team Services to Auth0. You can configure a Visual Studio Team Services project, keep all of your scripts there, and have them automatically deployed to Auth0 whenever you push changes to your project.
 
 ## Configure the Auth0 Extension
 
@@ -152,9 +152,10 @@ _This will work only for non-Auth0 connections (`strategy !== auth0`), for Auth0
 
 See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
 
-### Deploy Hosted Pages
+### Deploy Universal Login Pages
 
-The supported hosted pages are:
+The supported pages are:
+
 - `error_page`
 - `guardian_multifactor`
 - `login`

@@ -11,7 +11,7 @@ useCase: extensibility-extensions
 
 # Bitbucket Deployments
 
-The **Bitbucket Deployments** extension allows you to deploy [rules](/rules), rules configs, connections, database connection scripts, clients, client grants, resource servers, hosted pages and email templates from Bitbucket to Auth0. You can configure a Bitbucket repository, keep all of your Rules and Database Connection scripts there, and have them automatically deployed to Auth0 whenever you push changes to your repository.
+The **Bitbucket Deployments** extension allows you to deploy [rules](/rules), rules configs, connections, database connection scripts, clients, client grants, resource servers, Universal Login pages and email templates from Bitbucket to Auth0. You can configure a Bitbucket repository, keep all of your Rules and Database Connection scripts there, and have them automatically deployed to Auth0 whenever you push changes to your repository.
 
 ## Configure the Extension
 
@@ -114,9 +114,10 @@ _This will work only for non-Auth0 connections (`strategy !== auth0`); for Auth0
 
 See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
 
-### Deploy Hosted Pages
+### Deploy Universal Login Pages
 
-The supported hosted pages are:
+The supported pages are:
+
 - `error_page`
 - `guardian_multifactor`
 - `login`
