@@ -89,7 +89,7 @@ Then, modify the `webAuth` creation to include `token` in the response type and 
 
 const webAuth = new auth0.WebAuth({
   domain: AUTH_CONFIG.domain,
-  redirectUri: `${window.location.origin}/callback`,
+  redirectUri: `<%= "${window.location.origin}" %>/callback`,
   clientID: AUTH_CONFIG.clientId,
   audience: AUTH_CONFIG.audience,   // add the audience
   responseType: "token id_token",   // request 'token' as well as 'id_token'
