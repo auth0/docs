@@ -2047,6 +2047,10 @@ module.exports = [
    },
    { from: '/analytics/integrations/facebook-analytics', to: '/' },
    { from: '/analytics/integrations/google-analytics', to: '/' },
-   { from: '/analytics/integrations', to: '/' }
+   { from: '/analytics/integrations', to: '/' },
+   {
+     from: '/applications/spa',
+     to: '/applications/guides/register-spa'
+   },
 ];
 
