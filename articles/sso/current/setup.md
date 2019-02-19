@@ -45,11 +45,7 @@ If the user does not remain active within the most recent **Inactivity timeout**
    | **Inactivity timeout** | The maximum session session lifetime without user activity.  |
    | **Require log in after** | The maximum possible session lifetime regardless of user activity. |
 
-   ![Tenant Login Session Limits](/media/articles/sso/tenant-login-session-mgmt.png)
-
    Any time a user performs a new standard login, the session is reset.
-
-3. To configure the **SSO Cookie Timeout** setting, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 
    ![](/media/articles/sso/sso-session-mgmt-2.png)
 
