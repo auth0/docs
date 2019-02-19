@@ -81,6 +81,7 @@ You will need to send:
 - Your application's `client_id`
 - The `email` and `password` of the user being signed up
 - The name of the database `connection` to store your user's data
+- Any root attributes you want to update for the user, which can include `given_name`, `family_name`, `name`, `nickname`, and `picture`.
 - Any custom fields as part of `user_metadata`
 
 ```har
@@ -93,7 +94,7 @@ You will need to send:
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"client_id\": \"${account.clientId}\",\"email\": \"$('#signup-email').val()\",\"password\": \"$('#signup-password').val()\",\"connection\": \"YOUR_CONNECTION_NAME\",\"user_metadata\": {\"name\": \"john\",\"color\": \"red\"}}"
+    "text": "{\"client_id\": \"${account.clientId}\",\"email\": \"$('#signup-email').val()\",\"password\": \"$('#signup-password').val()\",\"connection\": \"YOUR_CONNECTION_NAME\",\"user_metadata\": {\"color\": \"red\"}}"
   }
 }
 ```

@@ -30,7 +30,27 @@ The users file must have an array with the users' information in JSON format. Th
         },
         "username": {
             "type": "string",
-            "description": "The username."
+            "description": "The user's username."
+        },
+        "given_name": {
+            "type": "string",
+            "description": "The user's given name."
+        },
+        "family_name": {
+            "type": "string",
+            "description": "The user's family name."
+        },
+        "name": {
+            "type": "string",
+            "description": "The user's full name."
+        },
+        "nickname": {
+            "type": "string",
+            "description": "The user's nickname."
+        },
+        "picture": {
+          "type": "string",
+          "description": "URL pointing to the user's profile picture."
         },
         "app_metadata": {
             "type": "object",
