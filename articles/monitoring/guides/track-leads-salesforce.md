@@ -1,6 +1,6 @@
 ---
-title: Track New Leads in Salesforce with TowerData-Enriched User Profiles
-description: How to track leads in Salesforce and augment user profiles with public information gathered from TowerData.
+title: Track New Leads in Salesforce
+description: Learn how to track new leads in Salesforce and augment user profiles with public information gathered from TowerData.
 topics:
   - monitoring
   - marketing
@@ -15,9 +15,11 @@ useCase:
   - integrate-analytics
 ---
 
-# Track New Leads in Salesforce with TowerData-Enriched User Profiles
+# Track New Leads in Salesforce
 
-Whenever a new user signs up with a website using any social credential, we want to:
+You can track new leads in Salesforce with TowerData-Enriched User Profiles. 
+
+Whenever a new user signs up with a website using any social credential we want to:
 
 1. __Augment the user profile__ with additional public information obtained through [TowerData](https://www.towerdata.com/email-intelligence/email-enhancement).
 

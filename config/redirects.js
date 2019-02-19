@@ -1423,27 +1423,27 @@ module.exports = [
   },
   {
     from: '/tutorials/tracking-new-leads-in-salesforce-and-raplead',
-    to: '/monitoring/tracking-new-leads-in-salesforce-and-raplead',
+    to: '/monitoring/guides/track-leads-salesforce',
   },
   {
     from: '/tutorials/track-signups-enrich-user-profile-generate-leads',
-    to: '/monitoring/track-signups-enrich-user-profile-generate-leads',
+    to: '/monitoring/guides/track-signups-salesforce',
   },
   {
     from: '/tutorials/how-to-monitor-auth0',
-    to: '/monitoring/how-to-monitor-auth0',
+    to: '/monitoring',
   },
   {
     from: '/tutorials/sending-events-to-splunk',
-    to: '/monitoring/sending-events-to-splunk',
+    to: '/monitoring/guides/send-events-to-splunk',
   },
   {
     from: '/tutorials/sending-events-to-segmentio',
-    to: '/monitoring/sending-events-to-segmentio',
+    to: '/monitoring/guides/send-events-to-segmentio',
   },
   {
     from: '/tutorials/sending-events-to-keenio',
-    to: '/monitoring/sending-events-to-keenio',
+    to: '/monitoring/guides/send-events-to-keenio',
   },
   {
     from: '/tutorials/cancel-paid-subscriptions',
