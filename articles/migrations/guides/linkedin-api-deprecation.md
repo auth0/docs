@@ -11,7 +11,7 @@ useCase:
 
 # Migration to LinkedIn API V2
 
-In December 2018, LinkedIn [deprecated the current version of their sign-in API](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). The final shutdown date is set for March 1st, 2019. LinkedIn is replacing the sign-in API with [a new version that has some key differences](https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/migration-faq?context=linkedin/consumer/context).
+In December 2018, LinkedIn [deprecated version 1.0 of their sign-in API](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). The final shutdown date is set for March 1st, 2019. LinkedIn is replacing the sign-in API with [version 2.0 that has some key differences](https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/migration-faq?context=linkedin/consumer/context).
 
 We've added the option to set the LinkedIn API version for LinkedIn Connections. On the Auth0 Dashboard you can change the API version for a LinkedIn Connection by selecting a **Strategy Version** under the connection's settings.
 
@@ -23,7 +23,7 @@ On March 1st, 2019 all connections will automatically be updated to use version 
 
 There are changes in the user attributes you can request.
 
-In version 1 we exposed these attributes:
+For version 1.0 we exposed these attributes:
 
 | **Auth0 Attribute**| **Linkedin Scope**|
 |----------------|---------------|
@@ -32,7 +32,7 @@ In version 1 we exposed these attributes:
 | Network   | r_network|
 | Email | r_emailaddress|
 
-In version 2 we expose these options:
+For version 2.0 we expose these options:
 
 | **Auth0 Attribute**| **Linkedin Scope**|
 |----------------|---------------|
@@ -40,8 +40,12 @@ In version 2 we expose these options:
 |Basic Profile| r_basicprofile|
 |Email| r_emailaddress|
 
-As you can see, version 1 of the API does not support the new `r_liteprofile` scope. Version 2 does not support `r_fullprofile` and `r_network`. And it only supports the `r_basicprofile` scope for clients that are part of [LinkedIn’s Developer Enterprise](https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/migration-faq#what-are-the-main-differences-with-the-new-sign-in-with-linkedin) services.
+As you can see version 2.0:
+
+* Adds support for the `r_liteprofile` scope
+* Removes support for the `r_fullprofile` and `r_network` scopes
+* Supports the `r_basicprofile` scope only for clients that are part of [LinkedIn’s Developer Enterprise](https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/migration-faq#what-are-the-main-differences-with-the-new-sign-in-with-linkedin) services.
 
 ::: note
-Not all applications registered with LinkedIn can access their new API, for more details check [Microsoft’s documentation](https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/migration-faq#does-my-developer-application-have-access-to-the-linkedin-v2-api).
+Not all applications registered with LinkedIn can access their new API. For more details, check [Microsoft’s documentation](https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/migration-faq#does-my-developer-application-have-access-to-the-linkedin-v2-api).
 :::
