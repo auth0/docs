@@ -27,6 +27,9 @@ To use Auth0's core authorization feature and role-based access control, you mus
 
 ## Keep reading
 
-* Learn to [create authorization rules]() to use with the pre-configured authorization policy
+- [Role-Based Access Control(RBAC)](/authorization/concepts/rbac)
+- [Rules for Authorization Policies](/authorization/concepts/authz-rules)
+- [Sample Use Cases: Role-based Access Control and Rules with Authorization](/authorization/concepts/sample-use-cases)
+- [How to Use Auth0's Core Authorization Feature Set](/authorization/guides/how-to)
 
 

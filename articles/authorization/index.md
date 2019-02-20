@@ -24,6 +24,10 @@ Authorization can be determined through the use of [policies](/authorization/con
 Auth0 currently provides two way of implementing role-based access control (RBAC)--the Authorization core feature set and the Authorization Extension. For a comparison, see [Authorization Core vs. Authorization Extension](/authorization/concepts/core-vs-extension).
 
 ## Keep reading
-- How to manage roles
-- How to manage permissions
-- How to add a permission to a role
+
+- [Role-Based Access Control(RBAC)](/authorization/concepts/rbac)
+- [Authorization Policies](/authorization/concepts/policies)
+- [Sample Use Cases: Role-based Access Control and Rules with Authorization](/authorization/concepts/sample-use-cases)
+- [How to Use Auth0's Core Authorization Feature Set](/authorization/guides/how-to)
+- [Authorization Core vs. Authorization Extension](/authorization/concepts/core-vs-extension)
+- [Authorization Extension](/extensions/authorization-extension)

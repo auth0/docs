@@ -27,15 +27,15 @@ While we recommend using the RBAC features present in the Authorization core, we
 |---------|--------------------|-------------------------|
 | **Roles** |
 | Create/edit/delete roles | Yes | Yes |
-| Search roles by name | Yes | Yes |
+| Search roles by name | In future release | Yes |
 | Roles can contain permissions from one or more APIs | Yes | No |
 | Roles can be assigned to groups | In future release | Yes |
 | Roles are attached to specific applications | No | Yes |
 | Roles can contain permissions from any application | Yes | No |
-| View permissions per role | Yes | Yes |
-| View users per role | Yes | Yes |
 | Roles can be nested and are hierarchical | In future release | No |
 | Roles can be assigned across multiple tenants | ? | No |
+| View permissions by role | Yes | Yes |
+| View users by role | Yes | Yes |
 | **Users** |
 | Create/edit/delete users | Yes | Yes |
 | Search users by user, email, connection | Yes | Yes |
@@ -43,26 +43,29 @@ While we recommend using the RBAC features present in the Authorization core, we
 | Search users using lucene syntax | Yes | No |
 | Users can be assigned to roles | Yes - up to 5 roles per user | Yes - restriction here? |
 | Users can be assigned to groups | In future release | Yes |
-| View roles per user | Yes | Yes |
-| View permissions per user | In future release | Yes |
+| View roles by user | Yes | Yes |
+| View permissions by user | In future release | Yes |
 | Automatic sync between user permissions and user profile | In future release | No |
 | **Permissions** |
 | Create/edit/delete permissions | Yes | Yes |
-| Search permissions by name, description | Yes | Yes |
+| Search permissions by name, description | In future release | Yes |
 | Permissions can be assigned directly to users | Yes | No |
 | Permissions can be assigned directly to roles | Yes | Yes |
 | Permissions are attached to applications | No | Yes |
 | Permissions are attached to APIs | Yes | No |
-| Permissions can be assigned to roles | Yes | Yes |
+| View users by permission | In future release | No |
+| View roles by permission | In future release | No |
 | **Groups** |
 | Create/edit/delete groups | In future release | Yes |
+| Search groups by name | In future release | Yes |
 | Groups can be sourced from local users | In future release | Yes |
 | Groups can be sources from third-party directories (for example, AD, LDAP, SAML) | In future release | No |
 | Groups can be nested and are hierarchical | In future release | Yes |
 | Groups can be mapped from pre-existing groups and connections | In future release | Yes |
 | Groups can contain roles from any application | In future release | Yes |
-| Search groups by name | In future release | Yes |
-| View all group members, including members in sub-groups | In future release | Yes |
+| View nested groups by group | In future release | Yes |
+| View roles by group | In future release | Yes |
+| View users by group | In future release | Yes |
 | **Configuration** |
 | Customize configuration | Yes | Yes |
 | Rules allow for customization of authorization decision | Yes | Yes |
@@ -76,3 +79,12 @@ While we recommend using the RBAC features present in the Authorization core, we
 | Create deny assignments | ? | No |
 | **Performance/Scalability** |
 | Enhanced performance and scalability | Yes | No - limited to 500KB of data (1000 groups, 3000 users, where each user is a member of 3 groups; or 20 groups, 7000 users, where each user is a member of 3 groups) |
+
+## Keep reading
+
+- [Role-Based Access Control(RBAC)](/authorization/concepts/rbac)
+- [Authorization Policies](/authorization/concepts/policies)
+- [Rules for Authorization Policies](/authorization/concepts/authz-rules)
+- [Sample Use Cases: Role-based Access Control and Rules with Authorization](/authorization/concepts/sample-use-cases)
+- [How to Use Auth0's Core Authorization Feature Set](/authorization/guides/how-to)
+- [Authorization Extension](/extensions/authorization-extension)

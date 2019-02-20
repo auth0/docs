@@ -15,7 +15,7 @@ useCase:
 ---
 # Role-Based Access Control
 
-Role-based access control (RBAC) refers to the idea of assigning [permissions](/authorization/concepts/permissions) to users based on their role within an organization. It provides fine-grained control and offers a simple, manageable approach to access management that is less prone to error than assigning permissions to users individually.
+Role-based access control (RBAC) refers to the idea of assigning permissions to users based on their role within an organization. It provides fine-grained control and offers a simple, manageable approach to access management that is less prone to error than assigning permissions to users individually.
 
 When using RBAC, you analyze the system needs of your users and group them into roles based on common responsibilities and needs. You then assign one or more roles to each user and one or more permissions to each role. The user-role and role-permissions relationships make it simple to perform user assignments since users no long need to be managed individually, but instead have privileges that conform to the permissions assigned to their role(s). 
 
@@ -34,6 +34,18 @@ With RBAC, access management is easier as long as you adhere strictly to the rol
 * integrate third-party users by giving them pre-defined roles
 * more effectively comply with regulatory and statutory requirements for confidentiality and privacy
 
+## RBAC Model
+
+### Roles
+
+Essentially, a role is a collection of permissions that you can apply to users. Using roles makes it easier to add, remove, and adjust permissions than assigning permissions to user individually. As your user base increases in scale and complexity roles become particularly useful.
+
+You can also use roles to collect permissions from various APIs. 
+
+For example, say you have a marketing module that allows users to create and distribute newsletters to customers. Your marketing content specialist creates all of the newsletters and prepares them for distribution. Similarly, you have an event module that allows users to create, publish, and manage event registration. Your event coordinator creates the events. Once the VP of Marketing approves the newsletters and events, their assistant publishes the events and distributes the newsletters. 
+
+In this case, your Newsletter API could have a `distribute:newsletters` permission and your Event API could have a `publish:events` permission. These permissions could then be gathered into a role called `Marketing Publisher` and assigned to the VP of Marketing's assistant.
+
 ## Overlapping role assignments
 
 RBAC is an additive model, so if you have overlapping role assignments, your effective permissions are the union of your role assignments.
@@ -48,3 +60,6 @@ For more info about using rules with authorization policies, see [Rules for Auth
 
 ## Keep reading
 
+- [How to Use Auth0's Core Authorization Feature Set](/authorization/guides/how-to)
+- [Enable Role-based Access Control (RBAC) for APIs](/authorization/guides/enable-rbac)
+- [Authorization Core vs. Authorization Extension](/authorization/concepts/core-vs-extension)

@@ -16,9 +16,11 @@ useCase:
   - call-api
   - secure-api
 ---
-# Sample Use Cases: Authorization and Rules with Authorization
+# Sample Use Cases: Role-based Access Control and Rules with Authorization
 
-Let's take a look at an example of why you might need and how you could use role-based access control (RBAC) in your authorization flow.
+## Role-based Access Control
+
+Let's take a look at an example of why you might need and how you could use [role-based access control (RBAC)](/authorization/concepts/rbac) in your authorization flow.
 
 Let's say you are a business who provides business-to-business software-as-a-service to non-profit organizations. Your product allows non-profits to create, manage, and market products to potential donors. Your application contains several different modules, two of which are:
 
@@ -29,8 +31,8 @@ You want to use Auth0 to control the access of your non-profit customers to diff
 
 Instead, you implement RBAC, creating some permissions that users of your gift shop POS module would need:
 
-* `read:catalog_item`
-* `read:customer_profile`
+* `read:catalog-item`
+* `read:customer-profile`
 * `create:invoice`
 
 And to make these easier to manage, you create a role called `Gift Shop Manager` and assign these permissions to that role.
@@ -41,7 +43,7 @@ Similarly, you create permissions for users of your marketing module, which incl
 * `edit:newsletter`
 * `delete:newsletter`
 * `send:newsletter`
-* `edit:distribution_list`
+* `edit:distribution-list`
 
 And you create a role called `Newsletter Admin` and assign these permissions to that role.
 
@@ -99,3 +101,9 @@ function (user, context, callback) {
 ```
 
 If the user has not changed their password within 30 days, they will be denied access even if they successfully authenticate.
+
+## Keep reading
+
+- [Role-Based Access Control(RBAC)](/authorization/concepts/rbac)
+- [Rules for Authorization Policies](/authorization/concepts/authz-rules)
+- [How to Use Auth0's Core Authorization Feature Set](/authorization/guides/how-to)
