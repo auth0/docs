@@ -58,8 +58,8 @@ Auth0 Enterprise subscribers can set session limits to the following levels:
 
    | **Setting** | **Description** | Recommended | Enterprise |
    | - | - | - | - |
-   | **Inactivity timeout** | The maximum session session lifetime without user activity. | 10080 minutes (7 days) | 144000 minutes (100 days) |
-   | **Require log in after** | The maximum possible session lifetime regardless of user activity. | 4320 minutes (3 days) | 525600 minutes (365 days).|
+   | **Inactivity timeout** | The maximum session session lifetime without user activity. | 4320 minutes (3 days) | 144000 minutes (100 days) |
+   | **Require log in after** | The maximum possible session lifetime regardless of user activity. | 10080 minutes (7 days) | 525600 minutes (365 days).|
 
    ![Login Session Management](/media/articles/sso/sso-session-mgmt-2.png)
 
@@ -84,16 +84,10 @@ The [Auth0 OIDC SSO Sample](https://github.com/auth0-samples/oidc-sso-sample) re
 
 In addition to the settings available under tenant settings, legacy tenants may see slightly different options available for SSO under [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 
-![](/media/articles/sso/sso-session-mgmt-1.png)
+While all new Auth0 tenants come with seamless SSO enabled, legacy tenants may choose whether to enable this feature. If you do not choose to **Enable Seamless SSO**, you have an additional setting available to you under Application Settings.
 
-While all new Auth0 tenants come with seamless SSO enabled, legacy tenants may choose whether to enable this feature.
+To see this, navigate to the Applications section of the [Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the application with which you're working. Scroll to the bottom of the page and click **Show Advanced Settings**.
 
-If you do not choose to **Enable Seamless SSO**, you have an additional setting available to you under Application Settings.
-
-To see this, navigate to the Applications section of the [Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the Application with which you're working. Scroll to the bottom of the page and click **Show Advanced Settings**.
-
-![](/media/articles/sso/single-sign-on/clients-dashboard.png)
+![SSO Client Dashboard](/media/articles/sso/single-sign-on/clients-dashboard.png)
 
 You have the option to enable or disable the **Use Auth0 instead of the IdP to do Single Sign On** feature.
-
-![](/media/articles/sso/single-sign-on/sso-flag.png)
