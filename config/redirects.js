@@ -2045,12 +2045,9 @@ module.exports = [
      from: '/users/redirecting-users',
      to: '/users/guides/redirect-users-after-login'
    },
-   { from: '/analytics/integrations/facebook-analytics', to: '/' },
-   { from: '/analytics/integrations/google-analytics', to: '/' },
-   { from: '/analytics/integrations', to: '/' },
    {
      from: '/applications/spa',
      to: '/applications/guides/register-spa'
-   },
+   }
 ];
 
