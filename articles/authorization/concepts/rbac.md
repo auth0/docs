@@ -1,6 +1,5 @@
 ---
 description: Understand the concept of role-based access control and how it applies in Auth0.
-beta: true
 toc: true
 topics:
   - authorization

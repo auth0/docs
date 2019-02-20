@@ -1,6 +1,5 @@
 ---
 description: Understand the concept of authorization policies and how they apply in Auth0.
-beta: true
 toc: true
 topics:
   - authorization
