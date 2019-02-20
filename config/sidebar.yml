@@ -219,14 +219,14 @@ articles:
   - title: "Authorization"
     url: "/authorization"
     children:
-      - title: "Rules for Authorization Policies"
-        url: "/authorization/concepts/authz-rules"
-
       - title: "Role-based access control (RBAC)"
         url: "/authorization/concepts/rbac"
 
       - title: "Authorization Policies"
         url: "/authorization/concepts/policies"
+
+      - title: "Rules for Authorization Policies"
+        url: "/authorization/concepts/authz-rules"
 
       - title: "Sample Use Cases"
         url: "/authorization/concepts/sample-use-cases"
