@@ -13,7 +13,7 @@ useCase:
   - call-api
   - secure-api
 ---
-# Enable Role-based Access Control for APIs
+# Enable Role-Based Access Control for APIs
 
 This guide will show you how to enable [role-based access control (RBAC)](/authorization/concepts/rbac) using Auth0's Dashboard. This effectively enables the API Authorization Core feature set.
 
@@ -34,4 +34,4 @@ Available options include:
 | Value | Description |
 |-------|-------------|
 | OAuth2 | Includes only requested permissions in the Access Token. |
-| Oauth2 with Authorization | Includes all permissions for a user in the Access Token. Allows you to make minimal calls to retrieve permissions, but increases token size. |
+| OAuth2 with Authorization | Includes all permissions for a user in the Access Token. Allows you to make minimal calls to retrieve permissions, but increases token size. |

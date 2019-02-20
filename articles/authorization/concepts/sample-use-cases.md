@@ -16,9 +16,9 @@ useCase:
   - call-api
   - secure-api
 ---
-# Sample Use Cases: Role-based Access Control and Rules with Authorization
+# Sample Use Cases: Role-Based Access Control and Rules with Authorization
 
-## Role-based Access Control
+## Role-based access control
 
 Let's take a look at an example of why you might need and how you could use [role-based access control (RBAC)](/authorization/concepts/rbac) in your authorization flow.
 
@@ -47,7 +47,7 @@ Similarly, you create permissions for users of your marketing module, which incl
 
 And you create a role called `Newsletter Admin` and assign these permissions to that role.
 
-Now, when your animal rescue brings in their volunteer, Astrid, to run their pop-up teeshirt shop, Astrid can be assigned the role of `Gift Shop Manager`. When you assign this role to Astrid, she is granted all the permissions that you assigned to that role. Since Astrid knows nothing about publishing newsletters (and isn't the best with email), you never assigned her the `Newsletter Admin` role, so she never even sees the marketing module.
+Now, when your animal rescue brings in their volunteer, Astrid, to run their pop-up teeshirt shop, Astrid can be assigned the role of `Gift Shop Manager`. When you assign this role to Astrid, she is granted all the permissions that you assigned to that role. Since Astrid knows nothing about publishing newsletters (and isn't the best with email), you never assigned her the `Newsletter Admin` role, so she never has access to the marketing module.
  
 From a more technical perspective, when Astrid logs into your product, Auth0 authenticates and authorizes her and includes the permissions in the returned Access Token. Then, your product inspects the token to learn which module to display to Astrid.
 
@@ -55,9 +55,9 @@ By using Auth0's RBAC, you avoid building and maintaining separate authorization
 
 And if maintaining the roles and permissions for all of your customers becomes too unwieldy, you can also use the Auth0 API to create a module within your product that allows customers to manage their own RBAC, thereby reducing liability and cutting staffing costs.
 
-## Rules
+## Rules with authorization
 
-With rules, you can modify or complement the outcome of the decision made by the pre-configured authorization policy to handle more complicated cases than is possible with RBAC alone. Based on the order in which they run, rules can change the outcome of the authorization decision prior to the permissions being added to the Access Token.
+With rules, you can modify or complement the outcome of the decision made by the pre-configured [authorization policy](/authorization/concepts/policies) to handle more complicated cases than is possible with [role-based access control (RBAC)](/authorization/concepts/rbac) alone. Based on the order in which they run, rules can change the outcome of the authorization decision prior to the permissions being added to the Access Token.
 
 ### Allow access only on weekdays for a specific application
 
@@ -84,7 +84,6 @@ If it is weekend, a user will be denied access to the specified application even
 
 Let's say you want to allow access, but only for users who have changed their password within the last month. To do this, you would create the following rule:
 
-
 ```js
 function (user, context, callback) {
   function daydiff (first, second) {
@@ -104,6 +103,6 @@ If the user has not changed their password within 30 days, they will be denied a
 
 ## Keep reading
 
-- [Role-Based Access Control(RBAC)](/authorization/concepts/rbac)
+- [Role-Based Access Control (RBAC)](/authorization/concepts/rbac)
 - [Rules for Authorization Policies](/authorization/concepts/authz-rules)
 - [How to Use Auth0's Core Authorization Feature Set](/authorization/guides/how-to)

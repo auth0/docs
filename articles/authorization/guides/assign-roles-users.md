@@ -25,7 +25,7 @@ This guide will show you how to assign [roles](/authorization/concepts/rbac) to 
 
 ![View Users](/media/articles/authorization/user-list.png)
 
-2. Click **...** next to the user you want to modify, and select **Assign Roles**.
+2. Click **`...`** next to the user you want to modify, and select **Assign Roles**.
 
 ![Select Assign Roles](/media/articles/authorization/user-list-assign-roles.png)
 

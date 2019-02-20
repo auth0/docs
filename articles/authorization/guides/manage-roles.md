@@ -31,7 +31,7 @@ We provide various functions to help you manage your roles. Using the Auth0 Dash
 
 ## Keep reading
 
-- [Role-based Access Control (RBAC)](/authorization/concepts/rbac)
+- [Role-Based Access Control (RBAC)](/authorization/concepts/rbac)
 - [Assign Roles to Users](/authorization/guides/assign-roles-users)
 - [Register APIs with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
 - [Define Permissions for APIs](/scopes/current/guides/define-api-scopes-dashboard)

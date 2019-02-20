@@ -23,7 +23,7 @@ Auth0 currently provides two way of implementing [role-based access control (RBA
 
 While we recommend using the RBAC features present in the Authorization core, we understand that some implementations may require use of the Authorization Extension until Authorization core features match its full functionality. To help you decide which feature is right for your implementation, we present the differences between the two:
 
-| Feature | Authorization Core | Authorization Extension |
+| Feature | Authorization&nbsp;Core | Authorization&nbsp;Extension |
 |---------|--------------------|-------------------------|
 | **Roles** |
 | Create/edit/delete roles | Yes | Yes |
@@ -82,9 +82,9 @@ While we recommend using the RBAC features present in the Authorization core, we
 
 ## Keep reading
 
-- [Role-Based Access Control(RBAC)](/authorization/concepts/rbac)
+- [Role-Based Access Control (RBAC)](/authorization/concepts/rbac)
 - [Authorization Policies](/authorization/concepts/policies)
 - [Rules for Authorization Policies](/authorization/concepts/authz-rules)
-- [Sample Use Cases: Role-based Access Control and Rules with Authorization](/authorization/concepts/sample-use-cases)
+- [Sample Use Cases: Role-Based Access Control and Rules with Authorization](/authorization/concepts/sample-use-cases)
 - [How to Use Auth0's Core Authorization Feature Set](/authorization/guides/how-to)
 - [Authorization Extension](/extensions/authorization-extension)

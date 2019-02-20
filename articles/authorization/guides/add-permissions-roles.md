@@ -23,7 +23,7 @@ This guide will show you how to add permissions to [roles](/authorization/concep
 
 1. Navigate to the [Users & Roles > Roles](${manage_url}/#/roles) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the role to view.
 
-![Click Create Role](/media/articles/authorization/roles-added.png)
+![Click Create Role](/media/articles/authorization/role-list-added.png)
 
 2. Click the **Permissions** tab, then click **Add Permissions**.
 

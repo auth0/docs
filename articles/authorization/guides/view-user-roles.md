@@ -30,6 +30,7 @@ This guide will show you how to view the [roles](/authorization/concepts/rbac) a
 
 The following information is displayed for each role:
 
-| Column | Description |
+| **Column** | **Description** |
+|------------|-----------------|
 | Name | Name of the role from the role definition. |
 | Description | Description of the role from the role definition. |

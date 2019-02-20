@@ -29,7 +29,8 @@ This guide will show you how to view the [permissions](/authorization/concepts/r
 
 The following information is displayed for each permission:
 
-| Column | Description |
+| **Column** | **Description** |
+|------------|-----------------|
 | Name | Name of the permission from the permission definition. |
 | Description | Description of the permission from the permission definition. |
 | API | Name of the API to which the permission is attached. |

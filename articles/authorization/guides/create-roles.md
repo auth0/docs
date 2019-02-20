@@ -21,16 +21,16 @@ This guide will show you how to create [roles](/authorization/concepts/rbac) usi
 
 1. Navigate to the [Users & Roles > Roles](${manage_url}/#/roles) page in the [Auth0 Dashboard](${manage_url}/), and click **Create Role**.
 
-![Click Create Role](/media/articles/authorization/roles.png)
+![Click Create Role](/media/articles/authorization/role-list.png)
 
 2. Name the role and add a description, then click **Create**.
 
-![Add Role](/media/articles/authorization/role-add.png)
+![Add Role](/media/articles/authorization/role-name-role.png)
 
 3. Click **Add Permissions**.
 
-![Add Permissions](/media/articles/authorization/role-add-permissions.png)
+![Add Permissions](/media/articles/authorization/role-def-empty-permissions.png)
 
 4. Select the API from which you want to add permissions, then select the permissions to add to the role, and click **Add Permissions**.
 
-![Add Permissions to Roles](/media/articles/authorization/role-select-add-permissio.png)
+![Add Permissions to Roles](/media/articles/authorization/role-select-add-permissions.png)

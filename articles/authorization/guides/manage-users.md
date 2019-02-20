@@ -15,7 +15,7 @@ useCase:
   - call-api
   - secure-api
 ---
-# Manage Role-based Access Control Users
+# Manage Role-Based Access Control Users
 
 This guide will show you how to manage users in a [role-based access control (RBAC)](/authorization/concepts/rbac) system using Auth0's Dashboard.
 
@@ -32,7 +32,7 @@ We provide various functions to help you manage your users. Using the Auth0 Dash
 
 ## Keep reading
 
-- [Role-based Access Control (RBAC)](/authorization/concepts/rbac)
+- [Role-Based Access Control (RBAC)](/authorization/concepts/rbac)
 - [Create Roles](/authorization/guides/create-roles)
 - [Register APIs with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
 - [Define Permissions for APIs](/scopes/current/guides/define-api-scopes-dashboard)

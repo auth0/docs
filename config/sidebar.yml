@@ -219,7 +219,7 @@ articles:
   - title: "Authorization"
     url: "/authorization"
     children:
-      - title: "Role-based access control (RBAC)"
+      - title: "Role-based Access Control (RBAC)"
         url: "/authorization/concepts/rbac"
 
       - title: "Authorization Policies"
@@ -231,7 +231,7 @@ articles:
       - title: "Sample Use Cases"
         url: "/authorization/concepts/sample-use-cases"
 
-      - title: "Authorization Core vs. Authorization Extension"
+      - title: "Authz Core vs. Authz Extension"
         url: "/authorization/concepts/core-vs-extension"
 
       - title: "How to Configure Core RBAC"

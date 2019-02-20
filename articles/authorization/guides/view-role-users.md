@@ -29,7 +29,8 @@ This guide will show you how to view the users assigned to a role using Auth0's 
 
 The following information is displayed for each user:
 
-| Attribute | Description |
+| **Attribute** | **Description** |
+|---------------|-----------------|
 | Picture | User's picture from the user profile. |
 | Name | User's name from the user profile. |
 | Email address | User's email address from the user profile. |

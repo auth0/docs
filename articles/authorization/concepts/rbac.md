@@ -29,7 +29,7 @@ With RBAC, access management is easier as long as you adhere strictly to the rol
 
 * create systematic, repeatable assignment of permissions
 * easily audit user privileges and correct identified issues
-* quickly add and change roles, as well as implement them across applications
+* quickly add and change roles, as well as implement them across APIs
 * cut down on the potential for error when assigning user permissions
 * integrate third-party users by giving them pre-defined roles
 * more effectively comply with regulatory and statutory requirements for confidentiality and privacy
@@ -38,28 +38,24 @@ With RBAC, access management is easier as long as you adhere strictly to the rol
 
 ### Roles
 
-Essentially, a role is a collection of permissions that you can apply to users. Using roles makes it easier to add, remove, and adjust permissions than assigning permissions to user individually. As your user base increases in scale and complexity roles become particularly useful.
+Essentially, a role is a collection of permissions that you can apply to users. Using roles makes it easier to add, remove, and adjust permissions than assigning permissions to users individually. As your user base increases in scale and complexity, roles become particularly useful.
 
-You can also use roles to collect permissions from various APIs. 
-
-For example, say you have a marketing module that allows users to create and distribute newsletters to customers. Your marketing content specialist creates all of the newsletters and prepares them for distribution. Similarly, you have an event module that allows users to create, publish, and manage event registration. Your event coordinator creates the events. Once the VP of Marketing approves the newsletters and events, their assistant publishes the events and distributes the newsletters. 
-
-In this case, your Newsletter API could have a `distribute:newsletters` permission and your Event API could have a `publish:events` permission. These permissions could then be gathered into a role called `Marketing Publisher` and assigned to the VP of Marketing's assistant.
+You can also use roles to collect permissions from various APIs. For example, say you have a marketing module that allows users to create and distribute newsletters to customers. Your marketing content specialist creates all of the newsletters and prepares them for distribution. Similarly, you have an event module that allows users to create, publish, and manage event registration. Your event coordinator creates the events. Once the VP of Marketing approves the newsletters and events, their assistant publishes the events and distributes the newsletters. In this case, your Newsletter API could have a `distribute:newsletters` permission and your Event API could have a `publish:events` permission. These permissions could then be gathered into a role called `Marketing Publisher` and assigned to the VP of Marketing's assistant.
 
 ## Overlapping role assignments
 
 RBAC is an additive model, so if you have overlapping role assignments, your effective permissions are the union of your role assignments.
 
-For example, say you have an API provides data for an event application. You create a role of Organizer and assigned it permissions that allow it to view, create, and edit events. You also create a role of Registrant and assign it permissions that allow it to view and register for events. Any users with both Organizer and Registrant roles will be able to view, create, edit, and register for events.
+For example, let's say you have an API that provides data for an event application. You create a role of `Organizer` and assign it permissions that allow it to view, create, and edit events. You also create a role of `Registrant` and assign it permissions that allow it to view and register for events. Any users with both `Organizer` and `Registrant` roles will be able to view, create, edit, and register for events.
 
 ## Extending RBAC 
 
-You can provide even more finely-grained control by using rules to restrict access based on a combination of attributes, such as user department, time of day, location of access, or any other user or API attribute (for example, username, security clearance, or API name).
+You can provide even more finely-grained control by using [rules](/rules) to restrict access based on a combination of attributes, such as user department, time of day, location of access, or any other user or API attribute (for example, username, security clearance, or API name).
 
 For more info about using rules with authorization policies, see [Rules for Authorization Policies](/authorization/concepts/authz-rules).
 
 ## Keep reading
 
 - [How to Use Auth0's Core Authorization Feature Set](/authorization/guides/how-to)
-- [Enable Role-based Access Control (RBAC) for APIs](/authorization/guides/enable-rbac)
+- [Enable Role-Based Access Control (RBAC) for APIs](/authorization/guides/enable-rbac)
 - [Authorization Core vs. Authorization Extension](/authorization/concepts/core-vs-extension)

@@ -29,14 +29,13 @@ Adding permissions directly to a user circumvents the benefits of [role-based ac
 
 ![View Users](/media/articles/authorization/user-list.png)
 
-2. Click **...** next to the user you want to modify, and select **Assign Permissions**.
+2. Click **`...`** next to the user you want to modify, and select **Assign Permissions**.
 
 ![Select Assign Permissions](/media/articles/authorization/user-list-assign-permissions.png)
 
 3. Select the API from which you want to assign permissions, then select the permissions to assign to the user, and click **Add Permissions**.
 
 ![Assign Permissions](/media/articles/authorization/user-add-permissions.png)
-
 
 You can also assign permissions to users from their individual profile page.
 
