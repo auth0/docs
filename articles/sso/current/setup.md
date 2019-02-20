@@ -54,7 +54,7 @@ Auth0 Enterprise subscribers can set session limits to the following levels:
 
 1. To configure the session lifetime, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 
-2. Configure the two settings that enable you to control session lifetimes:
+2. In the **Log In Session Management** section, configure the two settings that enable you to control session lifetime:
 
    | **Setting** | **Description** | Recommended | Enterprise |
    | - | - | - | - |
