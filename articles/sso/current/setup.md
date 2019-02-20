@@ -56,10 +56,10 @@ Auth0 Enterprise subscribers can set session limits to the following levels:
 
 2. Configure the two settings that enable you to control session lifetimes:
 
-   | **Setting** | **Description** |
-   | - | - |
-   | **Inactivity timeout** | The maximum session session lifetime without user activity. 144000 minutes (100 days) is the maximum for Enterprise subscribers. |
-   | **Require log in after** | The maximum possible session lifetime regardless of user activity. 525600 minutes (365 days) is the maximum for Enterprise subscribers.|
+   | **Setting** | **Description** | Recommended | Enterprise |
+   | - | - | - | - |
+   | **Inactivity timeout** | The maximum session session lifetime without user activity. | 10080 minutes (7 days) | 144000 minutes (100 days) |
+   | **Require log in after** | The maximum possible session lifetime regardless of user activity. | 4320 minutes (3 days) | 525600 minutes (365 days).|
 
    ![Login Session Management](/media/articles/sso/sso-session-mgmt-2.png)
 
