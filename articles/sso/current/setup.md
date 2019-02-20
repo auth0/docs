@@ -44,9 +44,9 @@ When you reduce existing session lifetime limits, the user session lifetime limi
 
 ## Configure connections
 
-1. Before enabling SSO on an [application](/applications), create and configure a connection for each [Pdentity Provider](/identityproviders) you want to use.
+Before enabling SSO on an [application](/applications), create and configure a connection for each [Identity Provider](/identityproviders) you want to use.
 
-2. For social identity providers, make sure the connection is not using [developer keys](/connections/social/devkeys).
+For social identity providers, make sure the connection is not using [developer keys](/connections/social/devkeys).
 
 ## Configure session lifetime limits
 
