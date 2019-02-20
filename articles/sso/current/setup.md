@@ -24,25 +24,25 @@ Auth0 maintains an SSO session for any user authenticating via that application.
 
 * **Require log in after**: This is sometimes referred to as the *absolute timeout*. Even if the user remains active in the application and repeatedly extends their session, the user will eventually be logged out and required to log in again when the **Require log in after** limit is reached. 
 
-For example, if you set the **Inactivity timeout** period to 3 days and the **Require log in after** period to 30 days, when the user first logs in, both of these values are set in that user’s session. If the user remains active in the application within the 3-day inactivity timeout period, the session lifetime is extended from that point of activity. If the user returns twice within the **Inactivity timeout** period, it extends the session for another 3 days (the set duration of the inactivity timeout period).
-
-If the user does not remain active within the most recent **Inactivity timeout** limit is reached, the user will be automatically logged out. This type of session extension may continue until the **Require log in after** limit is reached, after which the user will be forced to log in again regardless of activity. 
-
-::: panel Session Timeout Security Best Practices
+::: panel OWASP and NIST Session Timeout Security Best Practices
 [OWASP](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet#Session_Expiration) and [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) security best practices recommend an **Inactivity timeout** of 30 minutes or less.
 :::
+
+### Session lifetime limit example
+
+If you set the **Inactivity timeout** period to 3 days and the **Require log in after** period to 30 days, when the user first logs in, both of these values are set in that user’s session.
+
+* If the user is active within the 3-day **Inactivity timeout** period, the session lifetime is extended from that point for another 3 days (the duration of the inactivity timeout period).
+
+* If the user is not active when the **Inactivity timeout** limit is reached, the user will automatically be logged out. This type of session extension may continue until the **Require log in after** limit is reached, after which the user will be forced to log in again regardless of activity. 
+
+Any time a user performs a new standard login it resets the SSO session.
 
 ### Extend or reduce existing session lifetime limits
 
 When you extend existing session lifetime limits, user session lifetime limits remain unchanged until the user establishes a new session. For example, if a user has an **Inactivity timeout** limit of 1 day and a **Require log in after** limit of 3 days and you increase the limits to 3 days and 7 days respectively, the user will not experience longer session lifetimes until after the existing session ends and they establish a new session.
 
 When you reduce existing session lifetime limits, the user session lifetime limits change immediately upon the next registered activity. This behaviour allows you to immediately shorten inadvertently long session lifetime limits for security purposes.
-
-### Enterprise subscriber limits
-
-Auth0 Enterprise subscribers can set session limits to the following levels:
-* **Inactivity timeout**: 100 days (144000 minutes)
-* **Require login after**: 365 days (525600 minutes)
 
 ## Configure connections
 
@@ -56,14 +56,12 @@ Auth0 Enterprise subscribers can set session limits to the following levels:
 
 2. In the **Log In Session Management** section, configure the two settings that enable you to control session lifetime:
 
-   | **Setting** | **Description** | Recommended | Enterprise |
+   | Setting | Description | Self-Service Maximum Lifetime | Enterprise Maximum Lifetime |
    | - | - | - | - |
-   | **Inactivity timeout** | The maximum session session lifetime without user activity. | 4320 minutes (3 days) | 144000 minutes (100 days) |
-   | **Require log in after** | The maximum possible session lifetime regardless of user activity. | 10080 minutes (7 days) | 525600 minutes (365 days).|
+   | **Inactivity timeout** | Maximum session session lifetime without user activity. | 4320 minutes (3 days) | 144000 minutes (100 days) |
+   | **Require log in after** | Maximum possible session lifetime regardless of user activity. | 43200 minutes (30 days) | 525600 minutes (365 days).|
 
    ![Login Session Management](/media/articles/sso/sso-session-mgmt-2.png)
-
-   Any time a user performs a new standard login it resets the SSO session.
 
 ## Check the user's SSO status from the application
 
