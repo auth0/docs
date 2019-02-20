@@ -12,11 +12,11 @@ useCase: customize-hosted-pages
 This article will help you learn how to configure the custom Password Reset page. If you are an admin trying to reset a user's password, see [Change Users' Passwords](/connections/database/password-change). If you are a user trying to reset your own password, see [Reset Your Auth0 Account Password](/support/reset-account-password).
 :::
 
-The Password Reset Page uses Auth0's password reset widget to allow users to change their passwords in the event that they're unable to log in. Using this page, you can maintain consistency in the appearance of your pages (login, password reset, and so on), and your users can easily change their passwords as needed.
+The Password Reset Page is a page that is hosted by Auth0, and uses Auth0's password reset widget to allow users to change their passwords in the event that they're unable to log in. Using this page, you can maintain consistency in the appearance of your pages (login, password reset, and so on), and the users of your application(s) can easily change their passwords as needed.
 
 ## Enable the Password Reset Page
 
-Using the [Auth0 Dashboard](${manage_url}/#/password_reset), you can customize your Hosted Password Reset Page by flipping the toggle switch to enable customizations and providing a custom script.
+Using the [Auth0 Dashboard](${manage_url}/#/password_reset), you can customize your Password Reset Page by flipping the toggle switch to enable customizations and providing a custom script.
 
 ![Hosted Password Reset Page](/media/articles/hosted-pages/password-reset.png)
 
@@ -24,7 +24,7 @@ Using the [Auth0 Dashboard](${manage_url}/#/password_reset), you can customize y
 
 Once you've flipped the customization toggle for the Password Reset Page, you'll be able to use the text editor built into the Auth0 Dashboard to change your HTML, style your page using CSS, and alter the JavaScript used to retrieve custom variables. After you've made your changes, make sure to click _Save_.
 
-Please note that the password reset page works without customization. Auth0 updates the included password reset widget as necessary. However, once you toggle the customization to **on**, you are responsible for the updating and maintaining the script (including changing version numbers, such as that for the Reset Password widget), since Auth0 can no longer update it automatically.
+Please note that the password reset page works as it is without customization. Auth0 hosts the page for your tenant, and also updates the included password reset widget as necessary. However, once you toggle the customization to **on**, you are responsible for the updating and maintaining the script (including changing version numbers, such as that for the Reset Password widget), since Auth0 can no longer update it automatically without potentially interfering with your customizations.
 
 ### Custom variables
 
