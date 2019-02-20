@@ -1119,6 +1119,44 @@ articles:
 
       - title: "HTTP Archive (HAR)"
         url: "/troubleshoot/har"
+
+      - title: "Monitor Auth0 Implementations"
+        url: "/monitoring"
+        children:
+          - title: "Check Auth0 Status"
+            url: "/monitoring/guides/check-status"
+
+          - title: "Check Supporting Services Status"
+            url: "/monitoring/guides/test-testall-endpoints"
+
+          - title: "Check External Services Status"
+            url: "/monitoring/guides/check-external-services"
+
+          - title: "Monitor Using SCOM"
+            url: "/monitoring/guides/monitor-using-SCOM"
+
+          - title: "Monitor Applications"
+            url: "/monitoring/guides/monitor-applications"
+
+          - title: "Send Events to Keen"
+            url: "/monitoring/guides/send-events-to-keenio"
+            hidden: true 
+
+          - title: "Send Events to Segment"
+            url: "/monitoring/guides/send-events-to-segmentio"
+            hidden: true 
+
+          - title: "Send Events to Splunk"
+            url: "/monitoring/guides/send-events-to-splunk"
+            hidden: true 
+
+          - title: "Track New Leads in Salesforce"
+            url: "/monitoring/guides/track-leads-salesforce"
+            hidden: true 
+
+          - title: "Track New Sign-ups in Salesforce"
+            url: "/monitoring/guides/track-signups-salesforce"
+            hidden: true 
   
   - title: "Support"
     url: "/support"
