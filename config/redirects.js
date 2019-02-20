@@ -1350,6 +1350,10 @@ module.exports = [
     to: '/universal-login/guardian'
   },
   {
+    from: '/hosted-pages/password-reset',
+    to: '/universal-login/password-reset'
+  },
+  {
     from: '/connections/database/mysql',
     to: '/connections/database/custom-db'
   },
