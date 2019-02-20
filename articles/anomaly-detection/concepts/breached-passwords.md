@@ -52,9 +52,11 @@ The longer a password is, the harder it becomes to be guessed via brute force me
 
 Applications release patches and updates when they find security vulnerabilities in their systems. Keeping applications, web browsers, and operating systems up to date can help prevent security breaches.
 
-### Checking if your mailbox is still safe
+### Check the security of your email inbox
 
-Google has been sending notifications to Gmail users about the Security Checkup procedures that helps keeping your account safe from being compromised. Check out if your mailbox has security issues [here](https://myaccount.google.com/security-checkup) after logging into your Google account. If you aren't convinced, then you may consider using third-party websites like [HaveIBeenPawned](https://haveibeenpwned.com/PwnedWebsites) and then clicking on "Notify me" tab. A pop-up will appear and you need to type in your email addresses you think might have been hacked.
+If you use Gmail, Google offers the [Security Checkup](https://myaccount.google.com/security-checkup) tool to let you know if there are any security issues related to your inbox.
+
+You can also use third-party tools, such as websites like [HaveIBeenPawned](https://haveibeenpwned.com/PwnedWebsites) to see if there might be security issues associated with your email address.
 
 ## Keep reading
 
