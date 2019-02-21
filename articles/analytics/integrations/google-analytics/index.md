@@ -23,7 +23,7 @@ To add the Google Analytics integration to your app:
 
 ### Step 1: Set your Analytics configuration options
 
-First, set your Analytics configuration options.
+First, set your Analytics configuration options. You must set this *before* you include the references to the Lock and Auth0 Analytics libraries (which we cover in the section immediately following).
 
 ```javascript
 <script>
@@ -35,8 +35,6 @@ window.auth0AnalyticsOptions = {
 }
 </script>
 ```
-
-You must set your configuration options *before* the references to the Lock and Auth0 Analytics libraries (which we cover in the section immediately following).
 
 ### Step 2: Include the script reference to auth0-analytics.js
 
