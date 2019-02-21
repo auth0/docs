@@ -93,8 +93,10 @@ If you set the `forward_req_info` property to "true", the gateway will also rece
   "recipient": "+1 399 999",
   "body": "Your verification code is: 12345",
   "sender": "+1 234 567",
-  "req.ip" : "167.56.227.117",
-  "req.user-agent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36"
+  "req" : { 
+      "ip" : "167.56.227.117",
+      "user-agent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36" 
+       }
 }
 ```
 
