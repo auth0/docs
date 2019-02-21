@@ -14,8 +14,6 @@ This article explains how to install and configure the **Google Analytics for Au
 
 Additionally, you will find instructions on how to configure funnels and reports inside of Google Analytics to get the most out of this integration.
 
-<%= include('../_install', { name: "Google Analytics" }) %>
-
 ## Setup and install
 
 To add the Google Analytics integration to your app:
