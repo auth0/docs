@@ -33,6 +33,7 @@ This will return your SMS connection with your Twilio settings:
       "brute_force_protection": true,
       "disable_signup": false,
       "name": "sms",
+      "forward_req_info": "true",
       "syntax": "md_with_macros",
       "totp": {
         "time_step": 300,
@@ -76,6 +77,16 @@ You can now modify the options of the connection:
 You can then send the updated configuration to the Management API using the [PATCH connections endpoint](/api/v2#!/Connections/patch_connections_by_id).
 
 After updating the connection for any user that signs up or authenticates using the Passwordless SMS connection the following payload will be sent to your SMS gateway:
+
+```
+{
+  "recipient": "+1 399 999",
+  "body": "Your verification code is: 12345",
+  "sender": "+1 234 567"
+}
+```
+
+If you set the `forward_req_info` property to "true", the gateway will also receve information from the HTTP request that initiated the passwordless process.
 
 ```
 {
