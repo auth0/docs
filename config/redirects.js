@@ -2056,5 +2056,12 @@ module.exports = [
       ]
       to: '/libraries/lock/v11',
     },
+    {
+      from: [
+        '/libraries/auth0js/v7',
+        '/libraries/auth0js/v8'
+      ]
+      to: '/libraries/auth0js/v9'
+    }
 ];
 
