@@ -10,7 +10,9 @@ useCase:
 ---
 # Google Analytics for Auth0
 
-This article explains how to install and configure the **Google Analytics for Auth0** integration. You can use this integration on your own page that is using Lock or you can use this on the hosted Lock pages. Additionally, you will find instructions on how to configure funnels and reports inside of Google Analytics to get the most out of this integration.
+This article explains how to install and configure the **Google Analytics for Auth0** integration. You can use this integration on your own page that is using Lock or you can use this on the Universal Login page. 
+
+You will find instructions on how to configure funnels and reports inside of Google Analytics to get the most out of this integration.
 
 <%= include('../_install', { name: "Google Analytics" }) %>
 
