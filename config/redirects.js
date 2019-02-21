@@ -2024,7 +2024,7 @@ module.exports = [
    {
     from: '/hooks/dashboard/index',
     to: '/hooks'
-  },
+   },
    {
     from: '/hooks/extensibility-points/credentials-exchange',
     to: '/hooks/concepts/credentials-exchange-extensibility-point'
@@ -2052,6 +2052,10 @@ module.exports = [
    {
      from: '/applications/spa',
      to: '/applications/guides/register-spa'
-   }
+   },
+   {
+     from: '/rules/redirect',
+     to: '/rules/guides/redirect'
+   },
 ];
 
