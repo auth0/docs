@@ -11,18 +11,19 @@ contentType:
   - how-to
 useCase:
   - integrate-saas-sso
+  - configure-sso
 ---
 # Configure Session Lifetime Limits for Single Sign On
 
-You can configure how you want user session timeouts to work for Single Sign On (SSO) with session lifetime limit settings.
+You can configure how you want user session timeouts to work for Single Sign On (SSO) with session lifetime limit settings in the dashboard. You can also configure session limits with the [Management API](/api/management/v2#!/Tenants/patch_settings).
 
 ## How session lifetime limits work
 
 Auth0 maintains an SSO session for any user who authenticates via an application. When a user performs a new standard login, it resets the SSO session. There are two settings in the dashboard that allow you to set session lifetime limits:
 
-* **Inactivity timeout**: Each time the user completes a transaction registered with the authorization server (Auth0), the session lifetime is extended from that point for the duration of the **Inactivity timeout** period. Also referred to as *idle timeout*. 
+* **Inactivity timeout**: Each time the user completes a transaction registered with the authorization server (Auth0), the session lifetime is extended from that point for the duration of the **Inactivity timeout** period. (Referred to as `idle_session_lifetime` in the Management API.) 
 
-* **Require log in after**: Even if the user remains active in the application and repeatedly extends their session, the user will eventually be logged out and required to log in again when they reach the **Require log in after** limit. Also referred to as *absolute timeout*. 
+* **Require log in after**: Even if the user remains active in the application and repeatedly extends their session, the user will eventually be logged out and required to log in again when they reach the **Require log in after** limit. (Referred to as `session_lifetime` in the Management API.) 
 
 ### Session lifetime limit examples
 
