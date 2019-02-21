@@ -4,12 +4,12 @@ topics:
   - tokens
   - access-tokens
 contentType:
-  - how-to
+  - reference
 useCase:
   - invoke-api
 ---
 
-# Access Token formats
+# Access Token Formats
 
 Auth0 generates Access Tokens in two formats: 
 * Opaque strings: When not using a custom API
