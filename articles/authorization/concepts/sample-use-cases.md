@@ -57,7 +57,7 @@ And if maintaining the roles and permissions for all of your customers becomes t
 
 ## Rules with authorization
 
-With rules, you can modify or complement the outcome of the decision made by the pre-configured [authorization policy](/authorization/concepts/policies) to handle more complicated cases than is possible with [role-based access control (RBAC)](/authorization/concepts/rbac) alone. Based on the order in which they run, rules can change the outcome of the authorization decision prior to the permissions being added to the Access Token.
+With rules, you can modify or complement the outcome of the decision made by the pre-configured [authorization policy](/authorization/concepts/policies) to handle more complicated cases than is possible with [role-based access control (RBAC)](/authorization/concepts/rbac) alone. Based on the order in which they run, rules can change the outcome of the authorization decision prior to the permissions being added to the Access Token. They can also allow you to customize the content of your tokens.
 
 ### Allow access only on weekdays for a specific application
 
@@ -100,6 +100,28 @@ function (user, context, callback) {
 ```
 
 If the user has not changed their password within 30 days, they will be denied access even if they successfully authenticate.
+
+## Add user roles to tokens
+
+If you [enable RBAC for APIs](/authorization/guides/enable-rbac) and set the **Token Dialect** appropriately, you will receive user permissions in your Access Tokens. To add user roles to tokens, you would use the `context.authorization` object in the following rule:
+
+```js
+function (user, context, callback) {
+  const namespace = 'http://demozero.net';
+  const assignedRoles = (context.authorization || {}).roles;
+
+  let idTokenClaims = context.idToken || {};
+  let accessTokenClais = context.accessToken || {};
+
+  idTokenClaims['${namespace}/roles'] = assignedRoles;
+  accessTokenClaims['${namespace}/roles'] = assignedRoles;
+
+  context.idToken = idTokenClaims;
+  context.accessToken = accessTokenClaims;
+  callback(null, user, context);
+}
+
+```
 
 ## Keep reading
 

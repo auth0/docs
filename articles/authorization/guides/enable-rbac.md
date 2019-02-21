@@ -33,5 +33,5 @@ Available options include:
 
 | Value | Description |
 |-------|-------------|
-| OAuth2 | Includes only requested permissions in the Access Token. |
-| OAuth2 with Authorization | Includes all permissions for a user in the Access Token. Allows you to make minimal calls to retrieve permissions, but increases token size. |
+| OAuth2 | Includes custom permissions assigned to the user in the `scope` claim of the Access Token. |
+| OAuth2 with Authorization | Includes all permissions assigned to the user in the `permissions` claim of the Access Token. Allows you to make minimal calls to retrieve permissions, but increases token size. |

@@ -48,6 +48,17 @@ RBAC is an additive model, so if you have overlapping role assignments, your eff
 
 For example, let's say you have an API that provides data for an event application. You create a role of `Organizer` and assign it permissions that allow it to view, create, and edit events. You also create a role of `Registrant` and assign it permissions that allow it to view and register for events. Any users with both `Organizer` and `Registrant` roles will be able to view, create, edit, and register for events.
 
+## Role-based access control in Auth0
+
+Currently, we provide two ways of implementing [role-based access control (RBAC)](/authorization/concepts/rbac):
+
+* [Authorization core feature set](/authorization/guides/how-to)
+* [Authorization Extension](/extensions/authorization/extension)
+
+We are expanding our Authorization core feature set to match the functionality of the Authorization Extension and expect a final release in 2019. Our new core RBAC implementation improves performance and scalability and will eventually provide a more flexible RBAC system than the Authorization Extension.
+
+For now, both implement the key features of RBAC and allow you to restrict the custom scopes defined for an API to those that have been assigned to the user as permissions. For a comparison, see [Authorization Core vs. Authorization Extension](/authorization/concepts/core-vs-extension).
+
 ## Extending RBAC 
 
 You can provide even more finely-grained control by using [rules](/rules) to restrict access based on a combination of attributes, such as user department, time of day, location of access, or any other user or API attribute (for example, username, security clearance, or API name).
