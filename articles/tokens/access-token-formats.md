@@ -23,7 +23,7 @@ When doing a token request, there is always one or more target "audiences" for t
 
 Access tokens can have more than one audience: if you specify both `scope=openid` and `audience={your_custom_api_identifier}` then the resulting access token will be valid for both your custom API and for the `/userinfo` endpoint.
 
-How does all this affect the token format? 
+## How does all this affect the token format? 
 
 - If the token audience is just the OIDC `/userinfo` endpoint, then Auth0 will issue **an opaque Access Token**.
 - If the token audiences includes a custom API or Auth0's Management API v2, then the token will be **a JWT token**. The `aud` claim of this JWT will be either a single string (the API identifier) or an array containing both the API identifier and the `/userinfo` endpoint (if token token is valid also for [retrieving the user profile](/api/authentication#get-user-info)).
