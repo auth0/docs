@@ -43,5 +43,7 @@ If you are using the MFA API in conjunction with the [Token endpoint](/api/authe
 
 ## Limitations
 
-* The MFA API is designed to work with the Guardian Provider. Support for other providers will be provided in future releases.
+* The MFA API is designed to work with SMS, Push via Guardian, Email, and OTP factors. It does not currently support enrolling with Duo or with the legacy 'google-authenticator' factor (which can be enrolled using the OTP factor).
+
 * Support for authenticator selection is currently limited to the Token Endpoint. Auth0 is working to extend support to  [Hosted MFA Pages](/hosted-pages/guardian). If users have more than one authenticator enrolled, the most-recently enrolled option will be used by the Hosted MFA Pages.
+
