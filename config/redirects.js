@@ -2052,5 +2052,9 @@ module.exports = [
      from: '/applications/spa',
      to: '/applications/guides/register-spa'
    },
+   {
+     from: '/rules/redirect',
+     to: '/rules/guides/redirect'
+   },
 ];
 
