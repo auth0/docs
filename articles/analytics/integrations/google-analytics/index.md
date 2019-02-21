@@ -18,7 +18,7 @@ Additionally, you will find instructions on how to configure funnels and reports
 
 ## Setup and install
 
-To add the <%- name %> integration to your app:
+To add the Google Analytics integration to your app:
 
 1. Set your Analytics configuration options
 2. Include a reference to the `auth0-analytics.js` script on your Login pages/pages with Auth0 Lock
