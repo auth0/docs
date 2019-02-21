@@ -82,8 +82,15 @@ After updating the connection for any user that signs up or authenticates using 
   "recipient": "+1 399 999",
   "body": "Your verification code is: 12345",
   "sender": "+1 234 567",
+  "ip" : "167.56.227.117",
+  "user-agent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36"
 }
 ```
+
+## Error handling
+
+If the SMS Gateway returns a HTTP 200 response, `/passwordless/start` will return HTTP 200. If the SMS Gateway returns any other code, `/passwordless/start` will return 400 always with the same error code.
+
 
 ## Configure an authenticated SMS Gateway
 
