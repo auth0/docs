@@ -53,4 +53,4 @@ The script version above uses a placeholder version `X.Y.Z`. For example, to ref
 
 ## Reporting
 
-For the most up to date information on using Google Analytics, see the [Google Analytics documentation](https://support.google.com/analytics).
+For the most up-to-date information on using Google Analytics, see the [Google Analytics documentation](https://support.google.com/analytics).
