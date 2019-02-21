@@ -72,7 +72,7 @@ Silent Authentication allows you to implement an authentication flow where Auth0
 
 To bypass displaying the Lock screen when logging in a user, you must:
 
-* [configure SSO](/sso/current/setup)
+* [configure SSO](/sso)
 
 * Have a SSO cookie for the tenant's domain (in other words, the user has previously signed in and their saved cookie is still valid);
 
