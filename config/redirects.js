@@ -2057,5 +2057,9 @@ module.exports = [
      from: '/rules/redirect',
      to: '/rules/guides/redirect'
    },
+   {
+     from: '/tokens/set-access-token-format',
+     to: '/tokens/access-token-formats'
+   },
 ];
 
