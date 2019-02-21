@@ -1350,6 +1350,10 @@ module.exports = [
     to: '/universal-login/guardian'
   },
   {
+    from: '/hosted-pages/password-reset',
+    to: '/universal-login/password-reset'
+  },
+  {
     from: '/connections/database/mysql',
     to: '/connections/database/custom-db'
   },
@@ -2020,7 +2024,7 @@ module.exports = [
    {
     from: '/hooks/dashboard/index',
     to: '/hooks'
-  },
+   },
    {
     from: '/hooks/extensibility-points/credentials-exchange',
     to: '/hooks/concepts/credentials-exchange-extensibility-point'
@@ -2045,9 +2049,6 @@ module.exports = [
      from: '/users/redirecting-users',
      to: '/users/guides/redirect-users-after-login'
    },
-   { from: '/analytics/integrations/facebook-analytics', to: '/' },
-   { from: '/analytics/integrations/google-analytics', to: '/' },
-   { from: '/analytics/integrations', to: '/' },
    {
      from: '/applications/spa',
      to: '/applications/guides/register-spa'

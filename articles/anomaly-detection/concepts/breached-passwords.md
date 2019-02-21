@@ -52,6 +52,12 @@ The longer a password is, the harder it becomes to be guessed via brute force me
 
 Applications release patches and updates when they find security vulnerabilities in their systems. Keeping applications, web browsers, and operating systems up to date can help prevent security breaches.
 
+### Check the security of your email inbox
+
+If you use Gmail, Google offers the [Security Checkup](https://myaccount.google.com/security-checkup) tool to let you know if there are any security issues related to your inbox.
+
+You can also use third-party tools, such as websites like [HaveIBeenPawned](https://haveibeenpwned.com/PwnedWebsites) to see if there might be security issues associated with your email address.
+
 ## Keep reading
 
 * Understand how Auth0 [detects anomalies](/anomaly-detection).

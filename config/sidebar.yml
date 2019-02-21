@@ -362,40 +362,27 @@ articles:
       - title: "Send extra parameters"
         url: "/connections/pass-parameters-to-idps"
 
-  - title: "Hosted Pages"
-    url: "/hosted-pages"
+  - title: "Universal Login"
+    url: "/universal-login"
     children:
 
       - title: "Overview"
-        url: "/hosted-pages"
-
-      - title: "Login Page"
-        url: "/hosted-pages/login"
-        children:
-
-            - title: "Using Lock"
-              url: "/hosted-pages/login/lock"
-
-            - title: "Using Lock Passwordless"
-              url: "/hosted-pages/login/lock-passwordless"
-
-            - title: "Using Auth0.js"
-              url: "/hosted-pages/login/auth0js"
+        url: "/universal-login"
 
       - title: "Password Reset Page"
-        url: "/hosted-pages/password-reset"
+        url: "/universal-login/password-reset"
       
       - title: "Guardian MFA"
-        url: "/hosted-pages/guardian"
+        url: "/universal-login/guardian"
 
       - title: "Error Pages"
-        url: "/hosted-pages/error-pages"
+        url: "/universal-login/error-pages"
 
       - title: "Version Control"
-        url: "/hosted-pages/version-control"
+        url: "/universal-login/version-control"
 
       - title: "Default Login Page"
-        url: "/hosted-pages/default-login-url"
+        url: "/universal-login/default-login-url"
 
   - title: "Rules"
     url: "/rules"
