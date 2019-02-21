@@ -1,5 +1,5 @@
 ---
-description: Tutorial on implementing client-side SSO on single-page applications.
+description: Learn how to implement client-side SSO on single-page applications.
 toc: true
 topics:
   - sso

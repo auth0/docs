@@ -1,7 +1,6 @@
 ---
 title: Configure Session Lifetime Limits for Single Sign On
 description: Learn how to configure session lifetime limits for Single Sign On (SSO).
-toc: true
 topics:
   - sso
   - sso-configuration
@@ -15,7 +14,7 @@ useCase:
 ---
 # Configure Session Lifetime Limits for Single Sign On
 
-You can configure how you want user session timeouts to work for Single Sign On (SSO) with session lifetime limit settings. For more information on SSO integrations, see [Single Sign On Integrations](/integrations/sso).
+You can configure how you want user session timeouts to work for Single Sign On (SSO) with session lifetime limit settings.
 
 ## How session lifetime limits work
 
@@ -67,20 +66,8 @@ To determine the user's SSO status, check the following:
 
 If you don't have a valid `accessToken`, the user is *not* logged in. However, they may be logged in via SSO to another associated application. You can determine if this is the case by calling the `checkSession` method of the `auth0.js` SDK, which will attempt to silently authenticate the user within an iframe. Whether the authentication is successful or not indicates whether the user has an active SSO cookie.
 
-For more information on how to implement this, see  [Client-Side SSO (Single Page Apps)](/sso/current/single-page-apps-sso).
+## Keep reading
 
-::: note
-The [Auth0 OIDC SSO Sample](https://github.com/auth0-samples/oidc-sso-sample) repo is an example of how to implement OIDC-compliant SSO.
-:::
-
-## SSO login session management on legacy tenants
-
-In addition to the settings available under tenant settings, legacy tenants may see slightly different options available for SSO under [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
-
-While all new Auth0 tenants come with seamless SSO enabled, legacy tenants may choose whether to enable this feature. If you do not choose to **Enable Seamless SSO**, you have an additional setting available to you under Application Settings.
-
-To see this, navigate to the Applications section of the [Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the application with which you're working. Scroll to the bottom of the page and click **Show Advanced Settings**.
-
-![SSO Client Dashboard](/media/articles/sso/single-sign-on/clients-dashboard.png)
-
-You have the option to enable or disable the **Use Auth0 instead of the IdP to do Single Sign On** feature.
+* [Client-Side SSO on Single Page Applications](/sso/current/single-page-apps)
+* [Introduction to Single Sign On with Auth0](/integrations/sso/current/introduction)
+* The [Auth0 OIDC SSO Sample](https://github.com/auth0-samples/oidc-sso-sample) repo is an example of how to implement OIDC-compliant SSO.
