@@ -17,7 +17,7 @@ Auth0 recommends that you set the validity period of your token based on the sec
 
 To configure the amount of time a token lives, use the **Token Expiration (Seconds)** field for your API in the [Dashboard](${manage_url}/#/apis) APIs section. 
 * Default value: `24` hours (`86400` seconds)
-* Maximum amount of time (in seconds) that the token can be valid after being issued: `2592000` seconds (`30` days).
+* Maximum amount of time (in seconds) that the token can be valid after being issued: `30` days (`2592000` seconds).
 
 ![Token Expiration - API](/media/articles/tokens/tokens-expiration-api.png)
 
