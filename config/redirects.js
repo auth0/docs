@@ -2063,11 +2063,12 @@ module.exports = [
       ],
       to: '/libraries/auth0js/v9'
     },
+    {
      from: '/rules/redirect',
      to: '/rules/guides/redirect'
-   },
-   {
+    },
+    {
      from: '/tokens/set-access-token-format',
      to: '/tokens/access-token-formats'
-   },
+    },
 ];
