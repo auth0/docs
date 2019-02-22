@@ -2000,7 +2000,7 @@ module.exports = [
    {
     from: '/hooks/dashboard/index',
     to: '/hooks'
-  },
+   },
    {
     from: '/hooks/extensibility-points/credentials-exchange',
     to: '/hooks/concepts/credentials-exchange-extensibility-point'
@@ -2062,6 +2062,12 @@ module.exports = [
         '/libraries/auth0js/v8'
       ]
       to: '/libraries/auth0js/v9'
-    }
+    },
+     from: '/rules/redirect',
+     to: '/rules/guides/redirect'
+   },
+   {
+     from: '/tokens/set-access-token-format',
+     to: '/tokens/access-token-formats'
+   },
 ];
-
