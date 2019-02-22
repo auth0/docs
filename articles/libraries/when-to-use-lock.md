@@ -13,8 +13,6 @@ useCase:
 ---
 # Lock vs. a Custom UI
 
-<%= include('../_includes/_lock_auth0js_deprecations_notice') %>
-
 When adding Auth0 to your web apps, the best solution is to use Auth0's [Universal Login](/hosted-pages/login). Using Universal Login is an incredibly simple process, and prevents the dangers of cross-origin authentication. The login page uses the Lock Widget to allow your users to authenticate by default, but also has templates for Lock Passwordless and for a custom UI built with Auth0.js SDK. You can customize the page in the [Hosted Pages Editor](${manage_url}/#/login_page), and use any of the following to implement your authentication needs.
 
 * Lock, Auth0's drop-in login and signup widget
