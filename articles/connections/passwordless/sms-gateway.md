@@ -86,7 +86,7 @@ After updating the connection for any user that signs up or authenticates using 
 }
 ```
 
-If you set the `forward_req_info` property to "true", the gateway will also receve information from the HTTP request that initiated the passwordless process.
+If you set the `forward_req_info` property to **true**, the gateway will also receve information from the HTTP request that initiated the Passwordless process.
 
 ```
 {
@@ -102,7 +102,7 @@ If you set the `forward_req_info` property to "true", the gateway will also rece
 
 ## Error handling
 
-If the SMS Gateway returns an HTTP code different than 200, `/passwordless/start` will return 400 and a response with the following format:
+If the SMS Gateway returns an HTTP code other than 200, the `/passwordless/start` endpoint will return an HTTP 400 code and a response the looks like the following:
 
 ```
 {
@@ -111,9 +111,9 @@ If the SMS Gateway returns an HTTP code different than 200, `/passwordless/start
 }
 ```
 
-If the SMS Gateway returns HTTP 401, the `error_description` will be "Authentication failed while calling the SMS gateway: 401".
+If the SMS Gateway returns HTTP 401, the `error_description` will be **Authentication failed while calling the SMS gateway: 401**.
 
-Note the `error_description` field is not part of the endpoint contract and it could change.
+Note the `error_description` field is not part of the endpoint contract and is subject to change.
 
 ## Configure an authenticated SMS Gateway
 
