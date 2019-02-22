@@ -102,8 +102,18 @@ If you set the `forward_req_info` property to "true", the gateway will also rece
 
 ## Error handling
 
-If the SMS Gateway returns a HTTP 200 response, `/passwordless/start` will return HTTP 200. If the SMS Gateway returns any other code, `/passwordless/start` will return 400 always with the same error code.
+If the SMS Gateway returns a HTTP 200 response, `/passwordless/start` will return HTTP 200. 
 
+If the SMS Gateway returns any other code, `/passwordless/start` will return 400 and a response with the following format:
+
+```
+{
+ "error":"sms_provider_error",
+ "error_description":"Unexpected response while calling the SMS gateway: <HTTP Code Returned by the SMS Gateway>"}
+}
+```
+
+If the SMS Gateway returns HTTP 401, the `error_description` will be "Authentication failed while calling the SMS gateway: 401".
 
 ## Configure an authenticated SMS Gateway
 
