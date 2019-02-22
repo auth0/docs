@@ -102,9 +102,7 @@ If you set the `forward_req_info` property to "true", the gateway will also rece
 
 ## Error handling
 
-If the SMS Gateway returns a HTTP 200 response, `/passwordless/start` will return HTTP 200. 
-
-If the SMS Gateway returns any other code, `/passwordless/start` will return 400 and a response with the following format:
+If the SMS Gateway returns an HTTP code different than 200, `/passwordless/start` will return 400 and a response with the following format:
 
 ```
 {
