@@ -2036,15 +2036,15 @@ module.exports = [
       '/libraries/lock/v10/customization',
       '/libraries/lock/v10/configuration'
     ]
-    to: '/libraries/lock/v11/configuration',
+    to: '/libraries/lock/v11/configuration'
     },
     {
       from: [
         '/libraries/lock/v10/popup-mode',
         '/libraries/lock/v10/authentication-modes',
-        '/libraries/lock/v11/popup-mode',
+        '/libraries/lock/v11/popup-mode'
       ]
-      to: '/libraries/lock/v11/authentication-modes',
+      to: '/libraries/lock/v11/authentication-modes'
     },
     {
       from: [
@@ -2054,7 +2054,7 @@ module.exports = [
         '/libraries/lock/v9/types-of-applications',
         '/libraries/lock/v10'
       ]
-      to: '/libraries/lock/v11',
+      to: '/libraries/lock/v11'
     },
     {
       from: [
