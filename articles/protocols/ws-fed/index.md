@@ -34,9 +34,12 @@ You can also use the **samlConfiguration** object (available in [rules](/rules))
 
 When redirecting your users to your WS-Fed endpoint, you can use the following (optional) parameters:
 
-* **wreply**: Callback URL
-* **wctx**: Your application's state
-* **whr**: The name of the connection (to skip the login page)
+* `wa=wsignin1.0` to request Auth0 to issue a token for the relying party (this is the default action)
+* `wa=wsignout1.0` to request Auth0 to clear the user session (log the user out)
+* `wreply={callback_URL}` to specify where to send the response
+* `wctx={state}` to provide your application's state
+* `whr={connection_name}` to use a specific connection (skips Auth0's login page)
+* `wfresh=0` to force the user to re-authenticate even if there's a session in place
 
 Here's a sample of what your URL with the optional parameters might look like:
 
