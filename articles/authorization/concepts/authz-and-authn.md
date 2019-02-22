@@ -13,7 +13,7 @@ useCase:
 ---
 # Authentication and Authorization
 
-While often used interchangeably, [authentication](/authentication-auth/current) and [authorization](/authorization) represent fundamentally different functions. In this article, we compare and contrast the two to show how they protect applications in complementary ways.
+While often used interchangeably, [authentication](/application-auth/current) and [authorization](/authorization) represent fundamentally different functions. In this article, we compare and contrast the two to show how they protect applications in complementary ways.
 
 In simple terms, authentication is the process of verifying who a user is, while authorization is the process of verifying what they have access to. 
 
