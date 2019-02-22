@@ -115,6 +115,8 @@ If the SMS Gateway returns any other code, `/passwordless/start` will return 400
 
 If the SMS Gateway returns HTTP 401, the `error_description` will be "Authentication failed while calling the SMS gateway: 401".
 
+Note the `error_description` field is not part of the endpoint contract and it could change.
+
 ## Configure an authenticated SMS Gateway
 
 The previous settings assume your SMS Gateway accepts non-authenticated requests. The `sms_gateway` provider also allows you to configure token based authentication (using `gateway_authentication`):
