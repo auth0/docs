@@ -9,13 +9,13 @@ useCase: customize-hosted-pages
 ---
 # Guardian Multi-factor Login Page
 
-In the [Auth0 Dashboard](${manage_url}/#/guardian_mfa_page), you can enable 2nd factor authentication, using Guardian Multi-factor. You can customize the page that Auth0 displays to your users, allowing you to require MFA on logins which meet certain criteria, or just across the board. For more information on the MFA page, refer to [Hosted Pages > MFA](/hosted-pages/guardian).
+In the [Auth0 Dashboard](${manage_url}/#/guardian_mfa_page), you can enable 2nd factor authentication, using Guardian Multi-factor. You can customize the page that Auth0 displays to your users, allowing you to require MFA on logins which meet certain criteria, or just across the board. For more information on the MFA page, refer to [Universal Login > MFA](/universal-login/guardian).
 
-![Hosted Guardian MFA Page](/media/articles/hosted-pages/guardian.png)
+![Universal Login Guardian MFA Page](/media/articles/hosted-pages/guardian.png)
 
 ## Guardian Login Page HTML Editor
 
-To customize the Guardian Login page, go to [Dashboard > Hosted Pages > Guardian Multi-factor](${manage_url}/#/guardian_mfa_page) and enable the __Customize Guardian Page__ switch.
+To customize the Guardian Login page, go to [Dashboard > Universal Login > Guardian Multi-factor](${manage_url}/#/guardian_mfa_page) and enable the __Customize Guardian Page__ switch.
 
 Once you do that, you'll be able to use the text editor built into the Auth0 Dashboard to change your HTML, style your page using CSS, and alter the JavaScript used to retrieve custom variables. Once you've made your changes, and make sure to click __Save__.
 
@@ -26,6 +26,22 @@ If you'd like to revert to an earlier design, you have two options:
 
 Please note that Hosted Pages work without customization (Auth0 will also update the included scripts as required). However, once you toggle the customization to **on**, you are responsible for the updating and maintaining the script (including changing version numbers, such as that for the MFA widget), since Auth0 can no longer update it automatically.
 
+## Configuration Options
+
+### defaultLocation
+
+```js
+return new Auth0MFAWidget({
+
+...
+
+  defaultLocation : ['United Kingdom', 'GB', '+44'],
+  
+...
+
+})
+```
+
 ## Theming Options
 
 There are a few theming options for MFA-Widget, namespaced under the `theme` property.
@@ -35,9 +51,17 @@ There are a few theming options for MFA-Widget, namespaced under the `theme` pro
 The value for `icon` is the URL for an image that will be used in the MFA-Widget header, which defaults to the Auth0 logo. It has a recommended max height of `58px` for a better user experience.
 
 ```js
-      theme: {
-        icon: 'https://example.com/assets/logo.png'
-      },
+return new Auth0MFAWidget({
+
+...
+
+  theme: {
+    icon: 'https://example.com/assets/logo.png'
+  },
+  
+...
+
+})
 ```
 
 ### primaryColor
@@ -45,10 +69,18 @@ The value for `icon` is the URL for an image that will be used in the MFA-Widget
 The `primaryColor` property defines the primary color of the MFA-Widget. This option is useful when providing a custom `icon`, to ensure all colors go well together with the `icon`'s color palette. Defaults to `#ea5323`.
 
 ```js
-      theme: {
-        icon: 'https://example.com/assets/logo.png',
-        primaryColor: 'blue'
-      },
+return new Auth0MFAWidget({
+
+...
+
+  theme: {
+    icon: 'https://example.com/assets/logo.png',
+    primaryColor: 'blue'
+  },
+  
+...  
+  
+})
 ```
 
 ## Rendering "Invited Enrollments" vs. Standard Scenarios

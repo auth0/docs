@@ -1,6 +1,6 @@
 ---
-title: Send Auth0 Events to Keen
-description: How to send logging events to Keen from Auth0.
+title: Send Logging Events to Keen
+description: Learn how to send logging events to Keen from Auth0.
 topics:
   - monitoring
   - keenio
@@ -12,7 +12,7 @@ useCase:
   - analyze-external-analytics
   - integrate-analytics
 ---
-# Send Auth0 Events to Keen
+# Send Logging Events to Keen
 
 [Keen](http://keen.io) provides a service to capture and analyze events generated in your apps. In their words:
 
