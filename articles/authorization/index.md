@@ -17,7 +17,11 @@ Authorization refers to the process of verifying what a user has access to. Whil
 
 In authorization, a user or application is granted access to an API after the API determines the extent of the permissions that it should assign. Usually, authorization occurs after identity is successfully validated through authentication so that the API has some idea of what sort of access it should grant. For a comparison of authorization and authentication, see [Authentication and Authorization](/authorization/concepts/authz-and-authn).
 
+<<<<<<< HEAD
 Authorization can be determined through the use of [policies](/authorization/concepts/policies) and [rules](/authorization/concepts/authz-rules), which can be used with [roles-based access control (RBAC)](/authorization/concepts/rbac). Regardless of whether RBAC is used, requested access is transmitted to the API via [scopes](/scopes) and granted access is returned in the issued [Access Tokens](/tokens/overview-access-tokens).
+=======
+Authorization can be determined through the use of [policies](/authorization/concepts/policies) and [rules](/authorization/concepts/authz-rules), which can be used with [roles-based access control (RBAC)](/authorization/concepts/rbac). Regardless of whether RBAC is used, requested access is transmitted to the API via [scopes](/scopes) contained in [Access Tokens](/tokens/overview-access-tokens).
+>>>>>>> Update index.md
 
 Since only the API can know all of the possible actions that it can handle, it should have its own internal access control system in which it defines its own permissions. To determine a calling application's effective permissions, an API should combine incoming scopes with the permissions assigned within its own internal access control system and make access control decisions accordingly.
 
