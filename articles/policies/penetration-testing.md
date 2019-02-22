@@ -35,6 +35,7 @@ Auth0 requires that:
 
 * The test be restricted to only your tenant 
 * You disclose any suspected findings to the Auth0 Security team for explanation/discussion
+* You understand that your tenant will be moved between environments during testing. Auth0 will move your tenant from the stable environment to the preview environment before the testing commences, and return it after the completion of the testing period. Note that during this period of time, the tenant may receive updates more rapidly due to the environment change, or have lowered rate limits on the Management API.
 
 ## PSaaS Appliance customers
 
