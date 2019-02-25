@@ -17,5 +17,5 @@ An object containing information related to the authentication transaction with 
 
 The method objects will contain the following properties:
 
-- `name`: a string containing the name of the authentication method that has been completed
+- `name`: a string representing the name of authentication method that has been completed
 - `timestamp`: an integer indicating the time at which the authentication method took place in Unix Epoch time
