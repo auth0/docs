@@ -1366,10 +1366,6 @@ module.exports = [
   //   to: '/metadata#using-lock-to-manage-metadata'
   // },
   {
-    from: ['/libraries/lock/v11/customization'],
-    to: '/libraries/lock/v11/configuration',
-  },
-  {
     from: '/tutorials/azure-tutorial',
     to: '/integrations/azure-tutorial',
   },
