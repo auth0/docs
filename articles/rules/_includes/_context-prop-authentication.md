@@ -1,15 +1,16 @@
 An object containing information related to the authentication transaction with the following properties:
+
 - `methods`: an array of objects containing the authentication methods a user has completed during their session. For example, a user that has completed a password-based authentication followed by MFA may have the following methods:
 
 ```json
 [
   {
-    name: 'pwd',
-    timestamp: 1434454643024
+    "name": "pwd",
+    "timestamp": 1434454643024
   },
   {
-    name: 'mfa',
-    timestamp: 1534454643881
+    "name": "mfa",
+    "timestamp": 1534454643881
   }
 ]
 ```
