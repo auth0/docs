@@ -2050,7 +2050,7 @@ module.exports = [
       from: [
         '/libraries/lock/v9',
         '/libraries/lock/v9/display-modes',
-        '/libraries/lock/v9/configuration#container-string-',
+        '/libraries/lock/v9/configuration',
         '/libraries/lock/v9/types-of-applications',
         '/libraries/lock/v10'
       ],
