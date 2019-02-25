@@ -1,6 +1,10 @@
 title: Vue
 language:
   - Javascript
+author:
+  name: Steve Hobbs
+  email: steve.hobbs@auth0.com
+  community: false
 framework:
   - Vue.js
 image: /media/platforms/vue.png
