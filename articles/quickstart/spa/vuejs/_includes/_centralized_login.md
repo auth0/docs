@@ -470,3 +470,5 @@ export default router;
 ```
 
 Given this, any page that is not either the home page or the callback URL will cause the application to show the login prompt if the user is not authenticated.
+
+<%= include('../../_includes/_see_it_in_action.md') %>
