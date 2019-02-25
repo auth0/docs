@@ -17,5 +17,10 @@ An object containing information related to the authentication transaction with 
 
 The method objects will contain the following properties:
 
-- `name`: a string representing the name of authentication method that has been completed
+- `name`: a string representing the name of authentication method that has been completed. It can be one of the following values:
+  - `federated`: a social or enterprise connection was used to authenticate the user
+  - `pwd`: a database connection was used to authenticate the user
+  - `sms`: a Passwordless SMS connection was used to authenticate the user
+  - `email`: a Passwordless Email connection was used to authenticate the user
+  - `mfa`: the user completed a mulifactor authentication
 - `timestamp`: an integer indicating the time at which the authentication method took place in Unix Epoch time
