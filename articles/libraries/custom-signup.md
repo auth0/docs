@@ -33,7 +33,7 @@ Lock's `additionalSignUpFields` option will only work with database signups. For
 
 ### Redirect to another page
 
-One way to use social provider signups with Lock and collect custom fields is to use [redirect rules](/rules/redirect) to redirect the user to another page where you ask for extra information, and then redirect back to finish the authentication transaction.
+One way to use social provider signups with Lock and collect custom fields is to use [redirect rules](/rules/guides/redirect) to redirect the user to another page where you ask for extra information, and then redirect back to finish the authentication transaction.
 
 ### Progressive profiling
 

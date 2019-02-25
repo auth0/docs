@@ -40,7 +40,7 @@ As an example, the text of your .env file should look something like this when c
 
 ```text
 JWKS_URI=https://${account.namespace}/.well-known/jwks.json
-AUDIENCE=hVG7...3QA1q
+AUDIENCE=https://your-api-gateway
 TOKEN_ISSUER=https://${account.namespace}/
 ```
 

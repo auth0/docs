@@ -65,4 +65,3 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 
 ### Create a SSO dashboard with multiple enterprise applications 
 - [SSO Dashboard Extension](extensions/sso-dashboard)
-

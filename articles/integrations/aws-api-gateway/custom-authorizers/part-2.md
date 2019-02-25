@@ -117,7 +117,7 @@ Click on the link to submit the `GET / method` request in a browser. This should
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-1/aws-pt1-8.png)
 
-Next, we'll make a call to **GET** under `/pets/{petId}`. In the **Stages** page, expand the tree under **Test**.
+Next, we'll make a call to **GET** under `/pets/{petId}`. In the **Stages** page, expand the tree under **Test**. Click **GET** under `/pets/{petId}`.
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-1/aws-pt1-9.png)
 

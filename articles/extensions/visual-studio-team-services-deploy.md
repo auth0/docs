@@ -1,5 +1,5 @@
 ---
-description: The Visual Studio Team Services Deployments extension allows you to deploy Rules, Hosted Pages and Database Connection scripts from Visual Studio Team Services to Auth0.
+description: The Visual Studio Team Services Deployments extension allows you to deploy Rules, Universal Login pages and database connection scripts from Visual Studio Team Services to Auth0.
 topics:
   - extensions
   - vs-team-services-deployments
@@ -10,7 +10,7 @@ useCase: extensibility-extensions
 
 # Visual Studio Team Services Deployments
 
-The **Visual Studio Team Services Deployments** extension allows you to deploy [rules](/rules), rules configs, connections, database connection scripts, clients, client grants, resource servers, hosted pages and email templates from Visual Studio Team Services to Auth0. You can configure a Visual Studio Team Services project, keep all of your scripts there, and have them automatically deployed to Auth0 whenever you push changes to your project.
+The **Visual Studio Team Services Deployments** extension allows you to deploy [rules](/rules), rules configs, connections, database connection scripts, clients, client grants, resource servers, Universal Login pages and email templates from Visual Studio Team Services to Auth0. You can configure a Visual Studio Team Services project, keep all of your scripts there, and have them automatically deployed to Auth0 whenever you push changes to your project.
 
 ## Configure the Auth0 Extension
 
@@ -95,6 +95,7 @@ With each commit you push to your configured Visual Studio Team Services project
 - `grants`
 - `emails`
 - `resource-servers`
+- `connections`
 - `database-connections`
 - `rules-configs`
 - `rules`
@@ -123,9 +124,38 @@ For a generic Custom Database Connection, only the `login.js` script is required
 
 You can find examples in [the Auth0 Samples repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/database-connections/my-custom-db). While the samples were authored for GitHub, it will work for a Visual Studio Team Services integration as well.
 
-### Deploy Hosted Pages
+#### Deploy Database Connection Settings
 
-The supported hosted pages are:
+To deploy Database Connection settings, you must create `database-connections/[connection-name]/settings.json`. 
+
+_This will work only for Auth0 connections (`strategy === auth0`), for non-Auth0 connections, use `connections`._
+
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/patch_connections_by_id) for more info on allowed attributes for Connections.
+
+### Deploy Connections
+
+To deploy a connection, you must create a JSON file under the `connections` directory of your Visual Studio Team Services project. Example:
+
+__facebook.json__
+```json
+{
+  "name": "facebook",
+  "strategy": "facebook",
+  "enabled_clients": [
+    "my-client"
+  ],
+  "options": {}
+}
+```
+
+_This will work only for non-Auth0 connections (`strategy !== auth0`), for Auth0 connections, use `database-connections`._
+
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
+
+### Deploy Universal Login Pages
+
+The supported pages are:
+
 - `error_page`
 - `guardian_multifactor`
 - `login`
@@ -253,24 +283,6 @@ __my-api.json__
 ```
 
 See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Resource_Servers/post_resource_servers) for more info on allowed attributes for Resource Servers.
-
-### Deploy Connections
-
-To deploy a connection, you must create a JSON file under the `connections` directory of your Visual Studio Team Services project. Example:
-
-__facebook.json__
-```json
-{
-  "name": "facebook",
-  "strategy": "facebook",
-  "enabled_clients": [
-    "my-client"
-  ],
-  "options": {}
-}
-```
-
-See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
 
 ### Deploy Email Provider
 

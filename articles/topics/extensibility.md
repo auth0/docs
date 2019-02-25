@@ -31,9 +31,10 @@ Use Rules to:
 [Hooks](/hooks) allow you to customize the behavior of Auth0 using Node.js code that is executed against extensibility points (which are comparable to webhooks that come with a server). Hooks allow you modularity when configuring your Auth0 implementation, and extend the functionality of base Auth0 features.
 
 Use Hooks to:
-- [Change the scopes and add custom claims to the tokens issued during user authentication](/hooks/extensibility-points/credentials-exchange)
-- [Prevent user registration or add custom metadata to a new user](/hooks/extensibility-points/pre-user-registration)
-- [Implement custom actions that execute asynchronously after a new user registers in your app](/hooks/extensibility-points/post-user-registration)
+
+- [Change the scopes and add custom claims to the tokens issued during user authentication](/hooks/concepts/credentials-exchange-extensibility-point)
+- [Add custom metadata to a new user](/hooks/concepts/pre-user-registration-extensibility-point)
+- [Implement custom actions that execute asynchronously after a new user registers in your app](/hooks/concepts/post-user-registration-extensibility-point)
 
 ## Extensions
 

@@ -40,7 +40,7 @@ While SmartLock is not yet universal, using browser-based login flows allows you
 
 With a native login flow, an unauthorized party could decompile or intercept traffic to/from your application to get the Client ID and authentication URL. With this information the unauthorized party could create a rogue application, upload it to an application store, and use it to phish for usernames, passwords, and Access Tokens.
 
-Using a browser-based flow protects you from this, since the callback URL is linked to the application through [universal app links](https://developer.apple.com/ios/universal-links/) (iOS) or [App Links](/applications/enable-android-app-links) (Android). Note, however, that this is **not** a universally supported feature.
+Using a browser-based flow protects you from this, since the callback URL is linked to the application through [universal app links](https://developer.apple.com/ios/universal-links/) (iOS) or [App Links](/applications/guides/enable-android-app-links-dashboard) (Android). Note, however, that this is **not** a universally supported feature.
 
 ## Implementation time
 

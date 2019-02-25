@@ -30,15 +30,15 @@ The query string is parsed into a series of terms and operators:
 
 You can search for users using all the [normalized user profile fields](/users/normalized/auth0/normalized-user-profile-schema) and the fields below:
 
-Search Field | Data Type | Description
+Search&nbsp;Field | Data&nbsp;Type | Description
 ------|------|-----
 `phone_number` | text | The user's phone number. Only valid for users with SMS connections.
 `phone_verified` | boolean | The `true/false` value indicating whether the user's phone number has been verified. Only valid for users with SMS connections.
 `logins_count` | integer | The number of times the user has logged in. If a user is blocked and logs in, the blocked session is counted in `logins_count` and updates the `last_login` value.
-`created_at` | date time | The timestamp of when the user profile was first created.
-`updated_at` | date time | The timestamp of when the user's profile was last updated/modified.
-`last_login` | date time | The timestamp of when the user last logged in. In case you are this property from inside a [Rule](/rules) using the `user` object, its value will be the one associated with the login that triggered the rule (since rules execute after the actual login).
-`last_ip` | text (valid IP address) | The IP address associated with the user's last login.
+`created_at` | date&nbsp;time | The timestamp of when the user profile was first created.
+`updated_at` | date&nbsp;time | The timestamp of when the user's profile was last updated/modified.
+`last_login` | date&nbsp;time | The timestamp of when the user last logged in. In case you are this property from inside a [Rule](/rules) using the `user` object, its value will be the one associated with the login that triggered the rule (since rules execute after the actual login).
+`last_ip` | text (valid IP&nbsp;address) | The IP address associated with the user's last login.
 `blocked` | boolean | The `true/false` value indicating if the user has been blocked.
 `email.domain` | text | The domain part of the user's email.
 

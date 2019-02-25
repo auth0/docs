@@ -43,7 +43,7 @@ If all goes well, you'll receive an HTTP 200 response with a payload containing 
 }
 ```
 ::: warning
-You should validate your tokens before saving them. To learn how, see [Validate an ID Token](/tokens/id-token#validate-an-id-token) and [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+You should validate your tokens before saving them. To learn how, see [Validate an ID Token](/tokens/guides/id-token/validate-id-token) and [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 :::
 
 [ID Tokens](/tokens/id-token) contain user information that must be [decoded and extracted](/tokens/id-token#id-token-payload). 
