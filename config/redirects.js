@@ -2069,5 +2069,5 @@ module.exports = [
     {
      from: '/tokens/set-access-token-format',
      to: '/tokens/access-token-formats'
-    },
+    }
 ];
