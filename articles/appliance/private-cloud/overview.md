@@ -2,6 +2,7 @@
 url: /enterprise/private-cloud/overview
 section: enterprise
 description: Overview of the Enterprise - Private Cloud deployment option
+classes: topic-page
 topics:
     - enterprise
     - private-cloud
