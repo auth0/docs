@@ -8,7 +8,13 @@ topics:
 contentType: concept
 useCase: enterprise
 ---
-# Enterprise - Private Cloud
+<div class="topic-page-header">
+  <div data-name="example" class="topic-page-badge"></div>
+  <h1>Enterprise - Private Cloud</h1>
+  <p>
+    A low-friction, dedicated Auth0 deployment that exists in Auth0's Private Cloud.
+  </p>
+</div>
 
 Users with requirements not met by the Auth0 Public Cloud may instead opt for an Enterprise - Private Cloud option.
 
