@@ -23,6 +23,6 @@ This overview covers specifically the **Enterprise - Private Cloud** option.
 
 The Enterprise - Private Cloud provides you with a dedicated (or single-tenant) environment. You'll get enhanced performance, security, and compliance over what we include in our standard Public Cloud offering.
 
-With the Enterprise - Private Cloud, Auth0 will handle a majority of the requirements for initial setup and maintenance. Afterwards, you'll be on a set update pattern.
+With the Enterprise - Private Cloud, Auth0 will handle a majority of the requirements for initial setup and maintenance. Afterward, you'll be on a set update pattern.
 
 You'll get the ease of management that comes with using our Public Cloud combined with the power and security of our Managed Private Cloud.
