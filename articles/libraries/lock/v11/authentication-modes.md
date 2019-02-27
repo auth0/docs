@@ -37,11 +37,14 @@ var lock = new Auth0Lock(
 );
 ```
 
-## Database connections and popup mode
-
 ::: note
 Multifactor authentication does not work in popup mode.
 :::
+
+::: note
+Popup mode does not work with [Universal Login](/hosted-pages/login).
+:::
+
 
 Some Auth0 features such as [SSO](/sso/single-sign-on) between multiple applications depend on users being redirected to Auth0 to set a cookie on `'${account.namespace}'`.
 
