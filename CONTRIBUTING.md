@@ -787,13 +787,14 @@ When writing docs you can use the following variables instead of hard-coding the
 ### User Specific Variables
 
 | Variable  | Description | Default Value |
-| :--------------------- | :------------------------------------------------- | :------------------------------------- |
-| `account.appName`      | The name of the current Auth0 app.                 | `YOUR_APP_NAME`                        |
-| `account.tenant`       | The name of the current Auth0 tenant.              | `YOUR_TENANT`                          |
-| `account.namespace`    | The name of the current Auth0 namespace.           | `YOUR_NAMESPACE`                       |
-| `account.clientId`     | The Client ID of the current Auth0 app.            | `YOUR_CLIENT_ID`                       |
-| `account.clientSecret` | The Client Secret of the current Auth0 app.        | `YOUR_CLIENT_SECRET`                   |
-| `account.callback`     | The first callback URL of the current Auth0 app.   | `http://YOUR_APP.auth0.com/callback`   |
+| :---------------------- | :------------------------------------------------- | :------------------------------------- |
+| `account.appName`       | The name of the current Auth0 app.                 | `YOUR_APP_NAME`                        |
+| `account.tenant`        | The name of the current Auth0 tenant.              | `YOUR_TENANT`                          |
+| `account.namespace`     | The name of the current Auth0 namespace.           | `YOUR_NAMESPACE`                       |
+| `account.clientId`      | The Client ID of the current Auth0 app.            | `YOUR_CLIENT_ID`                       |
+| `account.clientSecret`  | The Client Secret of the current Auth0 app.        | `YOUR_CLIENT_SECRET`                   |
+| `account.callback`      | The first callback URL of the current Auth0 app.   | `http://YOUR_APP.auth0.com/callback`   |
+| `account.api_identifier`| The idnetifier of the current Auth0 API            | `http://your_app_identifier`           |
 
 ## Versioning
 
