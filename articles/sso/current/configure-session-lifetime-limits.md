@@ -15,7 +15,7 @@ useCase:
 ---
 # Configure Session Lifetime Limits for Single Sign On
 
-You can configure how you want user session timeouts to work for Single Sign On (SSO) with session lifetime limit settings in the dashboard. You can also configure session limits with the [Management API](/api/management/v2#!/Tenants/patch_settings).
+You can configure how user session timeouts work for Single Sign On (SSO) with session lifetime limit settings [in the dashboard](${manage_url}/#/tenant/advanced). You can also configure session limits with the [Management API](/api/management/v2#!/Tenants/patch_settings).
 
 ## How session lifetime limits work
 
@@ -23,7 +23,7 @@ Auth0 maintains an SSO session for any user who authenticates via an application
 
 * **Inactivity timeout**: Each time the user completes a transaction registered with the authorization server (Auth0), the session lifetime is extended from that point for the duration of the **Inactivity timeout** period. (Referred to as `idle_session_lifetime` in the Management API.) 
 
-* **Require log in after**: Even if the user remains active in the application and repeatedly extends their session, the user will eventually be logged out and required to log in again when they reach the **Require log in after** limit. (Referred to as `session_lifetime` in the Management API.) 
+* **Require log in after**: Even if the user remains active in the application and repeatedly extends their session, the user will eventually be logged out and required to log in again when they reach the **Require log in after** limit. (Referred to as `session_lifetime` in the Management API.)
 
 ### Session lifetime limit examples
 
@@ -35,9 +35,7 @@ If you set the **Inactivity timeout** limit to 3 days and the **Require log in a
 
 If you extend existing session lifetime limits, those limits remain unchanged until a user establishes a new session. For example, if a user has an **Inactivity timeout** limit of 1 day and a **Require log in after** limit of 3 days and you increase the limits to 3 days and 7 days respectively, the user will not experience longer session lifetimes until after the existing session ends and they establish a new session.
 
-::: note
-When you reduce existing session lifetime limits, the user session lifetime limits change *immediately* upon the next registered activity. This behaviour allows you to immediately shorten inadvertently long session lifetime limits for security purposes.
-:::
+If you reduce existing session lifetime limits, the user session lifetime limits change *immediately* upon the next registered activity. This behaviour allows you to immediately shorten inadvertently long session lifetime limits for security purposes.
 
 ## Prerequisites
 
