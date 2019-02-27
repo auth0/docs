@@ -17,7 +17,27 @@ Many instructions for setting up a SAML federation begin with SSO initiated by t
 
 However, in enterprise scenarios, it is more common to begin with the identity provider initiating SSO, not the service provider. For example, an enterprise company might set up a portal to ensure that users navigate to the correct application after they sign on to the portal.
 
+## Risks of using an IdP-Initiated SSO flow
+
+::: warning
+IdP-Initiated flows carry a security risk and are therefore <strong>NOT</strong> recommended. Make sure you understand the risks before enabling IdP-Initiated SSO. 
+:::
+
+In general, it is recommended to use Service-Provided flows whenever available. When an application actively requests an authentication as a first step (as is the case for SP-Initiated flows), it can check that the authentication response received matches the original request. 
+
+In IdP-initiated scenarios, on the other hand, the application can not verify that the user actually started the flow. Because of this, the IdP-Initiated flow opens the possibility of an [Login CSRF attack](https://support.detectify.com/customer/portal/articles/1969819-login-csrf), where an attacker can trick a legitimate user into unknowingly logging into the application with the identity of the attacker.  
+
+Login CSRF attacks are generally less of a concern in enterprise-only scenarios, as any would-be attacker would have to come from the same directory of users. But it's a serious security concern in consumer-facing applications, so we strongly advise against enabling IdP-Inititated flows.
+
+### On IdP-Initiated flows and OIDC
+
+OpenID Connect does not support the concept of an IdP-Initiated flow. So while Auth0 offers the possibility of translating a SAML IdP-Initiated flow (from a SAML connection) into an OIDC response for an application, any application that properly implements the OIDC/OAuth2 protocol will reject an unrequested response. 
+
+When using OIDC applications, the best option is to have the users start the login flow **at the application** or configure the portals to send the user to the application's login initiation endpoint (without an IdP-Initiated SAML response) so that, again, the application starts the authentication flow.
+
 ## How to set up IDP-initiated SSO
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hZGYWeBvZQ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 To setup IdP-Initiated SSO, go to the [Enterprise Connections](${manage_url}/#/connections/enterprise) section of the dashboard and choose **SAMLP Identity Provider**. Under the **Settings** section you can see the configuration for IdP-Initiated SSO.
 
@@ -25,7 +45,7 @@ To setup IdP-Initiated SSO, go to the [Enterprise Connections](${manage_url}/#/c
 
 **Default Application:** When the IdP initiated login succeeds this is the application where users are routed. This setting shows available applications enabled for this connection. Select the application from the dropdown that you want the users to login with IdP initiated. Only one application can be selected for an IdP-initiated login per SAML connection.
 
-**Response Protocol:** This is the protocol used to connect your selected **Default Application**. Most commonly applications are configured with the OpenID Connect protocol. However if you have configured a SAML2 Web App addon for your application and want to route the SAML assertion you will need to select SAML.
+**Response Protocol:** This is the protocol used to connect your selected **Default Application**. Most commonly applications are configured with the OpenID Connect protocol (read [here](#on-idp-initiated-flows-and-OIDC) for possible pitfalls). However if you have configured a SAML2 Web App addon for your application and want to route the SAML assertion you will need to select SAML.
 
 **Query String:** Query string options help to customise the behavior when the OpenID Connect protocol is used. You can set multiple options similar to setting parameters with a [query string](https://en.wikipedia.org/wiki/Query_string). You can set:
 
@@ -43,4 +63,31 @@ When using **IdP-Initiated SSO**, please make sure to include the `connection` p
 
 ## Lock/Auth0.js
 
-<%= include('../../_includes/_enable_idp_initiated.md') %>
+If your application is a Single Page Application that uses Lock or Auth0.js to process the authentication results, you will have to explicitely indicate that you want to allow IdP-Initiated flows (and thus [open the application to possible Login CSRF attacks](#risks-of-using-an-idp-Initiated-SSO-flow)).
+
+If you are using [Auth0.js](/libraries/auth0js), you have to update the **webAuth.parseHash** of the [library](/libraries/auth0js/v9#extract-the-authresult-and-get-user-info) and set the flag **__enableIdPInitiatedLogin** to `true`.
+
+```javascript
+var data = webAuth.parseHash(
+  {
+    ...
+    __enableIdPInitiatedLogin: true
+    ...
+  }
+```
+
+If you're using [Lock](/lock), you can include the flag using the options parameter sent to the constructor.
+
+```javascript
+const lock = new Auth0Lock(clientID, domain, options)
+```
+
+Here's the flag itself:
+
+```javascript
+var options = {
+    _enableIdPInitiatedLogin: true
+};
+```
+
+Note that the **enableIdPInitiatedLogin** flag is preceded by **one** underscore when used with Lock and **two** underscores when used with the auth0.js library.
