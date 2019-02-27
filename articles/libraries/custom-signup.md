@@ -67,7 +67,7 @@ For further reference, here is our [documentation on progressive profiling](/use
 </form>
 ```
 
-The `name` and `color` are custom fields.
+The `name` is a user profile attribute and `color` is a custom field.
 
 ::: note
 There is currently no way to validate user-supplied custom fields when signing up. Validation must be done from an Auth0 [Rule](/rules) at login, or with custom, **server-side** logic in your application.
@@ -81,7 +81,7 @@ You will need to send:
 - Your application's `client_id`
 - The `email` and `password` of the user being signed up
 - The name of the database `connection` to store your user's data
-- Any root attributes you want to update for the user, which can include `given_name`, `family_name`, `name`, `nickname`, and `picture`.
+- Any user profile attribute you want to update for the user, which can include `given_name`, `family_name`, `name`, `nickname`, and `picture`.
 - Any custom fields as part of `user_metadata`
 
 ```har
@@ -94,7 +94,7 @@ You will need to send:
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"client_id\": \"${account.clientId}\",\"email\": \"$('#signup-email').val()\",\"password\": \"$('#signup-password').val()\",\"connection\": \"YOUR_CONNECTION_NAME\",\"user_metadata\": {\"color\": \"red\"}}"
+    "text": "{\"client_id\": \"${account.clientId}\",\"email\": \"$('#signup-email').val()\",\"password\": \"$('#signup-password').val()\",\"connection\": \"YOUR_CONNECTION_NAME\",\"name\": \"$('#name').val()\",\"user_metadata\": {\"color\": \"red\"}}"
   }
 }
 ```
@@ -166,9 +166,9 @@ var settings = {
   },
   "data": {
     "client_id": "${account.clientId}",
-    "email": $('#email').val(),
-    "password": $('#password').val(),
-    "connection": "Username-Password-Authentication",
+    "email": $('#signup-email').val(),
+    "password": $('#signup-password').val(),
+    "connection": "YOUR_CONNECTION_NAME",
     "username": $('#username').val()
   }
 }
