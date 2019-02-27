@@ -18,7 +18,7 @@ The attributes that Auth0 maps to a common schema are listed below.
 Fields that are always generated:
 
 * **`name`**: the user's full name.
-* **`nickname`**: the user's username.
+* **`nickname`**: the first part of the user's email, or the user's username if using the Auth0 data store and require username.
 * **`picture`**: the URL of the [user's picture](/users/guides/change-user-pictures). If unavailable, Auth0 uses the Gravatar image associated with the user's email address.
 * **`user_id`**: the user's unique identifier. This is unique per Connection, but the same for all apps that authenticate via that Connection.
 
