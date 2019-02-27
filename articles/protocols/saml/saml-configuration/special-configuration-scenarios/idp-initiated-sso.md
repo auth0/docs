@@ -60,7 +60,7 @@ If Auth0 acts as the identity provider, you can use the application's SAML Sign 
 
   ```text
   https://${account.namespace}/samlp
-  /${account.clientId}?RelayState=http://FINAL_DESTINATION_URL
+  /${account.clientId}?RelayState=https://FINAL_DESTINATION_URL
   ```
 
 Note: it's up to the target application to accept IdP-Initiated flows and use the `RelayState` in a meaningful way if provided.
