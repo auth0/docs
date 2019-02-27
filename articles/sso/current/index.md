@@ -28,11 +28,11 @@ If you cannot use Universal Login with your application, review the following fo
     <p>A brief introduction to Single Sign On (SSO) and an overview of how SSO works with Auth0.</p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/sso/setup">Set Up Single Sign On with Auth0</a>
-    <p>Tutorial on implementing Single Sign On (SSO) with Auth0.</p>
+    <i class="icon icon-budicon-715"></i><a href="/sso/configure-session-lifetime-limits">Configure Session Lifetime Limits for Single Sign On</a>
+    <p>Learn how to configure session lifetime limits for Single Sign On (SSO).</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/sso/single-page-apps">Client-Side SSO on Single Page Applications</a>
-    <p>Tutorial on implementing client-side SSO on single page applications.</p>
+    <p>Learn how to implement client-side SSO on single page applications.</p>
   </li>
 </ul>

@@ -18,7 +18,7 @@ To upgrade from OWIN 3.x using the Auth0 middleware to OWIN 4 using the OpenID C
 1. Add a reference to the `Microsoft.Owin.Security.OpenIdConnect` NuGet package.
 1. Remove the existing reference to the `Auth0-ASPNET-Owin` NuGet package which contains the previous OWIN 3.x based middleware.
 1. Update your `Startup.cs` file to add the following namespaces:
-    
+
     ```
     using Microsoft.IdentityModel.Protocols.OpenIdConnect
     using Microsoft.IdentityModel.Tokens;

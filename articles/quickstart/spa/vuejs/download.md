@@ -8,7 +8,12 @@ http://localhost:3000/callback
 ```text
 http://localhost:3000
 ```
-3) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the sample's directory:
+3) Set **Allowed Logout URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to 
+
+```text
+http://localhost:3000
+```
+4) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the sample's directory:
 ```bash
 npm install && npm start
 ```
