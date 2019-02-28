@@ -5,14 +5,15 @@ toc: true
 topics:
     - b2c
     - ciam
-    - user-provisioning
+    - user-migration
+    - identity-store
 contentType: concept
 useCase:
   - user-provisioning
 ---
 # Consumer Identity and Access Management User Provisioning
 
-User provisioning defines how users will be added to your system.
+User provisioning defines how users will be added to your system. This part of the implementation determines where you will store your users' profile information, how you will migrate existing users, and how your users will sign up. 
 
 ## Design considerations
 
@@ -20,13 +21,13 @@ It is important to decide early in your implementation planning how you want use
 
 The factors to consider are: 
 
-1. Where you want to store your user data, in your own identity data store or in Auth's data store?
+1. Where to store your user data, in your own identity data store or in Auth's data store?
 2. If you have legacy user data, do you want to migrate it to Auth0?
 3. Do you want your users to sign up with their existing accounts like Facebook or Google? 
 
 ## Identity data storage
 
-During sign up, Auth0 creates a [user profile](/users/concepts/overview-user-profile) that contains information about the user’s account. You can choose to store the user information in  Auth0's data store or your own. 
+During sign up, Auth0 creates a [user profile](/users/concepts/overview-user-profile) that contains information about the user’s account. You can choose to store the user information in Auth0's data store or your own. 
 
 ### Use your own identity data store
 
@@ -40,33 +41,27 @@ Auth0 provides identity storage to help you manage the burden of storing user cr
 
 ## User migration
 
-In addition to hosting user profiles, Auth0 can proxy your legacy identity store and provide a secure Auth0 hosted replacement using Auth0 Database Connections. If you decide to use Auth0 instead of your legacy identity store then you can [migrate users](/users/concepts/overview-user-migration) either with bulk migration or progressively with automatic migration.  
+In addition to hosting user profiles, Auth0 can proxy your legacy identity store and provide a secure Auth0 hosted replacement using Auth0 database donnections. 
+
+If you decide to use Auth0 instead of your legacy identity store then you can [migrate users](/users/concepts/overview-user-migration) either with bulk migration or progressively with automatic migration. You can also choose a two-phased approach to user migration, using automatic migration first, then using bulk migration for the users that remain. For other scenarios, see [User Migration Scenarios](/users/references/user-migration-scenarios).
 
 ### Bulk migration
 
-For Bulk Migration Auth0 recommends using the Management API over the User Import/Export extension in all but the most simple cases; the Management API provides greater flexibility and control (see here for further details). With Bulk Migration users will typically need to reset their password once migration is complete.
+Auth0 recommends using the [Management API](/users/concepts/overview-user-migration#bulk-user-imports-with-the-management-api) for bulk migration over the [User Import/Export extension](https://auth0.com/docs/users/concepts/overview-user-migration#migrate-users-with-the-user-import-export-extension) in all but the most simple cases. The Management API provides more flexibility and control. 
 
-Calls to the Management API are subject to Auth0 Rate Limiting policy (see here), which implementation must take into consideration. In general, we recommend using the [Auth0 SDK](/libraries) appropriate for your development environment rather than calling our APIs directly. 
+After the bulk migration is complete, your users will need to reset their passwords.
 
 ### Automatic migration
 
-Automatic Migration is preferred as it allows users to be migrated in a piecemeal fashion, and also allows them to retain their existing password. 
+[Automatic migration](/users/guides/configure-automatic-migration) allows users to be migrated incrementally, so they will not need to reset their passowrds. 
 
 ## Self Sign Up
 
-Allowing your customers to use “bring your own identity” is often an attractive proposition, and although we find our customers don’t typically do so from the get-go, when you’re ready to provide it Auth0’s Social Sign Up capability - described here - is exactly what you’ll need.
-
-Self sign up leverages Auth0 Database Connections (described here) for storing the user id, password and (optional) username identity information collected during the sign up process. Via the Auth0 Dashboard, Database Connections provide easy to configure capabilities to allow policies such as minimum username length (here) and the numerous password options (e.g. password strength and complexity) described here.  
-
-Auth0 provided out-of-box widgets, such as Lock (see here), also provide comprehensive user interface functionality for sign up out of the box. These widgets are fully reactive, and with Lock’s feature rich configuration capabilities (here) and comprehensive customization (here) ready to go functionality can be deployed for user self sign up as well as login. Integration with Auth0 Universal Login (https://auth0.com/docs/universal-login) - which provides for Single Sign On (SSO) and security peace of mind - also means that for many customers fully functional self sign can implemented in short order.
+Self sign up leverages Auth0 database connections to store the user id, password and username collected during the sign up process. Using the Auth0 Dashboard, you can configure the database connection policies such as minimum username length and password options such as password strength and complexity.  
+Auth0 provides a widget, [Lock](/libraries), which provides user interface functionality for sign up out-of-the-box. Lock supports a range of customization for user self sign up as well as login, however if you need to make extensive changes to CSS, Javascript or HTML to achieve your branding goals then you should use a fully customized [Universal Login](/universal-login) instead. For a comparison of the capabilities, see [Lock vs. a Custom UI](/libraries/when-to-use-lock).
 
 ## Best practices
 
 * Using a web based workflow with [Auth0 Universal Login](/universal-login) for sign up is considered both industry and Auth0 best practice because it provides optimal functionality and security. 
 
-* Auth0 provided widgets, such as [Lock](https://auth0.com/lock), integrated with database connections and Universal Login to provide self sign up. 
-
-  Though Lock supports a wide range of customization, if you need to make extensive changes to CSS, Javascript or HTML to achieve your branding goals then you should be using fully customized Universal Login instead (click here for details).
-
-* Many customers choose a two-phased approach to user migration, employing Automatic Migration in the first instance in order to migrate as many users as possible, and then performing Bulk Migration for the users that remain. For further details on migration scenarios see the Auth0 documentation located here. 
-
+* Calls to the Management API are subject to [Auth0 Rate Limiting policy](/docs/policies/rate-limits). Auth0 recommends using the [Auth0 SDK](/libraries) for your development environment rather than calling our APIs directly. 
