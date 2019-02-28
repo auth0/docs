@@ -1,7 +1,7 @@
 ---
 url: /enterprise/private-cloud/overview
 section: enterprise
-description: Overview of the Enterprise - Private Cloud deployment option
+description: Overview of the Private Cloud deployment option
 classes: topic-page
 topics:
     - enterprise
@@ -11,25 +11,60 @@ useCase: enterprise
 ---
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
-  <h1>Enterprise - Private Cloud</h1>
+  <h1>Private Cloud</h1>
   <p>
     A low-friction, dedicated Auth0 deployment that exists in Auth0's Private Cloud.
   </p>
 </div>
 
-Users with requirements not met by the Auth0 Public Cloud may instead opt for an Enterprise - Private Cloud option.
+Users with requirements not met by the Auth0 Public Cloud may instead opt for a Private Cloud option.
 
 Auth0 currently offers the following private cloud options:
 
-* Enterprise - Private Cloud
-* Enterprise - Managed Private Cloud (either hosted by Auth0 or hosted by you on an AWS environment)
+* Private Cloud
+* Managed Private Cloud (either hosted by Auth0 or hosted by you on an AWS environment)
 
-This overview covers specifically the **Enterprise - Private Cloud** option.
+This overview covers specifically the **Private Cloud** option.
 
-## What is the Enterprise - Private Cloud?
+## What is Private Cloud?
 
-The Enterprise - Private Cloud provides you with a dedicated (or single-tenant) environment. You'll get enhanced performance, security, and compliance over what we include in our standard Public Cloud offering.
+The Private Cloud provides you with a dedicated (or single-tenant) environment. You'll get enhanced performance, security, and compliance over what we include in our standard Public Cloud offering.
 
-With the Enterprise - Private Cloud, Auth0 will handle a majority of the requirements for initial setup and maintenance. Afterward, you'll be on a set update pattern.
+With the Private Cloud, Auth0 will handle a majority of the requirements for initial setup and maintenance. Afterward, you'll be on a set update pattern, typically no more frequent than every 30 days.
 
 You'll get the ease of management that comes with using our Public Cloud combined with the power and security of our Managed Private Cloud.
+
+## Private Cloud options and comparison
+
+Auth0 offers three different Private Cloud options to those for whom the Public Cloud is not an appropriate deployment option. Here is how the two Private Cloud deployment options compare to each other, as well as how they compare to the Enterprise (Public Cloud) option.
+
+| | Managed Private Cloud | Private Cloud | Enterprise (Public Cloud) |
+| - | - | - | - |
+| Instance Type | **Dedicated** Cloud Instance | **Dedicated** Cloud Instance | **Shared** Cloud Instance |
+| Deployment Location | Auth0 Private Cloud *or* Customer-Owned AWS Cloud | Auth0 Private Cloud | Auth0 Public Cloud |
+| Eyes on Glass | 24/7 Eyes on Glass Add-On Available | 24/7 Eyes on Glass Add-On Available | Not available |
+| Uptime Guarantee | 99.95% SLA with optional upgrade to 99.99% | 99.95% SLA with optional upgrade to 99.99% | 99.90% (no upgrade option available) |
+| Requests per Second | 500rps with optional upgrade to 1500rps | 500rps with optional upgrade to 1500rps | No guaranteed rates |
+| Data Residency | Region of Choice | Region of Choice<sup>*</sup> | Not applicable |
+| PCI Compliance | Optional | Yes | No |
+| GEOHA | Add-on available | No | No |
+
+<sup>*</sup>The Private Cloud is fully deployable in the following regions: USA, Europe, Australia, and Japan. There is limited data isolation for Canada.
+
+## Frequently Asked Questions
+
+**Can you tell me more about "data residency?"**
+
+Private Cloud customers can choose the region in which their data is stored. All data will remain within that region, which is crucial especially in instances where regulations prevent data from being sent outside the origin region.
+
+**What is a single-tenancy deployment?**
+
+Private Cloud deployments are isolated instances where none of a customer's resources (software and infrastructure) are shared with any other tenants. This offers increased performance, stability, and availability.
+
+**What is the uptime guarantee upgrade?**
+
+The standard SLA for the Private Cloud is 99.95%, but for those who need the highest level of uptime for their customers and applications, Auth0 offers an upgrade the promises 99.99% uptime.
+
+**Is the Private Cloud monitored?**
+
+Yes, Auth0 provides monitoring for Private Cloud deployments. Furthermore, since the Private Cloud is a dedicated environment, Auth0 can offer monitoring and alerting to fit your needs specifically.
