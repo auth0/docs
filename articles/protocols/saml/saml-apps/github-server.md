@@ -1,6 +1,6 @@
 ---
-title: GitHub Enterprise Server SAML Configuration
-description: GitHub Enterprise Server SAML Configuration
+title: Configure Auth0 as Identity Provider for GitHub Enterprise Server
+description: This page explains how to configure Auth0 to be the SAML Identity Provider for a GitHub Enterprise Server private instance.
 topics:
     - saml
     - identity-providers
@@ -11,9 +11,13 @@ useCase:
   - add-idp
 ---
 
-# Configure Auth0 as Identity Provider for GitHub Enterprise (Server)
+# Configure Auth0 as Identity Provider for GitHub Enterprise Server
 
 These instructions explain how to configure Auth0 to serve as an Identity Provider for [GitHub Enterprise Server](https://help.github.com/en/enterprise/2.16/admin/user-management/using-saml) (i.e. your private GitHub appliance). 
+
+::: note
+**Heads up!** This article applies to GitHub Enterprise Server (deployed as a private instance). If you are looking for instructions to set up Auth0 as the identity provider for GitHub Enterprise Cloud (github.com), check [this page](/protocols/saml/saml-apps/github-cloud) instead.
+:::
 
 ## Configure the Addon: SAML2 Web App
 
