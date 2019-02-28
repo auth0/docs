@@ -15,6 +15,10 @@ useCase:
 
 User provisioning defines how users will be added to your system. This part of the implementation determines where you will store your users' profile information, how you will migrate existing users, and how your users will sign up. 
 
+## Prerequisites
+
+* Tenant Architecture
+
 ## Design considerations
 
 It is important to decide early in your implementation planning how you want users added. The decisions you make influence many other implementation choices.
@@ -58,6 +62,21 @@ Auth0 provides a widget, [Lock](/libraries), which provides user interface funct
 
 ## Best practices
 
+* For information on the best ways to store your user data, see [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices). 
+
 * Using a web based workflow with [Auth0 Universal Login](/universal-login) for sign up is considered both industry and Auth0 best practice because it provides optimal functionality and security. 
 
 * Calls to the Management API are subject to [Auth0 Rate Limiting policy](/docs/policies/rate-limits). Auth0 recommends using the [Auth0 SDK](/libraries) for your development environment rather than calling our APIs directly. 
+
+## Implementation checklist
+
+| Step Number | Description | Details | Comments |
+| - | - | - | - |
+| 1. | Determine data storage location. | - | - |
+| 2. | Migrate user data. | Migrate users data using bulk migration and/or automatic migration. | Management API or User Import/Export Extension |
+| 3. | Determine Sign Up functionality. | Universal Login or Lock | - |
+
+## Next steps
+
+* User Authentication
+* User Authorization
