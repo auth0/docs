@@ -31,19 +31,15 @@ During sign up, Auth0 creates a [user profile](/users/concepts/overview-user-pro
 
 ### Use your own identity data store
 
-If you want to use your own identity store, perhaps because you’ve got applications which you aren’t ready to migrate or can’t be migrated, use Auth0’s identity store proxying capability. 
-
-You can configure the Auth0 [Database Connections](/connections/database/custom-db) type to proxy an existing identity store. 
+If you want to use your own identity store, perhaps because you’ve got applications which you aren’t ready to migrate or can’t be migrated, use Auth0’s [Database Connections](/connections/database/custom-db) to proxy an existing identity store. 
 
 ### Use Auth0 as the identity data store
 
-Auth0 provides identity storage to help you manage the burden of storing user credentials safely and securely. If you’ve already got a legacy identity store, you can use Auth0’s user migration capabilities. 
+Auth0 provides identity data storage to help you manage the burden of storing user credentials safely and securely. If you have a legacy identity store that you would like Auth0 to host, you can use Auth0’s user migration capabilities. 
 
 ## User migration
 
-In addition to hosting user profiles, Auth0 can proxy your legacy identity store and provide a secure Auth0 hosted replacement using Auth0 database donnections. 
-
-If you decide to use Auth0 instead of your legacy identity store then you can [migrate users](/users/concepts/overview-user-migration) either with bulk migration or progressively with automatic migration. You can also choose a two-phased approach to user migration, using automatic migration first, then using bulk migration for the users that remain. For other scenarios, see [User Migration Scenarios](/users/references/user-migration-scenarios).
+If you decide to use Auth0 instead of your own identity store, you can [migrate users](/users/concepts/overview-user-migration) with bulk migration or progressively with automatic migration. You can also choose a two-phased approach to user migration, using automatic migration first, then using bulk migration for the users that remain. For other scenarios, see [User Migration Scenarios](/users/references/user-migration-scenarios).
 
 ### Bulk migration
 
