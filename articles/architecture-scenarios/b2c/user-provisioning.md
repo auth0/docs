@@ -58,6 +58,7 @@ After the bulk migration is complete, your users will need to reset their passwo
 ## Self Sign Up
 
 Self sign up leverages Auth0 database connections to store the user id, password and username collected during the sign up process. Using the Auth0 Dashboard, you can configure the database connection policies such as minimum username length and password options such as password strength and complexity.  
+
 Auth0 provides a widget, [Lock](/libraries), which provides user interface functionality for sign up out-of-the-box. Lock supports a range of customization for user self sign up as well as login, however if you need to make extensive changes to CSS, Javascript or HTML to achieve your branding goals then you should use a fully customized [Universal Login](/universal-login) instead. For a comparison of the capabilities, see [Lock vs. a Custom UI](/libraries/when-to-use-lock).
 
 ## Best practices
@@ -72,9 +73,9 @@ Auth0 provides a widget, [Lock](/libraries), which provides user interface funct
 
 | Step Number | Description | Details | Comments |
 | - | - | - | - |
-| 1. | Determine data storage location. | - | - |
-| 2. | Migrate user data. | Migrate users data using bulk migration and/or automatic migration. | Management API or User Import/Export Extension |
-| 3. | Determine Sign Up functionality. | Universal Login or Lock | - |
+| 1. | Determine data storage location. |  | Your database or Auth0's |
+| 2. | Migrate user data. | Bulk migration and/or automatic migration. | Management API or User Import/Export Extension |
+| 3. | Determine Sign Up functionality. |  | Universal Login or Lock |
 
 ## Next steps
 
