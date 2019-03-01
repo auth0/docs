@@ -15,7 +15,7 @@ useCase:
 ---
 # View Permissions Assigned to Users
 
-This guide will show you how to view the [permissions](/authorization/concepts/rbac) assigned to a user using Auth0's Dashboard. The assigned permissions are used with the API Authorization Core feature set.
+This guide will show you how to view the [permissions](/authorization/concepts/rbac) assigned to a user using Auth0's Dashboard. This task can also be performed [using the Management API](/authorization/guides/api/view-user-permissions). The assigned permissions are used with the API Authorization Core feature set.
 
 <%= include('../_includes/_enable-authz-core') %>
 

@@ -15,7 +15,7 @@ useCase:
 ---
 # Assign Roles to Users
 
-This guide will show you how to assign [roles](/authorization/concepts/rbac) to a user using Auth0's Dashboard. The assigned roles can be used with the API Authorization Core feature set.
+This guide will show you how to assign [roles](/authorization/concepts/rbac) to a user using Auth0's Dashboard. This task can also be performed [using the Management API](/authorization/guides/api/assign-roles-users). The assigned roles can be used with the API Authorization Core feature set.
 
 <%= include('../_includes/_enable-authz-core') %>
 

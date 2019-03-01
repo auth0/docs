@@ -228,8 +228,11 @@ articles:
       - title: "Rules for Authorization Policies"
         url: "/authorization/concepts/authz-rules"
 
-      - title: "Sample Use Cases"
-        url: "/authorization/concepts/sample-use-cases"
+      - title: "Sample Use Cases - RBAC"
+        url: "/authorization/concepts/sample-use-cases-rbac"
+
+      - title: "Sample Use Cases - Rules"
+        url: "/authorization/concepts/sample-use-cases-rules"
 
       - title: "Authz Core vs. Authz Extension"
         url: "/authorization/concepts/core-vs-extension"

@@ -14,7 +14,7 @@ useCase:
 ---
 # Delete Roles
 
-This guide will show you how to delete a role using Auth0's Dashboard. Roles are used with the API Authorization Core feature set.
+This guide will show you how to delete a role using Auth0's Dashboard. This task can also be performed [using the Management API](/authorization/guides/api/delete-roles). Roles are used with the API Authorization Core feature set.
 
 <%= include('../_includes/_enable-authz-core') %>
 

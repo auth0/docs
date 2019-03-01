@@ -15,7 +15,7 @@ useCase:
 ---
 # Assign Permissions to Users
 
-This guide will show you how to assign [permissions](/authorization/concepts/rbac) to a user using Auth0's Dashboard. The assigned permissions can be used with the API Authorization Core feature set.
+This guide will show you how to assign [permissions](/authorization/concepts/rbac) to a user using Auth0's Dashboard. This task can also be performed [using the Management API](/authorization/guides/api/assign-permissions-users). The assigned permissions can be used with the API Authorization Core feature set.
 
 ::: note
 Adding permissions directly to a user circumvents the benefits of [role-based access control (RBAC)](/authorization/concepts/rbac) and is not typically recommended.

@@ -1,5 +1,5 @@
 ---
-description: Learn how to create roles for Auth0's API Authorization core feature using the Auth0 Management Dashboard.
+description: Learn how to create a role using the Auth0 Management Dashboard. For use with Auth0's API Authorization Core feature set.
 topics:
   - authorization
   - dashboard
@@ -13,7 +13,7 @@ useCase:
 ---
 # Create Roles
 
-This guide will show you how to create [roles](/authorization/concepts/rbac) using Auth0's Dashboard. The roles can be used with the API Authorization Core feature set.
+This guide will show you how to create [roles](/authorization/concepts/rbac) using Auth0's Dashboard. This task can also be performed [using the Management API](/authorization/guides/api/create-roles). The roles can be used with the API Authorization Core feature set.
 
 <%= include('../_includes/_enable-authz-core') %>
 

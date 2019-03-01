@@ -50,7 +50,7 @@ For example, let's say you have an API that provides data for an event applicati
 
 ## Role-based access control in Auth0
 
-Currently, we provide two ways of implementing [role-based access control (RBAC)](/authorization/concepts/rbac):
+Currently, we provide two ways of implementing [role-based access control (RBAC)](/authorization/concepts/rbac), which you can use in place of or in combination with your API's own internal access control system:
 
 * [Authorization core feature set](/authorization/guides/how-to)
 * [Authorization Extension](/extensions/authorization/extension)
@@ -59,14 +59,15 @@ We are expanding our Authorization core feature set to match the functionality o
 
 For now, both implement the key features of RBAC and allow you to restrict the custom scopes defined for an API to those that have been assigned to the user as permissions. For a comparison, see [Authorization Core vs. Authorization Extension](/authorization/concepts/core-vs-extension).
 
-## Extending RBAC 
+### Extending RBAC 
 
 You can provide even more finely-grained control by using [rules](/rules) to restrict access based on a combination of attributes, such as user department, time of day, location of access, or any other user or API attribute (for example, username, security clearance, or API name).
 
-For more info about using rules with authorization policies, see [Rules for Authorization Policies](/authorization/concepts/authz-rules).
+For more info about using rules with authorization policies, see [Rules with Authorization Policies](/authorization/concepts/authz-rules).
 
 ## Keep reading
 
 - [How to Use Auth0's Core Authorization Feature Set](/authorization/guides/how-to)
-- [Enable Role-Based Access Control (RBAC) for APIs](/authorization/guides/enable-rbac)
+- [Enable Role-Based Access Control (RBAC) for APIs](/authorization/guides/dashboard/enable-rbac)
 - [Authorization Core vs. Authorization Extension](/authorization/concepts/core-vs-extension)
+- [Troubleshooting: Role-Based Access Control and Authorization](/authorization/concepts/troubleshooting)

@@ -23,7 +23,7 @@ Rules can restrict access based on any combination of attributes you store for u
 
 For example, if you were using rules to provide finely-grained access control at a non-profit organization, you could give only W2 employees working in the Research and Development department in the New Delhi office access to Google.
 
-For samples of rule implementations with authorization policies, see [Sample Use Cases: Rules and Authorization](/authorization/concepts/sample-use-cases#rules).
+For samples of rule implementations with authorization policies, see [Sample Use Cases: Rules with Authorization](/authorization/concepts/sample-use-cases-rules).
 
 ## Rules in the authorization process
 
@@ -38,5 +38,6 @@ Based on the order in which they run, rules can change the outcome of the author
 
 - [Role-Based Access Control (RBAC)](/authorization/concepts/rbac)
 - [Authorization Policies](/authorization/concepts/policies)
-- [Sample Use Cases: Role-Based Access Control and Rules with Authorization](/authorization/concepts/sample-use-cases)
+- [Sample Use Cases: Rules with Authorization](/authorization/concepts/sample-use-cases-rules)
 - [How to Use Auth0's Core Authorization Feature Set](/authorization/guides/how-to)
+- [Troubleshooting: Role-Based Access Control and Authorization](/authorization/concepts/troubleshooting)

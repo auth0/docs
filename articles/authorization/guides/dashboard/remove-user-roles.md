@@ -16,7 +16,7 @@ useCase:
 ---
 # Remove Roles Assigned to Users
 
-This guide will show you how to remove the [roles](/authorization/concepts/rbac) assigned to a user using Auth0's Dashboard. The assigned roles are used with the API Authorization Core feature set.
+This guide will show you how to remove the [roles](/authorization/concepts/rbac) assigned to a user using Auth0's Dashboard. This task can also be performed [using the Management API](/authorization/guides/api/remove-user-roles). The assigned roles are used with the API Authorization Core feature set.
 
 <%= include('../_includes/_enable-authz-core') %>
 
