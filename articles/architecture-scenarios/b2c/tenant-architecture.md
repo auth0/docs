@@ -16,7 +16,7 @@ useCase:
 
 ## Prerequisites
 
-## Design consideration
+## Design considerations
 
 ## Custom domains
 
