@@ -42,6 +42,8 @@ Auth0 offers two Private Cloud options to those for whom the Public Cloud is not
 | - | - | - | - |
 | Instance Type | **Dedicated** Cloud Instance | **Dedicated** Cloud Instance | **Shared** Cloud Instance |
 | Deployment Location | Auth0 Private Cloud *or* Customer-Owned AWS Cloud | Auth0 Private Cloud | Auth0 Public Cloud |
+| Updates | Choice of update frequency (monthly, bi-monthly, or quarterly), with option to schedule updates | Automatic Monthly Updates | Automatic Updates |
+| Security Patches/Updates | Scheduled with customer for immediate deployment | Automatic | Automatic |
 | Uptime Guarantee | 99.95% SLA with optional upgrade to 99.99% | 99.95% SLA with optional upgrade to 99.99% | 99.90% (no upgrade option available) |
 | Requests per Second | 500rps with optional upgrade to 1500rps | 500rps with optional upgrade to 1500rps | No guaranteed rates |
 | Data Residency | Region of Choice | Region of Choice<sup>*</sup> | Not applicable |
