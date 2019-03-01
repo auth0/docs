@@ -81,8 +81,6 @@ Auth0 offers [Lock](/libraries), which providers a user interface that includes 
 
 * Using a web-based workflow featuring [Universal Login](/universal-login) for signups is Auth0's recommendation due to the functionality and security offered.
 
-<%= include('./_includes/_rate-limit-policy.md') %>
-
 ## Implementation checklist
 
 | Step Number | Description | Details | Comments |
