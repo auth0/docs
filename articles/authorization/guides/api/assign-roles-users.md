@@ -17,7 +17,9 @@ useCase:
 
 This guide will show you how to assign [roles](/authorization/concepts/rbac) to a user using Auth0's Management API. This task can also be performed [using the Dashboard](/authorization/guides/dashboard/assign-roles-users). The assigned roles can be used with the API Authorization Core feature set.
 
-<%= include('../../_includes/_enable-authz-core') %>
+<%= include('../_includes/_enable-authz-core') %>
+
+<%= include('../_includes/_predefine-roles') %>
 
 1. Make a `POST` call to the [Assign User Roles endpoint](/api/management/v2#!/user_roles/post_user_roles). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, and `ROLE_ID` placeholder values with your user ID, Access Token, and role ID(s), respectively.
 
@@ -26,13 +28,13 @@ This guide will show you how to assign [roles](/authorization/concepts/rbac) to 
 	"method": "POST",
 	"url": "https://${account.namespace}/api/v2/users/USER_ID/roles",
 	"headers": [
-    { "name": "Content-Type", "value": "application/json" },
-   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-    { "name": "Cache-Control", "value": "no-cache" }
+    	{ "name": "Content-Type", "value": "application/json" },
+   		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+    	{ "name": "Cache-Control", "value": "no-cache" }
 	],
 	"postData": {
-    "mimeType": "application/json",
-    "text" : "{ \"roles\": [ \"ROLE_ID\", \"ROLE_ID\" ] }"
+      	   "mimeType": "application/json",
+      	   "text" : "{ \"roles\": [ \"ROLE_ID\", "\ROLE_ID\" ] }"
 	}
 }
 ```

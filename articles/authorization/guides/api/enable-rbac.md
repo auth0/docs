@@ -23,14 +23,17 @@ This guide will show you how to enable [role-based access control (RBAC)](/autho
 {
 	"method": "PATCH",
 	"url": "https://${account.namespace}/api/v2/resource-servers/API_ID",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" },
-   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-    { "name": "Cache-Control", "value": "no-cache" }
+    "headers": [
+    	{ "name": "Content-Type", "value": "application/json" },
+   		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+    	{ "name": "Cache-Control", "value": "no-cache" }
 	],
 	"postData": {
-    "mimeType": "application/json",
-    "text" : "{ \"enforce_policies\": \"true\", \"token_dialect\": \"TOKEN_DIALECT\" }"
+      	   "mimeType": "application/json",
+      	   "text" : "{ 
+                 \"enforce_policies\": "true",
+                 \"token_dialect\": "\TOKEN_DIALECT\"
+            }"
 	}
 }
 ```

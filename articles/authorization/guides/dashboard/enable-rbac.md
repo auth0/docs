@@ -21,17 +21,22 @@ This guide will show you how to enable [role-based access control (RBAC)](/autho
 
 ![View APIs](/media/articles/authorization/api-list.png)
 
-2. Scroll to **RBAC Settings** and enable the **Enable RBAC** toggle.
+2. Scroll to **Access Settings** and enable the **Enable RBAC** toggle.
 
-![View APIs](/media/articles/authorization/api-settings-rbac.png)
+![View APIs](/media/articles/authorization/api-setting-toggle-rbac.png)
 
-3. If you want to include all permissions assigned to the user in the `permissions` claim of the Access Token, enable the **Add Permissions in the Access Token** toggle, and click **Save**.
+3. Scroll to the **Token Dialect** setting, select your setting, and click **Save**.
 
-::: note
-Including permissions in the Access Token allows you to make minimal calls to retrieve permissions, but increases token size. As long as RBAC is enabled, the `scope` claim of the Access Token includes an intersection of the requested permissions and the permissions assigned to the user, regardless of whether permissions are also included in the Access Token.
+![View APIs](/media/articles/authorization/api-setting-token-dialect.png)
+
+Available options include:
+
+| Value | Description |
+|-------|-------------|
+| OAuth2 with Scope | In the `scope` claim of the Access Token, includes an intersection of the requested permissions and the permissions assigned to the user. No `permissions` claim is passed. |
+| OAuth2 with Permissions | In the `scope` claim of the Access Token, includes an intersection of the requested permissions and the permissions assigned to the user. In the `permissions` claim of the Access Token, includes all permissions assigned to the user. Allows you to make minimal calls to retrieve permissions, but increases token size. |
 
 When RBAC is disabled, default behavior is observed; an application can request any permission defined for the API, and the `scope` claim will include all requested permissions.
-:::
 
 ::: warning
 Remember that any configured [rules](/authorization/concepts/authz-rules) run _after_ the RBAC-based authorization decisions are made, so they may override default behavior.

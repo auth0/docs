@@ -35,7 +35,7 @@ Using the Dashboard, you can:
 
 Using the Management API, you can:
 
-- [Update permissions for APIs](/authorization/guides/api/update-permissions-apis)
+- [Define/delete permissions for APIs](/authorization/guides/api/update-permissions-apis)
 - [Add permissions to roles](/authorization/guides/api/add-permissions-roles)
 - [Assign permissions to users](/authorization/guides/api/assign-permissions-users)
 - [View permissions added to roles](/authorization/guides/api/view-role-permissions)

@@ -16,7 +16,7 @@ useCase:
 
 This guide will show you how to edit a role definition using Auth0's Management API. This task can also be performed [using the Dashboard](/authorization/guides/dashboard/edit-role-definitions). Roles are used with the API Authorization Core feature set.
 
-<%= include('../../_includes/_enable-authz-core') %>
+<%= include('../_includes/_enable-authz-core') %>
 
 1. Make a `PATCH` call to the [Update Role endpoint](/api/management/v2#!/roles/patch_role). Be sure to replace `ROLE_ID`, `MGMT_API_ACCESS_TOKEN`, `ROLE_NAME`, and `ROLE_DESC` placeholder values with your role ID, Access Token, role name, and role description, respectively.
 
@@ -24,14 +24,17 @@ This guide will show you how to edit a role definition using Auth0's Management 
 {
 	"method": "PATCH",
 	"url": "https://${account.namespace}/api/v2/roles/ROLE_ID",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" },
-   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-    { "name": "Cache-Control", "value": "no-cache" }
+    "headers": [
+    	{ "name": "Content-Type", "value": "application/json" },
+   		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+    	{ "name": "Cache-Control", "value": "no-cache" }
 	],
 	"postData": {
-    "mimeType": "application/json",
-    "text" : "{ \"name\": \"ROLE_NAME\", \"description\": \"ROLE_DESC\" }"
+      	   "mimeType": "application/json",
+      	   "text" : "{ 
+                 \"name\": "\ROLE_NAME\",
+                 \"descriptions\": "\ROLE_DESC\"
+            }"
 	}
 }
 ```

@@ -16,7 +16,9 @@ useCase:
 
 This guide will show you how to create [roles](/authorization/concepts/rbac) using Auth0's Management API. This task can also be performed [using the Dashboard](/authorization/guides/dashboard/create-roles). The roles can be used with the API Authorization Core feature set.
 
-<%= include('../../_includes/_enable-authz-core') %>
+<%= include('../_includes/_enable-authz-core') %>
+
+<%= include('../_includes/_predefine-permissions') %>
 
 1. Make a `POST` call to the [Create Role endpoint](/api/management/v2#!/roles/post_role). Be sure to replace `MGMT_API_ACCESS_TOKEN`, `ROLE_NAME`, and `ROLE_DESC` placeholder values with your Access Token, role name, and role description, respectively.
 
@@ -24,14 +26,17 @@ This guide will show you how to create [roles](/authorization/concepts/rbac) usi
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/api/v2/roles",
-  "headers": [
-  	{ "name": "Content-Type", "value": "application/json" },
-  	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-  	{ "name": "Cache-Control", "value": "no-cache" }
+    "headers": [
+    	{ "name": "Content-Type", "value": "application/json" },
+   		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+    	{ "name": "Cache-Control", "value": "no-cache" }
 	],
 	"postData": {
-    "mimeType": "application/json",
-    "text" : "{ \"name\": \"ROLE_NAME\", \"description\": \"ROLE_DESC\" }"
+      	   "mimeType": "application/json",
+      	   "text" : "{ 
+                 \"name\": "\ROLE_NAME\",
+                 \"description\": "\ROLE_DESC\"
+            }"
 	}
 }
 ```
