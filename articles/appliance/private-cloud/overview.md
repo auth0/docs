@@ -46,11 +46,13 @@ Auth0 offers two Private Cloud options to those for whom the Public Cloud is not
 | Security Patches/Updates | Scheduled with customer for immediate deployment | Automatic | Automatic |
 | Uptime Guarantee | 99.95% SLA with optional upgrade to 99.99% | 99.95% SLA with optional upgrade to 99.99% | 99.90% (no upgrade option available) |
 | Requests per Second | 500rps with optional upgrade to 1500rps | 500rps with optional upgrade to 1500rps | No guaranteed rates |
-| Data Residency | Region of Choice | Region of Choice<sup>*</sup> | Not applicable |
+| Data Residency | Region of Choice<sup>*</sup> | Region of Choice<sup>**</sup> | Not applicable |
 | PCI Compliance | Add-on available | Add-on available | No |
 | GEOHA | Add-on available | No | No |
 
-<sup>*</sup>If you need to meet data sovereignty requirements, Auth0 supports Private Cloud deployments in the following regions USA, Europe, Australia, Canada, and Japan. Otherwise, the Private Cloud can be supported in other regions (excepting China).
+<sup>*</sup>Deployments to China are currently unavailable.
+
+<sup>**</sup>If you need to meet data sovereignty requirements, Auth0 supports Private Cloud deployments in the following regions USA, Europe, Australia, Canada, and Japan. Otherwise, the Private Cloud can be supported in other regions (excepting China).
 
 ## Frequently Asked Questions
 
