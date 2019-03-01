@@ -44,8 +44,6 @@ The User Profile Management workstream addresses how you can handle changes to t
 
 * Any information that will be used to customise Auth0 emails, such as information used to determine the language for an email, should be stored in metadata: and preferably `user_metadata` if the user is allowed to change it. 
 
-<%= include('./_includes/_rate-limit-policy.md') %>
-
 ## Implementation checklist
 
 | Step Number | Description | Details | Comments |
