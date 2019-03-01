@@ -81,7 +81,7 @@ Auth0 offers [Lock](/libraries), which providers a user interface that includes 
 
 * Using a web-based workflow featuring [Universal Login](/universal-login) for signups is Auth0's recommendation due to the functionality and security offered.
 
-* Calls to the Management API are subject to [Auth0 Rate Limiting policy](/docs/policies/rate-limits). Auth0 recommends using the appropriate [Auth0 SDK](/libraries) for your development environment, rather than calling our APIs directly. 
+<%= include('./_includes/_rate-limit-policy.md') %>
 
 ## Implementation checklist
 
