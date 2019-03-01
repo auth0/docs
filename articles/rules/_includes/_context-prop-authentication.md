@@ -23,6 +23,6 @@ The method objects will contain the following properties:
   - `sms`: a Passwordless SMS connection was used to authenticate the user
   - `email`: a Passwordless Email connection was used to authenticate the user
   - `mfa`: the user completed a mulifactor authentication
-- `timestamp`: an integer indicating the time at which the authentication method took place in Unix Epoch time
+- `timestamp`: an integer indicating the time in seconds at which the authentication method took place in Unix Epoch time
 
 You can see a sample use case of the `context.authentication.methods` property in the [Require MFA once per session Rule](https://github.com/auth0/rules/blob/master/src/rules/require-mfa-once-per-session.js).
