@@ -1,4 +1,15 @@
-# Planning
+---
+title: Planning Your Consumer Identity and Access Management Integration
+description: Why it's important to plan your Consumer Identity and Access Management Implementation prior to beginning the integration
+toc: false
+topics:
+    - b2c
+    - ciam
+contentType: concept
+useCase:
+  - implementation
+---
+# Planning Your Consumer Identity and Access Management Integration
 
 In our experience, customers who establish clear objectives and align those objectives to requirements early on benefit the most from their integration with Auth0. Regardless of the project type, we recommend that you plan your project using a phased approach across multiple workstreams. In most cases, we see the most success with those adopting a three-phase project structure.
 

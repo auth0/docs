@@ -1,8 +1,19 @@
-# Introduction
+---
+title: Introduction to Consumer Identity and Access Management Implementation
+description: High-level overview of the Consumer Identity and Access Management Implementation guide
+toc: false
+topics:
+    - b2c
+    - ciam
+contentType: concept
+useCase:
+  - implementation
+---
+# The Consumer Identity and Access Management Implementation Guide: An Introduction
 
-This tutorial focuses on showing you how to integrate Auth0 within a Consumer Identity and Access Management (CIAM)-style project. Our recommendations are based on real-world customer implementation experience, and we hope that the advice we provide helps you set your project up for success.
+This guide focuses on showing you how to integrate Auth0 within a Consumer Identity and Access Management (CIAM)-style project. Our recommendations are based on real-world customer implementation experience, and we hope that the advice we provide helps you set your project up for success.
 
-Customers implementing Auth0 for consumer-focused (or B2C) projects typically share a common set of goals and objectives. In the sections that follow, we focus on our experiences working with this shared set of expectations. We hope our experience can help you deliver your solution effectively.
+Customers implementing Auth0 for consumer-focused (or Business-to-Consumer (B2C)) projects typically share a common set of goals and objectives. In the sections that follow, we focus on our experiences working with this shared set of expectations. We hope our experience can help you deliver your solution effectively.
 
 ::: note
 The information provided is relevant to **all** project stakeholders. We recommend reading through this in its entirety at least once, even if you've already started your journey with Auth0.
