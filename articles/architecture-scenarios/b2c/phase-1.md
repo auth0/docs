@@ -4,5 +4,15 @@ During phase 1, you'll address some of the most critical aspects of integrating 
 
 Phase 1 consists of multiple workstreams, and each focuses on a specific aspect of the integration. The order in which you carry out the workstreams is important, and we recommend that you follow the order provided. However, certain workstreams can be tackled in parallel; if that is the case, we mention such in the descriptions below.
 
-Auth0 Tenant Architecture
-User Provisioning
+1. Auth0 Tenant Architecture
+2. User Provisioning
+3. User Authentication
+4. Customization
+5. Deployment Automation
+6. Quality Assurance
+7. User Profile Management
+8. User Authorization
+9. User Logout
+10. Operations
+
+## 1. Auth0 Tenant Architecture
