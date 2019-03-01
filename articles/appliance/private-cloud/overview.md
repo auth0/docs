@@ -62,4 +62,4 @@ Private Cloud deployments are isolated instances where none of a customer's reso
 
 **What is the uptime guarantee upgrade?**
 
-The standard SLA for the Private Cloud is 99.95%, but for those who need the highest level of uptime for their customers and applications, Auth0 offers an upgrade the promises 99.99% uptime.
+The standard SLA for the Private Cloud is 99.95%, but for those who need the highest level of uptime for their customers and applications, Auth0 offers an upgrade to 99.99% uptime.
