@@ -2070,4 +2070,8 @@ module.exports = [
      from: '/tokens/set-access-token-format',
      to: '/tokens/access-token-formats'
     },
+    {
+      from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
+      to: '/protocols/saml/saml-apps/github-server'
+    },
 ];
