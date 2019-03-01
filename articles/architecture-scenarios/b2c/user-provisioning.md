@@ -23,7 +23,7 @@ In this section, we will walk you through the things you should consider when ma
 
 ## Prerequisites
 
-* Complete the Tenant Architecture implementation planning.
+* Complete the [Tenant Architecture](/architecture-scenarios/b2c/tenant-architecture) implementation planning.
 
 ## Design considerations
 
