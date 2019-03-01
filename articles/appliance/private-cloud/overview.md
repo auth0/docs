@@ -48,9 +48,7 @@ Auth0 offers two Private Cloud options to those for whom the Public Cloud is not
 | PCI Compliance | Add-on available | Add-on available | No |
 | GEOHA | Add-on available | No | No |
 
-<sup>*</sup>If there are data sovereignty requirements, Private Cloud is supported in USA, Europe, Australia, Canada, and Japan. If there are not data sovereignty requirements, then other regions are supported, with the exception of China.
-
-If you need to meet data sovereignty requirements, Auth0 supports Private Cloud deployments in the following regions USA, Europe, Australia, Canada, and Japan. Otherwise, the Private Cloud can be supported in other regions (excepting China).
+<sup>*</sup>If you need to meet data sovereignty requirements, Auth0 supports Private Cloud deployments in the following regions USA, Europe, Australia, Canada, and Japan. Otherwise, the Private Cloud can be supported in other regions (excepting China).
 
 ## Frequently Asked Questions
 
