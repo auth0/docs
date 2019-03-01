@@ -27,20 +27,26 @@ This guide will show you how to add permissions to [roles](/authorization/concep
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/api/v2/roles/ROLE_ID/permissions",
-    "headers": [
-    	{ "name": "Content-Type", "value": "application/json" },
-   		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-    	{ "name": "Cache-Control", "value": "no-cache" }
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" },
+    { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+    { "name": "Cache-Control", "value": "no-cache" }
 	],
 	"postData": {
-      	   "mimeType": "application/json",
-      	   "text" : "{ 
-                 \"permissions\": [ 
-                     { \"resource_server_identifier\": \"API_ID\", \"permission_name\": \"PERMISSION_NAME\" },
-                     { \"resource_server_identifier\": \"API_ID\", \"permission_name\": \"PERMISSION_NAME\" }
-                ] 
-            }"
-	}
+    "mimeType": "application/json",
+    "text": {
+      "permissions": [
+        { 
+          "resource_server_identifier": "API_ID",
+          "permission_name": "PERMISSION_NAME"
+        },
+        { 
+          "resource_server_identifier": "API_ID", 
+          "permission_name": "PERMISSION_NAME" 
+        }
+      ]
+    }
+  }
 }
 ```
 
