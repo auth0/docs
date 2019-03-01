@@ -36,20 +36,21 @@ You'll get the ease of management that comes with using our Public Cloud combine
 
 ## Private Cloud options and comparison
 
-Auth0 offers three different Private Cloud options to those for whom the Public Cloud is not an appropriate deployment option. Here is how the two Private Cloud deployment options compare to each other, as well as how they compare to the Enterprise (Public Cloud) option.
+Auth0 offers two Private Cloud options to those for whom the Public Cloud is not an appropriate deployment option. Here is how the two Private Cloud deployment options compare to each other, as well as how they compare to the Enterprise (Public Cloud) option.
 
 | | Managed Private Cloud | Private Cloud | Enterprise (Public Cloud) |
 | - | - | - | - |
 | Instance Type | **Dedicated** Cloud Instance | **Dedicated** Cloud Instance | **Shared** Cloud Instance |
 | Deployment Location | Auth0 Private Cloud *or* Customer-Owned AWS Cloud | Auth0 Private Cloud | Auth0 Public Cloud |
-| Eyes on Glass | 24/7 Eyes on Glass Add-On Available | 24/7 Eyes on Glass Add-On Available | Not available |
 | Uptime Guarantee | 99.95% SLA with optional upgrade to 99.99% | 99.95% SLA with optional upgrade to 99.99% | 99.90% (no upgrade option available) |
 | Requests per Second | 500rps with optional upgrade to 1500rps | 500rps with optional upgrade to 1500rps | No guaranteed rates |
 | Data Residency | Region of Choice | Region of Choice<sup>*</sup> | Not applicable |
-| PCI Compliance | Optional | Yes | No |
+| PCI Compliance | Add-on available | Add-on available | No |
 | GEOHA | Add-on available | No | No |
 
-<sup>*</sup>The Private Cloud is fully deployable in the following regions: USA, Europe, Australia, and Japan. There is limited data isolation for Canada.
+<sup>*</sup>If there are data sovereignty requirements, Private Cloud is supported in USA, Europe, Australia, Canada, and Japan. If there are not data sovereignty requirements, then other regions are supported, with the exception of China.
+
+If you need to meet data sovereignty requirements, Auth0 supports Private Cloud deployments in the following regions USA, Europe, Australia, Canada, and Japan. Otherwise, the Private Cloud can be supported in other regions (excepting China).
 
 ## Frequently Asked Questions
 
@@ -64,7 +65,3 @@ Private Cloud deployments are isolated instances where none of a customer's reso
 **What is the uptime guarantee upgrade?**
 
 The standard SLA for the Private Cloud is 99.95%, but for those who need the highest level of uptime for their customers and applications, Auth0 offers an upgrade the promises 99.99% uptime.
-
-**Is the Private Cloud monitored?**
-
-Yes, Auth0 provides monitoring for Private Cloud deployments. Furthermore, since the Private Cloud is a dedicated environment, Auth0 can offer monitoring and alerting to fit your needs specifically.
