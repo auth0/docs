@@ -216,6 +216,42 @@ articles:
       - title: "Verify Access Tokens"
         url: "/api-auth/tutorials/verify-access-token"
 
+  - title: "Authorization"
+    url: "/authorization"
+    children:
+      - title: "Role-based Access Control (RBAC)"
+        url: "/authorization/concepts/rbac"
+
+      - title: "Authorization Policies"
+        url: "/authorization/concepts/policies"
+
+      - title: "Rules for Authorization Policies"
+        url: "/authorization/concepts/authz-rules"
+
+      - title: "Sample Use Cases - RBAC"
+        url: "/authorization/concepts/sample-use-cases-rbac"
+
+      - title: "Sample Use Cases - Rules"
+        url: "/authorization/concepts/sample-use-cases-rules"
+
+      - title: "Authz Core vs. Authz Extension"
+        url: "/authorization/concepts/core-vs-extension"
+
+      - title: "How to Configure Core RBAC"
+        url: "/authorization/guides/how-to"
+        children: 
+          - title: "Manage Roles"
+            url: "/authorization/guides/manage-roles"
+
+          - title: "Manage RBAC Users"
+            url: "/authorization/guides/manage-users"
+
+          - title: "Manage RBAC Permissions"
+            url: "/authorization/guides/manage-permissions"
+            
+          - title: "Enable RBAC for APIs"
+            url: "/authorization/guides/enable-rbac"
+
   - title: "Appliance"
     url: "/appliance"
     children:
