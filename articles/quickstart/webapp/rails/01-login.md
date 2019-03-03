@@ -73,7 +73,7 @@ Replace the generated routes with the following:
 # config/routes.rb
 
 Rails.application.routes.draw do
-  get 'auth/oauth2/callback' => 'auth0#callback'
+  get 'auth/auth0/callback' => 'auth0#callback'
   get 'auth/failure' => 'auth0#failure'
 end
 ```
