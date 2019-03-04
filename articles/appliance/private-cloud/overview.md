@@ -11,7 +11,7 @@ useCase: enterprise
 ---
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
-  <h1>Private Cloud</h1>
+  <h1>Private Cloud Deployment Models</h1>
   <p>
     A low-friction, dedicated Auth0 deployment that exists in Auth0's Private Cloud.
   </p>
@@ -19,14 +19,14 @@ useCase: enterprise
 
 Users with requirements not met by the Auth0 Public Cloud may instead opt for a Private Cloud option.
 
-Auth0 currently offers the following private cloud options:
+Auth0 currently offers two Private Cloud deployment models:
 
 * Private Cloud
-* Managed Private Cloud (either hosted by Auth0 or hosted by you on an AWS environment)
+* **Managed** Private Cloud, either hosted by Auth0 or hosted by you on an AWS environment and operated by Auth0 as a managed service
 
 This overview covers specifically the **Private Cloud** option.
 
-## What is Private Cloud?
+## What is the Private Cloud deployment model?
 
 The Private Cloud provides you with a dedicated (or single-tenant) environment. You'll get enhanced performance, security, and compliance over what we include in our standard Public Cloud offering.
 
@@ -38,17 +38,17 @@ You'll get the ease of management that comes with using our Public Cloud combine
 
 Auth0 offers two Private Cloud options to those for whom the Public Cloud is not an appropriate deployment option. Here is how the two Private Cloud deployment options compare to each other, as well as how they compare to the Enterprise (Public Cloud) option.
 
-| | Managed Private Cloud | Private Cloud | Enterprise (Public Cloud) |
+| | Managed Private Cloud | Private Cloud | Public Cloud (Enterprise Subscription Plan) |
 | - | - | - | - |
 | Instance Type | **Dedicated** Cloud Instance | **Dedicated** Cloud Instance | **Shared** Cloud Instance |
 | Deployment Location | Auth0 Private Cloud *or* Customer-Owned AWS Cloud | Auth0 Private Cloud | Auth0 Public Cloud |
-| Development Environment | Dedicated DEV environment with optional HA upgrade | DEV tenant hosted within the PROD environment | DEV tenant hosted in shared environment |
-| Updates | Choice of update frequency (monthly, bi-monthly, or quarterly), with option to schedule updates | Automatic Monthly Updates | Automatic Updates |
+| Pre-Production Environment | Includes fully-isolated and independently updated instance for development and testing | Additional tenants within the same instance as the production tenant available | Additional tenant within the shared environment |
+| Updates | Choice of update frequency to be coordinated with Auth0. Update cycle begins with the Pre-Production Environment | Automatic Monthly Updates | Automatic Updates |
 | Uptime Guarantee | 99.95% SLA with optional upgrade to 99.99% | 99.95% SLA with optional upgrade to 99.99% | 99.90% (no upgrade option available) |
-| Requests per Second | 500rps with optional upgrade to 1500rps | 500rps with optional upgrade to 1500rps | No guaranteed rates |
-| Data Residency | Region of Choice<sup>*</sup> | Region of Choice<sup>**</sup> | Not applicable |
+| Requests per Second | 500 requests per second with optional upgrade to 1500 requests per second | 500 requests per second with optional upgrade to 1500 requests per second | No guaranteed rates |
+| Data Residency | Region of Choice<sup>*</sup> | Region of Choice<sup>*</sup> <sup>**</sup> | Not applicable |
 | PCI Compliance | Add-on available | Add-on available | No |
-| GEOHA | Add-on available | No | No |
+| Geographic High Availability (GEOHA) | Add-on available | No | No |
 
 <sup>*</sup>Deployments to China are currently unavailable.
 
