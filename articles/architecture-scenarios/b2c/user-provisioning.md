@@ -1,5 +1,5 @@
 ---
-title: Consumer Identity and Access Management User Provisioning
+title: User Provisioning
 description: Understand how user provisioning works in your CIAM implementation. 
 toc: true
 topics:
@@ -11,7 +11,7 @@ contentType: concept
 useCase:
   - user-provisioning
 ---
-# Consumer Identity and Access Management User Provisioning
+# User Provisioning
 
 User provisioning is the process of adding users to your system. When you define your user provisioning process, you'll determine:
 
@@ -22,8 +22,7 @@ User provisioning is the process of adding users to your system. When you define
 In this section, we will walk you through the things you should consider when making these decisions.
 
 ## Prerequisites
-
-* Complete the [Tenant Architecture](/architecture-scenarios/b2c/tenant-architecture) implementation planning.
+* [Tenant Architecture](/architecture-scenarios/b2c/tenant-architecture)
 
 ## Design considerations
 
@@ -81,13 +80,13 @@ Auth0 offers [Lock](/libraries), which providers a user interface that includes 
 
 * Using a web-based workflow featuring [Universal Login](/universal-login) for signups is Auth0's recommendation due to the functionality and security offered.
 
-## Implementation checklist
+## Checklist
 
-| Step Number | Description | Details | Comments |
+| Step Number | Description | Details | Auth0 Tools |
 | - | - | - | - |
-| 1. | Determine data storage location |  | Your data store or Auth0's |
+| 1. | Determine data storage location | Your data store or Auth0's |  |
 | 2. | Migrate user data | Bulk migration and/or automatic migration | Management API or User Import/Export Extension |
-| 3. | Determine Sign Up functionality |  | Universal Login or Lock |
+| 3. | Determine Sign Up functionality | Universal Login or Lock |  |
 
 ## Next steps
 
