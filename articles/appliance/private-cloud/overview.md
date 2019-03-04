@@ -6,6 +6,7 @@ classes: topic-page
 topics:
     - enterprise
     - private-cloud
+    - managed-private-cloud
 contentType: concept
 useCase: enterprise
 ---
@@ -67,3 +68,7 @@ Private Cloud deployments are isolated instances where none of a customer's reso
 **What is the uptime guarantee upgrade?**
 
 The standard SLA for the Private Cloud is 99.95%, but for those who need the highest level of uptime for their customers and applications, Auth0 offers an upgrade to 99.99% uptime.
+
+**I'm a Public Cloud customer; is it possible to migrate my tenant(s) to the Private Cloud?**
+
+Auth0 offers Professional Services to help you migrate from the Public Cloud to Private Cloud.
