@@ -530,6 +530,10 @@ module.exports = [
     to: '/applications/concepts/app-types-auth0'
   },
   {
+    from: '/applications/machine-to-machine',
+    to: '/applications/concepts/app-types-auth0'
+  },
+  {
     from: '/clients/connections',
     to: '/applications/connections'
   },
