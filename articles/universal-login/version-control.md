@@ -1,14 +1,14 @@
 ---
-description: How to back up your hosted pages using the Auth0 version control extensions
+description: How to back up your Universal Login pages using the Auth0 version control extensions
 topics:
   - version-control
   - hosted-pages
 contentType: how-to
 useCase: customize-hosted-pages
 ---
-# How to Use Version Control to Manage Your Hosted Pages
+# How to Use Version Control to Manage Your Universal Login Pages
 
-You can use version control software to manage the source code of your hosted pages.
+You can use version control software to manage the source code of your pages.
 To do so, you can use the Auth0-provided extension that works with the version control system you're using:
 
 * [GitLab Extension](/extensions/gitlab-deploy#deploy-hosted-pages)

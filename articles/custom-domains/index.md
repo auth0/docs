@@ -139,7 +139,9 @@ We cannot provide a static list of IP addresses as they are subject to change. O
 
 ## Troubleshooting
 
-If you are seeing errors, refer to the following troubleshooting steps.
+If you are seeing errors, take a look at this video on common issues with Custom Domains, or refer to the below sections for troubleshooting steps for specific scenarios.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/f6fkOkS1RFA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Custom domain is still pending verification
 

@@ -530,6 +530,10 @@ module.exports = [
     to: '/applications/concepts/app-types-auth0'
   },
   {
+    from: '/applications/machine-to-machine',
+    to: '/applications/concepts/app-types-auth0'
+  },
+  {
     from: '/clients/connections',
     to: '/applications/connections'
   },
@@ -1342,6 +1346,18 @@ module.exports = [
     to: '/universal-login/custom-error-pages'
   },
   {
+    from: '/hosted-pages/default-login-url',
+    to: '/universal-login/default-login-url'
+  },
+  {
+    from: '/hosted-pages/guardian',
+    to: '/universal-login/guardian'
+  },
+  {
+    from: '/hosted-pages/password-reset',
+    to: '/universal-login/password-reset'
+  },
+  {
     from: '/connections/database/mysql',
     to: '/connections/database/custom-db'
   },
@@ -1354,32 +1370,8 @@ module.exports = [
   //   to: '/metadata#using-lock-to-manage-metadata'
   // },
   {
-    from: ['/libraries/lock/v10/customization'],
-    to: '/libraries/lock/v10/configuration',
-  },
-  {
     from: ['/libraries/lock/v11/customization'],
     to: '/libraries/lock/v11/configuration',
-  },
-  {
-    from: '/libraries/lock/v9/customization',
-    to: '/libraries/lock/v9/configuration',
-  },
-  {
-    from: '/libraries/lock/v10/popup-mode',
-    to: '/libraries/lock/v10/authentication-modes',
-  },
-  {
-    from: '/libraries/lock/v11/popup-mode',
-    to: '/libraries/lock/v11/authentication-modes',
-  },
-  {
-    from: '/libraries/lock/v9/display-modes',
-    to: '/libraries/lock/v9/configuration#container-string-',
-  },
-  {
-    from: '/libraries/lock/v9/types-of-applications',
-    to: '/libraries/lock/v9/display-modes',
   },
   {
     from: '/tutorials/azure-tutorial',
@@ -1419,27 +1411,27 @@ module.exports = [
   },
   {
     from: '/tutorials/tracking-new-leads-in-salesforce-and-raplead',
-    to: '/monitoring/tracking-new-leads-in-salesforce-and-raplead',
+    to: '/monitoring/guides/track-leads-salesforce',
   },
   {
     from: '/tutorials/track-signups-enrich-user-profile-generate-leads',
-    to: '/monitoring/track-signups-enrich-user-profile-generate-leads',
+    to: '/monitoring/guides/track-signups-salesforce',
   },
   {
     from: '/tutorials/how-to-monitor-auth0',
-    to: '/monitoring/how-to-monitor-auth0',
+    to: '/monitoring',
   },
   {
     from: '/tutorials/sending-events-to-splunk',
-    to: '/monitoring/sending-events-to-splunk',
+    to: '/monitoring/guides/send-events-to-splunk',
   },
   {
     from: '/tutorials/sending-events-to-segmentio',
-    to: '/monitoring/sending-events-to-segmentio',
+    to: '/monitoring/guides/send-events-to-segmentio',
   },
   {
     from: '/tutorials/sending-events-to-keenio',
-    to: '/monitoring/sending-events-to-keenio',
+    to: '/monitoring/guides/send-events-to-keenio',
   },
   {
     from: '/tutorials/cancel-paid-subscriptions',
@@ -2012,7 +2004,7 @@ module.exports = [
    {
     from: '/hooks/dashboard/index',
     to: '/hooks'
-  },
+   },
    {
     from: '/hooks/extensibility-points/credentials-exchange',
     to: '/hooks/concepts/credentials-exchange-extensibility-point'
@@ -2036,6 +2028,54 @@ module.exports = [
    {
      from: '/users/redirecting-users',
      to: '/users/guides/redirect-users-after-login'
-   }
+   },
+   {
+     from: '/applications/spa',
+     to: '/applications/guides/register-spa'
+   },
+   {
+    from: [
+      '/libraries/lock/v9/customization',
+      '/libraries/lock/v9/configuration',
+      '/libraries/lock/v10/customization',
+      '/libraries/lock/v10/configuration'
+    ],
+    to: '/libraries/lock/v11/configuration'
+    },
+    {
+      from: [
+        '/libraries/lock/v10/popup-mode',
+        '/libraries/lock/v10/authentication-modes',
+        '/libraries/lock/v11/popup-mode'
+      ],
+      to: '/libraries/lock/v11/authentication-modes'
+    },
+    {
+      from: [
+        '/libraries/lock/v9',
+        '/libraries/lock/v9/display-modes',
+        '/libraries/lock/v9/types-of-applications',
+        '/libraries/lock/v10'
+      ],
+      to: '/libraries/lock/v11'
+    },
+    {
+      from: [
+        '/libraries/auth0js/v7',
+        '/libraries/auth0js/v8'
+      ],
+      to: '/libraries/auth0js/v9'
+    },
+    {
+     from: '/rules/redirect',
+     to: '/rules/guides/redirect'
+    },
+    {
+     from: '/tokens/set-access-token-format',
+     to: '/tokens/access-token-formats'
+    },
+    {
+      from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
+      to: '/protocols/saml/saml-apps/github-server'
+    },
 ];
-

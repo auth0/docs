@@ -18,12 +18,16 @@ To disable a user's access to your apps, you can block the user in the Dashboard
 
 1. Go to the [Users](${manage_url}/#/users) page in the Dashboard
 2. Click the name of the user you want to block
-3. When the User Details page opens, click the "Actions" button.
+3. When the User Details page opens, click the **Actions** button.
 4. Select **Block User** from the dropdown menu.
 
 ![Block a User](/media/articles/user-profile/user4.png)
 
 If a blocked user tries to access an application, they will see the error message `user is blocked`.
+
+::: note
+Blocking does not expire. You must unblock the user to allow the user to have access to your apps. 
+:::
 
 ## Unblock a user
 

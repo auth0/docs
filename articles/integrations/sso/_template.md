@@ -6,7 +6,7 @@ The steps in this tutorial are valid for Active Directory Rights Management Serv
 :::
 <% } %>
 
-The ${service} Single Sign On (SSO) Integration lets your users log in to ${service} with Auth0 [identity providers](/identityproviders), and provides SSO to [configured applications](/sso/current/setup).
+The ${service} Single Sign On (SSO) Integration lets your users log in to ${service} with Auth0 [identity providers](/identityproviders), and provides SSO to [configured applications](/sso).
 
 ## Create a New SSO Integration
 
