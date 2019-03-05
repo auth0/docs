@@ -58,4 +58,4 @@ We also recommend creating CNAME records for your Auth0 tenants to make sure tha
 
 ## Support the Software Development Life Cycle with tenants
 
-Over the course of your implementation, you'll...
+As you continue with your Auth0 integration, you'll want to test the Auth0 services, as well as the applications 
