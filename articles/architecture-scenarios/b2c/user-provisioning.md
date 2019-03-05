@@ -1,15 +1,18 @@
 ---
 title: User Provisioning
-description: Understand how user provisioning works in your CIAM implementation. 
+description: Understand user provisioning functionality and considerations for your B2C implementation. 
 toc: true
 topics:
     - b2c
     - ciam
     - user-migration
-    - identity-store
+    - custom-db
+    - universal-login
+    - user-profiles
 contentType: concept
 useCase:
   - user-provisioning
+  - store-user-data
 ---
 # User Provisioning
 
@@ -72,7 +75,7 @@ Please note that your users will need to reset their passwords once you've migra
 
 Auth0 uses database connections to store the user ID, password, and username collected from new users during the sign-up process. You can configure the database connection policies governing things such as minimum username length or password strength and complexity using the Auth0 dashboard.  
 
-Auth0 offers [Lock](/libraries), which providers a user interface that includes signup functionality out of the box. Lock supports a some customization to its appearance, but if you would like to make extensive changes to the login widget to achieve your branding goals, we recommend that you use [Universal Login](/universal-login) instead. For a comparison of the capabilities, see [Lock vs. a Custom UI](/libraries/when-to-use-lock).
+To achieve your branding goals, Auth0 recommends that you use [Universal Login](/universal-login). Auth0 also offers [Lock](/libraries), which providers a user interface that includes sign up functionality out-of-the-box along with some appearance customization capabilities. For a comparison of the capabilities, see [Lock vs. a Custom UI](/libraries/when-to-use-lock).
 
 ## Best practices
 
@@ -84,9 +87,9 @@ Auth0 offers [Lock](/libraries), which providers a user interface that includes 
 
 | Step Number | Description | Details | Auth0 Tools |
 | - | - | - | - |
-| 1. | Determine data storage location | Your data store or Auth0's |  |
-| 2. | Migrate user data | Bulk migration and/or automatic migration | Management API or User Import/Export Extension |
-| 3. | Determine Sign Up functionality | Universal Login or Lock |  |
+| 1. | Choose data storage location | Your data store or Auth0's |  |
+| 2. | Choose method for migrating user data | Bulk migration and/or automatic migration | Management API or User Import/Export Extension |
+| 3. | Decide on Sign Up functionality | Universal Login or Lock |  |
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
-title: Consumer Identity and Access Management User Profile Management
-description: Understand user profile management planning in your CIAM implementation. 
+title: User Profile Management
+description: Understand user profile management planning considerations for your B2C implementation. 
 toc: true
 topics:
     - b2c
@@ -10,7 +10,7 @@ contentType: concept
 useCase:
   - user-profiles
 ---
-# Consumer Identity and Access Management User Profile Management
+# User Profile Management
 
 The User Profile Management workstream addresses how you can handle changes to the information contained in user profiles. We will show you how to handle:
 
@@ -44,7 +44,7 @@ The User Profile Management workstream addresses how you can handle changes to t
 
 * Any information that will be used to customise Auth0 emails, such as information used to determine the language for an email, should be stored in metadata: and preferably `user_metadata` if the user is allowed to change it. 
 
-## Implementation checklist
+## Checklist
 
 | Step Number | Description | Details | Comments |
 | - | - | - | - |
