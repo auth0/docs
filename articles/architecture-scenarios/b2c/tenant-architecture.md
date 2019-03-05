@@ -30,7 +30,7 @@ When you begin the process of designing your tenant architecture, consider the f
 
 1. Are there any other projects that might impact your Auth0 integration? For example, if there are future projects in the pipeline, consider your setup carefully to minimize the likelihood that you'll have to migrate your existing tenant to another at that time.
 
-1. How do you make sure that all of your tenants are appropriately associated with your Auth0 contract? Auth0 has a [set of procedures](#) for you to follow if you want all of your tenants associated with each other.
+1. How do you make sure that all of your tenants are appropriately associated with your Auth0 contract? Auth0 has a [set of procedures](#associating-tenants) for you to follow if you want all of your tenants associated with each other.
 
 ## Custom domains
 
@@ -58,4 +58,26 @@ We also recommend creating CNAME records for your Auth0 tenants to make sure tha
 
 ## Support the Software Development Life Cycle with tenants
 
-As you continue with your Auth0 integration, you'll want to test the Auth0 services, as well as the applications 
+To help support each stage of your company's Software Development Life Cycle, you'll want to structure your tenants appropriately. This makes it simpler to test as you build your Auth0 integration and to move changes from one environment to another when appropriate.
+
+::: panel TL;DR
+Create separate Auth0 tenants for use with your development, staging/QA, and production environments.
+:::
+
+Generally speaking, we recommend creating the the following environments and corresponding tenants:
+
+| Environment | Sample Tenant Name | Description |
+| - | - | - |
+| Development | **company-dev** | A shared environment where most of your development work occurs |
+| QA/Testing | **company-qa** or **company-uat** | An environment for formal testing of the changes you've made |
+| Production | **company-prod** | The production tenant |
+
+You may also want to create one or more sandboxes (e.g., **company-sandbox1**, **company-sandbox2**) so that you can test changes without compromising your development environment. This might be where you test deployment scripts and the like.
+
+::: warning
+Though Auth0 allows you to create as many free tenants as you'd like, you can only have **three** tenants with paid features enabled.
+:::
+
+### Associating tenants
+
+To make sure that all of the [tenants](dev-lifecycle/child-tenants) you create are associated with your Auth0 contractual agreement and have the same feature set, you'll need to associate your tenants with your company. This includes any sandboxes your developers create for testing purposes.
