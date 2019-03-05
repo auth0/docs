@@ -37,6 +37,8 @@ Auth0 uses the term Permissions in the Dashboard to indicate where to define ava
 * requested by an application, and
 * used by an API in its internal access control system to determine the effective permissions for a calling application.
 
+You can also build a [role-based access control (RBAC) system](/authorization/concepts/rbac) using our [Authorization core feature set or Authorization Extension](/authorization/concepts/corevsextension).
+
 ## Keep reading
 
 - [Scopes](/scopes)
