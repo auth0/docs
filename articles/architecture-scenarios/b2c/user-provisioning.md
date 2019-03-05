@@ -39,6 +39,10 @@ It's important to decide early on how you will provision users, so the decisions
 
 During sign up, Auth0 creates a [user profile](/users/concepts/overview-user-profile) that contains information about the user. You can choose to store the user information in Auth0's data store or your own. 
 
+::: panel TL;DR
+For information on the best ways to store your user data, see [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices). 
+:::
+
 ### Use your own identity data store
 
 If you want to use your own identity store, perhaps because you’ve got applications which you aren’t ready to migrate or can’t be migrated, use Auth0’s [Database Connections](/connections/database/custom-db) to make a connection to an existing identity store. 
@@ -79,11 +83,9 @@ However, we really should be proffering Universal Login first, and noting that i
 
 Auth0 recommends that you use [Universal Login](/universal-login). If it doesn't meet your needs, we also have libraries that can be embedded in your application, such as [Lock](/libraries) (a premade login widget) and Auth0.js (a library with which you can build your own login UI). For a comparison of the capabilities, see [Lock vs. a Custom UI](/libraries/when-to-use-lock).
 
-## Best practices
-
-* For information on the best ways to store your user data, see [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices). 
-
-* Using a web-based workflow featuring [Universal Login](/universal-login) for signups is Auth0's recommendation due to the functionality and security offered.
+::: panel TL;DR
+Auth0 recommends using a web-based workflow featuring [Universal Login](/universal-login) for signups due to the functionality and security offered.
+:::
 
 ## Checklist
 
