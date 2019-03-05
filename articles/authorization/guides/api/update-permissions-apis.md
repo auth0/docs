@@ -34,18 +34,7 @@ Patching the permissions with an empty object removes the permissions completely
 	],
 	"postData": {
     "mimeType": "application/json",
-    "text" : "{ 
-      \"scopes\": [ 
-        { 
-          \"value\": \"PERMISSION_NAME\", 
-          \"description\": \"PERMISSION_DESC\" 
-        },
-        { 
-          \"value\": \"PERMISSION_NAME\", 
-          \"description\": \"PERMISSION_DESC\" 
-        }
-      ] 
-    }"
+    "text" : "{ \"scopes\": [ { \"value\": \"PERMISSION_NAME\", \"description\": \"PERMISSION_DESC\" }, { \"value\": \"PERMISSION_NAME\", \"description\": \"PERMISSION_DESC\" } ] }"
 	}
 }
 ```

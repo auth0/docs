@@ -30,10 +30,7 @@ This guide will show you how to enable [role-based access control (RBAC)](/autho
 	],
 	"postData": {
     "mimeType": "application/json",
-    "text" : "{ 
-      \"enforce_policies\": \"true\",
-      \"token_dialect\": "\TOKEN_DIALECT\"
-    }"
+    "text" : "{ \"enforce_policies\": \"true\", \"token_dialect\": \"TOKEN_DIALECT\" }"
 	}
 }
 ```
