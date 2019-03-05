@@ -25,7 +25,7 @@ This guide will show you how to delete a role using Auth0's Management API. This
 	"method": "DELETE",
 	"url": "https://${account.namespace}/api/v2/roles/ROLE_ID",
 	"headers": [
-   		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
+   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
 	]
 }
 ```

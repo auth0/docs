@@ -28,13 +28,15 @@ This guide will show you how to assign [roles](/authorization/concepts/rbac) to 
 	"method": "POST",
 	"url": "https://${account.namespace}/api/v2/users/USER_ID/roles",
 	"headers": [
-    	{ "name": "Content-Type", "value": "application/json" },
-   		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-    	{ "name": "Cache-Control", "value": "no-cache" }
+    { "name": "Content-Type", "value": "application/json" },
+   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+    { "name": "Cache-Control", "value": "no-cache" }
 	],
 	"postData": {
-      	   "mimeType": "application/json",
-      	   "text" : "{ \"roles\": [ \"ROLE_ID\", "\ROLE_ID\" ] }"
+    "mimeType": "application/json",
+    "text" : "{ 
+			\"roles\": [ \"ROLE_ID\", "\ROLE_ID\" ] 
+		}"
 	}
 }
 ```

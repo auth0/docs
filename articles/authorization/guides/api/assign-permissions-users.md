@@ -37,13 +37,19 @@ Adding permissions directly to a user circumvents the benefits of [role-based ac
     	{ "name": "Cache-Control", "value": "no-cache" }
 	],
 	"postData": {
-      	   "mimeType": "application/json",
-      	   "text" : "{ 
-                 \"permissions\": [ 
-                     { \"resource_server_identifier\": \"API_ID\", \"permission_name\": \"PERMISSION_NAME\" },
-                     { \"resource_server_identifier\": \"API_ID\", \"permission_name\": \"PERMISSION_NAME\" }
-                ] 
-            }"
+    "mimeType": "application/json",
+    "text" : "{ 
+      \"permissions\": [ 
+        { 
+          \"resource_server_identifier\": \"API_ID\", 
+          \"permission_name\": \"PERMISSION_NAME\" 
+        },
+        { 
+          \"resource_server_identifier\": \"API_ID\", 
+          \"permission_name\": \"PERMISSION_NAME\" 
+        }
+      ] 
+    }"
 	}
 }
 ```

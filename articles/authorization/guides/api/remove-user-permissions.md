@@ -26,18 +26,24 @@ This guide will show you how to remove the [permissions](/authorization/concepts
 	"method": "DELETE",
 	"url": "https://${account.namespace}/api/v2/users/USER_ID/permissions",
 	"headers": [
-    	{ "name": "Content-Type", "value": "application/json" },
-   		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-    	{ "name": "Cache-Control", "value": "no-cache" }
+    { "name": "Content-Type", "value": "application/json" },
+   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+    { "name": "Cache-Control", "value": "no-cache" }
 	],
 	"postData": {
-      	   "mimeType": "application/json",
-      	   "text" : "{ 
-                 \"permissions\": [ 
-                     { \"resource_server_identifier\": \"API_ID\", \"permission_name\": \"PERMISSION_NAME\" },
-                     { \"resource_server_identifier\": \"API_ID\", \permission_name\": \"PERMISSION_NAME\" }
-                ] 
-            }"
+    "mimeType": "application/json",
+    "text" : "{ 
+      \"permissions\": [ 
+        { 
+          \"resource_server_identifier\": \"API_ID\",
+          \"permission_name\": \"PERMISSION_NAME\" 
+        },
+        {
+          \"resource_server_identifier\": \"API_ID\", 
+          \permission_name\": \"PERMISSION_NAME\" 
+        }
+      ] 
+    }"
 	}
 }
 ```

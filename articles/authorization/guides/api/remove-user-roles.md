@@ -26,13 +26,15 @@ This guide will show you how to remove the roles assigned to a user using Auth0'
 	"method": "DELETE",
 	"url": "https://${account.namespace}/api/v2/users/USER_ID/roles",
 	"headers": [
-    	{ "name": "Content-Type", "value": "application/json" },
-   		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-    	{ "name": "Cache-Control", "value": "no-cache" }
+    { "name": "Content-Type", "value": "application/json" },
+   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+    { "name": "Cache-Control", "value": "no-cache" }
 	],
 	"postData": {
-      	   "mimeType": "application/json",
-      	   "text" : "{ \"roles\": [ \"ROLE_ID\", "\ROLE_ID\" ] }"
+    "mimeType": "application/json",
+    "text" : "{ 
+			\"roles\": [ \"ROLE_ID\", "\ROLE_ID\" ] 
+		}"
 	}
 }
 ```
