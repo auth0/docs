@@ -71,4 +71,4 @@ The standard SLA for the Private Cloud is 99.95%, but for those who need the hig
 
 **I'm a Public Cloud customer; is it possible to migrate my tenant(s) to the Private Cloud?**
 
-Auth0 offers Professional Services to help you migrate from the Public Cloud to Private Cloud.
+Our Professional Services team can help you migrate from the Public Cloud to the Private Cloud as a billable project.
