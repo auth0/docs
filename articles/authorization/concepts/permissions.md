@@ -30,14 +30,14 @@ Permissions differ from [OAuth 2.0](/protocols/oauth2) [scopes](/scopes), which 
 
 Scopes are limited in that they cannot allow an application to do more than what the user is already allowed to do within the API being accessed; they are not meant to grant permissions to the application that are beyond the privileges the user already possesses. To determine an application's effective permissions, an API should combine incoming scopes with the privileges assigned within its own internal access control system and make access control decisions accordingly.
 
+If you don't want to create an internal access control system, you can build a [role-based access control (RBAC) system](/authorization/concepts/rbac) using our [Authorization core feature set or Authorization Extension](/authorization/concepts/core-vs-extension). In this case, the behavior of the `scope` parameter is modified, and you can define permissions, assign them to roles or users, and pass assigned permissions in tokens.
+
 ## Permissions in Auth0
 
 Auth0 uses the term Permissions in the Dashboard to indicate where to define available scopes that can be: 
 
 * requested by an application, and
-* used by an API in its internal access control system to determine the effective permissions for a calling application.
-
-You can also build a [role-based access control (RBAC) system](/authorization/concepts/rbac) using our [Authorization core feature set or Authorization Extension](/authorization/concepts/corevsextension).
+* used by an API in its internal access control system to determine the effective permissions for a calling application, or if using our [Authorization core feature set or Authorization Extension](/authorization/concepts/core-vs-extension), defined and passed to the API using tokens.
 
 ## Keep reading
 
