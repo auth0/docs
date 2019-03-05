@@ -24,17 +24,17 @@ This guide will show you how to edit a role definition using Auth0's Management 
 {
 	"method": "PATCH",
 	"url": "https://${account.namespace}/api/v2/roles/ROLE_ID",
-    "headers": [
-    	{ "name": "Content-Type", "value": "application/json" },
-   		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-    	{ "name": "Cache-Control", "value": "no-cache" }
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" },
+   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+    { "name": "Cache-Control", "value": "no-cache" }
 	],
 	"postData": {
-      	   "mimeType": "application/json",
-      	   "text" : "{ 
-                 \"name\": "\ROLE_NAME\",
-                 \"descriptions\": "\ROLE_DESC\"
-            }"
+    "mimeType": "application/json",
+    "text" : "{ 
+      \"name\": "\ROLE_NAME\",
+      \"descriptions\": "\ROLE_DESC\"
+    }"
 	}
 }
 ```

@@ -21,7 +21,9 @@ This guide will show you how to assign [permissions](/authorization/concepts/rba
 Adding permissions directly to a user circumvents the benefits of [role-based access control (RBAC)](/authorization/concepts/rbac) and is not typically recommended.
 :::
 
-<%= include('../../_includes/_enable-authz-core') %>
+<%= include('../_includes/_enable-authz-core') %>
+
+<%= include('../_includes/_predefine-permissions') %>
 
 1. Make a `POST` call to the [Assign User Permissions endpoint](/api/management/v2#!/users/post_user_permissions). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, `API_ID`, and `PERMISSION_NAME` placeholder values with your user ID, Access Token, API ID(s), and permission name(s), respectively.
 
@@ -36,8 +38,19 @@ Adding permissions directly to a user circumvents the benefits of [role-based ac
 	],
 	"postData": {
     "mimeType": "application/json",
-    "text": "{ \"permissions\": [ { \"resource_server_identifier\": \"API_ID\", \"permission_name\": \"PERMISSION_NAME\" }, { \"resource_server_identifier\": \"API_ID\", \"permission_name\": \"PERMISSION_NAME\" } ] }"
-  }
+    "text" : "{ 
+      \"permissions\": [ 
+        { 
+          \"resource_server_identifier\": \"API_ID\", 
+          \"permission_name\": \"PERMISSION_NAME\" 
+        },
+        { 
+          \"resource_server_identifier\": \"API_ID\", 
+          \"permission_name\": \"PERMISSION_NAME\" 
+        }
+      ] 
+    }"
+	}
 }
 ```
 

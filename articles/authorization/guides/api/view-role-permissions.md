@@ -25,7 +25,7 @@ This guide will show you how to view the [permissions](/authorization/concepts/r
 	"method": "GET",
 	"url": "https://${account.namespace}/api/v2/roles/ROLE_ID/permissions",
 	"headers": [
-   		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
+   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
 	]
 }
 ```

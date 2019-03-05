@@ -35,17 +35,17 @@ This guide will show you how to add permissions to [roles](/authorization/concep
 	"postData": {
     "mimeType": "application/json",
     "text": {
-      "permissions": [
+      \"permissions\": [
         { 
-          "resource_server_identifier": "API_ID",
-          "permission_name": "PERMISSION_NAME"
+          \"resource_server_identifier\": \"API_ID\",
+          \"permission_name\": \"PERMISSION_NAME\"
         },
         { 
-          "resource_server_identifier": "API_ID", 
-          "permission_name": "PERMISSION_NAME" 
+          \"resource_server_identifier\": \"API_ID\", 
+          \"permission_name\": \"PERMISSION_NAME\" 
         }
       ]
-    }
+    }"
   }
 }
 ```
