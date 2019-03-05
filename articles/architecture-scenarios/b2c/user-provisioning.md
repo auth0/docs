@@ -1,17 +1,20 @@
 ---
-title: Consumer Identity and Access Management User Provisioning
-description: Understand how user provisioning works in your CIAM implementation. 
+title: User Provisioning
+description: Understand user provisioning functionality and considerations for your B2C implementation. 
 toc: true
 topics:
     - b2c
     - ciam
     - user-migration
-    - identity-store
+    - custom-db
+    - universal-login
+    - user-profiles
 contentType: concept
 useCase:
   - user-provisioning
+  - store-user-data
 ---
-# Consumer Identity and Access Management User Provisioning
+# User Provisioning
 
 User provisioning is the process of adding users to your system. When you define your user provisioning process, you'll determine:
 
@@ -22,8 +25,7 @@ User provisioning is the process of adding users to your system. When you define
 In this section, we will walk you through the things you should consider when making these decisions.
 
 ## Prerequisites
-
-* Complete the [Tenant Architecture](/architecture-scenarios/b2c/tenant-architecture) implementation planning.
+* [Tenant Architecture](/architecture-scenarios/b2c/tenant-architecture)
 
 ## Design considerations
 
@@ -73,7 +75,9 @@ Please note that your users will need to reset their passwords once you've migra
 
 Auth0 uses database connections to store the user ID, password, and username collected from new users during the sign-up process. You can configure the database connection policies governing things such as minimum username length or password strength and complexity using the Auth0 dashboard.  
 
-Auth0 offers [Lock](/libraries), which providers a user interface that includes signup functionality out of the box. Lock supports a some customization to its appearance, but if you would like to make extensive changes to the login widget to achieve your branding goals, we recommend that you use [Universal Login](/universal-login) instead. For a comparison of the capabilities, see [Lock vs. a Custom UI](/libraries/when-to-use-lock).
+However, we really should be proffering Universal Login first, and noting that if it doesn't meet your needs, we also have libraries that can be embedded in your application, such as Lock (premade login widget) and Auth0.js (a library with which you can build your own login UI).
+
+Auth0 recommends that you use [Universal Login](/universal-login). If it doesn't meet your needs, we also have libraries that can be embedded in your application, such as [Lock](/libraries) (a premade login widget) and Auth0.js (a library with which you can build your own login UI). For a comparison of the capabilities, see [Lock vs. a Custom UI](/libraries/when-to-use-lock).
 
 ## Best practices
 
@@ -81,15 +85,13 @@ Auth0 offers [Lock](/libraries), which providers a user interface that includes 
 
 * Using a web-based workflow featuring [Universal Login](/universal-login) for signups is Auth0's recommendation due to the functionality and security offered.
 
-* Calls to the Management API are subject to [Auth0 Rate Limiting policy](/docs/policies/rate-limits). Auth0 recommends using the appropriate [Auth0 SDK](/libraries) for your development environment, rather than calling our APIs directly. 
+## Checklist
 
-## Implementation checklist
-
-| Step Number | Description | Details | Comments |
+| Step Number | Description | Details | Auth0 Tools |
 | - | - | - | - |
-| 1. | Determine data storage location |  | Your data store or Auth0's |
-| 2. | Migrate user data | Bulk migration and/or automatic migration | Management API or User Import/Export Extension |
-| 3. | Determine Sign Up functionality |  | Universal Login or Lock |
+| 1. | Choose data storage location | Your data store or Auth0's |  |
+| 2. | Choose method for migrating user data | Bulk migration and/or automatic migration | Management API or User Import/Export Extension |
+| 3. | Decide on Sign Up functionality | Universal Login or Lock |  |
 
 ## Next steps
 
