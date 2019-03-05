@@ -23,6 +23,8 @@ _Scopes_ are used by an application to define the actions it would like to be al
 
 Scopes only come into play in delegation scenarios and are limited in that they cannot allow an app to do more than what the user's privileges within the resource being accessed already allow them to do. To determine an application's effective permissions, an API should combine incoming scopes with the privileges assigned within its own internal access control system and make access control decisions accordingly.
 
+If you don't want to create an internal access control system, you can build a [role-based access control (RBAC) system](/authorization/concepts/rbac) using our [Authorization core feature set or Authorization Extension](/authorization/concepts/core-vs-extension). In this case, the behavior of scopes are modified, and you can define [permissions](/authorization/concepts/permissions), assign them to roles or users, and pass assigned permissions in tokens.
+
 ## Ways to use scopes
 
 When an app requests permission to access a resource through an authorization server, it uses the `scope` parameter to specify what scopes it needs, and the authorization server uses the `scope` parameter to respond with the scopes that were actually granted (if the granted scopes were different from what was requested).
@@ -31,7 +33,7 @@ Generally, you use scopes in three ways:
 
 * From an [application](/applications), to verify the identity of a user and get basic profile information about the user, such as their email or picture. In this scenario, the scopes available to you include those implemented by the [OpenID Connect](/protocols/oidc) protocol. For details, refer to [OpenID Connect Scopes](/scopes/current/oidc-scopes).
 
-* In an [API](/apis), to implement access control. In this case, you need to define custom scopes for your API and then identify these scopes so that calling applications can use them. For details, refer to [API Scopes](/scopes/current/api-scopes).
+* In an [API](/apis), to implement access control. In this case, you need to define custom scopes (or permissions, if using our [Authorization core feature set or Authorization Extension](/authorization/concepts/core-vs-extension)) for your API and then identify them so that calling applications can use them. For details, refer to [API Scopes](/scopes/current/api-scopes).
 
 * From an application, to call an API that has implemented its own custom scopes. In this case, you need to know which custom scopes are defined for the API you are calling. For an example of calling a custom API from an application, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#request-custom-API-access)
 
