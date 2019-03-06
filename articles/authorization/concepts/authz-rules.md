@@ -21,7 +21,7 @@ You can append [Rules](/rules) to the pre-configured authorization policy to exe
 
 Rules can restrict access based on any combination of attributes you store for users, such as user department, time of day, location, or any other user or API attribute (like username, security clearance, or API name).
 
-For example, if you were using rules to provide finely-grained access control at a non-profit organization, you could give only W2 employees working in the Research and Development department in the New Delhi office access to Google.
+For example, if you were using rules to provide finely-grained access control at a non-profit organization, you could give only W2 employees working in the Research and Development department in the New Delhi office access to an application.
 
 For samples of rule implementations with authorization policies, see [Sample Use Cases: Rules with Authorization](/authorization/concepts/sample-use-cases-rules).
 
