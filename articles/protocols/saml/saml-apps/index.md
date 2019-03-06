@@ -28,6 +28,8 @@ useCase:
   'protocols/saml/saml-apps/egencia',
   'protocols/saml/saml-apps/eloqua',
   'protocols/saml/saml-apps/freshdesk',
+  'protocols/saml/saml-apps/github-cloud',
+  'protocols/saml/saml-apps/github-server',
   'protocols/saml/saml-apps/google-apps',
   'protocols/saml/saml-apps/heroku',
   'protocols/saml/saml-apps/hosted-graphite',

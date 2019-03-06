@@ -39,7 +39,7 @@ For M2M applications, Auth0 uses the [M2M Flow](/flows/concepts/m2m-flow).
 :::
 
 
-To implement the M2M flow [follow our Backend/API Quickstarts](/quickstart/backend). The "Calling your API" section shows the steps required.
+To implement the M2M flow, [follow our Backend/API Quickstarts](/quickstart/backend). The "Calling your API" section shows the required steps.
 
 Or, to use our API endpoints, you can follow our tutorial: [Call Your API Using the M2M Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow).
 

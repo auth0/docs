@@ -530,6 +530,10 @@ module.exports = [
     to: '/applications/concepts/app-types-auth0'
   },
   {
+    from: '/applications/machine-to-machine',
+    to: '/applications/concepts/app-types-auth0'
+  },
+  {
     from: '/clients/connections',
     to: '/applications/connections'
   },
@@ -2050,7 +2054,6 @@ module.exports = [
       from: [
         '/libraries/lock/v9',
         '/libraries/lock/v9/display-modes',
-        '/libraries/lock/v9/configuration#container-string-',
         '/libraries/lock/v9/types-of-applications',
         '/libraries/lock/v10'
       ],
@@ -2070,5 +2073,9 @@ module.exports = [
     {
      from: '/tokens/set-access-token-format',
      to: '/tokens/access-token-formats'
+    },
+    {
+      from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
+      to: '/protocols/saml/saml-apps/github-server'
     },
 ];

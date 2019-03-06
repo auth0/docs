@@ -22,6 +22,11 @@ Log in to your Okta account. If you don't already have one, you will need to cre
 
 On the general Okta dashboard, click **Admin**. This takes you to the Okta Admin Dashboard.
 
+::: note
+If you are using the developer dashboard in Okta you will  need to switch to the Classic UI.
+If you see a < > Developer prompt in the top left, click it and select Classic UI to switch to the Classic UI.
+:::
+
 ![Okta Dashboard](/media/articles/saml/identity-providers/okta/okta-dashboard.png)
 
 Using the list of shortcuts at the right-hand side of the screen, click **Add Applications**.

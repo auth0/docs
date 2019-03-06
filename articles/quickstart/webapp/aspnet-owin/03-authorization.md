@@ -71,7 +71,7 @@ Update the OpenID Connect middleware registration inside your `Startup` class to
 app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
 {
     AuthenticationType = "Auth0",
-    
+
     Authority = $"https://{auth0Domain}",
 
     ClientId = auth0ClientId,
