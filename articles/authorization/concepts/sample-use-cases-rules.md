@@ -43,7 +43,7 @@ If it is weekend, a user will be denied access to the specified application even
 
 ## Allow access only to users who are inside the corporate network
 
-Let's say you want to allow access, but only for users who are accessing the application from inside your corporate network. To do this, you would create the following rule:
+Let's say you want to allow access to an application, but only for users who are accessing the application from inside your corporate network. To do this, you would create the following rule:
 
 ```js
 function (user, context, callback) {

@@ -31,7 +31,7 @@ This guide will show you how to edit a role definition using Auth0's Management 
 	],
 	"postData": {
     "mimeType": "application/json",
-    "text" : "{ \"name\": \"ROLE_NAME\", \"descriptions\": \"ROLE_DESC\" }"
+    "text" : "{ \"name\": \"ROLE_NAME\", \"description\": \"ROLE_DESC\" }"
 	}
 }
 ```
