@@ -250,7 +250,7 @@ articles:
             url: "/authorization/guides/manage-permissions"
             
           - title: "Enable RBAC for APIs"
-            url: "/authorization/guides/enable-rbac"
+            url: "/authorization/guides/dashboard/enable-rbac"
 
   - title: "Appliance"
     url: "/appliance"
