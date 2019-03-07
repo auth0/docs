@@ -22,7 +22,7 @@ You will need to use your own email provider to be able to modify the `From`, `S
 4. Adjust settings for your **OTP Expiry** and **OTP Length**, and click **SAVE**.
 
 ::: warning
-If you choose to extend the amount of time it takes for your one-time password to expire, you should also extend the length of the one-time password code. Otherwise, an attacker has a larger window of time to attempt to guess a small code.
+If you choose to extend the amount of time it takes for your one-time password to expire, you should also extend the length of the one-time password code. Otherwise, an attacker has a larger window of time to attempt to guess a short code.
 :::
 
 #### Multi-Language Support

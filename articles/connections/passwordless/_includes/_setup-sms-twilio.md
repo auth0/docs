@@ -31,7 +31,7 @@ The `@@password@@` placeholder will automatically be replaced with the one-time 
 5. Adjust settings for your **OTP Expiry** and **OTP Length**, and click **SAVE**.
 
 ::: warning
-If you choose to extend the amount of time it takes for your one-time password to expire, you should also extend the length of the one-time password code. Otherwise, an attacker has a larger window of time to attempt to guess a small code.
+If you choose to extend the amount of time it takes for your one-time password to expire, you should also extend the length of the one-time password code. Otherwise, an attacker has a larger window of time to attempt to guess a short code.
 :::
 
 #### Multi-language support
