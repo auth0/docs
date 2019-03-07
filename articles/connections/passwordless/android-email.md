@@ -18,7 +18,7 @@ useCase: customize-connections
 
 ## Setup
 
-<%= include('./_setup-email') %>
+<%= include('./_includes/_setup-email') %>
 
 ## Implementation
 
