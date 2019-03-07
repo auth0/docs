@@ -39,7 +39,7 @@ It's important to decide early on how you will provision users, so the decisions
 
 During sign up, Auth0 creates a [user profile](/users/concepts/overview-user-profile) that contains information about the user. You can choose to store the user information in Auth0's data store or your own. 
 
-::: panel TL;DR
+::: panel Best Practice
 For information on the best ways to store your user data, see [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices). 
 :::
 
@@ -77,15 +77,13 @@ Please note that your users will need to reset their passwords once you've migra
 
 ## User sign up
 
-Auth0 uses database connections to store the user ID, password, and username collected from new users during the sign-up process. You can configure the database connection policies governing things such as minimum username length or password strength and complexity using the Auth0 dashboard.  
-
-However, we really should be proffering Universal Login first, and noting that if it doesn't meet your needs, we also have libraries that can be embedded in your application, such as Lock (premade login widget) and Auth0.js (a library with which you can build your own login UI).
-
-Auth0 recommends that you use [Universal Login](/universal-login). If it doesn't meet your needs, we also have libraries that can be embedded in your application, such as [Lock](/libraries) (a premade login widget) and Auth0.js (a library with which you can build your own login UI). For a comparison of the capabilities, see [Lock vs. a Custom UI](/libraries/when-to-use-lock).
-
 ::: panel TL;DR
 Auth0 recommends using a web-based workflow featuring [Universal Login](/universal-login) for signups due to the functionality and security offered.
 :::
+
+Auth0 uses database connections to store the user ID, password, and username collected from new users during the sign-up process. You can configure the database connection policies governing things such as minimum username length or password strength and complexity using the Auth0 dashboard.  
+
+Auth0 recommends that you use [Universal Login](/universal-login). If it doesn't meet your needs, we also have libraries that can be embedded in your application, such as [Lock](/libraries) (a premade login widget) and Auth0.js (a library with which you can build your own login UI). For a comparison of the capabilities, see [Lock vs. a Custom UI](/libraries/when-to-use-lock).
 
 ## Checklist
 
