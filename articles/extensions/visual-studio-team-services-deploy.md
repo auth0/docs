@@ -20,15 +20,21 @@ To install and configure this extension, click on the **Visual Studio Team Servi
 
 Set the following configuration variables:
 
-* **TFS_TYPE**: The type of repository, choose from TFVC or Git
-* **TFS_PROJECT**: The project from which you want to deploy rules and database scripts.
-* **TFS_BRANCH**: The branch we should monitor for commits.
-* **TFS_INSTANCE**: Your Visual Studio Team Services instance name (without .visualstudio.com).
-* **TFS_COLLECTION**: Your Visual Studio collection (DefaultCollection for Azure DevOps).
-* **TFS_USERNAME**: Your Visual Studio Team Services username
-* **TFS_TOKEN**: Your personal Access Token for Visual Studio Team Services, for details on how to configure one refer to [Configure a Personal Access Token](#configure-a-personal-access-token) below.
+* **TYPE**: The type of repository, choose from TFVC or Git
+* **REPOSITORY**: The project from which you want to deploy rules and database scripts.
+* **BRANCH**: The branch we should monitor for commits.
+* **INSTANCE**: Your Visual Studio Team Services instance name (without .visualstudio.com).
+* **COLLECTION**: Your Visual Studio collection (DefaultCollection for Azure DevOps).
+* **USERNAME**: Your Visual Studio Team Services username
+* **TOKEN**: Your personal Access Token for Visual Studio Team Services, for details on how to configure one refer to [Configure a Personal Access Token](#configure-a-personal-access-token) below.
 * **BASE_DIR**: The base directory, where all your tenant settings are stored
+* **ENABLE_CIPHER**: Enables secrets encryption/decryption support
+* **CIPHER_PASSWORD**: The password for encryption/decryption of secrets
 * **SLACK_INCOMING_WEBHOOK**: Webhook URL for Slack used to notify you of successful and failed deployments.
+
+::: note
+In version `2.5.0` of this extension, some of the configuration variables has been changed. Make sure to reconfigure extension if you are updating it from any version below `v2.5.0`.
+:::
 
 Once you have provided this information, click **Install**.
 
@@ -335,6 +341,23 @@ __blocked_account.json__
     "enabled": true
 }
 ```
+
+## Secrets Encryption
+Starting with version `2.6.0` of this extension you can encrypt your sensitive data to store it in the repository (rulesConfigs, for example).
+To encrypt your secret, login to the extension, then go to `Secrets Encryption Tool` (cipher should be enabled in the extension configuration):
+![](/media/articles/extensions/visual-studio-ts/encryption.png)
+
+Now you can copy `Encrypted secret` to any string field in the repo, like this:
+
+__rules-configs/biggest_secret.json__
+```json
+{
+  "key": "biggest_secret",
+  "value": "nobody should know that [!cipher]0dcd9c0696b1feb7878bd4d8360db09e8885319046955d4a6ae1cd6135e5f58cce654f15b136eacc06981c0c7a4bb32f3a5c19-2c84a546cb503666382f87d87af82cb1657dab51d1583b40[rehpic!]"
+}
+```
+
+Extension will decrypt all encrypted secrets automatically.
 
 ## Track Deployments
 

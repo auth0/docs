@@ -21,12 +21,18 @@ To install and configure this extension, click on the **Bitbucket Deployments** 
 
 Set the following configuration variables:
 
-* **BITBUCKET_REPOSITORY**: The repository from which you want to deploy your Rules and Database Connection scripts. This can be either a public or private repository
-* **BITBUCKET_BRANCH**: The branch the extension will monitor for changes
-* **BITBUCKET_USER**: The username used to access the Bitbucket account. Make sure you use the username, and not the email
-* **BITBUCKET_PASSWORD**: An app password you create through the Bitbucket settings to grant permissions to certain apps
+* **REPOSITORY**: The repository from which you want to deploy your Rules and Database Connection scripts. This can be either a public or private repository
+* **BRANCH**: The branch the extension will monitor for changes
+* **USER**: The username used to access the Bitbucket account. Make sure you use the username, and not the email
+* **PASSWORD**: An app password you create through the Bitbucket settings to grant permissions to certain apps
 * **BASE_DIR**: The base directory, where all your tenant settings are stored
+* **ENABLE_CIPHER**: Enables secrets encryption/decryption support
+* **CIPHER_PASSWORD**: The password for encryption/decryption of secrets
 * **SLACK_INCOMING_WEBHOOK**: The Webhook URL for Slack used to notify you of successful and failed deployments
+
+::: note
+In version `2.6.0` of this extension, some of the configuration variables has been changed. Make sure to reconfigure extension if you are updating it from any version below `v2.6.0`.
+:::
 
 Once you have provided this information, click **Install**.
 
@@ -290,6 +296,23 @@ __blocked_account.json__
     "enabled": true
 }
 ```
+
+## Secrets Encryption
+Starting with version `2.7.0` of this extension you can encrypt your sensitive data to store it in the repository (rulesConfigs, for example).
+To encrypt your secret, login to the extension, then go to `Secrets Encryption Tool` (cipher should be enabled in the extension configuration):
+![](/media/articles/extensions/bitbucket-deploy/encryption.png)
+
+Now you can copy `Encrypted secret` to any string field in the repo, like this:
+
+__rules-configs/biggest_secret.json__
+```json
+{
+  "key": "biggest_secret",
+  "value": "nobody should know that [!cipher]0dcd9c0696b1feb7878bd4d8360db09e8885319046955d4a6ae1cd6135e5f58cce654f15b136eacc06981c0c7a4bb32f3a5c19-2c84a546cb503666382f87d87af82cb1657dab51d1583b40[rehpic!]"
+}
+```
+
+Extension will decrypt all encrypted secrets automatically.
 
 ## Track Deployments
 
