@@ -530,6 +530,10 @@ module.exports = [
     to: '/applications/concepts/app-types-auth0'
   },
   {
+    from: '/applications/machine-to-machine',
+    to: '/applications/concepts/app-types-auth0'
+  },
+  {
     from: '/clients/connections',
     to: '/applications/connections'
   },
@@ -2069,5 +2073,9 @@ module.exports = [
     {
      from: '/tokens/set-access-token-format',
      to: '/tokens/access-token-formats'
+    },
+    {
+      from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
+      to: '/protocols/saml/saml-apps/github-server'
     },
 ];

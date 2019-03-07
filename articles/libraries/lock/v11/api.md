@@ -12,7 +12,7 @@ useCase:
 ---
 # Lock API Reference
 
-Lock has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and discuss how to use them. Click below to go straight the method you're looking for, or just browse! If you're looking for information about events emitted by Lock, they're listed under the [on()](#on-event-callback-) method section!
+Lock has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and discuss how to use them. Click below to go straight the method you're looking for, or just browse! If you're looking for information about events emitted by Lock, they're listed under the [on()](#on-) method section!
 
 - [new Auth0Lock](#auth0lock) - Instantiating Lock
 - [getUserInfo()](#getuserinfo-) - Obtaining the profile of a logged in user

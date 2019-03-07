@@ -1,11 +1,11 @@
 ---
-title: Consumer Identity and Access Management Tenant Architecture
-description: Understand how your tenant architecture design impacts your CIAM implementation. 
+title: Tenant Architecture
+description: Learn how to create Auth0 tenants for one or more environments
 toc: true
 topics:
     - b2c
     - ciam
-    - tenant-architecture
+    - tenants
 contentType: concept
 useCase:
   - tenant-architecture
