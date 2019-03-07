@@ -30,4 +30,4 @@ This guide will show you how to delete permissions from an API using Auth0's Das
 - [How to Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)
 - [How to Represent Multiple APIs Using a Single Logical API in Auth0](/api-auth/tutorials/represent-multiple-apis)
 - [Role-Based Access Control (RBAC)](/authorization/concepts/rbac)
-- [Enable Role-Based Access Control for APIs](/authorization/guides/enable-rbac)
+- [Enable Role-Based Access Control for APIs](/authorization/guides/dashboard/enable-rbac)
