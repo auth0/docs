@@ -11,7 +11,7 @@ useCase: customize-connections
 ---
 # Implement Passwordless Email with Magic Links in Single-Page Apps
 
-<%= include('_introduction-email-magic-link') %>
+<%= include('./_includes/_introduction-email-magic-link') %>
 
 ## Setup
 
