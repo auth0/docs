@@ -327,7 +327,7 @@ Theme options are grouped in the `theme` property of the `options` object.
 
 #### authButtons {Object}
 
-Allows the customization of buttons in Lock. Each custom connection whose button you desire to customize should be listed by name, each with their own set of parameters. The customizable parameters are listed below:
+Allows the customization of buttons in Lock with custom OAuth2 connections. Each custom connection whose button you desire to customize should be listed by name, each with their own set of parameters. The customizable parameters are listed below:
 
 - **displayName** {String}: The name to show instead of the connection name when building the button title, such as `LOGIN WITH MYCONNECTION` for login).
 - **primaryColor** {String}: The button's background color. Defaults to `#eb5424`.
