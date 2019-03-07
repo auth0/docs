@@ -21,7 +21,7 @@ To install and configure this extension, click on the _Auth0 Logs to Splunk_ box
 At this point you should set the following configuration variables:
 
 - **Schedule**: How often the job will run. The schedule can be customized even further after creation.
-- **START_FROM**	The checkpoint ID of the log from where you want to start. (The value will be the log id (GUID)
+- **START_FROM**: The checkpoint ID of the log from where you want to start. The value will be the log id (GUID).
 - **SPLUNK_URL**: Your Splunk Cloud URL.
 - **SPLUNK_TOKEN**: Your Splunk Token.
 - **SPLUNK_COLLECTOR_PORT**: The Port of your HTTP Collector Endpoint.
