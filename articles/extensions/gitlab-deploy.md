@@ -341,7 +341,7 @@ __blocked_account.json__
 
 ## Encrypt Secrets
 
-Beginning with version **2.7.0**, you can encrypt sensitive data (e.g., Rules configurations) so that you can store your files in public repositorieis.
+Beginning with version **2.8.0**, you can encrypt sensitive data (e.g., Rules configurations) so that you can store your files in public repositorieis.
 
 To encrypt your data, log in to your extension and go to the **Secrets Encryption Tool** (you should have enabled the cipher in the extension's configuration settings).
 
