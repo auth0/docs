@@ -21,12 +21,18 @@ The **GitLab Deployments** extension allows you to deploy [rules](/rules), rules
 
 2. Set the following configuration variables:
 
-* **GITLAB_REPOSITORY**: The name of your GitLab repository.
-* **GITLAB_BRANCH**: The branch of your GitLab repository your extension should monitor.
-* **GITLAB_URL**: The URL of your GitLab instance, in case of gitlab.com use `https://gitlab.com`
-* **GITLAB_TOKEN**: The personal Access Token to your GitLab repository for this account. For details on how to configure one refer to [Configure a GitLab Token](configure-a-gitlab-token).
+* **REPOSITORY**: The name of your GitLab repository.
+* **BRANCH**: The branch of your GitLab repository your extension should monitor.
+* **URL**: The URL of your GitLab instance, in case of gitlab.com use `https://gitlab.com`
+* **TOKEN**: The personal Access Token to your GitLab repository for this account. For details on how to configure one refer to [Configure a GitLab Token](configure-a-gitlab-token).
 * **BASE_DIR**: The base directory, where all your tenant settings are stored. If you want to keep your tenant settings under `org/repo/tenant/production`, `org/repo` goes to the `REPOSITORY` and `tenant/production` - to `BASE_DIR`
+* **ENABLE_CIPHER**: Enables secrets encryption/decryption support
+* **CIPHER_PASSWORD**: The password for encryption/decryption of secrets
 * **SLACK_INCOMING_WEBHOOK**: The URL used to integrate with Slack to deliver notifications.
+
+::: note
+Some of the configuration variables were changed in version **2.7.0** of this extension. If you are updating the extension from a prior version, make sure that you update your configuration accordingly.
+:::
 
 3. Once you have provided this information, click **Install**.
 
@@ -332,6 +338,26 @@ __blocked_account.json__
     "enabled": true
 }
 ```
+
+## Encrypt Secrets
+
+Beginning with version **2.8.0**, you can encrypt sensitive data (e.g., Rules configurations) so that you can store your files in public repositorieis.
+
+To encrypt your data, log in to your extension and go to the **Secrets Encryption Tool** (you should have enabled the cipher in the extension's configuration settings).
+
+![](/media/articles/extensions/gitlab-deploy/encryption.png)
+
+Copy `Encrypted Secret` to any string field that should remain private as shown:
+
+__rules-configs/biggest_secret.json__
+```json
+{
+  "key": "biggest_secret",
+  "value": "nobody should know that [!cipher]0dcd9c0696b1feb7878bd4d8360db09e8885319046955d4a6ae1cd6135e5f58cce654f15b136eacc06981c0c7a4bb32f3a5c19-2c84a546cb503666382f87d87af82cb1657dab51d1583b40[rehpic!]"
+}
+```
+
+The extension will decrypt all encrypted secrets automatically.
 
 ## Track deployments
 

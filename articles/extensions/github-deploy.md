@@ -25,14 +25,19 @@ To install and configure this extension, click on the __GitHub Deployments__ box
 
 Set the following configuration variables:
 
-- **GITHUB_REPOSITORY**: The repository from which you want to deploy rules and database scripts. This can be either a public or private repository.
-- **GITHUB_BRANCH**: The branch that the extension will monitor for commits.
-- **GITHUB_TOKEN**: Your GitHub personal Access Token. Follow the instructions at [Creating an Access Token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/#creating-a-token) to create a token with `repo` scope.
-- **GITHUB_HOST**: The public accessible GitHub Enterprise _(version 2.11.3 and later)_ hostname, no value is required when using github.com (optional).
-- **GITHUB_API_PATH**: GitHub Enterprise API path prefix, no value is required when using github.com (optional).
+- **REPOSITORY**: The repository from which you want to deploy rules and database scripts. This can be either a public or private repository.
+- **BRANCH**: The branch that the extension will monitor for commits.
+- **TOKEN**: Your GitHub personal Access Token. Follow the instructions at [Creating an Access Token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/#creating-a-token) to create a token with `repo` scope.
+- **HOST**: The public accessible GitHub Enterprise _(version 2.11.3 and later)_ hostname, no value is required when using github.com (optional).
+- **API_PATH**: GitHub Enterprise API path prefix, no value is required when using github.com (optional).
 * **BASE_DIR**: The base directory, where all your tenant settings are stored
+* **ENABLE_CIPHER**: Enables secrets encryption/decryption support
+* **CIPHER_PASSWORD**: The password for encryption/decryption of secrets
 - **SLACK_INCOMING_WEBHOOK_URL**: The Webhook URL for Slack, used to receive Slack notifications for successful and failed deployments (optional).
 
+::: note
+Some of the configuration variables were changed in version **2.6.0** of this extension. If you are updating the extension from a prior version, make sure that you update your configuration accordingly.
+:::
 
 Once you have provided this information, click **Install**.
 
@@ -300,6 +305,26 @@ __blocked_account.json__
     "enabled": true
 }
 ```
+
+## Encrypt Secrets
+
+Beginning with version **2.7.0**, you can encrypt sensitive data (e.g., Rules configurations) so that you can store your files in public repositorieis.
+
+To encrypt your data, log in to your extension and go to the **Secrets Encryption Tool** (you should have enabled the cipher in the extension's configuration settings).
+
+![](/media/articles/extensions/github-deploy/encryption.png)
+
+Copy `Encrypted Secret` to any string field that should remain private as shown:
+
+__rules-configs/biggest_secret.json__
+```json
+{
+  "key": "biggest_secret",
+  "value": "nobody should know that [!cipher]0dcd9c0696b1feb7878bd4d8360db09e8885319046955d4a6ae1cd6135e5f58cce654f15b136eacc06981c0c7a4bb32f3a5c19-2c84a546cb503666382f87d87af82cb1657dab51d1583b40[rehpic!]"
+}
+```
+
+The extension will decrypt all encrypted secrets automatically.
 
 ## Track deployments
 
