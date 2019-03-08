@@ -31,7 +31,7 @@ Set the following configuration variables:
 * **SLACK_INCOMING_WEBHOOK**: The Webhook URL for Slack used to notify you of successful and failed deployments
 
 ::: note
-In version `2.6.0` of this extension, some of the configuration variables has been changed. Make sure to reconfigure extension if you are updating it from any version below `v2.6.0`.
+Some of the configuration variables were changed in version **2.6.0** of this extension. If you are updating the extension from a prior version, make sure that you update your configuration accordingly.
 :::
 
 Once you have provided this information, click **Install**.
@@ -297,12 +297,15 @@ __blocked_account.json__
 }
 ```
 
-## Secrets Encryption
-Starting with version `2.7.0` of this extension you can encrypt your sensitive data to store it in the repository (rulesConfigs, for example).
-To encrypt your secret, login to the extension, then go to `Secrets Encryption Tool` (cipher should be enabled in the extension configuration):
+## Encrypt Secrets
+
+Beginning with version **2.7.0**, you can encrypt sensitive data (e.g., Rules configurations) so that you can store your files in public repositorieis.
+
+To encrypt your data, log in to your extension and go to the **Secrets Encryption Tool** (you should have enabled the cipher in the extension's configuration settings).
+
 ![](/media/articles/extensions/bitbucket-deploy/encryption.png)
 
-Now you can copy `Encrypted secret` to any string field in the repo, like this:
+Copy `Encrypted Secret` to any string field in the repo as shown:
 
 __rules-configs/biggest_secret.json__
 ```json
@@ -312,7 +315,7 @@ __rules-configs/biggest_secret.json__
 }
 ```
 
-Extension will decrypt all encrypted secrets automatically.
+The extension will decrypt all encrypted secrets automatically.
 
 ## Track Deployments
 
