@@ -1,3 +1,17 @@
+---
+title: User Logout
+description: What to consider for user logout
+toc: true
+topics:
+topics:
+    - b2c
+    - ciam
+    - logout
+    - sessions
+contentType: concept
+useCase:
+    - user-logout
+---
 # User Logout
 
 [Logout](/logout) is the act of terminating an authenticated session when they're no longer needed, minimizing the likelihood that unauthorized parties can "take over" the session. This is achieved by provisioning a logout option on the user interface you provide to your users.
@@ -12,6 +26,7 @@ When configuring logout behavior, you'll need to consider:
 * What information to provide to users as confirmation of the sessions terminated
 * Where the users should be redirected to after logout completes
 * Whether actions take by the user elsewhere (such as in another application) need to be accounted for to [provide a single logout experience](/logout/guides/logout-applications#single-sign-out-configuration-example)
+* How long you want sessions to last in the event that users do not trigger the logout process
 
 ### Types of logout
 
@@ -40,6 +55,15 @@ The URL(s) you use to redirect users after logging out must be [whitelisted in t
 If the user logs out and you redirect them back to the application, and the application redirects to an Identity Provider that still has a valid session for the user, the user will be logged in silently to the application. This may appear to the user as if the logout process didn't function properly.
 :::
 
-## Automatic logout
+### Automatic termination of sessions
 
 Because not all users will trigger the logout process manually, Auth0 provides **session timeout** to prevent overly long-lived sessions. This setting is [available on the Dashboard](/dashboard/dashboard-tenant-settings#session-timeout).
+
+## Checklist
+
+| | Description | Details | Auth0 Tools |
+| - | - | - | - |
+| 1 | Determine the sessions that should be terminated when the user initiates logout |  |  |
+| 2 | Determine the information to provide to users to confirm the sessions terminated |  |  |
+| 3 | Determine if you need to account for actions taken by the users elsewhere that might impact the logout experience |  |  |
+| 4 | Determine how long you want sessions to last |  |  |
