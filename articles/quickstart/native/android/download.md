@@ -9,9 +9,9 @@ Then, to run it from the **command line**:
 
 ```bash
 # In Linux / macOS
-./gradlew installDebug
-# In Windows
 gradlew installDebug
+# In Windows
+./gradlew installDebug
 ```
 2) On the Android device, locate the App icon on the App Drawer and click it to launch it.
 
