@@ -1,10 +1,27 @@
+---
+title: Branding
+description: How to brand Auth0 items to reflect your brand and desired user experience
+toc: true
+topics:
+    - b2c
+    - ciam
+    - branding
+    - universal-login
+    - login-pages
+    - change-password-pages
+    - custom-domains
+    - error-pages
+contentType: concept
+useCase:
+    - user-logout
+---
 # Branding
 
 Auth0 can be customized with a look and feel that aligns with your organization's brand requirements and user expectations. The consistency in appearance improves your customer's experience, giving them peace of mind that the pages they're using can be trusted and are secure.
 
 Some of the items that you can brand include:
 
-* Login pages
+* Login, Change Password, and Error pages
 * Custom domains
 * Email templates
 
@@ -57,6 +74,21 @@ The Change Password page is used whenever a user takes advantage of the [Passwor
 If you're using custom Login and/or Change Password pages, we recommend using an external Content Delivery Network (CDN) to help speed up page load and browser rendering time for your pages.
 :::
 
+### Errors
+
+If there are issues with user sign up or login, Auth0 provides error messages that indicate what the problem is under the hood. However, the default messages are somewhat cryptic, especially to the end user, since it will likely be missing context that only you can supply. As such, we recommend customizing your error pages to provide the missing context-specific information directly to your users.
+
+Furthermore, customizing your error pages allows you to display your branding, not Auth0's, as well as provide useful information to your users as to what should be done next. This information might include a link to a FAQ or how to get in touch with your company's support team or help desk.
+
+At the minimum, we recommend that you provide your visitors with:
+
+* Visual indicators like a friendly-name and your logo for display
+* An email address and URL for your organization's Support team
+
+Auth0 does not provide an out-of-the-box user interface for customizing your Error Pages, but you can use the [Tenant Settings endpoint of the Management API](/api/management/v2#!/Tenants/patch_settings) to configure your pages.
+
+If you can create and host your Error Page, you can have Auth0 direct users to that page instead of using the Auth0-hosted option.
+
 ### Custom Domains
 
 By default, the URL associated with your tenant will include its name and possibly a region-specific identifier. For example, tenants based in the US have the URL **example.auth0.com** while those based in Europe have **example.eu.auth0.com**.
@@ -79,17 +111,12 @@ Out of the box, the email templates used contain standard verbiage and Auth0 bra
 
 Email templates are customized using [Liquid syntax](/email/liquid-syntax). If you are interested in customizing your templates based on user preferences, you have access to the [metadata](#) located in users' profiles. 
 
-### Errors
+## Checklist
 
-If there are issues with user sign up or login, Auth0 provides error messages that indicate what the problem is under the hood. However, the default messages are somewhat cryptic, especially to the end user, since it will likely be missing context that only you can supply. As such, we recommend customizing your error pages to provide the missing context-specific information directly to your users.
-
-Furthermore, customizing your error pages allows you to display your branding, not Auth0's, as well as provide useful information to your users as to what should be done next. This information might include a link to a FAQ or how to get in touch with your company's support team or help desk.
-
-At the minimum, we recommend that you provide your visitors with:
-
-* Visual indicators like a friendly-name and your logo for display
-* An email address and URL for your organization's Support team
-
-Auth0 does not provide an out-of-the-box user interface for customizing your Error Pages, but you can use the [Tenant Settings endpoint of the Management API](/api/management/v2#!/Tenants/patch_settings) to configure your pages.
-
-If you can create and host your Error Page, you can have Auth0 direct users to that page instead of using the Auth0-hosted option.
+| | Description | Details | Auth0 Tools |
+| - | - | - | - |
+| 1 | Customize your Login Page |  | Login Page |
+| 2 | Customize your Change Password Page |  | Change Password Page |
+| 3 | Customize your Error Page |  | Error Page |
+| 4 | Configure a Custom Domain and add a custom SSL certificate | | Custom Domains, Certificate Management |
+| 5 | Customize your Email Templates |  | Email Templates, Email Provider |

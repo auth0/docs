@@ -3,7 +3,6 @@ title: User Logout
 description: What to consider for user logout
 toc: true
 topics:
-topics:
     - b2c
     - ciam
     - logout
