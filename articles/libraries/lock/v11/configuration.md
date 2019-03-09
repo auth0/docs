@@ -90,6 +90,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | Option | Description |
 | --- | --- |
 | [defaultEnterpriseConnection](#defaultenterpriseconnection-string-) | Specifies a connection if more than one present |
+| [defaultADUsernameFromEmailPrefix](#defaultadusernamefromemailprefix-boolean-) | Resolve the AD placeholder username from the email's prefix |
 
 ### Other
 
