@@ -23,7 +23,7 @@ When setting up SAML SSO in your organization, you can test your implementation 
 
 ## Configure the Addon: SAML2 Web App
 
-Login to [Auth0 dashboard](${manage_url}) and create a new [Application](${manage_url}/#/applications). Give it a meaningful name like "GitHub". You can choose any application type really, but the "Regular Web App" tyoe is the more representative. 
+Login to [Auth0 dashboard](${manage_url}) and create a new [Application](${manage_url}/#/applications). Give it a meaningful name like "GitHub". You can choose any application type really, but the "Regular Web App" type is the more representative. 
 
 Navigate to the [Addons](${manage_url}/#/applications/${account.clientId}/addons) tab and enable the **SAML2 Web App** using the toggle switch.
 
