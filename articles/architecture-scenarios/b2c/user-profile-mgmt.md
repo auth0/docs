@@ -14,12 +14,6 @@ useCase:
 
 User information is stored in a [*user profile*](/users/concepts/overview-user-profile) and can come from a variety of sources such as [identity providers](/identityproviders), your own databases, and enterprise connections (Active Directory, SAML, etc.). You can *normalize* user data that comes from a variety of data sources. By default, Auth0 creates one user profile for each user identity.
 
-The [Normalized User Profile](/users/normalized/auth0) is updated by the identity provider during login and you can change a limited set of information through the Auth0 Management API. You can also use Auth0 Rules to override information in the Normalised User Profile. 
-
-::: warning
-A user profile cannot be directly accessed across multiple Auth0 tenants. See [Architecture](/architecture-scenarios/b2c/tenant-architecture) for details.
-:::
-
 Here are some examples of the things that will determine how you will manage user profile information:
 
 * Where can I store information to help me customize a user’s experience?
@@ -34,8 +28,8 @@ Here are some examples of the things that will determine how you will manage use
 
 * [Architecture](/architecture-scenarios/b2c/tenant-architecture)
 * [User Provisioning](/architecture-scenarios/b2c/user-provisioning)
-* User Authentication
-* User Authorization
+* [Authentication](/architecture-scenarios/b2c/authentication)
+* Authorization
 
 ## Design considerations
 
@@ -61,11 +55,19 @@ Alternatively, the Auth0 Dashboard can be used to manage aspects of a user’s p
 
 Auth0 stores user profile [metadata](/users/concepts/overview-user-metadata) that captures additional information about a user such as language preference or accessibility information. You can use metadata to store both information that a user can change and information they can’t. In the latter case, you can associate, for example, a user profile with records in your existing systems without modifying the existing implementation. 
 
-::: warning
+::: note
+As is the case when managing the Normalized User Profile, calls to the Management API  require use of an Access Token as described here.
+:::
+
+::: panel TL;DR
 Use of Metadata should follow Auth0 best practice guidance; Metadata storage is not designed to be a general purpose data store (see here for further details) and you should still use your own external storage facility where applicable. Metadata size and complexity should also be kept to a minimum, and the Auth0 Management API has a strict set of guidance when it comes to updating and/or deleting metadata associated with a user. For further details see here.
 :::
 
-Metadata can be manipulated via both the Auth0 Management API and the Authentication API, and the documentation here describes further the endpoints for doing this. As is the case when managing the Normalized User Profile, calls to the Management API will require use of an Access Token as described here.
+At login, the identity provider updates information in the [Normalized User Profile](/users/normalized/auth0) and you can change a limited set of data through the Auth0 Management API. You can also use Auth0 Rules to override information in the Normalized User Profile. 
+
+::: warning
+A user profile cannot be directly accessed across multiple Auth0 tenants. See [Architecture](/architecture-scenarios/b2c/tenant-architecture) for details.
+:::
 
 ::: panel Best Practice
 <%= include('../_includes/_rate-limit-policy.md') %>
@@ -105,24 +107,25 @@ You’ll also want to make sure that you are working with a verified user accoun
 
 Auth0 provides out of box functionality for sending a [verification email](/docs/email/custom#verification-email) to a user's email address as one way of verifying their account. By default, Auth0 is configured to automatically send verification emails for any database connections user identity created (e.g as part of self sign up; discussed here). However, Auth0 also provides a Management API endpoint (described here) which can also be used to send verification emails in cases where email addresses validation is not performed by a Social Provider upon user registration. 
 
-## Blocked users 
+::: panel Best Practice
+Any information that will be used to customise Auth0 emails, such as information used to determine the language for an email, should be stored in metadata: and preferably `user_metadata` if the user is allowed to change it. 
+:::
+
+## Blocking and unblocking users 
 
 [Blocking user access](/docs/users/guides/block-and-unblock-users) in Auth0 provides a way of implementing mechanisms to prevent user login to applications under certain conditions. By default, the Auth0 Dashboard provides an out-of-box mechanism to give administrators the ability to both block and unblock a users access to all applications. This, in turn, utilizes Auth0 Management API functionality (described here). Alternatively, Auth0 extensibility can be used disable user access to certain applications (described here) as well as providing more fine grained access control as discussed here.
 
 In addition, the Auth0 Management API also provides capabilities to build out facilities for unblocking users disabled due to excessive use of incorrect credentials (see here for further details).  
 
-## Best practices
-
-* Any information that will be used to customise Auth0 emails, such as information used to determine the language for an email, should be stored in metadata: and preferably `user_metadata` if the user is allowed to change it. 
-
 ## Checklist
 
 | Step Number | Description | Details | Comments |
 | - | - | - | - |
-| 1. |  |  | |
-| 2. | |  |  |
-| 3. |  |  |  |
+| 1. | Metadata |  | |
+| 2. | Password reset |  |  |
+| 3. | Account verification |  |  |
+| 4. | Blocking and unblocking users |  |  |
 
 ## Next steps
 
-* Customization
+* [Branding](/architecture-scenarios/b2c/branding)
