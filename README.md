@@ -1,10 +1,17 @@
 # Auth0 Documentation
-This is the repository for the Auth0 documentation.
+
+This repository contains all Auth0 documentation content (including Quickstarts).
+
+* If you are looking for the application that *hosts* the Docs content, see [auth0-docs](https://github.com/auth0/auth0-docs)
+* If you would like to modify the Management API v2 API docs, see [api2](https://github.com/auth0/api2)
+
+Both repositories require team access.
 
 **Please review the [Contributing Guidelines](CONTRIBUTING.md) before sending a PR or opening an issue.**
 
 ## Running the Docs Site
-You can run and test the docs site locally (you will need access - only employees). For instructions on running the site and testing see the [README](https://github.com/auth0/auth0-docs/blob/master/README.md) (requires Auth0 team access).
+
+You can [run and test the docs site locally](https://github.com/auth0/auth0-docs/blob/master/README.md) (access available to Auth0 employees only). You can also edit Docs content by committing changes to the `/docs` folder in the **auth0-docs** repository.
 
 ## Issue Reporting
 
