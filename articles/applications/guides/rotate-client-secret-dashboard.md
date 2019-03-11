@@ -24,13 +24,11 @@ Secrets can be stored in a list (or similar structure) to track keys until they'
 
 2. Click the name of your application to see its settings.
 
-![](/media/articles/clients/change-client-secret/clients.png)
+3. Scroll to the bottom of the Settings page, and click the **Rotate** button in the **Rotate secret** section of the **Danger Zone**. 
 
-3. Locate your **Client Secret**, and click the **rotation** icon to its right. You can view your new secret by checking the box next to **Reveal client secret**.
+![](/media/articles/clients/change-client-secret/rotate-client-secret.jpg)
 
-4. Scroll to the bottom of the Settings page, and click **Save Changes**.
-
-![](/media/articles/clients/change-client-secret/client-settings.png)
+4. You can view your new secret at the top of the Settings page by checking the box next to **Reveal client secret**.
 
 5. Update authorized applications
 
