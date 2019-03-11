@@ -29,7 +29,7 @@ Set the following configuration variables:
 - **BRANCH**: The branch that the extension will monitor for commits.
 - **HOST**: The public accessible GitHub Enterprise _(version 2.11.3 and later)_ hostname, no value is required when using github.com (optional).
 - **API_PATH**: GitHub Enterprise API path prefix, no value is required when using github.com (optional).
-- **TOKEN**: Your GitHub personal Access Token. Follow the instructions at [Creating an Access Token]
+- **TOKEN**: Your GitHub Personal Access Token. Follow the instructions at [Creating an Access Token]
 (https://help.github.com/articles/creating-an-access-token-for-command-line-use/#creating-a-token) to create a token with `repo` scope.
 * **BASE_DIR**: The base directory, where all your tenant settings are stored
 * **ENABLE_CIPHER**: Enables secrets encryption/decryption support
