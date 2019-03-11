@@ -25,7 +25,7 @@ To configure the amount of time a token lives, use the **Token Expiration (Secon
 Once expired, an Access Token can no longer be used to access an API. To regain access, a new Access Token needs to be obtained. This can be done by repeating the OAuth flow used to obtain the initial Access Token.
 
 ## Use a Refresh Token to gain permanent access to an API
-In some situations, it is desirable to have permanent, ongoing access to an API without having to repeat an OAuth flow. This is often referred to as `offline_access`, and is possible with the use of a [Refresh Token](/tokens/refresh-token).
+In some situations, it is desirable to have permanent, ongoing access to an API without having to repeat an OAuth flow. This is often referred to as `offline_access` and is possible with the use of a [Refresh Token](/tokens/refresh-token).
 
 A Refresh Token is issued from the OAuth 2.0 endpoints along with the Access Token. When the Access Token expires, the Refresh Token can be used to obtain a fresh Access Token with the same permissions, without further involvement from a user. 
 
