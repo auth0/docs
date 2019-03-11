@@ -41,7 +41,7 @@ While we recommend using the RBAC features present in the Authorization core, we
 | Search users by user, email, connection | Yes | Yes |
 | Search users by identity provider, login count, last login, phone number | Yes | No |
 | Search users using lucene syntax | Yes | No |
-| Users can be assigned to roles | Yes&nbsp;-&nbsp;up&nbsp;to&nbsp;5&nbsp;roles&nbsp;per&nbsp;user | Yes |
+| Users can be assigned to roles | Yes&nbsp;-&nbsp;up&nbsp;to&nbsp;50&nbsp;roles&nbsp;per&nbsp;user | Yes |
 | Users can be assigned to groups | In future release | Yes |
 | View roles by user | Yes | Yes |
 | View permissions by user | Yes | Yes |
