@@ -34,14 +34,7 @@ Hooks allow you to customize the behavior of Auth0 with Node.js code, but they a
 Manage Hooks using:
 
 * The Dashboard
-* The Command-Line Interface
 
 ### Use the Dashboard
 
 With the Dashboard, you can [create](/hooks/guides/create-hooks-using-dashboard) or [delete](/hooks/guides/delete-hooks-using-dashboard) a Hook, [edit an existing Hook](/hooks/guides/edit-hooks-using-dashboard), and [enable or disable an existing Hook](/hooks/guides/enable-disable-hooks-using-dashboard) using the Dashboard.
-
-### Use the command-line interface
-
-The command-line interface offers similar functionality to the dashboard in that you can [create](/hooks/guides/create-hooks-using-cli) or [delete](/hooks/guides/delete-hooks-using-cli) a Hook, [edit an existing Hook](/hooks/guides/edit-hooks-using-cli), and [enable or disable an existing Hook](/hooks/guides/enable-disable-hooks-using-cli).
-
-The command-line interface also offers you the ability to get [logs on your Hooks usage](/hooks/guides/logging-hooks-using-cli).
