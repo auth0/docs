@@ -17,11 +17,8 @@ User information is stored in a [*user profile*](/users/concepts/overview-user-p
 Here are some examples of the things that will determine how you will manage user profile information:
 
 * Where can I store information to help me customize a user’s experience?
-
 * What if I need to store user information that didn’t originate from an identity provider?
-
 * Why should I store user-related information that a user cannot modify?
-
 * What happens if a user forgets or wants to change their password?
 
 ## Prerequisites
@@ -33,7 +30,7 @@ Here are some examples of the things that will determine how you will manage use
 
 ## Design considerations
 
-At some point after your implementation is complete, you’ll need to make changes to the user profile information stored in the user data store. Those changes can take many forms: 
+After your implementation is operational, you’ll need to manage the user profile information stored in the user data store. Management tasks can take many forms: 
 
 * Self-served information updates
 * Mandatory updates based on your organization's Ts and Cs
