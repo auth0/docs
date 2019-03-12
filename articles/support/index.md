@@ -109,7 +109,7 @@ Using this page, you can:
 
 ## Program Features
 
-The Support Program applies to **production instances** of the Auth0 Platform only. If you require support for non-production instances, then you may request [Demand Services](#demand-services) from Auth0.
+The Support Program applies to **production instances** of the Auth0 Platform only. If you require support for non-production instances, then you may request Demand Services from Auth0.
 
 Your Sales Order will indicate whether you are subscribed to the **Standard** Support Program or the **Enterprise** Support Program.
 
