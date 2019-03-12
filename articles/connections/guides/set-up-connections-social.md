@@ -24,8 +24,8 @@ You should already have set up credentials for your application in the social id
 
 2. Copy and paste the `Client ID` and `Client Secret` from your social identity provider, select the **Attributes** (and **Permissions**, where applicable), and click **Save**.
 
-* Attributes: User data you want your app to be able to access.
-* Permissions: Features you want your app to be able to access on the user's behalf.
+* **Attributes**: User data you want your app to be able to access.
+* **Permissions**: Features you want your app to be able to access on the user's behalf.
 
 ![Configure Connection](/media/articles/connections/social/connection-social-settings.png)
 

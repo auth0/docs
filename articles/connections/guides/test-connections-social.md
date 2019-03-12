@@ -22,10 +22,10 @@ To properly test, you should have already [set up your social connection](/conne
 
 ![Try Connection](/media/articles/connections/social/connection-social-list-configured.png)
 
-2. Choose the account you want to use to log in or click **Allow**.
+2. Choose the account you want to use to log in.
 
 ![Choose Account](/media/articles/connections/social/connection-social-try-choose-account.png)
 
-If you have configured everything correctly, you will see the **It works!!!** page:
+If you have configured everything correctly, you will see the **It Works!** page:
 
 ![Success](/media/articles/connections/social/connection-social-try-success.png)

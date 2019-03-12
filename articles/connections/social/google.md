@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Google
+title: Add Google Login to Your App
 connection: Google
 index: 1
 image: /media/connections/google.png
@@ -11,15 +11,17 @@ alias:
 seo_alias: google
 toc: true
 topics:
+  - authentication
   - connections
   - social
   - google
 contentType: how-to
 useCase:
+    - add-login
     - customize-connections
     - add-idp
 ---
-# Connect your App to Google
+# Add Google Login to Your App
 
 This guide will show you how to add functionality to your web app that allows your users to log in with Google. Along the way, you will also learn how to get an Access Token that will allow you to access the Google API.
 
@@ -36,8 +38,6 @@ Make sure you use the following settings:
 | Authorized JavaScript origins | `https://${account.namespace}` |
 | Authorized redirect URIs | `https://${account.namespace}/login/callback` |
 
-  ![Web App Credentials Configuration](/media/articles/connections/social/google/create-client-id-config.png)
-
 ::: warning
 If your application requests sensitive OAuth scopes, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
 :::
@@ -46,9 +46,9 @@ If your application requests sensitive OAuth scopes, it may be [subject to revie
 
 3. [Set up the Google social connection](/connections/guides/set-up-connections-social) in Auth0. Make sure you have the Client ID and Client Secret generated in Step 1.
 
-4. [Test the connection](/connections/guides/test-connections-social)
+4. [Test the connection](/connections/guides/test-connections-social).
 
-5. Access Google's API
+5. Access Google's API.
 
 <%= include('../_call-api', {
   "idp": "Google"
