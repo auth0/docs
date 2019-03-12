@@ -1,11 +1,5 @@
-Once you successfully authenticate a user, ${idp} includes an [Access Token](/tokens/overview-access-tokens) in the user profile it returns to Auth0. 
+Once a user successfully authenticates, [${idp} will include an Access Token](/tokens/overview-idp-access-tokens) in the user profile it returns to Auth0. You can use this token to call ${idp}'s API.
 
-You can then use this token to call their API.
+To get the ${idp} Access Token, you must retrieve the full user's profile using the Auth0 Management API and extract the Access Token from the response. For detailed steps, see [Call an Identity Provider's API](/connections/calling-an-external-idp-api).
 
-In order to get a ${idp} Access Token, you have to retrieve the full user's profile, using the Auth0 Management API, and extract the Access Token from the response. For detailed steps refer to [Call an Identity Provider API](/connections/calling-an-external-idp-api).
-
-Once you have the token you can call the API, following ${idp}'s documentation.
-
-::: note
-For more information on these tokens, refer to [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens).
-:::
+Using the token, you can call ${idp}'s API following ${idp}'s documentation.
