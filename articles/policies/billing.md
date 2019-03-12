@@ -86,6 +86,12 @@ Please note that you have to be a Tenant admin to do this request.
 
 Also, more than often the email which receives the receipt is the one that created the Auth0 tenant. Please make sure that you are in touch with the owner of that email. That person can also forward you the receipt of the payment. If you want to change this setting, please let us know through our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
+## Do you charge sales tax?
+
+For US-based customers, we will charge sales tax where applicable, depending on your state's sales tax laws and requirements. For non-US customers, we will not charge sales tax.
+
+You can determine if your plan will include sales tax at the moment of checkout after providing your billing address. If your country is based in the US and the address is eligible for taxes, you will see the sales tax added to your total. You will also see the sales tax amount in your invoices and receipts.
+
 ## In our pricing, what is the difference between internal and external users? Are they different technically?
 
 An active user is a user that has authenticated with a username/password combination, a Passwordless connection, or any social provider in a given calendar month.
