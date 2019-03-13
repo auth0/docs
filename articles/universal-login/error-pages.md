@@ -34,7 +34,7 @@ In addition to these fields, the error page returns the follow information to as
 * **Title**: the friendly name of the tenant;
 * **Tenant**: the tenant information (the friendly name, logo URL, support email, and support URL fields that you may customize).
 
-Auth0 will display the **Tenant** information exactly as entered on the settings page.
+Auth0 will display the **Tenant** information exactly as entered on the Settings page.
 
 ## Custom Error Pages
 
