@@ -1,6 +1,6 @@
 ### Configure Cross-Origin Resource Sharing (CORS)
 
-For security purposes, your app's origin URL must be listed as an approved URL. If you have not already added it to the **Allowed callback URLS** for your application, you will need to add it to the list of **Allowed Origins (CORS)**. 
+For security purposes, your app's origin URL must be listed as an approved URL. If you have not already added it to the **Allowed Callback URLS** for your application, you will need to add it to the list of **Allowed Origins (CORS)**. 
 
 1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/). 
 
