@@ -29,8 +29,8 @@ To make your login process as easy-to-use and seamless as possible, you'll need 
   * For a single-page app, use local storage in the browser
   * For a native app, use memory or local storage
 
-  You can then create the necessary logic in your application to retrieve the stored URL and redirect your users where you want.
-
+  You can then create the necessary logic in your application to retrieve the stored URL and redirect your users where you want. [Lock](/libraries/lock/v11/configuration#redirecturl-string-) and the [Auth0 SDKs](/libraries/auth0js/v9#available-parameters) also include support for redirect URLs.
+  
 You can [redirect users from rules](/rules/current/redirect) or you can [redirect users with state parameters](/protocols/oauth2/redirect-users). Choose the option that works best for your application type and the flow you are using.
 
 ## Keep reading
