@@ -15,11 +15,11 @@ useCase: customize-connections
 
 <%= include('../../_includes/_native_passwordless_warning') %>
 
-<%= include('./_introduction-sms', { isMobile: true }) %>
+<%= include('./_includes/_introduction-sms', { isMobile: true }) %>
 
 ## Setup
 
-<%= include('./_setup-sms-twilio') %>
+<%= include('./_includes/_setup-sms-twilio') %>
 
 ## Implementation
 
