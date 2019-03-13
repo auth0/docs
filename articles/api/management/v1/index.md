@@ -104,7 +104,7 @@ Authorization: Bearer {token}
 **Search** remarks: Depending on the connection's type the search will be done in different fields:
 *   Active Directory/LDAP: by default uses ambiguous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of email addresses over all email address spaces that the Exchange server knows about).
 *   Database Connections (not custom): Name/Email case insensitive.
-*   Google Apps: Email/username case insensitive.
+*   G Suite: Email/username case insensitive.
 *   WAAD/WAAD2: Name/Email case insensitive.
 *   Windows Azure Active Directory or Office365: name/email case insensitive
 Heads up! If the connection does not support querying for users (for instance ADFS, SAMLP), it will return the users who have logged in through that connection.
@@ -123,7 +123,7 @@ Search users from all enterprise directories based on the specified `criteria`. 
 **Search** remarks: Depending on the connection's type the search will be done in different fields:
 *   Active Directory/LDAP: by default uses ambiguous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of email addresses over all email address spaces that the Exchange server knows about).
 *   Database Connections (not custom): Name/Email case insensitive.
-*   Google Apps: Email/username case insensitive.
+*   G Suite: Email/username case insensitive.
 *   WAAD/WAAD2: Name/Email case insensitive.
 *   Windows Azure Active Directory or Office365: name/email case insensitive
 Heads up! If the connection does not support querying for users (for instance ADFS, SAMLP), it will return the users who have logged in through that connection.

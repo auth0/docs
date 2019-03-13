@@ -112,7 +112,7 @@ The body of the response is a `connection` object formatted as follows:
 | Strategy | For Customers Using |
 |:---------|:--------------------|
 | `adfs` | On Premises Active Directory or any WS-Federation server |
-| `google-apps` | Google Apps |
+| `google-apps` | G Suite |
 | `google-oauth2` |Google (through the OAuth2 protocol) |
 | `office365` | Office 365 and Microsoft Azure Active Directory |
 | `windowslive` | Microsoft Account (formerly LiveID) |
@@ -169,7 +169,7 @@ The `options` object returned in the `connection` will be different for each str
 | `adfs_server` | (for example: `the-adfs-server.domain.com/FederationMetadata/2007-06/FederationMetadata.xml`). |
 | `signInEndpoint`| The URL of the ADFS server where Auth0 will redirect users for login. (for example: `the-adfs-server.company.com/adfs/ls`). |
 
-###### Google Apps Strategy
+###### G Suite Strategy
 
 ```text
 {
@@ -188,7 +188,7 @@ The `options` object returned in the `connection` will be different for each str
 }
 ```
 
-To obtain the `client_id` and `client_secret` for Google Apps connections, see [Google connections](/connections/social/google).
+To obtain the `client_id` and `client_secret` for G Suite connections, see [Google connections](/connections/social/google).
 
 ###### Google OAuth2 Strategy
 
@@ -317,7 +317,7 @@ POST https://${account.namespace}/connections
 Content-Type: application/json
 ```
 
-The body of the request is formatted as a `connection` object. For example, the following will create a new connection to Google Apps, initially inactive (`status=0`):
+The body of the request is formatted as a `connection` object. For example, the following will create a new connection to G Suite, initially inactive (`status=0`):
 
 ```text
 {
@@ -346,7 +346,7 @@ For updates, use the PUT method. A PUT works on a specific `connection`, therefo
 | Verb | URL | Description |
 |:-----|:----|:------------|
 |`GET` |https://${account.namespace}/api/users |Gets all users who have logged in through any of your connections. |
-|`GET` |https://${account.namespace}/api/connections/{connection}/users|Gets all users from an enterprise directory like Office365 / Microsoft Azure Active Directory or a Google Apps domain.|
+|`GET` |https://${account.namespace}/api/connections/{connection}/users|Gets all users from an enterprise directory like Office365 / Microsoft Azure Active Directory or a G Suite domain.|
 |`GET` |https://${account.namespace}/api/socialconnections/users |Gets all users who have logged in through any of the enabled social connections. |
 
 ::: note
