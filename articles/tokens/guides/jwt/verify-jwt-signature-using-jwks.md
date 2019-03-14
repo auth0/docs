@@ -14,12 +14,12 @@ useCase:
 ---
 # How to Verify a JSON Web Token's Signature using the JSON Web Key Set Endpoint
 
-Auth0 exposes a discovery endpoint, which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to configure your application automatically and locate the [JSON Web Key Set (JWKS)](/tokens/jwks) endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued [JSON Web Tokens (JWTs)](/tokens/jwt) for your API.
+Auth0 exposes a discovery endpoint, which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to configure your application automatically and locate the [JSON Web Key Set (JWKS)](/jwks) endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued [JSON Web Tokens (JWTs)](/tokens/jwt) for your API.
 
 When verifying a JWT using a JWKS, you will need to:
 
-1. Retrieve the JWKS and filter for potential signing keys. You will want to filter out any keys missing a public key or a `kid` property.
-2. Extract the JWT from the request's authorization header and decode it.
+1. Retrieve the JWKS from the Auth0 discovery endpoint, and filter for potential signing keys (e.g., any keys missing a public key or with a `kid` property).
+2. Extract the JWT from the request's authorization header and [decode it](https://jwt.io/#debugger-io).
 3. Grab the `kid` property from the header of the decoded JWT.
 4. Search your filtered JWKS for the key with the matching `kid` property.
 5. Build a certificate using the corresponding `x5c` property in your JWKS.
