@@ -11,12 +11,12 @@ useCase:
 
 # Microsoft Account Migration to Azure AD (personal accounts) + Microsoft Graph
 
-In October 2017, Microsoft announced the [deprecation of the Live Connect API and Live SDK](https://developer.microsoft.com/en-us/office/blogs/outlook-rest-api-v1-0-office-365-discovery-and-live-connect-api-deprecation). This is a Microsoft deprecation that will affects Auth0 users using the Microsoft social connection, and requires changes in the Auth0 configuration and potentially the application code. 
+In October 2017, Microsoft announced the [deprecation of the Live Connect API and Live SDK](https://developer.microsoft.com/en-us/office/blogs/outlook-rest-api-v1-0-office-365-discovery-and-live-connect-api-deprecation). This is a Microsoft deprecation that will affect Auth0 users using the Microsoft social connection, and requires changes in the Auth0 configuration and potentially application code. 
 
 The change implies switching:
 
 - from the Live Connect API to the Azure Active Directory API to authenticate
-- from the Live SDK to Microsoft Graph to be able to get to other resources including user profiles, contacts, files, etc
+- from the Live SDK to Microsoft Graph to be able to get other resources including user profiles, contacts, files, etc
 
 You can decide if Auth0 uses Live Connect + Live SDK or Azure AD + Microsoft Graph using the 'Strategy Version' field in the Microsoft Account connection settings page. 
 
@@ -77,7 +77,7 @@ The JSON below shows the fields that are in the Live SDK profile but are not pre
 }
 ```
 
-This other one shows the fields that are in the Microsoft Graph profile but are not present, or a different, in the Live SDK one one:
+This other one shows the fields that are in the Microsoft Graph profile but are not present, or are different, in the Live SDK one one:
 
 ```js
 {
@@ -92,19 +92,19 @@ This other one shows the fields that are in the Microsoft Graph profile but are 
 Key differences are:
 
 - `strategy_version` has the value `1` when the user last logged-in with Live Connect, or `2` when they last logged in with Azure AD.
-- `nickname` as a different format. 
-- `locale`, `work`, `emails` array, `addresses`, `phones` are present in Live SDK but not in Microsoft Graph's.
+- `nickname` has a different format. 
+- `locale`, `work`, `emails` array, `addresses`, `phones` are present in Live SDK but not in Microsoft Graph.
 - `displayName`, `userPrincipalName`, `businessPhones` array are present in Microsoft Graph but not in Live SDK.
 
-If a user that previously logged in with Live Connect and then logged in with Azure AD, the profiles will be merged, so it will have the content of the Live ID one plus the new fields in Microsoft Graph.
+If a user that has previously logged in with Live Connect logs in with AzureAD, the profiles will be merged. The new profile will have both the content of the Live ID profile plus the fields from the Microsoft Graph profile.
 
 The `strategy_version` will be set to '2' for users that last logged in with Azure AD, to '1' for users that logged in with Live SDK recently, and will not be present for users that did not login recently. You can use this field to better interpret the profile content.
 
-Note that the `user_id` will be the same regardless of the API used to integrate with Microsoft.
+Note that the `user_id` field will be the same regardless of the API used to connect with Microsoft.
  
 **Permissions**
 
-Auth0 lets you select which permissions you want to ask from the Microsoft Graph APIs. The ones that Live SDK and Microsoft Graph support might provide similar functionality, but the data returned by them and its format may be completely different. See [Migrating from Live SDK - Permissions](https://docs.microsoft.com/en-us/onedrive/developer/rest-api/concepts/migrating-from-live-sdk?view=odsp-graph-online#permissions) to understand what changes are required in your code.
+Auth0 lets you select which permissions you want to ask from the Microsoft Graph APIs. The ones that Live SDK and Microsoft Graph support might provide similar functionality, but the data returned by them and their format may be completely different. See [Migrating from Live SDK - Permissions](https://docs.microsoft.com/en-us/onedrive/developer/rest-api/concepts/migrating-from-live-sdk?view=odsp-graph-online#permissions) to understand what changes are required in your code.
 
 | Live SDK | Microsoft Graph |
 |----------|-----------------|
