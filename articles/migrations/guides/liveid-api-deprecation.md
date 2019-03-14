@@ -1,6 +1,6 @@
 ---
-title: Migration to LinkedIn API V2
-description: This article covers the LinkedIn API deprecation and how to update your Auth0 LinkedIn Connection.
+title: Migration to Azure AD Personal Accounts
+description: This article covers the Live Connect + SDK deprecation and how to update your Auth0 Microsoft Account Connection.
 toc: true
 contentType:
   - how-to
@@ -22,7 +22,7 @@ You can decide if Auth0 uses Live Connect + Live SDK or Azure AD + Microsoft Gra
 
 ![New Microsoft Connection Settings](/media/articles/connections/social/microsoft-account/microsoft-account-azureid.png)
 
-You need to switch to 'Azure AD (personal accounts)' to ensure your applications will keep working after Microsoft decommissions the endpoint.
+You need to switch to 'Azure AD (personal accounts)' to ensure your applications will keep working after Microsoft decommissions the API.
 
 **User Profile**
 
