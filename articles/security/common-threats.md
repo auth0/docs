@@ -33,18 +33,21 @@ With the configuration of TLS on your servers we suggest using the [Mozilla OpSe
 
 ## Replay attacks
 
-Another type of attacks is a replay attacks, also sometimes called a playback attack. With this type of network attack an attacker spies on a data exchange such as a login authentication, then the attacker takes this information to the receiver. This does not necessarily happen in real-time. With a replay attack the attacker gives the proof of identity by impersonating a user with stolen credentials.
+Replay attacks help attackers gain access to a network and information which would not have been easily accessible or complete a duplicate transaction. These are attacks on the security protocol using replays of data transmission from a different sender into the intended receiving system. The attacks fool the participants into believing they have successfully completed the data transmission. 
+
+A replay attack is also known as a playback attack.
 
 ### Preventing Replay attacks
 
-Replay attacks are usually avoided by using session tokens. But if these credentials are stolen from local storage (such as from an XSS attack), there are alternatives that you could use to avoid someone having infinite tokens:
+Replay attacks are usually avoided by using session tokens. However, if these credentials are stolen from local storage (like an XSS attack), there are alternatives that you can use to avoid someone having infinite tokens:
 
-1. Set expirations for tokens
-2. Provide a way to blacklist tokens that have been used (perhaps even a user)
+* Set expirations for tokens
+* Provide a way to blacklist tokens that have been used (perhaps even a user)
+* Use one-time passwords
 
-The [JWT](/jwt) spec provides the `jti` field as a way to prevent replay attacks. Though Auth0 tokens currently don't return a jti, you can blacklist a jti to prevent a token being used more than X times. In this way you are kind of implementing a nonce (think of the token's signature as the nonce). If a token gets stolen, it should be blacklisted (or the nth token that has been issued after it) and wait for it to expire. Once it expires the attacker will no longer be able to impersonate the user.
+The [JWT](/jwt) spec provides the `jti` field as a way to prevent replay attacks. Though Auth0 tokens currently don't return a jti, you can blacklist a jti to prevent a token being used more than X times. In this way you are implementing a kind of nonce (think of the token's signature as the nonce). If a token gets stolen, it should be blacklisted (or the nth token that has been issued after it) and wait for it to expire. Once it expires the attacker will no longer be able to impersonate the user.
 
-Replay attacks can also be avoided by using one-time passwords. With Auth0 you can use [Passwordless Authentication](/passwordless) and only use one-time passwords instead of traditional passwords. Auth0 also provides [Multi-factor Authentication](multifactor-authentication) which uses one-time passwords as a 2nd factor authentication which can be sent via push notifications, texts and more.
+You can also avoid replay attacks by using one-time passwords. With Auth0, you can use [Passwordless Authentication](/passwordless) and use one-time passwords instead of traditional passwords. Auth0 also provides [Multi-factor Authentication](multifactor-authentication) which uses one-time passwords as a second-factor authentication which can be sent via push notifications and texts.
 
 ## Cross-site Request Forgery
 
