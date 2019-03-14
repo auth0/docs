@@ -98,7 +98,7 @@ Key differences are:
 
 If a user that has previously logged in with Live Connect logs in with AzureAD, the profiles will be merged. The new profile will have both the content of the Live ID profile plus the fields from the Microsoft Graph profile.
 
-The `strategy_version` will be set to '2' for users that last logged in with Azure AD, to '1' for users that logged in with Live SDK recently, and will not be present for users that did not login recently. You can use this field to better interpret the profile content.
+The `strategy_version` will be set to '2' for users that last logged in with Azure AD, to '1' for users that logged in with Live Connect recently, and will not be present for users that did not login recently. You can use this field to better interpret the profile content.
 
 Note that the `user_id` field will be the same regardless of the API used to connect with Microsoft.
  
