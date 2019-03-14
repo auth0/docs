@@ -50,13 +50,13 @@ This error appears if you haven't provided the necessary information to support 
 3. Switch to the *IdP-Initiated* tab.
 4. Select the **Default Application** and the **Response Protocol** used by that Application, and (optionally) specify any additional parameters you want passed to the Application.
 
-::: note
+::: panel SP-Initiated Login
 If you see this error when using a SP-initiated flow, one of the following is missing or empty:
 
 * The `RelayState` parameter
 * The `InResponseTo` attribute in the SAML response
 
-If these are missing or empty, Auth0 treats the login as idP-initiated. You can fix this error by checking your configuration to ensure that both fields are populated and returned appropriately.
+If these are missing or empty, Auth0 treats the login as IdP-initiated. You can fix this error by checking your configuration to ensure that both fields are populated and returned appropriately.
 :::
 
 ## Error: Missing RelayState
