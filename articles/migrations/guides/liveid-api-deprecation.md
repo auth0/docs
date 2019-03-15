@@ -11,12 +11,14 @@ useCase:
 
 # Microsoft Account Migration to Azure AD (personal accounts) + Microsoft Graph
 
-In October 2017, Microsoft announced the [deprecation of the Live Connect API and Live SDK](https://developer.microsoft.com/en-us/office/blogs/outlook-rest-api-v1-0-office-365-discovery-and-live-connect-api-deprecation). This is a Microsoft deprecation that will affect Auth0 users using the Microsoft social connection, and requires changes in the Auth0 configuration and potentially application code. 
+In October 2017, Microsoft announced the [deprecation of the Live Connect API and Live SDK](https://developer.microsoft.com/en-us/office/blogs/outlook-rest-api-v1-0-office-365-discovery-and-live-connect-api-deprecation). This is a Microsoft deprecation that will affect Auth0 users using the Microsoft social connection. The change implies switching how Auth0 interacts with the Microsoft authentication APIs, and it might imply changes in customers application's code.
 
 The change implies switching:
 
-- from the Live Connect API to the Azure Active Directory API to authenticate
-- from the Live SDK to Microsoft Graph to be able to get other resources including user profiles, contacts, files, etc
+- From the Live Connect API to the Azure Active Directory v2 and OIDC protocol for Microsoft Account authentication
+- From the Live SDK to Microsoft Graph to be able to get other resources including user profiles, contacts, files, etc
+
+Note that even though Azure AD is used, this connection type will only accept personal accounts. For work or school accounts you should use the enterprise Azure AD connection type.
 
 You can decide if Auth0 uses Live Connect + Live SDK or Azure AD + Microsoft Graph using the 'Strategy Version' field in the Microsoft Account connection settings page. 
 
@@ -33,8 +35,8 @@ The profile that can be accessed through Microsoft Graph provides different user
 
 | Field  |  Live SDK |  Microsoft Graph  |
 |--------|---------------|------------------|
-|  picture | Returned a URL for the user picture | Auth0 will build a URL that will return a default picture for the user based on their initials. To get the actual image you need to [download it using Microsoft Graph](https://docs.microsoft.com/en-us/graph/api/profilephoto-get?view=graph-rest-1.0)|
-| locale | Returned a string in the format en_US | Not available. |
+|  picture | Returned a URL for the user picture | Auth0 will build a URL that will return a default picture for the user based on their initials |
+| locale | Returned a string in the format en_US | Not available |
 
 ***Raw Profile***
 
@@ -106,10 +108,13 @@ Note that the `user_id` field will be the same regardless of the API used to con
 
 Auth0 lets you select which permissions you want to ask from the Microsoft Graph APIs. The ones that Live SDK and Microsoft Graph support might provide similar functionality, but the data returned by them and their format may be completely different. See [Migrating from Live SDK - Permissions](https://docs.microsoft.com/en-us/onedrive/developer/rest-api/concepts/migrating-from-live-sdk?view=odsp-graph-online#permissions) to understand what changes are required in your code.
 
-| Live SDK | Microsoft Graph |
-|----------|-----------------|
-|**Attributes**|**Permissions**|
-|Basic Profile REQUIRED        |User (Read) REQUIRED |
+
+The table below lists the permissions available for each one. They are not equivalent. When you switch the connection method, the permissions will be reset. 
+
+| Live SDK                     | Microsoft Graph             |
+|------------------------------|-----------------------------|
+|**Attributes**                |**Permissions**              |  
+|Basic Profile REQUIRED        |User (Read) REQUIRED         |
 |Email Addresses               |Offline Access  |
 |Postal Addresses              |User (Read/Write)  |
 |Birthday Date                 |User Activity (Read/Write)  |
