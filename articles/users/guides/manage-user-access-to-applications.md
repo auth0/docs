@@ -13,7 +13,7 @@ All users associated with a single Auth0 tenant are shared between the tenant's 
 
 1. Click on tenant name on top right of the dashboard and select **+ Create Tenant** . If you have multiple tenants, you can easily switch between them from the tenants menu.
 
-2. To restrict some users' access to certain applications, you can use [rules](/rules). Inside a rule, the `context.clientName` and `context.clientID` variables are available to check which application the user is using for login. See [this rule for an example](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md).
+2. To restrict some users' access to certain applications, you can use [rules](/rules). Inside a rule, the `context.clientName` and `context.clientID` variables are available to check which application the user is using for login. See [this rule for an example](https://github.com/auth0/rules/blob/aeaf93bc058408e260192d0941a688963449d6be/src/rules/simple-user-whitelist-for-app.js).
 
 3. To restrict users from applications by configuring a new connection and only giving access to a specific application. 
 

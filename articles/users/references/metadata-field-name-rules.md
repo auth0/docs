@@ -91,7 +91,7 @@ The following fields may not be stored in the `app_metadata` field:
 
 Currently, Auth0 limits the total size of your user metadata to **16 MB**. However, when using Rules and/or the Management Dashboard, your metadata limits may be lower.
 
-When setting the `user_metadata` field with the [Authentication API Signup endpoint](/api/authentication?javascript#signup), your metadata is limited to a maximum of 10 fields and 500 characters.
+When setting the `user_metadata` field with the [Authentication API Signup endpoint](/api/authentication?javascript#signup), your metadata is limited to a maximum of 10 fields and 500 characters per field. The 500 character limit includes the name of the field.
 
 <%= include('../../_includes/_metadata_on_signup_warning') %>
 

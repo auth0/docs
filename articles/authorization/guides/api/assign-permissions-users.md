@@ -23,7 +23,7 @@ Adding permissions directly to a user circumvents the benefits of [role-based ac
 
 <%= include('../../_includes/_enable-authz-core') %>
 
-1. Make a `POST` call to the [Assign User Permissions endpoint](/api/management/v2#!/users/post_user_permissions). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, `API_ID`, and `PERMISSION_NAME` placeholder values with your user ID, Access Token, API ID(s), and permission name(s), respectively.
+1. Make a `POST` call to the [Assign User Permissions endpoint](/api/management/v2#!/users/post_user_permissions). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, `API_IDENTIFIER`, and `PERMISSION_NAME` placeholder values with your user ID, Access Token, API Identifier(s), and permission name(s), respectively.
 
 ```har
 {
@@ -36,7 +36,7 @@ Adding permissions directly to a user circumvents the benefits of [role-based ac
 	],
 	"postData": {
     "mimeType": "application/json",
-    "text": "{ \"permissions\": [ { \"resource_server_identifier\": \"API_ID\", \"permission_name\": \"PERMISSION_NAME\" }, { \"resource_server_identifier\": \"API_ID\", \"permission_name\": \"PERMISSION_NAME\" } ] }"
+    "text": "{ \"permissions\": [ { \"resource_server_identifier\": \"API_IDENTIFIER\", \"permission_name\": \"PERMISSION_NAME\" }, { \"resource_server_identifier\": \"API_IDENTIFIER\", \"permission_name\": \"PERMISSION_NAME\" } ] }"
   }
 }
 ```
@@ -45,5 +45,5 @@ Adding permissions directly to a user circumvents the benefits of [role-based ac
 | - | - |
 | `USER_ID` | Τhe ID of the user for whom you want to assign permissions. |
 | `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the scope `update:users`. |
-| `API_ID` | ID(s) of the API(s) associated with the permission(s) you would like to assign for the specified user. |
+| `API_IDENTIFIER` | Identifier(s) of the API(s) associated with the permission(s) you would like to assign for the specified user. |
 | `PERMISSION_NAME` | Name(s) of the permission(s) you would like to assign for the specified user. |
