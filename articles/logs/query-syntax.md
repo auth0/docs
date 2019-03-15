@@ -40,7 +40,7 @@ The following list of fields are searchable and case sensitive:
 * `user_name`: The user name related to the event.
 * `description`: The description of the event.
 * `user_agent`: The user agent that is related to the event.
-* `type`: One of the [possible event types](#log-data-event-listing).
+* `type`: One of the [possible event types](/logs#log-data-event-listing).
 * `strategy`: The connection strategy related to the event.
 * `strategy_type`: The connection strategy type related to the event.
 * `hostname`: the hostname that is being used for the authentication flow.

@@ -1,5 +1,6 @@
 ---
-title: Using Passwordless Authentication on a Single Page Application
+title: Implement Passwordless in Single-Page Apps
+description: Learn how to authenticate users without using a password in a Single-Page Application (SPA).
 topics:
     - connections
     - passwordless
@@ -7,18 +8,18 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Using Passwordless Authentication on a SPA
+# Implement Passwordless in Single-Page Apps
 
 <!-- markdownlint-disable -->
 
-<%= include('./_introduction', { withFingerprint: false }) %>
+<%= include('./_includes/_introduction', { withFingerprint: false }) %>
 
-## Tutorials for Single-page Applications
+## Tutorial for Single-Page Apps
 
  - [Authenticate users with a one-time code via SMS](/connections/passwordless/spa-sms)
  - [Authenticate users with a one-time code via email](/connections/passwordless/spa-email-code)
  - [Authenticate users with a magic link via email](/connections/passwordless/spa-email-link)
 
 ::: note
-Sample applications are available in the [jQuery Passwordless Authentication repository](https://github.com/auth0/auth0-jquery-passwordless-sample) on GitHub.
+Sample applications are available in the [jQuery Passwordless Authentication repo](https://github.com/auth0/auth0-jquery-passwordless-sample) on GitHub.
 :::

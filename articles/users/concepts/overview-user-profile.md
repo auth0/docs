@@ -88,7 +88,7 @@ The information contained in a user profile and in an ID Token can be modified i
 
 * [**Custom database scripts**](/connections/database/custom-db/templates): If a custom database is used as the connection, you can write scripts to implement lifecycle events such as create, login, verify, delete and change password. Auth0 provides templates for these scripts that you can modify for the particular database and schema.
 
-* [**Rules**](/rules/metadata-in-rules)): Rules execute after a user has been authenticated. Use Rules to augment the user profile during the authentication transaction, and optionally persist those changes back to Auth0. 
+* [**Rules**](/rules/metadata-in-rules): Rules execute after a user has been authenticated. Use Rules to augment the user profile during the authentication transaction, and optionally persist those changes back to Auth0. 
 
 ## User profile attribute mapping
 

@@ -10,44 +10,47 @@ useCase:
 ---
 # Google Analytics for Auth0
 
-This article explains how to install and configure the **Google Analytics for Auth0** integration. You can use this integration on your own page that is using Lock or you can use this on the hosted Lock pages. Additionally, you will find instructions on how to configure funnels and reports inside of Google Analytics to get the most out of this integration.
+This article explains how to install and configure the **Google Analytics for Auth0** integration. You can use this integration on your own page that is using Lock or you can use this as part of a [customized Universal Login page](/universal-login#advanced-customization).
 
-<%= include('../_install', { name: "Google Analytics" }) %>
+Additionally, you will find instructions on how to configure funnels and reports inside of Google Analytics to get the most out of this integration.
 
-## Setup
+## Setup and install
 
-There are several ways you can use the Google Analytics integration. If you already have the Google Analytics Script on your site, configure Auth0 Analytics with the `preload` option as shown below. If you don't have Google Analytics loaded you need to set your Google Analytics ID using the Google Analytics configuration below.
+To add the Google Analytics integration to your app:
 
-### Google Analytics Script Already Loaded (Recommended)
+1. Set your Analytics configuration options
+2. Include a reference to the `auth0-analytics.js` script on your Login pages/pages with Auth0 Lock
 
-If you have already loaded the Google Analytics script loaded on your site, configure Auth0 Analytics to not load it again as shown below.
+### Step 1: Set your Analytics configuration options
 
-```
+First, set your Analytics configuration options. You must set this *before* you include the references to the Lock and Auth0 Analytics libraries (which we cover in the section immediately following).
+
+```javascript
 <script>
 window.auth0AnalyticsOptions = {
   'google-analytics': {
+    id: 'YOUR_GA_ID',
     preloaded: true
   }
 }
 </script>
 ```
 
-### No Google Analytics Script
+### Step 2: Include the script reference to auth0-analytics.js
 
-If you are not using Google Analytics already you can have the Auth0 Analytics script load Google Analytics for you. To do this you need to set your Google Analytics ID in the options as shown below.
+Next, include the script reference to the `auth0-analytics.js`. This needs to be included **after** the call to Lock.
 
+```javascript
+<script src="${lock_url}"></script>
+<script src="https://cdn.auth0.com/js/analytics/X.Y.Z/analytics.min.js"></script>
 ```
-<script>
-window.auth0AnalyticsOptions = {
-  'google-analytics': {
-    id: 'YOUR_GA_ID'
-  }
-}
-</script>
-```
+
+::: note
+The script version above uses a placeholder version `X.Y.Z`. For example, to reference release 1.3.1 use `https://cdn.auth0.com/js/analytics/1.3.1/analytics.min.js`. You can [find the latest release's version number](https://github.com/auth0/auth0-analytics.js/releases/) on GitHub.
+:::
 
 <%= include('../_usage', { name: "Google Analytics" }) %>
 
 ## Reporting
 
-For the most up to date information on using Google Analytics, check out the [Google Analytics documentation](https://support.google.com/analytics).
+For the most up-to-date information on using Google Analytics, see the [Google Analytics documentation](https://support.google.com/analytics).

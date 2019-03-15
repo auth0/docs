@@ -67,3 +67,15 @@ Please note that the user is never shown a login screen at any point during the 
 Currently, SSO is only possible with native platforms (such as iOS or Android) if the application uses the Universal Login for authentication.
 
 The [Swift](/quickstart/native/ios-swift/00-login) and [Android](/quickstart/native/android/00-login) quickstarts provide some examples of usage of Universal Login for authentication from their respective platforms.
+
+## SSO login session management on legacy tenants
+
+In addition to the settings available under tenant settings, legacy tenants may see slightly different options available for SSO under [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
+
+While all new Auth0 tenants come with seamless SSO enabled, legacy tenants may choose whether to enable this feature. If you do not choose to **Enable Seamless SSO**, you have an additional setting available to you under Application Settings.
+
+To see this, navigate to the Applications section of the [Dashboard](${manage_url}/#/applications). Click on **Settings** (represented by the gear icon) for the application with which you're working. Scroll to the bottom of the page and click **Show Advanced Settings**.
+
+![SSO Client Dashboard](/media/articles/sso/single-sign-on/clients-dashboard.png)
+
+You have the option to enable or disable the **Use Auth0 instead of the IdP to do Single Sign On** feature.

@@ -59,4 +59,4 @@ Rules execute in the order shown on the Auth0 Dashboard. If a rule depends on th
 
 For security reasons, your Rules code executes isolated from the code of other Auth0 tenants in a sandbox. 
 
-Within the sandbox, you can access the full power of Node.js with a large number of Node.js modules. For a list of currently supported sandbox modules, see [Node.js Modules Available in Rules](/rules/references/modules)
+<%= include('./_includes/_supported-modules.md') %> 

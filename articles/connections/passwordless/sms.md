@@ -1,5 +1,6 @@
 ---
-title: SMS Passwordless Authentication
+title: Implement Passwordless SMS Authentication
+description: Learn how to authenticate users with a one-time-code sent by SMS.
 connection: SMS
 url: /connections/passwordless/sms
 image:
@@ -14,17 +15,17 @@ contentType: how-to
 useCase: customize-connections
 ---
 
-# Authenticate users with a one-time code via SMS
+# Implement Passwordless SMS Authentication
 
-<%= include('./_introduction-sms', { isMobile: false }) %>
+<%= include('./_includes/_introduction-sms', { isMobile: false }) %>
 
 ## Setup
 
-<%= include('./_setup-sms-twilio') %>
+<%= include('./_includes/_setup-sms-twilio') %>
 
 ## Web Tutorials
 
-- [Single-page Applications](/connections/passwordless/spa-sms)
+- [Single-Page Applications (SPAs)](/connections/passwordless/spa-sms)
 - [Regular Web Applications](/connections/passwordless/regular-web-app-sms)
 
 ## Mobile Tutorials

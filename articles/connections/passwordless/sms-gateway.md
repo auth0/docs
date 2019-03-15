@@ -1,5 +1,5 @@
 ---
-title: Send one time codes via your own SMS Gateway
+title: Send One-time Codes via Your Own SMS Gateway
 topics:
     - connections
     - passwordless
@@ -7,16 +7,17 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
+# Send One-Time Codes via Your Own SMS Gateway
 
-# Send one time codes via your SMS Gateway
+By default, the SMS connection uses Twilio to send the one-time code. If you already have your own infrastructure to send text messages, you cannot or might not want to use Twilio.
 
-By default, the SMS connection will use Twilio to send the one time code. If you already have your infrastructure to send text messages cannot or might not want to use Twilio.
-
-Instead, you'll want your infrastructure to handle the delivery of these one time codes.
+Instead, you'll want your own infrastructure to handle the delivery of one-time codes.
 
 ## Configure your SMS Gateway
 
-The configuration of your SMS Gateway currently needs to happen through the Management API. You would first need to get your connections (strategy: `sms`) from the [GET connections endpoint](/api/v2#!/Connections/get_connections).
+You will need to configure your own SMS Gateway through the Management API. 
+
+1. Get your connections (strategy: `sms`) from the [GET connections endpoint](/api/v2#!/Connections/get_connections).
 
 This will return your SMS connection with your Twilio settings:
 
@@ -49,7 +50,7 @@ This will return your SMS connection with your Twilio settings:
 ]
 ```
 
-You can now modify the options of the connection:
+2. Modify the options of the connection:
 
  - `provider`: Set this to `sms_gateway`
  - `gateway_url`: Set this to the URL of your SMS Gateway. Note that Auth0 must be able to reach it for this to work.
@@ -75,7 +76,7 @@ You can now modify the options of the connection:
 }
 ```
 
-You can then send the updated configuration to the Management API using the [PATCH connections endpoint](/api/v2#!/Connections/patch_connections_by_id).
+3. Send the updated configuration to the Management API using the [PATCH connections endpoint](/api/v2#!/Connections/patch_connections_by_id).
 
 After updating the connection for any user that signs up or authenticates using the Passwordless SMS connection, the following payload will be sent to your SMS gateway:
 
@@ -151,4 +152,4 @@ The previous settings assume your SMS Gateway accepts non-authenticated requests
 
 With this configuration, when the payload is sent to the SMS Gateway, a JWT will be added to the `Authorization` header which contains a token with the `subject` and `audience` configured in the connection and signed with the `secret`.
 
-Additionally, if your secret is base64 url encoded you can set `options.secret_base64_encoded` to `true`.
+Additionally, if your secret is base64-url-encoded, you can set `options.secret_base64_encoded` to `true`.
