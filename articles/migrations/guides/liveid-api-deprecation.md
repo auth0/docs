@@ -26,6 +26,13 @@ You can decide if Auth0 uses Live Connect + Live SDK or Azure AD + Microsoft Gra
 
 You need to switch to 'Azure AD (personal accounts)' to ensure your applications will keep working after Microsoft decommissions the API.
 
+**Microsoft Application Registration**
+
+Depending on when you created your Live SDK application, it might or not support Azure Active Directory v2. If it's not supported, you will need to create a different application and update your Client ID and Client Secret in the Auth0 Microsoft connection settings. 
+
+For more information, check [Microsoft's documentation])https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-registration-portal).
+
+
 **User Profile**
 
 The profile that can be accessed through Microsoft Graph provides different user profile information compared to the Live Connect and Live SDK user profile. In particular, some of the user profile fields that were previously available are not available anymore:
@@ -102,7 +109,7 @@ If a user that has previously logged in with Live Connect logs in with AzureAD, 
 
 The `strategy_version` will be set to '2' for users that last logged in with Azure AD, to '1' for users that logged in with Live Connect recently, and will not be present for users that did not login recently. You can use this field to better interpret the profile content.
 
-Note that the `user_id` field will be the same regardless of the API used to connect with Microsoft.
+Note that the `user_id` field will be the same regardless of the API used to connect with Microsoft, even if you had to create another application to use Azure Active Directory v2.
  
 **Permissions**
 
