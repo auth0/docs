@@ -38,6 +38,8 @@ Make sure you use the following settings:
 | Authorized JavaScript origins | `https://${account.namespace}` |
 | Authorized redirect URIs | `https://${account.namespace}/login/callback` |
 
+<%= include('../_find-auth-domain-redirects') %>
+
 ::: warning
 If your application requests sensitive OAuth scopes, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
 :::
