@@ -130,9 +130,11 @@ Be sure to **Save** your changes. Note that clicking **Try** to test your script
 
 Depending on your custom database script, you may return a user profile to Auth0 apps. This profile includes the user metadata fields. The **app_metadata** field(s) should be [referred to as **metadata** in scripts for custom databases](/users/concepts/overview-user-metadata#metadata-and-custom-databases).
 
-### IdP tokens
+### Identity Provider (IdP) Tokens
 
 The properties `access_token` and `refresh_token` (if returned in the `user` object) are handled in a different way. These will be stored under the `identities` properties in the `user` object and will require the additional `read:user_idp_tokens` scope to retrieve them using the API. 
+
+If the `user` object returns the `access_token` and `refresh_token` properties, Auth0 handles these slightly differently from other pieces of user information. They will be stored in the `user` object's `identities` property, and retrieving them using the API, therefore, requires an additional scope: `read:user_idp_tokens`.
 
 ```
 {
