@@ -38,6 +38,8 @@ Make sure you use the following settings:
 | Authorized JavaScript origins | `https://${account.namespace}` |
 | Authorized redirect URIs | `https://${account.namespace}/login/callback` |
 
+<%= include('../_find-auth0-domain-redirects) %>
+
 ::: warning
 If your application requests sensitive OAuth scopes, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
 :::
@@ -54,6 +56,6 @@ If your application requests sensitive OAuth scopes, it may be [subject to revie
   "idp": "Google"
 }) %>
 
-6. Optional: Get a [Refresh Token](/tokens/refresh-token/current#get-a-refresh-token) from Google to refresh your Access Token once it expires. To ensure your application is secure, pay close attention to the [restrictions on using Refresh Tokens](/current#restrictions-on-refresh-token-usage).
+6. Optional: Get a [Refresh Token](/tokens/refresh-token/current#get-a-refresh-token) from Google to refresh your Access Token once it expires. To ensure your application is secure, pay close attention to the [restrictions on using Refresh Tokens](/tokens/refresh-token/current#restrictions-on-refresh-token-usage).
 
 <%= include('../_quickstart-links.md') %>
