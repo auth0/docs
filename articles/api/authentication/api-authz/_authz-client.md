@@ -51,6 +51,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's ID. |
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the application adds to the initial request that Auth0 includes when redirecting the back to the application. This value must be used by the application to prevent CSRF attacks. |
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `connection` | The name of the connection configured to your application. |
 | `prompt` | To initiate a [silent authentication](/api-auth/tutorials/silent-authentication) request, use `prompt=none` (see Remarks for more info). |
 
 ### Test with Authentication API Debugger
@@ -122,6 +123,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `code_challenge_method` <br/><span class="label label-danger">Required</span> | Method used to generate the challenge. The PKCE spec defines two methods, `S256` and `plain`, however, Auth0 supports only `S256` since the latter is discouraged. |
 | `code_challenge` <br/><span class="label label-danger">Required</span> | Generated challenge from the `code_verifier`. |
+| `connection` | The name of the connection configured to your application. |
 | `prompt` | To initiate a [silent authentication](/api-auth/tutorials/silent-authentication) request, use `prompt=none` (see Remarks for more info). |
 
 
