@@ -16,7 +16,7 @@ useCase: customize-connections
 
 <%= include('../../_includes/_native_passwordless_warning') %>
 
-<%= include('./_introduction', { withFingerprint: false }) %>
+<%= include('./_includes/_introduction', { withFingerprint: false }) %>
 
 ## Tutorials for Android
 

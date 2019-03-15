@@ -1,6 +1,6 @@
 ---
-title: Email Passwordless Authentication
-connection: Email
+title: Implement Passwordless Email Authentication
+description: Learn how to authenticate users with either a one-time-code or a magic link sent by SMS.
 alias:
   - email
 seo_alias: email
@@ -12,15 +12,15 @@ contentType: how-to
 useCase: customize-connections
 ---
 
-# Authenticate users with using Passwordless Authentication via Email
+# Implement Passwordless Email Authentication
 
-<%= include('./_introduction-email', { isMobile: false }) %>
+<%= include('./_includes/_introduction-email', { isMobile: false }) %>
 
 ## Setup
 
-<%= include('./_setup-email') %>
+<%= include('./_includes/_setup-email') %>
 
-## Single-page Application Tutorials
+## Single-Page Application Tutorials
 
  - [Authenticate users with a one-time code via email](/connections/passwordless/spa-email-code)
  - [Authenticate users with a magic link via email](/connections/passwordless/spa-email-link)

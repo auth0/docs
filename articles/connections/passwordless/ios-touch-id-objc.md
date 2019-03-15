@@ -26,4 +26,4 @@ This feature is disabled for new tenants as of June 8th 2017. Any tenant created
 For an alternative approach, using the [Credentials Manager](https://github.com/auth0/Auth0.swift/blob/master/Auth0/CredentialsManager.swift) utility in Auth0.swift, refer to [Touch ID Authentication](/libraries/lock-ios/v2/touchid-authentication).
 :::
 
-<%= include('./_using-lock-ios-touchid', { language: 'objc' }) %>
+<%= include('./_includes/_using-lock-ios-touchid', { language: 'objc' }) %>

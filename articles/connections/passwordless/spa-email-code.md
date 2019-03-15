@@ -1,6 +1,6 @@
 ---
-title: Using Passwordless Authentication with a one-time code via email on SPA
-description: Learn how to authenticate users with a one-time-code using email in a Single Page Application (SPA).
+title: Implement Passwordless Email in Single-Page Apps
+description: Learn how to authenticate users with a one-time code sent by email in a Single-Page Application (SPA).
 topics:
     - connections
     - passwordless
@@ -9,21 +9,21 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Using Passwordless Authentication in SPA with Email
+# Implement Passwordless Email in Single-Page Apps
 
-<%= include('_introduction-email', { isMobile: false }) %>
+<%= include('./_includes/_introduction-email', { isMobile: false }) %>
 
 ## Setup
 
-<%= include('_setup-email') %>
+<%= include('./_includes/_setup-email') %>
 
-<%= include('_setup-cors') %>
+<%= include('./_includes/_setup-cors') %>
 
 ## Implementation
 
 ### Use Lock (the Auth0 UI widget)
 
-<%= include('_init-passwordless-lock') %>
+<%= include('./_includes/_init-passwordless-lock') %>
 
 Then you can trigger the login with the following code:
 
@@ -51,7 +51,7 @@ Then you can trigger the login with the following code:
 <a href="javascript:login()">Login</a>
 ```
 
-<%= include('./_custom-domains') %>
+<%= include('./_includes/_custom-domains') %>
 
 First, this will open a dialog that asks the user for their email address:
 
@@ -77,7 +77,7 @@ Once the user enters the code received by email, Lock will authenticate them and
 
 You can perform passwordless authentication in your SPA with your own custom UI using the [Auth0 JavaScript SDK](/libraries/auth0js).
 
-<%= include('_init-auth0js_v9', {redirectUri:true} ) %>
+<%= include('./_includes/_init-auth0js_v9', {redirectUri:true} ) %>
 
 Be sure to provide a `redirectUri` and to set the `responseType: 'token'`.
 

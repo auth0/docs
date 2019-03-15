@@ -20,7 +20,7 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Using Passwordless on iOS with TouchID
+# Implement Passwordless with iOS and TouchID
 
 <!-- markdownlint-disable -->
 
@@ -32,4 +32,4 @@ Touch ID with Auth0 has been deprecated. This document is offered as reference f
 For an alternative approach, using the [Credentials Manager](https://github.com/auth0/Auth0.swift/blob/master/Auth0/CredentialsManager.swift) utility in Auth0.swift, refer to [Touch ID Authentication](/libraries/auth0-swift/touchid-authentication).
 :::
 
-<%= include('./_using-lock-ios-touchid', { language: 'swift' }) %>
+<%= include('./_includes/_using-lock-ios-touchid', { language: 'swift' }) %>
