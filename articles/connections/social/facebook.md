@@ -31,8 +31,8 @@ While setting up your app, make sure you use the following settings:
 
 <%= include('../_find-auth0-domain-redirects) %>
 
-::: note
-Be sure to submit your app for review to make your app public.
+::: warning
+If your application requests sensitive permissions, it may be [subject to review by Facebook](https://developers.facebook.com/docs/apps/review/). Only the `default` and `email` permissions do not currently require app review. For info on Facebook permissions, see Facebook's [Facebook Login Permissions Reference](https://developers.facebook.com/docs/facebook-login/permissions/).
 :::
 
 2. [Set up the Facebook social connection](/connections/guides/set-up-connections-social) in Auth0. Make sure you have the App ID and App Secret generated in Step 1.
