@@ -90,7 +90,7 @@ Also, more than often the email which receives the receipt is the one that creat
 
 For US-based customers, we will charge sales tax where applicable. This is dependent on your state's sales tax laws and requirements. For non-US customers, we will not charge sales tax.
 
-You can determine if you will be responsible for sales tax during the checkout process after you provide your billing address. If your company is US-based and the address provided tax-eligible, you'll see the sales tax added to your total. You will also see the sales tax amount on all of your Auth0 invoices and receipts.
+You can determine if you will be responsible for sales tax during the checkout process after you provide your billing address. If the billing address provided is tax-eligible, you'll see the sales tax added to your total. You will also see the sales tax amount on all of your Auth0 invoices and receipts.
 
 ## In our pricing, what is the difference between internal and external users? Are they different technically?
 
