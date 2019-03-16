@@ -19,6 +19,22 @@ useCase: quickstart
 
 ## Validate Access Tokens
 
+### Enable RBAC
+*Important* if you do not enable RBAC, the check scopes will merely validate that the scope itself is configured on the API but will not actually validate whether the user has been granted those permissions. 
+Note to Auth0: It is very easy to get a false positive from the examples given which indicate a route is secured by a scope when it is actully merely validating the user has been authenticated and the scope declared.
+
+* From the Auth0 dashboard select the relevant API (identifier: http://localhost:3001/scaffold)
+* On the RBAC section of the settings Tab:
+  * Enable "Enable RBAC"
+  * Enable "Add Permissions in the Access Token"
+
+### Assign permissions to your user
+* From the Auth0 dashboard select "Users & Roles" > Users
+* Select the User you wish to grant permission for
+* On the permissions tab select "Assign Permissions"
+* Select the API and assign permissions
+* Now when you login as a user without Permission you should receive a 403
+
 ### Install dependencies
 
 This guide shows you how to validate the token using the [express-jwt](https://github.com/auth0/express-jwt) middleware and how to check for appropriate scopes with the [express-jwt-authz](https://github.com/auth0/express-jwt-authz) middleware. 
