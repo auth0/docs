@@ -29,7 +29,7 @@ While setting up your app, make sure you use the following settings:
 * On the **Facebook Login** > **Settings** page, under **Valid Oauth Redirect URIs**, enter `https://${account.namespace}/login/callback`.
 * On the **Facebook Login** > **Settings** page, you can also set a **Deauthorize Callback URL** that will be called when a user deauthorizes your app.
 
-<%= include('../_find-auth0-domain-redirects) %>
+<%= include('../_find-auth0-domain-redirects') %>
 
 ::: warning
 If your application requests sensitive permissions, it may be [subject to review by Facebook](https://developers.facebook.com/docs/apps/review/). Only the `default` and `email` permissions do not currently require app review. For info on Facebook permissions, see Facebook's [Facebook Login Permissions Reference](https://developers.facebook.com/docs/facebook-login/permissions/).
