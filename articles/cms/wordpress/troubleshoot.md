@@ -24,7 +24,7 @@ In this page, we have collected some of the common troubleshooting questions we 
 
 ### I'm seeing the error message "Invalid state" that prevents me from logging in
 
-State validation is a security feature added in [version 3.6.0](https://github.com/auth0/wp-auth0/releases/tag/3.6.0). A cached callback URL usually causes this error message (see your Application settings for the callback URLs that should not be cached). If this is not the issue or you need more information, please see our detailed [troubleshooting guide](/cms/wordpress/invalid-state). 
+State validation is a security feature added in [version 3.6.0](https://github.com/auth0/wp-auth0/releases/tag/3.6.0). A cached callback URL usually causes this error message (see your Application settings for the callback URLs that should not be cached). If this is not the issue or you need more information, please see our detailed [troubleshooting guide](/cms/wordpress/invalid-state).
 
 ### I'm seeing the error message "Invalid ID token" or "Expired ID token" that prevents me from logging in
 
@@ -40,7 +40,7 @@ This would provide a 60 second leeway. You may need to adjust this depending upo
 
 If you get this error, make sure you are requesting an email from each provider in the Auth0 Dashboard under Connections -> Social (expand each provider). Take into account that not all providers return email addresses for users (e.g., Twitter). If this happens, you can always add an Email address to any logged in user through the Auth0 Dashboard (or API). See Users -> Edit.
 
-For Connections that don't provide an `email_verified` flag (some Enterprise connections will not include this) *or* to skip this validation for specific Social Connections, add the strategy for that Connection in the "Skip Strategies" field. This field is located below the **Require Verified Email** switch accessible via **wp-admin** > **Auth0** > **Settings** > **Advanced**. 
+For Connections that don't provide an `email_verified` flag (some Enterprise connections will not include this) *or* to skip this validation for specific Social Connections, add the strategy for that Connection in the "Skip Strategies" field. This field is located below the **Require Verified Email** switch accessible via **wp-admin** > **Auth0** > **Settings** > **Advanced**.
 
 **This field should only be used if necessary because it circumvents the security precautions recommended Auth0.**
 
@@ -57,7 +57,7 @@ This means that there is a user in WordPress that has the same email as the one 
 
 Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the [Application](${manage_url}/#/applications) settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, review our [docs page on cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) to make sure you don't have third-party cookies turned off.  
 
-### I need to rerun the Setup Wizard, but I don't see that menu option anymore. 
+### I need to rerun the Setup Wizard, but I don't see that menu option anymore.
 
 This means that the plugin is already configured with a Domain, Client ID, and Client Secret. Running the Setup Wizard a second time can have unpredictable results. If you're setting up WordPress for the first time and want to start over before any logins have occurred:
 
@@ -65,11 +65,11 @@ This means that the plugin is already configured with a Domain, Client ID, and C
 1. Delete the Domain and Client ID. Scroll down and click **Save Changes**.
 1. Go to [Auth0 Dashboard > Applications](${manage_url}/#/applications)
 1. Find the Application that was created by WordPress (its name should be the site name of your WordPress site)
-1. Click on the Application to view its settings. Scroll to the bottom of the screen and click the **Delete Application** button. 
+1. Click on the Application to view its settings. Scroll to the bottom of the screen and click the **Delete Application** button.
 1. Go to the [Auth0 Dashboard > Connections > Database](${manage_url}/#/connections/database)
 1. Find the Connection that was created by WordPress (its name should be the site name of your WordPress site prepended with "DB-")
 1. Click on the Connection to view the settings. Scroll down to the bottom, and click **I Want To Delete This Connection*. ***Please note that this will delete the Connection and all users that were created within.***
-1. Return to WordPress. You will now see the Setup Wizard option under Auth0 in the admin menu. 
+1. Return to WordPress. You will now see the Setup Wizard option under Auth0 in the admin menu.
 
 ### How do I setup Passwordless login?
 
@@ -163,7 +163,7 @@ There is a field called "Extra settings" that allows you to add a JSON object wi
 
 ### Database migration does not work
 
-Your server needs to allow inbound connections from Auth0.
+[Please see our specific troubleshooting page](/cms/wordpress/user-migration#troubleshooting).
 
 ### The session expires too soon
 
@@ -187,7 +187,7 @@ Historically, Auth0 has maintained two WordPress plugins:
 These two plugins are effectively the same, but **Social Login with Auth** will not receive any updates past version 3.7.0 (released 13 August 2018). Migrating from **Social Login with Auth** to **Login by Auth0** is simple and won't result in any Auth0 or WordPress data loss.
 
 ::: note
-Moving from **Social Login with Auth** to **Login by Auth0** will update the version number you see, so make sure to test this change out on a staging or development server first (just as you would if you were updating the plugin in wp-admin). Furthermore, logins may not work during the migration process, so be sure to use a maintenance mode plugin or complete the migration during off-peak hours. 
+Moving from **Social Login with Auth** to **Login by Auth0** will update the version number you see, so make sure to test this change out on a staging or development server first (just as you would if you were updating the plugin in wp-admin). Furthermore, logins may not work during the migration process, so be sure to use a maintenance mode plugin or complete the migration during off-peak hours.
 :::
 
 The easiest way to migrate is via (S)FTP:
@@ -215,7 +215,7 @@ If you're unable to access the site via FTP, you can also run the process direct
     1. Click **Choose File**, select the previously-exported JSON file, and click **Import**.
 1. Completely delete the settings file export JSON (it contains sensitive information).
 
-Everything should now be working as expected with the new plugin and updates will resume as usual. 
+Everything should now be working as expected with the new plugin and updates will resume as usual.
 
 ### Keep Reading
 
