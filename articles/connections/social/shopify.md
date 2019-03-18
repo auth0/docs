@@ -14,64 +14,58 @@ useCase:
     - customize-connections
     - add-idp
 ---
-
 # Connect your app to Shopify
 
-To connect your Auth0 app to Shopify, you will need to create an app on the Shopify Partner portal to generate  **API Key** and **Shared Secret**, copy these credentials into your Auth0 settings, and enable the connection.
+To connect your Auth0 app to Shopify, you will need to:
 
-::: panel-warning User profile not available
-Due to Shopify's OAuth implementation, successful user authentication returns the **Shop** profile, not the user profile.
-:::
+1. Create an app on the Shopify Partner portal to generate  **API Key** and **Shared Secret**
+1. Copy your Shopify Partner credentials into your Auth0 settings
+1. Enable the connection.
 
-## 1. Create an app on the Shopify Partner portal
+## Prerequisites
 
-Login to the [Shopify Partner](https://app.shopify.com/services/partners) portal. Select **Apps** in the left nav and click **Create a new app**:
+Before connecting your Auth0 app to Shopify, you must be a [member of the Shopify Partners program](https://www.shopify.com/partners)
 
-![](/media/articles/connections/social/shopify/shopify-devportal-1.png)
+## 1. Create an app using the Shopify Partner Dashboard
 
+You will need to [create a new public application](https://help.shopify.com/en/api/getting-started/authentication/public-authentication#generate-credentials-from-your-partner-dashboard) using your Partner Dashboard.
 
-## 2. Create your app
+During the app creation process, Shopify will ask you for several URIs. Provide the following:
 
-Complete the form. 
+| Field | Value to Provide |
+| - | - |
+| App URL | `https://${manage_url}.auth0.com` |
+| Whitelisted redirection URL(s) | `https://${manage_url}.auth0.com/login/callback` |
 
-In the fields below, enter the following:
+When you've created your app, you'll be directed to your app's overview page, where you'll be shown the **API key** and the **API secret key**. Make note of these values, since you'll need to provide these to Auth0 when creating your new connection.
 
-* **App URL**: `https://YOUR_TENANT.auth0.com`
-* **Redirection URL**: `https://YOUR_TENANT.auth0.com/login/callback`
+## 2. Create your Auth0 connection
 
-![](/media/articles/connections/social/shopify/shopify-devportal-2.png)
+After logging into the Auth0 Dashboard, go to Connections > Social using the left-hand navigation menu.
 
-Click **Create app**.
+Find the **Shopify** box and toggle the switch so that it turns green.
 
-## 3. Get your API Key and Shared Secret
+![]()
 
-On the page that follows, your `API Key` and `Shared Secret` will be displayed. Save these for use in the next step.
+The dialog window to configure your connection appears. Provide the following values
 
-![](/media/articles/connections/social/shopify/shopify-devportal-3.png)
+| Parameter | Description |
+| - | - |
+| API key | The Shopify **API key** you received after creating your Shopify app |
+| Shared secret | The Shopify **API secret key** you received after creating your Shopify app |
+| Shop name | The name of your Shopify store -- usually the first part of your URL, e.g., **shop-name.myshopify.com**
 
-## 4. Enter your API Key and Shared Secret into Auth0
+Finally, select the appropriate **Permissions**. These are the permissions Auth0 will request from the Shopify API to request additional information.
 
-In a separate window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 Dashboard.
+![]()
 
-Select Shopify:
-
-![](/media/articles/connections/social/shopify/shopify-devportal-4.png)
-
-Copy the `API Key` and `Shared Secret` from the Apps page on Shopify into the fields on this page on Auth0.
-
-Enter your **Shop name**. 
-
-Select the **Permissions** you want to enable.
-
-Click **SAVE**.
-
-![](/media/articles/connections/social/shopify/shopify-devportal-5.png)
+When done, scroll to the bottom and click **Save**.
 
 ## 5. Enable the Connection
 
 Go to the **Apps** tab of the Shopify connection on Auth0 and select each of your existing Auth0 apps for which you want to enable this connection:
 
-![](/media/articles/connections/social/shopify/shopify-devportal-6.png)
+![]()
 
 ## 6. Test the connection
 
@@ -83,11 +77,9 @@ A TRY icon will now be displayed next to the Shopify logo:
 
 Click TRY.
 
-Login to your Shopify store.
+Login to your Shopify store, then click **Install app** to allow your app access.
 
-Click **Install app** to allow your app access.
-
-![](/media/articles/connections/social/shopify/shopify-devportal-8.png)
+![]()
 
 If you have configured everything correctly, you will see the It works!!! page:
 
@@ -98,5 +90,3 @@ You can use Shopify's [Multipass](https://help.shopify.com/api/reference/multipa
 :::
 
 <%= include('../_quickstart-links.md') %>
- 
-
