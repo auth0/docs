@@ -210,6 +210,12 @@ The following Auth0 Authentication API endpoints return rate limit-related heade
   </thead>
   <tbody>
   <tr>
+    <td colspan="2">All endpoints</td>
+    <td>(any request)</td>
+    <td>Enterprise</td>
+    <td>100 requests per second</td>
+  </tr>
+  <tr>
     <td rowspan="2">User Profile</td>
     <td>/tokeninfo (legacy)</td>
     <td>IP</td>
