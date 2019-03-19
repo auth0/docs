@@ -3,7 +3,7 @@ title: Add Shopify Login to Your App
 connection: Shopify
 image: /media/connections/shopify.png
 seo_alias: shopify
-description: How to add Shopify Login to Your App
+description: How to add Shopify login to your app
 toc: true
 topics:
   - connections
@@ -14,7 +14,7 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Connect your app to Shopify
+# Add Shopify Login to Your App
 
 This guide will show you how to enable your users to log in to your Auth0 app using their Shopify credentials.
 
