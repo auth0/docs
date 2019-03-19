@@ -39,7 +39,7 @@ When you've created your app, you'll be directed to your app's overview page, wh
 
 ## 2. Create and enable your Auth0 connection
 
-[Set up the Shopify social connection](/connections/guides/set-up-connections-social) in Auth0. Make sure you have the API ID and API secret key Shopify provided to you in Step 1.
+[Set up the Shopify social connection](/connections/guides/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** that Shopify provided to you in Step 1.
 
 ## 3. Test the connection
 
