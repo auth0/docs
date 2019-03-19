@@ -71,10 +71,6 @@ In most cases, we recommend that you use the [Management API](/users/concepts/ov
 
 Please note that your users will need to reset their passwords once you've migrated their accounts to Auth0 using one of the bulk migration processes.
 
-::: panel Best Practice
-<%= include('../_includes/_rate-limit-policy.md') %>
-:::
-
 ### Automatic migration
 
 [Automatic migration](/users/guides/configure-automatic-migration) allows users to be migrated incrementally. Users whose accounts are migrated to Auth0 using this method will not need to reset their passwords afterward. 
