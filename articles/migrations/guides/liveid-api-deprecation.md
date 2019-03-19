@@ -30,7 +30,7 @@ You need to switch to 'Azure AD (personal accounts)' to ensure your applications
 
 Depending on when you created your Live SDK application, it might or not support Azure Active Directory v2. If it's not supported, you will need to create a different application and update your Client ID and Client Secret in the Auth0 Microsoft connection settings. As a rule, if your Client ID looks like `00000000400FFF55`, you'll need to create a new application. 
 
-For more information, check [Microsoft's documentation])https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-registration-portal).
+For more information, check [Microsoft's documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-registration-portal).
 
 
 **User Profile**
