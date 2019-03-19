@@ -115,33 +115,3 @@ Note that the `user_id` field will be the same regardless of the API used to con
 
 Auth0 lets you select which permissions you want to ask from the Microsoft Graph APIs. The ones that Live SDK and Microsoft Graph support might provide similar functionality, but the data returned by them and their format may be completely different. See [Migrating from Live SDK - Permissions](https://docs.microsoft.com/en-us/onedrive/developer/rest-api/concepts/migrating-from-live-sdk?view=odsp-graph-online#permissions) to understand what changes are required in your code.
 
-
-The table below lists the permissions available for each one. They are not equivalent. When you switch the connection method, the permissions will be reset. 
-
-| Live SDK                     | Microsoft Graph             |
-|------------------------------|-----------------------------|
-|**Attributes**                |**Permissions**              |  
-|Basic Profile REQUIRED        |User (Read) REQUIRED         |
-|Email Addresses               |Offline Access  |
-|Postal Addresses              |User (Read/Write)  |
-|Birthday Date                 |User Activity (Read/Write)  |
-|Work Profile                  |Device (Read)|
-|**Permissions**               |Device (Command) |
-|Contacts (Read)               |Mail (Read)  |  
-|Offline Access                |Mail (Read/Write)  |
-|Calendars (Read)              |Calendars (Read)  |
-|Calendars (Read & Write)      |Calendars (Read/Write)| 
-|Contact's Birthday            |Contacts (Read)|
-|Contacts Creation             |Contacts (Read/Write)  |
-|Contacts Calendar             |Files (Read) |
-|Contact's Photos              |Files (Read All) |
-|OneDrive Shared Files (Read)  |Files (Read/Write)|
-|Events Creation               |Files (Read/Write All|
-|Messenger                     |Notes (Read)  |
-|Phone Numbers                 |Notes (Create)        |  
-|Photos                        |Notes (Read/Write)         |
-|Status Update                 |Tasks (Read)          |  
-|OneDrive (Read)               |Tasks (Read/Write)  | 
-|OneDrive (Read & Write)       ||
-|Client ID Access              ||
-|Client ID Creation            ||
