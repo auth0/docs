@@ -35,7 +35,7 @@ For more information, check [Microsoft's documentation](https://docs.microsoft.c
 
 **User Profile**
 
-The profile that can be accessed through Microsoft Graph provides different user profile information compared to the Live Connect and Live SDK user profile. In particular, some of the user profile fields that were previously available are not available anymore:
+Microsoft Graph provides different user profile information compared to the Live Connect and Live SDK user profile. In particular, some of the user profile fields that were previously available are not available anymore:
  
 
 ***OIDC Profile***
