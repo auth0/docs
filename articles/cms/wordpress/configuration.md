@@ -269,7 +269,7 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 * **Extra Settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`). Option name is `extra_conf`.
 
-* **Custom Signup Fields:** This field is the JSON that describes the custom signup fields for lock. It should be a valid JSON and allows the use of functions (for validation). [More info here](/libraries/lock/v11/configuration#additionalsignupfields-array-). Option name is `custom_signup_fields`.
+* **Custom Signup Fields:** This field is the JSON that describes the custom signup fields for Lock. The should be a in the form of JSON and allows the use of functions for validation. [More info on custom signup fields here](/libraries/lock/v11/configuration#additionalsignupfields-array-). Option name is `custom_signup_fields`.
 
 * **Auth0 Server Domain:** The Auth0 domain, it is used by the setup wizard to fetch your account information. Option name is `auth0_server_domain`.
 
