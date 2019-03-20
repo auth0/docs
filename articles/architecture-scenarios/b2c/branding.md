@@ -60,7 +60,7 @@ Once modified, you are responsible for maintaining the script powering your Logi
 Exercise caution regarding the use of third-party JavaScript on your Login Page, since sensitive security-related information often flows through the page.
 :::
 
-The Login Page comes default with [multi-language support](/libraries/lock/v11/i18n). In our experience, almost all applications need internationalization/localization, and while it is fairly simple to add during the development phases, it can become difficult at a later stage. As such, we recommend, at the very least, accounting for this need if you do not implement either feature during this phase.
+The Login Page comes with [multi-language support](/libraries/lock/v11/i18n) provided by default. In our experience, almost all applications need internationalization/localization, and while it is fairly simple to add during the development phases, it can become difficult at a later stage. As such, we recommend, at the very least, accounting for this need if you do not implement either feature during this phase.
 
 #### Custom login pages
 
