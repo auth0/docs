@@ -75,7 +75,7 @@ If you want to allow anonymous users access to any part of our application then 
 
 ### Anonymous Access
 
-It is important to consider the user experience when someone first comes to the application. If your application supports anonymous user access (this is quite common for eCommerce applications). There are different scenarios within this context:
+It is important to consider the user experience when someone first comes to the application. If your application supports anonymous user access (quite common for eCommerce applications) there are different scenarios to consider:
 
 * They are returning to the application after having already logged in, or
 * This is the first time they are accessing the application:
