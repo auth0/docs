@@ -11,6 +11,7 @@ github:
   path: 03-calling-an-api
 sample_download_required_data:
   - client
+  - api
 contentType: tutorial
 useCase: quickstart
 ---
