@@ -15,7 +15,7 @@ useCase:
 
 In order to provide services to your users, you must be able to identify who those users are. This process is called authentication. You must provide your users a way to verify that they are who they say they are. There are a number of ways to do this (such as social media accounts, username/password, passwordless authentication). In most cases it is also recommended that you go beyond a first factor for authenticating the user and add a second factor as well.
 
-When designing my authentcation experience, how do I...?
+When designing my authentication experience, how do I...?
 
 * ...determine where users will enter their credentials?
 * ...keep user credentials safe?
@@ -24,7 +24,7 @@ When designing my authentcation experience, how do I...?
 * ...integrate social logins for my users?
 * ...prevent hackers from trying to log in as my users?
 * ...implement authentication in different kinds of applications using Auth0?
-* ...make login easy for my users? I have customers from different language backgrounds?
+* ...make login easy for my users if they come from different language backgrounds?
 * ...provide a good user experience as I migrate away from my legacy authentication system?
 
 The answers to these questions, and others, are detailed below in sections on [Universal Login](#universal-login), [Username Password Authentication](#username-password-authentication), [Anomaly Detection](#anomaly-detection), and [Application Integration](#application-integration).
@@ -38,19 +38,19 @@ Auth0's Universal Login makes authenticating users a short, three-step process (
 3. Set up your application to [receive and handle the response](#application-integration) from the Authorization Server.
 
 ::: note
-If you have more than one application, the best practice is to redirect to a centralized authorization server to authenticate the user (at Auth0, this means taking advantage of Universal Login). This comes with many security and user experience benefits, including SSO. See here for more information.
+If you have more than one application, the best practice is to redirect to a centralized authorization server to authenticate the user (at Auth0, this means taking advantage of Universal Login). This comes with many security and user experience benefits, including SSO. See the [Universal Login](/universal-login) documentation for more information.
 :::
 
 ## Username Password Authentication
 
-Nearly every B2C application provides that ability for their customers to create a new set of credentials for this company. This is a common form of authentication that all users are familiar with.
+Nearly every B2C application provides the ability for their customers to create a new set of credentials. This is a common form of authentication that all users are familiar with.
 
 Username Password Authentication can come in multiple flavors at Auth0. If your application is a greenfield application with no existing user base, then a simple Auth0 OOTB database connection will give you everything you need to start authenticating your users. However if you have a legacy user store (such as your own database of users or an existing LDAP system) you have a couple of different options for migrating your users, see here for more information.
 
-However you end up provisioning the users for your database connection, the authentication of those users is quite similar. It requires you to present the users with a form to enter their username and password. As mentioned in the universal login section, the simplest and safest way to authenticate users with a username and password is to redirect them to a centralized login page and collect their username and password there. This allows your authorization server to determine whether they have already authenticated and skip the login form entirely when it is not needed. See here for more information.
+However you end up provisioning the users for your database connection, the authentication of those users is quite similar. It requires you to present the users with a form to enter their username and password. As mentioned in the universal login section, the simplest and safest way to authenticate users with a username and password is to redirect them to a centralized login page and collect their username and password there. This allows your authorization server to determine whether they have already authenticated and skip the login form entirely when it is not needed.
 
 ::: note
-Collecting credentials only at the centralized login page will reduce the surface area for a potential leak of user secrets. It will also reduce the need to collect credentials unnecessarily.
+Collecting credentials only at the centralized login page will reduce the surface area for a potential leak of user secrets. It will also reduce the need to collect credentials unnecessarily.  See [Universal Login](#universal-login) for more information.
 :::
 
 ## Anomaly Detection
@@ -75,7 +75,7 @@ If you want to allow anonymous users access to any part of our application then 
 
 ### Anonymous Access
 
-It is important to consider the user experience when someone first comes to the application. If your application supports anonymous user access (this is quite common for eCommerce applications). There are different scenarios within this context:
+It is important to consider the user experience when someone first comes to the application. If your application supports anonymous user access (quite common for eCommerce applications) there are different scenarios to consider:
 
 * They are returning to the application after having already logged in, or
 * This is the first time they are accessing the application:

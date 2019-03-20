@@ -47,7 +47,7 @@ When considering the items you want to brand, as well as how best to brand these
 
 ### Universal Login and Login Pages
 
-The [Universal Login](/universal-login) process is the recommended method for authenticating users, and it centers around the Login Page. You can customize the Login Page via the Dashboard to support your organization's branding requirements. You can make [simple changes](/universal-login#simple-customization) that include changes to the logo, primary color, or background color, or you can make more [advanced-level changes](/universal-login#advanced-customization) that require you to modify the script powering the page itself directly.
+The [Universal Login](/universal-login) process is the recommended method for authenticating users, and it centers around the Login Page. You can customize the Login Page via the Dashboard to support your organization's branding requirements. You can make [simple changes](/universal-login#simple-customization) that include changes to the logo, primary color, or background color, or you can make more [advanced changes](/universal-login#advanced-customization) that require you to directly modify the script powering the page itself.
 
 If you opt to customize the Login Page script, we strongly recommend that you:
 
@@ -60,7 +60,7 @@ Once modified, you are responsible for maintaining the script powering your Logi
 Exercise caution regarding the use of third-party JavaScript on your Login Page, since sensitive security-related information often flows through the page.
 :::
 
-The Login Page comes default with [multi-language support](/libraries/lock/v11/i18n). In our experience, almost all applications need internationalization/localization, and while it is fairly simple to add during the development phases, it can become difficult at a later stage. As such, we recommend, at the very least, accounting for this need if you do not implement either feature during this phase.
+The Login Page comes with [multi-language support](/libraries/lock/v11/i18n) provided by default. In our experience, almost all applications need internationalization/localization, and while it is fairly simple to add during the development phases, it can become difficult at a later stage. As such, we recommend, at the very least, accounting for this need if you do not implement either feature during this phase.
 
 #### Custom login pages
 
@@ -85,15 +85,14 @@ At the minimum, we recommend that you provide your visitors with:
 * Visual indicators like a friendly-name and your logo for display
 * An email address and URL for your organization's Support team
 
-Auth0 does not provide an out-of-the-box user interface for customizing your Error Pages, but you can use the [Tenant Settings endpoint of the Management API](/api/management/v2#!/Tenants/patch_settings) to configure your pages.
+Auth0 does not provide an out-of-the-box user interface for customizing your Error Pages, but you can use the [Tenant Settings endpoint of the Management API](/api/management/v2#!/Tenants/patch_settings) to configure them. Alternatively, if you can create and host your Error Page then you can have Auth0 direct users to that page instead of using the Auth0-hosted option. 
 
-If you can create and host your Error Page, you can have Auth0 direct users to that page instead of using the Auth0-hosted option.
 
 ### Custom Domains
 
 By default, the URL associated with your tenant will include its name and possibly a region-specific identifier. For example, tenants based in the US have the URL **example.auth0.com** while those based in Europe have **example.eu.auth0.com**.
 
-If you want to use a name that is consistent with your company's brand, you can configure a **custom domain**. Each tenant supports one custom domain name.
+If you want to use a name that is consistent with your company's brand, you can configure a [custom domain](/custom-domains). Each tenant can support one custom domain name.
 
 Moreover, the custom domain functionality offers you complete control over the [certificate management](/custom-domains#certificate-management) process. By default, Auth0 provides standard SSL certificates, but if you configure a custom domain, you can use Extra Validation (EV) SSL certificates or similar to provide the visual, browser-based cues that offer your visitors additional peace of mind.
 
