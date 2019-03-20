@@ -50,7 +50,7 @@ Username Password Authentication can come in multiple flavors at Auth0. If your 
 However you end up provisioning the users for your database connection, the authentication of those users is quite similar. It requires you to present the users with a form to enter their username and password. As mentioned in the universal login section, the simplest and safest way to authenticate users with a username and password is to redirect them to a centralized login page and collect their username and password there. This allows your authorization server to determine whether they have already authenticated and skip the login form entirely when it is not needed. See here for more information.
 
 ::: note
-Collecting credentials only at the centralized login page will reduce the surface area for a potential leak of user secrets. It will also reduce the need to collect credentials unnecessarily.
+Collecting credentials only at the centralized login page will reduce the surface area for a potential leak of user secrets. It will also reduce the need to collect credentials unnecessarily.  See [Universal Login](#universal-login) for more information.
 :::
 
 ## Anomaly Detection
