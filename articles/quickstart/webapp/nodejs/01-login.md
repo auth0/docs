@@ -146,7 +146,7 @@ In this example, following routes are implemented:
 * `/login` triggers the authentication by calling Passport's `authenticate` method. The user is then redirected to the tenant login page hosted by Auth0.
 * `/callback` is the route the user is returned to by Auth0 after authenticating. It redirects the user to the profile page (`/user`).
 * `/user` displays the user's profile.
-* `/logout` closes the local user session, logout the user at authorization server and redirects the user again to the root index `/`.
+* `/logout` logs the user out of Auth0.
 
 We will use the following routers:
 
@@ -220,7 +220,7 @@ module.exports = router;
 ```
 
 :::note
-This tutorial implements logout by closing the local user session and the user's session in the Auth0 authentication server as well. For other implementations, please refer to the [logout documentation](/logout).
+This tutorial implements logout by closing the local user session and the user's Auth0 session as well. For other implementations, please refer to the [logout documentation](/logout).
 :::
 
 ### Middleware to protect routes
