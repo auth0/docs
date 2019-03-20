@@ -47,7 +47,7 @@ When considering the items you want to brand, as well as how best to brand these
 
 ### Universal Login and Login Pages
 
-The [Universal Login](/universal-login) process is the recommended method for authenticating users, and it centers around the Login Page. You can customize the Login Page via the Dashboard to support your organization's branding requirements. You can make [simple changes](/universal-login#simple-customization) that include changes to the logo, primary color, or background color, or you can make more [advanced-level changes](/universal-login#advanced-customization) that require you to modify the script powering the page itself directly.
+The [Universal Login](/universal-login) process is the recommended method for authenticating users, and it centers around the Login Page. You can customize the Login Page via the Dashboard to support your organization's branding requirements. You can make [simple changes](/universal-login#simple-customization) that include changes to the logo, primary color, or background color, or you can make more [advanced changes](/universal-login#advanced-customization) that require you to directly modify the script powering the page itself.
 
 If you opt to customize the Login Page script, we strongly recommend that you:
 
