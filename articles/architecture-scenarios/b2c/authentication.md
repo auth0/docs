@@ -38,7 +38,7 @@ Auth0's Universal Login makes authenticating users a short, three-step process (
 3. Set up your application to [receive and handle the response](#application-integration) from the Authorization Server.
 
 ::: note
-If you have more than one application, the best practice is to redirect to a centralized authorization server to authenticate the user (at Auth0, this means taking advantage of Universal Login). This comes with many security and user experience benefits, including SSO. See here for more information.
+If you have more than one application, the best practice is to redirect to a centralized authorization server to authenticate the user (at Auth0, this means taking advantage of Universal Login). This comes with many security and user experience benefits, including SSO. See the [Universal Login](/universal-login) documentation for more information.
 :::
 
 ## Username Password Authentication
