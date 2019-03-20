@@ -43,7 +43,7 @@ If you have more than one application, the best practice is to redirect to a cen
 
 ## Username Password Authentication
 
-Nearly every B2C application provides that ability for their customers to create a new set of credentials for this company. This is a common form of authentication that all users are familiar with.
+Nearly every B2C application provides the ability for their customers to create a new set of credentials. This is a common form of authentication that all users are familiar with.
 
 Username Password Authentication can come in multiple flavors at Auth0. If your application is a greenfield application with no existing user base, then a simple Auth0 OOTB database connection will give you everything you need to start authenticating your users. However if you have a legacy user store (such as your own database of users or an existing LDAP system) you have a couple of different options for migrating your users, see here for more information.
 
