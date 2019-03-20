@@ -24,7 +24,7 @@ When designing my authentication experience, how do I...?
 * ...integrate social logins for my users?
 * ...prevent hackers from trying to log in as my users?
 * ...implement authentication in different kinds of applications using Auth0?
-* ...make login easy for my users? I have customers from different language backgrounds?
+* ...make login easy for my users if they come from different language backgrounds?
 * ...provide a good user experience as I migrate away from my legacy authentication system?
 
 The answers to these questions, and others, are detailed below in sections on [Universal Login](#universal-login), [Username Password Authentication](#username-password-authentication), [Anomaly Detection](#anomaly-detection), and [Application Integration](#application-integration).
