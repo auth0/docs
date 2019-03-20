@@ -93,7 +93,7 @@ If you can create and host your Error Page, you can have Auth0 direct users to t
 
 By default, the URL associated with your tenant will include its name and possibly a region-specific identifier. For example, tenants based in the US have the URL **example.auth0.com** while those based in Europe have **example.eu.auth0.com**.
 
-If you want to use a name that is consistent with your company's brand, you can configure a **custom domain**. Each tenant supports one custom domain name.
+If you want to use a name that is consistent with your company's brand, you can configure a [custom domain](/custom-domains). Each tenant can support one custom domain name.
 
 Moreover, the custom domain functionality offers you complete control over the [certificate management](/custom-domains#certificate-management) process. By default, Auth0 provides standard SSL certificates, but if you configure a custom domain, you can use Extra Validation (EV) SSL certificates or similar to provide the visual, browser-based cues that offer your visitors additional peace of mind.
 
