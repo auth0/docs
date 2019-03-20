@@ -29,6 +29,6 @@ When you embark on your journey to integrate with Auth0, there are many things f
 
 Throughout the following articles, we have provided numerous recommendations and best practice suggestions. These will be offset appropriately, and any time you across one of these panels, you should stop and consider the advice presented. We are presenting you a set of high-level guidance and best practice recommendations on an ad hoc basis.
 
-::: note-warning
+::: note
 You can find detailed guidance regarding specific functionality and use cases in our [documentation](/) or by [speaking with a member of our Professional Services team](/services).
 :::
