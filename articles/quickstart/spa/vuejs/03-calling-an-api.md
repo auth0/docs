@@ -8,9 +8,10 @@ topics:
   - vuejs
   - apis
 github:
-  path: 03-calling-an-api
+  path: 03-Calling-an-API
 sample_download_required_data:
   - client
+  - api
 contentType: tutorial
 useCase: quickstart
 ---

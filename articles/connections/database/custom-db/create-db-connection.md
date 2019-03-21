@@ -130,6 +130,33 @@ Be sure to **Save** your changes. Note that clicking **Try** to test your script
 
 Depending on your custom database script, you may return a user profile to Auth0 apps. This profile includes the user metadata fields. The **app_metadata** field(s) should be [referred to as **metadata** in scripts for custom databases](/users/concepts/overview-user-metadata#metadata-and-custom-databases).
 
+### Identity Provider (IdP) Tokens
+
+If the `user` object returns the `access_token` and `refresh_token` properties, Auth0 handles these slightly differently from other pieces of user information. They will be stored in the `user` object's `identities` property, and retrieving them using the API, therefore, requires an additional scope: `read:user_idp_tokens`.
+
+```
+{
+  "email": "you@example.com",
+  "updated_at": "2019-03-15T15:56:44.577Z",
+  "user_id": "auth0|some_unique_id",
+  "nickname": "a_nick_name",
+  "identities": [
+    {
+      "user_id": "some_unique_id",
+      "access_token": "e1b5.................92ba",
+      "refresh_token": "a90c.................620b",
+      "provider": "auth0",
+      "connection": "custom_db_name",
+      "isSocial": false
+    }
+  ],
+  "created_at": "2019-03-15T15:56:44.577Z",
+  "last_ip": "192.168.1.1",
+  "last_login": "2019-03-15T15:56:44.576Z",
+  "logins_count": 3
+}
+```
+
 ## Step 3: Add configuration parameters
 
 You can store parameters, like the credentials required to connect to your database, in the **Settings** section below the script editor. These will be available to all of your scripts, and you can access them using the global configuration object.
