@@ -22,7 +22,7 @@ To properly test, you should have already [set up your social connection](/conne
 
 ![Try Connection](/media/articles/connections/social/connection-social-list-configured.png)
 
-2. Choose the account you want to use to log in.
+2. Log in and consent to allow access to your app.
 
 ![Choose Account](/media/articles/connections/social/connection-social-try-choose-account.png)
 
