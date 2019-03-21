@@ -25,9 +25,11 @@ useCase:
 
 This guide will show you how to add functionality to your web app that allows your users to log in with Google. Along the way, you will also learn how to get an Access Token that will allow you to access the Google API.
 
-1. Generate a **Client ID** and **Client Secret** in your Google project. To do this, follow Google's [Setting up OAuth 2.0](https://support.google.com/googleapi/answer/6158849) doc, and copy the Client ID and Client Secret that you generate.
+## 1. Set up your app in Google
 
-Make sure you use the following settings:
+To learn how, follow Google's [Setting up OAuth 2.0](https://support.google.com/googleapi/answer/6158849) doc. During this process, Google will generate a **Client ID** and **Client Secret** for your application; make note of these.
+
+While setting up your app, make sure you use the following settings:
 
 * On the **OAuth consent screen**, under **Authorized domains**, add `auth0.com`.
 * When asked to select an application type, choose **Web application** and set the following parameters:
@@ -44,18 +46,22 @@ Make sure you use the following settings:
 If your application requests sensitive OAuth scopes, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
 :::
 
-2. Enable the **Google Admin SDK Service**. To do this, follow Google's [Enable and disable APIs](https://support.google.com/googleapi/answer/6158841) doc.
+## 2. Enable the **Google Admin SDK Service**
 
-3. [Set up the Google social connection](/connections/guides/set-up-connections-social) in Auth0. Make sure you have the Client ID and Client Secret generated in Step 1.
+To learn how, follow Google's [Enable and disable APIs](https://support.google.com/googleapi/answer/6158841) doc.
 
-4. [Test the connection](/connections/guides/test-connections-social).
+## 3. Create and enable a connection in Auth0
 
-5. Access Google's API.
+[Set up the Google social connection](/connections/guides/set-up-connections-social) in Auth0. Make sure you have the **Client ID** and **Client Secret** generated in Step 1.
+
+## 4. Test the connection
+
+You're ready to [test your connection](/connections/guides/test-connections-social).
+
+## Access Google's API.
 
 <%= include('../_call-api', {
   "idp": "Google"
 }) %>
-
-6. Optional: Get a [Refresh Token](/tokens/refresh-token/current#get-a-refresh-token) from Google to refresh your Access Token once it expires. To ensure your application is secure, pay close attention to the [restrictions on using Refresh Tokens](/tokens/refresh-token/current#restrictions-on-refresh-token-usage).
 
 <%= include('../_quickstart-links.md') %>
