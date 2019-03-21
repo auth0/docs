@@ -31,7 +31,7 @@ While setting up your app, make sure you use the following settings:
 
 | Field |	Description |
 |-------|-------------|
-| Redirect URLs |	https://${account.namespace}/login/callback |
+| Redirect URLs |	`https://${account.namespace}/login/callback` |
 
 <%= include('../_find-auth0-domain-redirects') %>
 
