@@ -15,7 +15,7 @@ useCase:
 ---
 # Add API Permissions
 
-This guide will show you how to add permissions to an API using Auth0's Dashboard. This task can also be performed [using the Management API](/authorization/guides/api/update-permissions). 
+This guide will show you how to add permissions to an API using Auth0's Dashboard. This task can also be performed [using the Management API](/authorization/guides/api/update-permissions-apis). 
 
 1. Navigate to the [APIs](${manage_url}/#/apis) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the API to view.
 
