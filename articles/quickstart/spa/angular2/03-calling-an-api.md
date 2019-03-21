@@ -81,7 +81,8 @@ interface IApiResponse {
 // ...
 export class PingComponent {
 
-  API_URL: string = 'http://<your-application-domain>/api';
+  // Security note: API uses https to avoid bearer token leakage
+  API_URL: string = 'https://<your-application-domain>/api';
   message: string;
 
   constructor(public auth: AuthService, private http: HttpClient) {}
