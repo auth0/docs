@@ -39,11 +39,11 @@ If your application requests sensitive permissions, it may be [subject to review
 
 ## 2. Create and enable a connection in Auth0
 
-[Set up the Facebook social connection](/connections/guides/set-up-connections-social) in Auth0. Make sure you have the App ID and App Secret generated in Step 1.
+[Set up the Facebook social connection](/connections/guides/set-up-connections-social) in Auth0. Make sure you have the **App ID** and **App Secret** generated in Step 1.
 
 ## 3. Test the connection
 
-You're ready to [test your connection](/connections/guides/test-connections-social). Please note that, after logging in, you'll be prompted to allow your app access. Click Install unlisted app to do so.
+You're ready to [test your connection](/connections/guides/test-connections-social). Please note that, after logging in, you'll be prompted to allow your app access.
 
 ::: note
 Facebook allows you to create a copy of your application to use for testing purposes. A test application has its own unique **App ID** and **App Secret**. Because Auth0 only allows one Facebook connection to be configured per tenant, you have two options for testing in Auth0:
