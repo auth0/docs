@@ -167,7 +167,7 @@ To use custom styling or JavaScript with the embedded Auth0 login form, please s
 
 ## Database migration does not work
 
-Your server needs to allow inbound connections from Auth0.
+[Please see our specific troubleshooting page](/cms/wordpress/user-migration#troubleshooting).
 
 ## The session expires too soon
 
