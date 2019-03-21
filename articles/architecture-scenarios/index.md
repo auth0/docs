@@ -59,18 +59,3 @@ The goal of these scenarios is to walk you through the implementation process fr
     <p>Enterprise directory services using federation to allow employees to log in to applications using their existing enterprise credentials.</p>
   </li>
 </ul>
-
-## Under Construction
-
-These scenarios are under construction and will soon be updated. Some describe the different type of technology architectures your application may use, while others describe the architecture depending on the type of businesses and how Auth0 can help in each of these scenarios.
-
-<ul class="topic-links">
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/web-saml">Regular Web App (using SAML)</a>
-    <p>Traditional web application which needs to authenticate users using SAML2.</p>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2b-b2e">Business to Business + Enterprise Identity Scenarios</a>
-    <p>Hybrid implementation involving aspects of the B2B and B2E scenarios.</p>
-  </li>
-</ul>
