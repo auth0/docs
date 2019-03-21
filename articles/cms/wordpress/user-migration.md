@@ -11,7 +11,7 @@ The User Migration functionality uses a core Auth0 feature, [Custom Databases](h
 
 ## How It Works
 
-When you enable data migration, the plugin will expose two secure endpoints that allows Auth0 to authenticate users using WordPress accounts. These endpoints are secured with a secret token and can be set to only allow IP addresses used by Auth0.
+When you enable data migration, the plugin exposes two secure endpoints that allows Auth0 to authenticate users using WordPress accounts. These endpoints are secured with a secret token and can be set to only allow IP addresses used by Auth0.
 
 The login flow is as follows:
 
@@ -27,7 +27,7 @@ User Migration must be setup when the site is first connected to Auth0. Attempti
 
 The easiest way to setup User Migration is to use the Setup Wizard when the plugin is first installed. [That process is described here](https://auth0.com/docs/cms/wordpress/installation#option-2-user-migration-setup).
 
-If, however, the User Migration Setup Wizard could not complete or you want to see the process in more detail, follow the steps below. Again, this is starting from scratch with database connection that does not have any users. The following process should be completed on a site with no traffic or with maintenance mode turned on.
+If the User Migration Setup Wizard could not complete or you want to see the process in more detail, follow the steps below. Again, this is starting from scratch with database connection that does not have any users. The following process should be completed on a site with no traffic or with maintenance mode turned on.
 
 1. Make sure you have an Application [created and configured correctly](https://auth0.com/docs/cms/wordpress/configuration#application-setup) and an empty Database Connection [created and activated for the Application](https://auth0.com/docs/cms/wordpress/configuration#database-connection-setup). These can be the same as the ones created in the [Standard Setup Wizard process](https://auth0.com/docs/cms/wordpress/installation#option-1-standard-setup) or created from scratch.
 2. In the **Auth0 > Settings** screen in WordPress, make sure the Application's Domain, Client ID and Client Secret are saved in the correct fields in the **Basic** tab.
@@ -56,11 +56,11 @@ Issues with the User Migration typically come from a few places:
 - IP whitelist turned on but with incorrect IP addresses.
 - Restricted or cached endpoints on your WordPress instance.
 
-The best way to start troubleshooting the issue is to use the **Try** button for the **Login** script found in Auth0 Dashboard > Connections >  database connection being used > Custom Database tab. The following are the error messages you might see and the steps to take to fix.
+The best way to start troubleshooting the issue is to use the **Try** button for the **Login** script found in the Custom Database tab of the Database Connection being used on [Auth0 Dashboard > Connections > Database Connections](${manage_url}/#/connections/database). The following are the error messages you might see and the steps to take to fix.
 
 ### "Unexpected token < in JSON at position 0"
 
-This means that the custom script is not getting data back in a format it can use. This is likely caused by an incorrect endpoint URL in the database script.
+This means the custom script is not getting data back in a format it can use. This is likely caused by an incorrect endpoint URL in the database script.
 
 First, copy the URL on line 10 in the script and paste it in your browser. If the endpoint is correct, it should display one of the two messages below:
 
