@@ -255,7 +255,7 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://github.com/auth0/wp-auth0">Wordpress</a></td>
+      <td><a href="https://github.com/auth0/wp-auth0">WordPress</a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
