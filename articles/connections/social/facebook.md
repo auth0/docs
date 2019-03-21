@@ -21,7 +21,9 @@ useCase:
 
 This guide will show you how to add functionality to your web app that allows your users to log in with Facebook. Along the way, you will also learn how to get an Access Token that will allow you to access the Facebook API.
 
-1. Set up your app in Facebook. To learn how, follow Facebook's [App Development](https://developers.facebook.com/docs/apps) docs. During this process, Facebook will generate an **App ID** and **App Secret** for your application; you can find this in the app's **Basic Settings**.
+## 1. Set up your app in Facebook
+
+To learn how, follow Facebook's [App Development](https://developers.facebook.com/docs/apps) docs. During this process, Facebook will generate an **App ID** and **App Secret** for your application; you can find this in the app's **Basic Settings**.
 
 While setting up your app, make sure you use the following settings:
 
@@ -35,9 +37,13 @@ While setting up your app, make sure you use the following settings:
 If your application requests sensitive permissions, it may be [subject to review by Facebook](https://developers.facebook.com/docs/apps/review/). Only the `default` and `email` permissions do not currently require app review. For info on Facebook permissions, see Facebook's [Facebook Login Permissions Reference](https://developers.facebook.com/docs/facebook-login/permissions/).
 :::
 
-2. [Set up the Facebook social connection](/connections/guides/set-up-connections-social) in Auth0. Make sure you have the App ID and App Secret generated in Step 1.
+## 2. Create and enable a connection in Auth0
 
-3. [Test the connection](/connections/guides/test-connections-social).
+[Set up the Facebook social connection](/connections/guides/set-up-connections-social) in Auth0. Make sure you have the App ID and App Secret generated in Step 1.
+
+## 3. Test the connection
+
+You're ready to [test your connection](/connections/guides/test-connections-social). Please note that, after logging in, you'll be prompted to allow your app access. Click Install unlisted app to do so.
 
 ::: note
 Facebook allows you to create a copy of your application to use for testing purposes. A test application has its own unique **App ID** and **App Secret**. Because Auth0 only allows one Facebook connection to be configured per tenant, you have two options for testing in Auth0:
@@ -47,13 +53,13 @@ Facebook allows you to create a copy of your application to use for testing purp
 * [Create another Auth0 tenant](/connections/guides/create-multiple-tenants) to use for testing purposes and [set up a test environment](/dev-lifecycle/setting-up-env#set-the-environment).
 :::
 
-4. Access Facebook's API
+## Access Facebook's API
 
 <%= include('../_call-api', {
   "idp": "Facebook"
 }) %>
 
-5. Optional: Get a [Refresh Token](/tokens/refresh-token/current#get-a-refresh-token) from Facebook to refresh your Access Token once it expires. To ensure your application is secure, pay close attention to the [restrictions on using Refresh Tokens](/tokens/refresh-token/current#restrictions-on-refresh-token-usage).
+Optional: Get a [Refresh Token](/tokens/refresh-token/current#get-a-refresh-token) from Facebook to refresh your Access Token once it expires. To ensure your application is secure, pay close attention to the [restrictions on using Refresh Tokens](/tokens/refresh-token/current#restrictions-on-refresh-token-usage).
 
 ## Facebook Re-Authentication
 
