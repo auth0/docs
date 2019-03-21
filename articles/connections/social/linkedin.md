@@ -30,6 +30,7 @@ While setting up your app, make sure you use the following settings:
 * On the **Auth** screen, under **OAuth 2.0 Settings**, set the following parameters:
 
 | Field |	Description |
+|-------|-------------|
 | Redirect URLs |	https://${account.namespace}/login/callback |
 
 <%= include('../_find-auth0-domain-redirects') %>
@@ -47,5 +48,9 @@ You're ready to [test your connection](/connections/guides/test-connections-soci
 <%= include('../_call-api', {
   "idp": "LinkedIn"
 }) %>
+
+::: note
+On 1 March 2019, LinkedIn replaced their sign-in API with version 2.0, and all LinkedIn connections in Auth0 were automatically updated to use this version. To learn more, see [Migration to LinkedIn API V2](/migrations/guides/linkedin-api-deprecation).
+:::
 
 <%= include('../_quickstart-links.md') %>
