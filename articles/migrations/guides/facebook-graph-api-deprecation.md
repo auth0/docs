@@ -23,27 +23,13 @@ This update may not require changes to your code or configuration, but your appl
 * If your Facebook application is marked as "development" then you may still see an error temporarily while trying the connection.
 * If you add new permissions to the connection, end users will be prompted for consent next time they log in. See the Facebook documentation for how to handle actions for users that don't have a specific permission.
  
-## Facebook Permissions
+## Facebook Login Permissions
  
-[Facebook Login permissions](https://developers.facebook.com/docs/facebook-login/permissions) are requested by your application when a user logs in using Facebook. If the user is logging in for the first time or if the permissions have changed, they will be shown a consent window in Facebook requesting the new permissions requested.
+[Facebook Login permissions](https://developers.facebook.com/docs/facebook-login/permissions) are requested by your application when a user logs in using Facebook. If the user is logging in for the first time or if the permissions have changed, they will be shown a consent window in Facebook requesting the new permissions requested. Once those permissions are granted, your application can then act on behalf of that user with a Facebook access token.
  
-**User Data Consent Modal**
- 
-<img width="500" src="https://cdn.auth0.com/website/notifications/Facebook_user_data_consent.png" alt="User Data Consent Modal">
- 
-**Post Visibility Modal**
- 
-<img width="500" src="https://cdn.auth0.com/website/notifications/Facebook_post_visibility_consent.png" alt="Post Visibility Modal">
- 
-**Action Consent Modal**
- 
-<img width="500" src="https://cdn.auth0.com/website/notifications/Facebook_action_consent.png" alt="Action Consent Modal">
- 
-Once those permissions are granted, your application can then act on behalf of that user with a Facebook access token.
- 
-The interface has changed slightly to provide both the regular name as well as the machine name for all permissions displayed. This makes it easier to find the permissions you need and map that to any code you might be running using these permission names.
- 
-<img width="400" src="https://cdn.auth0.com/website/notifications/Facebook_connection_interface.png" alt="Facebook connection interface">
+The Facebook Connection interface has been updated to show both the regular name as well as the machine name for all permissions displayed. This makes it easier to find the permissions you need and map that to any code you might be running using these permission names.
+
+![Facebook Connection Permissions](/media/connections/social/facebook/facebook-connection-permissions.png)
  
 ### Permissions added
  
