@@ -43,7 +43,7 @@ If your application requests sensitive permissions, it may be [subject to review
 
 ## 3. Test the connection
 
-You're ready to [test your connection](/connections/guides/test-connections-social). Please note that, after logging in, you'll be prompted to allow your app access.
+You're ready to [test your connection](/connections/guides/test-connections-social).
 
 ::: note
 Facebook allows you to create a copy of your application to use for testing purposes. A test application has its own unique **App ID** and **App Secret**. Because Auth0 only allows one Facebook connection to be configured per tenant, you have two options for testing in Auth0:
@@ -58,8 +58,6 @@ Facebook allows you to create a copy of your application to use for testing purp
 <%= include('../_call-api', {
   "idp": "Facebook"
 }) %>
-
-Optional: Get a [Refresh Token](/tokens/refresh-token/current#get-a-refresh-token) from Facebook to refresh your Access Token once it expires. To ensure your application is secure, pay close attention to the [restrictions on using Refresh Tokens](/tokens/refresh-token/current#restrictions-on-refresh-token-usage).
 
 ## Facebook Re-Authentication
 
