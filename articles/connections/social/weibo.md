@@ -18,7 +18,7 @@ useCase:
 
 This guide will show you how to enable your users to log in to your Auth0 app using their Weibo credentials.
 
-## Register Auth0 with Weibo
+## 1. Register Auth0 with Weibo
 
 Begin by [registering your Auth0 app with Weibo](https://open.weibo.com/authentication).
 
