@@ -23,7 +23,7 @@ This guide will show you how to add functionality to your web app that allows yo
 
 ## 1. Set up your app in Facebook
 
-To learn how, follow Facebook's [App Development](https://developers.facebook.com/docs/apps) docs. During this process, Facebook will generate an **App ID** and **App Secret** for your application; you can find this in the app's **Basic Settings**.
+To learn how, follow Facebook's [App Development](https://developers.facebook.com/docs/apps) docs. During this process, Facebook will generate an **App ID** and **App Secret** for your application; you can find these in the app's **Basic Settings**.
 
 While setting up your app, make sure you use the following settings:
 
