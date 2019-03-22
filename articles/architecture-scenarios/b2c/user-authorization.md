@@ -20,7 +20,7 @@ Let's start by distinguishing between Authentication, Authorization, and Access 
 
  [Authentication](/architecture-scenarios/b2c/authentication) and some or all of Authorization are managed by your Auth0 tenant (the Authorization Server). But because Access Control is almost always contextual, your API or Application itself must manage it.
 
-To implement user authorization inside your Application (typically access control), you must decide what information your application will need to know to make access control decisions. Once you know this, you can add additional and custom claims to an OIDC [ID Token](/tokens/id-token) (by using Auth0’s [Rules extensibility](/architecture-scenarios/b2c/user-authorization#id-token-claims)) before passing the token to your Application. You can then access these claims from within your Application to use with access control.
+To implement user authorization inside your Application (typically, access control), you must decide what information your application will need to know to make access control decisions. Once you know this, you can add additional and custom claims to an OIDC [ID Token](/tokens/id-token) (by using Auth0’s [Rules extensibility](/architecture-scenarios/b2c/user-authorization#id-token-claims)) before passing the token to your Application. You can then access these claims from within your Application to use with access control.
 
 ::: warning
 When deciding what data to include in OIDC tokens, you need to consider token size, especially if you are passing the token in the URL. Regardless of how you're passing the token, you'll also need to consider other [limitations](/tokens/id-token).
