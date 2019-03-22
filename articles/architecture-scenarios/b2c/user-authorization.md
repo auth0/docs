@@ -22,7 +22,7 @@ Let's start by distinguishing between Authentication, Authorization, and Access 
 
 To implement user authorization inside your Application (typically access control), you must decide what information your application will need to know to make access control decisions. Once you know this, you can add additional and custom claims to an OIDC [ID Token](/tokens/id-token) (by using Auth0’s [Rules extensibility](/architecture-scenarios/b2c/user-authorization#id-token-claims)) before passing the token to your Application. You can then access these claims from within your Application to use with access control.
 
-::: note
+::: warning
 When deciding what data to include in OIDC tokens, you need to consider token size, especially if you are passing the token in the URL. Regardless of how you're passing the token, you'll also need to consider other [limitations](/tokens/id-token).
 :::
 
@@ -30,6 +30,6 @@ When deciding what data to include in OIDC tokens, you need to consider token si
 
 During the login process, Auth0 allows you to easily [add custom claims to an ID Token](/architecture-scenarios/b2c/user-authorization#id-token-claims) based on a user’s metadata (by using Auth0’s Rules extensibility). Though the process of adding rules is streamlined, because the rules engine is flexible and allows you to write custom code, you can also do things that may have negative effects. So it’s important to follow our [rules best practices](/best-practices/rules).
 
-::: note
+::: panel Best practices
 When adding custom claims, we recommended that you store any data you need to include within the claims in the user's `user` or `app` [Metadata](/users/concepts/overview-user-metadata). Doing so prevents you from needing to call out to an external API to fetch the data, which can negatively impact the performance and scalability of the login sequence. Remember to check out our metadata best practices(missing link) too.
 :::
