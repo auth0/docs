@@ -216,6 +216,23 @@ The following Auth0 Authentication API endpoints return rate limit-related heade
     <td>100 requests per second</td>
   </tr>
   <tr>
+    <td rowspan="3">Authentication and authorization</td>
+    <td rowspan="3">/authorize</td>
+    <td>IP</td>
+    <td>Non-Free (*)</td>
+    <td>500 requests per minute</td>
+  </tr>
+  <tr>
+    <td>(any request)</td>
+    <td>Free (*)</td>
+    <td>300 requests per minute</td>
+  </tr>
+  <tr>
+    <td>Session</td>
+    <td>All</td>
+    <td>10 requests per second</td>
+  </tr>
+  <tr>
     <td rowspan="2">User Profile</td>
     <td>/tokeninfo (legacy)</td>
     <td>IP</td>
