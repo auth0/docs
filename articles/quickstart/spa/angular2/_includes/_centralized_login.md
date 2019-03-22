@@ -124,6 +124,11 @@ export class AuthService {
     this._expiresAt = 0;
     // Remove isLoggedIn flag from localStorage
     localStorage.removeItem('isLoggedIn');
+
+    this.auth0.logout({
+      return_to: window.location.origin
+    });
+
     // Go back to the home route
     this.router.navigate(['/']);
   }
