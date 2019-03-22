@@ -80,9 +80,12 @@ By setting `allowRememberBrowser: false`, the user will always be prompted for M
 
 ### Change the frequency of authentication requests
 
-When using the Guardian multi-factor application, by default users are given the option to be remembered and skip MFA for a period of 30 days. To disable this choice for users, set the `allowRememberBrowser` field to `false`.
+In some scenarios you may want to avoid prompting for users for MFA each time they login from the same browser. The default behavior is:
 
-For other types of MFA, users are remembered for 30 days by default, or when `allowRememberBrowser` is explicitly set to `true`. You can disable this by setting `allowRememberBrowser` to `false`.
+- Users will be prompted for MFA every 30 days when provider : ‘google-authenticator’ or ‘duo’
+- Users will be able to decide if they want to skip MFA for the next 30 days when provider is set to other values.
+
+You can alter that behavior by using the ‘allowRememberBrowser’ property:
 
 ```JS
 function (user, context, callback) {
@@ -98,9 +101,16 @@ function (user, context, callback) {
 }
 ```
 
-::: note
-Some older rules may use the field `ignoreCookie` here. While deprecated, that field will still function as expected, and will force multi-factor authentication at every login.
-:::
+Depending on the property value the behavior will be as follows:
+
+- True: when provider =  ‘google-authenticator’ or ‘duo’, users will be prompted for MFA once every 30 days, for other providers, users will be able to decide if they want to skip MFA for the next 30 days.
+
+- False: users will be prompted for MFA each time they authenticate.
+
+In order to let users skip MFA, a cookie will be stored in the users’ browser. If the user has the cookie set but you still want the user to perform MFA, you have these options:
+
+- Set `allowRememberBrowser` : false
+- Specify `acr_values` to `http://schemas.openid.net/pape/policies/2007/06/multi-factor` when calling the /authorize endpoint.
 
 ### Access from an extranet
 
