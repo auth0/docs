@@ -26,7 +26,7 @@ useCase:
 * [Architecture](/architecture-scenarios/b2c/tenant-architecture)
 * [User Provisioning](/architecture-scenarios/b2c/user-provisioning)
 * [User Authentication](/architecture-scenarios/b2c/authentication)
-* User Authorization - not available yet
+* [User Authorization](/architecture-scenarios/b2c/user-authorization)
 * [User Profile Management](/architecture-scenarios/b2c/user-profile-mgmt)
 * [Branding](/architecture-scenarios/b2c/branding)
 * Deployment Automation - not available yet
