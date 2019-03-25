@@ -369,6 +369,12 @@ articles:
       - title: "Overview"
         url: "/universal-login"
 
+      - title: "Advanced Customization"
+        url: "/universal-login/advanced-customization"
+
+      - title: "Choose an Experience"
+        url: "/universal-login/experiences"
+
       - title: "Password Reset Page"
         url: "/universal-login/password-reset"
       
