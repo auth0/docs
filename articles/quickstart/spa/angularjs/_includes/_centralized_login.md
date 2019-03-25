@@ -199,6 +199,11 @@ The example below shows the following methods:
       accessToken = '';
       idToken = '';
       expiresAt = 0;
+
+      angularAuth0.logout({
+        return_to: window.location.origin
+      });
+
       $state.go('home');
     }
 
