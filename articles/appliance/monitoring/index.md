@@ -10,6 +10,7 @@ contentType:
 - concept
 useCase: appliance
 applianceId: appliance48
+sitemap: false
 ---
 
 # Monitoring the Private SaaS (PSaaS) Appliance

@@ -8,6 +8,7 @@ topics:
 contentType: how-to
 useCase: appliance
 applianceId: appliance47
+sitemap: false
 ---
 
 # PSaaS Appliance: Authenticated Testing Endpoints

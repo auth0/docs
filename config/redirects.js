@@ -2078,4 +2078,10 @@ module.exports = [
       from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
       to: '/protocols/saml/saml-apps/github-server'
     },
+    {
+      from: '/enterprise/private-cloud/overview',
+      to: '/private-cloud'
+    }
+
+    
 ];
