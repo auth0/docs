@@ -80,10 +80,10 @@ By setting `allowRememberBrowser: false`, the user will always be prompted for M
 
 ### Change the frequency of authentication requests
 
-In some scenarios you may want to avoid prompting for users for MFA each time they login from the same browser. The default behavior is:
+In some scenarios you may want to avoid prompting the user for MFA each time they log in from the same browser. The default behavior is:
 
-- Users will be prompted for MFA every 30 days when provider : ‘google-authenticator’ or ‘duo’
-- Users will be able to decide if they want to skip MFA for the next 30 days when provider is set to other values.
+- The user will be prompted for MFA every 30 days when `provider` is set to `google-authenticator` or `duo`
+- The user will be able to decide if they want to skip MFA for the next 30 days when `provider` is set to other values.
 
 You can alter that behavior by using the ‘allowRememberBrowser’ property:
 
@@ -103,14 +103,13 @@ function (user, context, callback) {
 
 Depending on the property value the behavior will be as follows:
 
-- True: when provider =  ‘google-authenticator’ or ‘duo’, users will be prompted for MFA once every 30 days, for other providers, users will be able to decide if they want to skip MFA for the next 30 days.
+- `true`: when `provider` is set to `google-authenticator` or `duo`, the user will be prompted for MFA once every 30 days. For other provider values, the user will be able to decide if they want to skip MFA for the next 30 days.
+- `false`: the user will be prompted for MFA each time they authenticate.
 
-- False: users will be prompted for MFA each time they authenticate.
+In order to let the user skip MFA, a cookie will be stored in the user's browser. If the user has the cookie set but you still want the user to perform MFA, you have these options:
 
-In order to let users skip MFA, a cookie will be stored in the users’ browser. If the user has the cookie set but you still want the user to perform MFA, you have these options:
-
-- Set `allowRememberBrowser` : false
-- Specify `acr_values` to `http://schemas.openid.net/pape/policies/2007/06/multi-factor` when calling the /authorize endpoint.
+- Set `allowRememberBrowser` to `false`
+- Set `acr_values` to `http://schemas.openid.net/pape/policies/2007/06/multi-factor` when calling the `/authorize` endpoint.
 
 ### Access from an extranet
 
