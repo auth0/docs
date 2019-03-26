@@ -18,3 +18,5 @@ You can also run it from a [Docker](https://www.docker.com) image with the follo
 # In Linux / macOS         In Windows' Powershell
 sh exec.sh                 ./exec.ps1
 ```
+
+::: warning Transport Layer Security is required to ensure the confidentiality of access tokens and other sensitive information. Do not use plaintext HTTP for the **Callback URL** or **Allowed Web Origins** in production.  :::
