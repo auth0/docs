@@ -142,7 +142,7 @@ Make sure that **Permissions** are enabled and then click **Publish Rule**.
 
 ### Create a Rule to validate token scopes
 
-The final step in this process is to create a Rule to check if that the scopes contained in an Access Token are valid based on the permissions assigned to the user. Any scopes which are not valid for a user should be removed from the Access Token.
+The final step in this process is to create a Rule to check if the scopes contained in an Access Token are valid based on the permissions assigned to the user. Any scopes which are not valid for a user should be removed from the Access Token.
 
 In your Auth0 Dashboard, go to the **Rules** tab. You should see the Rule created by the Authorization Extension:
 
