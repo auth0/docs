@@ -182,7 +182,11 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 * **Cache Time (in minutes):** How long the JWKS information should be stored. Option name is `cache_expiration`.
 
-* **WordPress Login Enabled:** If enabled, displays a link on the login page to access the regular WordPress login. Option name is `wordpress_login_enabled`.
+* **WordPress Login Enabled:** Provides a few different ways to access the core WordPress login page. Option name is `wordpress_login_enabled`. Login page code option name is `wle_code`.
+  * **Show link** will display a link to the WordPress core login form directly below the Auth0 embedded one on `wp-login.php`. The login page can also be accessed directly by adding `?wle` to the login URL.
+  * **"wle" present** will allow the login page to be accessed directly by adding `?wle` to the login URL. This will bypass the Universal Login Page redirect.
+  * **"wle" with code** will allow the login page to be accessed directly by adding `?wle=` plus a code to the login URL. The code is generated automatically and will be shown below the controls for this setting. This will bypass the Universal Login Page redirect.
+  * **No** will reject all requests to use the core WordPress login form on the `wp-login.php` page.
 
 * **Allow Signups:** User signup will be available only if the WordPress *Anyone can register* option is enabled. You can find this setting under **Settings > General > Membership**.
 
