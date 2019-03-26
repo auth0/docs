@@ -25,7 +25,7 @@ This update may not require changes to your code or configuration, but your appl
  
 ## Facebook Login Permissions
  
-[Facebook Login permissions](https://developers.facebook.com/docs/facebook-login/permissions) are requested by your application when a user logs in using Facebook. If the user is logging in for the first time or if the permissions have changed, they will be shown a consent window in Facebook requesting the new permissions requested. Once those permissions are granted, your application can then act on behalf of that user with a Facebook access token.
+[Facebook Login permissions](https://developers.facebook.com/docs/facebook-login/permissions) are requested by your application when a user logs in using Facebook. If the user is logging in for the first time or if the permissions have changed, they will be shown a consent window in Facebook showing the new permissions requested. Once those permissions are granted, your application can then act on behalf of that user with a Facebook access token.
  
 The Facebook Connection interface has been updated to show both the regular name as well as the machine name for all permissions displayed. This makes it easier to find the permissions you need and map that to any code you might be running using these permission names.
 
