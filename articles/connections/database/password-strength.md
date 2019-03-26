@@ -91,7 +91,7 @@ You'll need to add `password_complexity_options` to leverage the new parameter. 
     csrf_token:                   '{{csrf_token}}',                       // DO NOT CHANGE THIS
     ticket:                       '{{ticket}}',                           // DO NOT CHANGE THIS
     password_policy:              '{{password_policy}}',                  // DO NOT CHANGE THIS
-    password_complexity_options:  '{{password_complexity_options}}'       // DO NOT CHANGE THIS
+    password_complexity_options:  {{password_complexity_options}}         // DO NOT CHANGE THIS
     
     //code omitted for brevity
   
