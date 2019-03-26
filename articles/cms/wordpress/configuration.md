@@ -257,7 +257,7 @@ All sites in a WordPress multi-site network will use the same constant value mak
     If registrations are allowed in WordPress, new users will be created regardless of this setting.
     :::
 
-* **User Migration:** Enabling this option will expose the Auth0 migration web services. However, the Connection will need to be manually configured in the [Auth0 dashboard](${manage_url}). For more information on the migration process, see our [documentation page on user migrations](/cms/wordpress/user-migration). Option name is `migration_ws`.
+* **User Migration:** Enabling this option will expose the Auth0 migration web services. However, the Connection will need to be manually configured in the [Auth0 dashboard](${manage_url}). For more information on the migration process, see our [documentation page on user migrations](/cms/wordpress/user-migration). The **Generate New Migration Token** button can be used to replace the saved token with a new one. Make sure to have your database Connection configuration page open to the **Custom Database** tab so you can replace the existing token with the new one in both scripts. Option name is `migration_ws`. Migration token option name is `migration_token`.
 
 * **Migration IPs Whitelist:** Only requests from listed IPs will be allowed access to the migration webservice. Option name is `migration_ips_filter`.
 
