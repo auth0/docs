@@ -36,6 +36,10 @@ Current migrations are listed below, newest first.
 
 For migrations that have already been enabled for all customers, see [Past Migrations](/migrations/past-migrations).
 
+### Google+ API deprecation
+
+On March 7th, 2019, Google deprecated the Google+ service and related APIs. We've updated Google Social Connections to reflect these changes. For for more information, check out [Google+ API Deprecation](/migrations/guides/google-plus-deprecation).
+
 ### Facebook Login and Graph API
 
 The latest version of Facebook Login and the Facebook Graph API change what permissions and fields can be requested. We've updated Facebook connections to reflect these changes. For for more information, check out [Changes to Facebook Login and Graph API](/migrations/guides/facebook-graph-api-deprecation).
