@@ -27,6 +27,7 @@ To be considered for approval, the request must:
 
 * Be filed at least two (2) weeks prior to the desired test date; in many cases, Auth0 encourages one (1) month of advance notice to ensure time for a thorough review and any required modifications.
 * Be approved in writing before any testing is conducted.
+* Stay within our [published production rate limits](/policies/rate-limits).
 * Include all information described below.
 
 ## Information to include in requests
