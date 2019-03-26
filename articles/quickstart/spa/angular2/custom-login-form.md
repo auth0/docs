@@ -167,7 +167,7 @@ export class AuthService {
   private setSession(authResult): void {
     // Set the time that the Access Token will expire at
     let expiresAt = JSON.stringify(
-      (authResult.expiresIn * 1000) + new Date().getTime()
+      (authResult.expiresIn * 1000) + Date.now()
     );
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
@@ -187,7 +187,7 @@ export class AuthService {
     // Check whether the current time is past the
     // Access Token's expiry time
     let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
-    return new Date().getTime() < expiresAt;
+    return Date.now() < expiresAt;
   }
 
 }
