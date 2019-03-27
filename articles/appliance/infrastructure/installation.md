@@ -10,6 +10,7 @@ contentType:
     - how-to
 useCase: appliance
 applianceId: appliance36
+sitemap: false
 ---
 
 <!-- markdownlint-disable MD033 -->

@@ -252,114 +252,16 @@ articles:
           - title: "Enable RBAC for APIs"
             url: "/authorization/guides/dashboard/enable-rbac"
 
-  - title: "Appliance"
-    url: "/appliance"
+  - title: "Private Cloud"
+    url: "/private-cloud"
     children:
-      - title: "Support"
-        url: "/appliance/critical-issue"
-        children:
-          - title: Critical Issue
-            url: /appliance/critical-issue
-          - title: Enterprise Support
-            url: /onboarding/enterprise-support
-
-      - title: PSaaS Appliance Planning
-        url: /appliance/appliance-overview
-        children:
-          - title: Overview
-            url: /appliance/appliance-overview
-
-          - title: Geographic High-Availability
-            url: /appliance/geo-ha
-            children:
-              - title: Disaster Recovery
-                url: /appliance/geo-ha/disaster-recovery
-
-          - title: Infrastructure Requirements
-            url: /appliance/infrastructure
-            children:
-              - title: Installation Process
-                url: /appliance/infrastructure/installation
-              - title: Infrastructure Overview
-                url: /appliance/infrastructure/infrastructure-overview
-              - title: Webtasks and Web Extensions
-                url: /appliance/infrastructure/extensions
-
-              - title: Virtual Machines
-                url: /appliance/infrastructure/virtual-machines
-              - title: Network
-                url: /appliance/infrastructure/network
-              - title: IP/Domain and Port List
-                url: /appliance/infrastructure/ip-domain-port-list
-              - title: Security and Access
-                url: /appliance/infrastructure/security
-
-          - title: Roles and Responsibilities
-            url: /appliance/raci
-
-          - title: Customer Onboarding
-            url: /onboarding/appliance-sprint
-
-          - title: Private Cloud Requirements
-            url: /appliance/private-cloud-requirements
-
-      - title: "PSaaS Appliance Administration"
-        url: "/appliance/admin"
-        children:
-          - title: Administrator's Manual
-            url: /appliance/admin
-            children:
-              - title: Managing the Dashboard
-                url: /appliance/admin/managing-the-dashboard
-              - title: Disabling Sign-ups
-                url: /appliance/admin/disabling-sign-ups
-              - title: Inviting Co-Administrators
-                url: /appliance/admin/inviting-coadmins
-              - title: Appliance Backups
-                url: /appliance/admin/backing-up-the-appliance-instances
-              - title: Monitoring
-                url: /appliance/admin/monitoring
-              - title: Updating
-                url: /appliance/admin/updating-the-appliance
-
-          - title: Dashboard/Configuration Area
-            url: /appliance/dashboard
-            children:
-              - title: Troubleshoot
-                url: /appliance/dashboard/troubleshoot
-            
-          - title: Monitoring
-            url: /appliance/monitoring
-            children:
-              - title: Instrumentation
-                url: /appliance/instrumentation
-              - title: Testall endpoint
-                url: /appliance/monitoring/testall
-              - title: Authenticated testing endpoints
-                url: /appliance/monitoring/authenticated-endpoints
-            
-          - title: Command-Line Interface Tools
-            url: /appliance/cli
-          - title: Automatic Tenant Creation
-            url: /appliance/admin/creating-tenants
-            hidden: true
-          - title: Node Module Availability
-            url: /appliance/modules
-          - title: Webtasks
-            url: /appliance/webtasks
-          - title: Extensions
-            url: /appliance/extensions
-          - title: Disaster Recovery
-            url: /appliance/disaster-recovery
-            children:
-              - title: Roles and Responsibilities
-                url: /appliance/disaster-recovery-raci
-          - title: Migrating to Node.js v8
-            url: /appliance/extensibility-node8
-          - title: Release Notes
-            url: https://auth0.com/changelog/appliance
-            external: true
-            forceFullReload: true
+      - title: Enterprise Support
+        url: /onboarding/enterprise-support
+        
+      - title: Release Notes
+        url: https://auth0.com/changelog/appliance
+        external: true
+        forceFullReload: true
 
   - title: "Connections"
     url: "/connections"

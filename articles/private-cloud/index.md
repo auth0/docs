@@ -1,14 +1,12 @@
 ---
-url: /enterprise/private-cloud/overview
-section: enterprise
-description: Overview of the Private Cloud deployment option
+section: private-cloud
+description: Overview of the Private Cloud deployment options
 classes: topic-page
 topics:
-    - enterprise
     - private-cloud
     - managed-private-cloud
 contentType: concept
-useCase: enterprise
+useCase: private-cloud
 ---
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>

@@ -6,6 +6,7 @@ topics:
 contentType: concept
 useCase: appliance
 applianceId: appliance52
+sitemap: false
 ---
 
 # PSaaS Appliance Overview
