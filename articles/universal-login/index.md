@@ -14,13 +14,13 @@ useCase: customize-hosted-pages
 ---
 # Auth0 Universal Login
 
-Auth0's Universal Login is the most secure way to authenticate users for your applications. Universal Login centers around your Auth0 login page. The login page appearance and behavior is customizable right from the [Dashboard](${manage_url}). The logo and colors of the login pages can be changed, and in more advanced use cases, the code of each page itself can be modified.
+The login flow is the key feature of an Authorization Server like Auth0. Universal Login is our implementation of the login flow.
 
-In the Universal Login flow, the user will click a login button or link in your application, which will redirect to the `/authorize` route at the Auth0. If there is no session detected for the end user, Auth0 will redirect them to the login page, where they will be able to login or signup using the connections you configure, such as databases or social connections. Once the user is authenticated (or if they were already signed in) Auth0 will redirect them to your application, along with the requisite credentials.
+Each time a user needs to prove its identity, your applications will redirect to Universal Login and Auth0 will do what's needed to guarantee the user's identity. 
 
-::: note
-If the incoming authentication request includes a `connection` parameter that uses an external identity provider (such as a social provider), the login page will not display. Instead, Auth0 will direct the user to the [identity provider's](/identityproviders) login page.
-:::
+Your applications do not need to handle security credentials, or know anything about how authentication should be performed. The user will click a login button or link in your application, which will redirect to the `/authorize` route at the Auth0. If there is no session detected for the end user, Auth0 will prompt them for credentials, or let them login with a or social connections. Once the user is authenticated Auth0 will redirect them to your application, along with the corresponding identity tokens.
+
+The login page appearance and behavior is customizable right from the [Dashboard](${manage_url}). The logo and colors of the login pages can be changed, and in more advanced use cases, the code of each page itself can be modified.
 
 For information on the differences between Universal Login and traditional embedded login within your application, see [our comparison guide](/guides/login/universal-vs-embedded).
 
@@ -42,42 +42,37 @@ The settings available here are:
 * Primary Color
 * Background Color
 
-These settings, once changed, will take effect on all your Universal Login pages if you have not enabled customization of the pages' code. The settings will also work if you have enabled customization, but are using the predefined templates and have not changed those options in the code.
+These settings, once changed, will take effect on all your Universal Login pages if you have not enabled customization of the pages' code. The settings will also work if you have enabled customization but are using the predefined templates and have not changed those options in the code.
 
-### Advanced Customization
+## Choosing an experience
 
-![Login Page](/media/articles/universal-login/login.png)
-	
-In addition to the settings above, the actual code of the pages may be altered and added to. The Universal Login pages work for many use cases without customizing their code, but if the customization toggle is enabled, you are able to modify each page at will.
+There are two available experiences for the default pages in Universal Login. The Classic Experience is the same experience that has been available for quite some time, and it uses Javascript controls for each page. The New Experience does not require Javascript to work, and it offers a simpler and faster experience for end-users.
 
-When the customization toggle is flipped on, you then become responsible for updates and maintenance of the script, as it can no longer be automatically updated by Auth0. This includes updating the version numbers for any included Auth0 SDK or widget.
+<div class="code-picker">
+  <div class="languages-bar">
+    <ul>
+      <li class="active"><a href="#experience-new" data-toggle="tab">New Experience</a></li>
+      <li><a href="#experience-classic" data-toggle="tab">Classic Experience</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="experience-new" class="tab-pane active">
+      <h3>New Experience Features</h3>
+      <ul>
+        <li>No JavaScript is required for end-users</li>
+        <li>Enhanced multi-factor authentication options</li>
+        <li>Modern styling</li>
+      </ul>
+    </div>
+    <div id="experience-classic" class="tab-pane">
+      <h3>Classic Experience Features</h3>
+      <ul>
+        <li>Default UI is based on Auth0's Lock widget</li>
+        <li><a href="/universal-login/advanced-customization">Extensive customization options</a> available</li>
+        <li>Is no longer receiving new feature updates</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-::: note
-If you have enabled customization to inspect the page code, and then decide **not** to customize your login page, you should make sure to disable the **Customize Login Page** toggle, to allow your page to receive the updates it might need from Auth0.
-:::
-
-#### Choose a template to begin
-
-If you intend to customize the login page, you'll first want to choose the template for the technology that you'd like to use to power it. You will find these templates in a dropdown just above the code editor for the login page, if you have toggled customization on. 
-
-Click one of the links below to get started. If you do not intend to customize your login page, it will use the default experience, which incorporates the Lock widget, and you may skip this step.
-
-- [Lock](/libraries/lock) - Lock is a pre-built, customizable login widget that will allow your users to quickly and easily login to your application.
-- [Lock (Passwordless Mode)](/libraries/lock/v11#passwordless) - Lock in Passwordless Mode uses the same Lock interface, but rather than offering identity providers as login options, will simply ask the user to enter an email or SMS number to begin a passwordless authentication transaction.
-- [Auth0.js](/libraries/auth0js) - Auth0.js is the SDK used for interacting with the Auth0 [authentication API](/api/authentication). Primarily, you would use the SDK if you need to build your own custom login UI, or implement more complex functionality than simply allowing your users to login. 
-
-#### Modify the code of the login page
-
-If you intend to customize the login page, once you have chosen a template, you may use it as a guide. If you are using Lock or Auth0.js in your login page, you may look at the [Lock Configuration Guide](/libraries/lock/v11/configuration) or the [Auth0.js documentation](/libraries/auth0js/v9).
-
-You may perform whatever CSS customizations that you like, as long as they are included in this one file.
-
-## Other facets of Universal Login
-
-Auth0 offers you the ability to customize and display several other pages containing Auth0-related functionality and to which Auth0 redirects your users during the authorization process, beyond just the login page described above. You can modify the following types of pages from your [Dashboard](${manage_url}):
-
-* [Password Reset Page](/universal-login/password-reset)
-* [Guardian Multi-factor Page](/universal-login/guardian)
-* [Error Pages](/universal-login/error-pages)
-
-While Auth0 hosts these custom pages, you can still [manage your pages using the version control system of your choice](/universal-login/version-control).
+You can learn more about the [Classic Experience](/universal-login/classic), the [New Experience](/universal-login/new) and its [current limitations](/universal-login/new-experience-limitations).
