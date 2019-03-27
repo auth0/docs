@@ -26,6 +26,7 @@ If you'd like to revert to an earlier design, you have two options:
 
 Please note that Hosted Pages work without customization (Auth0 will also update the included scripts as required). However, once you toggle the customization to **on**, you are responsible for the updating and maintaining the script (including changing version numbers, such as that for the MFA widget), since Auth0 can no longer update it automatically.
 
+
 ## Configuration Options
 
 ### defaultLocation
@@ -82,6 +83,10 @@ return new Auth0MFAWidget({
   
 })
 ```
+
+::: note
+When customizing the login page with MFAWidget, users will not be able to select from a list of enrolled factors. Auth0 will ask them to perform MFA with the most secure one.
+:::
 
 ## Rendering "Invited Enrollments" vs. Standard Scenarios
 
