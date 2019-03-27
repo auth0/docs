@@ -45,7 +45,7 @@ You can provide up to 100 URLs in the **Allowed Callback URLs**, **Allowed Web O
 
 - **Allowed Callback URLs**: Set of URLs to which Auth0 is allowed to redirect users after they authenticate. You can specify multiple valid URLs by comma-separating them (typically, to handle different environments like QA or testing). For production environments, verify that the URLs do not point to localhost. You can use the star symbol as a wildcard for subdomains (`*.google.com`). Make sure to specify the protocol, `http://` or `https://`; otherwise, the callback may fail in some cases.
 
-- **Application Login URI**: In some scenarios Auth0 will need your application to start the OIDC login flow. This URI should point to a route in our application that does it, by redirecting to `/authorize`. It would usually look like 'https://myapp.org/login'. [Learn more](/universal-login/default-login-url).
+- **Application Login URI**: In some scenarios Auth0 will need your application to start the OIDC login flow. This URI should point to a route in your application that starts the flow, by redirecting to the `/authorize` endpoint. It would usually take the form of 'https://myapp.org/login'. [Learn more](/universal-login/default-login-url).
 
 - **Allowed Web Origins**: List of URLs from where an authorization request using [`web_message` as the response mode](/protocols/oauth2#how-response-mode-works) can originate from. You can specify multiple valid URLs by comma-separating them. For production environments, verify that the URLs do not point to localhost.
 
