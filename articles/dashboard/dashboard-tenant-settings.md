@@ -75,7 +75,7 @@ The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section expl
 
 **Allowed Logout URLs**:  These are a set of URLs that are valid to redirect to after logout from Auth0 when no `client_id` is specified on the logout endpoint invocation. It's useful as a global list when SSO is enabled.  Learn more about [Logout](/logout).
 
-**Tenant Login URI**: In some scenarios Auth0 will need your tenant to start the OIDC login flow . This URI should point to a route in our application that does it, by redirecting to `/authorize`. It would usually look like 'https://mytenant.org/login'. [Learn more](/universal-login/default-login-url).
+**Tenant Login URI**: In some scenarios Auth0 will need your tenant to start the OIDC login flow . This URI should point to a route in your application that starts the flow by redirecting to the `/authorize` endpoint. It would usually take the form of 'https://mytenant.org/login'. [Learn more about the tenant default login URI](/universal-login/default-login-url).
 
 ### Session Timeout
 
