@@ -20,3 +20,5 @@ sh exec.sh
 # In Windows' Powershell
 ./exec.ps1
 ```
+
+::: warning Transport Layer Security is required to ensure the confidentiality of access tokens and other sensitive information. Do not use plaintext HTTP for the **Callback URL** or **Allowed Web Origins** in production. :::
