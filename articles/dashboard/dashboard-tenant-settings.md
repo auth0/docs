@@ -71,7 +71,7 @@ The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section expl
 
 ### Login and Logout
 
-![](/media/articles/tutorials/tenant-settings/logout-urls.png)
+![](/media/articles/tutorials/tenant-settings/login-logout.png)
 
 **Allowed Logout URLs**:  These are a set of URLs that are valid to redirect to after logout from Auth0 when no `client_id` is specified on the logout endpoint invocation. It's useful as a global list when SSO is enabled.  Learn more about [Logout](/logout).
 
