@@ -36,6 +36,14 @@ Current migrations are listed below, newest first.
 
 For migrations that have already been enabled for all customers, see [Past Migrations](/migrations/past-migrations).
 
+### Facebook Login and Graph API
+
+The latest version of Facebook Login and the Facebook Graph API change what permissions and fields can be requested. We've updated Facebook connections to reflect these changes. For for more information, check out [Changes to Facebook Login and Graph API](/migrations/guides/facebook-graph-api-deprecation).
+
+### LinkedIn API V2
+
+On March 1st, 2019 all LinkedIn connections will be updated to use version 2 of the LinkedIn API. You may need to update your application code to accomodate these API changes. For more information, check out [Migration to LinkedIn API V2](/migrations/guides/linkedin-api-deprecation).
+
 ### Node.js v8 for Webtask Runtime
 
 | Severity | Grace Period Start | Mandatory Opt-In|

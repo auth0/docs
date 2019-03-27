@@ -28,7 +28,7 @@ For information on the differences between Universal Login and traditional embed
 
 In addition to configuring Universal Login for your tenant's applications, you will also need to set up a connection(s) and set up your application in Auth0's dashboard. You will also need to configure your application's code to call Auth0's `/authorize` endpoint in order to trigger Universal Login, and then to deal with the response.
 
-For step by step instructions on setting up your application to use Universal Login, check out our [Quickstart guides](/docs/quickstart).
+For step by step instructions on setting up your application to use Universal Login, check out our [Quickstart guides](/quickstarts).
 
 ### Simple Customization
 
