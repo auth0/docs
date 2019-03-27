@@ -64,7 +64,7 @@ The following tables describe operational and feature differences between these 
             <th class="info"><strong>Public Facing</strong></th>
             <td>Yes</td>
             <td>Yes</td>
-            <td>Yes; customer hosted is configurable<sup>*</sup>.</td>
+            <td><i>Auth0's Cloud</i>: Yes <br /><i>Customer's AWS Cloud</i>: Configurable<sup>*</sup></td>
         </tr>
         <tr>
             <th class="info"><strong>Updates</strong></th>
@@ -88,17 +88,17 @@ The following tables describe operational and feature differences between these 
             <th class="info"><strong>Service & Uptime Reporting</strong></th>
             <td><a href="https://status.auth0.com">https://status.auth0.com</a><br /><a href="http://uptime.auth0.com">http://uptime.auth0.com</a></td>
             <td>Monitored by Auth0</td>
-            <td>Monitored by Auth0; customer responsible for monitoring if using AWS.</td>
+            <td><i>Auth0's Cloud</i>: Auth0 <br /><i>Customer's AWS Cloud</i>: Customer</td>
         </tr>
         <tr>
             <th class="info"><strong>Infrastructure and Backup Responsibility</strong></th>
             <td>Auth0</td>
             <td>Auth0</td>
-            <td>Auth0 responsible if Auth0 infrastructure used, otherwise Customer is responsible.</td>
+            <td><i>Auth0's Cloud</i>: Auth0 <br /><i>Customer's AWS Cloud</i>: Customer</td>
         </tr>
         <tr>
             <th class="info"><strong>Uptime SLA Provided</strong></th>
-            <td>99.90% <br />No upgrade option available.</td>
+            <td>99.90% <br />No upgrade option available</td>
             <td>99.95% SLA with optional upgrade to 99.99%<sup>**</sup></td>
             <td>99.95% SLA with optional upgrade to 99.99%<sup>**</sup></td>
         </tr>
@@ -183,8 +183,7 @@ The following tables describe operational and feature differences between these 
             <th class="info"><strong>Connecting IP Address Filtering Restrictions</strong></th>
             <td>No</td>
             <td>No</td>
-            <td>No when using Auth0 infrastructure; yes if hosted using AWS</td>
-            <td>Yes</td>
+            <td><i>Auth0's Cloud</i>: No <br /><i>Customer's AWS Cloud</i>: Yes</td>
         </tr>
         <tr>
             <th class="info"><strong><a href="/custom-domains">Custom Domains</a></strong></th>
@@ -200,8 +199,8 @@ The following tables describe operational and feature differences between these 
         <tr>
           <th class="info"><strong>MFA</strong></th>
           <td>Yes</td>
-          <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK.</td>
-          <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK.</td>
+          <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK</td>
+          <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK</td>
         </tr>
     </tbody>
 </table>
