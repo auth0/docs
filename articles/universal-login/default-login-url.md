@@ -10,7 +10,9 @@ contentType: how-to
 
 In certain cases (described below), Auth0 could need to redirect back to the application's login initiation endpoint, using [OIDC Third Party Initiated Login](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin).
 
-You can configure the URL for the tenant or application login route using a Management API call:
+You can configure these URIs in [Application Settings](/dashboard/reference/settings-application) or [Tenant Advanced Settings](/dashboard/dashboard-tenant-settings).
+
+You can also do this using the Management API:
 
 **Application level**
 
