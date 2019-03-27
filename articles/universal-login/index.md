@@ -14,11 +14,9 @@ useCase: customize-hosted-pages
 ---
 # Auth0 Universal Login
 
-The login flow is the key feature of an Authorization Server like Auth0. Universal Login is our implementation of the login flow.
+Universal Login is Auth0's implementation of the login flow, which is the key feature of an Authorization Server. Each time a user needs to prove its identity, your applications will redirect to Universal Login and Auth0 will do what's needed to guarantee the user's identity. 
 
-Each time a user needs to prove its identity, your applications will redirect to Universal Login and Auth0 will do what's needed to guarantee the user's identity. 
-
-Your applications do not need to handle security credentials, or know anything about how authentication should be performed. The user will click a login button or link in your application, which will redirect to the `/authorize` route at the Auth0. If there is no session detected for the end user, Auth0 will prompt them for credentials, or let them login with a or social connections. Once the user is authenticated Auth0 will redirect them to your application, along with the corresponding identity tokens.
+This implies that applications do not need to handle security credentials, or know anything about how authentication should be performed. The user will click a login button or link in your application, which will redirect to the `/authorize` route at your Auth0 tenant. If there is no session detected for the end user, Auth0 will prompt them for credentials, or let them login with an Enterprise or social connection. Once the user is authenticated Auth0 will redirect them to your application, along with the corresponding identity tokens.
 
 The login page appearance and behavior is customizable right from the [Dashboard](${manage_url}). The logo and colors of the login pages can be changed, and in more advanced use cases, the code of each page itself can be modified.
 
@@ -46,7 +44,9 @@ These settings, once changed, will take effect on all your Universal Login pages
 
 ## Choosing an experience
 
-There are two available experiences for the default pages in Universal Login. The Classic Experience is the same experience that has been available for quite some time, and it uses Javascript controls for each page. The New Experience does not require Javascript to work, and it offers a simpler and faster experience for end-users.
+There are two available Experiences in Universal Login. The Classic Experience is the same experience that has been available for quite some time, and it uses Javascript controls for each page. The New Experience does not require Javascript to work, and it offers a simpler and faster experience for end-users. 
+
+The dialog below lets you select which Experience will be used for default, non-customized pages:
 
 <div class="code-picker">
   <div class="languages-bar">
