@@ -142,7 +142,7 @@ Make sure that **Permissions** are enabled and then click **Publish Rule**.
 
 ### Create a Rule to validate token scopes
 
-The final step in this process is to create a Rule which will validate that the scopes contained in an Access Token is valid based on the permissions assigned to the user. Any scopes which are not valid for a user should be removed from the Access Token.
+The final step in this process is to create a Rule to check if the scopes contained in an Access Token are valid based on the permissions assigned to the user. Any scopes which are not valid for a user should be removed from the Access Token.
 
 In your Auth0 Dashboard, go to the **Rules** tab. You should see the Rule created by the Authorization Extension:
 
@@ -155,10 +155,11 @@ function (user, context, callback) {
   var permissions = user.permissions || [];
   var requestedScopes = context.request.body.scope || context.request.query.scope;
   var filteredScopes = requestedScopes.split(' ').filter( function(x) {
-    return permissions.indexOf(x) > -1;
+    return x.indexOf(':') < 0;
   });
-  
-  context.accessToken.scope = filteredScopes;
+
+  filteredScopes.push(permissions);
+  context.accessToken.scope = filteredScopes.join(' ');
 
   callback(null, user, context);
 }
