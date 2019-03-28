@@ -8,9 +8,9 @@ toc: true
 ---
 # New Universal Login Experience
 
-Auth0's New Universal Login experience provides a reimagined login flow, with a fresh UX design and lightweight pages.
+Auth0's New [Universal Login](/universal-login) experience provides a reimagined login flow, with a fresh UX design and lightweight pages.
 
-The key structural difference with the Classic Experience is that while the former uses Javascript widgets in all the pages, the New Experience is rendered on the server and does not require Javascript. 
+The key structural difference with the [Classic Experience](/unniversa-login/classic) is that while the former uses Javascript widgets in all the pages, the New Experience is rendered on the server and does not require Javascript. 
 
 From a functional perspective, there's is a still a feature gap between the New and Classic experience. [Learn more](/universal-login/new-experience-limitations).
 
@@ -34,9 +34,9 @@ In addition of some missing features, in the New Experience some pages has the f
 
 ## Password Reset
 
-- If you configure the default login route for the application, the password reset flow will let users get back to the login page. This will happen after the password was changed or if the link expired.
+- In the Classic Experience you could [configure a url](/email/templates#redirect-to-results-for-the-change-password-email-template) to redirect users after completing the password reset. The URL will receive a success indicator and a message. In the New Experience, Auth0 will handle the error cases as part of the Universal Login flow, and will redirect the users to the[default login route](/universal-login/default-login-url) when it succeeds. The Redirect URL in the email template will be ignored.  
 
-- A 'show password' icon will be displayed next to the password fields
+- A 'show password' icon will be displayed next to the password fields.
 
 ## Consent
 

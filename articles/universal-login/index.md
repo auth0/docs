@@ -16,7 +16,9 @@ useCase: customize-hosted-pages
 
 Universal Login is Auth0's implementation of the login flow, which is the key feature of an Authorization Server. Each time a user needs to prove its identity, your applications will redirect to Universal Login and Auth0 will do what's needed to guarantee the user's identity. 
 
-This implies that applications do not need to handle security credentials, or know anything about how authentication should be performed. The user will click a login button or link in your application, which will redirect to the `/authorize` route at your Auth0 tenant. If there is no session detected for the end user, Auth0 will prompt them for credentials, or let them login with an Enterprise or social connection. Once the user is authenticated Auth0 will redirect them to your application, along with the corresponding identity tokens.
+By choosing Universal Login, you don't have to do any integration work to handle the various flavors of authentication. You can start off using a simple username and password. Later they can add support for social login. Later enable different forms of multi-factor authentication as adoption spreads.  All of this is dynamic, and adjustable in real-time without requiring application-level changes, since all functionality is driven dynamically by the web pages served by the centralized Authentication Server.
+
+ The user will click a login button or link in your application, which will redirect to the `/authorize` route at your Auth0 tenant. Depending on what Auth0 knows about the user and how you configured your Auth0 tenant, they will be prompted to verify the identity somehow. Once the user is authenticated Auth0 will redirect them to your application, along with the corresponding identity tokens.
 
 The login page appearance and behavior is customizable right from the [Dashboard](${manage_url}). The logo and colors of the login pages can be changed, and in more advanced use cases, the code of each page itself can be modified.
 
