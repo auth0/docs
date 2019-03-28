@@ -50,31 +50,6 @@ There are two available Experiences in Universal Login. The Classic Experience i
 
 The dialog below lets you select which Experience will be used for default, non-customized pages:
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li class="active"><a href="#experience-new" data-toggle="tab">New Experience</a></li>
-      <li><a href="#experience-classic" data-toggle="tab">Classic Experience</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="experience-new" class="tab-pane active">
-      <h3>New Experience Features</h3>
-      <ul>
-        <li>No JavaScript is required for end-users</li>
-        <li>Enhanced multi-factor authentication options</li>
-        <li>Modern styling</li>
-      </ul>
-    </div>
-    <div id="experience-classic" class="tab-pane">
-      <h3>Classic Experience Features</h3>
-      <ul>
-        <li>Default UI is based on Auth0's Lock widget</li>
-        <li><a href="/universal-login/advanced-customization">Extensive customization options</a> available</li>
-        <li>Is no longer receiving new feature updates</li>
-      </ul>
-    </div>
-  </div>
-</div>
+SCREENSHOT GOES HERE
 
 You can learn more about the [Classic Experience](/universal-login/classic), the [New Experience](/universal-login/new) and its [current limitations](/universal-login/new-experience-limitations).
