@@ -125,23 +125,25 @@ You can ignore the rest of the fields for now.
 
 After pressing the **"SAVE"** button, A window will appear with a red **"CONTINUE"** button. (You might have to scroll up to see it)
 
-Click on the **"CONTINUE"** button.
+Copy and save the URL below the **"CONTINUE"** button, and then click on the **"CONTINUE"** button.
 
-In the window that appears, metadata about this SAML provider (tenant 1) is displayed.  You will need to collect two pieces of information about this Auth0 tenant (the service provider) that you will then paste into the other Auth0 tenant you set up (the identity provider).
+In the window that appears, metadata about this SAML provider (tenant 1) should be displayed. If you are not logged into the Auth0 documentation site, generic SAML provider configuration data will be displayed. Click "Login" in the top right corner of the page, log in with your Auth0 management dashboard credentials, and then go to the URL you saved in the previous step.
+
+You will need to collect two pieces of information about this Auth0 tenant (the service provider) that you will then paste into the other Auth0 tenant you set up (the identity provider).
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-08.jpg)
 
 First, look for the second bullet in the list of information that tells you the **"Entity ID"**.  It will be of the form __urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME__.  
 
-Copy and save this entire Entity ID field from "urn" all the way to the end of the connection name.
+Copy and save this entire Entity ID field from "urn" all the way to the end of the connection name. You will need to replace **YOUR_CONNECTION_NAME** with the name of the connection you created previously ('SAML-Auth0-IDP' in the example above).
 
 In that same window, near the bottom, there is a line that says, _"You can access the metadata for your connection in Auth0 here:"_.  
 
-Copy the URL below that line into your browser address bar.
+Copy the URL below that line into your browser address bar. Again, you will need to replace **YOUR_CONNECTION_NAME** with the name of the connection you created previously ('SAML-Auth0-IDP' in the example above).
 
-In general, you can access the metadata for a SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME`.
+In general, you can access the metadata for a given SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME`.
 
-Once you go to that metadata URL, it will display the metadata for the Auth0 tenant 1 (service provider side of the federation. It will look something like the following with your tenant name in place of the 'xxxxx':
+Once you go to that metadata URL, it will display the metadata (or prompt you to save the metadata file) for the this connection in tenant 1 (service provider side of the federation). It will look something like the following with your tenant name in place of the 'xxxxx':
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-09.jpg)
 
@@ -174,9 +176,9 @@ In this section you will go back and add some information about the Service Prov
 
 6. In the Settings field below, go to line 2 that has the "audience" attribute.  
 
-First remove the "//" at the beginning of the line to uncomment it.
+First remove the "//" at the beginning of the line to uncomment it, and remove the comma (',') from the end of the line.
 
-Next, replace the original value (urn:foo) with the **Entity ID** value you saved and copied in step 3 above. The new line 2 should look something like:
+Next, replace the original value (urn:foo) with the **Entity ID** value you saved and copied in step 3 above (including your actual connection name). The new line 2 should look something like:
 
 ```text
 "audience":"urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME"
@@ -190,7 +192,7 @@ In the same screen, click on the red **"DEBUG"** button.
 
 That will trigger a login screen from tenant 2, the Identity Provider.
 
-Log in with the credentials for tenant 2.
+Log in with the credentials for the user you created above.
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-13.png)
 
@@ -214,9 +216,13 @@ Make sure you are logged into the **Tenant 1 Auth0 dashboard**.
 
 * In the **Name** field, enter a name like "My-HTML-SAML-App".
 
+* Select "Regular Web App"
+
 * Press the blue **"SAVE"** button.
 
 * Click on the **"Settings"** tab.
+
+* Save the **"Domain"** and **"Client ID"** values for use below in step 8.
 
 * In the **"Allowed Callback URLs"** field, enter **[http://jwt.io](http://jwt.io)**.
 
@@ -244,13 +250,11 @@ In this section, you will test to make sure the SAML configuration between Auth0
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-15.png)
 
-* You will first see a Lock login widget appear that is triggered by the Service Provider.  Enter the username of the test tenant you created earlier.
-
-You will then be redirected to the Lock login widget of the Identity Provider.  Login with the credentials for the test user you created.
+* Because you already logged in while testing this connection above, you will likely be sent directly to the "It Works!" page shown previously. If you are presented with the Lock login screen, login using the credentials for the user you created above. On some older tenants, you may see the "Last time you signed in using" dialog as shown below, in which case you can just click on your email address to continue.
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-16.png)
 
-If the SAML configuration works, your browser will be redirected back to an Auth0 page that says __"It works!!!"__.  This page will display the contents of the SAML authentication assertion sent by the Auth0 Identity Provider to Auth0 Service Provider.
+If the SAML configuration works, your browser will be redirected back to an Auth0 page that says __"It works!"__.  This page will display the contents of the SAML authentication assertion sent by the Auth0 Identity Provider to Auth0 Service Provider.
 This means the SAML connection from Auth0 Service Provider to Auth0 Identity Provider is working.
 
 If it didn't work, double check the above steps and then consult the **troubleshooting** section at the end of this document.
@@ -292,9 +296,9 @@ Create an HTML page and insert the following HTML and javascript code:
 
 ```
 
-Make sure you replace **YOUR-APP-CLIENT-ID** with the actual value of the app you registered in step 7 above. You can also replace **audience** with the value appropriate for your Application -- however, for the purposes of this test, a placeholder will work. When specifying the **audience** parameter, be sure that it matches an identifier of an existing API that [has been configured in Auth0](/apis#how-to-configure-an-api-in-auth0).
+Make sure you replace **YOUR_CLIENT_ID** and **YOUR_DOMAIN** with the actual values of the app you registered in step 6 above. If you did not record these values in step 6, they can be found in the **Auth0 dashboard** for **Tenant 1** by going to "Applications" link and clicking on the "Settings" (gear) icon to the right of your application's name.
 
-The client ID for your application can be found in the **Auth0 dashboard** for **Tenant 1** by going to "Applications" link and clicking on the "Settings" (gear) icon to the right of your application's name.
+You can also replace **audience** with the value appropriate for your Application -- however, for the purposes of this test, a placeholder will work. When specifying the **audience** parameter, be sure that it matches an identifier of an existing API that [has been configured in Auth0](/apis#how-to-configure-an-api-in-auth0).
 
 Save this file in a place where you can access it via a browser.
 For this example, we'll call it **"hello-saml.html"**.
@@ -317,15 +321,11 @@ If you have other connections turned on for your application, your **Auth0 Lock 
 
 After entering your email address, the blue button on the Lock widget may have a new label. Click on the button which may be labeled **"saml"** or **ACCESS** or with the email domain of the email address you are logging in with, to initiate the SAML sso sequence with the Auth0 Identity Provider.
 
-* You will be redirected to the Identity Provider to log in.
-
-Note that whether you are prompted for credentials at this point depends on whether you still have an active session at the Identity Provider.
+* As above, whether you are prompted for credentials or immediately redirected to the callback URL (jwt.io) depends on whether you still have an active session at the Identity Provider.
 
 From the "try me" test you did earlier, you may still have an active session at the Identity Provider.  If this is the case, you will not be prompted to log in again and will simply be redirected to the callback URL specified in the HTML file. (Remember that this callback URL must also be in the __Allowed Callback URLs__ in the application's Settings tab in the Auth0 dashboard.)
 
 If sufficient time has passed, or if you delete your browser cookies before initiating the test, then you will be prompted to login when redirected to the Identity Provider.  Log in to the Identity Provider using the credentials for the test user you created in Auth0 Tenant 2.
-
-Upon successful authentication, you will be redirected to the callback URL specified in the HTML file (jwt.io).
 
 ## 10. Troubleshooting
 
