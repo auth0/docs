@@ -53,7 +53,11 @@ To authenticate the users we will redirect them to the **Auth0 Login Page** whic
 ```java
 @Override
 protected void doGet(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
-    String redirectUri = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/callback";
+    String redirectUri = req.getScheme() + "://" + req.getServerName();
+    if ( req.getServerPort() != 80 && req.getServerPort() != 443) {
+        redirectUri += ":" + req.getServerPort();
+    }
+    redirectUri += "/callback";
 
     String authorizeUrl = authenticationController.buildAuthorizeUrl(req, redirectUri)
             .withAudience(String.format("https://%s/userinfo", domain))
