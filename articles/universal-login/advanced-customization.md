@@ -13,7 +13,7 @@ useCase: customize-hosted-pages
 
 In addition to the simple settings that are set in the Dashboard, such as logo and colors, the actual code of some Universal Login pages may be altered and added to. You can customize the HTML code for Login, Password Reset and MFA pages.
 
-Note that if you use the New Universal Login experience and decide to customize the login page using Lock, it will not have the same look and feel by default. The login page will look similar to the Classic Universal Login experience and the rest of the pages will look like the New Universal Login experience.
+Note that if you use the New Universal Login experience and decide to customize the login page using Lock, it will not have the same look and feel by default. The login page will look similar to the Classic Universal Login experience and the rest of the pages will look like the New Universal Login experience. Given that the New Experience still does not have feature parity with the Classic one, this provides a way to mix both approaches (e.g. customizing the Login page so you can use Passwordless or Home Realm Discovery with the Lock widget, but use the MFA page from the New Experience to support multiple factors).
 
 ![Login Page](/media/articles/universal-login/login.png)
 

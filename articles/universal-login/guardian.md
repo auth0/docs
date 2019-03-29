@@ -85,7 +85,7 @@ return new Auth0MFAWidget({
 ```
 
 ::: note
-When customizing the login page with MFAWidget, users will not be able to select from a list of enrolled factors. Auth0 will ask them to perform MFA with the most secure one.
+When customizing the login page with Auth0MFAWidget, users will not be able to select from a list of enrolled factors. Auth0 will ask them to perform MFA with the most secure one.
 :::
 
 ## Rendering "Invited Enrollments" vs. Standard Scenarios
