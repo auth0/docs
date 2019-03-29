@@ -91,19 +91,7 @@ In order for your WordPress site to perform certain actions on behalf of your Au
 
 1. Look for the Application you created above and click **Unauthorized** to grant access
 
-1. In the panel that appears, select the following scopes below and click **Update** (you can search using the **Filter scopes** field)
-
-    * `create:clients`
-    * `update:clients`
-    * `update:connections`
-    * `create:connections`
-    * `read:connections`
-    * `create:rules`
-    * `delete:rules`
-    * `read:users`
-    * `update:users`
-    * `create:users`
-    * `update:guardian_factors`
+1. In the panel that appears, select only the `read:users` and `update:users` scopes and click **Update** (you can search using the **Filter scopes** field)
 
 ![Application Advanced Settings](/media/articles/cms/wordpress/grant-client-access-to-api.png)
 
