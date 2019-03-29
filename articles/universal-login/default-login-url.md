@@ -50,7 +50,7 @@ You can also do this using the Management API:
 }
 ```
 
-The `login_url` should point to a route in the application that ends up redirecting to Auth0's `/authorize` endpoint, e.g. `http://yoursite.com/login`.
+The `login_url` should point to a route in the application that ends up redirecting to Auth0's `/authorize` endpoint, e.g. `https://mycompany.org/login`. Note that it requires `https` and it cannot point to `localhost`.
 
 ## Scenarios for redirecting to the default login route
 
