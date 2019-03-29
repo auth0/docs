@@ -68,7 +68,7 @@ https://yourdomain.com/index.php?auth0=1
 
 1. Scroll down and click the **Show Advanced Settings** link, then the **OAuth** tab and make sure **JsonWebToken Signature Algorithm** is set to RS256. If this needs to be changed later, it should be changed here as well as in wp-admin (see Settings > Basic below).
 
-1. Turn off **OIDC Conformant**.
+1. Turn on **OIDC Conformant**.
 
     ![Application - Advanced Settings - OAuth](/media/articles/cms/wordpress/client-advanced-settings.png)
 
