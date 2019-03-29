@@ -19,7 +19,7 @@ You can configure how user session timeouts work for Single Sign On (SSO) with s
 
 ## How session lifetime limits work
 
-Auth0 maintains an SSO session for any user who authenticates via an application. When a user performs a new standard login, it resets the SSO session. There are two settings in the dashboard that allow you to set session lifetime limits:
+Auth0 maintains a login session for any user who authenticates via an application. When a user performs a new standard login, it resets the login session. There are two settings in the dashboard that allow you to set session lifetime limits:
 
 * **Inactivity timeout**: Each time the user completes a transaction registered with the authorization server (Auth0), the session lifetime is extended from that point for the duration of the **Inactivity timeout** period. (Referred to as `idle_session_lifetime` in the Management API.) 
 
@@ -45,16 +45,7 @@ For social identity providers, make sure the connection is not using [developer 
 
 ## Configure session lifetime limits
 
-1. To configure the session lifetime, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
-
-2. In the **Log In Session Management** section, configure the two settings that enable you to control session lifetime:
-
-   | Setting | Description | Self-Service Maximum Lifetime | Enterprise Maximum Lifetime |
-   | - | - | - | - |
-   | **Inactivity timeout** | Maximum session session lifetime without user activity. | 4320 minutes (3 days) | 144000 minutes (100 days) |
-   | **Require log in after** | Maximum possible session lifetime regardless of user activity. | 43200 minutes (30 days) | 525600 minutes (365 days).|
-
-   ![Login Session Management](/media/articles/sso/sso-session-mgmt-2.png)
+Learn how to [configure session settings](/sessions/guides/dashboard/tenant/configure-session-settings) for your tenant.
 
 ## Check the user's SSO status from the application
 
