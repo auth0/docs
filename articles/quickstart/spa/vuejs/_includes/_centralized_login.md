@@ -1,4 +1,6 @@
-<%= include('../../_includes/_login_preamble', { library: 'Vue.js', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-vue-samples/tree/master/01-Login'}) %>
+<!-- markdownlint-disable MD041 MD002 -->
+
+<%= include('../../_includes/_login_preamble', { library: 'Vue.js' }) %>
 
 ### Create an Authentication Service
 
