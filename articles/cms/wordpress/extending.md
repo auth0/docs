@@ -507,6 +507,10 @@ This filter lets you override the default CDN URL for Auth0.js when doing an SSO
 
 This filter lets you override the default CDN URL for Auth0.js when loading the COO fallback page.
 
+### auth0_slo_return_to
+
+This filter lets you override the default `returnTo` URL when logging out of Auth0.
+
 ## Additional Extensions
 
 Additional examples can be found [here](https://github.com/joshcanhelp/auth0-wp-test/blob/master/inc/hooks-other.php).

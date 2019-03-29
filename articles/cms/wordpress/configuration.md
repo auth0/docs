@@ -180,13 +180,13 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 ### Features
 
-* **Single Sign On (SSO):** Enables SSO on your WordPress, allowing users to log in once and be automatically logged into any of your sites which use Auth0. For more information, see [What is SSO?](/sso). Activating this setting will attempt to turn on "Use Auth0 instead of the IdP to do Single Sign On" in the Application settings in the Auth0 dashboard (requires a valid API token to make this change). Option name is `sso`.
+* **Single Sign On (SSO):** *This option is deprecated and will be removed in the next major. Please use the Universal Login Page option to enable SSO* Enable this option to attempt SSO on the `wp-login.php` page. Option name is `sso`.
 
-* **Single Logout:** Enable this option for Single Logout. For more information, see [Single Sign-On and Single Logout](/sso). This will be hidden (and automatically disabled) if SSO is turned off. Option name is `singlelogout`.
+* **Single Logout:** Enable this option to log out of Auth0 when logging out of WordPress. Option name is `singlelogout`.
 
 * **Passwordless Login:** Enable this option to replace the login widget with Lock Passwordless. Option name is `passwordless_enabled`.
 
-* **Universal Login Page:** Redirects the `wp-login.php` page to the Universal Login Page for authentication using all active Connections for this Application. Option name is `auto_login`.
+* **Universal Login Page:** Redirects the `wp-login.php` page to the Universal Login Page for SSO authentication using all active Connections for this Application. Option name is `auto_login`.
 
 * **Auto Login Method:** A single, active connection to use for authentication when **Universal Login Page** is turned on. Leave this blank to show all active Connections on the Universal Login Page. Option name is `auto_login_method`.
 
