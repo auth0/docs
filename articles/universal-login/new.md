@@ -11,7 +11,7 @@ toc: true
 
 Auth0's New [Universal Login](/universal-login) experience provides a reimagined login flow, with a fresh UX design and lightweight pages. When you pick this new experience, Auth0 will use it for all pages that haven't been customized.
 
-The key structural difference with the [Classic Experience](/unniversa-login/classic) is that while the former uses Javascript widgets in all the pages, the New Experience is rendered on the server and does not require Javascript. 
+The key structural difference with the [Classic Experience](/universal-login/classic) is that while the former uses Javascript widgets in all the pages, the New Experience is rendered on the server and does not require Javascript. 
 
 From a functional perspective, there's is a still a feature gap between the New and Classic experience. [Learn more](/universal-login/new-experience-limitations).
 
