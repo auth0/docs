@@ -1,7 +1,6 @@
 ---
 title: Implementation Checklists
 description: Links to checklists for your CIAM implementation. 
-toc: true
 topics:
     - b2c
     - ciam
