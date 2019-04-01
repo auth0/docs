@@ -72,8 +72,7 @@ https://yourdomain.com/index.php?auth0=1
 
     ![Application - Advanced Settings - OAuth](/media/articles/cms/wordpress/client-advanced-settings.png)
 
-1. Click the **Grant Types** tab and select at least **Implicit,** **Authorization Code,** **Refresh Token,** and
-**Client Credentials**.
+1. Click the **Grant Types** tab and select at least **Implicit,** **Authorization Code,** and **Client Credentials**.
 
     ![Application - Advanced Settings - Grant Types](/media/articles/cms/wordpress/client-grant-types.png)
 
@@ -81,9 +80,9 @@ https://yourdomain.com/index.php?auth0=1
 
 ### Authorize the Application for the Management API
 
-In order for your WordPress site to perform certain actions on behalf of your Auth0 tenant, you'll need to authorize the Application created above to access the Management API.
+In order for your WordPress site to perform certain actions on behalf of your Auth0 tenant, you'll need to authorize the Application created above to access the Management API. This is not required but will enable retrieving complete user data on login (including `user_metadata` and `app_metadata`), email and password changes for users, and email verification email sending when emails are required.
 
-1. Make sure your Application allows the Client Credentials grant (step 7 above)
+1. Make sure your Application allows the Client Credentials grant (step two steps above)
 
 1. Navigate to the [APIs](${manage_url}/#/apis) page
 
