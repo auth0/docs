@@ -12,11 +12,7 @@ useCase:
 ---
 # Implementation Checklists
 
-You can use the Software Development Life Cycle (SDLC) process to plan and complete your implementation. The process is broken into 6 phases. Use all or parts of the phase as they apply to your implementation. 
-
-Auth0 provides [checklists](https://docs.google.com/spreadsheets/d/1TVG2ZYr2Z8sZhajhXy96xzXfuQ27KYxcwsIpae0wdj8/edit?usp=sharing) (Google Sheets format) for each phase with links to pertinent Auth0 feature information that you can copy and use for your implementation. 
-
-The SDLC phases are: 
+You can use the Software Development Life Cycle (SDLC) process to plan and complete your implementation. The process is broken into 6 phases. The SDLC phases are: 
 
 * Analyze
 * Design
@@ -24,6 +20,8 @@ The SDLC phases are:
 * Test
 * Deploy 
 * Monitor
+
+Auth0 provides [checklists](https://docs.google.com/spreadsheets/d/1TVG2ZYr2Z8sZhajhXy96xzXfuQ27KYxcwsIpae0wdj8/edit?usp=sharing) (Google Sheets format) for each phase with links to pertinent Auth0 feature information. Not all parts of each phase may apply to you. You can copy and modify the checklists to suit your needs. 
 
 ## Analyze
 
