@@ -20,6 +20,7 @@ useCase:
 * [Introduction](/architecture-scenarios/b2c/introduction)
 * [Phase 1 Overview](/architecture-scenarios/b2c/phase-1-overview)
 * [Planning](/architecture-scenarios/b2c/planning)
+* [Checklists](/architecture-scenarios/b2c/checklists)
 
 ## Workstreams
 
