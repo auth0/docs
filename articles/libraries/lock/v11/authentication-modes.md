@@ -38,7 +38,7 @@ var lock = new Auth0Lock(
 ```
 
 ::: note
-Multifactor authentication does not work in popup mode.
+When using lock embedded, MFA is not supported in popup mode.
 :::
 
 ::: note
