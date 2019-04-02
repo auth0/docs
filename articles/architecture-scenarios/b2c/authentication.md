@@ -55,7 +55,7 @@ Collecting credentials only at the centralized login page will reduce the surfac
 
 ## Anomaly Detection
 
-The reason that authentication systems are important is to prevent bad actors from accessing applications and user data that they should not. We want to place as many barriers in between those bad actors and access to our system as possible. One of the easiest ways to do this is to ensure that your anomaly detection with Auth0 is configured correctly. Take a moment to [read the docs on anomaly detection](/anomaly-detection) and ensure it is working correctly for you behind the scenes.
+The reason that authentication systems are important is to prevent bad actors from accessing applications and user data that they should not. We want to place as many barriers as possible between those bad actors and access to our systems. One of the easiest ways to do this is to ensure that your anomaly detection with Auth0 is configured correctly, so take a moment to [read the docs on anomaly detection](/anomaly-detection) and ensure that it's working correctly for you.
 
 ::: note
 Anomaly Detection is handled by Auth0 and provides a great security feature for your product. If you are going to utilize it, ensure that you have set up your SMTP provider and configured your email templates before turning on email delivery to your users.
