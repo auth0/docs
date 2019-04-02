@@ -54,7 +54,7 @@ To authenticate the users we will redirect them to the **Auth0 Login Page** whic
 @Override
 protected void doGet(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
     String redirectUri = req.getScheme() + "://" + req.getServerName();
-    if ( req.getServerPort() != 80 && req.getServerPort() != 443) {
+    if ((req.getScheme().equals("http") && req.getServerPort() != 80) || (req.getScheme().equals("https") && req.getServerPort() != 443)) {
         redirectUri += ":" + req.getServerPort();
     }
     redirectUri += "/callback";
