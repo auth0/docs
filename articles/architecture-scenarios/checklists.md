@@ -1,13 +1,11 @@
 ---
 title: Implementation Checklists
-description: Links to checklists for your CIAM implementation. 
+description: Links to checklists for your implementation. 
 topics:
-    - b2c
-    - ciam
     - SDLC
 contentType: reference
 useCase:
-    - b2c-implementation
+    - implementation
 ---
 # Implementation Checklists
 
