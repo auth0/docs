@@ -1,6 +1,6 @@
 ---
 title: User Authentication
-description: Understand how authentication works in your CIAM implementation. 
+description: Architect how you will make authentication work in your CIAM implementation.
 toc: true
 topics:
     - b2c
