@@ -1,4 +1,0 @@
-* `handleAuthentication` - necessary for redirect-based authentication transactions which, in this example, include `signup` and `loginWithGoogle`. This method needs to be called when the app starts so that the authentication result (which comes back in the hash of a redirection) is properly handled.
-* `logout` - removes the user's tokens from local storage which effectively logs them out of the application.
-* `setSession` - takes an authentication result object and sets the `access_token`, `id_token`, and calculated `access_token` expiry time values into local storage
-* `isAuthenticated` - checks whether the expiry time for the `access_token` has already passed. This is the primary mechanism for the application to know whether the user is currently authenticated.
