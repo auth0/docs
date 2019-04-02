@@ -13,7 +13,7 @@ useCase:
 ---
 # User Authentication
 
-In order to provide services to your users, you must be able to identify who those users are. This process is called authentication. You must provide your users a way to verify that they are who they say they are. There are a number of ways to do this (such as social media accounts, username/password, passwordless authentication). In most cases it is also recommended that you go beyond a first factor for authenticating the user and add a second factor as well.
+In order to provide services to your users, you must be able to identify who those users are. This process is called authentication. You must provide your users a way to verify that they are who they are. There are a number of ways to do this (such as social media accounts, username/password, passwordless authentication). In most cases it is also recommended that you go beyond a first factor for authenticating the user and add a second factor as well.
 
 When designing my authentication experience, how do I...?
 
