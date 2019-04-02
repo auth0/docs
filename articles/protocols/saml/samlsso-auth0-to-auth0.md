@@ -143,17 +143,17 @@ Copy the URL below that line into your browser address bar. Again, you will need
 
 In general, you can access the metadata for a given SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME`.
 
-Once you go to that metadata URL, it will display the metadata (or prompt you to save the metadata file) for the this connection in tenant 1 (service provider side of the federation). It will look something like the following with your tenant name in place of the 'xxxxx':
+Once you go to that metadata URL, it will display the metadata (or prompt you to save the metadata file) for this connection in tenant 1 (service provider side of the federation). It will look something like the following with your tenant name in place of the 'xxxxx':
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-09.jpg)
 
 You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`.
 
-Copy and save this URL. This is the URL on tenant 1 that will receive the SAML assertion from the IDP. In the next section you will give this URL to the IDP so it knows where to send the SAML assertion.
+Copy and save this URL. This is the URL on Tenant 1 that will receive the SAML assertion from the IDP. In the next section you will give this URL to the IDP so it knows where to send the SAML assertion.
 
 ## 4. Add your Service Provider metadata to the Identity Provider
 
-In this section you will go back and add some information about the Service Provider (tenant 1) to the Identity Provider (tenant 2) so the Identity Provider Auth0 tenant knows how to receive and respond to SAML-based authentication requests from the Service Provider Auth0 tenant.
+In this section you will go back and add some information about the Service Provider (Tenant 1) to the Identity Provider (tenant 2) so the Identity Provider Auth0 tenant knows how to receive and respond to SAML-based authentication requests from the Service Provider Auth0 tenant.
 
 * Switch back to **Tenant 2**.
 
@@ -321,7 +321,7 @@ If you have other connections turned on for your application, your **Auth0 Lock 
 
 After entering your email address, the blue button on the Lock widget may have a new label. Click on the button which may be labeled **"saml"** or **ACCESS** or with the email domain of the email address you are logging in with, to initiate the SAML sso sequence with the Auth0 Identity Provider.
 
-* As above, whether you are prompted for credentials or immediately redirected to the callback URL (jwt.io) depends on whether you still have an active session at the Identity Provider.
+* As above, whether you are prompted for credentials or immediately redirected to the callback URL depends on whether you still have an active session at the Identity Provider.
 
 From the "try me" test you did earlier, you may still have an active session at the Identity Provider.  If this is the case, you will not be prompted to log in again and will simply be redirected to the callback URL specified in the HTML file. (Remember that this callback URL must also be in the __Allowed Callback URLs__ in the application's Settings tab in the Auth0 dashboard.)
 
