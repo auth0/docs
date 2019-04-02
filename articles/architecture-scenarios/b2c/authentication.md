@@ -13,19 +13,19 @@ useCase:
 ---
 # User Authentication
 
-In order to provide services to your users, you must be able to identify who those users are. This process is called authentication. You must provide your users a way to verify that they are who they are. There are a number of ways to do this (such as social media accounts, username/password, passwordless authentication). In most cases it is also recommended that you go beyond a first factor for authenticating the user and add a second factor as well.
+In order to provide services to your users, you must be able to identify who those users are. This process is called authentication. You must provide your users a way to verify that they are who they are. There are a number of ways to do this such as social media accounts, username/password, and passwordless authentication. In most cases, it is also recommended that you add a second factor for authenticating.
 
-When designing my authentication experience, how do I...?
+When designing the authentication experience, you will need to determine:
 
-* ...determine where users will enter their credentials?
-* ...keep user credentials safe?
-* ...minimize the upkeep on my authentication system?
-* ...provide password authentication for my users?
-* ...integrate social logins for my users?
-* ...prevent hackers from trying to log in as my users?
-* ...implement authentication in different kinds of applications using Auth0?
-* ...make login easy for my users if they come from different language backgrounds?
-* ...provide a good user experience as I migrate away from my legacy authentication system?
+* Where users will enter their credentials
+* How you will keep user credentials safe
+* How you will maintain your authentication system
+* How you will provide password authentication for your users
+* If you will integrate social logins for my users
+* How you will prevent hackers from trying to log in as your users
+* How you want to implement authentication in different kinds of applications using Auth0
+* If you want to make login easy for your users when they come from different language backgrounds
+* How you will provide a good user experience as you migrate away from my legacy authentication system
 
 The answers to these questions, and others, are detailed below in sections on [Universal Login](#universal-login), [Username Password Authentication](#username-password-authentication), [Anomaly Detection](#anomaly-detection), and [Application Integration](#application-integration).
 
