@@ -23,9 +23,9 @@ Here are some examples of the things that determine how you will manage user pro
 
 ## Prerequisites
 
-* [Architecture](/architecture-scenarios/b2c/tenant-architecture)
-* [User Provisioning](/architecture-scenarios/b2c/user-provisioning)
-* [Authentication](/architecture-scenarios/b2c/authentication)
+* [Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture)
+* [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
+* [Authentication](/architecture-scenarios/implementation/b2c/authentication)
 * Authorization
 
 ## Design considerations
@@ -75,7 +75,7 @@ Use of Metadata should follow Auth0 [best practice guidance](/best-practices/use
 At login, the identity provider updates information in the [Normalized User Profile](/users/normalized/auth0) and you can change a limited set of data through the Auth0 Management API. You can also use Auth0 Rules to override information in the Normalized User Profile. 
 
 ::: warning
-A user profile cannot be directly accessed across multiple Auth0 tenants. See [Architecture](/architecture-scenarios/b2c/tenant-architecture) for details.
+A user profile cannot be directly accessed across multiple Auth0 tenants. See [Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture) for details.
 :::
 
 ### User metadata
@@ -129,4 +129,4 @@ The Auth0 Management API also provides you with the ability to unblock users dis
 
 ## Next steps
 
-* [Branding](/architecture-scenarios/b2c/branding)
+* [Branding](/architecture-scenarios/implementation/b2c/branding)

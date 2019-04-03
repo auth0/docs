@@ -17,18 +17,18 @@ useCase:
 
 ## Introduction
 
-* [Introduction](/architecture-scenarios/b2c/introduction)
-* [Phase 1 Overview](/architecture-scenarios/b2c/phase-1-overview)
-* [Planning](/architecture-scenarios/b2c/planning)
-* [Checklists](/architecture-scenarios/b2c/checklists)
+* [Introduction](/architecture-scenarios/implementation/b2c/introduction)
+* [Phase 1 Overview](/architecture-scenarios/implementation/b2c/phase-1-overview)
+* [Planning](/architecture-scenarios/implementation/b2c/planning)
+* [Checklists](/architecture-scenarios/implementation/checklists)
 
 ## Workstreams
 
-* [Architecture](/architecture-scenarios/b2c/tenant-architecture)
-* [User Provisioning](/architecture-scenarios/b2c/user-provisioning)
-* [User Authentication](/architecture-scenarios/b2c/authentication)
-* [User Authorization](/architecture-scenarios/b2c/user-authorization)
-* [User Profile Management](/architecture-scenarios/b2c/user-profile-mgmt)
-* [Branding](/architecture-scenarios/b2c/branding)
+* [Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture)
+* [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
+* [User Authentication](/architecture-scenarios/implementation/b2c/authentication)
+* [User Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
+* [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)
+* [Branding](/architecture-scenarios/implementation/b2c/branding)
 * Deployment Automation - not available yet
-* [User Logout](/architecture-scenarios/b2c/user-logout)
+* [User Logout](/architecture-scenarios/implementation/b2c/user-logout)

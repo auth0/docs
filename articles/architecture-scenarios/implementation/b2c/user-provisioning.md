@@ -25,7 +25,7 @@ User provisioning is the process of adding users to your system. When you define
 In this section, we will walk you through the things you should consider when making these decisions.
 
 ## Prerequisites
-* [Tenant Architecture](/architecture-scenarios/b2c/tenant-architecture)
+* [Tenant Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture)
 
 ## Design considerations
 
@@ -67,7 +67,7 @@ There are two tools you can use when migrating users in bulk:
 * The Management API
 * The User Import/Export Extension
 
-In most cases, we recommend that you use the [Management API](/users/concepts/overview-user-migration#bulk-user-imports-with-the-management-api), since this option provides you with more flexibility and control. We only recommend the [User Import/Export extension](https://auth0.com/docs/users/concepts/overview-user-migration#migrate-users-with-the-user-import-export-extension) in simple cases, such as the movement of a few users.
+In most cases, we recommend that you use the [Management API](/users/concepts/overview-user-migration#bulk-user-imports-with-the-management-api), since this option provides you with more flexibility and control. We only recommend the [User Import/Export extension](/users/concepts/overview-user-migration#migrate-users-with-the-user-import-export-extension) in simple cases, such as the movement of a few users.
 
 Please note that your users will need to reset their passwords once you've migrated their accounts to Auth0 using one of the bulk migration processes.
 
