@@ -3,6 +3,9 @@ title: Implementation Checklists
 description: Links to checklists for your implementation. 
 topics:
     - SDLC
+    - checklists
+    - best practices
+    - implementation checklist
 contentType: reference
 useCase:
     - implementation
@@ -31,7 +34,7 @@ Use the [Analyze checklist](https://docs.google.com/spreadsheets/d/1hTtRvvO6Szlv
 
 ## Design
 
-Use the [Design checklist]() to describe the desired features and operations of the system, including  business rules, pseudo-code, screen layouts, and other necessary documentation. Activities include:
+Use the [Design checklist](https://docs.google.com/spreadsheets/d/1L0PLqcghVvCSdW_OmLoKlU0uDJtb5mw6uIufMrKW7ro/edit?usp=sharing) to describe the desired features and operations of the system, including  business rules, pseudo-code, screen layouts, and other necessary documentation. Activities include:
 
 * Infrastructure design
 * System model design
