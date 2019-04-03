@@ -9,20 +9,20 @@ useCase:
 ---
 # Implementation Checklists
 
-You can use the Software Development Life Cycle (SDLC) process to plan and complete your implementation. The process is broken into 6 phases. The SDLC phases are: 
+Auth0 recommends that you break your implementation into the following 6 phases to plan and complete your implementation. 
 
-* [Analyze](#Analyze)
-* [Design](#Design)
-* [Build](#Build)
-* [Test](#Test)
-* [Deploy](#Deploy) 
-* [Monitor](#Monitor)
+* [Analyze](#analyze)
+* [Design](#design)
+* [Build](#build)
+* [Test](#test)
+* [Deploy](#deploy) 
+* [Monitor](#monitor)
 
-Auth0 provides checklists (Google Sheets format) for each phase with links to pertinent Auth0 feature documentation. Not all parts of each phase may apply to you. You can copy and modify the checklists to suit your needs. 
+Auth0 provides a checklist (Google Sheets format) for each phase with links to pertinent Auth0 feature documentation. Not all parts of each phase may apply to you. You can copy and modify the checklists to suit your needs. 
 
 ## Analyze
 
-In the Analyze phase, you analyze end-user business requirements and determine project goals as part of the high-level plan for the project. Convert the requirements and goals into system functions that the organization intends to develop. Activities include:
+Use the [Analyze checklist](https://docs.google.com/spreadsheets/d/1hTtRvvO6Szlvcr4XnsgzzmJj7FmmucAZAmFF275hB20/edit?usp=sharing) to analyze end-user business requirements and determine project goals as part of the high-level plan for the project. Convert the requirements and goals into system functions that the organization intends to develop. Activities include:
 
 * Gathering business requirements
 * Creating process diagrams
@@ -31,34 +31,34 @@ In the Analyze phase, you analyze end-user business requirements and determine p
 
 ## Design
 
-In the Design phase, you describe the desired features and operations of the system, including  business rules, pseudo-code, screen layouts, and other necessary documentation. Activities include:
+Use the [Design checklist]() to describe the desired features and operations of the system, including  business rules, pseudo-code, screen layouts, and other necessary documentation. Activities include:
 
 * Infrastructure design
 * System model design
 
 ## Build
 
-In the Build phase, you develop the actual system through implementation of infrastructure and code. Activities include:
+Use the [Build checklist]() to develop the actual system through implementation of infrastructure and code. Activities include:
 
 * Infrastructure implementation
 * Code implementation
 
 ## Test
 
-In the Test phase, you integrate and deploy all implemented code in the testing environment infrastructure. Testing then follows Software Testing Life Cycle activities to check the system for errors, bugs, and defects to verify that system functionalities work as expected (or not). Activities include:
+Use the [Test checklist]() to integrate and deploy all implemented code in the testing environment infrastructure. Testing then follows Software Testing Life Cycle activities to check the system for errors, bugs, and defects to verify that system functionalities work as expected (or not). Activities include:
 
 * Write test cases
 * Execute test cases
 
 ## Deploy
 
-In the Deploy phase, you deploy the system to either a staging or production environment, where actual users begin to operate and interact with it. 
+Use the [Deploy checklist]() to deploy the system to either a staging or production environment, where actual users begin to operate and interact with it. 
 
 Eventually, you deploy all components of the system to the production environment as a live release is made.
 
 ## Monitor
 
-During the Monitor phase, you make enhancements, corrections, and changes to ensure the system continues to work and stays updated to meet the business objectives and support the needs of the users. Activities include: 
+Use the [Monitor checklist]() to make enhancements, corrections, and changes to ensure the system continues to work and stays updated to meet the business objectives and support the needs of the users. Activities include: 
 
 * Monitoring
 * Maintenance
