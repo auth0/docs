@@ -44,10 +44,13 @@ These settings, once changed, will take effect on all your Universal Login pages
 
 ## Choosing an experience
 
-There are two available Experiences in Universal Login. The Classic Experience uses Javascript controls for each page. The New Experience does not require Javascript to work, and it offers a simpler and faster experience for end-users. 
+There are two available experiences in Universal Login. The Classic Universal Login experience uses JavaScript controls for each page. The New Universal Login experience does not _require_ JavaScript to work, and it offers a simpler and faster experience for end-users. 
 
-The dialog below lets you select which Experience will be used for default, non-customized pages:
+In the Dashboard, the dialog shown below lets you select which Experience will be used for default, non-customized pages:
 
 SCREENSHOT GOES HERE
 
-You can learn more about the [Classic Experience](/universal-login/classic), the [New Experience](/universal-login/new) and its [current limitations](/universal-login/new-experience-limitations).
+Choose an experience to learn more about:
+
+* [Classic Universal Login experience](/universal-login/classic) 
+* [New Universal Login experience](/universal-login/new) (and its [current limitations](/universal-login/new-experience-limitations))
