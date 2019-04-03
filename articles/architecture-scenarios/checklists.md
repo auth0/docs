@@ -41,27 +41,27 @@ Use the [Design checklist](https://docs.google.com/spreadsheets/d/1L0PLqcghVvCSd
 
 ## Build
 
-Use the [Build checklist]() to develop the actual system through implementation of infrastructure and code. Activities include:
+Use the [Build checklist](https://docs.google.com/spreadsheets/d/1Wd5HwONEi2Max7zcORJpwn8yQO_mbu62FDc-Sk8oWS8/edit?usp=sharing) to develop the actual system through implementation of infrastructure and code. Activities include:
 
 * Infrastructure implementation
 * Code implementation
 
 ## Test
 
-Use the [Test checklist]() to integrate and deploy all implemented code in the testing environment infrastructure. Testing then follows Software Testing Life Cycle activities to check the system for errors, bugs, and defects to verify that system functionalities work as expected (or not). Activities include:
+Use the [Test checklist](https://docs.google.com/spreadsheets/d/19tQOQ_heBVpHXx-YKZZY20u6y8mU8IwRHEF32znZ_-w/edit?usp=sharing) to integrate and deploy all implemented code in the testing environment infrastructure. Testing then follows Software Testing Life Cycle activities to check the system for errors, bugs, and defects to verify that system functionalities work as expected (or not). Activities include:
 
 * Write test cases
 * Execute test cases
 
 ## Deploy
 
-Use the [Deploy checklist]() to deploy the system to either a staging or production environment, where actual users begin to operate and interact with it. 
+Use the [Deploy checklist](https://docs.google.com/spreadsheets/d/1MRBz4CiT6RTL7Mf7eWmpjSZEQS3rwjNryyPGmvjn-fc/edit?usp=sharing) to deploy the system to either a staging or production environment, where actual users begin to operate and interact with it. 
 
 Eventually, you deploy all components of the system to the production environment as a live release is made.
 
 ## Monitor
 
-Use the [Monitor checklist]() to make enhancements, corrections, and changes to ensure the system continues to work and stays updated to meet the business objectives and support the needs of the users. Activities include: 
+Use the [Monitor checklist](https://docs.google.com/spreadsheets/d/1zHs29OoeiludHxY5cV06oGVAIW91jMjUflJgzJVaRKo/edit?usp=sharing) to make enhancements, corrections, and changes to ensure the system continues to work and stays updated to meet the business objectives and support the needs of the users. Activities include: 
 
 * Monitoring
 * Maintenance
