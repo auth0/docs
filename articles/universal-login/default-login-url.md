@@ -68,5 +68,5 @@ Sometimes users bookmark the login page, and when they navigate to the bookmarke
 
 When the password reset flow is completed and the default URI for the application or tenant is configured, users will see a button that will let them navigate back to the login page.
 
-This behavior only happens when the [New Universal Login Experience](/universal-login/new) is enabled. In Classic mode, you will need to [configure the Redirect URL in the Password Reset Email Template](https://auth0.com/docs/email/templates#configuring-the-redirect-to-url).
+This behavior only happens when the [New Universal Login Experience](/universal-login/new) is enabled. In Classic mode, you will need to [configure the Redirect URL in the Password Reset Email Template](/email/templates#configuring-the-redirect-to-url).
 
