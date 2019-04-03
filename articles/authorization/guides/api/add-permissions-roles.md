@@ -18,7 +18,7 @@ This guide will show you how to add permissions to [roles](/authorization/concep
 
 <%= include('../../_includes/_enable-authz-core') %>
 
-1. Make a `POST` call to the [Add Role Permissions endpoint](/api/management/v2#!/roles/post_role_permissions). Be sure to replace `ROLE_ID`, `MGMT_API_ACCESS_TOKEN`, `API_ID`, and `PERMISSION_NAME` placeholder values with your role ID, Access Token, API ID(s), and permission name(s), respectively.
+1. Make a `POST` call to the [Add Role Permissions endpoint](/api/management/v2#!/roles/post_role_permissions). Be sure to replace `ROLE_ID`, `MGMT_API_ACCESS_TOKEN`, `API_AUDIENCE`, and `PERMISSION_NAME` placeholder values with your role ID, Access Token, API Identifiers (audiences), and permission name(s), respectively.
 
 ```har
 {
@@ -31,7 +31,7 @@ This guide will show you how to add permissions to [roles](/authorization/concep
 	],
 	"postData": {
     "mimeType": "application/json",
-    "text": "{ \"permissions\": [ { \"resource_server_identifier\": \"API_ID\", \"permission_name\": \"PERMISSION_NAME\" }, { \"resource_server_identifier\": \"API_ID\", \"permission_name\": \"PERMISSION_NAME\" } ] }"
+    "text": "{ \"permissions\": [ { \"resource_server_identifier\": \"API_AUDIENCE\", \"permission_name\": \"PERMISSION_NAME\" }, { \"resource_server_identifier\": \"API_AUDIENCE\", \"permission_name\": \"PERMISSION_NAME\" } ] }"
   }
 }
 ```
@@ -40,5 +40,5 @@ This guide will show you how to add permissions to [roles](/authorization/concep
 | - | - |
 | `ROLE_ID` | Τhe ID of the role for which you want to add permissions. |
 | `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the scope `update:roles`. |
-| `API_ID` | ID(s) of the API(s) associated with the permission(s) you would like to add for the specified role. |
+| `API_AUDIENCE` | This is the identifier (audience) of the API(s) associated with the permission(s) you would like to add for the specified role. This is not the API_ID |
 | `PERMISSION_NAME` | Name(s) of the permission(s) you would like to add for the specified role. |
