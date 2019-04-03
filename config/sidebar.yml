@@ -25,7 +25,7 @@ articles:
     url: /architecture-scenarios
 
     children:
-      - title: SDLC Implementation Checklists
+      - title: Implementation Checklists
         url: /architecture-scenarios/checklists
         
       - title: SSO for Regular Web Apps
