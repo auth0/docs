@@ -34,7 +34,7 @@ In the Analyze phase, you analyze end-user business requirements and determine p
 * Performing detailed analysis
 * Alignment to project plan
 
-To view the checklist, see [Analyze Checklist](https://docs.google.com/spreadsheets/d/1hTtRvvO6Szlvcr4XnsgzzmJj7FmmucAZAmFF275hB20/edit?usp=sharing){:target="_blank"}.
+<a href="https://docs.google.com/spreadsheets/d/1hTtRvvO6Szlvcr4XnsgzzmJj7FmmucAZAmFF275hB20/edit?usp=sharing" download>Download the Analyze Checklist</a> 
 
 ## Design
 
@@ -43,7 +43,7 @@ In the Design phase, you describe the desired features and operations of the sys
 * Infrastructure design
 * System model design
 
-To view the checklist, see <a href="https://docs.google.com/spreadsheets/d/1L0PLqcghVvCSdW_OmLoKlU0uDJtb5mw6uIufMrKW7ro/edit?usp=sharing"> target="_blank">Design Checklist</a>.
+<a href="https://docs.google.com/spreadsheets/d/1L0PLqcghVvCSdW_OmLoKlU0uDJtb5mw6uIufMrKW7ro/edit?usp=sharing" download>Download the Design Checklist</a> 
 
 ## Build
 
@@ -52,7 +52,7 @@ In the Build phase, you develop the actual system through implementation of infr
 * Infrastructure implementation
 * Code implementation
 
-To view the checklist, see <a href="https://docs.google.com/spreadsheets/d/1Wd5HwONEi2Max7zcORJpwn8yQO_mbu62FDc-Sk8oWS8/edit?usp=sharing"> target="_blank">Build Checklist</a>.
+<a href="https://docs.google.com/spreadsheets/d/1Wd5HwONEi2Max7zcORJpwn8yQO_mbu62FDc-Sk8oWS8/edit?usp=sharing" download>Download the Design Checklist</a> 
 
 ## Test
 
@@ -61,7 +61,7 @@ In the Test phase, you integrate and deploy all implemented code in the testing 
 * Write test cases
 * Execute test cases
 
-To view the checklist, see <a href="https://docs.google.com/spreadsheets/d/19tQOQ_heBVpHXx-YKZZY20u6y8mU8IwRHEF32znZ_-w/edit?usp=sharing"> target="_blank">Test Checklist</a>.
+<a href="https://docs.google.com/spreadsheets/d/19tQOQ_heBVpHXx-YKZZY20u6y8mU8IwRHEF32znZ_-w/edit?usp=sharing" download>Download the Test Checklist</a> 
 
 ## Deploy
 
@@ -69,7 +69,7 @@ In the Deploy phase, you deploy the system to either a staging or production env
 
 Eventually, you deploy all components of the system to the production environment as a live release is made.
 
-To view the checklist, see <a href="https://docs.google.com/spreadsheets/d/1MRBz4CiT6RTL7Mf7eWmpjSZEQS3rwjNryyPGmvjn-fc/edit?usp=sharing"> target="_blank">Deploy Checklist</a>.
+<a href="https://docs.google.com/spreadsheets/d/1MRBz4CiT6RTL7Mf7eWmpjSZEQS3rwjNryyPGmvjn-fc/edit?usp=sharing" download>Download the Deploy Checklist</a> 
 
 ## Monitor
 
@@ -80,4 +80,4 @@ In the Monitor phase, you make enhancements, corrections, and changes to ensure 
 * Changes and adjustments
 * Upgrade and adapt to future needs 
 
-To view the checklist, see <a href="https://docs.google.com/spreadsheets/d/1zHs29OoeiludHxY5cV06oGVAIW91jMjUflJgzJVaRKo/edit?usp=sharing"> target="_blank">Monitor Checklist</a>.
+<a href="https://docs.google.com/spreadsheets/d/1zHs29OoeiludHxY5cV06oGVAIW91jMjUflJgzJVaRKo/edit?usp=sharing" download>Download the Monitor Checklist</a> 
