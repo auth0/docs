@@ -43,7 +43,7 @@ You can also assign permissions to users from their individual profile page.
 
 ![Select User](/media/articles/authorization/user-list.png)
 
-2. Click the **Permissions** view, and click **Assign Permissions**.
+2. Click the **Permissions** tab, and click **Assign Permissions**.
 
 ![View Roles](/media/articles/authorization/user-prof-empty-permissions.png)
 

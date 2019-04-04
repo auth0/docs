@@ -1,4 +1,5 @@
 ---
+title: Remove Applications
 description: Learn how to remove an Auth0-registered application using the Auth0 Management API.
 toc: false
 topics:
@@ -10,8 +11,7 @@ useCase:
   - add-login
   - call-api
 ---
-
-# Remove an Application using the Management API
+# Remove Applications
 
 This guide will show you how to remove an application using Auth0's Management API.
 

@@ -19,12 +19,11 @@ New secrets may be delayed while rotating. To make sure that you see as little d
 Secrets can be stored in a list (or similar structure) to track keys until they're no longer needed. Once you're sure that an old secret is obsolete, you can remove its value from your app's code.
 :::
 
+1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the Application to view.
 
-1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/). 
+![View Applications](/media/articles/dashboard/guides/app-list.png)
 
-2. Click the name of your application to see its settings.
-
-3. Scroll to the bottom of the Settings page, and click the **Rotate** button in the **Rotate secret** section of the **Danger Zone**. 
+2. Locate the **Client Secret**, and click the **Rotate** button in the **Rotate secret** section of the **Danger Zone**. 
 
 ![](/media/articles/clients/change-client-secret/rotate-client-secret.jpg)
 

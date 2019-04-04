@@ -28,7 +28,7 @@ Auth0 makes it easy for your app to implement the mobile login flow using:
 
 **Before beginning this tutorial:**
 
-* [Register the Application with Auth0](/applications/guides/register-native-app). 
+* [Register the Application with Auth0](/dashboard/guides/applications/register-app-native). 
   * Select an **Application Type** of **Native**.
   * Add an **Allowed Callback URL** of **`YOUR_CALLBACK_URL`**. Your callback URL format will vary depending on your platform. For details about the format for your platform, see our [Native/Mobile Quickstarts](/quickstart/native).
   * Make sure the Application's **[Grant Types](/applications/guides/update-grant-types-dashboard)** include **Authorization Code**.

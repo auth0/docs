@@ -550,12 +550,20 @@ module.exports = [
     to: '/applications/guides/enable-android-app-links-dashboard'
   },
   {
+    from: '/applications/guides/enable-android-app-links-dashboard',
+    to: '/dashboard/guides/applications/enable-android-app-links'
+  },
+  {
     from: '/clients/enable-universal-links',
     to: '/applications/enable-universal-links'
   },
   {
     from: '/applications/enable-universal-links',
     to: '/applications/guides/enable-universal-links-dashboard'
+  },
+  {
+    from: '/applications/guides/enable-universal-links-dashboard',
+    to: '/dashboard/guides/applications/enable-universal-links'
   },
   {
     from: '/clients/how-to-rotate-client-secret',
@@ -2031,7 +2039,7 @@ module.exports = [
    },
    {
      from: '/applications/spa',
-     to: '/applications/guides/register-spa'
+     to: '/dashboard/guides/applications/register-app-spa'
    },
    {
     from: [

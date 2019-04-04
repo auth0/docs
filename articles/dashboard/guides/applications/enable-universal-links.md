@@ -1,5 +1,6 @@
 ---
-description: Learn to enable universal links support for your Auth0 app in Xcode.
+title: Enable Universal Links Support in Apple Xcode
+description: Learn how to enable universal links support for your Auth0 app in Apple Xcode.
 topics:
   - applications
   - ios
@@ -9,8 +10,7 @@ useCase:
   - build-an-app
   - enable-mobile-auth
 ---
-
-# Enable Universal Links Support in Xcode
+# Enable Universal Links Support in Apple Xcode
 
 Universal links establish a *verified relationship between domains and applications*, so both your Auth0 Application settings and your iOS application need to be in sync. To do this, you need to provide Auth0 with the following information:
 
@@ -29,26 +29,23 @@ To find your iOS application's `Bundle identifier`, go to its [Xcode project set
 
 ## Provide Your Apple `Team ID` and `Bundle Identifier` to Auth0
 
-1. Navigate to the [Applications](${manage_url}/#/clients) page of the [Auth0 Dashboard](${manage_url}).
+1. Navigate to the [Applications](${manage_url}/#/clients) page of the [Auth0 Dashboard](${manage_url}), and click the name of the Application to view.
 
-2. Click the cog icon next to the Application you want to link with your iOS application to see its settings.
+![View Applications](/media/articles/dashboard/guides/app-list.png)
 
-![](/media/articles/applications/settings.png)
+2. Scroll to the bottom of the *Settings* page, and click *Show Advanced Settings.*
 
-3. Scroll to the bottom of the *Settings* page, and click *Show Advanced Settings.*
+![Show Advanced Settings](/media/articles/applications/advanced-settings.png)
 
-![](/media/articles/applications/advanced-settings.png)
-
-4. Select the *Mobile Settings* tab, and provide the **Team ID** and the **App bundler identifier** values for your iOS application.
+3. Select the *Mobile Settings* tab, provide the **Team ID** and the **App bundler identifier** values for your iOS application, and click **Save Changes**.
 
 ![](/media/articles/applications/mobile-settings.png)
 
-5. Click **Save Changes** when done.
-
-
 ## Test Your Universal Link
 
-Check whether the universal links `apple-app-site-association` file is available for your application by using your browser to navigate to: `${account.namespace}/apple-app-site-association`.
+To check whether the universal links `apple-app-site-association` file is available for your application, navigate tothe following URL in your browser:
+
+`${account.namespace}/apple-app-site-association`.
 
 If the link is successful, you will see the following JSON (formatted for readability):
 

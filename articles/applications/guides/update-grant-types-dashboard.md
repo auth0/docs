@@ -24,13 +24,9 @@ Grant type `grant_type` not allowed for the client.
 ```
 :::
 
-1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/). 
+1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the Application to view.
 
-![Auth0 Applications](/media/articles/clients/client-grant-types/clients.png)
-
-2. Click the name of your application to see its settings.
-
-![Auth0 Application Settings](/media/articles/clients/client-grant-types/client-settings.png)
+![View Applications](/media/articles/dashboard/guides/app-list.png)
 
 3. Scroll to the bottom of the settings page, and click **Advanced Settings**.
 

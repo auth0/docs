@@ -15,9 +15,9 @@ This guide will show you how to use Auth0's Management API to check whether an a
 
 Auth0 determines this based on the **Token Endpoint Authentication Method** setting, which defines how an application authenticates against the [token endpoint](/api/authentication#get-token).
 
-1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/). 
+1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the Application to view.
 
-2. Click the name of your application to see its settings.
+![View Applications](/media/articles/dashboard/guides/app-list.png)
 
 3. Locate the **Token Endpoint Authentication Method**.
 

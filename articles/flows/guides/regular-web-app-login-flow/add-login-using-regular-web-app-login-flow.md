@@ -27,7 +27,7 @@ Following successful login, your application will have access to the user's [ID 
 
 **Before beginning this tutorial:**
 
-* [Register your Application with Auth0](/applications/guides/register-regular-web-app). 
+* [Register your Application with Auth0](/dashboard/guides/applications/register-app-regular-web). 
   * Select an **Application Type** of **Regular Web Apps**.
   * Add an **Allowed Callback URL** of **`${account.callback}`**.
   * Make sure your Application's **[Grant Types](/applications/guides/update-grant-types-dashboard)** include **Authorization Code**.
