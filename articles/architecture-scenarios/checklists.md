@@ -34,7 +34,7 @@ In the Analyze phase, you analyze end-user business requirements and determine p
 * Performing detailed analysis
 * Alignment to project plan
 
-To view the checklist, see <a href="https://docs.google.com/spreadsheets/d/1hTtRvvO6Szlvcr4XnsgzzmJj7FmmucAZAmFF275hB20/edit?usp=sharing"> target="_blank">Analyze Checklist</a>.
+To view the checklist, see [Analyze Checklist](https://docs.google.com/spreadsheets/d/1hTtRvvO6Szlvcr4XnsgzzmJj7FmmucAZAmFF275hB20/edit?usp=sharing){:target="_blank"}.
 
 ## Design
 
