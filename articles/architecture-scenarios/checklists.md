@@ -25,7 +25,7 @@ Auth0 provides a checklist (Google Sheets format) for each phase with links to p
 
 ## How to use the checklists
 
-1. Right-click the links below to open each checklists in a new tab.
+1. Right-click the links below to open each checklist in a new tab.
 2. Save a copy or export them to another spreadsheet application.
 3. Customize the checklists to suit your needs. 
 
