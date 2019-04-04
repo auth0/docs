@@ -16,9 +16,9 @@ useCase:
 ---
 # Architecture Scenarios
 
-This page describes the typical architecture scenarios we have identified when working with customers on implementing Auth0.
+This page describes the typical architecture scenarios we have identified when working with customers on implementing Auth0. We have also included [implementation checklists](/architecture-scenarios/checklists) that you can use to plan your implementation. 
 
-## Application Configurations
+## Application configurations
 
 These scenarios describe the different type of technology architectures your application may use, and how Auth0 can help for each of those. Each scenario comes with:
 
