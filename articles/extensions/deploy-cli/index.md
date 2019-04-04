@@ -37,3 +37,4 @@ This tool can be destructive to your Auth0 tenant. Please ensure you have read t
 * [Deploy CLI Tool Options](/extensions/deploy-cli/references/deploy-cli-options)
 * [Environment Variables and Keyword Mappings](/extensions/deploy-cli/references/environment-variables-keyword-mappings)
 * [What's New in Deploy CLI Tool v2](/extensions/deploy-cli/references/whats-new-v2)
+* [Troubleshooting Deploy CLI Tool](/extensions/deploy-cli/references/troubleshooting)

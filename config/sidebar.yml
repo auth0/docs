@@ -1140,6 +1140,9 @@ articles:
           - title: "What's New in v2"
             url: "/extensions/deploy-cli/references/whats-new-v2"
 
+          - title: "Troubleshooting Deploy CLI"
+            url: "/extensions/deploy-cli/references/troubleshooting"
+
   - title: "Professional Services"
     url: "/services"
     children:
