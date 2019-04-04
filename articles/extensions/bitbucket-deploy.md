@@ -24,7 +24,7 @@ Set the following configuration variables:
 * **REPOSITORY**: The repository from which you want to deploy your Rules and Database Connection scripts. This can be either a public or private repository
 * **BRANCH**: The branch the extension will monitor for changes
 * **USER**: The username used to access the Bitbucket account. Make sure you use the username, and not the email
-* **PASSWORD**: An app password you create through the Bitbucket settings to grant permissions to certain apps
+* **PASSWORD**: The user password or an app password you create through the Bitbucket settings to grant permissions to certain apps (`Repositories: Read` permission is required)
 * **BASE_DIR**: The base directory, where all your tenant settings are stored
 * **ENABLE_CIPHER**: Enables secrets encryption/decryption support
 * **CIPHER_PASSWORD**: The password for encryption/decryption of secrets
