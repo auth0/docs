@@ -48,7 +48,7 @@ There are two available experiences in Universal Login. The Classic Universal Lo
 
 In the Dashboard, the dialog shown below lets you select which Experience will be used for default, non-customized pages:
 
-SCREENSHOT GOES HERE
+![Login Page](/media/articles/universal-login/experience-picker.png)
 
 Choose an experience to learn more about:
 

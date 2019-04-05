@@ -29,6 +29,8 @@ In addition of some missing features, in the New Experience some pages has certa
 
 - A 'show password' icon will be displayed next to the password field.
 
+- If you redirect users to the `/login` page directly, they will get a error unless they have configured the default login route](/universal-login/default-login-url). You should always redirect users to `/authorize`.
+
 ## Multi-Factor Authentication
 
 - If users have more than one MFA factor enrolled (e.g. SMS and Push notifications), the new MFA page will let the user select which one they want to use.
