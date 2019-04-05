@@ -36,6 +36,17 @@ Current migrations are listed below, newest first.
 
 For migrations that have already been enabled for all customers, see [Past Migrations](/migrations/past-migrations).
 
+### User Search v2 migration to v3
+
+User Search v2 is getting deprecated and you may be required to take action before June 30, 2019 (a [migration guide](/users/search/v3/migrate-search-v2-v3) is available to walk you through the steps required). Notifications have been and will continue to be sent to customers that need to complete this migration. 
+
+Useful Resources:
+
+- [User Search v3](/users/search/v3)
+- [User Search v3 - Query Syntax](/users/search/v3/query-syntax)
+- [User Search Best Practices](/best-practices/search-best-practices)
+- [User Search v2 to v3 Migration Guide](/users/search/v3/migrate-search-v2-v3)
+
 ### Facebook Login and Graph API
 
 The latest version of Facebook Login and the Facebook Graph API change what permissions and fields can be requested. We've updated Facebook connections to reflect these changes. For for more information, check out [Changes to Facebook Login and Graph API](/migrations/guides/facebook-graph-api-deprecation).
