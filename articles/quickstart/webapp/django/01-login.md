@@ -15,6 +15,8 @@ useCase: quickstart
 ---
 <%= include('../_includes/_getting_started', { library: 'Django', callback: 'http://localhost:3000/complete/auth0' }) %>
 
+<%= include('../../../_includes/_logout_url') %>
+
 ## Create a Django Application configured to use Auth0
 
 This guide will use [`social_django`](https://github.com/python-social-auth/social-app-django) which is the Django implementation of [Python Social Auth](http://python-social-auth.readthedocs.io/en/latest/). It adds an OAuth stack to the [user authentication & authorization system](https://docs.djangoproject.com/en/2.1/topics/auth/) bundled by the Django Web Framework.
@@ -168,7 +170,6 @@ Configure the login, redirect login and redirect logout URLs as set below. The L
 
 LOGIN_URL = '/login/auth0'
 LOGIN_REDIRECT_URL = '/dashboard'
-LOGOUT_REDIRECT_URL = '/'
 ```
 
 ## Trigger Authentication
@@ -250,6 +251,27 @@ To log a user out, add a link to `/logout` in `dashboard.html`.
 </div>
 ```
 
+Then, add a `logout` method in `views.py` to clear the session and redirect the user to the Auth0 logout endpoint.
+
+```python
+# auth0login/views.py
+
+# ...
+from django.contrib.auth import logout as log_out
+from django.conf import settings
+from django.http import HttpResponseRedirect
+from urllib.parse import urlencode
+
+# ...
+
+def logout(request):
+    log_out(request)
+    return_to = urlencode({'returnTo': request.build_absolute_uri('/')})
+    logout_url = 'https://%s/v2/logout?client_id=%s&%s' % \
+                 (settings.SOCIAL_AUTH_AUTH0_DOMAIN, settings.SOCIAL_AUTH_AUTH0_KEY, return_to)
+    return HttpResponseRedirect(logout_url)
+```
+
 ## Add URL Mappings
 
 In previous steps we added methods to the `views.py` file. We need to map those methods to URLs.
@@ -263,7 +285,8 @@ Add mappings for the root folder, the dashboard folder, and the authentication a
 
 urlpatterns = [
     path('', views.index),
-    path('dashboard/', views.dashboard),
+    path('dashboard', views.dashboard),
+    path('logout', views.logout),
     path('', include('django.contrib.auth.urls')),
     path('', include('social_django.urls')),
 ]
