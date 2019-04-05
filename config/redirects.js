@@ -998,6 +998,10 @@ module.exports = [
     to: '/flows/concepts/m2m-flow'
   },
   {
+    from: ['/api-auth/restrict-requests-for-scopes'],
+    to: '/api-auth/restrict-access-api'
+  },
+  {
     from: '/oauth-implicit-protocol',
     to: '/protocols/oauth2/oauth-implicit-protocol'
   },
