@@ -18,7 +18,9 @@ The New Universal Login Experience currently has these limitations:
 
 - In order to be able to use [DUO](/multifactor-authentication/factors/duo) as an MFA factor, it needs to be the only factor enabled. It will render the same pages as in the Classic Experience.
 
-- [Passwordless login](https://auth0.com/docs/connections/passwordless) is not supported.
+- [Passwordless login](/connections/passwordless) is not supported.
+
+- [MFA Enrollment Tickets](/multifactor-authentication/developer/custom-enrollment-ticket) will keep using the Classic Experience even when the New Experience is enabled.
 
 ## Known Bugs
 
