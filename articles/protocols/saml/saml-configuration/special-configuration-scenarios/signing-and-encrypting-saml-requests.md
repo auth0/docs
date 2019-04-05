@@ -34,26 +34,21 @@ By default, SAML authentication requests are sent via HTTP-Redirect and use defl
 
 To turn off deflate encoding, you can make a [PATCH call to the Management API's Update a Connection endpoint](/api/management/v2#!/Connections/patch_connections_by_id) and set the `deflate` option to `false`.
 
-```har
+Endpoint: `https://${account.namespace}/api/v2/connections/YOUR_CONNECTION_ID`
+
+Payload: 
+
+```json
 {
-	"method": "PATCH",
-	"url": "https://${account.namespace}/api/v2/connections/YOUR_CONNECTION_ID",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer MGMT_API_ACCESS_TOKEN"
-	}],
-	"queryString": [],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{ \"name\": \"CONNECTION_NAME\", \"options\": \"{\"validation\": \"object\", \"passwordPolicy\": \"\", \"password_history\": \"object\", \"password_no_personal_info\": \"object\", \"password_dictionary\": \"object\", \"deflate\": \"false\",}\" }"
-	},
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
+	{ 
+		"options" : {
+			[...], // all the other connection options
+		  "deflate": false
+	}
 }
 ```
+
+**Note**: as always when updating the `options` object for a connection, the whole options object will be overridden, so you need to get first the existing `options` object for the connection and add the new key/value to it.
 
 ### Receive Signed SAML Authentication Responses
 
