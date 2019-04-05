@@ -31,7 +31,7 @@ If other factors are enabled alongside Duo, Duo will be unavailable. Duo is only
 
 ### MFA Sessions
 
-Duo does not provide an option for "Remember Me" behavior, so a 30-day MFA session is hard-coded to remember a logged in user and not prompt them every time they login. If you wish to force end-users to log in with Duo every time, you may implement this functionality by creating a rule with `allowRememberBrowser: false` instead.
+Duo does not provide an option for "Remember Me" behavior, so a 30-day MFA session is hard-coded to remember a logged-in user and not prompt them every time they log in. If you wish to force end-users to log in with Duo every time, you may implement this functionality by creating a rule with `allowRememberBrowser: false` instead.
 
 ```js
 function (user, context, callback) {
