@@ -11,9 +11,16 @@ useCase:
 
 # Special Configuration Scenarios: Signing and Encrypting SAML Requests
 
-To increase the security of your transactions, you can sign or encrypt both your requests and your responses.
+To increase the security of your transactions, you can sign or encrypt both your requests and your responses in the SAML protocol. Bellow you will find configurations for specific scenarios, separated under two use cases:
 
-## Sign the SAML Authentication Request
+- Auth0 as the SAML **service provider** (i.e. a SAML **Connection**)
+- Auth0 as the SAML **identity provider** (i.e. an **Application** configured with the **SAML Web App Addon**)
+
+## Auth0 as the SAML Service Provider
+
+These scenarios apply when Auth0 is the SAML Service Provider, i.e. Auth0 connects to a SAML identity provider by creating a SAML connection.
+
+### Sign the SAML Authentication Request
 
 If Auth0 is the SAML **service provider**, you can sign the authentication request Auth0 sends to the IdP as follows:
 
@@ -21,7 +28,7 @@ If Auth0 is the SAML **service provider**, you can sign the authentication reque
 2. Enable the **Sign Request** toggle.
 3. Download the certificate beneath the **Sign Request** toggle and provide it to the IdP so that it can validate the signature.
 
-### Enable/Disable Deflate Encoding
+#### Enable/Disable Deflate Encoding
 
 By default, SAML authentication requests are sent via HTTP-Redirect and use deflate encoding, which puts the signature in a query parameter.
 
@@ -48,7 +55,30 @@ To turn off deflate encoding, you can make a [PATCH call to the Management API's
 }
 ```
 
-## Sign the SAML Authentication Responses/Assertions
+### Receive Signed SAML Authentication Responses
+
+If Auth0 is the SAML **service provider**, all SAML responses from your identity provider should be signed to indicate it hasn't been tampered with by an unauthorized third-party.
+
+You will then need to configure Auth0 to validate the responses' signatures by:
+
+* Obtaining a signing certificate from the IdP
+* Loading the certificate from the IdP into your Auth0 Connection (in the Management Dashboard, go to the **Upload Certificate** section for your Connection by navigating to **Connections** -> **Enterprise** -> **SAMLP Identity Provider** -> **Settings**)
+
+Auth0 can accept a signed response for the assertion, the response, or both.
+
+### Receive Encrypted SAML Authentication Assertions
+
+If Auth0 is the SAML **service provider**, it may need to receive encrypted assertions from an identity provider. To do this, you must provide Auth0's public key and certificate to the IdP. The IdP encrypts the SAML assertion using the public key and sends it to Auth0, which decrypts it using the private key.
+
+To retrieve the certificate you need to send to your IdP from the [Management Dashboard](${manage_url}), go to **Connections** -> **Enterprise** -> **SAMLP Identity Provider** and click on the **Setup Instructions** button next to the connection.
+
+Navigate to the section titled **Encrypted Assertions** and download the certificate in the format requested by the IdP.
+
+## Auth0 as the SAML Identity Provider
+
+This scenarios apply when Auth0 is the SAML Identity Provider for an application. This is represented in the dashboard by an **Application** that has the SAML Web App Addon enabled.
+
+### Sign the SAML Authentication Responses/Assertions
 
 If Auth0 is the SAML **identity provider**, it can sign responses/assertions with its private key and provide the service provider with the public key/certificate necessary to validate the signature.
 
@@ -63,7 +93,7 @@ Next, you'll need make sure that the SAML assertion is *not* signed (you can sig
 1. In the [Management Dashboard](${manage_url}), navigate to **Applications**. Find the Application you're interested in go to **Addons** > SAML2 WEB APP > Settings.
 2. By default, `signResponse` is true. As such, uncomment this line and set the value to `false`. Your SAML assertion will no longer be signed.
 
-## Receive Signed SAML Authentication Requests
+### Receive Signed SAML Authentication Requests
 
 If Auth0 is the SAML **identity provider**, it can received requests signed with the service provider's private key. Auth0 will then use the service providers' public key/certificate to validate the signature.
 
@@ -78,18 +108,7 @@ The configuration should look like this:
 }
 ```
 
-## Receive Signed SAML Authentication Responses
-
-If Auth0 is the SAML **service provider**, all SAML responses from your identity provider should be signed to indicate it hasn't been tampered with by an unauthorized third-party.
-
-You will then need to configure Auth0 to validate the responses' signatures by:
-
-* Obtaining a signing certificate from the IdP
-* Loading the certificate from the IdP into your Auth0 Connection (in the Management Dashboard, go to the **Upload Certificate** section for your Connection by navigating to **Connections** -> **Enterprise** -> **SAMLP Identity Provider** -> **Settings**)
-
-Auth0 can accept a signed response for the assertion, the response, or both.
-
-## Send Encrypted SAML Authentication Assertions
+### Send Encrypted SAML Authentication Assertions
 
 If Auth0 is the SAML **identity provider**, you can use [Rules](/rules) to encrypt the SAML assertions it sends.
 
@@ -108,10 +127,3 @@ function (user, context, callback) {
 }
 ```
 
-## Receive Encrypted SAML Authentication Assertions
-
-If Auth0 is the SAML **service provider**, it may need to receive encrypted assertions from an identity provider. To do this, you must provide Auth0's public key and certificate to the IdP. The IdP encrypts the SAML assertion using the public key and sends it to Auth0, which decrypts it using the private key.
-
-To retrieve the certificate you need to send to your IdP from the [Management Dashboard](${manage_url}), go to **Connections** -> **Enterprise** -> **SAMLP Identity Provider** and click on the **Setup Instructions** button next to the connection.
-
-Navigate to the section titled **Encrypted Assertions** and download the certificate in the format requested by the IdP.
