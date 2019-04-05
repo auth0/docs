@@ -15,6 +15,8 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Laravel', callback: 'http://localhost:3000/callback' }) %>
 
+<%= include('../../../_includes/_logout_url') %>
+
 ## Install and Configure Laravel 5.7
 
 If you are installing Auth0 to an existing app, you can skip this section. Otherwise, walk through the Laravel guides below to get started with a sample project.
@@ -184,7 +186,12 @@ class Auth0IndexController extends Controller
     public function logout()
     {
         \Auth::logout();
-        return  \Redirect::intended('/');
+        $logoutUrl = sprintf(
+            'https://%s/v2/logout?client_id=%s&returnTo=%s',
+            env('AUTH0_DOMAIN'),
+            env('AUTH0_CLIENT_ID'),
+            env('APP_URL'));
+        return  \Redirect::intended($logoutUrl);
     }
 }
 ```
