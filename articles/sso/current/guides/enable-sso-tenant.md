@@ -30,4 +30,4 @@ If you do not choose to enable tenant-level SSO, you may [enable it per applicat
 
 ![View Log In Session Management Settings](/media/articles/sessions/tenant-settings-advanced-login-session-management.png)
 
-Once finished, you should also [configure your session lifetime settings](/sessions/guides/dashhboard/tenant/configure-session-lifetime-settings).
+Once finished, you should also [configure your session lifetime settings](/sessions/guides/dashboard/tenant/configure-session-lifetime-settings).

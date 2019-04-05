@@ -43,7 +43,7 @@ Let's look at an example of the SSO flow when a user returns to your website for
 
 ## Check a user's SSO status 
 
-You can check a user's SSO status from an application by calling the `checkSession` method of the `auth0.js` SDK, which will attempt to [silently authenticate](//api-auth/tutorials/silent-authentication) the user within an iframe. Whether the authentication is successful or not indicates whether the user has an active SSO [cookie](/sessions/concepts/cookies).
+You can check a user's SSO status from an application by calling the `checkSession` method of the `auth0.js` SDK, which will attempt to [silently authenticate](/api-auth/tutorials/silent-authentication) the user within an iframe. Whether the authentication is successful or not indicates whether the user has an active SSO [cookie](/sessions/concepts/cookies).
 
 ## Keep reading
 

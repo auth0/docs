@@ -16,7 +16,7 @@ Session lifetime limits determine how long the system should retain a login sess
 
 * **Require log in after**: Timeframe after which a user will be required to log in again, regardless of their activity. Will be superseded by system limits if over 30 days for self-service plans or 365 days for enterprise plans.
 
-These settings are configured on the [tenant](/getting-started/the-basics#account-and-tenants); you can [configure them](/sessions/guides/dashboard/configure-session-lifetime-settings) using either the Auth0 Dashboard or the Management API.
+These settings are configured on the [tenant](/getting-started/the-basics#account-and-tenants); you can [configure them](/sessions/guides/dashboard/tenant/configure-session-lifetime-settings) using either the Auth0 Dashboard or the Management API.
 
 ## Examples: Session lifetime limits
 

@@ -1,6 +1,6 @@
 ---
 title: Single Sign-On and Single Logout
-description: Learn about Single Sign-On (SSO)
+description: Learn about single sign-on (SSO) and single logout
 classes: topic-page
 topics:
   - sso

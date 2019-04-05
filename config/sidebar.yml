@@ -1024,6 +1024,16 @@ articles:
         
       - title: "LDAP"
         url: "/protocols/ldap"
+
+  - title: "Sessions"
+    url: "/sessions"
+    children:
+
+      - title: "Session Lifetime"
+        url: "/sessions/concepts/session-lifetime
+
+      - title: "Sample Use Cases"
+        url: "/sessions/concepts/sample-use-cases-sessions 
         
   - title: "Addons/Third-Party Apps"
     url: "/addons"

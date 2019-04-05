@@ -40,7 +40,7 @@ OIDC-conformant applications must use [silent authentication](/api-auth/tutorial
 
 ## Authentication flows without SSO
 
-SSO sessions are managed by Auth0 setting a cookie on your Auth0 domain.
+SSO [sessions](/sessions) are managed by Auth0 setting a cookie on your Auth0 domain.
 Since cross-origin requests cannot set cookies, this means that SSO sessions must be established by redirecting users to your Auth0 login page (`/authorize`).
 
 The following flows are redirect-based and are capable of SSO:
