@@ -20,6 +20,20 @@ useCase:
 
 ## Steps
 
+1. Authorization request
+2. Token request
+3. Authorization server requirements
+4. Security considerations
+
+::: note
+Device application developers can send user agent information in the "user-agent."
+:::
+
+::: note
+TLS ciphers
+:::
+
 ## Keep reading
 
+* [New Tenant Logs for Devices](/logs#log-data-event-listing)
 * 

@@ -19,7 +19,7 @@ useCase:
 
 Auth0 uses [OpenID Connect](/protocols/oidc) and [OAuth 2.0](/protocols/oauth2) to authenticate users and get their authorization to access protected resources. With Auth0, you can easily support different flows in your own applications and APIs without worrying about the OAuth 2.0/OpenID Connect specification, or the other technical aspects of authentication and authorization.
 
-We support scenarios for server-side, mobile, desktop, client-side, and machine-to-machine applications:
+We support scenarios for server-side, mobile, desktop, client-side, machine-to-machine, and device applications:
 
 * [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
   * [Add Login Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow)
@@ -35,3 +35,6 @@ We support scenarios for server-side, mobile, desktop, client-side, and machine-
 
 * [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow)
   * [Call API Using the Machine-to-Machine (M2M) Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow)
+
+* [Device Application Authorization Flow](/flows/concepts/device-app-auth-flow)
+  * [Add Authorization Using OAuth2 Device Application Grant Flow](/flows/guides/device-flow/add-auth-using-device-app-grant-flow)
