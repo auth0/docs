@@ -10,11 +10,9 @@ useCase: add-login
 ---
 # Connection Options in the Management API
 
-When [creating a connection in the Management API](/api/management/v2#!/Connections/post_connections), you may include a variety of options in the `options` attribute, such as a password strength for the connection or provider-specific parameters to pass to an Identity Provider.
+When creating or updating a connection in the Management API, you may include a variety of custom options in the `options` attribute, such as a password strength for the connection or provider-specific parameters to pass to an Identity Provider.
 
-## The `options` attribute
-
-The following elements are available for the `options` attribute. These are all optional when calling the [Create a Connection endpoint](/api/management/v2#!/Connections/post_connections) or [Update a Connection endpoint](/api/management/v2#!/Connections/patch_connections_by_id).
+The following elements are available for the `options` attribute. These are optional when calling the [Create a Connection endpoint](/api/management/v2#!/Connections/post_connections) or [Update a Connection endpoint](/api/management/v2#!/Connections/patch_connections_by_id).
 
 | Element | Type | Description |
 |-|-|-|
