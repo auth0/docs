@@ -78,9 +78,19 @@ The affected extensions are the [Delegated Administration Extension](/extensions
 
 To do so, go to [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings), and add the URL to the fields **Allowed Callback URLs** and **Allowed Logout URLs**.
 
+### Authorization Extension URLs
+
+If you use the Authorization Extension, it generates an `auth0-authorization-extension` rule. When migrating to Node 8, the EXTENSION_URL in that rule needs to be updated as follows:
+
+`var EXTENSION_URL = "https://<tenant>.us.webtask.io/<container_id>";`
+
+to
+
+`var EXTENSION_URL = "https://<tenant>.us8.webtask.io/<container_id>";`
+
 ### Delegated Administration URLs
 
-The matrix that follows contains the updated URLs you must configure after you migrate to Node 8. The URL varies based on your location.
+If you use the Delegated Administration Extension, the matrix that follows contains the updated URLs you must configure after you migrate to Node 8. The URL varies based on your location.
 
 | Location | Allowed Callback URL for Node 8 | Allowed Logout URL for Node 8 |
 | --- | --- | --- |
