@@ -38,7 +38,7 @@ For migrations that have already been enabled for all customers, see [Past Migra
 
 ### User Search v2 migration to v3
 
-User Search v2 is getting deprecated and you may be required to take action before June 30, 2019 (a [migration guide](/users/search/v3/migrate-search-v2-v3) is available to walk you through the steps required). Notifications have been and will continue to be sent to customers that need to complete this migration. 
+User Search v2 is being deprecated and you may be required to take action before June 30, 2019. A [migration guide](/users/search/v3/migrate-search-v2-v3) is available to walk you through the steps required. Notifications have been and will continue to be sent to customers that need to complete this migration.
 
 Useful Resources:
 
