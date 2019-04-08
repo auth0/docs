@@ -124,7 +124,7 @@ For customers who have specific access control requirements that need to be impl
 
 ### User logout
 
-In this workstream, you'll define how the user logout process looks for your integration. Auth0 offers multiple user logout options, so you have flexibility when it comes time to choose.
+In the [user logout](/architecture-scenarios/implementation/b2c/user-logout) workstream, you'll define how the user logout process looks for your integration. Auth0 offers multiple user logout options, so you have flexibility when it comes time to choose.
 
 ::: panel Phase 1 Milestone
 Congratulations! At this point, you are nearing the point where you can go live with your Production integration. If you haven't already done so, you can begin provisioning your production tenant and setting up the automation to facilitate this process.
