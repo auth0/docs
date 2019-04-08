@@ -158,8 +158,8 @@ function (user, context, callback) {
     return x.indexOf(':') < 0;
   });
 
-  filteredScopes.push(permissions);
-  context.accessToken.scope = filteredScopes.join(' ');
+  var allScopes = filteredScopes.concat(permissions);
+  context.accessToken.scope = allScopes.join(' ');
 
   callback(null, user, context);
 }
