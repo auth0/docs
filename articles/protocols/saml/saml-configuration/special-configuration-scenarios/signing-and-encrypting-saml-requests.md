@@ -50,6 +50,39 @@ Payload:
 
 **Note**: as always when updating the `options` object for a connection, the whole options object will be overridden, so you need to get first the existing `options` object for the connection and add the new key/value to it.
 
+### Use a custom certificate to sign requests
+
+By default, Auth0 will use the tenant private key to sign SAML requests (when the **Sign Request** toggle is enabled). You can, however, provide your own private/public key pair to do the signing for requests coming from a specific connection.
+
+You can generate your own certificate and private key using this command:
+
+```
+openssl req -x509 -nodes -sha256 -days 3650 -newkey rsa:2048 -keyout private_key.key -out certificate.crt
+```
+
+Changing the key used to sign requests in the connection can't be done directly on the Dashboard UI, so you will have to use the [Update a Connection endpoint](/api/management/v2#!/Connections/patch_connections_by_id) from the Management API v2, and add a `signing_key` property to the `options` object, as shown in the payload example below.
+
+**Note**: as always when updating the `options` object for a connection, the whole options object will be overridden, so you need to get first the existing `options` object for the connection and add the new key/value to it.
+
+Endpoint: `https://${account.namespace}/api/v2/connections/YOUR_CONNECTION_ID`
+
+Payload:
+
+```json
+{
+	{ 
+		"options" : {
+			[...], // all the other connection options
+		  "signing_key": {
+				"key":"-----BEGIN PRIVATE KEY-----\n...{your private key here}...\n-----END PRIVATE KEY-----",
+				"cert":"-----BEGIN CERTIFICATE-----\n...{your public key cert here}...\n-----END CERTIFICATE-----"
+			}
+	}
+}
+```
+
+See [Working with private and public keys as strings](#working-with-certificates-as-strings) for details on how to get the private key and certificate formatted as a JSON string to use in the payload.
+
 ### Receive Signed SAML Authentication Responses
 
 If Auth0 is the SAML **service provider**, all SAML responses from your identity provider should be signed to indicate it hasn't been tampered with by an unauthorized third-party.
@@ -107,18 +140,47 @@ The configuration should look like this:
 
 If Auth0 is the SAML **identity provider**, you can use [Rules](/rules) to encrypt the SAML assertions it sends.
 
-You'll need to obtain the public key/certificate from the service provider.
+You'll need to obtain the certificate and the public key from the service provider. If you only got the certificate, you can derive the public key using `openssl`. Assuming that the certificate file is named `certificate.pem` you can do:
 
-Here is a sample snippet of Rules code.
+```
+openssl x509 -in certificate.pem -pubkey -noout > public_key.pem
+```
+
+Once you get the certificate and public key files, you'll need to [turn them into strings](#working-with-certificates-as-strings) to use them in a rule. The rule will look like this:
 
 ```js
 function (user, context, callback) {
-
-  context.samlConfiguration = (context.samlConfiguration || {});
-  context.samlConfiguration.encryptionPublicKey = "-----BEGIN PUBLIC KEY-----\nMIGf...bpP/t3\n+JGNGIRMj1hF1rnb6QIDAQAB\n-----END PUBLIC KEY-----\n";
-  context.samlConfiguration.encryptionCert = "-----BEGIN CERTIFICATE-----\nMII...u84\n-----END CERTIFICATE-----\n";
-
+  // this rule sets a specific public key to encrypt the SAML assertion generated from Auth0 
+  if (context.clientID === 'THE_CLIENT_ID_OF_THE_APP_WITH_THE_SAML_APP_ADDON') {
+	  context.samlConfiguration = (context.samlConfiguration || {});
+    context.samlConfiguration.encryptionPublicKey = "-----BEGIN PUBLIC KEY-----\nMIGf...bpP/t3\n+JGNGIRMj1hF1rnb6QIDAQAB\n-----END PUBLIC KEY-----\n";
+    context.samlConfiguration.encryptionCert = "-----BEGIN CERTIFICATE-----\nMII...u84\n-----END CERTIFICATE-----\n";
+	}
   callback(null, user, context);
 }
 ```
 
+## Working with certificates as strings
+
+When working with certificates or keys in rules or Management API v2 requests, you will most likely require a string representation of the file.
+
+If you open a certificate file (`cer`, `pem`) with a text editor, you'll see something like this:
+
+```
+-----BEGIN CERTIFICATE-----
+MIICzDCCAbQCCQDH8GvxPIeH+DANBgkqhkiG9w0BAQsFADAoMQswCQYDVQQGEwJh
+cjEZMBcGA1UEAwwQaHR0cHM6Ly9uaWNvLmNvbTAeFw0xOTA0MDgxODA3NTVaFw0y
+//
+// more lines of base64-encoded information
+//
+nSWyabd+LiBGtLTMB+ZLbOIi3EioWPGw/nHOI8jzPrqhiCLuZCSQmiqrLQYNsc1W
+-----END CERTIFICATE-----
+```
+
+The lines between the `-----BEGIN CERTIFICATE-----` header and `-----END CERTIFICATE-----` footer contain base64-encoded binary information. Public keys and private keys (`.key` files) will look similar, with just a different header/footer.
+
+For a string representation of a certificate/key file, you will need to concatenate everything in one line, with a `\n` (escaped new-line) sequence replacing the actual new lines in the file. So from the above sample you'd obtain something like this:
+
+```
+"-----BEGIN CERTIFICATE-----\nMIICzDCCAbQCCQDH8GvxPIeH+DANBgkqhkiG9w0BAQsFADAoMQswCQYDVQQGEwJh\n[..all the other lines..]-----END CERTIFICATE-----\n"
+```
