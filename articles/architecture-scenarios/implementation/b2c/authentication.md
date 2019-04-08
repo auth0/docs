@@ -1,6 +1,6 @@
 ---
 title: User Authentication
-description: Architect how you will make authentication work in your CIAM implementation.
+description: Understand how authentication works in your CIAM implementation.
 toc: true
 topics:
     - b2c
@@ -13,9 +13,9 @@ useCase:
 ---
 # User Authentication
 
-In order to provide services to your users, you must be able to identify who those users are. This process is called authentication. You must provide your users a way to verify that they are who they are. There are a number of ways to do this such as social media accounts, username/password, and passwordless authentication. In most cases, it is also recommended that you add a second factor for authenticating.
+In order to provide services to your users, you must be able to identify who those users are. This process is called authentication. You must provide your users with a way to verify that they are who they are, and there are a number of ways to do this; via social media accounts, username/password, and passwordless authentication to name but a few. In many cases it is also recommended that you go beyond a first factor for authenticating the user add a second factor as well.
 
-When designing the authentication experience, you will need to determine:
+When designing the authentication experience, you will determine:
 
 * Where users will enter their credentials
 * How you will keep user credentials safe
@@ -27,7 +27,7 @@ When designing the authentication experience, you will need to determine:
 * If you want to make login easy for your users when they come from different language backgrounds
 * How you will provide a good user experience as you migrate away from my legacy authentication system
 
-The answers to these questions, and others, are detailed below in sections on [Universal Login](#universal-login), [Username Password Authentication](#username-password-authentication), [Anomaly Detection](#anomaly-detection), and [Application Integration](#application-integration).
+The answers to these questions, and others, are detailed below in sections on [Universal Login](#universal-login), [user authentication](#user-authentication), [anomaly detection](#anomaly-detection), and [application integration](#application-integration).
 
 ## Universal Login
 
@@ -38,14 +38,14 @@ Auth0's Universal Login makes authenticating users a short, three-step process (
 3. Set up your application to [receive and handle the response](#application-integration) from the Authorization Server.
 
 ::: note
-If you have more than one application, the best practice is to redirect to a centralized authorization server to authenticate the user (at Auth0, this means taking advantage of Universal Login). This comes with many security and user experience benefits, including SSO. See the [Universal Login](/universal-login) documentation for more information.
+If you have more than one application, the best practice is to redirect to a centralized authorization server to authenticate the user; at Auth0, this means taking advantage of Universal Login. This comes with many security and user experience benefits, including SSO. See [Universal Login](/universal-login) for more information.
 :::
 
-## Username Password Authentication
+## User authentication
 
 Nearly every B2C application provides the ability for their customers to create a new set of credentials. This is a common form of authentication that all users are familiar with.
 
-Username Password Authentication can come in multiple flavors at Auth0. If your application is a greenfield application with no existing user base, then a simple Auth0 OOTB database connection will give you everything you need to start authenticating your users. However if you have a legacy user store (such as your own database of users or an existing LDAP system) you have a couple of different options for migrating your users, see [User Migration](/user-provisioning#user-migration) for more information.
+Username Password Authentication can come in multiple flavors at Auth0. If your application is a greenfield application with no existing user base, then a simple Auth0 out-of-the-box database connection will give you everything you need to start authenticating your users. However if you have a legacy user store (such as your own database of users or an existing LDAP system) you have a couple of different options for migrating your users, see [User Migration](/user-provisioning#user-migration) for more information.
 
 However you end up provisioning the users for your database connection, the authentication of those users is quite similar. It requires you to present the users with a form to enter their username and password. As mentioned in the universal login section, the simplest and safest way to authenticate users with a username and password is to redirect them to a centralized login page and collect their username and password there. This allows your authorization server to determine whether they have already authenticated and skip the login form entirely when it is not needed.
 
@@ -53,27 +53,27 @@ However you end up provisioning the users for your database connection, the auth
 Collecting credentials only at the centralized login page will reduce the surface area for a potential leak of user secrets. It will also reduce the need to collect credentials unnecessarily.  See [Universal Login](#universal-login) for more information.
 :::
 
-## Anomaly Detection
+## Anomaly detection
 
-The reason that authentication systems are important is to prevent bad actors from accessing applications and user data that they should not. We want to place as many barriers as possible between those bad actors and access to our systems. One of the easiest ways to do this is to ensure that your anomaly detection with Auth0 is configured correctly, so take a moment to [read the docs on anomaly detection](/anomaly-detection) and ensure that it's working correctly for you.
+The reason that authentication systems are important is to prevent bad actors from accessing applications and user data that they should not. We want to place as many barriers as possible between those bad actors and access to our systems. One of the easiest ways to do this is to ensure that your anomaly detection with Auth0 is configured correctly, so take a moment to read the information on [anomaly detection](/anomaly-detection) and ensure that it's working correctly for you.
 
 ::: note
-Anomaly Detection is handled behind the scenes by Auth0 and provides a great security feature for your product. If you're going to utilize it, ensure that you have set up your SMTP provider and configured your email templates before turning on email delivery to your users.
+Anomaly detection is handled behind the scenes by Auth0 and provides a great security feature for your product. If you're going to utilize it, ensure that you have set up your SMTP provider and configured your email templates before turning on email delivery to your users.
 :::
 
-## Application Integration
+## Application integration
 
-Once you have figured out how you want to authenticate your users, the next step is to determine how and when you will initiate that authentication. Each application may have its own starting point.
+Once you've figured out how you want to authenticate your users, the next step is to determine how you will initiate that authentication. Each application will typically have its own starting point.
 
 ::: warning
-Native Mobile Applications (and desktop applications) should use the system browser for authentication, or they open themselves up to additional security risks.
+Native mobile applications (and desktop applications) should use the system browser for authentication, or they open themselves up to additional security risks. See [Native vs. Browser Login on Mobile](/design/browser-based-vs-native-experience-on-mobile) for more information. 
 :::
 
-As discussed, OpenID Connect (OIDC) is the most frequently used industry standard protocol when it comes to customer facing applications. Figuring out which OIDC flow to use is your first task, and you will want to start by reviewing guidance concerning the various grant types here.  
+As discussed, we have found that most Auth0 customers use OpenID Connect (OIDC) as their industry-standard protocol when it comes to customer facing applications. Figuring out which [OIDC flow](/api-auth/intro) to use is your first task, and you will want to start by reviewing the [grant type mapping](/applications/reference/grant-types-auth0-mapping) guidance.  
 
-If you want to allow anonymous users access to any part of our application then you need to determine if you will be redirecting right away or prompting your users to redirect only when required (or perhaps some combination of both; see here for further discussion). If users can deep link to a protected version (or area) of your site then you will need to determine the links to your application that will result in an automatic redirect to Auth0 (see here for further information). 
+If you want to allow anonymous users access to any part of our application then you need to determine if you will be redirecting right away or prompting your users to redirect only when required (or perhaps some combination of both; see [Redirect Users After Login](/users/guides/redirect-users-after-login) for further discussion). If users can deep link to a protected version (or area) of your site then you will need to determine the links to your application that will result in an automatic redirect to Auth0. 
 
-### Anonymous Access
+### Anonymous access
 
 It is important to consider the user experience when someone first comes to the application. If your application supports anonymous user access (quite common for eCommerce applications) there are different scenarios to consider:
 
@@ -98,23 +98,23 @@ Most modern authentication frameworks support execution of middleware for redire
 
 ### Authenticating the user
 
-Authentication is the process of verifying who a user is (that they are who they say they are). The result of authentication in this context is an ID Token. This token contains information about the user and should only be able to be obtained if the user authenticates using one or multiple factors as defined by the authorization server (the most common form being user id and password as discussed here). There are a few things you may also need to consider in addition to obtaining an ID Token:
+The result of authentication in an OIDC context is an ID Token. This token contains information about the user and should only be able to be obtained if the user authenticates using one or more factors as defined by the authorization server (the most common form being user id and password as discussed here). There are a few things you may also need to consider in addition to obtaining an ID Token:
 
 * Do we also need an Access Token in order to call a shared API?
 * Is our application a Native application (mobile or desktop) or do I need a Refresh Token?
-    * If Yes, for more information see Authorization Code Grant with PKCE
-    * If No, for more information see Implicit Grant
+    * If Yes, for more information see [Authorization Code Grant with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
+    * If No, for more information see [Implicit Grant](/api-auth/tutorials/implicit-grant)
 
 ::: warning
 Before you go live, you should ensure that only the grants that you are using for each application [are enabled in your configuration for the client](/applications/guides/update-grant-types-dashboard).
 :::
 
-### Implicit Grant
+### Implicit grant
 
-If all your application needs is the ID Token and you are using a browser-based application, then you can always use the Implicit Grant to get your ID Token. This is a simple authentication flow and should be supported by your SDK (depending on the language you are developing in).
+If all your application needs is the ID Token and the application is browser-based, then you can always use the Implicit Grant to get your ID Token. This is a simple authentication flow and should be supported by your SDK (depending on the language you are developing in).
 
-If you need a refresh token so that you can re-check whether any of the information about the user has changed, then you must use the [authorization code grant](/api-auth/tutorials/authorization-code-grant).
+If you need a [Refresh Token](/tokens/refresh-token/current) so that you can obtain a new Access Token or ID Token without having to re-authenticate the user, then you must use the [authorization code grant](/api-auth/tutorials/authorization-code-grant).
 
-### Authorization Code Grant (with or without PKCE)
+### Authorization code grant (with or without PKCE)
 
 If your SDK only supports the authorization code grant, or you need an Access Token or Refresh Token, authorization code grant (with or without PKCE) can also be used to retrieve an ID Token.  The authorization code grant includes an additional API call to exchange the code for a token which can result in additional unnecessary latency if all you need is the ID Token. In many cases the [hybrid flow](/api-auth/tutorials/hybrid-flow_) is implemented to provide optimum access to the ID Token while still leveraging the authorization code grant workflow for the secure and safe retrieval of Access and Refresh Tokens.

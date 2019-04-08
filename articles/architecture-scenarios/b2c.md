@@ -20,21 +20,19 @@ useCase:
 
 # Business to Consumer Identity and Access Management Scenarios
 
-This scenario focuses on how to integrate Auth0 within a Consumer Identity and Access Management (CIAM) project. Auth0's  recommendations are based on real-world customer implementation experience, and we hope that the advice we provide helps you set your project up for success.
+This scenario focuses on how to integrate Auth0 within a Consumer Identity and Access Management (CIAM) project. Auth0's recommendations are based on real-world customer implementation experience and by following the guidance provided, you will set up your project for success.
 
-Customers implementing Auth0 for consumer-focused or B2C projects typically share a common set of goals and objectives. In the sections that follow, we focus on our experiences working with this shared set of expectations. We hope our experience can help you deliver your solution effectively.
+Customers using Auth0 for consumer-focused, also know as Business-to-Consumer (B2C),  projects typically share a common set of goals and objectives, and in the sections that follow, we'll focus on our experiences working with this shared set of expectations to help you deliver your solution efficiently.
 
 ::: note
-The information provided is relevant to **all** project stakeholders. We recommend reading through this in its entirety at least once, even if you've already started your journey with Auth0.
+The information provided is relevant to **all** project stakeholders. We recommend reading through this guidance in its entirety at least once, even if you've already started your journey with Auth0.
 :::
 
 ## Ways to integrate Auth0 and how to choose
 
-There are many different ways Auth0 can be integrated into the CIAM project architecture. Auth0's flexibility comprehensively supports many different use cases. However, keep in mind that not every project requires 100% of the capabilities provided by Auth0.
+There are many different ways Auth0 can be integrated into the CIAM project architecture. Auth0's flexibility comprehensively supports many different use cases, however keep in mind that not every project requires 100% of the capabilities provided by Auth0.
 
-![Diagram](#)
-
-When you embark on your journey to integrate with Auth0, there are many things for you to consider. Knowing what, when, and how best to implement something will help you focus on completing the necessary tasks at the right time. To help you with this, we put together [planning guidance](/architecture-scenarios/implementation/b2c/planning) that details our recommended strategies.
+When you embark on your journey to integrate with Auth0, there are many things for you to consider. Knowing what, when, and how best to implement something will help you focus on completing the necessary tasks at the right time. To help you with this, we've put together some [planning guidance](/architecture-scenarios/implementation/b2c/planning) that details our recommended strategies.
 
 Auth0 also provides helpful implementation planning [checklists](/architecture-scenarios/checklists) that you can use organize your implementation tasks. There are six checklists that cover the following implementation steps:
 
@@ -45,97 +43,104 @@ Auth0 also provides helpful implementation planning [checklists](/architecture-s
 * Deploy
 * Monitor
 
-## Implementation overview
-
-In the following sections, we provide recommendations and best practice suggestions. These will be offset appropriately, and any time you come across one of these panels, you should stop and consider the advice presented. We are presenting you a set of high-level guidance and best practice recommendations on an ad hoc basis.
+In the following sections, we've provided recommendations and best practice suggestions, and any time you come across a panel similar to the one below, you should stop and consider the advice presented. These provide you with a set of high-level guidance and best practice recommendations, presented in on an *ad hoc* way.
 
 ::: note
-You can find detailed guidance regarding specific functionality and use cases in our [documentation](/docs) or by speaking with a member of our [Professional Services team](/services).
+You can find detailed guidance regarding specific functionality and use cases in our documentation or by speaking with your account representative or a member of our [Professional Services team](/services) here at Auth0.
 :::
 
-During first part of your implementation, you'll address some of the most critical aspects of integrating with Auth0. When done, you'll have a fully-functional implementation that can be used in your Production environment (or, at the very least, used as part of an early adopter or beta program). There are multiple workstreams that focus on a specific aspect of the integration. The order in which you carry out the workstreams is important, and we recommend that you follow the order provided. However, certain workstreams can be tackled in parallel; if that is the case, we mention such in the descriptions below.
+## Implementation overview
 
-### Tenant architecture
+Phase 1 focuses on integrating your application(s) with Auth0. During phase 1 you’ll tackle the 10 key stages to Go-Live, across 3 key milestones, and by tackling the main risk items will address the most critical paths associated with integration. At the end of this phase you’ll have working implementation that can be taken into production - or at the very least be provided as part of an early adopter or Beta program. 
 
-[Tenant architecture](/architecture-scenarios/implementation/b2c/tenant-architecture) is the first workstream you should complete. You will address:
+Phase 1 consists of a number of workstreams, with a number of topics in each. The workstreams, topics and the order in which you address each is important, so we recommend you follow the guidance prescribed. That’s not to say you can’t or shouldn’t tackle work in parallel: User Provisioning and User Authentication, for example, could be tackled independently and at the same time, and these could both be tackled in parallel with your Branding efforts. In the majority of successful integration cases we’ve also found that different teams tackle different streams, and that this can provide significant benefit: your design and development team(s) would typically tackle implementation whilst at the same time your branding team would tackle Auth0 asset customization thus reducing overall time to market.
 
-* Software Development Life Cycle (SDLC) Tenant Provisioning
-* Custom Domains
-* Tenant Association
+The diagram below provides an overall view of the planning associated with Phase 1. By Milestone 1, you will have completed major work required to integrate an application, will have addressed the most significant risk items, and will also be able to provide demonstrable functionality to stakeholders too. 
+
+![B2C Phase 1 Implementation Planning by Milestone](/media/articles/architecture-scenarios/phase-1-implementation-milestones.png)
+
+*Placeholder image - waiting for Design*
+
+### Architecture
+
+[Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture) is the first workstream you will cover, with tenant provision being the precursor to all others. Other topics to address at this stage include: 
+
+* Custom domains
+* Tenant association
+* Support for the Software Development Life Cycle (SDLC)
     
 ### User provisioning
 
-After you've set up your tenant architecture, you're ready to tackle the [user provisioning](/architecture-scenarios/implementation/b2c/user-provisioning) steps. The user provisioning workstream may be completed simultaneously with the user authentication and the branding workstreams.
+[User provisioning](/architecture-scenarios/implementation/b2c/user-provisioning) is the next workstream, and this can be done in parallel with [user authentication](#user-authentication). We've found that the most successful implementations address the following topics at this state during phase 1, however precisely what you tackle will depend on your specific requirements. For example, you may not need user migration, or you may already have an existing sign up mechanism that can be leveraged. 
 
 The user provisioning workstream includes setting up:
 
-* User Sign Up
-* User Migration
+* User migration
+* User sign up
 
-### User authentication
+::: panel Best Practice
+The Auth0 Dashboard in conjunction with the [Delegated Administration Extension](/extensions/delegated-admin/v3) can be used out-of-the-box to provide for user provisioning and deprovisioning as described in this [Auth0 blog post](https://auth0.com/blog/delegated-admin-v2/). If you require more comprehensive deprovisioning functionality, for compliance reasons for example, then we recommend you do so in a later phase.
+::: 
 
-[User authentication](/architecture-scenarios/implementation/b2c/authentication) can be completed at the same time as the previous workstream, user provisioning, as well as the subsequent workstream, branding. In this workstream, you will cover:
+### Authentication
 
-* Universal Login
-* Username and Password Authentication
-* Application Integration
-* Anomaly Detection
+[Authentication](/architecture-scenarios/implementation/b2c/authentication) comes next and can be done in parallel with user provisioning. Topics to address at this point include:
+
+* Universal login
+* Username and password authentication
+* Application integration
 
 ### Branding
 
-The [branding](/architecture-scenarios/implementation/b2c/branding) workstream can be completed at the same time as the user provisioning and authentication workstreams. The branding workstream is typically handled by those who usually handle branding-related activities, and it includes:
+[Branding](/architecture-scenarios/implementation/b2c/branding) can be done in parallel with user provisioning and authentication. Topics to address at this point will include:
 
-* Universal Login Page Customization
-* Change Password Page Customization
-* Email Template Customization
+* Universal Login page customization
+* Naming for your custom domain
+* Change Password page customization
 * Error Page Customization
-* Custom Domains
+* Email template customization
 
-::: panel Phase 1 Milestone
-At this point, you'll have sufficient functionality implemented that you can provide demos to key stakeholders.
-:::
+From here on you’ll be working towards Milestone 2, and then on to Milestone 3 which will take you to production Go-Live. As you progress through the remaining workstreams and topics you can start to align your Auth0 tenants with your SDLC, and you’ll be steadily and progressively reducing risk as you go. You’ll also have the opportunity to demonstrate further functionality to stakeholders, which will also help you to garner feedback from the rest of the business:
 
-### Deployment automation
+### Automation
 
-Up until this point, you'll have been working with a single development tenant, which you created as part of the SDLC provisioning in tenant architecture workstream. In this step, you'll add automation to aid in the deployment of assets. This means that you can use tenant provisioning for QA, reducing effort and eliminating transcription errors as changes are moved from one environment to another.
+Up ‘till now you’ll most likely have been working with the one Auth0 development tenant created as part of provisioning. Auth0 tooling to automate deployment of assets will now allow you to utilize tenant provision for QA  in preparation for your testing effort, and also production - providing you with a stable environment which can be used for demonstration and evaluation. 
 
 ### Quality assurance
 
-We recommend beginning the quality assurance process at this point to allow ample time to detect and fix any issues that may be present. In this step, you'll find the tenant provisioning for QA (implemented in the previous workstream) helpful.
+Quality assurance mechanism should now be employed to ensure any breakages due to defects or changes are detected early, and is where the Auth0 tenant provision for QA will be used. Topics to address here include:
 
-Topics you'll address in this section include:
-
-* Unit Testing
-* Mock Testing
-* Integration Testing
+* Unit testing
+* Mock testing
+* Integration testing
 
 ### User profile management
 
-The [user profile management](/architecture-scenarios/implementation/b2c/user-profile-mgmt) workstream addresses how you can handle changes to the information contained in user profiles. We will show you how to handle:
+[User profile management](/architecture-scenarios/implementation/b2c/user-profile-mgmt) will address the most common cases for the changes users will want to make to their profiles. We've found the most successful implementations address the following topics at this point during Phase 1, however precisely what you tackle will depend on your specific requirements (for example, you won't need to provide for user metadata management if you're not using user metadata):
 
-* Resetting passwords
 * Managing metadata
+* Resetting passwords
 * Verifying accounts
 * Blocking users
 
-### User authorization
+### Authorization
 
-For customers who have specific access control requirements that need to be implemented, the [user authorization](/architecture-scenarios/implementation/b2c/user-authorization) workstream covers ID Tokens and ID Token Claims.
+[Authorization](/architecture-scenarios/implementation/b2c/user-authorization) is, for customers who have specific access control requirements, the next thing on the agenda, and the focus for Phase 1 will be centered on how custom ID Token Claims can be leveraged to support this.
 
 ### User logout
 
-In the [user logout](/architecture-scenarios/implementation/b2c/user-logout) workstream, you'll define how the user logout process looks for your integration. Auth0 offers multiple user logout options, so you have flexibility when it comes time to choose.
-
-::: panel Phase 1 Milestone
-Congratulations! At this point, you are nearing the point where you can go live with your Production integration. If you haven't already done so, you can begin provisioning your production tenant and setting up the automation to facilitate this process.
-:::
+In the [user logout](/architecture-scenarios/implementation/b2c/user-logout) workstream, users will want to log out of your system and you'll need to decide exactly what this looks like. Auth0 supports several variations when it comes to user logout giving you flexibility to choose what works best for your implementation.
 
 ### Operations
 
-This is the final workstream that you need to complete before deploying to production. To be clear, this workstream can be completed at any time, though we recommend waiting until you've completed deployment automation at the very least. In this workstream, you'll cover:
+Operations can be addressed in parallel, though we'd recommend you setup your email provider early on as this will enable you to minimize disruption moving forward as well as allow you to quality test specific functionality not possible to do with out-of-the-box email provision. Topics to cover here will include:
 
+* Email Provider Setup
 * Monitoring
 * Logging
-* Email Provider Setup
-* Firewall Configuration
+* Firewall configuration
 * Notifications
+
+::: panel Phase 1 Milestone
+Congratulations! Reaching this point you are read for Go-Live. If you've not already done so, you can align your Auth0 production tenant via deployment automation and run any final QA in preparation for production release. As you move forward you'll want to keep a watch for [Auth0 status notifications](/monitoring/guides/check-status) which may contain important information that could impact your tenant(s) and/or project(s).
+:::
