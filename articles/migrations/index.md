@@ -51,7 +51,7 @@ Useful Resources:
 
 Auth0’s Guardian SDKs for iOS and Android helps you create custom Mobile apps with Guardian functionality, providing secure access to multi-factor authentication with push notifications. 
 
-The Android SDK library was initially built to send Push Notifications using Google Cloud Messaging, which [Google deprecated](https://firebase.googleblog.com/2018/04/time-to-upgrade-from-gcm-to-fcm.html) and replaced with Firebase Cloud Messaging. We updated the SDK to use Facebook Cloud Messaging.
+The Android SDK library was initially built to send Push Notifications using Google Cloud Messaging, which [Google deprecated](https://firebase.googleblog.com/2018/04/time-to-upgrade-from-gcm-to-fcm.html) and replaced with Firebase Cloud Messaging. We updated the SDK to use Firebase Cloud Messaging.
 
 Existing applications will keep working but if you want to migrate, you can find instructions [here](/migrations/guides/google_cloud_messaging).
 
