@@ -23,13 +23,13 @@ In addition of some missing features, in the New Experience some pages has certa
 
     - Single Sign On and Silent Authentication will work properly, which does not happen in the Classic experience.
 
-    - Users will see a warning in the login page mentioning that the tenant is configured with Development Keys.
+    - Users will see a warning in the login page mentioning that the tenant is configured with [Development Keys](docs/connections/social/devkeys).
 
 - A button will be rendered for each social and enterprise connection. 
 
 - A 'show password' icon will be displayed next to the password field.
 
-- If you redirect users to the `/login` page directly, they will get a error unless they have configured the default login route](/universal-login/default-login-url). You should always redirect users to `/authorize`.
+- If you redirect users to the `/login` page directly, they will get a error unless they have configured the [default login route](/universal-login/default-login-url). You should always redirect users to `/authorize`.
 
 ## Multi-Factor Authentication
 
