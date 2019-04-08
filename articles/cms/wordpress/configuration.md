@@ -38,13 +38,13 @@ First, we'll check for the Application created for your WordPress site.
 
     ![Listing of Auth0 Applications in the Management Dashboard](/media/articles/cms/wordpress/client-listing.png)
 
-1. Click on the name to get to the **Settings** tab. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0.
+2. Click on the name to get to the **Settings** tab. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0.
 
     ![Application Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
 
-1. **Application Type** must be set to **Regular Web Application**
+3. **Application Type** must be set to **Regular Web Application**
 
-1. Scroll down to **Allowed Callback URLs** and provide the WordPress site URL with `?auth0=1` appended:
+4. Scroll down to **Allowed Callback URLs** and provide the WordPress site URL with `?auth0=1` appended:
 
 ```
 https://yourdomain.com/index.php?auth0=1
@@ -54,43 +54,41 @@ https://yourdomain.com/index.php?auth0=1
     Do **not** cache Callback URLs, or you might see an "Invalid state" error during login. Please see our [troubleshooting steps for this error](https://auth0.com/docs/cms/wordpress/invalid-state#cached-callback-urls) for more information.
     :::
 
-1. Enter your WordPress site's home domain (where the WordPress site appears) and, if different, site domain (where wp-admin is served from) in the **Allowed Web Origins** field
+5. Enter your WordPress site's home domain (where the WordPress site appears) and, if different, site domain (where wp-admin is served from) in the **Allowed Web Origins** field
 
-1. Enter your WordPress site's login URL in the **Allowed Logout URLs** field
+6. Enter your WordPress site's login URL in the **Allowed Logout URLs** field
 
-1. Leave the **Allowed Origins (CORS)** field blank (it will use the **Allowed Callback URLs** values from above)
+7. Leave the **Allowed Origins (CORS)** field blank (it will use the **Allowed Callback URLs** values from above)
 
     ::: note
     Make sure to match your site's protocol (http or https) and use the site URL as a base, found in **wp-admin > Settings > General > WordPress Address (URL)** for all URL fields above.
     :::
 
-1. If SSO is needed, make sure that **Use Auth0 instead of the IdP to do Single Sign On** is turned on.
+8. Scroll down and click the **Show Advanced Settings** link, then the **OAuth** tab and make sure **JsonWebToken Signature Algorithm** is set to RS256. If this needs to be changed later, it should be changed here as well as in wp-admin (see Settings > Basic below).
 
-1. Scroll down and click the **Show Advanced Settings** link, then the **OAuth** tab and make sure **JsonWebToken Signature Algorithm** is set to RS256. If this needs to be changed later, it should be changed here as well as in wp-admin (see Settings > Basic below).
-
-1. Turn on **OIDC Conformant**.
+9. Turn on **OIDC Conformant**.
 
     ![Application - Advanced Settings - OAuth](/media/articles/cms/wordpress/client-advanced-settings.png)
 
-1. Click the **Grant Types** tab and select at least **Implicit,** **Authorization Code,** and **Client Credentials**.
+10. Click the **Grant Types** tab and select at least **Implicit,** **Authorization Code,** and **Client Credentials**.
 
     ![Application - Advanced Settings - Grant Types](/media/articles/cms/wordpress/client-grant-types.png)
 
-1. Click **Save Changes** if anything was modified.
+11. Click **Save Changes** if anything was modified.
 
 ### Authorize the Application for the Management API
 
-In order for your WordPress site to perform certain actions on behalf of your Auth0 tenant, you'll need to authorize the Application created above to access the Management API. This is not required but will enable retrieving complete user data on login (including `user_metadata` and `app_metadata`), email and password changes for users, and email verification email sending when emails are required.
+In order for your WordPress site to perform certain actions on behalf of your Auth0 tenant, you'll need to authorize the Application created above to access the Management API. This is not required but will enable retrieving complete user data on login (including `user_metadata` and `app_metadata`), email and password changes for users, and email verification re-sending when verified emails are required.
 
-1. Make sure your Application allows the Client Credentials grant (step two steps above)
+1. Make sure your Application allows the Client Credentials grant (step 10 in the section above)
 
-1. Navigate to the [APIs](${manage_url}/#/apis) page
+2. Navigate to the [APIs](${manage_url}/#/apis) page
 
-1. Click on **Auth0 Management API**, then the **Machine to Machine Applications** tab
+3. Click on **Auth0 Management API**, then the **Machine to Machine Applications** tab
 
-1. Look for the Application you created above and click **Unauthorized** to grant access
+4. Look for the WordPress Application and click **Unauthorized** to grant access
 
-1. In the panel that appears, select only the `read:users` and `update:users` scopes and click **Update** (you can search using the **Filter scopes** field)
+5. In the panel that appears, select only the `read:users` and `update:users` scopes and click **Update** (you can search using the **Filter scopes** field)
 
 ![Application Advanced Settings](/media/articles/cms/wordpress/grant-client-access-to-api.png)
 
