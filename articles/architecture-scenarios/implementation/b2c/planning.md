@@ -9,7 +9,7 @@ contentType: concept
 useCase:
   - implementation
 ---
-# Planning Your Consumer Identity and Access Management Integration
+# Planning Your Business to Consumer Identity and Access Management Integration
 
 In our experience, customers who establish clear objectives and align those objectives to requirements early on benefit the most from their integration with Auth0. Regardless of the project type, we recommend that you plan your project using a phased approach across multiple workstreams. In most cases, we see the most success with those adopting a three-phase project structure.
 
@@ -24,3 +24,10 @@ While adopting an iterative release process will improve your time to market whe
 :::
 
 There may be other groups within your organization who have worked with Auth0 and from whom you can go to for first-hand experience. It's not uncommon for us to work with different parts of the same company at different points of time. We may be able to help you identify these groups prior to the beginning of your project, which might help you as you structure your initial project plans.
+
+## Keep reading
+
+* [Implementation Checklists](/architecture-scenarios/checklists)
+* [Design Your Auth0 Implementation](/design)
+* [Production Checks](/pre-deployment)
+* [Services](/services)
