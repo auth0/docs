@@ -12,7 +12,11 @@ useCase:
 ---
 # User Profile Management
 
-User information is stored in a [*user profile*](/users/concepts/overview-user-profile) and can come from a variety of sources such as [identity providers](/identityproviders), your own databases, and enterprise connections (Active Directory, SAML, etc.). You can *normalize* user data that comes from a variety of data sources. By default, Auth0 creates one user profile for each user identity.
+User information is stored in Auth0 as part of the [*user profile*](/users/concepts/overview-user-profile), also known as the users' account, and can come from a variety of sources, such as third-party [identity providers](/identityproviders#social), your own [databases](/identityproviders#database-and-custom-connections), and [enterprise connections](identityproviders#enterprise) like Active Directory, SAML, etc.. 
+
+You can *normalize* user data that comes from a variety of data sources. By default, Auth0 creates one user profile for each user identity.
+
+## Design considerations
 
 Here are some examples of the things that determine how you will manage user profile information:
 
@@ -20,15 +24,6 @@ Here are some examples of the things that determine how you will manage user pro
 * Do you need to store user information that didn’t originate from an identity provider?
 * Do you need to store user-related information that a user cannot modify?
 * What if a user forgets or wants to change their password?
-
-## Prerequisites
-
-* [Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture)
-* [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
-* [Authentication](/architecture-scenarios/implementation/b2c/authentication)
-* Authorization
-
-## Design considerations
 
 After your implementation is operational, you’ll need to manage the user profile information stored in the user data store. Management tasks can take many forms: 
 
@@ -117,16 +112,3 @@ Any information that will be used to customise Auth0 emails, such as information
 [Blocking user access](/users/guides/block-and-unblock-users) in Auth0 provides a way to prevent user login to applications under certain conditions. By default, the Auth0 Dashboard provides an out-of-the-box mechanism to give administrators the ability to both block and unblock user access to all applications. You can implement this with the Management API. Alternatively, you can use Auth0 extensibility to disable user access to certain applications as well as providing more fine grained access control.
 
 The Auth0 Management API also provides you with the ability to unblock users disabled due to excessive use of incorrect credentials.  
-
-## Checklist
-
-| Step Number | Description | Details | Comments |
-| - | - | - | - |
-| 1. | Metadata |  | |
-| 2. | Password reset |  |  |
-| 3. | Account verification |  |  |
-| 4. | Blocking and unblocking users |  |  |
-
-## Next steps
-
-* [Branding](/architecture-scenarios/implementation/b2c/branding)

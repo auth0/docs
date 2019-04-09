@@ -24,9 +24,6 @@ User provisioning is the process of adding users to your system. When you define
 
 In this section, we will walk you through the things you should consider when making these decisions.
 
-## Prerequisites
-* [Tenant Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture)
-
 ## Design considerations
 
 It's important to decide early on how you will provision users, so the decisions you make will influence subsequent implementation choices. Be sure to consider:
@@ -84,16 +81,3 @@ Auth0 recommends using a web-based workflow featuring [Universal Login](/univers
 Auth0 uses database connections to store the user ID, password, and username collected from new users during the sign-up process. You can configure the database connection policies governing things such as minimum username length or password strength and complexity using the Auth0 dashboard.  
 
 Auth0 recommends that you use [Universal Login](/universal-login). If it doesn't meet your needs, we also have libraries that can be embedded in your application, such as [Lock](/libraries) (a premade login widget) and Auth0.js (a library with which you can build your own login UI). For a comparison of the capabilities, see [Lock vs. a Custom UI](/libraries/when-to-use-lock).
-
-## Checklist
-
-| Step Number | Description | Details | Auth0 Tools |
-| - | - | - | - |
-| 1. | Choose data storage location | Your data store or Auth0's |  |
-| 2. | Choose method for migrating user data | Bulk migration and/or automatic migration | Management API or User Import/Export Extension |
-| 3. | Decide on Sign Up functionality | Universal Login or Lock |  |
-
-## Next steps
-
-* User Authentication
-* User Authorization

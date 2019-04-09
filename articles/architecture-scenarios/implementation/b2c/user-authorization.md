@@ -18,7 +18,9 @@ Let's start by distinguishing between Authentication, Authorization, and Access 
 * **Authorization**: Identifies what the user is allowed to do in the system.
 * **Access Control**: Limits a user to only perform actions they are allowed to do based on a combination of who the user is, what they are allowed to do in the system, and their consent.
 
- [Authentication](/architecture-scenarios/implementation/b2c/authentication) and some or all of Authorization are managed by your Auth0 tenant (the Authorization Server). But because Access Control is almost always contextual, your API or Application itself must manage it.
+[Authentication](/architecture-scenarios/implementation/b2c/authentication) and some or all of Authorization are managed by your Auth0 tenant (the Authorization Server). But because Access Control is almost always contextual, your API or Application itself must manage it.
+
+## Design considerations
 
 To implement user authorization inside your Application (typically, access control), you must decide what information your application will need to know to make access control decisions. Once you know this, you can add additional and custom claims to an OIDC [ID Token](/tokens/id-token) (by using Auth0’s [Rules extensibility](/architecture-scenarios/implementation/b2c/user-authorization#id-token-claims)) before passing the token to your Application. You can then access these claims from within your Application to use with access control.
 

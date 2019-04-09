@@ -34,15 +34,10 @@ For some users, the out-of-box experience -- perhaps with just a touch of altera
 When considering the items you want to brand, as well as how best to brand these items, you'll want to consider the following.
 
 * Will you brand your login page?
-
 * Will you need to localize your login page?
-
 * Will you customize emails so that they're not just branded, but vary based on user preference?
-
 * How will users know that they're still on your domain when they see your login page?
-
 * What do you need to do to provide additional browser security (e.g., implement Extended Validation)?
-
 * How will you direct users in the event of errors?
 
 The answers to these questions and more are detailed in the [Universal login and login pages](#universal-login-and-login-pages), [Custom domains](#custom-domains), and [Email templates](#email-templates) sections below. 
@@ -106,13 +101,3 @@ Auth0 makes extensive use of email to provide both user notifications and to dri
 Out of the box, the email templates used contain standard verbiage and Auth0 branding. However, you can configure almost every aspect of these templates to reflect the verbiage and user experience you want and make changes to things like the preferred language, accessibility options, and so forth.
 
 Email templates are customized using [Liquid syntax](/email/liquid-syntax). If you are interested in customizing your templates based on user preferences, you will also have access to the [metadata](/user/concepts/overview-user-metadata) located in users' profiles, as well as any specific application metadata too. 
-
-## Checklist
-
-| | Description | Details | Auth0 Tools |
-| - | - | - | - |
-| 1 | Customize your Login Page |  | Login Page |
-| 2 | Customize your Change Password Page |  | Change Password Page |
-| 3 | Customize your Error Page |  | Error Page |
-| 4 | Configure a Custom Domain and add a custom SSL certificate | | Custom Domains, Certificate Management |
-| 5 | Customize your Email Templates |  | Email Templates, Email Provider |

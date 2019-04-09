@@ -15,6 +15,8 @@ useCase:
 
 In order to provide services to your users, you must be able to identify who those users are. This process is called authentication. You must provide your users with a way to verify that they are who they are, and there are a number of ways to do this; via social media accounts, username/password, and passwordless authentication to name but a few. In many cases it is also recommended that you go beyond a first factor for authenticating the user add a second factor as well.
 
+## Design considerations
+
 When designing the authentication experience, you will determine:
 
 * Where users will enter their credentials

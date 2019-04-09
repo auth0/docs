@@ -1,5 +1,5 @@
 ---
-title: Tenant Architecture
+title: Architecture
 description: Learn how to create Auth0 tenants for one or more environments
 toc: true
 topics:
@@ -10,61 +10,71 @@ contentType: concept
 useCase:
   - tenant-architecture
 ---
-# Tenant Architecture
 
-Everything at Auth0 begins with the creation of a tenant. The tenant is where you will configure everything related to your use of Auth0.
+# Architecture
 
-You can (and are encouraged to) create more than one tenant. In addition to using different tenants for different environments (for example, you can have a tenant for development and a tenant for production), you can use different tenants to isolate your user domains (determining which user domains you'll need is an important step of the tenant architecture process).
+Understanding your application is key to understanding how Auth0 can be leveraged to meet your needs. From experience, our most successful customers start with a visualization of their proposed - or in many cases existing - architecture and use this as a basis for reference as they progress. Understanding where your application fits within your organization is also important; Auth0 accounts and tenants form the basis for the grouping and structuring of Auth0 assets, and it may be that you’ll need to leverage an existing Auth0 deployment in order to integrate with Single Sign On (SSO), centralized user profile management, consolidated billing, or the like.
 
-::: warning
-Tenant names cannot be changed or reused (even if the original tenant has been deleted). Make sure that you are happy with your names before you set up the tenants.
+::: panel Best Practice
+If you do have multiple application, and you need to leverage SSO, then you'll also want to check out our [How to Implement Single Sign On](/learn/how-to-implement-single-sign-on/) training.
 :::
 
 ## Design considerations
 
-When you begin the process of designing your tenant architecture, consider the following questions:
+The value of investing time on the landscape of the architecture up-front is something that we have found pays dividends in the long run, and there are a number of things you will want to consider when looking at functionality and workflow:
 
-1. What should the URL be when the Authorization Server (Auth0) presents a page to the user? You tenant name is part of the URL, and as part of Phase 1, you may be setting up [custom domains](#custom-domains).
+* What should the URL look like when Auth0 needs to present a web page to a user?
+* How can Auth0 be structured to support our SDLC (Software Development Lifecycle)?
+* How can I ensure that my Auth0 Tenants are appropriately associated with my contract?
+* What do I need to consider if there are other projects in my organization integrating with Auth0? Particularly projects that target their own, or a different domain of users (for example, applications that only employees use)? 
 
-1. How will you support the Software Development Life Cycle? Do you have development, QA, and production environments, with each needing its own tenant? Do you have an additional staging environment, or are you working with a minimalist setup featuring just development and production environments?
+Organizations often service more than one domain of user - customers, employees, and affiliates - being the most frequently encountered, and typically there’s little to no cross-over: employees, say,  don’t use the same applications as customers and vice-versa. In some cases there can also be a need to partition further within a domain - separate groups of customers, say, who use different and unconnected products. Auth0 provides a way to segregate your users and the associated collateral, and [tenant provision](#tenant-provision) covers this in more detail. If you need to provision an independent tenant then you’ll also want to [associate this with your existing Auth0 account](/dev-lifecycle/child-tenants), so that you can take full advantage of the benefits provided at your organization’s contracted subscription level.
 
-1. Are there any other projects that might impact your Auth0 integration? For example, if there are future projects in the pipeline, consider your setup carefully to minimize the likelihood that you'll have to migrate your existing tenant to another at that time.
+::: panel Best Practice
+It’s not uncommon for companies to have identity requirements that address multiple user communities: customers, partners, employees, etc. So be sure to consider other projects or future requirements when designing your architecture.
+:::
 
-1. How do you make sure that all of your tenants are appropriately associated with your Auth0 contract? Auth0 has a [set of procedures](#associating-tenants) for you to follow if you want all of your tenants associated with each other.
+In addition, you’ll undoubtedly have an established set of processes and procedures as part of your Software Development Lifecycle (SDLC), so you’ll want to check out our [SDLC support](#sdlc-support) guidance regarding Auth0 Tenant provision in support of that too.
+
+For customer facing applications we typically see [OpenID Connect (OIDC)](/protocols/oidc) as being the most frequently used protocol. OIDC makes use of web based workflows with browser URLs that are presented to the user. Out-of-the-box, client facing URLs as part of Auth0 OIDC support are Auth0 branded, however we recommend using the Auth0 custom domain capability to provide for consistent corporate identity and to also address potential user confidence concerns before they arise. 
+
+::: panel Best Practice
+Other groups within your organisation may also be working with Auth0; it’s not uncommon for our customers to have disparate departments that serve different user communities. Identifying these will potentially influence your design choices, and doing so early could mitigate decisions that might prove costly later on.
+:::
+
+## Tenant provision
+
+Everything starts with an Auth0 tenant. This is where you will be configuring your use of Auth0, and the where Auth0 assets - such as applications, connections and user profiles are defined, managed and stored. Access to an Auth0 tenant is performed via the Auth0 Dashboard, and via the Dashboard you can also create additional, associated tenants; you’re allowed to create more than one Auth0 tenant so that you can structure your tenants in a way that will isolate different domains of users and also support your Software Development Life Cycle (SDLC) project.
+
+::: warning
+Tenant names cannot be changed or reused once deleted. So, make sure you're happy with your name(s) before you create your Auth0 tenants.
+:::
+
+Determining the level of isolation you require when it comes to your user domains is an important step, and together with your branding requirements will subsequently help you determine the number of Auth0 tenants that will be required in your production environment. As we recommend you create a full suite of SDLC supporting tenants for every Auth0 tenant you will run in a production environment the number of Auth0 tenants you will need to manage can quickly grow. Therefore you should consider carefully before creating multiple Auth0 tenants for production, and should consult our guidance on [Branding](/architecture-scenarios/implementation/b2c/branding) before making your final decision. 
 
 ## Custom domains
 
-When you set up your tenant, the URL to access that tenant will be `https://YOUR_TENANT_NAME.auth0.com` where `YOUR_TENANT_NAME` is the name of your tenant. 
+When you setup your Auth0 tenant, the URL for accessing that tenant will be `https://${account.tenant}.auth0.com`. A custom domain, also known as a [vanity URL](/custom-domains), for your Auth0 tenant is important for more than just branding. It also provide you with security benefits too:
+
+* Some browsers will, by default, make it difficult to communicate in an iFrame if you don't have a shared domain. (Not the case however if you have multiple domain SSO.)
+* It is harder to phish your domain if you have a vanity URL. The phisher must also create a vanity URL to mimic your. For example, with a custom domain, you can use your own certificate and get an "Extended Validation Certificate" to make phishing even harder.
+* You want your users to be trained to look for suspicious URLs when entering their passwords. **This training is extremely important.**
 
 ::: note
-You can create one custom domain for each tenant. If you need to use more than one domain name, please see [Customization](#).
+You are allowed only one custom domain per Auth0 Tenant. This is because a tenant in Auth0 is intended to represent a “domain” of users. If you need more than one vanity URL, then you likely have more than one domain of users and should be using multiple tenants.
 :::
 
-However, you can implement a [custom domain](/custom-domains) for your tenant (which is the authorization server). This is more than a branding task -- it also provides you with security benefits:
+Create your custom domain in all environments early on to ensure that you are testing consistently between environments. Your custom domain name should also give the user confidence that this is the appropriate place to enter their credentials.
 
-1. You'll find it easier to facilitate communications within an iFrame, which some browsers [make difficult to do](/api-auth/token-renewal-in-safari) if you have a shared domain name
-
-1. It's [hard for malicious parties to phish](https://auth0.com/blog/introducing-custom-domains-preview-with-auth0/) using your domain with a custom URL. If you have a custom URL, the phisher must also create a custom URL to match yours.
-
-1. It will be easier for your users to recognize suspicious URLs whenever they need to enter passwords.
-
-Create a custom domain in all of your environments early on in the implementation process to make sure that you are testing consistently between the environments. Your custom domain should give your users confidence that the site they're on is the one where they should be entering their credentials.
-
-### Best practice for custom domains
-
-We recommend creating similar domain and tenant names for your associated tenants. For example, let's say that your production tenant uses `example.com`. Your development environment would therefore use `example-dev.com`.
-
-We also recommend creating CNAME records for your Auth0 tenants to make sure that everything is begin managed correctly (e.g., `login.example.com` does go to `example-prod.auth0.com`).
-
-## Support the Software Development Life Cycle with tenants
-
-To help support each stage of your company's Software Development Life Cycle, you'll want to structure your tenants appropriately. This makes it simpler to test as you build your Auth0 integration and to move changes from one environment to another when appropriate.
-
-::: panel TL;DR
-Create separate Auth0 tenants for use with your development, staging/QA, and production environments.
+::: panel Best Practice
+Create a custom domain (CNAME) for your Auth0 tenant. Also, create one in development too so you can ensure you have managed the CNAME correctly. For example, `login.mycompany.com` => `mycompany-prod.auth0.com`.
 :::
 
-Generally speaking, we recommend creating the the following environments and corresponding tenants:
+In almost all cases, customers have been most successful when adopting a strategy of a centralised domain for authentication across multiple product or service brands. This strategy provides users with a consistent UX, and also mitigates the complexity of deploying and maintaining multiple Auth0 tenants in a production environment. If you are considering having multiple domains for different brands, please refer to the [Branding](/architecture-scenarios/implementation/b2c/branding) guidance before you begin implementing.
+
+## SDLC support
+
+Every company has some form of software development life cycle. Throughout the development process, we need to be able to test the authorization service integration as well as the applications themselves. It is therefore important to structure Auth0 tenants to support this life cycle, and there tends to be consistency around the best practices associated with tenant layout for supporting the SDLC:
 
 | Environment | Sample Tenant Name | Description |
 | - | - | - |
@@ -78,6 +88,6 @@ You may also want to create one or more sandboxes (e.g., **company-sandbox1**, *
 Though Auth0 allows you to create as many free tenants as you'd like, you can only have **three** tenants with paid features enabled.
 :::
 
-### Associating tenants
+## Tenant association
 
-To make sure that all of the [tenants](dev-lifecycle/child-tenants) you create are associated with your Auth0 contractual agreement and have the same feature set, you'll need to associate your tenants with your company account. This should also include any sandboxes your developers create for testing purposes.
+To ensure that your [tenants are all associated with your Auth0 contractual agreement](/dev-lifecycle/child-tenants) and have the same features, ensure you have all of your tenants associated with your company. If you have individual developers that want to create their own sandboxes for testing, make sure they get associated with your account so they have the same permissions. To do this you should contact your Auth0 representative or the Auth0 Support Center at ${env.DOMAIN_URL_SUPPORT}.
