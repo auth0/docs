@@ -1,8 +1,0 @@
-added:
-  -
-    title: "General Data Protection Regulation"
-    tags:
-      - compliance
-      - GDPR
-    description: |
-      Docs on how [GDPR](https://auth0.com/docs/compliance) affects Auth0 and its customers.
