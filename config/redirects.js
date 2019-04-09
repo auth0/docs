@@ -1550,6 +1550,10 @@ module.exports = [
     to: '/sso/current/single-page-apps'
   },
   {
+    from: '/sso/current/introduction',
+    to: '/sso/current/sso-auth0'
+  },
+  {
     from: '/sso/legacy/single-page-apps-sso',
     to: '/sso/legacy/single-page-apps'
   },
