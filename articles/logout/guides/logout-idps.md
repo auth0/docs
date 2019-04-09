@@ -22,7 +22,6 @@ https://${account.namespace}/v2/logout?federated
 
 The following identity providers support federated logout:
 
-* AOL
 * Evernote
 * Facebook
 * Fitbit

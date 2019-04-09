@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD041 -->
+
 When you set up the `AuthService` service, you create an instance of the `auth0.WebAuth` object. In that instance, you can define the following:
 
 * Configuration for your application and domain
@@ -10,7 +12,7 @@ In this tutorial, the route is `/callback`, which is implemented in the [Add a C
 
 Your users authenticate via Universal Login, at the login page. They are then redirected back to your application. Their redirect URLs contain hash fragments with the user's ID token.
 
-You can get the tokens from the URL using the `parseHash` method in the auth0.js library. You can save the values in local storage with the `localLogin` method. The `localLogin` method uses the `exp` value from the ID Token payload to calculate when the user's ID Token expires.
+You can get the tokens from the URL using the `parseHash` method in the auth0.js library. You can then set up the login session using the `localLogin` method. The `localLogin` method uses the `exp` value from the ID Token payload to calculate when the user's ID Token expires.
 
 Authentication using JSON Web Tokens is stateless. This means that when you use it, no information about the user's session is stored on your server.
 

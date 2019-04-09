@@ -1,1 +1,0 @@
-You need to provide a way for your application to recognize if the user is authenticated. To do that, use the `isAuthenticated` method to check if the user's Access Token has expired. The user is no longer authenticated when the expiry time of their Access Token passes.

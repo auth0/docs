@@ -24,5 +24,5 @@ Some typical scenarios for using add-ons include:
 
 ## Keep reading
 
-- [View All Available Add-ons for an Application](/applications/guides/view-addons-for-app)
+- [View All Available Add-ons for an Application](/applications/guides/view-addons-for-app-dashboard)
 - [How to Configure an Add-On for an Application](/addons)

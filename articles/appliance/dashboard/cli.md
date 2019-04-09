@@ -8,6 +8,7 @@ topics:
 contentType: concept
 useCase: appliance
 applianceId: appliance18
+sitemap: false
 ---
 
 # PSaaS Appliance Dashboard: CLI

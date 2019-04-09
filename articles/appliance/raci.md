@@ -7,6 +7,7 @@ topics:
 contentType: reference
 useCase: appliance
 applianceId: appliance62
+sitemap: false
 ---
 
 # PSaaS Appliance: Roles and Responsibilities

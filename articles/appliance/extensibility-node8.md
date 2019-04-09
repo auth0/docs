@@ -12,6 +12,7 @@ contentType:
 toc: true
 useCase: appliance
 applianceId: appliance57
+sitemap: false
 ---
 # PSaaS Appliance Migration Guide: Extensibility and Node 8
 

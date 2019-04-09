@@ -18,7 +18,10 @@ This guide serves as a troubleshooting reference if you have end-users unable to
 
 ### If you do not have your mobile device, or your mobile device is turned off
 
-If you have lost your device, you can finish authentication using the recovery code provided when you first signed up. After entering your email and password to log in, click the **Use the recovery code** link to access your account without using your device.
+If you have lost your device, you can finish authentication using the recovery code provided when you first signed up. 
+
+1. Enter your email and password to log in, and click the **Use the recovery code** link.
+2. Enter your recovery code.
 
 If you no longer have your recovery code, you will not be able to log in. Contact your system administrator for help accessing your account.
 

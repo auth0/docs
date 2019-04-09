@@ -20,4 +20,4 @@ useCase: customize-connections
 
 <%= include('../../_includes/_native_passwordless_warning') %>
 
-<%= include('./_using-lock-ios-sms', { language: 'objc' }) %>
+<%= include('./_includes/_using-lock-ios-sms', { language: 'objc' }) %>

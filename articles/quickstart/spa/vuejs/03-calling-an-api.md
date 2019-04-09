@@ -8,9 +8,10 @@ topics:
   - vuejs
   - apis
 github:
-  path: 03-calling-an-api
+  path: 03-Calling-an-API
 sample_download_required_data:
   - client
+  - api
 contentType: tutorial
 useCase: quickstart
 ---
@@ -88,10 +89,10 @@ Then, modify the `webAuth` creation to include `token` in the response type and 
 // src/auth/authService.js
 
 const webAuth = new auth0.WebAuth({
-  domain: AUTH_CONFIG.domain,
+  domain: authConfig.domain,
   redirectUri: `<%= "${window.location.origin}" %>/callback`,
-  clientID: AUTH_CONFIG.clientId,
-  audience: AUTH_CONFIG.audience,   // add the audience
+  clientID: authConfig.clientId,
+  audience: authConfig.audience,   // add the audience
   responseType: "token id_token",   // request 'token' as well as 'id_token'
   scope: "openid profile email"
 });

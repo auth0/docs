@@ -998,6 +998,10 @@ module.exports = [
     to: '/flows/concepts/m2m-flow'
   },
   {
+    from: ['/api-auth/restrict-requests-for-scopes'],
+    to: '/api-auth/restrict-access-api'
+  },
+  {
     from: '/oauth-implicit-protocol',
     to: '/protocols/oauth2/oauth-implicit-protocol'
   },
@@ -2078,4 +2082,10 @@ module.exports = [
       from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
       to: '/protocols/saml/saml-apps/github-server'
     },
+    {
+      from: '/enterprise/private-cloud/overview',
+      to: '/private-cloud'
+    }
+
+    
 ];
