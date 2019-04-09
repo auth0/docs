@@ -121,9 +121,9 @@ Quality assurance mechanism should now be employed to ensure any breakages due t
 * Verifying accounts
 * Blocking users
 
-### Authorization
+### User Authorization
 
-[Authorization](/architecture-scenarios/implementation/b2c/user-authorization) is, for customers who have specific access control requirements, the next thing on the agenda, and the focus for Phase 1 will be centered on how custom ID Token Claims can be leveraged to support this.
+[User Authorization](/architecture-scenarios/implementation/b2c/user-authorization) is, for customers who have specific access control requirements, the next thing on the agenda, and the focus for Phase 1 will be centered on how custom ID Token Claims can be leveraged to support this.
 
 ### User logout
 

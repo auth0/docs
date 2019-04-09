@@ -119,5 +119,5 @@ The Auth0 Management API also provides you with the ability to unblock users dis
 * [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
 * [Authentication](/architecture-scenarios/implementation/b2c/authentication)
 * [Branding](/architecture-scenarios/implementation/b2c/branding)
-* [Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
+* [User Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
 * [User Logout](/architecture-scenarios/implementation/b2c/user-logout)

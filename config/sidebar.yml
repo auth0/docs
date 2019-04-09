@@ -90,6 +90,30 @@ articles:
 
       - title: Business to Consumer
         url: /architecture-scenarios/b2c
+        children:
+            - title: Planning
+              url: /architecture-scenarios/implementation/b2c/planning
+
+            - title: Architecture
+              url: /architecture-scenarios/implementation/b2c/tenant-architecture
+
+            - title: User Provisioning
+              url: /architecture-scenarios/implementation/b2c/user-provisioning
+
+            - title: Authentication
+              url: /architecture-scenarios/implementation/b2c/authentication
+
+            - title: Branding
+              url: /architecture-scenarios/implementation/b2c/branding
+
+            - title: User Profile Management
+              url: /architecture-scenarios/implementation/b2c/user-profile-mgmt
+
+            - title: User Authorization
+              url: /architecture-scenarios/implementation/b2c/user-authorization
+
+            - title: User Logout
+              url: /architecture-scenarios/implementation/b2c/user-logout
 
       - title: Business to Enterprise
         url: /architecture-scenarios/b2e

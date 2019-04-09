@@ -63,4 +63,4 @@ Not all users will trigger the logout process manually, so Auth0 also provides *
 * [Authentication](/architecture-scenarios/implementation/b2c/authentication)
 * [Branding](/architecture-scenarios/implementation/b2c/branding)
 * [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)
-* [Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
+* [User Authorization](/architecture-scenarios/implementation/b2c/user-authorization)

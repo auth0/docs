@@ -102,5 +102,5 @@ To ensure that your [tenants are all associated with your Auth0 contractual agre
 * [Authentication](/architecture-scenarios/implementation/b2c/authentication)
 * [Branding](/architecture-scenarios/implementation/b2c/branding)
 * [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)
-* [Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
+* [User Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
 * [User Logout](/architecture-scenarios/implementation/b2c/user-logout)

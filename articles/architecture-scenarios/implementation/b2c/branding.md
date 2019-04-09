@@ -108,5 +108,5 @@ Email templates are customized using [Liquid syntax](/email/liquid-syntax). If y
 * [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
 * [Authentication](/architecture-scenarios/implementation/b2c/authentication)
 * [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)
-* [Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
+* [User Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
 * [User Logout](/architecture-scenarios/implementation/b2c/user-logout)

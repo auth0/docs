@@ -88,5 +88,5 @@ Auth0 recommends that you use [Universal Login](/universal-login). If it doesn't
 * [Authentication](/architecture-scenarios/implementation/b2c/authentication)
 * [Branding](/architecture-scenarios/implementation/b2c/branding)
 * [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)
-* [Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
+* [User Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
 * [User Logout](/architecture-scenarios/implementation/b2c/user-logout)
