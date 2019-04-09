@@ -127,7 +127,7 @@ You can find examples in [the Auth0 Samples repository](https://github.com/auth0
 
 To deploy Database Connection settings, you must create `database-connections/[connection-name]/settings.json`. 
 
-_This will work only for Auth0 connections (1strategy === auth01), for non-Auth0 connections use `connections`._
+_This will work only for Auth0 connections (`strategy === auth0`), for non-Auth0 connections use `connections`._
 
 See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/patch_connections_by_id) for more info on allowed attributes for Connections.
 
