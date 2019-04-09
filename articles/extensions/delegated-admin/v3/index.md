@@ -191,6 +191,8 @@ Now that we've created and configured an application, a connection, and our user
 
 - **FAVICON_PATH** (optional): Path to custom favicon.
 
+- **AUTH0_CUSTOM_DOMAIN** (optional): Custom domain for end-users to login (without protocol).
+
 - **FEDERATED_LOGOUT** (optional): sign out from the IdP when users logout.
 
 4. Once done, click **Install**. Your extension is now ready to use!
