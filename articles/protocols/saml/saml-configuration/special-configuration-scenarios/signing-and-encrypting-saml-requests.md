@@ -106,9 +106,9 @@ Navigate to the section titled **Encrypted Assertions** and download the certifi
 
 This scenarios apply when Auth0 is the SAML Identity Provider for an application. This is represented in the dashboard by an **Application** that has the SAML Web App Addon enabled.
 
-### Sign the SAML Authentication Responses/Assertions
+### Sign the SAML Responses/Assertions
 
-If Auth0 is the SAML **identity provider**, it can sign responses/assertions with its private key and provide the service provider with the public key/certificate necessary to validate the signature.
+If Auth0 is the SAML **identity provider**, it will sign SAML assertions with the tenant's private key and provide the service provider with the public key/certificate necessary to validate the signature.
 
 To retrieve the certificate you need to send to your IdP from the [Management Dashboard](${manage_url}):
 
@@ -116,10 +116,41 @@ To retrieve the certificate you need to send to your IdP from the [Management Da
 2. Scroll to the *Certificates* section, and click **Download Certificate* to obtain the signing certificate you need to provide to your IdP.
 3. Send your certificate to the service provider.
 
-Next, you'll need make sure that the SAML assertion is *not* signed (you can sign either the assertion or the response, but not both). Here's how to unsign the SAML Assertion:
+By default, Auth0 signs the SAML **assertion** within the response. If you want to sign the SAML **response** instead, follow this instructions:
 
 1. In the [Management Dashboard](${manage_url}), navigate to **Applications**. Find the Application you're interested in go to **Addons** > SAML2 WEB APP > Settings.
-2. By default, `signResponse` is true. As such, uncomment this line and set the value to `false`. Your SAML assertion will no longer be signed.
+2. Look for the `"signResponse"` key. Add it or uncommented if required, and set its value to `true` (the default value is `false`). The configuration should look like this:
+
+```json
+{
+  [...], // other settings
+  "signResponse": true
+}
+```
+
+#### Change the signing key for SAML responses
+
+Auth0 will by default use the private/public key pair assigned to your tenant to sign SAML responses or assertions. For very specific scenarios you might wish to provide your own key pair. You can do so with a rule like this:
+
+```javascript
+function (user, context, callback) {
+  // replace with the ID of the application that has the SAML Web App Addon enabled
+	// for which you want to change the signing key pair.
+	var samlIdpClientId = 'YOUR_SAML_APP_CLIENT_ID';
+  // only for a specific client
+  if (context.clientID !== samlIdpClientId) {
+    return callback(null, user, context);
+  }
+
+	// provide your own private key and certificate here  
+  context.samlConfiguration.cert = "-----BEGIN CERTIFICATE-----\nMIIE[...]TxmAIvXa\n-----END CERTIFICATE-----\n";
+  context.samlConfiguration.key = "-----BEGIN PRIVATE KEY-----\nMIIJ[...]s=\n-----END PRIVATE KEY-----\n";
+      
+  callback(null, user, context);
+}
+```
+
+Take a look at [Working with certificates as strings](#working-with-certificates-as-strings) for information on how to turn the private key and certificate files into strings that you can use in a rule.
 
 ### Receive Signed SAML Authentication Requests
 
