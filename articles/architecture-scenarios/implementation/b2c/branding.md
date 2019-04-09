@@ -101,3 +101,12 @@ Auth0 makes extensive use of email to provide both user notifications and to dri
 Out of the box, the email templates used contain standard verbiage and Auth0 branding. However, you can configure almost every aspect of these templates to reflect the verbiage and user experience you want and make changes to things like the preferred language, accessibility options, and so forth.
 
 Email templates are customized using [Liquid syntax](/email/liquid-syntax). If you are interested in customizing your templates based on user preferences, you will also have access to the [metadata](/user/concepts/overview-user-metadata) located in users' profiles, as well as any specific application metadata too. 
+
+## Keep reading
+
+* [Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture)
+* [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
+* [Authentication](/architecture-scenarios/implementation/b2c/authentication)
+* [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)
+* [Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
+* [User Logout](/architecture-scenarios/implementation/b2c/user-logout)

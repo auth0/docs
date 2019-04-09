@@ -120,3 +120,12 @@ If you need a [Refresh Token](/tokens/refresh-token/current) so that you can obt
 ### Authorization code grant (with or without PKCE)
 
 If your SDK only supports the authorization code grant, or you need an Access Token or Refresh Token, authorization code grant (with or without PKCE) can also be used to retrieve an ID Token.  The authorization code grant includes an additional API call to exchange the code for a token which can result in additional unnecessary latency if all you need is the ID Token. In many cases the [hybrid flow](/api-auth/tutorials/hybrid-flow_) is implemented to provide optimum access to the ID Token while still leveraging the authorization code grant workflow for the secure and safe retrieval of Access and Refresh Tokens.
+
+## Keep reading
+
+* [Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture)
+* [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
+* [Branding](/architecture-scenarios/implementation/b2c/branding)
+* [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)
+* [Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
+* [User Logout](/architecture-scenarios/implementation/b2c/user-logout)

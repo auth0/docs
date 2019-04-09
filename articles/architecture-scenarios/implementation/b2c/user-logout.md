@@ -55,3 +55,12 @@ If the user logs out and you redirect them back to the application, and the appl
 ### Automatic termination of sessions
 
 Not all users will trigger the logout process manually, so Auth0 also provides **session timeout** to prevent overly long-lived sessions. This setting is [available and configurable via the Auth0 Dashboard](/dashboard/dashboard-tenant-settings#session-timeout).
+
+## Keep reading
+
+* [Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture)
+* [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
+* [Authentication](/architecture-scenarios/implementation/b2c/authentication)
+* [Branding](/architecture-scenarios/implementation/b2c/branding)
+* [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)
+* [Authorization](/architecture-scenarios/implementation/b2c/user-authorization)

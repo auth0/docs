@@ -81,3 +81,12 @@ Auth0 recommends using a web-based workflow featuring [Universal Login](/univers
 Auth0 uses database connections to store the user ID, password, and username collected from new users during the sign-up process. You can configure the database connection policies governing things such as minimum username length or password strength and complexity using the Auth0 dashboard.  
 
 Auth0 recommends that you use [Universal Login](/universal-login). If it doesn't meet your needs, we also have libraries that can be embedded in your application, such as [Lock](/libraries) (a premade login widget) and Auth0.js (a library with which you can build your own login UI). For a comparison of the capabilities, see [Lock vs. a Custom UI](/libraries/when-to-use-lock).
+
+## Keep reading
+
+* [Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture)
+* [Authentication](/architecture-scenarios/implementation/b2c/authentication)
+* [Branding](/architecture-scenarios/implementation/b2c/branding)
+* [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)
+* [Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
+* [User Logout](/architecture-scenarios/implementation/b2c/user-logout)

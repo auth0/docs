@@ -35,3 +35,12 @@ During the login process, Auth0 allows you to easily [add custom claims to an ID
 ::: panel Best practices
 When you are considering adding custom claims, we recommend that you choose to store any data you need to include within the claims in the user's `user` or `app` [Metadata](/users/concepts/overview-user-metadata). Doing so prevents you from needing to call out to an external API to fetch the data, which can negatively impact the performance and scalability of the login sequence. Remember to check out our metadata best practices(missing link) too.
 :::
+
+## Keep reading
+
+* [Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture)
+* [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
+* [Authentication](/architecture-scenarios/implementation/b2c/authentication)
+* [Branding](/architecture-scenarios/implementation/b2c/branding)
+* [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)
+* [User Logout](/architecture-scenarios/implementation/b2c/user-logout)
