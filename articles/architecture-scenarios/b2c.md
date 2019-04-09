@@ -11,11 +11,13 @@ topics:
     - passwordless
     - saml
     - CIAM
+    - SDLC
 contentType: concept
 useCase:
   - invoke-api
   - secure-an-api
   - build-an-app
+  - implementation
 ---
 
 # Business to Consumer Identity and Access Management Scenarios
