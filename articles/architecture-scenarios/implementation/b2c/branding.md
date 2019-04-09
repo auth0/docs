@@ -78,7 +78,7 @@ At the minimum, we recommend that you provide your visitors with:
 * Visual indicators like a friendly-name and your logo for display
 * An email address and URL for your organization's Support team
 
-Auth0 does not provide an out-of-the-box user interface for customizing your Error Pages, but you can use the [Tenant Settings endpoint of the Management API](/api/management/v2#!/Tenants/patch_settings) to configure them. Alternatively, if you can create and host your Error Page then you can have Auth0 direct users to that page instead of using the Auth0-hosted option. 
+Out-of-the-box there is no user interface for customizing your error pages, but you can use the [Tenant Settings endpoint of the Management API](/api/management/v2#!/Tenants/patch_settings) to configure them. Alternatively, if you can create and host your error page then you can have Auth0 direct users to that page instead of using the Auth0-hosted option. 
 
 ### Custom domains
 
