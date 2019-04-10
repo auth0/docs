@@ -19,8 +19,8 @@ Identifying your primary objectives early on during the project will also help y
 
 The evidence we've collected suggests that customers who also adopt an iterative release process make better progress. For example, let's say that you have 3-4 applications you want to integrate with Auth0. Rather than integrating all at once and shipping only when that's done, you might consider completing the integration for one application before moving on to the next. This way, your teams can benefit from the experience of working with Auth0 and leverage this experience to help increase the velocity of each iteration.
 
-::: note-warning
-WWhile adopting an iterative release process will improve your time to market when integrating multiple applications, there are additional considerations for you to review if you want to support [Single Sign-On (SSO)](/sso/current).
+::: warning
+While adopting an iterative release process will improve your time to market when integrating multiple applications, there are additional considerations for you to review if you want to support [Single Sign-On (SSO)](/sso/current).
 :::
 
 In addition, there may be other groups within your organization who have worked with Auth0 and from whom you can go to for first-hand experience - it's not uncommon for us to work with different parts of the same company at different points in time. We may be able to help you identify these groups prior to the beginning of your project, which might help you as you structure your initial project plans.

@@ -59,6 +59,8 @@ Phase 1 consists of a number of workstreams, with a number of topics in each. Th
 
 The diagram below provides an overall view of the planning associated with Phase 1. By Milestone 1, you will have completed major work required to integrate an application, will have addressed the most significant risk items, and will also be able to provide demonstrable functionality to stakeholders too. 
 
+
+
 ### Architecture
 
 [Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture) is the first workstream you will cover, with tenant provision being the precursor to all others. Other topics to address at this stage include: 
