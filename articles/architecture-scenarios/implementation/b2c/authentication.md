@@ -88,7 +88,7 @@ When an anonymous user accesses your application, it can often be desirable for 
 
 ::: note
 Checking for a login session by redirecting to Auth0 can be really helpful for your application, but if this will result in a lot of requests it is important to employ some sort of throttling mechanism to avoid latency and/or rate limiting.
-<%= include('../_includes/_rate-limit-policy.md') %>
+<%= include('../../_includes/_rate-limit-policy.md') %>
 :::
 
 ### Deep linking to protected endpoints
@@ -124,7 +124,7 @@ If your SDK only supports the authorization code grant, or you need an Access To
 
 ## Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture)
+* [Architecture](/architecture-scenarios/implementation/b2c/architecture)
 * [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
 * [Branding](/architecture-scenarios/implementation/b2c/branding)
 * [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)

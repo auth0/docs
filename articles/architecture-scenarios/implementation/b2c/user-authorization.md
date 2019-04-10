@@ -38,7 +38,7 @@ When you are considering adding custom claims, we recommend that you choose to s
 
 ## Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture)
+* [Architecture](/architecture-scenarios/implementation/b2c/architecture)
 * [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
 * [Authentication](/architecture-scenarios/implementation/b2c/authentication)
 * [Branding](/architecture-scenarios/implementation/b2c/branding)

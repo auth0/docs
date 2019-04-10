@@ -73,7 +73,7 @@ Please note that your users will need to reset their passwords once you've migra
 [Automatic migration](/users/guides/configure-automatic-migration) allows users to be migrated incrementally. Users whose accounts are migrated to Auth0 using this method will not need to reset their passwords afterward. 
 
 ::: panel Best Practice
-<%= include('../_includes/_rate-limit-policy.md') %>
+<%= include('../../_includes/_rate-limit-policy.md') %>
 :::
 
 ## User sign up
@@ -88,7 +88,7 @@ If it doesn't meet your needs, we also have libraries that can be embedded in yo
 
 ## Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture)
+* [Architecture](/architecture-scenarios/implementation/b2c/architecture)
 * [Authentication](/architecture-scenarios/implementation/b2c/authentication)
 * [Branding](/architecture-scenarios/implementation/b2c/branding)
 * [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)

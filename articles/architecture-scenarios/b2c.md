@@ -63,7 +63,7 @@ The diagram below provides an overall view of the planning associated with Phase
 
 ### Architecture
 
-[Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture) is the first workstream you will cover, with tenant provision being the precursor to all others. Other topics to address at this stage include: 
+[Architecture](/architecture-scenarios/implementation/b2c/architecture) is the first workstream you will cover, with tenant provision being the precursor to all others. Other topics to address at this stage include: 
 
 * Custom domains
 * Tenant association

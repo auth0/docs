@@ -54,7 +54,7 @@ Self service profile management can raise security as well as data privacy conce
 :::
 
 ::: panel Best Practice
-<%= include('../_includes/_rate-limit-policy.md') %>
+<%= include('../../_includes/_rate-limit-policy.md') %>
 :::
 
 ### Auth0 Dashboard
@@ -67,7 +67,7 @@ Auth0 stores user profile [metadata](/users/concepts/overview-user-metadata) tha
 
 ::: note
 As is the case when managing the Normalized User Profile, calls to the Management API require use of an Access Token.
-<%= include('../_includes/_rate-limit-policy.md') %>
+<%= include('../../_includes/_rate-limit-policy.md') %>
 :::
 
 ::: panel Best Practice
@@ -77,7 +77,7 @@ Use of Metadata should follow Auth0 [best practice guidance](/best-practices/use
 At login, the identity provider updates information in the [Normalized User Profile](/users/normalized/auth0) and you can change a limited set of data through the Auth0 Management API. You can also use Auth0 Rules to override information in the Normalized User Profile. 
 
 ::: warning
-A user profile cannot be directly accessed across multiple Auth0 tenants. See [Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture) for details.
+A user profile cannot be directly accessed across multiple Auth0 tenants. See [Architecture](/architecture-scenarios/implementation/b2c/architecture) for details.
 :::
 
 ### User metadata
@@ -122,7 +122,7 @@ The Auth0 Management API also provides you with the ability to unblock users dis
 
 ## Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2c/tenant-architecture)
+* [Architecture](/architecture-scenarios/implementation/b2c/architecture)
 * [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
 * [Authentication](/architecture-scenarios/implementation/b2c/authentication)
 * [Branding](/architecture-scenarios/implementation/b2c/branding)

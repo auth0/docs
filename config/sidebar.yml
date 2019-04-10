@@ -95,7 +95,7 @@ articles:
               url: /architecture-scenarios/implementation/b2c/planning
 
             - title: Architecture
-              url: /architecture-scenarios/implementation/b2c/tenant-architecture
+              url: /architecture-scenarios/implementation/b2c/architecture
 
             - title: User Provisioning
               url: /architecture-scenarios/implementation/b2c/user-provisioning
