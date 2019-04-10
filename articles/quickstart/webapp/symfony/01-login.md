@@ -68,8 +68,6 @@ Add this to your `src/AppBundle/Auth0ResourceOwner.php`
 
 namespace AppBundle;
 
-use Dotenv\Dotenv;
-
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -105,17 +103,11 @@ class Auth0ResourceOwner extends GenericOAuth2ResourceOwner
     {
         parent::configureOptions($resolver);
 
-        $dotenv = new Dotenv();
-
-        if (!getenv('AUTH0_DOMAIN')) {
-            $dotenv->load(__DIR__ . '/../../.env');
-        }
-
         $resolver->setDefaults(array(
             'authorization_url' => '{base_url}/authorize',
             'access_token_url' => '{base_url}/oauth/token',
             'infos_url' => '{base_url}/userinfo',
-            'audience' => 'https://'.getenv('AUTH0_DOMAIN').'/userinfo',
+            'audience' => '{base_url}/userinfo',
         ));
 
         $resolver->setRequired(array(
@@ -129,6 +121,7 @@ class Auth0ResourceOwner extends GenericOAuth2ResourceOwner
         $resolver->setNormalizer('authorization_url', $normalizer);
         $resolver->setNormalizer('access_token_url', $normalizer);
         $resolver->setNormalizer('infos_url', $normalizer);
+        $resolver->setNormalizer('audience', $normalizer);
     }
 }
 ```
@@ -148,7 +141,7 @@ hwi_oauth:
             client_id:           ${account.clientId}
             client_secret:       YOUR_CLIENT_SECRET
             redirect_uri:        http://yourUrl/auth0/callback
-            scope: "openid profile"
+            scope:               "openid profile"
 ```
 
 ### User Provider
