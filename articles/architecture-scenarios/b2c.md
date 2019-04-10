@@ -129,7 +129,7 @@ Quality assurance mechanism should now be employed to ensure any breakages due t
 
 ### Logout
 
-In the [user logout](/architecture-scenarios/implementation/b2c/user-logout) workstream, users will want to log out of your system and you'll need to decide exactly what this looks like. Auth0 supports several variations when it comes to user logout giving you flexibility to choose what works best for your implementation.
+At some stage users will want to log out of your system, and you'll need to decide exactly what this looks like. This is tackled in the In the [Logout](/architecture-scenarios/implementation/b2c/logout) workstream. Auth0 supports several variations when it comes to logout, giving you flexibility to choose what works best for your implementation.
 
 ### Operations
 
