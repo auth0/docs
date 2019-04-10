@@ -57,7 +57,7 @@ Phase 1 focuses on integrating your application(s) with Auth0. During phase 1 yo
 
 Phase 1 consists of a number of workstreams, with a number of topics in each. The workstreams, topics and the order in which you address each is important, so we recommend you follow the guidance prescribed. That’s not to say you can’t or shouldn’t tackle work in parallel: User Provisioning and User Authentication, for example, could be tackled independently and at the same time, and these could both be tackled in parallel with your Branding efforts. In the majority of successful integration cases we’ve also found that different teams tackle different streams, and that this can provide significant benefit: your design and development team(s) would typically tackle implementation whilst at the same time your branding team would tackle Auth0 asset customization thus reducing overall time to market.
 
-The diagram below provides an overall view of the planning associated with Phase 1. By Milestone 1, you will have completed major work required to integrate an application, will have addressed the most significant risk items, and will also be able to provide demonstrable functionality to stakeholders too. 
+The diagram below provides an overall view of the planning associated with Phase 1. By Milestone 1, you will have completed major work required to integrate an application, will have addressed the most significant risk items, and will also be able to provide demonstrable functionality to stakeholders. 
 
 
 
