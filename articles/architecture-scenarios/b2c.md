@@ -53,7 +53,7 @@ You can find detailed guidance regarding specific functionality and use cases in
 
 ## Implementation overview
 
-Phase 1 focuses on integrating your application(s) with Auth0. During phase 1 you’ll tackle the 10 key stages to Go-Live, across 3 key milestones, and by tackling the main risk items will address the most critical paths associated with integration. At the end of this phase you’ll have working implementation that can be taken into production - or at the very least be provided as part of an early adopter or Beta program. 
+Phase 1 focuses on integrating your application(s) with Auth0. During phase 1 you’ll tackle the 10 key stages to Go-Live, across 3 key milestones, and, by tackling the main risk items, will address the most critical paths associated with integration. At the end of this phase you’ll have working implementation that can be taken into production - or at the very least be provided as part of an early adopter or Beta program. 
 
 Phase 1 consists of a number of workstreams, with a number of topics in each. The workstreams, topics and the order in which you address each is important, so we recommend you follow the guidance prescribed. That’s not to say you can’t or shouldn’t tackle work in parallel: User Provisioning and User Authentication, for example, could be tackled independently and at the same time, and these could both be tackled in parallel with your Branding efforts. In the majority of successful integration cases we’ve also found that different teams tackle different streams, and that this can provide significant benefit: your design and development team(s) would typically tackle implementation whilst at the same time your branding team would tackle Auth0 asset customization thus reducing overall time to market.
 
@@ -127,9 +127,9 @@ Quality assurance mechanism should now be employed to ensure any breakages due t
 
 [User Authorization](/architecture-scenarios/implementation/b2c/user-authorization) is, for customers who have specific access control requirements, the next thing on the agenda, and the focus for Phase 1 will be centered on how custom ID Token Claims can be leveraged to support this.
 
-### User logout
+### Logout
 
-In the [user logout](/architecture-scenarios/implementation/b2c/user-logout) workstream, users will want to log out of your system and you'll need to decide exactly what this looks like. Auth0 supports several variations when it comes to user logout giving you flexibility to choose what works best for your implementation.
+At some stage users will want to log out of your system, and you'll need to decide exactly what this looks like. This is tackled in the In the [Logout](/architecture-scenarios/implementation/b2c/logout) workstream. Auth0 supports several variations when it comes to logout, giving you flexibility to choose what works best for your implementation.
 
 ### Operations
 
@@ -141,6 +141,6 @@ Operations can be addressed in parallel, though we'd recommend you setup your em
 * Firewall configuration
 * Notifications
 
-::: panel Phase 1 Milestone
+::: panel Go-Live!
 Congratulations! Reaching this point you are read for Go-Live. If you've not already done so, you can align your Auth0 production tenant via deployment automation and run any final QA in preparation for production release. As you move forward you'll want to keep a watch for [Auth0 status notifications](/monitoring/guides/check-status) which may contain important information that could impact your tenant(s) and/or project(s).
 :::
