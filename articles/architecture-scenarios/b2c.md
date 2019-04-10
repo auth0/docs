@@ -127,7 +127,7 @@ Quality assurance mechanism should now be employed to ensure any breakages due t
 
 [User Authorization](/architecture-scenarios/implementation/b2c/user-authorization) is, for customers who have specific access control requirements, the next thing on the agenda, and the focus for Phase 1 will be centered on how custom ID Token Claims can be leveraged to support this.
 
-### User logout
+### Logout
 
 In the [user logout](/architecture-scenarios/implementation/b2c/user-logout) workstream, users will want to log out of your system and you'll need to decide exactly what this looks like. Auth0 supports several variations when it comes to user logout giving you flexibility to choose what works best for your implementation.
 
