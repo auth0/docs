@@ -9,6 +9,7 @@ topics:
 contentType: how-to
 useCase: appliance
 applianceId: appliance11
+sitemap: false
 ---
 
 # PSaaS Appliance: Adding a Node to the Backup Role

@@ -72,7 +72,7 @@ For details on how to set up a Client Grant in Auth0, refer to [Setting up a Cli
 
 ## Custom API Access Token interactions
 
-Once an application has obtained an Access Token in correct [format](/set-access-token-format) (header, claims, and signature), it will include that token as a credential when making API requests.
+Once an application has obtained an Access Token in correct [format](/access-token-formats) (header, claims, and signature), it will include that token as a credential when making API requests.
 
 ```text
 GET /calandar/v1/events

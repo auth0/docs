@@ -213,8 +213,6 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
 
 ## SDKs and Libraries
 
-<%= include('../_includes/_lock_auth0js_deprecations_notice') %>
-
 ### Auth0 Lock Widgets
 
 <%= include('../_includes/_libraries_support_lock') %>

@@ -56,7 +56,7 @@ For security in server-side web apps, Auth0 uses the [Regular Web App Login Flow
 ::: concepts  
   * [Universal vs. Embedded Login](/guides/login/universal-vs-embedded)
   * [ID Tokens](/tokens/id-token)
-  * [Access Tokens](/tokens/access-token)
+  * [Access Tokens](/tokens/overview-access-tokens)
   * [Where to store tokens](/security/store-tokens)
 :::
 

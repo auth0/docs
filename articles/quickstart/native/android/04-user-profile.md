@@ -44,7 +44,7 @@ Note that the Management API audience value ends in `/` in contrast to the User 
 
 To get the user's information:
 1. Use the user's Access Token to call the `userInfo` method in the `AuthenticationAPIClient` application instance.
-The profile obtained this way is OIDC-conformant. Depending on the [scopes](/scopes/current) you requested when logging in, the profile contains different information. The result will never contain fields outside the OIDC specification.
+The profile obtained this way is OIDC-conformant. Depending on the [scopes](/scopes) you requested when logging in, the profile contains different information. The result will never contain fields outside the OIDC specification.
 2. Get the user's full profile using the [Management API](/api/management/v2#!/Users). Since fields such as [user_metadata](#additional-information) are not part of the OIDC specification you need to obtain the full profile to read them. This step is explained next:
 
 
@@ -70,7 +70,7 @@ Do not hardcode the Auth0 `domain` and `clientId` values when creating the Auth0
 
 To get the user's profile:
 1. Use the user's Access Token to call the `userInfo` method in the `AuthenticationAPIClient` application instance.
-You get an instance of the `UserProfile` profile. The profile is OIDC-conformant. Depending on the on the [scopes](/scopes/current) you requested, the profile contains different information.
+You get an instance of the `UserProfile` profile. The profile is OIDC-conformant. Depending on the on the [scopes](/scopes) you requested, the profile contains different information.
 2. To get the user's full profile, use the [Management API](/api/management/v2#!/Users). Use the user ID obtained in previous step to call `getProfile` on the Users API application and obtain the full user profile. Use the received data to update the layout.
 
 ```java

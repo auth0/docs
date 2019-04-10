@@ -36,6 +36,33 @@ Current migrations are listed below, newest first.
 
 For migrations that have already been enabled for all customers, see [Past Migrations](/migrations/past-migrations).
 
+### User Search v2 migration to v3
+
+User Search v2 is being deprecated and you may be required to take action before June 30, 2019. A [migration guide](/users/search/v3/migrate-search-v2-v3) is available to walk you through the steps required. Notifications have been and will continue to be sent to customers that need to complete this migration.
+
+Useful Resources:
+
+- [User Search v3](/users/search/v3)
+- [User Search v3 - Query Syntax](/users/search/v3/query-syntax)
+- [User Search Best Practices](/best-practices/search-best-practices)
+- [User Search v2 to v3 Migration Guide](/users/search/v3/migrate-search-v2-v3)
+
+### Google Cloud Messaging to Facebook Cloud Messaging Migration
+
+Auth0’s Guardian SDKs for iOS and Android helps you create custom Mobile apps with Guardian functionality, providing secure access to multi-factor authentication with push notifications. 
+
+The Android SDK library was initially built to send Push Notifications using Google Cloud Messaging, which [Google deprecated](https://firebase.googleblog.com/2018/04/time-to-upgrade-from-gcm-to-fcm.html) and replaced with Firebase Cloud Messaging. We updated the SDK to use Firebase Cloud Messaging.
+
+Existing applications will keep working but if you want to migrate, you can find instructions [here](/migrations/guides/google_cloud_messaging).
+
+### Facebook Login and Graph API
+
+The latest version of Facebook Login and the Facebook Graph API change what permissions and fields can be requested. We've updated Facebook connections to reflect these changes. For for more information, check out [Changes to Facebook Login and Graph API](/migrations/guides/facebook-graph-api-deprecation).
+
+### LinkedIn API V2
+
+On March 1st, 2019 all LinkedIn connections will be updated to use version 2 of the LinkedIn API. You may need to update your application code to accomodate these API changes. For more information, check out [Migration to LinkedIn API V2](/migrations/guides/linkedin-api-deprecation).
+
 ### Node.js v8 for Webtask Runtime
 
 | Severity | Grace Period Start | Mandatory Opt-In|
@@ -95,7 +122,7 @@ List of affected endpoints:
 | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | [Link user accounts](/link-accounts) from various identity providers |
 | [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) | [Unlink user accounts](/link-accounts#unlinking-accounts) |
 
-These endpoints can now accept regular [Access Tokens](/tokens/access-token).
+These endpoints can now accept regular [Access Tokens](/tokens/overview-access-tokens).
 
 The functionality is available and affected users are encouraged to migrate. However the ability to use ID Tokens will not be disabled in the foreseeable future so the mandatory opt-in date for this migration remains open. When this changes, customers will be notified beforehand.
 

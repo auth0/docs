@@ -16,6 +16,8 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Node.js', callback: 'http://localhost:3000/callback' }) %>
 
+<%= include('../../../_includes/_logout_url') %>
+
 ## Configure Node.js to use Auth0
 
 ### Create the .env file
@@ -142,9 +144,9 @@ passport.deserializeUser(function (user, done) {
 In this example, following routes are implemented:
 
 * `/login` triggers the authentication by calling Passport's `authenticate` method. The user is then redirected to the tenant login page hosted by Auth0.
-* `/callback`is the route the user is returned to by Auth0 after authenticating. It redirects the user to the profile page (`/user`).
+* `/callback` is the route the user is returned to by Auth0 after authenticating. It redirects the user to the profile page (`/user`).
 * `/user` displays the user's profile.
-* `/logout` closes the local user session and redirects the user again to the root index `/`.
+* `/logout` logs the user out of Auth0.
 
 We will use the following routers:
 
@@ -164,6 +166,12 @@ In the authentication step, make sure to pass the `scope` parameter with values 
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var dotenv = require('dotenv');
+var util = require('util');
+var url = require('url');
+var querystring = require('querystring');
+
+dotenv.config();
 
 // Perform the login, after login Auth0 will redirect to callback
 router.get('/login', passport.authenticate('auth0', {
@@ -189,14 +197,29 @@ router.get('/callback', function (req, res, next) {
 // Perform session logout and redirect to homepage
 router.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('/');
+
+  var returnTo = req.protocol + '://' + req.hostname;
+  var port = req.connection.localPort;
+  if (port !== undefined && port !== 80 && port !== 443) {
+    returnTo += ':' + port;
+  }
+  var logoutURL = new URL(
+    util.format('https://%s/logout', process.env.AUTH0_DOMAIN)
+  );
+  var searchString = querystring.stringify({
+    client_id: process.env.AUTH0_CLIENT_ID,
+    returnTo: returnTo
+  });
+  logoutURL.search = searchString;
+
+  res.redirect(logoutURL);
 });
 
 module.exports = router;
 ```
 
 :::note
-This tutorial implements logout by closing the local user session. After logging out, the user's session in the Auth0 authentication server is still open. For other implementations, please refer to the [logout documentation](/logout). 
+This tutorial implements logout by closing the local user session and the user's Auth0 session as well. For other implementations, please refer to the [logout documentation](/logout).
 :::
 
 ### Middleware to protect routes

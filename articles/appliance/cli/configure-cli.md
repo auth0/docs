@@ -7,6 +7,7 @@ topics:
 contentType: how-to
 useCase: appliance
 applianceId: appliance13
+sitemap: false
 ---
 
 # Configuring and Using the Auth0 Appliance Command Line Interface
@@ -15,7 +16,7 @@ The PSaaS Appliance Command Line Interface (CLI) allows you to perform operation
 
 ## Downloading the CLI Setup Files
 
-To download the files required to set up the CLI, please contact your Auth0 Customer Success Manager for your custom download link.
+To download the files required to set up the CLI, please contact your Auth0 PSaaS Service Delivery Manager for your custom download link.
 
 ## Installing and Using the CLI
 

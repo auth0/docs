@@ -81,6 +81,10 @@ module.exports = [
     to: '/applications/addons'
   },
   {
+    from: '/applications/addons',
+    to: '/applications/concepts/addons'
+  },
+  {
     from: '/ionic-tutorial',
     to: '/quickstart/native/ionic'
   },
@@ -514,24 +518,52 @@ module.exports = [
     to: '/applications/application-grant-types'
   },
   {
+    from: '/applications/application-grant-types',
+    to: '/applications/concepts/application-grant-types'
+  },
+  {
     from: '/clients/client-types',
     to: '/applications/application-types'
+  },
+ {
+    from: '/applications/application-types',
+    to: '/applications/concepts/app-types-auth0'
+  },
+  {
+    from: '/applications/machine-to-machine',
+    to: '/applications/concepts/app-types-auth0'
   },
   {
     from: '/clients/connections',
     to: '/applications/connections'
   },
   {
+    from: '/applications/connections',
+    to: '/connections'
+  },
+  {
     from: '/clients/enable-android-app-links',
     to: '/applications/enable-android-app-links'
+  },
+  {
+    from: '/applications/enable-android-app-links',
+    to: '/applications/guides/enable-android-app-links-dashboard'
   },
   {
     from: '/clients/enable-universal-links',
     to: '/applications/enable-universal-links'
   },
   {
+    from: '/applications/enable-universal-links',
+    to: '/applications/guides/enable-universal-links-dashboard'
+  },
+  {
     from: '/clients/how-to-rotate-client-secret',
     to: '/applications/how-to-rotate-client-secret'
+  },
+  {
+    from: '/applications/how-to-rotate-client-secret',
+    to: '/applications/guides/rotate-client-secret-dashboard'
   },
   {
     from: '/applications/how-to-rotate-application-secret',
@@ -540,6 +572,10 @@ module.exports = [
   {
     from: '/clients/client-settings',
     to: '/applications/application-settings'
+  },
+  {
+    from: '/applications/application-settings',
+    to: '/reference/dashboard/settings-application'
   },
 
   /* --- Scenarios to Tutorials --- */
@@ -962,6 +998,10 @@ module.exports = [
     to: '/flows/concepts/m2m-flow'
   },
   {
+    from: ['/api-auth/restrict-requests-for-scopes'],
+    to: '/api-auth/restrict-access-api'
+  },
+  {
     from: '/oauth-implicit-protocol',
     to: '/protocols/oauth2/oauth-implicit-protocol'
   },
@@ -1004,14 +1044,6 @@ module.exports = [
   {
     from: '/samlsso-auth0-to-auth0',
     to: '/protocols/saml/samlsso-auth0-to-auth0'
-  },
-  {
-    from: ['/error-pages', '/error-pages/generic'],
-    to: '/hosted-pages/error-pages'
-  },
-  {
-    from: '/error-pages/custom',
-    to: '/hosted-pages/custom-error-pages'
   },
   {
     from: '/saml/identity-providers/salesforce',
@@ -1306,16 +1338,28 @@ module.exports = [
     to: '/tokens'
   },
   {
-    from: ['/hosted-pages/hosted-login-auth0js'],
-    to: '/hosted-pages/login/auth0js'
+    from: ['/hosted-pages/hosted-login-auth0js', '/hosted-pages/login/auth0js', '/hosted-pages/login/lock', '/hosted-pages/login/lock-passwordless', '/hosted-pages/hosted-login-auth0js', '/hosted-pages/hosted-login-auth0js/v7', '/hosted-pages/hosted-login-auth0js/v8', '/hosted-pages/login', '/hosted-pages'],
+    to: '/universal-login'
   },
   {
-    from: ['/hosted-pages/hosted-login-auth0js/v8'],
-    to: '/hosted-pages/login/auth0js'
+    from: ['/error-pages', '/error-pages/generic', '/hosted-pages/error-pages'],
+    to: '/universal-login/error-pages'
   },
   {
-    from: ['/hosted-pages/hosted-login-auth0js/v7'],
-    to: '/hosted-pages/login/auth0js'
+    from: ['/error-pages/custom', '/hosted-pages/custom-error-pages'],
+    to: '/universal-login/custom-error-pages'
+  },
+  {
+    from: '/hosted-pages/default-login-url',
+    to: '/universal-login/default-login-url'
+  },
+  {
+    from: '/hosted-pages/guardian',
+    to: '/universal-login/guardian'
+  },
+  {
+    from: '/hosted-pages/password-reset',
+    to: '/universal-login/password-reset'
   },
   {
     from: '/connections/database/mysql',
@@ -1330,32 +1374,8 @@ module.exports = [
   //   to: '/metadata#using-lock-to-manage-metadata'
   // },
   {
-    from: ['/libraries/lock/v10/customization'],
-    to: '/libraries/lock/v10/configuration',
-  },
-  {
     from: ['/libraries/lock/v11/customization'],
     to: '/libraries/lock/v11/configuration',
-  },
-  {
-    from: '/libraries/lock/v9/customization',
-    to: '/libraries/lock/v9/configuration',
-  },
-  {
-    from: '/libraries/lock/v10/popup-mode',
-    to: '/libraries/lock/v10/authentication-modes',
-  },
-  {
-    from: '/libraries/lock/v11/popup-mode',
-    to: '/libraries/lock/v11/authentication-modes',
-  },
-  {
-    from: '/libraries/lock/v9/display-modes',
-    to: '/libraries/lock/v9/configuration#container-string-',
-  },
-  {
-    from: '/libraries/lock/v9/types-of-applications',
-    to: '/libraries/lock/v9/display-modes',
   },
   {
     from: '/tutorials/azure-tutorial',
@@ -1395,27 +1415,27 @@ module.exports = [
   },
   {
     from: '/tutorials/tracking-new-leads-in-salesforce-and-raplead',
-    to: '/monitoring/tracking-new-leads-in-salesforce-and-raplead',
+    to: '/monitoring/guides/track-leads-salesforce',
   },
   {
     from: '/tutorials/track-signups-enrich-user-profile-generate-leads',
-    to: '/monitoring/track-signups-enrich-user-profile-generate-leads',
+    to: '/monitoring/guides/track-signups-salesforce',
   },
   {
     from: '/tutorials/how-to-monitor-auth0',
-    to: '/monitoring/how-to-monitor-auth0',
+    to: '/monitoring',
   },
   {
     from: '/tutorials/sending-events-to-splunk',
-    to: '/monitoring/sending-events-to-splunk',
+    to: '/monitoring/guides/send-events-to-splunk',
   },
   {
     from: '/tutorials/sending-events-to-segmentio',
-    to: '/monitoring/sending-events-to-segmentio',
+    to: '/monitoring/guides/send-events-to-segmentio',
   },
   {
     from: '/tutorials/sending-events-to-keenio',
-    to: '/monitoring/sending-events-to-keenio',
+    to: '/monitoring/guides/send-events-to-keenio',
   },
   {
     from: '/tutorials/cancel-paid-subscriptions',
@@ -1502,8 +1522,8 @@ module.exports = [
     to: '/users/guides/get-user-information-with-unbounce-landing-pages',
   },
   {
-    from: ['/tutorials/bulk-importing-users-into-auth0', '/users/migrations/bulk-import'],
-    to: '/users/guides/bulk-user-import',
+    from: ['/tutorials/bulk-importing-users-into-auth0', '/users/migrations/bulk-import', '/users/guides/bulk-user-import'],
+    to: '/users/guides/bulk-user-imports',
   },
   {
     from: '/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise',
@@ -1528,6 +1548,10 @@ module.exports = [
   {
     from: '/sso/current/single-page-apps-sso',
     to: '/sso/current/single-page-apps'
+  },
+  {
+    from: '/sso/current/introduction',
+    to: '/sso/current/sso-auth0'
   },
   {
     from: '/sso/legacy/single-page-apps-sso',
@@ -1607,7 +1631,7 @@ module.exports = [
   },
   {
     from: ['/users/bulk-importing-users-into-auth0', '/users/migrations/bulk-import'],
-    to: '/users/guides/bulk-user-import'
+    to: '/users/guides/bulk-user-imports'
   },
   {
     from: ['/connections/database/migrating', '/users/migrations/automatic'],
@@ -1988,13 +2012,13 @@ module.exports = [
    {
     from: '/hooks/dashboard/index',
     to: '/hooks'
-  },
+   },
    {
     from: '/hooks/extensibility-points/credentials-exchange',
     to: '/hooks/concepts/credentials-exchange-extensibility-point'
    },
    {
-    from: '/hooks/extensibility-points/index',
+    from: '/hooks/extensibility-points',
     to: '/hooks'
    },
    {
@@ -2008,6 +2032,64 @@ module.exports = [
    {
     from: '/hooks/overview',
     to: '/hooks'
-   }
-];
+   },
+   {
+     from: '/users/redirecting-users',
+     to: '/users/guides/redirect-users-after-login'
+   },
+   {
+     from: '/applications/spa',
+     to: '/applications/guides/register-spa'
+   },
+   {
+    from: [
+      '/libraries/lock/v9/customization',
+      '/libraries/lock/v9/configuration',
+      '/libraries/lock/v10/customization',
+      '/libraries/lock/v10/configuration'
+    ],
+    to: '/libraries/lock/v11/configuration'
+    },
+    {
+      from: [
+        '/libraries/lock/v10/popup-mode',
+        '/libraries/lock/v10/authentication-modes',
+        '/libraries/lock/v11/popup-mode'
+      ],
+      to: '/libraries/lock/v11/authentication-modes'
+    },
+    {
+      from: [
+        '/libraries/lock/v9',
+        '/libraries/lock/v9/display-modes',
+        '/libraries/lock/v9/types-of-applications',
+        '/libraries/lock/v10'
+      ],
+      to: '/libraries/lock/v11'
+    },
+    {
+      from: [
+        '/libraries/auth0js/v7',
+        '/libraries/auth0js/v8'
+      ],
+      to: '/libraries/auth0js/v9'
+    },
+    {
+     from: '/rules/redirect',
+     to: '/rules/guides/redirect'
+    },
+    {
+     from: '/tokens/set-access-token-format',
+     to: '/tokens/access-token-formats'
+    },
+    {
+      from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
+      to: '/protocols/saml/saml-apps/github-server'
+    },
+    {
+      from: '/enterprise/private-cloud/overview',
+      to: '/private-cloud'
+    }
 
+    
+];

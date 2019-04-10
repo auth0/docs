@@ -107,6 +107,7 @@ The `config.json` file is the AD/LDAP Connector's main configuration file. You c
 | `SERVER_URL` | The default connector URL will be `server-name:port`, but this setting allows you to overwrite this. For example: `connector.mycompany.com`. | |
 | `SESSION_SECRET` | The session secret used to encrypt the session cookie. | |
 | `SITE_NAME` | When Client Certificate Authentication is enabled, but not possible the AD Connector will show a fallback login page. This setting allows you to specify the title that will show on top of the page. | Name of the AD connection. |
+| `SSL_CA_PATH` | Absolute path to the base directory where the CA certificate file(s) are located. | |
 | `SSL_KEY_PASSWORD` | The password for the SSL certificate. | |
 | `SSL_PFX` | Base64 encoded certificate to use for SSL. | |
 | `TENANT_SIGNING_KEY` | Your Auth0 tenant used to verify JWTs.

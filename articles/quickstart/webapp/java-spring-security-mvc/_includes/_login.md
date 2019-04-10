@@ -68,6 +68,11 @@ Next, define the rules that will prevent unauthenticated users to access our pro
 ```java
 // src/main/java/com/auth0/example/security/AppConfig.java
 
+@Bean
+public LogoutSuccessHandler logoutSuccessHandler() {
+    return new LogoutController();
+}
+
 @Override
 protected void configure(HttpSecurity http) throws Exception {
     http.csrf().disable();
@@ -76,7 +81,7 @@ protected void configure(HttpSecurity http) throws Exception {
             .antMatchers("/callback", "/login").permitAll()
             .antMatchers("/**").authenticated()
             .and()
-            .logout().permitAll();
+            .logout().logoutSuccessHandler(logoutSuccessHandler()).permitAll();
     http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER);
 }
 ```
@@ -100,11 +105,15 @@ To authenticate the users you will redirect them to the login page which uses [L
 
 @RequestMapping(value = "/login", method = RequestMethod.GET)
 protected String login(final HttpServletRequest req) {
-    String redirectUri = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/callback";
-    String authorizeUrl = controller.buildAuthorizeUrl(req, redirectUri)
-        .withAudience(String.format("https://%s/userinfo", appConfig.getDomain()))
-        .build();
-    return "redirect:" + authorizeUrl;
+    String redirectUri = req.getScheme() + "://" + req.getServerName();
+        if ((req.getScheme().equals("http") && req.getServerPort() != 80) || (req.getScheme().equals("https") && req.getServerPort() != 443)) {
+            redirectUri += ":" + req.getServerPort();
+        }
+        redirectUri += "/callback";
+        String authorizeUrl = controller.buildAuthorizeUrl(req, redirectUri)
+                .withAudience(String.format("https://%s/userinfo", appConfig.getDomain()))
+                .build();
+        return "redirect:" + authorizeUrl;
 }
 ```
 

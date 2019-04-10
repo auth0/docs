@@ -84,7 +84,7 @@ In this page you can find a list of resources that can help you secure your APIs
         <i class="icon icon-budicon-695"></i><a href="/api-auth/tutorials/nonce">Protect against replay attacks</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/api-auth/tutorials/represent-multiple-apis">Represent Multiple APIs Using a Single Auth0 API</a>
+        <i class="icon icon-budicon-695"></i><a href="/api-auth/tutorials/represent-multiple-apis">Represent Multiple APIs Using a Proxy API in Auth0</a>
       </li>
     </ul>
   </li>
@@ -156,9 +156,9 @@ In this page you can find a list of resources that can help you secure your APIs
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/restrict-requests-for-scopes">Restrict User/Application Requests for API Scopes</a>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/restrict-access-api">Restrict Access to APIs</a>
     <p>
-      Learn how to restrict users/applications from requesting API scopes for which they don't have access.
+      Learn how to restrict users/applications from accessing APIs.
     </p>
   </li>
   <li>
@@ -168,9 +168,9 @@ In this page you can find a list of resources that can help you secure your APIs
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/tutorials/represent-multiple-apis">How to Represent Multiple APIs Using a Single Auth0 API</a>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/tutorials/represent-multiple-apis">Represent Multiple APIs Using a Single Logical API in Auth0</a>
     <p>
-      Learn how to represent multiple APIs using a single Auth0 API.
+      Learn how to represent multiple APIs using a single logical API.
     </p>
   </li>
   <li>

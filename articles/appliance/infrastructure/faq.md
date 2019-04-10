@@ -7,6 +7,7 @@ topics:
 contentType: reference
 useCase: appliance
 applianceId: appliance33
+sitemap: false
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Frequently Asked Questions
@@ -80,7 +81,6 @@ Auth0 requires [remote access](/appliance/remote-access-options) to your PSaaS A
 
 1. Jumphost + Firewall Whitelist
 2. Two Jumphosts
-3. VPN
 
 We do not support other methods, such as VDI or Screen Sharing mechanisms.
 

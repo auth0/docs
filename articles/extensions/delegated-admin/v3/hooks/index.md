@@ -17,8 +17,6 @@ useCase: extensibility-extensions
 
 If you're a user assigned the **Delegated Admin - Administrator** role, you can manage the different Hooks and queries that allow you to customize the behavior of the Delegated Administration extension. 
 
-![](/media/articles/extensions/delegated-admin/dashboard-configuration.png)
-
 To access the configuration area:
 
 1. Log in to the Delegated Administration Dashboard

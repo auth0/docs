@@ -20,8 +20,8 @@ In this guide you'll find tips for troubleshooting common issues. If these tips 
 
 Did something stop working that previously worked? Check the Auth0 status page for issues or interruptions to the Auth0 service. If there's an outage, you can determine if it's related to your issue.
 
-* Check the [Auth0 status page](https://status.auth0.com) for notices of any outages.
-* If's there an outage listed on the status page, you do not need to file a ticket. Auth0 is already working on the issue.
+* Check the [Auth0 Status](https://status.auth0.com) for notices of any outages.
+* If there's an outage listed on the status page, you do not need to file a ticket. Auth0 is already working on the issue.
 * Subscribe to the status page to get alerted if there is any outage with the Auth0 service.
 
 ## Check your network status
@@ -154,4 +154,8 @@ An HTTP Archive (HAR) file shows the sequence of redirects that happen during a 
 
 Check out [Troubleshooting With HAR Files](/support/troubleshooting-with-har-files) for instructions on generating and analyzing HAR files.
 
+## Keep reading
 
+* [Monitoring Auth0 Implementations](/monitoring)
+* [Check Auth0 Status](/monitoring/guides/check-status)
+* [Check External Services Status](/monitoring/guides/check-external-services)

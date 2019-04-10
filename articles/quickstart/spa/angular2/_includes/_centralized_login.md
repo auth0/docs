@@ -20,7 +20,6 @@ Add a `login` method that calls the `authorize` method from auth0.js.
 
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
 import * as auth0 from 'auth0-js';
 
 @Injectable()
@@ -74,7 +73,7 @@ The example below shows the following methods:
 * `localLogin`: stores the user's Access Token, ID Token, and the Access Token's expiry time in `AuthService` properties.
 * `renewTokens`: performs silent authentication to renew the session.
 * `logout`: removes the user's tokens and expiry time from `AuthService` properties.
-* `isAuthenticated`: checks whether the expiry time for the user's Access Token has passed.
+* `isAuthenticated`: checks whether the user's Access Token is set and its expiry time has passed.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -98,10 +97,8 @@ export class AuthService {
   }
 
   private localLogin(authResult): void {
-    // Set isLoggedIn flag in localStorage
-    localStorage.setItem('isLoggedIn', 'true');
     // Set the time that the access token will expire at
-    const expiresAt = (authResult.expiresIn * 1000) + new Date().getTime();
+    const expiresAt = (authResult.expiresIn * 1000) + Date.now();
     this._accessToken = authResult.accessToken;
     this._idToken = authResult.idToken;
     this._expiresAt = expiresAt;
@@ -123,19 +120,33 @@ export class AuthService {
     this._accessToken = '';
     this._idToken = '';
     this._expiresAt = 0;
-    // Remove isLoggedIn flag from localStorage
-    localStorage.removeItem('isLoggedIn');
-    // Go back to the home route
-    this.router.navigate(['/']);
+    
+    this.auth0.logout({
+      return_to: window.location.origin
+    });
   }
 
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
     // access token's expiry time
-    return new Date().getTime() < this._expiresAt;
+    return this._accessToken && new Date.now() < this._expiresAt;
   }
 
 }
+```
+
+Then add the service `AuthService` in the set of providers in your `@NgModule`.
+
+```ts
+// src/app/app.module.ts
+
+// ...
+import { AuthService } from "./auth/auth.service";
+
+@NgModule({
+  // ...
+  providers: [AuthService]
+})
 ```
 
 ### Provide a Login Control
@@ -222,7 +233,7 @@ Call the `handleAuthentication` method in your app's root component. The method 
 ```ts
 // src/app/app.component.ts
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/auth.service';
 
 @Component({
@@ -237,7 +248,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (localStorage.getItem('isLoggedIn') === 'true') {
+    if (this.auth.isAuthenticated()) {
       this.auth.renewTokens();
     }
   }

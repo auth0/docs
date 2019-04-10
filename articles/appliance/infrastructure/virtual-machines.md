@@ -8,6 +8,7 @@ topics:
 contentType: reference
 useCase: appliance
 applianceId: appliance41
+sitemap: false
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Virtual Machines

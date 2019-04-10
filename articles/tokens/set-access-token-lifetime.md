@@ -13,7 +13,7 @@ useCase:
 
 You control the Access Token lifetime on a per-API basis.
 
-Auth0 recommends that you set the validity period of your taken based on the security requirements of your API. For example, an Access Token that accesses a banking API should expire more quickly than one that accesses a ToDo API.
+Auth0 recommends that you set the validity period of your token based on the security requirements of your API. For example, an Access Token that accesses a banking API should expire more quickly than one that accesses a ToDo API.
 
 To configure the amount of time a token lives, use the **Token Expiration (Seconds)** field for your API in the [Dashboard](${manage_url}/#/apis) APIs section. 
 * Default value: `24` hours (`86400` seconds)
@@ -25,7 +25,7 @@ To configure the amount of time a token lives, use the **Token Expiration (Secon
 Once expired, an Access Token can no longer be used to access an API. To regain access, a new Access Token needs to be obtained. This can be done by repeating the OAuth flow used to obtain the initial Access Token.
 
 ## Use a Refresh Token to gain permanent access to an API
-In some situations, it is desirable to have permanent, ongoing access to an API without having to repeat an OAuth flow. This is often referred to as `offline_access`, and is possible with the use of a [Refresh Token](/tokens/refresh-token).
+In some situations, it is desirable to have permanent, ongoing access to an API without having to repeat an OAuth flow. This is often referred to as `offline_access` and is possible with the use of a [Refresh Token](/tokens/refresh-token).
 
 A Refresh Token is issued from the OAuth 2.0 endpoints along with the Access Token. When the Access Token expires, the Refresh Token can be used to obtain a fresh Access Token with the same permissions, without further involvement from a user. 
 

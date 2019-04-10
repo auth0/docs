@@ -32,17 +32,17 @@ The login URL for **Admins**:
 
 | Location | Allowed Callback URL |
 | --- | --- |
-| USA | `https://${account.tenant}.us.webtask.io/auth0-sso-dashboard/admins/login` |
-| Europe | `https://${account.tenant}.eu.webtask.io/auth0-sso-dashboard/admins/login` |
-| Australia | `https://${account.tenant}.au.webtask.io/auth0-sso-dashboard/admins/login` |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-sso-dashboard/admins/login` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/admins/login` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/admins/login` |
 
 The login URL for **Users**:
 
 | Location | Allowed Callback URL |
 | --- | --- |
-| USA | `https://${account.tenant}.us.webtask.io/auth0-sso-dashboard/login` |
-| Europe | `https://${account.tenant}.eu.webtask.io/auth0-sso-dashboard/login` |
-| Australia | `https://${account.tenant}.au.webtask.io/auth0-sso-dashboard/login` |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-sso-dashboard/login` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/login` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/login` |
 
 Copy the **Client ID** value.
 
@@ -92,9 +92,9 @@ Once you agree, you will be directed to your custom **SSO Dashboard** page, whic
 
 To login into the dashboard:
 
-For **Admins** use `https://${account.tenant}.<REGION>.webtask.io/auth0-sso-dashboard/admins/login` or through the Dashboard.
+For **Admins** use `https://${account.tenant}.<REGION>8.webtask.io/auth0-sso-dashboard/admins/login` or through the Dashboard.
 
-For **Users** use `https://${account.tenant}.<REGION>.webtask.io/auth0-sso-dashboard/login`.
+For **Users** use `https://${account.tenant}.<REGION>8.webtask.io/auth0-sso-dashboard/login`.
 
 ### Add a new application
 

@@ -11,7 +11,7 @@ useCase: extensibility-extensions
 
 # GitHub Deployments
 
-The **GitHub Deployments** extension allows you to deploy [rules](/rules), rules configs, connections, database connection scripts, clients (and client grants), resource servers, hosted pages and email templates from GitHub to Auth0. You can configure a GitHub repository, keep all your rules and database connection scripts there, and have them automatically deployed to Auth0 each time you push to your repository.
+The **GitHub Deployments** extension allows you to deploy [rules](/rules), rules configs, connections, database connection scripts, clients, client grants, resource servers, hosted pages and email templates from GitHub to Auth0. You can configure a GitHub repository, keep all your rules and database connection scripts there, and have them automatically deployed to Auth0 each time you push to your repository.
 
 ::: note
 You can use the `auth0-deploy-cli` tool to export and import tenant configuration data to a directory structure or a YAML file. For more information, see [Deploy CLI Tool Overview](/extensions/deploy-cli).
@@ -25,14 +25,20 @@ To install and configure this extension, click on the __GitHub Deployments__ box
 
 Set the following configuration variables:
 
-- **GITHUB_REPOSITORY**: The repository from which you want to deploy rules and database scripts. This can be either a public or private repository.
-- **GITHUB_BRANCH**: The branch that the extension will monitor for commits.
-- **GITHUB_TOKEN**: Your GitHub personal Access Token. Follow the instructions at [Creating an Access Token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/#creating-a-token) to create a token with `repo` scope.
-- **GITHUB_HOST**: The public accessible GitHub Enterprise _(version 2.11.3 and later)_ hostname, no value is required when using github.com (optional).
-- **GITHUB_API_PATH**: GitHub Enterprise API path prefix, no value is required when using github.com (optional).
+- **REPOSITORY**: The repository from which you want to deploy rules and database scripts. This can be either a public or private repository.
+- **BRANCH**: The branch that the extension will monitor for commits.
+- **HOST**: The public accessible GitHub Enterprise _(version 2.11.3 and later)_ hostname, no value is required when using github.com (optional).
+- **API_PATH**: GitHub Enterprise API path prefix, no value is required when using github.com (optional).
+- **TOKEN**: Your GitHub Personal Access Token. Follow the instructions at [Creating an Access Token]
+(https://help.github.com/articles/creating-an-access-token-for-command-line-use/#creating-a-token) to create a token with `repo` scope.
 * **BASE_DIR**: The base directory, where all your tenant settings are stored
+* **ENABLE_CIPHER**: Enables secrets encryption/decryption support
+* **CIPHER_PASSWORD**: The password for encryption/decryption of secrets
 - **SLACK_INCOMING_WEBHOOK_URL**: The Webhook URL for Slack, used to receive Slack notifications for successful and failed deployments (optional).
 
+::: note
+Some of the configuration variables were changed in version **2.6.0** of this extension. If you are updating the extension from a prior version, make sure that you update your configuration accordingly.
+:::
 
 Once you have provided this information, click **Install**.
 
@@ -62,7 +68,10 @@ Once you have set up the webhook in GitHub using the provided information, you a
 
 With each commit you push to your configured GitHub repository, the webhook will call the extension to initiate a deployment if changes were made to one of these folders:
 - `clients`
+- `grants`
+- `emails`
 - `resource-servers`
+- `connections`
 - `database-connections`
 - `rules-configs`
 - `rules`
@@ -74,7 +83,7 @@ The __Deploy__ button on the **Deployments** tab of the extension allows you to 
 To maintain a consistent state, the extension will always do a full redeployment of the contents of these folders. Any rules or database connection scripts that exist in Auth0 but not in your GitHub repository will be __deleted__.
 :::
 
-### Deploy database connection scripts
+### Deploy Database Connection scripts
 
 To deploy database connection scripts, you must first create a directory under `database-connections`. The name of the directory must __exactly__ match the name of your [database connection](${manage_url}/#/connections/database) in Auth0. Of course, you can create as many directories as you have database connections.
 
@@ -93,9 +102,38 @@ If you enabled the migration feature, you will also need to provide the `get_use
 
 You can find an example in [this GitHub repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/database-connections/my-custom-db).
 
-### Deploy Hosted Pages
+#### Deploy Database Connection settings
 
-The supported hosted pages are:
+To deploy Database Connection settings, you must create `database-connections/[connection-name]/settings.json`. 
+
+_This will work only for Auth0 connections (`strategy === auth0`); for non-Auth0 connections use `connections`._
+
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/patch_connections_by_id) for more info on allowed attributes for Connections.
+
+### Deploy Connections
+
+To deploy a connection, you must create a JSON file under the `connections` directory of your GitHub repository. Example:
+
+__facebook.json__
+```json
+{
+  "name": "facebook",
+  "strategy": "facebook",
+  "enabled_clients": [
+    "my-client"
+  ],
+  "options": {}
+}
+```
+
+_This will work only for non-Auth0 connections (`strategy !== auth0`); for Auth0 connections, use `database-connections`._
+
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
+
+### Deploy Universal Login Pages
+
+The supported pages are:
+
 - `error_page`
 - `guardian_multifactor`
 - `login`
@@ -171,7 +209,7 @@ __secret_number.json__
 
 ### Deploy Clients
 
-To deploy a client, you must create a JSON file under the `clients` directory of your GitHub repository. For each JSON page, you can create a metafile (with the same name - `name.meta.json`) if you want to specify any client grants. Example:
+To deploy a client, you must create a JSON file under the `clients` directory of your GitHub repository. Example:
 
 __my-client.json__
 ```json
@@ -180,17 +218,22 @@ __my-client.json__
 }
 ```
 
-__my-client.meta.json__
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Clients/post_clients) for more info on allowed attributes for Clients and Client Grants.
+
+### Deploy Clients Grants
+
+You can specify the client grants for each client by creating a JSON file in the `grants` directory.
+
+__my-client-api.json__
 ```json
 {
+  "client_id": "my-client",
   "audience": "https://myapp.com/api/v1",
     "scope": [
       "read:users"
     ]
 }
 ```
-
-See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Clients/post_clients) for more info on allowed attributes for Clients and Client Grants.
 
 ### Deploy Resource Servers
 
@@ -211,24 +254,6 @@ __my-api.json__
 ```
 
 See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Resource_Servers/post_resource_servers) for more info on allowed attributes for Resource Servers.
-
-### Deploy Connections
-
-To deploy a connection, you must create a JSON file under the `connections` directory of your GitHub repository. Example:
-
-__facebook.json__
-```json
-{
-  "name": "facebook",
-  "strategy": "facebook",
-  "enabled_clients": [
-    "my-client"
-  ],
-  "options": {}
-}
-```
-
-See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
 
 ### Deploy Email Provider
 
@@ -281,6 +306,26 @@ __blocked_account.json__
     "enabled": true
 }
 ```
+
+## Encrypt Secrets
+
+Beginning with version **2.7.0**, you can encrypt sensitive data (e.g., Rules configurations) so that you can store your files in public repositorieis.
+
+To encrypt your data, log in to your extension and go to the **Secrets Encryption Tool** (you should have enabled the cipher in the extension's configuration settings).
+
+![](/media/articles/extensions/github-deploy/encryption.png)
+
+Copy `Encrypted Secret` to any string field that should remain private as shown:
+
+__rules-configs/biggest_secret.json__
+```json
+{
+  "key": "biggest_secret",
+  "value": "nobody should know that [!cipher]0dcd9c0696b1feb7878bd4d8360db09e8885319046955d4a6ae1cd6135e5f58cce654f15b136eacc06981c0c7a4bb32f3a5c19-2c84a546cb503666382f87d87af82cb1657dab51d1583b40[rehpic!]"
+}
+```
+
+The extension will decrypt all encrypted secrets automatically.
 
 ## Track deployments
 

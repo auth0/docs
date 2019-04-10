@@ -8,6 +8,7 @@ topics:
 contentType: how-to
 useCase: appliance
 applianceId: appliance47
+sitemap: false
 ---
 
 # PSaaS Appliance: Authenticated Testing Endpoints
@@ -78,6 +79,16 @@ Each endpoint will return one of three status codes to communicate the status of
 Additionally, each status code conveys additional information depending on the endpoint being queried. You'll find more information on this in the following sections that cover the specific endpoints available to you.
 
 None of the responses will include a body.
+
+#### GET /status/cpu
+
+This endpoint returns information about the overall available CPU capacity in the last minute on the PSaaS Appliance. Overall CPU capacity means that all CPU time is aggregated and compared with the time that any core was not idle. For example if a four core PSaaS Appliance node had two cores completely utilized and two cores completely idle the CPU capacity calculated will be 50%.
+
+| Response Code | Response |
+| ------------- | -------- |
+| 204 | The system had more than 20% of the total CPU capacity available in the last minute. |
+| 429 | The status endpoint has been called too many times (limit: 10 requests per second). Please wait and try again. |
+| 520 | The system had 20% of the total CPU capacity (or less) available in the last minute. |
 
 #### GET /status/memory
 

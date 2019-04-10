@@ -23,7 +23,7 @@ We will use a very simple example: A company named `Example-Co` wants to use Aut
 
 ## Account and tenants
 
-If you haven't already signed up for an Auth0 **account**, do so (it's free). You can either use username/password or log in with a social provider (GitHub, Google, or Microsoft).
+If you haven't already [signed up](https://auth0.com/signup) for an Auth0 **account**, do so (it's free). You can either use username/password or log in with a social provider (GitHub, Google, or Microsoft).
 
 Once you create your account you will be asked to create a **Tenant**. This is a **logical isolation unit**.
 
@@ -35,6 +35,8 @@ Some characteristics:
 - The tenant name cannot be changed after creation.
 - You can create more than one tenant; in fact, you are encouraged to do so for each environment you have (such as Development, Staging, or Production).
 - If you chose to host your data in Europe or Australia, then your tenant will have a suffix (`eu` or `au`). In our example, if `Example-Co` picked the name `example-co`, then depending on where the data is stored, the tenant name would be `example-co-eu` or `example-co-au`.
+
+You can create additional tenants at any time. To do so, go to the upper-right corner of the Dashboard and click on your tenant name to display the pulldown menu. Click **Create Tenant**.
 
 ## Domains
 
@@ -103,7 +105,7 @@ In our example, `ExampleCo` wants their users to be able to login with username/
 1. Enable all three connections for the mobile app
 
 ::: note
-For more information on the supported identity providers, refer to [Identity Providers Supported by Auth0](/identityproviders). For details on how to enable a connection for an application, refer to [Application Connections](/applications/connections).
+For more information on the supported identity providers, refer to [Identity Providers Supported by Auth0](/identityproviders). For details on how to enable a connection for an application, refer to [Connections](/connections).
 :::
 
 ## Where to go from here

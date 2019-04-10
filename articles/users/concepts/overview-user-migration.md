@@ -62,7 +62,8 @@ You can import and export user data using the User Import/Export Extension avail
 ## Keep reading
 
 * [Configure Automatic Migration from Your Database](/users/guides/configure-automatic-migration)
-* [Bulk User Imports with the Management API](/users/guides/bulk-user-import)
+* [Bulk User Imports](/users/guides/bulk-user-imports)
+* [Bulk User Exports](/users/guide/bulk-user-exports)
 * [User Import/Export Extension](/extensions/user-import-export)
 * [Bulk Import Database Schema and Example](/users/references/bulk-import-database-schema-examples)
 * [User Migration Scenarios](/users/references/user-migration-scenarios)

@@ -7,11 +7,12 @@ topics:
 contentType: concept
 useCase: appliance
 applianceId: appliance56
+sitemap: false
 ---
 
 # PSaaS Appliance: Disaster Recovery
 
-When preparing for the possibility of issues with your PSaaS Appliance instances, your options depend on your tolerance for downtime. Below, you will find a discussion of the advantages and disadvantages associated with the various disaster recovery (DR) options available.
+When preparing for the possibility of issues with your PSaaS Appliance instances, your options depend on your tolerance for downtime. Below, you will find information on the advantages and disadvantages associated with the various disaster recovery (DR) options available.
 
 Additionally, there is a difference between PSaaS Appliance availability and data availability/recovery. For example, the standard three-node cluster deployment has high availability and can survive a single-node failing. However, in cases of a data center failure or a logical data corruption, you would need a disaster recovery solution to help recover from that.
 

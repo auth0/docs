@@ -1,5 +1,6 @@
 ---
-description: Tutorial on implementing client-side SSO on single-page applications.
+title: Client-Side Single Sign-On for Single-Page Apps
+description: Learn how to implement client-side Single Sign-On (SSO) for single-page apps (SPAs).
 toc: true
 topics:
   - sso
@@ -10,11 +11,11 @@ contentType:
 useCase:
   - integrate-saas-sso
 ---
-# Client-Side SSO on Single Page Applications
+# Client-Side Single Sign-On for Single-Page Apps
 
-Single Page Applications (SPA) are user-friendly apps that load a single HTML page. This page then dynamically updates as the users interacts with the app.
+Single-Page Apps (SPAs) are user-friendly apps that load a single HTML page. This page then dynamically updates as the user interacts with the app.
 
-If your SPA is associated with other apps or sites that asks for authentication, you can implement OIDC-compliant Single Sign On to minimize the number of times the user has to provide their credentials.
+If your SPA is associated with other apps or sites that asks for authentication, you can implement OIDC-compliant Single Sign-On (SSO) to minimize the number of times the user has to provide their credentials.
 
 SSO ensures both the security of the process and ease of use from the perspective of the user.
 
@@ -25,15 +26,13 @@ Suppose you have two applications:
 * App 1: `app1.com` (single page app)
 * App 2: `app2.com` (regular web app)
 
-If you've implemented SSO and the user logs in either of the two applications, the user should automatically be logged in to the other application.
+If you've implemented SSO and the user logs in to either of the two applications, the user should automatically be logged in to the other application.
 
-This article shows you how to implement OIDC-compliant Single Sign On via [Silent Authentication](/api-auth/tutorials/silent-authentication) for your Single Page Applications using [this sample](https://github.com/auth0-samples/oidc-sso-sample).
+This article shows you how to implement OIDC-compliant SSO via [Silent Authentication](/api-auth/tutorials/silent-authentication) for your Single-Page Applications using [this sample](https://github.com/auth0-samples/oidc-sso-sample).
 
 ## Running the sample application
 
-This document assumes that you're using port *3000* when running the sample.
-
-If you are using a different port, you'll need to adjust for this as you work through the sample (specifically the **auth0-variables.js**, **callback.html**, and **index.js** files) and configure your Auth0 application.
+This document assumes that you're using port *3000* when running the sample. If you are using a different port, you'll need to adjust for this as you work through the sample (specifically the **auth0-variables.js**, **callback.html**, and **index.js** files) and configure your Auth0 application.
 
 ## Configure the sample application
 
@@ -72,7 +71,7 @@ Silent Authentication allows you to implement an authentication flow where Auth0
 
 To bypass displaying the Lock screen when logging in a user, you must:
 
-* [configure SSO](/sso/current/setup)
+* [configure SSO](/sso)
 
 * Have a SSO cookie for the tenant's domain (in other words, the user has previously signed in and their saved cookie is still valid);
 

@@ -65,9 +65,7 @@ The Auth0 Support Center offers ticketed support, where support specialists are 
 
 ### Enterprise Support (with or without Premier Support)
 
-Customers with an Enterprise subscription plan receive extended support hours for outages, quicker response times, and a Customer Success Manager.
-
-Please contact the [Auth0 Sales Team](https://auth0.com/?contact=true) if you have specific support requirements or are interested in the Enterprise Support Plan (with or without the Preferred Support option).
+Customers with an Enterprise Subscription Plan receive extended support hours for outages, quicker response times, and access to the Customer Success Team.
 
 ## Support Channels
 
@@ -110,8 +108,6 @@ Using this page, you can:
 * Revoke privileges.
 
 ## Program Features
-
-The Support Program applies to **production instances** of the Auth0 Platform only. If you require support for non-production instances, then you may request [Demand Services](#demand-services) from Auth0.
 
 Your Sales Order will indicate whether you are subscribed to the **Standard** Support Program or the **Enterprise** Support Program.
 

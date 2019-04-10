@@ -128,11 +128,13 @@ You will need to add at least one user to your connection. You can do this via t
 
 Auth0 grants the user(s) in your connection access to the Delegated Administration extension based on their roles:
 
-- **Delegated Admin - Auditor**: Grants permission to search for users and view users information, but does not allow the user to make any changes. This role will also change the UI to remove action based buttons;
-
 - **Delegated Admin - User**: Grants permission to search for users, create users, open users and execute actions on these users (such as `delete`, `block`, and so on);
 
 - **Delegated Admin - Administrator**: In addition to all of the rights a user has, administrators can see all logs in the tenant and configure Hooks.
+
+- **Delegated Admin - Auditor**: Grants permission to search for users and view users information, but does not allow the user to make any changes. This role will also change the UI to remove action-based buttons;
+
+- **Delegated Admin - Operator**: Grants permission to access user management and logs, but does not allow access to the extension configuration.
 
 To use the extension, users must have either of these roles defined in one of the following fields of their user profiles:
 

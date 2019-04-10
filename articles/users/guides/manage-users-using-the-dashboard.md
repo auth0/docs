@@ -12,7 +12,7 @@ v2: True
 
 # Manage Users Using the Dashboard
 
-You can use the Dahsboard to manage your users. To begin, go to [Dashboard > Users](${manage_url}/#/users). This is where you'll go to create, view, modify, or delete users.
+You can use the Dashboard to manage your users. To begin, go to [Dashboard > Users](${manage_url}/#/users). This is where you'll go to create, view, modify, or delete users.
 
 ::: note
 User Management is included as part of the **Developer** subscription plan. You may need to [upgrade your plan](${manage_url}/#/tenant/billing/subscription) to access these features.
@@ -28,4 +28,4 @@ User Management is included as part of the **Developer** subscription plan. You 
 * [Manage User Access to Applications](/users/guides/manage-user-access-to-applications)
 * [Manage Users Using the Management API](/users/guides/manage-users-using-the-management-api)
 * [Update User Profiles Using Your Database](/users/guides/update-user-profiles-using-your-database)
-* [Search](/users/search/v3)
+* [User Search](/users/search)

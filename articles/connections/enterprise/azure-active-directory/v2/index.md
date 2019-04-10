@@ -52,7 +52,9 @@ If you have an Office 365 account, you can use the account's Azure AD instance i
 
 This will bring you to the admin center of the Azure AD instance backing your Office 365 account.
 
-## 1. Create a new application
+## Step-by-step guide
+
+### 1. Create a new application
 
 Login to Microsoft Azure and choose **Azure Active Directory** from the sidebar.
 
@@ -68,7 +70,7 @@ Enter a name for the application, select **Web app/API** as the **Application Ty
 
 ![Create application form](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-3.png)
 
-## 2. Configure the permissions
+### 2. Configure the permissions
 
 Once the application has been created, you will have to configure the permissions. Click on the name of the application to open the **Settings** section.
 
@@ -92,13 +94,13 @@ If you want to enable extended attributes (like *Extended Profile* or *Security 
 
 Click the **SAVE** button at the top to save these changes.
 
-## 3. Allowing access from external organizations (optional)
+### 3. Allowing access from external organizations (optional)
 
 If you want to allow users from external organizations (such as other Azure directories) to log in, you will need to enable the **Multi-Tenant** flag for this application. In the **Settings** section, click **Properties**. Locate the **Multi-tenanted** toggle at the bottom and select **Yes**. Finally click the **SAVE** button at the top to save these changes.
 
 ![Enable Multi-tenanted](/media/articles/connections/enterprise/azure-active-directory/enable-multi-tenanted.png)
 
-## 4. Create the key
+### 4. Create the key
 
 Next you will need to create a key which will be used as the **Client Secret** in the Auth0 connection. Click on **Keys** from the **Settings** menu.
 
@@ -116,7 +118,7 @@ Click on **Save** and the key will be displayed. **Make sure to copy the value o
 
 ![Creating a Key](/media/articles/connections/enterprise/azure-active-directory/azure-ad-4-2b.png)
 
-## 5. Configure Reply URLs
+### 5. Configure Reply URLs
 
  Next you need to ensure that your Auth0 callback URL is listed in allowed reply URLs for the created application. Navigate to **Azure Active Directory** -> **Apps registrations** and select your app. Then click **Settings** -> **Reply URLs** and add:
 
@@ -132,7 +134,7 @@ Click on **Save** and the key will be displayed. **Make sure to copy the value o
 
  Without this step the App consent page will return a "Bad request" error. The fine print in the footer of this error page can be used to identify the exact tenant name and missing callback url.
 
-## 6. Create Connections
+### 6. Create Connections
 
 Login to your [Auth0 Dashboard](${manage_url}), and select the **Connections > Enterprise** menu option. 
 
@@ -162,6 +164,12 @@ Click the **SAVE** button. Auth0 will provide you with a URL that you will need 
 
 **Congratulations!** You are now ready to accept Microsoft Azure AD users.
 
+## Video tutorial
+
+This video tutorial will show you how to integrate Azure Active Directory with Auth0.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tV-2nQRFCio" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Troubleshooting
 
 * Make sure you are in the desired directory to add you application. If you do not have an existing directory you will need to create one.
@@ -169,6 +177,8 @@ Click the **SAVE** button. Auth0 will provide you with a URL that you will need 
 * When granting access, make sure to use an *Incognito/InPrivate* window  and a Global Administrator user.
 
 * If you get *Access cannot be granted to this service because the service listing is not properly configured by the publisher*, try enabling **Multi Tenanted** in the Windows Azure AD application under **Settings** -> **Properties**.
+
+* If you get an "Failed to obtain access token" error when users try to log in, the most likely reason is an invalid or expired **App Key** (**Client Secret**). Application keys in Azure AD can expire so if user suddenly can't log in using an Azure AD connection you should generate a new application key and update the client secret value in the connection configuration.
 
 ## Signing Key Rollover in Azure Active Directory
 
