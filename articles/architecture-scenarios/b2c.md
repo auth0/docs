@@ -53,7 +53,7 @@ You can find detailed guidance regarding specific functionality and use cases in
 
 ## Implementation overview
 
-Phase 1 focuses on integrating your application(s) with Auth0. During phase 1 you’ll tackle the 10 key stages to Go-Live, across 3 key milestones, and by tackling the main risk items will address the most critical paths associated with integration. At the end of this phase you’ll have working implementation that can be taken into production - or at the very least be provided as part of an early adopter or Beta program. 
+Phase 1 focuses on integrating your application(s) with Auth0. During phase 1 you’ll tackle the 10 key stages to Go-Live, across 3 key milestones, and, by tackling the main risk items, will address the most critical paths associated with integration. At the end of this phase you’ll have working implementation that can be taken into production - or at the very least be provided as part of an early adopter or Beta program. 
 
 Phase 1 consists of a number of workstreams, with a number of topics in each. The workstreams, topics and the order in which you address each is important, so we recommend you follow the guidance prescribed. That’s not to say you can’t or shouldn’t tackle work in parallel: User Provisioning and User Authentication, for example, could be tackled independently and at the same time, and these could both be tackled in parallel with your Branding efforts. In the majority of successful integration cases we’ve also found that different teams tackle different streams, and that this can provide significant benefit: your design and development team(s) would typically tackle implementation whilst at the same time your branding team would tackle Auth0 asset customization thus reducing overall time to market.
 
