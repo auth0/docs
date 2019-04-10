@@ -1,5 +1,5 @@
 ---
-title: User Authentication
+title: Authentication
 description: Understand how authentication works in your CIAM implementation.
 toc: true
 topics:
