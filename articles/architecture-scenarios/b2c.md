@@ -59,7 +59,7 @@ Phase 1 consists of a number of workstreams, with a number of topics in each. Th
 
 The diagram below provides an overall view of the planning associated with Phase 1. By Milestone 1, you will have completed major work required to integrate an application, will have addressed the most significant risk items, and will also be able to provide demonstrable functionality to stakeholders. 
 
-
+<img src="/media/articles/architecture-scenarios/b2c-project-plan-milestones.png" alt="B2C Project Plan Milestones" data-zoomable>
 
 ### Architecture
 
