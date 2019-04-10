@@ -191,7 +191,7 @@ Now that we've created and configured an application, a connection, and our user
 
 - **FAVICON_PATH** (optional): Path to custom favicon.
 
-- **AUTH0_CUSTOM_DOMAIN** (optional): Custom domain for end-users to login (without protocol).
+- **AUTH0_CUSTOM_DOMAIN** (optional): If you have a custom domain name configured, enter it here. For example: login.example.com
 
 - **FEDERATED_LOGOUT** (optional): sign out from the IdP when users logout.
 
