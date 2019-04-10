@@ -15,7 +15,9 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Symfony', callback: 'http://localhost:3000/callback' }) %>
 
-## Configure Symfony to Use Auth0 
+<%= include('../../../_includes/_logout_url') %>
+
+## Configure Symfony to Use Auth0
 
 ### Using HWIOAuthBundle for Authentication
 
