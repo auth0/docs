@@ -88,6 +88,7 @@ When an anonymous user accesses your application, it can often be desirable for 
 
 ::: note
 Checking for a login session by redirecting to Auth0 can be really helpful for your application, but if this will result in a lot of requests it is important to employ some sort of throttling mechanism to avoid latency and/or rate limiting.
+<%= include('../_includes/_rate-limit-policy.md') %>
 :::
 
 ### Deep linking to protected endpoints

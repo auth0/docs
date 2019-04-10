@@ -25,6 +25,8 @@ Here are some examples of the things that determine how you will manage user pro
 * Do you need to store user-related information that a user cannot modify?
 * What if a user forgets or wants to change their password?
 
+## User profile management tools
+
 After your implementation is operational, you’ll need to manage the user profile information stored in the user data store. Management tasks can take many forms: 
 
 * Self-served information updates
@@ -45,10 +47,14 @@ There are two ways to manage user profile information:
 You can use the [Auth0 Management API](/api/management/v2) to build your own centralized profile management user interface. See the [Management API user endpoints](/api/management/v2#!/Users/patch_users_by_id) for further details. Calls to the Management API require use of an [access token](/api/management/v2/tokens).
 
 ::: warning
-Self service profile management can raise security as well as data privacy concerns. For example,  you may want to allow a user to change their email address, however doing so without following best practice security guidance could result in the following: 
+Self service profile management can raise security as well as data privacy concerns. For example, you may want to allow a user to change their email address, however doing so without following best practice security guidance could result in the following: 
 * Users locking themselves out of their accounts
 * Leaked Personally Identifiable Information (PII)
 * Potential breach in security
+:::
+
+::: panel Best Practice
+<%= include('../_includes/_rate-limit-policy.md') %>
 :::
 
 ### Auth0 Dashboard
@@ -57,13 +63,14 @@ You can also use the Auth0 Dashboard to manage aspects of a [user’s profile](u
 
 ## Metadata
 
-Auth0 stores user profile [metadata](/users/concepts/overview-user-metadata) that contains  information about users such as language preference or accessibility information. You can use metadata to store both information that a user can change and information they can’t. In the latter case, for example, you can associate a user profile with records in your existing systems without modifying the existing implementation. 
+Auth0 stores user profile [metadata](/users/concepts/overview-user-metadata) that contains information about users such as language preference or accessibility information. You can use metadata to store both information that a user can change and information they can’t. In the latter case, for example, you can associate a user profile with records in your existing systems without modifying the existing implementation. 
 
 ::: note
 As is the case when managing the Normalized User Profile, calls to the Management API require use of an Access Token.
+<%= include('../_includes/_rate-limit-policy.md') %>
 :::
 
-::: panel TL;DR
+::: panel Best Practice
 Use of Metadata should follow Auth0 [best practice guidance](/best-practices/user-data-storage-best-practices#metadata). Metadata storage is not designed to be a general purpose data store and you should still use your own external storage facility when possible. Metadata size and complexity should also be kept to a minimum, and the Auth0 Management API has a strict set of guidance when it comes to updating and/or deleting metadata associated with a user.
 :::
 

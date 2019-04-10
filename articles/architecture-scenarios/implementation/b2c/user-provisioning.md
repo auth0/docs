@@ -72,6 +72,10 @@ Please note that your users will need to reset their passwords once you've migra
 
 [Automatic migration](/users/guides/configure-automatic-migration) allows users to be migrated incrementally. Users whose accounts are migrated to Auth0 using this method will not need to reset their passwords afterward. 
 
+::: panel Best Practice
+<%= include('../_includes/_rate-limit-policy.md') %>
+:::
+
 ## User sign up
 
 Auth0 uses database connections to store the user ID, password, and username collected from new users during the sign-up process. You can configure the database connection policies governing things such as minimum username length or password strength and complexity using the Auth0 Dashboard. 
