@@ -17,7 +17,7 @@ In order to provide services to your users, you must be able to identify who tho
 
 ## Design considerations
 
-When designing the authentication experience, you will determine:
+When designing the authentication experience, you will need to consider:
 
 * Where users will enter their credentials
 * How you will keep user credentials safe
