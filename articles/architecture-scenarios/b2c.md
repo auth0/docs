@@ -141,6 +141,6 @@ Operations can be addressed in parallel, though we'd recommend you setup your em
 * Firewall configuration
 * Notifications
 
-::: panel Phase 1 Milestone
+::: panel Go-Live!
 Congratulations! Reaching this point you are read for Go-Live. If you've not already done so, you can align your Auth0 production tenant via deployment automation and run any final QA in preparation for production release. As you move forward you'll want to keep a watch for [Auth0 status notifications](/monitoring/guides/check-status) which may contain important information that could impact your tenant(s) and/or project(s).
 :::
