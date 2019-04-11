@@ -94,7 +94,7 @@ articles:
       - title: Business to Consumer
         url: /architecture-scenarios/b2c
 
-      - title: Business to Enterprise
+      - title: Business to Employees
         url: /architecture-scenarios/b2e
       # - title: SAML for Regular Web Apps
       #   url: /architecture-scenarios/web-saml
