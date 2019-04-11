@@ -1,8 +1,0 @@
-added:
-  -
-    title: "User Profile Picture Details"
-    tags:
-      - user-profile
-      - picture
-    description: |
-      A [new doc](/users/guides/change-user-pictures) was added that explains more about the user picture field and how to use the user_metadata to change it.

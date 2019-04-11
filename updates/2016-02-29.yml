@@ -1,9 +1,0 @@
-added:
-  -
-    title: "Added Ionic 2 Tutorial"
-    tags:
-      - tutorial
-      - javascript
-      - mobile
-    description: |
-      A [new tutorial](/quickstart/native-mobile/ionic2/) was added showing how to setup Auth0 with Ionic 2.

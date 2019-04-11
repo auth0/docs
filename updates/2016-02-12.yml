@@ -1,9 +1,0 @@
-added:
-  -
-    title: "Added Hapi API Tutorial"
-    tags:
-      - tutorial
-      - hapi
-      - node
-    description: |
-      A [new tutorial](/quickstart/backend/hapi) was added showing how to setup Auth0 with Hapi.
