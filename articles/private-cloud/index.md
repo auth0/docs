@@ -23,16 +23,6 @@ Auth0 currently offers two Private Cloud deployment models:
 * Private Cloud
 * **Managed** Private Cloud, either hosted by Auth0 or hosted by you on an AWS environment and operated by Auth0 as a managed service
 
-This overview covers specifically the **Private Cloud** option.
-
-## What is the Private Cloud deployment model?
-
-The Private Cloud provides you with a dedicated (or single-tenant) environment. You'll get enhanced performance, security, and compliance over what we include in our standard Public Cloud offering.
-
-With the Private Cloud, Auth0 will handle a majority of the requirements for initial setup and maintenance. Afterward, you'll be on a set update pattern, typically no more frequent than every 30 days.
-
-You'll get the ease of management that comes with using our Public Cloud combined with the power and security of our Managed Private Cloud.
-
 ## Private Cloud options and comparison
 
 Auth0 offers two Private Cloud options to those for whom the Public Cloud is not an appropriate deployment option. Here is how the two Private Cloud deployment options compare to each other, as well as how they compare to the Enterprise (Public Cloud) option.
