@@ -67,7 +67,6 @@ Auth0 stores user profile [metadata](/users/concepts/overview-user-metadata) tha
 
 ::: note
 As is the case when managing the Normalized User Profile, calls to the Management API require use of an Access Token.
-<%= include('../../_includes/_rate-limit-policy.md') %>
 :::
 
 ::: panel Best Practice
