@@ -28,7 +28,7 @@ To implement user authorization inside your Application (typically, access contr
 When deciding what data to include in OIDC tokens, you need to consider token size, especially if you are passing the token in the URL. Regardless of how you're passing the token, you'll also need to consider other [limitations](/tokens/id-token).
 :::
 
-## ID Token Claims 
+## ID Token claims 
 
 During the login process, Auth0 allows you to easily [add custom claims to an ID Token](/architecture-scenarios/implementation/b2c/user-authorization#id-token-claims) based on a user’s metadata (by using Auth0’s Rules extensibility). Though the process of adding rules is streamlined, because the rules engine is flexible and allows you to write custom code, you can also do things that may have negative effects. So it’s important to follow our [rules best practices](/best-practices/rules).
 

@@ -42,7 +42,7 @@ When considering the items you want to brand, as well as how best to brand these
 
 The answers to these questions and more are detailed in the [Universal login and login pages](#universal-login-and-login-pages), [Custom domains](#custom-domains), and [Email templates](#email-templates) sections below. 
 
-### Universal login and login pages
+## Universal login and login pages
 
 The [Universal Login](/universal-login) process is the recommended method for authenticating users, and it centers around the Login Page. You can customize the Login Page via the Dashboard to support your organization's branding requirements. You can make [simple changes](/universal-login#simple-customization) that include changes to the logo, primary color, or background color, or you can make more [advanced changes](/universal-login#advanced-customization) that require you to directly modify the script powering the page itself.
 
@@ -59,15 +59,15 @@ Exercise caution regarding the use of third-party JavaScript on your Login Page,
 
 The Login Page comes with [multi-language support](/libraries/lock/v11/i18n) provided by default. In our experience, almost all applications need internationalization/localization, and while it is fairly simple to add during the development phases, it can become difficult at a later stage. As such, we recommend, at the very least, accounting for this need if you do not implement either feature during this phase.
 
-#### Custom login pages
-
+::: panel Best Practice
 For those who want to build and use a fully-customized user interface using technologies like React or Angular.js, the Auth0 JavaScript SDK ([auth0js](/libraries/auth0js) allows you to add Auth0 functionality to your custom login page.
+:::
 
-### Change password
+## Change password page customization
 
 The Change Password page is used whenever a user takes advantage of the [password reset](/universal-login/password-reset) functionality. Like the login page, you can customize the Change Password page to reflect your organization's branding. 
 
-### Errors
+## Error page customization
 
 If there are issues with user sign up or login, Auth0 provides error messages that indicate what the problem is under the hood. The default messages are somewhat cryptic, especially to the end user, since they will likely be missing context that only you can supply. As such, we recommend customizing your error pages to provide the missing context-specific information directly to your users.
 
@@ -80,7 +80,7 @@ At the minimum, we recommend that you provide your visitors with:
 
 Out-of-the-box there is no user interface for customizing your error pages, but you can use the [Tenant Settings endpoint of the Management API](/api/management/v2#!/Tenants/patch_settings) to configure them. Alternatively, if you can create and host your error page then you can have Auth0 direct users to that page instead of using the Auth0-hosted option. 
 
-### Custom domains
+## Custom domain naming
 
 By default, the URL associated with your tenant will include its name and possibly a region-specific identifier. For example, tenants based in the US have the URL **example.auth0.com** while those based in Europe have **example.eu.auth0.com**.
 
@@ -90,7 +90,7 @@ Moreover, the custom domain functionality offers you complete control over the [
 
 In general, we see customers having the most success when they use a centralized domain for authentication -- this is especially the case if the company offers multiple products or service brands. By using a centralized domain, you can provide end users with a consistent user experience while also minimizing the need to maintain multiple production tenants in Auth0.
 
-### Email templates
+## Email template customization
 
 ::: note
 Before customizing email templates, please set up your [Email Provider](/email/providers).

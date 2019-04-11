@@ -113,7 +113,7 @@ Auth0 provides out of box functionality for sending a [verification email](/emai
 Any information that will be used to customise Auth0 emails, such as information used to determine the language for an email, should be stored in metadata: and preferably `user_metadata` if the user is allowed to change it. 
 :::
 
-## Blocking and unblocking users 
+## Blocking users 
 
 [Blocking user access](/users/guides/block-and-unblock-users) in Auth0 provides a way to prevent user login to applications under certain conditions. By default, the Auth0 Dashboard provides an out-of-the-box mechanism to give administrators the ability to both block and unblock user access to all applications. You can implement this with the Management API. Alternatively, you can use Auth0 extensibility to disable user access to certain applications as well as providing more fine grained access control.
 

@@ -54,7 +54,7 @@ Auth0's Universal Login makes authenticating users a short, three-step process (
 2. [Set up the appropriate branding and/or customized HTML](/universal-login) in your Auth0 configuration.
 3. Set up your application to [receive and handle the response](#application-integration) from the Authorization Server.
 
-## Username password authentication
+## Username and password authentication
 
 Nearly every B2C application provides the ability for their customers to create a new set of credentials. This is a common form of authentication that all users are familiar with.
 
@@ -116,7 +116,7 @@ Most modern authentication frameworks support execution of middleware for redire
 
 ### Authenticating the user
 
-Authentication is the process of determining user identity. The result of authentication in an OIDC context is an ID Token. This token contains information about the user and should only be able to be obtained if the user authenticates using one or more factors as defined by the authorization server (the most common form being [user ID and password](#username-password-authentication)). There are a few things you may also need to consider in addition to obtaining an ID Token:
+Authentication is the process of determining user identity. The result of authentication in an OIDC context is an ID Token. This token contains information about the user and should only be able to be obtained if the user authenticates using one or more factors as defined by the authorization server (the most common form being [user ID and password](#username-and-password-authentication)). There are a few things you may also need to consider in addition to obtaining an ID Token:
 
 * Do we also need an Access Token in order to call a shared API?
 * Is your application a single page application and only requires an ID Token? See [Implicit Grant](/api-auth/tutorials/implicit-grant) for more information. 
