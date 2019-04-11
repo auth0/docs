@@ -165,9 +165,10 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 * **JWT Signature Algorithm** The algorithm used for signing tokens from the Advanced Application Settings, OAuth tab; default is RS256. Option name is `client_signing_algorithm`.
 
-* **Cache Time (in minutes):** How long the JWKS information should be stored. Option name is `cache_expiration`.
+* **JWKS Cache Time (in minutes):** How long the JWKS information should be stored when using the RS256 JWT Signature Algorithm. Option name is `cache_expiration`.
 
 * **Original Login Form on wp-login.php:** Provides ways to access or block the core WordPress login page. Option name is `wordpress_login_enabled`. Login page code option name is `wle_code`.
+
   * **Never** will not allow the core WordPress login form to display.
   * **Via a link under the Auth0 form** will display a link to the WordPress core login form directly below the Auth0 embedded one on `wp-login.php`. The login page can also be accessed directly by adding `?wle` to the login URL.
   * **When "wle" query parameter is present** will allow the login page to be accessed directly by adding `?wle` to the login URL. This will bypass the Universal Login Page redirect.
@@ -177,27 +178,29 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 ### Features
 
-* **Single Sign On (SSO):** *This option is deprecated and will be removed in the next major. Please use the Universal Login Page option to enable SSO* Enable this option to attempt SSO on the `wp-login.php` page. Option name is `sso`.
-
-* **Single Logout:** Enable this option to log out of Auth0 when logging out of WordPress. Option name is `singlelogout`.
-
-* **Passwordless Login:** Enable this option to replace the login widget with Lock Passwordless. Option name is `passwordless_enabled`.
-
 * **Universal Login Page:** Redirects the `wp-login.php` page to the Universal Login Page for SSO authentication using all active Connections for this Application. Option name is `auto_login`.
 
 * **Auto Login Method:** A single, active connection to use for authentication when **Universal Login Page** is turned on. Leave this blank to show all active Connections on the Universal Login Page. Option name is `auto_login_method`.
 
+* **Single Logout:** Enable this option to log out of Auth0 when logging out of WordPress. Option name is `singlelogout`.
+
+* **Single Sign On (SSO):** *This option is deprecated and will be removed in the next major. Please use the Universal Login Page option to enable SSO* Enable this option to attempt SSO on the `wp-login.php` page. Option name is `sso`.
+
 * **Override WordPress Avatars:** Forces WordPress to use Auth0 avatars. Option name is `override_wp_avatars`.
 
-### Appearance
+### Embedded
 
-* **Icon URL:** Sets the Lock display icon. Option name is `icon_url`.
+This section was changed from "Appearance" to "Embedded" to reflect the fact that these settings only affect Auth0 login forms embedded on the WordPress site. Options here do not affect the Universal Login Page (see [this page](/universal-login) for customization options).
 
-* **Form Title:** Sets the title of the Lock widget. Option name is `form_title`.
+* **Passwordless Login:** Enable this option to turn on Passwordless login on all embedded Auth0 login forms. Passwordless connections are managed in the Auth0 dashboard and at least one must be active and enabled on this Application for this to work. Option name is `passwordless_enabled`.
 
-* **Large Social Buttons:** Toggles the social buttons size between big and small. Option name is `social_big_buttons`.
+* **Icon URL:** Sets the icon above the embedded Auth0 login form. Option name is `icon_url`.
 
-* **Enable Gravatar Integration:** When user enters their email, their associated Gravatar picture is displayed in the Lock header. Option name is `gravatar`.
+* **Form Title:** Sets the title of the embedded Auth0 login form. Option name is `form_title`.
+
+* **Large Social Buttons:** Toggles the social buttons size between big and small on the embedded Auth0 login form. Option name is `social_big_buttons`.
+
+* **Enable Gravatar Integration:** When user enters their email, their associated Gravatar picture is displayed in the embedded Auth0 login form. Option name is `gravatar`.
 
 * **Login Name Style:** Selecting **Email** will require users to enter their email address to login. Set this to **Username** if you do not want to force a username to be a valid email address. Option name is `username_style`. Option name is `client_secret_b64_encoded`.
 
@@ -207,7 +210,7 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 * **Language Dictionary:** Information on this setting is [here](/libraries/lock/v11/configuration#languagedictionary-object-). Option name is `language_dictionary`.
 
-  Please note that the dictionary object used is slightly different from the examples shown in the above link. The dictionary names are surrounded by quotation marks:
+  Please note that the dictionary object used is slightly different from the examples shown in the above link. The dictionary names must be surrounded by quotation marks:
 
 ```json
 {
@@ -215,6 +218,20 @@ All sites in a WordPress multi-site network will use the same constant value mak
     "title":"Log me in",
 }
 ```
+
+* **Custom Signup Fields:** This field is the JSON that describes the custom signup fields for Lock. The should be a in the form of JSON and allows the use of functions for validation. [More info on custom signup fields here](/libraries/lock/v11/configuration#additionalsignupfields-array-). Option name is `custom_signup_fields`.
+
+* **Extra Settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`). Option name is `extra_conf`.
+
+* **Use Custom Lock JS URL:** When turned off, WordPress will use the latest tested version of Lock (Auth0 embedded login form) automatically. When turned on, administrators can provide a custom Lock URL to use. Option name is `custom_cdn_url`.
+
+* **Custom Lock JS URL:** A valid URL pointing to a version of Lock. This field will be automatically hidden when **Use Custom Lock JS URL** is turned off. Option name is `cdn_url`.
+
+* **Connections to Show:** List here each of the identity providers you want to allow users to login with. If left blank, all enabled providers will be allowed. (See [connections {Array}](/libraries/lock/customization#connections-array-) for more information.) Option name is `lock_connections`.
+
+    ::: note
+    If you have enabled Passwordless login, you must list here all allowed social identity providers. (See [.social(options, callback)](https://github.com/auth0/lock-passwordless#socialoptions-callback) for more information.)
+    :::
 
 ### Advanced
 
@@ -228,17 +245,7 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
     `[auth0 redirect_to="http://yourdomain.com/redirect-here"]`
 
-* **Connections to Show:** List here each of the identity providers you want to allow users to login with. If left blank, all enabled providers will be allowed. (See [connections {Array}](/libraries/lock/customization#connections-array-) for more information.) Option name is `lock_connections`.
-
-    ::: note
-    If you have enabled Passwordless login, you must list here all allowed social identity providers. (See [.social(options, callback)](https://github.com/auth0/lock-passwordless#socialoptions-callback) for more information.)
-    :::
-
 * **Force HTTPS Callback:** Enable this option if your site allows HTTPS but does enforce it. This will force Auth0 callbacks to HTTPS in the case where your home URL is not set to HTTPS. Option name is `force_https_callback`.
-
-* **Use Custom Lock JS URL:** When turned off, WordPress will use the latest tested version of Lock (Auth0 embedded login form) automatically. When turned on, administrators can provide a custom Lock URL to use. Option name is `custom_cdn_url`.
-
-* **Use Custom Lock JS URL:** A valid URL pointing to a version of Lock. This field will be automatically hidden when **Use Custom Lock JS URL** is turned off. Option name is `cdn_url`.
 
 * **Auto Provisioning:** Should new users from Auth0 be stored in the WordPress database if new registrations are not allowed? This will create WordPress users that do no exist when they log in via Auth0 (for example, if a user is created in the Auth0 dashboard). Option name is `auto_provisioning`.
 
@@ -250,15 +257,9 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 * **Migration IPs Whitelist:** Only requests from listed IPs will be allowed access to the migration webservice. Option name is `migration_ips_filter`.
 
-* **Implicit Login Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-applications-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall. Option name is `auth0_implicit_workflow`.
-
-* **IP Ranges:** Enter one range per line. Range format should be: `xx.xx.xx.xx - yy.yy.yy.y`. Option name is `ip_ranges`.
+* **Implicit Login Flow:** If enabled, uses the [Implicit Flow with form_post](/api-auth/tutorials/implicit-grant) protocol for authorization in cases where the server is without internet access or behind a firewall. Option name is `auth0_implicit_workflow`.
 
 * **Valid Proxy IP:** List the IP address of your proxy or load balancer to enable IP checks for logins and migration web services. Option name is `valid_proxy_ip`.
-
-* **Extra Settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`). Option name is `extra_conf`.
-
-* **Custom Signup Fields:** This field is the JSON that describes the custom signup fields for Lock. The should be a in the form of JSON and allows the use of functions for validation. [More info on custom signup fields here](/libraries/lock/v11/configuration#additionalsignupfields-array-). Option name is `custom_signup_fields`.
 
 * **Auth0 Server Domain:** The Auth0 domain, it is used by the setup wizard to fetch your account information. Option name is `auth0_server_domain`.
 
