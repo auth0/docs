@@ -84,6 +84,15 @@ Message
 
 If the value of `Effect` is `Allow`, your authorizer would've allowed the call to API Gateway.
 
+If you receive an error of:
+```
+JwksError: The JWKS endpoint did not contain any keys
+```
+then do this:
+****
+TO BE ADVISED BY AUTH0.. i.e please write this procedure, as the tutorial does not function currently.
+****
+
 ## Create the IAM Role
 
 The IAM role has the required permissions to call Lambda functions; before we can proceed with our custom authorizer, we'll need to create an IAM role that can call our custom authorizer whenever API Gateway receives a request for access.
