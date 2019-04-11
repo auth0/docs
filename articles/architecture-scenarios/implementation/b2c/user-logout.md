@@ -25,7 +25,7 @@ When configuring logout behavior, you'll need to consider:
 * Whether actions take by the user elsewhere (such as in another application) need to be accounted for to [provide a single logout experience](/logout/guides/logout-applications#single-sign-out-configuration-example)?
 * How long you want sessions to last in the event that users do not trigger the logout process?
 
-### Types of logout
+## Types of logout
 
 Given the varying types of sessions that can be created whenever a user logs in, there are several types of logout possible:
 
@@ -40,7 +40,7 @@ The functionality provided by your application, as well as your use of features 
 If the logout feature in one application terminates an Auth0 SSO session that is used by other applications, the user may lose work if they have uncommitted transactions. Be sure to add the functionality needed to handle such conditions to minimize the likelihood of lost work.
 :::
 
-### Where to send users after logout
+## Where to send users after logout
 
 Once your user logs out, they will be redirected to a specific location of your choosing. This location is specified as the **logout redirect URL**, and you can [define this as a parameter](/logout/guides/redirect-users-after-logout) via the Auth0 Dashboard. 
 
@@ -52,7 +52,7 @@ The URL(s) you use to redirect users after logging out must be [whitelisted in t
 If the user logs out and you redirect them back to the application, and the application redirects to an Identity Provider that still has a valid session for the user, the user will be logged in silently to the application. This may appear to the user as if the logout process didn't function properly.
 :::
 
-### Automatic termination of sessions
+## Automatic termination of sessions
 
 Not all users will trigger the logout process manually, so Auth0 also provides **session timeout** to prevent overly long-lived sessions. This setting is [available and configurable via the Auth0 Dashboard](/dashboard/dashboard-tenant-settings#session-timeout).
 
