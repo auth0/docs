@@ -37,9 +37,9 @@ Auth0 requires that:
 * You disclose any suspected findings to the Auth0 Security team for explanation/discussion
 * You understand that your tenant will be moved between environments during testing. Auth0 will move your tenant from the stable environment to the preview environment before the testing commences. Auth0 will then return your tenant to the stable environment once the testing period ends. Note that while your tenant is on the preview environment it may receive updates more rapidly.
 
-## PSaaS Appliance customers
+## Private Cloud customers
 
-Private SaaS Appliance customers should also request permission to run a penetration test via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}). Please include the [information listed above](/policies/penetration-testing#information-required) with your support request.
+Private Cloud customers should also request permission to run a penetration test via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}). Please include the [information listed above](/policies/penetration-testing#information-required) with your support request.
 
 ## Load testing
 

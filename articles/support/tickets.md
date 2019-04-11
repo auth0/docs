@@ -15,7 +15,7 @@ useCase:
 
 With [Support Center](${env.DOMAIN_URL_SUPPORT}), you can create tickets for questions or issues you are experiencing. You can access Support Center if you are a full administrator of an Auth0 account, or have received an invitation to Support Center from an administrator. 
 
-If you are an existing PSaaS Appliance customer, you will need to create an Auth0 cloud-based account to log in to the Support Center. This account can also be used for Dev/Test purposes at no additional cost. Please contact your Customer Success Manager or Sales Executive to associate your cloud-based account to your existing PSaaS Appliance subscription.
+If you are an existing Private Cloud customer, you will need to create an Auth0 cloud-based account to log in to the Support Center. This account can also be used for Dev/Test purposes at no additional cost. Please contact your Customer Success Manager or Sales Executive to associate your cloud-based account to your existing Private Cloud subscription.
 
 ## Open a new ticket
 
@@ -24,7 +24,7 @@ If you are an existing PSaaS Appliance customer, you will need to create an Auth
 1. Choose **Affected Tenant** from the dropdown menu.
 1. Under **Issue Type** select the type of issue that best fits your case.
 ![Issue types](/media/articles/support/issue-types.png)
-    * **Public Cloud Support Incident** or **Appliance Support Incident** - (the second option is only available to Appliance customers)
+    * **Public Cloud Support Incident** or **Private Cloud Support Incident** - (the second option is only available to Private Cloud customers)
         * If you are not a Trial Tenant customer, you will be asked to select a severity:
             * **Low: Product Question** - You have questions about how things work, whether we support something
             * **Normal: General Support Question** - You are in development and have a question about how to configure something or how to resolve an error

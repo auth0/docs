@@ -55,10 +55,10 @@ In our example, `Example-Co` picked the name `example-co` and Americas as their 
 
 We recommend the use of custom domains, such as `example-co.com`, in your production environments to provide your users with the most secure and seamless experience. This comes with an additional cost. 
 
-If you have a **single-tenant** implementation, you can deploy your custom domain in one of three locations:
+If you have a [**single-tenant** implementation](/private-cloud), you can deploy your custom domain in:
+
 - The cloud managed by Auth0
-- A cloud managed by you
-- An [on-premise installation](/appliance)
+- An AWS cloud managed by you
 
 For more information, see [Custom Domains](/custom-domains). 
 

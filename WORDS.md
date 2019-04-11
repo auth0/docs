@@ -39,10 +39,10 @@ When writing about tokens, capitalize specific token names as follows:
 * Access Token
 * Refresh Token
 
-#### Within Appliance subscriptions
+#### Within Private Cloud subscriptions
 
 * **Auth0 tenants** refers to regular cloud tenants
-* **Private instances** refers to appliance instances
+* **Private Cloud** or **Managed Private Cloud** refers to single-tenant deployments
 
 ### TL;DR
 

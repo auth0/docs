@@ -2089,6 +2089,14 @@ module.exports = [
     {
       from: '/enterprise/private-cloud/overview',
       to: '/private-cloud'
+    },
+    {
+      from: '/services/private-saas-configuration',
+      to: '/services/private-cloud-configuration'
+    },
+    {
+      from: '/services/private-saas-management',
+      to: '/services/private-cloud-management'
     }
 
     

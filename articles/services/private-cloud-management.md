@@ -2,7 +2,7 @@
 description: A workshop designed to provide IT organizations with core Auth0 Private SaaS management concepts.
 topics:
   - professional services
-  - psaas-appliance
+  - private-cloud
   - management
 contentType:
   - reference

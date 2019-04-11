@@ -32,7 +32,7 @@ In discussing user search, we use the following terms related to the search resu
 * **Immediately consistent**: The search results will reflect the results of all successful write operations, including those that occurred shortly prior to your request.
 
 ::: note
-User Search v3 is not available for the PSaaS Appliance.
+User Search v3 is not available for the Private Cloud.
 :::
 
 ## Keep reading
