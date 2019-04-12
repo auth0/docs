@@ -10,7 +10,7 @@ useCase:
   - implementation
 ---
 
-# Business to Consumer Identity and Access Management Scenarios
+# Business to Consumer Identity and Access Management
 
 This scenario focuses on how to integrate Auth0 within a Consumer Identity and Access Management (CIAM) project. Auth0's recommendations are based on real-world customer implementation experience and by following the guidance provided, you will set up your project for success.
 
