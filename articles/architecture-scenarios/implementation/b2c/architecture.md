@@ -58,7 +58,7 @@ Determining the level of isolation you require when it comes to your user domain
 
 ## Custom domains
 
-When you setup your Auth0 tenant, the URL for accessing that tenant will be `https://${account.tenant}.auth0.com`. A custom domain, also known as a [vanity URL](/custom-domains), for your Auth0 tenant is important for more than just branding. It also provide you with security benefits too:
+When you setup your Auth0 tenant, the URL for accessing that tenant will be `https://${account.tenant}.auth0.com`. Providing a custom domain, also known as a [vanity URL](/custom-domains), for your Auth0 tenant is an important factor for supporting your Branding requirements, but more importantly will also provide you with security benefits too:
 
 * Some browsers will, by default, make it difficult to communicate in an iFrame if you don't have a shared domain. (Not the case however if you have multiple domain SSO.)
 * It is harder to phish your domain if you have a vanity URL. The phisher must also create a vanity URL to mimic your. For example, with a custom domain, you can use your own certificate and get an "Extended Validation Certificate" to make phishing even harder.
