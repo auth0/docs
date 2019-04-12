@@ -44,7 +44,7 @@ The diagram below provides an overall view of the planning associated with Phase
 * [Software Development Life Cycle (SDLC) support](/architecture-scenarios/implementation/b2c/architecture#sdlc-support)
 * [Tenant association](/architecture-scenarios/implementation/b2c/architecture#tenant-association)
     
-### User provisioning
+### Provisioning
 
 [User provisioning](/architecture-scenarios/implementation/b2c/user-provisioning) is the next workstream, and this can be done in parallel with [user authentication](#user-authentication). We've found that the most successful implementations address the following topics at this state during phase 1, however precisely what you tackle will depend on your specific requirements. For example, you may not need user migration, or you may already have an existing sign up mechanism that can be leveraged. The user provisioning workstream includes setting up:
 
@@ -89,22 +89,22 @@ Quality assurance mechanism should now be employed to ensure any breakages due t
 * Mock testing
 * Integration testing
 
-### User profile management
+### Profile management
 
-[User profile management](/architecture-scenarios/implementation/b2c/user-profile-mgmt) will address the most common cases for the changes users will want to make to their profiles. We've found the most successful implementations address the following topics at this point during Phase 1, however precisely what you tackle will depend on your specific requirements (for example, you won't need to provide for user metadata management if you're not using user metadata):
+[Profile management](/architecture-scenarios/implementation/b2c/profile-mgmt) will address the most common cases for the changes users will want to make to their profiles. We've found the most successful implementations address the following topics at this point during Phase 1, however precisely what you tackle will depend on your specific requirements (for example, you won't need to provide for user metadata management if you're not using user metadata):
 
 * [Managing metadata](/architecture-scenarios/implementation/b2c/user-profile-mgmt#metadata)
 * [Resetting passwords](/architecture-scenarios/implementation/b2c/user-profile-mgmt#password-reset)
 * [Verifying accounts](/architecture-scenarios/implementation/b2c/user-profile-mgmt#account-verification)
 * [Blocking users](/architecture-scenarios/implementation/b2c/user-profile-mgmt#blocking-users)
 
-### User Authorization
+### Authorization
 
-[User Authorization](/architecture-scenarios/implementation/b2c/user-authorization) is, for customers who have specific access control requirements, the next thing on the agenda, and the focus for Phase 1 will be centered on how custom [ID Token Claims](/architecture-scenarios/implementation/b2c/user-authorization#id-token-claims) can be leveraged to support this.
+[Authorization](/architecture-scenarios/implementation/b2c/authorization) is, for customers who have specific access control requirements, the next thing on the agenda, and the focus for Phase 1 will be centered on how custom [ID Token Claims](/architecture-scenarios/implementation/b2c/authorization#id-token-claims) can be leveraged to support this.
 
 ### User logout
 
-At some stage users will want to log out of your system, and you'll need to decide exactly what this looks like. This is tackled in the In the [Logout](/architecture-scenarios/implementation/b2c/logout) workstream. Auth0 supports several variations when it comes to logout, giving you flexibility to choose what works best for your implementation.
+At some stage users will want to log out of your system, and you'll need to decide exactly what this looks like. This is tackled in the [Logout](/architecture-scenarios/implementation/b2c/logout) workstream. Auth0 supports several variations when it comes to logout, giving you flexibility to choose what works best for your implementation.
 
 ### Operations
 

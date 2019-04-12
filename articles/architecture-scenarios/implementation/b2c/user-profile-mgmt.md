@@ -10,7 +10,7 @@ contentType: concept
 useCase:
   - profile-management
 ---
-# User Profile Management
+# Profile Management
 
 User information is stored in Auth0 as part of the [*user profile*](/users/concepts/overview-user-profile), also known as the users' account, and can come from a variety of sources, such as third-party [identity providers](/identityproviders#social), your own [databases](/identityproviders#database-and-custom-connections), and [enterprise connections](identityproviders#enterprise) like Active Directory, SAML, etc.. 
 

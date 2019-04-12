@@ -14,7 +14,7 @@ useCase:
   - user-provisioning
   - store-user-data
 ---
-# User Provisioning
+# Provisioning
 
 User provisioning is the process of adding users to your system. When you define your user provisioning process, you'll determine:
 

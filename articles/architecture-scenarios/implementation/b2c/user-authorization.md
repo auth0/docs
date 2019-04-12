@@ -10,7 +10,7 @@ contentType: concept
 useCase:
   - profile-management
 ---
-# User Authorization
+# Authorization
 
 Let's start by distinguishing between Authentication, Authorization, and Access Control.
 
@@ -30,7 +30,7 @@ When deciding what data to include in OIDC tokens, you need to consider token si
 
 ## ID Token claims 
 
-During the login process, Auth0 allows you to easily [add custom claims to an ID Token](/architecture-scenarios/implementation/b2c/user-authorization#id-token-claims) based on a user’s metadata (by using Auth0’s Rules extensibility). Though the process of adding rules is streamlined, because the rules engine is flexible and allows you to write custom code, you can also do things that may have negative effects. So it’s important to follow our [rules best practices](/best-practices/rules).
+Auth0 allows you to easily [add custom claims to an ID Token](/architecture-scenarios/implementation/b2c/user-authorization#id-token-claims) based on a user’s metadata (by using Auth0’s Rules extensibility). Though the process of adding rules is streamlined, because the rules engine is flexible and allows you to write custom code you can also do things that may have negative effects. So it’s important to follow our [rules best practices](/best-practices/rules) anytime you utilize this extensibility feature.
 
 ::: panel Best Practice
 When you are considering adding custom claims, we recommend that you choose to store any data you need to include within the claims in the user's `user` or `app` [Metadata](/users/concepts/overview-user-metadata). Doing so prevents you from needing to call out to an external API to fetch the data, which can negatively impact the performance and scalability of the login sequence. Remember to check out our metadata best practices(missing link) too.

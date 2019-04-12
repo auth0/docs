@@ -13,7 +13,7 @@ useCase:
 ---
 # Authentication
 
-In order to provide services to your users, you must be able to identify who those users are. This process is called authentication. You must provide your users with a way to verify that they are who they are, and there are a number of ways to do this: via social media accounts, username/password, and passwordless authentication to name but a few. In many cases it is also recommended that you go beyond a first factor for authenticating the user add a second factor as well.
+In order to provide services to your users, you must be able to identify who those users are. This process is called authentication. There are a number of ways to perform user authentication - via social media accounts, username/password, passwordless - and it's often recommended that you go beyond a first factor for authenticating the user by adding a second factor as well (a.k.a. Multi-factor Authentication).
 
 ## Design considerations
 
@@ -136,7 +136,7 @@ If you need a [Refresh Token](/tokens/refresh-token/current) so that you can obt
 
 ### Authorization code grant (with or without PKCE)
 
-If your SDK only supports the authorization code grant, or you need an Access Token or Refresh Token, authorization code grant (with or without [PKCE](/flows/concepts/mobile-login-flow)) can also be used to retrieve an ID Token.  The authorization code grant includes an additional API call to exchange the code for a token which can result in additional unnecessary latency if all you need is the ID Token. In many cases the [hybrid flow](/api-auth/tutorials/hybrid-flow) is implemented to provide optimum access to the ID Token while still leveraging the authorization code grant workflow for the secure and safe retrieval of Access and Refresh Tokens.
+If your SDK only supports the authorization code grant, or you need an Access Token or Refresh Token, then authorization code grant (with or without [PKCE](/flows/concepts/mobile-login-flow)) can also be used to retrieve an ID Token.  The authorization code grant includes an additional API call to exchange the code for a token which can result in additional unnecessary latency if all you need is the ID Token. In many cases the [hybrid flow](/api-auth/tutorials/hybrid-flow) is implemented to provide optimum access to the ID Token while still leveraging the authorization code grant workflow for the secure and safe retrieval of Access and Refresh Tokens.
 
 ## Keep reading
 

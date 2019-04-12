@@ -94,7 +94,7 @@ Though Auth0 allows you to create as many free tenants as you'd like, you can on
 
 ## Tenant association
 
-To ensure that your [tenants are all associated with your Auth0 contractual agreement](/dev-lifecycle/child-tenants) and have the same features, ensure you have all of your tenants associated with your company. If you have individual developers that want to create their own sandboxes for testing, make sure they get associated with your account so they have the same permissions. To do this you should contact your Auth0 representative or the Auth0 Support Center at ${env.DOMAIN_URL_SUPPORT}.
+To ensure that your [tenants are all associated with your Auth0 contractual agreement](/dev-lifecycle/child-tenants) and have the same features, ensure you have all of your tenants are associated with your company account. If you have individual developers that want to create their own sandboxes for testing, make sure they get associated with your account so they have the same permissions too. To do this you should contact your Auth0 representative or the Auth0 Support Center at ${env.DOMAIN_URL_SUPPORT}.
 
 ## Keep reading
 
