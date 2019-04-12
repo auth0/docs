@@ -29,3 +29,7 @@ This guide will show you how to change when user attributes are updated for a co
 ![Allow updates to Auth0 profile](/media/articles/connections/allow-update-normalized-user-profile.png)
 
 5. Scroll to the bottom of the Settings page, and click **Save**.
+
+:::panel Configuring through the API
+Optionally, you can set the option using a `PATCH` call to the [Update Connection](/api/management/v2#!/Connections/patch_connections_by_id) endpoint of the Management API addiong the attribute: `options.set_user_root_attributes: "on_first_login"`
+:::
