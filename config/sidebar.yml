@@ -97,7 +97,7 @@ articles:
             - title: Architecture
               url: /architecture-scenarios/implementation/b2c/b2c-architecture
 
-            - title: User Provisioning
+            - title: Provisioning
               url: /architecture-scenarios/implementation/b2c/b2c-provisioning
 
             - title: Authentication
@@ -106,13 +106,13 @@ articles:
             - title: Branding
               url: /architecture-scenarios/implementation/b2c/b2c-branding
 
-            - title: User Profile Management
+            - title: Profile Management
               url: /architecture-scenarios/implementation/b2c/b2c-profile-mgmt
 
-            - title: User Authorization
+            - title: Authorization
               url: /architecture-scenarios/implementation/b2c/b2c-authorization
 
-            - title: User Logout
+            - title: Logout
               url: /architecture-scenarios/implementation/b2c/b2c-logout
 
       - title: Business to Enterprise
