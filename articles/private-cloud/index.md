@@ -23,6 +23,9 @@ Auth0 currently offers two Private Cloud deployment models:
 * Private Cloud
 * **Managed** Private Cloud, either hosted by Auth0 or hosted by you on an AWS environment and operated by Auth0 as a managed service
 
+Private Cloud deployments are single-tenant, isolated instances where none of a customer's resources (software and infrastructure) are shared with any other tenants. This offers increased performance, stability, and availability.
+
+
 ## Private Cloud options and comparison
 
 Auth0 offers two Private Cloud options to those for whom the Public Cloud is not an appropriate deployment option. Here is how the two Private Cloud deployment options compare to each other, as well as how they compare to the Enterprise (Public Cloud) option.
@@ -43,20 +46,10 @@ Auth0 offers two Private Cloud options to those for whom the Public Cloud is not
 
 <sup>**</sup>If you need to meet data sovereignty requirements, Auth0 supports Private Cloud deployments in the following regions USA, Europe, Australia, Canada, and Japan. Otherwise, the Private Cloud can be supported in other regions (excepting China).
 
-## Frequently Asked Questions
-
-**Can you tell me more about "data residency?"**
+## Data residency
 
 Private Cloud customers can choose the region in which their data is stored. All data will remain within that region, which is crucial especially in instances where regulations prevent data from being sent outside the origin region.
 
-**What is a single-tenancy deployment?**
+## Migration from the Public Cloud
 
-Private Cloud deployments are isolated instances where none of a customer's resources (software and infrastructure) are shared with any other tenants. This offers increased performance, stability, and availability.
-
-**What is the uptime guarantee upgrade?**
-
-The standard SLA for the Private Cloud is 99.95%, but for those who need the highest level of uptime for their customers and applications, Auth0 offers an upgrade to 99.99% uptime.
-
-**I'm a Public Cloud customer; is it possible to migrate my tenant(s) to the Private Cloud?**
-
-Our Professional Services team can help you migrate from the Public Cloud to the Private Cloud as a billable project.
+If you're currently a Public Cloud customer and you'd like to migrate your tenant(s) to the Private Cloud, please contact our Professional Services team for assistance. Our team can help you with the migration from the Public Cloud to the Private Cloud as a billable project.
