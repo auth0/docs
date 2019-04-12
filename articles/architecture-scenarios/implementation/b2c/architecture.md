@@ -68,7 +68,7 @@ When you setup your Auth0 tenant, the URL for accessing that tenant will be `htt
 You are allowed only one custom domain per Auth0 Tenant. This is because a tenant in Auth0 is intended to represent a “domain” of users. If you need more than one vanity URL, then you likely have more than one domain of users and should be using multiple tenants.
 :::
 
-Create your custom domain in all environments early on to ensure that you are testing consistently between environments. Your custom domain name should also give the user confidence that this is the appropriate place to enter their credentials.
+Your custom domain name should also give the user confidence that this is the appropriate place to enter their credentials, and we recommend that you create your custom domain in all environments early on to ensure that you are testing consistently between environments.
 
 ::: panel Best Practice
 Create a custom domain (CNAME) for your Auth0 tenant. Also, create one in development too so you can ensure you have managed the CNAME correctly. For example, `login.mycompany.com` => `mycompany-prod.auth0.com`.
