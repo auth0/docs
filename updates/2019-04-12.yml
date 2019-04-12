@@ -1,0 +1,10 @@
+changed:
+  -
+    title: "Logs - Query Syntax"
+    tags:
+      - logs
+      - log-management
+      - search
+      - query-syntax
+    description: |
+      Updated the [Logs Query Syntax](/logs/query-syntax) to remove temporary limits on the date functionality.
