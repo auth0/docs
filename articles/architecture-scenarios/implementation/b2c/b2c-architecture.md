@@ -16,7 +16,7 @@ useCase:
 Understanding your application is key to understanding how Auth0 can be leveraged to meet your needs. From experience, our most successful customers start with a visualization of their proposed - or in many cases existing - architecture and use this as a basis for reference as they progress. Understanding where your application fits within your organization is also important; Auth0 accounts and tenants form the basis for the grouping and structuring of Auth0 assets, and it may be that you’ll need to leverage an existing Auth0 deployment in order to integrate with Single Sign On (SSO), centralized user profile management, consolidated billing, or the like.
 
 ::: panel Best Practice
-If you do have multiple application, and you need to leverage SSO, then you'll also want to check out our [How to Implement Single Sign On](/learn/how-to-implement-single-sign-on/) training.
+If you do have multiple applications, and you need to leverage SSO, then you'll also want to check out our [How to Implement Single Sign On](https://auth0.com/learn/how-to-implement-single-sign-on/) training.
 :::
 
 ## Design considerations
@@ -57,7 +57,7 @@ Determining the level of isolation you require when it comes to your user domain
 When you setup your Auth0 tenant, the URL for accessing that tenant will be `https://${account.tenant}.auth0.com`. Providing a custom domain, also known as a [vanity URL](/custom-domains), for your Auth0 tenant is an important factor for supporting your Branding requirements, but more importantly will also provide you with security benefits too:
 
 * Some browsers will, by default, make it difficult to communicate in an iFrame if you don't have a shared domain. (Not the case however if you have multiple domain SSO.)
-* It's harder to phish your domain if you have a vanity URL. The phisher must also create a vanity URL to mimic your. For example, with a custom domain, you can use your own certificate to get an "Extended Validation", making phishing even harder.
+* It's harder to phish your domain if you have a vanity URL. The phisher must also create a vanity URL to mimic yours. For example, with a custom domain, you can use your own certificate to get an "Extended Validation", making phishing even harder.
 * You want your users to be trained to look for suspicious URLs when entering their passwords. **This training is extremely important.**
 
 ::: note
@@ -94,7 +94,7 @@ Though Auth0 allows you to create as many free tenants as you'd like, you can on
 
 ## Tenant association
 
-To ensure that your [tenants are all associated with your Auth0 contractual agreement](/dev-lifecycle/child-tenants) and have the same features, ensure you have all of your tenants are associated with your company account. If you have individual developers that want to create their own sandboxes for testing, make sure they get associated with your account so they have the same permissions too. To do this you should contact your Auth0 representative or the Auth0 Support Center at ${env.DOMAIN_URL_SUPPORT}.
+To ensure that your [tenants are all associated with your Auth0 contractual agreement](/dev-lifecycle/child-tenants) and have the same features, ensure all your tenants are associated with your company account. If you have individual developers that want to create their own sandboxes for testing, make sure they get associated with your account so they have the same permissions too. To do this you should contact your Auth0 representative or the Auth0 Support Center at ${env.DOMAIN_URL_SUPPORT}.
 
 ## Keep reading
 
