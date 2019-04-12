@@ -15,6 +15,10 @@ useCase:
 
 In order to provide services to your users, you must be able to identify who those users are. This process is called authentication. There are a number of ways to perform user authentication - via social media accounts, username/password, passwordless - and it's often recommended that you go beyond a first factor for authenticating the user by adding a second factor as well (a.k.a. Multi-factor Authentication).
 
+::: panel Best Practice
+It's important to consider both security and user experience when designing how you will authenticate your users. Providing them multiple primary factors and/or enforcing more than one factor during authentication are ways that you can provide both.
+:::
+
 ## Design considerations
 
 When designing the authentication experience, you will need to consider:
@@ -98,8 +102,7 @@ It is important to consider the user experience when someone first comes to the 
 When an anonymous user accesses your application, it can often be desirable for the application to discover if the user has already logged into a different application in the same family, or to remember this user even if the application is a SPA with no state. For example, if you can determine that the user is already logged in, you might decide to have the header of the application skip displaying a login button and instead have an account or profile menu for the user. To accomplish this you will want to utilize "silent authentication". Silent authentication will allow you to check to see if the user is logged in without prompting them to log in if they are not. Then the application can present a login button if necessary. If the user is logged in already, however, then you will receive tokens and will not have to present the user with a login button again.
 
 ::: warning
-Checking for a login session by redirecting to Auth0 can be really helpful for your application, but if this will result in a lot of requests it is important to employ some sort of throttling mechanism to avoid latency and/or rate limiting.
-<%= include('../../_includes/_rate-limit-policy.md') %>
+Checking for a login session by redirecting to Auth0 can be really helpful for your application, but if this will result in a lot of requests it is important to employ some sort of throttling mechanism to avoid latency and/or rate limiting. <%= include('../../_includes/_rate-limit-policy.md') %>
 :::
 
 ### Deep linking to protected endpoints

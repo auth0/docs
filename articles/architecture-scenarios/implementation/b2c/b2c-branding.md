@@ -40,7 +40,9 @@ When considering the items you want to brand, as well as how best to brand these
 * What do you need to do to provide additional browser security (e.g., implement Extended Validation)?
 * How will you direct users in the event of errors?
 
-The answers to these questions and more are detailed in the [Universal login and login pages](#universal-login-and-login-pages), [Custom domains](#custom-domains), and [Email templates](#email-templates) sections below. 
+Auth0 provides tremendous flexibility when it comes to customizing and configuring Auth0 pages such as [Universal Login](/architecture-scenarios/implementation/b2c/b2c-branding#universal-login-and-login-pages) and [Change Password](/architecture-scenarios/implementation/b2c/b2c-branding#change-password-page-customization). So you can pretty much set up whatever UX look and feel you require. For many, the out-of-the-box experience - with perhaps a little alteration - is all that's required. However, for others the value of their brand and brand awareness requires more extensive customization. This flexibility extends to not only Auth0 pages, but via extensibility can also be applied to the [email templates](/architecture-scenarios/implementation/b2c/b2c-branding#email-template-customization). Auth0 [Custom Domain](/architecture-scenarios/implementation/b2c/b2c-branding#custom-domain-naming) functionality further enhances consumer awareness by providing users with the confidence and peace of mind when it comes to safety and security. 
+
+While Auth0 provides for default information when it comes to error situations, out-of-the-box information can be somewhat cryptic as the context that can only be provided by you is missing. Auth0 [error page customization](/architecture-scenarios/implementation/b2c/b2c-branding#error-page-customization) guidance can however help mitigate that by allowing you to provide information of a more context-specific nature via your own support organization. 
 
 ## Universal login and login pages
 
@@ -78,13 +80,17 @@ At the minimum, we recommend that you provide your visitors with:
 * Visual indicators like a friendly-name and your logo for display
 * An email address and URL for your organization's Support team
 
+::: panel Best Practice
 Out-of-the-box there is no user interface for customizing your error pages, but you can use the [Tenant Settings endpoint of the Management API](/api/management/v2#!/Tenants/patch_settings) to configure them. Alternatively, if you can create and host your error page then you can have Auth0 direct users to that page instead of using the Auth0-hosted option. 
+:::
 
 ## Custom domain naming
 
 By default, the URL associated with your tenant will include its name and possibly a region-specific identifier. For example, tenants based in the US have the URL **example.auth0.com** while those based in Europe have **example.eu.auth0.com**.
 
+::: note
 If you want to use a name that is consistent with your company's brand, you can configure a [custom domain](/custom-domains). Each tenant can support one custom domain name.
+:::
 
 Moreover, the custom domain functionality offers you complete control over the [certificate management](/custom-domains#certificate-management) process. By default, Auth0 provides standard SSL certificates, but if you configure a custom domain, you can use Extra Validation (EV) SSL certificates or similar to provide the visual, browser-based cues that offer your visitors additional peace of mind.
 
