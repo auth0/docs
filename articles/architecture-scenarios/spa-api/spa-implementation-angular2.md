@@ -54,25 +54,31 @@ The best way to manage and coordinate the tasks necessary for user authenticatio
 import { Injectable } from '@angular/core';
 import { AUTH_CONFIG } from './auth0-variables';
 import { Router } from '@angular/router';
-import 'rxjs/add/operator/filter';
-import auth0 from 'auth0-js';
+import * as auth0 from 'auth0-js';
 
 @Injectable()
 export class AuthService {
 
-  userProfile: any;
-  requestedScopes: string = 'openid profile read:timesheets create:timesheets';
+  private _idToken: string;
+  private _accessToken: string;
+  private _expiresAt: number;
 
   auth0 = new auth0.WebAuth({
     clientID: AUTH_CONFIG.clientID,
     domain: AUTH_CONFIG.domain,
     responseType: 'token id_token',
-    audience: AUTH_CONFIG.apiUrl,
-    redirectUri: AUTH_CONFIG.callbackURL,
-    scope: this.requestedScopes
+    redirectUri: AUTH_CONFIG.callbackURL
   });
 
-  constructor(public router: Router) {}
+  constructor(public router: Router) {
+    this._idToken = '';
+    this._accessToken = '';
+    this._expiresAt = 0;
+  }
+
+  get idToken(): string {
+    return this._idToken;
+  }
 
   public login(): void {
     this.auth0.authorize();
@@ -81,54 +87,52 @@ export class AuthService {
   public handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
-        window.location.hash = '';
-        this.setSession(authResult);
+        this.localLogin(authResult);
         this.router.navigate(['/home']);
       } else if (err) {
         this.router.navigate(['/home']);
         console.log(err);
-        alert('Error: <%= "${err.error}" %>. Check the console for further details.');
+        alert(`Error: ${err.error}. Check the console for further details.`);
       }
     });
   }
 
-  private setSession(authResult): void {
-    // Set the time that the Access Token will expire at
-    const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+  private localLogin(authResult): void {
+    // Set the time that the access token will expire at
+    const expiresAt = (authResult.expiresIn * 1000) + Date.now();
+    this._accessToken = authResult.accessToken;
+    this._idToken = authResult.idToken;
+    this._expiresAt = expiresAt;
+  }
 
-    // If there is a value on the scope param from the authResult,
-    // use it to set scopes in the session for the user. Otherwise
-    // use the scopes as requested. If no scopes were requested,
-    // set it to nothing
-    const scopes = authResult.scope || this.requestedScopes || '';
-
-    localStorage.setItem('access_token', authResult.accessToken);
-    localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('expires_at', expiresAt);
-    localStorage.setItem('scopes', JSON.stringify(scopes));
+  public renewTokens(): void {
+    this.auth0.checkSession({}, (err, authResult) => {
+       if (authResult && authResult.accessToken && authResult.idToken) {
+         this.localLogin(authResult);
+       } else if (err) {
+         alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
+         this.logout();
+       }
+    });
   }
 
   public logout(): void {
-    // Remove tokens and expiry time from localStorage
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
-    localStorage.removeItem('scopes');
-    // Go back to the home route
-    this.router.navigate(['/']);
+    // Remove tokens and expiry time
+    this._accessToken = '';
+    this._idToken = '';
+    this._expiresAt = 0;
+
+    this.auth0.logout({
+      return_to: window.location.origin
+    });
   }
 
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
-    // Access Token's expiry time
-    const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
-    return new Date().getTime() < expiresAt;
+    // access token's expiry time
+    return this._accessToken && Date.now() < this._expiresAt;
   }
 
-  public userHasScopes(scopes: Array<string>): boolean {
-    const grantedScopes = JSON.parse(localStorage.getItem('scopes')).split(' ');
-    return scopes.every(scope => grantedScopes.includes(scope));
-  }
 }
 ```
 
@@ -139,6 +143,8 @@ The service includes several methods for handling authentication.
 - __setSession__: sets the user's Access Token, ID Token, and a time at which the Access Token will expire
 - __logout__: removes the user's tokens from browser storage
 - __isAuthenticated__: checks whether the expiry time for the Access Token has passed
+
+For security reasons, we recommend not to expose the tokens externally, and only expose the necessary methods that uses the tokens to call the APIs. 
 
 ### Process the Authentication Result
 
@@ -197,14 +203,14 @@ After authentication, users will be taken to the `/callback` route for a brief t
 This section shows how to retrieve the user info using the Access Token and the [/userinfo endpoint](/api/authentication#get-user-info). Alternatively, you can just decode the ID Token [using a library](https://jwt.io/#libraries-io) (make sure you validate it first). The output will be the same. If you need additional user information consider using the [our Management API](/api/management/v2#!/Users/get_users_by_id).
 :::
 
-To obtain the user's profile, update the existing `AuthService` class. Add a `getProfile` function which will extract the user's Access Token from local storage, and then pass that call the `userInfo` function to retrieve the user's information.
+To obtain the user's profile, update the existing `AuthService` class. Add a `getProfile` function which will fetch the user's Access Token, and then pass that call the `userInfo` function to retrieve the user's information.
 
 ```js
 // Existing code from the AuthService class is omitted in this code sample for brevity
 @Injectable()
 export class AuthService {
   public getProfile(cb): void {
-    const accessToken = localStorage.getItem('access_token');
+    const accessToken = this._idToken;
     if (!accessToken) {
       throw new Error('Access Token must exist to fetch profile');
     }
@@ -271,7 +277,7 @@ The template for this component looks as follows:
 
 ## 4. Display UI Elements Conditionally Based on Scope
 
-During the authorization process we already stored the actual scopes which a user was granted in the local storage. If the `scope` returned in the `authResult` is not empty, it means that a user was issued a different set of scopes than what was initially requested, and we should therefore use `authResult.scope` to determine the scopes granted to the user.
+During the authorization process we already stored the actual scopes which a user was granted in memory. If the `scope` returned in the `authResult` is not empty, it means that a user was issued a different set of scopes than what was initially requested, and we should therefore use `authResult.scope` to determine the scopes granted to the user.
 
 If the `scope` returned in `authResult` is issued is empty, it means the user was granted all the scopes that were requested, and we can therefore use the requested scopes to determine the scopes granted to the user.
 
@@ -280,18 +286,19 @@ Here is the code we wrote earlier for the `setSession` function that does that c
 ```js
 private setSession(authResult): void {
   // Set the time that the Access Token will expire at
-  const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
-
+  const expiresAt = (authResult.expiresIn * 1000) + Date.now();
+  
   // If there is a value on the `scope` param from the authResult,
   // use it to set scopes in the session for the user. Otherwise
   // use the scopes as requested. If no scopes were requested,
   // set it to nothing
   const scopes = authResult.scope || this.requestedScopes || '';
 
-  localStorage.setItem('access_token', authResult.accessToken);
-  localStorage.setItem('id_token', authResult.idToken);
-  localStorage.setItem('expires_at', expiresAt);
-  localStorage.setItem('scopes', JSON.stringify(scopes));
+
+  this._accessToken = authResult.accessToken;
+  this._idToken = authResult.idToken;
+  this._expiresAt = expiresAt;
+  this._scopes = scopes;
   this.scheduleRenewal();
 }
 ```
@@ -304,7 +311,7 @@ export class AuthService {
   // some code omitted for brevity
 
   public userHasScopes(scopes: Array<string>): boolean {
-    const grantedScopes = JSON.parse(localStorage.getItem('scopes')).split(' ');
+    const grantedScopes = this._scopes;
     return scopes.every(scope => grantedScopes.includes(scope));
   }
 }
@@ -395,6 +402,9 @@ export const ROUTES: Routes = [
 
 ## 5. Call the API
 
+While this is possible, you may need to expose an additional getter in `AuthService` to expose your access token. 
+If this is a security concern, you may want to roll the API calls within AuthService to reduce access token exposure.
+
 The [angular2-jwt](https://github.com/auth0/angular2-jwt) module can be used to automatically attach JSON Web Tokens to requests made to your API. It does this by providing an `AuthHttp` class which is a wrapper over Angular's `Http` class.
 
 Install `angular2-jwt`:
@@ -407,15 +417,16 @@ npm install --save angular2-jwt
 yarn add angular2-jwt
 ```
 
-Create a factory function with some configuration values for `angular2-jwt` and add it to the `providers` array in your application's `@NgModule`. The factory function should have a `tokenGetter` function which fetches the `access_token` from local storage.
+Create a factory function with some configuration values for `angular2-jwt` and add it to the `providers` array in your application's `@NgModule`. The factory function should have a `tokenGetter` function which fetches the `access_token` from AuthService.
 
 ```js
 import { Http, RequestOptions } from '@angular/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
+import { AuthService } from './auth.service';
 
-export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+export function authHttpServiceFactory(http: Http, options: RequestOptions, authService: AuthService) {
   return new AuthHttp(new AuthConfig({
-    tokenGetter: (() => localStorage.getItem('access_token'))
+    tokenGetter: (() => authService.accessToken)
   }), http, options);
 }
 
@@ -427,7 +438,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,
-      deps: [Http, RequestOptions]
+      deps: [Http, RequestOptions, AuthService]
     }
   ],
   bootstrap: [...]
@@ -461,7 +472,7 @@ export class TimesheetsService {
 
 ## 6. Renew the Access Token
 
-Renewing the user's Access Token requires to update the Angular SPA. Add a method to the `AuthService` which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
+Renewing the user's Access Token requires to update the Angular SPA. Add a method to the `AuthService` which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens.
 
 ```js
 public renewToken() {
@@ -481,7 +492,7 @@ In the `AuthService` class, add a method called `scheduleRenewal` to set up a ti
 public scheduleRenewal() {
   if (!this.isAuthenticated()) return;
 
-  const expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
+  const expiresAt = this._expires_at;
 
   const source = Observable.of(expiresAt).flatMap(
     expiresAt => {
