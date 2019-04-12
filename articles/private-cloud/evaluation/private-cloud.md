@@ -1,9 +1,7 @@
 ---
 section: private-cloud
 description: Overview of the Private Cloud deployment option
-classes: topic-page
-topics:
-    - private-cloud
+topics: private-cloud
 contentType: concept
 useCase: private-cloud
 ---

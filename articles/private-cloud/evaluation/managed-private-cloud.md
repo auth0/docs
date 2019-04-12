@@ -1,9 +1,7 @@
 ---
 section: private-cloud
-description: Overview of the Managed Private Cloud deployment options
-classes: topic-page
-topics:
-    - managed-private-cloud
+description: Overview of the Managed Private Cloud deployment option
+topics: managed-private-cloud
 contentType: concept
 useCase: private-cloud
 ---
