@@ -30,7 +30,7 @@ The Connector supports authentication based on the following:
 
 * [LDAP](/protocols/ldap)
 * [Kerberos](/connector/kerberos)
-* [Application Certificates](/connector/application-certificates)
+* [Client Certificates](/connector/client-certificates)
 
 ## Cache
 
