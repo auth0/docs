@@ -1,6 +1,6 @@
 ---
-title: User Logout
-description: What to consider for user logout
+title: Logout
+description: Learn about user logout planning considerations for your B2C implementation.
 toc: true
 topics:
     - b2c
@@ -44,7 +44,7 @@ If the logout feature in one application terminates an Auth0 SSO session that is
 
 Once your user logs out, they will be redirected to a specific location of your choosing. This location is specified as the **logout redirect URL**, and you can [define this as a parameter](/logout/guides/redirect-users-after-logout) via the Auth0 Dashboard. 
 
-In [OIDC](/protocols/oidc), this location is specified as the **logout redirect URL**. In Auth0, [you can define this parameter via the Dashboard](/logout/guides/redirect-users-after-logout).
+In [OIDC](/protocols/oidc), this location is specified as the **logout redirect URL**. In Auth0, you can [define this parameter via the Dashboard](/logout/guides/redirect-users-after-logout).
 
 The URL(s) you use to redirect users after logging out must be [whitelisted in the Dashboard](/logout#redirect-users-after-logout) to mitigate open-redirect security vulnerabilities. You can whitelist them at the tenant or application levels.
 
@@ -58,9 +58,9 @@ Not all users will trigger the logout process manually, so Auth0 also provides *
 
 ## Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2c/architecture)
-* [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
-* [Authentication](/architecture-scenarios/implementation/b2c/authentication)
-* [Branding](/architecture-scenarios/implementation/b2c/branding)
-* [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)
-* [User Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
+* [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
+* [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
+* [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
+* [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
+* [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
+* [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)

@@ -1,5 +1,5 @@
 ---
-title: User Provisioning
+title: Provisioning
 description: Understand user provisioning functionality and considerations for your B2C implementation. 
 toc: true
 topics:
@@ -88,9 +88,9 @@ If it doesn't meet your needs, we also have libraries that can be embedded in yo
 
 ## Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2c/architecture)
-* [Authentication](/architecture-scenarios/implementation/b2c/authentication)
-* [Branding](/architecture-scenarios/implementation/b2c/branding)
-* [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)
-* [User Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
-* [User Logout](/architecture-scenarios/implementation/b2c/user-logout)
+* [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
+* [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
+* [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
+* [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
+* [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
+* [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)

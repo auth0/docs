@@ -1,5 +1,5 @@
 ---
-title: Business to Consumer Identity and Access Management Scenarios
+title: Business to Consumer Identity and Access Management
 description: Explains the architecture scenario B2C IAM with an eCommerce or SAAS application.
 topics:
     - b2c
@@ -24,7 +24,7 @@ The information provided is relevant to **all** project stakeholders. We recomme
 
 There are many different ways Auth0 can be integrated into the CIAM project architecture. Auth0's flexibility comprehensively supports many different use cases, however keep in mind that not every project requires 100% of the capabilities provided by Auth0.
 
-When you embark on your journey to integrate with Auth0, there are many things for you to consider. Knowing what, when, and how best to implement something will help you focus on completing the necessary tasks at the right time. To help you with this, we've put together some [planning guidance](/architecture-scenarios/implementation/b2c/planning) that details our recommended strategies.
+When you embark on your journey to integrate with Auth0, there are many things for you to consider. Knowing what, when, and how best to implement something will help you focus on completing the necessary tasks at the right time. To help you with this, we've put together some [planning guidance](/architecture-scenarios/implementation/b2c/b2c-planning) that details our recommended strategies.
 
 ## Implementation checklists
 
@@ -47,11 +47,11 @@ You can find detailed guidance regarding specific functionality and use cases in
 
 ## Keep reading
 
-* [Planning](/architecture-scenarios/implementation/b2c/planning)
-* [Architecture](/architecture-scenarios/implementation/b2c/architecture)
-* [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
-* [Authentication](/architecture-scenarios/implementation/b2c/authentication)
-* [Branding](/architecture-scenarios/implementation/b2c/branding)
-* [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)
-* [User Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
-* [User Logout](/architecture-scenarios/implementation/b2c/user-logout)
+* [Planning](/architecture-scenarios/implementation/b2c/b2c-planning)
+* [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
+* [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
+* [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
+* [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
+* [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
+* [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
+* [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)

@@ -1,5 +1,5 @@
 ---
-title: User Profile Management
+title: Profile Management
 description: Learn about user profile management planning considerations for your B2C implementation. 
 toc: true
 topics:
@@ -76,7 +76,7 @@ Use of Metadata should follow Auth0 [best practice guidance](/best-practices/use
 At login, the identity provider updates information in the [Normalized User Profile](/users/normalized/auth0) and you can change a limited set of data through the Auth0 Management API. You can also use Auth0 Rules to override information in the Normalized User Profile. 
 
 ::: warning
-A user profile cannot be directly accessed across multiple Auth0 tenants. See [Architecture](/architecture-scenarios/implementation/b2c/architecture) for details.
+A user profile cannot be directly accessed across multiple Auth0 tenants. See [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture) for details.
 :::
 
 ### User metadata
@@ -121,9 +121,9 @@ The Auth0 Management API also provides you with the ability to unblock users dis
 
 ## Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2c/architecture)
-* [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
-* [Authentication](/architecture-scenarios/implementation/b2c/authentication)
-* [Branding](/architecture-scenarios/implementation/b2c/branding)
-* [User Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
-* [User Logout](/architecture-scenarios/implementation/b2c/user-logout)
+* [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
+* [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
+* [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
+* [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
+* [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
+* [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)

@@ -1,5 +1,4 @@
 ---
-title: Planning Your Consumer Identity and Access Management Integration
 description: Why it's important to plan your Consumer Identity and Access Management Implementation prior to beginning the integration
 toc: false
 topics:
@@ -37,20 +36,20 @@ The diagram below provides an overall view of the planning associated with Phase
 
 ### Architecture
 
-[Architecture](/architecture-scenarios/implementation/b2c/architecture) is the first workstream you will cover, with tenant provision being the precursor to all others. Other topics to address at this stage include: 
+[Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture) is the first workstream you will cover, with tenant provision being the precursor to all others. Other topics to address at this stage include: 
 
-* [Tenant provision](/architecture-scenarios/implementation/b2c/architecture#tenant-provision)
-* [Custom domains](/architecture-scenarios/implementation/b2c/architecture#custom-domains)
-* [Software Development Life Cycle (SDLC) support](/architecture-scenarios/implementation/b2c/architecture#sdlc-support)
-* [Tenant association](/architecture-scenarios/implementation/b2c/architecture#tenant-association)
+* [Tenant provision](/architecture-scenarios/implementation/b2c/b2c-architecture#tenant-provision)
+* [Custom domains](/architecture-scenarios/implementation/b2c/b2c-architecture#custom-domains)
+* [Software Development Life Cycle (SDLC) support](/architecture-scenarios/implementation/b2c/b2c-architecture#sdlc-support)
+* [Tenant association](/architecture-scenarios/implementation/b2c/b2c-architecture#tenant-association)
     
 ### Provisioning
 
-[User provisioning](/architecture-scenarios/implementation/b2c/user-provisioning) is the next workstream, and this can be done in parallel with [user authentication](#user-authentication). We've found that the most successful implementations address the following topics at this state during phase 1, however precisely what you tackle will depend on your specific requirements. For example, you may not need user migration, or you may already have an existing sign up mechanism that can be leveraged. The user provisioning workstream includes setting up:
+[Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning) is the next workstream, and this can be done in parallel with [authentication](#authentication). We've found that the most successful implementations address the following topics at this state during phase 1, however precisely what you tackle will depend on your specific requirements. For example, you may not need user migration, or you may already have an existing sign up mechanism that can be leveraged. The user provisioning workstream includes setting up:
 
-* [Store user data](/architecture-scenarios/implementation/b2c/user-provisioning#store-user-data)
-* [User migration](/architecture-scenarios/implementation/b2c/user-provisioning#user-migration)
-* [User sign up](/architecture-scenarios/implementation/b2c/user-provisioning#user-signup)
+* [Store user data](/architecture-scenarios/implementation/b2c/b2c-provisioning#store-user-data)
+* [User migration](/architecture-scenarios/implementation/b2c/b2c-provisioning#user-migration)
+* [User sign up](/architecture-scenarios/implementation/b2c/b2c-provisioning#user-signup)
 
 ::: panel Best Practice
 The Auth0 Dashboard in conjunction with the [Delegated Administration Extension](/extensions/delegated-admin/v3) can be used out-of-the-box to provide for user provisioning and deprovisioning as described in this [Auth0 blog post](https://auth0.com/blog/delegated-admin-v2/). If you require more comprehensive deprovisioning functionality, for compliance reasons for example, then we recommend you do so in a later phase.
@@ -58,26 +57,26 @@ The Auth0 Dashboard in conjunction with the [Delegated Administration Extension]
 
 ### Authentication
 
-[Authentication](/architecture-scenarios/implementation/b2c/authentication) comes next and can be done in parallel with user provisioning. Topics to address at this point include:
+[Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication) comes next and can be done in parallel with user provisioning. Topics to address at this point include:
 
-* [Universal login](/architecture-scenarios/implementation/b2c/authentication#universal-login)
-* [Username and password authentication](/architecture-scenarios/implementation/b2c/authentication#username-and-password-authentication)
-* [Anomaly detection](/architecture-scenarios/implementation/b2c/authentication#anomaly-detection)
-* [Application integration](/architecture-scenarios/implementation/b2c/authentication#application-integration)
+* [Universal login](/architecture-scenarios/implementation/b2c/b2c-authentication#universal-login)
+* [Username and password authentication](/architecture-scenarios/implementation/b2c/b2c-authentication#username-and-password-authentication)
+* [Anomaly detection](/architecture-scenarios/implementation/b2c/b2c-authentication#anomaly-detection)
+* [Application integration](/architecture-scenarios/implementation/b2c/b2c-authentication#application-integration)
 
 ### Branding
 
-[Branding](/architecture-scenarios/implementation/b2c/branding) can be done in parallel with user provisioning and authentication. Topics to address at this point will include:
+[Branding](/architecture-scenarios/implementation/b2c/b2c-branding) can be done in parallel with user provisioning and authentication. Topics to address at this point will include:
 
-* [Universal Login page customization](/architecture-scenarios/implementation/b2c/branding#universal-login-and-login-pages)
-* [Change Password page customization](/architecture-scenarios/implementation/b2c/branding#change-password-page-customization)
-* [Error page customization](/architecture-scenarios/implementation/b2c/branding#error-page-customization)
-* [Custom domain naming](/architecture-scenarios/implementation/b2c/branding#custom-domain-naming)
-* [Email template customization](/architecture-scenarios/implementation/b2c/branding#email-template-customization)
+* [Universal Login page customization](/architecture-scenarios/implementation/b2c/b2c-branding#universal-login-and-login-pages)
+* [Change Password page customization](/architecture-scenarios/implementation/b2c/b2c-branding#change-password-page-customization)
+* [Error page customization](/architecture-scenarios/implementation/b2c/b2c-branding#error-page-customization)
+* [Custom domain naming](/architecture-scenarios/implementation/b2c/b2c-branding#custom-domain-naming)
+* [Email template customization](/architecture-scenarios/implementation/b2c/b2c-branding#email-template-customization)
 
 From here on you’ll be working towards Milestone 2, and then on to Milestone 3 which will take you to production Go-Live. As you progress through the remaining workstreams and topics you can start to align your Auth0 tenants with your SDLC, and you’ll be steadily and progressively reducing risk as you go. You’ll also have the opportunity to demonstrate further functionality to stakeholders, which will also help you to garner feedback from the rest of the business:
 
-### Automation
+### Deployment automation
 
 Up until now you’ve most likely been working with the one Auth0 development tenant created as part of provisioning. Auth0 tooling to automate deployment of assets will now allow you to utilize tenant provision for QA  in preparation for your testing effort, and also production - providing you with a stable environment which can be used for demonstration and evaluation. 
 
@@ -91,20 +90,20 @@ Quality assurance mechanism should now be employed to ensure any breakages due t
 
 ### Profile management
 
-[Profile management](/architecture-scenarios/implementation/b2c/profile-mgmt) will address the most common cases for the changes users will want to make to their profiles. We've found the most successful implementations address the following topics at this point during Phase 1, however precisely what you tackle will depend on your specific requirements (for example, you won't need to provide for user metadata management if you're not using user metadata):
+[Profile management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt) will address the most common cases for the changes users will want to make to their profiles. We've found the most successful implementations address the following topics at this point during Phase 1, however precisely what you tackle will depend on your specific requirements (for example, you won't need to provide for user metadata management if you're not using user metadata):
 
-* [Managing metadata](/architecture-scenarios/implementation/b2c/user-profile-mgmt#metadata)
-* [Resetting passwords](/architecture-scenarios/implementation/b2c/user-profile-mgmt#password-reset)
-* [Verifying accounts](/architecture-scenarios/implementation/b2c/user-profile-mgmt#account-verification)
-* [Blocking users](/architecture-scenarios/implementation/b2c/user-profile-mgmt#blocking-users)
+* [Managing metadata](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt#metadata)
+* [Resetting passwords](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt#password-reset)
+* [Verifying accounts](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt#account-verification)
+* [Blocking users](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt#blocking-users)
 
 ### Authorization
 
-[Authorization](/architecture-scenarios/implementation/b2c/authorization) is, for customers who have specific access control requirements, the next thing on the agenda, and the focus for Phase 1 will be centered on how custom [ID Token Claims](/architecture-scenarios/implementation/b2c/authorization#id-token-claims) can be leveraged to support this.
+[Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization) is, for customers who have specific access control requirements, the next thing on the agenda, and the focus for Phase 1 will be centered on how custom [ID Token Claims](/architecture-scenarios/implementation/b2c/b2c-authorization#id-token-claims) can be leveraged to support this.
 
-### User logout
+### Logout
 
-At some stage users will want to log out of your system, and you'll need to decide exactly what this looks like. This is tackled in the [Logout](/architecture-scenarios/implementation/b2c/logout) workstream. Auth0 supports several variations when it comes to logout, giving you flexibility to choose what works best for your implementation.
+At some stage users will want to log out of your system, and you'll need to decide exactly what this looks like. This is tackled in the [Logout](/architecture-scenarios/implementation/b2c/b2c-logout) workstream. Auth0 supports several variations when it comes to logout, giving you flexibility to choose what works best for your implementation.
 
 ### Operations
 

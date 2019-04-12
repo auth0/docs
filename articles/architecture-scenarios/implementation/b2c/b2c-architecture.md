@@ -36,10 +36,6 @@ It’s not uncommon for companies to have identity requirements that address mul
 
 In addition, you’ll undoubtedly have an established set of processes and procedures as part of your Software Development Lifecycle (SDLC), so you’ll want to check out our [SDLC support](#sdlc-support) guidance regarding Auth0 Tenant provision in support of that too. 
 
-::: panel Best Practice
-You can also take advantage of our [Implementation Checklists](/architecture-scenarios/checklists) that you can download and customize to meet your implementation project needs.
-:::
-
 For customer facing applications we typically see [OpenID Connect (OIDC)](/protocols/oidc) as being the most frequently used protocol. OIDC makes use of web based workflows with browser URLs that are presented to the user. Out-of-the-box, client facing URLs as part of Auth0 OIDC support are Auth0 branded, however we recommend using the Auth0 custom domain capability to provide for consistent corporate identity and to also address potential user confidence concerns before they arise. 
 
 ::: panel Best Practice
@@ -54,7 +50,7 @@ Everything starts with an Auth0 tenant. This is where you will be configuring yo
 Tenant names cannot be changed or reused once deleted. So, make sure you're happy with your name(s) before you create your Auth0 tenants.
 :::
 
-Determining the level of isolation you require when it comes to your user domains is an important step, and together with your branding requirements will subsequently help you determine the number of Auth0 tenants that will be required in your production environment. As we recommend you create a full suite of SDLC supporting tenants for every Auth0 tenant you will run in a production environment the number of Auth0 tenants you will need to manage can quickly grow. Therefore you should consider carefully before creating multiple Auth0 tenants for production, and should consult our guidance on [Branding](/architecture-scenarios/implementation/b2c/branding) before making your final decision. 
+Determining the level of isolation you require when it comes to your user domains is an important step, and together with your branding requirements will subsequently help you determine the number of Auth0 tenants that will be required in your production environment. As we recommend you create a full suite of SDLC supporting tenants for every Auth0 tenant you will run in a production environment the number of Auth0 tenants you will need to manage can quickly grow. Therefore you should consider carefully before creating multiple Auth0 tenants for production, and should consult our guidance on [Branding](/architecture-scenarios/implementation/b2c/b2c-branding) before making your final decision. 
 
 ## Custom domains
 
@@ -71,10 +67,10 @@ You are allowed only one custom domain per Auth0 Tenant. This is because a tenan
 Your custom domain name should also give the user confidence that this is the appropriate place to enter their credentials, and we recommend that you create your custom domain in all environments early on to ensure that you are testing consistently between environments.
 
 ::: panel Best Practice
-Create a custom domain (CNAME) for your Auth0 tenant. Also, create one in development too so you can ensure you have managed the CNAME correctly. For example, `login.mycompany.com` => `mycompany-prod.auth0.com`.
+Create a custom domain (`CNAME`) for your Auth0 tenant. Also, create one in development too so you can ensure you have managed the `CNAME` correctly. For example, `login.mycompany.com` => `mycompany-prod.auth0.com`.
 :::
 
-In almost all cases, customers have been most successful when adopting a strategy of a centralised domain for authentication across multiple product or service brands. This strategy provides users with a consistent UX, and also mitigates the complexity of deploying and maintaining multiple Auth0 tenants in a production environment. If you are considering having multiple domains for different brands, please refer to the [Branding](/architecture-scenarios/implementation/b2c/branding) guidance before you begin implementing.
+In almost all cases, customers have been most successful when adopting a strategy of a centralised domain for authentication across multiple product or service brands. This strategy provides users with a consistent UX, and also mitigates the complexity of deploying and maintaining multiple Auth0 tenants in a production environment. If you are considering having multiple domains for different brands, please refer to the [Branding](/architecture-scenarios/implementation/b2c/b2c-branding) guidance before you begin implementing.
 
 ## SDLC support
 
@@ -88,6 +84,10 @@ Every company has some form of software development life cycle. Throughout the d
 
 You may also want to create one or more sandboxes (e.g., **company-sandbox1**, **company-sandbox2**) so that you can test changes without compromising your development environment. This might be where you test deployment scripts and the like.
 
+::: panel Best Practice
+You can also take advantage of our [Implementation Checklists](/architecture-scenarios/checklists) that you can download and customize to meet your implementation project needs.
+:::
+
 ::: warning
 Though Auth0 allows you to create as many free tenants as you'd like, you can only have **three** tenants with paid features enabled.
 :::
@@ -98,9 +98,9 @@ To ensure that your [tenants are all associated with your Auth0 contractual agre
 
 ## Keep reading
 
-* [User Provisioning](/architecture-scenarios/implementation/b2c/user-provisioning)
-* [Authentication](/architecture-scenarios/implementation/b2c/authentication)
-* [Branding](/architecture-scenarios/implementation/b2c/branding)
-* [User Profile Management](/architecture-scenarios/implementation/b2c/user-profile-mgmt)
-* [User Authorization](/architecture-scenarios/implementation/b2c/user-authorization)
-* [User Logout](/architecture-scenarios/implementation/b2c/user-logout)
+* [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
+* [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
+* [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
+* [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
+* [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
+* [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)

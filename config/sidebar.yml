@@ -92,28 +92,28 @@ articles:
         url: /architecture-scenarios/b2c
         children:
             - title: Planning
-              url: /architecture-scenarios/implementation/b2c/planning
+              url: /architecture-scenarios/implementation/b2c/b2c-planning
 
             - title: Architecture
-              url: /architecture-scenarios/implementation/b2c/architecture
+              url: /architecture-scenarios/implementation/b2c/b2c-architecture
 
             - title: User Provisioning
-              url: /architecture-scenarios/implementation/b2c/user-provisioning
+              url: /architecture-scenarios/implementation/b2c/b2c-provisioning
 
             - title: Authentication
-              url: /architecture-scenarios/implementation/b2c/authentication
+              url: /architecture-scenarios/implementation/b2c/b2c-authentication
 
             - title: Branding
-              url: /architecture-scenarios/implementation/b2c/branding
+              url: /architecture-scenarios/implementation/b2c/b2c-branding
 
             - title: User Profile Management
-              url: /architecture-scenarios/implementation/b2c/user-profile-mgmt
+              url: /architecture-scenarios/implementation/b2c/b2c-profile-mgmt
 
             - title: User Authorization
-              url: /architecture-scenarios/implementation/b2c/user-authorization
+              url: /architecture-scenarios/implementation/b2c/b2c-authorization
 
             - title: User Logout
-              url: /architecture-scenarios/implementation/b2c/user-logout
+              url: /architecture-scenarios/implementation/b2c/b2c-logout
 
       - title: Business to Enterprise
         url: /architecture-scenarios/b2e
