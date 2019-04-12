@@ -14,7 +14,7 @@ useCase:
 
 This guide focuses on how to integrate Auth0 within a Consumer Identity and Access Management (CIAM) project. Auth0's recommendations are based on real-world customer implementation experience and by following the guidance provided, you will set up your project for success.
 
-Customers using Auth0 for consumer-focused, also know as Business-to-Consumer (B2C),  projects typically share a common set of goals and objectives, and in the sections that follow, we'll focus on our experiences working with this shared set of expectations to help you deliver your solution efficiently.
+Customers using Auth0 for consumer-focused, also known as Business-to-Consumer (B2C), projects typically share a common set of goals and objectives, and in the sections that follow, we'll focus on our experiences working with this shared set of expectations to help you deliver your solution efficiently.
 
 ::: note
 The information provided is relevant to **all** project stakeholders. We recommend reading through this guidance in its entirety at least once, even if you've already started your journey with Auth0.
