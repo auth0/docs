@@ -27,7 +27,7 @@ Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundle
 
 ```xml
 <key>CFBundleIdentifier</key>
-<string>auth0.samples.Auth0Sample</string>
+<string>auth0.samples.Auth0Samples</string>
 ```
 
 #### Android Callback
@@ -41,7 +41,7 @@ Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's packa
 You can find this at the top of your `AndroidManifest.xml` file located in the `android/app/src/main/` folder. In the sample project the value is:
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.auth0sample"
+    package="com.auth0samples"
 ```
 
 ## Install Dependencies 
