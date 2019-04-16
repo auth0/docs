@@ -13,7 +13,7 @@ useCase:
 
 # Architecture
 
-Understanding your application is key to understanding how Auth0 can be leveraged to meet your needs. From experience, our most successful customers start with a visualization of their proposed - or in many cases existing - architecture and use this as a basis for reference as they progress. Understanding where your application fits within your organization is also important; Auth0 [Accounts and Tenants](getting-started/the-basics#account-and-tenants) form the basis for the grouping and structuring of Auth0 assets, and it may be that you’ll need to leverage an existing Auth0 deployment in order to integrate with Single Sign On ([SSO](sso/current/introduction)), centralized user [Profile Management](articles/architecture-scenarios/implementation/b2c/b2c-profile-mgmt), consolidated billing, or the like.
+Understanding your application is key to understanding how Auth0 can be leveraged to meet your needs. From experience, our most successful customers start with a visualization of their proposed - or in many cases existing - architecture and use this as a basis for reference as they progress. Understanding where your application fits within your organization is also important; Auth0 [Accounts and Tenants](/getting-started/the-basics#account-and-tenants) form the basis for the grouping and structuring of Auth0 assets, and it may be that you’ll need to leverage an existing Auth0 deployment in order to integrate with Single Sign On ([SSO](sso/current/introduction)), centralized user [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt), consolidated billing, or the like.
 
 ::: panel Best Practice
 If you do have multiple applications, and you need to leverage SSO, then we recommend you check out our [How to Implement Single Sign On](https://auth0.com/learn/how-to-implement-single-sign-on/) training guidance before continuing.
@@ -42,7 +42,7 @@ Other groups within your organisation may also be working with Auth0; it’s not
 
 ## Tenant provision
 
-Everything starts with an Auth0 tenant. This is where you will be configuring your use of Auth0, and the where Auth0 assets - such as [Applications](/applications), [Connections](/connections) and [User Profiles](articles/architecture-scenarios/implementation/b2c/b2c-profile-mgmt) are defined, managed and stored. Access to an Auth0 tenant is performed via the Auth0 [Dashboard](/dashboard), and via the Dashboard you can also create additional, associated tenants; you’re allowed to create more than one Auth0 tenant so that you can structure your tenants in a way that will isolate different domains of users and also support your [Software Development Life Cycle](#sdlc-support)(SDLC).
+Everything starts with an Auth0 tenant. This is where you will be configuring your use of Auth0, and the where Auth0 assets - such as [Applications](/applications), [Connections](/connections) and [User Profiles](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt) are defined, managed and stored. Access to an Auth0 tenant is performed via the Auth0 [Dashboard](/dashboard), and via the Dashboard you can also create additional, associated tenants; you’re allowed to create more than one Auth0 tenant so that you can structure your tenants in a way that will isolate different domains of users and also support your [Software Development Life Cycle](#sdlc-support)(SDLC).
 
 ::: warning
 Tenant names cannot be changed or reused once deleted. So, make sure you're happy with your name(s) before you create your Auth0 tenants.
