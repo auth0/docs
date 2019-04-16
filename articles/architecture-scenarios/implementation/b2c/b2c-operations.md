@@ -56,75 +56,57 @@ In the event of an outage to the public cloud service, Auth0 performs a Root Cau
 
 There are several different types of notifications from Auth0 that you should watch for as they contain important information that could impact your tenant(s) and project.
 
-
-
-
-
-
-
-Organizations often service more than one domain of user - customers, employees, and affiliates - being the most frequently encountered, and typically there’s little to no cross-over: employees, say,  don’t use the same applications as customers and vice-versa. In some cases there can also be a need to partition further within a domain - separate groups of customers, say, who use different and unconnected products. Auth0 provides a way to segregate your users and the associated collateral, and [tenant provision](#tenant-provision) covers this in more detail. If you need to provision an independent tenant then you’ll also want to [associate this with your existing Auth0 account](/dev-lifecycle/child-tenants), so that you can take full advantage of the benefits provided at your organization’s contracted subscription level.
-
-
-In addition, you’ll undoubtedly have an established set of processes and procedures as part of your Software Development Lifecycle (SDLC), so you’ll want to check out our [SDLC support](#sdlc-support) guidance regarding Auth0 Tenant provision in support of that too. 
-
-For customer facing applications we typically see [OpenID Connect (OIDC)](/protocols/oidc) as being the most frequently used protocol. OIDC makes use of web based workflows with browser URLs that are presented to the user. Out-of-the-box, client facing URLs as part of Auth0 OIDC support are Auth0 branded, however we recommend using the Auth0 custom domain capability to provide for consistent corporate identity and to also address potential user confidence concerns before they arise. 
-
-::: panel Best Practice
-Other groups within your organisation may also be working with Auth0; it’s not uncommon for our customers to have disparate departments that serve different user communities. Identifying these will potentially influence your design choices, and doing so early could mitigate decisions that might prove costly later on.
-:::
-
-## Tenant provision
-
-Everything starts with an Auth0 tenant. This is where you will be configuring your use of Auth0, and the where Auth0 assets - such as [Applications](/applications), [Connections](/connections) and [User Profiles](articles/architecture-scenarios/implementation/b2c/b2c-profile-mgmt) are defined, managed and stored. Access to an Auth0 tenant is performed via the Auth0 [Dashboard](/dashboard), and via the Dashboard you can also create additional, associated tenants; you’re allowed to create more than one Auth0 tenant so that you can structure your tenants in a way that will isolate different domains of users and also support your [Software Development Life Cycle](#sdlc-support)(SDLC).
-
-::: warning
-Tenant names cannot be changed or reused once deleted. So, make sure you're happy with your name(s) before you create your Auth0 tenants.
-:::
-
-Determining the level of isolation you require when it comes to your user domains is an important step, and together with your branding requirements will subsequently help you determine the number of Auth0 tenants that will be required in your production environment. As we recommend you create a full suite of [SDLC supporting tenants](#sdlc-support) for every Auth0 tenant you will run in a production environment, the number of Auth0 tenants you will need to manage can quickly grow. Therefore you should consider carefully before creating multiple Auth0 tenants for production, and should consult our guidance on [Branding](/architecture-scenarios/implementation/b2c/b2c-branding) before making your final decision. 
-
-## Custom domains
-
-When you setup your Auth0 tenant, the URL for accessing that tenant will be of the form  `https://${account.tenant}.auth0.com`. Providing a custom domain, also known as a [vanity URL](/custom-domains), for your Auth0 tenant is not only an important factor for supporting your Branding requirements, but more importantly will also provide you with security benefits too:
-
-* Some browsers will, by default, make it difficult to communicate in an iFrame if you don't have a shared domain (see [here](/api-auth/token-renewal-in-safari) for further information).
-* It's harder to phish your domain if you have a vanity URL as the phisher must also create a vanity URL to mimic yours (see [here](https://auth0.com/blog/introducing-custom-domains-preview-with-auth0/) for further information). For example, with a custom domain, you can use your own certificate to get an "Extended Validation", making phishing even harder.
-
 ::: note
-You are allowed only one custom domain per Auth0 Tenant. This is because a tenant in Auth0 is intended to represent a “domain” of users. If you need more than one vanity URL, then you likely have more than one domain of users and should be using multiple tenants.
+Proactive security notifications and other operational announcements are sent by Auth0 to dashboard administrators. You should ensure that the people who need to receive such messages are dashboard administrators.
 :::
 
-Your custom domain name should also give the user confidence that this is the appropriate place to enter their credentials, and we recommend that you create your custom domain in all environments early on to ensure that you are testing consistently between environments. **It's extremely important to train your users to to look for suspicious URLs when entering their credentials**
+### Dashboard Notifications
+
+From time to time, Auth0 may send an important announcement related to your tenant. These announcements about your service will be sent to your Auth0 dashboard and depending on the severity of the announcement, via email to the registered Auth0 Dashboard Admins. You should make a regular practice of logging in to the dashboard and checking the bell icon at the top for any important notices. In addition, you should review emails from Auth0 in a timely fashion as they may convey important information about changes or actions you need to take.
+
+### Auth0 Security Bulletins
+
+Auth0 regularly conducts a number of security-related tests, and if any issues are found will proactively identify and notify customers who need to make security-related changes. Due to the extensible nature of the Auth0 product however, it may not be possible for Auth0 to identify every impacted customer, so you should regularly check Auth0 [security bulletins](/docs/security/bulletins). You should make sure a security contact is listed in Support Center for your organization.
 
 ::: panel Best Practice
-Create a custom domain (a.k.a. `CNAME`) for your Auth0 tenant, and also create one in development too so you can ensure you have managed the `CNAME` correctly. For example, youc could create a `CNAME` which maps `login.mycompany.com` to `mycompany-prod.auth0.com`.
+It is a best practice to check the Auth0 [Security Bulletins](/security/bulletins) page periodically and take the recommended action if you are impacted by any security bulletins.
 :::
 
-In almost all cases, customers have been most successful when adopting a strategy of a centralised domain for authentication across multiple product or service brands. This strategy provides users with a consistent UX, and also mitigates the complexity of deploying and maintaining multiple Auth0 tenants in a production environment. If you are considering having multiple domains for different brands, please refer to the [Branding](/architecture-scenarios/implementation/b2c/b2c-branding) guidance before you begin implementing.
+### Change Log
 
-## SDLC support
+Auth0 provides information on changes to the service in the Auth0 change log (https://auth0.com/changelog). You should make a regular practice of reviewing Auth0 change logs to be aware of changes. Support teams researching an issue may find it useful to review the change log to determine if recent changes might be related, especially if these are [breaking changes](docs/migrations). Development teams will also want to review the change logs to identify new features that may be beneficial.
 
-Every company has some form of software development life cycle, and throughout the development process you will want to align with that strategy. For instance, you we need to be able to test your integration with Auth0 in a similar fashion as you test the applications themselves. It is therefore important to [structure Auth0 tenants to support your SDLC](/dev-lifecycle/setting-up-env), and there is a consistent pattern which our customers typically follow when it comes to the best practices associated with tenant layout for doing so:
+## Logging
 
-| Environment | Sample Tenant Name | Description |
-| - | - | - |
-| Development | **company-dev** | A shared environment where most of your development work occurs |
-| QA/Testing | **company-qa** or **company-uat** | An environment for formal testing of the changes you've made |
-| Production | **company-prod** | The production tenant |
-
-In some cases you may also want to create one or more sandboxes (e.g., **company-sandbox1**, **company-sandbox2**) so that you can test changes without compromising your development environment. This might be where you test deployment scripts and the like.
+Auth0 provides extensive capability when it comes to the logging of events, and also in the scanning of logs in order to identify event anomalies (see https://auth0.com/docs/logs for further details). Standard log retention period for Auth0 logs is determined by subscription level with the shortest period being 2 days and the longest period being only 30 days. Leveraging Auth0 support for integrating with external logging services will allow you to retain log outside of this, and will also provide for log aggregation across your organization.  
 
 ::: panel Best Practice
-You can also take advantage of our [Implementation Checklists](/architecture-scenarios/checklists) that you can download and customize to meet your implementation project needs.
+You should leverage one of the Auth0 logs extensions to send log data to an external logs analytics service.  This will enable keeping data for longer periods of time and provide advanced analytics on the logs data.
 :::
 
-::: warning
-Though Auth0 allows you to create as many free tenants as you'd like, you may be limited for the number of tenants where all paid features are enabled. By default, you are provided with **three** tenants where all features are available.
+You should review the logs data [retention period](/logs#how-long-is-log-file-data-available-) for your subscription level, and implement a logs data export extension to send log data to an external logs analytics service. Development teams can use log files for troubleshooting and detecting intermittent errors that may be hard to find via QA tests. Security teams will probably want log data in case forensic data is ever needed. Exporting log files to services that provide comprehensive analytics can help you see patterns such as usage trends and anomaly detection triggers. 
+
+### Rate Limits and other errors
+
+Auth0 provides a unique error code for errors reported when the [rate limit is exceeded](/policies/rate-limits#exceeding-the-rate-limit). You should set up automatic scanning of logs to check for rate limit errors so you can proactively address activity that hits rate limits before it causes too much trouble for your users. Auth0 also publishes error codes for other types of errors, and you will find it helpful to scan logs for [authentication errors](/libraries/error-messages) as well as errors from Auth0 Management API calls (Management API error codes are shown below each call in the [Management API Explorer](/api/management/v2)).
+
+::: panel Best Practice
+Calling the management API to retrieve user profile information from within a Rule is a common cause of rate limit errors because such API calls can execute for every login as well as periodic session checks.
 :::
 
-## Tenant association
+## Email Provider Setup
 
-To ensure that your [tenants are all associated with your Auth0 contractual agreement](/dev-lifecycle/child-tenants) and have the same features, ensure all your tenants are associated with your company account. If you have individual developers that want to create their own sandboxes for testing, make sure they get associated with your account so they have the same permissions too. To do this you should contact your Auth0 representative or the Auth0 Support Center at ${env.DOMAIN_URL_SUPPORT}.
+Auth0 sends emails to users for events such as signup welcome, email validation, breached password and password reset events (see https://auth0.com/docs/email for further details). You can customize the email templates for each type of event, and advanced customization of email handling is also possible. Auth0 provides a test email provider with limited capacity for basic testing but you must set up your own email provider for production use, and customization of email templates will not work until you have established your own provider. 
+
+::: panel Best Practice
+The default Auth0 email provider does not support sending production volumes of email or customization of email templates. You should therefore configure your own email provider before deploying to production.
+:::
+
+## Infrastructure
+
+### Firewalls
+
+If custom code executing in Auth0 (such as in a Rule, Hook or Custom DB scripts) will call a service inside your network, or if you configure an on-premise SMTP provider in Auth0, then you may need to configure your firewall to allow [inbound traffic from Auth0](/guides/ip-whitelist#inbound-calls). The IP addresses to allow through the firewall are specific to each region and are listed on the Rules, Hooks, Custom DB scripts and Email provider configuration screens in your Auth0 dashboard (as described by the guidance provided [here](/guides/ip-whitelist)).
 
 ## Keep reading
 
