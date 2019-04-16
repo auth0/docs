@@ -15,6 +15,8 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Scala', callback: 'http://localhost:3000/callback' }) %>
 
+<%= include('../../../_includes/_logout_url') %>
+
 ## Configure Scala to Use Auth0
 
 ### Add the Auth0 Callback Handler
