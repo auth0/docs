@@ -6,7 +6,7 @@ topics:
     - qa
     - b2c
     - ciam
-    - user-authorization
+    - quality
 contentType: concept
 useCase:
   - quality-assurance
