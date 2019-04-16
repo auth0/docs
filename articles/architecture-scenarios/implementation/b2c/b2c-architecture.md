@@ -13,7 +13,7 @@ useCase:
 
 # Architecture
 
-Understanding your application is key to understanding how Auth0 can be leveraged to meet your needs. From experience, our most successful customers start with a visualization of their proposed - or in many cases existing - architecture and use this as a basis for reference as they progress. Understanding where your application fits within your organization is also important; Auth0 accounts and tenants form the basis for the grouping and structuring of Auth0 assets, and it may be that you’ll need to leverage an existing Auth0 deployment in order to integrate with Single Sign On (SSO), centralized user profile management, consolidated billing, or the like.
+Understanding your application is key to understanding how Auth0 can be leveraged to meet your needs. From experience, our most successful customers start with a visualization of their proposed - or in many cases existing - architecture and use this as a basis for reference as they progress. Understanding where your application fits within your organization is also important; Auth0 [Accounts and Tenants](/docs/getting-started/the-basics#account-and-tenants) form the basis for the grouping and structuring of Auth0 assets, and it may be that you’ll need to leverage an existing Auth0 deployment in order to integrate with Single Sign On ([SSO](sso/current/introduction)), centralized user [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt), consolidated billing, or the like.
 
 ::: panel Best Practice
 If you do have multiple applications, and you need to leverage SSO, then you'll also want to check out our [How to Implement Single Sign On](https://auth0.com/learn/how-to-implement-single-sign-on/) training.
