@@ -109,6 +109,12 @@ articles:
             - title: Branding
               url: /architecture-scenarios/implementation/b2c/b2c-branding
 
+            - title: Deployment Automation
+              url: /architecture-scenarios/implementation/b2c/b2c-deployment
+
+            - title: Quality Assurance
+              url: /architecture-scenarios/implementation/b2c/b2c-qa
+
             - title: Profile Management
               url: /architecture-scenarios/implementation/b2c/b2c-profile-mgmt
 
@@ -117,6 +123,9 @@ articles:
 
             - title: Logout
               url: /architecture-scenarios/implementation/b2c/b2c-logout
+
+            - title: Operations
+              url: /architecture-scenarios/implementation/b2c/b2c-operations
 
       - title: Business to Employees
         url: /architecture-scenarios/b2e
