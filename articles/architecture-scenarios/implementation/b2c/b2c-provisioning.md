@@ -16,15 +16,30 @@ useCase:
 ---
 # Provisioning
 
-User provisioning is the process of adding users to your system. When you define your user provisioning process, you'll determine:
+Determining how users get signed up is important to address early, and the decisions you make here will influence many of the decisions you’ll need to make going forward. We’ve found there are a typical set of patterns for how users will get added to your system, and things to take note of when considering workflow design too.
 
-* How you will store your users' profiles
-* How you will migrate existing users to your new system
-* How new users will sign up
+::: panel Best Practice
+Whilst Auth0 supports numerous workflows, web based workflows using Auth0 [Universal Login](/hosted-pages/login) for sign up are considered both industry and Auth0 best practice as they provide for optimal functionality and the best security.
+:::
 
-In this section, we will walk you through the things you should consider when making these decisions.
+Auth0 supports user sign up via a number of different [identity providers](/identityproviders). During sign up, Auth0 will also provision the [profile](/users/concepts/overview-user-profile) for the user (a.k.a. the user’s Account), and there are a number of things to consider when looking at functionality and workflow:
 
-## Design considerations
+* Can I use Auth0 as an identity store?
+* Can I use my own (legacy) identity store with Auth0?
+* Can I migrate user identities from my identity store to Auth0?
+* Can my users sign up using their existing - e.g. Facebook or Google - account?
+
+Auth0 provides identity storage out of the box that can be leveraged to manage the burden of storing user credentials safely and securely (see Auth0 [Self Sign Up](#) for further discussion). If you’ve already got a legacy identity store and you want to offload the burden of managing it, then Auth0’s User Migration capabilities provide you with a number of options to handle this. If for some reason you have to stick with your legacy identity store for now - perhaps because you’ve got applications which you aren’t ready to migrate, or which can’t be migrated - then Auth0’s identity store proxying capability is exactly what you need. Allowing your customers to use “bring your own identity” is often an attractive proposition too, and although we find our customers don’t typically do so from the get-go, when you’re ready to provide it Auth0’s Social Sign Up capability is exactly what you’ll need. 
+
+## Self Sign Up
+
+Auth0 uses database connections to store the user ID, password, and username collected from new users during the sign-up process. You can configure the database connection policies governing things such as minimum username length or password strength and complexity using the Auth0 Dashboard. 
+
+::: panel Best Practice
+Auth0 recommends using a web-based workflow featuring [Universal Login](/universal-login) for signups due to the functionality and security offered.
+
+If it doesn't meet your needs, we also have libraries that can be embedded in your application, such as [Lock](/libraries) (a premade login widget) and Auth0.js (a library with which you can build your own login UI). For a comparison of the capabilities, see [Lock vs. a Custom UI](/libraries/when-to-use-lock).
+:::
 
 It's important to decide early on how you will provision users, so the decisions you make will influence subsequent implementation choices. Be sure to consider:
 
@@ -76,15 +91,6 @@ Please note that your users will need to reset their passwords once you've migra
 <%= include('../../_includes/_rate-limit-policy.md') %>
 :::
 
-## User sign up
-
-Auth0 uses database connections to store the user ID, password, and username collected from new users during the sign-up process. You can configure the database connection policies governing things such as minimum username length or password strength and complexity using the Auth0 Dashboard. 
-
-::: panel Best Practice
-Auth0 recommends using a web-based workflow featuring [Universal Login](/universal-login) for signups due to the functionality and security offered.
-
-If it doesn't meet your needs, we also have libraries that can be embedded in your application, such as [Lock](/libraries) (a premade login widget) and Auth0.js (a library with which you can build your own login UI). For a comparison of the capabilities, see [Lock vs. a Custom UI](/libraries/when-to-use-lock).
-:::
 
 ## Keep reading
 
