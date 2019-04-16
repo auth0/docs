@@ -29,41 +29,20 @@ Auth0 supports user sign up via a number of different [identity providers](/iden
 * Can I migrate user identities from my identity store to Auth0?
 * Can my users sign up using their existing - e.g. Facebook or Google - account?
 
-Auth0 provides identity storage out of the box that can be leveraged to manage the burden of storing user credentials safely and securely (see Auth0 [Self Sign Up](#) for further discussion). If you’ve already got a legacy identity store and you want to offload the burden of managing it, then Auth0’s User Migration capabilities provide you with a number of options to handle this. If for some reason you have to stick with your legacy identity store for now - perhaps because you’ve got applications which you aren’t ready to migrate, or which can’t be migrated - then Auth0’s identity store proxying capability is exactly what you need. Allowing your customers to use “bring your own identity” is often an attractive proposition too, and although we find our customers don’t typically do so from the get-go, when you’re ready to provide it Auth0’s Social Sign Up capability is exactly what you’ll need. 
+Auth0 provides identity storage out of the box that can be leveraged to manage the burden of storing user credentials safely and securely (see Auth0 [Self Sign Up](#self-sign-up) for further discussion). If you’ve already got a legacy identity store and you want to offload the burden of managing it, then Auth0’s [User Migration](#user-migration) capabilities provide you with a number of options to handle this. Alternatively, if for some reason you have to stick with your legacy identity store for now - perhaps because you’ve got applications which you aren’t ready to migrate, or which can’t be migrated - then Auth0’s [identity store proxy](#identity-store-proxy) capability is exactly what you need. Allowing your customers to use “bring your own identity” is often an attractive proposition too, and although we find our customers don’t typically do so from the get-go, when you’re ready to provide it Auth0’s Social Sign Up capability is exactly what you’ll need. 
 
 ## Self Sign Up
 
-Auth0 uses database connections to store the user ID, password, and username collected from new users during the sign-up process. You can configure the database connection policies governing things such as minimum username length or password strength and complexity using the Auth0 Dashboard. 
+Self sign up leverages Auth0 [Database Connections](/connections/database) to store the user ID, password, and (optional) username identity information collected from new users during the sign-up process. And database connection policies, governing things such as minimum [username length](connections/database/require-username#username-length) or [password strength and complexity](/connections/database/password-options), can be configured via the Auth0 Dashboard. 
 
 ::: panel Best Practice
-Auth0 recommends using a web-based workflow featuring [Universal Login](/universal-login) for signups due to the functionality and security offered.
-
-If it doesn't meet your needs, we also have libraries that can be embedded in your application, such as [Lock](/libraries) (a premade login widget) and Auth0.js (a library with which you can build your own login UI). For a comparison of the capabilities, see [Lock vs. a Custom UI](/libraries/when-to-use-lock).
+Auth0 [Universal Login](/hosted-pages/login), as well Auth0 widgets such as [Lock](https://auth0.com/lock), integrate with Database Connections to provide comprehensive user interface functionality for sign up out of the box. These UI artefacts are fully reactive, and with feature rich configuration and comprehensive customization, ready to go functionality can be deployed for user self sign up as well as login in short order.
 :::
-
-It's important to decide early on how you will provision users, so the decisions you make will influence subsequent implementation choices. Be sure to consider:
-
-* Where you will store user data. Will you be using your own identity data store, or will you be using Auth0's data store?
-* Whether you will be migrating legacy user data to Auth0
-* Whether you want to allow users to sign up with accounts they already have, such as Facebook or Google
-
-## Store user data
-
-During sign up, Auth0 creates a [user profile](/users/concepts/overview-user-profile) that contains information about the user. You can choose to store the user information in Auth0's data store or your own. 
-
-::: panel Best Practice
-For information on the best ways to store your user data, see [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices). 
-:::
-
-### Use your own identity data store
-
-If you want to use your own identity store, perhaps because you’ve got applications which you aren’t ready to migrate or can’t be migrated, use Auth0’s [Database Connections](/connections/database/custom-db) to make a connection to an existing identity store. 
-
-### Use Auth0's identity data store
-
-Auth0 provides identity data storage that you can use to store and manage your users' credentials. You can also migrate legacy data to Auth0 using Auth0's user migration tools. 
 
 ## User migration
+
+In addition to hosting the [User Profile](, Auth0 also has the capability to both proxy your own legacy identity store as well as provide a secure Auth0 hosted replacement if desired. Both of these capabilities are supported via the use of Auth0 Database Connections. If you decide to use Auth0 as a replacement for your legacy identity store then you can migrate users either en-mass via Bulk Migration, or progressively using Automatic Migration.  
+
 
 If you decide to use Auth0, you can [migrate users](/users/concepts/overview-user-migration) in one of two ways: 
 
