@@ -41,35 +41,21 @@ Auth0 [Universal Login](/hosted-pages/login), as well Auth0 widgets such as [Loc
 
 ## User migration
 
-In addition to hosting the [User Profile](, Auth0 also has the capability to both proxy your own legacy identity store as well as provide a secure Auth0 hosted replacement if desired. Both of these capabilities are supported via the use of Auth0 Database Connections. If you decide to use Auth0 as a replacement for your legacy identity store then you can migrate users either en-mass via Bulk Migration, or progressively using Automatic Migration.  
+In addition to hosting the [User Profile](articles/architecture-scenarios/implementation/b2c/b2c-profile-mgmt), Auth0 also has the capability to both proxy your own legacy identity store as well as provide a secure Auth0 hosted replacement. Both of these capabilities are supported via the use of Auth0 [Database Connections](/identityproviders#database-and-custom-connections). If you decide to use Auth0 as a replacement for your legacy identity store then you can migrate users either en-mass via [Bulk Migration](users/concepts/overview-user-migration#bulk-user-imports-with-the-management-api), or progressively using [Automatic Migration](users/concepts/overview-user-migration#automatic-migrations).  
 
+::: panel Best Practice
+Customers often opt for a two-phased approach to user migration, employing Automatic Migration in the first instance in order to migrate as many users as possible, and then performing Bulk Migration for the users that remain. For further details on migration scenarios see the Auth0 documentation located [here](users/references/user-migration-scenarios). 
+:::
 
-If you decide to use Auth0, you can [migrate users](/users/concepts/overview-user-migration) in one of two ways: 
-
-* With bulk migration to bring all your data at once
-* With progressive automatic migration to bring your data over time
-
-Keep in mind that there are multiple approaches to user migration - you are not obligated to choose only one option. For example, you might opt for a two-phased approach to migration, beginning with automatic migration and following it up with bulk migration for the remaining users. See [User Migration Scenarios](/users/references/user-migration-scenarios) for additional options.
-
-### Bulk migration
-
-There are two tools you can use when migrating users in bulk:
-
-* The Management API
-* The User Import/Export Extension
-
-In most cases, we recommend that you use the [Management API](/users/concepts/overview-user-migration#bulk-user-imports-with-the-management-api), since this option provides you with more flexibility and control. We only recommend the [User Import/Export extension](/users/concepts/overview-user-migration#migrate-users-with-the-user-import-export-extension) in simple cases, such as the movement of a few users.
-
-Please note that your users will need to reset their passwords once you've migrated their accounts to Auth0 using one of the bulk migration processes.
-
-### Automatic migration
-
-[Automatic migration](/users/guides/configure-automatic-migration) allows users to be migrated incrementally. Users whose accounts are migrated to Auth0 using this method will not need to reset their passwords afterward. 
+Automatic Migration is preferred as it allows users to be migrated in a piecemeal fashion, and also allows them to retain their existing password. For Bulk Migration we recommend the use of the [Management API](api/management/v2#!/Jobs/post_users_imports) over use of the [User Import/Export extension](/users/concepts/overview-user-migration#migrate-users-with-the-user-import-export-extension) in all but the most simple cases, as the Management API provides for greater flexibility and control. With Bulk Migration users will typically need to **reset their password once migration is complete**.
 
 ::: panel Best Practice
 <%= include('../../_includes/_rate-limit-policy.md') %>
 :::
 
+### Identity Store Proxy
+
+Auth0 Database Connections types can also be configured to proxy an existing (a.k.a. legacy) identity store. If, for some reason, you will need to keep user identities defined in your own legacy store - for example, if you have one or more business critical applications that you can’t migrate to Auth0, but which still need access to these identities - then you can easily integrate with Auth0, and you’ll want to review the guidance provided [here](connections/database/custom-db) to show you how.
 
 ## Keep reading
 
