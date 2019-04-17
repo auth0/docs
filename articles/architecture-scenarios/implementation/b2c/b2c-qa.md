@@ -13,6 +13,12 @@ useCase:
 ---
 # Quality Assurance
 
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](#) that details our recommended strategies.
+
+## Overview
+
 Quality Assurance is important in identifying issues before they impact your customers and, depending on the nature of your project, there are several different types of quality assurance testing that you’re going to want to consider as part of your integration with Auth0:
 
 * Is my application easy to understand and use, even by those with a disability? 

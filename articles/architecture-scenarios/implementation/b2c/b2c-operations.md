@@ -1,6 +1,6 @@
 ---
 title: Operations
-description: Operationalization of your Auth0 tenant environments
+description: Understand operationalization of your Auth0 tenant environments
 toc: true
 topics:
     - b2c
@@ -13,6 +13,12 @@ useCase:
 ---
 
 # Operations
+
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](#) that details our recommended strategies.
+
+## Overview
 
 Operationalization requires configuring or setting up infrastructure to support the scalable, measurable and quantifiable operation that’s necessary for business continuity. In Auth0, this includes configuring supporting services such as email providers, monitoring services for your deployment, detecting anomalous situations and making preparations to recover quickly and smoothly when something goes wrong in a production environment. 
 
@@ -106,14 +112,16 @@ The default Auth0 email provider does not support sending production volumes of 
 
 ### Firewalls
 
-If custom code executing in Auth0 (such as in a Rule, Hook or Custom DB scripts) will call a service inside your network, or if you configure an on-premise SMTP provider in Auth0, then you may need to configure your firewall to allow [inbound traffic from Auth0](/guides/ip-whitelist#inbound-calls). The IP addresses to allow through the firewall are specific to each region and are listed on the Rules, Hooks, Custom DB scripts and Email provider configuration screens in your Auth0 dashboard (as described by the guidance provided [here](/guides/ip-whitelist)).
+If custom code executing in Auth0 (such as in a Rule, Hook or Custom DB scripts) will call a service inside your network, or if you configure an on-premise SMTP provider in Auth0, then you may need to configure your firewall to allow [inbound traffic from Auth0](/guides/ip-whitelist#inbound-calls). The IP addresses to allow through the firewall are specific to each region and are listed on the Rules, Hooks, Custom DB scripts and email provider configuration screens in your Auth0 dashboard (as described in [Whitelist IP Addresses](/guides/ip-whitelist)).
 
 ## Keep reading
 
+* [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
 * [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
 * [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
 * [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
+* [Deployment Automation](/architecture-scenarios/implementation/b2c/b2c-deployment)
+* [Quality Assurance](/architecture-scenarios/implementation/b2c/b2c-qa)
 * [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
 * [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
 * [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)
-

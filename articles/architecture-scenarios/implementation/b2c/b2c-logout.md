@@ -1,6 +1,6 @@
 ---
 title: Logout
-description: Learn about user logout planning considerations for your B2C implementation.
+description: Understand user logout planning considerations for your B2C implementation.
 toc: true
 topics:
     - b2c
@@ -12,6 +12,12 @@ useCase:
     - user-logout
 ---
 # Logout
+
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](#) that details our recommended strategies.
+
+## Overview
 
 [Logout](/logout) is the act of terminating an authenticated session when it's no longer needed, thus minimizing the likelihood that unauthorized parties can "take over" the session. This is typically achieved by provisioning a logout option on the user interface you provide to your users. Multiple types of sessions can be created when a user logs in (e.g., local application sessions, Auth0 session, third-party Identity Provider sessions), and you will need to determine which of these sessions need to be terminated when the user clicks any **Logout** option.
 
@@ -55,5 +61,8 @@ Not all users will trigger the logout process manually, so Auth0 also provides *
 * [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
 * [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
 * [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
+* [Deployment Automation](/architecture-scenarios/implementation/b2c/b2c-deployment)
+* [Quality Assurance](/architecture-scenarios/implementation/b2c/b2c-qa)
 * [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
 * [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
+* [Operations](/architecture-scenarios/implementation/b2c/b2c-operations)

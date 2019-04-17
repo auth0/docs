@@ -1,6 +1,6 @@
 ---
 title: Profile Management
-description: Learn about user profile management planning considerations for your B2C implementation. 
+description: Understand user profile management planning considerations for your B2C implementation. 
 toc: true
 topics:
     - b2c
@@ -11,6 +11,12 @@ useCase:
   - profile-management
 ---
 # Profile Management
+
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](#) that details our recommended strategies.
+
+## Overview
 
 At some point you’ll need to manage change to the information stored in a user’s [Profile](/users/concepts/overview-user-profile). A user’s profile - also known as the user’s Account - is stored in Auth0, and changes to the information it contains can be required for a number of different reasons: self-served information update, mandatory updates concerning your organizations T's & C’s, and changes due to regulatory compliance are just some of the things you’ll need to consider.
 

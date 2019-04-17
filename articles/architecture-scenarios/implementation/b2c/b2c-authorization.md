@@ -12,6 +12,12 @@ useCase:
 ---
 # Authorization
 
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](#) that details our recommended strategies.
+
+## Overview
+
 It’s important to start by distinguishing between Authentication, Authorization, and Access Control. Your Auth0 tenant (the Authorization Server) is typically responsible for Authentication and some or all of Authorization. Access Control however must be the responsibility of the Application or API itself, because access control is almost always contextual: 
 
 * **Authentication**: the process of determining if the user is who they say they are.

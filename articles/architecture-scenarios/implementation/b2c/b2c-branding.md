@@ -17,6 +17,12 @@ useCase:
 ---
 # Branding
 
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](#) that details our recommended strategies.
+
+## Overview
+
 Auth0 can be customized with a look and feel that aligns with your organization's brand requirements and user expectations. The consistency in appearance improves your customer's experience, and alos gives them the peace of mind that the product you are providing can be trusted and is secure.
 
 ::: panel Best Practice

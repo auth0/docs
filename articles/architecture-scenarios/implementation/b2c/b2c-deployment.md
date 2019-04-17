@@ -1,6 +1,6 @@
 ---
 title: Deployment Automation
-description: Learn how to use Auth0 tooling to automate tenant deployment
+description: Understand how Auth0 tooling helps to automate tenant deployment
 toc: true
 topics:
     - b2c
@@ -13,6 +13,12 @@ useCase:
 ---
 
 # Deployment Automation
+
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](#) that details our recommended strategies.
+
+## Overview
 
 In addition to adopting best practices for change management and [QA](/architecture-scenarios/implementation/b2c/b2c-qa), successful customers will also integrate Auth0 collateral management as part of some automated deployment process. As discussed in the Architecture section under [SDLC support](/architecture-scenarios/implementation/b2c/b2c-architecture#sdlc-support), you will want to ensure you configure separate Auth0 tenants for development, testing and production environments, and you will want that configuration to be almost identical for the tenant in each environment. Using deployment automation helps ensure this, so that each environment tenant is configured the same and you will be less likely to see bugs show up as a result of mismatched configurations between environments.
 
