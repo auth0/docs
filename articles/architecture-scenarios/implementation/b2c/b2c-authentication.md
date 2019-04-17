@@ -13,7 +13,7 @@ useCase:
 ---
 # Authentication
 
-In order to provide services to your users, you must be able to identify who those users are. This process is called authentication. There are a number of ways to perform user authentication - via social media accounts, username/password, passwordless - and it's often recommended that you go beyond a first factor for authenticating the user by adding a second factor as well (a.k.a. Multi-factor Authentication).
+In order to provide services to your users, you must be able to identify who those users are. This process is called User  Authentication. There are a number of ways to perform authentication of a user - via social media accounts, username & password, passwordless - and it's often recommended that you go beyond a first factor for authenticating the user by adding a second factor as well (a.k.a. Multi-factor Authentication).
 
 ::: panel Best Practice
 It's important to consider both security and user experience when designing how you will authenticate your users. Providing them multiple primary factors and/or enforcing more than one factor during authentication are ways that you can provide both.
@@ -33,7 +33,7 @@ It’s important to consider both security and user experience when designing ho
 
 Auth0 [Universal Login](#universal-login) provides users with a safe and secure experience - no matter whether you choose to provide for user ID/password credentials sign in, or allow the so-called Bring Your Own Identity scenarios provided via [Social Login](https://auth0.com/learn/social-login/). There are also brand recognition benefits to centralizing the login experience with Universal Login, even if you feel you will also have product-specific [branding](/architecture-scenarios/implementation/b2c/b2c-branding) requirements. The Auth0 UI widgets typically used with Universal Login also provide out-of-the-box support with regards to [internationalization](/libraries/lock/v11/i18n) for users with different language requirements, and out-of-the-box support for Auth0 features such as [MFA](/multifactor-authentication) and [anomaly detection](#anomaly-detection) allow you to put barriers in place in order to prevent hackers attempting to access users' accounts. 
 
-Providing sign in via user ID and password credentials means that you are not reliant on the status of any third-party identity provider in order for users to access your system. It also gives you the control to align with your corporate policies for credentials. Auth0 provides you with a number of options in support of user ID and password login, and the guidance provided by the section on [user authentication](#username-and-password-authentication) will help you understand how you can leverage these. If you have an existing legacy identity store then you’ll also want to see the section on [user migration](/architecture-scenarios/implementation/b2c/b2c-provisioning#user-migration), which discusses the advantages of migrating to the safety and security of Auth0’s managed identity storage. Adding social login at some point as an additional primary authentication factor provides for added flexibility, and can help you to understand more about your users without the need to question them further.
+Providing sign in via user ID and password credentials means that you are not reliant on the status of any third-party identity provider in order for users to access your system. It also gives you the control to align with your corporate policies for credentials. Auth0 provides you with a number of options in support of user ID and password login, and the guidance provided by the section on [username and password authentication](#username-and-password-authentication) will help you understand how you can leverage these. If you have an existing legacy identity store then you’ll also want to see the section on [user migration](/architecture-scenarios/implementation/b2c/b2c-provisioning#user-migration), which discusses the advantages of migrating to the safety and security of Auth0’s managed identity storage. Adding social login at some point as an additional primary authentication factor provides for added flexibility, and can help you to understand more about your users without the need to question them further.
 
 OpenID Connect ([OIDC](/protocols/oidc)) is the most frequently used industry standard protocol when it comes to customer facing applications, and OIDC has first-class citizen support in Auth0. Various different approaches for integrating various different applications are supported. See [application integration](#application-integration) for information you'll need to make an informed choice. 
 
@@ -55,7 +55,7 @@ Auth0 Universal Login makes authenticating users a short, easy process which can
 
 Nearly every B2C application provides the ability for their customers to create a new set of credentials. This is a common form of authentication that all users are familiar with.
 
-Username password authentication comes in multiple flavors at Auth0. If your application is a green-field application with no existing user base, then a simple Auth0 out-of-the-box [Database Connection](/connections/database) will give you everything you need to start authenticating your users. However, if you have a legacy user store (such as your own database of users or an existing LDAP system) you have a couple of different options for migrating your users as discussed in our guidance on [User migration](/b2c-provisioning#user-migration).
+Username password authentication comes in multiple flavors at Auth0. If your application is a green-field application with no existing user base, then a simple Auth0 out-of-the-box [Database Connection](/connections/database) will give you everything you need to start authenticating your users. However, if you have a legacy user store (such as your own database of users or an existing LDAP system) you have a couple of different options for migrating your users as discussed in our guidance on [User migration](/architecture-scenarios/implementation/b2c/b2c-provisioning#user-migration).
 
 However you end up provisioning the users for your database connection, the authentication of those users is quite similar. It requires you to present the users with a form to enter their username and password. As mentioned in the guidance concering [Universal Login](#universal-login), the simplest and safest way to authenticate users with a username and password is to redirect them to a centralized login page and collect their username and password there. This allows Auth0 to determine whether they have already authenticated and skip the login form entirely when it's not needed.
 
@@ -68,7 +68,7 @@ Collecting credentials only at the centralized login page will reduce the surfac
 The reason that authentication systems are important is to prevent bad actors from accessing applications and user data that they should not. We want to place as many barriers as possible between those bad actors and access to our systems. One of the easiest ways to do this is to ensure that your [anomaly detection](/anomaly-detection) with Auth0 is configured correctly, so take a moment to read the guidance on this subject and ensure that it's working correctly for you.
 
 ::: panel Best Practice
-Anomaly detection is handled behind the scenes by Auth0 and provides a great security feature for your product. If you're going to utilize it, ensure that you have set up your [Email Provider](architecture-scenarios/implementation/b2c/b2c-operations#email-provider) and configured your [Email Templates](/architecture-scenarios/implementation/b2c/b2c-branding#email-template-customization) before turning on email delivery to your users.
+Anomaly detection is handled behind the scenes by Auth0 and provides a great security feature for your product. If you're going to utilize it, ensure that you have set up your [Email Provider](/architecture-scenarios/implementation/b2c/b2c-operations#email-provider-setup) and configured your [Email Templates](/architecture-scenarios/implementation/b2c/b2c-branding#email-template-customization) before turning on email delivery to your users.
 :::
 
 ## Application integration
@@ -88,7 +88,7 @@ If you want to allow anonymous users access to any part of our application then 
 It is important to consider the user experience when someone first comes to yourapplication. If your application supports anonymous user access (quite common for eCommerce applications) there are different scenarios to consider:
 
 * Are they returning to the application after having already logged in, or
-* Is this the first time they are accessing the application:
+* If this is the first time they are accessing the application:
   * Have they already accessed a different application that uses the same Auth0 tenant,
   * Have they ever (or perhaps not in a long time) authenticated on this device or browser.
 
@@ -139,6 +139,9 @@ If your SDK only supports the Authorization Code grant, or you need an Access To
 * [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
 * [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
 * [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
+* [Deployment Automation](/architecture-scenarios/implementation/b2c/b2c-deployment)
+* [Quality Assurance](/architecture-scenarios/implementation/b2c/b2c-qa)
 * [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
 * [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
 * [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)
+* [Operations](/architecture-scenarios/implementation/b2c/b2c-operations)
