@@ -43,42 +43,25 @@ Though Auth0 doesn’t currently provide any form of centralized profile managem
 Self-service profile management can raise security as well as data privacy concerns. For example you may want to allow a user to change their email address, however doing so without following best practice security guidance could result in a user locking themselves out of their account; leaking Personally Identifiable Information (PII); or worse, open up a potential breach in security.  
 :::
 
+Alternatively, the Auth0 Dashboard can be used to [manage aspects of a user’s profile](users/guides/manage-users-using-the-dashboard). Managing a user’s profile via the Auth0 Dashboard is more of an administrative provision, and **should not** be used for self-serviced profile management in a production environment. However, the interface provided by the Dashboard can be extremely useful during development as it provides a quick and simple way of manipulating a user’s profile information.
 
 ## Metadata
 
-Auth0 stores user profile [metadata](/users/concepts/overview-user-metadata) that contains information about users such as language preference or accessibility information. You can use metadata to store both information that a user can change and information they can’t. In the latter case, for example, you can associate a user profile with records in your existing systems without modifying the existing implementation. 
-
-::: note
-As is the case when managing the Normalized User Profile, calls to the Management API require use of an Access Token.
-:::
+In addition to the Normalized User Profile information, [Metadata](/users/concepts/overview-user-metadata) can be stored in an Auth0 user profile. Metadata provides a way to store information that did not originate from an identity provider, or as a way to store information which overrides what an identity provider supplied. 
 
 ::: panel Best Practice
 Use of Metadata should follow Auth0 [best practice guidance](/best-practices/user-data-storage-best-practices#metadata). Metadata storage is not designed to be a general purpose data store and you should still use your own external storage facility when possible. Metadata size and complexity should also be kept to a minimum, and the Auth0 Management API has a strict set of guidance when it comes to updating and/or deleting metadata associated with a user.
 :::
 
-At login, the identity provider updates information in the [Normalized User Profile](/users/normalized/auth0) and you can change a limited set of data through the Auth0 Management API. You can also use Auth0 Rules to override information in the Normalized User Profile. 
+Metadata can be manipulated via both the Auth0 Management API and the Auth0 Authentication API, and the [documentation provided](/users/guides/manage-user-metadata) describes further the endpoints for doing this. As is the case when managing the Normalized User Profile, calls to the Management API for manipulating Metadata will require use of an [Access Token](api/management/v2/tokens).
 
 ::: warning
-A user profile cannot be directly accessed across multiple Auth0 tenants. See [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture) for details.
+<%= include('../../_includes/_rate-limit-policy.md') %>
 :::
-
-Alternatively, the Auth0 Dashboard can be used to [manage aspects of a user’s profile](users/guides/manage-users-using-the-dashboard). Managing a user’s profile via the Auth0 Dashboard is more of an administrative provision, and **should not** be used for self-serviced profile management in a production environment. However, the interface provided by the Dashboard can be extremely useful during development as it provides a quick and simple way of manipulating a user’s profile information.
 
 ### User metadata
 
-In addition to the Normalized User Profile information, [Metadata](users/concepts/overview-user-metadata) can be stored in a user’s profile. Metadata provides a way to store information that did not originate from an identity provider, or as a way to store information which overrides what an identity provider supplies. 
-
-::: warning
-Use of Metadata should follow Auth0 best practice guidance: Metadata storage is [not designed to be a general purpose data store](/best-practices/user-data-storage-best-practices#metadata) and you may still use your own external storage facility where applicable. Metadata size and complexity should also be kept to a minimum, and the Auth0 Management API has a [strict set of guidance](/api/management/v2#!/Users/patch_users_by_id) when it comes to updating and/or deleting metadata associated with a user.
-:::
-
-Metadata can be manipulated via both the Auth0 Management API and the Auth0 Authentication API, and the [documentation provided](/users/guides/manage-user-metadata) describes further the endpoints for doing this. As is the case when managing the Normalized User Profile, calls to the Management API for manipulating Metadata will require use of an [Access Token](api/management/v2/tokens).
-
-
-
-
-
-User metadata is information that can be stored against a user profile and that a user can read and update as part of any self-service profile management. Metadata of this nature may be something like salutation for a user, or a user’s preferred language.
+User metadata (also referred to as `user_metadata`) is information that can be stored against a user profile and that a user can read and update as part of any self-service profile management. Metadata of this nature may be something like salutation for a user, or a user’s preferred language (which could be used to [customize the emails](/email/templates#common-variables) sent by Auth0).
 
 ::: panel Best Practice
 Any information that will be used to customize Auth0 emails, such as information used to determine the language for an email, should be stored in metadata and preferably `user_metadata` if the user is allowed to change it.   
@@ -86,35 +69,31 @@ Any information that will be used to customize Auth0 emails, such as information
 
 ### App metadata
 
-App metadata is additional information that can be stored with a user profile but can only be read or updated with appropriate authorization; `app_medata` is not directly accessible to a user. This type of metadata might be something like a flag to indicate the last set of valid terms and conditions was accepted by the user, and a date to indicate when the user accepted them.
+App metadata (also referred to as `app_metadata`) is, on the other hand, information that can be stored with a user profile but can **only be read or updated with appropriate authorization**; `app_medata` is not directly accessible to a user. This type of metadata might be something like a flag to indicate the last set of valid terms and conditions was accepted by the user, and a date to indicate when the user accepted them.
 
 ## Password reset
 
-For users who forget their passwords, or who are allowed to change their password via some existing self service mechanism - or self service mechanism you have planned - Auth0’s provides [Password Reset](/connections/database/password-change) functionality. This can be integrated with your (existing) implementation and comes already incorporated with out-of-the-box Auth0 UI widgets incorporated as past as Universal Login. 
+For users who forget their passwords, or who are allowed to change their password via some existing self serviced mechanism, Auth0 provides [Password Reset](/connections/database/password-change) functionality. This can be integrated with your (existing) implementation and comes already incorporated with out-of-the-box Auth0 UI widgets incorporated as past as [Universal Login](/universal-login). 
 
 ::: warning
-Password change and password reset is only supported for Auth0 Database Connection types. 
+Password change and password reset is only supported for Auth0 [Database Connection](/connections/database) types. 
 :::
 
-Auth0 Universal Login widgets provide built in UX support for password reset using Auth0 Authentication API functionality. Alternatively, you can use the [Auth0 Authentication API](/connections/database/password-change#use-the-authentication-api) through one the Auth0 SDKs appropriate to your development environment if you are using fully customized Universal Login. Email templates used during password reset workflow can also be fully customized whether you use Auth0 out of box UI widgets or customized Universal Login.  
+Auth0 Universal Login widgets provide built in UX support for password reset using Auth0 Authentication API functionality. Alternatively, you can use the [Auth0 Authentication API](/connections/database/password-change#use-the-authentication-api), through one of the Auth0 SDKs appropriate to your development environment, if you are using Universal Login [advanced customization](/universal-login#advanced-customization). Email templates used during password reset workflow can also be fully customized whether you use Auth0 out of box UI widgets or customized Universal Login.  
 
-The Auth0 Management API, on the other hand, can be used to [directly change the password](/connections/database/password-change#directly-set-the-new-password) for a user identity defined using a Database Connection type. The Auth0 Management API can be used as part of any self service profile management implementation and is also used as part of any Change Password page customization. 
+The Auth0 Management API, on the other hand, can be used to [directly change the password](/connections/database/password-change#directly-set-the-new-password) for a user identity defined using a Database Connection type. The Auth0 Management API can be used as part of any self-service profile management implementation, and is also used as part of any [Change Password page customization](/architecture-scenarios/implementation/b2c/b2c-branding#change-password-page-customization). 
 
 ## Account verification
 
 You’ll also want to make sure that you are working with a verified user account at all times, and make use of the mechanisms Auth0 provides. You should also consider regulatory compliance like [GDPR](https://eugdpr.org/) which has some very specific requirements when it comes to protecting all EU citizens from privacy and data breaches and guidance.  
 
-Auth0 provides out of box functionality for sending a [verification email](/email/custom#verification-email) to a user's email address as one way of verifying their account. By default, Auth0 is configured to automatically send verification emails for any database connections user identity created (e.g as part of self sign up; discussed here). However, Auth0 also provides a Management API endpoint which can also be used to send verification emails in cases where email addresses validation is not performed by a Social Provider upon user registration. 
-
-::: panel Best Practice
-Any information that will be used to customise Auth0 emails, such as information used to determine the language for an email, should be stored in metadata: and preferably `user_metadata` if the user is allowed to change it. 
-:::
+Auth0 provides out of box functionality for sending a [verification email](/email/custom#verification-email) to a user's email address as one way of verifying their account. By default, Auth0 is configured to automatically send verification emails for any database connections user identity created (e.g as part of [self sign up](/architecture-scenarios/implementation/b2c/b2c-provisioning#self-sign-up)). However, Auth0 also provides a [Management API endpoint](/api/v2#!/Tickets/post_email_verification) which can also be used to send verification emails (e.g. in cases where email addresses validation is not performed by a Social Provider upon user registration). 
 
 ## Blocking users 
 
-[Blocking user access](/users/guides/block-and-unblock-users) in Auth0 provides a way to prevent user login to applications under certain conditions. By default, the Auth0 Dashboard provides an out-of-the-box mechanism to give administrators the ability to both block and unblock user access to all applications. You can implement this with the Management API. Alternatively, you can use Auth0 extensibility to disable user access to certain applications as well as providing more fine grained access control.
+[Blocking user access](/users/guides/block-and-unblock-users) in Auth0 provides a way to prevent user login to applications under certain conditions. By default, the Auth0 Dashboard provides an out-of-the-box mechanism to give administrators the ability to both block and unblock user access to all applications, and you can implement this functionality via use of the [Auth0 Management API](/api/management/v2#!/Users/patch_users_by_id). Auth0 extensibility can also be used to [disable user access to certain applications](/users/guides/manage-user-access-to-applications) as well as providing more fine grained [access control](/architecture-scenarios/implementation/b2c/b2c-authorization).
 
-The Auth0 Management API also provides you with the ability to unblock users disabled due to excessive use of incorrect credentials.  
+In addition, the Auth0 Management API also provides you with the ability to [unblock](/api/management/v2#!/User_Blocks/delete_user_blocks_by_id) users disabled due to excessive use of incorrect credentials.  
 
 ## Keep reading
 
