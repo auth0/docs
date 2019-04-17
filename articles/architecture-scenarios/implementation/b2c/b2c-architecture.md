@@ -71,7 +71,7 @@ In almost all cases, customers have been most successful when adopting a strateg
 
 ## SDLC support
 
-Every company has some form of software development life cycle, and throughout the development process you will want to align with that strategy. For instance, you we need to be able to test your integration with Auth0 in a similar fashion as you test the applications themselves. It is therefore important to [structure Auth0 tenants to support your SDLC](/dev-lifecycle/setting-up-env), and there is a consistent pattern which our customers typically follow when it comes to the best practices associated with tenant layout for doing so:
+Every company has some form of Software Development Life Cycle (SDLC), and throughout the development process you will want to align with that strategy. For instance, you we need to be able to test your integration with Auth0 in a similar fashion as you test the applications themselves. It is therefore important to [structure Auth0 tenants to support your SDLC](/dev-lifecycle/setting-up-env), and there is a consistent pattern which our customers typically follow when it comes to the best practices associated with tenant layout for doing so:
 
 | Environment | Sample Tenant Name | Description |
 | - | - | - |
