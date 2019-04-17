@@ -31,7 +31,7 @@ Auth0 supports user sign up via a number of different [identity providers](/iden
 
 Auth0 provides identity storage out of the box that can be leveraged to manage the burden of storing user credentials safely and securely (see Auth0 [Self Sign Up](#self-sign-up) for further discussion). If you’ve already got a legacy identity store and you want to offload the burden of managing it, then Auth0’s [User Migration](#user-migration) capabilities provide you with a number of options to handle this. Alternatively, if for some reason you have to stick with your legacy identity store for now - perhaps because you’ve got applications which you aren’t ready to migrate, or which can’t be migrated - then Auth0’s [identity store proxy](#identity-store-proxy) capability is exactly what you need. Allowing your customers to use “bring your own identity” is often an attractive proposition too, and although we find our customers don’t typically do so from the get-go, when you’re ready to provide it Auth0’s Social Sign Up capability is exactly what you’ll need. 
 
-## Self Sign Up
+## Self sign up
 
 Self sign up leverages Auth0 [Database Connections](/connections/database) to store the user ID, password, and (optional) username identity information collected from new users during the sign-up process. And database connection policies, governing things such as minimum [username length](connections/database/require-username#username-length) or [password strength and complexity](/connections/database/password-options), can be configured via the Auth0 Dashboard. 
 
@@ -53,7 +53,7 @@ Automatic Migration is preferred as it allows users to be migrated in a piecemea
 <%= include('../../_includes/_rate-limit-policy.md') %>
 :::
 
-### Identity Store Proxy
+### Identity store proxy
 
 Auth0 Database Connections types can also be configured to proxy an existing (a.k.a. legacy) identity store. If, for some reason, you will need to keep user identities defined in your own legacy store - for example, if you have one or more business critical applications that you can’t migrate to Auth0, but which still need access to these identities - then you can easily integrate with Auth0, and you’ll want to review the [guidance provided](connections/database/custom-db) to show you how.
 
