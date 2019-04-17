@@ -43,7 +43,6 @@ Auth0 also supports the ability for users to [link their profile to multiple ide
 | `multifactor`   | text    | The list of multi-factor providers in which the user is enrolled. |
 | `last_ip`       | text    | The IP address associated with the user's last login. |
 | `last_login`    | date&nbsp;time   | The timestamp of when the user last logged in. If you are using this property from inside a [Rule](/rules) using the `user` object, its value will be associated with the login that triggered the rule (since rules execute after the actual login). |
-| `logins_count`  | integer | The number of times the user has logged in. If a user is blocked and logs in, the blocked session is counted in `logins_count` and updates the `last_login` value. |
 | `name`          | text     | The user's name. |
 | `nickname`      | text     | The user's nickname. |
 | `last_password_reset` | date&nbsp;time | The last time the password was reset/changed. |
