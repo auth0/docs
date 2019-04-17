@@ -42,7 +42,7 @@ You should establish mechanisms for [monitoring Auth0 implementations](/monitori
 You should set up the ability to send synthetic login transactions to facilitate end-to-end monitoring of authentication. You can do this with a simple application that uses the [Resource Owner Password Grant](/api-auth/tutorials/password-grant) in combination with a test user that has no privileges, and don’t forget about [Auth0 rate limiting policies](/policies/rate-limits) too. 
 :::
 
-## Service Status
+## Service status
 
 The Auth0 status dashboard (https://status.auth0.com/) together with the Auth0 uptime dashboard (http://uptime.auth0.com/) shows current and past status of the Auth0 service in a human-readable format. If any monitoring alerts are triggered, and as a first step in troubleshooting, your operations staff should check the status dashboard to see if there is a current outage. The public cloud status page also provides a facility for subscribing to outage notifications, and we also recommend that you check the status of any 3rd party, [external services](/monitoring/guides/check-external-services) you depend on - such as Social Providers. Having this information handy can help quickly eliminate possible causes when troubleshooting an issue and should be at the top of a troubleshooting checklist for developers as well as the helpdesk staff.
 
@@ -60,11 +60,11 @@ There are several different types of notifications from Auth0 that you should wa
 Proactive security notifications and other operational announcements are sent by Auth0 to dashboard administrators. You should ensure that the people who need to receive such messages are dashboard administrators.
 :::
 
-### Dashboard Notifications
+### Dashboard notifications
 
 From time to time, Auth0 may send an important announcement related to your tenant. These announcements about your service will be sent to your Auth0 dashboard and depending on the severity of the announcement, via email to the registered Auth0 Dashboard Admins. You should make a regular practice of logging in to the dashboard and checking the bell icon at the top for any important notices. In addition, you should review emails from Auth0 in a timely fashion as they may convey important information about changes or actions you need to take.
 
-### Auth0 Security Bulletins
+### Auth0 security bulletins
 
 Auth0 regularly conducts a number of security-related tests, and if any issues are found will proactively identify and notify customers who need to make security-related changes. Due to the extensible nature of the Auth0 product however, it may not be possible for Auth0 to identify every impacted customer, so you should regularly check Auth0 [security bulletins](/docs/security/bulletins). You should make sure a security contact is listed in Support Center for your organization.
 
@@ -72,7 +72,7 @@ Auth0 regularly conducts a number of security-related tests, and if any issues a
 It is a best practice to check the Auth0 [Security Bulletins](/security/bulletins) page periodically and take the recommended action if you are impacted by any security bulletins.
 :::
 
-### Change Log
+### Change log
 
 Auth0 provides information on changes to the service in the Auth0 change log (https://auth0.com/changelog). You should make a regular practice of reviewing Auth0 change logs to be aware of changes. Support teams researching an issue may find it useful to review the change log to determine if recent changes might be related, especially if these are [breaking changes](docs/migrations). Development teams will also want to review the change logs to identify new features that may be beneficial.
 
@@ -86,7 +86,7 @@ You should leverage one of the Auth0 logs extensions to send log data to an exte
 
 You should review the logs data [retention period](/logs#how-long-is-log-file-data-available-) for your subscription level, and implement a logs data export extension to send log data to an external logs analytics service. Development teams can use log files for troubleshooting and detecting intermittent errors that may be hard to find via QA tests. Security teams will probably want log data in case forensic data is ever needed. Exporting log files to services that provide comprehensive analytics can help you see patterns such as usage trends and anomaly detection triggers. 
 
-### Rate Limits and other errors
+### Rate limits and other errors
 
 Auth0 provides a unique error code for errors reported when the [rate limit is exceeded](/policies/rate-limits#exceeding-the-rate-limit). You should set up automatic scanning of logs to check for rate limit errors so you can proactively address activity that hits rate limits before it causes too much trouble for your users. Auth0 also publishes error codes for other types of errors, and you will find it helpful to scan logs for [authentication errors](/libraries/error-messages) as well as errors from Auth0 Management API calls (Management API error codes are shown below each call in the [Management API Explorer](/api/management/v2)).
 
@@ -94,7 +94,7 @@ Auth0 provides a unique error code for errors reported when the [rate limit is e
 Calling the management API to retrieve user profile information from within a Rule is a common cause of rate limit errors because such API calls can execute for every login as well as periodic session checks.
 :::
 
-## Email Provider Setup
+## Email provider setup
 
 Auth0 sends emails to users for events such as signup welcome, email validation, breached password and password reset events (see https://auth0.com/docs/email for further details). You can customize the email templates for each type of event, and advanced customization of email handling is also possible. Auth0 provides a test email provider with limited capacity for basic testing but you must set up your own email provider for production use, and customization of email templates will not work until you have established your own provider. 
 
