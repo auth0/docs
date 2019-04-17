@@ -191,4 +191,4 @@ For general software-industry styles and terminology, see the [Microsoft Writing
 * Tenant: a logical isolation unit of the products we offer. Examples of Auth0 tenants: `foo.auth0.com`, `bar.auth0.com`
 * Auth0 tenants: regular cloud tenants
 * Subscription: a contract or service plan. Examples of subscriptions: trial, free, developer or developer-pro
-* Private Cloud/Managed Private Cloud: single-tenant deployments
+* Private Cloud/Managed Private Cloud: single-tenant deployment
