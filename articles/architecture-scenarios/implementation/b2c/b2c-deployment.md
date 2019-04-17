@@ -48,10 +48,12 @@ It’s a recommended best practice to use variables to contain tenant specific v
 
 ## Keep reading
 
+* [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
 * [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
 * [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
 * [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
+* [Quality Assurance](/architecture-scenarios/implementation/b2c/b2c-qa)
 * [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
 * [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
 * [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)
-
+* [Operations](/architecture-scenarios/implementation/b2c/b2c-operations)
