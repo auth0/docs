@@ -20,16 +20,16 @@ This guide will show you how to change when user attributes are updated for a co
 
 1. Navigate to the [Auth0 Dashboard](${manage_url}/).
 
-2. Click **Connections** in the lef nav and select the connection type (Database, Social or Enterprise).
+2. Click **Connections** in the menu and select the connection type (Database, Social or Enterprise).
 
 3. Click the name of a connection to see its settings.
 
-4. Enable **Allow updates to Auth0 profile**.
+4. Disable **Sync user profile attributes at each login**.
 
-![Allow updates to Auth0 profile](/media/articles/connections/allow-update-normalized-user-profile.png)
+![Sync user profile attributes at each login](/media/articles/connections/allow-update-normalized-user-profile.png)
 
 5. Scroll to the bottom of the Settings page, and click **Save**.
 
 :::panel Configuring through the API
-Optionally, you can set the option using a `PATCH` call to the [Update Connection](/api/management/v2#!/Connections/patch_connections_by_id) endpoint of the Management API addiong the attribute: `options.set_user_root_attributes: "on_first_login"`
+Optionally, you can set the option using a `PATCH` call to the [Update Connection](/api/management/v2#!/Connections/patch_connections_by_id) endpoint of the Management API adding the attribute: `options.set_user_root_attributes: "on_first_login"`
 :::
