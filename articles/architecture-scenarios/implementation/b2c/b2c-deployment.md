@@ -34,7 +34,7 @@ Each environment may also need some environment specific configuration - Applica
 * Use [Tenant Specific Variables](#tenant-specific-variables)
 * Use [keyword replacement](extensions/deploy-cli/references/environment-variables-keyword-mappings) if using the Auth0 Deploy CLI tool
 
-## Tenant Specific Variables
+## Tenant specific variables
 
 Auth0 allows you to configure variables that are available from within custom [extensibility](/topics/extensibility): these can be thought of as environment variables for your Auth0 tenant. Rather than hard code references that change when moving code between development, test and production environments, you can use a variable name that is configured in the tenant and referenced by the custom extensibility code. This makes it easier for the same custom code to function, without changes, in different tenants as the code can reference variables which will be populated with tenant-specific values at execution time:
 
