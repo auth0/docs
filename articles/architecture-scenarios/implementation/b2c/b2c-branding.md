@@ -23,7 +23,7 @@ Auth0 can be customized with a look and feel that aligns with your organization'
 Branding Auth0 collateral provides a consistent look and feel to the user experience for your customers as well as giving them the peace of mind that they’re using a product from a trusted and secure provider.
 :::
 
-Auth0 also provides support for [internationalization (I18N)](/i18n) and localization (L10N), both of which are important if you work with an international clientele. Out-of-box collateral such as the Auth0 Lock UI widget comes ready enabled for multiple language support, with built-in extensibility for adding more languages if what you need [doesn’t already exist](s/libraries/lock/v11/i18n).
+Auth0 also provides support for [internationalization (I18N)](/i18n) and localization (L10N), both of which are important if you work with an international clientele. Out-of-box collateral such as the Auth0 Lock UI widget comes ready enabled for multiple language support, with built-in extensibility for adding more languages if what you need [doesn’t already exist](/libraries/lock/v11/i18n).
  
 ::: panel Best Practice
 Almost all applications need Internationalization and/or Localization in one form or another. Auth0 makes it easy to add, but you need to account for it up front: retro-fitting localization, for example, can be a painful process if left too late.
@@ -43,7 +43,7 @@ Auth0 provides tremendous flexibility when it comes to customizing and configuri
 While Auth0 provides for default information when it comes to error situations, out-of-the-box information can be somewhat cryptic as the context that can only be provided by you is missing. Auth0 [error page customization](/architecture-scenarios/implementation/b2c/b2c-branding#error-page-customization) guidance can however help mitigate that by allowing you to provide information of a more context-specific nature via your own support organization. 
 
 ::: panel Best Practice
-To provide users with helpful resources if they experience problems you should also configure a friendly name and a suitable logo, as well as the support email and support URL for your organization. See [here](/dashboard/dashboard-tenant-settings#settings) for further details.
+To provide users with helpful resources if they experience problems you should also configure a friendly name and a suitable logo, as well as the support email and support URL for your organization. See [Dashboard Tenant Settings](/dashboard/dashboard-tenant-settings#settings) for further details.
 :::
 
 ## Universal login and login pages
@@ -54,7 +54,7 @@ To provide users with helpful resources if they experience problems you should a
 If you choose to customize Universal Login page script then we strongly recommend that you make use of version control, and deploy to your Auth0 tenant via [deployment automation](/architecture-scenarios/implementation/b2c/b2c-deployment) or one of the alternative strategies described [here](s/universal-login/version-control).
 :::
 
-Auth0 widgets, such as Lock (https://auth0.com/lock), integrate seamlessly with Universal Login to provide out-of-box support for user login and sign up; Lock also has built-in support for multiple languages which can be leveraged to satisfy the requirements of an [international audience](/libraries/lock/v11/i18n). Alternatively the Auth0 JavaScript SDK (https://auth0.com/docs/libraries/auth0js) can be utilized when providing for a fully customized UX, using technologies such as React or Angular.  
+Auth0 widgets, such as Lock (https://auth0.com/lock), integrate seamlessly with Universal Login to provide out-of-box support for user login and sign up; Lock also has built-in support for multiple languages which can be leveraged to satisfy the requirements of an [international audience](/libraries/lock/v11/i18n). Alternatively the Auth0 JavaScript SDK (/libraries/auth0js) can be utilized when providing for a fully customized UX, using technologies such as React or Angular.  
 
 ::: warning
 [Universal Login advanced customization](/universal-login#advanced-customization) allows you to modify page script for greater customization flexibility. However you will be responsible for maintaining the page thereafter, including updating the version of any Auth0 widget - such as Lock - or Auth0 SDK used. You should also exercise caution regarding the use of third-party JavaScript on your Login Page, since sensitive security-related information often flows through the page and the introduction of cross-site scripting ([XSS](/security/common-threats#cross-site-request-forgery)) vulnerabilities is of particular concern.
