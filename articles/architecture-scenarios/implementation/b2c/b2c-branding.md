@@ -23,7 +23,7 @@ Auth0 can be customized with a look and feel that aligns with your organization'
 Branding Auth0 collateral provides a consistent look and feel to the user experience for your customers as well as giving them the peace of mind that they’re using a product from a trusted and secure provider.
 :::
 
-Auth0 also provides support for [internationalization (I18N)](/i18n) and localization (L10N), both of which are important if you work with an international clientele. Out-of-box collateral such as the Auth0 Lock UI widget comes ready enabled for multiple language support, with built-in extensibility for adding more languages if what you need [doesn’t already exist](/libraries/lock/v11/i18n).
+Auth0 also provides support for [internationalization (I18N)](/i18n) and localization (L10N), both of which are important if you work with an international clientele. Out-of-box collateral, such as the Auth0 Lock UI widget, comes ready enabled for multiple language support, with built-in extensibility for adding more languages if what you require [doesn’t already exist](/libraries/lock/v11/i18n).
  
 ::: panel Best Practice
 Almost all applications need Internationalization and/or Localization in one form or another. Auth0 makes it easy to add, but you need to account for it up front: retro-fitting localization, for example, can be a painful process if left too late.
@@ -48,10 +48,10 @@ To provide users with helpful resources if they experience problems you should a
 
 ## Universal login and login pages
 
-[Universal Login](/universal-login) is the recommended method for authenticating users, and it centers around use of the Login Page. You can customize the Login Page via the Dashboard to support your organization's branding requirements [Simple customizations](/universal-login#simple-customization) can be made that include changes to the logo, primary color, or background color, as well as more [advanced customizations](/universal-login#advanced-customization) that require you to directly modify the script powering the page itself.
+[Universal Login](/universal-login) is the recommended method for authenticating users, and it centers around use of the Login page. You can customize the Login page via the Dashboard to support your organization's branding requirements [Simple customizations](/universal-login#simple-customization) can be made that include changes to the logo, primary color, or background color, as well as more [advanced customizations](/universal-login#advanced-customization) that require you to directly modify the script powering the page itself.
 
 ::: panel Best Practice
-If you choose to customize Universal Login page script then we strongly recommend that you make use of version control, and deploy to your Auth0 tenant via [deployment automation](/architecture-scenarios/implementation/b2c/b2c-deployment) or one of the alternative strategies described [here](s/universal-login/version-control).
+If you choose to customize Universal Login page script then we strongly recommend that you make use of version control, and deploy to your Auth0 tenant via [deployment automation](/architecture-scenarios/implementation/b2c/b2c-deployment) or one of the [alternative strategies](/universal-login/version-control).
 :::
 
 Auth0 widgets, such as Lock (https://auth0.com/lock), integrate seamlessly with Universal Login to provide out-of-box support for user login and sign up; Lock also has built-in support for multiple languages which can be leveraged to satisfy the requirements of an [international audience](/libraries/lock/v11/i18n). Alternatively the Auth0 JavaScript SDK (/libraries/auth0js) can be utilized when providing for a fully customized UX, using technologies such as React or Angular.  
@@ -62,7 +62,7 @@ Auth0 widgets, such as Lock (https://auth0.com/lock), integrate seamlessly with 
 
 ## Change password page customization
 
-The Change Password page is used whenever a user takes advantage of the [password reset](/universal-login/password-reset) functionality, and like the login page you can customize the [Change Password](/universal-login/password-reset#edit-the-password-reset-page) page to reflect your organization's branding. 
+The Change Password page is used whenever a user takes advantage of the [password reset](/universal-login/password-reset) functionality and, as with the login page, you can customize the [Change Password](/universal-login/password-reset#edit-the-password-reset-page) page to reflect your organization's branding. 
 
 ## Error page customization
 
@@ -82,19 +82,19 @@ Only one custom Domain Name can be applied per Auth0 Tenant, so if you absolutel
 
 In addition, Custom Domain functionality offers you complete control over the [certificate management](/custom-domains#certificate-management) process. By default, Auth0 provides standard SSL certificates, but if you configure a custom domain, you can use Extra Validation (EV) SSL certificates or similar to provide the visual, browser-based cues that offer your visitors additional peace of mind.
 
-In general, we see customers having the most success when they use a centralized domain for authentication -- this is especially the case if the company offers multiple products or service brands. By using a centralized domain, you can provide end users with a consistent user experience while also minimizing the need to maintain multiple production tenants in Auth0.
+In general, we see customers having the most success when they use a centralized domain for authentication - this is especially the case if the company offers multiple products or service brands. By using a centralized domain, you can provide end users with a consistent user experience while also minimizing the need to maintain multiple production tenants in Auth0.
 
 ## Email template customization
 
 Auth0 makes extensive use of email to provide both user notifications and to drive the functionality needed for secure identity management (for example, email verification, account recovery, and brute force protections), and Auth0 provides a number of templates for these.
 
 ::: note
-Before customizing email templates, please set up your [Email Provider](/architecture-scenarios/implementation/b2c/b2c-operations#email-provider-setu).
+Before customizing email templates, please set up your [Email Provider](/architecture-scenarios/implementation/b2c/b2c-operations#email-provider-setup).
 :::
 
 Out of the box, the email templates used contain standard verbiage and Auth0 branding. However, you can configure almost every aspect of these templates to reflect the verbiage and user experience you want and make changes to things like the preferred language, accessibility options, and so forth.
 
-Email templates are customized using [Liquid syntax](/email/liquid-syntax). If you are interested in customizing your templates based on user preferences, you will also have access to the [metadata](/user/concepts/overview-user-metadata) located in users' profiles, as well as any specific application metadata too. 
+Email templates are customized using [Liquid syntax](/email/liquid-syntax). If you are interested in customizing your templates based on user preferences, you will also have access to the [metadata](/users/concepts/overview-user-metadata) located in users' profiles, as well as any specific application metadata too. 
 
 ## Keep reading
 
