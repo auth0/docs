@@ -14,10 +14,10 @@ useCase:
 
 # Deployment Automation
 
-In addition to adopting best practices for change management and [QA](articles/architecture-scenarios/implementation/b2c/b2c-qa), successful customers will also integrate Auth0 collateral management as part of some automated deployment process. As discussed in the Architecture section under [SDLC support](articles/architecture-scenarios/implementation/b2c/b2c-architecture#sdlc-support), you will want to ensure you configure separate Auth0 tenants for development, testing and production environments, and you will want that configuration to be almost identical for the tenant in each environment. Using deployment automation helps ensure this, so that each environment tenant is configured the same and you will be less likely to see bugs show up as a result of mismatched configurations between environments.
+In addition to adopting best practices for change management and [QA](/architecture-scenarios/implementation/b2c/b2c-qa), successful customers will also integrate Auth0 collateral management as part of some automated deployment process. As discussed in the Architecture section under [SDLC support](/architecture-scenarios/implementation/b2c/b2c-architecture#sdlc-support), you will want to ensure you configure separate Auth0 tenants for development, testing and production environments, and you will want that configuration to be almost identical for the tenant in each environment. Using deployment automation helps ensure this, so that each environment tenant is configured the same and you will be less likely to see bugs show up as a result of mismatched configurations between environments.
 
 ::: panel Best Practice
-However you configure deployment automation we’d recommend you unit test your rules, custom DB scripts, and hooks prior to deployment, and run some integration tests against your tenant post-deployment too. For more details regarding this, see the [Quality Assurance](articles/architecture-scenarios/implementation/b2c/b2c-qa) guidance provided.
+However you configure deployment automation we’d recommend you unit test your rules, custom DB scripts, and hooks prior to deployment, and run some integration tests against your tenant post-deployment too. For more details regarding this, see the [Quality Assurance](/architecture-scenarios/implementation/b2c/b2c-qa) guidance provided.
 :::
 
 Auth0 provides support for a couple of different options when it comes to the deployment automation approaches you can use, and each can be used in conjunction with the other if desired:
@@ -38,7 +38,7 @@ Each environment may also need some environment specific configuration - Applica
 
 Auth0 allows you to configure variables that are available from within custom [extensibility](/topics/extensibility): these can be thought of as environment variables for your Auth0 tenant. Rather than hard code references that change when moving code between development, test and production environments, you can use a variable name that is configured in the tenant and referenced by the custom extensibility code. This makes it easier for the same custom code to function, without changes, in different tenants as the code can reference variables which will be populated with tenant-specific values at execution time:
 
-* For use of variables in Rules see how to [configure variables](/rules/guides/configuration#configure-values)
+* For use of variables in Rules see how to [configure values](/rules/guides/configuration#configure-values)
 * For use of variables in Hooks see how to [configure secrets](https://webtask.io/docs/editor/secrets) in the editor used for Hooks
 * For use of variables in Custom DB Scripts see the [configuration parameters](/connections/database/custom-db/create-db-connection#step-3-add-configuration-parameters) 
 
