@@ -26,12 +26,12 @@ Auth0 [Universal Login](/universal-login) and associated UI widgets (such as [Lo
 To ensure funcional requirements are met and unexpected events are handled correctly, guidance is provided for testing the [integration](#integration-testing) between your application(s) and Auth0, and for [unit testing](#unit-testing) individual extensibility modules - such as [Rules](/rules/guides/debug#try-this-rule), [Hooks](/hooks/guides/edit-hooks-using-dashboard#test-hooks) and Custom Database scripts. Guidance is also provided regarding Auth0's [penetration testing policy](/policies/penetration-testing) to help when testing for security vulnerability, and also how [Mock](#mock-testing) testing can be leveraged in conjunction with our [load testing policy](/policies/load-testing) to help ensure your application(s) perform under unexpected load.  
 
 
-## Unit Testing
+## Unit testing
 
 The objective of unit testing is to test individual units of code. If you create custom code within Auth0 in the form of Rules, Hooks and/or Custom DB scripts, you should consider use a testing framework (such as [Mocha](https://mochajs.org/)) to test your code. Companies who have been most successful with Auth0 have found it useful to execute these unit tests prior to [automatically deploying](/architecture-scenarios/implementation/b2c/b2c-deployment) Auth0 tenant configuration and collateral.
 
 
-## Integration Testing 
+## Integration testing 
 
 It is a recommended best practice that you set up different tenants for development, testing and production as discussed in Architecture guidence for [SDLC support](architecture-scenarios/implementation/b2c/b2c-architecture#sdlc-support). Auth0 allows you to configure variables that are available from within custom [extensibility](/topics/extensibility): these can be thought of as environment variables for your Auth0 tenant. Rather than hard code references that change when moving code between development, test and production environments, you can use a variable name that is configured in the tenant and referenced by the custom extensibility code. This makes it easier for the same custom code to function, without changes, in different tenants as the code can reference variables which will be populated with tenant-specific values at execution time:
 
@@ -43,11 +43,11 @@ It is a recommended best practice that you set up different tenants for developm
 It’s a recommended best practice to use variables to contain tenant specific values as well as any sensitive secrets that should not be exposed in your custom code. If your custom code is deployed in GitHub then using a tenant specific variable avoids exposure of sensitive values via your GitHub repository.
 :::
 
-### Test Automation
+### Test automation
 
 You can automate your overall build process by incorporating deployment automation as well as test automation. This can be used to deploy new versions of configuration and/or custom code to Auth0 and execute automated tests. If the tests uncover any failures, the deployment automation capabilities can be used to revert to the last working version. For further information, see the [deployment automation guidance](/architecture-scenarios/implementation/b2c/b2c-deployment) provided.
 
-## Mock Testing 
+## Mock testing 
 
 In a balance between Auth0’s [load testing policy](/policies/load-testing) and the desire to load test, it is common practice among Auth0’s customers to mock out Auth0’s endpoints. This is a valuable practice in order to ensure that your application works with your expected interfaces without having to restrict your testing, and tools such as [MockServer](http://www.mock-server.com/), [JSON Server](https://github.com/typicode/json-server) or even [Postman](https://learning.getpostman.com/docs/postman/mock_servers/setting_up_mock/) can be used to assist. 
 
