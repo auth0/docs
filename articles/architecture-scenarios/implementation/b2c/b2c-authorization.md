@@ -42,5 +42,8 @@ When you are considering adding custom claims, we recommend that you choose to s
 * [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
 * [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
 * [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
+* [Deployment Automation](/architecture-scenarios/implementation/b2c/b2c-deployment)
+* [Quality Assurance](/architecture-scenarios/implementation/b2c/b2c-qa)
 * [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
 * [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)
+* [Operations](/architecture-scenarios/implementation/b2c/b2c-operations)
