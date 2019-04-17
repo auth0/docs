@@ -12,28 +12,24 @@ useCase:
 ---
 # Authorization
 
-Let's start by distinguishing between Authentication, Authorization, and Access Control.
+It’s important to start by distinguishing between Authentication, Authorization, and Access Control. Your Auth0 tenant (the Authorization Server) is typically responsible for Authentication and some or all of Authorization. Access Control however must be the responsibility of the Application or API itself, because access control is almost always contextual: 
 
-* **Authentication**: Determines if the user is who they say they are.
-* **Authorization**: Identifies what the user is allowed to do in the system.
-* **Access Control**: Limits a user to only perform actions they are allowed to do based on a combination of who the user is, what they are allowed to do in the system, and their consent.
+* **Authentication**: the process of determining if the user is who they say they are.
+* **Authorization**: the proceess of determining what the user is allowed to do in the system.
+* **Access Control**: the process of limiting a user to only the actions permitted, based on a combination of who the user is, what they are allowed to do in the system, and their consent.
 
-[Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication) and some or all of Authorization are managed by your Auth0 tenant (the Authorization Server). But because Access Control is almost always contextual, your API or Application itself must manage it.
-
-## Design considerations
-
-To implement user authorization inside your Application (typically, access control), you must decide what information your application will need to know to make access control decisions. Once you know this, you can add additional and custom claims to an OIDC [ID Token](/tokens/id-token) (by using Auth0’s [Rules extensibility](/architecture-scenarios/implementation/b2c/b2c-authorization#id-token-claims)) before passing the token to your Application. You can then access these claims from within your Application to use with access control.
+For application level Authorization - typically referred to as Access Control - additional and custom claims can be added to an OpenID Connect (OIDC) [ID Token](/tokens/id-token) via use of Auth0’s Rule [extensibility mechanism](#id-token-claims), and you will need to decide what that information might be in order for your application to make access control decisions. 
 
 ::: warning
-When deciding what data to include in OIDC tokens, you need to consider token size, especially if you are passing the token in the URL. Regardless of how you're passing the token, you'll also need to consider other [limitations](/tokens/id-token).
+When deciding what data to include in OIDC tokens, you need to consider token size, especially if you are passing the token in the URL. Even if you are not passing tokens in the URL, there are other things that you will also need to consider - such as the potential of exposing sensitive PII (Personally Identifiable Information).
 :::
 
 ## ID Token claims 
 
-Auth0 allows you to easily [add custom claims to an ID Token](/architecture-scenarios/implementation/b2c/b2c-authorization#id-token-claims) based on a user’s metadata (by using Auth0’s Rules extensibility). Though the process of adding rules is streamlined, because the rules engine is flexible and allows you to write custom code you can also do things that may have negative effects. So it’s important to follow our [rules best practices](/best-practices/rules) anytime you utilize this extensibility feature.
+Through the use of Rule extensibility, Auth0 allows you to easily [add custom claims to an ID Token](/architecture-scenarios/implementation/b2c/b2c-authorization#id-token-claims) based on a user’s metadata. Though the process of adding custom claims via Rule is streamlined, because the rules engine is flexible and allows you to write custom code you can also do things that may have negative effects. So it’s important to follow our [rules best practice](/best-practices/rules) guidance anytime you utilize this extensibility feature.
 
 ::: panel Best Practice
-When you are considering adding custom claims, we recommend that you choose to store any data you need to include within the claims in the user's `user` or `app` [Metadata](/users/concepts/overview-user-metadata). Doing so prevents you from needing to call out to an external API to fetch the data, which can negatively impact the performance and scalability of the login sequence. Remember to check out our metadata best practices(missing link) too.
+When you are considering adding custom claims, we recommend that you choose to store any data you may need to include within the claims in the user's `user` or `app` [Metadata](/users/concepts/overview-user-metadata). Doing so prevents you from needing to call out to an external API to fetch the data, which can negatively impact the performance and scalability of the login sequence. Remember to check out our [metadata best practices](architecture-scenarios/implementation/b2c/b2c-profile-mgmt#metadata) too.
 :::
 
 ## Keep reading
@@ -42,5 +38,8 @@ When you are considering adding custom claims, we recommend that you choose to s
 * [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
 * [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
 * [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
+* [Deployment Automation](/architecture-scenarios/implementation/b2c/b2c-deployment)
+* [Quality Assurance](/architecture-scenarios/implementation/b2c/b2c-qa)
 * [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
 * [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)
+* [Operations](/architecture-scenarios/implementation/b2c/b2c-operations)
