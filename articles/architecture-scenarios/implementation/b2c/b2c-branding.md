@@ -17,12 +17,6 @@ useCase:
 ---
 # Branding
 
-## Planning
-
-To help you with planning your implementation, we've put together some [planning guidance](#) that details our recommended strategies.
-
-## Overview
-
 Auth0 can be customized with a look and feel that aligns with your organization's brand requirements and user expectations. The consistency in appearance improves your customer's experience, and alos gives them the peace of mind that the product you are providing can be trusted and is secure.
 
 ::: panel Best Practice
@@ -101,6 +95,10 @@ Before customizing email templates, please set up your [Email Provider](/archite
 Out of the box, the email templates used contain standard verbiage and Auth0 branding. However, you can configure almost every aspect of these templates to reflect the verbiage and user experience you want and make changes to things like the preferred language, accessibility options, and so forth.
 
 Email templates are customized using [Liquid syntax](/email/liquid-syntax). If you are interested in customizing your templates based on user preferences, you will also have access to the [metadata](/users/concepts/overview-user-metadata) located in users' profiles, as well as any specific application metadata too. 
+
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
 
 ## Keep reading
 
