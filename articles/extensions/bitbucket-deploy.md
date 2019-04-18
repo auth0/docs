@@ -132,17 +132,21 @@ The supported pages are:
 To deploy a page, you must create an HTML file under the `pages` directory of your Bitbucket repository. For each HTML page, you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, to deploy an `error_page`, you would create two files:
 
 ```text
-your-bitbucket-repo/pages/error_page.html
-your-bitbucket-repo/pages/error_page.json
+your-bitbucket-repo/pages/password_reset.html
+your-bitbucket-repo/pages/password_reset.json
 ```
 
-To enable the page, the `error_page.json` would contain the following:
+To enable the page, the `password_reset.json` would contain the following:
 
 ```json
 {
   "enabled": true
 }
 ```
+
+::: note
+`error_page` cannot be enabled/disabled. If you want to use default error page - you should remove content of `error_page.html`
+:::
 
 ### Deploy Rules
 
