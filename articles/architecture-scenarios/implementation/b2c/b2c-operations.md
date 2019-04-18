@@ -14,12 +14,6 @@ useCase:
 
 # Operations
 
-## Planning
-
-To help you with planning your implementation, we've put together some [planning guidance](#) that details our recommended strategies.
-
-## Overview
-
 Operationalization requires configuring or setting up infrastructure to support the scalable, measurable and quantifiable operation that’s necessary for business continuity. In Auth0, this includes configuring supporting services such as email providers, monitoring services for your deployment, detecting anomalous situations and making preparations to recover quickly and smoothly when something goes wrong in a production environment. 
 
 Establishing effective operational behaviors is something that successful customers have found pays dividends, and there are a number of things you will want to consider when looking at your workflow:
@@ -113,6 +107,10 @@ The default Auth0 email provider does not support sending production volumes of 
 ### Firewalls
 
 If custom code executing in Auth0 (such as in a Rule, Hook or Custom DB scripts) will call a service inside your network, or if you configure an on-premise SMTP provider in Auth0, then you may need to configure your firewall to allow [inbound traffic from Auth0](/guides/ip-whitelist#inbound-calls). The IP addresses to allow through the firewall are specific to each region and are listed on the Rules, Hooks, Custom DB scripts and email provider configuration screens in your Auth0 dashboard (as described in [Whitelist IP Addresses](/guides/ip-whitelist)).
+
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
 
 ## Keep reading
 
