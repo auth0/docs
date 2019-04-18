@@ -93,12 +93,26 @@ For details see [Step-up Authentication](/multifactor-authentication/step-up-aut
 
 Auth0 is designed and built as a scalable, highly available, multi-tenant cloud service. We are highly resilient to the failure of any of our components, because we  implement redundant components at all levels. We also detect failures rapidly and our failover is very quick. 
 
-We support four deployment models:
+We support three deployment models:
 
-- A **multi-tenant cloud service** running on Auth0's cloud
-- A **dedicated cloud service** running on Auth0's cloud
-- A **dedicated cloud service** running on Customer's cloud infrastructure
-- An **on-premises virtual [Private SaaS (PSaaS) Appliance](/appliance)** running on Customer's private environment (for the cases where a public cloud-based solution is not acceptable).
+<table class="table">
+<tr>
+    <th>Deployment</th>
+    <th>Description</th>
+</tr>
+<tr>
+    <td>Public Cloud</td>
+    <td>A multi-tenant cloud service running on Auth0's cloud</td>
+</tr>
+<tr>
+    <td>Private Cloud</td>
+    <td>A dedicated cloud service running on Auth0's cloud</td>
+</tr>
+<tr>
+    <td>Managed Private Cloud</td>
+    <td>A dedicated cloud service running on either Auth0's cloud or the customer's AWS cloud infrastructure</td>
+</tr>
+</table>
 
 You decide which deployment model works best for you based on your business and security requirements.
 

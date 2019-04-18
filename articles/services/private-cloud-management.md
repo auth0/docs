@@ -1,8 +1,8 @@
 ---
-description: A workshop designed to provide IT organizations with core Auth0 Private SaaS management concepts.
+description: A workshop designed to provide IT organizations with core Auth0 Private Cloud management concepts.
 topics:
   - professional services
-  - psaas-appliance
+  - private-cloud
   - management
 contentType:
   - reference
@@ -10,9 +10,9 @@ useCase:
   - development
 ---
 
-# Training: Private SaaS Management Workshop
+# Training: Private Cloud Management Workshop
 
-A workshop designed to provide IT organizations with core concepts on availability, reliability, on-going operations and security in their Private SaaS Auth0 service.
+A workshop designed to provide IT organizations with core concepts on availability, reliability, on-going operations and security in their Private Cloud Auth0 service.
 
 ## Duration
 

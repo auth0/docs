@@ -17,10 +17,6 @@ The **Delegated Administration** extension allows you to grant a select group of
 
 Follow this tutorial to learn how to expose the Users dashboard to a group of users without allowing them access to the rest of the management dashboard. 
 
-:::panel PSaaS Appliance Availability
-The Delegated Administration extension is available for [PSaaS Appliance](/appliance) customers who are running build `10755` or later, and have User Search enabled.
-:::
-
 Prior to configuring the extension, you will need to:
 
 * [Create and configure an Auth0 Application](#create-an-application)

@@ -298,7 +298,7 @@ articles:
         url: /onboarding/enterprise-support
         
       - title: Release Notes
-        url: https://auth0.com/changelog/appliance
+        url: https://auth0.com/releases/
         external: true
         forceFullReload: true
 
@@ -1212,8 +1212,8 @@ articles:
       - title: "Pair Programming"
         url: "/services/pair-programming"
       
-      - title: "Private SaaS reconfiguration"
-        url: "/services/private-saas-configuration"
+      - title: "Private Cloud reconfiguration"
+        url: "/services/private-cloud-configuration"
 
       - title: "Auth0 Introduction"
         url: "/services/auth0-introduction"
@@ -1221,8 +1221,8 @@ articles:
       - title: "Auth0 Advanced Topics"
         url: "/services/auth0-advanced"
 
-      - title: "Private SaaS Management Workshop"
-        url: "/services/private-saas-management"
+      - title: "Private Cloud Management Workshop"
+        url: "/services/private-cloud-management"
 
 apis:
 

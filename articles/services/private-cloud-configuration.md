@@ -1,8 +1,8 @@
 ---
-description: A project to assist with design and deployment of a Private SaaS Auth0 environment.
+description: A project to assist with design and deployment of a Private Cloud Auth0 environment.
 topics:
   - professional services
-  - psaas-appliance
+  - private-cloud
   - design
   - deployment
   - configuration
@@ -12,9 +12,9 @@ useCase:
   - development
 ---
 
-# Advisory Hours: Private SaaS reconfiguration
+# Advisory Hours: Private Cloud reconfiguration
 
-A project to assist with the design, and deployment of a Private SaaS Auth0 environment; including HA and DR scenarios.
+A project to assist with the design, and deployment of a Private Cloud Auth0 environment; including HA and DR scenarios.
 
 ## Estimated effort
 
@@ -22,7 +22,7 @@ This is typically a 2-3 week part-time engagement effort with an Auth0 Managed S
 
 ## Typical work-streams
 
-* **Requirements gathering:** understanding customer private SaaS deployment requirements and constraints.
+* **Requirements gathering:** understanding customer Private Cloud deployment requirements and constraints.
 * **Risk analysis:** reviewing and providing guidance for High Availability, and Disaster Recovery alternatives.
 
 ## Deliverables
