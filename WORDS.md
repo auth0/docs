@@ -42,7 +42,7 @@ When writing about tokens, capitalize specific token names as follows:
 #### Within Private Cloud subscriptions
 
 * **Auth0 tenants** refers to regular cloud tenants
-* **Private Cloud** or **Managed Private Cloud** refers to single-tenant deployments
+* **Private Cloud** or **Managed Private Cloud** refers to a single-tenant deployment
 
 ### TL;DR
 

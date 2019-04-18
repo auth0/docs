@@ -1170,7 +1170,7 @@ articles:
       - title: "Pair Programming"
         url: "/services/pair-programming"
       
-      - title: "Private SaaS reconfiguration"
+      - title: "Private Cloud reconfiguration"
         url: "/services/private-cloud-configuration"
 
       - title: "Auth0 Introduction"
@@ -1179,7 +1179,7 @@ articles:
       - title: "Auth0 Advanced Topics"
         url: "/services/auth0-advanced"
 
-      - title: "Private SaaS Management Workshop"
+      - title: "Private Cloud Management Workshop"
         url: "/services/private-cloud-management"
 
 apis:
