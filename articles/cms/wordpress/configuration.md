@@ -208,17 +208,6 @@ This section was changed from "Appearance" to "Embedded" to reflect the fact tha
 
 * **Language:** Information on this setting is [here](/libraries/lock/v11/configuration#language-string-). Option name is `language`.
 
-* **Language Dictionary:** Information on this setting is [here](/libraries/lock/v11/configuration#languagedictionary-object-). Option name is `language_dictionary`.
-
-  Please note that the dictionary object used is slightly different from the examples shown in the above link. The dictionary names must be surrounded by quotation marks:
-
-```json
-{
-    "emailInputPlaceholder": "name@example.com",
-    "title":"Log me in",
-}
-```
-
 * **Custom Signup Fields:** This field is the JSON that describes the custom signup fields for Lock. The should be a in the form of JSON and allows the use of functions for validation. [More info on custom signup fields here](/libraries/lock/v11/configuration#additionalsignupfields-array-). Option name is `custom_signup_fields`.
 
 * **Extra Settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`). Option name is `extra_conf`.
