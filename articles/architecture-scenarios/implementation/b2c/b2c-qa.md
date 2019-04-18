@@ -13,12 +13,6 @@ useCase:
 ---
 # Quality Assurance
 
-## Planning
-
-To help you with planning your implementation, we've put together some [planning guidance](#) that details our recommended strategies.
-
-## Overview
-
 Quality Assurance is important in identifying issues before they impact your customers and, depending on the nature of your project, there are several different types of quality assurance testing that you’re going to want to consider as part of your integration with Auth0:
 
 * Is my application easy to understand and use, even by those with a disability? 
@@ -57,6 +51,9 @@ You can automate your overall build process by incorporating deployment automati
 
 In a balance between Auth0’s [load testing policy](/policies/load-testing) and the desire to load test, it is common practice among Auth0’s customers to mock out Auth0’s endpoints. This is a valuable practice in order to ensure that your application works with your expected interfaces without having to restrict your testing, and tools such as [MockServer](http://www.mock-server.com/), [JSON Server](https://github.com/typicode/json-server) or even [Postman](https://learning.getpostman.com/docs/postman/mock_servers/setting_up_mock/) can be used to assist. 
 
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
 
 ## Keep reading
 
