@@ -41,4 +41,3 @@ When the user logs out from one Google product, they are automatially also logge
 - [Understand session lifetime](/sessions/concepts/session-lifetime)
 - Learn how to [configure session lifetime settings](/sessions/guides/dashboard/tenant/configure-session-lifetime-settings)
 - Learn how to [log users out](/logout)
-- Learn how to [implement client-side SSO on single-page apps](/sso/single-page-apps)
