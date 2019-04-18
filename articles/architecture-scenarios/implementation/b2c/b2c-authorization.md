@@ -12,12 +12,6 @@ useCase:
 ---
 # Authorization
 
-## Planning
-
-To help you with planning your implementation, we've put together some [planning guidance](#) that details our recommended strategies.
-
-## Overview
-
 It’s important to start by distinguishing between Authentication, Authorization, and Access Control. Your Auth0 tenant (the Authorization Server) is typically responsible for Authentication and some or all of Authorization. Access Control however must be the responsibility of the Application or API itself, because access control is almost always contextual: 
 
 * **Authentication**: the process of determining if the user is who they say they are.
@@ -37,6 +31,10 @@ Through the use of Rule extensibility, Auth0 allows you to easily [add custom cl
 ::: panel Best Practice
 When you are considering adding custom claims, we recommend that you choose to store any data you may need to include within the claims in the user's `user` or `app` [Metadata](/users/concepts/overview-user-metadata). Doing so prevents you from needing to call out to an external API to fetch the data, which can negatively impact the performance and scalability of the login sequence. Remember to check out our [metadata best practices](architecture-scenarios/implementation/b2c/b2c-profile-mgmt#metadata) too.
 :::
+
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
 
 ## Keep reading
 
