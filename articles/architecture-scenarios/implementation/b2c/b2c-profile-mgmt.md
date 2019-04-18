@@ -12,12 +12,6 @@ useCase:
 ---
 # Profile Management
 
-## Planning
-
-To help you with planning your implementation, we've put together some [planning guidance](#) that details our recommended strategies.
-
-## Overview
-
 At some point you’ll need to manage change to the information stored in a user’s [Profile](/users/concepts/overview-user-profile). A user’s profile - also known as the user’s Account - is stored in Auth0, and changes to the information it contains can be required for a number of different reasons: self-served information update, mandatory updates concerning your organizations T's & C’s, and changes due to regulatory compliance are just some of the things you’ll need to consider.
 
 ::: warning
@@ -100,6 +94,10 @@ Auth0 provides out of box functionality for sending a [verification email](/emai
 [Blocking user access](/users/guides/block-and-unblock-users) in Auth0 provides a way to prevent user login to applications under certain conditions. By default, the Auth0 Dashboard provides an out-of-the-box mechanism to give administrators the ability to both block and unblock user access to all applications, and you can implement this functionality via use of the [Auth0 Management API](/api/management/v2#!/Users/patch_users_by_id). Auth0 extensibility can also be used to [disable user access to certain applications](/users/guides/manage-user-access-to-applications) as well as providing more fine grained [access control](/architecture-scenarios/implementation/b2c/b2c-authorization).
 
 In addition, the Auth0 Management API also provides you with the ability to [unblock](/api/management/v2#!/User_Blocks/delete_user_blocks_by_id) users disabled due to excessive use of incorrect credentials.  
+
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
 
 ## Keep reading
 
