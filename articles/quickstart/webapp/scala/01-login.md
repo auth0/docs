@@ -71,21 +71,17 @@ class Callback @Inject() (cache: CacheApi, ws: WSClient) extends Controller {
   }
 
   def getToken(code: String, sessionId: String): Future[(String, String)] = {
-    val config = Auth0Config.get()
-    var audience = config.audience
-    if (config.audience == ""){
-      audience = String.format("https://%s/userinfo",config.domain)
-    }
-    val tokenResponse = ws.url(String.format("https://%s/oauth/token", config.domain)).
+
+    val tokenResponse = ws.url(String.format("https://%s/oauth/token", "${account.namespace}")).
       withHeaders(HeaderNames.ACCEPT -> MimeTypes.JSON).
       post(
         Json.obj(
-          "client_id" -> config.clientId,
-          "client_secret" -> config.secret,
-          "redirect_uri" -> config.callbackURL,
+          "client_id" -> "${account.clientId}",
+          "client_secret" -> "YOUR_CLIENT_SECRET",
+          "redirect_uri" -> "http://localhost:3000/callback",
           "code" -> code,
           "grant_type"-> "authorization_code",
-          "audience" -> audience
+          "audience" -> "${apiIdentifier}"
         )
       )
 
@@ -104,7 +100,7 @@ class Callback @Inject() (cache: CacheApi, ws: WSClient) extends Controller {
 
   def getUser(accessToken: String): Future[JsValue] = {
     val config = Auth0Config.get()
-    val userResponse = ws.url(String.format("https://%s/userinfo", config.domain))
+    val userResponse = ws.url(String.format("https://%s/userinfo", "${account.namespace}"))
       .withQueryString("access_token" -> accessToken)
       .get()
 
@@ -138,7 +134,6 @@ class Application @Inject() (cache: CacheApi) extends Controller {
   }
 
   def login = Action {
-    val config = Auth0Config.get()
     // Generate random state parameter
     object RandomUtil {
       private val random = new SecureRandom()
@@ -149,21 +144,16 @@ class Application @Inject() (cache: CacheApi) extends Controller {
     }
     val state = RandomUtil.alphanumeric()
 
-    var audience = config.audience
-    if (config.audience == ""){
-      audience = String.format("https://%s/userinfo", config.domain)
-    }
-
     val id = randomUUID().toString
     cache.set(id + "state", state)
     val query = String.format(
       "authorize?client_id=%s&redirect_uri=%s&response_type=code&scope=openid profile&audience=%s&state=%s",
-      config.clientId,
-      config.callbackURL,
-      audience,
+      "${account.clientId}",
+      "http://localhost:3000/callback",
+      "${apiIdentifier}",
       state
     )
-    Redirect(String.format("https://%s/%s", config.domain, query)).withSession("id" -> id)
+    Redirect(String.format("https://%s/%s", "${account.namespace}", query)).withSession("id" -> id)
   }
 }
 ```
@@ -248,8 +238,8 @@ class Application @Inject() (cache: CacheApi) extends Controller {
     val config = Auth0Config.get()
     Redirect(String.format(
       "https://%s/v2/logout?client_id=%s&returnTo=http://localhost:3000",
-      config.domain,
-      config.clientId)
+      "${account.namespace}",
+      "${account.clientId}")
     ).withNewSession
   }
 }
