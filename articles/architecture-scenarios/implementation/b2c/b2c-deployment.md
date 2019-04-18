@@ -14,12 +14,6 @@ useCase:
 
 # Deployment Automation
 
-## Planning
-
-To help you with planning your implementation, we've put together some [planning guidance](#) that details our recommended strategies.
-
-## Overview
-
 In addition to adopting best practices for change management and [QA](/architecture-scenarios/implementation/b2c/b2c-qa), successful customers will also integrate Auth0 collateral management as part of some automated deployment process. As discussed in the Architecture section under [SDLC support](/architecture-scenarios/implementation/b2c/b2c-architecture#sdlc-support), you will want to ensure you configure separate Auth0 tenants for development, testing and production environments, and you will want that configuration to be almost identical for the tenant in each environment. Using deployment automation helps ensure this, so that each environment tenant is configured the same and you will be less likely to see bugs show up as a result of mismatched configurations between environments.
 
 ::: panel Best Practice
@@ -51,6 +45,10 @@ Auth0 allows you to configure variables that are available from within custom [e
 ::: panel Best Practice
 It’s a recommended best practice to use variables to contain tenant specific values as well as any sensitive secrets that should not be exposed in your custom code. If your custom code is deployed in GitHub then using a tenant specific variable avoids exposure of sensitive values via your GitHub repository.
 :::
+
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
 
 ## Keep reading
 
