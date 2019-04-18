@@ -96,6 +96,10 @@ Out of the box, the email templates used contain standard verbiage and Auth0 bra
 
 Email templates are customized using [Liquid syntax](/email/liquid-syntax). If you are interested in customizing your templates based on user preferences, you will also have access to the [metadata](/users/concepts/overview-user-metadata) located in users' profiles, as well as any specific application metadata too. 
 
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
+
 ## Keep reading
 
 * [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)

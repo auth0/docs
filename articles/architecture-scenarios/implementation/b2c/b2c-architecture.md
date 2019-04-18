@@ -1,6 +1,6 @@
 ---
 title: Architecture
-description: Learn how to create Auth0 tenants for one or more environments
+description: Understand how Auth0 lets you create Auth0 tenants for one or more environments
 toc: true
 topics:
     - b2c
@@ -92,6 +92,10 @@ Though Auth0 allows you to create as many free tenants as you'd like, you may be
 ## Tenant association
 
 To ensure that your [tenants are all associated with your Auth0 contractual agreement](/dev-lifecycle/child-tenants) and have the same features, ensure all your tenants are associated with your company account. If you have individual developers that want to create their own sandboxes for testing, make sure they get associated with your account so they have the same permissions too. To do this you should contact your Auth0 representative or the Auth0 Support Center at ${env.DOMAIN_URL_SUPPORT}.
+
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
 
 ## Keep reading
 

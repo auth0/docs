@@ -134,6 +134,10 @@ If you need a [Refresh Token](/tokens/refresh-token/current) so that you can obt
 
 If your SDK only supports the Authorization Code grant, or you need an Access Token or Refresh Token, then Authorization Code grant (with or without [PKCE](/flows/concepts/mobile-login-flow)) can also be used to retrieve an ID Token.  The Authorization Code grant includes an additional API call to exchange the code for a token which can result in additional unnecessary latency if all you need is the ID Token. In many cases the [hybrid flow](/api-auth/tutorials/hybrid-flow) is implemented to provide optimum access to the ID Token while still leveraging Authorization Code grant workflow for the secure and safe retrieval of Access and Refresh Tokens.
 
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
+
 ## Keep reading
 
 * [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)

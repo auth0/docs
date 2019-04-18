@@ -1,6 +1,6 @@
 ---
 title: Deployment Automation
-description: Learn how to use Auth0 tooling to automate tenant deployment
+description: Understand how Auth0 tooling helps to automate tenant deployment
 toc: true
 topics:
     - b2c
@@ -45,6 +45,10 @@ Auth0 allows you to configure variables that are available from within custom [e
 ::: panel Best Practice
 It’s a recommended best practice to use variables to contain tenant specific values as well as any sensitive secrets that should not be exposed in your custom code. If your custom code is deployed in GitHub then using a tenant specific variable avoids exposure of sensitive values via your GitHub repository.
 :::
+
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
 
 ## Keep reading
 

@@ -1,6 +1,6 @@
 ---
 title: Profile Management
-description: Learn about user profile management planning considerations for your B2C implementation. 
+description: Understand user profile management planning considerations for your B2C implementation. 
 toc: true
 topics:
     - b2c
@@ -94,6 +94,10 @@ Auth0 provides out of box functionality for sending a [verification email](/emai
 [Blocking user access](/users/guides/block-and-unblock-users) in Auth0 provides a way to prevent user login to applications under certain conditions. By default, the Auth0 Dashboard provides an out-of-the-box mechanism to give administrators the ability to both block and unblock user access to all applications, and you can implement this functionality via use of the [Auth0 Management API](/api/management/v2#!/Users/patch_users_by_id). Auth0 extensibility can also be used to [disable user access to certain applications](/users/guides/manage-user-access-to-applications) as well as providing more fine grained [access control](/architecture-scenarios/implementation/b2c/b2c-authorization).
 
 In addition, the Auth0 Management API also provides you with the ability to [unblock](/api/management/v2#!/User_Blocks/delete_user_blocks_by_id) users disabled due to excessive use of incorrect credentials.  
+
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
 
 ## Keep reading
 

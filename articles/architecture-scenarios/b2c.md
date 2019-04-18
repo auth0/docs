@@ -24,7 +24,7 @@ The information provided is relevant to **all** project stakeholders. We recomme
 
 There are many different ways Auth0 can be integrated into the CIAM project architecture. Auth0's flexibility comprehensively supports many different use cases, however keep in mind that not every project requires 100% of the capabilities provided by Auth0.
 
-When you embark on your journey to integrate with Auth0, there are many things for you to consider. Knowing what, when, and how best to implement something will help you focus on completing the necessary tasks at the right time. To help you with this, we've put together some [planning guidance](/architecture-scenarios/implementation/b2c/b2c-planning) that details our recommended strategies.
+When you embark on your journey to integrate with Auth0, there are many things for you to consider. Knowing what, when, and how best to implement something will help you focus on completing the necessary tasks at the right time. To help you with this, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
 
 ## Implementation checklists
 
@@ -47,11 +47,13 @@ You can find detailed guidance regarding specific functionality and use cases in
 
 ## Keep reading
 
-* [Planning](/architecture-scenarios/implementation/b2c/b2c-planning)
 * [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
 * [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
 * [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
 * [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
+* [Deployment Automation](/architecture-scenarios/implementation/b2c/b2c-deployment)
+* [Quality Assurance](/architecture-scenarios/implementation/b2c/b2c-qa)
 * [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
 * [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
 * [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)
+* [Operations](/architecture-scenarios/implementation/b2c/b2c-operations)

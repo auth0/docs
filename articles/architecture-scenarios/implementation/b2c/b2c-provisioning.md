@@ -57,6 +57,10 @@ Automatic Migration is preferred as it allows users to be migrated in a piecemea
 
 Auth0 Database Connections types can also be configured to proxy an existing (a.k.a. legacy) identity store. If, for some reason, you will need to keep user identities defined in your own legacy store - for example, if you have one or more business critical applications that you can’t migrate to Auth0, but which still need access to these identities - then you can easily integrate with Auth0, and you’ll want to review the [guidance provided](connections/database/custom-db) to show you how.
 
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
+
 ## Keep reading
 
 * [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)

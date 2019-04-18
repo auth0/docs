@@ -1,6 +1,6 @@
 ---
 title: Logout
-description: Learn about user logout planning considerations for your B2C implementation.
+description: Understand user logout planning considerations for your B2C implementation.
 toc: true
 topics:
     - b2c
@@ -49,11 +49,18 @@ If the user logs out and you redirect them back to the application, and the appl
 
 Not all users will trigger the logout process manually, so Auth0 also provides **session timeout** to prevent overly long-lived sessions. This setting is [available and configurable via the Auth0 Dashboard](/dashboard/dashboard-tenant-settings#session-timeout).
 
+## Planning
+
+To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
+
 ## Keep reading
 
 * [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
 * [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
 * [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
 * [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
+* [Deployment Automation](/architecture-scenarios/implementation/b2c/b2c-deployment)
+* [Quality Assurance](/architecture-scenarios/implementation/b2c/b2c-qa)
 * [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
 * [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
+* [Operations](/architecture-scenarios/implementation/b2c/b2c-operations)
