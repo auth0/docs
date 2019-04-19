@@ -32,7 +32,7 @@ We will represent the two APIs using just one Auth0 API called `Organizer Servic
 
 Before beginning this tutorial:
 
-* [Register your Application with Auth0](/applications/guides/register-spa)
+* [Register your Application with Auth0](/dashboard/guides/applications/register-app-spa)
   * Select an **Application Type** of **Single-Page App**.
   * Add **Allowed Callback URLs** of `http://localhost:3000` and `http://localhost:3000/callback.html`.
 * [Download the sample application](https://github.com/auth0-samples/auth0-api-auth-implicit-sample), so you can follow along as you read. Please see the `README` for additional information on setting up the sample on your local environment.

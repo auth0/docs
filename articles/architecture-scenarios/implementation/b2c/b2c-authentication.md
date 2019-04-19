@@ -119,7 +119,7 @@ Authentication is the process of determining user identity. The result of authen
 * Is your application a native application (mobile or desktop) and/or do you need a [Refresh Token](/tokens/refresh-token/current)? See [Authorization Code Grant with PKCE](/api-auth/tutorials/authorization-code-grant-pkce) for more information. 
 
 ::: warning
-Before you go live, you should ensure that **only** the grants that you are using for each application are enabled in your [configuration for your Application](/applications/guides/update-grant-types-dashboard).
+Before you go live, you should ensure that **only** the grants that you are using for each application are enabled in your [configuration for your Application](/dashboard/guides/applications/update-grant-types).
 :::
 
 ### Implicit grant

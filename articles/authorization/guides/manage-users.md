@@ -24,25 +24,25 @@ This guide will show you how to manage users in a [role-based access control (RB
 We provide various functions to help you manage your users, which you can access through either the Auth0 Dashboard or the Auth0 Management API.
 
 Using the Dashboard, you can:
-- [Assign roles to users](/authorization/guides/dashboard/assign-roles-users)
-- [View roles assigned to users](/authorization/guides/dashboard/view-user-roles)
-- [Remove roles assigned to users](/authorization/guides/dashboard/remove-user-roles)
-- [Assign permissions to users](/authorization/guides/dashboard/assign-permissions-users)
-- [View permissions assigned to users](/authorization/guides/dashboard/view-user-permissions)
-- [Remove permissions assigned to users](/authorization/guides/dashboard/remove-user-permissions)
+- [Assign roles to users](/dashboard/guides/users/assign-roles-users)
+- [View user roles](/dashboard/guides/users/view-user-roles)
+- [Remove roles from users](/dashboard/guides/users/remove-user-roles)
+- [Assign permissions to users](/dashboard/guides/users/assign-permissions-users)
+- [View user permissions](/dashboard/guides/users/view-user-permissions)
+- [Remove permissions from users](/dashboard/guides/users/remove-user-permissions)
 
 Using the Management API, you can:
-- [Assign roles to users](/authorization/guides/api/assign-roles-users)
-- [View roles assigned to users](/authorization/guides/api/view-user-roles)
-- [Remove roles assigned to users](/authorization/guides/api/remove-user-roles)
-- [Assign permissions to users](/authorization/guides/api/assign-permissions-users)
-- [View permissions assigned to users](/authorization/guides/api/view-user-permissions)
-- [Remove permissions assigned to users](/authorization/guides/api/remove-user-permissions)
+- [Assign roles to users](/api/management/guides/users/assign-roles-users)
+- [View user roles](/api/management/guides/users/view-user-roles)
+- [Remove roles from users](/api/management/guides/users/remove-user-roles)
+- [Assign permissions to users](/api/management/guides/users/assign-permissions-users)
+- [View user permissions](/api/management/guides/users/view-user-permissions)
+- [Remove permissions from users](/api/management/guides/users/remove-user-permissions)
 
 ## Keep reading
 
 - [Role-Based Access Control (RBAC)](/authorization/concepts/rbac)
-- [Create Roles](/authorization/guides/dashboard/create-roles)
+- [Create Roles](/dashboard/guides/roles/create-roles)
 - [Register APIs with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
-- [Define Permissions for APIs](/scopes/current/guides/define-api-scopes-dashboard)
+- [Add API Permissions](/dashboard/guides/apis/add-permissions-apis)
 - [Troubleshooting: Role-Based Access Control and Authorization](/authorization/concepts/troubleshooting)

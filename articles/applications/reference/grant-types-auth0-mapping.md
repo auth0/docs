@@ -15,7 +15,7 @@ useCase:
 
 When registered, Auth0 Applications have access to different grant types based on [application](/applications) type. The biggest deciding factor is whether the application is [confidential or public](/applications/concepts/app-types-confidential-public).
 
-Trusted first-party applications have access to additional grant types.
+Additionally, trusted [first-party applications](/applications/concepts/app-types-first-third-party) have access to additional grant types.
 
 ## Public Applications
 
@@ -37,14 +37,14 @@ When a **Regular Web App** or **Machine-to-Machine (M2M) App** is registered in 
 
 By default, Auth0 creates confidential applications with the following `grant_types` enabled:
 
-* `implicit`;
-* `authorization_code`;
-* `refresh_token`;
+* `implicit`
+* `authorization_code`
+* `refresh_token`
 * `client_credentials`
 
 ## Trusted First-Party Applications
 
-Trusted first-party applications can additionally use the following `grant_types`:
+Trusted first-party applications have the same `grant_types` enabled as confidential applications, plus the following:
 
 * `password`
 * `http://auth0.com/oauth/grant-type/password-realm`

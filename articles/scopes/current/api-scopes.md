@@ -69,7 +69,7 @@ We discuss this approach in more depth in our [SPA+API Architecture Scenario](/a
 ## Keep reading
 
 - [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases)
-- [How to Define Scopes for an API Using the Auth0 Dashboard](/scopes/current/guides/define-api-scopes-dashboard)
+- [Add API Permissions (Scopes)](/dashboard/guides/apis/add-permissions-apis)
 - [How to Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)
 - [Represent Multiple APIs Using a Single Logical API in Auth0](/api-auth/tutorials/represent-multiple-apis)
 - [Restrict Access to APIs](/api-auth/restrict-access-api)

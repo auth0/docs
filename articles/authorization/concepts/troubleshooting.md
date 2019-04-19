@@ -19,7 +19,7 @@ useCase:
 
 Here are some solutions to common issues experienced when implementing role-based access control (RBAC) using the Authorization core feature set.
 
-## Role-based access control is enabled for my API, but the scopes claim is not showing what [you say it should](/authorization/guides/dashboard/enable-rbac). 
+## Role-based access control is enabled for my API, but the scopes claim is not showing what [you say it should](/dashboard/guides/apis/enable-rbac). 
 
 Make sure that you aren't setting `accessToken.scope` in a [rule]. Remember that any configured [authorization rules](/authorization/concepts/authz-rules) run _after_ the RBAC-based authorization decisions are made, so they may override default behavior.
 
