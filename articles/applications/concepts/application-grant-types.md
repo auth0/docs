@@ -6,7 +6,7 @@ topics:
   - applications
   - grant-types
 contentType: 
-    - concept
+  - concept
 useCase:
   - build-an-app
 ---
@@ -28,5 +28,5 @@ Not sure which grant type is appropriate for your use case? Refer to [Which OAut
 
 * To learn which grant types are available in Auth0, see [Available Grant Types](/applications/reference/grant-types-available).
 * To learn which grant types are available based to different application types, see [Auth0 Grant Types Mapping](/applications/reference/grant-types-auth0-mapping)
-* Learn how to [update an application's grant types using the Auth0 Dashboard](/applications/guides/update-grant-types-dashboard) or the [Management API](/applications/guides/update-grant-types-mgmt-api).
+* Learn how to [update an application's grant types using the Auth0 Dashboard](/dashboard/guides/applications/update-grant-types) or the [Management API](/api/management/guides/applications/update-grant-types).
 * For info on working with legacy grant types and their alternatives, see [Legacy Grant Types](/applications/concepts/grant-types-legacy)

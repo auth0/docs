@@ -30,7 +30,7 @@ Following successful login, your application will have access to the user's [ID 
 * [Register your Application with Auth0](/dashboard/guides/applications/register-app-regular-web). 
   * Select an **Application Type** of **Regular Web Apps**.
   * Add an **Allowed Callback URL** of **`${account.callback}`**.
-  * Make sure your Application's **[Grant Types](/applications/guides/update-grant-types-dashboard)** include **Authorization Code**.
+  * Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include **Authorization Code**.
 
 
 ## Steps

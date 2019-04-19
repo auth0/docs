@@ -82,7 +82,7 @@ module.exports = [
   },
   {
     from: '/applications/addons',
-    to: '/applications/concepts/addons'
+    to: '/addons'
   },
   {
     from: '/ionic-tutorial',

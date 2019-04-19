@@ -31,7 +31,7 @@ Following successful login, your application will have access to the user's [ID 
 * [Register your Application with Auth0](/dashboard/guides/applications/register-app-native). 
   * Select an **Application Type** of **Native**.
   * Add an **Allowed Callback URL** of **`YOUR_CALLBACK_URL`**. Your callback URL format will vary depending on your platform. For details about the format for your platform, see our [Native/Mobile Quickstarts](/quickstart/native).
-  * Make sure your Application's **[Grant Types](/applications/guides/update-grant-types-dashboard)** include **Authorization Code**.
+  * Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include **Authorization Code**.
 
 ## Steps
 

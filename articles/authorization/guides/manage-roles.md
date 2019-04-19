@@ -22,30 +22,30 @@ We provide various functions to help you manage your roles, which you can access
 
 Using the Dashboard, you can:
 
-- [Create roles](/authorization/guides/dashboard/create-roles)
-- [Edit role definitions](/authorization/guides/dashboard/edit-role-definitions)
-- [Add permissions to roles](/authorization/guides/dashboard/add-permissions-roles)
-- [View permissions added to roles](/authorization/guides/dashboard/view-role-permissions)
-- [Remove permissions added to roles](/authorization/guides/dashboard/remove-role-permissions)
-- [View users assigned to roles](/authorization/guides/dashboard/view-role-users)
-- [Remove users assigned to roles](/authorization/guides/dashboard/remove-role-users)
-- [Delete roles](/authorization/guides/dashboard/delete-roles)
+- [Create roles](/dashboard/guides/roles/create-roles)
+- [Edit role definitions](/dashboard/guides/roles/edit-role-definitions)
+- [Add permissions to roles](/dashboard/guides/roles/add-permissions-roles)
+- [View role permissions](/dashboard/guides/roles/view-role-permissions)
+- [Remove permissions from roles](/dashboard/guides/roles/remove-role-permissions)
+- [View role users](/dashboard/guides/roles/view-role-users)
+- [Remove users from roles](/dashboard/guides/roles/remove-role-users)
+- [Delete roles](/dashboard/guides/roles/delete-roles)
 
 Using the Management API, you can:
 
-- [Create roles](/authorization/guides/api/create-roles)
-- [Edit role definitions](/authorization/guides/api/edit-role-definitions)
-- [Add permissions to roles](/authorization/guides/api/add-permissions-roles)
-- [View permissions added to roles](/authorization/guides/api/view-role-permissions)
-- [Remove permissions added to roles](/authorization/guides/api/remove-role-permissions)
-- [View users assigned to roles](/authorization/guides/api/view-role-users)
-- [Remove users assigned to roles](/authorization/guides/api/remove-user-roles)
-- [Delete roles](/authorization/guides/api/delete-roles)
+- [Create roles](/api/management/guides/roles/create-roles)
+- [Edit role definitions](/api/management/guides/roles/edit-role-definitions)
+- [Add permissions to roles](/api/management/guides/roles/add-permissions-roles)
+- [View role permissions](/api/management/guides/roles/view-role-permissions)
+- [Remove permissions from roles](/api/management/guides/roles/remove-role-permissions)
+- [View role users](/api/management/guides/roles/view-role-users)
+- [Remove users from roles](/api/management/guides/users/remove-user-roles)
+- [Delete roles](/api/management/guides/roles/delete-roles)
 
 ## Keep reading
 
 - [Role-Based Access Control (RBAC)](/authorization/concepts/rbac)
-- [Assign Roles to Users](/authorization/guides/dashboard/assign-roles-users)
+- [Assign Roles to Users](/dashboard/guides/users/assign-roles-users)
 - [Register APIs with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
-- [Define Permissions for APIs](/scopes/current/guides/define-api-scopes-dashboard)
+- [Add API Permissions](/dashboard/guides/apis/add-permissions-apis)
 - [Troubleshooting: Role-Based Access Control and Authorization](/authorization/concepts/troubleshooting)

@@ -1,37 +1,45 @@
 ---
 url: /addons
-description: Learn how to setup add-ons, like Amazon Web Services and Azure Blob Storage, for an application registered with Auth0.
+title: Add-ons
+description: Learn about add-ons and how they are related to Auth0-registered Applications.
 topics:
-    - applications
-    - add-ons
-contentType: 
-    - index
-    - how-to
-useCase: 
-    - integrate-third-party-apps
+  - applications
+  - add-ons
+contentType:
+  - concept
+  - index
+useCase:
+  - build-an-app
+  - integrate-third-party-apps
 ---
-# How to Configure an Add-on for an Application
 
-This guide will show you how to configure an [add-on](/applications/concepts/add-ons) for an application using the Auth0 Dashboard.
+# Add-ons
 
-1. Navigate to [Auth0 Dashboard > Applications](${manage_url}/#/applications).
+Add-ons are plugins associated with an application registered with Auth0. Usually, they are third-party APIs used by application(s) for which Auth0 generates Access Tokens (e.g., Salesforce, Azure Service Bus, Windows Azure Mobile Services, SAP).
 
-2. Click the name of your Application to show its settings.
+Some typical scenarios for using add-ons include:
 
-3. Click on **Add-ons**.
+* **Accessing External APIs**: Using the Delegation endpoint, you can exchange your application's Access Token for a third-party service's (e.g., Salesforce, Amazon) Access Token.
 
-4. Use the appropriate toggle to enable the add-on you want to configure.
+* **Integrating with Applications using SAML2/WS-Federation**: Since Add-ons allow you to configure every aspect of the SAML2/WS-Federation integration, they allow you to integrate with any custom or SSO integration that does not currently enjoy built-in Auth0 support.
 
-![Application Addons](/media/addons/manage-addons.png)
+![Addons Example Diagram](/media/articles/applications/applications-addon-types.png)
 
-Each integration is different and requires different parameters and configuration. Once the add-on is activated, you will see tailored instructions with details on how to integrate with it in the Dashboard.
+## Available Add-ons
 
-## Additional information for specific Add-ons
+- Amazon Web Services
+- Firebase
+- Layer
+- Salesforce
+- Salesforce (Sandbox)
+- SAP
+- Windows Azure Mobile Services
+- Windows Azure Service Bus
+- Microsoft Azure Blob Storage
+- SAML2
+- WS-Fed
 
-- Amazon Web Services: For more info on how to use delegation with the AWS API Gateway, see the [AWS API Gateway](/integrations/aws-api-gateway/delegation) Tutorial
-- [Azure Blob Storage](/addons/azure-blob-storage)
-- [Azure Mobile Services](/addons/azure-mobile-services)
-- [Azure Service Bus](/addons/azure-sb)
-- [Salesforce (sandbox)](/addons/salesforce-sandbox)
-- [Salesforce](/addons/salesforce)
-- [SAP OData](/addons/sap-odata)
+## Keep reading
+
+- [View Add-ons](/dashboard/guides/applications/view-addons)
+- [Set Up Add-Ons](/dashboard/guides/applications/set-up-addons)

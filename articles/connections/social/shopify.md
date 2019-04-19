@@ -39,11 +39,11 @@ While setting up your app, make sure you use the following settings:
 
 ## 2. Create and enable a connection in Auth0
 
-[Set up the Shopify social connection](/connections/guides/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated in Step 1.
+[Set up the Shopify social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated in Step 1.
 
 ## 3. Test the connection
 
-You're ready to [test your connection](/connections/guides/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 ::: note
 To automatically authenticate users who have already been verified by Auth0, you can use the [Multipass](https://help.shopify.com/api/reference/multipass) feature.

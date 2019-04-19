@@ -36,7 +36,7 @@ The Connector supports authentication based on the following:
 
 By default, an AD/LDAP Connection caches user profiles and credentials (note: Auth0 stores a *hash* of the user's password) to ensure optimal uptime and performance, and updates the data each time a user logs in. The cache is only used when the connector is down or unreachable. 
 
-The cached data is always stored unless you [disable caching credentials](/connector/guides/ad-ldap-disable-cache). 
+The cached data is always stored unless you [disable caching credentials](/dashboard/guides/connections/disable-cache-ad-ldap). 
 
 ::: warning
 Values in the cache are case-sensitive, which means that login attempts will only succeed if users provide the exact username that was cached.

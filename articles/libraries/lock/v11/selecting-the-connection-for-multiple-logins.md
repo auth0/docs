@@ -15,7 +15,7 @@ useCase:
 
 With Auth0 you can offer users multiple methods of authenticating. This is important with SaaS or multi-tenant apps, where many organization use a single app. Each organization might use different systems such as LDAP, Active Directory, Google Apps, or username/password stores.
 
-In Auth0, you can associate different *connections* (methods of authentication) to specific applications, or directly to a tenant (as [domain connections](/applications/guides/enable-third-party-applications#promote-connections-to-domain-level)). When a user logs in, one of these connections will need to be selected as the one to use.
+In Auth0, you can associate different *connections* (methods of authentication) to specific applications, or directly to a tenant (as [domain connections](/api/management/guides/connections/promote-connection-domain-level)). When a user logs in, one of these connections will need to be selected as the one to use.
 
 ![](/media/articles/hrd/sd4h-6wlwOsQA1PCQKLAmtQ.png)
 
