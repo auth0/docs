@@ -66,8 +66,8 @@ Extension | Version with support for v3 | Considerations
 You can leverage the [logs](/logs) in the [Dashboard](${manage_url}/#/logs) to find calls to the `/api/v2/users` endpoint that use the User Search v2 engine, including calls performed by SDKs. Those logs will help you identify where code changes might be needed in your applications.
 
 Use the following query to retrieve all the logs related to User Search v2: 
-- For Tenants in the **AU** or **EU** regions: `type:w AND description:"The User Search v2 engine is deprecated"`
-- For Tenants in the **US** region: `type:w AND description:*User*Search*v2*`
+- For tenants in the **AU** and **EU** regions: `type:w AND description:"The User Search v2 engine is deprecated"`
+- For tenants in the **US** region: `type:w AND description:*User*Search*v2*`
 
 The logs will provide additional information in the description field, in the following cases:
 
