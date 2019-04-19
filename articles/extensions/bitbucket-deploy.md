@@ -118,7 +118,7 @@ __facebook.json__
 
 _This will work only for non-Auth0 connections (`strategy !== auth0`); for Auth0 connections, use `database-connections`._
 
-See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
+For more info on the allowed attributes for connections, see the [Post Connections endpoint] (/api/management/v2#!/Connections/post_connections).
 
 ### Deploy Universal Login Pages
 
@@ -145,7 +145,7 @@ To enable the page, the `password_reset.json` would contain the following:
 ```
 
 ::: note
-`error_page` cannot be enabled/disabled. If you want to use default error page - you should remove content of `error_page.html`
+The `error_page` cannot be enabled/disabled. To use the default error page, remove the content of `error_page.html`.
 :::
 
 ### Deploy Rules
