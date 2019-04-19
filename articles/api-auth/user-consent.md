@@ -140,5 +140,4 @@ When redirecting to /authorize, the `prompt=consent` parameter will force users 
 
 ### Customizing the consent dialog
 
-As of today the consent dialog UI cannot be customized or set to a custom domain.
-We plan to implement this in future releases.
+The consent dialog UI cannot be customized or set to a custom domain.

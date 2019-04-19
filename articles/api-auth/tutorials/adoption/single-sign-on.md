@@ -20,8 +20,6 @@ In the context of the OIDC-conformant authentication pipeline, SSO must happen a
 
 This means that for SSO to happen, you must employ [Universal Login](/hosted-pages/login) and redirect users to the login page.
 
-We are planning on providing support for SSO from applications in future releases.
-
 ## How SSO works
 
 At a general level, this is what happens when performing SSO:
