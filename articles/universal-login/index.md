@@ -14,23 +14,29 @@ useCase: customize-hosted-pages
 ---
 # Auth0 Universal Login
 
-Auth0's Universal Login is the most secure way to authenticate users for your applications. Universal Login centers around your Auth0 login page. The login page appearance and behavior is customizable right from the [Dashboard](${manage_url}). The logo and colors of the login pages can be changed, and in more advanced use cases, the code of each page itself can be modified.
+Universal Login is Auth0's implementation of the login flow, which is the key feature of an Authorization Server. Each time a user needs to prove their identity, your applications redirect to Universal Login and Auth0 will do what's needed to guarantee the user's identity. 
 
-In the Universal Login flow, the user will click a login button or link in your application, which will redirect to the `/authorize` route at the Auth0. If there is no session detected for the end user, Auth0 will redirect them to the login page, where they will be able to login or signup using the connections you configure, such as databases or social connections. Once the user is authenticated (or if they were already signed in) Auth0 will redirect them to your application, along with the requisite credentials.
+By choosing Universal Login, you don't have to do any integration work to handle the various flavors of authentication. You can start off using a simple username and password. With a simple toggle switch, you can add new features such as social login and multi-factor authentication. All of this is dynamic, and adjustable in real-time without requiring application-level changes, since all functionality is driven dynamically by the web pages served by the centralized Authentication Server. Your application will benefit from all improvements Auth0 does in the login flow without you changing a single line of code. 
 
-::: note
-If the incoming authentication request includes a `connection` parameter that uses an external identity provider (such as a social provider), the login page will not display. Instead, Auth0 will direct the user to the [identity provider's](/identityproviders) login page.
-:::
+The login page appearance and behavior is customizable right from the [Dashboard](${manage_url}). The logo and colors of the login pages can be changed, and in more advanced use cases, the code of each page itself can be modified.
 
 For information on the differences between Universal Login and traditional embedded login within your application, see [our comparison guide](/guides/login/universal-vs-embedded).
 
-## Implementing Universal Login
+## Choosing an experience
 
-In addition to configuring Universal Login for your tenant's applications, you will also need to set up a connection(s) and set up your application in Auth0's dashboard. You will also need to configure your application's code to call Auth0's `/authorize` endpoint in order to trigger Universal Login, and then to deal with the response.
+There are two available experiences in Universal Login. The Classic Universal Login experience uses JavaScript controls for each page. The New Universal Login experience does not _require_ JavaScript to work, and it offers a simpler and faster experience for end-users. 
 
-For step by step instructions on setting up your application to use Universal Login, check out our [Quickstart guides](/docs/quickstart).
+In the Dashboard, the dialog shown below lets you select which Experience will be used for default, non-customized pages:
 
-### Simple Customization
+![Login Page](/media/articles/universal-login/experience-picker.png)
+
+Choose an experience to learn more about:
+
+* [Classic Universal Login experience](/universal-login/classic) 
+* [New Universal Login experience](/universal-login/new) (and its [current limitations](/universal-login/new-experience-limitations))
+
+
+## Simple Customization
 
 ![Customization Settings for Login Page](/media/articles/universal-login/settings.png)
 
@@ -42,42 +48,10 @@ The settings available here are:
 * Primary Color
 * Background Color
 
-These settings, once changed, will take effect on all your Universal Login pages if you have not enabled customization of the pages' code. The settings will also work if you have enabled customization, but are using the predefined templates and have not changed those options in the code.
+These settings, once changed, will take effect on all your Universal Login pages if you have not enabled customization of the pages' code. The settings will also work if you have enabled customization but are using the predefined templates and have not changed those options in the code.
 
-### Advanced Customization
+## Implementing Universal Login
 
-![Login Page](/media/articles/universal-login/login.png)
-	
-In addition to the settings above, the actual code of the pages may be altered and added to. The Universal Login pages work for many use cases without customizing their code, but if the customization toggle is enabled, you are able to modify each page at will.
+In addition to configuring Universal Login for your tenant's applications, you will also need to set up a connection(s) and set up your application in Auth0's dashboard. You will also need to configure your application's code to call Auth0's `/authorize` endpoint in order to trigger Universal Login, and then to deal with the response.
 
-When the customization toggle is flipped on, you then become responsible for updates and maintenance of the script, as it can no longer be automatically updated by Auth0. This includes updating the version numbers for any included Auth0 SDK or widget.
-
-::: note
-If you have enabled customization to inspect the page code, and then decide **not** to customize your login page, you should make sure to disable the **Customize Login Page** toggle, to allow your page to receive the updates it might need from Auth0.
-:::
-
-#### Choose a template to begin
-
-If you intend to customize the login page, you'll first want to choose the template for the technology that you'd like to use to power it. You will find these templates in a dropdown just above the code editor for the login page, if you have toggled customization on. 
-
-Click one of the links below to get started. If you do not intend to customize your login page, it will use the default experience, which incorporates the Lock widget, and you may skip this step.
-
-- [Lock](/libraries/lock) - Lock is a pre-built, customizable login widget that will allow your users to quickly and easily login to your application.
-- [Lock (Passwordless Mode)](/libraries/lock/v11#passwordless) - Lock in Passwordless Mode uses the same Lock interface, but rather than offering identity providers as login options, will simply ask the user to enter an email or SMS number to begin a passwordless authentication transaction.
-- [Auth0.js](/libraries/auth0js) - Auth0.js is the SDK used for interacting with the Auth0 [authentication API](/api/authentication). Primarily, you would use the SDK if you need to build your own custom login UI, or implement more complex functionality than simply allowing your users to login. 
-
-#### Modify the code of the login page
-
-If you intend to customize the login page, once you have chosen a template, you may use it as a guide. If you are using Lock or Auth0.js in your login page, you may look at the [Lock Configuration Guide](/libraries/lock/v11/configuration) or the [Auth0.js documentation](/libraries/auth0js/v9).
-
-You may perform whatever CSS customizations that you like, as long as they are included in this one file.
-
-## Other facets of Universal Login
-
-Auth0 offers you the ability to customize and display several other pages containing Auth0-related functionality and to which Auth0 redirects your users during the authorization process, beyond just the login page described above. You can modify the following types of pages from your [Dashboard](${manage_url}):
-
-* [Password Reset Page](/universal-login/password-reset)
-* [Guardian Multi-factor Page](/universal-login/guardian)
-* [Error Pages](/universal-login/error-pages)
-
-While Auth0 hosts these custom pages, you can still [manage your pages using the version control system of your choice](/universal-login/version-control).
+For step by step instructions on setting up your application to use Universal Login, check out our [Quickstart guides](/quickstarts).

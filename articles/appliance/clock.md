@@ -7,6 +7,7 @@ topics:
 contentType: how-to
 useCase: appliance
 applianceId: appliance53
+sitemap: false
 ---
 # Time Synchronization
 

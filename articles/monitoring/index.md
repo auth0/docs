@@ -15,7 +15,7 @@ useCase:
 
 You can monitor your Auth0 implementation and Auth0 status and services, as well as send logging event data to third-party tools.
 
-<%= include('./_includes/_monitor-appliance.md') %>
+<%= include('./_includes/_monitor-private-cloud.md') %>
 
 ## Check availability and status
 

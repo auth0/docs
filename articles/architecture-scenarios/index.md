@@ -16,9 +16,9 @@ useCase:
 ---
 # Architecture Scenarios
 
-This page describes the typical architecture scenarios we have identified when working with customers on implementing Auth0.
+This page describes the typical architecture scenarios we have identified when working with customers on implementing Auth0. We have also included [implementation checklists](/architecture-scenarios/checklists) that you can use to plan your implementation. 
 
-## Application Configurations
+## Application configurations
 
 These scenarios describe the different type of technology architectures your application may use, and how Auth0 can help for each of those. Each scenario comes with:
 
@@ -55,7 +55,7 @@ The goal of these scenarios is to walk you through the implementation process fr
     <p>SaaS/eCommerce apps with customers as end users using the OpenID Connect protocol.</p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2e">Business to Enterprise Identity Scenarios</a>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2e">Business to Employees Identity Scenarios</a>
     <p>Enterprise directory services using federation to allow employees to log in to applications using their existing enterprise credentials.</p>
   </li>
 </ul>

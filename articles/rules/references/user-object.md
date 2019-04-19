@@ -28,7 +28,6 @@ The following properties are available for the `user` object.
 | `user.multifactor` | text | List of the user's enrolled multi-factor providers. |
 | `user.last_ip` | text | IP address associated with the user's last login. |
 | `user.last_login` | date&nbsp;time | Timestamp of when the user last logged in. |
-| `user.logins_count` | integer | Number of times the user has logged in. |
 | `user.name` | text | The user's name. |
 | `user.nickname` | text | The user's nickname. |
 | `user.last_password_reset` | date&nbsp;time | Last time the password was reset or changed. |

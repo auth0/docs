@@ -17,10 +17,6 @@ The **Delegated Administration** extension allows you to grant a select group of
 
 Follow this tutorial to learn how to expose the Users dashboard to a group of users without allowing them access to the rest of the management dashboard. 
 
-:::panel PSaaS Appliance Availability
-The Delegated Administration extension is available for [PSaaS Appliance](/appliance) customers who are running build `10755` or later, and have User Search enabled.
-:::
-
 Prior to configuring the extension, you will need to:
 
 * [Create and configure an Auth0 Application](#create-an-application)
@@ -190,6 +186,8 @@ Now that we've created and configured an application, a connection, and our user
 - **CUSTOM_CSS** (optional): Provide a CSS script to customize the look and feel of your Application.
 
 - **FAVICON_PATH** (optional): Path to custom favicon.
+
+- **AUTH0_CUSTOM_DOMAIN** (optional): If you have a custom domain name configured, enter it here. For example: login.example.com
 
 - **FEDERATED_LOGOUT** (optional): sign out from the IdP when users logout.
 

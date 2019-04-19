@@ -9,6 +9,7 @@ topics:
 contentType: index
 useCase: appliance
 applianceId: appliance4
+sitemap: false
 ---
 
 # PSaaS Appliance: Administrator's Manual

@@ -8,6 +8,7 @@ topics:
 contentType: reference
 useCase: appliance
 applianceId: appliance26
+sitemap: false
 ---
 
 # PSaaS Appliance Dashboard: Troubleshoot

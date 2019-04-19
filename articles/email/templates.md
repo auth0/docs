@@ -72,7 +72,7 @@ See [Configuring the Redirect To URL](#configuring-the-redirect-to-url) for more
 Users will see the sender's address in the **From Address** field when receiving an email from Auth0. If you do not configure a **From Address** for your emails your emails will be sent from the email address of the first owner of your Auth0 account.
 
 ::: note
-For security purposes, you may not send customized emails from any `@auth0.com` address. If you are a PSaaS Appliance user, you may configure a similar domain blacklist.
+For security purposes, you may not send customized emails from any `@auth0.com` address. If you are a Private Cloud user, you may configure a similar domain blacklist.
 :::
 
 The **From Address** field supports all the [common variables](#common-variables) for templates, but these are the most commonly used:

@@ -13,6 +13,7 @@ contentType:
     - how-to
 useCase: appliance
 applianceId: appliance50
+sitemap: false
 ---
 # PSaaS Appliance: Webtask with Dedicated Domains
 

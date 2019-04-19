@@ -29,7 +29,7 @@ Android API level 15+ is required in order to use the Guardian Android SDK.
 Guardian is available both in [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). To start using *Guardian* add these lines to your `build.gradle` dependencies file:
 
 ```gradle
-compile 'com.auth0.android:guardian-sdk:0.2.0'
+implementation 'com.auth0.android:guardian-sdk:0.4.0'
 ```
 
 ::: note
@@ -56,8 +56,8 @@ For your native application to receive push notifications from Guardian, you wil
 Uri url = Uri.parse("https://tenant.guardian.auth0.com/");
 
 Guardian guardian = new Guardian.Builder()
-        .url(url)
-        .build();
+    .url(url)
+    .build();
 ```
 
 or
@@ -66,8 +66,8 @@ or
 String domain = "tenant.guardian.auth0.com";
 
 Guardian guardian = new Guardian.Builder()
-        .domain(domain)
-        .build();
+    .domain(domain)
+    .build();
 ```
 
 ### Enroll
@@ -87,35 +87,35 @@ Next, obtain the enrollment information by scanning the Guardian QR code, and us
 ```java
 Uri enrollmentUriFromQr = ...; // the URI obtained from a Guardian QR code
 
-CurrentDevice device = new CurrentDevice(context, "gcmToken", "deviceName");
+CurrentDevice device = new CurrentDevice(context, "fcmToken", "deviceName");
 
 Enrollment enrollment = guardian
-        .enroll(enrollmentUriFromQr, device, keyPair)
-        .execute();
+    .enroll(enrollmentUriFromQr, device, keyPair)
+    .execute();
 ```
 
 Alternatively, you can execute the request in a background thread:
 
 ```java
 guardian
-        .enroll(enrollmentUriFromQr, device, keyPair)
-        .start(new Callback<Enrollment> {
-            @Override
-            void onSuccess(Enrollment enrollment) {
-               // we have the enrollment data
-            }
+    .enroll(enrollmentUriFromQr, device, keyPair)
+    .start(new Callback<Enrollment> {
+        @Override
+        void onSuccess(Enrollment enrollment) {
+            // we have the enrollment data
+        }
 
-            @Override
-            void onFailure(Throwable exception) {
-               // something failed
-            }
-        });
+        @Override
+        void onFailure(Throwable exception) {
+            // something failed
+        }
+    });
 ```
 
-The `deviceName` and `gcmToken` are data that you must provide:
+The `deviceName` and `fcmToken` are data that you must provide:
 
 - The `deviceName` is the name that you want for the enrollment. It will be displayed to the user when the second factor is required.
-- The `gcmToken` is the token for Google's GCM push notification service. See the [docs](https://developers.google.com/cloud-messaging/android/client#sample-register) for more information about the GCM token.
+- The `fcmToken` is the token for Firebase Cloud Messaging push notification service. See the [docs](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register) for more information about the FCM token.
 
 ### Unenroll
 
@@ -123,21 +123,21 @@ To disable multi-factor authentication you can delete the enrollment:
 
 ```java
 guardian
-        .delete(enrollment)
-        .execute(); // or start(new Callback<> ...)
+    .delete(enrollment)
+    .execute(); // or start(new Callback<> ...)
 ```
 
 ### Allow a login request
 
-Once you have the enrollment in place, you'll receive a GCM push notification every time the user needs multi-factor authentication.
+Once you have the enrollment in place, you'll receive a FCM push notification every time the user needs multi-factor authentication.
 
-Guardian provides a method to parse the `Bundle` received from GCM and return a `Notification` instance ready to be used.
+Guardian provides a method to parse the `Map<String, String>` data inside the [RemoteMessage](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) received from FCM and return a `Notification` instance ready to be used.
 
 ```java
-// at the GCM listener you receive a Bundle
+// at the FCM listener you receive a RemoteMessage
 @Override
-public void onMessageReceived(String from, Bundle data) {
-    Notification notification = Guardian.parseNotification(data);
+public void onMessageReceived(RemoteMessage message) {
+    Notification notification = Guardian.parseNotification(message.getData());
     if (notification != null) {
         // you received a Guardian notification, handle it
         handleGuardianNotification(notification);
@@ -152,8 +152,8 @@ Once you have the notification instance, you can approve the authentication requ
 
 ```java
 guardian
-        .allow(notification, enrollment)
-        .execute(); // or start(new Callback<> ...)
+    .allow(notification, enrollment)
+    .execute(); // or start(new Callback<> ...)
 ```
 
 ### Reject a login request
@@ -162,8 +162,8 @@ To deny an authentication request, use `reject` instead. You can also add an opt
 
 ```java
 guardian
-        .reject(notification, enrollment) // or reject(notification, enrollment, reason)
-        .execute(); // or start(new Callback<> ...)
+    .reject(notification, enrollment) // or reject(notification, enrollment, reason)
+    .execute(); // or start(new Callback<> ...)
 ```
 
 ## Additional Documents

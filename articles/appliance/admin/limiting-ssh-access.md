@@ -8,6 +8,7 @@ topics:
 contentType: concept
 useCase: appliance
 applianceId: appliance6
+sitemap: false
 ---
 
 # PSaaS Appliance Administration: Limiting SSH Access

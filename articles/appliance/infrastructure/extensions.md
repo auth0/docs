@@ -9,6 +9,7 @@ contentType:
     - Reference
 useCase: appliance
 applianceId: appliance32
+sitemap: false
 ---
 # Enable Webtasks, Extensions, and User Search
 

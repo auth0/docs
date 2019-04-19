@@ -8,6 +8,7 @@ topics:
 contentType: how-to
 useCase: appliance
 applianceId: appliance15
+sitemap: false
 ---
 
 # How to Reconfigure IP Addresses Using the Command Line Interface
