@@ -17,10 +17,10 @@ useCase:
 ---
 # Branding
 
-Auth0 can be customized with a look and feel that aligns with your organization's brand requirements and user expectations. The consistency in appearance improves your customer's experience, and alos gives them the peace of mind that the product you are providing can be trusted and is secure.
+Auth0 can be customized with a look and feel that aligns with your organization's brand requirements and user expectations. 
 
 ::: panel Best Practice
-Branding Auth0 collateral provides a consistent look and feel to the user experience for your customers as well as giving them the peace of mind that they’re using a product from a trusted and secure provider.
+Branding Auth0 collateral provides a consistent look and feel to the user experience for your customers and gives them peace of mind that they’re using a product from a trusted and secure provider.
 :::
 
 Auth0 also provides support for [internationalization (I18N)](/i18n) and localization (L10N), both of which are important if you work with an international clientele. Out-of-box collateral, such as the Auth0 Lock UI widget, comes ready enabled for multiple language support, with built-in extensibility for adding more languages if what you require [doesn’t already exist](/libraries/lock/v11/i18n).
