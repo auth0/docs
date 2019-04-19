@@ -30,10 +30,10 @@ For example:
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [{
-    "name": "Content-Type", "value": "application/json"
+    "name": "Content-Type", "value": "application/x-www-form-urlencoded"
   }],
   "postData": {
-    "mimeType": "application/json",
+    "mimeType": "application/x-www-form-urlencoded",
     "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://${account.namespace}/mfa/\", \"scope\": \"enroll read:authenticators remove:authenticators\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}"
   }
 }

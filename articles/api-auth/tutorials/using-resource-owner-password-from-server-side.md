@@ -88,7 +88,7 @@ app.post('/api/auth', function(req, res, next) {
     method: 'POST',
     url: 'https://${account.namespace}/oauth/token',
     headers: {
-      'content-type': 'application/json',
+      'content-type': 'application/x-www-form-urlencoded',
       'auth0-forwarded-for': req.ip // End user ip
     },
     body: {

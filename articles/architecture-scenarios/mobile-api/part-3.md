@@ -74,10 +74,9 @@ Next you can exchange the `authorization_code` from the response for an Access T
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
     "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"com.myclientapp://myclientapp.com/callback\", }"
   }
 }
@@ -173,11 +172,10 @@ Your request should include:
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
-      { "name": "Content-Type", "value": "application/json" }
+      { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
     ],
     "queryString" : [],
     "postData" : {
-      "mimeType": "application/json",
       "text" : "{ \"grant_type\": \"refresh_token\", \"client_id\": \"${account.clientId}\", \"refresh_token\": \"YOUR_REFRESH_TOKEN\" }"
     },
     "headersSize" : 150,
