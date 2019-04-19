@@ -17,7 +17,7 @@ useCase:
 
 This guide will show you how to remove the [permissions](/authorization/concepts/rbac) assigned to a role using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/roles/remove-role-permissions). The assigned permissions and roles are used with the API Authorization Core feature set.
 
-<%= include('../../_includes/_enable-authz-core') %>
+<%= include('../../../_includes/_enable-authz-core') %>
 
 1. Make a `DELETE` call to the [Delete Role Permissions endpoint](/api/management/v2#!/roles/delete_role_permissions). Be sure to replace `ROLE_ID`, `MGMT_API_ACCESS_TOKEN`, `API_ID`, and `PERMISSION_NAME` placeholder values with your role ID, Management API Access Token, API ID(s), and permission name(s), respectively.
 
