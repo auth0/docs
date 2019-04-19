@@ -83,10 +83,10 @@ To confirm the association of an authenticator using SMS messages for the MFA ch
 	"url": "https://${account.namespace}/oauth/token",
   "headers": [
     { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" },
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
 	"postData": {
-		"mimeType": "application/json",
+		"mimeType": "application/x-www-form-urlencoded",
 		"text": "{ \"client_id\": [\"YOUR_CLIENT_ID\"], \"grant_type\": \"http://auth0.com/oauth/grant-type/mfa-oob\", \"mfa_token\": \"YOUR_MFA_TOKEN\", \"oob_code\": \"ata...i0i\", \"binding_code\": \"000000\" }"
 	}
 }

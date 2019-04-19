@@ -47,7 +47,7 @@ In order to execute the flow the application needs to acquire the Resource Owner
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
     "mimeType": "application/json",
@@ -103,7 +103,7 @@ To use this variation you will have to change the following request parameters:
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
     "mimeType": "application/json",

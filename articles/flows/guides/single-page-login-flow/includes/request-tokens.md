@@ -9,10 +9,9 @@ Now that you have an authorization code, you can exchange it for tokens. The Acc
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
     "text": "{\"grant_type\":\"authorization_code\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"redirect_uri\": \"${account.callback}\"}"
   }
 }

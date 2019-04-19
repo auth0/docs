@@ -9,10 +9,9 @@ Now that you have an Authorization Code, you must exchange it for tokens. Using 
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
     "text": "{\"grant_type\":\"authorization_code\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"redirect_uri\": \"${account.callback}\"}"
   }
 }

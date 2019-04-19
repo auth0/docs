@@ -43,7 +43,7 @@ Content-Type: 'application/json'
    </div>
     <div id="refresh-oidc" class="tab-pane active">
       <pre class="text hljs"><code>POST /oauth/token
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
   "grant_type": "refresh_token",
   "refresh_token": "...",

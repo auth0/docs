@@ -26,10 +26,10 @@ If you are calling the API from a command line tool or another service, where th
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
+    "mimeType": "application/x-www-form-urlencoded",
     "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
   }
 }

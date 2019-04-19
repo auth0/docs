@@ -100,10 +100,9 @@ You application will need to handle the request to this callback URL, extract th
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
     "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
   }
 }

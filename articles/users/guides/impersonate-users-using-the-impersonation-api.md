@@ -137,10 +137,10 @@ The following steps assume that you have two apps, `app1` and `app2`, and you wa
      "method": "POST",
      "url": "https://${account.namespace}/oauth/token",
      "headers": [
-       { "name": "Content-Type", "value": "application/json" }
+       { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
      ],
      "postData": {
-       "mimeType": "application/json",
+       "mimeType": "application/x-www-form-urlencoded",
        "text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"AUTHORIZATION_CODE\",\"grant_type\": \"authorization_code\",\"redirect_uri\": \"${account.callback}\"}"
      }
    }
