@@ -206,9 +206,6 @@ articles:
       - title: "Authorization API Index"
         url: "/api-auth"
 
-      - title: "OIDC Conformant Authentication"
-        url: "/api-auth/intro"
-
       - title: "OIDC Adoption Guide"
         url: "/api-auth/tutorials/adoption"
 

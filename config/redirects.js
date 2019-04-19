@@ -2097,7 +2097,10 @@ module.exports = [
     {
       from: '/services/private-saas-management',
       to: '/services/private-cloud-management'
+    },
+    {
+      from: '/api-auth/intro',
+      to: '/api-auth/tutorials/adoption'
     }
-
     
 ];
