@@ -37,26 +37,42 @@ Initializes a new instance of `Auth0Lock` configured with your application's `cl
 **Example:**
 
 ```js
-var clientId = '${account.clientId}';
-var domain = '${account.namespace}';
-// Instantiate Lock - without custom options
-var lock = new Auth0Lock(clientId, domain);
+var Auth = (function() {
 
-// Listen for the authenticated event and get profile
-lock.on("authenticated", function(authResult) {
-  lock.getUserInfo(authResult.accessToken, function(error, profile) {
-    if (error) {
-      // Handle error
-      return;
-    }
+  var privateStore = {};
 
-    // Save token and profile locally
-    localStorage.setItem("accessToken", authResult.accessToken);
-    localStorage.setItem("profile", JSON.stringify(profile));
+  function Auth() {
+    // Instantiate Lock - without custom options
+    this.lock = new Auth0Lock(
+      '<YOUR_CLIENT_ID>',
+      '<YOUR_DOMAIN>'
+    );
+  }
 
-    // Update DOM
-  });
-});
+  Auth.prototype.getProfile = function() {
+    return privateStore.profile;
+  };
+
+  Auth.prototype.authn = function() {
+    // Listening for the authenticated event and get profile
+    this.lock.on("authenticated", function(authResult) {
+      // Use the token in authResult to getUserInfo() and save it if necessary
+      this.getUserInfo(authResult.accessToken, function(error, profile) {
+        if (error) {
+          // Handle error
+          return;
+        }
+
+        //save access token only if necessary
+        privateStore.accessToken = accessToken;
+        privateStore.profile = profile;
+
+        // Update DOM
+      });
+    });
+  };
+  return Auth;
+}());
 ```
 
 ## getUserInfo()
@@ -209,20 +225,38 @@ The `authenticated` event listener has a single argument, an `authResult` object
 An example use of the `authenticated` event:
 
 ```js
-// Listen for authenticated event; pass the result to a function as authResult
-lock.on("authenticated", function(authResult) {
-  // Call getUserInfo using the token from authResult
-  lock.getUserInfo(authResult.accessToken, function(error, profile) {
-    if (error) {
-      // Handle error
-      return;
-    }
-    // Store the token from authResult for later use
-    localStorage.setItem('accessToken', authResult.accessToken);
-    // Display user information
-    show_profile_info(profile);
-  });
-});
+var Auth = (function() {
+
+  var privateStore = {};
+
+  function Auth() {
+    this.lock = new Auth0Lock(
+      '<YOUR_CLIENT_ID>',
+      '<YOUR_DOMAIN>'
+    );
+  }
+
+  Auth.prototype.getProfile = function() {
+    return privateStore.profile;
+  };
+
+  Auth.prototype.authn = function() {
+    // Listening for the authenticated event
+    this.lock.on("authenticated", function(authResult) {
+      // Use the token in authResult to getUserInfo() and save it if necessary
+      this.getUserInfo(authResult.accessToken, function(error, profile) {
+        if (error) {
+          // Handle error
+          return;
+        }
+        
+        privateStore.profile = profile;
+      
+      });
+    });
+  };
+  return Auth;
+}());
 ```
 
 ## resumeAuth()
@@ -237,6 +271,7 @@ lock.resumeAuth(hash, function(error, authResult) {
   if (error) {
     alert("Could not parse hash");
   }
+  //This is just an example; you should not log access tokens in production.
   console.log(authResult.accessToken);
 });
 ```
