@@ -33,9 +33,9 @@ Some typical scenarios for using add-ons include:
 - Salesforce
 - Salesforce (Sandbox)
 - SAP
-- Windows Azure Mobile Services
-- Windows Azure Service Bus
-- Microsoft Azure Blob Storage
+- Azure Mobile Services
+- Azure Service Bus
+- Azure Blob Storage
 - SAML2
 - WS-Fed
 

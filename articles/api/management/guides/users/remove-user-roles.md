@@ -18,7 +18,7 @@ useCase:
 
 This guide will show you how to remove the roles assigned to a user using Auth0's Management API. This task can also be performed using the Dashboard by either [removing users from a role](/dashboard/guides/users/remove-role-users) or [removing roles from a user](/dashboard/guides/users/remove-user-roles). Roles are used with the API Authorization Core feature set.
 
-<%= include('../../../_includes/_enable-authz-core') %>
+<%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
 1. Make a `DELETE` call to the [Delete User Roles endpoint](/api/management/v2#!/user_roles/delete_user_roles). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, and `ROLE_ID` placeholder values with your user ID, Management API Access Token, and role ID(s), respectively.
 

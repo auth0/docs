@@ -16,9 +16,9 @@ useCase:
 
 This guide will show you how to create [roles](/authorization/concepts/rbac) using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/roles/create-roles). The roles can be used with the API Authorization Core feature set.
 
-<%= include('../../../_includes/_enable-authz-core') %>
+<%= include('../../../authorization/_includes/_enable-authz-core') %>
 
-<%= include('../../../_includes/_predefine-permissions') %>
+<%= include('../../../authorization/_includes/_predefine-permissions') %>
 
 1. Navigate to the [Users & Roles > Roles](${manage_url}/#/roles) page in the [Auth0 Dashboard](${manage_url}/), and click **Create Role**.
 
