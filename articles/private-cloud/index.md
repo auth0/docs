@@ -38,17 +38,17 @@ Auth0 offers two Private Cloud options to those for whom the Public Cloud is not
 | Updates | Choice of update frequency to be coordinated with Auth0. Update cycle begins with the Pre-Production Environment | Automatic Monthly Updates | Automatic Updates |
 | Uptime Guarantee | 99.95% SLA with optional upgrade to 99.99% | 99.95% SLA with optional upgrade to 99.99% | 99.90% (no upgrade option available) |
 | Requests per Second | 500 requests per second with optional upgrade to 1500 requests per second | 500 requests per second with optional upgrade to 1500 requests per second | No guaranteed rates |
-| Data Residency | Region of Choice<sup>*</sup> | Region of Choice<sup>*</sup> <sup>**</sup> | Not applicable |
+| [Data Residency](#data-residency) | Region of Choice | Region of Choice | Not applicable |
 | PCI Compliance | Add-on available | Add-on available | No |
 | Geographic High Availability (GEOHA) | Add-on available | No | No |
-
-<sup>*</sup>Deployments to China are currently unavailable.
-
-<sup>**</sup>If you need to meet data sovereignty requirements, Auth0 supports Private Cloud deployments in the following regions USA, Europe, Australia, Canada, and Japan. Otherwise, the Private Cloud can be supported in other regions (excepting China).
 
 ## Data residency
 
 Private Cloud customers can choose the region in which their data is stored. All data will remain within that region, which is crucial especially in instances where regulations prevent data from being sent outside the origin region.
+
+If you are a **Private Cloud** customer with data sovereignty requirements, Auth0 supports Private Cloud deployments in the following regions: USA, Europe, Australia, Canada, and Japan. Otherwise, the Private Cloud can be supported in other regions (except China).
+
+We are currently unable to offer deployments to China.
 
 ## Migration from the Public Cloud
 
