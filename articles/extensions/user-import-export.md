@@ -11,10 +11,6 @@ useCase: extensibility-extensions
 ---
 # User Import / Export
 
-::: note
-The User Import / Export extension is available in the PSaaS Appliance beginning with version `10755` when you have user search enabled.
-:::
-
 The **User Import / Export Extension** allows you to:
 
 * Bulk import your existing database users into Auth0

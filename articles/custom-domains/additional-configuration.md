@@ -33,7 +33,7 @@ You have already configured and verified your custom domain. If not, see [How to
 | You want to use WS-Fed Clients with your custom domain | [Configure your WS-Fed Clients](#configure-your-ws-fed-clients) |
 | You want to use Azure AD connections with your custom domain | [Configure Azure AD connections](#configure-azure-ad-connections) |
 | You want to use ADFS connections with your custom domain | [Configure ADFS connections](#configure-adfs-connections) |
-| You want to use AD/LAP connections with Kerberos support with your custom domain | [Configure AD/LAP connections](#configure-ad-lap-connections) |
+| You want to use AD/LAP connections with Kerberos support with your custom domain | [Configure AD/LAP connections](#configure-ad-ldap-connections) |
 
 ## Universal Login
 

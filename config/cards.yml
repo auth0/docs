@@ -94,21 +94,11 @@
       forceFullReload: true
 
 - id: "appliance"
-  title: "PSaaS Appliance"
+  title: "Private Cloud"
   icon: "icon-budicon-359"
   color: "pink"
   description: "Deploying and managing a private instance of Auth0."
-  url: "/appliance"
-  articles:
-
-    - title: "PSaaS Appliance Planning"
-      url: "/appliance/appliance-overview"
-
-    - title: Administrator's Manual
-      url: /appliance/admin
-
-    - title: Onboarding Process
-      url: /onboarding/appliance-sprint
+  url: "/private-cloud"
 
 - id: "extensibility"
   title: "Extensibility"

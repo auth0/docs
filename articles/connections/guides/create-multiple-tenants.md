@@ -16,6 +16,6 @@ This guide will show you how to create an additional tenant using Auth0's Dashbo
 
 ![Create New Tenant](/media/articles/connections/dashboard-create-tenant.png)
 
-2. Enter your desired domain name, select a region, agree to the terms of service and privacy policies, and click **Create**.
+2. Enter your desired domain name, select a region, and click **Create**.
 
 ![Save New Tenant](/media/articles/connections/tenant-create.png)

@@ -196,9 +196,9 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 * **Password Policy:** Select the level of complexity you want to enforce for user passwords. Activating this setting will attempt to change the Password Policy for the database Connection being used in the Auth0 dashboard (requires a valid API token to make this change). For more information on password policies, see [Password Strength in Auth0 Database Connections](/password-strength). Option name is `password_policy`.
 
-* **Single Sign On (SSO):** Enables SSO on your WordPress, allowing users to log in once and be automatically logged into any of your sites which use Auth0. For more information, see [What is SSO?](/sso). Activating this setting will attempt to turn on "Use Auth0 instead of the IdP to do Single Sign On" in the Application settings in the Auth0 dashboard (requires a valid API token to make this change). Option name is `sso`.
+* **Single Sign On (SSO):** Enables SSO on your WordPress, allowing users to log in once and be automatically logged into any of your sites which use Auth0. For more information, see [Single Sign-On and Single Logout](/sso). Activating this setting will attempt to turn on "Use Auth0 instead of the IdP to do Single Sign On" in the Application settings in the Auth0 dashboard (requires a valid API token to make this change). Option name is `sso`.
 
-* **Single Logout:** Enable this option for Single Logout. For more information, see [What is Single Log Out?](/sso/single-sign-on#what-is-single-log-out-). This will be hidden (and automatically disabled) if SSO is turned off. Option name is `singlelogout`.
+* **Single Logout:** Enable this option for Single Logout. For more information, see [Single Sign-On and Single Logout](/sso). This will be hidden (and automatically disabled) if SSO is turned off. Option name is `singlelogout`.
 
 * **Passwordless Login:** Enable this option to replace the login widget with Lock Passwordless. Option name is `passwordless_enabled`.
 

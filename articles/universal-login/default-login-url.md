@@ -10,7 +10,9 @@ contentType: how-to
 
 In certain cases (described below), Auth0 could need to redirect back to the application's login initiation endpoint, using [OIDC Third Party Initiated Login](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin).
 
-You can configure the URL for the tenant or application login route using a Management API call:
+You can configure these URIs in [Application Settings](/dashboard/reference/settings-application) or [Tenant Advanced Settings](/dashboard/dashboard-tenant-settings).
+
+You can also do this using the Management API:
 
 **Application level**
 
@@ -48,7 +50,7 @@ You can configure the URL for the tenant or application login route using a Mana
 }
 ```
 
-The `login_url` should point to a route in the application that ends up redirecting to Auth0's `/authorize` endpoint, e.g. `http://yoursite.com/login`.
+The `login_url` should point to a route in the application that ends up redirecting to Auth0's `/authorize` endpoint, e.g. `https://mycompany.org/login`. Note that it requires `https` and it cannot point to `localhost`.
 
 ## Scenarios for redirecting to the default login route
 
@@ -61,3 +63,10 @@ When an application initiates the login process, it navigates to `https://${acco
 The `state` parameter points to a record in an internal database where we track the status of the authorization transaction. Whenever the transaction completes, or after X time passes, the record is deleted from the internal database.
 
 Sometimes users bookmark the login page, and when they navigate to the bookmarked `/login` URL, the transaction record is no longer there and Auth0 cannot continue with the login flow. In that case, Auth0 will redirect to the default client URL if configured, or the tenant level URL if not. If no default login URL is set, Auth0 will render an error page.
+
+### Completing the password reset flow
+
+When the password reset flow is completed and the default URI for the application or tenant is configured, users will see a button that will let them navigate back to the login page.
+
+This behavior only happens when the [New Universal Login Experience](/universal-login/new) is enabled. In Classic mode, you will need to [configure the Redirect URL in the Password Reset Email Template](/email/templates#configuring-the-redirect-to-url).
+

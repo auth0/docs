@@ -23,7 +23,7 @@ If you use Lock in the [Hosted Login Page](/hosted-pages/login), you must:
 
 - Upgrade to Lock version 10.7.x or later
 - Set the `__useTenantInfo: config.isThirdPartyClient` flag when instantiating Lock
-- *For [PSaaS Appliance](/appliance) users only*: Set the [`configurationBaseUrl` option](https://github.com/auth0/lock#other-options) to `https://{config.auth0Domain}/` when instantiating Lock
+- *For [Private Cloud](/private-cloud) users only*: Set the [`configurationBaseUrl` option](https://github.com/auth0/lock#other-options) to `https://{config.auth0Domain}/` when instantiating Lock
 
 ### Sample script:
 

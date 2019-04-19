@@ -9,15 +9,15 @@ useCase: customize-domains
 ---
 # Custom Domains
 
-::: warning
-PSaaS Appliance customers should see [this page](/appliance/custom-domains) for information on using custom domains.
-:::
-
 Auth0 allows you to map the domain for your tenant to a custom domain of your choosing. This allows you to maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain.
 
 For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
 
 It is recommended that you use custom domains with Universal Login for the most seamless and secure experience for your end users. Check the [Universal Login documentation](/hosted-pages/login) to see if your plan and use case support custom domains. 
+
+::: warning
+Private Cloud customers should see [this page](/appliance/custom-domains) for information on using custom domains.
+:::
 
 ## Prerequisites
 

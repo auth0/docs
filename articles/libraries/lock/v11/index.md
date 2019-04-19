@@ -89,24 +89,54 @@ var lock = new Auth0Lock(
 
 ### 2. Authenticating and Getting User Info
 
-Next, listen using the `on` method for the `authenticated` event. When the event occurs, use the `accessToken` which was received to call the `getUserInfo` method and acquire the user's profile information (as needed). You can also save the token or profile to `localStorage` for later use.
+Next, listen using the `on` method for the `authenticated` event. When the event occurs, use the `accessToken` which was received to call the `getUserInfo` method and acquire the user's profile information (as needed).
 
 ```js
-// Listening for the authenticated event
-lock.on("authenticated", function(authResult) {
-  // Use the token in authResult to getUserInfo() and save it to localStorage
-  lock.getUserInfo(authResult.accessToken, function(error, profile) {
-    if (error) {
-      // Handle error
-      return;
-    }
+var Auth = (function() {
 
-    document.getElementById('nick').textContent = profile.nickname;
+  var wm = new WeakMap();
+  var privateStore = {};
+  var lock;
 
-    localStorage.setItem('accessToken', authResult.accessToken);
-    localStorage.setItem('profile', JSON.stringify(profile));
-  });
-});
+  function Auth() {
+    this.lock = new Auth0Lock(
+      '<YOUR_CLIENT_ID>',
+      '<YOUR_DOMAIN>'
+    );
+    wm.set(privateStore, {
+      appName: "example"
+    });
+  }
+
+  Auth.prototype.getProfile = function() {
+    return wm.get(privateStore).profile;
+  };
+
+  Auth.prototype.authn = function() {
+    // Listening for the authenticated event
+    this.lock.on("authenticated", function(authResult) {
+      // Use the token in authResult to getUserInfo() and save it if necessary
+      this.getUserInfo(authResult.accessToken, function(error, profile) {
+        if (error) {
+          // Handle error
+          return;
+        }
+
+        //we recommend not storing access tokens unless absolutely necessary
+        wm.set(privateStore, {
+          accessToken: authResult.accessToken
+        });
+
+        wm.set(privateStore, {
+          profile: profile
+        });
+
+      });
+    });
+  };
+  return Auth;
+}());
+
 ```
 
 You can then manipulate page content and display profile information to the user (for example, displaying their name in a welcome message).
