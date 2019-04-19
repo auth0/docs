@@ -144,9 +144,7 @@ To enable the page, the `password_reset.json` would contain the following:
 }
 ```
 
-::: note
-The `error_page` cannot be enabled/disabled. To use the default error page, remove the content of `error_page.html`.
-:::
+<%= include('./_includes/_use-default-error') %>
 
 ### Deploy Rules
 
