@@ -16,7 +16,7 @@ useCase:
 
 The OpenID Connect protocol supports a `prompt=none` parameter on the authentication request that allows applications to indicate that the authorization server must not display any user interaction (such as authentication, consent or MFA). Auth0 will either return the requested response back to the application or return an error if the user is not already authenticated, or some type of consent or prompt is required before proceeding.
 
-This flow can be used by Single Page Applications to renew tokens as explained below.
+This flow can be used by Single-Page Applications to renew tokens as explained below.
 
 ## Initiate a Silent Authentication request
 
@@ -54,7 +54,7 @@ Any applicable [rules](/rules) will be executed as part of the silent authentica
 
 If the user was already logged in into Auth0 and no other interactive prompts are required, Auth0 will respond exactly as if the user had authenticated manually through the login page.
 
-For example, when using the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) (`response_type=id_token token`, used for single page applications), Auth0 will respond with the requested tokens:
+For example, when using the [Implicit Flow](/flows/concepts/implicit) (`response_type=id_token token`, used for single-page applications), Auth0 will respond with the requested tokens:
 
 ```text
 GET ${account.callback}
@@ -91,7 +91,7 @@ If any of these errors are returned, the user must be redirected to the Auth0 lo
 Please review [our notes on token renewal for Safari users](/api-auth/token-renewal-in-safari).
 :::
 
-Since Single Page Applications cannot request or use Refresh Tokens to renew an expired token, a silent authentication request can be used instead to get new tokens as long as the user still has a valid session at Auth0.
+Since Single-Page Applications cannot request or use Refresh Tokens to renew an expired token, a silent authentication request can be used instead to get new tokens as long as the user still has a valid session at Auth0.
 
 
 The [`checkSession` method from auth0.js](/libraries/auth0js#using-checksession-to-acquire-new-tokens) uses a silent token request in combination with `response_mode=web_message` so that the request happens in a hidden iframe. Auth0.js handles the result processing (either the token or the error code) and passes the information through a callback function provided by the application. This results in no UX disruption (no page refresh or lost state).
@@ -104,7 +104,7 @@ There are two options to determine when an Access Token expires:
 1. Read the `expires_in` response parameter returned by Auth0
 2. Ignore expiration dates altogether. Instead, try to renew the Access Token if your API rejects a request from the application (such as with a 401).
 
-In the case of the [Single-Page Login Flow](/flows/concepts/single-page-login-flow), the `expires_in` parameter is returned by Auth0 as a hash parameter following a successful authentication. In the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), it is returned to the backend server when performing the authorization code exchange.
+In the case of the [Implicit Flow](/flows/concepts/implicit), the `expires_in` parameter is returned by Auth0 as a hash parameter following a successful authentication. In the [Authorization Code Flow](/flows/concepts/auth-code), it is returned to the backend server when performing the authorization code exchange.
 
 The `expires_in` parameter indicates how many seconds the Access Token will be valid for, and can be used to anticipate expiration of the Access Token.
 

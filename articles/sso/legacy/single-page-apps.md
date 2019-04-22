@@ -1,5 +1,5 @@
 ---
-description: Client-side SSO with single page applications.
+description: Client-side SSO with single-page applications.
 toc: true
 topics:
   - sso
@@ -10,7 +10,7 @@ contentType:
 useCase:
   - integrate-saas-sso
 ---
-# Client-side SSO (Single Page Apps)
+# Client-side SSO (Single-Page Apps)
 
 ::: version-warning
 This document covers an outdated version of the Auth0 authentication pipeline. We recommend you use the current version. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
@@ -26,13 +26,13 @@ To log a user in silently (that is, without displaying the Lock screen) the foll
 
 In our SSO scenario, let's say we have 3 applications
 
-* App 1: app1.com (Single Page App)
-* App 2: app2.com (Single Page App)
+* App 1: app1.com (Single-Page App)
+* App 2: app2.com (Single-Page App)
 * App 3: app3.com (Regular Web app)
 
 If a user logs in to any of these applications, and then subsequently navigates from this application to any of the other applications, we would want the user to be logged in automatically.
 
-In this document we will be looking specifically how to achieve this in a Single Page (JavaScript) Application
+In this document we will be looking specifically how to achieve this in a Single-Page (JavaScript) Application
 
 ## Obtaining the SSO cookie information  
 

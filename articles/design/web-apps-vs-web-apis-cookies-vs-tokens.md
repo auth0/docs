@@ -13,7 +13,7 @@ useCase: strategize
 
 * For us **Web Apps** are the traditional server-side applications that use **cookie-based authentication**.
 
-* **Web APIs**, on the other hand, represent for us a new breed of applications, typically single page apps (like Angular, Ember, Backbone, and so on) or native mobile apps (like iOS, Android, and so on) which consume APIs (written in Node, Ruby, ASP.NET or even a mix of those) and will benefit from **token based authentication**.
+* **Web APIs**, on the other hand, represent for us a new breed of applications, typically single-page apps (like Angular, Ember, Backbone, and so on) or native mobile apps (like iOS, Android, and so on) which consume APIs (written in Node, Ruby, ASP.NET or even a mix of those) and will benefit from **token based authentication**.
 
 ::: note
 Before moving forward, you might want to read this article for more context: [10 Things You Should Know about Tokens](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/).

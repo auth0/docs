@@ -22,7 +22,7 @@ The SSO dashboard supports two types of users:
 
 ## Create an application
 
-Let's start with creating a new application. Navigate to [Applications](${manage_url}/#/applications) and click on the **+Create Application** button. Set a name and choose **Single Page Web Applications** application type. Click on **Create**.
+Let's start with creating a new application. Navigate to [Applications](${manage_url}/#/applications) and click on the **+Create Application** button. Set a name and choose **Single-Page Web Applications** application type. Click on **Create**.
 
 ![](/media/articles/extensions/sso-dashboard/create-client.png)
 

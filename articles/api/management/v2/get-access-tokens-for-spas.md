@@ -1,5 +1,5 @@
 ---
-description: Get Access Tokens for single page applications.
+description: Get Access Tokens for single-page applications.
 section: apis
 toc: true
 topics:
@@ -11,9 +11,9 @@ contentType:
 useCase: invoke-api
 ---
 
-# Get Access Tokens for Single Page Applications
+# Get Access Tokens for Single-Page Applications
 
-You cannot get Access Tokens using the other methods for single page applications (SPAs) because we use the **Client Secret** which is sensitive information (same as a password) and cannot be exposed to the browser.
+You cannot get Access Tokens using the other methods for single-page applications (SPAs) because we use the **Client Secret** which is sensitive information (same as a password) and cannot be exposed to the browser.
 
 You can still get tokens for the Management API from the frontend, but with some limitations. You can access only certain scopes and update only the logged-in user's data. You can access the following scopes, and hence endpoints:
 
@@ -49,7 +49,7 @@ https://${account.namespace}/authorize?
 ```
 
 ::: note
-If you are not familiar with authentication for single-page applications, see [Single-Page Login Flow](/flows/concepts/single-page-login-flow).
+If you are not familiar with authentication for single-page applications, see [Implicit Flow](/flows/concepts/implicit).
 :::
 
 Notice the following:

@@ -143,7 +143,7 @@ The following table lists the codes associated with the appropriate log events.
 | `fcu` | Failed Change Username | Failed to change username | [User Profile](/users/concepts/overview-user-profile) |
 | `fd` | Failed Delegation | Failed to generate delegation token | [Delegation Tokens](/tokens/delegation) |
 | `fdu` | Failed User Deletion | | [User Profile](/users/concepts/overview-user-profile) |
-| `feacft` | Failed Exchange | Failed to exchange authorization code for Access Token | [Call API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow)
+| `feacft` | Failed Exchange | Failed to exchange authorization code for Access Token | [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
 | `feccft` | Failed Exchange | Failed exchange of Access Token for a Client Credentials Grant | [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens) |
 | `feoobft` | Failed Exchange | Failed exchange of Password and OOB Challenge for Access Token | |
 | `feotpft` | Failed Exchange | Failed exchange of Password and OTP Challenge for Access Token | |
@@ -192,7 +192,7 @@ The following table lists the codes associated with the appropriate log events.
 | `scu` | Success Change Username | | |
 | `sd` | Success Delegation | | [Delegation Tokens](/tokens/delegation) |
 | `sdu` | Success User Deletion | User successfully deleted | [User Profile](/users/concepts/overview-user-profile) |
-| `seacft` | Success Exchange | Successful exchange of authorization code for Access Token | [Call API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow) |
+| `seacft` | Success Exchange | Successful exchange of authorization code for Access Token | [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code) |
 | `seccft` | Success Exchange | Successful exchange of Access Token for a Client Credentials Grant | [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens) |
 | `seoobft` | Success Exchange | Successful exchange of Password and OOB Challenge for Access Token | |
 | `seotpft` | Success Exchange | Successful exchange of Password and OTP Challenge for Access Token | |

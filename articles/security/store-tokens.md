@@ -20,12 +20,12 @@ Not sure where to store [tokens](/tokens)? This guide outlines how to securely s
 
 ID Tokens, Access Tokens, and (optional) Refresh Tokens should be handled server-side in typical web applications. The application server use the tokens to call APIs on behalf of the user.
 
-* [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
+* [Authorization Code Flow](/flows/concepts/auth-code)
 * [Regular Web App Quickstarts](/quickstart/webapp)
 
 ## Native/mobile apps
 
-* [Native/Mobile App Login Flow](/flows/concepts/mobile-login-flow)
+* [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce)
 * [Native/Mobile App Quickstarts](/quickstart/native)
 * [Auth0.Android Saving and Renewing Tokens](/libraries/auth0-android/save-and-refresh-tokens)
 * [Auth0.swift Saving and Renewing Tokens](/libraries/auth0-swift/save-and-refresh-jwt-tokens)
@@ -43,7 +43,7 @@ If an attacker steals a token, they can gain access to and make requests to your
 
 ### If a backend is present
 
-If your single-page app has a backend server at all, then tokens should be handled server-side using the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow), or [Hybrid Flow](/api-auth/grant/hybrid).
+If your single-page app has a backend server at all, then tokens should be handled server-side using the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), or [Hybrid Flow](/api-auth/grant/hybrid).
 
 ### If no backend is present
 

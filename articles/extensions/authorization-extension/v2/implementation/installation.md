@@ -18,7 +18,7 @@ Before you begin, make sure that you have an existing [application](/application
 
 * Native
 * Regular Web Applications
-* Single Page Applications
+* Single-Page Applications
 
 Applications without an assigned type or Machine to Machine Applications cannot be used with this extension.
 

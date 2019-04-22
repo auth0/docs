@@ -1,5 +1,6 @@
 ---
-description: Learn how the single page login flow works and why you should use it for single page apps (SPAs).
+title: Implicit Flow
+description: Learn how the Implicit flow works and why you should use it for single-page apps (SPAs).
 topics:
   - authorization-code
   - implicit
@@ -8,22 +9,22 @@ topics:
   - grants
   - authentication
   - SPA
+  - single-page apps
 contentType: concept
 useCase:
   - secure-api
   - call-api
   - add-login
 ---
-# Single Page Login Flow
+# Implicit Flow
 
 During authentication, single-page applications (SPAs) have some special requirements. Since the SPA is a public client, it is unable to securely store information such as a Client Secret. As such a special authentication flow exists called the OAuth 2.0 Implicit Flow (defined in [OAuth 2.0 RFC 6749, section 4.2](https://tools.ietf.org/html/rfc6749#section-4.2)). Using the Implicit Flow streamlines authentication by returning tokens without introducing any unnecessary additional steps.
 
-
 ## How it works
 
-For SPAs you should use the Implicit Flow in which issued tokens are short-lived. Refresh Tokens are not available in this flow.
+For SPAs, you should use the Implicit Flow in which issued tokens are short-lived. Refresh Tokens are not available in this flow.
 
-![Single-Page Login Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-single-page-login-flow-without-backend.png)
+![Implicit Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-single-page-login-flow-without-backend.png)
 
 1. The user clicks **Login** within the SPA.
 2. Auth0's SDK redirects the user to the Auth0 Authorization Server (**/authorize** endpoint) passing along a `response_type` parameter that indicates the type of requested credential.
@@ -39,11 +40,11 @@ For SPAs you should use the Implicit Flow in which issued tokens are short-lived
 
 ## How to implement it
 
-The easiest way to implement the Single-Page Login Flow is to follow our [Single-Page App Quickstarts](/quickstart/spa).
+The easiest way to implement the Implicit Flow is to follow our [Single-Page App Quickstarts](/quickstart/spa).
 
 You can also use our [SDKs](/libraries).
 
-Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow) or [Call Your API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow).
+Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Implicit Flow](/flows/guides/implicit/add-login-implicit) or [Call Your API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit).
 
 ## Keep reading
 

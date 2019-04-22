@@ -350,7 +350,7 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
   </tbody>
 </table>
 
-### Single Page Applications
+### Single-Page Applications
 
 <table class="table">
   <thead>

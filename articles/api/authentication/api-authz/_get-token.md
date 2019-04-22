@@ -5,11 +5,11 @@ Use this endpoint to:
 - Refresh your Access Token, using a Refresh Token you got during authorization.
 
 Note that the only OAuth 2.0 flows that can retrieve a Refresh Token are:
-- [Regular Web App Login Flow (Authorization Code)](/flows/concepts/regular-web-app-login-flow)
-- [Native/Mobile Login Flow (Authorization Code with PKCE)](/flows/concepts/mobile-login-flow)
+- [Authorization Code Flow (Authorization Code)](/flows/concepts/auth-code)
+- [Authorization Code Flow with PKCE (Authorization Code with PKCE)](/flows/concepts/auth-code-pkce)
 - [Resource Owner Password](/api-auth/grant/password)
 
-## Regular Web App Login Flow
+## Authorization Code Flow
 
 ```http
 POST https://${account.namespace}/oauth/token
@@ -106,11 +106,11 @@ If you have just executed the [Authorization Code Grant](#authorization-code-gra
 
 ### More Information
 
-- [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
-- [Call API using Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow)
+- [Authorization Code Flow](/flows/concepts/auth-code)
+- [Call API using Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
 
 
-## Native/Mobile Login Flow
+## Authorization Code Flow with PKCE
 
 ```http
 POST https://${account.namespace}/oauth/token
@@ -197,11 +197,11 @@ If you have just executed the [Authorization Code Grant (PKCE)](#authorization-c
 
 ### More Information
 
-- [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow)
-- [Call API Using the Native/Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow)
+- [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce)
+- [Call API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce)
 
 
-## Machine-to-Machine (M2M) Flow
+## Client Credentials Flow
 
 ```http
 POST https://${account.namespace}/oauth/token
@@ -285,8 +285,8 @@ This is the OAuth 2.0 grant that server processes use to access an API. Use this
 
 ### More Information
 
-- [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow)
-- [Call API using the Machine-to-Machine (M2M) Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow)
+- [Client Credentials Flow](/flows/concepts/client-credentials)
+- [Call API using the Client Credentials Flow](/flows/guides/client-credentials/call-api-client-credentials)
 - [Setting up a Client Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard)
 - [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 
@@ -358,10 +358,10 @@ Content-Type: application/json
 }) %>
 
 :::warning
-This flow should only be used from highly-trusted applications that **cannot do redirects**. If you can use redirect-based flows from your app, we recommend using the [Regular Web App Login Flow](#regular-web-app-login-flow) instead.
+This flow should only be used from highly-trusted applications that **cannot do redirects**. If you can use redirect-based flows from your app, we recommend using the [Authorization Code Flow](#regular-web-app-login-flow) instead.
 :::
 
-This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In this flow, the end-user is asked to fill in credentials (username/password), typically using an interactive form in the user-agent (browser). This information is sent to the backend and from there to Auth0. It is therefore imperative that the application is absolutely trusted with this information. For [single-page applications](/flows/concepts/single-page-login-flow) and [native/mobile apps](/flows/concepts/mobile-login-flow) we recommend using web flows instead.
+This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In this flow, the end-user is asked to fill in credentials (username/password), typically using an interactive form in the user-agent (browser). This information is sent to the backend and from there to Auth0. It is therefore imperative that the application is absolutely trusted with this information. For [single-page applications](/flows/concepts/implicit) and [native/mobile apps](/flows/concepts/auth-code-pkce) we recommend using web flows instead.
 
 
 ### Request Parameters

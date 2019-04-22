@@ -21,9 +21,9 @@ Various grant types are valid when registering Auth0 Applications. These can be 
 
 | `grant_type` | More info |
 |:-----|:----|
-| `implicit` | [Implicit Grant](/flows/concepts/single-page-login-flow) |
-| `authorization_code` | [Authorization Code Grant](/flows/concepts/regular-web-app-login-flow) |
-| `client_credentials` | [Client Credentials Grant](/flows/concepts/m2m-flow) |
+| `implicit` | [Implicit Grant](/flows/concepts/implicit) |
+| `authorization_code` | [Authorization Code Grant](/flows/concepts/auth-code) |
+| `client_credentials` | [Client Credentials Grant](/flows/concepts/client-credentials) |
 | `password` | [Resource Owner Password Grant](/api-auth/grant/password) |
 | `refresh_token` | [Use a Refresh Token](/tokens/refresh-token/current#use-a-refresh-token) |
 

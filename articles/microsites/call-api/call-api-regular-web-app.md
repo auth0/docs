@@ -27,7 +27,7 @@ When your app needs to fetch user data from your API:
 4. Auth0 responds with the requested tokens.
 5. The Access Token can be used to call your API and retrieve requested data.
 
-For server-side web apps, Auth0 uses the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow).
+For server-side web apps, Auth0 uses the [Authorization Code Flow](/flows/concepts/auth-code).
 
 <img src="/media/articles/microsites/overview-flow-call-api-regular-web-app.png" alt="Flow Overview for Regular Web Apps" width="100%">
 
@@ -36,7 +36,7 @@ For server-side web apps, Auth0 uses the [Regular Web App Login Flow](/flows/con
 ::: steps
   1. <h4>Configure your API</h4>Once you have created your API, you will need to configure any scopes that applications can request during authorization.
 
-  2. <h4>Get an Access Token</h4>Your app requests an Access Token (and optionally, a Refresh Token) from your Auth0 Authorization Server using the <a href="/flows/concepts/regular-web-app-login-flow">Regular Web App Login Flow</a>.
+  2. <h4>Get an Access Token</h4>Your app requests an Access Token (and optionally, a Refresh Token) from your Auth0 Authorization Server using the <a href="/flows/concepts/auth-code">Authorization Code Flow</a>.
 
   3. <h4>Call your API</h4>When your app calls your API, it includes the retrieved Access Token in the HTTP Authorization header.
   
@@ -45,15 +45,15 @@ For server-side web apps, Auth0 uses the [Regular Web App Login Flow](/flows/con
 :::
 
 
-The easiest way to implement the Regular Web App Login Flow is to [follow our Regular Web App Quickstarts](/quickstart/webapp).
+The easiest way to implement the Authorization Code Flow is to [follow our Regular Web App Quickstarts](/quickstart/webapp).
 
-Or, to use our API endpoints, you can follow our tutorial: [Call Your API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
+Or, to use our API endpoints, you can follow our tutorial: [Call Your API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code).
 
 :::: further-reading
 
 ::: guides
   * [Auth0 Regular Web App Quickstarts](/quickstart/webapp)
-  * [Call Your API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow)
+  * [Call Your API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
   * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 :::
 

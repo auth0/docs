@@ -25,7 +25,7 @@ Prior to configuring the extension, you will need to:
 
 The first step is to create the Application that the extension exposes to those who should have administrative privileges to the Users page.
 
-After you've logged into the [Management Dashboard](${manage_url}), navigate to [Applications](${manage_url}/#/applications) and click on **+Create Application**. Provide a name for your Application (such as `Users Dashboard`) and set the Application type to `Single Page Web Applications`. Click **Create** to proceed.
+After you've logged into the [Management Dashboard](${manage_url}), navigate to [Applications](${manage_url}/#/applications) and click on **+Create Application**. Provide a name for your Application (such as `Users Dashboard`) and set the Application type to `Single-Page Web Applications`. Click **Create** to proceed.
 
 ![Create an Application](/media/articles/extensions/delegated-admin/create-client.png)
 

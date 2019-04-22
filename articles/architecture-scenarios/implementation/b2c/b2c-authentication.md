@@ -115,7 +115,7 @@ Most modern authentication frameworks support execution of middleware for redire
 Authentication is the process of determining user identity. The result of authentication in an OIDC context is an ID Token. This token contains information about the user and should only be able to be obtained if the user authenticates using one or more factors as defined by the authorization server (the most common form being [user ID and password](#username-and-password-authentication)). There are a few things you may also need to consider in addition to obtaining an ID Token:
 
 * Do we also need an [Access Token](/tokens/overview-access-tokens) in order to call a shared API?
-* Is your application a single page application and only requires an [ID Token](/tokens/id-token)? See [Implicit Grant](/api-auth/tutorials/implicit-grant) for more information. 
+* Is your application a single-page application and only requires an [ID Token](/tokens/id-token)? See [Implicit Grant](/api-auth/tutorials/implicit-grant) for more information. 
 * Is your application a native application (mobile or desktop) and/or do you need a [Refresh Token](/tokens/refresh-token/current)? See [Authorization Code Grant with PKCE](/api-auth/tutorials/authorization-code-grant-pkce) for more information. 
 
 ::: warning
@@ -132,7 +132,7 @@ If you need a [Refresh Token](/tokens/refresh-token/current) so that you can obt
 
 ### Authorization code grant (with or without PKCE)
 
-If your SDK only supports the Authorization Code grant, or you need an Access Token or Refresh Token, then Authorization Code grant (with or without [PKCE](/flows/concepts/mobile-login-flow)) can also be used to retrieve an ID Token.  The Authorization Code grant includes an additional API call to exchange the code for a token which can result in additional unnecessary latency if all you need is the ID Token. In many cases the [hybrid flow](/api-auth/tutorials/hybrid-flow) is implemented to provide optimum access to the ID Token while still leveraging Authorization Code grant workflow for the secure and safe retrieval of Access and Refresh Tokens.
+If your SDK only supports the Authorization Code grant, or you need an Access Token or Refresh Token, then Authorization Code grant (with or without [PKCE](/flows/concepts/auth-code-pkce)) can also be used to retrieve an ID Token.  The Authorization Code grant includes an additional API call to exchange the code for a token which can result in additional unnecessary latency if all you need is the ID Token. In many cases the [hybrid flow](/api-auth/tutorials/hybrid-flow) is implemented to provide optimum access to the ID Token while still leveraging Authorization Code grant workflow for the secure and safe retrieval of Access and Refresh Tokens.
 
 ## Planning
 

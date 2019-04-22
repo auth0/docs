@@ -1,21 +1,23 @@
 ---
-title: Call API from Native/Mobile Applications
-description: Learn how to call your API using the mobile login flow.
+title: Call API Using Authorization Code Flow with PKCE
+description: Learn how to call your API from a native or mobile application using the Authorization Code flow using Proof Key for Code Exchange (PKCE).
 toc: true
 topics:
   - api-authentication
   - oidc
   - authorization-code
   - pkce
+  - native-apps
+  - mobile-apps
 contentType: tutorial
 useCase:
   - secure-api
   - call-api
 ---
-# Call Your API Using the Mobile Login Flow
+# Call Your API Using the Authorization Code Flow with PKCE
 
 ::: note
-This tutorial will help you call your own API from a native/mobile app using the mobile login flow. If you want to learn how the flow works and why you should use it, see [Mobile Login Flow](/flows/concepts/mobile-login-flow). If you want to learn to add login to your native/mobile app, see [Add Login to Your Native/Mobile App](/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow).
+This tutorial will help you call your own API from a native/mobile app using the Authorization Code Flow with PKCE. If you want to learn how the flow works and why you should use it, see [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce). If you want to learn to add login to your native/mobile app, see [Add Login Using Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce).
 :::
 
 Auth0 makes it easy for your app to implement the mobile login flow using:

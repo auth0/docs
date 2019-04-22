@@ -30,7 +30,7 @@ When your app needs to fetch user data from your API:
 4. Auth0 responds with the requested tokens.
 5. The Access Token can be used to call your API and retrieve requested data.
 
-For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows/concepts/mobile-login-flow).
+For security in native/mobile devices, Auth0 uses the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce).
 
 <img src="/media/articles/microsites/overview-flow-call-api-native-mobile-app.png" alt="Flow Overview for Native/Mobile Apps" width="100%">
 
@@ -39,7 +39,7 @@ For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows
 ::: steps
   1. <h4>Configure your API</h4>Once you have created your API, you will need to configure any scopes that applications can request during authorization.
 
-  2. <h4>Get an Access Token</h4>Your app requests an Access Token (and optionally, a Refresh Token) from your Auth0 Authorization Server using the <a href="/flows/concepts/mobile-login-flow">Mobile Login Flow</a>.
+  2. <h4>Get an Access Token</h4>Your app requests an Access Token (and optionally, a Refresh Token) from your Auth0 Authorization Server using the <a href="/flows/concepts/auth-code-pkce">Authorization Code Flow with PKCE</a>.
 
   3. <h4>Call your API</h4>When your app calls your API, it includes the retrieved Access Token in the HTTP Authorization header.
   
@@ -48,20 +48,20 @@ For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows
 :::
 
 
-The easiest way to implement the Mobile Login Flow is to [follow our Mobile/Native Quickstarts](/quickstart/native).
+The easiest way to implement the Authorization Code Flow with PKCE is to [follow our Mobile/Native Quickstarts](/quickstart/native).
 
 You can also use our mobile SDKs:
 
 * [Auth0 Swift SDK](/libraries/auth0-swift)
 * [Auth0 Android SDK](/libraries/auth0-android)
 
-Finally, to use our API endpoints, you can follow our tutorial: [Call Your API Using the Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
+Finally, to use our API endpoints, you can follow our tutorial: [Call Your API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce).
 
 :::: further-reading
 
 ::: guides
   * [Auth0 Mobile/Native App Quickstarts](/quickstart/native)
-  * [Call Your API Using the Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow)
+  * [Call Your API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce)
   * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 :::
 

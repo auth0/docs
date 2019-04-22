@@ -17,7 +17,7 @@ To add authentication to your application, you must first register it with Auth0
 
 - **Native Apps**: Mobile or Desktop apps that run natively in a device (e.g., iOS, Android). Learn to [register your Native/Mobile App using the Dashboard](/dashboard/guides/applications/register-app-native).
 
-- **Single-Page Apps (SPAs)**: JavaScript applications that perform most of their user interface logic in a web browser, communicating with a web server primarily using APIs (e.g., AngularJS + Node.js, React). Learn to [register your Single Page App using the Dashboard](/dashboard/guides/applications/register-app-spa).
+- **Single-Page Apps (SPAs)**: JavaScript applications that perform most of their user interface logic in a web browser, communicating with a web server primarily using APIs (e.g., AngularJS + Node.js, React). Learn to [register your Single-Page App using the Dashboard](/dashboard/guides/applications/register-app-spa).
 
 - **Regular Web Apps**: Traditional web applications that perform most of their application logic on the server (e.g., Express.js, ASP.NET). Learn to [register your Regular Web App using the Dashboard](/dashboard/guides/applications/register-app-regular-web).
 

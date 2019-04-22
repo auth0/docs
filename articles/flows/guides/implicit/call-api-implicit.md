@@ -1,25 +1,27 @@
 ---
-title: Call API from Single-Page Applications
-description: Learn how to call your API using the single-page login flow
+title: Call API Using the Implicit Flow
+description: Learn how to call your API from single-page apps (SPA) using the Implicit Flow.
 toc: true
 topics:
   - api-authentication
   - oidc
-  - hybrid-flow
+  - implicit-flow
+  - single-page apps
+  - SPA
 contentType: tutorial
 useCase:
   - secure-api
   - call-api
 ---
-# Call Your API Using the Single-Page Login Flow
+# Call Your API Using the Implicit Flow
 
 ::: note
-This tutorial will help you call your own API using the single-page login flow. If you want to learn how the flow works and why you should use it, see [Single-Page Login Flow](/flows/concepts/single-page-login-flow). If you want to learn to add login to your single-page application (SPA), see [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow).
+This tutorial will help you call your own API from a single-page application (SPA) using the Implicit Flow. If you want to learn how the flow works and why you should use it, see [Implicit Flow](/flows/concepts/implicit). If you want to learn to add login to your single-page application (SPA), see [Add Login Using the Implicit Flow](/flows/guides/implicit/add-login-implicit).
 :::
 
-Auth0 makes it easy for your app to implement the single-page login flow using:
+Auth0 makes it easy for your app to implement the Implicit Flow using:
 
-* [Auth0.js](/libraries/auth0js): The easiest way to implement the single-page login flow, which will do most of the heavy-lifting for you. Our [Single-Page App Quickstarts](/quickstart/spa) will walk you through the process.
+* [Auth0.js](/libraries/auth0js): The easiest way to implement the Implicit Flow, which will do most of the heavy-lifting for you. Our [Single-Page App Quickstarts](/quickstart/spa) will walk you through the process.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
 ## Prerequisites

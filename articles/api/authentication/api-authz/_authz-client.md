@@ -5,15 +5,15 @@ To begin an OAuth 2.0 Authorization flow, your application should first send the
 The purpose of this call is to obtain consent from the user to invoke the API (specified in `audience`) and do certain things (specified in `scope`) on behalf of the user. Auth0 will authenticate the user and obtain consent, unless consent has been previously given. If you alter the value in `scope`, Auth0 will require consent to be given again.
 
 The OAuth 2.0 flows that require user authorization are:
-- [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
-- [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow)
-- [Single-Page Login Flow](/flows/concepts/single-page-login-flow)
+- [Authorization Code Flow](/flows/concepts/auth-code)
+- [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce)
+- [Implicit Flow](/flows/concepts/implicit)
 
-On the other hand, the [Resource Owner Password Grant](/api-auth/grant/password) and [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow) do not use this endpoint since there is no user authorization involved. Instead, they directly invoke the `POST /oauth/token` endpoint to retrieve an Access Token.
+On the other hand, the [Resource Owner Password Grant](/api-auth/grant/password) and [Client Credentials Flow](/flows/concepts/client-credentials) do not use this endpoint since there is no user authorization involved. Instead, they directly invoke the `POST /oauth/token` endpoint to retrieve an Access Token.
 
 Based on the OAuth 2.0 flow you are implementing, the parameters slightly change. To determine which flow is best suited for your case, refer to: [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use).
 
-## Regular Web App Login Flow
+## Authorization Code Flow
 
 ```http
 GET https://${account.namespace}/authorize?
@@ -75,13 +75,13 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 ### More Information
 
-- [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
-- [Call API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow)
+- [Authorization Code Flow](/flows/concepts/auth-code)
+- [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
 - [State Parameter](/protocols/oauth2/oauth-state)
 - [Silent Authentication](/api-auth/tutorials/silent-authentication)
 
 
-## Native/Mobile Login Flow
+## Authorization Code Flow with PKCE
 
 ```http
 GET https://${account.namespace}/authorize?
@@ -150,12 +150,12 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 ### More Information
 
-- [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow)
-- [Call API Using the Native/Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow)
+- [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce)
+- [Call API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce)
 - [Silent Authentication](/api-auth/tutorials/silent-authentication)
 
 
-## Single-Page Login Flow
+## Implicit Flow
 
 ```http
 GET https://${account.namespace}/authorize?
@@ -216,15 +216,15 @@ This is the OAuth 2.0 grant that web apps utilize in order to access an API.
 ### Remarks
 
 - The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
-- If `response_type=token`, after the user authenticates with the provider, this will redirect them to your application callback URL while passing the `access_token` in the address `location.hash`. This is used for Single Page Apps and on Native Mobile SDKs.
+- If `response_type=token`, after the user authenticates with the provider, this will redirect them to your application callback URL while passing the `access_token` in the address `location.hash`. This is used for Single-Page Apps and on Native Mobile SDKs.
 - The Implicit Grant does not support the issuance of Refresh Tokens. You can use [Silent Authentication](/api-auth/tutorials/silent-authentication) instead.
 - In order to improve compatibility for applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or Access Tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
 - Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. When an Access Token has expired, silent authentication can be used to retrieve a new one without user interaction, assuming the user's SSO session has not expired.
 
 ### More Information
 
-- [Single-Page Login Flow](/flows/concepts/single-page-login-flow)
-- [Call Your API using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow)
+- [Implicit Flow](/flows/concepts/implicit)
+- [Call Your API using the Implicit Flow](/flows/guides/implicit/call-api-implicit)
 - [State Parameter](/protocols/oauth2/oauth-state)
 - [Mitigate replay attacks when using the Implicit Grant](/api-auth/tutorials/nonce)
 - [Silent Authentication](/api-auth/tutorials/silent-authentication)

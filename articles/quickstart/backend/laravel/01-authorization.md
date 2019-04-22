@@ -13,10 +13,10 @@ useCase: quickstart
 
 This quickstart covers building an API protected by an Auth0-issued access token. This type of API is typically consumed by:
 
-- Mobile, desktop, and other native applications using the [Native login flow](https://auth0.com/docs/flows/concepts/mobile-login-flow)
-- CLIs, daemons, or services running on your back-end using the [M2M flow](https://auth0.com/docs/flows/concepts/m2m-flow)
+- Mobile, desktop, and other native applications using the [Native login flow](https://auth0.com/docs/flows/concepts/auth-code-pkce)
+- CLIs, daemons, or services running on your back-end using the [Client Credentials Flow](https://auth0.com/docs/flows/concepts/client-credentials)
 
-If this API is only consumed by a web application on the same domain (in the case of AJAX actions or lazy loading content for an authenticated user) then the API protection should be handled by the application itself and the [login flow secured by Auth0](https://auth0.com/docs/flows/concepts/regular-web-app-login-flow). 
+If this API is only consumed by a web application on the same domain (in the case of AJAX actions or lazy loading content for an authenticated user) then the API protection should be handled by the application itself and the [login flow secured by Auth0](https://auth0.com/docs/flows/concepts/auth-code). 
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
@@ -277,9 +277,9 @@ Change the `Authorization` header to use the new token and send the `GET` reques
 
 The example above uses manually-generated tokens which are not long-lived. Once your API is live on the web and ready to accept requests, the applications making the requests will need to create their tokens using one of a few ways:
 
-- Mobile, desktop, and other native applications will use a [Mobile/Native Login Flow](https://auth0.com/docs/flows/concepts/mobile-login-flow)
-- CLIs, daemons, or services running on your back-end will use an [Machine-to-Machine Flow](https://auth0.com/docs/flows/concepts/m2m-flow)
-- Web applications can use the [Regular Web App Login Flow](https://auth0.com/docs/flows/concepts/regular-web-app-login-flow)
+- Mobile, desktop, and other native applications will use a [Mobile/Native Login Flow](https://auth0.com/docs/flows/concepts/auth-code-pkce)
+- CLIs, daemons, or services running on your back-end will use an [Machine-to-Machine Flow](https://auth0.com/docs/flows/concepts/client-credentials)
+- Web applications can use the [Authorization Code Flow](https://auth0.com/docs/flows/concepts/auth-code)
 
 Regardless of the type, the application will need to request the audience of this API during the login flow to receive a correctly-formed access token. 
 

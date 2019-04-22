@@ -30,7 +30,7 @@ The first step is to create the Application that the extension exposes to those 
 1. After you've logged into the [Management Dashboard](${manage_url}), navigate to [Applications](${manage_url}/#/applications).
 2. Click **+Create Application**. 
 3. Provide a name for your application (such as `Users Dashboard`).
-4.  Set the Application type to `Single Page Web Applications`. 
+4.  Set the Application type to `Single-Page Web Applications`. 
 5. Click **Create** to proceed.
 
 ![Create an Application](/media/articles/extensions/delegated-admin/create-client.png)
