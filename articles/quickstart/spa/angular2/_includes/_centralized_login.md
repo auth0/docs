@@ -129,7 +129,7 @@ export class AuthService {
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
     // access token's expiry time
-    return this._accessToken && new Date.now() < this._expiresAt;
+    return this._accessToken && Date.now() < this._expiresAt;
   }
 
 }
