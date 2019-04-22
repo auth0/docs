@@ -9,11 +9,15 @@ contentType:
 ---
 # MFA with Email
 
-Enabling MFA with Email is useful when you want to give users a fallback MFA factor for when they do not have access to their normal MFA method (e.g. they don't have their mobile device, or their device does not have connectivity). As it is designed to be used as a fallback method, **Email cannot be the only enabled factor**.
+Using MFA with email is useful when you want to provide users a way to perform MFA when they don't have a mobile device.
 
-When enabled, users with verified emails will get the option to get a one-time password code in their email to complete the MFA flow.
+Once Email is enabled as an MFA factor:
 
-Note that Email is not true 'Multi-factor Authentication' as it does not represent a different factor. It does not represent 'something I have' or 'something I am', but rather just another 'something I know' (the email password). It is also weaker than other factors, in that it's only as secure as the email itself (e.g. is it encrypted end-to-end?).
+- Users with verified emails will get the option of getting a code in their email to complete the MFA challenge.
+- Users from Database Connections without verified emails will get prompted to verify their emails.
+- Users from social / enterprise connections that don't provide verified emails, will not be able to use MFA with email. If Email MFA is the ONLY enabled factor, they will get an error when logging-in, and they will not be able to complete the login flow. You should not enable Email MFA as the only factor if you have social/enterprise connections that don't provide verified emails.
+
+Note that Email is not true 'Multi-factor Authentication' as it does not represent a different factor than the password. It does not represent 'something I have' or 'something I am', but rather just another 'something I know' (the email password). It is also weaker than other factors, in that it's only as secure as the email itself (e.g. is it encrypted end-to-end?).
 
 ## End-user experience
 
@@ -21,9 +25,11 @@ After the login step, users will be presented with the most secure enabled facto
 
 ![Email End User 1](/media/articles/multifactor-authentication/mfa-email.png)
 
+After Email MFA is enabled, all new or existing users from Database Connections that do not have verified emails will get prompted to verify their emails after their log in. They will get a code in ther email they'll need to enter in the login page to continue.
+
 ## Administrative setup
 
-In order to set up Email, you will need to have another factor enabled, and enable the Email factor in the Dashboard.
+In order to set up Email, you need to able the Email factor in the Dashboard.
 
 ![MFA Email Settings](/media/articles/multifactor-authentication/email-settings.png)
 
