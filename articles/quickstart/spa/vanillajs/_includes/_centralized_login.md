@@ -98,7 +98,7 @@ window.addEventListener('load', function() {
   function localLogin(authResult) {
     // Set isLoggedIn flag in localStorage
     localStorage.setItem('isLoggedIn', 'true');
-    // Set the time that the access token will expire at
+    // Set the time that the Access Token will expire at
     expiresAt = JSON.stringify(
       authResult.expiresIn * 1000 + new Date().getTime()
     );

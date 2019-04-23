@@ -25,7 +25,7 @@ The basic login process in Auth0-PHP uses an [Authentication Code grant](/api-au
 3. The user is redirected or posted back to your application's callback URL with `code` and `state` values if successful or an `error` and `error_description` if not.
 4. If the authentication was successful, the `state` value is validated.
 5. If the `state` is valid, the `code` value is exchanged with Auth0 for an access token.
-6. If the exchange is successful, the access token is used to call an Auth0 `/userinfo` endpoint, which returns the authenticated user's information.
+6. If the exchange is successful, the Access Token is used to call an Auth0 `/userinfo` endpoint, which returns the authenticated user's information.
 7. This information can be used to create an account, to start an application-specific session, or to persist as the user session.
 
 Auth0-PHP handles most of these steps automatically. Your application needs to:

@@ -89,7 +89,7 @@ In the `localLogin` method, add the function right after setting the Access Toke
 // src/app/auth/auth.service.ts
 
 private localLogin(authResult): void {
-  // Set the time that the access token will expire at
+  // Set the time that the Access Token will expire at
   const expiresAt = (authResult.expiresIn * 1000) + Date.now();
   this._accessToken = authResult.accessToken;
   this._idToken = authResult.idToken;
