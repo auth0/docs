@@ -1,24 +1,25 @@
 ---
-description: Learn how the regular web app login flow works and why you should use it for regular web apps.
+title: Authorization Code Flow
+description: Learn how the Authorization Code flow works and why you should use it for regular web apps.
 topics:
   - authorization-code
   - api-authorization
   - grants
   - authentication
+  - regular-web-apps
 contentType: concept
 useCase:
   - secure-api
   - call-api
   - add-login
 ---
-# Regular Web App Login Flow
+# Authorization Code Flow
 
 Because regular web apps are server-side apps where the source code is not publicly exposed, they can use the Authorization Code Flow (defined in defined in [OAuth 2.0 RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)), which exchanges an Authorization Code for a token. Your app must be server-side because during this exchange, you must also pass along your application's Client Secret, which must always be kept secure, and you will have to store it in your client.
 
-
 ## How it works
 
-![Regular Web App Login Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-regular-web-app-login-flow.png)
+![Authorization Code Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-auth-code.png)
 
 
 1. The user clicks **Login** within the regular web application.
@@ -35,9 +36,9 @@ Because regular web apps are server-side apps where the source code is not publi
 
 ## How to implement it
 
-The easiest way to implement the Regular Web App Login Flow is to follow our [Regular Web App Quickstarts](/quickstart/webapp).
+The easiest way to implement the Authorization Code Flow is to follow our [Regular Web App Quickstarts](/quickstart/webapp).
 
-Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow) or [Call Your API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow).
+Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Authorization Code Flow](/flows/guides/auth-code/add-login-auth-code) or [Call Your API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code).
 
 ## Keep reading
 

@@ -21,7 +21,7 @@ Auth0 supports the linking of user accounts from various identity providers.
 
 One way to implement this functionality is to enable the user to explicitly link accounts. In this scenario, the user authenticates and can later on use a link or a button in order to link another account to the first one. The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the second account is linked with the first.
 
-The following steps implement this scenario for a Single Page Application (SPA). You can find the sample code at [User Initiated Account Linking within a Single Page App](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github.
+The following steps implement this scenario for a Single-Page Application (SPA). You can find the sample code at [User Initiated Account Linking within a Single-Page App](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github.
 
 ## Step 1: Initial login
 
@@ -29,9 +29,9 @@ Start by logging in the user to your application.
 
 The recommended implementation is to use [Universal Login](/hosted-pages/login). You can find detailed guidance on how to do just that at our [JavaScript Quickstart](/quickstart/spa/vanillajs).
 
-If you choose instead to embed the [Lock](/libraries/lock/v11) widget or the [auth0.js library](/libraries/auth0js/v9) in your app, you can review the sample code for this tutorial in the [Auth0 jQuery Single Page App Account Linking Sample](https://github.com/auth0-samples/auth0-link-accounts-sample/tree/master/SPA) repo on Github.
+If you choose instead to embed the [Lock](/libraries/lock/v11) widget or the [auth0.js library](/libraries/auth0js/v9) in your app, you can review the sample code for this tutorial in the [Auth0 jQuery Single-Page App Account Linking Sample](https://github.com/auth0-samples/auth0-link-accounts-sample/tree/master/SPA) repo on Github.
 
-If you don't use Lock at all, but call the Authentication API directly, follow our tutorial, [Call API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow) tutorial.
+If you don't use Lock at all, but call the Authentication API directly, follow our tutorial, [Call API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit) tutorial.
 
 ## Step 2: User initiates account linking
 

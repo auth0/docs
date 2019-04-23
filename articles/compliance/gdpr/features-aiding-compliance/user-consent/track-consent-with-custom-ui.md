@@ -33,14 +33,14 @@ For example:
 
 We will see four different implementations for this:
 
-1. one that displays a flag, works for database connections, and uses the [auth0.js](/libraries/auth0js) library to create the user (used by Single Page Applications)
+1. one that displays a flag, works for database connections, and uses the [auth0.js](/libraries/auth0js) library to create the user (used by Single-Page Applications)
 1. one that displays a flag, works for database connections, and uses the [Authentication API](/api/authentication#signup) to create the user (used by Regular Web Apps)
 1. one that displays a flag, works for social connections, and uses the [Management API](/api/management/v2) to update the user's information (used either by SPAs or Regular Web Apps)
 1. one that redirects to another page where the Terms & Conditions and/or privacy policy information can be reviewed and consent info can be provided (used either by SPAs or Regular Web Apps)
 
 ## Option 1: Use auth0.js
 
-In this section, we will use a simple Single Page Application and customize the login widget to add a flag which users can use to provide consent information. Instead of building an app from scratch, we will use [Auth0's JavaScript Quickstart sample](/quickstart/spa/vanillajs). We will also use [Auth0's Universal Login Page](/hosted-pages/login) so we can implement a [Universal Login experience](/guides/login/centralized-vs-embedded), instead of embedding the login in our app.
+In this section, we will use a simple Single-Page Application and customize the login widget to add a flag which users can use to provide consent information. Instead of building an app from scratch, we will use [Auth0's JavaScript Quickstart sample](/quickstart/spa/vanillajs). We will also use [Auth0's Universal Login Page](/hosted-pages/login) so we can implement a [Universal Login experience](/guides/login/centralized-vs-embedded), instead of embedding the login in our app.
 
 This works **only** for database connections (we will use Auth0's infrastructure, instead of setting up our own database).
 
@@ -139,7 +139,7 @@ What you have to do instead is let your user sign up with the social provider (w
 Before you call the Management API you need to get a valid token. For details see [Get Access Tokens for Production](/api/management/v2/get-access-tokens-for-production).
 
 :::panel Get a token from an SPA
-The linked article uses the [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow) to get a token, which you cannot use from an app running on the browser. What you can use instead is the [Single-Page Login Flow](/flows/concepts/single-page-login-flow). Set the **audience** request parameter to `https://${account.namespace}/api/v2/` and the **scope** parameter to the scope `create:current_user_metadata`. You can use the Access Token you will get at the response to call the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id).
+The linked article uses the [Client Credentials Flow](/flows/concepts/client-credentials) to get a token, which you cannot use from an app running on the browser. What you can use instead is the [Implicit Flow](/flows/concepts/implicit). Set the **audience** request parameter to `https://${account.namespace}/api/v2/` and the **scope** parameter to the scope `create:current_user_metadata`. You can use the Access Token you will get at the response to call the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id).
 :::
 
 Once you have a valid token, use the following snippet to update the user's metadata.

@@ -1,23 +1,24 @@
 ---
-title: Call API from Regular Web Applications
-description: Learn how to call your own API using the regular web app login flow.
+title: Call API Using the Authorization Code Flow
+description: Learn how to call your own API from regular web apps using the Authorization Code Flow.
 toc: true
 topics:
   - api-authentication
   - oidc
   - authorization-code
+  - regular-web-apps
 contentType: tutorial
 useCase:
   - secure-api
   - call-api
 ---
-# Call Your API Using the Regular Web App Login Flow
+# Call Your API Using the Authorization Code Flow
 
 ::: note
-This tutorial will help you call your own API using the regular web app login flow. If you want to learn how the flow works and why you should use it, see [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow). If you want to learn to add login to your regular web app, see [Add Login Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow).
+This tutorial will help you call your own API using the Authorization Code Flow. If you want to learn how the flow works and why you should use it, see [Authorization Code Flow](/flows/concepts/auth-code). If you want to learn to add login to your regular web app, see [Add Login Using the Authorization Code Flow](/flows/guides/auth-code/add-login-auth-code).
 :::
 
-Auth0 makes it easy for your app to implement the regular web app login flow using:
+Auth0 makes it easy for your app to implement the Authorization Code Flow using:
 
 * [Regular Web App Quickstarts](/quickstart/webapp): The easiest way to implement the regular web app flow.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.

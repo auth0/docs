@@ -23,10 +23,10 @@ This tutorial explains how to use and represent multiple APIs as a single Resour
 
 The sample application uses a microservices architecture and contains:
 
-* 1 Single Page Application (SPA)
+* 1 Single-Page Application (SPA)
 * 2 APIs (services), called `contacts` and `calendar`
 
-We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two namespaced scopes to demonstrate how you can use the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to access the `calendar` and `contacts` APIs from the SPA.
+We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two namespaced scopes to demonstrate how you can use the [Implicit Flow](/flows/concepts/implicit) to access the `calendar` and `contacts` APIs from the SPA.
 
 ## Prerequisites
 
@@ -112,10 +112,10 @@ You are now ready to provide access to your APIs by allowing the logical API to 
 
 :::panel Authorization Flows
 
-The rest of this article covers use of the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) to reflect the sample. However, you can use whichever flow best suits your needs. For example:
+The rest of this article covers use of the [Implicit Flow](/flows/concepts/implicit) to reflect the sample. However, you can use whichever flow best suits your needs. For example:
 
-* If you have a **Machine-to-Machine Application**, you can authorize it to request Access Tokens for your API by executing a [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow).
-* If you are building a **Native App**, you can implement the [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow).
+* If you have a **Machine-to-Machine Application**, you can authorize it to request Access Tokens for your API by executing a [Client Credentials Flow](/flows/concepts/client-credentials).
+* If you are building a **Native App**, you can implement the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce).
 
 For a full list of available Authorization flows, see [API Authorization](/api-auth).
 :::
@@ -133,7 +133,7 @@ nonce=NONCE
 ```
 
 ::: note
-For additional information on the call's parameters, refer to our tutorial, [Call Your API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow#authorize-the-user).
+For additional information on the call's parameters, refer to our tutorial, [Call Your API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit#authorize-the-user).
 :::
 
 ![SPA Home before Login](/media/articles/api-auth/tutorials/represent-multiple-apis/home.png)

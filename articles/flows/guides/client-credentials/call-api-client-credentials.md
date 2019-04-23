@@ -1,24 +1,25 @@
 ---
-title: Call API from Machine-to-Machine Applications
-description: Learn how to execute a machine-to-machine application flow using the client credientials grant.
+title: Call API Using the Client Credentials Flow
+description: Learn how to call your API from a machine-to-machine (M2M) application using the Client Credentials Flow.
 toc: true
 topics:
   - api-authentication
   - oidc
   - client-credentials
   - M2M
+  - machine-to-machine apps
 contentType: tutorial
 useCase:
   - secure-api
   - call-api
 ---
-# Call Your API Using the M2M Flow
+# Call Your API Using the Client Credentials Flow
 
 ::: note
-This tutorial will help you implement the M2M flow. If you want to learn how the flow works and why you should use it, see [M2M Flow](/flows/concepts/m2m-flow).
+This tutorial will help you call your API from a machine-to-machine (M2M) application using the Client Credentials Flow. If you want to learn how the flow works and why you should use it, see [Client Credentials Flow](/flows/concepts/client-credentials).
 :::
 
-Auth0 makes it easy for your app to implement the M2M flow. Following successful authentication, the calling application will have access to an [Access Token](/tokens/overview-access-tokens), which can be used to call your protected APIs.
+Auth0 makes it easy for your app to implement the Client Credentials Flow. Following successful authentication, the calling application will have access to an [Access Token](/tokens/overview-access-tokens), which can be used to call your protected APIs.
 
 ## Prerequisites
 

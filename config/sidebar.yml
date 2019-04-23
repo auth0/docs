@@ -159,13 +159,13 @@ articles:
     children:
 
       - title: "Native/Mobile Apps"
-        url: "/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow"
+        url: "/flows/guides/auth-code-pkce/add-login-auth-code-pkce"
         
       - title: "Single-Page Apps"
-        url: "/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow"
+        url: "/flows/guides/implicit/add-login-implicit"
         
       - title: "Regular Web Apps"
-        url: "/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow"
+        url: "/flows/guides/auth-code/add-login-auth-code"
 
       - title: "Old-Current"
         url: "/application-auth/current"
@@ -216,16 +216,16 @@ articles:
         url: "/api-auth/which-oauth-flow-to-use"
         
       - title: "APIs & Mobile Apps"
-        url: "/flows/concepts/mobile-login-flow"
+        url: "/flows/concepts/auth-code-pkce"
         
       - title: "APIs & Single-Page Apps"
-        url: "/flows/concepts/single-page-login-flow"
+        url: "/flows/concepts/implicit"
         
       - title: "APIs & Regular Web Apps"
-        url: "/flows/concepts/regular-web-app-login-flow"
+        url: "/flows/concepts/auth-code"
         
       - title: "APIs & M2M Apps"
-        url: "/flows/concepts/m2m-flow"
+        url: "/flows/concepts/client-credentials"
 
       - title: "APIs & Server-side Apps"
         url: "/api-auth/grant/authorization-code"

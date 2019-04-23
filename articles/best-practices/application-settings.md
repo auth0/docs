@@ -73,4 +73,4 @@ If you are not using delegation, provide your application's Client ID in the **A
 
 Go to [Applications > Settings > Advanced Settings > Grant Types](${manage_url}/#/applications) and turn off any unneeded grant type for your application. This prevents someone from issuing authorization requests for unauthorized grant types.
 
-For example, you should turn off the authorization code grant type for a single page application, because it is not appropriate for a public client.
+For example, you should turn off the authorization code grant type for a single-page application, because it is not appropriate for a public client.

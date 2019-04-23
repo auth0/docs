@@ -1,25 +1,27 @@
 ---
-title: Add Login to Single-Page Applications
-description: Learn how to add login to your application using the single-page login flow.
+title: Add Login Using the Implicit Floew
+description: Learn how to add login to your single-page application (SPA) using the Implicit Flow.
 toc: true
 topics:
   - api-authentication
   - oidc
   - hybrid-flow
   - implicit-flow
+  - SPA
+  - single-page apps
 contentType: tutorial
 useCase:
   - add-login
 ---
-# Add Login Using the Single-Page Login Flow
+# Add Login Using the Implicit Flow
 
 ::: note
-This tutorial will help you add login to your single-page application (SPA) using the single-page login flow. If you want to learn how the flow works and why you should use it, see [Single-Page Login Flow](/flows/concepts/single-page-login-flow). If you want to learn to call your API from a SPA, see [Call Your API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow).
+This tutorial will help you add login to your single-page application (SPA) using the Implicit Flow. If you want to learn how the flow works and why you should use it, see [Implicit Flow](/flows/concepts/implicit). If you want to learn to call your API from a SPA, see [Call Your API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit).
 :::
 
-Auth0 makes it easy to implement the single-page login flow by using:
+Auth0 makes it easy to implement the Implicit Flow by using:
 
-* [Auth0.js](/libraries/auth0js): The easiest way to implement the single-page login flow, which will do most of the heavy-lifting for you. Our [Single-Page App Quickstarts](/quickstart/spa) will walk you through the process.
+* [Auth0.js](/libraries/auth0js): The easiest way to implement the Implicit Flow, which will do most of the heavy-lifting for you. Our [Single-Page App Quickstarts](/quickstart/spa) will walk you through the process.
 * Authentication API: If you prefer to roll your own solution, keep reading to learn how to call our API directly.
 
 Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens), as well as an authorization code that can be exchanged with Auth0 for an additional Access Token. The ID Token will contain basic user profile information, and the Access Token can be used to call the Auth0 /userinfo endpoint or your own protected APIs.

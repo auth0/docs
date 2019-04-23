@@ -36,7 +36,7 @@ In this scenario, we will build a web application for a fictitious company named
 :::
 
 ::: note
-By _Regular Web App_, we mean an app that uses primarily server side, page `GET`, `POST`, and cookies for maintaining state. This is contrast with a Web _SPA_ (Single Page App), that heavily relies on client side JavaScript code calling an API.
+By _Regular Web App_, we mean an app that uses primarily server side, page `GET`, `POST`, and cookies for maintaining state. This is contrast with a Web _SPA_ (Single-Page App), that heavily relies on client side JavaScript code calling an API.
 :::
 
 ## The Premise

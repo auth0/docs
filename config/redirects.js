@@ -978,28 +978,72 @@ module.exports = [
     to: '/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow'
   },
   {
+    from: ['/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow'],
+    to: '/flows/guides/auth-code/add-login-auth-code'
+  },
+  {
+    from: ['/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow'],
+    to: '/flows/guides/auth-code/call-api-auth-code'
+  },
+  {
     from: ['/application-auth/current/client-side-web'],
     to: '/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow'
+  },
+  {
+    from: ['/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow'],
+    to: '/flows/guides/implicit/add-login-implicit'
+  },
+  {
+    from: ['/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow'],
+    to: '/flows/guides/implicit/call-api-implicit'
   },
   {
     from: ['/application-auth/current/mobile-desktop'],
     to: '/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow'
   },
-    {
+  {
+    from: ['/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow'],
+    to: '/flows/guides/auth-code-pkce/add-login-auth-code-pkce'
+  },
+  {
+    from: ['/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow'],
+    to: '/flows/guides/auth-code-pkce/call-api-auth-code-pkce'
+  },
+  {
+    from: ['/flows/guides/m2m-flow/call-api-using-m2m-flow'],
+    to: '/flows/guides/client-credentials/call-api-client-credentials'
+  },
+  {
     from: ['/api-auth/grant/authorization-code-pkce'],
     to: '/flows/concepts/mobile-login-flow'
+  },
+    {
+    from: ['/flows/concepts/mobile-login-flow'],
+    to: '/flows/concepts/auth-code-pkce'
   },
     {
     from: ['/api-auth/grant/implicit'],
     to: '/flows/concepts/single-page-login-flow'
   },
-    {
+  {
+    from: ['/flows/concepts/single-page-login-flow'],
+    to: '/flows/concepts/implicit'
+  },
+  {
     from: ['/api-auth/grant/authorization-code'],
     to: '/flows/concepts/regular-web-app-login-flow'
+  },
+  {
+    from: ['/flows/concepts/regular-web-app-login-flow'],
+    to: '/flows/concepts/auth-code'
   },
     {
     from: ['/api-auth/grant/client-credentials'],
     to: '/flows/concepts/m2m-flow'
+  },
+  {
+    from: ['/flows/concepts/m2m-flow'],
+    to: '/flows/concepts/client-credentials'
   },
   {
     from: ['/api-auth/restrict-requests-for-scopes'],

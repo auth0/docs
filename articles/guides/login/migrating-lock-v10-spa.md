@@ -1,6 +1,6 @@
 ---
 title: Moving SPAs using Lock to Universal Login 
-description: Learn how to migrate from Single Page Applications using Lock to Universal Login
+description: Learn how to migrate from Single-Page Applications using Lock to Universal Login
 toc: true
 topics:
   - lock
@@ -14,7 +14,7 @@ useCase: migrate
 
 # Migrate SPAs using Lock 10+ to Universal Login
 
-This document explains how to migrate Single Page Applications using [Lock](/libraries/lock) to Universal Login. For other migration scenarios see [Migrating from Embedded to Universal Login](/guides/login/migration-embedded-universal).
+This document explains how to migrate Single-Page Applications using [Lock](/libraries/lock) to Universal Login. For other migration scenarios see [Migrating from Embedded to Universal Login](/guides/login/migration-embedded-universal).
 
 When you use Lock, your code does basically this:
 
@@ -107,6 +107,6 @@ function login() {
 
 5. Review if you are using any [legacy authentication flow in your application](guides/migration-legacy-flows), and adjust your code accordingly.
 
-You can find complete examples of implementing Universal Login in Single Page Applications for different technologies in our [Quickstarts](/quickstart/spa).
+You can find complete examples of implementing Universal Login in Single-Page Applications for different technologies in our [Quickstarts](/quickstart/spa).
 
 <%= include('_includes/_customizing-login-page') %>

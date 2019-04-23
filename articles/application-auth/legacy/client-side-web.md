@@ -18,7 +18,7 @@ useCase:
 This document covers an outdated version of the Auth0 authentication pipeline. We recommend you use the current version, using the dropdown. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
-The Auth0 OAuth 2.0 authentication endpoints support Client-side Web Applications. These applications are also referred to as JavaScript or Single Page Applications.
+The Auth0 OAuth 2.0 authentication endpoints support Client-side Web Applications. These applications are also referred to as JavaScript or Single-Page Applications.
 
 ## Overview
 
@@ -47,7 +47,7 @@ The first thing you need to do is to create a new application in Auth0. An Auth0
 
 Navigate to the [Auth0 Dashboard](${manage_url}) and click on the [Applications](${manage_url}/#/applications) menu option on the left. Create a new Application by clicking on the **Create Application** button.
 
-The **Create Application** window will open, allowing you to enter the name of your new application. Choose **Single Page Web Applications** as the **Application Type** and click on the **Create** button to create the new application.
+The **Create Application** window will open, allowing you to enter the name of your new application. Choose **Single-Page Web Applications** as the **Application Type** and click on the **Create** button to create the new application.
 
 ![](/media/articles/client-auth/client-side-web/create-client.png)
 

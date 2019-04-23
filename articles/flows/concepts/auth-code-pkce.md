@@ -1,18 +1,21 @@
 ---
-description: Learn how the mobile login flow works and why you should use it for mobile apps.
+title: Authorization Code Flow with Proof Key for Code Exchange (PKCE)
+description: Learn how the Authorization Code flow with Proof Key for Code Exchange (PKCE) works and why you should use it for native and mobile apps.
 topics:
   - authorization-code
   - pkce
   - api-authorization
   - grants
   - authentication
+  - native-apps
+  - mobile-apps
 contentType: concept
 useCase:
   - secure-api
   - call-api
   - add-login
 ---
-# Mobile Login Flow
+# Authorization Code Flow with Proof Key for Code Exchange (PKCE)
 
 During authentication, mobile/native applications can use the OAuth 2.0 Authorization Code Flow, but they require additional security because they:
 
@@ -25,9 +28,12 @@ The PKCE-enhanced Authorization Code Flow introduces a secret created by the c
 
 ## How it works
 
-Because the PKCE-enhanced Authorization Code Flow builds upon the standard Authorization Code Flow, the steps are very similar.
+Because the PKCE-enhanced Authorization Code Flow builds upon the [standard Authorization Code Flow](/flows/concepts/auth-code), the steps are very similar.
 
-![Mobile Login Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-mobile-login-flow.png)
+![Authorization Code Flow with PKCE Authentication Sequence](/media/articles/flows/concepts/auth-sequence-auth-code-pkce.png)
+
+![Authorization Code Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-auth-code.png)
+
 
 
 1. The user clicks **Login** within the native/mobile application.
@@ -45,14 +51,14 @@ Because the PKCE-enhanced Authorization Code Flow builds upon the standard Auth
 
 ## How to implement it
 
-The easiest way to implement the Mobile Login Flow is to follow our [Mobile/Native Quickstarts](/quickstart/native).
+The easiest way to implement the Authorization Code Flow with PKCE is to follow our [Mobile/Native Quickstarts](/quickstart/native).
 
 You can also use our mobile SDKs:
 
 * [Auth0 Swift SDK](/libraries/auth0-swift)
 * [Auth0 Android SDK](/libraries/auth0-android)
 
-Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Mobile Login Flow](/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow) or [Call Your API Using the Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow).
+Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce) or [Call Your API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce).
 
 ## Keep reading
 

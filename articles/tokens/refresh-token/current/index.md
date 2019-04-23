@@ -39,11 +39,11 @@ A Refresh Token allows the application to ask Auth0 to issue a new Access Token 
 
 ## Restrictions on Refresh Token Usage
 
-You can only get a Refresh Token if you are implementing the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow), or [Resource Owner Password Grant](/api-auth/grant/password).
+You can only get a Refresh Token if you are implementing the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), or [Resource Owner Password Grant](/api-auth/grant/password).
 
-A Single-Page Application (normally implementing [Single-Page Login Flow](/flows/concepts/single-page-login-flow)) should not ever receive a Refresh Token. A Refresh Token is essentially a user credential that allows a user to remain authenticated indefinitely. This sensitive information should be stored securely and *not* exposed client-side in a browser.
+A Single-Page Application (normally implementing [Implicit Flow](/flows/concepts/implicit)) should not ever receive a Refresh Token. A Refresh Token is essentially a user credential that allows a user to remain authenticated indefinitely. This sensitive information should be stored securely and *not* exposed client-side in a browser.
 
-If you are implementing an SPA using [Single-Page Login Flow](/flows/concepts/single-page-login-flow) and you need to renew a token, the only secure option for doing so is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
+If you are implementing an SPA using [Implicit Flow](/flows/concepts/implicit) and you need to renew a token, the only secure option for doing so is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
 
 If you limit offline access to your API, a safeguard configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis), Auth0 will not return a Refresh Token for the API (even if you include the `offline_access` scope in your request).
 
@@ -51,7 +51,7 @@ If you limit offline access to your API, a safeguard configured via the **Allow 
 
 To get a Refresh Token, you must include the `offline_access` [scope](/scopes) when you initiate an authentication request through the [authorize](/api/authentication/reference#authorize-application) endpoint.
 
-For example, if you are using the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), the authentication request would look like the following:
+For example, if you are using the [Authorization Code Flow](/flows/concepts/auth-code), the authentication request would look like the following:
 
 ```text
 https://${account.namespace}/authorize?
@@ -95,7 +95,7 @@ If you are requesting a Refresh Token for a mobile app using the corresponding N
 Refresh Tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
 :::
 
-For more information on how to implement this using the Regular Web App Login Flow, refer to our tutorial, [Call API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow). For other grants, see [API Authorization](/api-auth).
+For more information on how to implement this using the Authorization Code Flow, refer to our tutorial, [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code). For other grants, see [API Authorization](/api-auth).
 
 ::: note
 If the response did not include a Refresh Token, check that you comply with the [Restrictions](#restrictions-on-refresh-token-usage) listed in this document.
@@ -282,7 +282,7 @@ If you try to do a <a href="/rules/redirect">redirect</a> with <code>context.red
 
 All our main SDKs support Refresh Tokens out of the box. Some are [Node.js](/quickstart/webapp/nodejs), [ASP.NET Core](/quickstart/webapp/aspnet-core), [PHP](/quickstart/webapp/php), [Java](/dev-centers/java), and many more. For a complete listing, see [Quickstarts](/quickstart/webapp).
 
-### Single Page Apps
+### Single-Page Apps
 
 [Silent Authentication](/api-auth/tutorials/silent-authentication) is the method that is used to refresh a token for web apps that execute in a browser. [Auth0.js](/libraries/auth0js), our client-side library, provides methods for this functionality:
 

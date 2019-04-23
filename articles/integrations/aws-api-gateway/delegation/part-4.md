@@ -182,7 +182,7 @@ In the Auth0 Dashboard, go back to **Applications**, select your Application, an
 
 ![AWS Connections](/media/articles/integrations/aws-api-gateway/part-4/aws-connections.png)
 
-#### Deploy the API and Update the Single Page Application
+#### Deploy the API and Update the Single-Page Application
 
 ##### Deploy the API
 

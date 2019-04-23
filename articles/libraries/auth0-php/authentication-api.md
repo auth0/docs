@@ -21,7 +21,7 @@ Do not use methods marked as `@deprecated`. Deprecated methods will be removed i
 
 The examples below assume you completed the [Installation and Getting Started sections](/libraries/auth0-php#installation) and are using a `.env` file and loader to store credentials.
 
-## Regular Web App Login Flow
+## Authorization Code Flow
 
 An [Authorization Code grant](/api-auth/tutorials/authorization-code-grant) is the basic way to grant users access to your application. This flow is the same one used on the [Basic Use page](/libraries/auth0-php/basic-use#login). If you need more granular control over the login or callback process, this section walks through how to use the Authentication API directly.
 
@@ -152,7 +152,7 @@ Walking through the process in detail:
 1. If this succeeds, we know the exchange was successful, and we have an access token. We call the `/userinfo` endpoint with this token, which will return an object containing the data we requested in the `scopes` parameter on the authorize URL.
 1. If this last step succeeds, we store the user and redirect back to our sensitive data.
 
-## Machine-to-Machine (M2M) Flow
+## Client Credentials Flow
 
 A [Client Credentials grant](/api-auth/tutorials/client-credentials) gives an application access to a specific API based on the scopes set in the dashboard. This is how applications can, for example, make calls to the Management API. Successful authentication will result in an Access Token being issued for the API requested.
 
