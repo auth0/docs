@@ -53,7 +53,7 @@ The included changes should not alter any functionality while still improving th
 
 ### Cache results
 
-Rules have a [global variable you can use to cache information](/rules/guides/cache-resources). For API calls that are not user-specific, use this variable to cache the results between users (e.g., getting an access token for your API).
+Rules have a [global variable you can use to cache information](/rules/guides/cache-resources). For API calls that are not user-specific, use this variable to cache the results between users (e.g., getting an Access Token for your API).
 
 ### Limited read or update users scopes
 

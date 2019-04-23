@@ -103,7 +103,7 @@ If you are seeing errors, refer to the following troubleshooting steps.
 
 ### User's email address is missing from retrieved user profile
 
-Twitter connections do not retrieve the user's email address by default. But you can add a rule to request the email using the access token returned from Twitter *providing you supply a privacy policy and terms & conditions*.
+Twitter connections do not retrieve the user's email address by default. But you can add a rule to request the email using the Access Token returned from Twitter *providing you supply a privacy policy and terms & conditions*.
 
 Auth0 provides a rule template to get email addresses from Twitter. To use it, [create a new rule](${manage_url}/#/rules/create) with the **Get Email Address from Twitter** template under the **Enrich Profile** section.
 

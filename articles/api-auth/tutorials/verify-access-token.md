@@ -19,7 +19,7 @@ When a custom API receives a request with a bearer [Access Token](/tokens/overvi
 At Auth0, an Access Token used for a custom API is formatted as a [JSON Web Token](/jwt) which must be validated before use.
 
 :::note
-If the Access Token you got from Auth0 is not a JWT but an opaque string (like `kPoPMRYrCEoYO6s5`), this means that the access token was not issued for your custom API as the audience. When requesting a token for your API, make sure to use the `audience` parameter in the authorization or token request with the API identifier as the value of the parameter.
+If the Access Token you got from Auth0 is not a JWT but an opaque string (like `kPoPMRYrCEoYO6s5`), this means that the Access Token was not issued for your custom API as the audience. When requesting a token for your API, make sure to use the `audience` parameter in the authorization or token request with the API identifier as the value of the parameter.
 :::
 
 Validating the token consists of a series of steps, and if any of these fails, then the request **must** be rejected. This document lists all the validations that your API should perform:
