@@ -57,6 +57,10 @@ update:guardian_factors
 read:email_templates
 create:email_templates
 update:email_templates
+read:roles
+create:roles
+delete:roles
+update:roles
 ```
 
 ## Install the Deploy CLI tool
