@@ -21,20 +21,21 @@ Auth0 uses [OpenID Connect](/protocols/oidc) and [OAuth 2.0](/protocols/oauth2) 
 
 We support scenarios for server-side, mobile, desktop, client-side, machine-to-machine, and device applications:
 
-* [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
-  * [Add Login Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow)
-  * [Call API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow)
+* [Authorization Code Flow](/flows/concepts/auth-code)
+  * [Add Login Using the Authorization Code Flow](/flows/guides/auth-code/add-login-auth-code)
+  * [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
   
-* [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow)
-  * [Add Login Using the Native/Mobile Login Flow](/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow)
-  * [Call API Using the Native/Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow)
+* [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce)
+  * [Add Login Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce)
+  * [Call API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce)
   
-* [Single-Page App Login Flow](/flows/concepts/single-page-login-flow)
-  * [Add Login Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow)
-  * [Call API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow)
+* [Single-Page App Login Flow](/flows/concepts/implicit)
+  * [Add Login Using the Implicit Flow](/flows/guides/implicit/add-login-implicit)
+  * [Call API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit)
 
-* [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow)
-  * [Call API Using the Machine-to-Machine (M2M) Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow)
+* [Client Credentials Flow](/flows/concepts/client-credentials)
+  * [Call API Using the Client Credentials Flow](/flows/guides/client-credentials/call-api-client-credentials)
 
 * [Device Authorization Flow](/flows/concepts/device-auth)
   * [Add Authorization Using the Device Authorization Flow](/flows/guides/device-auth/add-auth-device-auth)
+

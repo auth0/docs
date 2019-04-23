@@ -16,7 +16,7 @@ In this tutorial we will see how you can use Lock to ask for consent information
 
 ## Overview
 
-We will configure a simple JavaScript Single Page Application and a database connection (we will use Auth0's infrastructure, instead of setting up our own database).
+We will configure a simple JavaScript Single-Page Application and a database connection (we will use Auth0's infrastructure, instead of setting up our own database).
 
 Instead of building an app from scratch, we will use [Auth0's JavaScript Quickstart sample](/quickstart/spa/vanillajs). We will also use [Auth0's Universal Login Page](/hosted-pages/login) so we can implement a [Universal Login experience](/guides/login/centralized-vs-embedded), instead of embedding the login in our app.
 

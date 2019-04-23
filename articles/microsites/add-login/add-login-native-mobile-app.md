@@ -27,7 +27,7 @@ In a native/mobile application, the default experience will open a SafariViewCon
 3. Your app requests the user's ID Token.
 4. Auth0 responds with the user's ID Token.
 
-For security in native/mobile devices, Auth0 uses the [Mobile Login Flow](/flows/concepts/mobile-login-flow).
+For security in native/mobile devices, Auth0 uses the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce).
 
 <img src="/media/articles/microsites/overview-flow-add-login-native-mobile-app.png" alt="Flow Overview for Native/Mobile Apps" width="100%">
 
@@ -54,7 +54,7 @@ While we strongly recommend that you use our hosted universal login page, if you
 
 ::: guides
   * [Auth0 Mobile/Native App Quickstarts](/quickstart/native)
-  * [Add login using the mobile login flow](/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow)
+  * [Add login using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce)
   * [Customize the hosted login page](/hosted-pages/login#how-to-customize-your-login-page)
 :::
 

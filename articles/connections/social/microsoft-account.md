@@ -44,10 +44,10 @@ To learn how, follow Microsoft's [Quickstart: Configure a client application to 
 
 ## 3. Create and enable a connection in Auth0
 
-[Set up the Microsoft social connection](/connections/guides/set-up-connections-social) in Auth0. Make sure you have the **Application (client) ID** generated in Step 1 and the **Client Secret** generated in Step 2.
+[Set up the Microsoft social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **Application (client) ID** generated in Step 1 and the **Client Secret** generated in Step 2.
 
 ## 4. Test the connection
 
-You're ready to [test your connection](/connections/guides/test-connections-social).
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social).
 
 <%= include('../_quickstart-links.md') %>

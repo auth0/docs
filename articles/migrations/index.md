@@ -47,6 +47,14 @@ Useful Resources:
 - [User Search Best Practices](/best-practices/search-best-practices)
 - [User Search v2 to v3 Migration Guide](/users/search/v3/migrate-search-v2-v3)
 
+### Google Cloud Messaging to Facebook Cloud Messaging Migration
+
+Auth0’s Guardian SDKs for iOS and Android helps you create custom Mobile apps with Guardian functionality, providing secure access to multi-factor authentication with push notifications. 
+
+The Android SDK library was initially built to send Push Notifications using Google Cloud Messaging, which [Google deprecated](https://firebase.googleblog.com/2018/04/time-to-upgrade-from-gcm-to-fcm.html) and replaced with Firebase Cloud Messaging. We updated the SDK to use Firebase Cloud Messaging.
+
+Existing applications will keep working but if you want to migrate, you can find instructions [here](/migrations/guides/google_cloud_messaging).
+
 ### Facebook Login and Graph API
 
 The latest version of Facebook Login and the Facebook Graph API change what permissions and fields can be requested. We've updated Facebook connections to reflect these changes. For for more information, check out [Changes to Facebook Login and Graph API](/migrations/guides/facebook-graph-api-deprecation).

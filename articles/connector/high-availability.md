@@ -52,7 +52,7 @@ Once you've completed the installation process, you verify your installation usi
 
 ## Kerberos or certificate-based authentication considerations
 
-If you enable [Kerberos](/connector/kerberos) or [application certificates](/connector/application-certificates) based authentication in your AD/LDAP connections, users will contact the connector directly instead of going through the Auth0 server.
+If you enable [Kerberos](/connector/kerberos) or [client certificates](/connector/client-certificates) based authentication in your AD/LDAP connections, users will contact the connector directly instead of going through the Auth0 server.
 
 In scenarios where multiple connector instances exist, we recommend fronting them with a network load balancer. The `SERVER_URL` parameter can be used to publish the public location where the connector will be listening to incoming requests. 
 

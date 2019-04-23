@@ -58,7 +58,7 @@ Here is an example call to the `/testall` endpoint:
 
 If all services are up, the endpoint returns the `200` HTTP response code and a simple text message of `OK`. If any service is down, it returns a `5xx` response code.
 
-<%= include('../_includes/_monitor-appliance.md') %>
+<%= include('../_includes/_monitor-private-cloud.md') %>
 
 ## Keep reading
 

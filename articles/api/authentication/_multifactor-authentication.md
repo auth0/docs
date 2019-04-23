@@ -125,7 +125,7 @@ If OTP is supported by the user and you don't want to request a different factor
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
   "client_id": "${account.clientId}",
   "client_secret": "YOUR_CLIENT_SECRET",
@@ -138,7 +138,7 @@ Content-Type: application/json
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
-  --header 'content-type: application/json' \
+  --header 'content-type: application/x-www-form-urlencoded' \
   --data '{"mfa_token":"MFA_TOKEN", "otp":"OTP_CODE", "grant_type": "http://auth0.com/oauth/grant-type/mfa-otp", "client_id": "${account.clientId}", "client_secret": "YOUR_CLIENT_SECRET"}'
 ```
 
@@ -147,7 +147,7 @@ var request = require("request");
 
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
-  headers: { 'content-type': 'application/json' },
+  headers: { 'content-type': 'application/x-www-form-urlencoded' },
   body:
    { mfa_token: 'MFA_TOKEN',
      otp: 'OTP_CODE',
@@ -205,7 +205,7 @@ The response is the same as responses for `password` or `http://auth0.com/oauth/
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
   "client_id": "${account.clientId}",
   "client_secret": "YOUR_CLIENT_SECRET",
@@ -219,7 +219,7 @@ Content-Type: application/json
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
-  --header 'content-type: application/json' \
+  --header 'content-type: application/x-www-form-urlencoded' \
   --data '{"mfa_token":"MFA_TOKEN", "oob_code": "OOB_CODE", "binding_code": "BINDING_CODE", "grant_type": "http://auth0.com/oauth/grant-type/mfa-oob", "client_id": "${account.clientId}", "client_secret": "YOUR_CLIENT_SECRET"}'
 ```
 
@@ -228,7 +228,7 @@ var request = require("request");
 
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
-  headers: { 'content-type': 'application/json' },
+  headers: { 'content-type': 'application/x-www-form-urlencoded' },
   body:
    { mfa_token: 'MFA_TOKEN',
      oob_code: "OOB_CODE",
@@ -313,7 +313,7 @@ When the challenge response includes a `binding_method: prompt`, your app needs 
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
   "client_id": "${account.clientId}",
   "client_secret": "YOUR_CLIENT_SECRET",
@@ -326,7 +326,7 @@ Content-Type: application/json
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
-  --header 'content-type: application/json' \
+  --header 'content-type: application/x-www-form-urlencoded' \
   --data '{"mfa_token":"MFA_TOKEN", "recovery_code":"RECOVERY_CODE", "grant_type": "http://auth0.com/oauth/grant-type/mfa-recovery-code", "client_id": "${account.clientId}", "client_secret": "YOUR_CLIENT_SECRET"}'
 ```
 
@@ -335,7 +335,7 @@ var request = require("request");
 
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
-  headers: { 'content-type': 'application/json' },
+  headers: { 'content-type': 'application/x-www-form-urlencoded' },
   body:
    { mfa_token: 'MFA_TOKEN',
      recovery_code: 'RECOVERY_CODE',

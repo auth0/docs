@@ -13,10 +13,10 @@ useCase: quickstart
 
 This quickstart covers building an API protected by an Auth0-issued access token. This type of API is typically consumed by:
 
-- Mobile, desktop, and other native applications using the [Native login flow](https://auth0.com/docs/flows/concepts/mobile-login-flow)
-- CLIs, daemons, or services running on your back-end using the [M2M flow](https://auth0.com/docs/flows/concepts/m2m-flow)
+- Mobile, desktop, and other native applications using the [Native login flow](https://auth0.com/docs/flows/concepts/auth-code-pkce)
+- CLIs, daemons, or services running on your back-end using the [Client Credentials Flow](https://auth0.com/docs/flows/concepts/client-credentials)
 
-If this API is only consumed by a web application on the same domain (in the case of AJAX actions or lazy loading content for an authenticated user) then the API protection should be handled by the application itself and the [login flow secured by Auth0](https://auth0.com/docs/flows/concepts/regular-web-app-login-flow). 
+If this API is only consumed by a web application on the same domain (in the case of AJAX actions or lazy loading content for an authenticated user) then the API protection should be handled by the application itself and the [login flow secured by Auth0](https://auth0.com/docs/flows/concepts/auth-code). 
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
@@ -165,7 +165,7 @@ Route::middleware(['jwt'])->group(function () {
 
 ```
 
-The `/api/private` route is now only accessible if a valid access token is included in the `Authorization` header of the incoming request. We can test this by manually generating an access token for the API and using a tool like Postman to test the routes.
+The `/api/private` route is now only accessible if a valid Access Token is included in the `Authorization` header of the incoming request. We can test this by manually generating an Access Token for the API and using a tool like Postman to test the routes.
 
 In the Auth0 Dashboard:
 
@@ -199,7 +199,7 @@ Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the token gen
 
 ### Configure the Scopes
 
-The middleware we created above checks for the existence and validity of an access token but does not check the **scope** of the token. In this section, we will modify the middleware created above to check for specific scopes.
+The middleware we created above checks for the existence and validity of an Access Token but does not check the **scope** of the token. In this section, we will modify the middleware created above to check for specific scopes.
 
 Here are the changes to make to the `CheckJWT` middleware created above:
 
@@ -239,7 +239,7 @@ Now, we can create a new middleware group that will check for both a valid token
 // routes/api.php
 // ...
 
-// These endpoints require a valid access token with a "read:messages" scope.
+// These endpoints require a valid Access Token with a "read:messages" scope.
 Route::middleware(['jwt:read:messages'])->group(function () {
     Route::get('/private-scoped', function (Request $request) {
         return response()->json(['message' => 'Hello from a private, scoped endpoint!']);
@@ -247,7 +247,7 @@ Route::middleware(['jwt:read:messages'])->group(function () {
 });
 ```
 
-This route is now only accessible if an access token used in the request has a scope of `read:messages`.
+This route is now only accessible if an Access Token used in the request has a scope of `read:messages`.
 
 To test this route, first send a `GET` request with no token to the private, scoped route  - `http://localhost:3000/api/private-scoped` - and you should get a 401 status and the following message:
 
@@ -277,9 +277,9 @@ Change the `Authorization` header to use the new token and send the `GET` reques
 
 The example above uses manually-generated tokens which are not long-lived. Once your API is live on the web and ready to accept requests, the applications making the requests will need to create their tokens using one of a few ways:
 
-- Mobile, desktop, and other native applications will use a [Mobile/Native Login Flow](https://auth0.com/docs/flows/concepts/mobile-login-flow)
-- CLIs, daemons, or services running on your back-end will use an [Machine-to-Machine Flow](https://auth0.com/docs/flows/concepts/m2m-flow)
-- Web applications can use the [Regular Web App Login Flow](https://auth0.com/docs/flows/concepts/regular-web-app-login-flow)
+- Mobile, desktop, and other native applications will use a [Mobile/Native Login Flow](https://auth0.com/docs/flows/concepts/auth-code-pkce)
+- CLIs, daemons, or services running on your back-end will use an [Machine-to-Machine Flow](https://auth0.com/docs/flows/concepts/client-credentials)
+- Web applications can use the [Authorization Code Flow](https://auth0.com/docs/flows/concepts/auth-code)
 
 Regardless of the type, the application will need to request the audience of this API during the login flow to receive a correctly-formed access token. 
 

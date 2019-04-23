@@ -107,10 +107,10 @@ Here's some things to check if the user logged in to one application, but cannot
 ## Issues with calling the Management API
 
 * Do you have a [Management API Access Token](/api/management/v2/tokens)?
-* Did the access token expire?
-* Did the access token contain the scopes needed for the call you made?
-* If a rule adjusts the scopes in the access token or checks whether specific users are allowed to have the scopes, have you checked the rule to make sure it is executing correctly?  
-* Get the access token from [a HAR file](/troubleshoot/har) and test it in the [Auth0 Management API Explorer](/api/management/v2/) to see if it works there
+* Did the Access Token expire?
+* Did the Access Token contain the scopes needed for the call you made?
+* If a rule adjusts the scopes in the Access Token or checks whether specific users are allowed to have the scopes, have you checked the rule to make sure it is executing correctly?  
+* Get the Access Token from [a HAR file](/troubleshoot/har) and test it in the [Auth0 Management API Explorer](/api/management/v2/) to see if it works there
 * If you are calling the Auth0 Management API from an application that authenticates with Client Credentials flow, note that rules are not executed in this context. The Client Credentials Exchange Hook can be used in this context instead, for functionality similar to a rule.
 
 ## Issues with calling your API

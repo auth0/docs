@@ -32,7 +32,7 @@ useCase:
 
 <%= include('../_includes/_topic-links', { links: [
   'services/pair-programming',
-  'services/private-saas-configuration',
+  'services/private-cloud-configuration',
   'services/code-review'
 ] }) %>
 
@@ -41,5 +41,5 @@ useCase:
 <%= include('../_includes/_topic-links', { links: [
   'services/auth0-introduction',
   'services/auth0-advanced',
-  'services/private-saas-management'
+  'services/private-cloud-management'
 ] }) %>

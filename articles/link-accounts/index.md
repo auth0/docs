@@ -295,7 +295,7 @@ Typically, account linking will be initiated by an authenticated user. Your app 
 
 ![Sample user profile page](/media/articles/link-accounts/spa-user-settings.png)
 
-You can follow the [Account Linking Using Client Side Code](/link-accounts/user-initiated-linking) tutorial or view the [Auth0 jQuery Single Page App Account Linking Sample](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github for implementation details.
+You can follow the [Account Linking Using Client Side Code](/link-accounts/user-initiated-linking) tutorial or view the [Auth0 jQuery Single-Page App Account Linking Sample](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github for implementation details.
 
 ### Suggested account linking
 

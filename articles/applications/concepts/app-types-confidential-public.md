@@ -15,7 +15,7 @@ According to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-2.
 
 When you create an application using the Dashboard, Auth0 will ask you what [Auth0 application type](/applications/concepts/app-types-auth0) you want to assign to the new application and use that information to determine whether the application is confidential or public. 
 
-To check whether your application is confidential or public, see [View Application Type: Confidential or Public](/applications/guides/view-app-type-confidential-public-dashboard).
+To check whether your application is confidential or public, see [View Application Type: Confidential or Public](/dashboard/guides/applications/view-app-type-confidential-public).
 
 ## Confidential applications
 
@@ -27,8 +27,8 @@ Because they use a trusted backend server, confidential applications can use gra
 
 The following are considered to be confidential applications:
 
-* A web application with a secure backend that uses the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), [Password grant](/api-auth/grant/password), or [Password grant with Realm support](/api-auth/tutorials/password-grant#realm-support)
-* A machine-to-machine (M2M) application that uses the [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow)
+* A web application with a secure backend that uses the [Authorization Code Flow](/flows/concepts/auth-code), [Password grant](/api-auth/grant/password), or [Password grant with Realm support](/api-auth/tutorials/password-grant#realm-support)
+* A machine-to-machine (M2M) application that uses the [Client Credentials Flow](/flows/concepts/client-credentials)
 
 ### ID Tokens
 
@@ -47,8 +47,8 @@ Public applications can only use grant types that do not require the use of thei
 
 The following are public applications:
 
-* A native desktop or mobile application that uses the Native/Mobile Login Flow](/flows/concepts/mobile-login-flow)
-* A JavaScript-based client-side web application (such as a single-page app) that uses the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) grant
+* A native desktop or mobile application that uses the Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce)
+* A JavaScript-based client-side web application (such as a single-page app) that uses the [Implicit Flow](/flows/concepts/implicit) grant
 
 ### ID Tokens
 
@@ -58,6 +58,6 @@ Because public applications are unable to hold secrets, [ID Tokens](/tokens/id-t
 * Verified using the public key corresponding to the private key used to sign the token
 
 ## Keep reading
-* To check whether your application is confidential or public, see [View Application Type: Confidential or Public](/applications/guides/view-app-type-confidential-public-dashboard).
+* To check whether your application is confidential or public, see [View Application Type: Confidential or Public](/dashboard/guides/applications/view-app-type-confidential-public).
 * Learn about other application categories, such as [first-party vs. third-party](/applications/concepts/app-types-first-third-party) and [Auth0 application types](/applications/concepts/app-types-auth0).
 * Explore the grant types available for different application types at [Auth0 Grant Types Mapping](/applications/reference/grant-types-auth0-mapping).

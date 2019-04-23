@@ -14,6 +14,9 @@ articles:
       
       - title: The Basics
         url: /getting-started/the-basics
+
+      - title: "Sessions"
+        url: "/sessions"
       
       - title: Dashboard Overview
         url: /getting-started/dashboard-overview
@@ -90,8 +93,38 @@ articles:
 
       - title: Business to Consumer
         url: /architecture-scenarios/b2c
+        children:
+            - title: Architecture
+              url: /architecture-scenarios/implementation/b2c/b2c-architecture
 
-      - title: Business to Enterprise
+            - title: Provisioning
+              url: /architecture-scenarios/implementation/b2c/b2c-provisioning
+
+            - title: Authentication
+              url: /architecture-scenarios/implementation/b2c/b2c-authentication
+
+            - title: Branding
+              url: /architecture-scenarios/implementation/b2c/b2c-branding
+
+            - title: Deployment Automation
+              url: /architecture-scenarios/implementation/b2c/b2c-deployment
+
+            - title: Quality Assurance
+              url: /architecture-scenarios/implementation/b2c/b2c-qa
+
+            - title: Profile Management
+              url: /architecture-scenarios/implementation/b2c/b2c-profile-mgmt
+
+            - title: Authorization
+              url: /architecture-scenarios/implementation/b2c/b2c-authorization
+
+            - title: Logout
+              url: /architecture-scenarios/implementation/b2c/b2c-logout
+
+            - title: Operations
+              url: /architecture-scenarios/implementation/b2c/b2c-operations
+
+      - title: Business to Employees
         url: /architecture-scenarios/b2e
       # - title: SAML for Regular Web Apps
       #   url: /architecture-scenarios/web-saml
@@ -112,24 +145,27 @@ articles:
     url: "/applications"
     children:
 
-      - title: Overview
-        url: /applications
-
       - title: Grant Types
-        url: /applications/concepts/application-grant-types
+        url: "/applications/concepts/application-grant-types"
+
+      - title: "Available Grant Types"
+        url: "/applications/reference/grant-types-available"
+
+      - title: "Multiple Tenants"
+        url: "/applications/concepts/multiple-tenants"
 
   - title: "Authentication"
     url: "/application-auth/current"
     children:
 
       - title: "Native/Mobile Apps"
-        url: "/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow"
+        url: "/flows/guides/auth-code-pkce/add-login-auth-code-pkce"
         
       - title: "Single-Page Apps"
-        url: "/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow"
+        url: "/flows/guides/implicit/add-login-implicit"
         
       - title: "Regular Web Apps"
-        url: "/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow"
+        url: "/flows/guides/auth-code/add-login-auth-code"
 
       - title: "Old-Current"
         url: "/application-auth/current"
@@ -173,9 +209,6 @@ articles:
       - title: "Authorization API Index"
         url: "/api-auth"
 
-      - title: "OIDC Conformant Authentication"
-        url: "/api-auth/intro"
-
       - title: "OIDC Adoption Guide"
         url: "/api-auth/tutorials/adoption"
 
@@ -183,16 +216,16 @@ articles:
         url: "/api-auth/which-oauth-flow-to-use"
         
       - title: "APIs & Mobile Apps"
-        url: "/flows/concepts/mobile-login-flow"
+        url: "/flows/concepts/auth-code-pkce"
         
       - title: "APIs & Single-Page Apps"
-        url: "/flows/concepts/single-page-login-flow"
+        url: "/flows/concepts/implicit"
         
       - title: "APIs & Regular Web Apps"
-        url: "/flows/concepts/regular-web-app-login-flow"
+        url: "/flows/concepts/auth-code"
         
       - title: "APIs & M2M Apps"
-        url: "/flows/concepts/m2m-flow"
+        url: "/flows/concepts/client-credentials"
 
       - title: "APIs & Server-side Apps"
         url: "/api-auth/grant/authorization-code"
@@ -262,7 +295,7 @@ articles:
         url: /onboarding/enterprise-support
         
       - title: Release Notes
-        url: https://auth0.com/changelog/appliance
+        url: https://auth0.com/releases/
         external: true
         forceFullReload: true
 
@@ -312,6 +345,15 @@ articles:
 
       - title: "Password Reset Page"
         url: "/universal-login/password-reset"
+
+      - title: "Advanced Customization"
+        url: "/universal-login/advanced-customization"
+
+      - title: "Classic Experience"
+        url: "/universal-login/classic"
+
+      - title: "New Experience"
+        url: "/universal-login/new"
       
       - title: "Guardian MFA"
         url: "/universal-login/guardian"
@@ -1167,8 +1209,8 @@ articles:
       - title: "Pair Programming"
         url: "/services/pair-programming"
       
-      - title: "Private SaaS reconfiguration"
-        url: "/services/private-saas-configuration"
+      - title: "Private Cloud reconfiguration"
+        url: "/services/private-cloud-configuration"
 
       - title: "Auth0 Introduction"
         url: "/services/auth0-introduction"
@@ -1176,8 +1218,8 @@ articles:
       - title: "Auth0 Advanced Topics"
         url: "/services/auth0-advanced"
 
-      - title: "Private SaaS Management Workshop"
-        url: "/services/private-saas-management"
+      - title: "Private Cloud Management Workshop"
+        url: "/services/private-cloud-management"
 
 apis:
 

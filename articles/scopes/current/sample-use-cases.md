@@ -13,7 +13,7 @@ useCase:
 ---
 # Sample Use Cases: Scopes and Claims
 
-In these examples, we use the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow) to authenticate a user and request the necessary permissions and tokens. For details on the request parameters or to learn how to fully implement this flow, refer to our tutorial: [Add Login to Regular Web Applications](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow).
+In these examples, we use the [Authorization Code Flow](/flows/concepts/auth-code) to authenticate a user and request the necessary permissions and tokens. For details on the request parameters or to learn how to fully implement this flow, refer to our tutorial: [Add Login to Regular Web Applications](/flows/guides/auth-code/add-login-auth-code).
 
 ## Authenticate a user and request standard claims
 
@@ -39,7 +39,7 @@ Notice that in this example:
   * `profile` (to get `name`, `nickname`, and `picture`)
   * `email` (to get `email` and `email_verified`)
 
-2. After the user consents (if necessary) and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow#request-tokens).)
+2. After the user consents (if necessary) and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens).)
 
 3. Extract the ID Token from the response and [decode it](/tokens/id-token#id-token-payload).
 
@@ -95,7 +95,7 @@ Notice that in this example:
 * the `audience` parameter is new and includes one value:
   * the unique identifier of the API from which we want to read the user's appointments
 
-2. As in the previous example, after the user consents (if necessary) and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow#request-tokens).)
+2. As in the previous example, after the user consents (if necessary) and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens).)
 
 3. Extract the Access Token from the response, and call the API using the Access Token as credentials.
 
@@ -132,7 +132,7 @@ Notice that in this example:
 * the `audience` parameter includes one value:
   * the unique identifier of the API from which we want to read the user's appointments
 
-2. As in the previous examples, after the user consents (if necessary) and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow#request-tokens).)
+2. As in the previous examples, after the user consents (if necessary) and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens).)
 
 3. Extract the ID Token from the response, [decode it](/tokens/id-token#id-token-payload), and retrieve the user attributes and use them to personalize your UI.
 
@@ -188,8 +188,8 @@ When creating your rule, make sure to set some logic that determines when to inc
 - [OpenID Connect Scopes](/scopes/current/oidc-scopes)
 - [Custom Claims](/scopes/current/custom-claims)
 - [API Scopes](/scopes/current/api-scopes)
-- [How to Define API Scopes Using the Auth0 Dashboard](/scopes/current/guides/define-api-scopes-dashboard)
-- [How to Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)
+- [Add API Permissions (Scopes)](/dashboard/guides/apis/add-permissions-apis)
+- [Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)
 - [Represent Multiple APIs Using a Single Logical API in Auth0](/api-auth/tutorials/represent-multiple-apis)
 - [Restrict Access to APIs](/api-auth/restrict-access-api)
 - [SPA + API Architecture Scenario: Restrict API Scopes Based on Authorization Extension Groups](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension)

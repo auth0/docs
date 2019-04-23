@@ -107,13 +107,15 @@ function login(email, password, callback) {
         callback(new WrongUsernameOrPasswordError(email));
       } else {
         callback(null, {
-          id: user.id.toString(),
+          // This prefix (replace with your own custom DB name)
+          // ensure uniqueness across different custom DBs if there's the
+          // possibility of collisions (e.g. if the user ID is an email address or an integer)
+          id: 'MyConnection1|' + user.id.toString(),
           nickname: user.nickname,
           email: user.email
         });
       }
     });
-
   });
 }
 ```
@@ -122,9 +124,19 @@ The above script connects to a MySQL database and executes a query to retrieve t
 
 With the **bcrypt.compareSync** method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including **id**, **nickname**, and **email**.
 
-This script assumes that you have a **users** table containing these columns. The **id** returned by Login script is used to construct the **user ID** attribute of the user profile. If you are using multiple custom database connections, then **id** value must be unique across all the custom database connections to avoid **user ID** collisions. Our recommendation is to prefix the value of **id** with the connection name (omitting any whitespace).
+This script assumes that you have a **users** table containing these columns. The **id** returned by Login script is used to construct the **user ID** attribute of the user profile. 
+
+::: warning
+Ensure that the returned user ID is unique across custom databases. See [User IDs](#user-ids) below.
+:::
 
 Be sure to **Save** your changes. Note that clicking **Try** to test your script will also save your script.
+
+### User IDs
+
+**Heads up** The `id` (or alternatively `user_id`) property in the returned user profile will be used by Auth0 to identify the user. 
+
+If you are using multiple custom database connections, then **id** value **must be unique across all the custom database connections** to avoid **user ID** collisions. Our recommendation is to prefix the value of **id** with the connection name (omitting any whitespace). See [Identify Users](/users/normalized/auth0/identify-users) for more information on user IDs.
 
 ### User Metadata and Custom Databases
 

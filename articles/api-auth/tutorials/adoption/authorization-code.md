@@ -14,7 +14,7 @@ useCase:
 
 <%= include('./_about.md') %>
 
-The [Authorization Code Grant](/flows/concepts/regular-web-app-login-flow) is used by server-side applications that are capable of securely storing secrets, or by [native applications through PKCE](/flows/concepts/mobile-login-flow).
+The [Authorization Code Grant](/flows/concepts/auth-code) is used by server-side applications that are capable of securely storing secrets, or by [native applications through PKCE](/flows/concepts/auth-code-pkce).
 This document describes the differences of this flow between the legacy and OIDC-conformant authentication pipelines.
 
 ## Authentication request
@@ -74,7 +74,7 @@ An authorization code can be exchanged in the same way in both pipelines:
 
 ```text
 POST /oauth/token HTTP/1.1
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
     "grant_type": "authorization_code",
     "client_id": "123",

@@ -51,7 +51,7 @@ The first thing you need to do is to create a new application in Auth0. An Auth0
 
 Navigate to the [Auth0 Dashboard](${manage_url}) and click on the [Applications](${manage_url}/#/applications) menu option on the left. Create a new Application by clicking on the **Create Applications** button.
 
-The **Create Applications** window will open, allowing you to enter the name of your new application. Choose **Single Page Web Applications** as the **Applications Type** and click on the **Create** button to create the new applications.
+The **Create Applications** window will open, allowing you to enter the name of your new application. Choose **Single-Page Web Applications** as the **Applications Type** and click on the **Create** button to create the new applications.
 
 ![](/media/articles/client-auth/client-side-web/create-client.png)
 

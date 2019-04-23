@@ -373,7 +373,7 @@ if (User.Identity.IsAuthenticated)
 {
     string accessToken = await HttpContext.GetTokenAsync("access_token");
     
-    // if you need to check the access token expiration time, use this value
+    // if you need to check the Access Token expiration time, use this value
     // provided on the authorization response and stored.
     // do not attempt to inspect/decode the access token
     DateTime accessTokenExpiresAt = DateTime.Parse(
@@ -388,4 +388,4 @@ if (User.Identity.IsAuthenticated)
 }
 ```
 
-For general information on using APIs with web applications, see the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow) article.
+For general information on using APIs with web applications, see the [Authorization Code Flow](/flows/concepts/auth-code) article.

@@ -13,7 +13,7 @@ useCase: add-login
 ---
 # Auth0.js v9 Reference
 
-Auth0.js is a client-side library for Auth0. It is recommended for use in single page apps, and auth0.js in your SPA makes it easier to do authentication and authorization with Auth0.
+Auth0.js is a client-side library for Auth0. It is recommended for use in single-page apps, and auth0.js in your SPA makes it easier to do authentication and authorization with Auth0.
 
 The full API documentation for the library is [here](https://auth0.github.io/auth0.js/index.html).
 

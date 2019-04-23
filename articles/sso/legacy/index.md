@@ -76,11 +76,11 @@ The result of this function will indicate whether an SSO cookie is present, and 
 
 For more detailed information on how to implement this, please refer to the following documents:
 
-* [Client-Side SSO (Single Page Apps)](/sso/legacy/single-page-apps-sso)
+* [Client-Side SSO (Single-Page Apps)](/sso/legacy/single-page-apps-sso)
 * [Server-Side SSO (Regular Web Apps)](/sso/legacy/regular-web-apps-sso)
 
 ::: note
-Please see the [Auth0 SSO Sample](https://github.com/auth0/auth0-sso-sample) repo for an example of SSO with both Single Page Apps and Regular Web Apps.
+Please see the [Auth0 SSO Sample](https://github.com/auth0/auth0-sso-sample) repo for an example of SSO with both Single-Page Apps and Regular Web Apps.
 :::
 
 ### Length of SSO Sessions

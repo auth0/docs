@@ -22,7 +22,7 @@ The SSO dashboard supports two types of users:
 
 ## Create an application
 
-Let's start with creating a new application. Navigate to [Applications](${manage_url}/#/applications) and click on the **+Create Application** button. Set a name and choose **Single Page Web Applications** application type. Click on **Create**.
+Let's start with creating a new application. Navigate to [Applications](${manage_url}/#/applications) and click on the **+Create Application** button. Set a name and choose **Single-Page Web Applications** application type. Click on **Create**.
 
 ![](/media/articles/extensions/sso-dashboard/create-client.png)
 
@@ -71,6 +71,7 @@ Set the following configuration variables:
 - **EXTENSION_CLIENT_ID**: This is the **Client ID** of the application you have created in the [Applications](${manage_url}/#/applications) that you wish to use this extension with.
 - **TITLE**: This the custom title that will appear at the top of the SSO Dashboard page.
 - **CUSTOM_CSS** *Optional*: This field that can contain a link to custom CSS you can use to style the look of your SSO Dashboard page.
+- **AUTH0_CUSTOM_DOMAIN** *Optional*: If you have a custom domain name configured, enter it here. For example: login.example.com
 
 Once you have provided this information, click **INSTALL**.
 

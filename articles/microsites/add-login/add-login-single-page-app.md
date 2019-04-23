@@ -25,7 +25,7 @@ In a single-page application (SPA): 
 2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML).
 3. Auth0 responds with the user's ID Token.
 
-For security in SPAs, Auth0 uses the [Single-Page Login Flow](/flows/concepts/single-page-login-flow).
+For security in SPAs, Auth0 uses the [Implicit Flow](/flows/concepts/implicit).
 
 <img src="/media/articles/microsites/overview-flow-add-login-single-page-app.png" alt="Flow Overview for Single-Page Apps" width="100%">
 
@@ -43,7 +43,7 @@ For security in SPAs, Auth0 uses the [Single-Page Login Flow](/flows/concepts/si
 
 ::: guides
   * [Auth0 Single-Page App Quickstarts](/quickstart/spa)
-  * [Add login using the single-page login flow](/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow)
+  * [Add login using the Implicit Flow](/flows/guides/implicit/add-login-implicit)
   * [Customize the hosted login page](/hosted-pages/login#how-to-customize-your-login-page)
 :::
 

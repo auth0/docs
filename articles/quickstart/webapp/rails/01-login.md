@@ -15,7 +15,9 @@ github:
 
 <%= include('../_includes/_getting_started', { library: 'Rails', callback: 'http://localhost:3000/auth/oauth2/callback' }) %>
 
-## Configure Rails to Use Auth0 
+<%= include('../../../_includes/_logout_url') %>
+
+## Configure Rails to Use Auth0
 
 ### Install the Dependencies
 
@@ -80,7 +82,7 @@ end
 
 ## Trigger Authentication
 
-We need a way for users to trigger authentication. Add a link to `/auth/auth0` anywhere in an existing template or use the steps below to generate a homepage in a new app. 
+We need a way for users to trigger authentication. Add a link to `/auth/auth0` anywhere in an existing template or use the steps below to generate a homepage in a new app.
 
 Run the following command to generate the homepage controller and views:
 
@@ -172,9 +174,9 @@ Rails.application.routes.draw do
 end
 ```
 
-With the Rails server still running, go to [localhost:3000/dashboard](http://localhost:3000/dashboard) in your browser and you should be redirected to the homepage. 
+With the Rails server still running, go to [localhost:3000/dashboard](http://localhost:3000/dashboard) in your browser and you should be redirected to the homepage.
 
-Click the **Login** link and log in or sign up. Accept the consent modal that appears (for `localhost` only) and you should end up on at `/dashboard` with your user info showing. 
+Click the **Login** link and log in or sign up. Accept the consent modal that appears (for `localhost` only) and you should end up on at `/dashboard` with your user info showing.
 
 ### Display Error Descriptions
 

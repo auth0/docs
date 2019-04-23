@@ -61,7 +61,7 @@ When using **IdP-Initiated SSO**, please make sure to include the `connection` p
 
 ## Lock/Auth0.js
 
-If your application is a Single Page Application that uses Lock or Auth0.js to process the authentication results, you will have to explicitly indicate that you want to allow IdP-Initiated flows (and thus [open the application to possible Login CSRF attacks](#risks-of-using-an-idp-Initiated-SSO-flow)).
+If your application is a Single-Page Application that uses Lock or Auth0.js to process the authentication results, you will have to explicitly indicate that you want to allow IdP-Initiated flows (and thus [open the application to possible Login CSRF attacks](#risks-of-using-an-idp-Initiated-SSO-flow)).
 
 If you are using [Auth0.js](/libraries/auth0js), you have to update the **webAuth.parseHash** of the [library](/libraries/auth0js/v9#extract-the-authresult-and-get-user-info) and set the flag **__enableIdPInitiatedLogin** to `true`.
 

@@ -29,6 +29,21 @@ When enabling Duo in the Dashboard, you will need to click on the Duo factor and
 If other factors are enabled alongside Duo, Duo will be unavailable. Duo is only available to end users when it is the **sole** factor enabled.
 :::
 
+### MFA Sessions
+
+Duo does not provide an option for "Remember Me" behavior, so a 30-day MFA session is hard-coded to remember a logged-in user and not prompt them every time they log in. If you wish to force end-users to log in with Duo every time, you may implement this functionality by creating a rule with `allowRememberBrowser: false` instead.
+
+```js
+function (user, context, callback) {
+  context.multifactor = {
+    provider: 'any',
+    allowRememberBrowser: false
+  };
+
+  callback(null, user, context);
+}
+```
+
 ## End user experience
 
 The user will see a prompt for the second factor with Duo, listing the options you have enabled in your Duo account.

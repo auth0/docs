@@ -40,7 +40,7 @@ The goal of these scenarios is to walk you through the implementation process fr
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/spa-api">SPA + API</a>
-    <p>Single Page Web Application which talks to an API. The application will use OpenID Connect with the Implicit Grant Flow to authenticate users with Auth0.</p>
+    <p>Single-Page Web Application which talks to an API. The application will use OpenID Connect with the Implicit Grant Flow to authenticate users with Auth0.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/mobile-api">Mobile + API</a>
@@ -55,7 +55,7 @@ The goal of these scenarios is to walk you through the implementation process fr
     <p>SaaS/eCommerce apps with customers as end users using the OpenID Connect protocol.</p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2e">Business to Enterprise Identity Scenarios</a>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2e">Business to Employees Identity Scenarios</a>
     <p>Enterprise directory services using federation to allow employees to log in to applications using their existing enterprise credentials.</p>
   </li>
 </ul>

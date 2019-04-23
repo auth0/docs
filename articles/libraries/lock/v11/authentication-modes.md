@@ -45,7 +45,7 @@ Multi-factor authentication (MFA) is not supported when Lock is in popup mode an
 Popup mode does not work with [Universal Login](/hosted-pages/login).
 :::
 
-Some Auth0 features such as [SSO](/sso/single-sign-on) between multiple applications depend on users being redirected to Auth0 to set a cookie on `'${account.namespace}'`.
+Some Auth0 features such as [SSO](/sso/current/sso-auth0) between multiple applications depend on users being redirected to Auth0 to set a cookie on `'${account.namespace}'`.
 
 When using popup mode, a popup window will be displayed in order to set this cookie. If prompts are unnecessary, this popup window will be blank and be in a hidden iframe to minimize disruption. The reason for this is that cross-origin requests sent from your application to Auth0 are not be able to set cookies.
 

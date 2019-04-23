@@ -52,11 +52,11 @@ To learn how, follow Google's [Enable and disable APIs](https://support.google.c
 
 ## 3. Create and enable a connection in Auth0
 
-[Set up the Google social connection](/connections/guides/set-up-connections-social) in Auth0. Make sure you have the **Client ID** and **Client Secret** generated in Step 1.
+[Set up the Google social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **Client ID** and **Client Secret** generated in Step 1.
 
 ## 4. Test the connection
 
-You're ready to [test your connection](/connections/guides/test-connections-social).
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social).
 
 ## Access Google's API.
 

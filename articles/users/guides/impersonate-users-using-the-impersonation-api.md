@@ -122,8 +122,8 @@ The following steps assume that you have two apps, `app1` and `app2`, and you wa
    - `state` should match the `state` value you sent with your request
    - `code` is the authorization code you need
 
-   ::: panel Single Page Apps
-   The process described applies to regular web apps. In case yours is a single page app (SPA) you should use `"response_type":"token"` when invoking the [Impersonation API](/api/authentication/reference#impersonation). Auth0 will redirect to your SPA _Callback URL_ with Access Token and ID Token in the `#` params. You can read more on the OAuth 2.0 Implicit flow [here](/protocols/oauth2/oauth-implicit-protocol).
+   ::: panel Single-Page Apps
+   The process described applies to regular web apps. In case yours is a single-page app (SPA) you should use `"response_type":"token"` when invoking the [Impersonation API](/api/authentication/reference#impersonation). Auth0 will redirect to your SPA _Callback URL_ with Access Token and ID Token in the `#` params. You can read more on the OAuth 2.0 Implicit flow [here](/protocols/oauth2/oauth-implicit-protocol).
    :::
 
 6. Exchange the authorization code you received for a token. 
@@ -137,10 +137,10 @@ The following steps assume that you have two apps, `app1` and `app2`, and you wa
      "method": "POST",
      "url": "https://${account.namespace}/oauth/token",
      "headers": [
-       { "name": "Content-Type", "value": "application/json" }
+       { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
      ],
      "postData": {
-       "mimeType": "application/json",
+       "mimeType": "application/x-www-form-urlencoded",
        "text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"AUTHORIZATION_CODE\",\"grant_type\": \"authorization_code\",\"redirect_uri\": \"${account.callback}\"}"
      }
    }

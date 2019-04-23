@@ -55,7 +55,7 @@ If you make any changes to the scopes, click **Update** to save.
 
 ### Get the Access Token
 
-To access the API, you'll need to [ask for and obtain the appropriate token](/flows/guides/m2m-flow/call-api-using-m2m-flow#request-token).
+To access the API, you'll need to [ask for and obtain the appropriate token](/flows/guides/client-credentials/call-api-client-credentials#request-token).
 
 ### Call the API
 

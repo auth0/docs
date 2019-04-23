@@ -22,7 +22,7 @@ Alternatively, you might see this if you click the **Try** button in the Auth0 D
 
 ## My application is not shown in the drop-down menu when setting up the extension.
 
-The supported application types for the Authorization extension are: **Native**, **Single Page Web Applications** and **Regular Web Applications**. Applications with no type assigned and **Machine to Machine Applications** are not supported.
+The supported application types for the Authorization extension are: **Native**, **Single-Page Web Applications** and **Regular Web Applications**. Applications with no type assigned and **Machine to Machine Applications** are not supported.
 
 ## I upgraded to v2 and my users get an error upon login
 
