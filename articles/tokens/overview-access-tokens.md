@@ -22,4 +22,4 @@ Depending on how your application needs to use the Access Token, you can:
 * [Add Custom Claims](/tokens/add-custom-claims) using [Rules](/rules).
 * [Set Access Token lifetime](/tokens/guides/access-token/set-access-token-lifetime).
 
-Access Tokens come in [two formats](/tokens/access-token-formats): opaque strings and JSON Web Tokens (JWTs).
+Access Tokens come in [two formats](/tokens/reference/access-token/access-token-formats): opaque strings and JSON Web Tokens (JWTs).

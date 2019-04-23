@@ -2083,8 +2083,8 @@ module.exports = [
      to: '/rules/guides/redirect'
     },
     {
-     from: '/tokens/set-access-token-format',
-     to: '/tokens/access-token-formats'
+     from: ['/tokens/set-access-token-format','/tokens/access-token-formats'],
+     to: '/tokens/reference/access-token/access-token-formats'
     },
     {
       from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',

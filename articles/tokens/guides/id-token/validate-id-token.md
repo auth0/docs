@@ -54,6 +54,6 @@ Since the ID Token is always a JWT, the signature is created using its header an
 
 Check the standard claims contained in the decoded token's payload:
 
-- **Token expiration** (`exp`, Unix timestamp): The expiration date/time must be after the current date/time.
-- **Token issuer** (`iss`): The issuing authority inside the token must match the issuing authority identified in your Auth0 tenant's discovery document, which exists at `https://${account.namespace}/.well-known/openid-configuration`.
-- **Token audience** (`aud`): The token audience identifies the recipient for which the token is intended. The value must match the Client ID of your Auth0 Application.
+* **Token expiration** (`exp`, Unix timestamp): The expiration date/time must be after the current date/time.
+* **Token issuer** (`iss`): The issuing authority inside the token must match the issuing authority identified in your Auth0 tenant's discovery document, which exists at `https://${account.namespace}/.well-known/openid-configuration`.
+* **Token audience** (`aud`): The token audience identifies the recipient for which the token is intended. The value must match the Client ID of your Auth0 Application.

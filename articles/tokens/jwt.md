@@ -35,11 +35,11 @@ For additional information about why to use JWT over other token formats, includ
 
 ## Use of JWTs
 
-Remember that JWT is a standard, which means that all JWTs are tokens, but not all tokens are JWTs. Keeping that in mind, JWTs can be used in varying ways:
+JWT is a standard, which means that all JWTs are tokens, but not all tokens are JWTs. JWTs can be used in varying ways:
 
 - **Authentication**: When a user successfully logs in using their credentials, an [ID Token](/tokens/id-token) is returned. According to the [OpenID specs](https://openid.net/specs/openid-connect-core-1_0.html#IDToken), an ID Token is always a JWT.
 
-- **Authorization**: Once a user is successfully logged in, an application may request to access routes, services, or resources on behalf of that user. To do so, it uses an [Access Token](/tokens/overview-access-tokens), which may be in the form of a JWT. Each subsequent request includes the JWT. Single Sign On widely uses JWT nowadays because of JWT's small overhead and its ability to easily be used across different domains.
+- **Authorization**: Once a user is successfully logged in, an application may request to access routes, services, or resources on behalf of that user. To do so, it uses an [Access Token](/tokens/overview-access-tokens), which *may* be in the form of a JWT. Each subsequent request includes the access token. Single Sign On widely uses JWT because of the small overhead of the format, and its ability to easily be used across different domains.
 
 - **Information Exchange**: JWTs are a good way of securely transmitting information between parties because they can be signed, which means you can be sure that the senders are who they say they are. Additionally, the structure of a JWT allows you to verify that the content hasn't been tampered with.
 
