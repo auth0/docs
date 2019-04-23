@@ -28,9 +28,12 @@ The PKCE-enhanced Authorization Code Flow introduces a secret created by the c
 
 ## How it works
 
-Because the PKCE-enhanced Authorization Code Flow builds upon the [standard Authorization Code Flow](), the steps are very similar.
+Because the PKCE-enhanced Authorization Code Flow builds upon the [standard Authorization Code Flow](/flows/concepts/auth-code), the steps are very similar.
 
 ![Authorization Code Flow with PKCE Authentication Sequence](/media/articles/flows/concepts/auth-sequence-auth-code-pkce.png)
+
+![Authorization Code Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-auth-code.png)
+
 
 
 1. The user clicks **Login** within the native/mobile application.
