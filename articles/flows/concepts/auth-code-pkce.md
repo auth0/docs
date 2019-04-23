@@ -32,10 +32,6 @@ Because the PKCE-enhanced Authorization Code Flow builds upon the [standard Aut
 
 ![Authorization Code Flow with PKCE Authentication Sequence](/media/articles/flows/concepts/auth-sequence-auth-code-pkce.png)
 
-![Authorization Code Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-auth-code.png)
-
-
-
 1. The user clicks **Login** within the native/mobile application.
 2. Auth0's SDK creates a cryptographically-random `code_verifier` and from this generates a `code_challenge`.
 3. Auth0's SDK redirects the user to the Auth0 Authorization Server ([**/authorize** endpoint](/api/authentication#authorization-code-grant-pkce-)) along with the `code_challenge`.
