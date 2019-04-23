@@ -36,5 +36,5 @@ We support scenarios for server-side, mobile, desktop, client-side, machine-to-m
 * [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow)
   * [Call API Using the Machine-to-Machine (M2M) Flow](/flows/guides/m2m-flow/call-api-using-m2m-flow)
 
-* [Device Application Authorization Flow](/flows/concepts/device-app-auth-flow)
-  * [Add Authorization Using OAuth2 Device Application Grant Flow](/flows/guides/device-flow/add-auth-using-device-app-grant-flow)
+* [Device Authorization Flow](/flows/concepts/device-auth)
+  * [Add Authorization Using the Device Authorization Flow](/flows/guides/device-auth/add-auth-device-auth)
