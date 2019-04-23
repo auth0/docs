@@ -25,7 +25,7 @@ The examples below assume you completed the [Installation and Getting Started se
 
 An [Authorization Code grant](/api-auth/tutorials/authorization-code-grant) is the basic way to grant users access to your application. This flow is the same one used on the [Basic Use page](/libraries/auth0-php/basic-use#login). If you need more granular control over the login or callback process, this section walks through how to use the Authentication API directly.
 
-In the example below, we're going to receive the access token in the POST body instead of a URL parameter. First, the user must authenticate with Auth0 to generate the authorization code. This is done by redirecting to the `/authorize` endpoint for your tenant domain. The following code would appear on a page that requires authentication:
+In the example below, we're going to receive the Access Token in the POST body instead of a URL parameter. First, the user must authenticate with Auth0 to generate the authorization code. This is done by redirecting to the `/authorize` endpoint for your tenant domain. The following code would appear on a page that requires authentication:
 
 ```php
 // auth-required.php
@@ -154,13 +154,13 @@ Walking through the process in detail:
 
 ## Client Credentials Flow
 
-A [Client Credentials grant](/api-auth/tutorials/client-credentials) gives an application access to a specific API based on the scopes set in the dashboard. This is how applications can, for example, make calls to the Management API. Successful authentication will result in an access token being issued for the API requested.
+A [Client Credentials grant](/api-auth/tutorials/client-credentials) gives an application access to a specific API based on the scopes set in the dashboard. This is how applications can, for example, make calls to the Management API. Successful authentication will result in an Access Token being issued for the API requested.
 
 First, turn on the **Client Credentials** grant on then **Advanced settings > Grant Types** tab on the Application settings page.
 
 Next, authorize the Application for the API being used on the **Machine to Machine Applications** tab on the API's **Settings** page. Make sure all necessary scopes are selected (but no more) and **Update**. Switch back to the **Settings** tab and copy the **Identifier** value. This needs to be added to a `AUTH0_MANAGEMENT_AUDIENCE` key in your `.env` file.
 
-Request an access token for the API using the example below:
+Request an Access Token for the API using the example below:
 
 ```php
 // Example #5

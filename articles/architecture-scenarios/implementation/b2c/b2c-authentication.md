@@ -29,7 +29,7 @@ It’s important to consider both security and user experience when designing ho
 * How you want to implement authentication in different kinds of applications using Auth0
 * What to do if you want to make login easy for your users when they come from different language backgrounds
 * How you will provide a good user experience as you migrate away from any legacy authentication system
-* What do I you need to consider when integrating your applications with Auth0?
+* What do you need to consider when integrating your applications with Auth0?
 
 Auth0 [Universal Login](#universal-login) provides users with a safe and secure experience - no matter whether you choose to provide for user ID/password credentials sign in, or allow the so-called Bring Your Own Identity scenarios provided via [Social Login](https://auth0.com/learn/social-login/). There are also brand recognition benefits to centralizing the login experience with Universal Login, even if you feel you will also have product-specific [branding](/architecture-scenarios/implementation/b2c/b2c-branding) requirements. The Auth0 UI widgets typically used with Universal Login also provide out-of-the-box support with regards to [internationalization](/libraries/lock/v11/i18n) for users with different language requirements, and out-of-the-box support for Auth0 features such as [MFA](/multifactor-authentication) and [anomaly detection](#anomaly-detection) allow you to put barriers in place in order to prevent hackers attempting to access users' accounts. 
 
@@ -85,7 +85,7 @@ If you want to allow anonymous users access to any part of our application then 
 
 ### Anonymous access
 
-It is important to consider the user experience when someone first comes to yourapplication. If your application supports anonymous user access (quite common for eCommerce applications) there are different scenarios to consider:
+It is important to consider the user experience when someone first comes to your application. If your application supports anonymous user access (quite common for eCommerce applications) there are different scenarios to consider:
 
 * Are they returning to the application after having already logged in, or
 * If this is the first time they are accessing the application:
@@ -103,7 +103,7 @@ Checking for a login session by redirecting to Auth0 can be really helpful for y
 There are a variety of reasons why someone might link directly to a particular page within your application that is only accessible by authenticated users. If this is possible for your application you should automatically redirect your user to Auth0 if they are not authenticated. Once they authenticate and the authorization server returns them to your application, you can [redirect them](/users/guides/redirect-users-after-login) to where they intended to go in the first place.
 
 ::: panel Best Practice
-Most modern authentication frameworks support execution of middleware for redirecting to an authorization server such as Auth0. Ensure yours:
+Most modern authentication frameworks support middleware for redirecting to an authorization server such as Auth0. Ensure yours:
 
 * Is configurable
 * Can check expirations

@@ -8,10 +8,10 @@ contentType:
 useCase:
   - invoke-api
 ---
-
 # Get Access Tokens
 
-Access Tokens are issued through Auth0's OAuth 2.0 endpoints: 
+Access Tokens are issued through Auth0's OAuth 2.0 endpoints:
+
 * [/authorize](/api/authentication#authorize-application)
 * [/oauth/token](/api/authentication#get-token)
 

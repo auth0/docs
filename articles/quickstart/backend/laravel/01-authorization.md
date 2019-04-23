@@ -165,7 +165,7 @@ Route::middleware(['jwt'])->group(function () {
 
 ```
 
-The `/api/private` route is now only accessible if a valid access token is included in the `Authorization` header of the incoming request. We can test this by manually generating an access token for the API and using a tool like Postman to test the routes.
+The `/api/private` route is now only accessible if a valid Access Token is included in the `Authorization` header of the incoming request. We can test this by manually generating an Access Token for the API and using a tool like Postman to test the routes.
 
 In the Auth0 Dashboard:
 
@@ -199,7 +199,7 @@ Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the token gen
 
 ### Configure the Scopes
 
-The middleware we created above checks for the existence and validity of an access token but does not check the **scope** of the token. In this section, we will modify the middleware created above to check for specific scopes.
+The middleware we created above checks for the existence and validity of an Access Token but does not check the **scope** of the token. In this section, we will modify the middleware created above to check for specific scopes.
 
 Here are the changes to make to the `CheckJWT` middleware created above:
 
@@ -239,7 +239,7 @@ Now, we can create a new middleware group that will check for both a valid token
 // routes/api.php
 // ...
 
-// These endpoints require a valid access token with a "read:messages" scope.
+// These endpoints require a valid Access Token with a "read:messages" scope.
 Route::middleware(['jwt:read:messages'])->group(function () {
     Route::get('/private-scoped', function (Request $request) {
         return response()->json(['message' => 'Hello from a private, scoped endpoint!']);
@@ -247,7 +247,7 @@ Route::middleware(['jwt:read:messages'])->group(function () {
 });
 ```
 
-This route is now only accessible if an access token used in the request has a scope of `read:messages`.
+This route is now only accessible if an Access Token used in the request has a scope of `read:messages`.
 
 To test this route, first send a `GET` request with no token to the private, scoped route  - `http://localhost:3000/api/private-scoped` - and you should get a 401 status and the following message:
 
