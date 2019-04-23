@@ -19,7 +19,7 @@ With machine-to-machine (M2M) applications, such as CLIs, daemons, or services r
 
 ## How it works
 
-![Client Credentials Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-m2m-flow.png)
+![Client Credentials Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-client-credentials.png)
 
 
 1. Your app authenticates with the Auth0 Authorization Server using its Client ID and Client Secret (**/token** endpoint).

@@ -19,7 +19,7 @@ Because regular web apps are server-side apps where the source code is not publi
 
 ## How it works
 
-![Authorization Code Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-regular-web-app-login-flow.png)
+![Authorization Code Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-auth-code.png)
 
 
 1. The user clicks **Login** within the regular web application.

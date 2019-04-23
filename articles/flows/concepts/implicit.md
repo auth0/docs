@@ -24,7 +24,7 @@ During authentication, single-page applications (SPAs) have some special require
 
 For SPAs, you should use the Implicit Flow in which issued tokens are short-lived. Refresh Tokens are not available in this flow.
 
-![Implicit Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-single-page-login-flow-without-backend.png)
+![Implicit Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-implicit.png)
 
 1. The user clicks **Login** within the SPA.
 2. Auth0's SDK redirects the user to the Auth0 Authorization Server (**/authorize** endpoint) passing along a `response_type` parameter that indicates the type of requested credential.
