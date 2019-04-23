@@ -201,7 +201,7 @@ The example below shows the following methods:
       expiresAt = 0;
 
       angularAuth0.logout({
-        return_to: window.location.origin
+        returnTo: window.location.origin
       });
 
       $state.go('home');
