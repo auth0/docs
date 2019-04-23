@@ -145,11 +145,14 @@ articles:
     url: "/applications"
     children:
 
-      - title: Overview
-        url: /applications
-
       - title: Grant Types
-        url: /applications/concepts/application-grant-types
+        url: "/applications/concepts/application-grant-types"
+
+      - title: "Available Grant Types"
+        url: "/applications/reference/grant-types-available"
+
+      - title: "Multiple Tenants"
+        url: "/applications/concepts/multiple-tenants"
 
   - title: "Authentication"
     url: "/application-auth/current"

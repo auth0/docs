@@ -74,7 +74,7 @@ An authorization code can be exchanged in the same way in both pipelines:
 
 ```text
 POST /oauth/token HTTP/1.1
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
     "grant_type": "authorization_code",
     "client_id": "123",

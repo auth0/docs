@@ -37,7 +37,7 @@ When the user logs out from one Google product, they are automatially also logge
 ## Keep reading
 
 - [Understand how Single Sign-On works with Auth0](/sso/current/sso-auth0)
-- Learn how to [enable SSO in Auth0](/sso/current/guides/enable-sso-tenant)
+- Learn how to [enable SSO in Auth0](/dashboard/guides/tenants/enable-sso-tenant)
 - [Understand session lifetime](/sessions/concepts/session-lifetime)
-- Learn how to [configure session lifetime settings](/sessions/guides/dashboard/tenant/configure-session-lifetime-settings)
+- Learn how to [configure session lifetime settings](/dashboard/guides/tenants/configure-session-lifetime-settings)
 - Learn how to [log users out](/logout)

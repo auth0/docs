@@ -45,7 +45,7 @@ Content-Type: application/json
     </div>
     <div id="request-oidc" class="tab-pane">
       <pre class="text hljs"><code>POST /oauth/token HTTP 1.1
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
   "grant_type": "http://auth0.com/oauth/grant-type/password-realm",
   "client_id": "123",

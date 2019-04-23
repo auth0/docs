@@ -82,7 +82,7 @@ module.exports = [
   },
   {
     from: '/applications/addons',
-    to: '/applications/concepts/addons'
+    to: '/addons'
   },
   {
     from: '/ionic-tutorial',
@@ -550,12 +550,20 @@ module.exports = [
     to: '/applications/guides/enable-android-app-links-dashboard'
   },
   {
+    from: '/applications/guides/enable-android-app-links-dashboard',
+    to: '/dashboard/guides/applications/enable-android-app-links'
+  },
+  {
     from: '/clients/enable-universal-links',
     to: '/applications/enable-universal-links'
   },
   {
     from: '/applications/enable-universal-links',
     to: '/applications/guides/enable-universal-links-dashboard'
+  },
+  {
+    from: '/applications/guides/enable-universal-links-dashboard',
+    to: '/dashboard/guides/applications/enable-universal-links'
   },
   {
     from: '/clients/how-to-rotate-client-secret',
@@ -859,10 +867,6 @@ module.exports = [
   {
     from: ['/refresh-token', '/tokens/refresh_token'],
     to: '/tokens/refresh-token'
-  },
-  {
-    from: '/tokens/access_token',
-    to: '/tokens/access-token'
   },
   {
     from: '/update-client-secret',
@@ -1858,7 +1862,7 @@ module.exports = [
      to: '/troubleshoot/har'
    },
    {
-     from: '/tokens/access-token',
+     from: ['/tokens/access-token','/tokens/access_token'],
      to: '/tokens/overview-access-tokens'
    },
    {
@@ -2039,7 +2043,7 @@ module.exports = [
    },
    {
      from: '/applications/spa',
-     to: '/applications/guides/register-spa'
+     to: '/dashboard/guides/applications/register-app-spa'
    },
    {
     from: [
@@ -2079,8 +2083,8 @@ module.exports = [
      to: '/rules/guides/redirect'
     },
     {
-     from: '/tokens/set-access-token-format',
-     to: '/tokens/access-token-formats'
+     from: ['/tokens/set-access-token-format','/tokens/access-token-formats'],
+     to: '/tokens/reference/access-token/access-token-formats'
     },
     {
       from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
@@ -2089,6 +2093,18 @@ module.exports = [
     {
       from: '/enterprise/private-cloud/overview',
       to: '/private-cloud'
+    },
+    {
+      from: '/tokens/get-access-tokens',
+      to: '/tokens/guides/access-token/get-access-tokens'
+    },
+    {
+      from: '/tokens/set-access-token-lifetime',
+      to: '/tokens/guides/access-token/set-access-token-lifetime'
+    },
+    {
+      from: '/tokens/use-access-tokens',
+      to: '/tokens/guides/access-token/use-access-tokens'
     },
     {
       from: '/services/private-saas-configuration',
@@ -2102,5 +2118,5 @@ module.exports = [
       from: '/api-auth/intro',
       to: '/api-auth/tutorials/adoption'
     }
-    
+
 ];

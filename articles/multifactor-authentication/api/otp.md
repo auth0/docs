@@ -28,10 +28,10 @@ When a user begins the authorization process without an active authenticator ass
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
+    "mimeType": "application/x-www-form-urlencoded",
     "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}"
   }
 }
@@ -102,10 +102,10 @@ To confirm the association of an authenticator using OTP, make a `POST` request 
 	"method": "POST",
 	"url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
 	"postData": {
-		"mimeType": "application/json",
+		"mimeType": "application/x-www-form-urlencoded",
 		"text": "{ \"client_id\": \"YOUR_CLIENT_ID\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"grant_type\": \"http://auth0.com/oauth/grant-type/mfa-otp\", \"mfa_token\": \"YOUR_MFA_TOKEN\", \"otp\": \"000000\" }"
 	}
 }

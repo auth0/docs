@@ -68,6 +68,6 @@ For more info about using rules with authorization policies, see [Rules with Aut
 ## Keep reading
 
 - [How to Use Auth0's Core Authorization Feature Set](/authorization/guides/how-to)
-- [Enable Role-Based Access Control (RBAC) for APIs](/authorization/guides/dashboard/enable-rbac)
+- [Enable Role-Based Access Control (RBAC) for APIs](/dashboard/guides/apis/enable-rbac)
 - [Authorization Core vs. Authorization Extension](/authorization/concepts/core-vs-extension)
 - [Troubleshooting: Role-Based Access Control and Authorization](/authorization/concepts/troubleshooting)

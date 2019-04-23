@@ -17,7 +17,7 @@ The **Client Credentials Grant** (defined in [RFC 6749, section 4.4](https://too
 
 Before beginning this tutorial, please:
 
-* Make sure you that your application has the `Client Credentials` [grant type enabled](/applications/guides/update-grant-types-dashboard). Regular web applications and machine to machine applications have it enabled by default.
+* Make sure you that your application has the `Client Credentials` [grant type enabled](/dashboard/guides/applications/update-grant-types). Regular web applications and machine to machine applications have it enabled by default.
 
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0 with the required scopes.
 
@@ -32,10 +32,9 @@ To ask Auth0 for tokens for any of your authorized applications, perform a `POST
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
     "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
   }
 }

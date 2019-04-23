@@ -47,4 +47,4 @@ You can check a user's SSO status from an application by calling the `checkSessi
 
 ## Keep reading
 
-- Learn how to [enable SSO in Auth0](/sso/current/guides/enable-sso-tenant).
+- Learn how to [enable SSO in Auth0](/dashboard/guides/tenants/enable-sso-tenant).

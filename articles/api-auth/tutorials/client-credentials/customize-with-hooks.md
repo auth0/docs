@@ -144,7 +144,7 @@ To get a token, make a `POST` request at the `https://${account.namespace}/oauth
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
     "mimeType": "application/json",

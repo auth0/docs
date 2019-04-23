@@ -18,5 +18,5 @@ For examples of how sessions are used with authentication in Auth0, see [Sample 
 
 ## Keep reading 
 - Explore [sample use cases](/sessions/concepts/sample-use-cases-sessions) to see how sessions are used with authentication in Auth0.
-- Learn how to [configure your session lifetime settings](/sessions/guides/dashboard/tenant/configure-session-lifetime-settings).
+- Learn how to [configure your session lifetime settings](/dashboard/guides/tenants/configure-session-lifetime-settings).
 - Learn how to [log users out](/logout)

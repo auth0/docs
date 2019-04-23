@@ -70,10 +70,10 @@ Once the user authenticates successfully, the application will be redirected to 
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
+    "mimeType": "application/x-www-form-urlencoded",
     "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
   }
 }
@@ -112,11 +112,11 @@ To exchange the Refresh Token you received during authorization for a new Access
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
-      { "name": "Content-Type", "value": "application/json" }
+      { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
     ],
     "queryString" : [],
     "postData" : {
-      "mimeType": "application/json",
+      "mimeType": "application/x-www-form-urlencoded",
       "text" : "{ \"grant_type\": \"refresh_token\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"refresh_token\": \"YOUR_REFRESH_TOKEN\" }"
     },
     "headersSize" : 150,
@@ -303,4 +303,4 @@ For information on using Refresh Tokens with our mobile SDKs, see:
 ## Next steps
 
 * [Refresh Tokens: When to use them and how they interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
-* [Using a Refresh Token with an Access Token](/tokens/set-access-token-lifetime)
+* [Using a Refresh Token with an Access Token](/tokens/guides/access-token/set-access-token-lifetime)

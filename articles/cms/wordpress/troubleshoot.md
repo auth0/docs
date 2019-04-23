@@ -12,7 +12,6 @@ useCase:
   - secure-an-api
   - manage-users  
 ---
-
 # Troubleshooting/FAQ
 
 In this page, we have collected some of the common troubleshooting questions we encounter. If the items below do not solve your issue, then consider the following alternatives:
@@ -70,6 +69,10 @@ This means that the plugin is already configured with a Domain, Client ID, and C
 1. Find the Connection that was created by WordPress (its name should be the site name of your WordPress site prepended with "DB-")
 1. Click on the Connection to view the settings. Scroll down to the bottom, and click **I Want To Delete This Connection*. ***Please note that this will delete the Connection and all users that were created within.***
 1. Return to WordPress. You will now see the Setup Wizard option under Auth0 in the admin menu.
+
+## I see an error about file types when trying to upload an exported settings file.
+
+If you're uploading a settings JSON file and you see an error message "Sorry, this file type is not permitted for security reasons," this is caused by the JSON file type being blocked by WordPress. You can add `json` as an allowed type using the [`upload_mimes`](https://developer.wordpress.org/reference/hooks/upload_mimes/) filter in a custom plugin or you can click the **paste the entire json** link and paste the contents instead.
 
 ## How do I setup Passwordless login?
 

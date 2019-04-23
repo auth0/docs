@@ -24,7 +24,7 @@ Auth0 API requires an Access Token. You can get one by authenticating with your 
 
 ```text
 POST /oauth/token
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
   "client_id": "",
   "client_secret": "",

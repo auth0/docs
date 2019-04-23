@@ -163,7 +163,7 @@ var request = require("request");
 
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
-  headers: { 'content-type': 'application/json' },
+  headers: { 'content-type': 'application/x-www-form-urlencoded' },
   body:
    { grant_type: 'password',
      username: 'USERNAME',
@@ -233,7 +233,7 @@ function mfaChallenge(mfa_token) {
 function mfaOTP(mfa_token, otp) {
   var options = { method: 'POST',
     url: 'https://${account.namespace}/oauth/token',
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/x-www-form-urlencoded' },
     body:
     { mfa_token: mfa_token,
       otp: otp,
@@ -279,7 +279,7 @@ function mfaOOB(mfa_token, oob_code, /* optional */ binding_code) {
 function makeOOBGrantRequest(mfa_token, oob_code, /* optional  */ binding_code, cb) {
   var options = { method: 'POST',
     url: 'https://${account.namespace}/oauth/token',
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/x-www-form-urlencoded' },
     body:
     { mfa_token: mfa_token,
       oob_code: oob_code,
@@ -317,7 +317,7 @@ function makeOOBGrantRequest(mfa_token, oob_code, /* optional  */ binding_code, 
 function mfaRecovery(mfa_token, recovery_code) {
   var options = { method: 'POST',
     url: 'https://${account.namespace}/oauth/token',
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/x-www-form-urlencoded' },
     body:
     { mfa_token: mfa_token,
       recovery_code: recovery_code,

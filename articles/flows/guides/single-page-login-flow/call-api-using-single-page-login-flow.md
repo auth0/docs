@@ -26,10 +26,10 @@ Auth0 makes it easy for your app to implement the single-page login flow using:
 
 **Before beginning this tutorial:**
 
-* [Register your Application with Auth0](/applications/guides/register-spa). 
+* [Register your Application with Auth0](/dashboard/guides/applications/register-app-spa). 
   * Select an **Application Type** of **Single-Page App**.
   * Add an **Allowed Callback URL** of **`${account.callback}`**.
-  * Make sure your Application's **[Grant Types](/applications/guides/update-grant-types-dashboard)** include **Implicit**.
+  * Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include **Implicit**.
 
 * [Register your API with Auth0](/architecture-scenarios/spa-api/part-2#create-the-api)
 

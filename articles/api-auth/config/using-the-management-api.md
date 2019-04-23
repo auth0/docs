@@ -19,7 +19,7 @@ If you want to call an API from these applications, you first need to authorize 
 
 You will need the following:
 
-- A Management API access token with the `create:client_grants` scopes. For details on how to get one, refer to [Access Tokens for the Management API](/api/management/v2/tokens).
+- A Management API Access Token with the `create:client_grants` scopes. For details on how to get one, refer to [Access Tokens for the Management API](/api/management/v2/tokens).
 
 - The application information (`Client_Id` and `Client_Secret`) for the application you want to authorize [Auth0 dashboard](${manage_url}/#/applications).
 

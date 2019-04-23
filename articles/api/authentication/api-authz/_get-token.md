@@ -13,7 +13,7 @@ Note that the only OAuth 2.0 flows that can retrieve a Refresh Token are:
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
   "grant_type": "authorization_code",
   "client_id": "${account.clientId}",
@@ -26,7 +26,7 @@ Content-Type: application/json
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
-  --header 'content-type: application/json' \
+  --header 'content-type: application/x-www-form-urlencoded' \
   --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","client_secret": "YOUR_CLIENT_SECRET","code": "AUTHORIZATION_CODE","redirect_uri": "${account.callback}"}'
 ```
 
@@ -35,7 +35,7 @@ var request = require("request");
 
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
-  headers: { 'content-type': 'application/json' },
+  headers: { 'content-type': 'application/x-www-form-urlencoded' },
   body:
    { grant_type: 'authorization_code',
      client_id: '${account.clientId}',
@@ -114,7 +114,7 @@ If you have just executed the [Authorization Code Grant](#authorization-code-gra
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
   "grant_type": "authorization_code",
   "client_id": "${account.clientId}",
@@ -127,7 +127,7 @@ Content-Type: application/json
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
-  --header 'content-type: application/json' \
+  --header 'content-type: application/x-www-form-urlencoded' \
   --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "CODE_VERIFIER","code": "AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback"}'
 ```
 
@@ -136,7 +136,7 @@ var request = require("request");
 
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
-  headers: { 'content-type': 'application/json' },
+  headers: { 'content-type': 'application/x-www-form-urlencoded' },
   body: '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "CODE_VERIFIER","code": "AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback", }' };
 
 request(options, function (error, response, body) {
@@ -205,7 +205,7 @@ If you have just executed the [Authorization Code Grant (PKCE)](#authorization-c
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
   "audience": "API_IDENTIFIER",
   "grant_type": "client_credentials",
@@ -217,7 +217,7 @@ Content-Type: application/json
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
-  --header 'content-type: application/json' \
+  --header 'content-type: application/x-www-form-urlencoded' \
   --data '{"audience":"API_IDENTIFIER", "grant_type":"client_credentials", "client_id":"${account.clientId}", "client_secret":"YOUR_CLIENT_SECRET"}'
 ```
 
@@ -226,7 +226,7 @@ var request = require("request");
 
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
-  headers: { 'content-type': 'application/json' },
+  headers: { 'content-type': 'application/x-www-form-urlencoded' },
   body:
    { client_id: '${account.clientId}',
      client_secret: 'YOUR_CLIENT_SECRET',
@@ -295,7 +295,7 @@ This is the OAuth 2.0 grant that server processes use to access an API. Use this
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
   "grant_type": "password",
   "username": "USERNAME",
@@ -310,7 +310,7 @@ Content-Type: application/json
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
-  --header 'content-type: application/json' \
+  --header 'content-type: application/x-www-form-urlencoded' \
   --data '{"grant_type":"password", "username":"USERNAME", "password":"PASSWORD", "audience":"API_IDENTIFIER", "scope":"SCOPE", "client_id": "${account.clientId}", "client_secret": "YOUR_CLIENT_SECRET"
  }'
 ```
@@ -320,7 +320,7 @@ var request = require("request");
 
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
-  headers: { 'content-type': 'application/json' },
+  headers: { 'content-type': 'application/x-www-form-urlencoded' },
   body:
    { grant_type: 'password',
      username: 'USERNAME',
@@ -410,7 +410,7 @@ This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In th
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
   "grant_type": "refresh_token",
   "client_id": "${account.clientId}",
@@ -422,7 +422,7 @@ Content-Type: application/json
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
-  --header 'content-type: application/json' \
+  --header 'content-type: application/x-www-form-urlencoded' \
   --data '{"grant_type":"refresh_token","client_id": "${account.clientId}","client_secret": "YOUR_CLIENT_SECRET","refresh_token": "YOUR_REFRESH_TOKEN"}'
 ```
 
@@ -431,7 +431,7 @@ var request = require("request");
 
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
-  headers: { 'content-type': 'application/json' },
+  headers: { 'content-type': 'application/x-www-form-urlencoded' },
   body:
    { grant_type: 'refresh_token',
      client_id: '${account.clientId}',

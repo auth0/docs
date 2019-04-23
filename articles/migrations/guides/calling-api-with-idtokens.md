@@ -120,7 +120,7 @@ On the `Legacy (ID Token)` script you can see an implementation of the old appro
       <pre class="text hljs">
         <code>
 POST https://${account.namespace}/oauth/token
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
   "grant_type": "password",
   "username": "USERNAME",
@@ -136,7 +136,7 @@ Content-Type: application/json
       <pre class="text hljs">
         <code>
 POST https://${account.namespace}/oauth/token
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
   "grant_type": "password",
   "username": "USERNAME",
@@ -191,5 +191,5 @@ For a detailed overview of these changes and migration steps per use case, see [
 
 ## Next steps
 
-- [Get Access Tokens](/tokens/get-access-tokens)
+- [Get Access Tokens](/tokens/guides/access-token/get-access-tokens)
 - [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
