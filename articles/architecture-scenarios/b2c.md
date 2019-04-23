@@ -12,9 +12,9 @@ useCase:
 
 # Business to Consumer Identity and Access Management
 
-This guide focuses on how to integrate Auth0 within a Consumer Identity and Access Management (CIAM) project. Auth0's recommendations are based on real-world customer implementation experience and by following the guidance provided, you will set up your project for success.
+This guide focuses on how to integrate Auth0 within a Consumer Identity and Access Management (CIAM) project. Auth0's recommendations are based on real-world customer implementation experience, and by following the guidance provided you will set up your project for success.
 
-Customers using Auth0 for consumer-focused, also known as Business-to-Consumer (B2C), projects typically share a common set of goals and objectives, and in the sections that follow, we'll focus on our experiences working with this shared set of expectations to help you deliver your solution efficiently.
+Customers using Auth0 for consumer-focused, also known as Business-to-Consumer (B2C), projects typically share a common set of goals and objectives, and in the sections that follow we'll focus on our experiences working with this shared set of expectations to help you deliver your solution efficiently.
 
 ::: note
 The information provided is relevant to **all** project stakeholders. We recommend reading through this guidance in its entirety at least once, even if you've already started your journey with Auth0.
@@ -28,7 +28,7 @@ When you embark on your journey to integrate with Auth0, there are many things f
 
 ## Implementation checklists
 
-Auth0 provides helpful implementation planning [checklists](/architecture-scenarios/checklists) that you can use organize your implementation tasks. There are six checklists that cover the following implementation steps:
+Auth0 also provides helpful implementation planning [checklists](/architecture-scenarios/checklists) that you can use organize your implementation tasks. There are six checklists that cover the following implementation steps:
 
 * Analyze
 * Design
@@ -39,7 +39,7 @@ Auth0 provides helpful implementation planning [checklists](/architecture-scenar
 
 ## Best practices
 
-Auth0 provides recommendations and best practice suggestions, and any time you come across a panel similar to the one below, you should stop and consider the advice presented. These provide you with a set of high-level guidance and best practice recommendations, presented in on an *ad hoc* way.
+In addition, Auth0 provides recommendations and best practice suggestions, and any time you come across a panel similar to the one below you should stop and consider the advice presented. These provide you with a set of high-level guidance and best practice recommendations, presented in an *ad hoc* way.
 
 ::: panel Best Practice
 You can find detailed guidance regarding specific functionality and use cases in our documentation or by speaking with your account representative or a member of our [Professional Services team](/services) here at Auth0.
