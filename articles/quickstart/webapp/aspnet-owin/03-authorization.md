@@ -48,7 +48,7 @@ function (user, context, callback) {
   user.app_metadata.roles = roles;
   auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
     .then(function() {
-      context.idToken['https://example.com/roles'] = user.app_metadata.roles;
+      context.idToken['https://schemas.quickstarts.com/roles'] = user.app_metadata.roles;
       callback(null, user, context);
     })
     .catch(function (err) {
