@@ -14,7 +14,7 @@ articles:
       
       - title: The Basics
         url: /getting-started/the-basics
-
+          
       - title: "Sessions"
         url: "/sessions"
       
@@ -23,6 +23,66 @@ articles:
 
       - title: Deployment Models
         url: /getting-started/deployment-models
+
+  - title: Product Training
+    url: /product-training/adding-authentication
+    children:
+      - title: Course One
+        url: /product-training/adding-authentication
+        expanded: 1
+        children:
+          - title: Auth0 in a nutshell
+            url: /product-training/adding-authentication/video1
+
+          - title: Architecture
+            url: /product-training/adding-authentication/video2
+
+          - title: Provisioning
+            url: /product-training/adding-authentication/video3
+
+          - title: Branding
+            url: /product-training/adding-authentication/video4
+
+          - title: Authentication
+            url: /product-training/adding-authentication/video5
+
+          - title: Authorization
+            url: /product-training/adding-authentication/video6
+
+          - title: Profile Management
+            url: /product-training/adding-authentication/video7
+
+          - title: Deployment
+            url: /product-training/adding-authentication/video8
+
+      - title: Course Two
+        url: /product-training/creating-hooks
+        expanded: 1
+        children:
+          - title: Auth0 in a nutshell
+            url: /product-training/creating-hooks/video1
+
+          - title: Architecture
+            url: /product-training/creating-hooks/video2
+
+          - title: Provisioning
+            url: /product-training/creating-hooks/video3
+
+          - title: Branding
+            url: /product-training/creating-hooks/video4
+
+          - title: Authentication
+            url: /product-training/creating-hooks/video5
+
+          - title: Authorization
+            url: /product-training/creating-hooks/video6
+
+          - title: Profile Management
+            url: /product-training/creating-hooks/video7
+
+          - title: Deployment
+            url: /product-training/creating-hooks/video8
+
 
   - title: Architecture Scenarios
     url: /architecture-scenarios
