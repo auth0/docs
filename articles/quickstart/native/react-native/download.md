@@ -2,7 +2,7 @@ To run the sample follow these steps:
 
 1) Set the **Callback URL** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) so it works for both Android and iOS apps:
 ```text
-auth0.samples.Auth0Sample://${account.namespace}/ios/auth0.samples.Auth0Sample/callback,com.auth0sample://${account.namespace}/android/com.auth0sample/callback
+auth0.samples.Auth0Samples://${account.namespace}/ios/auth0.samples.Auth0Samples/callback,com.auth0samples://${account.namespace}/android/com.auth0samples/callback
 ```
 
 2) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the sample's directory:
