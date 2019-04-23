@@ -191,5 +191,5 @@ For a detailed overview of these changes and migration steps per use case, see [
 
 ## Next steps
 
-- [Get Access Tokens](/tokens/get-access-tokens)
+- [Get Access Tokens](/tokens/guides/access-token/get-access-tokens)
 - [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)

@@ -869,10 +869,6 @@ module.exports = [
     to: '/tokens/refresh-token'
   },
   {
-    from: '/tokens/access_token',
-    to: '/tokens/access-token'
-  },
-  {
     from: '/update-client-secret',
     to: '/tutorials/how-to-update-applications-client-secret'
   },
@@ -1866,7 +1862,7 @@ module.exports = [
      to: '/troubleshoot/har'
    },
    {
-     from: '/tokens/access-token',
+     from: ['/tokens/access-token','/tokens/access_token'],
      to: '/tokens/overview-access-tokens'
    },
    {
@@ -2099,6 +2095,18 @@ module.exports = [
       to: '/private-cloud'
     },
     {
+      from: '/tokens/get-access-tokens',
+      to: '/tokens/guides/access-token/get-access-tokens'
+    },
+    {
+      from: '/tokens/set-access-token-lifetime',
+      to: '/tokens/guides/access-token/set-access-token-lifetime'
+    },
+    {
+      from: '/tokens/use-access-tokens',
+      to: '/tokens/guides/access-token/use-access-tokens'
+    },
+    {
       from: '/services/private-saas-configuration',
       to: '/services/private-cloud-configuration'
     },
@@ -2106,6 +2114,4 @@ module.exports = [
       from: '/services/private-saas-management',
       to: '/services/private-cloud-management'
     }
-
-    
 ];

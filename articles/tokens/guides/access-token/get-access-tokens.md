@@ -8,14 +8,15 @@ contentType:
 useCase:
   - invoke-api
 ---
-
 # Get Access Tokens
 
-Access Tokens are issued through Auth0's OAuth 2.0 endpoints: 
+Access Tokens are issued through Auth0's OAuth 2.0 endpoints:
+
 * [/authorize](/api/authentication#authorize-application)
 * [/oauth/token](/api/authentication#get-token)
 
 You can get Access Tokens from the following Auth0 endpoints:
+
   * **Server-side web app**: See [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
   * **Mobile app**: See [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow)
   * **Client-side app**: See [Single-Page Login Flow](/flows/concepts/single-page-login-flow)

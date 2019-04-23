@@ -303,4 +303,4 @@ For information on using Refresh Tokens with our mobile SDKs, see:
 ## Next steps
 
 * [Refresh Tokens: When to use them and how they interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
-* [Using a Refresh Token with an Access Token](/tokens/set-access-token-lifetime)
+* [Using a Refresh Token with an Access Token](/tokens/guides/access-token/set-access-token-lifetime)
