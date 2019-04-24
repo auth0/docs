@@ -9,7 +9,9 @@ You need the following information:
 
 * **Domain**
 * **Client ID**
+<% if(typeof showClientSecret !== 'undefined' && showClientSecret === true) { %>
 * **Client Secret**
+<% } %>
 
 ::: note
 If you download the sample from the top of this page these details are filled out for you.
