@@ -72,15 +72,38 @@ Location: https://app.example.com/callback?
 
 An authorization code can be exchanged in the same way in both pipelines:
 
-```text
-POST /oauth/token HTTP/1.1
-Content-Type: application/x-www-form-urlencoded
+```har
 {
-    "grant_type": "authorization_code",
-    "client_id": "123",
-    "client_secret": "...",
-    "code": "SplxlOBeZQQYbYS6WxSbIA",
-    "redirect_uri": "https://app.example.com/callback"
+    "method": "POST",
+    "url": "https://${account.namespace}/oauth/token",
+    "headers": [
+      { "name" "Authorization", "value": "Bearer ABCD" },
+      { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+    ],
+    "postData" : {
+      "mimeType": "application/x-www-form-urlencoded",
+      "params": [
+        {
+          "name": "grant_type",
+          "value": "authorization_code"
+        },
+        {
+          "name": "client_id",
+          "value": "123"
+        },
+        {
+          "name": "client_secret",
+          "value": "...."
+        },
+        {
+          "name": "code",
+          "value": "SplxlOBeZQQYbYS6WxSbIA"
+        },
+        {
+          "redirect_uri": "https://app.example.com/callback"
+        }
+      ]
+    }
 }
 ```
 
