@@ -70,6 +70,10 @@ var webAuth = new auth0.WebAuth({
 
 If you use the **default** login page without customization, you do not need to make any changes.
 
+::: note
+For most, the Auth0.js and Lock libraries get the tenant name (required for `/usernamepassword/login`) and the issuer (required for `id_token` validation) from the domain. However, if you're a Private Cloud customer who uses a proxy or a custom domain name where the domain name is different from the tenant/issuer, you can use `__tenant` and `__token_issuer` to provide your unique values.
+:::
+
 ## Embedded Lock
 
 If you use [Lock](/libraries/lock) v11 embedded in your application, you must update the code to use your custom domain when initializing Lock. You will also need to set the `configurationBaseUrl` to the appropriate CDN URL.
