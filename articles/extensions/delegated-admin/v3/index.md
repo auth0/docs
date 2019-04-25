@@ -187,7 +187,9 @@ Now that we've created and configured an application, a connection, and our user
 
 - **FAVICON_PATH** (optional): Path to custom favicon.
 
-- **AUTH0_CUSTOM_DOMAIN** (optional): If you have a custom domain name configured, enter it here. For example: login.example.com
+- **AUTH0_CUSTOM_DOMAIN** *Optional*: If you have a custom domain name configured, enter it here (for example: login.example.com). This will change the authorization endpoint to https://login.example.com/login.
+
+  **NOTE**: Setting the `AUTH0_CUSTOM_DOMAIN` variable does not affect the extension URL, it only changes the "authorization endpoint". When a custom domain is used, users that are logging into the extension will be navigated to `https://AUTH0_CUSTOM_DOMAIN/login` instead of the default `https://tenant-name.us.auth0.com/login`.
 
 - **FEDERATED_LOGOUT** (optional): sign out from the IdP when users logout.
 
