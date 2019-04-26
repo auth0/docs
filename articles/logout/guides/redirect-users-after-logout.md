@@ -46,6 +46,10 @@ You can redirect users to a specific URL after they logout. You will need to reg
    * Specify multiple, valid, comma-separated URLs.
    * Use `*` as a wildcard for subdomains (such as `http://*.example.com`).
 
+::: warning
+If the `client_id` parameter is included and the `returnTo` URL is NOT set, the server returns the user to the first Allowed Logout URLs set in the Dashboard.
+:::
+
 ::: note
 In order to avoid validation errors, make sure that you include the protocol part of the URL. For example, setting the value to `*.example.com` will result in a validation error, so you should use `http://*.example.com` instead.
 :::
