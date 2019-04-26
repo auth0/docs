@@ -91,16 +91,15 @@ app.post('/api/auth', function(req, res, next) {
       'content-type': 'application/x-www-form-urlencoded',
       'auth0-forwarded-for': req.ip // End user ip
     },
-    body: {
+    form: {
       grant_type: 'password',
       username: 'USERNAME',
       password: 'PASSWORD',
-      audience: 'API_IDENTIFIER',
+      audience: 'YOUR_API_IDENTIFIER',
       scope: 'SCOPE',
       client_id: '${account.clientId}',
       client_secret: 'YOUR_CLIENT_SECRET' // Client is authenticated
-    },
-    json: true
+    }
   };
 
   request(options, function (error, response, body) {

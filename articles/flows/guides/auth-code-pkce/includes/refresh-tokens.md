@@ -19,7 +19,21 @@ To refresh your token, make a `POST` request to the `/token` endpoint in the Aut
       { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
     ],
     "postData" : {
-      "text" : "{ \"grant_type\": \"refresh_token\", \"client_id\": \"${account.clientId}\", \"refresh_token\": \"YOUR_REFRESH_TOKEN\" }"
+      "mimeType": "application/x-www-form-urlencoded",
+      "params": [
+        {
+          "name": "grant_type",
+          "value": "refresh_token"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "refresh_token",
+          "value": "YOUR_REFRESH_TOKEN"
+        }
+      ]
     }
 }
 ```

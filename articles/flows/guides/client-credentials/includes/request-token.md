@@ -2,9 +2,9 @@
 
  To access your API, you must request an Access Token for it. To do so, you will need to `POST` to the [token URL](https://auth0.com/docs/api/authentication#client-credentials).
  
- ### Example POST to token URL
+### Example POST to token URL
  
- ```har
+```har
 {
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
@@ -12,12 +12,30 @@
     { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "client_credentials"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "audience",
+        "value": "YOUR_API_IDENTIFIER"
+      }
+    ]
   }
 }
 ```
 
- #### Parameters
+#### Parameters
  
 | Parameter Name  | Description |
 |-----------------|-------------|
