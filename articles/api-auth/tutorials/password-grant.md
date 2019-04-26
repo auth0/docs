@@ -164,7 +164,7 @@ To use this variation you will have to change the following request parameters:
         {
           "name": "client_secret",
           "value": "YOUR_CLIENT_SECRET"
-        }
+        },
         {
           "name": "realm",
           "value": "employees"
