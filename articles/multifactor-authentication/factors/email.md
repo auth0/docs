@@ -29,7 +29,7 @@ After Email MFA is enabled, all new or existing users from Database Connections 
 
 ## Administrative setup
 
-In order to set up Email, you need to able the Email factor in the Dashboard.
+In order to set up Email, you need to enable the Email factor in the Dashboard.
 
 ![MFA Email Settings](/media/articles/multifactor-authentication/email-settings.png)
 
