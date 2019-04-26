@@ -343,18 +343,21 @@ articles:
       - title: "Overview"
         url: "/universal-login"
 
-      - title: "Password Reset Page"
-        url: "/universal-login/password-reset"
-
-      - title: "Advanced Customization"
-        url: "/universal-login/advanced-customization"
-
       - title: "Classic Experience"
         url: "/universal-login/classic"
 
+      - title: "Internationalization"
+        url: "/universal-login/i18n"
+
       - title: "New Experience"
         url: "/universal-login/new"
+
+      - title: "Advanced Customization"
+        url: "/universal-login/advanced-customization"
       
+      - title: "Password Reset Page"
+        url: "/universal-login/password-reset"
+
       - title: "Guardian MFA"
         url: "/universal-login/guardian"
 
