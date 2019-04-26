@@ -4,7 +4,6 @@ topics:
   - login
   - universal-login
 contentType: index
-beta: true
 toc: true
 ---
 # New Universal Login Experience
@@ -12,8 +11,6 @@ toc: true
 Auth0's New [Universal Login](/universal-login) experience provides a reimagined login flow, with a fresh UX design, and lightweight pages. When you pick this new experience, Auth0 will use it for all pages that haven't been customized. It can be enabled from the [Universal Login Settings](https://manage.auth0.com/#/login_settings) dashboard section:
 
 ![Login Page](/media/articles/universal-login/experience-picker.png)
-
-During the Beta period, we'll respond to customer feedback [in a dedicated section](https://community.auth0.com/t/new-universal-login-experience-beta/23979) of our Community Site.
 
 The key structural difference with the [Classic Experience](/universal-login/classic) is that while the former uses Javascript widgets in all the pages, the New Experience is rendered on the server and does not require Javascript. 
 
@@ -31,7 +28,7 @@ From a functional perspective, it has much better support for [Localization](/un
 
 - A 'show password' icon will be displayed next to the password field.
 
-- If you redirect users to the `/login` page directly, they will get a error unless they have configured the [default login route](/universal-login/default-login-url). You should always redirect users to `/authorize`.
+- If you redirect users to the `/login` page directly, they will get a error unless they have configured the [default login route](/universal-login/default-login-url). You should always redirect users to the proper authorization request endpoint (e.g. `/authorize` if you are using OpenID Connect).
 
 ## Multi-Factor Authentication
 
@@ -46,3 +43,8 @@ From a functional perspective, it has much better support for [Localization](/un
 ## Consent
 
 - The logo and colors selected in the dashboard configuration section will be properly applied.
+
+## Internationalization
+
+- The New Experience provides a more consistent approach for [Internationalization](/universal-login/i8n).
+

@@ -22,6 +22,3 @@ The New Universal Login Experience currently has these limitations:
 
 - [MFA Enrollment Tickets](/multifactor-authentication/developer/custom-enrollment-ticket) will keep using the Classic Experience even when the New Experience is enabled.
 
-## Known Bugs
-
-- If you specify the name of a Database Connection in the `connection` parameter to  `/authorize`, the login page will also show the enabled social connections.
