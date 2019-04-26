@@ -25,7 +25,7 @@ After the login step, users will be presented with the most secure enabled facto
 
 ![Email End User 1](/media/articles/multifactor-authentication/mfa-email.png)
 
-After Email MFA is enabled, all new or existing users from Database Connections that do not have verified emails will get prompted to verify their emails after their log in. They will get a code in ther email they'll need to enter in the login page to continue.
+After Email MFA is enabled, all new or existing users from Database Connections that do not have verified emails will get prompted to verify their emails after they log in. They will get a code in their email they'll need to enter in the login page to continue.
 
 ## Administrative setup
 
