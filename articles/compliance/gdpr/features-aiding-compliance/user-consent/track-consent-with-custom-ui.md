@@ -173,7 +173,11 @@ Note that in order to make this call you need to know the unique `user_id`. You 
 
 ## Option 4: Redirect to another page
 
-If you want to display more information to your user, then upon signup you can redirect to another page where you ask for consent and any additional info, and then redirect back to finish the authentication transaction. This can be done with [redirect rules](/rules/redirect). That same rule can be used to save the consent information at the user's metadata so we can track this information and not ask for consent upon next login.
+If you want to display more information to your user, then upon signup you can redirect to another page where you ask for consent and any additional info, and then redirect back to finish the authentication transaction. This can be done with [redirect rules](/rules/redirect). That same rule can be used to save the consent information at the user's metadata so you can track this information and not ask for consent upon next login.
+
+::: note
+You need to host the pages to which you want to redirect your users because `webtask.io` is not an option in this case. 
+:::
 
 <%= include('./_redirect.md') %>
 

@@ -1519,7 +1519,7 @@ module.exports = [
   },
   {
     from: '/tutorials/creating-users-in-the-management-portal',
-    to: '/dashboard/creating-users-in-the-management-portal',
+    to: '/users/guides/create-users',
   },
   {
     from: '/tutorials/dashboard-tenant-settings',
@@ -1807,7 +1807,7 @@ module.exports = [
   },
   {
     from: '/videos/session-and-cookies',
-    to: '/security/store-tokens#understanding-sessions-and-cookies'
+    to: '/security/store-tokens'
   },
   {
     from: '/support/sla',
