@@ -7,18 +7,7 @@ useCase: private-cloud
 ---
 # Managed Private Cloud
 
-Users with requirements not met by the Auth0 Public Cloud may instead opt for one of the Private Cloud deployment options.
-
-Auth0 currently offers two Private Cloud deployment models:
-
-* Private Cloud
-* **Managed** Private Cloud, either hosted by Auth0 or hosted by you on an AWS environment and operated by Auth0 as a managed service
-
-This overview covers specifically the **Managed Private Cloud** option.
-
-## What is the Managed Private Cloud?
-
-Auth0's Managed Private Cloud (MPC) offering is a specially customized Auth0 deployment that allows you greater flexibility and increased input when it comes to day-to-day operations. As an MPC customer, you will be more involved with all aspects of your Auth0 deployment.
+Auth0's **Managed Private Cloud** (MPC) offering is a specially customized Auth0 deployment that allows you greater flexibility and increased input when it comes to day-to-day operations. As an MPC customer, you will be more involved with all aspects of your Auth0 deployment.
 
 ## Benefits of the Managed Private Cloud
 
@@ -32,3 +21,7 @@ With a Managed Private Cloud, we will work closely with you to make sure that al
 | Staging Environment | Dedicated environment to test new releases and changes |
 | GEO-HA | Optional. Add-on available for Geographic High Availability. |
 | Customer-Hosting | Optional. Can host your Auth0 deployment in an AWS cloud owned by you |
+
+## Next steps
+
+[Onboarding with the Private Cloud](#)
