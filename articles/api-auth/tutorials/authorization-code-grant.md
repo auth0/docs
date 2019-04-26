@@ -100,8 +100,6 @@ Now that you have an Authorization Code, you must exchange it for an Access Toke
         "value": "${account.callback}"
       }
     ]
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
   }
 }
 ```
