@@ -34,7 +34,36 @@ For example:
   }],
   "postData": {
     "mimeType": "application/x-www-form-urlencoded",
-    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://${account.namespace}/mfa/\", \"scope\": \"enroll read:authenticators remove:authenticators\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}"
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "password"
+      },
+      {
+        "name": "username",
+        "value": "user@example.com"
+      },
+      {
+        "name": "password",
+        "value": "pwd"
+      },
+      {
+        "name": "audience",
+        "value": "https://${account.namespace}/mfa/"
+      },
+      {
+        "name": "scope",
+        "value": "enroll read:authenticators remove:authenticators"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      }
+    ]
   }
 }
 ```

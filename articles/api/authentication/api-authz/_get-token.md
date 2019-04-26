@@ -14,20 +14,15 @@ Note that the only OAuth 2.0 flows that can retrieve a Refresh Token are:
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/x-www-form-urlencoded
-{
-  "grant_type": "authorization_code",
-  "client_id": "${account.clientId}",
-  "client_secret": "YOUR_CLIENT_SECRET",
-  "code": "AUTHORIZATION_CODE",
-  "redirect_uri": "${account.callback}"
-}
+
+grant_type=authorization_code&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&code=AUTHORIZATION_CODE&redirect_uri=${account.callback}
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","client_secret": "YOUR_CLIENT_SECRET","code": "AUTHORIZATION_CODE","redirect_uri": "${account.callback}"}'
+  --data 'grant_type=authorization_code&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&code=AUTHORIZATION_CODE&redirect_uri=${account.callback}'
 ```
 
 ```javascript
@@ -36,13 +31,13 @@ var request = require("request");
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
   headers: { 'content-type': 'application/x-www-form-urlencoded' },
-  body:
+  form:
    { grant_type: 'authorization_code',
      client_id: '${account.clientId}',
      client_secret: 'YOUR_CLIENT_SECRET',
      code: 'AUTHORIZATION_CODE',
-     redirect_uri: '${account.callback}' },
-  json: true };
+     redirect_uri: '${account.callback}' }
+   };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -115,20 +110,15 @@ If you have just executed the [Authorization Code Grant](#authorization-code-gra
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/x-www-form-urlencoded
-{
-  "grant_type": "authorization_code",
-  "client_id": "${account.clientId}",
-  "code_verifier": "CODE_VERIFIER",
-  "code": "AUTHORIZATION_CODE",
-  "redirect_uri": "com.myclientapp://myclientapp.com/callback"
-}
+
+grant_type=authorization_code&client_id=${account.clientId}&code_verifier=CODE_VERIFIER&code=AUTHORIZATION_CODE&redirect_uri=${account.callback}
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "CODE_VERIFIER","code": "AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback"}'
+  --data 'grant_type=authorization_code&client_id=${account.clientId}&code_verifier=CODE_VERIFIER&code=AUTHORIZATION_CODE&redirect_uri=${account.callback}'
 ```
 
 ```javascript
@@ -137,7 +127,12 @@ var request = require("request");
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
   headers: { 'content-type': 'application/x-www-form-urlencoded' },
-  body: '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "CODE_VERIFIER","code": "AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback", }' };
+  form: {
+    grant_type:"authorization_code",
+    client_id: "${account.clientId}",
+    code_verifier: "CODE_VERIFIER",
+    code: "AUTHORIZATION_CODE",
+    redirect_uri: "${account.callback}", } };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -206,19 +201,15 @@ If you have just executed the [Authorization Code Grant (PKCE)](#authorization-c
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/x-www-form-urlencoded
-{
-  "audience": "API_IDENTIFIER",
-  "grant_type": "client_credentials",
-  "client_id": "${account.clientId}",
-  "client_secret": "YOUR_CLIENT_SECRET"
-}
+
+audience=API_IDENTIFIER&grant_type=client_credentials&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data '{"audience":"API_IDENTIFIER", "grant_type":"client_credentials", "client_id":"${account.clientId}", "client_secret":"YOUR_CLIENT_SECRET"}'
+  --data 'audience=API_IDENTIFIER&grant_type=client_credentials&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET'
 ```
 
 ```javascript
@@ -227,12 +218,12 @@ var request = require("request");
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
   headers: { 'content-type': 'application/x-www-form-urlencoded' },
-  body:
+  form:
    { client_id: '${account.clientId}',
      client_secret: 'YOUR_CLIENT_SECRET',
      audience: 'API_IDENTIFIER',
-     grant_type: 'client_credentials' },
-  json: true };
+     grant_type: 'client_credentials' }
+   };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -296,22 +287,15 @@ This is the OAuth 2.0 grant that server processes use to access an API. Use this
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/x-www-form-urlencoded
-{
-  "grant_type": "password",
-  "username": "USERNAME",
-  "password": "PASSWORD",
-  "audience": "API_IDENTIFIER",
-  "scope": "SCOPE",
-  "client_id": "${account.clientId}",
-  "client_secret": "YOUR_CLIENT_SECRET"
-}
+
+grant_type=password&username=USERNAME&password=PASSWORD&audience=API_IDENTIFIER&scope=SCOPE&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data '{"grant_type":"password", "username":"USERNAME", "password":"PASSWORD", "audience":"API_IDENTIFIER", "scope":"SCOPE", "client_id": "${account.clientId}", "client_secret": "YOUR_CLIENT_SECRET"
+  --data 'grant_type=password&username=USERNAME&password=PASSWORD&audience=API_IDENTIFIER&scope=SCOPE&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET"
  }'
 ```
 
@@ -321,15 +305,15 @@ var request = require("request");
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
   headers: { 'content-type': 'application/x-www-form-urlencoded' },
-  body:
+  form:
    { grant_type: 'password',
      username: 'USERNAME',
      password: 'PASSWORD',
      audience: 'API_IDENTIFIER',
      scope: 'SCOPE',
      client_id: '${account.clientId}',
-     client_secret: 'YOUR_CLIENT_SECRET' },
-  json: true };
+     client_secret: 'YOUR_CLIENT_SECRET' }
+   };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -411,19 +395,15 @@ This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In th
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/x-www-form-urlencoded
-{
-  "grant_type": "refresh_token",
-  "client_id": "${account.clientId}",
-  "client_secret": "YOUR_CLIENT_SECRET",
-  "refresh_token": "YOUR_REFRESH_TOKEN"
-}
+
+grant_type=refresh_token&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&refresh_token=YOUR_REFRESH_TOKEN
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data '{"grant_type":"refresh_token","client_id": "${account.clientId}","client_secret": "YOUR_CLIENT_SECRET","refresh_token": "YOUR_REFRESH_TOKEN"}'
+  --data 'grant_type=refresh_token&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&refresh_token=YOUR_REFRESH_TOKEN'
 ```
 
 ```javascript
@@ -432,12 +412,12 @@ var request = require("request");
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
   headers: { 'content-type': 'application/x-www-form-urlencoded' },
-  body:
+  form:
    { grant_type: 'refresh_token',
      client_id: '${account.clientId}',
      client_secret: 'YOUR_CLIENT_SECRET',
-     refresh_token: 'YOUR_REFRESH_TOKEN'},
-  json: true };
+     refresh_token: 'YOUR_REFRESH_TOKEN'}
+   };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);

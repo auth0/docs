@@ -126,20 +126,15 @@ If OTP is supported by the user and you don't want to request a different factor
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/x-www-form-urlencoded
-{
-  "client_id": "${account.clientId}",
-  "client_secret": "YOUR_CLIENT_SECRET",
-  "mfa_token": "MFA_TOKEN",
-  "grant_type": "http://auth0.com/oauth/grant-type/mfa-otp",
-  "otp": "OTP_CODE"
-}
+
+client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&mfa_token=MFA_TOKEN&grant_type=http%3A%2F%2Fauth0.com%2Foauth%2Fgrant-type%2Fmfa-otp&otp=OTP_CODE
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data '{"mfa_token":"MFA_TOKEN", "otp":"OTP_CODE", "grant_type": "http://auth0.com/oauth/grant-type/mfa-otp", "client_id": "${account.clientId}", "client_secret": "YOUR_CLIENT_SECRET"}'
+  --data 'mfa_token=MFA_TOKEN&otp=OTP_CODE&grant_type=http://auth0.com/oauth/grant-type/mfa-otp&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET'
 ```
 
 ```javascript
@@ -148,13 +143,13 @@ var request = require("request");
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
   headers: { 'content-type': 'application/x-www-form-urlencoded' },
-  body:
+  form:
    { mfa_token: 'MFA_TOKEN',
      otp: 'OTP_CODE',
      grant_type: 'http://auth0.com/oauth/grant-type/mfa-otp',
      client_id: '${account.clientId}',
-     client_secret: 'YOUR_CLIENT_SECRET' },
-  json: true };
+     client_secret: 'YOUR_CLIENT_SECRET' }
+   };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -206,21 +201,15 @@ The response is the same as responses for `password` or `http://auth0.com/oauth/
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/x-www-form-urlencoded
-{
-  "client_id": "${account.clientId}",
-  "client_secret": "YOUR_CLIENT_SECRET",
-  "mfa_token": "MFA_TOKEN",
-  "grant_type": "http://auth0.com/oauth/grant-type/mfa-oob",
-  "oob_code": "OOB_CODE",
-  "binding_code": "BINDING_CODE"
-}
+
+client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&mfa_token=MFA_TOKEN&grant_type=http%3A%2F%2Fauth0.com%2Foauth%2Fgrant-type%2Fmfa-oob&oob_code=OOB_CODE&binding_code=BINDING_CODE
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data '{"mfa_token":"MFA_TOKEN", "oob_code": "OOB_CODE", "binding_code": "BINDING_CODE", "grant_type": "http://auth0.com/oauth/grant-type/mfa-oob", "client_id": "${account.clientId}", "client_secret": "YOUR_CLIENT_SECRET"}'
+  --data 'client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&mfa_token=MFA_TOKEN&grant_type=http://auth0.com/oauth/grant-type/mfa-oob&oob_code=OOB_CODE&binding_code=BINDING_CODE'
 ```
 
 ```javascript
@@ -229,14 +218,14 @@ var request = require("request");
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
   headers: { 'content-type': 'application/x-www-form-urlencoded' },
-  body:
+  form:
    { mfa_token: 'MFA_TOKEN',
      oob_code: "OOB_CODE",
      binding_code: "BINDING_CODE"
      grant_type: 'http://auth0.com/oauth/grant-type/mfa-oob',
      client_id: '${account.clientId}',
-     client_secret: 'YOUR_CLIENT_SECRET' },
-  json: true };
+     client_secret: 'YOUR_CLIENT_SECRET' }
+   };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -314,20 +303,15 @@ When the challenge response includes a `binding_method: prompt`, your app needs 
 ```http
 POST https://${account.namespace}/oauth/token
 Content-Type: application/x-www-form-urlencoded
-{
-  "client_id": "${account.clientId}",
-  "client_secret": "YOUR_CLIENT_SECRET",
-  "mfa_token": "MFA_TOKEN",
-  "grant_type": "http://auth0.com/oauth/grant-type/mfa-recovery-code",
-  "recovery_code": "RECOVERY_CODE"
-}
+
+client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&mfa_token=MFA_TOKEN&grant_type=http%3A%2F%2Fauth0.com%2Foauth%2Fgrant-type%2Fmfa-recovery-code&recover_code=RECOVERY_CODE
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data '{"mfa_token":"MFA_TOKEN", "recovery_code":"RECOVERY_CODE", "grant_type": "http://auth0.com/oauth/grant-type/mfa-recovery-code", "client_id": "${account.clientId}", "client_secret": "YOUR_CLIENT_SECRET"}'
+  --data 'client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&mfa_token=MFA_TOKEN&grant_type=http://auth0.com/oauth/grant-type/mfa-recover-code&recover_code=RECOVERY_CODE'
 ```
 
 ```javascript
@@ -336,13 +320,13 @@ var request = require("request");
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
   headers: { 'content-type': 'application/x-www-form-urlencoded' },
-  body:
+  form:
    { mfa_token: 'MFA_TOKEN',
      recovery_code: 'RECOVERY_CODE',
      grant_type: 'http://auth0.com/oauth/grant-type/mfa-recover-code',
      client_id: '${account.clientId}',
-     client_secret: 'YOUR_CLIENT_SECRET' },
-  json: true };
+     client_secret: 'YOUR_CLIENT_SECRET' }
+   };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);

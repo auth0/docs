@@ -50,8 +50,37 @@ In order to execute the flow the application needs to acquire the Resource Owner
     { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+        {
+          "name": "grant_type",
+          "value": "password"
+        },
+        {
+          "name": "username",
+          "value": "user@example.com"
+        },
+        {
+          "name": "password",
+          "value": "pwd"
+        },
+        {
+          "name": "audience",
+          "value": "YOUR_API_IDENTIFIER"
+        },
+        {
+          "name": "scope",
+          "value": "read:sample"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "client_secret",
+          "value": "YOUR_CLIENT_SECRET"
+        }
+    ]
   }
 }
 ```
@@ -106,8 +135,41 @@ To use this variation you will have to change the following request parameters:
     { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"http://auth0.com/oauth/grant-type/password-realm\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"realm\": \"employees\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+        {
+          "name": "grant_type",
+          "value": "password"
+        },
+        {
+          "name": "username",
+          "value": "user@example.com"
+        },
+        {
+          "name": "password",
+          "value": "pwd"
+        },
+        {
+          "name": "audience",
+          "value": "YOUR_API_IDENTIFIER"
+        },
+        {
+          "name": "scope",
+          "value": "read:sample"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "client_secret",
+          "value": "YOUR_CLIENT_SECRET"
+        }
+        {
+          "name": "realm",
+          "value": "employees"
+        }
+    ]
   }
 }
 ```

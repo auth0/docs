@@ -89,18 +89,19 @@ An authorization code can be exchanged in the same way in both pipelines:
         },
         {
           "name": "client_id",
-          "value": "123"
+          "value": "${account.clientId}"
         },
         {
           "name": "client_secret",
-          "value": "...."
+          "value": "YOUR_CLIENT_SECRET"
         },
         {
           "name": "code",
-          "value": "SplxlOBeZQQYbYS6WxSbIA"
+          "value": "YOUR_AUTHORIZATION_CODE"
         },
         {
-          "redirect_uri": "https://app.example.com/callback"
+          "name": "redirect_ui",
+          "value": "${account.callback}"
         }
       ]
     }
