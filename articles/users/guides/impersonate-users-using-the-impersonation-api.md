@@ -140,8 +140,29 @@ The following steps assume that you have two apps, `app1` and `app2`, and you wa
        { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
      ],
      "postData": {
-       "mimeType": "application/x-www-form-urlencoded",
-       "text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"AUTHORIZATION_CODE\",\"grant_type\": \"authorization_code\",\"redirect_uri\": \"${account.callback}\"}"
+        "mimeType": "application/x-www-form-urlencoded",
+        "params": [
+          {
+            "name": "grant_type",
+            "value": "authorization_code"
+          },
+          {
+            "name": "client_id",
+            "value": "${account.clientId}"
+          },
+          {
+            "name": "client_secret",
+            "value": "YOUR_CLIENT_SECRET"
+          },
+          {
+            "name": "code",
+            "value": "YOUR_AUTHORIZATION_CODE"
+          },
+          {
+            "name": "redirect_uri",
+            "value": "${account.callback}"
+          }
+        ]
      }
    }
    ```

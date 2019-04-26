@@ -32,7 +32,36 @@ When a user begins the authorization process without an active authenticator ass
   ],
   "postData": {
     "mimeType": "application/x-www-form-urlencoded",
-    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}"
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "password"
+      },
+      {
+        "name": "username",
+        "value": "user@example.com"
+      },
+      {
+        "name": "password",
+        "value": "pwd"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "audience",
+        "value": "https://someapi.com/api"
+      },
+      {
+        "name": "scope",
+        "value": "read:sample"
+      }
+    ]
   }
 }
 ```
@@ -105,8 +134,29 @@ To confirm the association of an authenticator using OTP, make a `POST` request 
     { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
 	"postData": {
-		"mimeType": "application/x-www-form-urlencoded",
-		"text": "{ \"client_id\": \"YOUR_CLIENT_ID\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"grant_type\": \"http://auth0.com/oauth/grant-type/mfa-otp\", \"mfa_token\": \"YOUR_MFA_TOKEN\", \"otp\": \"000000\" }"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "http://auth0.com/oauth/grant-type/mfa-otp"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "mfa_token",
+        "value": "YOUR_MFA_TOKEN"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "otp",
+        "value": "000000"
+      }
+    ]
 	}
 }
 ```

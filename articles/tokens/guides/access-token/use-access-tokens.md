@@ -49,7 +49,24 @@ Server-to-server Access Tokens can be obtained using the [Client Credentials Flo
   ],
   "postData": {
     "mimeType": "application/x-www-form-urlencoded",
-    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"https://api.example.com/geocoding/v1/\"}"
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "client_credentials"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "audience",
+        "value": "https://api.example.com/geocoding/v1/"
+      }
+    ]
   }
 }
 ```

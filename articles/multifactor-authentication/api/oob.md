@@ -86,8 +86,29 @@ To confirm the association of an authenticator using SMS messages for the MFA ch
     { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
 	"postData": {
-		"mimeType": "application/x-www-form-urlencoded",
-		"text": "{ \"client_id\": [\"YOUR_CLIENT_ID\"], \"grant_type\": \"http://auth0.com/oauth/grant-type/mfa-oob\", \"mfa_token\": \"YOUR_MFA_TOKEN\", \"oob_code\": \"ata...i0i\", \"binding_code\": \"000000\" }"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "http://auth0.com/oauth/grant-type/mfa-oob"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "mfa_token",
+        "value": "YOUR_MFA_TOKEN"
+      },
+      {
+        "name": "oob_code",
+        "value": "ata...i0i"
+      },
+      {
+        "name": "binding_code",
+        "value": "000000"
+      }
+    ]
 	}
 }
 ```

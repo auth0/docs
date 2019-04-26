@@ -74,7 +74,28 @@ Once the user authenticates successfully, the application will be redirected to 
   ],
   "postData": {
     "mimeType": "application/x-www-form-urlencoded",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "authorization_code"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "code",
+        "value": "YOUR_AUTHORIZATION_CODE"
+      },
+      {
+        "name": "redirect_uri",
+        "value": "${account.callback}"
+      }
+    ]
   }
 }
 ```
@@ -109,19 +130,30 @@ To exchange the Refresh Token you received during authorization for a new Access
 {
     "method": "POST",
     "url": "https://${account.namespace}/oauth/token",
-    "httpVersion": "HTTP/1.1",
-    "cookies": [],
     "headers": [
       { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
     ],
-    "queryString" : [],
     "postData" : {
       "mimeType": "application/x-www-form-urlencoded",
-      "text" : "{ \"grant_type\": \"refresh_token\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"refresh_token\": \"YOUR_REFRESH_TOKEN\" }"
-    },
-    "headersSize" : 150,
-    "bodySize" : 0,
-    "comment" : ""
+      "params": [
+        {
+          "name": "grant_type",
+          "value": "refresh_token"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "client_secret",
+          "value": "YOUR_CLIENT_SECRET"
+        },
+        {
+          "name": "refresh_token",
+          "value": "YOUR_REFRESH_TOKEN"
+        }
+      ]
+    }
 }
 ```
 
