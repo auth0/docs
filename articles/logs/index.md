@@ -114,7 +114,6 @@ As an alternative or complement to retrieving logs by checkpoint or search crite
 
 * [/api/v2/logs/{id}](/api/v2#!/Logs/get_logs_by_id): Retrieves the single log entry associated with the provided log id.
 * [/api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user): Retrieves log events for a specific user id.
-`every`.
 
 ## Log data event listing
 
