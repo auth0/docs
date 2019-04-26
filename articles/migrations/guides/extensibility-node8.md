@@ -20,11 +20,22 @@ useCase:
 ---
 # Migration Guide: Extensibility and Node 8
 
-Beginning April 30, 2018, [Node.js v4 will be going out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team will no longer be back-porting critical security fixes to this version and this _could_ expose your extensibility code to security vulnerabilities.
+Beginning April 30, 2019, [Node.js v4 will be going out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team will no longer be back-porting critical security fixes to this version and this _could_ expose your extensibility code to security vulnerabilities.
 
 As such, Auth0 will be migrating from Node 4 to Node 8.
 
-We will **NOT** be shutting down the Node 4 runtime after the April 30 LTS deadline. Your extensibility code will continue to run on Node 4, if you choose not to upgrade to Node 8 at this time. After April 30, you will assume the risk of potential security issues if you choose to continue with Node 4.
+We will **NOT** be shutting down the Node 4 runtime after the April 30, 2018 LTS deadline. If you choose not to migrate your tenants, then they will be migrated automatically. Automatic migrations will begin on April 29, 2019, and continue through June 30, 2019. Automatic migrations are happening in cohorts: 
+* Free tier tenants
+* Self-serve tenants will follow through early May 2019
+* Enterprise tenants will be migrated in late May and June 2019
+
+Customers will be notified two weeks in advance of their automatic migration date, with additional periodic reminders leading up to their automatic migration date.
+
+Your extensibility code will continue to run on Node 4 until June 30, 2019, if you choose not to upgrade to Node 8 at this time. After April 30, you will assume the risk of potential security issues if you choose to continue with Node 4. 
+
+::: warning
+Tenant automatic upgrade to Node 4 will be completed by June 30, 2019.
+:::
 
 In this document, we:
 
@@ -47,12 +58,27 @@ Due to the end of long-term support (LTS) for Node 4, we will be migrating the W
 
 However, there may be behavioral changes as a result of this migration. As such, we have provided a migration switch that allows you to control the migration of your environment to the new Webtask runtime using Node 8.
 
+::: note
+Private Cloud and Managed Private Cloud (PSaaS) customers are already 100% migrated, and need to take no action.
+:::
+
 ### Important Dates
 
 * **2018 April 17**: The Webtask runtime using Node 8 becomes available to Auth0 customers
 * **2018 April 23**: All official Auth0 Extensions will be updated to run on Node 8 and available for you to upgrade in the **Installed Extensions** tab of the [Extensions page](${manage_url}/#/extensions)
 * **2018 April 30**: [Node 4 is no longer under long-term support (LTS)](https://github.com/nodejs/Release#release-schedule)
 * **2018 April 30**: Tenants with NO Extensibility code will be automatically be upgraded to use Node 8
+* **2019 April 29**: All Auth0 tenants on the Auth0 public cloud which have not already migrated to the Node.js 8 runtime, will be automatically migrated between April 29, 2019 and June 30, 2019
+* **2019 June 30**: Your extensibility code will continue to run on Node 4 until this date
+* **2019 July 26**: Any tenants created after this date are already using the Node.js 8 runtime, and no action is required.
+
+### Migration Assistant
+
+We have created a [migration assistant](https://github.com/auth0/webtask-migration-assistant) to help ease the copying of code between production and development tenants.
+
+Please be sure to test each script *individually* with its associated **Try** button. You may, however, test all rules simultaneously with the **Try All Rules With** button.
+
+In addition, test _logging in_ using the development tenant to ensure that all of the items that you have set up work as expected.
 
 ## How to enable the Node 8 runtime
 
@@ -145,20 +171,6 @@ When using the [Connections](/api/management/v2#!/Connections) endpoints in the 
 Similarly, you can find Custom Social Connections in `options.scripts.fetchUserProfile`.
 
 You will need to manually copy over any Hooks-related code that you use since they cannot be accessed via the Management API.
-
-### Migration assistance
-
-We have created a [migration assistant](https://github.com/auth0/webtask-migration-assistant) to help ease the copying of code between production and development tenants.
-
-Please be sure to test each script *individually* with its associated **Try** button. You may, however, test all rules simultaneously with the **Try All Rules With** button.
-
-In addition, test _logging in_ using the development tenant to ensure that all of the following items that you have set up work as expected:
-
-* Rules
-* Hooks
-* Database Connections
-* Custom Social Connections
-* Extensions
 
 ## Affected modules
 
