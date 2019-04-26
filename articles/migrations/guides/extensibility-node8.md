@@ -20,7 +20,7 @@ useCase:
 ---
 # Migration Guide: Extensibility and Node 8
 
-Beginning April 30, 2019, [Node.js v4 will be going out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team will no longer be back-porting critical security fixes to this version and this _could_ expose your extensibility code to security vulnerabilities.
+Beginning April 30, 2018, [Node.js v4 will be going out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team will no longer be back-porting critical security fixes to this version and this _could_ expose your extensibility code to security vulnerabilities.
 
 As such, Auth0 will be migrating from Node 4 to Node 8.
 
