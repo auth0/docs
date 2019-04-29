@@ -53,7 +53,7 @@ For example, let's say you have an API that provides data for an event applicati
 Currently, we provide two ways of implementing [role-based access control (RBAC)](/authorization/concepts/rbac), which you can use in place of or in combination with your API's own internal access control system:
 
 * [Authorization core feature set](/authorization/guides/how-to)
-* [Authorization Extension](/extensions/authorization/extension)
+* [Authorization Extension](/extensions/authorization-extension)
 
 We are expanding our Authorization core feature set to match the functionality of the Authorization Extension and expect a final release in 2019. Our new core RBAC implementation improves performance and scalability and will eventually provide a more flexible RBAC system than the Authorization Extension.
 
