@@ -23,4 +23,4 @@ Our support team strives to assist you to the best of our ability. However, we a
 
 * Migrating a tenant from one region to another (for example, from US to EU)
 
-* Ad-hoc usage data reports.
+* Ad hoc usage data reports.
