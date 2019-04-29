@@ -158,6 +158,8 @@ You can set up a different Redirect To URLs based on your application name. For 
 {% if application.name == 'JWT.io' %} https://jwt.io {% else %} https://auth0.com {% endif %}
 ```
 
+Because the application name is encoded for security, you should always use an encoded value (especially if your application name contains a character that changes once encoded). For example, you'll want to use `My%20App` instead of `My App`.
+
 ::: note
 For some single-page apps, the redirect to url can sometimes contain a hash that may be removed. This results in the **redirect To** url not working as expected. For more information, see: [Single-Page App Email Redirect Issue](/email/spa-redirect).
 :::
