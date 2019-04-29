@@ -24,17 +24,18 @@ Beginning April 30, 2018, [Node.js v4 will be going out of long-term support (LT
 
 As such, Auth0 will be migrating from Node 4 to Node 8.
 
-We will **NOT** be shutting down the Node 4 runtime after the April 30, 2018 LTS deadline. If you choose not to migrate your tenants, then they will be migrated automatically. Automatic migrations will begin on April 29, 2019, and continue through June 30, 2019. Automatic migrations are happening in cohorts: 
-* Free tier tenants
-* Self-serve tenants will follow through early May 2019
-* Enterprise tenants will be migrated in late May and June 2019
+We will **NOT** be shutting down the Node 4 runtime environment after the April 30, 2018 LTS deadline. If you don't choose to migrate your tenants manually, they will be migrated automatically. Automatic migrations begin April 29, 2019 and will continue through June 30, 2019. Automatic migrations will happen in cohorts:
 
-Customers will be notified two weeks in advance of their automatic migration date, with additional periodic reminders leading up to their automatic migration date.
+1. Free tier tenants
+2. Self-serve tenants will follow through early May 2019
+3. Enterprise tenants will be migrated in late May and June 2019
 
-Your extensibility code will continue to run on Node 4 until June 30, 2019, if you choose not to upgrade to Node 8 at this time. After April 30, you will assume the risk of potential security issues if you choose to continue with Node 4. 
+Customers will be notified two weeks in advance of their automatic migration date, along with additional periodic reminders leading up to their automatic migration date.
+
+Your extensibility code will continue to run on Node 4 until June 30, 2019 if you choose not to upgrade to Node 8 at this time. After April 30, you will assume the risk of potential security issues if you choose to continue with Node 4. 
 
 ::: warning
-Tenant automatic upgrade to Node 4 will be completed by June 30, 2019.
+Automatic tenant upgrades to Node 4 will be completed by June 30, 2019.
 :::
 
 In this document, we:
@@ -59,7 +60,7 @@ Due to the end of long-term support (LTS) for Node 4, we will be migrating the W
 However, there may be behavioral changes as a result of this migration. As such, we have provided a migration switch that allows you to control the migration of your environment to the new Webtask runtime using Node 8.
 
 ::: note
-Private Cloud and Managed Private Cloud (PSaaS) customers are already 100% migrated, and need to take no action.
+Private Cloud and Managed Private Cloud (PSaaS) customers have had their tenants migrated already. No further action is necessary.
 :::
 
 ### Important Dates
@@ -68,7 +69,7 @@ Private Cloud and Managed Private Cloud (PSaaS) customers are already 100% migra
 * **2018 April 23**: All official Auth0 Extensions will be updated to run on Node 8 and available for you to upgrade in the **Installed Extensions** tab of the [Extensions page](${manage_url}/#/extensions)
 * **2018 April 30**: [Node 4 is no longer under long-term support (LTS)](https://github.com/nodejs/Release#release-schedule)
 * **2018 April 30**: Tenants with NO Extensibility code will be automatically be upgraded to use Node 8
-* **2019 April 29**: All Auth0 tenants on the Auth0 public cloud which have not already migrated to the Node.js 8 runtime, will be automatically migrated between April 29, 2019 and June 30, 2019
+* **2019 April 29**: All Auth0 tenants on the Auth0 public cloud that have not already migrated to the Node.js 8 runtime will be automatically migrated between April 29, 2019 and June 30, 2019
 * **2019 June 30**: Your extensibility code will continue to run on Node 4 until this date
 * **2019 July 26**: Any tenants created after this date are already using the Node.js 8 runtime, and no action is required.
 
