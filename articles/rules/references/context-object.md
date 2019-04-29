@@ -37,7 +37,8 @@ The following properties are available for the `context` object.
 | `context.original_protocol` | After a [redirect rule](/rules/current/redirect) has executed and the authentication transaction is resumed, this property will be populated with the original protocol used to initiate the transaction. |
 | `context.multifactor` | An object representing the multifactor settings used in [implementing contextual MFA](/multifactor-authentication/custom). |
 | `context.redirect` | The object used to [implement the redirection of a user from a rule](/rules/current/redirect#how-to-implement-a-redirect). |
-| `context.sessionID` | Unique id for the authentication session. Value is kept only if `prompt=none`. |
+| `context.sessionID` | An identification for the authentication session. Value is kept only if `prompt=none` is used in the authorization request. 
+Note that the session ID might change **after** a rule execution on other flows, so do not rely on this value except when using `prompt=none`. |
 | `context.request` | <%= include('../_includes/_context-prop-request.md') %> |
 | `context.primaryUser` | The unique user id of the primary account for the user. Used to [link user accounts](/link-accounts#automatic-account-linking) from various identity providers. |
 | `context.authentication` | <%= include('../_includes/_context-prop-authentication.md') %> |
