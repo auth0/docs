@@ -1,6 +1,6 @@
 ---
 section: libraries
-description: When should you use Lock, Auth0's drop-in authentication widget, and when should you use a custom UI with an Auth0 Library? This page will help you decide.
+description: When customizing the Universal Login page, when should you use Lock, Auth0's drop-in authentication widget, and when should you use a custom UI with an Auth0 Library? This page will help you decide.
 topics:
   - libraries
   - lock
@@ -11,7 +11,7 @@ useCase:
   - add-login
   - enable-mobile-auth
 ---
-# Lock vs. a Custom UI
+# Universal Login page customization: Lock vs. a Custom UI
 
 When adding Auth0 to your web apps, the best solution is to use Auth0's [Universal Login](/hosted-pages/login). Using Universal Login is an incredibly simple process, and prevents the dangers of cross-origin authentication. The login page uses the Lock Widget to allow your users to authenticate by default, but also has templates for Lock Passwordless and for a custom UI built with Auth0.js SDK. You can customize the page in the [Hosted Pages Editor](${manage_url}/#/login_page), and use any of the following to implement your authentication needs.
 
