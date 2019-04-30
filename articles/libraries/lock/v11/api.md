@@ -261,7 +261,7 @@ var Auth = (function() {
 
 ## resumeAuth()
 
-If you set the [auth.autoParseHash](/libraries/lock/v11/configuration#autoparsehash-boolean-) option to `false`, you'll need to call this method to complete the authentication flow. This method is useful when you're using a client-side router that uses a `#` to handle urls (angular2 with `useHash`, or react-router with `hashHistory`).
+This method can only be used when you set the [auth.autoParseHash](/libraries/lock/v11/configuration#autoparsehash-boolean-) option to `false`. You'll need to call `resumeAuth` to complete the authentication flow. This method is useful when you're using a client-side router that uses a `#` to handle urls (angular2 with `useHash`, or react-router with `hashHistory`).
 
 - **hash** {String}: The hash fragment received from the redirect.
 - **callback** {Function}: Will be invoked after the parse is done. Has an error (if any) as the first argument and the authentication result as the second one. If there is no hash available, both arguments will be `null`.
