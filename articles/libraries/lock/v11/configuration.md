@@ -48,11 +48,6 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [logo](#logo-string-) | What logo should be used |
 | [primaryColor](#primarycolor-string-) | Color of the primary button on the widget |
 
-### Social
-
-| Option | Description |
-| --- | --- |
-| [socialButtonStyle](#socialbuttonstyle-string-) | Force small or large social connection buttons |
 
 ### Authentication
 
@@ -400,49 +395,6 @@ var options = {
 ![Lock - Theme - Primary Color](/media/articles/libraries/lock/v10/customization/lock-theme-primarycolor.png)
 
 ## Social Options
-
-### socialButtonStyle {String}
-
-Determines the size of the buttons for the social providers. Possible values are `big` and `small`. The default style depends on the connections that are available:
-
-- If only social connections are available, it will default to `big` when there are 5 connections at most, and default to `small` otherwise.
-- If connections from types other than social are also available, it will default to `big` when there are 3 social connections at most, and default to `small` otherwise.
-
-First example, with three social connections, and other connections (in this case, a username-password connection) - with forced small buttons.
-
-```js
-var options = {
-  socialButtonStyle: 'small'
-};
-```
-
-![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-small.png)
-
-Second example, with `socialButtonStyle` remaining at default behavior - three social connections, with no other connections enabled for this application in the dashboard.
-
-```js
-var options = {};
-```
-
-![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-default-social.png)
-
-Third example, with `socialButtonStyle` remaining at default behavior - the app has three social connections, with other connections turned on in the dashboard (in this case, a username-password connection).
-
-```js
-var options = {};
-```
-
-![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-default.png)
-
-Fourth example, with three social connections, and no other connections enabled in the dasbboard, but with forced small buttons.
-
-```js
-var options = {
-  socialButtonStyle: 'small'
-};
-```
-
-![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-small-social.png)
 
 ## Authentication Options
 
