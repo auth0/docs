@@ -2161,6 +2161,10 @@ module.exports = [
     {
       from: '/api-auth/intro',
       to: '/api-auth/tutorials/adoption'
+    },
+    {
+      from: '/authorization/concepts/rbac',
+      to: '/dashboard/guides/apis/enable-rbac'
     }
 
 ];

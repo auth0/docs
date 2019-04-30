@@ -34,5 +34,5 @@ By default, any user of any application can ask for any permission defined here.
 
 - [Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)
 - [Represent Multiple APIs Using a Single Logical API in Auth0](/api-auth/tutorials/represent-multiple-apis)
-- [Role-Based Access Control (RBAC)](/authorization/concepts/rbac)
+- [Role-Based Access Control (RBAC)](/dashboard/guides/apis/enable-rbac)
 - [Enable Role-Based Access Control for APIs](/authorization/guides/enable-rbac)
