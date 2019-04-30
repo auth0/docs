@@ -180,7 +180,3 @@ The solution for the Kerberos case is to [migrate to Universal Login](#1-migrate
 ### How to tell if you have deprecated usage
 
 Please take a look at the [Deprecation Error Reference](/errors/deprecation-errors) to assist with verifying that your application does, or does not, use deprecated features.
-
-### Bookmarking the login page
-
-Bookmarking the Universal Login page is not supported. If a user bookmarks the login page and attempts to initiate authentication by going directly to the bookmarked URL instead of starting from the application, the following error message will be shown: `Password login is disabled for clients using externally hosted login pages with oidc_conformant flag set`.
