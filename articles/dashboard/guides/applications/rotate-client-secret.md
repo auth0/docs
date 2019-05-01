@@ -37,4 +37,3 @@ You can view your new secret by selecting the **Reveal client secret** checkbox.
 3. Update authorized applications
 
 After you rotate your client secret, you must update any authorized applications with the new value.
-s
