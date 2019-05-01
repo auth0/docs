@@ -214,9 +214,6 @@ Use this to create the POST request:
 }
 ```
 
-::: note
-You can use the [auth0-rules-testharness library](https://www.npmjs.com/package/auth0-rules-testharness) to deploy, execute, and test the output of Rules using a Webtask sandbox environment.
-:::
 
 ## How to Debug Rules
 
