@@ -15,12 +15,11 @@ useCase:
 
 When adding Auth0 to your web apps, the best solution is to use Auth0's [Universal Login](/hosted-pages/login). If you plan to use the [New Experience](/universal-login/new), you won't even need to choose an Auth0 library to use inside of the login page, and can stop here. If you are using the [Classic Experience](/universal-login/classic), this guide will help you choose a technology to power your login page.
 
-Using Universal Login is typically a less complex process than embedding the authentication process within your app, and prevents the dangers of cross-origin authentication. The Classic login page uses the Lock Widget by default to allow your users to authenticate, but also has templates for Lock in Passwordless Mode and for a custom UI built with the Auth0.js SDK. You can customize the page in the [Universal Login Page Editor](${manage_url}/#/login_page), and use any of the following to implement your authentication needs.
+Universal Login is less complex than embedding the authentication process within your app. It also prevents the dangers of cross-origin authentication.
 
-* Lock, Auth0's drop-in login and signup widget
-  * [Lock for Web](/libraries/lock)
-  * [Lock for iOS](/libraries/lock-ios)
-  * [Lock for Android](/libraries/lock-android)
+The Classic login page uses the Lock Widget by default for user authentication. It also has templates for Lock in Passwordless Mode and for a custom UI built with the Auth0.js SDK. 
+
+* [Lock for Web](/libraries/lock), Auth0's drop-in login and signup widget
 * The [Auth0 SDK for Web](/libraries/auth0js) with your custom designed interface
 * Or, a custom user interface that you have created which directly ties into the [Authentication API](/auth-api).
 
