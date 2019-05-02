@@ -20,9 +20,9 @@ useCase:
 This tutorial will help you call your own API from a native/mobile app using the Authorization Code Flow with PKCE. If you want to learn how the flow works and why you should use it, see [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce). If you want to learn to add login to your native/mobile app, see [Add Login Using Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce).
 :::
 
-Auth0 makes it easy for your app to implement the mobile login flow using:
+Auth0 makes it easy for your app to implement the Authorization Code flow with PKCE using:
 
-* [Auth0 Mobile SDKs](/libraries#auth0-sdks): The easiest way to implement the mobile login flow, which will do most of the heavy-lifting for you. Our [Mobile Quickstarts](/quickstart/native) will walk you through the process.
+* [Auth0 Mobile SDKs](/libraries#auth0-sdks): The easiest way to implement the flow, which will do most of the heavy-lifting for you. Our [Mobile Quickstarts](/quickstart/native) will walk you through the process.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
 
@@ -38,9 +38,7 @@ Auth0 makes it easy for your app to implement the mobile login flow using:
 * [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
   * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
 
-## Steps
-
-When your app needs to access 
+## Steps 
 
 1. [Create a code verifier](#create-a-code-verifier): 
 Generate a `code_verifier` that will be sent to Auth0 to request tokens.
