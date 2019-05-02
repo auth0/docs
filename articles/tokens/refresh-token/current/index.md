@@ -184,8 +184,6 @@ You should only ask for a new token if the Access Token has expired or you want 
 
 Since Refresh Tokens never expire, it is essential to be able to revoke them in case they get compromised.
 
-For the Device Authorization Flow, the only wy to revoke a device authorization is to revoke the Refresh Token assigned to the device. To learn how, see [Remove Devices from Users](/dashboard/guides/users/remove-devices-users).
-
 Auth0 handles token revocation as though the token has been potentially exposed to malicious adversaries. Therefore, each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, application, and audience will be revoked**.
 
 You can revoke a Refresh Token by:

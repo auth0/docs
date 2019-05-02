@@ -18,8 +18,6 @@ As of 8 June 2017, new Auth0 customers **cannot** add legacy grant types to thei
 :::
 
 ::: panel Troubleshooting
-* The device code grant type is only available for native apps.
-
 * Attempting to use a flow with an Application lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
 
 ```text
