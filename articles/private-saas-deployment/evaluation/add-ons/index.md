@@ -22,39 +22,49 @@ The follow add-on options are available to private cloud customers:
     </thead>
     <tbody>
         <tr>
-            <th>Enhanced Uptime Guarantee (SLA)</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th><a href="#">Enhanced Uptime Guarantee (SLA)</a></th>
+            <th class="label label-success">Yes</th>
+            <th class="label label-success">Yes</th>
+            <th class="label label-success">Yes</th>
+            <th class="label label-danger">No</th>
         </tr>
         <tr>
-            <th>High Capacity</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th><a href="#">High Capacity</a></th>
+            <th class="label label-success">Yes</th>
+            <th class="label label-success">Yes</th>
+            <th class="label label-success">Yes</th>
+            <th class="label label-danger">No</th>
         </tr>
         <tr>
-            <th>PCI Certified</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th><a href="#">PCI Certified</a></th>
+            <th class="label label-danger">No</th>
+            <th class="label label-success">Yes</th>
+            <th class="label label-success">Yes</th>
+            <th class="label label-danger">No</th>
         </tr>
         <tr>
-            <th>GEO-HA</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th><a href="#">GEO-HA</a></th>
+            <th class="label label-success">Yes</th>
+            <th class="label label-success">Yes</th>
+            <th class="label label-danger">No</th>
+            <th class="label label-danger">No</th>
         </tr>
         <tr>
-            <th>Additional Staging Instance</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th><a href="#">Additional Staging Instance</a></th>
+            <th class="label label-success">Yes</th>
+            <th class="label label-success">Yes</th>
+            <th class="label label-danger">No</th>
+            <th class="label label-danger">No</th>
         </tr>
     </tbody>
 </table>
+
+## Enhanced Uptime Guarantee (SLA)
+
+## High Capacity
+
+## PCI Certified
+
+## GEO-HA
+
+## Additional Staging Instance

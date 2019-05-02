@@ -21,7 +21,3 @@ With a Managed Private Cloud, we will work closely with you to make sure that al
 | Staging Environment | Dedicated environment to test new releases and changes |
 | GEO-HA | Optional. Add-on available for Geographic High Availability. |
 | Customer-Hosting | Optional. Can host your Auth0 deployment in an AWS cloud owned by you |
-
-## Next steps
-
-[Onboarding with the Private Cloud](#)
