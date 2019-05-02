@@ -61,7 +61,7 @@ npm install react-native-auth0 --save
 ### yarn
 
 ```bash
-yarn add --dev react-native-auth0
+yarn add react-native-auth0
 ```
 
 ::: note
