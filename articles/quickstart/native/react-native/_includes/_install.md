@@ -15,7 +15,7 @@ For more information about npm usage, check [their official documentation](https
 ### yarn
 
 ```bash
-yarn add --dev react-native-auth0
+yarn add react-native-auth0
 ```
 
 ::: note
