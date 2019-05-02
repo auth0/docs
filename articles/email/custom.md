@@ -10,15 +10,13 @@ useCase: customize-emails
 
 The default email flow in Auth0 can address the requirements of most applications, but there may be instances where more flexibility is required. For example:
 
- * Localization
- * Custom **Redirect To** URLs based on the user or tenant
- * Different email templates per application or tenant
+* Localization
+* Custom **Redirect To** URLs based on the user or tenant
+* Different email templates per application or tenant
 
 The Auth0 Management API provides endpoints that allow you to completely manage email flow, and control when and how emails are sent.
 
 To begin, you will need to disable automatic emails by deselecting **Status** under the **Verification Email** and **Welcome Email** tabs on the [Email Templates](${manage_url}/#/emails) page of the Auth0 dashboard.
-
-![Disable Verification Email](/media/articles/email/custom/email-custom.png)
 
 ## Verification Email
 

@@ -87,9 +87,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
         // Set response type to code
         ResponseType = "code",
 
-        // Set the callback path, so Auth0 will call back to http://localhost:5000/signin-auth0
+        // Set the callback path, so Auth0 will call back to http://localhost:3000/callback
         // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard
-        CallbackPath = new PathString("/signin-auth0"),
+        CallbackPath = new PathString("/callback"),
 
         // Configure the Claims Issuer to be Auth0
         ClaimsIssuer = "Auth0"
@@ -107,13 +107,13 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-Also note above that the list of scopes is cleared and only the `openid` scope is requested. By default the OIDC middleware will request both the `openid` and the `profile` scopes and can result in a large ID Token being returned. It is suggested that you be more explicit about the scopes you want to be returned and not ask for the entire profile to be returned. Requesting additional scopes is discussed later in the [User Profile step](/quickstart/webapp/aspnet-core/04-user-profile).
+Also note above that the list of scopes is cleared and only the `openid` scope is requested. By default the OIDC middleware will request both the `openid` and the `profile` scopes and can result in a large ID Token being returned. It is suggested that you be more explicit about the scopes you want to be returned and not ask for the entire profile to be returned. Requesting additional scopes is discussed later in the [User Profile step](/quickstart/webapp/aspnet-core/02-user-profile).
 
 ### Obtaining an Access Token for calling an API
 
 You may want to call an API from your MVC application, in which case you need to obtain an Access Token which was issued for the particular API you want to call. In this case you will need to pass an extra `audience` parameter containing the API Identifier to the Auth0 authorization endpoint.
 
-If you want to do this, simply handle the `OnRedirectToIdentityProvider` event when configuring the `OpenIdConnectOptions` object, and add the `audience` parameter to the `ProtocolMessage`
+If you want to do this, simply handle the `OnRedirectToIdentityProvider` event when configuring the `OpenIdConnectOptions` object, and add the `audience` parameter to the `ProtocolMessage`.
 
 ```csharp
 var options = new OpenIdConnectOptions("Auth0")
@@ -208,7 +208,7 @@ It will also pass along the Redirect URL (when specified) in the `returnTo` para
 
 ### Add Login and Logout Links
 
-Lastly, add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:  
+Lastly, add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
 ```html
 <!-- Views/Shared/_Layout.cshtml -->
@@ -249,11 +249,11 @@ Now, when you run the application you can select the Login link to log into the 
 
 ::: panel Understanding the Login Flow
 
-1. The user clicks on the Login link and is directed to the `Login` route
-2. This returns a `ChallengeResult` which instructs the ASP.NET Authentication middleware to issue a challenge to the Authentication middleware which is registered with the `authenticationScheme` of `Auth0`. (When we created the instance of `OpenIdConnectOptions` in the `Startup` class we passed a value of **Auth0** to the constructor. This is the authentication scheme, so that is why the authentication middleware knows to challenge this OIDC middleware to authenticate the user.)
+1. The user clicks on the Login link and is directed to the `Login` route.
+2. This returns a `ChallengeResult` which instructs the ASP.NET Authentication middleware to issue a challenge to the Authentication middleware which is registered with the `authenticationScheme` of `Auth0`. (When we created the instance of `OpenIdConnectOptions` in the `Startup` class we passed a value of **Auth0** to the constructor. This is the authentication scheme, so that is why the authentication middleware knows to challenge this OIDC middleware to authenticate the user).
 3. At this point the OIDC middleware is challenged, and it will redirect the user to the Auth0 `/authorize` endpoint, which will display Lock and require the user to log in - whether it be with username/password, social provider or any other Identity Provider.
-4. Once the user has logged in, Auth0 will call back to the `/signin-auth0` endpoint in your application and pass along an authorization code.
-5. The OIDC middleware will "listen" for any request made to the `/signin-auth0` path and intercept it. It will look for the authorization code which Auth0 sent in the query string and then call the `/oauth/token` endpoint to exchange the authorization code for an ID Token and Access Token.
+4. Once the user has logged in, Auth0 will call back to the `/callback` endpoint in your application and pass along an authorization code.
+5. The OIDC middleware will "listen" for any request made to the `/callback` path and intercept it. It will look for the authorization code which Auth0 sent in the query string and then call the `/oauth/token` endpoint to exchange the authorization code for an ID Token and Access Token.
 6. The OIDC middleware will look at the ID Token and extract the user information from the claims on the token.
 7. Finally the OIDC middleware will return a successful authentication response, which will result in a cookie being stored indicating that the user is authenticated, and the cookie will also contain claims with the user's information. This means that on all subsequent requests the cookie middleware will automatically authenticate the user, and no further requests will be made to the OIDC middleware (unless explicitly challenged).
 :::
@@ -305,4 +305,4 @@ if (User.Identity.IsAuthenticated)
 }
 ```
 
-For general information on using APIs with web applications, please read [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow).
+For general information on using APIs with web applications, please read [Authorization Code Flow](/flows/concepts/auth-code).

@@ -29,7 +29,7 @@ In this section we will see how we can implement a mobile application for our sc
 
 ### Authorize the User
 
-To authorize the user we will implement the [Native/Mobile Login Flow](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow). The mobile application should first send the user to the [authorization URL](/api/authentication#authorization-code-grant-pkce-) along with the `code_challenge` and the method used to generate it:
+To authorize the user we will implement the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/guides/auth-code-pkce/call-api-auth-code-pkce). The mobile application should first send the user to the [authorization URL](/api/authentication#authorization-code-grant-pkce-) along with the `code_challenge` and the method used to generate it:
 
 ```text
 https://${account.namespace}/authorize?
@@ -50,7 +50,7 @@ __client_id__ | The value of your Auth0 Client Id. You can retrieve it from the 
 __audience__ | The value of your API Identifier. You can retrieve it from the Settings of your API at the [Auth0 Dashboard](${manage_url}/#/apis).
 __scope__ | The [scopes](/scopes) which determine the claims to be returned in the ID Token and Access Token. For example, a scope of `openid` will return an ID Token in the response. In our example mobile app, we use the following scopes: `create:timesheets read:timesheets openid profile email offline_access`. These scopes allow the mobile app to call the API, obtain a Refresh Token, and return the user's `name`, `picture`, and `email` claims in the ID Token.
 __response_type__ | Indicates the Authentication Flow to use. For a mobile application using PKCE, this should be set to `code`.
-__code_challenge__ | The generated code challenge from the code verifier. You can find instructions on generating a code challenge [here](/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow#authorize-the-user#create-a-code-verifier).
+__code_challenge__ | The generated code challenge from the code verifier. You can find instructions on generating a code challenge [here](/flows/guides/auth-code-pkce/call-api-auth-code-pkce#authorize-the-user#create-a-code-verifier).
 __code_challenge_method__ | Method used to generate the challenge. Auth0 supports only `S256`.
 __redirect_uri__ | The URL which Auth0 will redirect the browser to after authorization has been granted by the user. The Authorization Code will be available in the code URL parameter. This URL must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
 
@@ -74,11 +74,32 @@ Next you can exchange the `authorization_code` from the response for an Access T
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"com.myclientapp://myclientapp.com/callback\", }"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "authorization_code"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "code_verified",
+        "value": "YOUR_GENERATED_CODE_VERIFIER"
+      },
+      {
+        "name": "code",
+        "value": "YOUR_AUTHORIZATION_CODE"
+      },
+      {
+        "name": "redirect_ui",
+        "value": "https://${account.callback}"
+      }
+    ]
   }
 }
 ```
@@ -168,21 +189,28 @@ Your request should include:
 
 ```har
 {
-    "method": "POST",
-    "url": "https://${account.namespace}/oauth/token",
-    "httpVersion": "HTTP/1.1",
-    "cookies": [],
-    "headers": [
-      { "name": "Content-Type", "value": "application/json" }
-    ],
-    "queryString" : [],
-    "postData" : {
-      "mimeType": "application/json",
-      "text" : "{ \"grant_type\": \"refresh_token\", \"client_id\": \"${account.clientId}\", \"refresh_token\": \"YOUR_REFRESH_TOKEN\" }"
-    },
-    "headersSize" : 150,
-    "bodySize" : 0,
-    "comment" : ""
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "httpVersion": "HTTP/1.1",
+  "headers": [
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+  ],
+  "postData" : {
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "refresh_token"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "refresh_token",
+        "value": "YOUR_REFRESH_TOKEN"
+      }
+    ]
+  }
 }
 ```
 

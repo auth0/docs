@@ -1,6 +1,6 @@
 ---
 order: 06
-title: Business to Enterprise Identity Scenarios
+title: Business to Employees Identity Scenarios
 image: /media/articles/architecture-scenarios/b2e.png
 extract: Large organization who wants to federate their existing enterprise directory service to allow employees to log in to applications using their existing enterprise credentials.
 description: Explains the architecture scenario of B2E with a large organization that wants to extend their existing enterprise directory service.
@@ -18,9 +18,9 @@ useCase:
   - build-an-app
 ---
 
-# Business to Enterprise Identity Scenarios
+# Business to Employees Identity Scenarios
 
-The B2E (Business to Enterprise) scenario involves applications that are used by employee users.  These are applications that are targeted toward users who are typically acting on behalf of an organization such as an employer, a university, or a group in which they are a member, as opposed to acting on their own behalf.  
+The B2E (Business to Employees) scenario involves applications that are used by employee users.  These are applications that are targeted toward users who are typically acting on behalf of an organization such as an employer, a university, or a group in which they are a member, as opposed to acting on their own behalf.  
 
 Such applications that are custom written by the organization may use the OIDC/OAuth protocol to externalize authentication whereas those that have been purchased will often use the SAML protocol. In either case, the enterprise will typically want to use some form of Enterprise connection, such as a SAML Identity Provider, ADFS, Google Apps, Azure AD or a directory service such as AD or OpenLDAP, and less frequently, a custom DB, for authentication of enterprise users.
 
@@ -97,7 +97,7 @@ Log events each have an event type. You can use event types as filters when quer
 
 ## Monitoring
 
-Monitoring the infrastructure and services that your applications depend on is critical. [Auth0 provides monitoring endpoints](/monitoring/how-to-monitor-auth0) as well as a status page you can subscribe to.
+Monitoring the infrastructure and services that your applications depend on is critical. [Auth0 provides monitoring endpoints](/monitoring/guides/test-testall-endpoints) as well as an [Auth0 Status](https://status.auth0.com) page you can subscribe to.
 
 Auth0 makes every effort to minimize outages, but if there is any disruption to service, it will appear on the status page. To support requirements for root cause analysis documentation after a disruption, Auth0 conducts internal analysis and publishes the results on the disruption notice when the analysis is completed.
 

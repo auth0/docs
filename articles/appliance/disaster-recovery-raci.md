@@ -8,6 +8,7 @@ topics:
 contentType: reference
 useCase: appliance
 applianceId: appliance55
+sitemap: false
 ---
 
 <!-- markdownlint-disable MD033 -->
@@ -125,7 +126,7 @@ The following table details the task division for configuring, creating, and mon
             <td>Restore the Data Backup</td>
             <td>R, C</td>
             <td>I</td>
-            <td>Please open a ticket in the <a href="${env.DOMAIN_URL_SUPPORT}">Auth0 Support Center</a> to request assistance with restoring a backup. Auth0 Customer Success Engineers will review your request, and if necessary, partner with the subscriber's infrastructure engineers to restore the environment. Please note that, in certain cases, a <a href="/services/private-saas-configuration">Professional Services</a> fee may apply.</td>
+            <td>Please open a ticket in the <a href="${env.DOMAIN_URL_SUPPORT}">Auth0 Support Center</a> to request assistance with restoring a backup. Auth0 Customer Success Engineers will review your request, and if necessary, partner with the subscriber's infrastructure engineers to restore the environment. Please note that, in certain cases, a <a href="/services/private-cloud-configuration">Professional Services</a> fee may apply.</td>
         </tr>
     </tbody>
 </table>

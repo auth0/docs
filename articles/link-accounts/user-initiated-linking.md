@@ -16,14 +16,14 @@ useCase:
 In this scenario, your app provides a UI for the user to authenticate to their other accounts and to link these to their primary account.
 
 ::: note
-You can find sample code at [User Initiated Account Linking within a Single Page App](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github.
+You can find sample code at [User Initiated Account Linking within a Single-Page App](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github.
 :::
 
-The following steps implement user-initiated account linking for a Single Page Application.
+The following steps implement user-initiated account linking for a Single-Page Application.
 
 ## 1. Initial login
 
-First, the user will authenticate to the Single Page App using either [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js) and a custom UI.
+First, the user will authenticate to the Single-Page App using either [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js) and a custom UI.
 
 ![](/media/articles/link-accounts/spa-initial-login.png)
 
@@ -61,7 +61,7 @@ The following is a sample login using Lock:
 <button onclick="javascript:login()">Login</button>
 ```
 
-In the typical SPA login, the callback is handled client-side by the same page and a JWT is received after successful authentication. You can refer to the [Single Page Apps Quickstarts](/quickstart/spa) for more details. You can also see the [Passwordless for Single Page Apps](/connections/passwordless/spa) tutorials for examples of passwordless login.
+In the typical SPA login, the callback is handled client-side by the same page and a JWT is received after successful authentication. You can refer to the [Single-Page Apps Quickstarts](/quickstart/spa) for more details. You can also see the [Passwordless for Single-Page Apps](/connections/passwordless/spa) tutorials for examples of passwordless login.
 
 ## 2. User initiates account linking
 

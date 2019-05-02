@@ -92,7 +92,7 @@ Let's say that you have a web app that authenticates users with username and pas
 
 This tutorial assumes that you have already done the following:
 
-- [Register an application](/applications#how-to-configure-an-application). For the purposes of this example we'll be using a regular web app
+- [Register an application](/applications/concepts/app-types-auth0). For the purposes of this example we'll be using a regular web app
 - [Create a database connection](${manage_url}/#/connections/database)
 - [Enable Multi-factor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [push notifications](/multifactor-authentication/factors/push)
 
@@ -160,7 +160,7 @@ jwt.verify(id_token, AUTH0_CLIENT_SECRET, { algorithms: ['HS256'] }, function(er
 
 If the output of the previous validations is that the user has not authenticated with MFA, then you must trigger authentication again. The request will include the `acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor` parameter, which as a result will trigger the rule we wrote at [the first step](#1-create-the-rule).
 
-Our web app uses the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow) to authenticate, so the request is as follows.
+Our web app uses the [Authorization Code Flow](/flows/concepts/auth-code) to authenticate, so the request is as follows.
 
 ```text
 https://${account.namespace}/authorize?
@@ -173,7 +173,7 @@ https://${account.namespace}/authorize?
     acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor
 ```
 
-Once the user authenticates with Guardian, the web app receives in the response the authorization code which must be exchanged for the new ID Token, using the [Token endpoint](/api/authentication#authorization-code). For more details, and sample requests, see our tutorial, [Add Login Using the Regular Web App Login Flow: Request Tokens](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flowt#request-tokens).
+Once the user authenticates with Guardian, the web app receives in the response the authorization code which must be exchanged for the new ID Token, using the [Token endpoint](/api/authentication#authorization-code). For more details, and sample requests, see our tutorial, [Add Login Using the Authorization Code Flow: Request Tokens](/flows/guides/auth-code/add-login-auth-codet#request-tokens).
 
 That's it, you are done!
 

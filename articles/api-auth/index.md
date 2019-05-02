@@ -38,44 +38,44 @@ In this page you can find a list of resources that can help you secure your APIs
     </p>
   </li>
   <li>
-      <i class="icon icon-budicon-715"></i><a href="/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow">Call Your API from a Regular Web App</a>
+      <i class="icon icon-budicon-715"></i><a href="/flows/guides/auth-code/call-api-auth-code">Call Your API from a Regular Web App</a>
     <p>
       If your application executes on a server and you want to configure it to use OAuth 2.0 to access an API, read these docs.
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/regular-web-app-login-flow">Overview of the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/auth-code">Overview of the flow</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow">Executing the flow</a>
+        <i class="icon icon-budicon-695"></i><a href/flows/guides/auth-code/call-api-auth-code">Executing the flow</a>
       </li>
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow">Call Your API from a Native/Mobile App</a>
+    <i class="icon icon-budicon-715"></i><a href="/flows/guides/auth-code-pkce/call-api-auth-code-pkce">Call Your API from a Native/Mobile App</a>
     <p>
       If your application is a native app and you want to configure it to use OAuth 2.0 to access an API, read these docs.
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/mobile-login-flow">Overview of the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/auth-code-pkce">Overview of the flow</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow">Executing the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/guides/auth-code-pkce/call-api-auth-code-pkce">Executing the flow</a>
       </li>
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow">Call Your API from a Single-Page App</a>
+    <i class="icon icon-budicon-715"></i><a href="/flows/guides/implicit/call-api-implicit">Call Your API from a Single-Page App</a>
     <p>
       If your application is a JavaScript-centric app executing on the browser, and you want to configure it to use OAuth 2.0 to access an API, read these docs.
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/single-page-login-flow">Overview of the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/implicit">Overview of the flow</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow">Executing the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/guides/implicit/call-api-implicit">Executing the flow</a>
       </li>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/api-auth/tutorials/silent-authentication">Silent authentication for SPAs</a>
@@ -89,16 +89,16 @@ In this page you can find a list of resources that can help you secure your APIs
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/flows/guides/m2m-flow/call-api-using-m2m-flow">Call Your API from a Machine-to-Machine App</a>
+    <i class="icon icon-budicon-715"></i><a href="/flows/guides/client-credentials/call-api-client-credentials">Call Your API from a Machine-to-Machine App</a>
     <p>
       If you want to implement server-to-server interaction, and you want to configure it to use OAuth 2.0, read these docs.
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/m2m-flow">Overview of the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/client-credentials">Overview of the flow</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/flows/guides/m2m-flow/call-api-using-m2m-flow">Executing the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/guides/client-credentials/call-api-client-credentials">Executing the flow</a>
       </li>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/api-auth/config/using-the-auth0-dashboard">How to set up a Client Grant using the Dashboard</a>
@@ -156,9 +156,9 @@ In this page you can find a list of resources that can help you secure your APIs
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/restrict-requests-for-scopes">Restrict User/Application Requests for API Permissions</a>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/restrict-access-api">Restrict Access to APIs</a>
     <p>
-      Learn how to restrict users/applications from requesting API permissions for which they don't have access.
+      Learn how to restrict users/applications from accessing APIs.
     </p>
   </li>
   <li>
@@ -168,9 +168,9 @@ In this page you can find a list of resources that can help you secure your APIs
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/tutorials/represent-multiple-apis">Represent Multiple APIs Using a Proxy API in Auth0</a>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/tutorials/represent-multiple-apis">Represent Multiple APIs Using a Single Logical API in Auth0</a>
     <p>
-      Learn how to represent multiple APIs using a single Auth0 proxy API.
+      Learn how to represent multiple APIs using a single logical API.
     </p>
   </li>
   <li>

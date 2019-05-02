@@ -1,4 +1,4 @@
-Auth0 supports the following factors for implementing MFA. You must enable at least one to use MFA, but you can choose to enable and make available more than one factor if you wish.
+Auth0 supports the following factors for implementing MFA. You must enable at least one to use MFA, but you can choose to enable and make available more than one factor if you wish. Available factors are dependent on your subscription plan.
 
 <ul class="topic-links">
   <li>

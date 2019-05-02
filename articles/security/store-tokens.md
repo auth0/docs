@@ -16,45 +16,37 @@ useCase:
 
 Not sure where to store [tokens](/tokens)? This guide outlines how to securely store tokens used in token-based authentication.
 
-## Don't store tokens in local storage
+## Regular web apps
 
-Browser local storage (or session storage) is not secure. Any data stored there may be vulnerable to [cross-site scripting](https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)). If an attacker steals a token, they can gain access to and make requests to your API. Treat tokens like credit card numbers or passwords: don’t store them in local storage.
+ID Tokens, Access Tokens, and (optional) Refresh Tokens should be handled server-side in typical web applications. The application server use the tokens to call APIs on behalf of the user.
 
-## If a backend is present
+* [Authorization Code Flow](/flows/concepts/auth-code)
+* [Regular Web App Quickstarts](/quickstart/webapp)
 
-If your application has a backend server at all, then tokens should be handled server-side using the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow), or [Hybrid Flow](/api-auth/grant/hybrid).
+## Native/mobile apps
 
-## Single-page applications
+* [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce)
+* [Native/Mobile App Quickstarts](/quickstart/native)
+* [Auth0.Android Saving and Renewing Tokens](/libraries/auth0-android/save-and-refresh-tokens)
+* [Auth0.swift Saving and Renewing Tokens](/libraries/auth0-swift/save-and-refresh-jwt-tokens)
 
-If you have a single-page application (SPA) with no corresponding backend server, your SPA should request new tokens on page load and store them in memory without any persistence. To make API calls, your SPA would then use the in-memory copy of the token.
+## Single-page apps
 
-## Using cookies
+### Don't store tokens in local storage
 
-You can also use cookies to store the JWT. The exact way to set a cookie depends on the client side language you are using.
+Browser local storage (or session storage) is [not a secure place to store sensitive information](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/HTML5_Security_Cheat_Sheet.md#local-storage). Any data stored there:
 
-There are different options to control the lifetime of a cookie:
+* Can be accessed through JavaScript.
+* May be vulnerable to [cross-site scripting](https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)).
 
-* Cookies can be destroyed after the browser is closed (session cookies).
-* Implement a server side check (typically done for you by the web framework in use), and you could implement expiration or sliding window expiration.
-* Cookies can be persistent (not destroyed after the browser is closed) with an expiration.
-* Cookies can be read by both the JavaScript and the server side code or only server side if the `httpOnly` flag is set.
-* You can set the `secure=true` flag so cookies can only be set over an encrypted connection.
+If an attacker steals a token, they can gain access to and make requests to your API. Treat tokens like credit card numbers or passwords: don’t store them in local storage.
 
-### Understanding sessions and cookies
+### If a backend is present
 
-<%= include('../_includes/_video', { id: 'paxlbixuya' }) %>
+If your single-page app has a backend server at all, then tokens should be handled server-side using the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), or [Hybrid Flow](/api-auth/grant/hybrid).
 
-This video will show you how to handle session data when building a web app. It will help you understand how your application uses cookies and sessions to manage the state of an authenticated user. This video example uses Node.js with Passport, but the techniques apply to any traditional server-based web application.
+### If no backend is present
 
-### Disadvantages of cookies
+If you have a single-page app (SPA) with no corresponding backend server, your SPA should request new tokens on login and store them in memory without any persistence. To make API calls, your SPA would then use the in-memory copy of the token.
 
-*  The max size of a cookie is only 4kb so that may be problematic if you have many claims attached to the token.
-* Cookies can be vulnerable to cross-site request forgery (CSRF or XSRF) attacks. Using a web app framework’s CSRF protection makes cookies a secure option for storing a JWT. CSRF can also be partially prevented by checking the HTTP `Referer` and `Origin` header. You can also set the `SameSite=strict` cookie flag to prevent CSRF attacks.
-*  Can be difficult to implement if the application requires cross-domain access. Cookies have additional properties (Domain/Path) that can be modified to allow you to specify where the cookie is allowed to be sent.
-
-## Keep reading
-
-::: next-steps
-* [Understanding Sessions & Cookies Video](/videos/session-and-cookies)
-* [Auth0 Blog: 10 Things You Should Know about Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
-:::
+For an example of how to handle sessions in SPAs, check out the [Handle Authentication Tokens](/quickstart/spa/vanillajs#handle-authentication-tokens) section of the [JavaScript Single-Page App Quickstart](/quickstart/spa/vanillajs).

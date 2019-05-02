@@ -40,7 +40,7 @@ The validity period and the ability to revoke a delegation token, varies by indi
 
 ## Using Delegation Tokens with Public Applications
 
-There is an important caveat to note when using the delegation endpoint with [Public Applications](/applications/application-types#public-applications).
+There is an important caveat to note when using the delegation endpoint with [Public Applications](/applications/concepts/app-types-confidential-public#public-applications).
 
 If you call the [Token endpoint](/api/authentication#get-token) from a Public Application, the ID Token will be forcibly signed using `RS256`, even if the _JsonWebToken Signature Algorithm_ in the Application settings is configured as `HS256`.
 

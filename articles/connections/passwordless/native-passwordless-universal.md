@@ -14,12 +14,12 @@ useCase: customize-connections
 
 If you implement passwordless with Universal Login, the user experience will be as follows:
 
-1. A user clicks login and the Auth0 SDK redirects them to the login page on the web.
-1. At this point, Lock Passwordless will ask them for a phone number or email, whichever type you chose.
-1. The prompt will change to ask them for a code which they will receive by the designated method.
-1. Once they enter the code, the transaction will finish and the user will be redirected to your app along with their credentials.
+1. Users click login, and the Auth0 SDK redirects them to the login page on the web.
+2. Lock Passwordless asks them for a phone number or email, whichever type you chose.
+3. The prompt changes to ask them for a code that they will receive by the designated method.
+4. Once they enter the code, the transaction will finish and the user will be redirected to your app along with their credentials.
 
-In this article we will see the steps involved in implementing this flow.
+In this article, we will see the steps involved in implementing this flow.
 
 ## 1. Set up your connection
 

@@ -98,10 +98,6 @@ Navigate to [https://login.eloqua.com/auth/saml2](https://login.eloqua.com/auth/
 
 ### IdP Initiated Login
 
-**Beginning with auth0.js v9.3.4, you must [enable the impersonation flags](/users/guides/impersonate-users-using-the-impersonation-api) to use IdP-initiated login.**
-
-<%= include('../../_includes/_deprecate-impersonation.md') %>
-
 For IDP Initiated login use the **Identity Provider Login URL** defined under the **Dashboard > Applications > select your application > Addons > SAML 2 Web App > Usage**.
 
 ![Eloqua IdP Initiated Login](/media/articles/protocols/saml/eloqua/idp-login.png)

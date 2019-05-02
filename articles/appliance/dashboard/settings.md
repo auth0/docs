@@ -8,6 +8,7 @@ topics:
 contentType: reference
 useCase: appliance
 applianceId: appliance24
+sitemap: false
 ---
 
 # Auth0 Appliance Dashboard: Settings

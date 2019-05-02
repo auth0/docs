@@ -167,7 +167,7 @@ Description
 :::
 
 ::: panel-warning Security Warning
-It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single Page Application, the Client Secret is available to the client (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) is more appropriate in that case.
+It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single-Page Application, the Client Secret is available to the client (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Implicit Flow](/flows/concepts/implicit) is more appropriate in that case.
 :::
 ```
 
@@ -779,10 +779,9 @@ When writing docs you can use the following variables instead of hard-coding the
 | Variable  | Description | Default Value |
 | :---------------------------- | :----------------------------------------- | :-------------------------------------- |
 | `manage_url`                       | The url to the management portal.          | `https://manage.auth0.com`              |
-| `auth0js_url`                 | The url to the auth0.js v7 CDN location.      | |
+| `auth0js_url`                 | The url to the auth0.js CDN location.      | |
 | `auth0js_urlv8`                 | The url to the auth0.js v8 CDN location.      | |
 | `lock_url`                  | The url to the Lock script CDN location.   | |
-| `lock_passwordless_url`       | The url to the Passwordless Lock script CDN location. | |
 | `env.DOMAIN_URL_SUPPORT` | Support Center URL | `https://support.auth0.com` |
 
 ### User Specific Variables

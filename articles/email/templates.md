@@ -72,7 +72,7 @@ See [Configuring the Redirect To URL](#configuring-the-redirect-to-url) for more
 Users will see the sender's address in the **From Address** field when receiving an email from Auth0. If you do not configure a **From Address** for your emails your emails will be sent from the email address of the first owner of your Auth0 account.
 
 ::: note
-For security purposes, you may not send customized emails from any `@auth0.com` address. If you are a PSaaS Appliance user, you may configure a similar domain blacklist.
+For security purposes, you may not send customized emails from any `@auth0.com` address. If you are a Private Cloud user, you may configure a similar domain blacklist.
 :::
 
 The **From Address** field supports all the [common variables](#common-variables) for templates, but these are the most commonly used:
@@ -157,6 +157,8 @@ You can set up a different Redirect To URLs based on your application name. For 
 ```text
 {% if application.name == 'JWT.io' %} https://jwt.io {% else %} https://auth0.com {% endif %}
 ```
+
+Because the application name is encoded for security, you should always use an encoded value (especially if your application name contains a character that changes once encoded). For example, you'll want to use `My%20App` instead of `My App`.
 
 ::: note
 For some single-page apps, the redirect to url can sometimes contain a hash that may be removed. This results in the **redirect To** url not working as expected. For more information, see: [Single-Page App Email Redirect Issue](/email/spa-redirect).

@@ -213,8 +213,6 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
 
 ## SDKs and Libraries
 
-<%= include('../_includes/_lock_auth0js_deprecations_notice') %>
-
 ### Auth0 Lock Widgets
 
 <%= include('../_includes/_libraries_support_lock') %>
@@ -257,7 +255,7 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://github.com/auth0/wp-auth0">Wordpress</a></td>
+      <td><a href="https://github.com/auth0/wp-auth0">WordPress</a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
@@ -352,7 +350,7 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
   </tbody>
 </table>
 
-### Single Page Applications
+### Single-Page Applications
 
 <table class="table">
   <thead>

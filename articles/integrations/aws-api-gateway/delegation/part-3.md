@@ -15,7 +15,7 @@ useCase:
 
 ## Step 3 - Build the Application
 
-In this step, you will build a single page, serverless application using the AngularJS framework that you will serve out of an AWS S3 bucket configured to act as a static website.
+In this step, you will build a single-page, serverless application using the AngularJS framework that you will serve out of an AWS S3 bucket configured to act as a static website.
 
 ### 1. Set Up Your Sample Application
 

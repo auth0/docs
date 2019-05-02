@@ -18,14 +18,15 @@ useCase:
 In this tutorial, we will go through the steps required to implement the Resource Owner Password Grant.
 
 You should use this flow **only if** the following apply:
-- The application is absolutely trusted with the user's credentials. For [Single-Page Apps](/flows/concepts/single-page-login-flow) and [Native/Mobile Apps](/flows/concepts/mobile-login-flow), we recommend using web flows instead.
-- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application, you should use the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow) instead.
+- The application is absolutely trusted with the user's credentials. For [Single-Page Apps](/flows/concepts/implicit) and [Native/Mobile Apps](/flows/concepts/auth-code-pkce), we recommend using web flows instead.
+- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application, you should use the [Authorization Code Flow](/flows/concepts/auth-code) instead.
 
 ## Before you start
 
-* Check that your application's [grant type property](/applications/application-grant-types) is set appropriately
+* Check that your application's [grant type property](/applications/concepts/application-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 * Check that the [Default Audience and/or Default Directory](/dashboard/dashboard-tenant-settings#api-authorization-settings) has been set appropriately
+* Update or disable any [rules](/rules), such as rules that deny access based on an email domain whitelist, so they only impact specific connections. If you get an `'access_denied'` error when testing the Password Grant, this could be due to an access control rule.
 
 ## Configure your tenant
 
@@ -46,11 +47,40 @@ In order to execute the flow the application needs to acquire the Resource Owner
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+        {
+          "name": "grant_type",
+          "value": "password"
+        },
+        {
+          "name": "username",
+          "value": "user@example.com"
+        },
+        {
+          "name": "password",
+          "value": "pwd"
+        },
+        {
+          "name": "audience",
+          "value": "YOUR_API_IDENTIFIER"
+        },
+        {
+          "name": "scope",
+          "value": "read:sample"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "client_secret",
+          "value": "YOUR_CLIENT_SECRET"
+        }
+    ]
   }
 }
 ```
@@ -102,11 +132,44 @@ To use this variation you will have to change the following request parameters:
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"http://auth0.com/oauth/grant-type/password-realm\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"realm\": \"employees\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+        {
+          "name": "grant_type",
+          "value": "password"
+        },
+        {
+          "name": "username",
+          "value": "user@example.com"
+        },
+        {
+          "name": "password",
+          "value": "pwd"
+        },
+        {
+          "name": "audience",
+          "value": "YOUR_API_IDENTIFIER"
+        },
+        {
+          "name": "scope",
+          "value": "read:sample"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "client_secret",
+          "value": "YOUR_CLIENT_SECRET"
+        },
+        {
+          "name": "realm",
+          "value": "employees"
+        }
+    ]
   }
 }
 ```

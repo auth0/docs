@@ -47,7 +47,6 @@ Auth0 also supports the ability for users to [link their profile to multiple ide
 | `multifactor`   | text    | The list of multi-factor providers in which the user is enrolled. |
 | `last_ip`       | text    | The IP address associated with the user's last login. |
 | `last_login`    | date&nbsp;time   | The timestamp of when the user last logged in. If you are using this property from inside a [Rule](/rules) using the `user` object, its value will be associated with the login that triggered the rule (since rules execute after the actual login). |
-| `logins_count`  | integer | The number of times the user has logged in. If a user is blocked and logs in, the blocked session is counted in `logins_count` and updates the `last_login` value. |
 | `name`          | text     | The user's name. |
 | `nickname`      | text     | The user's nickname. |
 | `last_password_reset` | date&nbsp;time | The last time the password was reset/changed. |
@@ -55,7 +54,7 @@ Auth0 also supports the ability for users to [link their profile to multiple ide
 | `phone_number` | text | The user's phone number. Only valid for users with SMS connections. |
 | `phone_verified` | boolean | The `true/false` value indicating whether the user's phone number has been verified. Only valid for users with SMS connections. |
 | `picture` | text | URL pointing to [the user's profile picture](/users/guides/change-user-pictures). |
-| `updated_at` | date&nbsp;time | The timestamp of when the user's profile was last updated/modified. |
+| `updated_at` | date&nbsp;time | The timestamp of when the user's profile was last updated/modified. The `updated_at` property is also updated when the `last_login` property is updated, which is also considered an update. This means that, most of the time, the `updated_at` property will match the `last_login` property. |
 | `user_id` | text | (unique) The user's identifier. |
 | `user_metadata` | object     | Custom fields that store info about a user that does not impact what they can or cannot access (such as work and home address). For more info, see [Metadata Overview](/users/concepts/overview-user-metadata). |
 | `username` | text | (unique) The user's username. |

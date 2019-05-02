@@ -86,7 +86,7 @@ This endpoint will work only if `openid` was granted as a scope for the Access T
   - `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
 - The `Email` claim returns a snapshot of the email at the time of login
 - Standard claims (other than `email`) return the latest value (unless the value comes from an external IdP)
-- Custom claims return a snapshot of the value at the time of login
+- Custom claims always returns the latest value of the claim
 - To access the most up-to-date values for the `email` or custom claims, you must get new tokens. You can log in using silent authentication (where the `prompt` parameter for your call to the [`authorize` endpoint](/api/authentication#authorization-code-grant) equals `none`)
 - To access the most up-to-date values for standard claims that were changed using an external IdP (for example, the user changed their email address in Facebook)., you must get new tokens. Log in again using the external IdP, but *not* with silent authentication.
 

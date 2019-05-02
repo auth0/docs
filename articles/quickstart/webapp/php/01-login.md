@@ -15,6 +15,8 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'PHP', callback: 'http://localhost:3000/' }) %>
 
+<%= include('../../../_includes/_logout_url') %>
+
 ## Configure PHP to Use Auth0 
 
 ### Add the Dependencies

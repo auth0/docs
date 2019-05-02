@@ -70,3 +70,4 @@ For more information, see [Environment Variables and Keyword Mappings](/extensio
 * [Deploy CLI Tool Options](/extensions/deploy-cli/references/deploy-cli-options)
 * [Import/Export Tenant Configuration to a Directory Structure](/extensions/deploy-cli/guides/import-export-directory-structure)
 * [Import/Export Tenant Configuration to a YAML File](/extensions/deploy-cli/guides/import-export-yaml-file)
+* [Troubleshooting Deploy CLI Tool](/extensions/deploy-cli/references/troubleshooting)

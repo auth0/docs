@@ -36,7 +36,7 @@ When creating a user with the [create a User Management API endpoint](/api/manag
 :::
 
 ::: panel Custom Databases
-If you are writing a login script for a [custom database](/connections/database/mysql) you are responsible for returning the information in the user profile. A unique and immutable `user_id` property is mandatory to correctly identify the user (see [Uniquely Identify Users](#uniquely-identify-users)).
+If you are writing a login script for a [custom database](/connections/database/mysql) you are responsible for returning the information in the user profile. A unique and immutable `user_id` property is mandatory to correctly identify the user (see [Uniquely Identify Users](/users/normalized/auth0/identify-users)).
 :::
 
 ## Additional Attributes

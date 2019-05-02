@@ -114,7 +114,6 @@ As an alternative or complement to retrieving logs by checkpoint or search crite
 
 * [/api/v2/logs/{id}](/api/v2#!/Logs/get_logs_by_id): Retrieves the single log entry associated with the provided log id.
 * [/api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user): Retrieves log events for a specific user id.
-`every`.
 
 ## Log data event listing
 
@@ -123,7 +122,7 @@ The following table lists the codes associated with the appropriate log events.
 | **Event Code** | **Event** | **Event Description** | **Additional Info** |
 | --- | --- | --- | --- |
 | `admin_update_launch` | Auth0 Update Launched | |
-| `api_limit` | Rate Limit On API | The maximum number of requests to the API in given time has reached. | [Rate Limit Policy](/policies/rate-limits) |
+| `api_limit` | Rate Limit on the Authentication API | The maximum number of requests to the Authentication API in given time has reached. | [Rate Limit Policy](/policies/rate-limits) |
 | `cls` | Code/Link Sent | Passwordless login code/link has been sent | [Passwordless](/passwordless) |
 | `coff` | Connector Offline | AD/LDAP Connector is offline | [Active Directory/LDAP Connector](/connector) |
 | `con` | Connector Online | AD/LDAP Connector is online and working | [Active Directory/LDAP Connector](/connector) |
@@ -133,7 +132,7 @@ The following table lists the codes associated with the appropriate log events.
 | `fapi` | Failed API Operation | | |
 | `fc` | Failed by Connector | | [Active Directory/LDAP Connector](/connector) |
 | `fce` | Failed Change Email | Failed to change user email | [User Profile](/users/concepts/overview-user-profile) |
-| `fco` | Failed by CORS | Origin is not in the Allowed Origins list for the specified application | [Applications](/applications#application-settings) |
+| `fco` | Failed by CORS | Origin is not in the Allowed Origins list for the specified application | [Applications](/dashboard/reference/settings-application) |
 | `fcoa` | Failed cross-origin authentication | | |
 | `fcp` | Failed Change Password | | [Changing a User's Password](/connections/database/password-change) |
 | `fcph` | Failed Post Change Password Hook | | |
@@ -143,7 +142,7 @@ The following table lists the codes associated with the appropriate log events.
 | `fcu` | Failed Change Username | Failed to change username | [User Profile](/users/concepts/overview-user-profile) |
 | `fd` | Failed Delegation | Failed to generate delegation token | [Delegation Tokens](/tokens/delegation) |
 | `fdu` | Failed User Deletion | | [User Profile](/users/concepts/overview-user-profile) |
-| `feacft` | Failed Exchange | Failed to exchange authorization code for Access Token | [Call API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow)
+| `feacft` | Failed Exchange | Failed to exchange authorization code for Access Token | [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
 | `feccft` | Failed Exchange | Failed exchange of Access Token for a Client Credentials Grant | [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens) |
 | `feoobft` | Failed Exchange | Failed exchange of Password and OOB Challenge for Access Token | |
 | `feotpft` | Failed Exchange | Failed exchange of Password and OTP Challenge for Access Token | |
@@ -192,7 +191,7 @@ The following table lists the codes associated with the appropriate log events.
 | `scu` | Success Change Username | | |
 | `sd` | Success Delegation | | [Delegation Tokens](/tokens/delegation) |
 | `sdu` | Success User Deletion | User successfully deleted | [User Profile](/users/concepts/overview-user-profile) |
-| `seacft` | Success Exchange | Successful exchange of authorization code for Access Token | [Call API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow) |
+| `seacft` | Success Exchange | Successful exchange of authorization code for Access Token | [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code) |
 | `seccft` | Success Exchange | Successful exchange of Access Token for a Client Credentials Grant | [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens) |
 | `seoobft` | Success Exchange | Successful exchange of Password and OOB Challenge for Access Token | |
 | `seotpft` | Success Exchange | Successful exchange of Password and OTP Challenge for Access Token | |

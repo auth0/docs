@@ -12,7 +12,7 @@ useCase: export-users-marketing
 
 # Export User Data To Adobe Campaign
 
-In this article, you’ll learn how to export user data in Auth0 to a CSV file then import it into Adobe Campaign with the [Adobe Campaign Import Wizard](https://docs.campaign.adobe.com/doc/AC/en/PTF_Importing-Exporting_data_About_generic_import_and_export.html).
+In this article, you’ll learn how to export user data in Auth0 to a CSV file then import it into Adobe Campaign with the [Adobe Campaign Import Wizard](https://docs.campaign.adobe.com/doc/AC/en/PTF_Importing_and_exporting_data_Importing_data.html).
 
 ## Create a user data file
 

@@ -1,6 +1,6 @@
 ---
-title: Using Passwordless Authentication in a Regular Web App with SMS
-description: How to authenticate users with a one-time code via SMS in a traditional web app that runs on the server
+title: Implement Passwordless SMS in Regular Web Apps
+description: Learn how to authenticate users with a one-time code sent by SMS in a regular web application.
 toc: true
 topics:
     - connections
@@ -10,25 +10,23 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Authenticate users with a one-time code via SMS in a Regular Web App
+# Implement Passwordless SMS in Regular Web Apps
 
-:::warning
-Passwordless is designed to be called from the client-side, and has a [rate limit](/policies/rate-limits#authentication-api) of 50 requests per hour per IP. If you call it from the server-side, your backend's IP may easily hit these rate limits.
-:::
+<%= include('./_includes/_call-from-client-side') %>
 
-<%= include('_introduction-sms', { isMobile: false }) %>
+<%= include('./_includes/_introduction-sms', { isMobile: false }) %>
 
 ## Setup
 
-<%= include('_setup-sms-twilio') %>
+<%= include('./_includes/_setup-sms-twilio') %>
 
-<%= include('_setup-callback', {spa:false} ) %>
+<%= include('./_includes/_setup-callback', {spa:false} ) %>
 
 ## Implementation
 
 ### Use Lock
 
-<%= include('_init-passwordless-lock') %>
+<%= include('./_includes/_init-passwordless-lock') %>
 
 Then you can trigger the login widget with the following code:
 
@@ -49,7 +47,7 @@ Then you can trigger the login widget with the following code:
 <a href="javascript:login()">Login</a>
 ```
 
-<%= include('./_custom-domains') %>
+<%= include('./_includes/_custom-domains') %>
 
 This will open a dialog that asks the user for their phone number.
 
@@ -79,7 +77,7 @@ You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to s
 
 You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript application library](/libraries/auth0js).
 
-<%= include('_init-auth0js_v9', {redirectUri:true} ) %>
+<%= include('./_includes/_init-auth0js_v9', {redirectUri:true} ) %>
 
 You must provide a way for the user to enter a phone number to which the SMS will be sent. Then you can begin the passwordless authentication as follows (assuming the name of your form input as `input.phone-number`):
 

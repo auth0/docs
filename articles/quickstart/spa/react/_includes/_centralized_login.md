@@ -106,7 +106,7 @@ export default class Auth {
     // Set isLoggedIn flag in localStorage
     localStorage.setItem('isLoggedIn', 'true');
 
-    // Set the time that the access token will expire at
+    // Set the time that the Access Token will expire at
     let expiresAt = (authResult.expiresIn * 1000) + new Date().getTime();
     this.accessToken = authResult.accessToken;
     this.idToken = authResult.idToken;
@@ -136,6 +136,10 @@ export default class Auth {
 
     // Remove isLoggedIn flag from localStorage
     localStorage.removeItem('isLoggedIn');
+
+    this.auth0.logout({
+      returnTo: window.location.origin
+    });
 
     // navigate to the home route
     history.replace('/home');

@@ -13,42 +13,45 @@ useCase:
 ---
 # Refresh Token
 
-A **Refresh Token** is a special kind of token that contains the information required to obtain a new [Access Token](/tokens/overview-access-tokens) or [ID Token](/tokens/id-token).
+A **Refresh Token** contains the information required to obtain a new [Access Token](/tokens/overview-access-tokens) or [ID Token](/tokens/id-token).
 
-Usually, a user will need a new Access Token only after the previous one expires, or when gaining access to a new resource for the first time.
+Typically, a user needs a new Access Token when gaining access to a resource for the first time, or after the previous Access Token granted to them expires.
 
-Refresh Tokens are subject to strict storage requirements to ensure that they are not leaked. Also, [Refresh Tokens can be revoked](#revoke-a-refresh-token) by the Authorization Server.
+Refresh Tokens:
+
+* Are subject to strict storage requirements to ensure that they are not leaked
+* [Can be revoked](#revoke-a-refresh-token) by the Authorization Server
 
 ::: panel-warning OIDC-conformant applications
-The behaviour in this document is applicable to [OIDC-conformant applications](/api-auth/tutorials/adoption/oidc-conformant). An application can be configured as OIDC-conformant in two ways:
+The behavior in this document is applicable to [OIDC-conformant applications](/api-auth/tutorials/adoption/oidc-conformant). You can configure an application to be OIDC-conformant using one of the following two ways:
 
-1. By enabling the **OIDC Conformant** flag for an Application
-2. By passing an `audience` to the `/authorize` endpoint
+1. Enabling the **OIDC Conformant** flag for an Application
+2. Passing an `audience` to the `/authorize` endpoint of the Authentication API 
 
-For more information on our authentication pipeline, refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+For more information on our authentication pipeline, see [Introducing OIDC-Conformant Authentication](/api-auth/intro).
 :::
 
 ## Overview
 
-The response of an [authentication request](/api-auth) can result in an Access Token and/or an ID Token being issued by Auth0. The  Access Token is used to make authenticated calls to a secured API, while the ID Token contains user profile attributes represented in the form of _claims_. Both JWTs have an expiration date indicated by the `exp` claim (among other security measures, like signing).
+Auth0 can issue an Access Token and/or an ID Token in response to an [authentication request](/api-auth). You can use Access Tokens to make authenticated calls to a secured API, while the ID Token contains user profile attributes represented in the form of *claims*. Both are [JWTs](/jwt) and therefore have expiration dates indicated using the `exp` claim, as well as security measures, like signatures.
 
-A Refresh Token allows the application to request Auth0 to issue a new Access Token or ID Token directly, without having to re-authenticate the user. This will work as long as the Refresh Token has not been revoked.
+A Refresh Token allows the application to ask Auth0 to issue a new Access Token or ID Token without having to re-authenticate the user. This will work as long as the Refresh Token has not been revoked.
 
-## Restrictions
+## Restrictions on Refresh Token Usage
 
-You can only get a Refresh Token if you are implementing the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), [Native/Mobile Login Flow](/flows/concepts/mobile-login-flow), or [Resource Owner Password Grant](/api-auth/grant/password).
+You can only get a Refresh Token if you are implementing the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), or [Resource Owner Password Grant](/api-auth/grant/password).
 
-A Single-Page Application (normally implementing [Single-Page Login Flow](/flows/concepts/single-page-login-flow)) should not under any circumstances get a Refresh Token. The reason for that is the sensitivity of this piece of information. You can think of it as user credentials, since a Refresh Token allows a user to remain authenticated essentially forever. Therefore you cannot have this information in a browser, it must be stored securely.
+A Single-Page Application (normally implementing [Implicit Flow](/flows/concepts/implicit)) should not ever receive a Refresh Token. A Refresh Token is essentially a user credential that allows a user to remain authenticated indefinitely. This sensitive information should be stored securely and *not* exposed client-side in a browser.
 
-If you are implementing an SPA using [Single-Page Login Flow](/flows/concepts/single-page-login-flow) and you need to renew a token, the only secure option is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
+If you are implementing an SPA using [Implicit Flow](/flows/concepts/implicit) and you need to renew a token, the only secure option for doing so is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
 
-Another safeguard is that the API should allow offline access. This is configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis). If the switch is disabled, Auth0 will not return a Refresh Token for this API, even if you included the `offline_access` scope.
+If you limit offline access to your API, a safeguard configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis), Auth0 will not return a Refresh Token for the API (even if you include the `offline_access` scope in your request).
 
 ## Get a Refresh Token
 
 To get a Refresh Token, you must include the `offline_access` [scope](/scopes) when you initiate an authentication request through the [authorize](/api/authentication/reference#authorize-application) endpoint.
 
-For example, if you are using the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow), the authentication request would look like the following:
+For example, if you are using the [Authorization Code Flow](/flows/concepts/auth-code), the authentication request would look like the following:
 
 ```text
 https://${account.namespace}/authorize?
@@ -67,11 +70,32 @@ Once the user authenticates successfully, the application will be redirected to 
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "authorization_code"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "code",
+        "value": "YOUR_AUTHORIZATION_CODE"
+      },
+      {
+        "name": "redirect_uri",
+        "value": "${account.callback}"
+      }
+    ]
   }
 }
 ```
@@ -86,47 +110,59 @@ The response should contain an Access Token and a Refresh Token.
 }
 ```
 
-If you are requesting a Refresh Token for a mobile app using the corresponding Native Client (which is public) then you don't need to send the `client_secret` in the request since it's only needed for [confidential applications](/applications/application-types#confidential-applications).
+If you are requesting a Refresh Token for a mobile app using the corresponding Native Client (which is public), then you don't need to send the `client_secret` in the request since it's only required for [confidential applications](/applications/concepts/app-types-confidential-public#confidential-applications).
 
 ::: warning
 Refresh Tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
 :::
 
-For more information on how to implement this using the Regular Web App Login Flow, refer to our tutorial, [Call API Using the Regular Web App Login Flow](/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow). For other grants, refer to [API Authorization](/api-auth).
+For more information on how to implement this using the Authorization Code Flow, refer to our tutorial, [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code). For other grants, see [API Authorization](/api-auth).
 
 ::: note
-If the response did not include a Refresh Token, check that you comply with the [Restrictions](#restrictions) listed in this document.
+If the response did not include a Refresh Token, check that you comply with the [Restrictions](#restrictions-on-refresh-token-usage) listed in this document.
 :::
 
 ## Use a Refresh Token
 
-To refresh your token, using the Refresh Token you already got during authorization, make a `POST` request to the `/oauth/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
+To exchange the Refresh Token you received during authorization for a new Access Token, make a `POST` request to the `/oauth/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
 
 ```har
 {
     "method": "POST",
     "url": "https://${account.namespace}/oauth/token",
-    "httpVersion": "HTTP/1.1",
-    "cookies": [],
     "headers": [
-      { "name": "Content-Type", "value": "application/json" }
+      { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
     ],
-    "queryString" : [],
     "postData" : {
-      "mimeType": "application/json",
-      "text" : "{ \"grant_type\": \"refresh_token\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"refresh_token\": \"YOUR_REFRESH_TOKEN\" }"
-    },
-    "headersSize" : 150,
-    "bodySize" : 0,
-    "comment" : ""
+      "mimeType": "application/x-www-form-urlencoded",
+      "params": [
+        {
+          "name": "grant_type",
+          "value": "refresh_token"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "client_secret",
+          "value": "YOUR_CLIENT_SECRET"
+        },
+        {
+          "name": "refresh_token",
+          "value": "YOUR_REFRESH_TOKEN"
+        }
+      ]
+    }
 }
 ```
 
-Where:
-- `grant_type`: The type of grant to execute (the `/token` endpoint is used for various grants, for more information refer to the [Authentication API](/api/authentication#get-token)). To refresh a token, use `refresh_token`.
-- `client_id`: Your application's Client ID.
-- `client_secret` (optional): Your application's Client Secret. Only required for [confidential applications](/applications/application-types#confidential-applications).
-- `refresh_token`: The Refresh Token to use.
+| Parameter | Description |
+| - | - |
+| `grant_type` | The type of grant to execute (the `/token` endpoint is used for various grants, for more information refer to the [Authentication API](/api/authentication#get-token)). To refresh a token, use `refresh_token` |
+| `client_id` | Your application's Client ID |
+| client_secret | Optional. Your application's Client Secret. Only required for [confidential applications](/applications/concepts/app-types-confidential-public#confidential-applications) |
+| `refresh_token` | The Refresh Token to use |
 
 The response will include a new Access Token, its type, its lifetime (in seconds), and the granted scopes. If the scope of the initial token included `openid`, then a new ID Token will be in the response as well.
 
@@ -141,23 +177,26 @@ The response will include a new Access Token, its type, its lifetime (in seconds
 ```
 
 ::: panel Rate limits
-You should only ask for a new token if the Access Token has expired or you want to refresh the claims contained in the ID Token. For example, it's a bad practice to call the endpoint to get a new Access Token every time you call an API. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
+You should only ask for a new token if the Access Token has expired or you want to refresh the claims contained in the ID Token. For example, it's a bad practice to call the endpoint to get a new Access Token every time you call an API. There are rate limits in Auth0 that will throttle the number of requests to this endpoint that can be executed using the same token from the same IP.
 :::
 
 ## Revoke a Refresh Token
 
-Since Refresh Tokens never expire, it is important to be able to revoke them in case they get compromised.
+Since Refresh Tokens never expire, it is essential to be able to revoke them in case they get compromised.
 
-Auth0 handles token revocation as though the token has been potentially exposed to malicious adversaries.
-Hence each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, application, and audience will be revoked**.
+Auth0 handles token revocation as though the token has been potentially exposed to malicious adversaries. Therefore, each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, application, and audience will be revoked**.
 
-You can revoke a Refresh Token either by posting a request to [the Authentication API /oauth/revoke endpoint](/api/authentication#revoke-refresh-token) or using the [dashboard](${manage_url}).
+You can revoke a Refresh Token by:
 
-### Use the API
+* Posting a request to [the Authentication API's /oauth/revoke endpoint](/api/authentication#revoke-refresh-token)
+* Posting a request to [the Management API's /api/v2/device-credentials endpoint](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) 
+* Using the [dashboard](${manage_url}).
+
+### Use the Authentication API
 
 To revoke a Refresh Token, you can send a `POST` request to `https://${account.namespace}/oauth/revoke`.
 
-The API first validates the application credentials and then verifies whether the token was issued to the application making the revocation request.  If this validation fails, the request is refused and the application is informed of the error. Next, the API invalidates the token. The invalidation takes place immediately, and the token cannot be used again after the revocation. Note that each revocation request invalidates all the tokens that have been issued for the same authorization grant.
+The API first validates the application credentials and then verifies whether the token was issued to the application making the revocation request.  If this validation fails, the request is refused, and the application is informed of the error. Next, the API invalidates the token. The invalidation takes place immediately, and the token cannot be used again after the revocation. Each revocation request invalidates all the tokens that have been issued for the same authorization grant.
 
 ```har
 {
@@ -184,16 +223,16 @@ Where:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. The application should match the one the Refresh Token was issued for. |
-| `client_secret` | Your application's Client Secret. Required for [confidential applications](/applications/application-types#confidential-applications). |
+| `client_secret` | Your application's Client Secret. Required for [confidential applications](/applications/concepts/app-types-confidential-public#confidential-applications). |
 | `token` <br/><span class="label label-danger">Required</span> | The Refresh Token you want to revoke. |
 
-The application should match the one the Refresh Token was issued for.
+The application should match the one for which the Refresh Token was issued.
 
 ::: panel Revoke a token without the Client Secret
-For applications that cannot keep the Client Secret safe (for example, native apps), the [Revoke endpoint](/api/authentication#revoke-refresh-token) supports access without the Client Secret but the application itself must have the property `tokenEndpointAuthMethod` set to `none`. You can change the `tokenEndpointAuthMethod` value, either from the UI ([Dashboard > Clients > Application Settings](${manage_url}/#/applications/${account.clientId}/settings)), or using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id).
+For applications that cannot keep the Client Secret safe (e.g., native apps), the [Revoke endpoint](/api/authentication#revoke-refresh-token) supports access without the Client Secret. However, the application itself must have the property `tokenEndpointAuthMethod` set to `none`. You can change the `tokenEndpointAuthMethod` value, either from the UI ([Dashboard > Clients > Application Settings](${manage_url}/#/applications/${account.clientId}/settings)), or using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 :::
 
-If the request is valid, the Refresh Token is revoked and the response is `HTTP 200`, with an empty response body. Otherwise, the response body contains the error code and description.
+If the request is valid, the Refresh Token is revoked, and the response is `HTTP 200`, with an empty response body. Otherwise, the response body contains the error code and description.
 
 ```json
 {
@@ -210,13 +249,52 @@ The possible responses are:
 | 400 | The required parameters were not sent in the request (`"error": "invalid_request"`). |
 | 401 | The request is not authorized (`"error": "invalid_client"`). Check that the application credentials (`client_id` and `client_secret`) are present in the request and hold valid values. |
 
+### Use the Management API
+
+To revoke a Refresh Token using the Auth0 Management API, you need the `id` of the Refresh Token you wish to revoke. To obtain a list of existing Refresh Tokens, call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` with an Access Token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` and `user_id` associated with the token (if known).
+
+```text
+GET https://${account.namespace}/api/v2/device-credentials?
+  type=refresh_token
+  &client_id={}
+  &user_id={}
+
+{
+  "Authorization":   "Bearer {your_access_token}"
+}
+```
+
+Response body:
+
+```text
+[
+  {
+    "id": "dcr_dFJiaAxbEroQ5xxx",
+    "device_name": "my-device" // the value of 'device' provided in the /authorize call when creating the token
+  }
+]
+```
+
+To revoke a __Refresh Token__, call the [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) endpoint with an Access Token containing `delete:device_credentials` scope and the value of `id` obtained above:
+
+```text
+DELETE https://${account.namespace}/api/v2/device-credentials/{id}
+
+{
+  "Authorization":   "Bearer {your_access_token}"
+}
+
+```
+
+The response will be an **HTTP 204**: The credential no longer exists.
+
 ### Use the Dashboard
 
-When you revoke a Refresh Token using the dashboard, you have to revoke the user's authorized access to the application that issued the token. This renders the Refresh Token useless.
+Strictly speaking, the following process shows you how to revoke a user's authorized access to the application that issued the token. This renders the Refresh Token invalid, which is functionally identical to revoking the token itself.
 
-To do so, go to the [Users section](${manage_url}/#/users) of the [dashboard](${manage_url}). Click the name of the user to view their *Details* page.
+To do this, go to the [Users section](${manage_url}/#/users) of the [dashboard](${manage_url}). Click the name of the user to view their *Details* page.
 
-Select the *Authorized Applications* tab. This page lists all the applications to which the user has authorized access. Revoking an authorized application revokes also its associated Refresh Tokens.
+Select the *Authorized Applications* tab. This page lists all the applications to which the user has authorized access. Revoking an authorized application also revokes its associated Refresh Tokens.
 
 To revoke the user's access to an authorized application, and hence invalidate the Refresh Token, click **Revoke**.
 
@@ -234,23 +312,19 @@ If you try to do a <a href="/rules/redirect">redirect</a> with <code>context.red
 
 ### Web Apps
 
-All our main SDKs support Refresh Tokens out of the box. Some are [Node.js](/quickstart/webapp/nodejs), [ASP.NET Core](/quickstart/webapp/aspnet-core), [PHP](/quickstart/webapp/php), [Java](/dev-centers/java), and many more. For a complete listing refer to our [Quickstarts page](/quickstart/webapp).
+All our main SDKs support Refresh Tokens out of the box. Some are [Node.js](/quickstart/webapp/nodejs), [ASP.NET Core](/quickstart/webapp/aspnet-core), [PHP](/quickstart/webapp/php), [Java](/dev-centers/java), and many more. For a complete listing, see [Quickstarts](/quickstart/webapp).
 
-### Single Page Apps
+### Single-Page Apps
 
-For web apps that execute on the browser, the way to refresh a token is using [Silent Authentication](/api-auth/tutorials/silent-authentication). [Auth0.js](/libraries/auth0js), our client-side library, provides methods for this out of the box.
+[Silent Authentication](/api-auth/tutorials/silent-authentication) is the method that is used to refresh a token for web apps that execute in a browser. [Auth0.js](/libraries/auth0js), our client-side library, provides methods for this functionality:
 
-- The `authorize` method, redirects the user to the `/authorize` endpoint, in order to login and provide consent.
+- The `authorize` method, redirects the user to the `/authorize` endpoint, to log in and provide consent.
 - The `parseHash` method, parses a URL hash fragment to extract the result of an Auth0 authentication response.
 - The `checkSession` method, attempts to get a new token from Auth0, using [silent authentication](/api-auth/tutorials/silent-authentication). For more details refer to [Using checkSession to Acquire New Tokens](/libraries/auth0js#using-checksession-to-acquire-new-tokens).
 
-More information on the library:
-- [Auth0.js Reference](/libraries/auth0js)
-- [Auth0.js GitHub repo](https://github.com/auth0/auth0.js#api)
-
 ### Mobile / Native Apps
 
-For more information on using Refresh Tokens with our mobile SDKs refer to:
+For information on using Refresh Tokens with our mobile SDKs, see:
 
 * [Mobile / Native Quickstarts](/quickstart/native)
 
@@ -261,4 +335,4 @@ For more information on using Refresh Tokens with our mobile SDKs refer to:
 ## Next steps
 
 * [Refresh Tokens: When to use them and how they interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
-* [Using a Refresh Token with an Access Token](/tokens/set-access-token-lifetime)
+* [Using a Refresh Token with an Access Token](/tokens/guides/access-token/set-access-token-lifetime)

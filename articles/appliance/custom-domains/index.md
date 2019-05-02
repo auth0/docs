@@ -9,6 +9,7 @@ contentType:
     - index
 useCase: appliance
 applianceId: appliance16
+sitemap: false
 ---
 
 # Private SaaS (PSaaS) Appliance: Custom Domains

@@ -9,6 +9,7 @@ contentType:
     - index
 useCase: appliance
 applianceId: appliance51
+sitemap: false
 ---
 
 # PSaaS Appliance: Webtasks

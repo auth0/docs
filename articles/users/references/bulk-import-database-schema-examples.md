@@ -70,18 +70,25 @@ The users file must have an array with the users' information in JSON format. Th
 
 Additionally, the `app_metadata` should **not** contain any of these properties:
 
+* `__tenant`
+* `_id`
+* `blocked`
 * `clientID`
+* `created_at`
+* `email_verified`
+* `email`
 * `globalClientID`
 * `global_client_id`
-* `email_verified`
-* `user_id`
 * `identities`
 * `lastIP`
 * `lastLogin`
-* `metadata`
-* `created_at`
 * `loginsCount`
-* `_id`
+* `metadata`
+* `multifactor_last_modified`
+* `multifactor`
+* `updated_at`
+* `user_id`
+
 
 ::: note
 The `app_metadata` stores information that can impact how an application functions or what the user can access (for example, a user's support plan or roles and access groups). For more information, refer to [User Metadata](/metadata).

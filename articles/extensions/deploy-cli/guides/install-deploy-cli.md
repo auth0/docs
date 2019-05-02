@@ -57,6 +57,10 @@ update:guardian_factors
 read:email_templates
 create:email_templates
 update:email_templates
+read:roles
+create:roles
+delete:roles
+update:roles
 ```
 
 ## Install the Deploy CLI tool
@@ -114,3 +118,4 @@ To create the client application manually:
 * [Deploy CLI Tool Options](/extensions/deploy-cli/references/deploy-cli-options)
 * [Import/Export Tenant Configuration to a Directory Structure](extensions/deploy-cli/guides/import-export-directory-structure)
 * [Import/Export Tenant Configuration to a YAML File](/extensions/deploy-cli/guides/import-export-yaml-file)
+* [Troubleshooting Deploy CLI Tool](/extensions/deploy-cli/references/troubleshooting)

@@ -25,14 +25,20 @@ To install and configure this extension, click on the __GitHub Deployments__ box
 
 Set the following configuration variables:
 
-- **GITHUB_REPOSITORY**: The repository from which you want to deploy rules and database scripts. This can be either a public or private repository.
-- **GITHUB_BRANCH**: The branch that the extension will monitor for commits.
-- **GITHUB_TOKEN**: Your GitHub personal Access Token. Follow the instructions at [Creating an Access Token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/#creating-a-token) to create a token with `repo` scope.
-- **GITHUB_HOST**: The public accessible GitHub Enterprise _(version 2.11.3 and later)_ hostname, no value is required when using github.com (optional).
-- **GITHUB_API_PATH**: GitHub Enterprise API path prefix, no value is required when using github.com (optional).
+- **REPOSITORY**: The repository from which you want to deploy rules and database scripts. This can be either a public or private repository.
+- **BRANCH**: The branch that the extension will monitor for commits.
+- **HOST**: The public accessible GitHub Enterprise _(version 2.11.3 and later)_ hostname, no value is required when using github.com (optional).
+- **API_PATH**: GitHub Enterprise API path prefix, no value is required when using github.com (optional).
+- **TOKEN**: Your GitHub Personal Access Token. Follow the instructions at [Creating an Access Token]
+(https://help.github.com/articles/creating-an-access-token-for-command-line-use/#creating-a-token) to create a token with `repo` scope.
 * **BASE_DIR**: The base directory, where all your tenant settings are stored
+* **ENABLE_CIPHER**: Enables secrets encryption/decryption support
+* **CIPHER_PASSWORD**: The password for encryption/decryption of secrets
 - **SLACK_INCOMING_WEBHOOK_URL**: The Webhook URL for Slack, used to receive Slack notifications for successful and failed deployments (optional).
 
+::: note
+Some of the configuration variables were changed in version **2.6.0** of this extension. If you are updating the extension from a prior version, make sure that you update your configuration accordingly.
+:::
 
 Once you have provided this information, click **Install**.
 
@@ -65,6 +71,7 @@ With each commit you push to your configured GitHub repository, the webhook will
 - `grants`
 - `emails`
 - `resource-servers`
+- `connections`
 - `database-connections`
 - `rules-configs`
 - `rules`
@@ -76,7 +83,7 @@ The __Deploy__ button on the **Deployments** tab of the extension allows you to 
 To maintain a consistent state, the extension will always do a full redeployment of the contents of these folders. Any rules or database connection scripts that exist in Auth0 but not in your GitHub repository will be __deleted__.
 :::
 
-### Deploy database connection scripts
+### Deploy Database Connection scripts
 
 To deploy database connection scripts, you must first create a directory under `database-connections`. The name of the directory must __exactly__ match the name of your [database connection](${manage_url}/#/connections/database) in Auth0. Of course, you can create as many directories as you have database connections.
 
@@ -95,28 +102,59 @@ If you enabled the migration feature, you will also need to provide the `get_use
 
 You can find an example in [this GitHub repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/database-connections/my-custom-db).
 
-### Deploy Hosted Pages
+#### Deploy Database Connection settings
 
-The supported hosted pages are:
+To deploy Database Connection settings, you must create `database-connections/[connection-name]/settings.json`. 
+
+_This will work only for Auth0 connections (`strategy === auth0`); for non-Auth0 connections use `connections`._
+
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/patch_connections_by_id) for more info on allowed attributes for Connections.
+
+### Deploy Connections
+
+To deploy a connection, you must create a JSON file under the `connections` directory of your GitHub repository. Example:
+
+__facebook.json__
+```json
+{
+  "name": "facebook",
+  "strategy": "facebook",
+  "enabled_clients": [
+    "my-client"
+  ],
+  "options": {}
+}
+```
+
+_This will work only for non-Auth0 connections (`strategy !== auth0`); for Auth0 connections, use `database-connections`._
+
+See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
+
+### Deploy Universal Login Pages
+
+The supported pages are:
+
 - `error_page`
 - `guardian_multifactor`
 - `login`
 - `password_reset`
 
-To deploy a page, you must create an HTML file under the `pages` directory of your GitHub repository. For each HTML page, you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, to deploy an `error_page`, you would create two files:
+To deploy a page, you must create an HTML file under the `pages` directory of your GitHub repository. For each HTML page, you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, to deploy a `password_reset`, you would create two files:
 
 ```text
-your-github-repo/pages/error_page.html
-your-github-repo/pages/error_page.json
+your-bitbucket-repo/pages/password_reset.html
+your-bitbucket-repo/pages/password_reset.json
 ```
 
-To enable the page, the `error_page.json` would contain the following:
+To enable the page, the `password_reset.json` would contain the following:
 
 ```json
 {
   "enabled": true
 }
 ```
+
+<%= include('./_includes/_use-default-error') %>
 
 ### Deploy rules
 
@@ -219,24 +257,6 @@ __my-api.json__
 
 See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Resource_Servers/post_resource_servers) for more info on allowed attributes for Resource Servers.
 
-### Deploy Connections
-
-To deploy a connection, you must create a JSON file under the `connections` directory of your GitHub repository. Example:
-
-__facebook.json__
-```json
-{
-  "name": "facebook",
-  "strategy": "facebook",
-  "enabled_clients": [
-    "my-client"
-  ],
-  "options": {}
-}
-```
-
-See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
-
 ### Deploy Email Provider
 
 To deploy an email provider, you must create `provider.json` file under the `emails` directory of your GitHub repository. Example:
@@ -288,6 +308,26 @@ __blocked_account.json__
     "enabled": true
 }
 ```
+
+## Encrypt Secrets
+
+Beginning with version **2.7.0**, you can encrypt sensitive data (e.g., Rules configurations) so that you can store your files in public repositories.
+
+To encrypt your data, log in to your extension and go to the **Secrets Encryption Tool** (you should have enabled the cipher in the extension's configuration settings).
+
+![](/media/articles/extensions/github-deploy/encryption.png)
+
+Copy `Encrypted Secret` to any string field that should remain private as shown:
+
+__rules-configs/biggest_secret.json__
+```json
+{
+  "key": "biggest_secret",
+  "value": "nobody should know that [!cipher]0dcd9c0696b1feb7878bd4d8360db09e8885319046955d4a6ae1cd6135e5f58cce654f15b136eacc06981c0c7a4bb32f3a5c19-2c84a546cb503666382f87d87af82cb1657dab51d1583b40[rehpic!]"
+}
+```
+
+The extension will decrypt all encrypted secrets automatically.
 
 ## Track deployments
 

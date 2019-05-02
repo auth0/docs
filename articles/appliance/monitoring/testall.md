@@ -8,6 +8,7 @@ topics:
 contentType: how-to
 useCase: appliance
 applianceId: appliance49
+sitemap: false
 ---
 
 # Using the `testall` Endpoint

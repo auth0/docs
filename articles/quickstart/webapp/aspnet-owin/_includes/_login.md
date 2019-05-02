@@ -1,4 +1,4 @@
-## Configure your application to use Auth0 
+## Configure your application to use Auth0
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET MVC 5 application.
 
@@ -53,7 +53,7 @@ public void Configuration(IAppBuilder app)
     app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
     {
         AuthenticationType = "Auth0",
-        
+
         Authority = $"https://{auth0Domain}",
 
         ClientId = auth0ClientId,
@@ -180,7 +180,7 @@ To add the Login and Logout links to the navigation bar, head over to `/Views/Sh
 
 ### Obtain an Access Token for Calling an API
 
-If you want to call an API from your MVC application, you need to obtain an Access Token issued for the API you want to call. To receive and Access Token, pass an additional audience parameter containing the API identifier to the Auth0 authorization endpoint. 
+If you want to call an API from your MVC application, you need to obtain an Access Token issued for the API you want to call. To receive and Access Token, pass an additional audience parameter containing the API identifier to the Auth0 authorization endpoint.
 
 You will also need to configure the OpenID Connect middleware to add the ID Token and Access Token as claims on the `ClaimsIdentity`.
 
@@ -188,7 +188,7 @@ Update the OpenID Connect middleware registration in your `Startup` class as fol
 
 1. Set the `ResponseType` to `OpenIdConnectResponseType.CodeIdTokenToken`. This will inform the OpenID Connect middleware to extract the Access Token and store it in the `ProtocolMessage`.
 1. Handle the `RedirectToIdentityProvider` to check to an authentication request and add the `audience` parameter.
-1. Handle the `SecurityTokenValidated` to extract the ID Token and Access Token from the `ProtocolMessage` and store them as claims. 
+1. Handle the `SecurityTokenValidated` to extract the ID Token and Access Token from the `ProtocolMessage` and store them as claims.
 
 ```csharp
 // Startup.cs
@@ -201,22 +201,22 @@ public void Configuration(IAppBuilder app)
     app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
     {
         //...
-        
+
         ResponseType = OpenIdConnectResponseType.CodeIdTokenToken,
         Scope = "openid profile",
-    
+
         TokenValidationParameters = new TokenValidationParameters
         {
             NameClaimType = "name"
         },
-    
+
         Notifications = new OpenIdConnectAuthenticationNotifications
         {
             SecurityTokenValidated = notification =>
             {
                 notification.AuthenticationTicket.Identity.AddClaim(new Claim("id_token",notification.ProtocolMessage.IdToken));
                 notification.AuthenticationTicket.Identity.AddClaim(new Claim("access_token",notification.ProtocolMessage.AccessToken));
-    
+
                 return Task.FromResult(0);
             },
             RedirectToIdentityProvider = notification =>
@@ -233,7 +233,7 @@ public void Configuration(IAppBuilder app)
             }
         }
     });
-    
+
 }
 ```
 

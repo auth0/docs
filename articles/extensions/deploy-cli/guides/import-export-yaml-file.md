@@ -229,3 +229,4 @@ For more information, see [Environment Variables and Keyword Mappings](/extensio
 * [Call Deploy CLI Tool Programmatically](/extensions/deploy-cli/guides/call-deploy-cli-programmatically)
 * [Deploy CLI Tool Options](/extensions/deploy-cli/references/deploy-cli-options)
 * [Import/Export Tenant Configuration to a Directory Structure](/extensions/deploy-cli/guides/import-export-directory-structure)
+* [Troubleshooting Deploy CLI Tool](/extensions/deploy-cli/references/troubleshooting)

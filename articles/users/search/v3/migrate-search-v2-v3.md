@@ -11,7 +11,7 @@ useCase:
 ---
 # Migrate from Search v2 to v3
 
-The user search engine v2 has been deprecated as of **June 6th 2018** and was removed from service on **November 13th 2018**. We highly recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible. 
+The user search engine v2 has been deprecated as of **June 6th 2018**. We highly recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible. 
 
 ## Migration considerations
 
@@ -65,7 +65,7 @@ Extension | Version with support for v3 | Considerations
 
 You can leverage the [logs](/logs) in the [Dashboard](${manage_url}/#/logs) to find calls to the `/api/v2/users` endpoint that use the User Search v2 engine, including calls performed by SDKs. Those logs will help you identify where code changes might be needed in your applications.
 
-Use the following query to retrieve all the logs related to User Search v2: `type:w AND description:"The User Search v2 engine is deprecated"`. The logs will provide additional information in the description field, in the following cases:
+Use the following query to retrieve all the logs related to User Search v2: `type:w AND description:*search_engine*`. The logs will provide additional information in the description field, in the following cases:
 
 - Queries that might produce different results in v3
 - Queries with syntax incompatible with v3

@@ -5,37 +5,19 @@ topics:
     - hooks
     - extensibility-points
 contentType:
+  - index
   - concept
 useCase: extensibility-hooks
 ---
-# Hooks, Webtasks, and Extensibility Points
+# Hooks
 
-Hooks allow you to extend the Auth0 platform with custom code.
+Hooks are Webtasks associated with specific extensibility points of the Auth0 platform, which allow you to customize the behavior of Auth0 with custom code using Node.js. When using [Database Connections](/connections/database), Auth0 invokes the Hooks at runtime to execute custom logic.
 
 When using [Database Connections](/connections/database), Hooks allow you to customize the behavior of Auth0 using Node.js code that executes against extensibility points (which are comparable to webhooks that come with a server). Hooks allow you modularity when configuring your Auth0 implementation, and extend the functionality of base Auth0 features.
 
 ::: warning How to Handle Rate Limits when calling Auth0 APIs
 For scripts that call Auth0 APIs, you should always handle rate limiting by checking the X-RateLimit-Remaining header and acting appropriately when the number returned nears 0. You should also add logic to handle cases in which you exceed the provided rate limits and receive the HTTP Status Code 429 (Too Many Requests); in this case, if a re-try is needed, it is best to allow for a back-off to avoid going into an infinite re-try loop. For more information about rate limits, see [Rate Limit Policy For Auth0 APIs](/policies/rate-limits).
 :::
-
-## Hooks
-
-Hooks are Webtasks associated with specific extensibility points of the Auth0 platform. When using [Database Connections](/connections/database), Auth0 invokes the Hooks at runtime to execute custom logic.
-
-Manage Hooks using:
-
-* The Dashboard
-* The Command-Line Interface
-
-### Use the Dashboard
-
-With the Dashboard, you can [create](/hooks/guides/create-hooks-using-dashboard) or [delete](/hooks/guides/delete-hooks-using-dashboard) a Hook, [edit an existing Hook](/hooks/guides/edit-hooks-using-dashboard), and [enable or disable an existing Hook](/hooks/guides/enable-disable-hooks-using-dashboard) using the Dashboard.
-
-### Use the command-line interface
-
-The command-line interface offers similar functionality to the dashboard in that you can [create](/hooks/guides/create-hooks-using-cli) or [delete](/hooks/guides/delete-hooks-using-cli) a Hook, [edit an existing Hook](/hooks/guides/edit-hooks-using-cli), and [enable or disable an existing Hook](/hooks/guides/enable-disable-hooks-using-cli).
-
-The command-line interface also offers you the ability to get [logs on your Hooks usage](/hooks/guides/logging-hooks-using-cli).
 
 ## Extensibility points
 
@@ -47,6 +29,6 @@ Hooks allow you to customize the behavior of Auth0 with Node.js code, but they a
 
 <%= include('../_includes/_ip_whitelist') %>
 
-## Use the Webtask Editor to edit Hooks
+## Manage Hooks
 
-Edit Hooks directly using the Webtask Editor. Please see the [Webtask documentation](https://webtask.io/docs/editor) for detailed information.
+Manage Hooks using the Dashboard. With the Dashboard, you can [create](/hooks/guides/create-hooks-using-dashboard) or [delete](/hooks/guides/delete-hooks-using-dashboard) a Hook, [edit an existing Hook](/hooks/guides/edit-hooks-using-dashboard), and [enable or disable an existing Hook](/hooks/guides/enable-disable-hooks-using-dashboard) using the Dashboard.

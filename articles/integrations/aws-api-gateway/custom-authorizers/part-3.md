@@ -40,7 +40,7 @@ As an example, the text of your .env file should look something like this when c
 
 ```text
 JWKS_URI=https://${account.namespace}/.well-known/jwks.json
-AUDIENCE=hVG7...3QA1q
+AUDIENCE=https://your-api-gateway
 TOKEN_ISSUER=https://${account.namespace}/
 ```
 
@@ -48,7 +48,7 @@ TOKEN_ISSUER=https://${account.namespace}/
 
 a. First, obtain a valid JWT Access Token. There are multiple methods by which you can get one, and the method you choose depends on your application's type, trust level, or overall end-user experience. 
 
-You can get a test token for your API by going to **APIs > Your API > Test** in the [dashboard](${manage_url}/#/apis). For specific details refer to [Get Access Tokens](/tokens/get-access-tokens).
+You can get a test token for your API by going to **APIs > Your API > Test** in the [dashboard](${manage_url}/#/apis). For specific details refer to [Get Access Tokens](/tokens/guides/access-token/get-access-tokens).
 
 b. Create a local `event.json` file containing the token. You can copy the sample file (run `cp event.json.sample event.json`). Replace `ACCESS_TOKEN` with your JWT token, and `methodArn` with the appropriate ARN value for the `GET` method of your API.
 

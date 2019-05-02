@@ -18,11 +18,11 @@ useCase:
 There are two types of [JSON Web Token (JWT)](/tokens/jwt) claims:
 
 * **Reserved**: Claims defined by the [JWT specification](https://tools.ietf.org/html/rfc7519) to ensure interoperability with third-party, or external, applications.
-* **Custom**: Claims that you define yourself. Name these claims carefully to avoid collision with reserved claims or other custom claims. When collisions occur, it can be challenging to tease apart two claims of the same name that contain differing information.
+* **Custom**: Claims that you define yourself. Name these claims carefully to avoid collision with reserved claims or other custom claims. It can be challenging to deal with two claims of the same name that contain differing information.
 
 ### Reserved claims
 
-The JWT specification defines seven reserved claims that are not required, but are recommended to allow interoperability with [third-party applications](/applications/application-types#third-party-applications). These are:
+The JWT specification defines seven reserved claims that are not required, but are recommended to allow interoperability with [third-party applications](/applications/concepts/app-types-first-third-party#third-party-applications). These are:
 
 * iss (issuer): Issuer of the JWT
 * sub (subject): Subject of the JWT (the user)
