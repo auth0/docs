@@ -1,6 +1,6 @@
 ---
-title: Call Your API from a Device
-description: Everything you need to know to call your API from your device. For use with native apps.
+title: Call Your API from an Input-Constrained Device
+description: Everything you need to know to call your API from your input-constrained device. For use with native apps.
 template: microsite
 topics:
   - authorization
@@ -15,7 +15,7 @@ useCase:
 
 Using Auth0 in your applications means that you will be "outsourcing" the authentication process to a centralized login page in the same way that Gmail, YouTube, and any other Google property redirects to accounts.google.com whenever a user signs in.
 
-With devices, however, rather than immediately authenticating the user, the device asks the user to go to a link on their computer or smartphone to authenticate. This avoids a poor user experience for devices that do not have an easy way to enter text. If you’ve ever signed in to your Netflix account on a device like a Roku, you’ve already encountered this workflow.
+With input-constrained devices, however, rather than immediately authenticating the user, the device asks the user to go to a link on their computer or smartphone to authenticate. This avoids a poor user experience for devices that do not have an easy way to enter text. If you’ve ever signed in to your Netflix account on a device like a Roku, you’ve already encountered this workflow.
 
 Your user will authenticate on their computer or smartphone, and Auth0 will generate an Access Token that will be passed back to your device application. The Access Token can then be used to call your API.
 
