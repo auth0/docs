@@ -47,7 +47,7 @@ Useful Resources:
 - [User Search Best Practices](/best-practices/search-best-practices)
 - [User Search v2 to v3 Migration Guide](/users/search/v3/migrate-search-v2-v3)
 
-### Google Cloud Messaging to Facebook Cloud Messaging Migration
+### Google Cloud Messaging to Firebase Cloud Messaging Migration
 
 Auth0’s Guardian SDKs for iOS and Android helps you create custom Mobile apps with Guardian functionality, providing secure access to multi-factor authentication with push notifications. 
 
