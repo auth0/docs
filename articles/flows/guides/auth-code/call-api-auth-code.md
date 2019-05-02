@@ -20,7 +20,7 @@ This tutorial will help you call your own API using the Authorization Code Flow.
 
 Auth0 makes it easy for your app to implement the Authorization Code Flow using:
 
-* [Regular Web App Quickstarts](/quickstart/webapp): The easiest way to implement the regular web app flow.
+* [Regular Web App Quickstarts](/quickstart/webapp): The easiest way to implement the flow.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
 

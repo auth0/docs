@@ -60,6 +60,8 @@ Auth0 will pass to your app all other properties supplied by the identity provid
 
 ## Keep reading
 
+* [User Profile Structure](/users/references/user-profile-structure)
+* [Update User Profile Root Attributes](/users/normalized/auth0/update-root-attributes)
 * [Normalized User Profiles Overview](/users/normalized)
 * [Identify Users](/users/normalized/auth0/identify-users)
 * [Store User Data](/users/normalized/auth0/store-user-data)
