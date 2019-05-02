@@ -28,13 +28,12 @@ Secrets can be stored in a list (or similar structure) until they're no longer n
 
 ![View Applications](/media/articles/dashboard/guides/app-list.png)
 
-2. Locate **Client Secret**, and click the **Rotate** button.
+2. Scroll to the bottom of the Application Settings page and under **Danger Zone**, you will see the Rotate secret option. Click the **Rotate** button to rotate the client's secret.
 
-![Rotate Client Secret](/media/articles/dashboard/guides/app-settings.png)
+![Rotate Client Secret](/media/articles/dashboard/guides/rotate-client-secret.png)
 
 You can view your new secret by selecting the **Reveal client secret** checkbox.
 
 3. Update authorized applications
 
 After you rotate your client secret, you must update any authorized applications with the new value.
-s

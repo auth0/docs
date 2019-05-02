@@ -114,7 +114,6 @@ As an alternative or complement to retrieving logs by checkpoint or search crite
 
 * [/api/v2/logs/{id}](/api/v2#!/Logs/get_logs_by_id): Retrieves the single log entry associated with the provided log id.
 * [/api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user): Retrieves log events for a specific user id.
-`every`.
 
 ## Log data event listing
 
@@ -123,7 +122,7 @@ The following table lists the codes associated with the appropriate log events.
 | **Event Code** | **Event** | **Event Description** | **Additional Info** |
 | --- | --- | --- | --- |
 | `admin_update_launch` | Auth0 Update Launched | |
-| `api_limit` | Rate Limit On API | The maximum number of requests to the API in given time has reached. | [Rate Limit Policy](/policies/rate-limits) |
+| `api_limit` | Rate Limit on the Authentication API | The maximum number of requests to the Authentication API in given time has reached. | [Rate Limit Policy](/policies/rate-limits) |
 | `cls` | Code/Link Sent | Passwordless login code/link has been sent | [Passwordless](/passwordless) |
 | `coff` | Connector Offline | AD/LDAP Connector is offline | [Active Directory/LDAP Connector](/connector) |
 | `con` | Connector Online | AD/LDAP Connector is online and working | [Active Directory/LDAP Connector](/connector) |

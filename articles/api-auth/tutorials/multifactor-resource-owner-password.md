@@ -164,15 +164,15 @@ var request = require("request");
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
   headers: { 'content-type': 'application/x-www-form-urlencoded' },
-  body:
+  form:
    { grant_type: 'password',
      username: 'USERNAME',
      password: 'PASSWORD',
      audience: 'API_IDENTIFIER',
      scope: 'SCOPE',
      client_id: '${account.clientId}',
-     client_secret: 'YOUR_CLIENT_SECRET' },
-  json: true };
+     client_secret: 'YOUR_CLIENT_SECRET' }
+  };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -234,13 +234,13 @@ function mfaOTP(mfa_token, otp) {
   var options = { method: 'POST',
     url: 'https://${account.namespace}/oauth/token',
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
-    body:
+    form:
     { mfa_token: mfa_token,
       otp: otp,
       grant_type: 'http://auth0.com/oauth/grant-type/mfa-otp',
       client_id: '${account.clientId}',
-      client_secret: 'YOUR_CLIENT_SECRET' },
-    json: true };
+      client_secret: 'YOUR_CLIENT_SECRET' }
+  };
 
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
@@ -280,14 +280,14 @@ function makeOOBGrantRequest(mfa_token, oob_code, /* optional  */ binding_code, 
   var options = { method: 'POST',
     url: 'https://${account.namespace}/oauth/token',
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
-    body:
+    form:
     { mfa_token: mfa_token,
       oob_code: oob_code,
       binding_code: binding_code, // Only when binding_method = prompt
       grant_type: 'http://auth0.com/oauth/grant-type/mfa-oob',
       client_id: '${account.clientId}',
-      client_secret: 'YOUR_CLIENT_SECRET' },
-    json: true };
+      client_secret: 'YOUR_CLIENT_SECRET' }
+    };
 
   request(options, function (error, response, body) {
     if (error) { return cb(error); }
@@ -318,14 +318,14 @@ function mfaRecovery(mfa_token, recovery_code) {
   var options = { method: 'POST',
     url: 'https://${account.namespace}/oauth/token',
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
-    body:
+    form:
     { mfa_token: mfa_token,
       recovery_code: recovery_code,
       otp: otp,
       grant_type: 'http://auth0.com/oauth/grant-type/mfa-recovery-code',
       client_id: '${account.clientId}',
-      client_secret: 'YOUR_CLIENT_SECRET' },
-    json: true };
+      client_secret: 'YOUR_CLIENT_SECRET' }
+    };
 
   request(options, function (error, response, body) {
     if (error) throw new Error(error);

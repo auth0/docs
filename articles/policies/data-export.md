@@ -11,7 +11,7 @@ useCase:
 ---
 # Data Export Policy
 
-If you would like to export your data from Auth0 there are a several ways you can do this. 
+If you would like to export your data from Auth0 there are a several ways you can do this. Please note these tools do not export password hashes of your [Auth0-hosted database users](/connections/database). You can still request this information by opening a [support ticket](https://support.auth0.com/). Please note that in order to make this request you must be signed in to the Developer plan for one month.
 
 ## Use the Import/Export Extension
 

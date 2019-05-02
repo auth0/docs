@@ -22,3 +22,5 @@ Our support team strives to assist you to the best of our ability. However, we a
 * Re-using the name of a previously deleted tenant
 
 * Migrating a tenant from one region to another (for example, from US to EU)
+
+* Ad hoc usage data reports.

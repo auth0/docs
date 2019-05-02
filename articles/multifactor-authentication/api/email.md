@@ -52,7 +52,37 @@ When a user begins the authorization process without an active authenticator ass
     { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+        {
+          "name": "grant_type",
+          "value": "password"
+        },
+        {
+          "name": "username",
+          "value": "user@example.com"
+        },
+        {
+          "name": "password",
+          "value": "pwd"
+        },
+        {
+          "name": "audience",
+          "value": "https://someapi.com/api"
+        },
+        {
+          "name": "scope",
+          "value": "read:sample"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "client_secret",
+          "value": "YOUR_CLIENT_SECRET"
+        }
+    ]
   }
 }
 ```
@@ -108,7 +138,28 @@ Next the user should receive an email containing the 6-digit code, which they ca
     "url": "https://${account.namespace}/oauth/token",
     "postData": {
         "mimeType": "application/x-www-form-urlencoded",
-        "text": "{ \"client_id\": [\"YOUR_CLIENT_ID\"], \"grant_type\": \"http://auth0.com/oauth/grant-type/mfa-oob\", \"mfa_token\": \"YOUR_MFA_TOKEN\", \"oob_code\": \"ata...i0i\", \"binding_code\": \"000000\" }"
+        "params": [
+          {
+            "name": "grant_type",
+            "value": "http://auth0.com/oauth/grant-type/mfa-oob"
+          },
+          {
+            "name": "mfa_token",
+            "value": "YOUR_MFA_TOKEN"
+          },
+          {
+            "name": "oob_code",
+            "value": "ata...i0i"
+          },
+          {
+            "name": "binding_code",
+            "value": "000000"
+          },
+          {
+            "name": "client_id",
+            "value": "${account.clientId}"
+          }
+        ]
     }
 }
 ```
@@ -155,8 +206,29 @@ Then you can verify the multifactor authentication using the `/oauth/token` endp
     "method": "POST",
     "url": "https://${account.namespace}/oauth/token",
     "postData": {
-        "mimeType": "application/x-www-form-urlencoded",
-        "text": "{ \"client_id\": [\"YOUR_CLIENT_ID\"], \"grant_type\": \"http://auth0.com/oauth/grant-type/mfa-oob\", \"mfa_token\": \"YOUR_MFA_TOKEN\", \"oob_code\": \"ata...i0i\", \"binding_code\": \"000000\" }"
+      "mimeType": "application/x-www-form-urlencoded",
+      "params": [
+        {
+          "name": "grant_type",
+          "value": "http://auth0.com/oauth/grant-type/mfa-oob"
+        },
+        {
+          "name": "mfa_token",
+          "value": "YOUR_MFA_TOKEN"
+        },
+        {
+          "name": "oob_code",
+          "value": "ata...i0i"
+        },
+        {
+          "name": "binding_code",
+          "value": "000000"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        }
+      ]
     }
 }
 ```

@@ -64,7 +64,7 @@ After you have customized the user metadata, you can manage and store data relat
 :::
 
 ::: guides
-  * [Manage User Metadata with Auth0 APIs](/users/guides/manage-user-metadata-with-apis)
+  * [Manage User Metadata](/users/guides/manage-user-metadata)
   * [User Metadata in Rules](/rules/current/metadata-in-rules)
   :::
 

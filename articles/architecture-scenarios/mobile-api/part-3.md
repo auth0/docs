@@ -77,7 +77,29 @@ Next you can exchange the `authorization_code` from the response for an Access T
     { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"com.myclientapp://myclientapp.com/callback\", }"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "authorization_code"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "code_verified",
+        "value": "YOUR_GENERATED_CODE_VERIFIER"
+      },
+      {
+        "name": "code",
+        "value": "YOUR_AUTHORIZATION_CODE"
+      },
+      {
+        "name": "redirect_ui",
+        "value": "https://${account.callback}"
+      }
+    ]
   }
 }
 ```
@@ -167,20 +189,28 @@ Your request should include:
 
 ```har
 {
-    "method": "POST",
-    "url": "https://${account.namespace}/oauth/token",
-    "httpVersion": "HTTP/1.1",
-    "cookies": [],
-    "headers": [
-      { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
-    ],
-    "queryString" : [],
-    "postData" : {
-      "text" : "{ \"grant_type\": \"refresh_token\", \"client_id\": \"${account.clientId}\", \"refresh_token\": \"YOUR_REFRESH_TOKEN\" }"
-    },
-    "headersSize" : 150,
-    "bodySize" : 0,
-    "comment" : ""
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "httpVersion": "HTTP/1.1",
+  "headers": [
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+  ],
+  "postData" : {
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "refresh_token"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "refresh_token",
+        "value": "YOUR_REFRESH_TOKEN"
+      }
+    ]
+  }
 }
 ```
 

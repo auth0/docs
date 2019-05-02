@@ -28,7 +28,7 @@ After the registration process, Weibo provides you with an **appkey** and a corr
 
 ## 2. Create and enable your Auth0 connection
 
-[Set up the Shopify social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **App key** and the **App secret** that Weibo provided to you in Step 1.
+[Set up the Weibo social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **App key** and the **App secret** that Weibo provided to you in Step 1.
 
 ## 3. Test the connection
 

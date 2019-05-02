@@ -71,7 +71,9 @@ Set the following configuration variables:
 - **EXTENSION_CLIENT_ID**: This is the **Client ID** of the application you have created in the [Applications](${manage_url}/#/applications) that you wish to use this extension with.
 - **TITLE**: This the custom title that will appear at the top of the SSO Dashboard page.
 - **CUSTOM_CSS** *Optional*: This field that can contain a link to custom CSS you can use to style the look of your SSO Dashboard page.
-- **AUTH0_CUSTOM_DOMAIN** *Optional*: If you have a custom domain name configured, enter it here. For example: login.example.com
+- **AUTH0_CUSTOM_DOMAIN** *Optional*: If you have a custom domain name configured, enter it here (for example: login.example.com). This will change the authorization endpoint to https://login.example.com/login.
+
+  **NOTE**: Setting the `AUTH0_CUSTOM_DOMAIN` variable does not affect the extension URL, it only changes the "authorization endpoint". When a custom domain is used, users that are logging into the extension will be navigated to `https://AUTH0_CUSTOM_DOMAIN/login` instead of the default `https://tenant-name.us.auth0.com/login`.
 
 Once you have provided this information, click **INSTALL**.
 

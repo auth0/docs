@@ -48,11 +48,6 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [logo](#logo-string-) | What logo should be used |
 | [primaryColor](#primarycolor-string-) | Color of the primary button on the widget |
 
-### Social
-
-| Option | Description |
-| --- | --- |
-| [socialButtonStyle](#socialbuttonstyle-string-) | Force small or large social connection buttons |
 
 ### Authentication
 
@@ -139,9 +134,9 @@ var options = {
 
 Examples of `allowedConnections`:
 
-![Lock - Allowed Connections](/media/articles/libraries/lock/v10/customization/lock-allowedconnections-database.png)
+![Lock - Allowed Connections](/media/articles/libraries/lock/v11/customization/lock-allowedconnections-database.png)
 
-![Lock - Allowed Connections](/media/articles/libraries/lock/v10/customization/lock-allowedconnections-social.png)
+![Lock - Allowed Connections](/media/articles/libraries/lock/v11/customization/lock-allowedconnections-social.png)
 
 ### allowShowPassword {Boolean}
 
@@ -155,7 +150,7 @@ var options = {
 
 Lock with `allowShowPassword` set to `true` and toggled to show the password:
 
-![Lock - Avatar](/media/articles/libraries/lock/v10/customization/lock-allowshowpassword.png)
+![Lock - Avatar](/media/articles/libraries/lock/v11/customization/lock-allowshowpassword.png)
 
 ### autoclose {Boolean}
 
@@ -217,7 +212,7 @@ var options = {
 
 Default behavior with Gravatar:
 
-![Lock - Avatar](/media/articles/libraries/lock/v10/customization/lock-avatar.png)
+![Lock - Avatar](/media/articles/libraries/lock/v11/customization/lock-avatar.png)
 
 ### closable {Boolean}
 
@@ -229,7 +224,7 @@ var options = {
 };
 ```
 
-![Lock - Closable](/media/articles/libraries/lock/v10/customization/lock-closable.png)
+![Lock - Closable](/media/articles/libraries/lock/v11/customization/lock-closable.png)
 
 ### container {String}
 
@@ -255,7 +250,7 @@ This makes the widget appear inline within your `div` instead of in a modal pop-
 </script>
 ```
 
-![Lock - Container](/media/articles/libraries/lock/v10/customization/lock-container.png)
+![Lock - Container](/media/articles/libraries/lock/v11/customization/lock-container.png)
 
 ### language {String}
 
@@ -268,7 +263,7 @@ var options = {
 };
 ```
 
-![Lock - Language](/media/articles/libraries/lock/v10/customization/lock-language.png)
+![Lock - Language](/media/articles/libraries/lock/v11/customization/lock-language.png)
 
 ### languageDictionary {Object}
 
@@ -283,7 +278,7 @@ var options = {
 };
 ```
 
-![Lock - Language Dictionary](/media/articles/libraries/lock/v10/customization/lock-languagedictionary.png)
+![Lock - Language Dictionary](/media/articles/libraries/lock/v11/customization/lock-languagedictionary.png)
 
 Additionally, check out the [Customizing Error Messages](/libraries/lock/v11/customizing-error-messages) page or the [Internationalization](/libraries/lock/v11/i18n) page for more information about the use of the `languageDictionary` option.
 
@@ -366,7 +361,7 @@ var options = {
 };
 ```
 
-![Lock - Labeled Submit Button](/media/articles/libraries/lock/v10/customization/lock-theme-labeledsubmitbutton.png)
+![Lock - Labeled Submit Button](/media/articles/libraries/lock/v11/customization/lock-theme-labeledsubmitbutton.png)
 
 If the label is set to true, which is the default, the label's text can be customized through the [languageDictionary](#languagedictionary-object-) option.
 
@@ -382,7 +377,7 @@ var options = {
 };
 ```
 
-![Lock - Theme - Logo](/media/articles/libraries/lock/v10/customization/lock-theme-logo.png)
+![Lock - Theme - Logo](/media/articles/libraries/lock/v11/customization/lock-theme-logo.png)
 
 #### primaryColor {String}
 
@@ -397,52 +392,9 @@ var options = {
 };
 ```
 
-![Lock - Theme - Primary Color](/media/articles/libraries/lock/v10/customization/lock-theme-primarycolor.png)
+![Lock - Theme - Primary Color](/media/articles/libraries/lock/v11/customization/lock-theme-primarycolor.png)
 
 ## Social Options
-
-### socialButtonStyle {String}
-
-Determines the size of the buttons for the social providers. Possible values are `big` and `small`. The default style depends on the connections that are available:
-
-- If only social connections are available, it will default to `big` when there are 5 connections at most, and default to `small` otherwise.
-- If connections from types other than social are also available, it will default to `big` when there are 3 social connections at most, and default to `small` otherwise.
-
-First example, with three social connections, and other connections (in this case, a username-password connection) - with forced small buttons.
-
-```js
-var options = {
-  socialButtonStyle: 'small'
-};
-```
-
-![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-small.png)
-
-Second example, with `socialButtonStyle` remaining at default behavior - three social connections, with no other connections enabled for this application in the dashboard.
-
-```js
-var options = {};
-```
-
-![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-default-social.png)
-
-Third example, with `socialButtonStyle` remaining at default behavior - the app has three social connections, with other connections turned on in the dashboard (in this case, a username-password connection).
-
-```js
-var options = {};
-```
-
-![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-default.png)
-
-Fourth example, with three social connections, and no other connections enabled in the dasbboard, but with forced small buttons.
-
-```js
-var options = {
-  socialButtonStyle: 'small'
-};
-```
-
-![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-small-social.png)
 
 ## Authentication Options
 
@@ -631,7 +583,7 @@ var options = {
 }
 ```
 
-![Lock - Additional Signup Fields](/media/articles/libraries/lock/v10/customization/lock-additionalsignupfields.png)
+![Lock - Additional Signup Fields](/media/articles/libraries/lock/v11/customization/lock-additionalsignupfields.png)
 
 #### Select Field
 
@@ -725,7 +677,7 @@ var options = {
 };
 ```
 
-![Lock - Allow Login](/media/articles/libraries/lock/v10/customization/lock-allowlogin.png)
+![Lock - Allow Login](/media/articles/libraries/lock/v11/customization/lock-allowlogin.png)
 
 ### allowForgotPassword {Boolean}
 
@@ -742,7 +694,7 @@ var options = {
 };
 ```
 
-![Lock - Allow Forgot Password](/media/articles/libraries/lock/v10/customization/lock-allowforgotpassword.png)
+![Lock - Allow Forgot Password](/media/articles/libraries/lock/v11/customization/lock-allowforgotpassword.png)
 
 ### allowSignUp {Boolean}
 
@@ -756,7 +708,7 @@ var options = {
 };
 ```
 
-![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-allowsignup.png)
+![Lock - Social Button Style](/media/articles/libraries/lock/v11/customization/lock-allowsignup.png)
 
 ### defaultDatabaseConnection {String}
 

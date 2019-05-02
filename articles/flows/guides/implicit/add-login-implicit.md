@@ -1,5 +1,5 @@
 ---
-title: Add Login Using the Implicit Floew
+title: Add Login Using the Implicit Flow
 description: Learn how to add login to your single-page application (SPA) using the Implicit Flow.
 toc: true
 topics:
