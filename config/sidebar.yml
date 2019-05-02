@@ -289,7 +289,7 @@ articles:
             url: "/authorization/guides/manage-permissions"
             
           - title: "Enable RBAC for APIs"
-            url: "/authorization/guides/dashboard/enable-rbac"
+            url: "/dashboard/guides/apis/enable-rbac"
 
   - title: "Private Cloud"
     url: "/private-cloud"

@@ -29,7 +29,7 @@ This update may not require changes to your code or configuration, but your appl
  
 The Facebook Connection interface has been updated to show both the regular name as well as the machine name for all permissions displayed. This makes it easier to find the permissions you need and map that to any code you might be running using these permission names.
 
-![Facebook Connection Permissions](/media/connections/social/facebook/facebook-connection-permissions.png)
+![Facebook Connection Permissions](/media/articles/connections/social/facebook/facebook-connection-permissions.png)
  
 ### Permissions added
  
