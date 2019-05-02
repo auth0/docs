@@ -43,17 +43,19 @@ Auth0 also supports the ability for users to [link their profile to multiple ide
 | `created_at`     | date&nbsp;time  | The timestamp of when the user profile was first created. |
 | `email`          | text   | (unique) The user's email address. |
 | `email_verified` | boolean   | The `true/false` value indicating if the user has verified their email address. |
+| `family_name` | text  | The user's family name. Updatable. |
+| `given_name` | text } The user's given name. Updatable. |
 | `identities`     | array&nbsp;(object) | <%= include('../_includes/_user-prop-identities.md') %> | 
 | `multifactor`   | text    | The list of multi-factor providers in which the user is enrolled. |
 | `last_ip`       | text    | The IP address associated with the user's last login. |
 | `last_login`    | date&nbsp;time   | The timestamp of when the user last logged in. If you are using this property from inside a [Rule](/rules) using the `user` object, its value will be associated with the login that triggered the rule (since rules execute after the actual login). |
-| `name`          | text     | The user's name. |
-| `nickname`      | text     | The user's nickname. |
+| `name`          | text     | The user's name. Updatable. |
+| `nickname`      | text     | The user's nickname. Updatable. |
 | `last_password_reset` | date&nbsp;time | The last time the password was reset/changed. |
 | `password_set_date`   | date&nbsp;time | The date when the user's password was set. At user creation, this field exists, but `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical. |
 | `phone_number` | text | The user's phone number. Only valid for users with SMS connections. |
 | `phone_verified` | boolean | The `true/false` value indicating whether the user's phone number has been verified. Only valid for users with SMS connections. |
-| `picture` | text | URL pointing to [the user's profile picture](/users/guides/change-user-pictures). |
+| `picture` | text | URL pointing to [the user's profile picture](/users/guides/change-user-pictures). Updatable. |
 | `updated_at` | date&nbsp;time | The timestamp of when the user's profile was last updated/modified. The `updated_at` property is also updated when the `last_login` property is updated, which is also considered an update. This means that, most of the time, the `updated_at` property will match the `last_login` property. |
 | `user_id` | text | (unique) The user's identifier. |
 | `user_metadata` | object     | Custom fields that store info about a user that does not impact what they can or cannot access (such as work and home address). For more info, see [Metadata Overview](/users/concepts/overview-user-metadata). |

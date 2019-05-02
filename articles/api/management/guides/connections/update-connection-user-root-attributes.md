@@ -1,5 +1,5 @@
 ---
-title: Update Connection Preferences for User Profile Root Attribute Updates
+title: Update Connection Preferences for Updates to User Profile Root Attributes
 description: Learn how to update connection preferences for an upstream identity provider to control when updates to user profile root attributes will be allowed using the Auth0 Management API.
 topics:
   - connections
@@ -13,9 +13,9 @@ useCase:
   - customize-connections
   - manage-users
 ---
-# Update Connection Preferences for User Profile Root Attribute Updates
+# Update Connection Preferences for Updates to User Profile Root Attributes
 
-This guide will show you how to update connection preferences for an upstream [Identity Provider](/connections) to control when updates to user profile root attributes will be allowed using Auth0's Management API. 
+This guide will show you how to update connection preferences for an upstream [Identity Provider](/connections) to control when updates to user profile root attributes will be allowed using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/connections/update-connection-user-root-attributes).
 
 ::: warning
 Before completing this step, you should first [retrieve the existing values of the connection's `options` object](/api/management/guides/retrieve-connection-options) to avoid overriding the current values. If you do not, any missing parameters from the original object will be lost after you update.
