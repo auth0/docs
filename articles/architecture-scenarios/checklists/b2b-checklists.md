@@ -1,5 +1,5 @@
 ---
-title: Implementation Checklists
+title: B2C IAM Implementation Checklists
 description: Links to checklists for your implementation. 
 topics:
     - SDLC
@@ -10,7 +10,7 @@ contentType: reference
 useCase:
     - implementation
 ---
-# Implementation Checklists
+# B2C IAM Implementation Checklists
 
 Auth0 recommends that you break your implementation into six phases to plan and complete your implementation. 
 

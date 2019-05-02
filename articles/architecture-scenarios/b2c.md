@@ -16,9 +16,7 @@ This guide focuses on how to integrate Auth0 within a Consumer Identity and Acce
 
 Customers using Auth0 for consumer-focused, also known as Business-to-Consumer (B2C), projects typically share a common set of goals and objectives, and in the sections that follow we'll focus on our experiences working with this shared set of expectations to help you deliver your solution efficiently.
 
-::: note
-The information provided is relevant to **all** project stakeholders. We recommend reading through this guidance in its entirety at least once, even if you've already started your journey with Auth0.
-:::
+<%= include('../_includes/_read-in-entirety.md') %>
 
 ## Ways to integrate Auth0 and how to choose
 
@@ -28,7 +26,7 @@ When you embark on your journey to integrate with Auth0, there are many things f
 
 ## Implementation checklists
 
-Auth0 also provides helpful implementation planning [checklists](/architecture-scenarios/checklists) that you can use organize your implementation tasks. There are six checklists that cover the following implementation steps:
+Auth0 also provides helpful implementation planning [checklists](/architecture-scenarios/checklists/b2c-checklists) that you can use organize your implementation tasks. There are six checklists that cover the following implementation steps:
 
 * Analyze
 * Design
