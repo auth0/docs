@@ -723,7 +723,7 @@ module.exports = [
     to: '/api/management/v2/changes'
   },
   {
-    from: ['/tokens/apiv2', '/api/v2/tokens'],
+    from: ['/tokens/apiv2', '/api/v2/tokens', '/api/management/v2/concepts/tokens'],
     to: '/api/management/v2/tokens'
   },
   {
