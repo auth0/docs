@@ -21,7 +21,7 @@ This tutorial will help you add login to your native/mobile app using the Author
 
 Auth0 makes it easy for your app to implement the mobile login flow using:
 
-* [Auth0 Mobile SDKs](/libraries#auth0-sdks): The easiest way to implement mobile login flow, which will do most of the heavy-lifting for you. Our [Mobile Quickstarts](/quickstart/native) will walk you through the process.
+* [Auth0 Mobile SDKs](/libraries#auth0-sdks): The easiest way to implement the mobile login flow, which will do most of the heavy-lifting for you. Our [Mobile Quickstarts](/quickstart/native) will walk you through the process.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
 Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens). The ID Token will contain basic user profile information, and the Access Token can be used to call the Auth0 /userinfo endpoint or your own protected APIs.

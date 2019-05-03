@@ -38,7 +38,7 @@ Auth0 makes it easy for your app to implement the mobile login flow using:
 * [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
   * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
 
-## Steps 
+## Steps
 
 When your app needs to access 
 
