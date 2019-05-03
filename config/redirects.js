@@ -2165,5 +2165,9 @@ module.exports = [
     {
       from: '/authorization/guides/dashboard/enable-rbac',
       to: '/dashboard/guides/apis/enable-rbac'
+    },
+    {
+      from: '/users/references/user-data-storage-best-practices',
+      to: '/best-practices/user-data-storage-best-practices'
     }
 ];
