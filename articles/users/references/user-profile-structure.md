@@ -44,7 +44,7 @@ Auth0 also supports the ability for users to [link their profile to multiple ide
 | `email`          | text   | (unique) The user's email address. |
 | `email_verified` | boolean   | The `true/false` value indicating if the user has verified their email address. |
 | `family_name` | text  | The user's family name. Updatable. |
-| `given_name` | text } The user's given name. Updatable. |
+| `given_name` | text | The user's given name. Updatable. |
 | `identities`     | array&nbsp;(object) | <%= include('../_includes/_user-prop-identities.md') %> | 
 | `multifactor`   | text    | The list of multi-factor providers in which the user is enrolled. |
 | `last_ip`       | text    | The IP address associated with the user's last login. |
