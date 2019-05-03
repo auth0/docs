@@ -39,7 +39,7 @@ A Refresh Token allows the application to ask Auth0 to issue a new Access Token 
 
 ## Restrictions on Refresh Token Usage
 
-You can only get a Refresh Token if you are implementing the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), [Resource Owner Password Grant](/api-auth/grant/password), or [Device Authorization Flow](/flows/concepts/device-auth).
+You can only get a Refresh Token if you are implementing the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), or [Resource Owner Password Grant](/api-auth/grant/password).
 
 A Single-Page Application (normally implementing [Implicit Flow](/flows/concepts/implicit)) should not ever receive a Refresh Token. A Refresh Token is essentially a user credential that allows a user to remain authenticated indefinitely. This sensitive information should be stored securely and *not* exposed client-side in a browser.
 

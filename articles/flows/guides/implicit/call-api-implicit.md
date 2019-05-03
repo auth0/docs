@@ -21,7 +21,7 @@ This tutorial will help you call your own API from a single-page application (SP
 
 Auth0 makes it easy for your app to implement the Implicit Flow using:
 
-* [Auth0.js](/libraries/auth0js): The easiest way to implement the flow, which will do most of the heavy-lifting for you. Our [Single-Page App Quickstarts](/quickstart/spa) will walk you through the process.
+* [Auth0.js](/libraries/auth0js): The easiest way to implement the Implicit Flow, which will do most of the heavy-lifting for you. Our [Single-Page App Quickstarts](/quickstart/spa) will walk you through the process.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
 ## Prerequisites
