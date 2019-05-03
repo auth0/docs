@@ -30,8 +30,7 @@ This guide will show you how to update root attributes for an existing user prof
 	],
 	"postData": {
         "mimeType": "application/json",
-        "text" : "{ \"given_name\": GIVEN_NAME_VALUE, \"family_name\": FAMILY_NAME_VALUE,\"name\": NAME_VALUE, \"nickname\": NICKNAME_VALUE,\"picture\": PICTURE_VALUE
-        }"
+        "text" : "{ \"given_name\": GIVEN_NAME_VALUE, \"family_name\": FAMILY_NAME_VALUE,\"name\": NAME_VALUE, \"nickname\": NICKNAME_VALUE,\"picture\": PICTURE_VALUE }"
 	}
 }
 ```

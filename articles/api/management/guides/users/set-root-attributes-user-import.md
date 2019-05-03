@@ -28,8 +28,7 @@ This guide will show you how to set root attributes for a user during import usi
 	],
 	"postData": {
         "mimetype": "multipart/form-data",
-        "text": "{ \"connection_id\": \"CONNECTION_ID\", \"users\": \"JSON_USER_FILE_PATH\"
-        }"
+        "text": "{ \"connection_id\": \"CONNECTION_ID\", \"users\": \"JSON_USER_FILE_PATH\" }"
 	}
 }
 ```

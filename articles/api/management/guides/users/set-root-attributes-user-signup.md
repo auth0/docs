@@ -31,8 +31,7 @@ This guide will show you how to set root attributes for a user during sign-up us
 	],
 	"postData": {
         "mimeType": "application/json",
-        "text": "{ \"connection\": CONNECTION_NAME, \"email\": EMAIL_VALUE, \"password\": PASSWORD_VALUE, \"given_name\": GIVEN_NAME_VALUE, \"family_name\": FAMILY_NAME_VALUE,\"name\": NAME_VALUE, \"nickname\": NICKNAME_VALUE,\"picture\": PICTURE_VALUE
-        }"
+        "text": "{ \"connection\": CONNECTION_NAME, \"email\": EMAIL_VALUE, \"password\": PASSWORD_VALUE, \"given_name\": GIVEN_NAME_VALUE, \"family_name\": FAMILY_NAME_VALUE,\"name\": NAME_VALUE, \"nickname\": NICKNAME_VALUE,\"picture\": PICTURE_VALUE }"
 	}
 }
 ```
