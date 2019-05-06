@@ -48,7 +48,7 @@ Alternatively, you can:
 
 ## Keep reading
 
-* [0Auth 2.0 Authorization Framework](/protocols/oauth2)
+* [OAuth 2.0 Authorization Framework](/protocols/oauth2)
 * [State Parameter](/protocols/oauth2/oauth-state)
 * [Rules](/rules)
 * [Redirect Users After Login](/users/guides/redirect-users-after-login)
