@@ -15,7 +15,7 @@ useCase:
 
 Understanding your application is key to understanding how Auth0 can be leveraged to meet your needs. From experience, our most successful customers start with a visualization of their proposed - or in many cases existing - architecture and use this as a basis for reference as they progress. Understanding where your application fits within your organization is also important; Auth0 [Accounts and Tenants](/getting-started/the-basics#account-and-tenants) form the basis for the grouping and structuring of Auth0 assets, and it may be that you’ll need to leverage an existing Auth0 deployment in order to integrate with Single Sign On ([SSO](/sso/current/introduction)), centralized user [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt), consolidated billing, or the like.
 
-<%= include('./_includes/_bp-sso-training.md') %>
+<%= include('../../_includes/_bp-sso-training.md') %>
 
 ## Design considerations
 
@@ -30,7 +30,7 @@ The value of investing time on the landscape of the architecture up-front is som
 
 Organizations often service more than one domain of user - customers, employees, and affiliates being the most frequently encountered, with typically little to no cross-over: employees, say, don’t use the same applications as customers and vice-versa. In some cases there can also be a need to partition further within a domain - separate groups of customers, say, who use different and unconnected products. Auth0 provides a way to segregate your users and the associated collateral, and [tenant provision](#tenant-provision) covers this in more detail. 
 
-<%= include('./_includes/_bp-user-communities.md') %>
+<%= include('../../_includes/_bp-user-communities.md') %>
 
 If you need to provision an independent tenant then you’ll also want to [associate this with your existing Auth0 account](#tenant-association), so that you can take full advantage of the benefits provided at your organization’s contracted subscription level.
 
