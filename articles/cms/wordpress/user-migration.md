@@ -38,13 +38,24 @@ If the User Migration Setup Wizard could not complete or you want to see the pro
 7. There should be 2 tabs below this setting under the "Database Action Scripts" heading, one for **Login** and one for **Get User**
 8. Click on the **Login** tab
 9. Clear out all the existing code, open [this link](https://raw.githubusercontent.com/auth0/wp-auth0/master/lib/scripts-js/db-login.js) in a new tab, copy all the code there, and paste it into the code editor back in Auth0.
-10. Look for `{THE_WS_URL}` and replace that with your WordPress instance's site URL, followed by `/index.php?a0_action=migration-ws-login`. The site URL can be found in the **Settings > General** screen in wp-admin. You can test this by pasting the complete URL in your browser. You should see `{"status":401,"error":"Unauthorized"}`
-11. Look for `{THE_WS_TOKEN}` and replace that with the token that appears under the "User Migration Endpoints" setting.
+10. **This step is for 3.10.0 and earlier:** Look for `{THE_WS_URL}` and replace that with your WordPress instance's site URL, followed by `/index.php?a0_action=migration-ws-login`. The site URL can be found in the **Settings > General** screen in wp-admin. You can test this by pasting the complete URL in your browser. You should see `{"status":401,"error":"Unauthorized"}`.
+11. **This step is for 3.10.0 and earlier:** Look for `{THE_WS_TOKEN}` and replace that with the token that appears under the "User Migration Endpoints" setting.
 12. There should be no errors in the editor. If everything looks good, click **Save** at the top.
-13. Click the **Try** button at the top and use a valid WordPress user account in the form that appears. You should see the "The profile is" followed by the user's data. If not, please see the [**Troubleshooting**](#troubleshooting) section below.
-14. Now click on the **Get User** tab and complete steps 9 through 13 above with [this code](https://raw.githubusercontent.com/auth0/wp-auth0/master/lib/scripts-js/db-get-user.js) and the URL `/index.php?a0_action=migration-ws-get-user`
-15. In a new browser session, navigate to a login page on the WordPress site and attempt to login (the user should not already exist in the database). You'll notice that the login process takes a little longer than usual at first but should succeed. Subsequent logins will be faster.
-16. (OPTIONAL) To turn on additional security for the migration endpoints, go to **Auth0 > Settings** screen in WordPress, turn on "Migration IPs Whitelist," and then **Save Changes**. Attempt to login with a different user to test that Auth0 can still reach the endpoints.
+13. **This step is for 3.11.0 and later:** Scroll down to **Settings** and add the following configuration variables:
+  - `endpointUrl` set to your WordPress instance's site URL (**wp-admin > Settings > General >** "Site URL" field), followed by `/index.php?a0_action=`.
+  - `migrationToken` set to the security token value seen in step 4 above.
+  - `userNamespace` set to your Application name in Auth0 or any other value only including letters, numbers, and dashes.
+
+![WordPress User Migration - Database Configuration](/media/articles/cms/wordpress/auth0-custom-database-config.png)
+
+14. Click the **Try** button at the top and use a valid WordPress user account in the form that appears. You should see the "The profile is" followed by the user's data. If not, please see the [**Troubleshooting**](#troubleshooting) section below.
+15. Now click on the **Get User** tab, clear out all the existing code, open [this link](https://raw.githubusercontent.com/auth0/wp-auth0/master/lib/scripts-js/db-get-user.js) in a new tab, copy all the code there, and paste it into the code editor back in Auth0.
+16. **This step is for 3.10.0 and earlier:** Look for `{THE_WS_URL}` and replace that with your WordPress instance's site URL, followed by `/index.php?a0_action=migration-ws-get-user`. The site URL can be found in the **Settings > General** screen in wp-admin. You can test this by pasting the complete URL in your browser. You should see `{"status":401,"error":"Unauthorized"}`.
+17. **This step is for 3.10.0 and earlier:** Look for `{THE_WS_TOKEN}` and replace that with the token that appears under the "User Migration Endpoints" setting.
+18. There should be no errors in the editor. If everything looks good, click **Save** at the top.
+19. Click the **Try** button at the top and use an email with a valid WordPress user account in the form that appears. You should see the "The profile is" followed by the user's data. If not, please see the [**Troubleshooting**](#troubleshooting) section below.
+20. In a new browser session, navigate to a login page on the WordPress site and attempt to login (the user should not already exist in the database). You'll notice that the login process takes a little longer than usual at first but should succeed. Subsequent logins will be faster.
+21. (OPTIONAL) To turn on additional security for the migration endpoints, go to **Auth0 > Settings** screen in WordPress, turn on "Migration IPs Whitelist," and then **Save Changes**. Attempt to login with a different user to test that Auth0 can still reach the endpoints.
 
 At this point, the User Migration setup is complete and existing WordPress users will be trickle migrated to the Auth0 Database Connection.
 
@@ -74,6 +85,13 @@ First, copy the URL on line 10 in the script and paste it in your browser. If th
 
 If what you're seeing is the home page or a 404, then the URL is incorrect. Look for your site URL under **Settings > General > Site URL** in the WordPress admin. Add `/index.php?a0_action=migration-ws-login` to the end for the Login script and `/index.php?a0_action=migration-ws-get-user` to the end for the Get User script.
 
+- **For versions 3.10.0 and earlier**: The URL value should appear in the script itself as the first parameter in the `request.post` call.
+- **For versions 3.11.0 and later**: The token value should be saved in a configuration variable. Add the following to the first line of the function and use the **Try** button to see what is stored for `endpointUrl`:
+
+```js
+callback(null, configuration);
+```
+
 If you're sure the URLs are correct and are still having this issue, check with your host to make sure those URLs are not cached or restricted in any way.
 
 ### "Wrong email or password"
@@ -82,13 +100,13 @@ This is the default error shown if anything else goes wrong. The easiest way to 
 
 On line 30 of the Login script, change:
 
-```
+```js
 callback(null);
 ```
 
 ... to:
 
-```
+```js
 callback(wpUser.error);
 ```
 
@@ -96,7 +114,14 @@ callback(wpUser.error);
 
 #### "Forbidden"
 
-This means that the migration endpoints are turned off in your WordPress install. Go to **Auth0 > Settings > Advanced** and turn on the "User Migration Endpoints" setting. Make sure the token that appears there is the same as what is in both custom database scripts.
+This means that the migration endpoints are turned off in your WordPress install. Go to **Auth0 > Settings > Advanced** and turn on the "User Migration Endpoints" setting. Make sure the token that appears there is the same as what is used for both custom database scripts:
+
+- **For versions 3.10.0 and earlier**: The token value should appear in the script itself after `access_token:`
+- **For versions 3.11.0 and later**: The token value should be saved in a configuration variable. Add the following to the first line of the function and use the **Try** button to see what is stored for `migrationToken`:
+
+```js
+callback(null, configuration);
+```
 
 #### "Unauthorized"
 
@@ -121,3 +146,16 @@ The security token in the database script is incorrect. Check the Login script l
 #### "Invalid Credentials"
 
 The email address and/or password being used is incorrect. Check to make sure you're entering the correct email address and that the password is correct. You can reset the user password to something else to make sure you have the correct one.
+
+### Cannot Change Email or Incorrect User Data
+
+If you are using more than one custom database connection in your Auth0 tenant and you're unable to change the email address or are getting user data stored for the wrong user, it's likely that you have overlapping user IDs in Auth0. This problem has been fixed for new sites installing 3.11.0 but, for connections created before then, this will need to be manually fixed by doing one of the following:
+
+* If you don’t have any user data stored that needs to be kept (if you’re only using the connection to support login and not storing any metadata), you can create a new custom database connection using the steps above (using the 3.11.0 notes) and switch the Application to this new connection (make sure to turn the old connection off). The migration will be restarted and there will be no impact on the user experience.
+* If you do have data in Auth0 that needs to be kept, you can use our [User Import/Export Extension](/extensions/user-import-export) to adjust the user data.
+  1. Create a new custom database connection using the steps above (using the 3.11.0 notes).
+  2. Export all users from the existing connection (we recommend putting your site in maintenance mode while doing the switch-over so no users are missed).
+  3. Change all user IDs to add the namespace used when creating the new connection. User IDs should go from something like `auth0|123` to `auth0|Your-WP-Site-Name|123`. Adjust all other fields you need to follow the [import schema](/users/references/bulk-import-database-schema-examples).
+  4. Turn the new connection on and the old connection off for your application.
+  5. Import the new user data into the new connection and test.
+* If you have a paid account, you can contact our support team to run a database update script to change the user IDs to a namespaced version and add the namespace to your database script at the same time (step 12 in [Setup and Configuration](#setup-and-configuration) above).
