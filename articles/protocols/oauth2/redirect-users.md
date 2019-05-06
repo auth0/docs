@@ -1,6 +1,6 @@
 ---
 title: Redirect Users With State Parameters
-description: Learn how to redirect users with the 0Auth 2.0 state parameter. 
+description: Learn how to redirect users with the OAuth 2.0 state parameter. 
 topics:
   - users
   - user-management
