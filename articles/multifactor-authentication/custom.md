@@ -111,6 +111,8 @@ In order to let the user skip MFA, a cookie will be stored in the user's browser
 - Set `allowRememberBrowser` to `false`
 - Set `acr_values` to `http://schemas.openid.net/pape/policies/2007/06/multi-factor` when calling the `/authorize` endpoint.
 
+In case you want to force a specific user to get prompted for MFA the next time they you can call the [Invalidate Remember Browser API endpoint](https://auth0.com/docs/api/management/v2#!/Users/post_invalidate_remember_browser). This is useful if a user reports that they lost a trusted device.
+
 ### Access from an extranet
 
 Assuming that access to the specified network of internal IP addresses is well controlled, you can also have Auth0 request MFA from only users whose requests originate from outside the corporate network:
