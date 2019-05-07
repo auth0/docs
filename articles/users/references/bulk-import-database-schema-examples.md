@@ -14,7 +14,13 @@ useCase:
 ---
 # Bulk User Import Database Schema and Example
 
-The users file must have an array with the users' information in JSON format. The following [JSON schema](http://json-schema.org) describes valid users:
+::: note
+For a list of user profile fields that can be imported, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes).
+:::
+
+The users file must have an array with the users' information in JSON format.
+
+The following [JSON schema](http://json-schema.org) describes valid users:
 
 ```json
 {

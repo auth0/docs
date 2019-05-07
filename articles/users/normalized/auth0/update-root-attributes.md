@@ -19,8 +19,8 @@ Auth0's normalized user profile contains a number of [root attributes](/users/re
 
 When Auth0 is the Identity Provider (IdP), subscribers may: 
 
-* [Set root attributes on user sign-up](/api/management/guides/users/set-root-attributes-user-signup) (via the Management API or via public signup)
-or [import](/api/management/guides/users/set-root-attributes-user-import)
+* Set root attributes [on user sign-up](/api/management/guides/users/set-root-attributes-user-signup) (via the Management API or via public signup)
+or [on import](/api/management/guides/users/set-root-attributes-user-import)
 * [Update root attributes individually](/api/management/guides/users/update-root-attributes-users) via the Management API
 
 Auth0 is the IdP for the following connection types:
@@ -34,11 +34,9 @@ Auth0 is the IdP for the following connection types:
 When an upstream IdP (like Google or Facebook) is used, subscribers have two options:
 
 * The upstream IdP sets the root attributes when users are first created and then
-automatically updates them with each subsequent login.
+automatically updates them with each subsequent login. This is the default behavior.
 * The upstream IdP sets the root attributes on user creation only and does not
-update them on subsequent logins, thereby allowing [independent updates individually](/api/management/guides/users/update-root-attributes-users) via the Management API.
-
-By default, new connections sync profile data from the associated upstream IdP with each login. If you want to update root attributes on user creation only, you will need to [update your connection preferences](/api/management/guides/connections/update-connection-user-root-attributes).
+update them on subsequent logins, thereby allowing subscribers to [update root attributes individually](/api/management/guides/users/update-root-attributes-users) via the Management API. To enable this, you will need to [update your connection preferences](/api/management/guides/connections/update-connection-user-root-attributes).
 
 Upstream Identity Providers handle the following connection types:
 

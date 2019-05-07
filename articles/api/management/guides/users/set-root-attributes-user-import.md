@@ -14,7 +14,7 @@ useCase:
 ---
 # Set Root Attributes During User Import
 
-This guide will show you how to set root attributes for a user during import using Auth0's Management API. This allows you to minimize the number of API calls required to set root attributes when importing users.
+This guide will show you how to set root attributes for a user during import using Auth0's Management API. This allows you to minimize the number of API calls required to set root attributes when importing users. To see which attributes you can import, visit [Normalized User Profile Structure](/users/references/user-profile-structure).
 
 1. Make a `POST` call to the [Create Job to Import Users endpoint](/api/management/v2#!/Jobs/post_users_imports). Be sure to replace `MGMT_API_ACCESS_TOKEN`, `CONNECTION_ID`, and `JSON_USER_FILE_PATH` placeholder values with your Access Token, connection ID, and users filename, respectively.
 

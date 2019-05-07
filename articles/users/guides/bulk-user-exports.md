@@ -13,6 +13,8 @@ useCase:
 
 You can use the [`POST /api/v2/jobs/users-exports`](/api/management/v2#!/Jobs/post_users_exports) endpoint to create a job that exports all users associated with a [connection](/identityproviders).
 
+For a list of user profile fields that can be exported, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes).
+
 When you create your job, you'll need to provide:
 
 * ID for the connection whose users you want exported

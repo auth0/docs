@@ -23,6 +23,8 @@ If you already have a user database, you can use the [`POST /api/v2/jobs/users/p
 Each affected user will need to reset their password when they log in the first time after the bulk import.
 :::
 
+For a list of user profile fields that can be inserted and updated during import, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes).
+
 Using the bulk import endpoints, you can:
 
 1. [Request a bulk import of users to a connection](/api/management/v2#!/Jobs/post_users_imports) and receive a response.

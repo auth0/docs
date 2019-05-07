@@ -65,6 +65,6 @@ Auth0 will pass to your app all other properties supplied by the identity provid
 * [Normalized User Profiles Overview](/users/normalized)
 * [Identify Users](/users/normalized/auth0/identify-users)
 * [Store User Data](/users/normalized/auth0/store-user-data)
-* [Retrieve User Profiles](/users/normalized/auth0/retrieve-user-profiles)
+* [Retrieve User Profiles](/users/search)
 * [Sample User Profiles](/users/normalized/auth0/sample-user-profiles)
 * [Claims for User Profile Returned via OIDC-Compliant Authorization Flow](/users/normalized/oidc)
