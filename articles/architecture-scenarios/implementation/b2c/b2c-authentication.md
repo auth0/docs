@@ -73,7 +73,13 @@ Auth0 provides a simple way to test social connections using [pre-configured dev
 
 With [Social Login](https://auth0.com/learn/social-login/), user identities and credentials are managed by the social provider, and claims are provided by the social provider too - which Auth0 will use to populate the user [profile](/architecture-scenarios/implementation/b2c/b2c-branding). Auth0 can also provide access to Social Identity Provider (Social IdP) [Access tokens](https://auth0.com/docs/tokens/overview-idp-access-tokens), so that your application can also call 3rd party Social IdP APIs on behalf of the user.  
 
+::: panel Best Practice
+Social is a great feature to provide, but when you offer more than one way to sign-in you need to also consider the possibility that your customers will actually use more than one way to sign-in. By default, every user identity in Auth0 has its own user profile, so you’ll probably want to consider Auth0's capability to [Link User Accounts](https://auth0.com/docs/link-accounts) (a.k.a. Account Linking) in order to provide an effective way of associating one user profile with multiple identities.
+:::
 
+### Social signup
+
+Social signup is synonymous with Social Login - there’s no distinction here per-se as user [profile](/architecture-scenarios/implementation/b2c/b2c-branding) creation happens automatically upon first social login. User credentials are managed by the social provider, and claims are provided by the social provider - which Auth0 will use to populate the profile for the user.   
 
 ## Anomaly detection
 
