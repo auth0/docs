@@ -140,7 +140,7 @@ Based on customer feedback, we have adjusted our plans and will continue to main
 
 We will publish guidance for each of the below scenarios on how to transition your applications to standards-based protocols. If we need to make security enhancements to any of these legacy endpoints which would require more urgency, we will promptly announce timeframes and guidelines for any required changes.
 
-### Resource Owner support for oauth/token endpoint
+### Resource Owner support for /oauth/token endpoint
 
 Support was introduced for [Resource Owner Password](/api/authentication#resource-owner-password) to the [/oauth/token](/api/authentication#authorization-code) endpoint earlier this year.
 

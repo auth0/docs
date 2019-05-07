@@ -38,7 +38,7 @@ Because the PKCE-enhanced Authorization Code Flow builds upon the [standard Aut
 4. Your Auth0 Authorization Server redirects the user to the login and authorization prompt.
 5. The user authenticates using one of the configured login options and may see a consent page listing the permissions Auth0 will give to the mobile application.
 6. Your Auth0 Authorization Server stores the `code_challenge` and redirects the user back to the application with an authorization `code`.
-7. Auth0's SDK sends this `code` and the `code_verifier` (created in step 2) to the Auth0 Authorization Server ([**/token** endpoint](/api/authentication?http#authorization-code-pkce-)).
+7. Auth0's SDK sends this `code` and the `code_verifier` (created in step 2) to the Auth0 Authorization Server ([**/oauth/token** endpoint](/api/authentication?http#authorization-code-flow-with-pkce44)).
 8. Your Auth0 Authorization Server verifies the `code_challenge` and `code_verifier`.
 9. Your Auth0 Authorization Server responds with an ID Token and Access Token (and optionally, a Refresh Token).
 10. Your application can use the Access Token to call an API to access information about the user.
