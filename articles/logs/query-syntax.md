@@ -109,7 +109,7 @@ We are currently migrating our logs search engine to provide customers with the 
 
 #### Pagination
 
-When calling the [GET /api/v2/logs](/api/v2#!/Logs/get_logs) or [GET /api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user) endpoints using the `include_totals` parameter, the result is a json object containing a summary of the results in addition to the resulting logs. For example:
+When calling the [GET /api/v2/logs](/api/v2#!/Logs/get_logs) or [GET /api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user) endpoints using the `include_totals` parameter, the result is a JSON object containing a summary of the results **and** the requested logs. The JSON object looks something like:
 
 ```
 {
@@ -121,7 +121,7 @@ When calling the [GET /api/v2/logs](/api/v2#!/Logs/get_logs) or [GET /api/v2/use
 }
 ```
 
-While in logs search engine v2 the `totals` field in the result returns the total number of logs that match the specified query, in v3 it returns the number of logs returned in this specific page (similar to what the `length` field returns). If your application relies on the `totals` field for pagination purposes, make sure the logic contemplates this change.
+When searching for logs using search engine v2, the `totals` field in your results tells you the number of logs that match the query you provided. However, in v3, the `totals` field tells you how many logs are returned in the page (similar to what the `length` field returns). If your application relies on the `totals` field for pagination purposes, please update your logic to handle this change appropriately.
 
 
 #### Query Syntax
@@ -130,4 +130,4 @@ While the query syntax described in this article is compliant with both the old 
 
 * Log fields are not tokenized like in v2, so `description:rule` will not match a description with value `Create a rule` nor `Update a rule` like in v2. Instead, use `description:*rule`. See [wildcards](/logs/query-syntax#wildcards) and [exact matching](/logs/query-syntax#exact-matching).
 * The .raw field extension is no longer supported and must be removed. In v3, fields match the whole value that is provided and are not tokenized as they were in v2 without the .raw suffix.
-* In order to search for a specific value nested on the `details` field, use the path to the field. For example, `details.request.channel:"https://manage.auth0.com/"`. Bare searches like `details:"https://manage.auth0.com/"` won't work.
+* To search for a specific value nested in the `details` field, use the path to the field (i.e., `details.request.channel:"https://manage.auth0.com/"`). Bare searches like `details:"https://manage.auth0.com/"` do not work.
