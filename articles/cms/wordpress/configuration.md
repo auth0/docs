@@ -42,7 +42,7 @@ First, we'll check for the Application created for your WordPress site.
 
     ![Application Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
 
-3. **Application Type** must be set to **Regular Web Application**
+3. **Application Type** must be set to **Regular Web Application** and **Token Endpoint Authentication Method** must be set to **Post**
 
 4. Scroll down to **Allowed Callback URLs** and provide the WordPress site URL with `?auth0=1` appended:
 

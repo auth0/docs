@@ -40,7 +40,7 @@ You can also use the `state` parameter to encode an application state that will 
 
 ## Keep reading
 
-* [0Auth 2.0 Authorization Framework](/protocols/oauth2)
+* [OAuth 2.0 Authorization Framework](/protocols/oauth2)
 * [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
 * [API Authorization](/api-auth)
 * [Mitigate CSRF Attacks With State Parameters](/protocols/oauth2/mitigate-csrf-attacks)

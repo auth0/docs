@@ -14,7 +14,7 @@ In addition to using the Dashboard, you can retrieve, create, update or delete u
 
 ## How to manage users
 
-If you want to call the Management API directly, you will first need to generate the appropriate Access Token. For information on how to do that refer to [Access Tokens for the Management API](/api/management/v2/concepts/tokens).
+If you want to call the Management API directly, you will first need to generate the appropriate Access Token. For information on how to do that refer to [Access Tokens for the Management API](/api/management/v2/tokens).
 
 Alternatively, you can use an SDK to implement the functionality you need to call the Management API from your application. For a list of available SDKs, refer to [the SDKs section of our Support Matrix](/support/matrix#sdks).
 

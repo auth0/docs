@@ -1,6 +1,6 @@
 ---
 title: Mitigate CSRF Attacks with State Parameters
-description: Learn how to use the 0Auth 2.0 state parameters against CSRF attacks.
+description: Learn how to use the OAuth 2.0 state parameters against CSRF attacks.
 topics:
     - protocols
     - oauth
