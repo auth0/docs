@@ -97,7 +97,7 @@ Search for all logs from January 1, 2019 at 1AM, until, but not including Januar
 
 ## Limitations
 
-When you query for logs with the [list or search logs](/api/v2#!/Logs/get_logs) endpoint, you can retrieve a maximium of 100 logs per request. Additionally, you may only paginate through up to 1,000 search results. If would like to receive more logs, please retrieve your logs [by checkpoint] retrieval.
+When you query for logs with the [list or search logs](/api/v2#!/Logs/get_logs) endpoint, you can retrieve a maximium of 100 logs per request. Additionally, you may only paginate through up to 1,000 search results. If would like to receive more logs, please retrieve your logs [by checkpoint](/logs#get-logs-by-checkpoint) retrieval.
 
 If you get the error `414 Request-URI Too Large` this means that your query string is larger than the supported length. In this case, refine your search.
 
@@ -107,9 +107,27 @@ We are currently migrating our logs search engine to provide customers with the 
 
 ### Search engine v3 breaking changes
 
+#### Pagination
+
+When calling the [GET /api/v2/logs](/api/v2#!/Logs/get_logs) or [GET /api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user) endpoints using the `include_totals` parameter, the result is a json object containing a summary of the results in addition to the resulting logs. For example:
+
+```
+{
+  "length": 5,
+  "limit": 5,
+  "logs": [...],
+  "start": 0,
+  "total": 5
+}
+```
+
+While in logs search engine v2 the `totals` field in the result returns the total number of logs that match the specified query, in v3 it returns the number of logs returned in this specific page (similar to what the `length` field returns). If your application relies on the `totals` field for pagination purposes, make sure the logic contemplates this change.
+
+
+#### Query Syntax
+
 While the query syntax described in this article is compliant with both the old and new engines, there are some special queries that behave different in v2 and v3:
 
-* The `include_totals` field is no longer supported. While in search engine v3 the parameter is accepted and will throw a response with an object format, that object will not contain the `total` field anymore.
-* The details field is not searcheable anymore, only the [list of searcheable fields](/logs/query-syntax#searchable-fields) can be used for search and sort.
 * Log fields are not tokenized like in v2, so `description:rule` will not match a description with value `Create a rule` nor `Update a rule` like in v2. Instead, use `description:*rule`. See [wildcards](/logs/query-syntax#wildcards) and [exact matching](/logs/query-syntax#exact-matching).
 * The .raw field extension is no longer supported and must be removed. In v3, fields match the whole value that is provided and are not tokenized as they were in v2 without the .raw suffix.
+* In order to search for a specific value nested on the `details` field, use the path to the field. For example, `details.request.channel:"https://manage.auth0.com/"`. Bare searches like `details:"https://manage.auth0.com/"` won't work.
