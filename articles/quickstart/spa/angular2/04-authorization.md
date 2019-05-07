@@ -56,7 +56,7 @@ private localLogin(authResult): void {
 // src/app/auth/auth.service.ts
 
 public userHasScopes(scopes: Array<string>): boolean {
-  const grantedScopes = JSON.parse(localStorage.getItem('scopes')).split(' ');
+  const grantedScopes = JSON.parse(this._scopes).split(' ');
   return scopes.every(scope => grantedScopes.includes(scope));
 }
 ```
