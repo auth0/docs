@@ -24,7 +24,7 @@ To add an administrator, enter their email and select the applications to which 
 
 When the recipient opens and accepts the invite, the current Auth0 account in the browser will be added as a Dashboard Admin (regardless of the email address to which the invite was sent). If there is no current session, the recipient will be prompted to log in or create an Auth0 account.
 
-Administrators are application-specific, so areas to which the admin doesn't have access rights (e.g., APIs, Rules, Hooks, Hosted Pages, and so on) will appear as blank pages.
+Administrators are application-specific, so areas to which the admin doesn't have access rights (e.g., APIs, Rules, Hooks, Hosted Pages, and so on) will appear as blank pages. Administrators of an application will have access to manage the specified application but will be unable to manage users, create rules, and perform other functions outside of the scope of that application.
 
 ## Update Admin
 
