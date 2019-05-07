@@ -63,6 +63,18 @@ However you end up provisioning the users for your database connection, the auth
 Collecting credentials only at the centralized login page will reduce the surface area for potential leak of user secrets. It will also reduce the need to collect credentials unnecessarily. See [Universal Login](#universal-login) for more information.
 :::
 
+## Social authentication
+
+The so-called “bring your own identity” scenario offered by the likes of Facebook, Google, etc, is a valuable way of simplifying the user authentication experience without compromising security, and using [Universal Login](#universal-login) makes it really easy to start adding support for [Social Connections](https://auth0.com/docs/identityproviders#social) with minimal disruption. 
+
+::: warning
+Auth0 provides a simple way to test social connections using [pre-configured developer keys](https://auth0.com/docs/connections/social/devkeys). However these have certain [limitations] (https://auth0.com/docs/connections/social/devkeys#limitations-of-developer-keys), and before going into production you’ll need to setup your own application specific keys by following the [instructions] (https://auth0.com/docs/identityproviders#social) for your chosen social provider(s).
+:::
+
+With [Social Login](https://auth0.com/learn/social-login/), user identities and credentials are managed by the social provider, and claims are provided by the social provider too - which Auth0 will use to populate the user [profile](/architecture-scenarios/implementation/b2c/b2c-branding). Auth0 can also provide access to Social Identity Provider (Social IdP) [Access tokens](https://auth0.com/docs/tokens/overview-idp-access-tokens), so that your application can also call 3rd party Social IdP APIs on behalf of the user.  
+
+
+
 ## Anomaly detection
 
 The reason that authentication systems are important is to prevent bad actors from accessing applications and user data that they should not. We want to place as many barriers as possible between those bad actors and access to our systems. One of the easiest ways to do this is to ensure that your [anomaly detection](/anomaly-detection) with Auth0 is configured correctly, so take a moment to read the guidance on this subject and ensure that it's working correctly for you.
