@@ -20,19 +20,19 @@ Establishing effective operational behaviors is something that successful custom
 
 *	What should I be doing to proactively detect failures?
 *	What do I need to know regarding how to obtain data on Auth0’s operational status?
-*	What should I be doing about Auth0 security bulletins related to the Auth0 service
+*	What should I be doing about Auth0 security bulletins related to the Auth0 service?
 *	Does Auth0 provide information regarding impending changes in the Auth0 service?
 *	How can I check for important notices from Auth0?
 *	Where should I be doing about Auth0 log data so that I can analyze it and keep it for longer than Auth0’s limited data retention period?
 *	Can I scan Auth0 logs to determine if peak loads in my application trigger any rate limits or other errors?
-*	What email services should I be using use to support production volumes of email messages to users? Why can’t I use Auth0 out of box email provider in my production environment?
+*	What email services should I be using to support production volumes of email messages to users? Why can’t I use Auth0 out of box email provider in my production environment?
 *	Why would I need to configure my firewall, and what firewall ports will I need to open for internal services that need to receive communications from Auth0 (such as custom databases, web services and email servers)?
 
 Auth0 supports functionality for [monitoring](#monitoring) Auth0 service operation as well as providing information regarding Auth0 [service status](#service-status). In addition, Auth0 makes available security related bulletins as well as information regarding upcoming changes to the Auth0 service via various [notifications](#notifications). Auth0 [logging](#logging) services also provide extensive functionality for tracing and identifying operational anomalies, including restrictions encountered due to rate limiting and/or excessive loading.
 
 Out-of-box, Auth0 provides email delivery services to help you accelerate your integration. These services however are not meant for scale of use in production environments, and do not provide for any specific service level or guarantee when it comes to email delivery. Our best practice recommendation which customers typically follow involves configuring your own email service provided as discussed in the guidance provided [here](#email-provider-setup).
 
-You may also need to make changes to [infrastructure](#infrastructure) configuration in order to support integration with Auth0 and to support use of Auth0 extensibility. For example, if you need to provided call backs to your internal or even external infrastructure (e.g. if you need to make external API calls in Rules or Hooks, or via custom database scripts if you need to leverage existing legacy identity storage) then you may need to configure your Firewall settings.
+You may also need to make changes to [infrastructure](#infrastructure) configuration in order to support integration with Auth0 and to support use of Auth0 extensibility. For example, if you need to provide call backs to your internal or even external infrastructure (e.g. if you need to make external API calls in Rules or Hooks, or via custom database scripts if you need to leverage existing legacy identity storage) then you may need to configure your Firewall settings.
 
 ## Monitoring
 
@@ -66,7 +66,7 @@ From time to time, Auth0 may send an important announcement related to your tena
 
 ### Auth0 security bulletins
 
-Auth0 regularly conducts a number of security-related tests, and if any issues are found will proactively identify and notify customers who need to make security-related changes. Due to the extensible nature of the Auth0 product however, it may not be possible for Auth0 to identify every impacted customer, so you should regularly check Auth0 [security bulletins](/docs/security/bulletins). You should make sure a security contact is listed in Support Center for your organization.
+Auth0 regularly conducts a number of security-related tests, and if any issues are found will proactively identify and notify customers who need to make security-related changes. Due to the extensible nature of the Auth0 product however, it may not be possible for Auth0 to identify every impacted customer, so you should regularly check Auth0 [security bulletins](/security/bulletins). You should make sure a security contact is listed in Support Center for your organization.
 
 ::: panel Best Practice
 It is a best practice to check the Auth0 [Security Bulletins](/security/bulletins) page periodically and take the recommended action if you are impacted by any security bulletins.
@@ -74,7 +74,7 @@ It is a best practice to check the Auth0 [Security Bulletins](/security/bulletin
 
 ### Change log
 
-Auth0 provides information on changes to the service in the Auth0 change log (https://auth0.com/changelog). You should make a regular practice of reviewing Auth0 change logs to be aware of changes. Support teams researching an issue may find it useful to review the change log to determine if recent changes might be related, especially if these are [breaking changes](docs/migrations). Development teams will also want to review the change logs to identify new features that may be beneficial.
+Auth0 provides information on changes to the service in the Auth0 change log (https://auth0.com/changelog). You should make a regular practice of reviewing Auth0 change logs to be aware of changes. Support teams researching an issue may find it useful to review the change log to determine if recent changes might be related, especially if these are [breaking changes](/migrations). Development teams will also want to review the change logs to identify new features that may be beneficial.
 
 ## Logging
 
