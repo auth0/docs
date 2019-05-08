@@ -5,12 +5,12 @@ toc: true
 topics:
   - wordpress
   - cms
-contentType: 
+contentType:
   - how-to
 useCase:
   - add-login
   - build-an-app
-  - customize-connections 
+  - customize-connections
 ---
 # Extending the Login by Auth0 WordPress Plugin
 
@@ -517,6 +517,32 @@ This filter lets you override the default CDN URL for Auth0.js when loading the 
 ### auth0_slo_return_to
 
 This filter lets you override the default `returnTo` URL when logging out of Auth0.
+
+```php
+/**
+ * URL to return to after logging out of Auth0.
+ *
+ * @param string $default_return_url - Return URL, default is home_url().
+ *
+ * @return string
+ */
+function auth0_wp_test_hook_auth0_slo_return_to( $default_return_url ) {
+	if ( ! empty( $_GET['logout_return_url'] ) ) {
+		$default_return_url = esc_url( $_GET['logout_return_url'] );
+	}
+	return $default_return_url;
+}
+add_filter( 'auth0_slo_return_to', 'auth0_docs_hook_auth0_slo_return_to', 10 );
+```
+
+### wp_auth0_use_management_api_for_userinfo
+
+This filter determines whether or not to use the Management API for user profile data. Return a boolean `true` (default) to use the API, `false` to use the ID token.
+
+```php
+// Use the ID token for user profile data.
+add_filter( 'wp_auth0_use_management_api_for_userinfo', '__return_false', 100 );
+```
 
 ## Additional Extensions
 
