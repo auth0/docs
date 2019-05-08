@@ -29,7 +29,9 @@ Auth0 supports user sign up via a number of different [identity providers](/iden
 * Can I migrate user identities from my identity store to Auth0?
 * Can my users sign up using their existing social - e.g. Facebook or Google - accounts?
 
-Auth0 provides identity storage out of the box that can be leveraged to manage the burden of storing user credentials safely and securely (see Auth0 [Self Sign Up](#self-sign-up) for further discussion). If you’ve already got a legacy identity store and you want to offload the burden of managing it, then Auth0’s [User Migration](#user-migration) capabilities provide you with a number of options to handle this. Alternatively, if for some reason you have to stick with your legacy identity store for now - perhaps because you’ve got applications which you aren’t ready to migrate, or which can’t be migrated - then Auth0’s [identity store proxy](#identity-store-proxy) capability is exactly what you need. Allowing your customers to use “bring your own identity” is often an attractive proposition too, and although we find our customers don’t typically do so from the get-go, when you’re ready to provide it Auth0’s [Social Sign Up](#social-sign-up) capability is exactly what you’ll need. 
+Auth0 provides out-of-the-box identity storage that can be leveraged to store user credentials safely and securely (see Auth0 [Self Sign Up](#self-sign-up) for further discussion). If you already have a legacy identity store, and you want to offload the management of it, then Auth0’s [User Migration](#user-migration) capabilities provide you with a number of options to do so.
+
+Alternatively, if you have to stick with your legacy identity store - perhaps because you’ve got applications which you aren’t ready to migrate or which can’t be migrated - then Auth0’s [identity store proxy](#identity-store-proxy) capability is exactly what you need. Allowing your customers to use “bring your own identity” is also an attractive proposition. Though we find our customers don’t typically do so from the get-go, Auth0’s [Social Sign Up](#social-sign-up) capability is exactly what you’ll need when you’re ready to provide it. 
 
 ## Self sign up
 
@@ -41,7 +43,7 @@ Auth0 [Universal Login](/hosted-pages/login), as well Auth0 widgets such as [Loc
 
 ## Social sign up
 
-Social signup is synonymous with sign in via [social authentication](/architecture-scenarios/implementation/b2c/b2c-authentication#social-authentication) - there’s no distinction here per-se as user [profile](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt) creation happens automatically upon first social login.
+Social signup is synonymous with sign in via [social authentication](/architecture-scenarios/implementation/b2c/b2c-authentication#social-authentication) - there’s no distinction here per se, as user [profile](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt) creation happens automatically upon first social login.
 
 ## User migration
 
