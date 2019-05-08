@@ -95,6 +95,10 @@ Auth0 provides out of box functionality for sending a [verification email](/emai
 
 In addition, the Auth0 Management API also provides you with the ability to [unblock](/api/management/v2#!/User_Blocks/delete_user_blocks_by_id) users disabled due to excessive use of incorrect credentials.  
 
+## Linking user accounts 
+
+By default there is one [user profile](https://auth0.com/docs/users/concepts/overview-user-profile) - one user account -  for each user identity. If you enable login from multiple identity providers - via, say, a Facebook and/or Google Social Connection as well as an Auth0 Database Connection - then each will have a separate user profile. Auth0’s functionality for [linking user accounts](https://auth0.com/docs/link-accounts) (a.k.a account linking) can be utilised to create one profile for a user, as an aggregate of all the identities associated with him or her. 
+
 ## Planning
 
 To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
