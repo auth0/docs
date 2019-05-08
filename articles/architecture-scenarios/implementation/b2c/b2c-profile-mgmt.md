@@ -99,6 +99,14 @@ In addition, the Auth0 Management API also provides you with the ability to [unb
 
 By default there is one [user profile](https://auth0.com/docs/users/concepts/overview-user-profile) - one user account -  for each user identity. If you enable login from multiple identity providers - via, say, a Facebook and/or Google Social Connection as well as an Auth0 Database Connection - then each will have a separate user profile. Auth0’s functionality for [linking user accounts](https://auth0.com/docs/link-accounts) (a.k.a account linking) can be utilised to create one profile for a user, as an aggregate of all the identities associated with him or her. 
 
+The process of linking accounts essentially merges user profiles in pairs - a primary account and a secondary account must be specified in the linking process. The number of accounts that can be linked however extends beyond a single pair. For example, an account which already has multiple accounts merged with it can be used as the primary and an additional secondary account can be linked to it. This means that one user account can have multiple identities associated with it, which additionally provides a number of advantages: 
+
+* Allows users to log in using multiple identities without creating a separate profile for each
+* Allows registered users to use new login identities but continue using their existing profile
+* Allows users to carry their profile arround, irrespective of which identity they use for login
+* Allows users to link to an account with more identity information in order to provide a more complete profile
+* Allows your apps to retrieve connection specific user profile data
+
 ## Planning
 
 To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
