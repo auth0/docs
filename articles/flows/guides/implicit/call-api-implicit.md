@@ -39,7 +39,7 @@ Auth0 makes it easy for your app to implement the Implicit Flow using:
 
 1. [Authorize the user](#authorize-the-user): 
 Request the user's authorization and redirect back to your app with the requested credentials.
-2. [Call Your API](#call-api): 
+2. [Call Your API](#call-your-api): 
 Use the retrieved Access Token to call your API.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)

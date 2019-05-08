@@ -25,8 +25,8 @@ This flow can be used with native applications only.
 
 When your app needs to fetch user data from your API:
 
-1. If the app is not already authorized, our SDK redirects the user to your Auth0 Authorization Server.
-2. Auth0 responds by asking your user to use their laptop or smartphone to visit a specific URL and provide an activation code.
+1. If the device is not already authorized, your device app calls your Auth0 Authorization Server to retrieve a device code.
+2. Auth0 responds with a URL and user code that your device app can use when asking the user to visit a specific URL on their laptop or smartphone and provide an activation code.
 3. Your device app begins to poll your Auth0 Authorization Server for an Access Token.
 4. The user authenticates with Auth0 on its computer or smartphone using one of your configured login options (e.g., username/password, social identity provider, SAML).
 5. Auth0 responds to your device app with an Access Token.

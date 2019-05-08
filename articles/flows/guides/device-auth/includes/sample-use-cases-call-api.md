@@ -22,6 +22,22 @@ function(user, context, callback) {
 Auth0 returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that custom claims added to ID Tokens or Access Tokens must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`. 
 :::
 
-### View Sample Application: Mobile App + API
+### Detect Device Authorization Flow Use
 
-For an sample implementation, see the [Device Authorization Playground](https://auth0.github.io/device-flow-playground/).
+You can use [Rules](/rules) to detect whether the current transaction is using the Device Authorization Flow. To do so, check the `context` object's `protocol` property:
+
+```javascript
+function (user, context, callback) {
+   if (context.protocol === 'oauth2-device-code') {
+      ...
+   }
+ 
+   callback(null, user, context);
+}
+```
+
+### Sample Implementations
+
+* [Device Authorization Playground](https://auth0.github.io/device-flow-playground/)
+* [AppleTV (Swift)](https://github.com/pushpabrol/auth0-device-flow-appletv): Simple application that shows how Auth0 can be used with the Device Authorization Flow from an AppleTV.
+* [CLI (Node.js)](https://gist.github.com/panva/652c61e7d847e0ed99926c324fa91b36): Sample implementation of a CLI that uses the Device Authorization Flow instead of the Authorization Code Flow. The major difference is that your CLI does not need to host a webserver and listen on a port.
