@@ -30,10 +30,15 @@ It’s important to consider both security and user experience when designing ho
 * What to do if you want to make login easy for your users when they come from different language backgrounds
 * How you will provide a good user experience as you migrate away from any legacy authentication system
 * What do you need to consider when integrating your applications with Auth0?
+* Can your users log in using their existing social (e.g., Facebook or Google) accounts?
 
 Auth0 [Universal Login](#universal-login) provides users with a safe and secure experience - no matter whether you choose to provide for user ID/password credentials sign in, or allow the so-called Bring Your Own Identity scenarios provided via [Social Login](https://auth0.com/learn/social-login/). There are also brand recognition benefits to centralizing the login experience with Universal Login, even if you feel you will also have product-specific [branding](/architecture-scenarios/implementation/b2c/b2c-branding) requirements. The Auth0 UI widgets typically used with Universal Login also provide out-of-the-box support with regards to [internationalization](/libraries/lock/v11/i18n) for users with different language requirements, and out-of-the-box support for Auth0 features such as [MFA](/multifactor-authentication) and [anomaly detection](#anomaly-detection) allow you to put barriers in place in order to prevent hackers attempting to access users' accounts. 
 
-Providing sign in via user ID and password credentials means that you are not reliant on the status of any third-party identity provider in order for users to access your system. It also gives you the control to align with your corporate policies for credentials. Auth0 provides you with a number of options in support of user ID and password login, and the guidance provided by the section on [username and password authentication](#username-and-password-authentication) will help you understand how you can leverage these. If you have an existing legacy identity store then you’ll also want to see the section on [user migration](/architecture-scenarios/implementation/b2c/b2c-provisioning#user-migration), which discusses the advantages of migrating to the safety and security of Auth0’s managed identity storage. Adding social login at some point as an additional primary authentication factor provides for added flexibility, and can help you to understand more about your users without the need to question them further.
+Allowing users to sign in via user ID/password credentials means that you're not reliant on the status of third-party identity providers for your users to access your system. You also have the means require the credentials used to align with your corporate policies. Autho assists with this by providing you with multiple options in support of user ID/password logins, and the [guidance provided](#username-and-password-authentication) will help you understand you can leverage these options.
+
+If you have an existing legacy identity store, you’ll also want to see [User Migration](/architecture-scenarios/implementation/b2c/b2c-provisioning#user-migration). This section discusses the advantages of migrating to Auth0’s managed identity storage in terms of safety and security. 
+
+Adding [social authentication](#social-authentication) at some point as an additional primary authentication factor gives you added flexibility and can help better understand your users without the need to question them further. You can do this by leveraging information already stored by the various Social login [providers](https://auth0.com/docs/identityproviders#social).
 
 OpenID Connect ([OIDC](/protocols/oidc)) is the most frequently used industry standard protocol when it comes to customer facing applications, and OIDC has first-class citizen support in Auth0. Various different approaches for integrating various different applications are supported. See [application integration](#application-integration) for information you'll need to make an informed choice. 
 
@@ -57,11 +62,27 @@ Nearly every B2C application provides the ability for their customers to create 
 
 Username password authentication comes in multiple flavors at Auth0. If your application is a green-field application with no existing user base, then a simple Auth0 out-of-the-box [Database Connection](/connections/database) will give you everything you need to start authenticating your users. However, if you have a legacy user store (such as your own database of users or an existing LDAP system) you have a couple of different options for migrating your users as discussed in our guidance on [User migration](/architecture-scenarios/implementation/b2c/b2c-provisioning#user-migration).
 
-However you end up provisioning the users for your database connection, the authentication of those users is quite similar. It requires you to present the users with a form to enter their username and password. As mentioned in the guidance concering [Universal Login](#universal-login), the simplest and safest way to authenticate users with a username and password is to redirect them to a centralized login page and collect their username and password there. This allows Auth0 to determine whether they have already authenticated and skip the login form entirely when it's not needed.
+However you end up provisioning the users for your database connection, the authentication of those users is quite similar. It requires you to present users with a form to enter their username and password. As mentioned in the guidance concerning [Universal Login](#universal-login), the simplest and safest way to authenticate users with a username and password is to redirect them to a centralized login page and collect their username and password there. This allows Auth0 to determine whether they have already authenticated and skip the login form entirely when it's not needed.
 
 ::: panel Best Practice
 Collecting credentials only at the centralized login page will reduce the surface area for potential leak of user secrets. It will also reduce the need to collect credentials unnecessarily. See [Universal Login](#universal-login) for more information.
 :::
+
+## Social authentication
+
+The “bring your own identity” scenario offered by Facebook, Google, etc., is a valuable way of simplifying the user authentication experience without compromising security, and using [Universal Login](#universal-login) makes it easy to start adding support for [Social Connections](https://auth0.com/docs/identityproviders#social) with minimal disruption. 
+
+::: warning
+Auth0 provides a simple way to test social connections using [pre-configured developer keys](https://auth0.com/docs/connections/social/devkeys). However these have [limitations] (https://auth0.com/docs/connections/social/devkeys#limitations-of-developer-keys), and before going into production, you’ll need to set up your own application-specific keys by following the [instructions] (https://auth0.com/docs/identityproviders#social) for your chosen social provider(s).
+:::
+
+With [Social Login](https://auth0.com/learn/social-login/), user identities and credentials are managed by the social provider, as well as claims - which Auth0 will use this information to populate the user [profile](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt). Auth0 can also provide access to Social Identity Providers (Social IdP) [Access tokens](https://auth0.com/docs/tokens/overview-idp-access-tokens), so that your application can also call 3rd party Social IdP APIs on behalf of the user.  
+
+::: panel Best Practice
+Social is a great feature to provide, but when you offer more than one way to sign-in, you need to consider the possibility that your customers will actually use more than one way to sign-in. By default, every user identity in Auth0 has its own user profile, so you’ll probably want to consider Auth0's capability to [Link User Accounts](https://auth0.com/docs/link-accounts) (a.k.a. Account Linking) to provide an effective way of associating one user profile with multiple identities.
+:::
+
+The Auth0 [Custom Social Connections extension](https://auth0.com/docs/extensions/custom-social-extensions) extends social authentication even further by allowing you to connect with any OpenID Connect ([OIDC](/protocols/oidc)) 3rd-party compliant vendor not supported out-of-box. For example, support for the government-issued-identity provider [SwissID](https://www.swissid.ch/) can be configured in Auth0 by using a Custom Social Connection and by following the guidance described in our [SwissID blog post](https://auth0.com/blog/configuring-swissid-login-into-custom-applications/). 
 
 ## Anomaly detection
 

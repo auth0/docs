@@ -19,7 +19,7 @@ This tutorial will help you add login to your regular web application using the 
 
 Auth0 makes it easy for your app to implement the Authorization Code Flow using:
 
-* [Regular Web App Quickstarts](/quickstart/webapp): The easiest way to implement the regular web app flow.
+* [Regular Web App Quickstarts](/quickstart/webapp): The easiest way to implement the flow.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
 Following successful login, your application will have access to the user's [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens). The ID Token will contain basic user profile information, and the Access Token can be used to call the Auth0 /userinfo endpoint or your own protected APIs.

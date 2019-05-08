@@ -35,7 +35,7 @@ Auth0 makes it easy for your app to implement the Client Credentials Flow. Follo
 ## Steps
 
 1. [Request a token](#request-token): 
-From the authorized application, request an Access Token for your API. 
+From the authorized application, request an Access Token for your API.
 2. [Call your API](#call-api): 
 Use the retrieved Access Token to call your API.
 
