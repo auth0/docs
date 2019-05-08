@@ -226,6 +226,7 @@ The download link is valid for 60 seconds. If this time period expires, you will
 
 ## Keep reading
 
+* [User Import/Export Extension](/extensions/user-import-export)
 * [User Metadata](/users/concepts/overview-user-metadata)
 * [Sort Search Results](/users/search/v3/sort-search-results)
 * [User Search Query Syntax](/users/search/v3/query-syntax)

@@ -4,5 +4,6 @@ Contains info retrieved from the identity provider with which the user originall
 - `isSocial` (boolean): Indicates whether the connection is a social one.
 - `provider` (text): Name of the entity that is authenticating the user, such as Facebook, Google, SAML, or your own provider.
 - `user_id` (text): User's unique identifier for this connection/provider.
+- `profileData` (object): User info associated with the connection. When profiles are linked, it is populated with the associated user info for secondary accounts.
 
 In some cases, it will also include an API Access Token to be used with the provider. 

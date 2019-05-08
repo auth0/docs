@@ -36,7 +36,7 @@ When an upstream IdP (like Google or Facebook) is used, subscribers have two opt
 * The upstream IdP sets the root attributes when users are first created and then
 automatically updates them with each subsequent login. This is the default behavior.
 * The upstream IdP sets the root attributes on user creation only and does not
-update them on subsequent logins, thereby allowing subscribers to [update root attributes individually](/api/management/guides/users/update-root-attributes-users) via the Management API. To enable this, you will need to [update your connection preferences](/api/management/guides/connections/update-connection-user-root-attributes).
+update them on subsequent logins, thereby allowing subscribers to [update root attributes individually](/api/management/guides/users/update-root-attributes-users) via the Management API. To enable this, you will need to [configure your connection sync with Auth0](/api/management/guides/connections/configure-connection-sync).
 
 Upstream Identity Providers handle the following connection types:
 
@@ -49,4 +49,4 @@ Upstream Identity Providers handle the following connection types:
 * [Set Root Attributes During User Sign-Up](/api/management/guides/users/set-root-attributes-user-signup)
 * [Set Root Attributes During User Import](/api/management/guides/users/set-root-attributes-user-import)
 * [Update Root Attributes](/api/management/guides/users/update-root-attributes-users)
-* [Update Connection Preferences for Updates to User Profile Root Attributes](/api/management/guides/connections/update-connection-user-root-attributes)
+* [Configure Connection Sync with Auth0](/api/management/guides/connections/configure-connection-sync)

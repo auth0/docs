@@ -26,13 +26,18 @@ The following [JSON schema](http://json-schema.org) describes valid users:
 {
     "type": "object",
     "properties": {
-        "email_verified": {
-            "type": "boolean"
-        },
         "email": {
             "type": "string",
-            "description": "The email of the user.",
+            "description": "The user's email address.",
             "format": "email"
+        },
+            "email_verified": {
+            "type": "boolean",
+            "description": "Indicates whether the user has verified their email address."
+        },
+        "user_id": {
+            "type": "text",
+            "description": "The user's unique identifier."
         },
         "username": {
             "type": "string",
@@ -57,6 +62,14 @@ The following [JSON schema](http://json-schema.org) describes valid users:
         "picture": {
           "type": "string",
           "description": "URL pointing to the user's profile picture."
+        },
+        "blocked": {
+            "type": "boolean",
+            "description": "Indicates whether the user has been blocked."
+        },
+        "password_hash": {
+            "type": "text",
+            "description":"Hashed password for the user."
         },
         "app_metadata": {
             "type": "object",

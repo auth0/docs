@@ -17,7 +17,7 @@ useCase:
 
 # Bulk User Imports
 
-If you already have a user database, you can use the [`POST /api/v2/jobs/users/post_users_imports`](/api/management/v2#!/Jobs/post_users_imports) endpoint to populate a database connection with this information. The user data should first be exported in JSON format. You can then import that file using our API. 
+If you already have a user database, you can use the [`POST /api/v2/jobs/users/post_users_imports`](/api/management/v2#!/Jobs/post_users_imports) endpoint to populate a database connection with this information. The user data should first be exported in JSON format. You can then import that file using our API. To see database file schema and examples, visit [Bulk Import Database Schema and Example](/users/references/bulk-import-database-schema-examples).
 
 ::: note
 Each affected user will need to reset their password when they log in the first time after the bulk import.
@@ -35,9 +35,7 @@ Using the bulk import endpoints, you can:
 
 Before you launch the import users job, you must:
 
-* [Configure a database connection](/connections/database) to which the users will be imported and enable it for at least one application. 
-
-To see database file schema and examples, visit [Bulk Import Database Schema and Example](/users/references/bulk-import-database-schema-examples).
+* [Configure a database connection](/connections/database) to which the users will be imported and enable it for at least one application.
 
 ## Request bulk import
 
@@ -47,7 +45,7 @@ Create a request that contains the following parameters:
 
 | Parameter | Description |
 |-----------|-------------|
-| `users` | File in JSON format that contains the users to import. |
+| `users` | [File in JSON format](/users/references/bulk-import-database-schema-examples#file-example) that contains the users to import. |
 | `connection_id` | ID of the connection to which users will be inserted. You can retrieve the ID using the [GET /api/v2/connections](/api/management/v2#!/Connections/get_connections) endpoint. |
 | `upsert` | Boolean value; `false` by default. When set to `false`, pre-existing users that match on email address will fail. When set to `true`, pre-existing users that match on email address will be updated, but only with upsertable attributes. For a list of user profile fields that can be upserted during import, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes). |
 | `external_id` | Optional user-defined string that can be used to correlate multiple jobs. Returned as part of the job status response. |

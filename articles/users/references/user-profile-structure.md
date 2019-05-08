@@ -36,7 +36,7 @@ If there are user fields that should not be stored by Auth0 due to privacy reaso
 <%= include('../../_includes/_users_update_normalized_profile_attributes') %>
 :::
 
-| Name             | Type | Description | [Search?](/users/search) | [Update?](/api/management/guides/users/update-root-attributes-users) | [Import?](/users/guides/bulk-user-imports) | Upsert during import? | [Export?](/users/guides/bulk-user-exports) |
+| Name             | Type | Description | [Search?](/users/search) | [Update?](/api/management/guides/users/update-root-attributes-users) | [Import?](/users/guides/bulk-user-imports) | [Upsert during import?](/users/guides/bulk-user-imports#request-bulk-import) | [Export?](/users/guides/bulk-user-exports) |
 |-|-|-|-|-|-|-|-|-|
 | `app_metadata`   | object | Custom fields that store info about a user that influences the user's access, such as support plan, security roles, or access control groups. For more info, see [Metadata Overview](/users/concepts/overview-user-metadata). | Y | Y | Y | Y | Y |
 | `blocked`        | boolean | Indicates whether the user has been blocked. Importing enables subscribers to ensure that users remain blocked when migrating to Auth0. | Y | Y | Y | N | Y |
@@ -48,21 +48,25 @@ If there are user fields that should not be stored by Auth0 due to privacy reaso
 | `identities`     | array (object) | <%= include('../_includes/_user-prop-identities.md') %> |  Y | N | N | N | Y |
 | `last_ip`       | text | IP address associated with the user's last login. | Y | N | N | N | Y |
 | `last_login`    | date time | Timestamp indicating when the user last logged in. If a user is blocked and logs in, the blocked session updates `last_login`. If you are using this property from inside a [Rule](/rules) using the `user` object, its value will be associated with the login that triggered the rule; this is because rules execute after login. | Y | N | N | N | Y |
+| `last_password_reset` | date time | Timestamp indicating the last time the user's password was reset/changed. At user creation, this field does not exist. | N | N | N | N | N |
 | `logins_count` | integer | Number of times the user has logged in. If a user is blocked and logs in, the blocked session is counted in `logins_count`. | Y | N | N | N | Y |
-| `multifactor`   | text | List of multi-factor providers with which the user is enrolled. | Y | N | N | N | Y |
+| `multifactor`   | text | List of multi-factor providers with which the user is enrolled. | N | N | N | N | Y |
 | `name`          | text | The user's full name. | Y | Y | Y | Y | Y |
 | `nickname`      | text | The user's nickname. | Y | Y | Y | Y | Y |
-| `last_password_reset` | date time | Timestamp indicating the last time the user's password was reset/changed. At user creation, this field does not exist. | N | N | N | N | N |
-| `password` | text | Password for the user. Auth0 will use [bcrypt](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) to secure the password. | N | Y | N | N | N |
-| `password_hash` | text | Hashed password for the user. When users are created, Auth0 uses [bcrypt](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) to secure the password. Importing compatible hashed passwords allows users to retain their passwords, thereby providing a smoother experience. | N | N | Y | N | N |
-| `password_set_date` | date time | Timestamp indicating when the user's password was set. At user creation, this field exists, but `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical. | N | N | N | N | N |
 | `phone_number` | text | The user's phone number. Only valid for users with SMS connections. | Y | Y | N | N | Y |
 | `phone_verified` | boolean | Indicates whether the user has been verified their phone number. Only valid for users with SMS connections. | Y | Y | N | N | Y |
-| `picture` | text | URL pointing to [the user's profile picture](/users/guides/change-user-pictures). | Y | Y | Y | Y | Y |
+| `picture` | text | URL pointing to [the user's profile picture](/users/guides/change-user-pictures). | N | Y | Y | Y | Y |
 | `updated_at` | date time | Timestamp indicating when the user's profile was last updated/modified. Changes to `last_login` are considered updates, so most of the time, `updated_at` will match `last_login`. | Y | N | N | N | Y |
 | `user_id` | text | (unique) The user's identifier. Importing allows user records to be synchronized across multiple systems without using mapping tables. | Y | N | Y | N | Y |
 | `user_metadata` | object | Custom fields that store info about a user that does not impact what they can or cannot access, such as work address, home address, or user preferences. For more info, see [Metadata Overview](/users/concepts/overview-user-metadata). | Y | Y | Y | Y | Y |
 | `username` | text | (unique) The user's username. | Y | Y | Y | N | Y |
+
+::: note
+Two other fields are not technically part of the user profile, but may be of interest when importing users:
+
+* `password_hash` (text): Hashed password for the user's connection. When users are created, Auth0 uses [bcrypt](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) to secure the password. Importing compatible hashed passwords allows users to retain their passwords, thereby providing a smoother experience.
+* `password_set_date` (date time): Timestamp indicating when the password for the user's connection was set. At user creation, this field exists, and `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical.
+:::
 
 ## View User Profile Structure
 

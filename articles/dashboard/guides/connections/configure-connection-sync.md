@@ -1,5 +1,5 @@
 ---
-title: Update Connection Preferences for Updates to User Profile Root Attributes
+title: Configure Connection Sync with Auth0
 description: Learn how to allow updates to the Auth0 normalized user profile from a connection using the Auth0 Dashboard.
 topics:
   - connections
@@ -13,9 +13,9 @@ useCase:
   - manage-users
 ---
 
-# Update Connection Preferences for Updates to User Profile Root Attributes
+# Configure Connection Sync with Auth0
 
-This guide will show you how to update connection preferences for an upstream [Identity Provider](/connections) to control when updates to user profile root attributes will be allowed using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/connections/update-connection-user-root-attributes).
+This guide will show you how to update connection preferences for an upstream [Identity Provider](/connections) to control when updates to user profile root attributes will be allowed using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/connections/configure-connection-sync).
 
 ::: warning
 <%= include('../../../_includes/_users_update_normalized_profile_attributes') %>
