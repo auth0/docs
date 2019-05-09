@@ -26,6 +26,10 @@ Note that when requesting a device code to call a custom API, you:
 - must include an audience parameter
 - can include additional scopes supported by the target API
 
+::: note
+ If your app wants an Access Token only to retrieve info about the authenticated user, then no audience parameter is required.
+:::
+
 | Parameter Name  | Description |
 |-----------------|-------------|
 | `client_id`     |Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
