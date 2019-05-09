@@ -27,7 +27,7 @@ While you are waiting for the user to authorize the device, begin polling the to
 
 ### Responses
 
-While you wait for the user to authorize the device, you may receive a few different `HTTP 400` responses:
+While you wait for the user to authorize the device, you may receive a few different `HTTP 4xx` responses:
 
 #### Authorization pending
 
