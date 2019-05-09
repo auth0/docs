@@ -21,19 +21,15 @@ To get the device code, your app must request a code from the [device code URL](
 
 #### Parameters
 
-Note that when requesting a device code to call an API, you:
+Note that when requesting a device code to call a custom API, you:
 
 - must include an audience parameter
 - can include additional scopes supported by the target API
 
- ::: note
- If your app wants an Access Token only to retrieve info about the authenticated user, then no audience parameter is required.
-:::
-
 | Parameter Name  | Description |
 |-----------------|-------------|
 | `client_id`     |Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
-| `scope`         | The [scopes](/scopes) for which you want to request authorization. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, [custom claims](/scopes/current/custom-claims) conforming to a [namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (e.g., `read:contacts`). Include `offline_access` to get a Refresh Token (make sure that the __Allow Offline Access__ field is enabled in the [Application Settings](${manage_url}/#/apis)). For more info, refer to the [Namespacing Custom Claims](#optional-customize-the-tokens) panel.|
+| `scope`         | The [scopes](/scopes) for which you want to request authorization. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, [custom claims](/scopes/current/custom-claims) conforming to a [namespaced format](/api-auth/tutorials/adoption/scope-custom-claims#custom-claims), or any s[scopes supported by the target API](/scopes/current/api-scopes) (e.g., `read:contacts`). Include `offline_access` to get a Refresh Token (make sure that the __Allow Offline Access__ field is enabled in the [Application Settings](${manage_url}/#/apis)). |
 |`audience`      | The unique identifier of the API your app wants to access. Use the **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial. |
 
 ### Response

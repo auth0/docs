@@ -1,6 +1,6 @@
 ## Request Tokens
 
-While you are waiting for the user to authorize the device, begin polling the token URL to request an Access Token. Using the extracted polling interval (`interval`) from the previous step, you will need to `POST` to the [token URL](/api/authentication#device-auth) sending along the `device_code`.
+While you are waiting for the user to activate the device, begin polling the token URL to request an Access Token. Using the extracted polling interval (`interval`) from the previous step, you will need to `POST` to the [token URL](/api/authentication#device-auth) sending along the `device_code`.
 
 ### Example POST to token URL
 
@@ -64,7 +64,7 @@ The user has not authorized the device quickly enough, so the `device_code` has 
 
 #### Access Denied 
 
-Finally, if the user refuses to authorize the device, you will receive:
+Finally, if access is denied, you will receive: 
 
 ```json
 {
@@ -72,3 +72,8 @@ Finally, if the user refuses to authorize the device, you will receive:
   "error_description": "..."
 }
 ```
+This can occur for a variety of reasons, including:
+
+* the user refused to authorize the device
+* the authorization server denied the transaction
+* a configured [Rule](/rules) denied access

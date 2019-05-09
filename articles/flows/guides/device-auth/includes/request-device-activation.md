@@ -1,8 +1,8 @@
-## Request Device Authorization
+## Request Device Activation
 
 Once you have received a `device_code` and `user_code`, you must ask the user to go to the `verification_uri` on their laptop or smartphone and enter the `user_code`:
 
-![Request Device Auth](/media/articles/flows/guides/device-auth/request-device-auth.png)
+![Request Device Activation](/media/articles/flows/guides/device-auth/request-device-activation.png)
 
 The `device_code` is not intended for the user directly and should not be displayed during the interaction to avoid confusing the user.
 

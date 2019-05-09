@@ -42,7 +42,7 @@ Auth0 makes it easy for your app to implement the Device Authorization flow usin
 ## Steps
 
 1. [Request device code](#request-device-code) (Device Flow): Request a device code that the user can use to authorize the device.
-2. [Request device authorization](#request-device-authorization) (Device Flow): Request that the user authorize the device using their laptop or smartphone.
+2. [Request device activation](#request-device-activation) (Device Flow): Request that the user authorize the device using their laptop or smartphone.
 3. [Request Tokens](#request-tokens) (Device Flow): Poll the token endpoint to request a token.
 4. [User authorization](#user-authorization) (Browser Flow): The user authorizes the device, so the device can receive tokens.
 5. [Receive Tokens](#receive-tokens) (Device Flow): After the user successfully authorizes the device, receive tokens.
@@ -55,7 +55,7 @@ Optional: [Troubleshooting](#troubleshooting)
 
 <%= include('./includes/request-device-code') %>
 
-<%= include('./includes/request-device-auth') %>
+<%= include('./includes/request-device-activation') %>
 
 <%= include('./includes/request-tokens') %>
 
