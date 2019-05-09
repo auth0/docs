@@ -482,7 +482,7 @@ This is the OAuth 2.0 grant that input-constrained devices use to access an API.
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Device Authorization, use `urn:ietf:params:oauth:grant-type:device_code`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `device_code` <br/><span class="label label-danger">Required</span> | The device code previously returned from the [/oauth/device/code endpoint](/api/authentication?http#device-code). |
+| `device_code` <br/><span class="label label-danger">Required</span> | The device code previously returned from the [/oauth/device/code endpoint](/api/authentication?http#get-device-code). |
 
 ### Remarks
 - Because you will be polling this endpoint while waiting for the user to go to the verification URL and enter their user code, you will likely receive at least one failure before receiving a successful response. See sample responses for possible responses.
