@@ -454,7 +454,7 @@ HTTP/1.1 400 BAD REQUEST
 Content-Type: application/json
  { 
   "error": "slow_down",
-  "error_description": "Retryable: You are polling too fast; slow down and use the suggested interval."
+  "error_description": "You are polling faster than the specified interval of 5 seconds."
  }
 ```
 
