@@ -24,7 +24,7 @@ Auth0's normalized user profile consists of a few different components:
 
   [Learn more](/users/concepts/overview-user-metadata) about metadata, including when to use `app_metadata` and `user_metadata`, and best practices.
 
-## User Profile Attributes
+## User profile attributes
 
 The following attributes are available on the user profile. Some of these attributes may be updated, imported, and exported, as noted below.
 
@@ -68,7 +68,7 @@ Two other fields are not technically part of the user profile, but may be of int
 * `password_set_date` (date time): Timestamp indicating when the password for the user's connection was set. At user creation, this field exists, and `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical.
 :::
 
-## View User Profile Structure
+## View user profile structure
 
 To view the user profile structure, navigate to [Users](${manage_url}/#/users) in the [Auth0 Dashboard](${manage_url}), and then click a user you want to view.
 
