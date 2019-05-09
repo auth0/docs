@@ -3,7 +3,7 @@
 
 While the user has been authenticating and authorizing the device, the device app has continued to poll the token URL to request an Access Token. 
 
-Once the user has suucessfully authorized the device, you'll receive an `HTTP 200` response with a payload containing `access_token`, `refresh_token` (optionally), `id_token` (optionally), `token_type`, and `expires_in` values:
+Once the user has successfully authorized the device, you'll receive an `HTTP 200` response with a payload containing `access_token`, `refresh_token` (optionally), `id_token` (optionally), `token_type`, and `expires_in` values:
 
 ```json
 {
@@ -18,9 +18,9 @@ Once the user has suucessfully authorized the device, you'll receive an `HTTP 20
 You should validate your tokens before saving them. To learn how, see [Verify Access Tokens](/api-auth/tutorials/verify-access-token) and [Validate an ID Token](/tokens/guides/id-token/validate-id-token).
 ::: 
 
-[Access Tokens](/tokens/access-token) are used to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or another API. If you are calling your own API, the first thing your API will need to do is [verify the Access Token](/api-auth/tutorials/verify-access-token).
+[Access Tokens](/tokens/access-token) are used to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or another API. You will be able to use the Access Token to call `/userinfo` only if you included the `openid` scope. If you are calling your own API, the first thing your API will need to do is [verify the Access Token](/api-auth/tutorials/verify-access-token).
 
-[ID Tokens](/tokens/id-token) contain user information that must be [decoded and extracted](/tokens/id-token#id-token-payload).
+[ID Tokens](/tokens/id-token) contain user information that must be [decoded and extracted](/tokens/id-token#id-token-payload). The `id_token` will only be present in the response if you included the `openid` scope.
 
 [Refresh Tokens](/tokens/refresh-token) are used to obtain a new Access Token or ID Token after the previous one has expired. The `refresh_token` will only be present in the response if you included the `offline_access` scope and enabled __Allow Offline Access__ for your API in the Dashboard.
 

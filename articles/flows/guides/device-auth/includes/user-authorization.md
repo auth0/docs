@@ -21,4 +21,4 @@ Upon successful authentication and consent, the confirmation prompt will be show
 
 ![User Confirmation](/media/articles/flows/guides/device-auth/user-confirmation.png)
 
-At this point, the user has authenticated, the device has been authorized, and an Access Token has been issued for the device app.
+At this point, the user has authenticated, and the device has been authorized.

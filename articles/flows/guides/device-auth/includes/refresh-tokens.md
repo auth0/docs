@@ -35,17 +35,18 @@ To refresh your token, make a `POST` request to the `/token` endpoint in the Aut
 
 ### Response
 
-If all goes well, you'll receive an HTTP 200 response with a payload containing a new `access_token`, its lifetime in seconds (`expires_in`), granted `scope` values, and `token_type`:
+If all goes well, you'll receive an `HTTP 200` response with a payload containing a new `access_token`, `id_token` (optionally), token lifetime in seconds (`expires_in`), granted `scope` values, and `token_type`:
 
 ```json
 {
   "access_token": "eyJ...MoQ",
   "expires_in": 86400,
   "scope": "openid offline_access",
+  "id_token": "eyJ...0NE",
   "token_type": "Bearer"
 }
 ```
 
 ::: warning
-You should validate your tokens before saving them. To learn how, see [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+You should validate your tokens before saving them. To learn how, see [Verify Access Tokens](/api-auth/tutorials/verify-access-token) and [Validate an ID Token](/tokens/guides/id-token/validate-id-token).
 :::
