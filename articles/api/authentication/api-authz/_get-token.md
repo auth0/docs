@@ -445,7 +445,7 @@ HTTP/1.1 400 BAD REQUEST
 Content-Type: application/json
  { 
   "error": "authorization_pending",
-  "error_description": "Retryable: We are waiting for the user to take some action; try polling again using the suggested interval."
+  "error_description": "User has yet to authorize device code."
  }
 ```
 
