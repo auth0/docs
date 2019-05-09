@@ -522,8 +522,8 @@ articles:
                 url: "/users/normalized/auth0/identify-users"
                 hidden: true 
 
-              - title: "Retrieve User Profiles"
-                url: "/users/normalized/auth0/retrieve-user-profiles"
+              - title: "Retrieve Users"
+                url: "/users/search"
                 hidden: true 
 
               - title: "Store User Data"

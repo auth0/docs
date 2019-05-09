@@ -12,54 +12,66 @@ v2: true
 
 # User Profile Structure
 
-There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](${manage_url}/#/users) in the Auth0 Dashboard and then on a particular user.
+Auth0's normalized user profile consists of a few different components: 
 
-The **Details** consists of core User Profile object with basic information such as name, email, and the timestamp of the latest login. The core User Profile object may contain additional attributes from its source Connection, in addition to the normalized Auth0 User Profile attributes.
+* **Details**: Core User Profile object, which contains basic info, such as name, email, and timestamp of the user's latest login. This object may also contain info from a user's source [connection](/connections).
 
-The User Profile object also has two **metadata** sub-objects, one called `user_metadata` and the other `app_metadata`. The metadata objects can be used to store additional User Profile information. The `user_metadata` object should be used to store user attributes, such as user preferences, that don't impact what a user can access. The `app_metadata` object should be used for user attributes, such as a support plan, security roles, or access control groups, which can impact how an application functions and/or what the user can access. [Learn more](/api/management/v2/changes#8) about when to use `app_metadata` vs `user_metadata`.
+* **Metadata**: Two sub-objects used to store additional user info.
 
-### User Metadata Best Practices
+  * `user_metadata`: Store attributes that do not impact what the user can access, such as work address, home address, or user preferences. 
 
-* Both `app_metadata` and `user_metadata` are limited to a size of 16mb each. However, we recommend against using these properties like a database. They should be used for identity related information. Additionally, at some point we may put a more strict size limit on these properties. Please also be aware that using Rules and/or the Management Dashboard may further limit the amount of metadata you can store.
+  * `app_metadata`: Store attributes that can impact what the user can access or how an application functions, such as support plan, security roles, or access control groups.
 
-* An authenticated user can perform actions that modify data in their profile's **user_metadata**, but they can't do anything that modifies their **app_metadata**.
+  [Learn more](/users/concepts/overview-user-metadata) about metadata, including when to use `app_metadata` and `user_metadata`, and best practices.
 
-* Use a consistent datatype each time you create or update a given metadata field. Using `user.user_metadata.age = "23"` for one user and `user.user_metadata.age = 23` for another user will cause issues when retrieving the data.
+## User profile attributes
 
-## Attributes
-
-The `Identity Provider Attributes` section contains information retrieved from the authentication provider (such as Facebook, Twitter, Google, SAML, your own provider, and so on). This section always contains at least one identity provider, and it is the one the user originally authenticated against. This data is read-only.
-
-Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API Access Token that can be used with that provider. The following attributes are available on the user profile:
-
-| Name             | Data&nbsp;Type | Description |
-|------------------|-----------|-------------|
-| `app_metadata`   | object    | Custom fields that store info about a user that influences the user's access. For more info, see [Metadata Overview](/users/concepts/overview-user-metadata). |
-| `blocked`        | boolean   | The `true/false` value indicating if the user has been blocked. |
-| `created_at`     | date&nbsp;time  | The timestamp of when the user profile was first created. |
-| `email`          | text   | (unique) The user's email address. |
-| `email_verified` | boolean   | The `true/false` value indicating if the user has verified their email address. |
-| `identities`     | array&nbsp;(object) | <%= include('../_includes/_user-prop-identities.md') %> | 
-| `multifactor`   | text    | The list of multi-factor providers in which the user is enrolled. |
-| `last_ip`       | text    | The IP address associated with the user's last login. |
-| `last_login`    | date&nbsp;time   | The timestamp of when the user last logged in. If you are using this property from inside a [Rule](/rules) using the `user` object, its value will be associated with the login that triggered the rule (since rules execute after the actual login). |
-| `name`          | text     | The user's name. |
-| `nickname`      | text     | The user's nickname. |
-| `last_password_reset` | date&nbsp;time | The last time the password was reset/changed. |
-| `password_set_date`   | date&nbsp;time | The date when the user's password was set. At user creation, this field exists, but `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical. |
-| `phone_number` | text | The user's phone number. Only valid for users with SMS connections. |
-| `phone_verified` | boolean | The `true/false` value indicating whether the user's phone number has been verified. Only valid for users with SMS connections. |
-| `picture` | text | URL pointing to [the user's profile picture](/users/guides/change-user-pictures). |
-| `updated_at` | date&nbsp;time | The timestamp of when the user's profile was last updated/modified. The `updated_at` property is also updated when the `last_login` property is updated, which is also considered an update. This means that, most of the time, the `updated_at` property will match the `last_login` property. |
-| `user_id` | text | (unique) The user's identifier. |
-| `user_metadata` | object     | Custom fields that store info about a user that does not impact what they can or cannot access (such as work and home address). For more info, see [Metadata Overview](/users/concepts/overview-user-metadata). |
-| `username` | text | (unique) The user's username. |
-
-Most user profile fields are not returned as part of [ID Token](/tokens/id-token), nor are they included in the response from the [/userinfo endpoint](/api/authentication#get-user-info) of the Authentication API. To retrieve user datails from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) of the Management API. For more information on the endpoints you can use to retrieve users, see [User Search Best Practices](/best-practices/search-best-practices).
+The following attributes are available on the user profile. Some of these attributes may be updated, imported, and exported, as noted below.
 
 ::: panel Blacklist user attributes
 If there are user fields that should not be stored by Auth0 due to privacy reasons, you can blacklist the attributes you do not want persisting in Auth0 databases. For details, see [Blacklist User Attributes](/security/blacklisting-attributes).
 :::
+
+::: warning
+<%= include('../../_includes/_users_update_normalized_profile_attributes') %>
+:::
+
+| Name             | Type | Description | [Search?](/users/search) | [Update?](/api/management/guides/users/update-root-attributes-users) | [Import?](/users/guides/bulk-user-imports) | [Upsert during import?](/users/guides/bulk-user-imports#request-bulk-import) | [Export?](/users/guides/bulk-user-exports) |
+|-|-|-|-|-|-|-|-|-|
+| `app_metadata`   | object | Custom fields that store info about a user that influences the user's access, such as support plan, security roles, or access control groups. For more info, see [Metadata Overview](/users/concepts/overview-user-metadata). | Y | Y | Y | Y | Y |
+| `blocked`        | boolean | Indicates whether the user has been blocked. Importing enables subscribers to ensure that users remain blocked when migrating to Auth0. | Y | Y | Y | N | Y |
+| `created_at`     | date time | Timestamp indicating when the user profile was first created. | Y | N | N | N | Y |
+| `email`          | text | (unique) The user's email address. | Y | Y | Y | N | Y |
+| `email_verified` | boolean | Indicates whether the user has verified their email address. | Y | Y | Y | Y | Y |
+| `family_name` | text | The user's family name. | Y | Y | Y | Y | Y |
+| `given_name` | text | The user's given name. | Y | Y | Y | Y | Y |
+| `identities`     | array (object) | <%= include('../_includes/_user-prop-identities.md') %> |  Y | N | N | N | Y |
+| `last_ip`       | text | IP address associated with the user's last login. | Y | N | N | N | Y |
+| `last_login`    | date time | Timestamp indicating when the user last logged in. If a user is blocked and logs in, the blocked session updates `last_login`. If you are using this property from inside a [Rule](/rules) using the `user` object, its value will be associated with the login that triggered the rule; this is because rules execute after login. | Y | N | N | N | Y |
+| `last_password_reset` | date time | Timestamp indicating the last time the user's password was reset/changed. At user creation, this field does not exist. | N | N | N | N | N |
+| `logins_count` | integer | Number of times the user has logged in. If a user is blocked and logs in, the blocked session is counted in `logins_count`. | Y | N | N | N | Y |
+| `multifactor`   | text | List of multi-factor providers with which the user is enrolled. | N | N | N | N | Y |
+| `name`          | text | The user's full name. | Y | Y | Y | Y | Y |
+| `nickname`      | text | The user's nickname. | Y | Y | Y | Y | Y |
+| `phone_number` | text | The user's phone number. Only valid for users with SMS connections. | Y | Y | N | N | Y |
+| `phone_verified` | boolean | Indicates whether the user has been verified their phone number. Only valid for users with SMS connections. | Y | Y | N | N | Y |
+| `picture` | text | URL pointing to [the user's profile picture](/users/guides/change-user-pictures). | N | Y | Y | Y | Y |
+| `updated_at` | date time | Timestamp indicating when the user's profile was last updated/modified. Changes to `last_login` are considered updates, so most of the time, `updated_at` will match `last_login`. | Y | N | N | N | Y |
+| `user_id` | text | (unique) The user's identifier. Importing allows user records to be synchronized across multiple systems without using mapping tables. | Y | N | Y | N | Y |
+| `user_metadata` | object | Custom fields that store info about a user that does not impact what they can or cannot access, such as work address, home address, or user preferences. For more info, see [Metadata Overview](/users/concepts/overview-user-metadata). | Y | Y | Y | Y | Y |
+| `username` | text | (unique) The user's username. | Y | Y | Y | N | Y |
+
+::: note
+Two other fields are not technically part of the user profile, but may be of interest when importing users:
+
+* `password_hash` (text): Hashed password for the user's connection. When users are created, Auth0 uses [bcrypt](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) to secure the password. Importing compatible hashed passwords allows users to retain their passwords, thereby providing a smoother experience.
+* `password_set_date` (date time): Timestamp indicating when the password for the user's connection was set. At user creation, this field exists, and `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical.
+:::
+
+## View user profile structure
+
+To view the user profile structure, navigate to [Users](${manage_url}/#/users) in the [Auth0 Dashboard](${manage_url}), and then click a user you want to view.
+
 
 ## Keep reading
 
