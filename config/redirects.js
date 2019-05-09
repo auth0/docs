@@ -723,7 +723,7 @@ module.exports = [
     to: '/api/management/v2/changes'
   },
   {
-    from: ['/tokens/apiv2', '/api/v2/tokens'],
+    from: ['/tokens/apiv2', '/api/v2/tokens', '/api/management/v2/concepts/tokens'],
     to: '/api/management/v2/tokens'
   },
   {
@@ -2165,5 +2165,9 @@ module.exports = [
     {
       from: '/authorization/guides/dashboard/enable-rbac',
       to: '/dashboard/guides/apis/enable-rbac'
+    },
+    {
+      from: '/users/references/user-data-storage-best-practices',
+      to: '/best-practices/user-data-storage-best-practices'
     }
 ];

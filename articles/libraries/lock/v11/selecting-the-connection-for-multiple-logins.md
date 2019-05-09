@@ -57,7 +57,7 @@ If your application has multiple database connections enabled, Lock needs to kno
 ```
 var options = {
   connectionResolver: function (username, context, cb) {
-    var domain = username.includes('@') && username.split('@')[1];
+    var domain = username.indexOf('@') !== -1 && username.split('@')[1];
     if (domain && domain ==='auth0.com') {
       // If the username is test@auth0.com, the connection used will be the `auth0-users` connection.
       cb({ type: 'database', name: 'auth0-users' });
