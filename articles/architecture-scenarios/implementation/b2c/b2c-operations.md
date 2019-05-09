@@ -32,7 +32,7 @@ Auth0 supports functionality for [monitoring](#monitoring) Auth0 service operati
 
 Out-of-box, Auth0 provides email delivery services to help you accelerate your integration. These services however are not meant for scale of use in production environments, and do not provide for any specific service level or guarantee when it comes to email delivery. Our best practice recommendation which customers typically follow involves configuring your own email service provided as discussed in the guidance provided [here](#email-provider-setup).
 
-You may also need to make changes to [infrastructure](#infrastructure) configuration in order to support integration with Auth0 and to support use of Auth0 extensibility. For example, if you need to provide call backs to your internal or even external infrastructure (e.g. if you need to make external API calls in Rules or Hooks, or via custom database scripts if you need to leverage existing legacy identity storage) then you may need to configure your Firewall settings.
+You may also need to make changes to [infrastructure](#infrastructure) configuration in order to support integration with Auth0 and to support use of Auth0 extensibility. For example, if you need to provide callbacks to your internal or even external infrastructure (e.g., if you need to make external API calls in Rules or Hooks, or via custom database scripts if you need to leverage existing legacy identity storage), then you may need to configure your Firewall settings.
 
 ## Monitoring
 
