@@ -25,7 +25,7 @@ Establishing effective operational behaviors is something that successful custom
 *	How can I check for important notices from Auth0?
 *	Where should I be doing about Auth0 log data so that I can analyze it and keep it for longer than Auth0’s limited data retention period?
 *	Can I scan Auth0 logs to determine if peak loads in my application trigger any rate limits or other errors?
-*	What email services should I be using to support production volumes of email messages to users? Why can’t I use Auth0 out of box email provider in my production environment?
+*	What email services should I be using to support production volumes of email messages to users? Why can’t I use Auth0's out-of-box email provider in my production environment?
 *	Why would I need to configure my firewall, and what firewall ports will I need to open for internal services that need to receive communications from Auth0 (such as custom databases, web services and email servers)?
 
 Auth0 supports functionality for [monitoring](#monitoring) Auth0 service operation as well as providing information regarding Auth0 [service status](#service-status). In addition, Auth0 makes available security related bulletins as well as information regarding upcoming changes to the Auth0 service via various [notifications](#notifications). Auth0 [logging](#logging) services also provide extensive functionality for tracing and identifying operational anomalies, including restrictions encountered due to rate limiting and/or excessive loading.
