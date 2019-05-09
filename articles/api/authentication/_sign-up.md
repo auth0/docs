@@ -90,7 +90,7 @@ This endpoint only works for database connections.
 | `password` <br/><span class="label label-danger">Required</span> | The user's desired password. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database configured to your client. |
 | `username` | The user's username. Only valid if the connection requires a username. |
-| `given_name` | The user's user given name(s). |
+| `given_name` | The user's given name(s). |
 | `family_name` | The user's family name(s). |
 | `name` | The user's full name. |
 | `nickname` | The user's nickname. |
