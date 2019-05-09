@@ -22,6 +22,6 @@ The Device Authorization Flow does not work for:
 * Federated Applications
 * Applications created through [Dynamic Client Registration](/api-auth/dynamic-client-registration)
 * [Social Connections](/connections) using [Auth0 developer keys](/connections/social/devkeys)
-* Query string parameters to be accessed from hosted login page or rules.
+* Query string parameters to be accessed from hosted login page or rules
 
 We support the full [Draft 15](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-15), except for confidential Clients.
