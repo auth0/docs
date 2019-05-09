@@ -14,14 +14,16 @@
 
 ## Limitations
 
-The Device Authorization Flow does not work for:
+To use the Device Authorization Flow, Applications must:
 
-* [Auth0 application types](/applications/concepts/app-types-auth0) other than **Native**
-* Applications where the [**Token Endpoint Authentication Method**](/dashboard/reference/settings-application) is anything other than **None**
-* [Non-OIDC-conformant](/dashboard/reference/settings-application#oauth) Applications
-* Federated Applications
-* Applications created through [Dynamic Client Registration](/api-auth/dynamic-client-registration)
-* [Social Connections](/connections) using [Auth0 developer keys](/connections/social/devkeys)
+* Have an [Auth0 application type](/applications/concepts/app-types-auth0) of **Native**
+* Have the [**Token Endpoint Authentication Method**](/dashboard/reference/settings-application) set to **None**
+* Be [OIDC-conformant](/dashboard/reference/settings-application#oauth)
+* Not be created through [Dynamic Client Registration](/api-auth/dynamic-client-registration)
+* Not be federated
+
+In addition, the Device Authorization Flow does not support:
+* [Social Connections](/connections) using [Auth0 developer keys](/connections/social/devkeys) unless you are using Universal Login without custom domains
 * Query string parameters to be accessed from hosted login page or rules
 
 We support the full [Draft 15](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-15), except for confidential Clients.
