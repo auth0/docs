@@ -40,7 +40,7 @@ The Device Authorization Flow contains two different paths; one occurs on the de
 
 ### Browser Flow
 
-1. The user visits the `verification_uri` on their computer and confirms that the device that is being activated is displaying the `user_code`. If the `user_code` is not embedded in the `verification_uri`, then the user enters the `user_code`.
+1. The user visits the `verification_uri` on their computer, enters the `user_code` and confirms that the device that is being activated is displaying the `user_code`. If the user visits the `verification_uri_complete` by any other mechanism (such as by scanning a QR code), only the device confirmation will be needed.
 2. Your Auth0 Authorization Server redirects the user to the login and consent prompt, if needed.
 3. The user authenticates using one of the configured login options and may see a consent page asking to authorize the device app.
 4. If the `user_code` is valid, when the user consents, your device app is authorized to access the API.
