@@ -2,6 +2,8 @@
 
 While you are waiting for the user to activate the device, begin polling the token URL to request an Access Token. Using the extracted polling interval (`interval`) from the previous step, you will need to `POST` to the [token URL](/api/authentication#device-auth) sending along the `device_code`.
 
+To avoid errors due to network latency, you should start counting each interval after receipt of the last polling request's response. 
+
 ### Example POST to token URL
 
 ```har
@@ -42,7 +44,7 @@ You will see this error while waiting for the user to take action. Continue poll
 
 #### Slow down
 
-You are polling too fast. Slow down and use the suggested interval retrieved in the previous step of this tutorial.
+You are polling too fast. Slow down and use the suggested interval retrieved in the previous step of this tutorial. To avoid receiving this error due to network latency, you should start counting each interval after receipt of the last polling request's response. 
 
 ```json
 {
@@ -53,10 +55,14 @@ You are polling too fast. Slow down and use the suggested interval retrieved in 
 
 #### Expired Token
 
-The user has not authorized the device quickly enough, so the `device_code` has expired. You should wait for the user to restart the device authorization flow to avoid unnecessary polling.
+The user has not authorized the device quickly enough, so the `device_code` has expired. Your application should notify the user that the flow has expired and prompt them to reinitiate the flow.
+
+::: note
+Then `expired_token` error will be returned exactly once; after that, the dreaded `invalid_grant` will be returned. Your device *must* stop polling.
+:::
 
 ```json
-{
+{ 
   "error": "expired_token",
   "error_description": "..."
 } 
