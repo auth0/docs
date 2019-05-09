@@ -66,7 +66,7 @@ From time to time, Auth0 may send an important announcement related to your tena
 
 ### Auth0 security bulletins
 
-Auth0 regularly conducts a number of security-related tests, and if any issues are found will proactively identify and notify customers who need to make security-related changes. Due to the extensible nature of the Auth0 product however, it may not be possible for Auth0 to identify every impacted customer, so you should regularly check Auth0 [security bulletins](/security/bulletins). You should make sure a security contact is listed in Support Center for your organization.
+Auth0 regularly conducts a number of security-related tests, and if any issues are found, will proactively identify and notify customers who need to make security-related changes. Due to the extensible nature of the Auth0 product, however, it may not be possible for Auth0 to identify every impacted customer, so you should regularly check Auth0 [security bulletins](/security/bulletins). You should make sure a security contact for your organization is listed in Support Center.
 
 ::: panel Best Practice
 It is a best practice to check the Auth0 [Security Bulletins](/security/bulletins) page periodically and take the recommended action if you are impacted by any security bulletins.
