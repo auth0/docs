@@ -380,9 +380,6 @@ articles:
       - title: "Cache Expensive Resources"
         url: "/rules/guides/cache-resources"
 
-      - title: "Redirect Rules"
-        url: "/rules/guides/redirect"
-
       - title: "Debug Rules"
         url: "/rules/guides/debug"
 
