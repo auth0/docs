@@ -17,10 +17,6 @@ You can read metadata using rules with the Management API and with Lock. You can
 - `given_name`
 - `family_name`
 
-::: warning
-Rather than storing profile-related information in `user_metadata`, you can edit these user attributes on the normalized user profile. If you want to be able to edit these attributes, you must [configure your connection sync with Auth0](/dashboard/guides/connections/configure-connection-sync) so that user attributes will be updated from the identity provider only on user profile creation. Root attributes will then be available to be [edited individually](/api/management/guides/users/update-root-attributes-users) or [by bulk import](/api/management/guides/users/update-root-attributes-users) using the Management API.
-:::
-
 ::: note 
 When using the deprecated [Search v2](/users/search/v2), beginning **1 September 2017** new tenants cannot search any of the  `app_metadata` fields. Only tenants associated with paid subscriptions that were created on/before **31 August 2017** can search the `app_metadata` fields.
 This limitation does not apply to [Search v3](/users/search/v3).

@@ -35,6 +35,7 @@ These two data points should be stored in `app_metadata` instead of `user_metada
 The following data points from our mobile music application are appropriate to store in `user_metadata`:
 
 * Application preferences;
+* Avatar customization;
 * Any details chosen by the user to alter their experience of the app upon login.
 
 Note that, unlike the data points for `app_metadata`, the user can easily and readily change those stored in `user_metadata`.

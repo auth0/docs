@@ -772,10 +772,6 @@ module.exports = [
     to: '/api/management/v2/user-search'
   },
   {
-    from: '/users/normalized/auth0/retrieve-user-profiles',
-    to: `/users/search`
-  },
-  {
     from: [
       '/appliance/checksum',
       '/appliance/proxy-updater',
