@@ -48,13 +48,13 @@ You can find detailed guidance regarding specific functionality and use cases in
 
 ## Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2b/b2b-architecture)
-* [Provisioning]()
-* [Authentication]()
-* [Branding]()
-* [Deployment Automation]()
-* [Quality Assurance]()
-* [Profile Management]()
-* [Authorization]()
-* [Logout]()
-* [Operations]()
+* [Architecture](/architecture-scenarios/b2b/b2b-architecture)
+* [Provisioning](/architecture-scenarios/b2b/b2b-provisioning)
+* [Authentication](/architecture-scenarios/b2b/b2b-authentication)
+* [Branding](/architecture-scenarios/b2b/b2b-branding)
+* [Deployment Automation](/architecture-scenarios/b2b/b2b-deployment)
+* [Quality Assurance](/architecture-scenarios/b2b/b2b-qa)
+* [Profile Management](/architecture-scenarios/b2b/b2b-profile-mgmt)
+* [Authorization](/architecture-scenarios/b2b/b2b-authorization)
+* [Logout](/architecture-scenarios/b2b/b2b-logout)
+* [Operations](/architecture-scenarios/b2b/b2b-operations)

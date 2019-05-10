@@ -58,46 +58,15 @@ Determining the level of isolation you require when it comes to your user domain
 
 ## Custom domains
 
-When you setup your Auth0 tenant, the URL for accessing that tenant will be of the form  `https://${account.tenant}.auth0.com`. Providing a [Custom Domain](/custom-domains) (also known as a vanity URL), for your Auth0 tenant is not only an important factor for supporting your Branding requirements, but more importantly will also provide you with security benefits too:
-
-* Some browsers will, by default, make it [difficult to communicate in an iFrame if you don't have a shared domain](/api-auth/token-renewal-in-safari).
-* It's [harder to phish your domain if you have a vanity URL](https://auth0.com/blog/introducing-custom-domains-preview-with-auth0/), as the phisher must also create a vanity URL to mimic yours. For example, with a custom domain you can use your own certificate to get an "Extended Validation", making phishing even harder.
-
-::: note
-You are allowed only one custom domain per Auth0 Tenant. This is because a tenant in Auth0 is intended to represent a “domain” of users. If you need more than one vanity URL, then you likely have more than one domain of users and should be using multiple tenants.
-:::
-
-Your custom domain name should also give the user confidence that this is the appropriate place to enter their credentials, and we recommend that you create your custom domain in all environments early on to ensure that you are testing consistently between environments. **It's extremely important to train your users to to look for suspicious URLs when entering their credentials!**
-
-::: panel Best Practice
-Create a custom domain (a.k.a. `CNAME`) for your Auth0 tenant, and also create one in development too so you can ensure you have managed the `CNAME` correctly. For example, you could create a `CNAME` which maps `login.mycompany.com` to `mycompany-prod.auth0.com`.
-:::
-
-In almost all cases, customers have been most successful when adopting a strategy of a centralised domain for authentication across multiple product or service brands. This strategy provides users with a consistent UX, and also mitigates the complexity of deploying and maintaining multiple Auth0 tenants in a production environment. If you are considering having multiple domains for different brands, please refer to the [Branding](/architecture-scenarios/implementation/b2c/b2c-branding) guidance before you begin implementing.
+<%= include('../_includes/_custom-domains.md') %>
 
 ## SDLC support
 
-Every company has some form of Software Development Life Cycle (SDLC), and throughout the development process you will want to align with that strategy. For instance, you need to be able to test your integration with Auth0 in a similar fashion as you test the applications themselves. It is therefore important to [structure Auth0 tenants to support your SDLC](/dev-lifecycle/setting-up-env), and there is a consistent pattern which our customers typically follow when it comes to the best practices associated with tenant layout for doing so:
-
-| Environment | Sample Tenant Name | Description |
-| - | - | - |
-| Development | **company-dev** | A shared environment where most of your development work occurs |
-| QA/Testing | **company-qa** or **company-uat** | An environment for formal testing of the changes you've made |
-| Production | **company-prod** | The production tenant |
-
-In some cases you may also want to create one or more sandboxes (e.g., **company-sandbox1**, **company-sandbox2**) so that you can test changes without compromising your development environment. This might be where you test deployment scripts and the like.
-
-::: panel Best Practice
-You can also take advantage of our [Implementation Checklists](/architecture-scenarios/checklists) that you can download and customize to meet your implementation project needs.
-:::
-
-::: warning
-Though Auth0 allows you to create as many free tenants as you'd like, you may be limited for the number of tenants where all paid features are enabled. By default, you are provided with **three** tenants where all features are available.
-:::
+<%= include('../_includes/_sdlc-support.md') %>
 
 ## Tenant association
 
-To ensure that your [tenants are all associated with your Auth0 contractual agreement](/dev-lifecycle/child-tenants) and have the same features, ensure all your tenants are associated with your company account. If you have individual developers that want to create their own sandboxes for testing, make sure they get associated with your account so they have the same permissions too. To do this you should contact your Auth0 representative or the Auth0 Support Center at ${env.DOMAIN_URL_SUPPORT}.
+<%= include('../_includes/_tenant-association.md') %>
 
 ## Planning
 
@@ -105,12 +74,12 @@ To help you with planning your implementation, we've put together some [planning
 
 ## Keep reading
 
-* [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
-* [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
-* [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
-* [Deployment Automation](/architecture-scenarios/implementation/b2c/b2c-deployment)
-* [Quality Assurance](/architecture-scenarios/implementation/b2c/b2c-qa)
-* [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
-* [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
-* [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)
-* [Operations](/architecture-scenarios/implementation/b2c/b2c-operations)
+* [Provisioning](/architecture-scenarios/b2c/b2c-provisioning)
+* [Authentication](/architecture-scenarios/b2c/b2c-authentication)
+* [Branding](/architecture-scenarios/b2c/b2c-branding)
+* [Deployment Automation](/architecture-scenarios/b2c/b2c-deployment)
+* [Quality Assurance](/architecture-scenarios/b2c/b2c-qa)
+* [Profile Management](/architecture-scenarios/b2c/b2c-profile-mgmt)
+* [Authorization](/architecture-scenarios/b2c/b2c-authorization)
+* [Logout](/architecture-scenarios/b2c/b2c-logout)
+* [Operations](/architecture-scenarios/b2c/b2c-operations)
