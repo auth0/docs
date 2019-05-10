@@ -22,7 +22,7 @@ Alternatively, you could store the user identifier in each table/collection that
 ## Keep reading
 
 * [Normalized User Profiles Overview](/users/normalized)
-* [Retrieve User Profiles](/users/search)
+* [Retrieve User Profiles](/users/normalized/auth0/retrieve-user-profiles)
 * [Identify Users](/users/normalized/auth0/identify-users)
 * [Normalized User Profile Schema](/users/normalized/auth0/normalized-user-profile-schema) 
 * [Sample User Profiles](/users/normalized/auth0/sample-user-profiles)

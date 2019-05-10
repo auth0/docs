@@ -127,6 +127,6 @@ This is a sample profile from **ADFS (Active Directory Federation Services)**:
 * [Normalized User Profiles Overview](/users/normalized)
 * [Identify Users](/users/normalized/auth0/identify-users)
 * [Store User Data](/users/normalized/auth0/store-user-data)
-* [Retrieve User Profiles](/users/search)
+* [Retrieve User Profiles](/users/normalized/auth0/retrieve-user-profiles)
 * [Normalized User Profile Schema](/users/normalized/auth0/normalized-user-profile-schema)
 * [Claims for User Profile Returned via OIDC-Compliant Authorization Flow](/users/normalized/oidc)

@@ -18,10 +18,6 @@ You can use the Dashboard to manage your users. To begin, go to [Dashboard > Use
 User Management is included as part of the **Developer** subscription plan. You may need to [upgrade your plan](${manage_url}/#/tenant/billing/subscription) to access these features.
 :::
 
-::: warning
-<%= include('../../_includes/_users_update_normalized_profile_attributes') %>
-:::
-
 ![User Profile Dashboard](/media/articles/user-profile/user1.png)
 
 ## Keep reading

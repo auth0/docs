@@ -18,7 +18,7 @@ As of 8 June 2017, new Auth0 customers **cannot** add legacy grant types to thei
 :::
 
 ::: warning
-- Attempting to use a flow with an Application lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
+Attempting to use a flow with an Application lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
 
 ```text
 Grant type `grant_type` not allowed for the client.

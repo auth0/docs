@@ -18,11 +18,11 @@ The attributes that Auth0 maps to a common schema are listed below.
 Fields that are always generated:
 
 * **`name`**: the user's full name.
-* **`nickname`**: the user's username if available, else the local-part of the user's email.
+* **`nickname`**: the user's username.
 * **`picture`**: the URL of the [user's picture](/users/guides/change-user-pictures). If unavailable, Auth0 uses the Gravatar image associated with the user's email address.
 * **`user_id`**: the user's unique identifier. This is unique per Connection, but the same for all apps that authenticate via that Connection.
 
-By default, a user's `name`, `nickname`, and `picture` attributes provided by identity providers other than Auth0 (such as Google, Facebook, Twitter) are not directly editable since they are updated from the identity provider each time a user logs in. If you want to be able to edit these attributes, you must [configure your connection sync with Auth0](/dashboard/guides/connections/configure-connection-sync) so that user attributes will be updated from the identity provider only on user profile creation. Root attributes will then be available to be [edited individually](/api/management/guides/users/update-root-attributes-users) or [by bulk import](/api/management/guides/users/update-root-attributes-users) using the Management API.
+A user's `name`, `nickname`, and `picture` attributes are not directly editable, however you can update the fields in the `user_metadata` to update them for your front-end as desired. [Click here for more details for changing a user's picture](/users/guides/change-user-pictures); the `name`, `nickname` fields can be updated in the same way.
 
 Fields that are generated when the details are available:
 
@@ -32,7 +32,7 @@ Fields that are generated when the details are available:
 * **`family_name`**: the user's last name.
 
 ::: note
-When creating a user with the [create a User Management API endpoint](/api/management/v2#!/Users/post_users) you can submit the `given_name` and `family_name`. By default, a user's `given_name` and `family_name` attributes provided by identity providers other than Auth0 (such as Google, Facebook, Twitter) are not directly editable since they are updated from the identity provider each time a user logs in. If you want to be able to edit these attributes, you must [configure your connection sync with Auth0](/dashboard/guides/connections/configure-connection-sync) so that user attributes will be updated from the identity provider only on user profile creation. Root attributes will then be available to be [edited individually](/api/management/guides/users/update-root-attributes-users) or [by bulk import](/api/management/guides/users/update-root-attributes-users) using the Management API
+When creating a user with the [create a User Management API endpoint](/api/management/v2#!/Users/post_users) you can submit the `given_name` and `family_name` but these fields are not available to be edited with the [update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
 :::
 
 ::: panel Custom Databases
@@ -60,11 +60,9 @@ Auth0 will pass to your app all other properties supplied by the identity provid
 
 ## Keep reading
 
-* [User Profile Structure](/users/references/user-profile-structure)
-* [Update User Profile Root Attributes](/users/normalized/auth0/update-root-attributes)
 * [Normalized User Profiles Overview](/users/normalized)
 * [Identify Users](/users/normalized/auth0/identify-users)
 * [Store User Data](/users/normalized/auth0/store-user-data)
-* [Retrieve User Profiles](/users/search)
+* [Retrieve User Profiles](/users/normalized/auth0/retrieve-user-profiles)
 * [Sample User Profiles](/users/normalized/auth0/sample-user-profiles)
 * [Claims for User Profile Returned via OIDC-Compliant Authorization Flow](/users/normalized/oidc)
