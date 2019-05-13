@@ -107,7 +107,7 @@ The process of linking accounts essentially merges user profiles in pairs: a pri
 * Allows users to link to an account with more identity information in order to provide a more complete profile
 * Allows your apps to retrieve connection-specific user profile data
 
-## Deprovisioning
+## De-provisioning
 
 Your application may need to support a user’s request to remove their account, as part of [GDPR](https://eugdpr.org/) say (or other privacy directive), and this together with a number of other profile related functions can be achieved via the [Auth0 Management API](https://auth0.com/docs/api/management/v2#!/Users). Using the Auth0 management API you can retrieve information stored about a user and also update it as required. In fact, Auth0 provides support for a range of privacy-related requirements - from links to consent notices on signup, to data protection in supporting the rights of users to view and correct the data you hold about them.
 
