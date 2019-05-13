@@ -112,7 +112,7 @@ The process of linking accounts essentially merges user profiles in pairs: a pri
 Your application may need to support a user’s request to remove their account, as part of [GDPR](https://eugdpr.org/) say (or other privacy directive), and this together with a number of other profile related functions can be achieved via the [Auth0 Management API](https://auth0.com/docs/api/management/v2#!/Users). Using the Auth0 management API you can retrieve information stored about a user and also update it as required. In fact, Auth0 provides support for a range of privacy-related requirements - from links to consent notices on signup, to data protection in supporting the rights of users to view and correct the data you hold about them.
 
 ::: note
-GDPR and other privacy directives require that users have the right to view and correct the data held about them, as well as ask to be “forgotten”. The Auth0 Management API can be used by customers to help address these requirements and meet their legislative obligations.
+[GDPR](https://eugdpr.org/) and other privacy directives require that users have the right to view and correct the data held about them, as well as ask to be “forgotten”. The Auth0 Management API can be used by customers to help address these requirements and meet their legislative obligations.
 :::
 
 ## Planning
