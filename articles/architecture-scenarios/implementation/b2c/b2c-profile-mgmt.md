@@ -69,7 +69,7 @@ Any information that will be used to customize Auth0 emails, such as information
 
 ### App metadata
 
-App metadata (also referred to as `app_metadata`) is, on the other hand, information that can be stored with a user profile but can **only be read or updated with appropriate authorization**; `app_medata` is not directly accessible to a user. This type of metadata might be something like a flag to indicate that the last set of valid terms and conditions was accepted by the user, and a date to indicate when the user accepted them.
+App metadata (also referred to as `app_metadata`) is, on the other hand, information that can be stored with a user profile but can **only be read or updated with appropriate authorization**; `app_metadata` is not directly accessible to a user. This type of metadata might be something like a flag to indicate that the last set of valid terms and conditions was accepted by the user, and a date to indicate when the user accepted them.
 
 ## Password reset
 
