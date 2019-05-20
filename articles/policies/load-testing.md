@@ -41,7 +41,7 @@ The load testing request must include the following:
 * The platforms to be used for the test (desktop/laptop, iOS, Android, other)
 * The Auth0 features (such as rules or email) used during the test
 * The Auth0 API methods and endpoints to be used (for example `GET /api/v2/clients`)
-* The maximum requests per second for each type of request or or endpoint
+* The maximum requests per second for each type of request or endpoint
 * The types of Auth0 connections involved in the test
 * Which Auth0 Rules, if any, will execute during the test
 * Which Custom DB, if any, will be used
