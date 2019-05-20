@@ -36,6 +36,10 @@ Current migrations are listed below, newest first.
 
 For migrations that have already been enabled for all customers, see [Past Migrations](/migrations/past-migrations).
 
+### IP Address Authentication Deprecation
+
+[IP Address Authentication](/connections/enterprise/ip-address) has been deprecated and will not be enabled for new customers. The functionality will continue to work for existing customers that currently have it enabled. If at some point the IP Address Authentication feature is changed or removed from service, customers who currently use it will be notified beforehand and given ample time to migrate.
+
 ### User Search v2 migration to v3
 
 User Search v2 is being deprecated and you may be required to take action before June 30, 2019. A [migration guide](/users/search/v3/migrate-search-v2-v3) is available to walk you through the steps required. Notifications have been and will continue to be sent to customers that need to complete this migration.

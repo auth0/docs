@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD041 MD034 MD002 -->
+
 <%= include('../../_includes/_login_preamble', { library: 'Angular 2+', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-angular-samples/tree/embedded-login/01-Embedded-Login'}) %>
 
 ### Create an Authentication Service
@@ -129,7 +131,7 @@ export class AuthService {
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
     // access token's expiry time
-    return this._accessToken && new Date.now() < this._expiresAt;
+    return this._accessToken && Date.now() < this._expiresAt;
   }
 
 }
