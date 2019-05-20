@@ -47,7 +47,7 @@ In this page you can find a list of resources that can help you secure your APIs
         <i class="icon icon-budicon-695"></i><a href="/flows/concepts/auth-code">Overview of the flow</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href/flows/guides/auth-code/call-api-auth-code">Executing the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/guides/auth-code/call-api-auth-code">Executing the flow</a>
       </li>
     </ul>
   </li>
