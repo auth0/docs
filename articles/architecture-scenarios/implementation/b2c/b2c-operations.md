@@ -74,11 +74,11 @@ It is a best practice to check the Auth0 [Security Bulletins](/security/bulletin
 
 ### Change log
 
-Auth0 provides information on changes to the service in the Auth0 change log (https://auth0.com/changelog). You should make a regular practice of reviewing Auth0 change logs to be aware of changes. Support teams researching an issue may find it useful to review the change log to determine if recent changes might be related, especially if these are [breaking changes](docs/migrations). Development teams will also want to review the change logs to identify new features that may be beneficial.
+Auth0 provides information on changes to the service in the Auth0 [change log](https://auth0.com/changelog). You should make a regular practice of reviewing Auth0 change logs to be aware of changes. Support teams researching an issue may find it useful to review the change log to determine if recent changes might be related, especially if these are [breaking changes](docs/migrations). Development teams will also want to review the change logs to identify new features that may be beneficial.
 
 ## Logging
 
-Auth0 provides extensive capability when it comes to the logging of events, and also in the scanning of logs in order to identify event anomalies (see https://auth0.com/docs/logs for further details). Standard log retention period for Auth0 logs is determined by subscription level with the shortest period being 2 days and the longest period being only 30 days. Leveraging Auth0 support for integrating with external logging services will allow you to retain log outside of this, and will also provide for log aggregation across your organization.  
+Auth0 provides extensive capability when it comes to the logging of events, and also in the scanning of logs in order to identify event anomalies (see [logs documentation](/logs) for further details). Standard log retention period for Auth0 logs is determined by subscription level with the shortest period being 2 days and the longest period being only 30 days. Leveraging Auth0 support for integrating with external logging services will allow you to retain log outside of this, and will also provide for log aggregation across your organization.  
 
 ::: panel Best Practice
 You should leverage one of the Auth0 logs extensions to send log data to an external logs analytics service.  This will enable keeping data for longer periods of time and provide advanced analytics on the logs data.
