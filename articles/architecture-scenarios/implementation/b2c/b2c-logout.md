@@ -23,7 +23,7 @@ When configuring logout behavior, you'll need to consider:
 
 * Which sessions should be terminated when the user initiates logout?
 * What information to provide to users as confirmation of the sessions terminated?
-* Where should the users be redirected to after logout completes?
+* Where should users be redirected to after logout completes?
 * Should actions taken by the user elsewhere (such as in another application) need to be accounted for to [provide a single logout experience](/logout/guides/logout-applications#single-sign-out-configuration-example)?
 * How long you want sessions to last in the event that users do not trigger the logout process?
 
