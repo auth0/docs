@@ -21,7 +21,7 @@ With a Management API Token issued for a SPA, you can access the following scope
 
 | **Scope for current user** | **Endpoint** |
 | -------------------------- | ------------ |
-| `read:current_user` | [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id)<br />
+| `read:current_user` | [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id) <br />
 [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments) |
 | `update:current_user_identities` | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) <br /> [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) |
 | `update:current_user_metadata` | [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) |
@@ -51,13 +51,13 @@ https://${account.namespace}/authorize?
 If you are not familiar with authentication for SPAs, see [Implicit Flow](/flows/concepts/implicit).
 :::
 
-Notice the following:
+Notice:
 
 - The `audience` is set to `https://${account.namespace}/api/v2/` (representing your tenant's Management API URI)
-- The `response_type` is `id_token token` (indicating that we want to receive both an ID Token and an Access Token)
+- The `response_type` is `id_token token` (indicating that we want to receive both an ID Token as well as an Access Token, which represents the Management API Token)
 - The requested `scope` is `read:current_user`
 
-If all goes well, we will receive a Management API Token. Decoding the token and reviewing its contents reveals the following:
+After we receive our tokens, decoding the Access Token and reviewing its contents reveals the following:
 
 ```text
 {
@@ -71,7 +71,7 @@ If all goes well, we will receive a Management API Token. Decoding the token and
 }
 ```
 
-Notice the following:
+Notice:
 
 - The `aud` is set to the `audience` you provided when authenticating (your tenant's API URI)
 - The granted `scope` is `read:current_user`
