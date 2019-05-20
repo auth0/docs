@@ -24,7 +24,7 @@ When configuring logout behavior, you'll need to consider:
 * Which sessions should be terminated when the user initiates logout?
 * What information to provide to users as confirmation of the sessions terminated?
 * Where should users be redirected to after logout completes?
-* Should actions taken by the user elsewhere (such as in another application) need to be accounted for to [provide a single logout experience](/logout/guides/logout-applications#single-sign-out-configuration-example)?
+* Whether actions taken by the user elsewhere (such as in another application) need to be accounted for to [provide a single logout experience](/logout/guides/logout-applications#single-sign-out-configuration-example)?
 * How long you want sessions to last in the event that users do not trigger the logout process?
 
 Given the varying types of sessions that can be created whenever a user logs in, there are several types of logout possible. Local application logout ends the session with the application, whereas Auth0 logout [terminates the Auth0 session](/logout/guides/logout-auth0). [Federated logout](s/logout/guides/logout-idps) terminates the Auth0 session and also propagates the logout request to a remote, third-party Identity Provider. Global, or [Single Logout](/logout/guides/logout-applications) (SLO), ends the Auth0 session and also sends a logout request/notice to applications relying on the Auth0 session
