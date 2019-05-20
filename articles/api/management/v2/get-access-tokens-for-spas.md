@@ -21,8 +21,7 @@ With a Management API Token issued for a SPA, you can access the following scope
 
 | **Scope for current user** | **Endpoint** |
 | -------------------------- | ------------ |
-| `read:current_user` | [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id) <br />
-[GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments) |
+| `read:current_user` | [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id) <br /> [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments) |
 | `update:current_user_identities` | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) <br /> [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) |
 | `update:current_user_metadata` | [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) |
 | `create:current_user_metadata` | [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) |
