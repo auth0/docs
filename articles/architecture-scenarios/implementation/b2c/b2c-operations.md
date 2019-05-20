@@ -20,7 +20,7 @@ Establishing effective operational behaviors is something that successful custom
 
 *	What should I be doing to proactively detect failures?
 *	What do I need to know regarding how to obtain data on Auth0’s operational status?
-*	What should I be doing about Auth0 security bulletins related to the Auth0 service
+*	What should I be doing about Auth0 security bulletins related to the Auth0 service?
 *	Does Auth0 provide information regarding impending changes in the Auth0 service?
 *	How can I check for important notices from Auth0?
 *	Where should I be doing about Auth0 log data so that I can analyze it and keep it for longer than Auth0’s limited data retention period?
