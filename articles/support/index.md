@@ -109,7 +109,7 @@ Using this page, you can:
 
 ## Program Features
 
-Your Sales Order will indicate whether you are subscribed to the **Standard** Support Program or the **Enterprise** Support Program.
+Your Sales Order will indicate whether you are subscribed to the **Standard** Support Program, **Enterprise** Support Program, or **Premier** Support Program.
 
 The following features are provided with **every** support plan:
 
