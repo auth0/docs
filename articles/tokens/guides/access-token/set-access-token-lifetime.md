@@ -11,7 +11,7 @@ useCase:
 
 # Set Access Token Lifetime
 
-You control the Access Token lifetime on a per-API basis.
+You control the Access Token lifetime for custom APIs on a per-API basis.
 
 Auth0 recommends that you set the validity period of your token based on the security requirements of your API. For example, an Access Token that accesses a banking API should expire more quickly than one that accesses a ToDo API.
 
@@ -20,6 +20,13 @@ To configure the amount of time a token lives, use the **Token Expiration (Secon
 * Maximum amount of time (in seconds) that the token can be valid after being issued: `2592000` seconds (`30` days).
 
 ![Token Expiration - API](/media/articles/tokens/tokens-expiration-api.png)
+
+## Access Token lifetime for the OIDC user profile endpoint
+
+Access Tokens issued just to access the OpenID Connect user profile endpoint (i.e. meant for authentication only, not to access a custom API) have a default lifetime and can't be changed. The lifetime depends on the flow used to obtain the token:
+
+- Implicit flow: 7200 seconds (2 hours).
+- Authorization code or hybrid flows: 86400 seconds (24 hours).
 
 ## Regain access after an Access Token expires
 Once expired, an Access Token can no longer be used to access an API. To regain access, a new Access Token needs to be obtained. This can be done by repeating the OAuth flow used to obtain the initial Access Token.
