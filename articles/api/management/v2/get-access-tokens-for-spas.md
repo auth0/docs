@@ -11,53 +11,52 @@ contentType:
 useCase: invoke-api
 ---
 
-# Get Access Tokens for Single-Page Applications
+# Get Management API Tokens for Single-Page Applications
 
-You cannot get Access Tokens using the other methods for single-page applications (SPAs) because we use the **Client Secret** which is sensitive information (same as a password) and cannot be exposed to the browser.
+To call Auth0's [Management API](/api/management/v2#!) endpoints, you need to authenticate with a specialized Access Token called the Auth0 Management API Token. This token is a [JSON Web Token (JWT)](/jwt) and contains specific granted permissions (also known as [scopes](/scopes)). Because single-page applications (SPAs) are public clients, they cannot securely store sensitive information, such as the **Client Secret**, so they cannot retrieve this token in the same way as other application types.
 
-You can still get tokens for the Management API from the frontend, but with some limitations. You can access only certain scopes and update only the logged-in user's data. You can access the following scopes, and hence endpoints:
+SPAs can still retrieve tokens for the Management API, but they must do so from the frontend, and the Access Token will be issued in the context of the user who is currently signed in to Auth0. Although this restricts the token to certain scopes and limits updates to only the logged-in user's data, it can be useful for actions such as updating the user profile. 
 
-| **Endpoint** | **Scope for current user** |
-| ------ | ----------- |
-| [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id) | `read:current_user` |
-| [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments) | `read:current_user` |
-| [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | `update:current_user_identities` |
-| [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) | `update:current_user_identities` |
-| [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) | `update:current_user_metadata` |
-| [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) | `create:current_user_metadata` |
-| [DELETE /api/v2/users/{id}/multifactor/{provider}](/api/management/v2#!/Users/delete_multifactor_by_provider) | `delete:current_user_metadata` |
-| [POST /api/v2/device-credentials](/api/management/v2#!/Device_Credentials/post_device_credentials) | `create:current_user_device_credentials` | 
-| [DELETE /api/v2/device-credentials/{id}](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) | `delete:current_user_device_credentials` |
+With a Management API Token issued for a SPA, you can access the following scopes, and hence endpoints:
 
-If you get an Access Token that contains the scope `read:current_user`, you can retrieve the information of the **currently logged-in user** (the one that the token was issued for).
+| **Scope for current user** | **Endpoint** |
+| -------------------------- | ------------ |
+| `read:current_user` | [GET /api/v2/users/{id}](/api/management/v2#!/Users/get_users_by_id) <br /> [GET /api/v2/users/{id}/enrollments](/api/management/v2#!/Users/get_enrollments) |
+| `update:current_user_identities` | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) <br /> [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) |
+| `update:current_user_metadata` | [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) |
+| `create:current_user_metadata` | [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) |
+| `delete:current_user_metadata` | [DELETE /api/v2/users/{id}/multifactor/{provider}](/api/management/v2#!/Users/delete_multifactor_by_provider) |
+| `create:current_user_device_credentials` | [POST /api/v2/device-credentials](/api/management/v2#!/Device_Credentials/post_device_credentials) |
+| `delete:current_user_device_credentials` | [DELETE /api/v2/device-credentials/{id}](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) |
 
-## Example 
+## Example: Get Management API Token to retrieve user profile
 
-You can get a token, for example to retrieve the information of the currently logged-in user, using the [Authorization endpoint](/api/authentication#authorize-application). This is where you redirect your users to login or sign up.
+In this example, we retrieve a Management API Token and use it to retrieve the full user profile of the currently logged-in user.
 
-In the example below, we want to use the [GET User by ID endpoint](/api/management/v2#!/Users/get_users_by_id) to retrieve the full profile information of the logged-in user. To do so, first we will authenticate our user (using the [Implicit grant](/api/authentication?http#implicit-grant)) and retrieve the token(s).
+1. Authenticate the user (using the [Implicit grant](/api/authentication?http#implicit-grant)) by redirecting them to the [Authorization endpoint](/api/authentication#authorize-application), which is where users are directed upon login or sign-up:
 
 ```text
 https://${account.namespace}/authorize?
   audience=https://${account.namespace}/api/v2/
-  &scope=read:current_user
   &response_type=token%20id_token
+  &scope=read:current_user
   &client_id=${account.clientId}
   &redirect_uri=${account.callback}
-  &nonce=CRYPTOGRAPHIC_NONCE
+  &nonce=NONCE
   &state=OPAQUE_VALUE
 ```
 
 ::: note
-If you are not familiar with authentication for single-page applications, see [Implicit Flow](/flows/concepts/implicit).
+If you are not familiar with authentication for SPAs, see [Implicit Flow](/flows/concepts/implicit).
 :::
 
-Notice the following:
-- We set the `audience` to `https://${account.namespace}/api/v2/`
-- We asked for the scope `read:current_user`
-- We set the `response_type` to `id_token token` so Auth0 will sent us both an ID Token and an Access Token
+Notice:
 
-If we decode the Access Token and review its contents, we can see the following:
+- The `audience` is set to `https://${account.namespace}/api/v2/` (representing your tenant's Management API URI)
+- The `response_type` is `id_token token` (indicating that we want to receive both an ID Token as well as an Access Token, which represents the Management API Token)
+- The requested `scope` is `read:current_user`
+
+After we receive our tokens, decoding the Access Token and reviewing its contents reveals the following:
 
 ```text
 {
@@ -71,9 +70,13 @@ If we decode the Access Token and review its contents, we can see the following:
 }
 ```
 
-Notice that the `aud` is set to your tenant's API URI, the `scope` to `read:current_user`, and the `sub` to the user ID of the logged in user.
+Notice:
 
-Once you have the Access Token, you can use it to call the endpoint. Use the Access Token in the `Authorization` header of the request.
+- The `aud` is set to the `audience` you provided when authenticating (your tenant's API URI)
+- The granted `scope` is `read:current_user`
+- The `sub` is the user ID of the currently logged-in user
+
+2. Retrieve the user profile from the [Get User by ID endpoint](/api/management/v2#!/Users/get_users_by_id). Include the Management API Token in the `Authorization` header of the request:
 
 ```har
 {
