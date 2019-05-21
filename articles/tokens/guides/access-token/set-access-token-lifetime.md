@@ -26,6 +26,7 @@ To configure the amount of time a token lives, use the **Token Expiration (Secon
 Access Tokens issued strictly for the purpose of accessing the OpenID Connect user profile endpoint (e.g., the tokens are meant for authentication only, not to access a custom API) have a default lifetime and can't be changed. The length of lifetime depends on the flow used to obtain the token
 
 | Flow | Lifetime |
+| - | - |
 | Implicit Flow | 7200 seconds (2 hours) |
 | Authorization Code/Hybrid Flows | 86400 seconds (24 hours) |
 
