@@ -23,10 +23,11 @@ To configure the amount of time a token lives, use the **Token Expiration (Secon
 
 ## Access Token lifetime for the OIDC user profile endpoint
 
-Access Tokens issued just to access the OpenID Connect user profile endpoint (i.e. meant for authentication only, not to access a custom API) have a default lifetime and can't be changed. The lifetime depends on the flow used to obtain the token:
+Access Tokens issued strictly for the purpose of accessing the OpenID Connect user profile endpoint (e.g., the tokens are meant for authentication only, not to access a custom API) have a default lifetime and can't be changed. The length of lifetime depends on the flow used to obtain the token
 
-- Implicit flow: 7200 seconds (2 hours).
-- Authorization code or hybrid flows: 86400 seconds (24 hours).
+| Flow | Lifetime |
+| Implicit Flow | 7200 seconds (2 hours) |
+| Authorization Code/Hybrid Flows | 86400 seconds (24 hours) |
 
 ## Regain access after an Access Token expires
 Once expired, an Access Token can no longer be used to access an API. To regain access, a new Access Token needs to be obtained. This can be done by repeating the OAuth flow used to obtain the initial Access Token.
