@@ -16,6 +16,8 @@ The **User Import / Export Extension** allows you to:
 * Bulk import your existing database users into Auth0
 * Search for and export some (or all) of your Auth0 database users
 
+For a list of user profile fields that can be imported and exported, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes).
+
 You must be a Dashboard Admin to use this extension.
 
 ## Install the Extension

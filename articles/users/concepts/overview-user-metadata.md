@@ -22,6 +22,14 @@ An authenticated user can modify data in their profile's `user_metadata`, but no
 
 You can read, create, and edit user metadata using Rules, Auth0 APIs, and Lock.
 
+### User Metadata Best Practices
+
+* Both `app_metadata` and `user_metadata` are limited to a size of 16mb each. However, we recommend against using these properties like a database. They should be used for identity related information. Additionally, at some point we may put a more strict size limit on these properties. Please also be aware that using Rules and/or the Management Dashboard may further limit the amount of metadata you can store.
+
+* An authenticated user can perform actions that modify data in their profile's **user_metadata**, but they can't do anything that modifies their **app_metadata**.
+
+* Use a consistent datatype each time you create or update a given metadata field. Using `user.user_metadata.age = "23"` for one user and `user.user_metadata.age = 23` for another user will cause issues when retrieving the data.
+
 ## Rules
 
 [Rules](/rules) are JavaScript functions executed as part of the Auth0 authentication process (prior to authorization). Using rules, you can read, create, or update user metadata and have such changes affect the results of the authorization process. 
