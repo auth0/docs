@@ -47,7 +47,7 @@ Public applications can only use grant types that do not require the use of thei
 
 The following are public applications:
 
-* A native desktop or mobile application that uses the Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce)
+* A native desktop or mobile application that uses the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce)
 * A JavaScript-based client-side web application (such as a single-page app) that uses the [Implicit Flow](/flows/concepts/implicit) grant
 
 ### ID Tokens
