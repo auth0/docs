@@ -27,7 +27,7 @@ By default, ITP is active. You can determine if the Safari version you are using
 Enabling ITP causes the browser to behave as if you had disabled third-party cookies in the browser: **checkSession()** is unable to access the current user's session, which makes it impossible to obtain a new token without displaying anything to the user.
 
 This is akin to the way OpenID Connect uses iframes for handling [sessions]
-(/sessions) in single-page applications (SPAs). Auth0 is working with [OpenID Connect AB/Connect Working Group](http://openid.net/wg/connect/) to determine if this issue can be addressed at the standards level.
+(/sessions) in single-page applications (SPAs).
 
 ## Solution
 
