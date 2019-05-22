@@ -45,8 +45,8 @@ Content-Type: application/json
 {
   "device_code":"GmRh...k9eS",
   "user_code":"WDJB-MJHT",
-  "verification_uri":"https://example.com/device",
-  "verification_uri_complete":"https://example.com/device?user_code=WDJB-MJHT",
+  "verification_uri":"https://${account.namespace}/device",
+  "verification_uri_complete":"${account.namespace}/device?user_code=WDJB-MJHT",
   "expires_in":900,
   "interval":5
 }
