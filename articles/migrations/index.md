@@ -36,6 +36,10 @@ Current migrations are listed below, newest first.
 
 For migrations that have already been enabled for all customers, see [Past Migrations](/migrations/past-migrations).
 
+### Clickjacking Protection
+
+We added a way to [enable clickjacking protection](/migrations/guides/clickjacking-protection) for the Classic Universal Login Experience.
+
 ### IP Address Authentication Deprecation
 
 [IP Address Authentication](/connections/enterprise/ip-address) has been deprecated and will not be enabled for new customers. The functionality will continue to work for existing customers that currently have it enabled. If at some point the IP Address Authentication feature is changed or removed from service, customers who currently use it will be notified beforehand and given ample time to migrate.
