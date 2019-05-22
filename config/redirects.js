@@ -567,15 +567,15 @@ module.exports = [
   },
   {
     from: '/clients/how-to-rotate-client-secret',
-    to: '/applications/how-to-rotate-client-secret'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/applications/how-to-rotate-client-secret',
-    to: '/applications/guides/rotate-client-secret-dashboard'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/applications/how-to-rotate-application-secret',
-    to: '/applications/how-to-rotate-client-secret'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/clients/client-settings',
@@ -874,7 +874,7 @@ module.exports = [
   },
   {
     from: '/update-client-secret',
-    to: '/tutorials/how-to-update-applications-client-secret'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/test-partner-connection',
@@ -1539,7 +1539,7 @@ module.exports = [
   },
   {
     from: '/tutorials/how-to-update-applications-client-secret',
-    to: '/applications/how-to-update-client-secret',
+    to: '/dashboard/guides/applications/rotate-client-secret',
   },
   {
     from: '/tutorials/using-auth0-to-secure-a-cli',
@@ -1675,7 +1675,7 @@ module.exports = [
   },
   {
     from: '/clients/how-to-update-client-secret',
-    to: '/applications/how-to-rotate-client-secret',
+    to: '/dashboard/guides/applications/rotate-client-secret',
   },
   {
     from: '/i18n/i18n-custom-login-page',
