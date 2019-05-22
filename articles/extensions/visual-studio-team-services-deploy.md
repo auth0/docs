@@ -21,7 +21,7 @@ To install and configure this extension, click on the **Visual Studio Team Servi
 Set the following configuration variables:
 
 * **TYPE**: The type of repository, choose from TFVC or Git
-* **REPOSITORY**: The project from which you want to deploy rules and database scripts.
+* **REPOSITORY**: The project from which you want to deploy rules and database scripts. To use a specific repository within a project, format your input value as follows: `projectName/repoName`.
 * **BRANCH**: The branch we should monitor for commits.
 * **INSTANCE**: Your Visual Studio Team Services instance name (without .visualstudio.com).
 * **COLLECTION**: Your Visual Studio collection (DefaultCollection for Azure DevOps).
