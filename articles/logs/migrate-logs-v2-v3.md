@@ -30,10 +30,9 @@ The following tenants are NOT affected:
   * are using the `GET /api/v2/logs endpoint` with the by checkpoint method (using `from` parameter).
   * are consuming logs using any of the [Auth0 Logs to External Service Dashboard extensions](/extensions#export-auth0-logs-to-an-external-service) (which use the by checkpoint method).
 
-
 ## What’s changing?
 
-The breaking changes are minor but you should review your queries to make sure the results you are getting are as expected.
+The breaking changes are minor, but you should review your queries to make sure the results you are getting are as expected.
 
 Breaking changes are related to:
 * Pagination: the value of the `totals` field returned in the summary result when calling `GET /api/v2/logs` or `GET /api/v2/users/{user_id}/logs` is changing
@@ -46,7 +45,7 @@ For more details on these changes, see [Logs Search Query Syntax](/logs/query-sy
 After reviewing your queries, you can opt in to Tenant Logs Search Engine v3 via the Dashboard. Go to *Tenant Settings > Advanced*, then scroll down to *Migrations*. Toggle the *Legacy Logs Search V2* switch to off. 
 Toggling this switch to off disables the deprecated logs search engine v2 and forces the use of search engine v3.
 
-<Screenshot to be added>
+![](/media/articles/logs/tenant-logs-migration.png)
  
 If you need help with the migration, contact us using the [Support Center](https://support.auth0.com/).
 
