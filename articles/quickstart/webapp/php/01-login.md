@@ -15,7 +15,7 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'PHP', callback: 'http://localhost:3000/' }) %>
 
-<%= include('../../../_includes/_logout_url') %>
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
 ## Configure PHP to Use Auth0
 
@@ -120,6 +120,30 @@ To learn about all the available properties from the user's profile, read the [u
 ::: note
 Some of the user profile properties depend on the social provider you use.
 :::
+
+## Logout
+
+```php
+// index.php
+
+// ...
+<?php if(!$userInfo): ?>
+  // Display login button
+<?php else: ?>
+  <a href="/logout.php">Logout</a>
+<?php endif ?>
+```
+
+```php
+// logout.php
+
+// ...
+$auth0->logout();
+$return_to = 'http://' . $_SERVER['HTTP_HOST'];
+$logout_url = sprintf('http://%s/v2/logout?client_id=%s&returnTo=%s', '${account.namespace}', '${account.clientId}', $return_to);
+header('Location: ' . $logout_url);
+die();
+```
 
 ### Optional: Configure session data
 
