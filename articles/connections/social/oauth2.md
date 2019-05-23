@@ -206,7 +206,7 @@ Where `[your credentials]` is the actual credentials which you need to send to t
 ## Keep Reading
 
 ::: next-steps
-* [Adding custom connections to lock](/libraries/lock/v9/ui-customization#adding-a-new-ui-element-using-javascript)
+* [Customizing buttons for connections in Lock](/libraries/lock/v11/ui-customization#authbuttons-object-)
 * [Generic OAuth2 or OAuth1 examples](/oauth2-examples)
 * [Identity Providers supported by Auth0](/identityproviders)
 * [Identity Protocols supported by Auth0](/protocols)

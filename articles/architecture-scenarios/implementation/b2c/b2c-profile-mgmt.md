@@ -69,7 +69,7 @@ Any information that will be used to customize Auth0 emails, such as information
 
 ### App metadata
 
-App metadata (also referred to as `app_metadata`) is, on the other hand, information that can be stored with a user profile but can **only be read or updated with appropriate authorization**; `app_medata` is not directly accessible to a user. This type of metadata might be something like a flag to indicate that the last set of valid terms and conditions was accepted by the user, and a date to indicate when the user accepted them.
+App metadata (also referred to as `app_metadata`) is, on the other hand, information that can be stored with a user profile but can **only be read or updated with appropriate authorization**; `app_metadata` is not directly accessible to a user. This type of metadata might be something like a flag to indicate that the last set of valid terms and conditions was accepted by the user, and a date to indicate when the user accepted them.
 
 ## Password reset
 
@@ -106,6 +106,16 @@ The process of linking accounts essentially merges user profiles in pairs: a pri
 * Allows users to carry their profile around, irrespective of which identity they use for login
 * Allows users to link to an account with more identity information in order to provide a more complete profile
 * Allows your apps to retrieve connection-specific user profile data
+
+## De-provisioning
+
+Your application may need to support a user’s request to remove their account (for example, you might need to meet [GDPR](https://eugdpr.org/) requirements). You can implement such a feature, along with a number of other profile-related functions, using the [Management API](/api/management/v2#!/Users). The Management API allows you to retrieve information stored about a user and update it as required.
+
+Auth0 is capable of supporting various privacy-related requirements, including the display of links to consent notices on signup and data protection to support the rights of users to view and correct data you’ve collected about them.
+
+::: note
+[GDPR](https://eugdpr.org/) and other privacy directives require that users have the right to view and correct data held about them. They also have the right to be “forgotten.” You can use the Management API to address these requirements and meet your legislative obligations.
+:::
 
 ## Planning
 
