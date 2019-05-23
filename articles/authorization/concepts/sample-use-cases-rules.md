@@ -74,8 +74,8 @@ function (user, context, callback) {
   let idTokenClaims = context.idToken || {};
   let accessTokenClaims = context.accessToken || {};
 
-  idTokenClaims['<%= "${namespace}" %>/roles'] = assignedRoles;
-  accessTokenClaims['<%= "${namespace}" %>/roles'] = assignedRoles;
+  idTokenClaims[`<%= "${namespace}" %>/roles`] = assignedRoles;
+  accessTokenClaims[`<%= "${namespace}" %>/roles`] = assignedRoles;
 
   context.idToken = idTokenClaims;
   context.accessToken = accessTokenClaims;
