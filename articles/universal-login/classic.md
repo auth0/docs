@@ -4,11 +4,10 @@ topics:
   - login
   - universal-login
 contentType: index
-toc: true
 ---
 # Classic Universal Login Experience
 
-Auth0's Classic Universal Login experience is built on top of Auth0s JavaScript libraries ([Lock.js](/libraries/lock), [Auth0.js](/libraries/auth0js), MFA Widget, Password Reset). Compared to the New Universal Login experience, it offers a more complete feature set.
+Auth0's Classic Universal Login experience is built on top of Auth0's JavaScript libraries ([Lock.js](/libraries/lock), [Auth0.js](/libraries/auth0js), MFA Widget, Password Reset). Compared to the New Universal Login experience, it offers a more complete feature set.
 
 When you customize the HTML for Universal Login pages, the default templates will also use the same JavaScript libraries, so from a UX and functional perspective, the transition between the default user interface and a custom one is more natural.  
 
