@@ -1,4 +1,4 @@
-### Configure the Scopes
+### Configure the Permissions
 
 Once the application has been created you will need to configure the Permissions which applications can request during authorization.
 
