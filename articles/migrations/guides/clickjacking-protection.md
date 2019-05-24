@@ -22,6 +22,6 @@ Content-Security-Policy: frame-ancestors 'none'
 
 Even if the potential attack does not entail significant risk, it's a good security practice to add the headers. It is also detected by security scanners, so reports from penetration testers might mention the lack of these headers.
 
-In a case where you are rendering the login page in an iframe, adding these headers could be a breaking change. Instead of adding these headers manually for all customers, therefore, Auth0 has added an opt-in for these headers which we strongly recommend you to enable.
+In a case where you are rendering the login page in an iframe, adding these headers could be a breaking change. Instead of adding these headers for all customers, therefore, Auth0 has added an opt-in for these headers which we strongly recommend you to enable.
 
 You can do this by navigating to [Tenant Settings > Advanced Settings](${manage_url}/#/tenant/advanced), scrolling to 'Migrations', and turning OFF the 'Disable click-jacking protection for Classic Universal Login' setting. This action is not required if you are using the [New Universal Login Experience](/universal-login/new) as those headers are always set.
