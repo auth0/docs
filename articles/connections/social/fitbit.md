@@ -43,6 +43,8 @@ Log in to the [Fitbit's Developer site](https://dev.fitbit.com), then select **R
 - **Callback URL**- this is the URL called after a request, in this field enter: `https://${account.namespace}/login/callback`
 - **Default Access Type**- the type of access granted to the application
 
+<%= include('../_find-auth0-domain-redirects') %>
+
 When finished, click **Register**.
 
 ## 3. Copy Your New App's *Client ID* and *Client Secret*

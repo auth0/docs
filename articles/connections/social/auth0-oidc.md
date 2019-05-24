@@ -22,6 +22,8 @@ You can use an application on one Auth0 tenant (referred to below as the **OIDC 
 2. Take note of your application's **Client ID** and **Client Secret**. You will need these to create the connection in the Relying Party tenant.
 3. Add the Relying Party tenant's login callback to the list of **Allowed Callback URLs**: `https://${account.namespace}/login/callback`
 
+<%= include('../_find-auth0-domain-redirects') %>
+
 4. Make sure that the **OIDC-Conformant** toggle in the **OAuth** tab under the application's **Advance Settings** is turned **off**.
 
 5. Make sure that the tenant has the **Legacy User Profile** toggle enabled under the **Migrations** section of the [Tenant Advanced Settings](${manage_url}/#/tenant/advanced). If you don't see this toggle for your tenant, please open a support case to request this feature to be enabled.

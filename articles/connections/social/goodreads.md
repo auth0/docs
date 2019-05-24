@@ -33,6 +33,8 @@ Complete the form then click **Apply for a Developer Key**. Enter this in the `C
 https://${account.namespace}/login/callback
 ```
 
+<%= include('../_find-auth0-domain-redirects') %>
+
 ![Enter information about your app](/media/articles/connections/social/goodreads/goodreads-register-2.png)
 
 ## 3. Get your Consumer Key and Consumer Secret

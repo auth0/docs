@@ -48,6 +48,8 @@ Scroll down to the **Sandbox App Settings** section and **Show** the **Return UR
 
 `https://${account.namespace}/login/callback`
 
+<%= include('../_find-auth0-domain-redirects') %>
+
 ![](/media/articles/connections/social/paypal/sandbox-settings.png)
 
 If you would like to control the scope of access to customer data (such as profile information, email address, home address, and phone number) through Auth0, you need to enable access to this information by selecting the desired attributes under the **Advanced Options**, which becomes available to you if you enable the **Log In with PayPal** feature.

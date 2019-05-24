@@ -24,6 +24,8 @@ Begin by [registering your Auth0 app with Weibo](https://open.weibo.com/authenti
 
 You will be prompted to provide a callback URL during the registration process. Use `https://${account.namespace}/login/callback`.
 
+<%= include('../_find-auth0-domain-redirects') %>
+
 After the registration process, Weibo provides you with an **appkey** and a corresponding **appkey secret**. Make a note of these values, since you'll need to provide them to Auth0.
 
 ## 2. Create and enable your Auth0 connection

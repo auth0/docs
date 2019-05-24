@@ -31,6 +31,8 @@ Complete the required information on this page. Enter the following value for th
 
   https://${account.namespace}/login/callback
 
+  <%= include('../_find-auth0-domain-redirects') %>
+
 Click **Create App**.
 
 ![](/media/articles/connections/social/renren/renren-register-2.png)
