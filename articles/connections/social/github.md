@@ -29,7 +29,7 @@ To add a new application, log in to [GitHub](https://github.com/) and go to **OA
 
 ## 2. Register your new app
 
-On the [Register a new application](https://github.com/settings/applications/new) page fill out the form with the following information:
+On the [Register a new application](https://github.com/settings/applications/new) page fill out the form with the following information. Modify the parameters to reflect your application (e.g., the Homepage and Authorization callback URLs):
 
 | Field | Description |
 | - | - |
