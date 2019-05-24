@@ -462,8 +462,8 @@ Content-Type: application/json
 HTTP/1.1 400 BAD REQUEST
 Content-Type: application/json
  { 
-    "error": <anything else>,
-    "description": "Failure: User cancelled the confirmation prompt or consent page; the code expired; there was an error."
+    "error": access_denied|invalid_grant|...,
+    "error_description": "Failure: User cancelled the confirmation prompt or consent page; the code expired; there was an error."
  }
 ```
 
@@ -485,7 +485,7 @@ This is the OAuth 2.0 grant that input-constrained devices use to access an API.
 | `device_code` <br/><span class="label label-danger">Required</span> | The device code previously returned from the [/oauth/device/code endpoint](/api/authentication?http#get-device-code). |
 
 ### Remarks
-- Because you will be polling this endpoint while waiting for the user to go to the verification URL and enter their user code, you will likely receive at least one failure before receiving a successful response. See sample responses for possible responses.
+- Because you will be polling this endpoint (using the `interval` from the initial response to determine frequency) while waiting for the user to go to the verification URL and enter their user code, you will likely receive at least one failure before receiving a successful response. See sample responses for possible responses.
 
 ### More Information
 
