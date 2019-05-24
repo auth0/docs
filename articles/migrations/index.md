@@ -42,7 +42,15 @@ We added a way to [enable clickjacking protection](/migrations/guides/clickjacki
 
 ### Tenant Logs Search v2 migration to v3
 
-To provide our customers with the most reliable and scalable solution, Auth0 has deprecated Tenant Logs Search Engine v2 in favor of v3. Auth0 is proactively migrating customers unaffected by this change, while those who are potentially affected are being notified to opt in for v3 during the provided grace period. A [migration guide](/logs/migrate-logs-v2-v3) is available with more details on affected customers and steps required to complete the migration.
+To provide our customers with the most reliable and scalable solution, Auth0 has deprecated Tenant Logs Search Engine v2 in favor of v3. Auth0 is proactively migrating customers unaffected by this change, while those who are potentially affected are being notified to opt in for v3 during the provided grace period. The grace period end dates are as follows:
+
+| Plan Type | End Date |
+| - | - |
+| Free | 15 June 2019 |
+| Developer or Developer Pro | 20 August 2019 |
+| Enterprise | 4 November 2019 |
+
+A [migration guide](/logs/migrate-logs-v2-v3) is available with more details on affected customers and steps required to complete the migration.
 
 ### IP Address Authentication Deprecation
 
