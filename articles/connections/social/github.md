@@ -38,6 +38,8 @@ On the [Register a new application](https://github.com/settings/applications/new
 | Application description | The description of your app users will see (Optional) |
 | Authorization callback URL | `https://${account.namespace}/login/callback` |
 
+<%= include('../_find-auth0-domain-redirects') %>
+
 ![](/media/articles/connections/social/github/github-add-app-2.png)
 
 After completing the form click **Register application** to proceed.
