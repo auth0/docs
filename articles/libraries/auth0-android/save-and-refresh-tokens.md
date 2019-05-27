@@ -128,3 +128,12 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
 }
 ```
+
+### Handling usage exceptions
+
+In the event that something happened while trying to save or retrieve the Credentials, a `CredentialsManagerException` will be thrown. These are some of the failure scenarios you can expect:
+
+- The Credentials to be stored are invalid, e.g. some of the following fields are not defined: access_token, id_token or expires_at.
+- The stored Credentials have expired but there is no refresh_token available to renew them automatically.
+- Device's Lock Screen security settings have changed (e.g. the security PIN code was changed). Even when `hasCredentials` returns _true_, the encryption keys will be deemed invalid and until `saveCredentials` is called again it won't be possible to decrypt any previously existing content, since they keys used back then are not the same as the new ones.
+- Device is not compatible with some of the cryptography algorithms required by the `SecureCredentialsManager` class. This is considered a _catastrophic event_ and might happen when the OEM has modified the Android ROM of the device removing some of the officially included algorithms. Nevertheless, you can check if you are standing on this scenario in the exception instance itself by calling the `isDeviceIncompatible` methood. By doing so you can decide the fallback implementation for storing the Credentials, such as using the regular `CredentialsManager` class.
