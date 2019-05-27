@@ -9,24 +9,21 @@ contentType:
 ---
 # MFA with Email
 
-Using email as an MFA factor is useful when you want to provide users a way to perform MFA when they don't have a mobile device.
+Using email as an MFA factor is useful when you want to provide users a way to perform MFA when they don't have their primary factor available (e.g. they don't have their phone to receive an SMS or push notification). 
 
-Once Email is enabled as an MFA factor:
+You can only enable email as an MFA factor is there already another factor enabled. 
 
-- Users with verified emails will get the option of getting a code in their email to complete the MFA challenge.
-- Users from Database Connections without verified emails will get prompted to verify their emails.
-- Users from social / enterprise connections that don't provide verified emails, will not be able to use MFA with email. If Email MFA is the ONLY enabled factor, they will get an error when logging-in, and they will not be able to complete the login flow. You should not enable Email MFA as the only factor if you have social/enterprise connections that don't provide verified emails.
-- Users will never get the option to enroll with email through Universal Login. If there are other factors enabled, they'll get prompted to enroll one of the other factors. If email is the only enabled factor, they'll receive an code in their email, and they'll need to enter it to continue.
+Once Email MFA is enabled user will be prompted to complete MFA with the other enabled factor. If they have a verified email they will be given the option to select Email, and get an one time code in their email which they can then enter to complete MFA.
+
+Users do not need to explicitly enroll with email MFA. They will get be able to use it when they have a verified email. This happens when they completed the email verification flow, when the updated the email_verified field using the Management API, or  when they logged-in with a connection that provides verified emails (e.g. Google).
 
 Note that Email is not true 'Multi-factor Authentication' as it does not represent a different factor than the password. It does not represent 'something I have' or 'something I am', but rather just another 'something I know' (the email password). It is also weaker than other factors, in that it's only as secure as the email itself (e.g. is it encrypted end-to-end?).
 
 ## End-user experience
 
-After the login step, users will be presented with the most secure enabled factor. If they select 'Other login options', and then pick Email, they will be sent an email with a six-digit code that they will need to enter to complete the authentication flow.
+After the login step, users will be prompted with the most secure enabled factor. If they select 'Try another method', and then pick Email, they will be sent an email with a six-digit code that they will need to enter to complete the authentication flow.
 
 ![Email End User 1](/media/articles/multifactor-authentication/mfa-email.png)
-
-After Email MFA is enabled, all new or existing users from Database Connections that do not have verified emails will get prompted to verify their emails after they log in. They will get a code in their email they'll need to enter in the login page to continue.
 
 ## Using the MFA API
 
