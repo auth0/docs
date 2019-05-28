@@ -69,7 +69,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
         },
         "password_hash": {
             "type": "text",
-            "description":"Hashed password for the user."
+            "description":"Hashed password for the user. Passwords should be hashed using bcrypt $2a$ or $2b$ and have 10 saltRounds."
         },
         "app_metadata": {
             "type": "object",

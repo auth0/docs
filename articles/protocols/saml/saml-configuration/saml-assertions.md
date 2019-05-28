@@ -86,7 +86,7 @@ The following is a list of customization options for your SAML assertions.
 
 * **mapIdentities**: If true, it will will add more information in the token like the provider used (google, adfs, ad, and so on) and the Access Token if available. Default is true.
 
-* **signatureAlgorithm**: Signature algorithm to sign the SAML Assertion or response. Default is `sha1` and it could be `sha256`.
+* **signatureAlgorithm**: Signature algorithm to sign the SAML Assertion or response. Default is `rsa-sha1` and it could be `rsa-sha256`.
 
 * **digestAlgorithm**: Digest algorithm to calculate digest of the SAML Assertion or response. Default is `sha1` and it could be `sha256`.
 

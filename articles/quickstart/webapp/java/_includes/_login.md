@@ -122,6 +122,40 @@ protected void doGet(HttpServletRequest req, HttpServletResponse res) throws Ser
 }
 ```
 
+## Handle Logout
+
+To properly handle logout, we need to clear the session and log the user out of Auth0. This is handled in the `LogoutServlet` of our sample application.
+
+First, we clear the session by calling `request.getSession().invalidate()`. We then construct the logout URL, being sure to include the `returnTo` query parameter, which is where the user will be redirected to after logging out. Finally, we redirect the response to our logout URL.
+
+
+```java
+// src/main/java/com/auth0/example/LogoutServlet.java
+
+@Override
+protected void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
+    if (request.getSession() != null) {
+        request.getSession().invalidate();
+    }
+
+    String returnUrl = String.format("%s://%s", request.getScheme(), request.getServerName());
+    if ((request.getScheme().equals("http") && request.getServerPort() != 80) || (request.getScheme().equals("https") && request.getServerPort() != 443)) {
+        returnUrl += ":" + request.getServerPort();
+    }
+    returnUrl += "/login";
+
+    // Build logout URL like:
+    // https://{YOUR-DOMAIN}/v2/logout?client_id={YOUR-CLIENT-ID}&returnTo=http://localhost:3000/login
+    String logoutUrl = String.format(
+            "https://%s/v2/logout?client_id=%s&returnTo=%s",
+            domain,
+            clientId,
+            returnUrl
+    );
+    response.sendRedirect(logoutUrl);
+}
+```
+
 ## Run the Sample
 
 To run the sample from a terminal, change the directory to the root folder of the project and execute the following line:
