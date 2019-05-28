@@ -535,13 +535,34 @@ function auth0_wp_test_hook_auth0_slo_return_to( $default_return_url ) {
 add_filter( 'auth0_slo_return_to', 'auth0_docs_hook_auth0_slo_return_to', 10 );
 ```
 
-### wp_auth0_use_management_api_for_userinfo
+### auth0_use_management_api_for_userinfo
 
-This filter determines whether or not to use the Management API for user profile data. Return a boolean `true` (default) to use the API, `false` to use the ID token.
+This filter determines whether or not to use the Management API for user profile data when not using the Implicit Login Flow. Return a boolean `true` (default) to use the API, `false` to use the ID token.
 
 ```php
-// Use the ID token for user profile data.
-add_filter( 'wp_auth0_use_management_api_for_userinfo', '__return_false', 100 );
+// Always use the ID token for user profile data.
+add_filter( 'auth0_use_management_api_for_userinfo', '__return_false', 100 );
+```
+
+### auth0_lock_options
+
+This filter can be used to modify the options for the embedded Lock login form used in shortcodes, widgets, and on the wp-login.php page when **Features > Universal Login Page** is turned off.
+
+```php
+/**
+ * Filter the options passed to Lock.
+ *
+ * @param array $options - Existing options built from plugin and additional settings.
+ *
+ * @return array
+ */
+function auth0_wp_test_hook_lock_options( $options ) {
+	if ( ! empty( $_GET[ 'lock_language' ] ) ) {
+		$options['language'] = sanitize_title( $_GET[ 'lock_language' ] );
+	}
+	return $options;
+}
+add_filter( 'auth0_lock_options', 'auth0_wp_test_hook_lock_options', 10 );
 ```
 
 ## Additional Extensions
