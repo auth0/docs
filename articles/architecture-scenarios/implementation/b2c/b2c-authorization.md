@@ -29,13 +29,14 @@ For API level Authorization, Auth0 supports the use of Open Authorization 2 (OAu
 In either case, there are a number of things you will want to consider when looking at functionality and workflow when it comes to authorization:
 
 * Will my application be calling a third-party API?
-* Will we be providing APIs that can be accessed by third-party applications?
-* Will our APIs also be accessed by our own (first-party) applications?
-* Will our Applications and/or APIs be enforcing role or permission based access control?
+* Will I be providing APIs that can be accessed by third-party applications?
+* Will my APIs also be accessed by our own (first-party) applications?
+* Will my Applications and/or APIs be enforcing role or permission based access control?
 * Are there scenarios where a user could be rejected access to an entire API or application?
 
 Auth0 provides access control support for applications via use of [ID Token claims](#id-token-claims), and also provides support for both first party and third party application access to APIs and described in the section entitled [API Integration](#api-integration). 
 
+whilst [Scopes](/scopes/current) provide authorized access to user details and APIs   
 
 ## ID Token claims 
 
@@ -44,6 +45,11 @@ Through the use of Rule extensibility, Auth0 allows you to easily [add custom cl
 ::: panel Best Practice
 When you are considering adding custom claims, we recommend that you choose to store any data you may need to include within the claims in the user's `user` or `app` [Metadata](/users/concepts/overview-user-metadata). Doing so prevents you from needing to call out to an external API to fetch the data, which can negatively impact the performance and scalability of the login sequence. Remember to check out our [metadata best practices](architecture-scenarios/implementation/b2c/b2c-profile-mgmt#metadata) too.
 :::
+
+### Scopes
+
+[OIDC Scopes](/scopes/current/oidc-scopes) are typically used by an application to authorize access to a user's details during authentication. Each of the pre-defined scopes returns the set of [standard claims](scopes/current/oidc-scopes#standard-claims) where defined, as described in the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). The scopes an application should request depend on which user attributes the application needs. Once the user authorizes the requested scopes, the claims are returned in the ID Token and are also available through the /userinfo endpoint.
+
 
 ## API Integration
 
