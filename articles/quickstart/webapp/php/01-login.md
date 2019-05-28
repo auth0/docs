@@ -17,7 +17,7 @@ github:
 
 <%= include('../../../_includes/_logout_url') %>
 
-## Configure PHP to Use Auth0 
+## Configure PHP to Use Auth0
 
 ### Add the Dependencies
 
@@ -32,8 +32,11 @@ This sample uses [Composer](https://getcomposer.org/doc/00-intro.md), a tool for
 Configure the Auth0 PHP SDK for each page that will use it.
 
 ```php
+<?php
 // index.php
+// ...
 
+require 'vendor/autoload.php';
 use Auth0\SDK\Auth0;
 
 $auth0 = new Auth0([
@@ -41,8 +44,6 @@ $auth0 = new Auth0([
   'client_id' => '${account.clientId}',
   'client_secret' => 'YOUR_CLIENT_SECRET',
   'redirect_uri' => '${account.callback}',
-  'audience' => 'https://${account.namespace}/userinfo',
-  'scope' => 'openid profile',
   'persist_id_token' => true,
   'persist_access_token' => true,
   'persist_refresh_token' => true,
@@ -54,18 +55,18 @@ $auth0 = new Auth0([
 Call `$auth0->getUser()` to retrieve user information. If you call it from the page that handles the callback, it will use the code provided by Auth0 to get the information after the successful login.
 
 ```php
+<?php
 // index.php
+// ...
 
-...
 $userInfo = $auth0->getUser();
 
 if (!$userInfo) {
     // We have no user info
-    // redirect to Login
+    // See below for how to add a login link
 } else {
     // User is authenticated
-    // Say hello to $userInfo['name']
-    // print logout button
+    // See below for how to display user information
 }
 ```
 
@@ -76,19 +77,29 @@ The user's information is stored in the session. Each time you call `getUser()`,
 ```html
 <!-- index.php -->
 
-<a class="btn btn-primary btn-lg btn-login btn-block" href="login.php">SignIn</a>
+<a href="login.php">Log In</a>
 ```
 
 ```php
+<?php
 // login.php
 
-<?php
-  // ...
-  $auth0->login();
+require 'vendor/autoload.php';
+use Auth0\SDK\Auth0;
+
+$auth0 = new Auth0([
+  'domain' => '${account.namespace}',
+  'client_id' => '${account.clientId}',
+  'client_secret' => 'YOUR_CLIENT_SECRET',
+  'redirect_uri' => '${account.callback}',
+  'scope' => 'openid profile email',
+]);
+
+$auth0->login();
 ```
 
 ::: note
-The `redirect_uri` specified in the `Auth0` constructor must match the URL specified in the [ Add the Auth0 Callback Handler](#add-the-auth0-callback-handler) step.
+The `redirect_uri` specified in the `Auth0` constructor must match the URL specified in the [Add the Auth0 Callback Handler](#add-the-auth0-callback-handler) step.
 :::
 
 ## Display User Information
@@ -98,18 +109,13 @@ You can access user information with the `getUser` method from Auth0.
 ```php
 <?php
 // index.php
-
 // ...
+
 $userInfo = $auth0->getUser();
-?>
-<html>
-  <body class="home">
-    <div><?php echo $userInfo['name'] ?></div>
-  </body>
-</html>
+printf( 'Hello %s!', htmlspecialchars( $userInfo['name'] ) );
 ```
 
-To learn about all the available properties from the user's profile, read the [user profile](/users/concepts/overview-user-profile) documentation. 
+To learn about all the available properties from the user's profile, read the [user profile](/users/concepts/overview-user-profile) documentation.
 
 ::: note
 Some of the user profile properties depend on the social provider you use.
@@ -117,7 +123,7 @@ Some of the user profile properties depend on the social provider you use.
 
 ### Optional: Configure session data
 
-By default, the SDK stores user information in the PHP session and discards the access and ID Tokens. 
+By default, the SDK stores user information in the PHP session and discards the access and ID Tokens.
 
 To keep the tokens, to the SDK configuration, pass the following:
 * `'persist_access_token' => true`
