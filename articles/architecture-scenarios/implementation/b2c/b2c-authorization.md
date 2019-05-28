@@ -24,17 +24,21 @@ For application level Authorization, custom claims can be added to an OpenID Con
 When deciding what data to include in OIDC tokens, you need to consider token size, especially if you are passing the token in the URL. Even if you are not passing tokens in the URL, there are other things that you will also need to consider - such as the potential of exposing sensitive PII (Personally Identifiable Information).
 :::
 
-For API level Authorization, Auth0 supports the use of Open Authorization 2 (OAuth2) [Access Tokens](/tokens/overview-access-tokens). Essentially, an OAuth2 Access Token is allocated by an authorization server (with the approval of the user; the resource owner) and issued to a third-party application (client), so that it can access protected resources - hosted by a resource server - on behalf of the resource owner. In this case, Auth0 acts as the authorization server, and provides for easy retrieval of an access token (typically expressed as a [JWT](/jwt)) that can be then passed as the Bearer token in an HTTP Authorization header sent to a third party [API](/api-auth/why-use-access-tokens-to-secure-apis).
+For API level Authorization, Auth0 supports the use of Open Authorization 2 (OAuth2) [Access Tokens](/tokens/overview-access-tokens). Essentially, an OAuth2 Access Token is allocated by an authorization server (with the approval of the user; the resource owner) and issued to a third-party application (client), so that it can access protected resources - hosted by a resource server - on behalf of the resource owner. In this scenario, your Auth0 tenant acts as the authorization server and provides for the easy retrieval of an access token (typically expressed as a [JWT](/jwt)) that can then be passed as the Bearer token in an HTTP Authorization header sent to an [API](/api-auth/why-use-access-tokens-to-secure-apis).
 
 In either case, there are a number of things you will want to consider when looking at functionality and workflow when it comes to authorization:
 
-* Will my application be calling a third-party API?
+* Are there scenarios where a user could be rejected access to an entire application or API?
 * Will I be providing APIs that can be accessed by third-party applications?
 * Will my APIs also be accessed by our own (first-party) applications?
+* Will my application be calling a third-party API?
 * Will my Applications and/or APIs be enforcing role or permission based access control?
-* Are there scenarios where a user could be rejected access to an entire API or application?
+ 
+At a high level, Auth0 can provide corse grained authorization by restricting access to certain applications or APIs based on a user's attribute(s): a [Rule](/rules) can be built that returns an `UnauthorizedError` when, say, a user attempts to log in to a particular application ande doesn’t have the right claim(s) contained in their [Metadata](/users/concepts/overview-user-metadata). 
 
-Auth0 provides access control support for applications via use of [ID Token claims](#id-token-claims), and also provides for both first party and third party application access to APIs - as described in the section entitled [API Integration](#api-integration). Auth0 supports [role based access control (RBAC)](#role-based-access-control-(rbac)) as part of it's core authorization feature set, whilst support for OIDC/OAuth2 [Scopes](/scopes/current) provides authorized access to user details and API functionality.   
+Fine grained access control can also be performed, and Auth0 provides support for applications via use of [ID Token claims](#id-token-claims) as well as support for [API integration](#api-integration) from both first party and third party applications. 
+
+Via Auth0 supports [Role Based Access Control (RBAC)](#role-based-access-control-(rbac)) as part of it's core authorization feature set, whilst support for OIDC/OAuth2 [Scopes](/scopes/current) provides authorized access to user details and API functionality.   
 
 ## ID Token claims 
 
@@ -44,27 +48,38 @@ Through the use of Rule extensibility, Auth0 allows you to easily [add custom cl
 When you are considering adding custom claims, we recommend that you choose to store any data you may need to include within the claims in the user's `user` or `app` [Metadata](/users/concepts/overview-user-metadata). Doing so prevents you from needing to call out to an external API to fetch the data, which can negatively impact the performance and scalability of the login sequence. Remember to check out our [metadata best practices](architecture-scenarios/implementation/b2c/b2c-profile-mgmt#metadata) too.
 :::
 
+A rule can be built that returns an UnauthorizedError when a user attempts to log into a particular application if they don’t have the right role or permissions in their metadata. 
+
 ### Scopes
 
-[OIDC Scopes](/scopes/current/oidc-scopes) are typically used by an application to authorize access to a user's details during authentication. Each of the pre-defined scopes returns the set of [standard claims](/scopes/current/oidc-scopes#standard-claims) where defined, and as described in the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). The scopes an application should request depend on which user attributes the application needs; once the user authorizes the requested scopes the claims are returned in the ID Token and are also made available via the [/userinfo](https://auth0.com/docs/api/authentication#get-user-info) endpoint.
+[OIDC Scopes](/scopes/current/oidc-scopes) are typically used by an application to authorize access to a user's details during authentication. Each of the pre-defined scopes returns the set of [standard claims](/scopes/current/oidc-scopes#standard-claims) where defined, and as described in the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). The scopes an application should request depend on which user attributes the application needs; once the requested scopes are authorized, the claims are returned in the ID Token and are also made available via the [/userinfo](https://auth0.com/docs/api/authentication#get-user-info) endpoint.
 
 
 ## API Integration
 
-Whether you have a single API, or a suite of microservice APIs, you can leverage the access tokens that Auth0 provides in order to [secure access to your service(s)](/api-auth/why-use-access-tokens-to-secure-apis). Though relatively easy to set this up - i.e. via the [Auth0 Dashboard](/apis] or the Auth0 Management API (/api/management/v2#!/Resource_Servers/post_resource_servers) - it's important to review the different application scenarios and API layouts to determine the best architecture for your system.
+Whether you have a single API, or a suite of microservice APIs, you can leverage the access tokens that Auth0 can provide in order to [secure access to your service(s)](/api-auth/why-use-access-tokens-to-secure-apis). Though relatively easy to set this up - via the [Auth0 Dashboard](/apis) and also via the [Auth0 Management API] (/api/management/v2#!/Resource_Servers/post_resource_servers) - it's important to review the different application scenarios and API layouts to determine the best architecture for your system.
 
-OAuth2 was designed specifically with third-party access in mind, that is: a user (resource owner) who wants to use an application (a client) that does not belong to the same organization as the service that provides user data access (the reseource server). In this scenario, when the application needs to access data that the user owns it redirects to the organization where the user’s data resides, which in turn authenticates the user and then prompts the user to give the application permission to access their data. This prompting for permission is typically referred to as providing "[consent](/api-auth/user-consent)" and is a large part of providing support for ["third party" application interactions](/scopes/current/api-scopes#example-an-api-called-by-a-third-party-application).
+OAuth2 was designed specifically with third-party access in mind, that is: a user (resource owner) who wants to use an application (a client) that does not belong to the same organization as the service that provides the user's data (the reseource server). In this scenario, when the application needs to access data that the user owns it redirects to the organization where the user’s data resides, which in turn authenticates the user and then prompts the user to give the application permission to access their data. This prompting for permission is typically referred to as providing "[consent](/api-auth/user-consent)" and is a large part of what providing support for ["third party" application interaction](/scopes/current/api-scopes#example-an-api-called-by-a-third-party-application) entails.
 
-If however your organization "owns" the application(s), the user data itself, and the API(s) then consent is not typically required as the interactions are all [“first-party” application interactions](/scopes/current/api-scopes#example-an-api-called-by-a-first-party-application]. If you are only creating first-party applications, then you should ensure that you are not presenting those users with any "consent" screen by [allowing user consent to be skipped (/apis#api-settings).
+If you are planning to integrate third-party applications, then it's important you [mark them as third-party] (/api-auth/user-consent) early on so that Auth0 will handle prompting for user consent (using the scopes that those applications request as pat of the consent message).
 
-Alternatively, you may have 
+On the other hand however, if your organization "owns" the application(s), the user data itself and the API(s) through which that is accessed, then consent is not typically required as the interactions are all [“first-party”](/scopes/current/api-scopes#example-an-api-called-by-a-first-party-application). If you're only creating first-party applications, then you can ensure that you are not presenting your users with any "consent" screen(s) by [allowing user consent to be skipped](/apis#api-settings) as part of any resource server definition.
+
+::: warning
+Though you can configure your applications to be first-party, and configure your APIs to allow first-party clients to ignore consent, if you are using `localhost` Auth0 can not verify that this application is truly a first-party app so your users will be prompted for consent anyway. To work around this constraint when testing on your local machine during development simply create a [fake local hostname and use that instead](https://community.auth0.com/t/how-do-i-skip-the-consent-page-for-my-api-authorization-flow/6035).
+:::
+
+Alternatively, you may have data relating to a user for which additional [functionality is provided](/scopes/current/api-scopes#example-an-api-called-by-a-back-end-service) and for which explicit user consent cannot be obtained (i.e. there is no authenticated user per-se who can provide it). In this scenario the [list of applications for which Client Credentials grant is enabled](docs/flows/concepts/client-credentials) can be defined. 
 
 
 ### Scopes
 
-### Role Based Access Control (RBAC)
+[OAuth2 Scopes](/scopes/current/api-scopes) are typically used as the mechanism by which an API can determine what actions can be performed on behalf of a user. Scopes can be added on a per API basis (via either the Auth0 Dashboard or the Auth0 Management API) in order to [define specifc access permissions](/dashboard/guides/apis/add-permissions-apis). Again, the scopes an application should request should depend on what functionality the application requires; once the requested scopes are authorized, they will be returned in the access token and can be subsequently verified by the [API](/api-auth/tutorials/verify-access-token).
 
 
+## Role Based Access Control (RBAC)
+
+Role-based access control (RBAC) refers to the idea of assigning authorization permissions to users based on their role within an organization. RBAC provides for more fine-grained control and offers a simple, manageable approach to access management that is less prone to error than assigning permissions to users individually.
 
 ## Planning
 
