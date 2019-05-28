@@ -47,7 +47,7 @@ Content-Type: application/json
   "user_code":"WDJB-MJHT",
   "verification_uri":"https://${account.namespace}/device",
   "verification_uri_complete":"${account.namespace}/device?user_code=WDJB-MJHT",
-  "expires_in":900,
+  "expires_in":900, //in seconds
   "interval":5
 }
 ```

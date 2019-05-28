@@ -69,5 +69,5 @@ To prevent brute force attacks, we enforce the following limits on `user_code`:
 * 20 characters (including hyphens and spaces, which may be added as separators for readability)
 
 **Expiration time**:
-* 10 minutes
+* 15 minutes
 :::

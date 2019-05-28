@@ -444,6 +444,7 @@ Content-Type: application/json
 HTTP/1.1 400 BAD REQUEST
 Content-Type: application/json
  { 
+  // Can be retried
   "error": "authorization_pending",
   "error_description": "User has yet to authorize device code."
  }
@@ -453,6 +454,7 @@ Content-Type: application/json
 HTTP/1.1 400 BAD REQUEST
 Content-Type: application/json
  { 
+  // Can be retried
   "error": "slow_down",
   "error_description": "You are polling faster than the specified interval of 5 seconds."
  }
@@ -462,6 +464,7 @@ Content-Type: application/json
 HTTP/1.1 400 BAD REQUEST
 Content-Type: application/json
  { 
+    // Cannot be retried; transaction failed
     "error": access_denied|invalid_grant|...,
     "error_description": "Failure: User cancelled the confirmation prompt or consent page; the code expired; there was an error."
  }
@@ -474,7 +477,7 @@ Content-Type: application/json
   "link": "#device-auth"
 }) %>
 
-This is the OAuth 2.0 grant that input-constrained devices use to access an API. Poll this endpoint using the interval returned with your [device code](/api/authentication?http#get-device-code) to directly request an Access Token using the application's credentials (a Client ID) and a device code.
+This is the OAuth 2.0 grant that input-constrained devices use to access an API. Poll this endpoint using the interval returned with your [device code](/api/authentication#get-device-code) to directly request an Access Token using the application's credentials (a Client ID) and a device code.
 
 ### Request Parameters
 
@@ -482,7 +485,7 @@ This is the OAuth 2.0 grant that input-constrained devices use to access an API.
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Device Authorization, use `urn:ietf:params:oauth:grant-type:device_code`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `device_code` <br/><span class="label label-danger">Required</span> | The device code previously returned from the [/oauth/device/code endpoint](/api/authentication?http#get-device-code). |
+| `device_code` <br/><span class="label label-danger">Required</span> | The device code previously returned from the [/oauth/device/code endpoint](/api/authentication#device-authorization-flow). |
 
 ### Remarks
 - Because you will be polling this endpoint (using the `interval` from the initial response to determine frequency) while waiting for the user to go to the verification URL and enter their user code, you will likely receive at least one failure before receiving a successful response. See sample responses for possible responses.
