@@ -29,6 +29,7 @@ fi
 
 
 echo "Moving content into docs folder"
+rm -rf ./github
 mkdir -p "./docs/"
 shopt -s extglob
 mv !(docs) docs
