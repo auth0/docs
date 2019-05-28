@@ -18,11 +18,24 @@ It’s important to start by distinguishing between Authentication, Authorizatio
 * **Authorization**: the proceess of determining what the user is allowed to do in the system.
 * **Access Control**: the process of limiting a user to only the actions permitted, based on a combination of who the user is, what they are allowed to do in the system, and their consent.
 
-For application level Authorization - typically referred to as Access Control - custom claims can be added to an OpenID Connect (OIDC) [ID Token](/tokens/id-token) via use of Auth0’s Rule [extensibility mechanism](#id-token-claims), and you will need to decide what that information might be in order for your application to make access control decisions.
+For application level Authorization, custom claims can be added to an OpenID Connect (OIDC) [ID Token](/tokens/id-token) via use of Auth0’s Rule [extensibility mechanism](#id-token-claims), and you will need to decide what that information might be required in order for your application to make access control decisions.
 
 ::: warning
 When deciding what data to include in OIDC tokens, you need to consider token size, especially if you are passing the token in the URL. Even if you are not passing tokens in the URL, there are other things that you will also need to consider - such as the potential of exposing sensitive PII (Personally Identifiable Information).
 :::
+
+For API level Authorization, Auth0 supports the use of Open Authorization 2 (OAuth2) [Access Tokens](/tokens/overview-access-tokens). Essentially, an OAuth2 Access Token is allocated by an authorization server, with the approval of the resource owner (the user), and issued to a third-party client (application) so that it can access protected resources - hosted by a resource server - on behalf of the resource owner. In this case, Auth0 acts as the authorization server, making it easy to retrieve an access token (typically expressed as a [JWT](/jwt))in order to authorize an authenticated user; the acquired access token typically being passed as the Bearer token transmitted via an HTTP Authorization header to a third party API.
+
+In either case, there are a number of things you will want to consider when looking at functionality and workflow when it comes to authorization:
+
+* Will my application be calling a third-party API?
+* Will we be providing APIs that can be accessed by third-party applications?
+* Will our APIs also be accessed by our own (first-party) applications?
+* Will our Applications and/or APIs be enforcing role or permission based access control?
+* Are there scenarios where a user could be rejected access to an entire API or application?
+
+Auth0 provides access control support for applications via use of [ID Token claims](#id-token-claims), and also provides support for both first party and third party application access to APIs and described in the section entitled [API Integration](#api-integration). 
+
 
 ## ID Token claims 
 
@@ -31,6 +44,10 @@ Through the use of Rule extensibility, Auth0 allows you to easily [add custom cl
 ::: panel Best Practice
 When you are considering adding custom claims, we recommend that you choose to store any data you may need to include within the claims in the user's `user` or `app` [Metadata](/users/concepts/overview-user-metadata). Doing so prevents you from needing to call out to an external API to fetch the data, which can negatively impact the performance and scalability of the login sequence. Remember to check out our [metadata best practices](architecture-scenarios/implementation/b2c/b2c-profile-mgmt#metadata) too.
 :::
+
+## API Integration
+
+
 
 ## Planning
 
