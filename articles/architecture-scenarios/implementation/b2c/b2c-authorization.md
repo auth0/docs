@@ -18,7 +18,7 @@ It’s important to start by distinguishing between Authentication, Authorizatio
 * **Authorization**: the proceess of determining what the user is allowed to do in the system based on their consent.
     * **Access Control**: the process of limiting a user to only the actions permitted, based on a combination of who the user is, what they are allowed to do in the system, and their consent.
 
-Whatever your use case, there are a number of things you will want to consider when looking at functionality and workflow when it comes to authorization:
+Whatever your use case, there are a number of things you will want to consider when looking at functionality and workflow:
 
 * Are there scenarios where a user could be rejected access to an entire application or API?
 * Will I be providing APIs that can be accessed by third-party applications?
