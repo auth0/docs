@@ -42,7 +42,7 @@ When deciding what data to include in OIDC tokens, you need to consider token si
 
 For [API level integration](#api-integration), Auth0 supports both [custom claims](#access-token-claims) as well as [scope](#access-token-scopes) configuration options within the context of an Access Token. Again, you will need to decide what information will be required in order for your API to make access control decisions, and then your API will need to enforce that access control by validating the contents of the Access Token.
 
-Additionally, Auth0 has out-of-box support for [Role Based Access Control (RBAC)](/authorization/concepts/rbac). RBAC refers to the idea of assigning permissions to users based on their role within an organization; RBAC provides for fine-grained control and offers a simple, manageable approach to access management that is often less prone to error. 
+Additionally, Auth0 has out-of-box support for Role Based Access Control ([RBAC](/authorization/concepts/rbac)). RBAC refers to the idea of assigning permissions to users based on their role within an organization; RBAC provides for fine-grained control and offers a simple, manageable approach to access management that is often less prone to error. 
 
 ## Application Integration
 
