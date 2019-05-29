@@ -28,7 +28,7 @@ When you use the Authentication API's [Signup endpoint](/api/authentication?shel
 Using [Auth0's Management APIv2](/api/management/v2), you can create a user and set both their `app_metadata` and `user_metadata` fields. You can also update these two fields.
 
 ::: note
-The Auth0 Management APIv2 token is required to call the Auth0 Management API. Learn more about [Access Tokens for the Management API](/api/management/v2/concepts/tokens).
+The Auth0 Management APIv2 token is required to call the Auth0 Management API. Learn more about [Access Tokens for the Management API](/api/management/v2/tokens).
 :::
 
 ## With the Lock Library

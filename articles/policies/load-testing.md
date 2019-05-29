@@ -27,6 +27,7 @@ To be considered for approval, the request must:
 
 * Be filed at least two (2) weeks prior to the desired test date; in many cases, Auth0 encourages one (1) month of advance notice to ensure time for a thorough review and any required modifications.
 * Be approved in writing before any testing is conducted.
+* Stay within our [published production rate limits](/policies/rate-limits).
 * Include all information described below.
 
 ## Information to include in requests
@@ -35,10 +36,12 @@ The load testing request must include the following:
 
 * A description of the test to be done
 * The name and region of the Auth0 tenant to be used during the test
-* The requested date and time of the test
+* The requested date and time of the test, including time zone
 * The requested duration of the test (2 hour maximum)
+* The platforms to be used for the test (desktop/laptop, iOS, Android, other)
 * The Auth0 features (such as rules or email) used during the test
 * The Auth0 API methods and endpoints to be used (for example `GET /api/v2/clients`)
+* The maximum requests per second for each type of request or endpoint
 * The types of Auth0 connections involved in the test
 * Which Auth0 Rules, if any, will execute during the test
 * Which Custom DB, if any, will be used

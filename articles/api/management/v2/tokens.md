@@ -23,7 +23,7 @@ To call endpoints, you will need to do the following:
 * [Get Access Tokens for Production](/api/management/v2/get-access-tokens-for-production)
 
 ::: note
-For single page applications (SPAs), you will need to [get an Access Token from the frontend](/api/management/v2/get-access-tokens-for-spas).
+For single-page applications (SPAs), you will need to [get an Access Token from the frontend](/api/management/v2/get-access-tokens-for-spas).
 :::
 
 ## Keep reading
@@ -31,7 +31,7 @@ For single page applications (SPAs), you will need to [get an Access Token from 
 * [Access Tokens](/tokens/overview-access-tokens)
 * [Management API Access Token FAQs](/api/management/v2/faq-management-api-access-tokens)
 * [Changes in Auth0 Management API Tokens](/api/management/v2/tokens-flows)
-* [Machine-to-Machine (M2M) Flow](/flows/concepts/m2m-flow)
+* [Client Credentials Flow](/flows/concepts/client-credentials)
 * [Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 * [User Search](/users/search)
 * [User Search Query Syntax](/users/search/v3/query-syntax)

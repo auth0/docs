@@ -11,14 +11,14 @@ useCase:
 ---
 # Migrate from Search v2 to v3
 
-The user search engine v2 has been deprecated as of **June 6th 2018** and was removed from service on **November 13th 2018**. We highly recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible. 
+The user search engine v2 has been deprecated as of **June 6th 2018**. We highly recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible. 
 
 ## Migration considerations
 
 Before you start migrating, there are a few things you should know:
 
-* You must update all your calls to the `GET /api/v2/users` endpoint to include the `search_engine=v3` parameter. This will ensure you are running the latest version of the search engine and that you will not experience downtime when search v2 is fully removed.
-* If you are performing user search operations through any of the [impacted SDKs](#impacted-sdks), you must also pass the `search_engine=v3` parameter.
+* To ensure that your queries are using search engine v3 prior to v2 becoming unavailable, you must update all your calls to the `GET /api/v2/users` endpoint to include the `search_engine=v3` parameter. This will enable you to see whether any queries need to be updated, so that you will not experience downtime when v2 becomes unavailable.
+* If you are performing user search operations through any of the [impacted SDKs](#impacted-sdks), you must also pass the `search_engine=v3` parameter as outlined above.
 * Search values for the normalized user fields (`email`, `name`, `given_name`, `family_name`, and `nickname`) are case insensitive. All other fields (including all `app_metadata`/`user_metadata` fields) are case sensitive.
 * v3 limits the number of users you can retrieve to 1000. If you are reaching this limit, we recommend that you redefine your search query to obtain more granular results. If you need a list of more than 1000 users at a given time, we recommend that you use the [export job](/api/management/v2#!/Jobs/post_users_exports) API endpoint or [User Import / Export extension](/extensions/user-import-export) instead.
 * Range and wildcard searches are not available on `app_metadata`/`user_metadata` fields. See [searchable fields](/users/search/v3/query-syntax#searchable-fields).
@@ -65,7 +65,7 @@ Extension | Version with support for v3 | Considerations
 
 You can leverage the [logs](/logs) in the [Dashboard](${manage_url}/#/logs) to find calls to the `/api/v2/users` endpoint that use the User Search v2 engine, including calls performed by SDKs. Those logs will help you identify where code changes might be needed in your applications.
 
-Use the following query to retrieve all the logs related to User Search v2: `type:w AND description:"The User Search v2 engine is deprecated"`. The logs will provide additional information in the description field, in the following cases:
+Use the following query to retrieve all the logs related to User Search v2: `type:w AND description:*search_engine*`. The logs will provide additional information in the description field, in the following cases:
 
 - Queries that might produce different results in v3
 - Queries with syntax incompatible with v3

@@ -8,6 +8,7 @@ contentType:
     - how-to
 useCase: appliance
 applianceId: appliance45
+sitemap: false
 ---
 # PSaaS Appliance Monitoring: Instrumentation
 

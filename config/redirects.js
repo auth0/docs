@@ -82,7 +82,7 @@ module.exports = [
   },
   {
     from: '/applications/addons',
-    to: '/applications/concepts/addons'
+    to: '/addons'
   },
   {
     from: '/ionic-tutorial',
@@ -550,6 +550,10 @@ module.exports = [
     to: '/applications/guides/enable-android-app-links-dashboard'
   },
   {
+    from: '/applications/guides/enable-android-app-links-dashboard',
+    to: '/dashboard/guides/applications/enable-android-app-links'
+  },
+  {
     from: '/clients/enable-universal-links',
     to: '/applications/enable-universal-links'
   },
@@ -558,16 +562,20 @@ module.exports = [
     to: '/applications/guides/enable-universal-links-dashboard'
   },
   {
+    from: '/applications/guides/enable-universal-links-dashboard',
+    to: '/dashboard/guides/applications/enable-universal-links'
+  },
+  {
     from: '/clients/how-to-rotate-client-secret',
-    to: '/applications/how-to-rotate-client-secret'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/applications/how-to-rotate-client-secret',
-    to: '/applications/guides/rotate-client-secret-dashboard'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/applications/how-to-rotate-application-secret',
-    to: '/applications/how-to-rotate-client-secret'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/clients/client-settings',
@@ -715,7 +723,7 @@ module.exports = [
     to: '/api/management/v2/changes'
   },
   {
-    from: ['/tokens/apiv2', '/api/v2/tokens'],
+    from: ['/tokens/apiv2', '/api/v2/tokens', '/api/management/v2/concepts/tokens'],
     to: '/api/management/v2/tokens'
   },
   {
@@ -762,6 +770,10 @@ module.exports = [
   {
     from: '/api/v2/user-search',
     to: '/api/management/v2/user-search'
+  },
+  {
+    from: '/users/normalized/auth0/retrieve-user-profiles',
+    to: `/users/search`
   },
   {
     from: [
@@ -861,12 +873,8 @@ module.exports = [
     to: '/tokens/refresh-token'
   },
   {
-    from: '/tokens/access_token',
-    to: '/tokens/access-token'
-  },
-  {
     from: '/update-client-secret',
-    to: '/tutorials/how-to-update-applications-client-secret'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/test-partner-connection',
@@ -974,28 +982,76 @@ module.exports = [
     to: '/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow'
   },
   {
+    from: ['/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow'],
+    to: '/flows/guides/auth-code/add-login-auth-code'
+  },
+  {
+    from: ['/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow'],
+    to: '/flows/guides/auth-code/call-api-auth-code'
+  },
+  {
     from: ['/application-auth/current/client-side-web'],
     to: '/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow'
+  },
+  {
+    from: ['/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow'],
+    to: '/flows/guides/implicit/add-login-implicit'
+  },
+  {
+    from: ['/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow'],
+    to: '/flows/guides/implicit/call-api-implicit'
   },
   {
     from: ['/application-auth/current/mobile-desktop'],
     to: '/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow'
   },
-    {
+  {
+    from: ['/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow'],
+    to: '/flows/guides/auth-code-pkce/add-login-auth-code-pkce'
+  },
+  {
+    from: ['/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow'],
+    to: '/flows/guides/auth-code-pkce/call-api-auth-code-pkce'
+  },
+  {
+    from: ['/flows/guides/m2m-flow/call-api-using-m2m-flow'],
+    to: '/flows/guides/client-credentials/call-api-client-credentials'
+  },
+  {
     from: ['/api-auth/grant/authorization-code-pkce'],
     to: '/flows/concepts/mobile-login-flow'
+  },
+    {
+    from: ['/flows/concepts/mobile-login-flow'],
+    to: '/flows/concepts/auth-code-pkce'
   },
     {
     from: ['/api-auth/grant/implicit'],
     to: '/flows/concepts/single-page-login-flow'
   },
-    {
+  {
+    from: ['/flows/concepts/single-page-login-flow'],
+    to: '/flows/concepts/implicit'
+  },
+  {
     from: ['/api-auth/grant/authorization-code'],
     to: '/flows/concepts/regular-web-app-login-flow'
+  },
+  {
+    from: ['/flows/concepts/regular-web-app-login-flow'],
+    to: '/flows/concepts/auth-code'
   },
     {
     from: ['/api-auth/grant/client-credentials'],
     to: '/flows/concepts/m2m-flow'
+  },
+  {
+    from: ['/flows/concepts/m2m-flow'],
+    to: '/flows/concepts/client-credentials'
+  },
+  {
+    from: ['/api-auth/restrict-requests-for-scopes'],
+    to: '/api-auth/restrict-access-api'
   },
   {
     from: '/oauth-implicit-protocol',
@@ -1467,7 +1523,7 @@ module.exports = [
   },
   {
     from: '/tutorials/creating-users-in-the-management-portal',
-    to: '/dashboard/creating-users-in-the-management-portal',
+    to: '/users/guides/create-users',
   },
   {
     from: '/tutorials/dashboard-tenant-settings',
@@ -1483,7 +1539,7 @@ module.exports = [
   },
   {
     from: '/tutorials/how-to-update-applications-client-secret',
-    to: '/applications/how-to-update-client-secret',
+    to: '/dashboard/guides/applications/rotate-client-secret',
   },
   {
     from: '/tutorials/using-auth0-to-secure-a-cli',
@@ -1544,6 +1600,10 @@ module.exports = [
   {
     from: '/sso/current/single-page-apps-sso',
     to: '/sso/current/single-page-apps'
+  },
+  {
+    from: '/sso/current/introduction',
+    to: '/sso/current/sso-auth0'
   },
   {
     from: '/sso/legacy/single-page-apps-sso',
@@ -1615,7 +1675,7 @@ module.exports = [
   },
   {
     from: '/clients/how-to-update-client-secret',
-    to: '/applications/how-to-rotate-client-secret',
+    to: '/dashboard/guides/applications/rotate-client-secret',
   },
   {
     from: '/i18n/i18n-custom-login-page',
@@ -1751,7 +1811,7 @@ module.exports = [
   },
   {
     from: '/videos/session-and-cookies',
-    to: '/security/store-tokens#understanding-sessions-and-cookies'
+    to: '/security/store-tokens'
   },
   {
     from: '/support/sla',
@@ -1850,7 +1910,7 @@ module.exports = [
      to: '/troubleshoot/har'
    },
    {
-     from: '/tokens/access-token',
+     from: ['/tokens/access-token','/tokens/access_token'],
      to: '/tokens/overview-access-tokens'
    },
    {
@@ -2031,7 +2091,7 @@ module.exports = [
    },
    {
      from: '/applications/spa',
-     to: '/applications/guides/register-spa'
+     to: '/dashboard/guides/applications/register-app-spa'
    },
    {
     from: [
@@ -2071,11 +2131,47 @@ module.exports = [
      to: '/rules/guides/redirect'
     },
     {
-     from: '/tokens/set-access-token-format',
-     to: '/tokens/access-token-formats'
+     from: ['/tokens/set-access-token-format','/tokens/access-token-formats'],
+     to: '/tokens/reference/access-token/access-token-formats'
     },
     {
       from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
       to: '/protocols/saml/saml-apps/github-server'
     },
+    {
+      from: '/enterprise/private-cloud/overview',
+      to: '/private-cloud'
+    },
+    {
+      from: '/tokens/get-access-tokens',
+      to: '/tokens/guides/access-token/get-access-tokens'
+    },
+    {
+      from: '/tokens/set-access-token-lifetime',
+      to: '/tokens/guides/access-token/set-access-token-lifetime'
+    },
+    {
+      from: '/tokens/use-access-tokens',
+      to: '/tokens/guides/access-token/use-access-tokens'
+    },
+    {
+      from: '/services/private-saas-configuration',
+      to: '/services/private-cloud-configuration'
+    },
+    {
+      from: '/services/private-saas-management',
+      to: '/services/private-cloud-management'
+    },
+    {
+      from: '/api-auth/intro',
+      to: '/api-auth/tutorials/adoption'
+    },
+    {
+      from: '/authorization/guides/dashboard/enable-rbac',
+      to: '/dashboard/guides/apis/enable-rbac'
+    },
+    {
+      from: '/users/references/user-data-storage-best-practices',
+      to: '/best-practices/user-data-storage-best-practices'
+    }
 ];

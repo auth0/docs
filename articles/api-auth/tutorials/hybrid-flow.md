@@ -122,11 +122,32 @@ Using the Authorization Code (`code`) from the first step, you will need to `POS
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "authorization_code"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "code",
+        "value": "YOUR_AUTHORIZATION_CODE"
+      },
+      {
+        "name": "redirect_ui",
+        "value": "${account.callback}"
+      }
+    ]
   }
 }
 ```
@@ -153,7 +174,7 @@ The response contains the `access_token`, `refresh_token`, `id_token`, and `toke
 Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](/tokens/refresh-token).
 
 ::: panel-warning Security Warning
-It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single Page Application, the Client Secret is available to the application (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) is more appropriate in that case.
+It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single-Page Application, the Client Secret is available to the application (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Implicit Flow](/flows/concepts/implicit) is more appropriate in that case.
 :::
 
 ## 4. Call the API
@@ -183,7 +204,7 @@ For details on the validations that should be performed refer to [Verify Access 
 - [How to refresh a token](/tokens/refresh-token)
 - [How to configure an API in Auth0](/apis)
 - [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
-- [Single-Page Login Flow](/flows/concepts/single-page-login-flow)
+- [Authorization Code Flow](/flows/concepts/auth-code)
+- [Implicit Flow](/flows/concepts/implicit)
 - [Tokens used by Auth0](/tokens)
 :::

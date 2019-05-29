@@ -174,7 +174,7 @@ The example below shows the following methods:
     function localLogin(authResult) {
       // Set isLoggedIn flag in localStorage
       localStorage.setItem('isLoggedIn', 'true');
-      // Set the time that the access token will expire at
+      // Set the time that the Access Token will expire at
       expiresAt = (authResult.expiresIn * 1000) + new Date().getTime();
       accessToken = authResult.accessToken;
       idToken = authResult.idToken;
@@ -199,6 +199,11 @@ The example below shows the following methods:
       accessToken = '';
       idToken = '';
       expiresAt = 0;
+
+      angularAuth0.logout({
+        returnTo: window.location.origin
+      });
+
       $state.go('home');
     }
 

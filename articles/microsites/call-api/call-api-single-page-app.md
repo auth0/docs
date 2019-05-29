@@ -26,7 +26,7 @@ When your app needs to fetch user data from your API:
 3. Auth0 responds with the user's ID Token and Access Token.
 3. The Access Token can be used to call your API and retrieve requested data.
 
-For single-page web apps, Auth0 uses the [Single-Page Login Flow](/flows/concepts/single-page-login-flow).
+For single-page web apps, Auth0 uses the [Implicit Flow](/flows/concepts/implicit).
 
 <img src="/media/articles/microsites/overview-flow-call-api-single-page-app.png" alt="Flow Overview for Single-Page Apps" width="100%">
 
@@ -35,23 +35,23 @@ For single-page web apps, Auth0 uses the [Single-Page Login Flow](/flows/concept
 ::: steps
   1. <h4>Configure your API</h4>Once you have created your API, you will need to configure any scopes that applications can request during authorization.
 
-  2. <h4>Get an Access Token</h4>Your app requests an Access Token from your Auth0 Authorization Server using the <a href="/flows/concepts/single-page-login-flow">Single-Page Login Flow</a>.
+  2. <h4>Get an Access Token</h4>Your app requests an Access Token from your Auth0 Authorization Server using the <a href="/flows/concepts/implicit">Implicit Flow</a>.
 
   3. <h4>Call your API</h4>When your app calls your API, it includes the retrieved Access Token in the HTTP Authorization header.
 :::
 
 
-The easiest way to implement the Single-Page Login Flow is to [follow our Single-Page App Quickstarts](/quickstart/spa).
+The easiest way to implement the Implicit Flow is to [follow our Single-Page App Quickstarts](/quickstart/spa).
 
 You can also use our [Auth0.js](/libraries#auth0-sdks) SDK.
 
-Finally, to use our API endpoints, you can follow our tutorial: [Call Your API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow).
+Finally, to use our API endpoints, you can follow our tutorial: [Call Your API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit).
 
 :::: further-reading
 
 ::: guides
   * [Auth0 Single-Page App Quickstarts](/quickstart/spa)
-  * [Call Your API Using the Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow)
+  * [Call Your API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit)
   * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 :::
 

@@ -8,6 +8,7 @@ topics:
 contentType: how-to
 useCase: appliance
 applianceId: appliance76
+sitemap: false
 ---
 # Set Up Federated Login to the Manage Dashboard
 

@@ -27,7 +27,7 @@ There are a couple of theming options currently available, namespaced under the 
 
 #### logo {String}
 
-![Lock - Theme - Logo](/media/articles/libraries/lock/v10/customization/lock-theme-logo.png)
+![Lock - Theme - Logo](/media/articles/libraries/lock/v11/customization/lock-theme-logo.png)
 
 The value for `logo` is a URL for an image that will be placed in the Lock's header, and defaults to Auth0's logo. It has a recommended max height of `58px` for a better user experience.
 
@@ -41,7 +41,7 @@ var options = {
 
 #### primaryColor {String}
 
-![Lock - Theme - Primary Color](/media/articles/libraries/lock/v10/customization/lock-theme-primarycolor.png)
+![Lock - Theme - Primary Color](/media/articles/libraries/lock/v11/customization/lock-theme-primarycolor.png)
 
 The `primaryColor` property defines the primary color of the Lock; all colors used in the widget will be calculated from it. This option is useful when providing a custom `logo`, to ensure all colors go well together with the `logo`'s color palette. Defaults to `#ea5323`.
 
@@ -95,7 +95,7 @@ var options = {
 };
 ```
 
-![Lock - Language Dictionary](/media/articles/libraries/lock/v10/customization/lock-languagedictionary.png)
+![Lock - Language Dictionary](/media/articles/libraries/lock/v11/customization/lock-languagedictionary.png)
 
 ::: note
 For a complete list of the items able to be customized using `languageDictionary`, see the [English Language Dictionary Specification](https://github.com/auth0/lock/blob/master/src/i18n/en.js) in the repository.

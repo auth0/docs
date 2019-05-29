@@ -32,6 +32,8 @@ If you're using a [custom domain](/custom-domains), you'll need to add that doma
 
 3. Provide the required information. For the **Callback URL**, enter `https://${account.namespace}/login/callback`. If you're using a [custom domain](/custom-domains), add that domain as another callback URL. 
 
+<%= include('../_find-auth0-domain-redirects') %>
+
     ![Callback URL](/media/articles/connections/social/twitter/twitter-api-2.png)
 
 4. Ensure the **Enabled Sign in with Twitter** option is selected. 
@@ -103,7 +105,7 @@ If you are seeing errors, refer to the following troubleshooting steps.
 
 ### User's email address is missing from retrieved user profile
 
-Twitter connections do not retrieve the user's email address by default. But you can add a rule to request the email using the access token returned from Twitter *providing you supply a privacy policy and terms & conditions*.
+Twitter connections do not retrieve the user's email address by default. But you can add a rule to request the email using the Access Token returned from Twitter *providing you supply a privacy policy and terms & conditions*.
 
 Auth0 provides a rule template to get email addresses from Twitter. To use it, [create a new rule](${manage_url}/#/rules/create) with the **Get Email Address from Twitter** template under the **Enrich Profile** section.
 

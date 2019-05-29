@@ -21,7 +21,7 @@ To install and configure this extension, click on the **Visual Studio Team Servi
 Set the following configuration variables:
 
 * **TYPE**: The type of repository, choose from TFVC or Git
-* **REPOSITORY**: The project from which you want to deploy rules and database scripts.
+* **REPOSITORY**: The project from which you want to deploy rules and database scripts. To use a specific repository within a project, format your input value as follows: `projectName/repoName`.
 * **BRANCH**: The branch we should monitor for commits.
 * **INSTANCE**: Your Visual Studio Team Services instance name (without .visualstudio.com).
 * **COLLECTION**: Your Visual Studio collection (DefaultCollection for Azure DevOps).
@@ -167,20 +167,23 @@ The supported pages are:
 - `login`
 - `password_reset`
 
-To deploy a page, you must create an HTML file under the `pages` directory of your Visual Studio Team Services project. For each HTML page, you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, to deploy an `error_page`, you would create two files:
+To deploy a page, you must create an HTML file under the `pages` directory of your Visual Studio Team Services project. For each HTML page, you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, to deploy a `password_reset`, you would create two files:
 
 ```text
-your-project/pages/error_page.html
-your-project/pages/error_page.json
+your-bitbucket-repo/pages/password_reset.html
+your-bitbucket-repo/pages/password_reset.json
 ```
 
-To enable the page, the `error_page.json` would contain the following:
+To enable the page, the `password_reset.json` would contain the following:
 
 ```json
 {
   "enabled": true
 }
 ```
+
+<%= include('./_includes/_use-default-error') %>
+
 ### Deploy Rules
 
 To deploy a rule, you must first create a JavaScript file under the `rules` directory of your Visual Studio Team Services project. Each Rule must be in its own JavaScript file.

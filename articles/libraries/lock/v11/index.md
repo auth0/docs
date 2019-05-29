@@ -15,7 +15,7 @@ useCase:
 ---
 # Lock v11 for Web
 
-Lock is an embeddable login form, [configurable to your needs](/libraries/lock/v11/configuration), and recommended for use in single page apps. It enables you to easily add social identity providers, so that your users can login seamlessly using any provider they want.
+Lock is an embeddable login form, [configurable to your needs](/libraries/lock/v11/configuration), and recommended for use in single-page apps. It enables you to easily add social identity providers, so that your users can login seamlessly using any provider they want.
 
 <%= include('../../../_includes/_embedded_login_warning') %>
 
@@ -89,24 +89,54 @@ var lock = new Auth0Lock(
 
 ### 2. Authenticating and Getting User Info
 
-Next, listen using the `on` method for the `authenticated` event. When the event occurs, use the `accessToken` which was received to call the `getUserInfo` method and acquire the user's profile information (as needed). You can also save the token or profile to `localStorage` for later use.
+Next, listen using the `on` method for the `authenticated` event. When the event occurs, use the `accessToken` which was received to call the `getUserInfo` method and acquire the user's profile information (as needed).
 
 ```js
-// Listening for the authenticated event
-lock.on("authenticated", function(authResult) {
-  // Use the token in authResult to getUserInfo() and save it to localStorage
-  lock.getUserInfo(authResult.accessToken, function(error, profile) {
-    if (error) {
-      // Handle error
-      return;
-    }
+var Auth = (function() {
 
-    document.getElementById('nick').textContent = profile.nickname;
+  var wm = new WeakMap();
+  var privateStore = {};
+  var lock;
 
-    localStorage.setItem('accessToken', authResult.accessToken);
-    localStorage.setItem('profile', JSON.stringify(profile));
-  });
-});
+  function Auth() {
+    this.lock = new Auth0Lock(
+      '<YOUR_CLIENT_ID>',
+      '<YOUR_DOMAIN>'
+    );
+    wm.set(privateStore, {
+      appName: "example"
+    });
+  }
+
+  Auth.prototype.getProfile = function() {
+    return wm.get(privateStore).profile;
+  };
+
+  Auth.prototype.authn = function() {
+    // Listening for the authenticated event
+    this.lock.on("authenticated", function(authResult) {
+      // Use the token in authResult to getUserInfo() and save it if necessary
+      this.getUserInfo(authResult.accessToken, function(error, profile) {
+        if (error) {
+          // Handle error
+          return;
+        }
+
+        //we recommend not storing access tokens unless absolutely necessary
+        wm.set(privateStore, {
+          accessToken: authResult.accessToken
+        });
+
+        wm.set(privateStore, {
+          profile: profile
+        });
+
+      });
+    });
+  };
+  return Auth;
+}());
+
 ```
 
 You can then manipulate page content and display profile information to the user (for example, displaying their name in a welcome message).
@@ -211,7 +241,7 @@ The below widget displays brief examples of implementing Auth0 in several ways: 
 
 ## Next Steps
 
-This document has shown how to use Lock 11 within a Single Page Application (SPA). Take a look at the following resources to see how Lock can be used with other kinds of web apps, or how it can be customized for your needs:
+This document has shown how to use Lock 11 within a Single-Page Application (SPA). Take a look at the following resources to see how Lock can be used with other kinds of web apps, or how it can be customized for your needs:
 
 ::: next-steps
 * [Lock v11 API Reference](/libraries/lock/v11/api)

@@ -1,6 +1,6 @@
 ---
 section: libraries
-description: When should you use Lock, Auth0's drop-in authentication widget, and when should you use a custom UI with an Auth0 Library? This page will help you decide.
+description: When customizing the Classic Universal Login page what tools should you use? Lock (Auth0's drop-in authentication widget) or a custom UI built on top of an Auth0 SDK? This guide will help you decide.
 topics:
   - libraries
   - lock
@@ -11,21 +11,17 @@ useCase:
   - add-login
   - enable-mobile-auth
 ---
-# Lock vs. a Custom UI
+# Universal Login Page Customization
 
-When adding Auth0 to your web apps, the best solution is to use Auth0's [Universal Login](/hosted-pages/login). Using Universal Login is an incredibly simple process, and prevents the dangers of cross-origin authentication. The login page uses the Lock Widget to allow your users to authenticate by default, but also has templates for Lock Passwordless and for a custom UI built with Auth0.js SDK. You can customize the page in the [Hosted Pages Editor](${manage_url}/#/login_page), and use any of the following to implement your authentication needs.
+When adding Auth0 to your web apps, the best solution is to use Auth0's [Universal Login](/hosted-pages/login). If you plan to use the [New Experience](/universal-login/new), you won't even need to choose an Auth0 library to use inside of the login page, and can stop here. If you are using the [Classic Experience](/universal-login/classic), this guide will help you choose a technology to power your login page.
 
-* Lock, Auth0's drop-in login and signup widget
-  * [Lock for Web](/libraries/lock)
-  * [Lock for iOS](/libraries/lock-ios)
-  * [Lock for Android](/libraries/lock-android)
-* One of our libraries (along with a custom interface)
-  * [Auth0 SDK for Web](/libraries/auth0js)
-  * [Auth0 SDK for iOS](/libraries/auth0-swift)
-  * [Auth0 SDK for Android](/libraries/auth0-android)
-* Or, a custom user interface that you have created directly tying into the [Authentication API](/auth-api).
+Universal Login is less complex than embedding the authentication process within your app. It also prevents the dangers of cross-origin authentication.
 
-If Universal Login doesn't work for you, all of the above can be embedded in your own application and used in that way, as well.  
+The Classic login page uses the Lock Widget by default for user authentication. It also has templates for Lock in Passwordless Mode and for a custom UI built with the Auth0.js SDK. 
+
+* [Lock for Web](/libraries/lock), Auth0's drop-in login and signup widget
+* The [Auth0 SDK for Web](/libraries/auth0js) with your custom designed interface
+* Or, a custom user interface that you have created which directly ties into the [Authentication API](/auth-api).
 
 ::: note
 Passwordless authentication from native mobile apps currently must use Universal Login - there is no native passwordless option at this time.
@@ -115,7 +111,7 @@ Below is a quick overview of reasons you might want to use Lock, versus using an
 
 ## Lock
 
-**Lock** is an embeddable login form that makes it easy for your users to authenticate using a selected connection. **Lock** will automatically handle most of the details involved in creating and authenticating users. Lock is provided as a drop-in solution for [Web](/libraries/lock), as well as for native [iOS](/libraries/lock-ios) or [Android](/libraries/lock-android) apps.
+**Lock** is a login form that makes it easy for your users to authenticate using a selected connection. **Lock** will automatically handle most of the details involved in creating and authenticating users. [Lock](/libraries/lock) is provided as a drop-in solution for the Classic Universal Login experience.
 
 ![](/media/articles/libraries/lock/lock-default.png)
 
@@ -129,7 +125,7 @@ With **Lock**, you will be implementing a UI that:
 * Automatically accommodates internationalization
 * Provides instant password policy checking at sign up
 
-Although you cannot alter Lock's behavior, you can configure several [basic options](/libraries/lock/customization) to make Lock look and behave differently.
+Although you cannot alter Lock's behavior significantly, you can configure several [basic options](/libraries/lock/customization) to make Lock look and behave differently.
 
 ![](/media/articles/libraries/lock/lock-phantom.png)
 
@@ -145,13 +141,12 @@ Consider using **Lock** if:
   * User signup and password reset
   * Authentication using social providers
   * Avatars
-* You want a login form that can be reused in multiple areas
 
 ## Custom User Interface
 
 If the requirements of your app cannot be met by the standardized behavior of **Lock**, or if you have a complex custom authentication process, a custom user interface is needed. You also might prefer this option if you already have a user interface which you would prefer to keep.
 
-With Auth0's library for [Web](/libraries/auth0js), or with native libraries for [iOS](/libraries/auth0-swift) or [Android](/libraries/auth0-android), you can customize the behavior and flow of the process used to trigger signup and authentication. You can also directly use the [Authentication API](/auth-api), without any wrapper at all, if you so choose.
+With Auth0's library for [Web](/libraries/auth0js), you can customize the behavior and flow of the process used to trigger signup and authentication. You can also directly use the [Authentication API](/auth-api), without any wrapper at all, if you so choose.
 
 ![](/media/articles/libraries/lock-vs-customui/customui.png)
 
@@ -169,4 +164,4 @@ Consider implementing a custom user interface in conjunction with an Auth0 libra
 
 ## See Also
 
-You can also see specific examples of the usage of both Lock and Auth0 SDKs for a wide variety of programming languages and platforms in our [Quickstarts](/). These guides may further assist you in your decision about which to use for your specific app needs.
+You can also see specific examples of the usage of both Lock and Auth0 SDKs for a wide variety of programming languages and platforms in our [Quickstarts](/quickstart). These guides may further assist you in your decision about which to use for your specific app needs.

@@ -18,7 +18,7 @@ useCase: customize-connections
 Using [Lock v1 for iOS](/libraries/lock-ios/v1), you can implement a Passwordless login flow using Magic Link authentication for your iOS applications.
 
 ::: note
-Before beginning this tutorial, [enable Universal Links](/applications/guides/enable-universal-links-dashboard) between your iOS application and Auth0 Application.
+Before beginning this tutorial, [enable Universal Links](/dashboard/guides/applications/enable-universal-links) between your iOS application and Auth0 Application.
 :::
 
 ## Set Up Universal Link domains for your iOS app
@@ -29,7 +29,7 @@ iOS needs to know which domains your application handles. To configure this:
 2. Find the *Associated Domains* section, and move the slider (located near the top right) so that it displays **On**. This enables the use of Associated Domains.
 3. Click on the **plus sign** to add your Auth0 Application's domain. You'll need to use the following format: `applinks:${account.namespace}`
 
-<%= include('./_custom-domains') %>
+<%= include('./_includes/_custom-domains') %>
 
 ![Associated Domains](/media/articles/connections/passwordless/associated-domains.png)
 
@@ -89,5 +89,5 @@ lock.presentEmailController(controller, fromController: self)
 * Because Universal Links do not work on iOS simulators, you'll need an iOS-enabled device to test this implementation.
 * When testing, do not use the Gmail app to open the email that contains the Magic Link. Gmail opens links internally or using Chrome, both of which bypass the detection of the Universal Link by iOS.
 
-<%= include('./_single-browser-magic-link') %>
+<%= include('./_includes/_single-browser-magic-link') %>
 

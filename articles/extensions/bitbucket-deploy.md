@@ -24,7 +24,7 @@ Set the following configuration variables:
 * **REPOSITORY**: The repository from which you want to deploy your Rules and Database Connection scripts. This can be either a public or private repository
 * **BRANCH**: The branch the extension will monitor for changes
 * **USER**: The username used to access the Bitbucket account. Make sure you use the username, and not the email
-* **PASSWORD**: An app password you create through the Bitbucket settings to grant permissions to certain apps
+* **PASSWORD**: The user password or an app password you create through the Bitbucket settings to grant permissions to certain apps (`Repositories: Read` permission is required)
 * **BASE_DIR**: The base directory, where all your tenant settings are stored
 * **ENABLE_CIPHER**: Enables secrets encryption/decryption support
 * **CIPHER_PASSWORD**: The password for encryption/decryption of secrets
@@ -118,7 +118,7 @@ __facebook.json__
 
 _This will work only for non-Auth0 connections (`strategy !== auth0`); for Auth0 connections, use `database-connections`._
 
-See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
+For more info on the allowed attributes for connections, see the [Post Connections endpoint] (/api/management/v2#!/Connections/post_connections).
 
 ### Deploy Universal Login Pages
 
@@ -129,20 +129,22 @@ The supported pages are:
 - `login`
 - `password_reset`
 
-To deploy a page, you must create an HTML file under the `pages` directory of your Bitbucket repository. For each HTML page, you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, to deploy an `error_page`, you would create two files:
+To deploy a page, you must create an HTML file under the `pages` directory of your Bitbucket repository. For each HTML page, you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, to deploy a `password_reset`, you would create two files:
 
 ```text
-your-bitbucket-repo/pages/error_page.html
-your-bitbucket-repo/pages/error_page.json
+your-bitbucket-repo/pages/password_reset.html
+your-bitbucket-repo/pages/password_reset.json
 ```
 
-To enable the page, the `error_page.json` would contain the following:
+To enable the page, the `password_reset.json` would contain the following:
 
 ```json
 {
   "enabled": true
 }
 ```
+
+<%= include('./_includes/_use-default-error') %>
 
 ### Deploy Rules
 

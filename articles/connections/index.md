@@ -14,8 +14,9 @@ useCase:
 
 A connection is the relationship between Auth0 and a source of users. Auth0 sits between your application and its sources of users, which adds a level of abstraction so your application is isolated from any changes to and idiosyncrasies of each source's implementation.
 
-You can configure any number of connections for your applications to use in the Auth0 Dashboard. To view all the connections that you have configured or create new ones, see [View Connections](/applications/guides/view-connections).
+You can configure any number of connections for your applications to use in the Auth0 Dashboard. To view all the connections that you have configured or create new ones, see [View Connections](/dashboard/guides/connections/view-connections).
 
+By default, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. You can [optionally disable this synchronization](/dashboard/guides/connections/configure-connection-sync) to allow for updating profile attributes from your application.
 
 # Identity Providers Supported by Auth0
 

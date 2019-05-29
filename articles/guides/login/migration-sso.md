@@ -16,9 +16,9 @@ useCase: migrate
 
 Migration from legacy versions of Lock and Auth0.js is required. For Single Sign On (SSO) scenarios, it will imply moving to [Universal Login](/hosted-pages/login) in most cases. 
 
-## Single Page Apps
+## Single-Page Apps
 
-Single Page Applications (SPAs) with embedded login can only achieve SSO if they are on the same top-level domain. If SPAs with embedded login which are on different domains require SSO, the websites will need to [migrate to Universal Login](/guides/login/migration-embedded-universal).
+Single-Page Applications (SPAs) with embedded login can only achieve SSO if they are on the same top-level domain. If SPAs with embedded login which are on different domains require SSO, the websites will need to [migrate to Universal Login](/guides/login/migration-embedded-universal).
 
 SSO works by having Auth0 set a cookie that identifies the session in the Auth0 server for a specific domain. 
 

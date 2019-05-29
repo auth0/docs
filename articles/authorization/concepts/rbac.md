@@ -17,7 +17,7 @@ useCase:
 
 Role-based access control (RBAC) refers to the idea of assigning permissions to users based on their role within an organization. It provides fine-grained control and offers a simple, manageable approach to access management that is less prone to error than assigning permissions to users individually.
 
-When using RBAC, you analyze the system needs of your users and group them into roles based on common responsibilities and needs. You then assign one or more roles to each user and one or more permissions to each role. The user-role and role-permissions relationships make it simple to perform user assignments since users no long need to be managed individually, but instead have privileges that conform to the permissions assigned to their role(s). 
+When using RBAC, you analyze the system needs of your users and group them into roles based on common responsibilities and needs. You then assign one or more roles to each user and one or more permissions to each role. The user-role and role-permissions relationships make it simple to perform user assignments since users no longer need to be managed individually, but instead have privileges that conform to the permissions assigned to their role(s). 
 
 For example, if you were applying RBAC at a non-profit organization, you could give all W2 employees access to Google for research, and all contractors access to corporate email.
 
@@ -53,7 +53,7 @@ For example, let's say you have an API that provides data for an event applicati
 Currently, we provide two ways of implementing [role-based access control (RBAC)](/authorization/concepts/rbac), which you can use in place of or in combination with your API's own internal access control system:
 
 * [Authorization core feature set](/authorization/guides/how-to)
-* [Authorization Extension](/extensions/authorization/extension)
+* [Authorization Extension](/extensions/authorization-extension)
 
 We are expanding our Authorization core feature set to match the functionality of the Authorization Extension and expect a final release in 2019. Our new core RBAC implementation improves performance and scalability and will eventually provide a more flexible RBAC system than the Authorization Extension.
 
@@ -68,6 +68,6 @@ For more info about using rules with authorization policies, see [Rules with Aut
 ## Keep reading
 
 - [How to Use Auth0's Core Authorization Feature Set](/authorization/guides/how-to)
-- [Enable Role-Based Access Control (RBAC) for APIs](/authorization/guides/dashboard/enable-rbac)
+- [Enable Role-Based Access Control (RBAC) for APIs](/dashboard/guides/apis/enable-rbac)
 - [Authorization Core vs. Authorization Extension](/authorization/concepts/core-vs-extension)
 - [Troubleshooting: Role-Based Access Control and Authorization](/authorization/concepts/troubleshooting)

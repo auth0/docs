@@ -45,16 +45,10 @@ Content-Type: application/json
     </div>
     <div id="request-oidc" class="tab-pane">
       <pre class="text hljs"><code>POST /oauth/token HTTP 1.1
-Content-Type: application/json
-{
-  "grant_type": "http://auth0.com/oauth/grant-type/password-realm",
-  "client_id": "123",
-  "username": "alice",
-  "password": "A3ddj3w",
-  "realm": "my-database-connection",
-  "scope": "openid email offline_access",
-  "audience": "https://api.example.com"
-}</code></pre>
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=http%3A%2F%2Fauth0.com%2Foauth%2Fgrant-type%2Fpassword-realm&client_id=123&username=alice&password=A3ddj3w&realm=my-database-connection&scope=openid+email+offline_access&audience=https%3A%2F%2Fapi.example.com
+</code></pre>
     <ul>
         <li>The endpoint to execute token exchanges is <code>/oauth/token</code>.</li>
         <li><a href="/api-auth/tutorials/password-grant#realm-support">Auth0's own grant type</a> is used to authenticate users from a specific connection (<code>realm</code>). The <a href="/api-auth/tutorials/password-grant">standard OIDC password grant</a> is also supported, but it does not accept Auth0-specific parameters such as <code>realm</code>.</li>

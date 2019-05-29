@@ -19,7 +19,7 @@ The [Emails](${manage_url}/#/emails) dashboard allows you to customize your emai
 
 
 ::: note
-Only one template can be used for each template type (for example, only one template for change password emails).
+Only one template can be used for each template type (for example, only one template for verify emails).
 :::
 
 ## Configuring email templates
@@ -72,7 +72,7 @@ See [Configuring the Redirect To URL](#configuring-the-redirect-to-url) for more
 Users will see the sender's address in the **From Address** field when receiving an email from Auth0. If you do not configure a **From Address** for your emails your emails will be sent from the email address of the first owner of your Auth0 account.
 
 ::: note
-For security purposes, you may not send customized emails from any `@auth0.com` address. If you are a PSaaS Appliance user, you may configure a similar domain blacklist.
+For security purposes, you may not send customized emails from any `@auth0.com` address. If you are a Private Cloud user, you may configure a similar domain blacklist.
 :::
 
 The **From Address** field supports all the [common variables](#common-variables) for templates, but these are the most commonly used:
@@ -123,7 +123,7 @@ If the **Subject** field is empty, Auth0 will auto-populate this text depending 
 
 ### Configuring the URL Lifetime
 
-The **Verification Email**, **Change Password Confirmation Email** and **Blocked Account Email** contain links which allow users to verify their email address when signing up, confirm their password change, or unblock a blocked account respectively.
+The **Verification Email**, **Reset Email** and **Blocked Account Email** contain links which allow users to verify their email address when signing up, confirm their password change, or unblock a blocked account respectively.
 
 You can modify the lifetime of this link for security purposes. By default, the lifetime is 432,000 seconds (five days).
 
@@ -157,6 +157,8 @@ You can set up a different Redirect To URLs based on your application name. For 
 ```text
 {% if application.name == 'JWT.io' %} https://jwt.io {% else %} https://auth0.com {% endif %}
 ```
+
+Because the application name is encoded for security, you should always use an encoded value (especially if your application name contains a character that changes once encoded). For example, you'll want to use `My%20App` instead of `My App`.
 
 ::: note
 For some single-page apps, the redirect to url can sometimes contain a hash that may be removed. This results in the **redirect To** url not working as expected. For more information, see: [Single-Page App Email Redirect Issue](/email/spa-redirect).
@@ -228,17 +230,17 @@ The target URL handler should be prepared to gracefully handle other possible me
 
 Once a user verifies their email address, they will receive a **Welcome Email**. If you turn off the **Verification Email** feature, the **Welcome Email** will be sent to the user when they sign-up (or login for the first time).
 
-### Change Password Email
+### Reset Email
 
-If a user requests a password change, they will receive a **Change Password Email** that contains a URL link. When the user clicks on the link, a change password screen will be presented to enter the new password.
+If a user requests a password change, they will receive a **Reset Email** that contains a URL link. When the user clicks on the link, a [Password Reset screen](/universal-login/password-reset) will be presented to enter the new password.
 
-In addition to the [common variables](#common-variables) available for all email templates, the **Change Password Emaill** has the `url` variable that refers to the URL that the user will have to click. You will use it in the **Message** field to create a link that the user can follow, as in this example:
+In addition to the [common variables](#common-variables) available for all email templates, the **Reset Email** has the `url` variable that refers to the URL that the user will have to click. You will use it in the **Message** field to create a link that the user can follow, as in this example:
 
 ```html
 <a href="{{ url }}">Click here to change your password</a>
 ```
 
-#### Redirect To Results for the Change Password Email Template
+#### Redirect To Results for the Reset Email Template
 
 You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the users to after the password change action was attempted. When redirecting, Auth0 will include the following parameters:
 

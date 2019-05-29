@@ -1,17 +1,19 @@
 ---
-title: How to Customize the Consent Prompt
-description: Learn how to customize the consent prompt for your users.
+title: Customize the Consent Prompt
+description: Learn how to customize the consent prompt presented to users during authorization.
 topics:
   - scopes
   - permissions
-  - apis
+  - authorization
+  - consent-prompt
+  - mgmt-api
 contentType:
   - how-to
 useCase:
   - development
   - secure-api
 ---
-# How to Customize the Consent Prompt
+# Customize the Consent Prompt
 
 When a third-party application requests scopes, users see a consent prompt. By default, this prompt uses the scope **name** to generate text and groups all scopes for a resource, displaying the resource's actions in a single line.
 

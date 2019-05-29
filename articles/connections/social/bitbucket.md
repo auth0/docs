@@ -26,6 +26,8 @@ To connect your Auth0 app to Bitbucket, you will need to generate a *Key* and *S
 
 `https://${account.namespace}/login/callback`
 
+<%= include('../_find-auth0-domain-redirects') %>
+
 3. Select the Permissions you want to enable for this connection. At the very least you will need to select the `Account:Email` and `Account:Read` permissions.
 
 4. Click **Save**.

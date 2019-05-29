@@ -8,6 +8,7 @@ topics:
 contentType: how-to
 useCase: appliance
 applianceId: appliance10
+sitemap: false
 ---
 # Updating the PSaaS Appliance
 

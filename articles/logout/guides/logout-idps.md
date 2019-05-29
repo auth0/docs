@@ -22,7 +22,6 @@ https://${account.namespace}/v2/logout?federated
 
 The following identity providers support federated logout:
 
-* AOL
 * Evernote
 * Facebook
 * Fitbit
@@ -41,7 +40,7 @@ The following identity providers support federated logout:
 * Yammer
 
 ::: panel-warning Clear your application session
-The Auth0 [logout endpoint](/api/authentication?javascript#logout) logs you out from Auth0 and, optionally, from your identity provider. It does *not* log you out of your application! This is something that you must implement on your side. You need to log out the user from your application by clearing their session. You might find [this video](/videos/session-and-cookies) helpful.
+The Auth0 [logout endpoint](/api/authentication?javascript#logout) logs you out from Auth0 and, optionally, from your identity provider. It does *not* log you out of your application! This is something that you must implement on your side. You need to log out the user from your application by clearing their session. 
 :::
 
 ## Keep reading

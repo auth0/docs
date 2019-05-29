@@ -32,7 +32,7 @@ go get "github.com/gorilla/mux"
 
 ### Create a middleware to validate Access Tokens
 
-The access token validation will be done in the  `checkJwt` middleware function which can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
+The Access Token validation will be done in the  `checkJwt` middleware function which can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
 
 Setup **go-jwt-middleware** middleware to verify Access Token from incoming requests.
 

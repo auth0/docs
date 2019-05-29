@@ -147,7 +147,7 @@ For details on how to implement this, refer to [Silent Authentication](/api-auth
 
 For an example implementation see the [SPA + API](/architecture-scenarios/application/spa-api) architecture scenario.
 
-This is a series of tutorials that describe a scenario for a fictitious company. The company wants to implement a single page web app that the employees can use to send their timesheets to the company's Timesheets API using OAuth 2.0. The tutorials are accompanied by a sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
+This is a series of tutorials that describe a scenario for a fictitious company. The company wants to implement a single-page web app that the employees can use to send their timesheets to the company's Timesheets API using OAuth 2.0. The tutorials are accompanied by a sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
 
 ## Next steps
 

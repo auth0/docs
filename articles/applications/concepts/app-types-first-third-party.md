@@ -43,13 +43,11 @@ Third-party applications cannot skip user consent when consuming APIs. Because a
 
 #### Connections
 
-Third-party applications can use only tenant-level connections (domain connections). Learn how to [enable third-party applications](/applications/guides/enable-third-party-applications).
+Third-party applications can use only tenant-level connections (domain connections). Learn how to [enable third-party applications](/applications/guides/enable-third-party-apps).
 
 #### When used with the Management APIv2
   
-Third-party applications cannot use [ID Tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should [get a Management APIv2 Token](/applications/guides/get-mgmt-api-token).
-
-Third-party applications should be granted the `current_user_*` scopes, as required by each endpoint.
+Third-party applications cannot use [ID Tokens](/tokens/id-token) to invoke [Management API](/api/management/v2) endpoints. Instead, they should get a [Management API Access Token](/api/management/v2/tokens) with the `current_user_*` scopes required by each endpoint:
 
 - `read:current_user`: [List or search users](/api/management/v2#!/Users/get_users), [Get a user](/api/management/v2#!/Users/get_users_by_id), [Get user Guardian enrollments](/api/management/v2#!/Users/get_enrollments)
 - `update:current_user_metadata`: [Update a user](/api/management/v2#!/Users/patch_users_by_id), [Delete a user's multi-factor provider](/api/management/v2#!/Users/delete_multifactor_by_provider)
@@ -58,6 +56,6 @@ Third-party applications should be granted the `current_user_*` scopes, as requi
 - `update:current_user_identities`: [Link a user account](/api/management/v2#!/Users/post_identities), [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id)
 
 ## Keep reading
-* Learn how to find out whether an application is first-party or third-party at [View Application Ownership](/applications/guides/view-app-ownership-mgmt-api)
+* Learn how to check whether an application is first-party or third-party at [View Application Ownership](/api/management/guides/applications/view-ownership)
 * Learn about other application categories, such as [confidential vs. public](/applications/concepts/app-types-confidential-public) and [Auth0 application types](/applications/concepts/app-types-auth0).
 * Explore the grant types available for different application types at [Auth0 Grant Types Mapping](/applications/reference/grant-types-auth0-mapping).

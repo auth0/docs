@@ -33,7 +33,7 @@ You have already configured and verified your custom domain. If not, see [How to
 | You want to use WS-Fed Clients with your custom domain | [Configure your WS-Fed Clients](#configure-your-ws-fed-clients) |
 | You want to use Azure AD connections with your custom domain | [Configure Azure AD connections](#configure-azure-ad-connections) |
 | You want to use ADFS connections with your custom domain | [Configure ADFS connections](#configure-adfs-connections) |
-| You want to use AD/LAP connections with Kerberos support with your custom domain | [Configure AD/LAP connections](#configure-ad-lap-connections) |
+| You want to use AD/LAP connections with Kerberos support with your custom domain | [Configure AD/LAP connections](#configure-ad-ldap-connections) |
 
 ## Universal Login
 
@@ -69,6 +69,10 @@ var webAuth = new auth0.WebAuth({
 ```
 
 If you use the **default** login page without customization, you do not need to make any changes.
+
+::: note
+For most, the Auth0.js and Lock libraries get the tenant name (required for `/usernamepassword/login`) and the issuer (required for `id_token` validation) from the domain. However, if you're a Private Cloud customer who uses a proxy or a custom domain name where the domain name is different from the tenant/issuer, you can use `__tenant` and `__token_issuer` to provide your unique values.
+:::
 
 ## Embedded Lock
 

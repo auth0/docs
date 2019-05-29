@@ -111,7 +111,7 @@ Also, keep in mind that third-party developers are not allowed to modify the app
 
 Now that you have a Client ID and Secret, you can configure your application to authenticate users with Auth0.
 
-We will go through a simple example, that shows how to call an API from a client-side web app, using the [Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow). For a list of tutorials on how to authenticate and authorize users, based on your application type, see the [API Authorization](/api-auth) page.
+We will go through a simple example, that shows how to call an API from a client-side web app, using the [Implicit Flow](/flows/guides/implicit/call-api-implicit). For a list of tutorials on how to authenticate and authorize users, based on your application type, see the [API Authorization](/api-auth) page.
 
 First, you need to configure your application to send the user to the authorization URL:
 

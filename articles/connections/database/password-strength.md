@@ -25,7 +25,7 @@ The following characteristics define a strong password:
 
 ## Password policies
 
-Auth0's Password Strength feature allows you to customize the level of enforced complexity for passwords entered during user sign-up. Auth0 offers 5 levels of security to match [OWASP password recommendations](https://www.owasp.org/index.php/Authentication_Cheat_Sheet#Implement_Proper_Password_Strength_Controls).
+Auth0's Password Strength feature allows you to customize the level of enforced complexity for passwords entered during user sign-up. Auth0 offers 5 levels of security to match [OWASP password recommendations](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Authentication_Cheat_Sheet.md).
 
 At each level, new passwords must meet the following criteria:
 
@@ -91,7 +91,7 @@ You'll need to add `password_complexity_options` to leverage the new parameter. 
     csrf_token:                   '{{csrf_token}}',                       // DO NOT CHANGE THIS
     ticket:                       '{{ticket}}',                           // DO NOT CHANGE THIS
     password_policy:              '{{password_policy}}',                  // DO NOT CHANGE THIS
-    password_complexity_options:  '{{password_complexity_options}}'       // DO NOT CHANGE THIS
+    password_complexity_options:  {{password_complexity_options}}         // DO NOT CHANGE THIS
     
     //code omitted for brevity
   

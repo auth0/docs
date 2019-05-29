@@ -73,6 +73,11 @@ The table below lists the options you can perform on users, as well as informati
         <th>Yes</th>
         <th>Yes</th>
     </tr>
+    <tr>
+        <th>Remove MFA</th>
+        <th>No</th>
+        <th>Yes</th>
+    </tr>
   </tbody>
 </table>
 

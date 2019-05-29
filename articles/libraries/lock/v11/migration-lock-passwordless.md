@@ -196,7 +196,7 @@ Some options have to be renamed.
 
 * `dict` is now [languageDictionary](/libraries/lock/v11/configuration#languagedictionary-object-)
 * `connections` is now [allowedConnections](/libraries/lock/v11/configuration#allowedconnections-array-)
-* `socialBigButtons` is now [socialButtonStyle](/libraries/lock/v11/configuration#socialbuttonstyle-string-)
+* `socialBigButtons` is no longer available as an option and all the social connection buttons will be shown with a "big" style.
 * all the authentication options were moved into an [auth object](/libraries/lock/v11/configuration#auth-object-)
 
 ## Further Reading

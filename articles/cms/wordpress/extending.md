@@ -1,18 +1,17 @@
 ---
-description: How to extend the Login by Auth0 WordPress Plugin with hooks, filters, and functions.
+title: Extending the Login by Auth0 WordPress Plugin
+description: Learn how  to extend the Login by Auth0 WordPress Plugin with hooks, filters, and functions.
 toc: true
 topics:
-    - wordpress
-    - cms
-contentType: how-to
+  - wordpress
+  - cms
+contentType: 
+  - how-to
 useCase:
   - add-login
   - build-an-app
-  - customize-connections
-  - secure-an-api
-  - manage-users  
+  - customize-connections 
 ---
-
 # Extending the Login by Auth0 WordPress Plugin
 
 WordPress plugins can be extended to fit your specific requirements by using actions and filters to run custom code at specific points during runtime. This document outlines the existing hooks in the Login by Auth0 plugin. We're happy to review and approve new filters and actions that help you integrate even further in this plugin. Please see the Contributing section on the [GitHub repo readme for this plugin](https://github.com/auth0/wp-auth0/blob/master/README.md).
@@ -507,10 +506,21 @@ function auth0_docs_hook_die_on_login_output( $html, $msg, $code, $login_link ) 
 add_filter( 'auth0_die_on_login_output', 'auth0_docs_hook_die_on_login_output', 10, 4 );
 ```
 
+### auth0_sso_auth0js_url
+
+This filter lets you override the default CDN URL for Auth0.js when doing an SSO check on the `wp-login.php` page.
+
+### auth0_coo_auth0js_url
+
+This filter lets you override the default CDN URL for Auth0.js when loading the COO fallback page.
+
+### auth0_slo_return_to
+
+This filter lets you override the default `returnTo` URL when logging out of Auth0.
+
 ## Additional Extensions
 
 Additional examples can be found [here](https://github.com/joshcanhelp/auth0-wp-test/blob/master/inc/hooks-other.php).
-
 
 ## Keep Reading
 

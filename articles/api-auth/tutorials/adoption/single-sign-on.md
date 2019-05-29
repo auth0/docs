@@ -20,13 +20,11 @@ In the context of the OIDC-conformant authentication pipeline, SSO must happen a
 
 This means that for SSO to happen, you must employ [Universal Login](/hosted-pages/login) and redirect users to the login page.
 
-We are planning on providing support for SSO from applications in future releases.
-
 ## How SSO works
 
 At a general level, this is what happens when performing SSO:
 
-1. If the user is not logged in locally, redirect them to Auth0 for authentication. This is done using the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow) or [Single-Page Login Flow](/flows/concepts/single-page-login-flow), depending on the type of application.
+1. If the user is not logged in locally, redirect them to Auth0 for authentication. This is done using the [Authorization Code Flow](/flows/concepts/auth-code) or [Implicit Flow](/flows/concepts/implicit), depending on the type of application.
 2. If the user was logged in through SSO, Auth0 will immediately authenticate them without needing to re-enter credentials.
 
 An application that does not use SSO might decide to use embedded login to authenticate users instead of redirecting to Auth0 for authentication.
@@ -40,13 +38,13 @@ OIDC-conformant applications must use [silent authentication](/api-auth/tutorial
 
 ## Authentication flows without SSO
 
-SSO sessions are managed by Auth0 setting a cookie on your Auth0 domain.
+SSO [sessions](/sessions) are managed by Auth0 setting a cookie on your Auth0 domain.
 Since cross-origin requests cannot set cookies, this means that SSO sessions must be established by redirecting users to your Auth0 login page (`/authorize`).
 
 The following flows are redirect-based and are capable of SSO:
 
-* [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow)
-* [Single-Page Login Flow](/flows/concepts/single-page-login-flow)
+* [Authorization Code Flow](/flows/concepts/auth-code)
+* [Implicit Flow](/flows/concepts/implicit)
 
 The following flows are request-based and are currently not capable of SSO:
 

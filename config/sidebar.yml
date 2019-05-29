@@ -14,6 +14,9 @@ articles:
       
       - title: The Basics
         url: /getting-started/the-basics
+
+      - title: "Sessions"
+        url: "/sessions"
       
       - title: Dashboard Overview
         url: /getting-started/dashboard-overview
@@ -25,6 +28,9 @@ articles:
     url: /architecture-scenarios
 
     children:
+      - title: Implementation Checklists
+        url: /architecture-scenarios/checklists
+        
       - title: SSO for Regular Web Apps
         url: /architecture-scenarios/web-app-sso
         children:
@@ -87,8 +93,38 @@ articles:
 
       - title: Business to Consumer
         url: /architecture-scenarios/b2c
+        children:
+            - title: Architecture
+              url: /architecture-scenarios/implementation/b2c/b2c-architecture
 
-      - title: Business to Enterprise
+            - title: Provisioning
+              url: /architecture-scenarios/implementation/b2c/b2c-provisioning
+
+            - title: Authentication
+              url: /architecture-scenarios/implementation/b2c/b2c-authentication
+
+            - title: Branding
+              url: /architecture-scenarios/implementation/b2c/b2c-branding
+
+            - title: Deployment Automation
+              url: /architecture-scenarios/implementation/b2c/b2c-deployment
+
+            - title: Quality Assurance
+              url: /architecture-scenarios/implementation/b2c/b2c-qa
+
+            - title: Profile Management
+              url: /architecture-scenarios/implementation/b2c/b2c-profile-mgmt
+
+            - title: Authorization
+              url: /architecture-scenarios/implementation/b2c/b2c-authorization
+
+            - title: Logout
+              url: /architecture-scenarios/implementation/b2c/b2c-logout
+
+            - title: Operations
+              url: /architecture-scenarios/implementation/b2c/b2c-operations
+
+      - title: Business to Employees
         url: /architecture-scenarios/b2e
       # - title: SAML for Regular Web Apps
       #   url: /architecture-scenarios/web-saml
@@ -109,24 +145,27 @@ articles:
     url: "/applications"
     children:
 
-      - title: Overview
-        url: /applications
-
       - title: Grant Types
-        url: /applications/concepts/application-grant-types
+        url: "/applications/concepts/application-grant-types"
+
+      - title: "Available Grant Types"
+        url: "/applications/reference/grant-types-available"
+
+      - title: "Multiple Tenants"
+        url: "/applications/concepts/multiple-tenants"
 
   - title: "Authentication"
     url: "/application-auth/current"
     children:
 
       - title: "Native/Mobile Apps"
-        url: "/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow"
+        url: "/flows/guides/auth-code-pkce/add-login-auth-code-pkce"
         
       - title: "Single-Page Apps"
-        url: "/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow"
+        url: "/flows/guides/implicit/add-login-implicit"
         
       - title: "Regular Web Apps"
-        url: "/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow"
+        url: "/flows/guides/auth-code/add-login-auth-code"
 
       - title: "Old-Current"
         url: "/application-auth/current"
@@ -170,9 +209,6 @@ articles:
       - title: "Authorization API Index"
         url: "/api-auth"
 
-      - title: "OIDC Conformant Authentication"
-        url: "/api-auth/intro"
-
       - title: "OIDC Adoption Guide"
         url: "/api-auth/tutorials/adoption"
 
@@ -180,16 +216,16 @@ articles:
         url: "/api-auth/which-oauth-flow-to-use"
         
       - title: "APIs & Mobile Apps"
-        url: "/flows/concepts/mobile-login-flow"
+        url: "/flows/concepts/auth-code-pkce"
         
       - title: "APIs & Single-Page Apps"
-        url: "/flows/concepts/single-page-login-flow"
+        url: "/flows/concepts/implicit"
         
       - title: "APIs & Regular Web Apps"
-        url: "/flows/concepts/regular-web-app-login-flow"
+        url: "/flows/concepts/auth-code"
         
       - title: "APIs & M2M Apps"
-        url: "/flows/concepts/m2m-flow"
+        url: "/flows/concepts/client-credentials"
 
       - title: "APIs & Server-side Apps"
         url: "/api-auth/grant/authorization-code"
@@ -250,116 +286,18 @@ articles:
             url: "/authorization/guides/manage-permissions"
             
           - title: "Enable RBAC for APIs"
-            url: "/authorization/guides/dashboard/enable-rbac"
+            url: "/dashboard/guides/apis/enable-rbac"
 
-  - title: "Appliance"
-    url: "/appliance"
+  - title: "Private Cloud"
+    url: "/private-cloud"
     children:
-      - title: "Support"
-        url: "/appliance/critical-issue"
-        children:
-          - title: Critical Issue
-            url: /appliance/critical-issue
-          - title: Enterprise Support
-            url: /onboarding/enterprise-support
-
-      - title: PSaaS Appliance Planning
-        url: /appliance/appliance-overview
-        children:
-          - title: Overview
-            url: /appliance/appliance-overview
-
-          - title: Geographic High-Availability
-            url: /appliance/geo-ha
-            children:
-              - title: Disaster Recovery
-                url: /appliance/geo-ha/disaster-recovery
-
-          - title: Infrastructure Requirements
-            url: /appliance/infrastructure
-            children:
-              - title: Installation Process
-                url: /appliance/infrastructure/installation
-              - title: Infrastructure Overview
-                url: /appliance/infrastructure/infrastructure-overview
-              - title: Webtasks and Web Extensions
-                url: /appliance/infrastructure/extensions
-
-              - title: Virtual Machines
-                url: /appliance/infrastructure/virtual-machines
-              - title: Network
-                url: /appliance/infrastructure/network
-              - title: IP/Domain and Port List
-                url: /appliance/infrastructure/ip-domain-port-list
-              - title: Security and Access
-                url: /appliance/infrastructure/security
-
-          - title: Roles and Responsibilities
-            url: /appliance/raci
-
-          - title: Customer Onboarding
-            url: /onboarding/appliance-sprint
-
-          - title: Private Cloud Requirements
-            url: /appliance/private-cloud-requirements
-
-      - title: "PSaaS Appliance Administration"
-        url: "/appliance/admin"
-        children:
-          - title: Administrator's Manual
-            url: /appliance/admin
-            children:
-              - title: Managing the Dashboard
-                url: /appliance/admin/managing-the-dashboard
-              - title: Disabling Sign-ups
-                url: /appliance/admin/disabling-sign-ups
-              - title: Inviting Co-Administrators
-                url: /appliance/admin/inviting-coadmins
-              - title: Appliance Backups
-                url: /appliance/admin/backing-up-the-appliance-instances
-              - title: Monitoring
-                url: /appliance/admin/monitoring
-              - title: Updating
-                url: /appliance/admin/updating-the-appliance
-
-          - title: Dashboard/Configuration Area
-            url: /appliance/dashboard
-            children:
-              - title: Troubleshoot
-                url: /appliance/dashboard/troubleshoot
-            
-          - title: Monitoring
-            url: /appliance/monitoring
-            children:
-              - title: Instrumentation
-                url: /appliance/instrumentation
-              - title: Testall endpoint
-                url: /appliance/monitoring/testall
-              - title: Authenticated testing endpoints
-                url: /appliance/monitoring/authenticated-endpoints
-            
-          - title: Command-Line Interface Tools
-            url: /appliance/cli
-          - title: Automatic Tenant Creation
-            url: /appliance/admin/creating-tenants
-            hidden: true
-          - title: Node Module Availability
-            url: /appliance/modules
-          - title: Webtasks
-            url: /appliance/webtasks
-          - title: Extensions
-            url: /appliance/extensions
-          - title: Disaster Recovery
-            url: /appliance/disaster-recovery
-            children:
-              - title: Roles and Responsibilities
-                url: /appliance/disaster-recovery-raci
-          - title: Migrating to Node.js v8
-            url: /appliance/extensibility-node8
-          - title: Release Notes
-            url: https://auth0.com/changelog/appliance
-            external: true
-            forceFullReload: true
+      - title: Enterprise Support
+        url: /onboarding/enterprise-support
+        
+      - title: Release Notes
+        url: https://auth0.com/releases/
+        external: true
+        forceFullReload: true
 
   - title: "Connections"
     url: "/connections"
@@ -407,6 +345,15 @@ articles:
 
       - title: "Password Reset Page"
         url: "/universal-login/password-reset"
+
+      - title: "Advanced Customization"
+        url: "/universal-login/advanced-customization"
+
+      - title: "Classic Experience"
+        url: "/universal-login/classic"
+
+      - title: "New Experience"
+        url: "/universal-login/new"
       
       - title: "Guardian MFA"
         url: "/universal-login/guardian"
@@ -432,9 +379,6 @@ articles:
 
       - title: "Cache Expensive Resources"
         url: "/rules/guides/cache-resources"
-
-      - title: "Redirect Rules"
-        url: "/rules/guides/redirect"
 
       - title: "Debug Rules"
         url: "/rules/guides/debug"
@@ -572,8 +516,8 @@ articles:
                 url: "/users/normalized/auth0/identify-users"
                 hidden: true 
 
-              - title: "Retrieve User Profiles"
-                url: "/users/normalized/auth0/retrieve-user-profiles"
+              - title: "Retrieve Users"
+                url: "/users/search"
                 hidden: true 
 
               - title: "Store User Data"
@@ -1238,6 +1182,9 @@ articles:
           - title: "What's New in v2"
             url: "/extensions/deploy-cli/references/whats-new-v2"
 
+          - title: "Troubleshooting Deploy CLI"
+            url: "/extensions/deploy-cli/references/troubleshooting"
+
   - title: "Professional Services"
     url: "/services"
     children:
@@ -1259,8 +1206,8 @@ articles:
       - title: "Pair Programming"
         url: "/services/pair-programming"
       
-      - title: "Private SaaS reconfiguration"
-        url: "/services/private-saas-configuration"
+      - title: "Private Cloud reconfiguration"
+        url: "/services/private-cloud-configuration"
 
       - title: "Auth0 Introduction"
         url: "/services/auth0-introduction"
@@ -1268,8 +1215,8 @@ articles:
       - title: "Auth0 Advanced Topics"
         url: "/services/auth0-advanced"
 
-      - title: "Private SaaS Management Workshop"
-        url: "/services/private-saas-management"
+      - title: "Private Cloud Management Workshop"
+        url: "/services/private-cloud-management"
 
 apis:
 

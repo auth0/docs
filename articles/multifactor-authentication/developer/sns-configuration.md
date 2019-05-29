@@ -26,7 +26,7 @@ AWS Access Key Id | Your AWS access key id.
 AWS Secret Access Key | Your AWS secret access key.
 AWS Region | Your AWS application's region.
 APNS ARN | The Amazon Resource Name for your [Apple Push Notification Service](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html).
-GCM ARN | The Amazon Resource Name for your [Google Cloud Messaging Service](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html).
+GCM ARN | The Amazon Resource Name for your [Firebase Cloud Messaging Service](https://docs.aws.amazon.com/sns/latest/dg/sns-mobile-application-as-subscriber.html).
 
 Then click **SAVE**.
 
@@ -35,5 +35,5 @@ Then click **SAVE**.
 ::: next-steps
 * [Auth0 Management API](/api/management/v2)
 * [Getting Started with Apple Push Notification Service](https://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html)
-* [Getting Started with Google Cloud Messaging for Android](https://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html)
+* [Getting Started with Firebase Cloud Messaging for Android](https://docs.aws.amazon.com/sns/latest/dg/sns-mobile-application-as-subscriber.html)
 :::

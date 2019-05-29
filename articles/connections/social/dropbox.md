@@ -45,6 +45,8 @@ Click **Create your app**:
 On your app's **Settings** page that follows, enter this URL in the **Redirect URIs** field:
 
 `https://${account.namespace}/login/callback`
+
+<%= include('../_find-auth0-domain-redirects') %>
   
 Click **Add**:
 

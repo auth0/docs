@@ -58,7 +58,7 @@ There are several ways you can modify information in a user profile or an ID Tok
 
 ::: references
   * [User Profile Structure](/users/references/user-profile-structure)
-  * [User Data Storage Best Practices](/users/references/user-data-storage-best-practices)
+  * [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)
   * [User Data Storage Scenario](/users/references/user-data-storage-scenario)
   * [Identity Providers Supported](/identityproviders)
  :::

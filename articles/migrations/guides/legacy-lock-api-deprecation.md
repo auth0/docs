@@ -74,9 +74,9 @@ Universal Login is **strongly** recommended for most use cases because it [offer
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/guides/login/migrating-lock-v10-spa"> Migrate Single Page Apps with Embedded Lock to Universal Login</a>
+    <i class="icon icon-budicon-715"></i><a href="/guides/login/migrating-lock-v10-spa"> Migrate Single-Page Apps with Embedded Lock to Universal Login</a>
     <p>
-      This document provides instruction for single page apps which have embedded login (via the Lock widget) to migrate to Universal Login.
+      This document provides instruction for single-page apps which have embedded login (via the Lock widget) to migrate to Universal Login.
     </p>
   </li>
   <li>
@@ -130,12 +130,12 @@ Note also that the [/userinfo response](/api-auth/tutorials/adoption/scope-custo
 
 ### Session management
 
-#### Single Page Applications
+#### Single-Page Applications
 
-If a user navigates to a new page in a Single Page Application, your application may wish to check if a user already has an existing session. In order to do this, you may have directly called the /ssodata endpoint or utilized the `getSSOData()` function in Auth0.js v8 or prior. The /ssodata endpoint is deprecated and was removed from service on **August 6, 2018**. The `getSSOData()` function will continue to work, but will behave differently, and in most cases, can be replaced with use of `checkSession()`.
+If a user navigates to a new page in a Single-Page Application, your application may wish to check if a user already has an existing session. In order to do this, you may have directly called the /ssodata endpoint or utilized the `getSSOData()` function in Auth0.js v8 or prior. The /ssodata endpoint is deprecated and was removed from service on **August 6, 2018**. The `getSSOData()` function will continue to work, but will behave differently, and in most cases, can be replaced with use of `checkSession()`.
 
 ::: note
-The `getSSOData()` and `checkSession()` functions should only be used from a Single Page Application
+The `getSSOData()` and `checkSession()` functions should only be used from a Single-Page Application
 :::
 
 ##### checkSession()
@@ -180,7 +180,3 @@ The solution for the Kerberos case is to [migrate to Universal Login](#1-migrate
 ### How to tell if you have deprecated usage
 
 Please take a look at the [Deprecation Error Reference](/errors/deprecation-errors) to assist with verifying that your application does, or does not, use deprecated features.
-
-### Bookmarking the login page
-
-Bookmarking the Universal Login page is not supported. If a user bookmarks the login page and attempts to initiate authentication by going directly to the bookmarked URL instead of starting from the application, the following error message will be shown: `Password login is disabled for clients using externally hosted login pages with oidc_conformant flag set`.

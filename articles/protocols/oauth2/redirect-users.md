@@ -1,6 +1,6 @@
 ---
 title: Redirect Users With State Parameters
-description: Learn how to redirect users with the 0Auth 2.0 state parameter. 
+description: Learn how to redirect users with the OAuth 2.0 state parameter. 
 topics:
   - users
   - user-management
@@ -48,7 +48,7 @@ Alternatively, you can:
 
 ## Keep reading
 
-* [0Auth 2.0 Authorization Framework](/protocols/oauth2)
+* [OAuth 2.0 Authorization Framework](/protocols/oauth2)
 * [State Parameter](/protocols/oauth2/oauth-state)
 * [Rules](/rules)
 * [Redirect Users After Login](/users/guides/redirect-users-after-login)

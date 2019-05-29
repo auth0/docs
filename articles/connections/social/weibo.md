@@ -1,9 +1,9 @@
 ---
-title: Connect your app to Weibo
+title: Add Weibo Login to Your App
 connection: Weibo
 image: /media/connections/weibo.png
 seo_alias: weibo
-description: How to obtain an App ID and App Secret for Weibo.
+description: How to add Weibo login to your app
 toc: true
 topics:
   - connections
@@ -14,73 +14,26 @@ useCase:
     - customize-connections
     - add-idp
 ---
+# Add Weibo Login to Your App
 
-# Connect your app to Weibo
+This guide will show you how to enable your users to log in to your Auth0 app using their Weibo credentials.
 
-To configure a Weibo connection you will need to register Auth0 on the [Weibo App portal](http://open.weibo.com/apps).
+## 1. Register Auth0 with Weibo
 
-## 1. Add a new Application
+Begin by [registering your Auth0 app with Weibo](https://open.weibo.com/authentication).
 
-First log in into your [Weibo portal](http://open.weibo.com/apps), once you have logged in go to the [Development page](http://open.weibo.com/development) and click on the orange button.
+You will be prompted to provide a callback URL during the registration process. Use `https://${account.namespace}/login/callback`.
 
-![Weibo Development Page](/media/articles/connections/social/weibo/development-page.png)
+<%= include('../_find-auth0-domain-redirects') %>
 
-This will bring up options for which type of application you wish to create. Select the web application option which should be third from the left.
+After the registration process, Weibo provides you with an **appkey** and a corresponding **appkey secret**. Make a note of these values, since you'll need to provide them to Auth0.
 
-![Select Web App](/media/articles/connections/social/weibo/select-web-app.png)
+## 2. Create and enable your Auth0 connection
 
-In the first field, enter the name for your application. Make sure **Web Application** (the third option 网页应用) is selected for the application type. The check box agrees to the terms.
+[Set up the Weibo social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **App key** and the **App secret** that Weibo provided to you in Step 1.
 
-![Create New App](/media/articles/connections/social/weibo/create-app.png)
+## 3. Test the connection
 
-## 2. Enter your callback URLs
-
-Then you will be brought to your application information page. Click on advanced (高级信息) options from the left sidebar.
-
-![Select Advanced](/media/articles/connections/social/weibo/click-advanced.png)
-
-Under OAuth2.0 授权设置 enter `https://${account.namespace}/login/callback` as the callback urls. Then click on the green button.
-
-![Enter your callback urls](/media/articles/connections/social/weibo/enter-callback.png)
-
-## 3. Get your **App Key** and **App Secret**
-
-Return to the basic information page (基本信息) for your application by clicking on the top option under the gear icon for Application Information.
-
-![Select Basic](/media/articles/connections/social/weibo/click-basic.png)
-
-This page will contain your **App Key** and **App Secret**, to be used in the next step.
-
-![Copy your App Key and App Secret](/media/articles/connections/social/weibo/get-app-key-secret.png)
-
-## 4. Setup the Connection in Auth0
-
-In a separate tab or page, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
-
-Click on the **Weibo** connection.
-
-Enter your **App Key** and **App Secret** from Weibo, select your **Attributes** and **Permissions** then click **SAVE**.
-
-![Paste your App Key and App Secret](/media/articles/connections/social/weibo/enter-keys.png)
-
-Next click on the **Applications** tab next to **Settings** and enable which of your applications will be able to use this connection.
-
-![Enable the Applications](/media/articles/connections/social/weibo/enable-clients.png)
-
-When finished, click **SAVE**.
-
-## 5. Test the Connection
-
-On the [Connections > Social](${manage_url}/#/connections/social) page of the Auth0 dashboard you should now see a **TRY** button with the Weibo connection.
-
-![Try Button](/media/articles/connections/social/weibo/try-connection.png)
-
-Click on this to test the new connection. This should bring up a confirmation page for the connection:
-
-![Confirmation page](/media/articles/connections/social/weibo/confirmation.png)
-
-If accepted, you should be able to see the **It Works!** confirmation page that your connection has been configured correctly.
+At this point, you're ready to [test your connection](/dashboard/guides/connections/test-connections-social).
 
 <%= include('../_quickstart-links.md') %>
-
-

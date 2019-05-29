@@ -33,6 +33,8 @@ Select __API > Plugin > Create plugin__:
 
 Complete the form using this callback URL: `https://${account.namespace}/login/callback`
 
+<%= include('../_find-auth0-domain-redirects') %>
+
 ![](/media/articles/connections/social/thecity/thecity-register-3.png)
 
 Press __Create__

@@ -40,7 +40,7 @@ The following list of fields are searchable and case sensitive:
 * `user_name`: The user name related to the event.
 * `description`: The description of the event.
 * `user_agent`: The user agent that is related to the event.
-* `type`: One of the [possible event types](#log-data-event-listing).
+* `type`: One of the [possible event types](/logs#log-data-event-listing).
 * `strategy`: The connection strategy related to the event.
 * `strategy_type`: The connection strategy type related to the event.
 * `hostname`: the hostname that is being used for the authentication flow.
@@ -71,17 +71,6 @@ The question mark character (`?`), is currently not supported.
 
 For example, to find all logs for users whose usernames start with `john`, use `q=user_name:john*`:
 
-## Dates
-
-A date will always be converted to a zeroed-out state if all values are provided; if `2018-12-18` is provided, it will be converted to `2018-12-18T00:00:00.000Z` internally. Below are some more examples of how various date formats will be converted.
-
-Example | Converted Value
---------|----------------
-`2018-12-18` | `2018-12-18T00:00:00.000Z`
-`2018-12` | `2018-12-01T00:00:00.000Z`
-`2018-12-18T12:22` | `2018-12-18T12:22:00.000Z`
-`2018-12-18T15:23:48.123Z` | `2018-12-18T15:23:48.123Z`
-
 ## Ranges
 
 You can use ranges in your log search queries. For inclusive ranges use square brackets: `[min TO max]`, and for exclusive ranges use curly brackets: `{min TO max}`.
@@ -104,11 +93,11 @@ Search for all logs with a type starting with "s" | `type:s*`
 Search for user names that start with "jane" and end with "smith" | `user_name:jane*smith`
 Search for all logs in December 2018 | `date:[2018-12 TO 2018-01-01}`
 Search for all logs from December 10, 2018 forward | `date:[2018-12-10 TO *]`
-Search for all logs from January 1, 2019 at 1AM, up till, but not including till January 1, 2019 at 12:23:45 | `date:[2019-01-01T01:00:00 TO 2019-01-01T12:23:45}`
+Search for all logs from January 1, 2019 at 1AM, until, but not including January 1, 2019 at 12:23:45 | `date:[2019-01-01T01:00:00 TO 2019-01-01T12:23:45}`
 
 ## Limitations
 
-When you query for logs with the [list or search logs](/api/v2#!/Logs/get_logs) endpoint, you can retrieve a maximium of 100 logs per request. Additionally, you may only paginate through up to 1,000 search results. If would like to receive more logs, please retrieve your logs [by checkpoint] retrieval.
+When you query for logs with the [list or search logs](/api/v2#!/Logs/get_logs) endpoint, you can retrieve a maximium of 100 logs per request. Additionally, you may only paginate through up to 1,000 search results. If would like to receive more logs, please retrieve your logs [by checkpoint](/logs#get-logs-by-checkpoint) retrieval.
 
 If you get the error `414 Request-URI Too Large` this means that your query string is larger than the supported length. In this case, refine your search.
 
@@ -118,10 +107,27 @@ We are currently migrating our logs search engine to provide customers with the 
 
 ### Search engine v3 breaking changes
 
+#### Pagination
+
+When calling the [GET /api/v2/logs](/api/v2#!/Logs/get_logs) or [GET /api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user) endpoints using the `include_totals` parameter, the result is a JSON object containing a summary of the results **and** the requested logs. The JSON object looks something like:
+
+```
+{
+  "length": 5,
+  "limit": 5,
+  "logs": [...],
+  "start": 0,
+  "total": 5
+}
+```
+
+When searching for logs using search engine v2, the `totals` field in your results tells you the number of logs that match the query you provided. However, in v3, the `totals` field tells you how many logs are returned in the page (similar to what the `length` field returns). If your application relies on the `totals` field for pagination purposes, please update your logic to handle this change appropriately.
+
+
+#### Query Syntax
+
 While the query syntax described in this article is compliant with both the old and new engines, there are some special queries that behave different in v2 and v3:
 
-* The `include_totals` field is no longer supported. While in search engine v3 the parameter is accepted and will throw a response with an object format, that object will not contain the `total` field anymore.
-* The details field is not searcheable anymore, only the [list of searcheable fields](/logs/query-syntax#searchable-fields) can be used for search and sort.
 * Log fields are not tokenized like in v2, so `description:rule` will not match a description with value `Create a rule` nor `Update a rule` like in v2. Instead, use `description:*rule`. See [wildcards](/logs/query-syntax#wildcards) and [exact matching](/logs/query-syntax#exact-matching).
 * The .raw field extension is no longer supported and must be removed. In v3, fields match the whole value that is provided and are not tokenized as they were in v2 without the .raw suffix.
-* Ranges for dates for which the exact time is not provided, will behave differently than with v2. For example, the following query `q=date:[2018-12-18 TO 2018-12-19]` will return logs from the start of 2018-12-18 *till the end of day of* 2019-12-19 on search engine v2, but it in v3, as all dates that don't include the time will be filled with zeros, it will return logs from the first millisecond of 2018-12-18 (2018-12-18T00:00:00.000Z) *till, and including, the first millisecond* of 2018-12-19T00:00:00.000Z, which means that all logs except for the first millisecond of 2018-12-19 will *not* be included. In order to include the desired date, either the time should be provided or one more day should be added to the range, i.e. `q=date:[2018-12-18 TO 2018-12-20}`. Since our logs only allow searching to nanosecond precision, it is helpful to start with an inclusive datetime `[` and end with
+* To search for a specific value nested in the `details` field, use the path to the field (i.e., `details.request.channel:"https://manage.auth0.com/"`). Bare searches like `details:"https://manage.auth0.com/"` do not work.

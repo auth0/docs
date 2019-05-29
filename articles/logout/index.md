@@ -30,7 +30,7 @@ For guidance on how to implement logout functionality in your specific type of a
 * [iOS Objective-C](/quickstart/native/ios-objc/03-user-sessions#on-logout-clear-the-keychain)
 * [iOS Swift](/quickstart/native/ios-swift/03-user-sessions#on-logout-clear-the-keychain)
 
-### Single Page Apps
+### Single-Page Apps
 
 * [Angular 2+](/quickstart/spa/angular2)
 * [JavaScript](/quickstart/spa/vanillajs)

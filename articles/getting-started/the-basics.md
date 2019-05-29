@@ -23,7 +23,7 @@ We will use a very simple example: A company named `Example-Co` wants to use Aut
 
 ## Account and tenants
 
-If you haven't already signed up for an Auth0 **account**, do so (it's free). You can either use username/password or log in with a social provider (GitHub, Google, or Microsoft).
+If you haven't already [signed up](https://auth0.com/signup) for an Auth0 **account**, do so (it's free). You can either use username/password or log in with a social provider (GitHub, Google, or Microsoft).
 
 Once you create your account you will be asked to create a **Tenant**. This is a **logical isolation unit**.
 
@@ -32,9 +32,12 @@ The term is borrowed from "software multitenancy". This refers to an architectur
 Some characteristics:
 
 - The tenant name has to be unique (we will see in the next paragraph that it is used to create your own personal domain).
+- The tenant name must be all lowercase.
 - The tenant name cannot be changed after creation.
 - You can create more than one tenant; in fact, you are encouraged to do so for each environment you have (such as Development, Staging, or Production).
 - If you chose to host your data in Europe or Australia, then your tenant will have a suffix (`eu` or `au`). In our example, if `Example-Co` picked the name `example-co`, then depending on where the data is stored, the tenant name would be `example-co-eu` or `example-co-au`.
+
+You can create additional tenants at any time. To do so, go to the upper-right corner of the Dashboard and click on your tenant name to display the pulldown menu. Click **Create Tenant**.
 
 ## Domains
 
@@ -53,10 +56,10 @@ In our example, `Example-Co` picked the name `example-co` and Americas as their 
 
 We recommend the use of custom domains, such as `example-co.com`, in your production environments to provide your users with the most secure and seamless experience. This comes with an additional cost. 
 
-If you have a **single-tenant** implementation, you can deploy your custom domain in one of three locations:
+If you have a [**single-tenant** implementation](/private-cloud), you can deploy your custom domain in:
+
 - The cloud managed by Auth0
-- A cloud managed by you
-- An [on-premise installation](/appliance)
+- An AWS cloud managed by you
 
 For more information, see [Custom Domains](/custom-domains). 
 

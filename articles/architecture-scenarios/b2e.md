@@ -1,6 +1,6 @@
 ---
 order: 06
-title: Business to Enterprise Identity Scenarios
+title: Business to Employees Identity Scenarios
 image: /media/articles/architecture-scenarios/b2e.png
 extract: Large organization who wants to federate their existing enterprise directory service to allow employees to log in to applications using their existing enterprise credentials.
 description: Explains the architecture scenario of B2E with a large organization that wants to extend their existing enterprise directory service.
@@ -18,9 +18,9 @@ useCase:
   - build-an-app
 ---
 
-# Business to Enterprise Identity Scenarios
+# Business to Employees Identity Scenarios
 
-The B2E (Business to Enterprise) scenario involves applications that are used by employee users.  These are applications that are targeted toward users who are typically acting on behalf of an organization such as an employer, a university, or a group in which they are a member, as opposed to acting on their own behalf.  
+The B2E (Business to Employees) scenario involves applications that are used by employee users.  These are applications that are targeted toward users who are typically acting on behalf of an organization such as an employer, a university, or a group in which they are a member, as opposed to acting on their own behalf.  
 
 Such applications that are custom written by the organization may use the OIDC/OAuth protocol to externalize authentication whereas those that have been purchased will often use the SAML protocol. In either case, the enterprise will typically want to use some form of Enterprise connection, such as a SAML Identity Provider, ADFS, G Suite, Azure AD or a directory service such as AD or OpenLDAP, and less frequently, a custom DB, for authentication of enterprise users.
 

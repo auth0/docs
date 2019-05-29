@@ -13,7 +13,7 @@ useCase:
 
 To make your login process as easy-to-use and seamless as possible, you'll need to keep track of where you want to route users inside your application once Auth0 redirects users back to your application after authentication. There are two types of URLs:
 
-* **Callback URLs**: During a user's authentication, the `redirect_uri` request parameter is used as a callback URL. This is where your application will receive and process the response from Auth0, and where the users will be redirected, once the authentication is complete.
+* **Callback URLs**: During a user's authentication, the `redirect_uri` request parameter is used as a callback URL. This is where your application will receive and process the response from Auth0, and is often the URL that users will be redirected to once the authentication is complete.
 
   ::: note
   For more information on how the `redirect_uri` works, see [OAuth 2.0](/protocols/oauth2).
@@ -29,8 +29,8 @@ To make your login process as easy-to-use and seamless as possible, you'll need 
   * For a single-page app, use local storage in the browser
   * For a native app, use memory or local storage
 
-  You can then create the necessary logic in your application to retrieve the stored URL and redirect your users where you want.
-
+  You can then create the necessary logic in your application to retrieve the stored URL and redirect your users where you want. [Lock](/libraries/lock/v11/configuration#redirecturl-string-) and the [Auth0 SDKs](/libraries/auth0js/v9#available-parameters) also include support for redirect URLs.
+  
 You can [redirect users from rules](/rules/current/redirect) or you can [redirect users with state parameters](/protocols/oauth2/redirect-users). Choose the option that works best for your application type and the flow you are using.
 
 ## Keep reading

@@ -10,6 +10,7 @@ contentType:
     - how-to
 useCase: appliance
 applianceId: appliance58
+sitemap: false
 ---
 
 # PSaaS Appliance: Extensions

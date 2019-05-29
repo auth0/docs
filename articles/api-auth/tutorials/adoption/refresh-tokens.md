@@ -43,15 +43,9 @@ Content-Type: 'application/json'
    </div>
     <div id="refresh-oidc" class="tab-pane active">
       <pre class="text hljs"><code>POST /oauth/token
-Content-Type: application/json
-{
-  "grant_type": "refresh_token",
-  "refresh_token": "...",
-  "client_id": "...",
-  "client_secret": "...",
-  "scope": "openid profile",
-  "audience": "https://api.example.com"
-}
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=refresh_token&refresh_token=123&client_id=123&client_secret=123&scope=openid+profile&audience=https%3A%2F%2Fapi.example.com
 </code></pre>
 <ul><li>The <code>audience</code> and <code>client_secret</code> parameters are optional. The <code>client_secret</code> is not needed when requesting a <code>refresh_token</code> for a mobile app.</li></ul>
    </div>

@@ -46,7 +46,7 @@ Watch this video learn all about rules in just a few minutes.
 
 A Rule is a function with the following arguments:
 
-* `user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Structure](/users/references/user-profile-structure).
+* `user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes).
 
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/references/context-object).
 
@@ -214,9 +214,6 @@ Use this to create the POST request:
 }
 ```
 
-::: note
-You can use the [auth0-rules-testharness library](https://www.npmjs.com/package/auth0-rules-testharness) to deploy, execute, and test the output of Rules using a Webtask sandbox environment.
-:::
 
 ## How to Debug Rules
 
