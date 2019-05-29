@@ -34,15 +34,15 @@ For an application utilizing OpenID Connect ([OIDC](/protocols/oidc)) - the most
 In a similar fashion to OpenID Connect ([OIDC](/protocols/oidc)) being the most frequently used industry-standard protocol for authentication in customer facing applications, we have typically found that Open Authorization 2 ([OAuth2](protocols/oauth2)) is the most commonly used industry-standard protocol for authorization.
 :::
 
-In addition, Auth0 can also provide for fine grained access control at both an application and an API level. For [application level integration](#application-integration), [custom claims](#id-token-claims) can be added to an ID Token and then your application will need to enforce access control by verifiying tose claims in the ID Token. In this case you will you will need to decide what information will be required in order for your application to make access control decisions.
+In addition, Auth0 can also provide for fine grained access control at both an application and an API level. For [application level integration](#application-integration), Auth0 allows [custom claims](#id-token-claims) to be added to an ID Token which your application will need to verifiying and subsequently use to enforce access control. In this case you will you will need to decide what information will be required in order for your application to make access control decisions.
 
 ::: warning
 When deciding what data to include in OIDC tokens, you need to consider token size, especially if you are passing the token in the URL. Even if you are not passing tokens in the URL, there are other things that you will also need to consider - such as the potential of exposing sensitive PII (Personally Identifiable Information).
 :::
 
-For [API level integration](#api-integration), Auth0 supports both [custom claims](#access-token-claims) as well as [scope](#access-token-scopes) configuration options when it comes to using an Access Token. Again, you will need to decide what information will be required in order for your API to make access control decisions, and then your API will need to enforce that access control by validating the contents of the Access Token.
+For [API level integration](#api-integration), Auth0 supports both [custom claims](#access-token-claims) as well as [scope](#access-token-scopes) configuration options within the context of an Access Token. Again, you will need to decide what information will be required in order for your API to make access control decisions, and then your API will need to enforce that access control by validating the contents of the Access Token.
 
-In addition, Auth0 has out-of-box support for [Role Based Access Control (RBAC)](/authorization/concepts/rbac). RBAC refers to the idea of assigning permissions to users based on their role within an organization; RBAC provides for fine-grained control and offers a simple, manageable approach to access management that is often less prone to error. 
+Additionally, Auth0 has out-of-box support for [Role Based Access Control (RBAC)](/authorization/concepts/rbac). RBAC refers to the idea of assigning permissions to users based on their role within an organization; RBAC provides for fine-grained control and offers a simple, manageable approach to access management that is often less prone to error. 
 
 ## Application Integration
 
