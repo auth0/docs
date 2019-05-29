@@ -16,7 +16,7 @@ It’s important to start by distinguishing between Authentication, Authorizatio
 
 * **Authentication**: the process of determining if the user is who they say they are.
 * **Authorization**: the proceess of determining what the user is allowed to do in the system based on their consent.
-    * **Access Control**: the process of limiting a user to only the actions permitted, based on a combination of who the user is, what they are allowed to do in the system, and their consent.
+* **Access Control**: the process of limiting a user to only the actions permitted, based on a combination of who the user is, what they are allowed to do in the system, and their consent.
 
 Whatever your use case, there are a number of things you will want to consider when looking at functionality and workflow:
 
@@ -28,21 +28,21 @@ Whatever your use case, there are a number of things you will want to consider w
  
 Auth0 can provide for corse grained authorization by restricting access to certain applications or APIs based on a user's attribute(s): a [Rule](/rules) can be built that returns an `UnauthorizedError` when, say, a user attempts access at the incorrect time (as in [this](/authorization/concepts/sample-use-cases-rules#allow-access-only-on-weekdays-for-a-specific-application) example) or doesn’t, say, have the right claim(s) contained in their [Metadata](/users/concepts/overview-user-metadata). 
 
-For an application utilizing OpenID Connect ([OIDC](/protocols/oidc)) - the most frequently used industry standard protocol when it comes to customer facing applications - this would prevent the allocation of the [ID Token](/tokens/id-token) (i.e. the token allocated to provide an indication of authorized access). In a similar fashion, allocation of any Open Authorization 2 (OAuth2) [Access Tokens](/tokens/overview-access-tokens) - used when calling an API - could be prevented as in the example shown [here](/api-auth/restrict-access-api#example-deny-access-to-anyone-calling-the-api).
+For an application utilizing OpenID Connect ([OIDC](/protocols/oidc)) - the most frequently used industry standard protocol when it comes to customer facing applications - this would prevent the allocation of the [ID Token](/tokens/id-token) (the token allocated to provide an indication of authorized access). In a similar fashion, allocation of any Open Authorization 2 (OAuth2) [Access Token](/tokens/overview-access-tokens) - commonly used for authorization when calling an API - could be prevented, as described in [this](/api-auth/restrict-access-api#example-deny-access-to-anyone-calling-the-api) example.
 
 ::: panel Best Practice
-In a similar fashion to OpenID Connect ([OIDC](/protocols/oidc)) being the most frequently used industry-standard protocol for authentication for customer facing applications, we have typically found that Open Authorization 2 ([OAuth2](protocols/oauth2)) is the most commonly used industry-standard protocol for authorization.
+In a similar fashion to OpenID Connect ([OIDC](/protocols/oidc)) being the most frequently used industry-standard protocol for authentication in customer facing applications, we have typically found that Open Authorization 2 ([OAuth2](protocols/oauth2)) is the most commonly used industry-standard protocol for authorization.
 :::
 
-In addition, Auth0 can also provide for fine grained access control at both an application and an API level. For [application level integration](#application-integration), [custom claims](#id-token-claims) can be added to an ID Token and then your application will need to enforce access control by checking the ID Token for those claims. In this case you will you will need to decide what information will be required in order for your application to make access control decisions.
+In addition, Auth0 can also provide for fine grained access control at both an application and an API level. For [application level integration](#application-integration), [custom claims](#id-token-claims) can be added to an ID Token and then your application will need to enforce access control by verifiying tose claims in the ID Token. In this case you will you will need to decide what information will be required in order for your application to make access control decisions.
 
 ::: warning
 When deciding what data to include in OIDC tokens, you need to consider token size, especially if you are passing the token in the URL. Even if you are not passing tokens in the URL, there are other things that you will also need to consider - such as the potential of exposing sensitive PII (Personally Identifiable Information).
 :::
 
-For [API level integration](#api-integration), Auth0 supports a couple of different options when it comes to using an Access Token. Again, you will need to decide what information will be required in order for your API to make access control decisions, and then your API will need to enforce that access control by checking the Access Token claims.
+For [API level integration](#api-integration), Auth0 supports both [custom claims](#access-token-claims) as well as [scope](#access-token-scopes) configuration options when it comes to using an Access Token. Again, you will need to decide what information will be required in order for your API to make access control decisions, and then your API will need to enforce that access control by validating the contents of the Access Token.
 
-In addition, Auth0 has out-of-box support for [Role Based Access Control (RBAC)](#role-based-access-control-(rbac)). RBAC refers to the idea of assigning permissions to users based on their role within an organization; RBAC provides for fine-grained control and offers a simple, manageable approach to access management that is less prone to error than assigning permissions and/or custom claims to users individually. 
+In addition, Auth0 has out-of-box support for [Role Based Access Control (RBAC)](/authorization/concepts/rbac). RBAC refers to the idea of assigning permissions to users based on their role within an organization; RBAC provides for fine-grained control and offers a simple, manageable approach to access management that is often less prone to error. 
 
 ## Application Integration
 
@@ -50,7 +50,7 @@ In this scenario, your Auth0 tenant provides a token as an indicator of authoriz
 
 ## ID Token Claims 
 
-Through the use of Rule extensibility, Auth0 allows you to easily [add custom claims to an ID Token](/tokens/add-custom-claims) based on a user’s metadata. Though the process of adding custom claims via Rule is streamlined, because the rules engine is flexible and allows you to write custom code you can also do things that may have negative effects. So it’s important to follow our [rules best practice](/best-practices/rules) guidance anytime you utilize this extensibility feature.
+Through the use of Rule extensibility, Auth0 allows you to easily [add custom claims to an ID Token](/tokens/add-custom-claims) based on a user’s metadata.  Once added, you application can then verify the ID Token for the necessary claims and either allow or prevent access to certain functionality as required. Note that though the process of adding custom claims via Rule is streamlined, the Rule engine is flexible and allows you to write custom code that may have negative effects. So it’s important to follow our [rules best practice](/best-practices/rules) guidance anytime you utilize this extensibility feature.  
 
 ::: panel Best Practice
 When you are considering adding custom claims, we recommend that you choose to store any data you may need to include within the claims in the user's `user` or `app` [Metadata](/users/concepts/overview-user-metadata). Doing so prevents you from needing to call out to an external API to fetch the data, which can negatively impact the performance and scalability of the login sequence. Remember to check out our [metadata best practices](architecture-scenarios/implementation/b2c/b2c-profile-mgmt#metadata) too.
@@ -65,7 +65,7 @@ When you are considering adding custom claims, we recommend that you choose to s
 
 In this scenario, Auth0 provides support for both first-party and third-party applications. Acting as the authorization server, and with the approval of the user (the resource owner), your Auth0 tenant can provide an Access Token (typically expressed as a [JWT](/jwt)) to either a first-party or a third-party application (client) so that it can access a protected resources hosted by a resource server on behalf of the resource owner. The issued Access Token typically being passed as the Bearer token in the HTTP Authorization header sent to an [API](/api-auth/why-use-access-tokens-to-secure-apis).
 
-Whether you have a single API, or a suite of microservice APIs, you can leverage the Access Tokens that Auth0 can provide in order to [secure access to your service(s)](/api-auth/why-use-access-tokens-to-secure-apis). Though relatively easy to set this up - via the [Auth0 Dashboard](/apis) and also via the [Auth0 Management API] (/api/management/v2#!/Resource_Servers/post_resource_servers) - it's important to review the different application scenarios and API layouts to determine the best architecture for your system.
+Whether you have a single API, or perhaps a suite of logically related [microservice APIs](/api-auth/tutorials/represent-multiple-apis), you can leverage the Access Tokens that Auth0 can provide in order to [secure access to your service(s)](/api-auth/why-use-access-tokens-to-secure-apis). Though relatively easy to set this up - via the [Auth0 Dashboard](/apis) and also via the [Auth0 Management API] (/api/management/v2#!/Resource_Servers/post_resource_servers) - it's important to review the different application scenarios and API layouts to determine the best architecture for your system.
 
 OAuth2 was designed specifically with third-party access in mind, that is: a user (resource owner) who wants to use an application (a client) that does not belong to the same organization as the service that provides the user's data (the reseource server). In this scenario, when the application needs to access data that the user owns it redirects to the organization where the user’s data resides, which in turn authenticates the user and then prompts the user to give the application permission to access their data. This prompting for permission is typically referred to as providing "[consent](/api-auth/user-consent)" and is a large part of what providing support for ["third party" application interaction](/scopes/current/api-scopes#example-an-api-called-by-a-third-party-application) entails.
 
@@ -82,15 +82,17 @@ Alternatively, you may have data relating to a user for which additional [functi
 
 ### Access Token Claims
 
+As is the case with an ID Token, you can [add custom claims to an Access Token](/tokens/add-custom-claims) through the use of Auth0 Rule extensibility. Once added, you API can then verify the Access Token for the necessary claims and either allow or prevent access to certain functionality as required. Note that though the process of adding custom claims via Rule is streamlined, the Rule engine is flexible and allows you to write custom code that may have negative effects. So it’s important to follow our [rules best practice](/best-practices/rules) guidance anytime you utilize this extensibility feature.  
 
 ### Access Token Scopes
 
-[OAuth2 Scopes](/scopes/current/api-scopes) are typically used as the mechanism by which an API can determine what actions can be performed on behalf of a user. Scopes can be added on a per API basis (via either the Auth0 Dashboard or the Auth0 Management API) in order to [define specifc access permissions](/dashboard/guides/apis/add-permissions-apis), and can be manipulated via Auth0 Rule extensibility  Again, the scopes an application should request should depend on what functionality the application requires; once the requested scopes are authorized, they will be returned in the access token and can be subsequently verified by the [API](/api-auth/tutorials/verify-access-token).
+[OAuth2 Scopes](/scopes/current/api-scopes) are typically used as the mechanism by which an API can determine what actions can be performed on behalf of a user. Scopes can be added on a per API basis (via either the Auth0 Dashboard or the Auth0 Management API) in order to [define specifc access permissions](/dashboard/guides/apis/add-permissions-apis), and can also be manipulated via Auth0 extensibility (e.g. Rules, as in [this](/architecture-scenarios/spa-api/part-2#create-a-rule-to-validate-token-scopes) example) Again, the scopes an application requests should depend on what functionality the application needs to perform; once the requested scopes are authorized, they will be returned in the Access Token which can be subsequently verified by the [API](/api-auth/tutorials/verify-access-token).
 
+::: panel Best Practice
+Even though you have the ability to fully manipulate Access Token Scopes via Auth0 extensibility, as a security best practice you should prefer to only remove scopes which are not authorized and should refrain from adding scopes that were not requested.
+:::
 
-## Role Based Access Control (RBAC)
-
-Role-based access control (RBAC) refers to the idea of assigning authorization permissions to users based on their role within an organization. RBAC provides for more fine-grained control and offers a simple, manageable approach to access management that is less prone to error than assigning permissions to users individually.
+Though scopes are often used as a way for an authorization server to enforce permissions for users, it can become [tricky when you use them in this manner](https://auth0.com/blog/on-the-nature-of-oauth2-scopes/). Auth0 therefore recommends that you use scopes for their intended purpose (i.e. delegating permission to an application) and use [custom claims](#access-token-claims) for your role or permission based access control.
 
 ## Planning
 
