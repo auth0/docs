@@ -46,10 +46,7 @@ In addition, Auth0 has out-of-box support for [Role Based Access Control (RBAC)]
 
 ## Application Integration
 
-In this scenario, acting as the authorization server and with the approval of the user, your Auth0 tenant can provide an ID Token (typically expressed as a [JWT](/jwt)) as an indicator of authorized access to an application. 
-
-
-either a first-party or a third-party application (client) so that it can access a protected resources hosted by a resource server on behalf of the resource owner. The issued Access Token typically being passed as the Bearer token in the HTTP Authorization header sent to an [API](/api-auth/why-use-access-tokens-to-secure-apis).
+In this scenario, your Auth0 tenant provides a token as an indicator of authorized access to an application. For applications utilizing OpenID Connect ([OIDC](/protocols/oidc)) - the industry-standard protocol we've found most used when it comes to customer facing applications - this would be an ID Token, typically expressed as a [JWT](/jwt).
 
 ## ID Token Claims 
 
