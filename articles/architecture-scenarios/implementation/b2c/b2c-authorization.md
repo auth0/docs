@@ -35,10 +35,10 @@ Auth0 provides coarse-grained authorization by restricting access to certain app
 * For an application using OpenID Connect ([OIDC](/protocols/oidc)), it would prevent the allocation of the [ID Token](/tokens/id-token) to authorize access. Similarly, allocation of any OAuth2 [Access Tokens](/tokens/overview-access-tokens), used when calling an [API](/api-auth/why-use-access-tokens-to-secure-apis), could be prevented as described in this [example](/api-auth/restrict-access-api#example-deny-access-to-anyone-calling-the-api).
 
 ::: panel Best Practice
-In the same way that [OIDC](/protocols/oidc) is the most commonly used industry-standard protocol for authentication in customer facing applications, we typically find that [OAuth2](protocols/oauth2) is the most commonly used industry-standard protocol for authorization.
+In the same way that [OIDC](/protocols/oidc) is the most commonly used industry-standard protocol for authentication in customer facing applications, we find that [OAuth2](protocols/oauth2) is the most commonly used industry-standard protocol for authorization.
 :::
 
-Auth0 also provides fine-grained access control at both an application level and an API level. For [application level integration](#application-integration). Auth0 allows [custom claims](#id-token-claims) to be added to an ID Token, which your application can then verifiy and subsequently use to enforce access control. In this case you will need to decide what information will be required in order for your application to make access control decisions.
+Auth0 also provides fine-grained access control at both an application level and an API level. For [application level integration](#application-integration), Auth0 allows you to add [custom claims](#id-token-claims) to an ID Token, which your application can then verifiy and subsequently use to enforce access control. In this case you will need to decide what information you require for your application to make access control decisions.
 
 ::: warning
 When deciding what data to include in OIDC tokens, consider token size, especially if you are passing the token in the URL. Even if you are not passing tokens in the URL, you will also need to consider the potential of exposing sensitive PII (Personally Identifiable Information).
