@@ -416,7 +416,7 @@ Authorization: Bearer {token}
 Content-Type: application/json
 {
   "name":     ""
-  "strategy": "waad|google-apps|adfs|PingFederate|samlp|auth0",
+  "strategy": "waad|g-suite|adfs|PingFederate|samlp|auth0",
   "options":   {
     "tenant_domain":
     "domain_aliases":
@@ -443,7 +443,7 @@ Content-Type: application/json
 </div>
 
 Updates a connection. The body of the request must include the `options` object with the connection parameters and the `status`.
-The request's body depends on the strategy that was used to create the connection. Select a strategy: waad google-apps adfs PingFederate samlp auth0
+The request's body depends on the strategy that was used to create the connection. Select a strategy: waad g-suite adfs PingFederate samlp auth0
 
 ```text
 PUT /api/connections/{connection-name}

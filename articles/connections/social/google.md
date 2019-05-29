@@ -66,7 +66,7 @@ If your client requests sensitive OAuth scopes, it may be [subject to review by 
 
 ## 2. Enable the Admin SDK Service
 
-If you are planning to connect to Google Apps enterprise domains, you will need to enable the **Admin SDK** service.
+If you are planning to connect to G Suite enterprise domains, you will need to enable the **Admin SDK** service.
 
 1. Navigate to the **Library** page of the API Manager.
 

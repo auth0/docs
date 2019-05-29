@@ -90,7 +90,7 @@ Connections are sources of users and they can be of the following types:
 
 - [Database connections](/connections/database): Users log in with username and passwords, stored either in the Auth0 cloud or your own database
 - [Social logins](/identityproviders#social): Google, Facebook, Twitter, and more
-- [Enterprise directories](/identityproviders#enterprise): LDAP, Google Apps, Office 365, ADFS, AD, SAML-P, WS-Federation, and more
+- [Enterprise directories](/identityproviders#enterprise): LDAP, G Suite, Office 365, ADFS, AD, SAML-P, WS-Federation, and more
 - [Passwordless systems](/connections/passwordless): Users log in with one-time codes, sent via SMS or email
 
 Each connection can be shared among multiple applications. You can configure any number of connections, and then choose which of them to enable for each application.

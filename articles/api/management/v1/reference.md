@@ -112,12 +112,12 @@ The body of the response is a `connection` object formatted as follows:
 | Strategy | For Customers Using |
 |:---------|:--------------------|
 | `adfs` | On Premises Active Directory or any WS-Federation server |
-| `google-apps` | G Suite |
+| `g-suite` | G Suite |
 | `google-oauth2` |Google (through the OAuth2 protocol) |
 | `office365` | Office 365 and Microsoft Azure Active Directory |
 | `windowslive` | Microsoft Account (formerly LiveID) |
 
-When implementing the `office365`, `google-apps` or `adfs` strategies, the following properties are added to the connection object:
+When implementing the `office365`, `g-suite` or `adfs` strategies, the following properties are added to the connection object:
 
 ```text
 provisioning_ticket: TICKET
@@ -330,7 +330,7 @@ The body of the request is formatted as a `connection` object. For example, the 
   "tenant_domain": GOOG-APP-DOMAIN,
   "ext_groups":true //Optional
   },
-  "strategy": "google-apps"
+  "strategy": "g-suite"
 };
 ```
 
