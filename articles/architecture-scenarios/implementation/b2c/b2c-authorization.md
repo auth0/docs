@@ -48,15 +48,15 @@ Additionally, Auth0 has out-of-box support for [Role Based Access Control (RBAC)
 
 In this scenario, your Auth0 tenant provides a token as an indicator of authorized access to an application. For applications utilizing OpenID Connect ([OIDC](/protocols/oidc)) - the industry-standard protocol we've found most used when it comes to customer facing applications - this would be an ID Token, typically expressed as a [JWT](/jwt).
 
-## ID Token Claims 
+### ID Token Claims 
 
-Through the use of Rule extensibility, Auth0 allows you to easily [add custom claims to an ID Token](/tokens/add-custom-claims) based on a user’s metadata.  Once added, you application can then verify the ID Token for the necessary claims and either allow or prevent access to certain functionality as required. Note that though the process of adding custom claims via Rule is streamlined, the Rule engine is flexible and allows you to write custom code that may have negative effects. So it’s important to follow our [rules best practice](/best-practices/rules) guidance anytime you utilize this extensibility feature.  
+Through the use of Rule extensibility, Auth0 allows you to easily [add custom claims to an ID Token](/tokens/add-custom-claims) based on, for example, a user’s [Metadata](/users/concepts/overview-user-metadata) content. Your application can then verify the ID Token for the necessary claims, and either allow or prevent access to certain functionality as required. Note that though the process of adding custom claims via Rule is streamlined, the Rule engine is flexible and allows you to write custom code that may have negative effects. So it’s important to follow our [rules best practice](/best-practices/rules) guidance anytime you utilize this extensibility feature.  
 
 ::: panel Best Practice
 When you are considering adding custom claims, we recommend that you choose to store any data you may need to include within the claims in the user's `user` or `app` [Metadata](/users/concepts/overview-user-metadata). Doing so prevents you from needing to call out to an external API to fetch the data, which can negatively impact the performance and scalability of the login sequence. Remember to check out our [metadata best practices](architecture-scenarios/implementation/b2c/b2c-profile-mgmt#metadata) too.
 :::
 
-## ID Token Scopes
+### ID Token Scopes
 
 [OIDC Scopes](/scopes/current/oidc-scopes) are typically used by an application to authorize access to a user's details during authentication. Each of the pre-defined scopes returns the set of [standard claims](/scopes/current/oidc-scopes#standard-claims) where defined, and as described in the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). The scopes an application should request depend on which user attributes the application needs; once the requested scopes are authorized, the claims are returned in the ID Token and are also made available via the [/userinfo](https://auth0.com/docs/api/authentication#get-user-info) endpoint.
 
