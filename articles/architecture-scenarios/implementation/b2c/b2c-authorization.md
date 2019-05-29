@@ -16,7 +16,7 @@ It’s important to start by distinguishing between Authentication, Authorizatio
 
 * **Authentication**: the process of determining if the user is who they say they are.
 * **Authorization**: the proceess of determining what the user is allowed to do in the system.
-* **Access Control**: the process of limiting a user to only the actions permitted, based on a combination of who the user is, what they are allowed to do in the system, and their consent.
+    * **Access Control**: the process of limiting a user to only the actions permitted, based on a combination of who the user is, what they are allowed to do in the system, and their consent.
 
 Whatever your use case, there are a number of things you will want to consider when looking at functionality and workflow when it comes to authorization:
 
