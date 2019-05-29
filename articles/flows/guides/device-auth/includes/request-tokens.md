@@ -4,7 +4,7 @@ While you are waiting for the user to activate the device, begin polling the tok
 
 To avoid errors due to network latency, you should start counting each interval after receipt of the last polling request's response. 
 
-### Example POST to token URL
+### Example request token POST to token URL
 
 ```har
 {
@@ -19,7 +19,7 @@ To avoid errors due to network latency, you should start counting each interval 
 }
 ```
 
-#### Parameters
+#### Token Request Parameters
 
 | Parameter Name  | Description |
 |-----------------|-------------|
@@ -27,7 +27,7 @@ To avoid errors due to network latency, you should start counting each interval 
 | `device_code`   | The `device_code` retrieved in the previous step of this tutorial. |
 | `client_id`     | Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
 
-### Responses
+### Token Responses
 
 While you wait for the user to authorize the device, you may receive a few different `HTTP 4xx` responses:
 

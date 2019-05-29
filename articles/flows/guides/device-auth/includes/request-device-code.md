@@ -19,7 +19,7 @@ To get the device code, your app must request a code from the [device code URL](
 }
 ```
 
-#### Parameters
+#### Device Code Parameters
 
 Note that when requesting a device code to call a custom API, you:
 
@@ -36,7 +36,7 @@ Note that when requesting a device code to call a custom API, you:
 | `scope`         | The [scopes](/scopes) for which you want to request authorization. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, [custom claims](/scopes/current/custom-claims) conforming to a [namespaced format](/api-auth/tutorials/adoption/scope-custom-claims#custom-claims), or any [scopes supported by the target API](/scopes/current/api-scopes) (e.g., `read:contacts`). Include `openid` to get an ID Token or to be able to use the [/userinfo endpoint](/api/authentication#user-profile) to retrieve profile information for the user. Include `offline_access` to get a Refresh Token (make sure that the __Allow Offline Access__ field is enabled in the [Application Settings](${manage_url}/#/apis)). |
 |`audience`      | The unique identifier of the API your app wants to access. Use the **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial. |
 
-### Response
+### Device Code Response
 
 If all goes well, you'll receive an HTTP 200 response with a payload containing `device_code`, `user_code`, `verification_uri`, and `expires_in`, `interval`, and `verification_uri_complete` values:
 

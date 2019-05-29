@@ -9,7 +9,7 @@ You can use the Refresh Token to get a new Access Token. Usually, a user will ne
 
 To refresh your token, make a `POST` request to the `/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
 
-### Example POST to token URL
+### Example refresh token POST to token URL
 
 ```har
 {
@@ -24,7 +24,7 @@ To refresh your token, make a `POST` request to the `/token` endpoint in the Aut
 }
 ```
 
-#### Parameters
+#### Refresh Token Request Parameters
 
 | Parameter Name  | Description |
 |-----------------|-------------|
@@ -33,7 +33,7 @@ To refresh your token, make a `POST` request to the `/token` endpoint in the Aut
 | `refresh_token` | The Refresh Token to use. |
 | `scope`         | (Optional) A space-delimited list of requested scope permissions. If not sent, the original scopes will be used; otherwise you can request a reduced set of scopes. |
 
-### Response
+### Refresh Token Response
 
 If all goes well, you'll receive an `HTTP 200` response with a payload containing a new `access_token`, `id_token` (optionally), token lifetime in seconds (`expires_in`), granted `scope` values, and `token_type`:
 
