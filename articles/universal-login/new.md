@@ -15,7 +15,9 @@ Auth0's New [Universal Login](/universal-login) experience provides a reimagined
 
 During the Beta period, we'll respond to customer feedback [in a dedicated section](https://community.auth0.com/t/new-universal-login-experience-beta/23979) of our Community Site.
 
-The key structural difference with the [Classic Experience](/universal-login/classic) is that while the former uses Javascript widgets in all the pages, the New Experience is rendered on the server and does not require Javascript. From a functional perspective, there is still a [feature gap](/universal-login/new-experience-limitations) between the New and Classic experience, and some pages in the New Experience have certain differences detailed below.
+The key structural difference with the [Classic Experience](/universal-login/classic) is that while the former uses Javascript widgets in all the pages, the New Experience is rendered on the server and does not require Javascript. 
+
+From a functional perspective, it has much better support for [Localization](/universal-login/i18n). However, there is still a [feature gap](/universal-login/new-experience-limitations) with the Classic experience, and some pages in the New Experience have certain differences detailed below.
 
 ## Login
 
