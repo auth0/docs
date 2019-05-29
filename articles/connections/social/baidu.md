@@ -37,6 +37,8 @@ Use the following value for the callback URL:
 
   https://${account.namespace}/login/callback
 
+  <%= include('../_find-auth0-domain-redirects') %>
+
 Select your application on the console, and then click on `API 管理 -> 安全设置`
 
 ![](/media/articles/connections/social/baidu/baidu-register-3.png)

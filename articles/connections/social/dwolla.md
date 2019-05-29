@@ -31,6 +31,8 @@ Complete the information on this page. Enter the following URL in the **OAuth Re
 
   https://${account.namespace}/login/callback
 
+  <%= include('../_find-auth0-domain-redirects') %>
+
 ![](/media/articles/connections/social/dwolla/dwolla-2.png)
 
 Click **Create application**.

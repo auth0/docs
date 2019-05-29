@@ -43,6 +43,8 @@ Enter this URL as the `redirect_uri`:
 
   https://${account.namespace}/login/callback
 
+  <%= include('../_find-auth0-domain-redirects') %>
+
 While on this page, make sure to define the appropriate permission **Scopes** for your app.
 
 ## 3. Copy your *Client Id* and *Client Secret*

@@ -39,6 +39,8 @@ In the **Base domain** field, enter the following:
 
 `${account.namespace}`
 
+<%= include('../_find-auth0-domain-redirects') %>
+
 ![](/media/articles/connections/social/vkontakte/vkontakte-create-app.png)
 
 Click **Connect Site** to create the app.

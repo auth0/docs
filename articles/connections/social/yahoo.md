@@ -36,6 +36,8 @@ In the **Callback Domain** field enter:
 
 `https://${account.namespace}`
 
+<%= include('../_find-auth0-domain-redirects') %>
+
 For the **API Permissions** make sure to select at least one user data API:
 
 ![API Permissions](/media/articles/connections/social/yahoo/api-permissions.png)
