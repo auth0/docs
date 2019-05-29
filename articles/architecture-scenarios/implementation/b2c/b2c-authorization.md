@@ -20,11 +20,11 @@ It’s important to start by distinguishing between Authentication, Authorizatio
 
 Whatever your use case, there are a number of things you will want to consider when looking at functionality and workflow:
 
-* Are there scenarios where a user could be rejected access to an entire application or API?
+* Are there scenarios where a access could be rejected to an entire application or API?
 * Will I be providing APIs that can be accessed by third-party applications?
 * Will my APIs also be accessed by our own (first-party) applications?
 * Will my application be calling a third-party API?
-* Will my Applications and/or APIs be enforcing role or permission based access control?
+* Should my applications and/or APIs be enforcing role or permission based access control?
  
 Auth0 can provide for corse grained authorization by restricting access to certain applications or APIs based on a user's attribute(s): a [Rule](/rules) can be built that returns an `UnauthorizedError` when, say, a user attempts access at the incorrect time (as in [this](/authorization/concepts/sample-use-cases-rules#allow-access-only-on-weekdays-for-a-specific-application) example) or doesn’t, say, have the right claim(s) contained in their [Metadata](/users/concepts/overview-user-metadata). 
 
