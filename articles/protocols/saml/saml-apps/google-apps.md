@@ -1,10 +1,10 @@
 ---
-title: Google Apps SAML Configuration
-description: Google Apps SAML Configuration
+title: G Suite SAML Configuration
+description: G Suite SAML Configuration
 topics:
     - saml
     - identity-providers
-    - google-apps
+    - g-suite
 contentType:
   - how-to
 useCase:

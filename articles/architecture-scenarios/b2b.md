@@ -25,7 +25,7 @@ This guide outlines some common requirements for business to business (B2B) appl
 
 ## Enterprise providers
 
-Most businesses already have a corporate identity repository which has information on all the employee users and user profile information. It may also contain information on partners and contractors. A common requirement for the B2B scenario, therefore, is to allow such customers to log in to your B2B application via their [Enterprise provider](/identityproviders#enterprise) such as SAML2 providers, ADFS, Google Apps, Azure AD or an on-premise corporate directory service.
+Most businesses already have a corporate identity repository which has information on all the employee users and user profile information. It may also contain information on partners and contractors. A common requirement for the B2B scenario, therefore, is to allow such customers to log in to your B2B application via their [Enterprise provider](/identityproviders#enterprise) such as SAML2 providers, ADFS, G Suite, Azure AD or an on-premise corporate directory service.
 
 This is attractive to your customers because it allows them to avoid creating more unmanaged usernames and passwords for cloud applications. They can create, update and delete accounts in their corporate systems and have the changes immediately reflected in their B2B cloud applications, ensuring tight control for compliance. 
 

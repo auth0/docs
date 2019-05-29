@@ -24,7 +24,7 @@ The following properties are available for the `context` object.
 | `context.clientName` | The name of the application (as defined on the dashboard). |
 | `context.clientMetadata` | An object for holding other application properties. Its keys and values are strings. |
 | `context.connectionID` | A string containing the connection's unique identifier |
-| `context.connection` | The name of the connection used to authenticate the user (such as: `twitter` or `some-google-apps-domain`) |
+| `context.connection` | The name of the connection used to authenticate the user (such as: `twitter` or `some-g-suite-domain`) |
 | `context.connectionStrategy` | The type of connection. For social connection `connectionStrategy` === `connection`. For enterprise connections, the strategy will be `waad` (Windows Azure AD), `ad` (Active Directory/LDAP), `auth0` (database connections), and so on. |
 | `context.connectionOptions` | An object representing the options defined on the connection. `connectionOptions.tenant_domain` is a string containing the domain being used for authentication when using an Enterprise connection. `connectionOptions.domain_aliases` is an array containing the optional domains registered as aliases in addition to the primary domain (specified in the `connectionOptions.tenant_domain` property). |
 | `context.connectionMetadata` | An object representing metadata defined on the connection. Its keys and values are strings. |
