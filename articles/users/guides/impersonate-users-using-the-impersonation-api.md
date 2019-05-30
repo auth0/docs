@@ -50,7 +50,7 @@ The following steps assume that you have two apps, `app1` and `app2`, and you wa
 
    The data part of the request includes the following parameters:
 
-   - `protocol`: The protocol to use against the identity provider. It could be `oauth2` again or something else. (for example, Office 365 uses WS-Federation, Google Apps uses OAuth2, AD will use LDAP or Kerberos).
+   - `protocol`: The protocol to use against the identity provider. It could be `oauth2` again or something else. (for example, Office 365 uses WS-Federation, G Suite uses OAuth2, AD will use LDAP or Kerberos).
 
    - `impersonator_id`: The `user_id` of the impersonator, the user from `app1` that wants to impersonate a user from `app2`.
 

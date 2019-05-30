@@ -12,7 +12,7 @@ useCase:
 # Auth0 Service Level Description
 
 ::: warning
-This document summarizes the key elements of Auth0’s Service Level Agreement. For full details, please see the [Auth0 Service Level Agreement](https://auth0.com/legal).
+This document summarizes the key elements of Auth0’s Service Level Agreement. For full details, please see the **Support Program and Service Levels** in [Auth0 Legal](https://auth0.com/legal).
 :::
 
 The average availability of the Auth0 Platform in each month will be at least 99.90%.

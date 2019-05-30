@@ -23,7 +23,7 @@ useCase:
 
 <%= include('../_includes/_lock-version-1') %>
 
-Auth0 is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
+Auth0 is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, G Suite and Salesforce.
 
 ## Key features
 

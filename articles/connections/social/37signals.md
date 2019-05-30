@@ -34,6 +34,8 @@ On the next page, select which 37Signals applications you want to access, and en
 
     https://${account.namespace}/login/callback
 
+    <%= include('../_find-auth0-domain-redirects') %>
+
 ![](/media/articles/connections/social/37signals/37signals-register-2.png)
 
 ## 3. Generate your *Client Id* and *Client Secret*

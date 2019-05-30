@@ -567,15 +567,15 @@ module.exports = [
   },
   {
     from: '/clients/how-to-rotate-client-secret',
-    to: '/applications/how-to-rotate-client-secret'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/applications/how-to-rotate-client-secret',
-    to: '/applications/guides/rotate-client-secret-dashboard'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/applications/how-to-rotate-application-secret',
-    to: '/applications/how-to-rotate-client-secret'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/clients/client-settings',
@@ -723,7 +723,7 @@ module.exports = [
     to: '/api/management/v2/changes'
   },
   {
-    from: ['/tokens/apiv2', '/api/v2/tokens'],
+    from: ['/tokens/apiv2', '/api/v2/tokens', '/api/management/v2/concepts/tokens'],
     to: '/api/management/v2/tokens'
   },
   {
@@ -770,6 +770,10 @@ module.exports = [
   {
     from: '/api/v2/user-search',
     to: '/api/management/v2/user-search'
+  },
+  {
+    from: '/users/normalized/auth0/retrieve-user-profiles',
+    to: `/users/search`
   },
   {
     from: [
@@ -870,7 +874,7 @@ module.exports = [
   },
   {
     from: '/update-client-secret',
-    to: '/tutorials/how-to-update-applications-client-secret'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/test-partner-connection',
@@ -1535,7 +1539,7 @@ module.exports = [
   },
   {
     from: '/tutorials/how-to-update-applications-client-secret',
-    to: '/applications/how-to-update-client-secret',
+    to: '/dashboard/guides/applications/rotate-client-secret',
   },
   {
     from: '/tutorials/using-auth0-to-secure-a-cli',
@@ -1671,7 +1675,7 @@ module.exports = [
   },
   {
     from: '/clients/how-to-update-client-secret',
-    to: '/applications/how-to-rotate-client-secret',
+    to: '/dashboard/guides/applications/rotate-client-secret',
   },
   {
     from: '/i18n/i18n-custom-login-page',
@@ -2135,10 +2139,6 @@ module.exports = [
       to: '/protocols/saml/saml-apps/github-server'
     },
     {
-      from: '/enterprise/private-cloud/overview',
-      to: '/private-cloud'
-    },
-    {
       from: '/tokens/get-access-tokens',
       to: '/tokens/guides/access-token/get-access-tokens'
     },
@@ -2165,5 +2165,17 @@ module.exports = [
     {
       from: '/authorization/guides/dashboard/enable-rbac',
       to: '/dashboard/guides/apis/enable-rbac'
+    },
+    {
+      from: '/users/references/user-data-storage-best-practices',
+      to: '/best-practices/user-data-storage-best-practices'
+    },
+    {
+      from: '/enterprise/private-cloud/overview',
+      to: '/private-saas-deployment'
+    },
+    {
+      from: '/private-cloud',
+      to: '/private-saas-deployment'
     }
 ];

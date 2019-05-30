@@ -19,7 +19,7 @@ Auth0 keeps tenant [logs](/logs) for a limited amount of time. To get log data a
 
 ## Set up your own email provider and customize email templates
 
-[Auth0 provides a test email provider](/email) so you can test default welcome and email verification messages during tenant setup. The test provider can only send a limited amount of emails, so you should [configure your own mail server](/email/providers).
+[Auth0 provides a test email provider](/email) so you can test default welcome and email verification messages during tenant setup. The test provider can only send a limited amount of emails, so you should [configure your own mail server](/email/providers). Additionally, we recommend a unique email provider account per tenant. Sharing an email account between tenants can be a potential source of problems or outages for one tenant when making changes to the service intended for another.
 
 Also, make sure to [configure and customize the templates](/email/templates) for emails sent from Auth0. These include email verification messages, welcome messages, password reset messages, et cetera. For custom templates provide a "from” address, a clear subject, your custom content, and a link timeout for emails with a link (such as a password reset link).
 

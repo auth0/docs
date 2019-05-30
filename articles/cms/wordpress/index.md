@@ -22,7 +22,7 @@ Auth0 provides a WordPress Plugin to integrate your sites with your Auth0 accoun
 
 Login features are implemented through a new form (powered by Auth0) that enables:
 
-- Single Sign On with Enterprise Directories (LDAP, AD, Google Apps, Office365 and SAML Provider)
+- Single Sign On with Enterprise Directories (LDAP, AD, G Suite, Office365, and SAML Provider)
 - Single Sign On with over 30 [Social Providers](/identityproviders)
 - Single Sign On between WordPress installs and other applications
 - User Management Dashboard
@@ -30,6 +30,7 @@ Login features are implemented through a new form (powered by Auth0) that enable
 - Optional Passwordless Authentication
 - Reporting and Analytics
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nVYYEJSUrHw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Keep Reading
 

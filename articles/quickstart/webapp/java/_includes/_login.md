@@ -40,6 +40,8 @@ Lastly, the project defines a helper class: the `AuthenticationControllerProvide
 Let's begin by creating the `AuthenticationController` instance. From any Servlet class we can obtain the ServletConfig instance and read the properties defined in the `web.xml` file. Let's read our application properties and create a new instance of this controller:
 
 ```java
+// src/main/java/com/auth0/example/AuthenticationControllerProvider.java
+
 String domain = getServletConfig().getServletContext().getInitParameter("com.auth0.domain");
 String clientId = getServletConfig().getServletContext().getInitParameter("com.auth0.clientId");
 String clientSecret = getServletConfig().getServletContext().getInitParameter("com.auth0.clientSecret");
@@ -51,6 +53,8 @@ AuthenticationController controller = AuthenticationController.newBuilder(domain
 To authenticate the users we will redirect them to the **Auth0 Login Page** which uses the best version available of [Lock](/lock). This page is what we call the "Authorize URL". By using this library we can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where our app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. Finally, we will request the "User Info" *audience* in order to obtain an Open ID Connect compliant response. After we create the Authorize URL, we redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginServlet` class of our sample.
 
 ```java
+// src/main/java/com/auth0/example/LoginServlet.java
+
 @Override
 protected void doGet(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
     String redirectUri = req.getScheme() + "://" + req.getServerName();
@@ -69,9 +73,21 @@ protected void doGet(final HttpServletRequest req, final HttpServletResponse res
 After the user logs in the result will be received in our `CallbackServlet`, either via a GET or a POST Http method. The request holds the call context that we've previously set by generating the Authorize URL with the controller. When we pass it to the controller, we get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, we need to save the credentials somewhere we can access them later. We will use again the `HttpSession` of the request. A helper class called `SessionUtils` is included in the library to set and read values from a request's session.
 
 ```java
+// src/main/java/com/auth0/example/CallbackServlet.java
+
+@Override
 public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+    handle(req, res);
+}
+
+@Override
+public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+    handle(req, res);
+}
+
+private void handle(HttpServletRequest req, HttpServletResponse res) throws IOException {
     try {
-      //Parse the request
+        // Parse the request
         Tokens tokens = authenticationController.handle(req);
         SessionUtils.set(req, "accessToken", tokens.getAccessToken());
         SessionUtils.set(req, "idToken", tokens.getIdToken());
@@ -92,6 +108,8 @@ It is recommended to store the time in which we requested the tokens and the rec
 Now that the user is authenticated (the tokens exists), the `Auth0Filter` will allow them to access our protected resources. In the `HomeServlet` we obtain the tokens from the request's session and set them as the `userId` attribute so they can be used from the JSP code:
 
 ```java
+// src/main/java/com/auth0/example/HomeServlet.java
+
 protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
     final String accessToken = (String) SessionUtils.get(req, "accessToken");
     final String idToken = (String) SessionUtils.get(req, "idToken");
@@ -101,6 +119,40 @@ protected void doGet(HttpServletRequest req, HttpServletResponse res) throws Ser
         req.setAttribute("userId", idToken);
     }
     req.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(req, res);
+}
+```
+
+## Handle Logout
+
+To properly handle logout, we need to clear the session and log the user out of Auth0. This is handled in the `LogoutServlet` of our sample application.
+
+First, we clear the session by calling `request.getSession().invalidate()`. We then construct the logout URL, being sure to include the `returnTo` query parameter, which is where the user will be redirected to after logging out. Finally, we redirect the response to our logout URL.
+
+
+```java
+// src/main/java/com/auth0/example/LogoutServlet.java
+
+@Override
+protected void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
+    if (request.getSession() != null) {
+        request.getSession().invalidate();
+    }
+
+    String returnUrl = String.format("%s://%s", request.getScheme(), request.getServerName());
+    if ((request.getScheme().equals("http") && request.getServerPort() != 80) || (request.getScheme().equals("https") && request.getServerPort() != 443)) {
+        returnUrl += ":" + request.getServerPort();
+    }
+    returnUrl += "/login";
+
+    // Build logout URL like:
+    // https://{YOUR-DOMAIN}/v2/logout?client_id={YOUR-CLIENT-ID}&returnTo=http://localhost:3000/login
+    String logoutUrl = String.format(
+            "https://%s/v2/logout?client_id=%s&returnTo=%s",
+            domain,
+            clientId,
+            returnUrl
+    );
+    response.sendRedirect(logoutUrl);
 }
 ```
 

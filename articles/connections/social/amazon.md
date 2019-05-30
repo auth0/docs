@@ -48,6 +48,8 @@ and the callback address for your app should be:
 https://${account.namespace}/login/callback
 ```
 
+<%= include('../_find-auth0-domain-redirects') %>
+
 ## 4. Copy your Client Id and Client Secret
 
 Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Amazon**. Copy the `Client Id` and `Client Secret` from the **Web Settings** of your app on Amazon into the fields on this page on Auth0.

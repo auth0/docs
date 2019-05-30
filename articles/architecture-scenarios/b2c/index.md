@@ -43,6 +43,9 @@ In addition, Auth0 provides recommendations and best practice suggestions, and a
 You can find detailed guidance regarding specific functionality and use cases in our documentation or by speaking with your account representative or a member of our [Professional Services team](/services) here at Auth0.
 :::
 
+Auth0 also provides helpful implementation planning [checklists](/architecture-scenarios/checklists) that you can use to organize your implementation tasks. Though all of these may not apply to you, there are six checklists, each of which is provided in Google Sheets format and aligns with a particular phase of a typical SDLC (Software Development Life Cycle).
+>>>>>>> master:articles/architecture-scenarios/b2c.md
+
 ## Keep reading
 
 * [Architecture](/architecture-scenarios/b2c/b2c-architecture)

@@ -30,4 +30,8 @@ If you do not choose to enable tenant-level SSO, you may [enable it per applicat
 
 ![View Log In Session Management Settings](/media/articles/sessions/tenant-settings-advanced-login-session-management.png)
 
+::: warning
+If you do not see this setting available in the Dashboard, you already have Seamless SSO enabled; this toggle is strictly for legacy tenants.
+:::
+
 Once finished, you should also [configure your session lifetime settings](/dashboard/guides/tenants/configure-session-lifetime-settings).

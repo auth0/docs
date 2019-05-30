@@ -39,6 +39,8 @@ Access Token lifetime (アクセストークン有効期間 秒) | The lifetime 
 Redirect URI (リダイレクトURI) | The callback url for your application (`https://${account.namespace}/login/callback`)
 Available scopes (利用可能スコープ) | The scopes for the information you are requesting for your app.
 
+<%= include('../_find-auth0-domain-redirects') %>
+
 ![dAccount RP Site Registration](/media/articles/connections/social/docomo/rp-register.png)
 
 When finished, click **Register (登録)**.
