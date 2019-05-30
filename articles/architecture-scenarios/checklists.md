@@ -12,7 +12,7 @@ useCase:
 ---
 # Implementation Checklists
 
-Auth0 recommends that you break your implementation into six phases to plan and complete your implementation. 
+Auth0 provides a number of checklist in Google Sheets format, each of which aligns with a particular phase of a typical SDLC (Software Development Life Cycle). Though all of these may not apply to you, it is recommended that you use applicable checklists as part of your planning and implementation.  
 
 * [Analyze](#analyze)
 * [Design](#design)
@@ -20,8 +20,6 @@ Auth0 recommends that you break your implementation into six phases to plan and 
 * [Test](#test)
 * [Deploy](#deploy) 
 * [Monitor](#monitor)
-
-Auth0 provides a checklist (Google Sheets format) for each phase with links to pertinent Auth0 documentation. Not all parts of each phase may apply to you.
 
 ## How to use the checklists
 
