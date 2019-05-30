@@ -32,7 +32,7 @@ Auth0 provides coarse-grained authorization by restricting access to certain app
 In the same way that [OIDC](/protocols/oidc) is the most commonly used industry-standard protocol for authentication in customer facing applications, we find that [OAuth2](protocols/oauth2) is the most commonly used industry-standard protocol for authorization.
 :::
 
-Auth0 also provides fine-grained access control at both an application level and an API level. For [application level integration](#application-integration), Auth0 allows you to add [custom claims](#id-token-claims) to an ID Token, which your application can then verifiy and subsequently use to enforce access control. In this case you will need to decide what information you require for your application to make access control decisions.
+Auth0 also can provide the authorization information needed so the application or API can apply fine-grained access control. For [application level integration](#application-integration), Auth0 allows you to add [custom claims](#id-token-claims) to an ID Token, which your application can then verify and subsequently use to enforce access control. In this case you will need to decide what information you require for your application to make access control decisions.
 
 ::: warning
 When deciding what data to include in OIDC tokens, consider token size, especially if you are passing the token in the URL. Even if you are not passing tokens in the URL, you will also need to consider the potential of exposing sensitive PII (Personally Identifiable Information).
