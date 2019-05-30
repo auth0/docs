@@ -34,14 +34,14 @@ When you embark on your journey to integrate with Auth0, there are many things f
 
 ## Implementation checklists
 
-Auth0 also provides helpful implementation planning [checklists](/architecture-scenarios/checklists) that you can use to organize your implementation tasks. Though all may apply to you, there are six checklists, each of which is provided in Google Sheets format and aligns with a particular phase of a typical SDLC (Software Development Life Cycle):
+Auth0 also provides helpful implementation planning [checklists](/architecture-scenarios/checklists) that you can use to organize your implementation tasks. Though all of these may not apply to you, there are six checklists, each of which is provided in Google Sheets format and aligns with a particular phase of a typical SDLC (Software Development Life Cycle):
 
-* [Analyze](/architecture-scenarios/checklists#analyze)
-* [Design](/architecture-scenarios/checklists#design)
-* [Build](/architecture-scenarios/checklists#build)
-* [Test](/architecture-scenarios/checklists#test)
-* [Deploy](/architecture-scenarios/checklists#deploy)
-* [Monitor](/architecture-scenarios/checklists#monitor)
+* Analyze
+* Design
+* Build
+* Test
+* Deploy
+* Monitor
 
 ## Keep reading
 
