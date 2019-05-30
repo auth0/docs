@@ -56,7 +56,7 @@ Use of Metadata should follow Auth0 [best practice guidance](/best-practices/use
 Metadata can be manipulated via both the Auth0 Management API and the Auth0 Authentication API, and the [documentation provided](/users/guides/manage-user-metadata) describes further the endpoints for doing this. As is the case when managing the Normalized User Profile, calls to the Management API for manipulating Metadata will require use of an [Access Token](api/management/v2/tokens).
 
 ::: warning
-<%= include('../../_includes/_rate-limit-policy.md') %>
+<%= include('../_includes/_rate-limit-policy.md') %>
 :::
 
 ### User metadata

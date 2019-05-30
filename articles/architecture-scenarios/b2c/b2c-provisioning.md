@@ -42,7 +42,7 @@ Auth0 [Universal Login](/hosted-pages/login), as well Auth0 widgets such as [Loc
 <%= include('../_includes/_user-migration.md') %>
 
 ::: panel Best Practice
-<%= include('../../_includes/_rate-limit-policy.md') %>
+<%= include('../_includes/_rate-limit-policy.md') %>
 :::
 
 ### Identity store proxy
