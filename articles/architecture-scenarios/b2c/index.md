@@ -16,7 +16,7 @@ This guide focuses on how to integrate Auth0 within a Consumer Identity and Acce
 
 Customers using Auth0 for consumer-focused, also known as Business-to-Consumer (B2C), projects typically share a common set of goals and objectives, and in the sections that follow we'll focus on our experiences working with this shared set of expectations to help you deliver your solution efficiently.
 
-<%= include('./_includes/_read-in-entirety.md') %>
+<%= include('../_includes/_read-in-entirety.md') %>
 
 ## Ways to integrate Auth0 and how to choose
 

@@ -19,7 +19,7 @@ This guide focuses on how to integrate Auth0 within a Business to Business (B2B)
 
 Customers using Auth0 for B2B, regardless of vertical or market, typically share a common set of goals and objectives. In the sections that follow we'll distill our experience to help you deliver your solution effectively.
 
-<%= include('./_includes/_read-in-entirety.md') %>
+<%= include('../_includes/_read-in-entirety.md') %>
 
 ## Ways to integrate Auth0 and how to choose
 
