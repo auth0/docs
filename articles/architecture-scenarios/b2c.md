@@ -20,6 +20,12 @@ Customers using Auth0 for consumer-focused, also known as Business-to-Consumer (
 The information provided is relevant to **all** project stakeholders. We recommend reading through this guidance in its entirety at least once, even if you've already started your journey with Auth0.
 :::
 
+Throught this guide, Auth0 provides recommendations and best practice suggestions, and any time you come across a panel similar to the one above, or below, you should stop and consider the advice presented. These provide you with a set of high-level guidance and considerations, presented in an *ad hoc* way.
+
+::: panel Best Practice
+You can find detailed guidance regarding specific functionality and use cases in our documentation or by speaking with your account representative or a member of our [Professional Services team](/services) here at Auth0.
+:::
+
 ## Ways to integrate Auth0 and how to choose
 
 There are many different ways Auth0 can be integrated into the CIAM project architecture. Auth0's flexibility comprehensively supports many different use cases, however keep in mind that not every project requires 100% of the capabilities provided by Auth0.
@@ -28,22 +34,14 @@ When you embark on your journey to integrate with Auth0, there are many things f
 
 ## Implementation checklists
 
-Auth0 also provides helpful implementation planning [checklists](/architecture-scenarios/checklists) that you can use organize your implementation tasks. There are six checklists that cover the following implementation steps:
+Auth0 also provides helpful implementation planning [checklists](/architecture-scenarios/checklists) that you can use to organize your implementation tasks. Though all may apply to you, there are six checklists, each of which is provided in Google Sheets format and aligns with a particular phase of a typical SDLC (Software Development Life Cycle):
 
-* Analyze
-* Design
-* Build
-* Test
-* Deploy
-* Monitor
-
-## Best practices
-
-In addition, Auth0 provides recommendations and best practice suggestions, and any time you come across a panel similar to the one below you should stop and consider the advice presented. These provide you with a set of high-level guidance and best practice recommendations, presented in an *ad hoc* way.
-
-::: panel Best Practice
-You can find detailed guidance regarding specific functionality and use cases in our documentation or by speaking with your account representative or a member of our [Professional Services team](/services) here at Auth0.
-:::
+* [Analyze](/architecture-scenarios/checklists#analyze)
+* [Design](/architecture-scenarios/checklists#design)
+* [Build](/architecture-scenarios/checklists#build)
+* [Test](/architecture-scenarios/checklists#test)
+* [Deploy](/architecture-scenarios/checklists#deploy)
+* [Monitor](/architecture-scenarios/checklists#monitor)
 
 ## Keep reading
 
