@@ -68,30 +68,6 @@ However you end up provisioning the users for your database connection, the auth
 Collecting credentials only at the centralized login page will reduce the surface area for potential leak of user secrets. It will also reduce the need to collect credentials unnecessarily. See [Universal Login](#universal-login) for more information.
 :::
 
-## Social authentication
-
-The “bring your own identity” scenario offered by Facebook, Google, etc., is a valuable way of simplifying the user authentication experience without compromising security, and using [Universal Login](#universal-login) makes it easy to start adding support for [Social Connections](https://auth0.com/docs/identityproviders#social) with minimal disruption. 
-
-::: warning
-Auth0 provides a simple way to test social connections using [pre-configured developer keys](https://auth0.com/docs/connections/social/devkeys). However these have [limitations] (https://auth0.com/docs/connections/social/devkeys#limitations-of-developer-keys), and before going into production, you’ll need to set up your own application-specific keys by following the [instructions] (https://auth0.com/docs/identityproviders#social) for your chosen social provider(s).
-:::
-
-With [Social Login](https://auth0.com/learn/social-login/), user identities and credentials are managed by the social provider, as well as claims - which Auth0 will use this information to populate the user [profile](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt). Auth0 can also provide access to Social Identity Providers (Social IdP) [Access tokens](https://auth0.com/docs/tokens/overview-idp-access-tokens), so that your application can also call 3rd party Social IdP APIs on behalf of the user.  
-
-::: panel Best Practice
-Social is a great feature to provide, but when you offer more than one way to sign-in, you need to consider the possibility that your customers will actually use more than one way to sign-in. By default, every user identity in Auth0 has its own user profile, so you’ll probably want to consider Auth0's capability to [Link User Accounts](https://auth0.com/docs/link-accounts) (a.k.a. Account Linking) to provide an effective way of associating one user profile with multiple identities.
-:::
-
-The Auth0 [Custom Social Connections extension](https://auth0.com/docs/extensions/custom-social-extensions) extends social authentication even further by allowing you to connect with any OpenID Connect ([OIDC](/protocols/oidc)) 3rd-party compliant vendor not supported out-of-box. For example, support for the government-issued-identity provider [SwissID](https://www.swissid.ch/) can be configured in Auth0 by using a Custom Social Connection and by following the guidance described in our [SwissID blog post](https://auth0.com/blog/configuring-swissid-login-into-custom-applications/). 
-
-## Anomaly detection
-
-The reason that authentication systems are important is to prevent bad actors from accessing applications and user data that they should not. We want to place as many barriers as possible between those bad actors and access to our systems. One of the easiest ways to do this is to ensure that your [anomaly detection](/anomaly-detection) with Auth0 is configured correctly, so take a moment to read the guidance on this subject and ensure that it's working correctly for you.
-
-::: panel Best Practice
-Anomaly detection is handled behind the scenes by Auth0 and provides a great security feature for your product. If you're going to utilize it, ensure that you have set up your [Email Provider](/architecture-scenarios/implementation/b2c/b2c-operations#email-provider-setup) and configured your [Email Templates](/architecture-scenarios/implementation/b2c/b2c-branding#email-template-customization) before turning on email delivery to your users.
-:::
-
 ## Application integration
 
 Once you've figured out how you want to authenticate your users, the next step is to determine how you will initiate that authentication. Each application will typically have its own starting point.
@@ -154,6 +130,34 @@ If you need a [Refresh Token](/tokens/refresh-token/current) so that you can obt
 ### Authorization code grant (with or without PKCE)
 
 If your SDK only supports the Authorization Code grant, or you need an Access Token or Refresh Token, then Authorization Code grant (with or without [PKCE](/flows/concepts/auth-code-pkce)) can also be used to retrieve an ID Token.  The Authorization Code grant includes an additional API call to exchange the code for a token which can result in additional unnecessary latency if all you need is the ID Token. In many cases the [hybrid flow](/api-auth/tutorials/hybrid-flow) is implemented to provide optimum access to the ID Token while still leveraging Authorization Code grant workflow for the secure and safe retrieval of Access and Refresh Tokens.
+
+## Anomaly detection
+
+The reason that authentication systems are important is to prevent bad actors from accessing applications and user data that they should not. We want to place as many barriers as possible between those bad actors and access to our systems. One of the easiest ways to do this is to ensure that your [anomaly detection](/anomaly-detection) with Auth0 is configured correctly, so take a moment to read the guidance on this subject and ensure that it's working correctly for you.
+
+::: panel Best Practice
+Anomaly detection is handled behind the scenes by Auth0 and provides a great security feature for your product. If you're going to utilize it, ensure that you have set up your [Email Provider](/architecture-scenarios/implementation/b2c/b2c-operations#email-provider-setup) and configured your [Email Templates](/architecture-scenarios/implementation/b2c/b2c-branding#email-template-customization) before turning on email delivery to your users.
+:::
+
+## Social authentication
+
+The “bring your own identity” scenario offered by Facebook, Google, etc., is a valuable way of simplifying the user authentication experience without compromising security, and using [Universal Login](#universal-login) makes it easy to start adding support for [Social Connections](https://auth0.com/docs/identityproviders#social) with minimal disruption. 
+
+::: warning
+Auth0 provides a simple way to test social connections using [pre-configured developer keys](https://auth0.com/docs/connections/social/devkeys). However these have [limitations] (https://auth0.com/docs/connections/social/devkeys#limitations-of-developer-keys), and before going into production, you’ll need to set up your own application-specific keys by following the [instructions] (https://auth0.com/docs/identityproviders#social) for your chosen social provider(s).
+:::
+
+With [Social Login](https://auth0.com/learn/social-login/), user identities and credentials are managed by the social provider, as well as claims - which Auth0 will use this information to populate the user [profile](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt). Auth0 can also provide access to Social Identity Providers (Social IdP) [Access tokens](https://auth0.com/docs/tokens/overview-idp-access-tokens), so that your application can also call 3rd party Social IdP APIs on behalf of the user.  
+
+::: panel Best Practice
+Social is a great feature to provide, but when you offer more than one way to sign-in, you need to consider the possibility that your customers will actually use more than one way to sign-in. By default, every user identity in Auth0 has its own user profile, so you’ll probably want to consider Auth0's capability to [Link User Accounts](https://auth0.com/docs/link-accounts) (a.k.a. Account Linking) to provide an effective way of associating one user profile with multiple identities.
+:::
+
+The Auth0 [Custom Social Connections extension](https://auth0.com/docs/extensions/custom-social-extensions) extends social authentication even further by allowing you to connect with any OpenID Connect ([OIDC](/protocols/oidc)) 3rd-party compliant vendor not supported out-of-box. For example, support for the government-issued-identity provider [SwissID](https://www.swissid.ch/) can be configured in Auth0 by using a Custom Social Connection and by following the guidance described in our [SwissID blog post](https://auth0.com/blog/configuring-swissid-login-into-custom-applications/). 
+
+## Multi-factor authentication (MFA)
+
+
 
 ## Planning
 
