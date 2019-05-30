@@ -556,13 +556,31 @@ This filter can be used to modify the options for the embedded Lock login form u
  *
  * @return array
  */
-function auth0_wp_test_hook_lock_options( $options ) {
+function auth0_docs_hook_lock_options( $options ) {
 	if ( ! empty( $_GET[ 'lock_language' ] ) ) {
 		$options['language'] = sanitize_title( $_GET[ 'lock_language' ] );
 	}
 	return $options;
 }
-add_filter( 'auth0_lock_options', 'auth0_wp_test_hook_lock_options', 10 );
+add_filter( 'auth0_lock_options', 'auth0_docs_hook_lock_options', 10 );
+```
+
+### auth0_jwt_leeway
+
+This filter lets you adjust the leeway time used to validate ID tokens and should return a number of seconds as an integer.
+
+```php
+/**
+ * Filter the JWT leeway.
+ *
+ * @param integer $leeway - Existing leeway time.
+ *
+ * @return integer
+ */
+function auth0_docs_hook_jwt_leeway( $leeway ) {
+	return 90;
+}
+add_filter( 'auth0_jwt_leeway', 'auth0_docs_hook_jwt_leeway', 10 );
 ```
 
 ## Additional Extensions
