@@ -26,13 +26,7 @@ Access Control is essentially a super-set of the authorization process; authoriz
 * Will my application be calling a third-party API?
 * Should my applications and/or APIs be enforcing role or permission based access control?
  
-Auth0 provides coarse-grained authorization by restricting access to certain applications or APIs based on certain conditions. Here are some examples:  
-
-* You can build a [Rule](/rules) that returns an `UnauthorizedError` when, for example, a user attempts access at the incorrect time as described in this [example](/authorization/concepts/sample-use-cases-rules#allow-access-only-on-weekdays-for-a-specific-application)
-
-* If the user doesn’t have the right claim(s) contained in their [Metadata](/users/concepts/overview-user-metadata) 
-
-* For an application using OpenID Connect ([OIDC](/protocols/oidc)), it would prevent the allocation of the [ID Token](/tokens/id-token) to authorize access. Similarly, allocation of any OAuth2 [Access Tokens](/tokens/overview-access-tokens), used when calling an [API](/api-auth/why-use-access-tokens-to-secure-apis), could be prevented as described in this [example](/api-auth/restrict-access-api#example-deny-access-to-anyone-calling-the-api).
+Auth0 provides coarse-grained authorization by restricting access to certain applications or APIs based on certain conditions. In a coarse-grained authorization scenario, a [Rule](/rules) can be built that returns an `UnauthorizedError` when, for example, a user attempts access to an application or an API at an incorrect time (as described in this [example](/authorization/concepts/sample-use-cases-rules#allow-access-only-on-weekdays-for-a-specific-application)) - or if the user doesn’t have the right claim(s) contained in their [Metadata](/users/concepts/overview-user-metadata). For an _application_ using OpenID Connect ([OIDC](/protocols/oidc)), this would prevent the allocation of the [ID Token](/tokens/id-token) used to authorize access. Similarly, for an _API_, allocation of any OAuth2 [Access Tokens](/tokens/overview-access-tokens) (used when [calling the API](/api-auth/why-use-access-tokens-to-secure-apis)), could be prevented as described in this [example](/api-auth/restrict-access-api#example-deny-access-to-anyone-calling-the-api).
 
 ::: panel Best Practice
 In the same way that [OIDC](/protocols/oidc) is the most commonly used industry-standard protocol for authentication in customer facing applications, we find that [OAuth2](protocols/oauth2) is the most commonly used industry-standard protocol for authorization.
