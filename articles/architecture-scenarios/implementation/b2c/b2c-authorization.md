@@ -35,7 +35,7 @@ In the same way that [OIDC](/protocols/oidc) is the most commonly used industry-
 Auth0 also can provide the authorization information needed so the application or API can apply fine-grained access control. For [application level integration](#application-integration), Auth0 allows you to add [custom claims](#id-token-claims) to an ID Token, which your application can then verify and subsequently use to enforce access control. In this case you will need to decide what information you require for your application to make access control decisions.
 
 ::: warning
-When deciding what data to include in OIDC tokens, consider token size, especially if you are passing the token in the URL. Even if you are not passing tokens in the URL, you will also need to consider the potential of exposing sensitive PII (Personally Identifiable Information).
+When deciding what data to include in OIDC tokens, consider token size, especially if you are passing the token in the URL. Even if you are not passing tokens in the URL, you will also need to consider the potential of exposing sensitive PII (Personally Identifiable Information).  Token information is not encrypted, so, though it isn't generally a security issue for an ID token to be leaked, it can be a privacy issue depending on the data that is included in the token.
 :::
 
 For [API level integration](#api-integration), Auth0 supports both [custom claims](#access-token-claims) as well as [scope](#access-token-scopes) re-configuration, both within the context of an Access Token. Again, you will need to decide what information will be required in order for your API to make access control decisions, and then your API will need to enforce that access control by validating the contents of the Access Token.
