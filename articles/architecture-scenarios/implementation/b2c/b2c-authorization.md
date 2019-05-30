@@ -15,7 +15,7 @@ useCase:
 It’s important to start by distinguishing between Authentication, Authorization, and Access Control. Your Auth0 tenant (your Authorization Server) is typically responsible for Authentication and some or all of Authorization. Access Control however must be the responsibility of the Application or API itself, because access control is almost always contextual: 
 
 * **Authentication**: the process of determining if a user is who they say they are.
-* **Authorization**: the proceess of determining what is allowed, based on who a user is and the consent they provide.
+* **Authorization**: the proceess of determining what is allowed, based on who a user is, what permissions they have been given, and/or the consent they provide.
 * **Access Control**: the process of limiting the specific set of actions, based on the combination of who the user is, what is allowed, and the set of contextually specific access criteria.
 
 Access Control is essentially a super-set of the authorization process; authorization in it's fundemantal form can be thought of as a coarse-grained operation, whereas Access Control provides much more fine-grained control. Whatever your use case, there are a number of things you will want to consider when looking at functionality and workflow:
