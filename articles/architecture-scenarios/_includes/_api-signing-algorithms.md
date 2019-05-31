@@ -1,4 +1,4 @@
-#### Signing Algorithms
+#### Signing algorithms
 
 When you create an API you have to select the algorithm your tokens will be signed with. The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
 

@@ -1,13 +1,14 @@
 ---
-order: 05
 title: Business to Business Identity and Access Management
-image: /media/articles/architecture-scenarios/b2b.png
-description: Explains the architecture scenario of B2B with large SaaS application.
+description: Explains the architecture scenario of B2B with larger SaaS applications like Zendesk for example, where customers are typically companies.
 topics:
     - b2b
+    - architecture
+    - active-directory
     - iam
 contentType: concept
 useCase:
+  - b2b
   - invoke-api
   - secure-an-api
   - build-an-app
@@ -25,11 +26,11 @@ Customers using Auth0 for B2B, regardless of vertical or market, typically share
 
 There are many different ways Auth0 can be integrated into the IAM project architecture. Auth0's flexibility comprehensively supports many different use cases, however keep in mind that not every project requires 100% of the capabilities provided by Auth0.
 
-When you embark on your journey to integrate with Auth0, there are many things for you to consider. Knowing what, when, and how best to implement something will help you focus on completing the necessary tasks at the right time. To help you with this, we've put together some [planning guidance]() that details our recommended strategies.
+When you make the decision to integrate with Auth0, there are many things for you to consider. Knowing what, when, and how best to implement something will help you focus on completing the necessary tasks at the right time. To help you with this, we've put together some [planning guidance]() that details our recommended strategies.
 
 ## Implementation checklists
 
-Auth0 also provides helpful implementation planning [checklists](/architecture-scenarios/checklists/b2b-checklists) that you can use organize your implementation tasks. There are six checklists that cover the following implementation steps:
+Auth0 also provides helpful implementation planning [checklists](/architecture-scenarios/checklists) that you can use organize your implementation tasks. There are six checklists that cover the following implementation steps:
 
 * Analyze
 * Design

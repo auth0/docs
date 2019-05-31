@@ -13,7 +13,7 @@ useCase:
 ---
 # Authentication
 
-In order to provide services to your users, you must be able to identify who those users are. This process is called User  Authentication. There are a number of ways to perform authentication of a user - via social media accounts, username & password, passwordless - and it's often recommended that you go beyond a first factor for authenticating the user by adding a second factor as well (a.k.a. Multi-factor Authentication).
+In order to provide services to your users, you must be able to identify who those users are. This process is called User  Authentication. There are a number of ways to perform authentication of a user - via social media accounts, username & password, passwordless - and it's often recommended that you go beyond a first factor for authenticating the user by adding a second factor as well (Multi-factor Authentication).
 
 ::: panel Best Practice
 It's important to consider both security and user experience when designing how you will authenticate your users. Providing them multiple primary factors and/or enforcing more than one factor during authentication are ways that you can provide both.
@@ -21,14 +21,14 @@ It's important to consider both security and user experience when designing how 
 
 It’s important to consider both security and user experience when designing how you will authenticate your users, and so there are a number of things you will want to consider when looking at functionality and workflow:
 
-* Where users will enter their credentials
-* How you will keep user credentials safe
-* How you will maintain your authentication system
-* How you will provide password authentication for your users
-* How you will prevent hackers from trying to log in as your users
-* How you want to implement authentication in different kinds of applications using Auth0
-* What to do if you want to make login easy for your users when they come from different language backgrounds
-* How you will provide a good user experience as you migrate away from any legacy authentication system
+* Where will users enter their credentials?
+* How you will keep user credentials safe?
+* How you will maintain your authentication system?
+* How you will provide password authentication for your users?
+* How you will prevent hackers from trying to log in as your users?
+* How you want to implement authentication in different kinds of applications using Auth0?
+* What to do if you want to make login easy for your users when they come from different language backgrounds?
+* How you will provide a good user experience as you migrate away from any legacy authentication system?
 * What do you need to consider when integrating your applications with Auth0?
 * Can your users log in using their existing social (e.g., Facebook or Google) accounts?
 
