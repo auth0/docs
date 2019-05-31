@@ -173,7 +173,7 @@ https://${account.namespace}/authorize?
     acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor
 ```
 
-Once the user authenticates with Guardian, the web app receives in the response the authorization code which must be exchanged for the new ID Token, using the [Token endpoint](/api/authentication#authorization-code). For more details, and sample requests, see our tutorial, [Add Login Using the Authorization Code Flow: Request Tokens](/flows/guides/auth-code/add-login-auth-codet#request-tokens).
+Once the user authenticates with Guardian, the web app receives in the response the authorization code which must be exchanged for the new ID Token, using the [Token endpoint](/api/authentication#authorization-code). For more details, and sample requests, see our tutorial, [Add Login Using the Authorization Code Flow: Request Tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens).
 
 That's it, you are done!
 
