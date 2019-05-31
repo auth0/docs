@@ -1,5 +1,5 @@
 ---
-title: Unlink Devices
+title: Unlink Devices from Users
 description: Learn how to unlink devices assigned to a user using the Auth0 Management Dashboard. This effectively revokes the Refresh Token for the device.
 topics:
   - authorization
