@@ -26,8 +26,7 @@ When running user searches:
 * Don't use existence queries (for example, "give me all users with a property regardless of its value").
 * Don't poll the search APIs.
 * Don't use large metadata fields (try to keep metadata fields to 2 KB or less).
-* Avoid using wildcard or range operators on searches.
-* Avoid using only metadata fields on searches.
+* Using wildcard on searches can affect performance.
 * If you are using [user search engine v2](/api/management/v2/user-search), check out the section on [migrating from v2 to v3](/users/search/v3/migrate-search-v2-v3).
 
 ::: note
