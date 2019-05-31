@@ -465,7 +465,7 @@ HTTP/1.1 400 BAD REQUEST
 Content-Type: application/json
  { 
     // Cannot be retried; transaction failed
-    "error": access_denied|invalid_grant|...,
+    "error": "access_denied|invalid_grant|...",
     "error_description": "Failure: User cancelled the confirmation prompt or consent page; the code expired; there was an error."
  }
 ```
