@@ -13,11 +13,7 @@ sitemap: false
 
 # PSaaS Appliance Infrastructure Requirements: Virtual Machines
 
-You may deploy the PSaaS Appliance on your premises using your own infrastructure or the infrastructure of a cloud provider. Currently, Auth0 supports the following PSaaS Appliance usage on the following virtualization environments:
-
-* Amazon Web Services (AWS);
-* Microsoft Azure;
-* VMware.
+You may deploy the PSaaS Appliance on your premises using your own infrastructure or the infrastructure of a cloud provider. Currently, Auth0 supports PSaaS Appliance usage on Amazon Web Services (AWS).
 
 ## Virtual Machine Templates
 
