@@ -38,13 +38,13 @@ Auth0 also can provide the authorization information needed so the application o
 When deciding what data to include in OIDC tokens, consider token size, especially if you are passing the token in the URL. Even if you are not passing tokens in the URL, you will also need to consider the potential of exposing sensitive PII (Personally Identifiable Information). Token information is not encrypted, so although it isn't generally a security issue for an ID token to be leaked, it can become a privacy issue depending on the data that is included in the token.
 :::
 
-For [API level integration](#api-integration), Auth0 supports both [custom claims](#access-token-claims) as well as [scope](#access-token-scopes) re-configuration, both within the context of an Access Token. Again, you will need to decide what information will be required in order for your API to make access control decisions, and then your API will need to enforce that access control by validating the contents of the Access Token.
+For [API level integration](#api-integration), Auth0 supports both [custom claims](#access-token-claims) as well as [scope](#access-token-scopes) re-configuration, and both within the context of an Access Token. Again, you will need to decide what information will be required in order for your API to make access control decisions, and then your API will need to enforce that access control by validating the contents of the Access Token.
 
 Additionally, Auth0 has out-of-box support for Role Based Access Control ([RBAC](/authorization/concepts/rbac)). RBAC refers to assigning permissions to users based on their role within an organization. RBAC provides for simpler fine-grained access control by offering a more manageable approach that is less prone to error. 
 
 ## Application integration
 
-In this scenario, your Auth0 tenant provides a token as an indicator of authorized access to an application. For applications utilizing OpenID Connect ([OIDC](/protocols/oidc)) - the industry-standard protocol we typically find most utilized when it comes to customer facing applications - this would be an ID Token expressed as a [JWT](/jwt).
+In this scenario, your Auth0 tenant provides a token as an indicator of authorized access to an application. For applications utilizing OpenID Connect ([OIDC](/protocols/oidc)), the industry-standard protocol we typically find most utilized when it comes to customer facing applications, this would be an ID Token expressed as a [JWT](/jwt).
 
 ### ID Token claims 
 
@@ -61,7 +61,9 @@ When you are considering adding custom claims, we recommend that you store any d
 
 ## API integration
 
-In this scenario, Auth0 provides support for both first-party and third-party applications. Acting as the authorization server, and with the approval of the user (the resource owner), your Auth0 tenant can provide an Access Token (typically expressed as a [JWT](/jwt)) to an application (client) so that it can access a protected resources hosted by a resource server on behalf of the resource owner. The issued Access Token typically is passed as the Bearer token in the HTTP Authorization header sent to an [API](/api-auth/why-use-access-tokens-to-secure-apis).
+In this scenario your Auth0 tenant can provide an OAuth2 [Access Token](/tokens/overview-access-tokens), typically expressed as a [JWT](/jwt), which [can be used by your API to provide fine-grained access security](/api-auth). In addition, Auth0 provides support for what is notionally described as both first-party and third-party applications.
+
+Acting as the authorization server, and with the approval of the user (the resource owner), your Auth0 tenant can be used to provide an Access Token - typically expressed as a [JWT](/jwt) - to an application (client) so that it can access a protected resources hosted by a resource server on behalf of the resource owner. The issued Access Token is typically passed as the Bearer token in the HTTP Authorization header sent to an [API](/api-auth/why-use-access-tokens-to-secure-apis).
 
 Whether you have a single API, or perhaps a suite of logically related [microservice APIs](/api-auth/tutorials/represent-multiple-apis), you can leverage the Access Tokens that Auth0 provides in order to [secure access to your service(s)](/api-auth/why-use-access-tokens-to-secure-apis). Though relatively easy to set this up in the [Auth0 Dashboard](/apis) or through the [Auth0 Management API](/api/management/v2#!/Resource_Servers/post_resource_servers), it's important to review the different application scenarios and API layouts to determine the best architecture for your system.
 
@@ -74,6 +76,8 @@ Though you can configure your applications to be first-party and subsequently co
 :::
 
 Alternatively, you may have data relating to a user for which additional [functionality is provided](/scopes/current/api-scopes#example-an-api-called-by-a-back-end-service) and for which explicit user consent cannot be obtained (i.e. there is no authenticated user who can provide it). In this scenario, a [list of applications for which Client Credentials grant is enabled](docs/flows/concepts/client-credentials) can be defined. 
+
+
 
 
 ### Access Token claims
