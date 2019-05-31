@@ -7,5 +7,5 @@ If you have more than one application, the best practice is to redirect to a [ce
 Auth0 Universal Login makes authenticating users a short, easy process which can be accomplished in three easy steps (all of our Quickstarts demonstrate this and our SDKs hide the complexity for you too):
 
 1. Determine how and when you want to [redirect from your application](#application-integration).
-2. Set up the appropriate [branding](/architecture-scenarios/implementation/b2c/b2c-branding) and/or customized HTML in your Auth0 configuration.
+2. Set up the appropriate [branding](/architecture-scenarios/b2c/b2c-branding) and/or customized HTML in your Auth0 configuration.
 3. Set up your application to [receive and handle the response](#application-integration) from the Authorization Server.

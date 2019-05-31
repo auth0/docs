@@ -1,7 +1,7 @@
 By default, the URL associated with your tenant will include its name and possibly a region-specific identifier. For example, tenants based in the US have the a URL similar to `https://example.auth0.com` while those based in Europe have something that is of the fashion `https://example.eu.auth0.com`. A [Custom Domain](/custom-domains) offers a way of providing your users with a consistent experience by using a name that’s consistent with your organization's brand.
 
 ::: warning
-Only one custom Domain Name can be applied per Auth0 Tenant, so if you absolutely must have independent domain name branding then you will require an [architecture](/architecture-scenarios/implementation/b2c/b2c-architecture) where multiple Auth0 Tenants are deployed to production.
+Only one custom Domain Name can be applied per Auth0 Tenant, so if you absolutely must have independent domain name branding then you will require an [architecture](/architecture-scenarios/b2c/b2c-architecture) where multiple Auth0 Tenants are deployed to production.
 :::
 
 In addition, Custom Domain functionality offers you complete control over the [certificate management](/custom-domains#certificate-management) process. By default, Auth0 provides standard SSL certificates, but if you configure a custom domain, you can use Extra Validation (EV) SSL certificates or similar to provide the visual, browser-based cues that offer your visitors additional peace of mind.

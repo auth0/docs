@@ -99,7 +99,7 @@ The other simple option is to allow your users to choose from a list, if you don
 <%= include('../_includes/_authentication-anomaly-detection.md') %>
 
 ::: panel Best Practice
-Anomaly detection is handled behind the scenes by Auth0 and provides a great security feature for your product. If you're going to utilize it, ensure that you have set up your [Email Provider](/architecture-scenarios/implementation/b2b/b2b-operations#email-provider-setup) and configured your [Email Templates](/architecture-scenarios/implementation/b2b/b2b-branding#email-template-customization) before turning on email delivery to your users.
+Anomaly detection is handled behind the scenes by Auth0 and provides a great security feature for your product. If you're going to utilize it, ensure that you have set up your [Email Provider](/architecture-scenarios/b2b/b2b-operations#email-provider-setup) and configured your [Email Templates](/architecture-scenarios/b2b/b2b-branding#email-template-customization) before turning on email delivery to your users.
 :::
 
 ## Application integration
@@ -112,12 +112,12 @@ Anomaly detection is handled behind the scenes by Auth0 and provides a great sec
 
 ## Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2b/b2b-architecture)
-* [Provisioning](/architecture-scenarios/implementation/b2b/b2b-provisioning)
-* [Branding](/architecture-scenarios/implementation/b2b/b2b-branding)
-* [Deployment Automation](/architecture-scenarios/implementation/b2b/b2b-deployment)
-* [Quality Assurance](/architecture-scenarios/implementation/b2b/b2b-qa)
-* [Profile Management](/architecture-scenarios/implementation/b2b/b2b-profile-mgmt)
-* [Authorization](/architecture-scenarios/implementation/b2b/b2b-authorization)
-* [Logout](/architecture-scenarios/implementation/b2b/b2b-logout)
-* [Operations](/architecture-scenarios/implementation/b2b/b2b-operations)
+* [Architecture](/architecture-scenarios/b2b/b2b-architecture)
+* [Provisioning](/architecture-scenarios/b2b/b2b-provisioning)
+* [Branding](/architecture-scenarios/b2b/b2b-branding)
+* [Deployment Automation](/architecture-scenarios/b2b/b2b-deployment)
+* [Quality Assurance](/architecture-scenarios/b2b/b2b-qa)
+* [Profile Management](/architecture-scenarios/b2b/b2b-profile-mgmt)
+* [Authorization](/architecture-scenarios/b2b/b2b-authorization)
+* [Logout](/architecture-scenarios/b2b/b2b-logout)
+* [Operations](/architecture-scenarios/b2b/b2b-operations)

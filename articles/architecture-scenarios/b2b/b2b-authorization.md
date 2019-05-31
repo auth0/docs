@@ -27,12 +27,12 @@ If you are creating different instances of your application for your customer or
 
 ## Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2b/b2b-architecture)
-* [Provisioning](/architecture-scenarios/implementation/b2b/b2b-provisioning)
-* [Authentication](/architecture-scenarios/implementation/b2b/b2b-authentication)
-* [Branding](/architecture-scenarios/implementation/b2b/b2b-branding)
-* [Deployment Automation](/architecture-scenarios/implementation/b2b/b2b-deployment)
-* [Quality Assurance](/architecture-scenarios/implementation/b2b/b2b-qa)
-* [Profile Management](/architecture-scenarios/implementation/b2b/b2b-profile-mgmt)
-* [Logout](/architecture-scenarios/implementation/b2b/b2b-logout)
-* [Operations](/architecture-scenarios/implementation/b2b/b2b-operations)
+* [Architecture](/architecture-scenarios/b2b/b2b-architecture)
+* [Provisioning](/architecture-scenarios/b2b/b2b-provisioning)
+* [Authentication](/architecture-scenarios/b2b/b2b-authentication)
+* [Branding](/architecture-scenarios/b2b/b2b-branding)
+* [Deployment Automation](/architecture-scenarios/b2b/b2b-deployment)
+* [Quality Assurance](/architecture-scenarios/b2b/b2b-qa)
+* [Profile Management](/architecture-scenarios/b2b/b2b-profile-mgmt)
+* [Logout](/architecture-scenarios/b2b/b2b-logout)
+* [Operations](/architecture-scenarios/b2b/b2b-operations)

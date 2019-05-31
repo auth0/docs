@@ -114,12 +114,12 @@ To help you with planning your implementation, we've put together some [planning
 
 ## Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
-* [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
-* [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
-* [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
-* [Deployment Automation](/architecture-scenarios/implementation/b2c/b2c-deployment)
-* [Quality Assurance](/architecture-scenarios/implementation/b2c/b2c-qa)
-* [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
-* [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
-* [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)
+* [Architecture](/architecture-scenarios/b2c/b2c-architecture)
+* [Provisioning](/architecture-scenarios/b2c/b2c-provisioning)
+* [Authentication](/architecture-scenarios/b2c/b2c-authentication)
+* [Branding](/architecture-scenarios/b2c/b2c-branding)
+* [Deployment Automation](/architecture-scenarios/b2c/b2c-deployment)
+* [Quality Assurance](/architecture-scenarios/b2c/b2c-qa)
+* [Profile Management](/architecture-scenarios/b2c/b2c-profile-mgmt)
+* [Authorization](/architecture-scenarios/b2c/b2c-authorization)
+* [Logout](/architecture-scenarios/b2c/b2c-logout)

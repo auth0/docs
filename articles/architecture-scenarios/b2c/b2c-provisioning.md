@@ -41,7 +41,7 @@ Auth0 [Universal Login](/hosted-pages/login), as well Auth0 widgets such as [Loc
 
 ## Social sign up
 
-Social signup is synonymous with sign in via [social authentication](/architecture-scenarios/implementation/b2c/b2c-authentication#social-authentication) - there’s no distinction here per se, as user [profile](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt) creation happens automatically upon first social login.
+Social signup is synonymous with sign in via [social authentication](/architecture-scenarios/b2c/b2c-authentication#social-authentication) - there’s no distinction here per se, as user [profile](/architecture-scenarios/b2c/b2c-profile-mgmt) creation happens automatically upon first social login.
 
 ## User migration
 
@@ -61,12 +61,12 @@ Social signup is synonymous with sign in via [social authentication](/architectu
 
 ## Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
-* [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
-* [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
-* [Deployment Automation](/architecture-scenarios/implementation/b2c/b2c-deployment)
-* [Quality Assurance](/architecture-scenarios/implementation/b2c/b2c-qa)
-* [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
-* [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
-* [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)
-* [Operations](/architecture-scenarios/implementation/b2c/b2c-operations)
+* [Architecture](/architecture-scenarios/b2c/b2c-architecture)
+* [Authentication](/architecture-scenarios/b2c/b2c-authentication)
+* [Branding](/architecture-scenarios/b2c/b2c-branding)
+* [Deployment Automation](/architecture-scenarios/b2c/b2c-deployment)
+* [Quality Assurance](/architecture-scenarios/b2c/b2c-qa)
+* [Profile Management](/architecture-scenarios/b2c/b2c-profile-mgmt)
+* [Authorization](/architecture-scenarios/b2c/b2c-authorization)
+* [Logout](/architecture-scenarios/b2c/b2c-logout)
+* [Operations](/architecture-scenarios/b2c/b2c-operations)

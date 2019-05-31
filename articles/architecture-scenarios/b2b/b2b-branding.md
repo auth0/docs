@@ -33,11 +33,11 @@ When considering the items you want to brand, as well as how best to brand them,
 * What should I do to provide for additional browser security, e.g. Extended Validation?
 * Can I direct my users to our support organisation in case of errors, etc? And why would I want to? Can’t Auth0 take care of that for me? 
 
-Auth0 provides tremendous flexibility when it comes to customizing and configuring Auth0 pages such as [Universal Login](/architecture-scenarios/implementation/b2b/b2b-branding#universal-login-and-login-pages) and [Change Password](/architecture-scenarios/implementation/b2b/b2b-branding#change-password-page-customization). So you can pretty much set up whatever UX look and feel you require. For many, the out-of-the-box experience - with perhaps a little alteration - is all that's required. However, for others the value of their brand and brand awareness requires more extensive customization. This flexibility extends to not only Auth0 pages, but via extensibility can also be applied to the [email templates](/architecture-scenarios/implementation/b2b/b2b-branding#email-template-customization). Auth0 [Custom Domain](/architecture-scenarios/implementation/b2b/b2b-branding#custom-domain-naming) functionality further enhances consumer awareness by providing users with the confidence and peace of mind when it comes to safety and security. 
+Auth0 provides tremendous flexibility when it comes to customizing and configuring Auth0 pages such as [Universal Login](/architecture-scenarios/b2b/b2b-branding#universal-login-and-login-pages) and [Change Password](/architecture-scenarios/b2b/b2b-branding#change-password-page-customization). So you can pretty much set up whatever UX look and feel you require. For many, the out-of-the-box experience - with perhaps a little alteration - is all that's required. However, for others the value of their brand and brand awareness requires more extensive customization. This flexibility extends to not only Auth0 pages, but via extensibility can also be applied to the [email templates](/architecture-scenarios/b2b/b2b-branding#email-template-customization). Auth0 [Custom Domain](/architecture-scenarios/b2b/b2b-branding#custom-domain-naming) functionality further enhances consumer awareness by providing users with the confidence and peace of mind when it comes to safety and security. 
 
 If you are sharing an Auth0 tenant across different customer organizations, providing organizations with their own domain of users, and are managing their credentials, you need to consider how the users will know which credentials they should use and trust that this is where they should enter them.  See [Branding Login by organization](#branding-login-by-organization) for more information.
 
-While Auth0 provides for default information when it comes to error situations, out-of-the-box information can be somewhat cryptic as the context that can only be provided by you is missing. Auth0 [error page customization](/architecture-scenarios/implementation/b2b/b2b-branding#error-page-customization) guidance can however help mitigate that by allowing you to provide information of a more context-specific nature via your own support organization. 
+While Auth0 provides for default information when it comes to error situations, out-of-the-box information can be somewhat cryptic as the context that can only be provided by you is missing. Auth0 [error page customization](/architecture-scenarios/b2b/b2b-branding#error-page-customization) guidance can however help mitigate that by allowing you to provide information of a more context-specific nature via your own support organization. 
 
 <%= include('../_includes/_bp-dashboard-tenant-settings.md') %>
 
@@ -46,7 +46,7 @@ While Auth0 provides for default information when it comes to error situations, 
 <%= include('../_includes/_branding-universal-login-intro.md') %>
 
 ::: panel Best Practice
-If you choose to customize Universal Login page script then we strongly recommend that you make use of version control, and deploy to your Auth0 tenant via [deployment automation](/architecture-scenarios/implementation/b2b/b2b-deployment) or one of the [alternative strategies](/universal-login/version-control).
+If you choose to customize Universal Login page script then we strongly recommend that you make use of version control, and deploy to your Auth0 tenant via [deployment automation](/architecture-scenarios/b2b/b2b-deployment) or one of the [alternative strategies](/universal-login/version-control).
 :::
 
 <%= include('../_includes/_branding-login-widgets.md') %>
@@ -90,7 +90,7 @@ If your organization users will all be isolated from each other and you **requir
 <%= include('../_includes/_branding-email-templates.md') %>
 
 ::: note
-Before customizing email templates, please set up your [Email Provider](/architecture-scenarios/implementation/b2b/b2b-operations#email-provider-setup).
+Before customizing email templates, please set up your [Email Provider](/architecture-scenarios/b2b/b2b-operations#email-provider-setup).
 :::
 
 <%= include('../_includes/_branding-email-templates2.md') %>
@@ -101,12 +101,12 @@ Before customizing email templates, please set up your [Email Provider](/archite
 
 ## Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2b/b2b-architecture)
-* [Provisioning](/architecture-scenarios/implementation/b2b/b2b-provisioning)
-* [Authentication](/architecture-scenarios/implementation/b2b/b2b-authentication)
-* [Deployment Automation](/architecture-scenarios/implementation/b2b/b2b-deployment)
-* [Quality Assurance](/architecture-scenarios/implementation/b2b/b2b-qa)
-* [Profile Management](/architecture-scenarios/implementation/b2b/b2b-profile-mgmt)
-* [Authorization](/architecture-scenarios/implementation/b2b/b2b-authorization)
-* [Logout](/architecture-scenarios/implementation/b2b/b2b-logout)
-* [Operations](/architecture-scenarios/implementation/b2b/b2b-operations)
+* [Architecture](/architecture-scenarios/b2b/b2b-architecture)
+* [Provisioning](/architecture-scenarios/b2b/b2b-provisioning)
+* [Authentication](/architecture-scenarios/b2b/b2b-authentication)
+* [Deployment Automation](/architecture-scenarios/b2b/b2b-deployment)
+* [Quality Assurance](/architecture-scenarios/b2b/b2b-qa)
+* [Profile Management](/architecture-scenarios//b2b/b2b-profile-mgmt)
+* [Authorization](/architecture-scenarios/b2b/b2b-authorization)
+* [Logout](/architecture-scenarios/b2b/b2b-logout)
+* [Operations](/architecture-scenarios/b2b/b2b-operations)

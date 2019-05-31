@@ -121,12 +121,12 @@ One of the main principles of OIDC is that no one except the user themselves eve
 
 ## Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
-* [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
-* [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
-* [Deployment Automation](/architecture-scenarios/implementation/b2c/b2c-deployment)
-* [Quality Assurance](/architecture-scenarios/implementation/b2c/b2c-qa)
-* [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
-* [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
-* [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)
-* [Operations](/architecture-scenarios/implementation/b2c/b2c-operations)
+* [Architecture](/architecture-scenarios/b2b/b2b-architecture)
+* [Authentication](/architecture-scenarios/b2b/b2b-authentication)
+* [Branding](/architecture-scenarios/b2b/b2b-branding)
+* [Deployment Automation](/architecture-scenarios/b2b/b2b-deployment)
+* [Quality Assurance](/architecture-scenarios/b2b/b2b-qa)
+* [Profile Management](/architecture-scenarios/b2b/b2b-profile-mgmt)
+* [Authorization](/architecture-scenarios/b2b/b2b-authorization)
+* [Logout](/architecture-scenarios/b2b/b2b-logout)
+* [Operations](/architecture-scenarios/b2b/b2b-operations)
