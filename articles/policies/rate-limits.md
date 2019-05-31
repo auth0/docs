@@ -166,7 +166,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
   <tr>
       <td>Jobs</td>
       <td>/jobs/{id} <br /> /jobs/{id}/errors</td>
-      <td>/jobs/verification-email <br />/jobs/users-imports</td>
+      <td>/jobs/verification-email <br />/jobs/users-imports <br />/jobs/users-exports</td>
       <td></td>
       <td></td>
   </tr>
