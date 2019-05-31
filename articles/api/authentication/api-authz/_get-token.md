@@ -8,6 +8,7 @@ Note that the only OAuth 2.0 flows that can retrieve a Refresh Token are:
 - [Authorization Code Flow (Authorization Code)](/flows/concepts/auth-code)
 - [Authorization Code Flow with PKCE (Authorization Code with PKCE)](/flows/concepts/auth-code-pkce)
 - [Resource Owner Password](/api-auth/grant/password)
+- [Device Authorization Flow](/flows/concepts/device-auth)
 
 ## Authorization Code Flow
 
