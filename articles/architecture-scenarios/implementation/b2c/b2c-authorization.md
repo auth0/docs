@@ -51,7 +51,7 @@ In this scenario, your Auth0 tenant provides a token as an indicator of authoriz
 Using Rule extensibility, Auth0 allows you to easily [add custom claims to an ID Token](/tokens/add-custom-claims) based on, for example, a user’s [Metadata](/users/concepts/overview-user-metadata) content. Your application can then verify the ID Token for the necessary claims, and either allow or prevent access to certain functionality as required. Note that though the process of adding custom claims via Rule is streamlined, the Rule engine is flexible and allows you to write custom code that may have negative effects. Therefore it’s important to follow our [rules best practice](/best-practices/rules) guidance anytime you use this extensibility feature.  
 
 ::: panel Best Practice
-When you are considering adding custom claims, we recommend that you store any data you may need to include within the claims in the user's `user` or `app` [Metadata](/users/concepts/overview-user-metadata). This prevents you from needing to call an external API to fetch the data, which can negatively impact the performance and scalability of the login sequence. Remember to check out our [metadata best practices](architecture-scenarios/implementation/b2c/b2c-profile-mgmt#metadata) guidance too.
+When you are considering adding custom claims, we recommend that you store any access control data you may need to include within claims as part of the user's `app` [Metadata](/users/concepts/overview-user-metadata). Firstly, this prevents you from needing to call an external API to fetch the data, which can negatively impact the performance and scalability of the login sequence. Secondly `app` Metadata **cannot** be modified by a user - so the user cannot directly circumvent any access control restrictions by modifying their own metadata. Also remember to check out our [metadata best practices](architecture-scenarios/implementation/b2c/b2c-profile-mgmt#metadata) guidance too.
 :::
 
 ### ID Token scopes
@@ -67,6 +67,10 @@ Acting as the authorization server, and with the approval of the user (the resou
 
 Whether you have a single API, or perhaps a suite of logically related [microservice APIs](/api-auth/tutorials/represent-multiple-apis), you can leverage the Access Tokens that Auth0 provides in order to [secure access to your service(s)](/api-auth/why-use-access-tokens-to-secure-apis). Though relatively easy to set this up in the [Auth0 Dashboard](/apis) or through the [Auth0 Management API](/api/management/v2#!/Resource_Servers/post_resource_servers), it's important to review the different application scenarios and API layouts to determine the best architecture for your system.
 
+::: note
+OAuth2 Access Tokens are primarily designed for use in securing public facing APIs; expressed as a JWT, an Access Token is a self contained entity which can be verfied without the need to make any additional 3rd party API call. If your APIs do not fall into this category - i.e they are part of an application itself (as in only called by that application) or are sat behing your firewall - then protecting then with tokens may well be overkill and your existing cookie based (et al) workflow may well suffice.
+:::
+
 OAuth2 was designed specifically with third-party access in mind, For example, a scenario might be that a user (resource owner) wants to use an application (a client) that does not belong to the same organization as the service that provides the user's data (the reseource server). In this case, when the application needs to access data that the user owns, it redirects to the organization where the user’s data resides, which in turn authenticates the user and then prompts the user to give the application permission to access their data. This prompting for permission is referred to as providing *[consent](/api-auth/user-consent)* and is a large part of what providing support for [third party applications](/scopes/current/api-scopes#example-an-api-called-by-a-third-party-application) entails. If you are planning to integrate third-party applications, then it's important you [mark them as third-party](/api-auth/user-consent) early on so that Auth0 will handle prompting for user consent.
 
 On the other hand, if your organization *owns* the application(s), the user data itself and the API(s) through which that data is accessed, then consent is not typically required as the interactions are all [first-party](/scopes/current/api-scopes#example-an-api-called-by-a-first-party-application). If you're only creating first-party applications, then you can ensure that you are not presenting your users with any unnecessary consent screen(s) by [allowing user consent to be skipped](/apis#api-settings) as part of any resource service definition.
@@ -76,9 +80,6 @@ Though you can configure your applications to be first-party and subsequently co
 :::
 
 Alternatively, you may have data relating to a user for which additional [functionality is provided](/scopes/current/api-scopes#example-an-api-called-by-a-back-end-service) and for which explicit user consent cannot be obtained (i.e. there is no authenticated user who can provide it). In this scenario, a [list of applications for which Client Credentials grant is enabled](docs/flows/concepts/client-credentials) can be defined. 
-
-
-
 
 ### Access Token claims
 
