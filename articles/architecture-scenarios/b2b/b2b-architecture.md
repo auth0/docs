@@ -36,9 +36,9 @@ If you need to provision an independent tenant then you’ll also want to [assoc
 
 <%= include('../_includes/_protocol-impact-architecture-intro.md') %>
 
-If your customers' organization supports the use of multiple IDPs, then it often makes sense to [create a separate tenant for that organization](#complex-organization-tenant-provision). This allows you to keep the rest of your architecture much simpler by maintaining a one-to-one relationship between your organization and all of your customer organizations within your main tenant.
+If your customers' organization supports the use of multiple IDPs, then it often makes sense to [create a separate tenant for that organization](#complex-organization-tenant-provisioning). This allows you to keep the rest of your architecture much simpler by maintaining a one-to-one relationship between your organization and all of your customer organizations within your main tenant.
 
-## Tenant provision
+## Tenant provisioning
 
 Everything starts with an Auth0 tenant. This is where you will be configuring your use of Auth0, and the where Auth0 assets - such as [Applications](/applications), [Connections](/connections) and [user profiles](/architecture-scenarios/implementation/b2b/b2b-profile-mgmt) are defined, managed and stored. Access to an Auth0 tenant is performed via the Auth0 [Dashboard](/dashboard), and via the Dashboard you can also create additional, associated tenants; you’re allowed to create more than one Auth0 tenant so that you can structure your tenants in a way that will isolate different domains of users and also support your [Software Development Life Cycle](#sdlc-support) (SDLC).
 
@@ -48,7 +48,7 @@ Everything starts with an Auth0 tenant. This is where you will be configuring yo
 
 We recommend that you create a full suite of [SDLC supporting tenants](#sdlc-support) for every Auth0 tenant you will run in a production environment, and the number of Auth0 tenants you will need to manage can quickly grow. Therefore you should consider carefully before creating multiple Auth0 tenants for production, and should consult our guidance on [Branding](/architecture-scenarios/implementation/b2b/b2b-branding) before making your final decision. 
 
-### Complex organization tenant provision
+### Complex organization tenant provisioning
 
 In most cases, provisioning separate Auth0 tenants for your customers organization is not necessary, however, in certain circumstancees its valuable to simplify setup. For instance, we recommend provisioning a separate Auth0 tenant for your customers' organization as a best practice if the following circumstances exist.
 

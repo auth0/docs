@@ -35,7 +35,7 @@ If you need to provision an independent tenant then you’ll also want to [assoc
 
 <%= include('../_includes/_protocol-impact-architecture-intro.md') %>
 
-## Tenant provision
+## Tenant provisioning
 
 Everything starts with an Auth0 tenant. This is where you will be configuring your use of Auth0, and the where Auth0 assets - such as [Applications](/applications), [Connections](/connections) and [user profiles](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt) are defined, managed and stored. Access to an Auth0 tenant is performed via the Auth0 [Dashboard](/dashboard), and via the Dashboard you can also create additional, associated tenants; you’re allowed to create more than one Auth0 tenant so that you can structure your tenants in a way that will isolate different domains of users and also support your [Software Development Life Cycle](#sdlc-support) (SDLC).
 
