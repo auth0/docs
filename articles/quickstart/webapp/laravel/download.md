@@ -1,8 +1,8 @@
 To run the sample follow these steps:
 
-1) Set the **Callback URL** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to:
+1) Set the **Allowed Callback URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to:
 ```text
-http://localhost:3000/callback
+http://localhost:3000/auth0/callback
 ```
 
 2) Make sure [PHP](http://php.net/downloads.php) and [Composer](https://getcomposer.org/download/) are installed and execute the following commands in the sample's directory:
