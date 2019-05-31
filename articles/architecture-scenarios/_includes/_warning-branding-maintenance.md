@@ -1,0 +1,3 @@
+::: warning
+[Universal Login advanced customization](/universal-login#advanced-customization) allows you to modify page script for greater customization flexibility. However you will be responsible for maintaining the page thereafter, including updating the version of any Auth0 widget - such as Lock - or Auth0 SDK used. You should also exercise caution regarding the use of third-party JavaScript on your Login Page, since sensitive security-related information often flows through the page and the introduction of cross-site scripting ([XSS](/security/common-threats#cross-site-request-forgery)) vulnerabilities is of particular concern.
+:::

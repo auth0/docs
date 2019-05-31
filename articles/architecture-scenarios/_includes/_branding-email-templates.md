@@ -1,0 +1,1 @@
+Auth0 makes extensive use of email to provide both user notifications and to drive the functionality needed for secure identity management (for example, email verification, account recovery, and brute force protections), and Auth0 provides a number of templates for these.

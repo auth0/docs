@@ -1,0 +1,1 @@
+The Change Password page is used whenever a user takes advantage of the [password reset](/universal-login/password-reset) functionality and, as with the login page, you can customize the [Change Password](/universal-login/password-reset#edit-the-password-reset-page) page to reflect your organization's branding. 

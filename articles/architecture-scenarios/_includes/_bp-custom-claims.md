@@ -1,0 +1,3 @@
+::: panel Best Practice
+When you are considering adding custom claims, we recommend that you choose to store any data you may need to include within the claims in the user's `user` or `app` [metadata](/users/concepts/overview-user-metadata). Doing so prevents you from needing to call out to an external API to fetch the data, which can negatively impact the performance and scalability of the login sequence. 
+:::
