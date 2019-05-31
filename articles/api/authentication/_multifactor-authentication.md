@@ -304,14 +304,14 @@ When the challenge response includes a `binding_method: prompt`, your app needs 
 POST https://${account.namespace}/oauth/token
 Content-Type: application/x-www-form-urlencoded
 
-client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&mfa_token=MFA_TOKEN&grant_type=http%3A%2F%2Fauth0.com%2Foauth%2Fgrant-type%2Fmfa-recovery-code&recover_code=RECOVERY_CODE
+client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&mfa_token=MFA_TOKEN&grant_type=http%3A%2F%2Fauth0.com%2Foauth%2Fgrant-type%2Fmfa-recovery-code&recovery_code=RECOVERY_CODE
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&mfa_token=MFA_TOKEN&grant_type=http://auth0.com/oauth/grant-type/mfa-recover-code&recover_code=RECOVERY_CODE'
+  --data 'client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&mfa_token=MFA_TOKEN&grant_type=http://auth0.com/oauth/grant-type/mfa-recovery-code&recovery_code=RECOVERY_CODE'
 ```
 
 ```javascript
@@ -323,7 +323,7 @@ var options = { method: 'POST',
   form:
    { mfa_token: 'MFA_TOKEN',
      recovery_code: 'RECOVERY_CODE',
-     grant_type: 'http://auth0.com/oauth/grant-type/mfa-recover-code',
+     grant_type: 'http://auth0.com/oauth/grant-type/mfa-recovery-code',
      client_id: '${account.clientId}',
      client_secret: 'YOUR_CLIENT_SECRET' }
    };
