@@ -23,7 +23,7 @@ useCase:
 
 ### How your domains and user community impact architecture
 
-<%= include('../_includes/_domains-impact-architecture.md') %>
+<%= include('../_includes/_domains-impact-architecture-intro.md') %>
 
 <%= include('../_includes/_bp-user-communities.md') %>
 
