@@ -6,7 +6,13 @@ To run the sample follow these steps:
 http://localhost:3000/auth/auth0/callback
 ```
 
-2) Make sure [Rails](https://http://installrails.com/) is installed and execute the following commands in the sample's directory:
+2) Set the **Allowed Logout URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to:
+
+ ```text
+http://localhost:3000
+```
+
+3) Make sure [Rails](http://installrails.com/) is installed and execute the following commands in the sample's directory:
 
 ```bash
 bundle install
