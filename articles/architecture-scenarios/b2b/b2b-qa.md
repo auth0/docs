@@ -35,7 +35,7 @@ You can automate your overall build process by incorporating deployment automati
 
 ## Mock testing 
 
-<%= include('../_includes/_bp-mock-testing.md') %>
+<%= include('../_includes/_qa-mock-testing.md') %>
 
 ## Planning
 
