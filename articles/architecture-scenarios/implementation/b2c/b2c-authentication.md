@@ -156,7 +156,7 @@ The Auth0 [Custom Social Connections extension](https://auth0.com/docs/extension
 
 ## Multi-factor authentication (MFA)
 
-In an era where misuse of user credentials is at an all-time high, protecting your systems when it’s so common for hackers to steal users identity information is a challenge. One of the most effective ways though is to provide users with the ability to configure a second factor for protecting their account. More commonly referred to as [Multi-Factor Authentication](/multifactor-authentication). This will ensure that only a valid user can access his/her account, even if they use a username and password that may have been compromised from a different application.
+In an era where misuse of user credentials is at an all-time high, protecting _your_ systems when it’s so common for hackers to steal users identity information in general is a challenge. One of the most effective ways though is to provide users with the ability to configure a second factor for protecting their account. More commonly referred to as [Multi-Factor Authentication](/multifactor-authentication). This will ensure that only a valid user can access his/her account, even if they use a username and password that may have been compromised from a different application.
 
 ::: panel Best Practice
 It's quite common for customer facing applications to provide users with an _option_ for adding a second factor rather than _forcing_ them to use a second factor. For more information regarding this, see [providing your users with an option to add MFA](https://auth0.com/learn/multifactor-authentication-customers/).
