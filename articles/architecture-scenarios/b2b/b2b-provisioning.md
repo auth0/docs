@@ -25,11 +25,11 @@ useCase:
 
 * Does a user get added to my company's domain or do they belong to or remain in their organization's domain?
 * If the user stays in their own domain, do they belong to a single organization or can they belong to multiple organizations?
-* Can I use Auth0 as an identity store?
-* Can I use my own (legacy) identity store with Auth0?
-* Can I migrate user identities from my identity store to Auth0?
-* Can my users sign up using their organization's identity provider?
-* Can my users be invited or self register?
+* Can you use Auth0 as an identity store?
+* Can you use my own (legacy) identity store with Auth0?
+* Can you migrate user identities from my identity store to Auth0?
+* Can your users sign up using their organization's identity provider?
+* Can your users be invited or self register?
 
 One of the first decisions to make when providing your service(s) to other businesses is identifying to which domain users belong. Based on the answer to that question, there are a couple of different approaches you can take to provision those users. See [Provisioning organization users](#provisioning-organization-users) for more information. 
 

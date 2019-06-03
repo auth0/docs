@@ -2,5 +2,5 @@ The value of investing time on the landscape of the architecture up-front is som
 
 * What should the URL look like to the user when Auth0 presents a web page?
 * How can Auth0 be implemented to support our SDLC (Software Development Lifecycle)?
-* How can I ensure that my Auth0 Tenants are appropriately associated with my contract?
-* What do I need to consider if there are other projects in my organization integrating with Auth0? Particularly projects that target their own, or a different domain of users (for example, applications that only employees will use)? 
+* How can you ensure that my Auth0 Tenants are appropriately associated with my contract?
+* What do you need to consider if there are other projects in my organization integrating with Auth0? Particularly projects that target their own, or a different domain of users (for example, applications that only employees will use)? 

@@ -20,9 +20,9 @@ useCase:
 ## Design considerations
 
 <%= include('../_includes/_authentication-design-considerations.md') %>
-* What do I do if I need to isolate my users by organization?
-* How do I handle identifying which organization my users' belong to?
-* What's the benefite of providing enterprise connections for my organization?
+* What do yuo do if you need to isolate my users by organization?
+* How do you handle identifying which organization your users' belong to?
+* What's the benefite of providing enterprise connections for your organization?
 
 <%= include('../_includes/_authentication-design-considerations2.md') %>
 

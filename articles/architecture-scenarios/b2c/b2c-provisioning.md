@@ -24,9 +24,9 @@ useCase:
 
 <%= include('../_includes/_provisioning-design-considerations.md') %>
 
-* Can I use Auth0 as an identity store?
-* Can I use my own legacy identity store with Auth0?
-* Can I migrate user identities from my identity store to Auth0?
+* Can you use Auth0 as an identity store?
+* Can you use my own legacy identity store with Auth0?
+* Can you migrate user identities from my identity store to Auth0?
 * Can my users sign up using their existing social - e.g. Facebook or Google - accounts?
 
 <%= include('../_includes/_provisioning-design-considerations2.md') %>
