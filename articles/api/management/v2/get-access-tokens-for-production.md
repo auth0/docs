@@ -30,11 +30,28 @@ The payload should be in the following format:
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"https://${account.namespace}/api/v2/\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+        {
+          "name": "grant_type",
+          "value": "client_credentials"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "client_secret",
+          "value": "YOUR_CLIENT_SECRET"
+        },
+        {
+          "name": "audience",
+          "value": "https://${account.namespace}/api/v2/"
+        }
+    ]
   }
 }
 ```
@@ -154,7 +171,7 @@ if __name__ == '__main__':
 
 ## Keep reading
 
-* [Machine-to-Machine Application](/applications/machine-to-machine)
+- [Auth0 Application Types](/applications/concepts/app-types-auth0)
 * [Management API Explorer](/api/management/v2#!)
 * [Management API Access Tokens FAQs](/api/management/v2/faq-management-api-access-tokens)
 

@@ -65,9 +65,7 @@ The Auth0 Support Center offers ticketed support, where support specialists are 
 
 ### Enterprise Support (with or without Premier Support)
 
-Customers with an Enterprise subscription plan receive extended support hours for outages, quicker response times, and a Customer Success Manager.
-
-Please contact the [Auth0 Sales Team](https://auth0.com/?contact=true) if you have specific support requirements or are interested in the Enterprise Support Plan (with or without the Preferred Support option).
+Customers with an Enterprise Subscription Plan receive extended support hours for outages, quicker response times, and access to the Customer Success Team.
 
 ## Support Channels
 
@@ -75,7 +73,7 @@ Auth0 offers the following support channels.
 
 ### Auth0 Community
 
-Auth0's public [question and answer community](${auth0_community}) offers support for __all__ subscribers. All customers, even those on free tenants, can search existing through questions and post a new question if theirs hasn't been answered. There are no guaranteed response times for questions posted.
+Auth0's public [question and answer community](${auth0_community}) offers support for __all__ subscribers. All customers, even those on free tenants, can search through existing questions and post a new question if theirs hasn't been answered. There are no guaranteed response times for questions posted.
 
 ### Support Center
 
@@ -89,7 +87,7 @@ Critical Production issues should always be reported via the [Support Center](ht
 
 You can add support-only users to your Auth0 tenant. This will allow them to open, view, and comment on [Support Center](${env.DOMAIN_URL_SUPPORT}) tickets, receive relevant notifications, and see service details.  They do not, however, have full administration access to the [Auth0 Dashboard](${manage_url}).
 
-You can add support-only users via the Support Center. Click on your name in the top right, and click **Support Center Users**.
+You can add support-only users via the Support Center. Click on your name in the top right, and click **Support Center Users**. Note that only tenant administrators with `All Applications` access can add Support-Only users.
 
 ![](/media/articles/support/support-center-users.png)
 
@@ -111,9 +109,7 @@ Using this page, you can:
 
 ## Program Features
 
-The Support Program applies to **production instances** of the Auth0 Platform only. If you require support for non-production instances, then you may request [Demand Services](#demand-services) from Auth0.
-
-Your Sales Order will indicate whether you are subscribed to the **Standard** Support Program or the **Enterprise** Support Program.
+Your Sales Order will indicate whether you are subscribed to the **Standard** Support Program, **Enterprise** Support Program, or **Premier** Support Program.
 
 The following features are provided with **every** support plan:
 

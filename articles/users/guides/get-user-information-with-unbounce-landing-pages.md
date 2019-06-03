@@ -15,7 +15,7 @@ useCase:
 ## Auth0 Configuration
 
 1. Create an Auth0 account and navigate to the [dashboard](${manage_url}).
-1. Go to [Applications](${manage_url}/#/applications) and click **+ Create Application**. Pick the `Single Page Application` option and go to **Settings**. Note the **Client ID** and **Domain**. Also, add the `callback URL` in both **Allowed Callback URLs** and **Allowed Origins (CORS)** (it should be your Unbounce page URL. For example:`http://unbouncepages.com/changeit`).
+1. Go to [Applications](${manage_url}/#/applications) and click **+ Create Application**. Pick the `Single-Page Application` option and go to **Settings**. Note the **Client ID** and **Domain**. Also, add the `callback URL` in both **Allowed Callback URLs** and **Allowed Origins (CORS)** (it should be your Unbounce page URL. For example:`http://unbouncepages.com/changeit`).
 1. Go to **Connections > Social** and enable the social providers you want to support.
 
 ![Social Connections](/media/articles/scenarios/unbounce/social-connections.png)

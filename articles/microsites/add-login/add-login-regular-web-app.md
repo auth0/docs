@@ -26,7 +26,7 @@ In a regular web application: 
 3. Your app requests the user's ID Token.
 4. Auth0 responds with the user's ID Token.
 
-For security in server-side web apps, Auth0 uses the [Regular Web App Login Flow](/flows/concepts/regular-web-app-login-flow).
+For security in server-side web apps, Auth0 uses the [Authorization Code Flow](/flows/concepts/auth-code).
 
 <img src="/media/articles/microsites/overview-flow-add-login-regular-web-app.png" alt="Flow Overview for Regular Web Apps" width="100%">
 
@@ -44,7 +44,7 @@ For security in server-side web apps, Auth0 uses the [Regular Web App Login Flow
 
 ::: guides
   * [Auth0 Regular Web App Quickstarts](/quickstart/webapp)
-  * [Add login using the regular web app login flow](/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow)
+  * [Add login using the Authorization Code Flow](/flows/guides/auth-code/add-login-auth-code)
   * [Customize the hosted login page](/hosted-pages/login#how-to-customize-your-login-page)
 :::
 
@@ -56,7 +56,7 @@ For security in server-side web apps, Auth0 uses the [Regular Web App Login Flow
 ::: concepts  
   * [Universal vs. Embedded Login](/guides/login/universal-vs-embedded)
   * [ID Tokens](/tokens/id-token)
-  * [Access Tokens](/tokens/access-token)
+  * [Access Tokens](/tokens/overview-access-tokens)
   * [Where to store tokens](/security/store-tokens)
 :::
 

@@ -14,11 +14,11 @@ useCase: customize-connections
 
 <%= include('../../_includes/_native_passwordless_warning') %>
 
-<%= include('./_introduction-email', { isMobile: true }) %>
+<%= include('./_includes/_introduction-email', { isMobile: true }) %>
 
 ## Setup
 
-<%= include('./_setup-email') %>
+<%= include('./_includes/_setup-email') %>
 
 ## Implementation
 

@@ -68,15 +68,15 @@ In the settings for your API, go to the **Scopes** tab. In this section you can 
 
 There are four application types in Auth0:
 - __Native App__ (used by mobile or desktop apps),
-- __Single Page Web App__,
+- __Single-Page Web App__,
 - __Regular Web App__ and
 - __Machine to Machine App__ (used by CLIs, Daemons, or services running on your backend).
 
-For this scenario we want to create a new Application for our SPA, hence we will use Single Page Application as the application type.
+For this scenario we want to create a new Application for our SPA, hence we will use Single-Page Application as the application type.
 
 To create a new Application, navigate to the [dashboard](${manage_url}) and click on the [Applications](${manage_url}/#/applications}) menu option on the left. Click the __+ Create Application__ button.
 
-Set a name for your Application (we will use `Timesheets SPA`) and select `Single Page Web App` as the type.
+Set a name for your Application (we will use `Timesheets SPA`) and select `Single-Page Web App` as the type.
 
 Click __Create__.
 
@@ -142,7 +142,7 @@ Make sure that **Permissions** are enabled and then click **Publish Rule**.
 
 ### Create a Rule to validate token scopes
 
-The final step in this process is to create a Rule which will validate that the scopes contained in an Access Token is valid based on the permissions assigned to the user. Any scopes which are not valid for a user should be removed from the Access Token.
+The final step in this process is to create a Rule to check if the scopes contained in an Access Token are valid based on the permissions assigned to the user. Any scopes which are not valid for a user should be removed from the Access Token.
 
 In your Auth0 Dashboard, go to the **Rules** tab. You should see the Rule created by the Authorization Extension:
 
@@ -152,17 +152,14 @@ Click on the **Create Rule** button and select the **Empty Rule** template. You 
 
 ```js
 function (user, context, callback) {
-  if (context.clientName !== 'Timesheets SPA') {
-    return callback(null, user, context);
-  }
-
   var permissions = user.permissions || [];
   var requestedScopes = context.request.body.scope || context.request.query.scope;
   var filteredScopes = requestedScopes.split(' ').filter( function(x) {
     return x.indexOf(':') < 0;
   });
-  Array.prototype.push.apply(filteredScopes, permissions);
-  context.accessToken.scope = filteredScopes.join(' ');
+
+  var allScopes = filteredScopes.concat(permissions);
+  context.accessToken.scope = allScopes.join(' ');
 
   callback(null, user, context);
 }

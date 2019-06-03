@@ -48,7 +48,7 @@ Note that the last two endpoints are used for Account Linking. To review these c
 
 ## Changes in scopes
 
-The actions you can perform with the Management API depend on the [scopes](/scopes#api-scopes) that your Access Token contains. With this migration you can either get a "limited" Access Token that can update only the logged-in user's data, or an Access Token that can update the data of any user. In the following matrix you can see the scopes that your token needs to have per case and per endpoint.
+The actions you can perform with the Management API depend on the [scopes](/scopes/current/api-scopes) that your Access Token contains. With this migration you can either get a "limited" Access Token that can update only the logged-in user's data, or an Access Token that can update the data of any user. In the following matrix you can see the scopes that your token needs to have per case and per endpoint.
 
 | **Endpoint** | **Scope for current user** | **Scope for any user** |
 |-|-|-|
@@ -120,7 +120,7 @@ On the `Legacy (ID Token)` script you can see an implementation of the old appro
       <pre class="text hljs">
         <code>
 POST https://${account.namespace}/oauth/token
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
   "grant_type": "password",
   "username": "USERNAME",
@@ -136,7 +136,7 @@ Content-Type: application/json
       <pre class="text hljs">
         <code>
 POST https://${account.namespace}/oauth/token
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 {
   "grant_type": "password",
   "username": "USERNAME",
@@ -191,5 +191,5 @@ For a detailed overview of these changes and migration steps per use case, see [
 
 ## Next steps
 
-- [Get Access Tokens](/tokens/get-access-tokens)
+- [Get Access Tokens](/tokens/guides/access-token/get-access-tokens)
 - [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)

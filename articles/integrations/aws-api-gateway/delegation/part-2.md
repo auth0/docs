@@ -21,7 +21,7 @@ Now that you have your API running, you need to add security. In this step, you 
 * Configure Auth0 delegation to use AWS IAM federation capabilities;
 * Obtain an AWS Access Token that uses the AWS IAM role.
 
-Once your API is secure, you'll build a serverless, single page application (SPA). The SPA will rely on federating identity to determine which users are allowed access. By combining AWS IAM Integration for AWS Gateway API, AWS IAM Identity Federation for SAML, and Auth0 Delegation for AWS, you can enable users from many different sources, including Social Providers or enterprise connections, to access your APIs. The following diagram illustrates a sample flow using a SAML-based Identity Provider and Auth0 SAML Federation and Delegation for AWS.
+Once your API is secure, you'll build a serverless, single-page application (SPA). The SPA will rely on federating identity to determine which users are allowed access. By combining AWS IAM Integration for AWS Gateway API, AWS IAM Identity Federation for SAML, and Auth0 Delegation for AWS, you can enable users from many different sources, including Social Providers or enterprise connections, to access your APIs. The following diagram illustrates a sample flow using a SAML-based Identity Provider and Auth0 SAML Federation and Delegation for AWS.
 
 ![Authentication Flow](/media/articles/integrations/aws-api-gateway/auth-flow.png)
 
@@ -59,7 +59,7 @@ Log in to your Auth0 account. You will be brought to the Management Dashboard. C
 
 ![Auth0 Management Dashboard](/media/articles/integrations/aws-api-gateway/part-2/mgmt-dashboard.png)
 
-Name your new application *AWS API Gateway*, and indicate that this Application is going to be a *Single Page Application*. Click **Create**.
+Name your new application *AWS API Gateway*, and indicate that this Application is going to be a *Single-Page Application*. Click **Create**.
 
 ![Create Application](/media/articles/integrations/aws-api-gateway/part-2/create-new-client.png)
 
@@ -188,7 +188,7 @@ Click the edit icon beside the **Authorization Type**, and select *AWS_IAM*. Now
 
 ### 2. Set Up CORS and Deploy the API
 
-Our Single Page Application (SPA) will access web API methods from a domain different from that of the page. The *Cross-Origin Resource Sharing* setting needs to explicitly permit this action for the browser to allow access to the AWS API Gateway. Typically, the browser will first issue an `OPTIONS` request to see what actions the site will permit.
+Our Single-Page Application (SPA) will access web API methods from a domain different from that of the page. The *Cross-Origin Resource Sharing* setting needs to explicitly permit this action for the browser to allow access to the AWS API Gateway. Typically, the browser will first issue an `OPTIONS` request to see what actions the site will permit.
 
 Select `/pets` under Resources, and click **Create Method**. In the drop-down, select **OPTIONS**, and click the **checkmark** to save the setting.
 

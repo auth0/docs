@@ -8,6 +8,7 @@ topics:
 contentType: concept
 useCase: appliance
 applianceId: appliance75
+sitemap: false
 ---
 # Why You Should Update the PSaaS Appliance Regularly
 

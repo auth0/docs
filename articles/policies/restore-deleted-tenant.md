@@ -12,12 +12,8 @@ useCase:
 
 # Tenant Restoration Policy
 
-::: note
-If you are considering deleting your tenant, please see our [Resetting/Deleting Tenant](/tutorials/delete-reset-tenant) page for alternative options.
-:::
+**Before you delete your tenant, please see [Resetting/Deleting Tenant](/tutorials/delete-reset-tenant) page for alternative options.**
 
-As explicitly noted during the tenant deletion process, **deleted tenants cannot be restored** at this time.
+**Deleted tenants cannot be restored** and the **tenant name may not be used again** when creating new tenants.
 
-::: note
-If you have deleted your tenant and you require a certain domain or unique domain for branding purposes, we recommend configuring a [custom domain](/custom-domains) for your new tenant.
-:::
+If you've deleted your tenant, and you require the use of a particular domain name, we recommend configuring a [custom domain name](/custom-domains) for your new tenant.

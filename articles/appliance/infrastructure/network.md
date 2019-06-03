@@ -8,6 +8,7 @@ topics:
 contentType: reference
 useCase: appliance
 applianceId: appliance39
+sitemap: false
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Network

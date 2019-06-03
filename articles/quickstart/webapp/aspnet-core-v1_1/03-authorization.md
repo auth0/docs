@@ -38,7 +38,7 @@ function (user, context, callback) {
     const endsWith = '@example.com';
 
     if (user.email && (user.email.substring(user.email.length - endsWith.length, user.email.length) === endsWith)) {
-      return ['admin']
+      return ['admin'];
     }
     return ['user'];
   };

@@ -11,6 +11,7 @@ contentType:
     - reference
 useCase: appliance
 applianceId: appliance30
+sitemap: false
 ---
 
 # Private SaaS (PSaaS) Appliance: High Availability Geo Cluster (Geo HA)

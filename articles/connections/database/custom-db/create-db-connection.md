@@ -107,13 +107,15 @@ function login(email, password, callback) {
         callback(new WrongUsernameOrPasswordError(email));
       } else {
         callback(null, {
-          id: user.id.toString(),
+          // This prefix (replace with your own custom DB name)
+          // ensure uniqueness across different custom DBs if there's the
+          // possibility of collisions (e.g. if the user ID is an email address or an integer)
+          id: 'MyConnection1|' + user.id.toString(),
           nickname: user.nickname,
           email: user.email
         });
       }
     });
-
   });
 }
 ```
@@ -122,13 +124,50 @@ The above script connects to a MySQL database and executes a query to retrieve t
 
 With the **bcrypt.compareSync** method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including **id**, **nickname**, and **email**.
 
-This script assumes that you have a **users** table containing these columns. The **id** returned by Login script is used to construct the **user ID** attribute of the user profile. If you are using multiple custom database connections, then **id** value must be unique across all the custom database connections to avoid **user ID** collisions. Our recommendation is to prefix the value of **id** with the connection name (omitting any whitespace).
+This script assumes that you have a **users** table containing these columns. The **id** returned by Login script is used to construct the **user ID** attribute of the user profile. 
+
+::: warning
+Ensure that the returned user ID is unique across custom databases. See [User IDs](#user-ids) below.
+:::
 
 Be sure to **Save** your changes. Note that clicking **Try** to test your script will also save your script.
+
+### User IDs
+
+**Heads up** The `id` (or alternatively `user_id`) property in the returned user profile will be used by Auth0 to identify the user. 
+
+If you are using multiple custom database connections, then **id** value **must be unique across all the custom database connections** to avoid **user ID** collisions. Our recommendation is to prefix the value of **id** with the connection name (omitting any whitespace). See [Identify Users](/users/normalized/auth0/identify-users) for more information on user IDs.
 
 ### User Metadata and Custom Databases
 
 Depending on your custom database script, you may return a user profile to Auth0 apps. This profile includes the user metadata fields. The **app_metadata** field(s) should be [referred to as **metadata** in scripts for custom databases](/users/concepts/overview-user-metadata#metadata-and-custom-databases).
+
+### Identity Provider (IdP) Tokens
+
+If the `user` object returns the `access_token` and `refresh_token` properties, Auth0 handles these slightly differently from other pieces of user information. They will be stored in the `user` object's `identities` property, and retrieving them using the API, therefore, requires an additional scope: `read:user_idp_tokens`.
+
+```
+{
+  "email": "you@example.com",
+  "updated_at": "2019-03-15T15:56:44.577Z",
+  "user_id": "auth0|some_unique_id",
+  "nickname": "a_nick_name",
+  "identities": [
+    {
+      "user_id": "some_unique_id",
+      "access_token": "e1b5.................92ba",
+      "refresh_token": "a90c.................620b",
+      "provider": "auth0",
+      "connection": "custom_db_name",
+      "isSocial": false
+    }
+  ],
+  "created_at": "2019-03-15T15:56:44.577Z",
+  "last_ip": "192.168.1.1",
+  "last_login": "2019-03-15T15:56:44.576Z",
+  "logins_count": 3
+}
+```
 
 ## Step 3: Add configuration parameters
 

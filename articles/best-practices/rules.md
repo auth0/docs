@@ -45,7 +45,7 @@ Avoid calling the Management API if at all possible, especially in high traffic 
 
 We have recently expanded the connection properties available in rules [context object](/rules/references/context-object). You should now obtain connection info from the context object instead of calling the Auth0 Management API.
 
-Removing calls to the Management API (as well as the extra call required to get the appropriate Access Token) will make your rule code more performant and reliable. 
+Removing calls to the Management API (as well as the extra call required to get the appropriate Access Token) will make your rule code more performant and reliable.
 
 In particular, if you are using the **Check if user email domain matches configured domain** rule template, check out the latest version [on Github](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or on the [Auth0 dashboard](${manage_url}/#/rules/new) to see the new best practices.
 
@@ -53,7 +53,7 @@ The included changes should not alter any functionality while still improving th
 
 ### Cache results
 
-Rules have a [global variable you can use to cache information](/rules/guides/cache-resources). For API calls that are not user-specific, use this variable to cache the results between users (e.g., getting an access token for your API).
+Rules have a [global variable you can use to cache information](/rules/guides/cache-resources). For API calls that are not user-specific, use this variable to cache the results between users (e.g., getting an Access Token for your API).
 
 ### Limited read or update users scopes
 
@@ -107,19 +107,19 @@ Always use HTTPS, not HTTP, connections when making calls to external services i
 
 ### Don’t use conditional logic for MFA based on silent authentication, device fingerprint, or geolocation
 
-Don’t use rules that trigger multi-factor authentication based on silent authentication, a known device, or a known location. 
+Don’t use rules that trigger multi-factor authentication based on silent authentication, a known device, or a known location.
 
-The following code examples are ones we **do not recommend** you use (scroll past these examples for a more secure alternative). 
+The following code examples are ones we **do not recommend** you use (scroll past these examples for a more secure alternative).
 
 Silent authentication or “prompt === none”:
 
 ```js
 function (user, context, callback) {
-    if (context.request.query && context.request.query.prompt === 'none') {
+  if (context.request.query && context.request.query.prompt === 'none') {
     // skip MFA for silent token requests
     return callback(null, user, context);
-    }
-    // ...
+  }
+  // ...
 }
 ```
 
@@ -127,52 +127,51 @@ Device fingerprint:
 
 ```js
 function (user, context, callback) {
-    var deviceFingerPrint = getDeviceFingerPrint();
-    user.app_metadata = user.app_metadata || {};
+  var deviceFingerPrint = getDeviceFingerPrint();
+  user.app_metadata = user.app_metadata || {};
 
-    // Inadequate verification check
-    if (user.app_metadata.lastLoginDeviceFingerPrint !==  deviceFingerPrint) {
-      user.app_metadata.lastLoginDeviceFingerPrint = deviceFingerPrint;
-      context.multi-factor = {
-        // ...
-      };
+  // Inadequate verification check
+  if (user.app_metadata.lastLoginDeviceFingerPrint !==  deviceFingerPrint) {
+    user.app_metadata.lastLoginDeviceFingerPrint = deviceFingerPrint;
+    context.multi-factor = {
       // ...
-    }
-    function getDeviceFingerPrint() {
-      var shasum = crypto.createHash('sha1');
-      shasum.update(context.request.userAgent);
-      shasum.update(context.request.ip);
-      return shasum.digest('hex');
-    }
+    };
+  }
+  function getDeviceFingerPrint() {
+    var shasum = crypto.createHash('sha1');
+    shasum.update(context.request.userAgent);
+    shasum.update(context.request.ip);
+    return shasum.digest('hex');
+  }
 }
 ```
 
 Geolocation:
 
 ```js
-  function (user, context, callback) {
-    user.app_metadata = user.app_metadata || {};
+function (user, context, callback) {
+  user.app_metadata = user.app_metadata || {};
 
-    // Inadequate verification check
-    if (user.app_metadata.last_location !== context.request.geoip.country_code) {
-      user.app_metadata.last_location = context.request.geoip.country_code;
-      context.multi-factor = {
+  // Inadequate verification check
+  if (user.app_metadata.last_location !== context.request.geoip.country_code) {
+    user.app_metadata.last_location = context.request.geoip.country_code;
+    context.multi-factor = {
       // ...
-      };
+    };
   }
+  // ...
+}
 ```
 
-If you have any MFA-related rules based on these checks, remove the conditional logic and **use the `allowRememberBrowser` parameter** instead. Setting `allowRememberBrowser` to `true` lets users check a box so they will only be prompted for multi-factor authentication every 30 days. 
+If you have any MFA-related rules based on these checks, remove the conditional logic and **use the `allowRememberBrowser` parameter** instead. Setting `allowRememberBrowser` to `true` lets users check a box so they will only be prompted for multi-factor authentication every 30 days.
 
 For example:
 
 ```js
-// ...
 context.multi-factor = {
-    provider: 'guardian', 
-    allowRememberBrowser: true
+  provider: 'guardian',
+  allowRememberBrowser: true
 };
-// ...
 ```
 
 ### Don’t use conditional logic based on silent authentication to redirect to custom MFA provider
@@ -183,14 +182,15 @@ Silent authentication or “prompt === none”
 
 ```js
 function (user, context, callback) {
-    if (context.request.query && context.request.query.prompt === 'none') {
-    // skip MFA for silent token requests
-        return callback(null, user, context);
-    }
-    //redirect to custom MFA
-    context.redirect = {
-      url: "https://example.com/"
-    };
+  if (context.request.query && context.request.query.prompt === 'none') {
+  // skip MFA for silent token requests
+    return callback(null, user, context);
+  }
+  //redirect to custom MFA
+  context.redirect = {
+    url: "https://example.com/"
+  };
+  // ...
 }
 ```
 
@@ -198,8 +198,8 @@ Instead, you should **remove the check for silent authentication and switch to a
 
 ```js
 context.multi-factor = {
-    provider: 'guardian', 
-    allowRememberBrowser: true
+  provider: 'guardian',
+  allowRememberBrowser: true
 };
 ```
 
@@ -209,10 +209,11 @@ Whenever granting authorization based on an email address, always start by check
 
 ```js
 function (user, context, callback) {
-    // Access should only be granted to verified users.
-    if (!user.email || !user.email_verified) {
-        return callback(null, user, context);
-    }
+  // Access should only be granted to verified users.
+  if (!user.email || !user.email_verified) {
+    return callback(new UnauthorizedError('Access denied.'));
+  }
+  // ...
 }
 ```
 
@@ -224,7 +225,7 @@ For example:
 
 ```js
 if( _.findIndex(connection.options.domain_aliases, function(d){
-    return user.email.indexOf(d) >= 0;
+  return user.email.indexOf(d) >= 0;
 }
 ```
 

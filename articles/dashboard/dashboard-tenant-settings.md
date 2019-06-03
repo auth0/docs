@@ -7,6 +7,7 @@ topics:
 contentType: reference
 useCase: manage-accounts
 ---
+
 # Tenant Settings in the Auth0 Dashboard
 
 The [Tenant Settings](${manage_url}/#/tenant) page of the dashboard allows you to configure various settings related to your Auth0 tenant.
@@ -68,13 +69,13 @@ The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section expl
 
 ## Advanced
 
-### Logout
+### Login and Logout
 
-![](/media/articles/tutorials/tenant-settings/logout-urls.png)
+![](/media/articles/tutorials/tenant-settings/login-logout.png)
 
-Allows you to specify the **Allowed Logout URLs** for your tenant. These are a set of URLs that are valid to redirect to after logout from Auth0 when no `client_id` is specified on the logout endpoint invocation. It's useful as a global list when SSO is enabled. 
+**Allowed Logout URLs**:  These are a set of URLs that are valid to redirect to after logout from Auth0 when no `client_id` is specified on the logout endpoint invocation. It's useful as a global list when SSO is enabled.  Learn more about [Logout](/logout).
 
-Learn more about [Logout](/logout).
+**Tenant Login URI**: In some scenarios Auth0 will need your tenant to start the OIDC login flow . This URI should point to a route in your application that starts the flow by redirecting to the `/authorize` endpoint. It would usually take the form of 'https://mytenant.org/login'. [Learn more about the tenant default login URI](/universal-login/default-login-url).
 
 ### Session Timeout
 

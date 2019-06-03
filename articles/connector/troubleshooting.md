@@ -65,7 +65,7 @@ These are the most common problems:
 
 Make sure the clock of your server is current.
 
-If the time is not correct, it will cause authentication requests to fail. This can be fixed by ensuring that the System is properly configured to use to pool a sync server via the NTP (Network Time Protocol).
+If the time is not correct, it will cause authentication requests to fail. This can be fixed by ensuring that the System is properly configured to use to poll a sync server via the NTP (Network Time Protocol).
 
 ::: note
 On windows environments the ntp provider is usually the same domain controller. Make sure that your Domain Controller is synchronized with some external service.
@@ -85,9 +85,9 @@ When the domain does not exist or is unreachable `nltest` will return an error m
 
 ### UNABLE_TO_VERIFY_LEAF_SIGNATURE error message
 
-This error applies to the AD/LDAP Connector in combination with the PSaaS Appliance.
+This error applies to the AD/LDAP Connector in combination with the Private Cloud.
 
-When the connector will fail to start if unable to validate the SSL certificate configured in the PSaaS Appliance. This can happen when the Root Certificate (or any Intermediate Certificates) are missing in the machine's Certificate Store (Windows). In order to solve this you should import the certificate chain in the **Local Machine > Trusted Root** certificate store on the machine where the AD/LDAP Connector is installed.
+When the connector will fail to start if unable to validate the SSL certificate configured in the Private Cloud. This can happen when the Root Certificate (or any Intermediate Certificates) are missing in the machine's Certificate Store (Windows). In order to solve this you should import the certificate chain in the **Local Machine > Trusted Root** certificate store on the machine where the AD/LDAP Connector is installed.
 
 ### Running the connector behind a proxy
 

@@ -17,7 +17,7 @@ useCase: quickstart
 
 The OpenID Connect middleware will automatically retrieve the user's information from Auth0 and add it as claims to the `ClaimsIdentity`. The seed project contains a controller action and view which will display the claims associated with a particular user. Once a user has signed in, you can go to `/Account/Claims` to see these claims.
 
-By default, the `email` claim is not included in the list of claims returned by Auth0. You will need to request it explicitly by requesting the **email** scope when your register the Auth0 middleware. 
+By default, the `email` claim is not included in the list of claims returned by Auth0. You will need to request it explicitly by requesting the **email** scope when your register the Auth0 middleware.
 
 Update the OpenID Connect middleware configuration and set the value of the `Scope` property to `openid profile email`:
 
@@ -32,7 +32,7 @@ public void Configuration(IAppBuilder app)
     app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
     {
         AuthenticationType = "Auth0",
-        
+
         Authority = $"https://{auth0Domain}",
 
         ClientId = auth0ClientId,

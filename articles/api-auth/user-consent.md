@@ -64,11 +64,9 @@ client_id=some_third_party_client
   </tbody>
 </table>
 
-If the user chooses to allow the application, this will create a user grant which represents this user's consent to this combination of application, resource server and scopes.
+If the user allows the application, this creates a *user grant* which represents the user's consent to this combination of application, resource server, and scopes. 
 
-The application will then receive a successful authentication response from Auth0 as usual.
-
-Once consent has been given, the user will no longer see the consent dialog on subsequent logins.
+The application then receives a successful authentication response from Auth0 as usual. Once consent has been given, the user won't see the consent dialog during subsequent logins until consent is revoked explicitly.
 
 ## Scope Descriptions 
 
@@ -142,5 +140,4 @@ When redirecting to /authorize, the `prompt=consent` parameter will force users 
 
 ### Customizing the consent dialog
 
-As of today the consent dialog UI cannot be customized or set to a custom domain.
-We plan to implement this in future releases.
+The consent dialog UI cannot be customized or set to a custom domain.

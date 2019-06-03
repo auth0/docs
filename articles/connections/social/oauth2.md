@@ -3,6 +3,7 @@ title: Add a generic OAuth2 Authorization Server to Auth0
 connection: Generic OAuth2 Provider
 image: /media/connections/oauth2.png
 seo_alias: oauth2
+toc: true
 index: 13
 description: You can add any OAuth2 provider using the Auth0 Custom Social Connections extension.
 topics:
@@ -16,17 +17,11 @@ useCase:
 ---
 # Add a generic OAuth2 Authorization Server to Auth0
 
-The most common [identity providers](/identityproviders) are readily available on Auth0's dashboard. However, you can add any other OAuth2 provider using the **Custom Social Connections** [extension](${manage_url}/#/extensions).
+The most common [identity providers](/identityproviders) are readily available on Auth0's dashboard. However, you can add any other OAuth2 provider using the **Custom Social Connections** [extension](${manage_url}/#/extensions). For details on how to install and configure the extension, refer to [Auth0 Extension: Custom Social Connections](/extensions/custom-social-extensions).
 
-![](/media/articles/connections/social/oauth2/custom-social-connections.png)
+## The fetch user profile script
 
-::: note
-For details on how to install and configure the extension, refer to [Auth0 Extension: Custom Social Connections](/extensions/custom-social-extensions).
-:::
-
-## The `fetchUserProfile` script
-
-A custom `fetchUserProfile` script will be called after the user has logged in with the OAuth2 provider. Auth0 will execute this script to call the OAuth2 provider API and get the user profile:
+A custom fetch user profile script is called after the user has logged in with the OAuth2 provider. Auth0 executes this script to call the OAuth2 provider API and get the user profile:
 
 ```js
 function(access_token, ctx, callback){
@@ -71,6 +66,41 @@ function(access_token, ctx, callback) {
 ```
 
 You can filter, add or remove anything from the profile returned from the provider. However, it is recommended that you keep this script as simple as possible. More sophisticated manipulation of user information can be achieved through the use of [Rules](/rules). One advantage of using Rules is that they apply to *any* connection.
+
+### Fetch user profile for OIDC-conformant OAuth2 providers
+
+If the OAuth2 provider is OIDC-conformant, such as another Auth0 tenant, you can extract the user profile from the ID Token. The `ctx` object in the fetch user profile script will have the ID Token. You can then decode the token and map its fields to the user object. For example:
+
+```js
+function(access_token, ctx, callback) {
+  var jwt = require("jsonwebtoken");
+  const idToken = jwt.decode(ctx.id_token);
+  const profile = {
+    "user_id": idToken.sub,
+    "name": idToken.name,
+    "given_name": idToken.given_name,
+    "family_name": idToken.family_name,
+    "middle_name": idToken.middle_name,
+    "nickname": idToken.nickname,
+    "preferred_username": idToken.preferred_username,
+    "profile": idToken.profile,
+    "picture": idToken.picture,
+    "website": idToken.website,
+    "email": idToken.email,
+    "email_verified": idToken.email_verified,
+    "gender": idToken.gender,
+    "birthdate": idToken.birthdate,
+    "zoneinfo": idToken.zoneinfo,
+    "locale": idToken.locale,
+    "phone_number": idToken.phone_number,
+    "phone_number_verified": idToken.phone_number_verified,
+    "address": idToken.address,
+    "updated_at": idToken.updated_at
+  };
+  console.log(JSON.stringify(profile, null, 2));
+  callback(null, profile);
+}
+```
 
 ## Log in using the custom connection
 
@@ -176,7 +206,7 @@ Where `[your credentials]` is the actual credentials which you need to send to t
 ## Keep Reading
 
 ::: next-steps
-* [Adding custom connections to lock](/libraries/lock/v9/ui-customization#adding-a-new-ui-element-using-javascript)
+* [Customizing buttons for connections in Lock](/libraries/lock/v11/ui-customization#authbuttons-object-)
 * [Generic OAuth2 or OAuth1 examples](/oauth2-examples)
 * [Identity Providers supported by Auth0](/identityproviders)
 * [Identity Protocols supported by Auth0](/protocols)

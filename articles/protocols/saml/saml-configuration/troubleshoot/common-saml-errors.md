@@ -31,7 +31,7 @@ This message indicates that the Application doesn't have an active Connection as
 1. Navigate to [Connections > Enterprise](${manage_url}/#/connections/enterprise).
 2. Find your Connection, and click on **Settings**.
 3. Switch to the *Applications* tab.
-4. Enable at least one Application (if you don't see any in the list, you will need to [create an application](/applications#how-to-configure-an-application) before proceeding).
+4. Enable at least one Application (if you don't see any in the list, you will need to [create an application](/applications/concepts/app-types-auth0) before proceeding).
 
 ## Error: IdP-Initiated Default App Not Configured
 
@@ -49,6 +49,15 @@ This error appears if you haven't provided the necessary information to support 
 2. Find your Connection, and click on **Settings**.
 3. Switch to the *IdP-Initiated* tab.
 4. Select the **Default Application** and the **Response Protocol** used by that Application, and (optionally) specify any additional parameters you want passed to the Application.
+
+::: panel SP-Initiated Login
+If you see this error when using a SP-initiated flow, one of the following is missing or empty:
+
+* The `RelayState` parameter
+* The `InResponseTo` attribute in the SAML response
+
+If these are missing or empty, Auth0 treats the login as IdP-initiated. You can fix this error by checking your configuration to ensure that both fields are populated and returned appropriately.
+:::
 
 ## Error: Missing RelayState
 

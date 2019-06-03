@@ -22,7 +22,7 @@ The SSO dashboard supports two types of users:
 
 ## Create an application
 
-Let's start with creating a new application. Navigate to [Applications](${manage_url}/#/applications) and click on the **+Create Application** button. Set a name and choose **Single Page Web Applications** application type. Click on **Create**.
+Let's start with creating a new application. Navigate to [Applications](${manage_url}/#/applications) and click on the **+Create Application** button. Set a name and choose **Single-Page Web Applications** application type. Click on **Create**.
 
 ![](/media/articles/extensions/sso-dashboard/create-client.png)
 
@@ -32,17 +32,17 @@ The login URL for **Admins**:
 
 | Location | Allowed Callback URL |
 | --- | --- |
-| USA | `https://${account.tenant}.us.webtask.io/auth0-sso-dashboard/admins/login` |
-| Europe | `https://${account.tenant}.eu.webtask.io/auth0-sso-dashboard/admins/login` |
-| Australia | `https://${account.tenant}.au.webtask.io/auth0-sso-dashboard/admins/login` |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-sso-dashboard/admins/login` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/admins/login` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/admins/login` |
 
 The login URL for **Users**:
 
 | Location | Allowed Callback URL |
 | --- | --- |
-| USA | `https://${account.tenant}.us.webtask.io/auth0-sso-dashboard/login` |
-| Europe | `https://${account.tenant}.eu.webtask.io/auth0-sso-dashboard/login` |
-| Australia | `https://${account.tenant}.au.webtask.io/auth0-sso-dashboard/login` |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-sso-dashboard/login` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/login` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/login` |
 
 Copy the **Client ID** value.
 
@@ -71,6 +71,9 @@ Set the following configuration variables:
 - **EXTENSION_CLIENT_ID**: This is the **Client ID** of the application you have created in the [Applications](${manage_url}/#/applications) that you wish to use this extension with.
 - **TITLE**: This the custom title that will appear at the top of the SSO Dashboard page.
 - **CUSTOM_CSS** *Optional*: This field that can contain a link to custom CSS you can use to style the look of your SSO Dashboard page.
+- **AUTH0_CUSTOM_DOMAIN** *Optional*: If you have a custom domain name configured, enter it here (for example: login.example.com). This will change the authorization endpoint to https://login.example.com/login.
+
+  **NOTE**: Setting the `AUTH0_CUSTOM_DOMAIN` variable does not affect the extension URL, it only changes the "authorization endpoint". When a custom domain is used, users that are logging into the extension will be navigated to `https://AUTH0_CUSTOM_DOMAIN/login` instead of the default `https://tenant-name.us.auth0.com/login`.
 
 Once you have provided this information, click **INSTALL**.
 
@@ -92,9 +95,9 @@ Once you agree, you will be directed to your custom **SSO Dashboard** page, whic
 
 To login into the dashboard:
 
-For **Admins** use `https://${account.tenant}.<REGION>.webtask.io/auth0-sso-dashboard/admins/login` or through the Dashboard.
+For **Admins** use `https://${account.tenant}.<REGION>8.webtask.io/auth0-sso-dashboard/admins/login` or through the Dashboard.
 
-For **Users** use `https://${account.tenant}.<REGION>.webtask.io/auth0-sso-dashboard/login`.
+For **Users** use `https://${account.tenant}.<REGION>8.webtask.io/auth0-sso-dashboard/login`.
 
 ### Add a new application
 

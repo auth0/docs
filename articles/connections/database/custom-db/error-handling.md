@@ -47,6 +47,3 @@ Test the script using the **TRY** button. If your settings are correct you shoul
 
 If you do not get the expected result, or you receive an error, use `console.log`statements in your script and try the connection again. The output of `console.log` prints in the try the script window.
 
-::: note
-The [auth0-custom-db-testharness library](https://www.npmjs.com/package/auth0-custom-db-testharness) can be used to deploy, execute, and test the output of database action scripts using a Webtask sandbox environment.
-:::

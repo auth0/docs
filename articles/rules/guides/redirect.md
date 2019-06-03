@@ -81,7 +81,7 @@ By `THE_ORIGINAL_STATE` we mean the value that Auth0 generated and sent to the r
 For example, if your rule redirected to `https://example.com/foo`, Auth0 would use a redirect URL similar to `https://example.com/foo?state=abc123`. So `abc123` would be the `THE_ORIGINAL_STATE`. To resume the authentication transaction you would redirect to
 
 ```http
-https://${account.namespace}/continue?state=abc123`.
+https://${account.namespace}/continue?state=abc123
 ```
 
 When a user has been redirected to the `/continue` endpoint, **all rules will be run again.**

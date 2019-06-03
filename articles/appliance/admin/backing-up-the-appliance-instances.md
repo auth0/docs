@@ -7,6 +7,7 @@ topics:
 contentType: concept
 useCase: appliance
 applianceId: appliance1
+sitemap: false
 ---
 
 # PSaaS Appliance Administration: Appliance Backups

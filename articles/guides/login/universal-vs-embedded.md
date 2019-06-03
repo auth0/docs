@@ -54,7 +54,7 @@ Note that if the incoming authentication request uses an external identity provi
 You can deploy your custom login page from an external repository, like [GitHub](/extensions/github-deploy#deploy-hosted-pages), [Bitbucket](/extensions/bitbucket-deploy#deploy-hosted-pages), [GitLab](/extensions/gitlab-deploy#deploy-hosted-pages), or [Visual Studio Team Services](/extensions/visual-studio-team-services-deploy#deployment).
 :::
 
-Our recommendation is to use Universal Login when you use Auth0. The first and foremost reason is security. Using Auth0 hosted pages instead of hosting them externally provides seamless CSRF protection. This helps prevent third-party impersonation or the hijacking of sessions.
+Our recommendation is to use Universal Login when you use Auth0. The first and foremost reason is security. Using Auth0 Universal Login instead of embedding login in your application provides seamless CSRF protection. This helps prevent third-party impersonation or the hijacking of sessions.
 
 ## Embedded login with Auth0
 
@@ -64,7 +64,8 @@ Embedded logins in web apps with Auth0 use [Cross-Origin Authentication](/cross-
 Cross-origin authentication is only necessary when authenticating against a directory using a username and password. Social identity providers and enterprise federation use a different mechanism, redirecting via standard protocols like OpenID Connect and SAML.
 :::
 
-In addition, if you have not enabled [Custom Domain Names](/custom-domains) the end user must have a browser that supports third-party cookies, otherwise, in some browsers, cross-origin authentication will fail. For more information refer to [Limitations of Cross-Origin Authentication](/cross-origin-authentication).
+In addition, if you have not enabled [custom domains](/custom-domains), the end user must have a browser that supports third-party cookies. Otherwise, in some browsers, cross-origin authentication will fail. For more information, see  [Limitations of Cross-Origin Authentication](/cross-origin-authentication). This limitation applies to both traditional username/password database connections as well as to passwordless database connections.
+
 
 ### Security risks
 

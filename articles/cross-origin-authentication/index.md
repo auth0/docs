@@ -35,7 +35,7 @@ Because cross-origin authentication is achieved using third-party cookies, disab
 There are two approaches you can follow to remediate the issue:
 
 - Enable a [Custom Domain](/custom-domains) on your tenant and host your web application in a domain that has the same top level domain as your Auth0 custom domain. Example: Host your application at `https://northwind.com` and set your Auth0 custom domain as `https://login.northwind.com`. This way the cookies are no longer third-party (because both your Auth0 tenant and your application are using the same top level domain) and thus are not blocked by browsers.
-- Provide a [Cross-Origin verification page](#create-a-cross-origin-verification-page) that will make cross-origin authentication work **in some browsers** even with third-party cookies disabled (see the [browser testing matrix](#browser-testing-matrix) below).
+- Provide a [Cross-Origin verification page](#create-a-cross-origin-verification-page) that will make cross-origin authentication work **in some browsers** even with third-party cookies disabled (see the [browser testing information](#browser-testing-support) below).
 
 These issues are another reason why the more practical solution is to use [Universal Login](/hosted-pages/login).
 
@@ -86,100 +86,9 @@ See the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/sup
 
 <%= include('../_includes/_co_authenticate_errors', { library : 'Auth0.js v9 (and Lock v11)'}) %>
 
-## Browser Testing Matrix
+## Browser testing support
 
-This table lists which browsers can use cross-origin authentication when third-party cookies are disabled.
+The following browsers can use cross-origin authentication when third-party cookies are disabled:
 
-<!-- markdownlint-disable MD033 -->
-<table class="table">
-  <thead>
-    <tr>
-      <th><strong>OS</strong></th>
-      <th><strong>Browser</strong></th>
-      <th style="text-align:center;"><strong>Cross-Origin Authentication Supported<br> with Third-Party Cookies Disabled</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Windows</td>
-      <td>IE</td>
-      <td class="success text-center">Yes</td>
-    </tr>
-    <tr>
-      <td>Windows</td>
-      <td>Edge</td>
-      <td class="success text-center">Yes</td>
-    </tr>
-    <tr>
-      <td>Windows</td>
-      <td>Firefox</td>
-      <td class="danger text-center">No</td>
-    </tr>
-    <tr>
-      <td>Windows</td>
-      <td>Chrome</td>
-      <td class="danger text-center">No</td>
-    </tr>
-    <tr>
-      <td>Windows</td>
-      <td>Opera</td>
-      <td class="danger text-center">No</td>
-    </tr>
-    <tr>
-      <td>macOS Sierra</td>
-      <td>Safari</td>
-      <td class="danger text-center">No</td>
-    </tr>
-    <tr>
-      <td>macOS</td>
-      <td>Firefox</td>
-      <td class="danger text-center">No</td>
-    </tr>
-    <tr>
-      <td>macOS</td>
-      <td>Chrome</td>
-      <td class="danger text-center">No</td>
-    </tr>
-    <tr>
-      <td>macOS</td>
-      <td>Opera</td>
-      <td class="danger text-center">No</td>
-    </tr>
-    <tr>
-      <td>iOS (iPhone)</td>
-      <td>Safari</td>
-      <td class="danger text-center">No</td>
-    </tr>
-    <tr>
-      <td>iOS (iPhone)</td>
-      <td>Chrome</td>
-      <td class="danger text-center">No</td>
-    </tr>
-    <tr>
-      <td>iOS (iPhone)</td>
-      <td>Firefox</td>
-      <td class="danger text-center">No</td>
-    </tr>
-    <tr>
-      <td>iOS (iPad)</td>
-      <td>Safari</td>
-      <td class="danger text-center">No</td>
-    </tr>
-    <tr>
-      <td>iOS (iPad)</td>
-      <td>Chrome</td>
-      <td class="danger text-center">No</td>
-    </tr>
-    <tr>
-      <td>Android Galaxy S7</td>
-      <td>Chrome</td>
-      <td class="danger text-center">No</td>
-    </tr>
-    <tr>
-      <td>Android Galaxy S7</td>
-      <td>Firefox</td>
-      <td class="danger text-center">No</td>
-    </tr>    
-  </tbody>
-</table>
-<!-- markdownlint-enable MD033 -->
+* Windows Internet Explorer
+* Windows Edge

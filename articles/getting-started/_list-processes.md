@@ -17,7 +17,7 @@
   - [Enterprise](${manage_url}/#/connections/enterprise): configure Enterprise Connections like Active Directory, SAML, Office 365 and others so that you can let your users login with them. This way your users can use their enterprise credentials to login to your app. [More info on individual enterprise providers](/identityproviders#enterprise).
   - [Passwordless](${manage_url}/#/connections/passwordless): let your users signup and login using one-time codes (delivered by email or SMS) or one-click links, instead of passwords. [More info on Passwordless](/connections/passwordless).
 <% } else if (screen === "users") { %>
-  This is where you manage your user's identities. In this page you can view your user's profiles, create new ones, perform password resets, block and delete users, and many more. You can also use this page to log in as any of your users in order to reproduce any issues that they report and debug your application. [More info on User Management](/users).
+  This is where you manage your user's identities. In this page you can view your user's profiles, create new ones, perform password resets, block and delete users, and many more. [More info on User Management](/users).
 <% } else if (screen === "rules") { %>
   Here you can configure custom JavaScript snippets that are executed in Auth0 as part of the transaction every time a user authenticates to your application. You can call external APIs, filter which users can login to your application, use a whitelist, geolocated access or anything. [More information on Rules](/rules).
 <% } else if (screen === "hooks") { %>

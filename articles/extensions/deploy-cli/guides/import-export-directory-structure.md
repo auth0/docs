@@ -145,3 +145,4 @@ repository =>
 * [Call Deploy CLI Tool Programmatically](/extensions/deploy-cli/guides/call-deploy-cli-programmatically)
 * [Deploy CLI Tool Options](/extensions/deploy-cli/references/deploy-cli-options)
 * [Import/Export Tenant Configuration to a YAML File](/extensions/deploy-cli/guides/import-export-yaml-file)
+* [Troubleshooting Deploy CLI Tool](/extensions/deploy-cli/references/troubleshooting)

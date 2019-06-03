@@ -1,6 +1,6 @@
 ---
-title: Using Passwordless Authentication in SPA with SMS
-description: Learn how to authenticate users with a one-time-code using SMS in a Single Page Application (SPA).
+title: Implement Passwordless SMS in Single-Page Apps
+description: Learn how to authenticate users with a one-time code sent by SMS in a Single-Page Application (SPA).
 topics:
     - connections
     - passwordless
@@ -9,21 +9,21 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Using Passwordless Authentication in SPA with SMS
+# Implement Passwordless SMS in Single-Page Apps
 
-<%= include('_introduction-sms', { isMobile: true }) %>
+<%= include('./_includes/_introduction-sms', { isMobile: true }) %>
 
 ## Setup
 
-<%= include('_setup-sms-twilio') %>
+<%= include('./_includes/_setup-sms-twilio') %>
 
-<%= include('_setup-cors') %>
+<%= include('./_includes/_setup-cors') %>
 
 ## Implementation
 
 ### Use Lock 
 
-<%= include('_init-passwordless-lock') %>
+<%= include('./_includes/_init-passwordless-lock') %>
 
 You can then trigger the login widget with the following code:
 
@@ -49,6 +49,8 @@ You can then trigger the login widget with the following code:
 </script>
 <a href="javascript:login()">Login</a>
 ```
+
+<%= include('./_includes/_custom-domains') %>
 
 This will open a dialog that asks the user for their phone number.
 
@@ -84,6 +86,8 @@ var webAuth = new auth0.WebAuth({
   responseType: 'token id_token'
 });
 ```
+
+<%= include('./_includes/_custom-domains') %>
 
 You must provide a way for the user to enter a phone number to which the SMS will be sent. Then you can begin the passwordless authentication as follows (assuming the name of your form input as `input.phone-number`):
 

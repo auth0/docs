@@ -10,6 +10,7 @@ topics:
 contentType: reference
 useCase: appliance
 applianceId: appliance38
+sitemap: false
 ---
 
 <!-- markdownlint-disable MD033 -->
@@ -192,6 +193,14 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>53</td>
     <td>Required by the PSaaS Appliance to resolve host names internal and external to your environment</td>
     <td>Yes</td>
+  </tr>
+  <tr>
+    <td>SMTP</td>
+    <td>Outbound</td>
+    <td>SMTP Server(s)</td>
+    <td>25/587</td>
+    <td>Allows sending of emails from the Appliance</td>
+    <td>No</td>
   </tr>
   </tbody>
 </table>

@@ -17,10 +17,6 @@ The **Delegated Administration** extension allows you to grant a select group of
 
 Follow this tutorial to learn how to expose the Users dashboard to a group of users without allowing them access to the rest of the management dashboard. 
 
-:::panel PSaaS Appliance Availability
-The Delegated Administration extension is available for [PSaaS Appliance](/appliance) customers who are running build `10755` or later, and have User Search enabled.
-:::
-
 Prior to configuring the extension, you will need to:
 
 * [Create and configure an Auth0 Application](#create-an-application)
@@ -34,7 +30,7 @@ The first step is to create the Application that the extension exposes to those 
 1. After you've logged into the [Management Dashboard](${manage_url}), navigate to [Applications](${manage_url}/#/applications).
 2. Click **+Create Application**. 
 3. Provide a name for your application (such as `Users Dashboard`).
-4.  Set the Application type to `Single Page Web Applications`. 
+4.  Set the Application type to `Single-Page Web Applications`. 
 5. Click **Create** to proceed.
 
 ![Create an Application](/media/articles/extensions/delegated-admin/create-client.png)
@@ -128,11 +124,13 @@ You will need to add at least one user to your connection. You can do this via t
 
 Auth0 grants the user(s) in your connection access to the Delegated Administration extension based on their roles:
 
-- **Delegated Admin - Auditor**: Grants permission to search for users and view users information, but does not allow the user to make any changes. This role will also change the UI to remove action based buttons;
-
 - **Delegated Admin - User**: Grants permission to search for users, create users, open users and execute actions on these users (such as `delete`, `block`, and so on);
 
 - **Delegated Admin - Administrator**: In addition to all of the rights a user has, administrators can see all logs in the tenant and configure Hooks.
+
+- **Delegated Admin - Auditor**: Grants permission to search for users and view users information, but does not allow the user to make any changes. This role will also change the UI to remove action-based buttons;
+
+- **Delegated Admin - Operator**: Grants permission to access user management and logs, but does not allow access to the extension configuration.
 
 To use the extension, users must have either of these roles defined in one of the following fields of their user profiles:
 
@@ -188,6 +186,10 @@ Now that we've created and configured an application, a connection, and our user
 - **CUSTOM_CSS** (optional): Provide a CSS script to customize the look and feel of your Application.
 
 - **FAVICON_PATH** (optional): Path to custom favicon.
+
+- **AUTH0_CUSTOM_DOMAIN** *Optional*: If you have a custom domain name configured, enter it here (for example: login.example.com). This will change the authorization endpoint to https://login.example.com/login.
+
+  **NOTE**: Setting the `AUTH0_CUSTOM_DOMAIN` variable does not affect the extension URL, it only changes the "authorization endpoint". When a custom domain is used, users that are logging into the extension will be navigated to `https://AUTH0_CUSTOM_DOMAIN/login` instead of the default `https://tenant-name.us.auth0.com/login`.
 
 - **FEDERATED_LOGOUT** (optional): sign out from the IdP when users logout.
 

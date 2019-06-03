@@ -63,7 +63,7 @@ Next, we need to set our dependencies. We will use the following modules:
 
 - **express**: This module adds the [Express web application framework](https://expressjs.com/).
 
-- **cors**: This module adds support for enabling [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) which is required since the API will be called from a Single Page Application running on a different domain inside a web browser.
+- **cors**: This module adds support for enabling [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) which is required since the API will be called from a Single-Page Application running on a different domain inside a web browser.
 
 - **jwks-rsa**: This library retrieves RSA signing keys from a **JWKS** (JSON Web Key Set) endpoint. Using `expressJwtSecret` we can generate a secret provider that will provide the right signing key to `express-jwt` based on the `kid` in the JWT header. For more information refer to the [node-jwks-rsa GitHub repository](https://github.com/auth0/node-jwks-rsa).
 

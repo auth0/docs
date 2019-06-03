@@ -14,23 +14,62 @@ useCase:
 ---
 # Bulk User Import Database Schema and Example
 
-The users file must have an array with the users' information in JSON format. The following [JSON schema](http://json-schema.org) describes valid users:
+::: note
+For a list of user profile fields that can be imported, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes).
+:::
+
+The users file must have an array with the users' information in JSON format.
+
+The following [JSON schema](http://json-schema.org) describes valid users:
 
 ```json
 {
     "type": "object",
     "properties": {
-        "email_verified": {
-            "type": "boolean"
-        },
         "email": {
             "type": "string",
-            "description": "The email of the user.",
+            "description": "The user's email address.",
             "format": "email"
+        },
+            "email_verified": {
+            "type": "boolean",
+            "description": "Indicates whether the user has verified their email address."
+        },
+        "user_id": {
+            "type": "text",
+            "description": "The user's unique identifier."
         },
         "username": {
             "type": "string",
-            "description": "The username."
+            "description": "The user's username."
+        },
+        "given_name": {
+            "type": "string",
+            "description": "The user's given name."
+        },
+        "family_name": {
+            "type": "string",
+            "description": "The user's family name."
+        },
+        "name": {
+            "type": "string",
+            "description": "The user's full name."
+        },
+        "nickname": {
+            "type": "string",
+            "description": "The user's nickname."
+        },
+        "picture": {
+          "type": "string",
+          "description": "URL pointing to the user's profile picture."
+        },
+        "blocked": {
+            "type": "boolean",
+            "description": "Indicates whether the user has been blocked."
+        },
+        "password_hash": {
+            "type": "text",
+            "description":"Hashed password for the user. Passwords should be hashed using bcrypt $2a$ or $2b$ and have 10 saltRounds."
         },
         "app_metadata": {
             "type": "object",
@@ -50,18 +89,25 @@ The users file must have an array with the users' information in JSON format. Th
 
 Additionally, the `app_metadata` should **not** contain any of these properties:
 
+* `__tenant`
+* `_id`
+* `blocked`
 * `clientID`
+* `created_at`
+* `email_verified`
+* `email`
 * `globalClientID`
 * `global_client_id`
-* `email_verified`
-* `user_id`
 * `identities`
 * `lastIP`
 * `lastLogin`
-* `metadata`
-* `created_at`
 * `loginsCount`
-* `_id`
+* `metadata`
+* `multifactor_last_modified`
+* `multifactor`
+* `updated_at`
+* `user_id`
+
 
 ::: note
 The `app_metadata` stores information that can impact how an application functions or what the user can access (for example, a user's support plan or roles and access groups). For more information, refer to [User Metadata](/metadata).
@@ -95,7 +141,7 @@ The file size limit for a bulk import is 500KB. You will need to start multiple 
 
 * [User Migration Overview](/users/concepts/overview-user-migration)
 * [Configure Automatic Migration](/users/guides/configure-automatic-migration)
-* [Bulk User Imports with the Management API](/users/guides/bulk-user-import)
+* [Bulk User Imports](/users/guides/bulk-user-imports)
 * [User Import/Export Extension](/extensions/user-import-export)
 * [User Migration Scenarios](/users/references/user-migration-scenarios)
 * [Migrating Stormpath Users to Auth0 Demo](https://github.com/auth0-blog/migrate-stormpath-users-to-auth0)

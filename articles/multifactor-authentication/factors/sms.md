@@ -25,6 +25,10 @@ Your users must have a device capable of receiving SMS messages to use this opti
 
 ## Administrative setup
 
-In order to set up SMS, you will need to click on the SMS factor in the Dashboard and [configure an SMS provider such as Twilio](/multifactor-authentication/twilio-configuration) to enable you to send SMS messages to your users. You can also [customize your SMS notification templates](/multifactor-authentication/sms-templates).
+To set up SMS and be able to send SMS messages to users, you'll need to enable the SMS factor in the Dashboard and [configure Twilio](/multifactor-authentication/twilio-configuration). You can (optionally) [customize your SMS notification templates](/multifactor-authentication/sms-templates).
+
+::: note
+Custom SMS gateways are unavailable with MFA.
+:::
 
 ![MFA SMS Settings](/media/articles/multifactor-authentication/sms-settings.png)

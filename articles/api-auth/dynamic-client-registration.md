@@ -15,7 +15,7 @@ useCase:
 
 <%= include('../_includes/_pipeline2') %>
 
-Dynamic Client Registration enables you to register [third-party applications](/applications/application-types#first-vs-third-party-applications) dynamically.
+Dynamic Client Registration enables you to register [third-party applications](/applications/concepts/app-types-first-third-party) dynamically.
 
 This feature is based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html) and in this article we will see how you can enable and use it.
 
@@ -111,7 +111,7 @@ Also, keep in mind that third-party developers are not allowed to modify the app
 
 Now that you have a Client ID and Secret, you can configure your application to authenticate users with Auth0.
 
-We will go through a simple example, that shows how to call an API from a client-side web app, using the [Single-Page Login Flow](/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow). For a list of tutorials on how to authenticate and authorize users, based on your application type, see the [API Authorization](/api-auth) page.
+We will go through a simple example, that shows how to call an API from a client-side web app, using the [Implicit Flow](/flows/guides/implicit/call-api-implicit). For a list of tutorials on how to authenticate and authorize users, based on your application type, see the [API Authorization](/api-auth) page.
 
 First, you need to configure your application to send the user to the authorization URL:
 

@@ -2,6 +2,7 @@
 description: How to use Hooks to change the scopes and add custom claims to the tokens you got using Client Credentials Grant.
 crews: crew-2
 toc: true
+beta: true
 topics:
   - api-authentication
   - oidc
@@ -33,7 +34,7 @@ You can manage Hooks using the [Auth0 Dashboard](/hooks/dashboard) or the [Auth0
 Please ensure that:
 
 - You have created an [API defined with the appropriate scopes](${manage_url}/#/apis)
-- You have created a [machine to machine application](/applications/machine-to-machine) that is authorized to use the API created in the previous step
+- You have created a [machine to machine application](/applications/concepts/app-types-auth0) that is authorized to use the API created in the previous step
 
 If you haven't done these yet, refer to these docs for details:
 - How to set up a Client Grant:
@@ -144,11 +145,28 @@ To get a token, make a `POST` request at the `https://${account.namespace}/oauth
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "client_credentials"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "audience",
+        "value": "YOUR_API_IDENTIFIER"
+      }
+    ]
   }
 }
 ```

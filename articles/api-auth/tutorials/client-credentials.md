@@ -17,7 +17,7 @@ The **Client Credentials Grant** (defined in [RFC 6749, section 4.4](https://too
 
 Before beginning this tutorial, please:
 
-* Make sure you that your application has the `Client Credentials` [grant type enabled](/applications/application-grant-types#how-to-edit-the-application-s-grant_types-property). Regular web applications and machine to machine applications have it enabled by default.
+* Make sure you that your application has the `Client Credentials` [grant type enabled](/dashboard/guides/applications/update-grant-types). Regular web applications and machine to machine applications have it enabled by default.
 
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0 with the required scopes.
 
@@ -32,11 +32,28 @@ To ask Auth0 for tokens for any of your authorized applications, perform a `POST
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "client_credentials"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "audience",
+        "value": "YOUR_API_IDENTIFIER"
+      }
+    ]
   }
 }
 ```
@@ -94,7 +111,7 @@ This is a series of tutorials that describe a scenario for a fictitious company 
 ## Keep reading
 
 ::: next-steps
-- [Machine to Machine applications](/applications/machine-to-machine)
+- [Auth0 Application Types](/applications/concepts/app-types-auth0)
 - [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 - [Tokens used by Auth0](/tokens)

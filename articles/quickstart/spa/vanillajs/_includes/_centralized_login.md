@@ -98,7 +98,7 @@ window.addEventListener('load', function() {
   function localLogin(authResult) {
     // Set isLoggedIn flag in localStorage
     localStorage.setItem('isLoggedIn', 'true');
-    // Set the time that the access token will expire at
+    // Set the time that the Access Token will expire at
     expiresAt = JSON.stringify(
       authResult.expiresIn * 1000 + new Date().getTime()
     );
@@ -106,19 +106,19 @@ window.addEventListener('load', function() {
     idToken = authResult.idToken;
   }
 
-function renewTokens() {
-  webAuth.checkSession({}, (err, authResult) => {
-    if (authResult && authResult.accessToken && authResult.idToken) {
-      localLogin(authResult);
-    } else if (err) {
-      alert(
-          'Could not get a new token '  + err.error + ':' + err.error_description + '.'
-      );
-      logout();
-    }
-    displayButtons();
-  });
-}
+  function renewTokens() {
+    webAuth.checkSession({}, (err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        localLogin(authResult);
+      } else if (err) {
+        alert(
+            'Could not get a new token '  + err.error + ':' + err.error_description + '.'
+        );
+        logout();
+      }
+      displayButtons();
+    });
+  }
 
   function logout() {
     // Remove isLoggedIn flag from localStorage
@@ -134,7 +134,7 @@ function renewTokens() {
     // Check whether the current time is past the
     // Access Token's expiry time
     var expiration = parseInt(expiresAt) || 0;
-    return localStorage.getItem('isLoggedIn') === 'true' && new Date().getTime() < expiration
+    return localStorage.getItem('isLoggedIn') === 'true' && new Date().getTime() < expiration;
   }
 
   function displayButtons() {

@@ -22,7 +22,7 @@ The __Authorization Code__ is an OAuth 2.0 grant that [regular web apps](/quicks
 
 Before beginning this tutorial, please:
 
-* Check that your Application's [Grant Type property](/applications/application-grant-types) is set appropriately
+* Check that your Application's [Grant Type property](/applications/concepts/application-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 
 ## 1. Get the User's Authorization
@@ -74,11 +74,32 @@ Now that you have an Authorization Code, you must exchange it for an Access Toke
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "authorization_code"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "code",
+        "value": "YOUR_AUTHORIZATION_CODE"
+      },
+      {
+        "name": "redirect_ui",
+        "value": "${account.callback}"
+      }
+    ]
   }
 }
 ```
@@ -105,7 +126,7 @@ The response contains the `access_token`, `refresh_token`, `id_token`, and `toke
 Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](/tokens/refresh-token).
 
 ::: panel-warning Security Warning
-It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single Page Application, the Client Secret is available to the application (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Implicit Grant flow](/api-auth/grant/implicit) is more appropriate in that case.
+It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single-Page Application, the Client Secret is available to the application (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Implicit Grant flow](/api-auth/grant/implicit) is more appropriate in that case.
 :::
 
 ## 3. Call the API

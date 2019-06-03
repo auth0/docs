@@ -36,6 +36,53 @@ Current migrations are listed below, newest first.
 
 For migrations that have already been enabled for all customers, see [Past Migrations](/migrations/past-migrations).
 
+### Clickjacking Protection
+
+We added a way to [enable clickjacking protection](/migrations/guides/clickjacking-protection) for the Classic Universal Login Experience.
+
+### Tenant Logs Search v2 migration to v3
+
+To provide our customers with the most reliable and scalable solution, Auth0 has deprecated Tenant Logs Search Engine v2 in favor of v3. Auth0 is proactively migrating customers unaffected by this change, while those who are potentially affected are being notified to opt in for v3 during the provided grace period. The grace period end dates are as follows:
+
+| Plan Type | End Date |
+| - | - |
+| Free | 15 June 2019 |
+| Developer or Developer Pro | 20 August 2019 |
+| Enterprise | 4 November 2019 |
+
+A [migration guide](/logs/migrate-logs-v2-v3) is available with more details on affected customers and steps required to complete the migration.
+
+### IP Address Authentication Deprecation
+
+[IP Address Authentication](/connections/enterprise/ip-address) has been deprecated and will not be enabled for new customers. The functionality will continue to work for existing customers that currently have it enabled. If at some point the IP Address Authentication feature is changed or removed from service, customers who currently use it will be notified beforehand and given ample time to migrate.
+
+### User Search v2 migration to v3
+
+User Search v2 is being deprecated and you may be required to take action before June 30, 2019. A [migration guide](/users/search/v3/migrate-search-v2-v3) is available to walk you through the steps required. Notifications have been and will continue to be sent to customers that need to complete this migration.
+
+Useful Resources:
+
+- [User Search v3](/users/search/v3)
+- [User Search v3 - Query Syntax](/users/search/v3/query-syntax)
+- [User Search Best Practices](/best-practices/search-best-practices)
+- [User Search v2 to v3 Migration Guide](/users/search/v3/migrate-search-v2-v3)
+
+### Google Cloud Messaging to Firebase Cloud Messaging Migration
+
+Auth0’s Guardian SDKs for iOS and Android helps you create custom Mobile apps with Guardian functionality, providing secure access to multi-factor authentication with push notifications. 
+
+The Android SDK library was initially built to send Push Notifications using Google Cloud Messaging, which [Google deprecated](https://firebase.googleblog.com/2018/04/time-to-upgrade-from-gcm-to-fcm.html) and replaced with Firebase Cloud Messaging. We updated the SDK to use Firebase Cloud Messaging.
+
+Existing applications will keep working but if you want to migrate, you can find instructions [here](/migrations/guides/google_cloud_messaging).
+
+### Facebook Login and Graph API
+
+The latest version of Facebook Login and the Facebook Graph API change what permissions and fields can be requested. We've updated Facebook connections to reflect these changes. For for more information, check out [Changes to Facebook Login and Graph API](/migrations/guides/facebook-graph-api-deprecation).
+
+### LinkedIn API V2
+
+On March 1st, 2019 all LinkedIn connections will be updated to use version 2 of the LinkedIn API. You may need to update your application code to accomodate these API changes. For more information, check out [Migration to LinkedIn API V2](/migrations/guides/linkedin-api-deprecation).
+
 ### Node.js v8 for Webtask Runtime
 
 | Severity | Grace Period Start | Mandatory Opt-In|
@@ -95,7 +142,7 @@ List of affected endpoints:
 | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | [Link user accounts](/link-accounts) from various identity providers |
 | [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) | [Unlink user accounts](/link-accounts#unlinking-accounts) |
 
-These endpoints can now accept regular [Access Tokens](/tokens/access-token).
+These endpoints can now accept regular [Access Tokens](/tokens/overview-access-tokens).
 
 The functionality is available and affected users are encouraged to migrate. However the ability to use ID Tokens will not be disabled in the foreseeable future so the mandatory opt-in date for this migration remains open. When this changes, customers will be notified beforehand.
 
@@ -113,7 +160,7 @@ Based on customer feedback, we have adjusted our plans and will continue to main
 
 We will publish guidance for each of the below scenarios on how to transition your applications to standards-based protocols. If we need to make security enhancements to any of these legacy endpoints which would require more urgency, we will promptly announce timeframes and guidelines for any required changes.
 
-### Resource Owner support for oauth/token endpoint
+### Resource Owner support for /oauth/token endpoint
 
 Support was introduced for [Resource Owner Password](/api/authentication#resource-owner-password) to the [/oauth/token](/api/authentication#authorization-code) endpoint earlier this year.
 

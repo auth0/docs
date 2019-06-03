@@ -1,5 +1,9 @@
-Array of user identity objects. Each identity object has these properties:
-- `.connection`: Connection used to authenticate the user.
-- `.isSocial`: Boolean value (`true`/`false`) indicating if the connection is a social one or not.
-- `.provider`: Entity that is authenticating the user (such as Facebook, Twitter, and so on).
-- `.user_id`: User's unique identifier for this connection/provider.
+Contains info retrieved from the identity provider with which the user originally authenticates. Users may also [link their profile to multiple identity providers](/link-accounts); those identities will then also appear in this array. The contents of an individual identity provider object varies by provider, but it will typically include the following:
+
+- `connection` (text): Name of the Auth0 connection used to authenticate the user.
+- `isSocial` (boolean): Indicates whether the connection is a social one.
+- `provider` (text): Name of the entity that is authenticating the user, such as Facebook, Google, SAML, or your own provider.
+- `.user_id` (text): User's unique identifier for this connection/provider.
+- `.profileData` (object): User info associated with the connection. When profiles are linked, it is populated with the associated user info for secondary accounts.
+
+In some cases, it will also include an API Access Token to be used with the provider. 

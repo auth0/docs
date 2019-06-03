@@ -43,10 +43,10 @@ To associate an authenticator where the challenge type is an SMS message contain
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/mfa/associate",
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer MFA_API_ACCESS_TOKEN"
-	}],
+	"headers": [
+    { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" },
+    { "name": "Content-Type", "value": "application/json" }
+  ],
 	"postData": {
 		"mimeType": "application/json",
 		"text": "{ \"authenticator_types\": [\"oob\"], \"oob_channels\": [\"sms\"], \"phone_number\": \"+11...9\" }"
@@ -81,9 +81,34 @@ To confirm the association of an authenticator using SMS messages for the MFA ch
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" },
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+  ],
 	"postData": {
-		"mimeType": "application/json",
-		"text": "{ \"client_id\": [\"YOUR_CLIENT_ID\"], \"grant_type\": \"http://auth0.com/oauth/grant-type/mfa-oob\", \"mfa_token\": \"YOUR_MFA_TOKEN\", \"oob_code\": \"ata...i0i\", \"binding_code\": \"000000\" }"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "http://auth0.com/oauth/grant-type/mfa-oob"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "mfa_token",
+        "value": "YOUR_MFA_TOKEN"
+      },
+      {
+        "name": "oob_code",
+        "value": "ata...i0i"
+      },
+      {
+        "name": "binding_code",
+        "value": "000000"
+      }
+    ]
 	}
 }
 ```

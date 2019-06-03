@@ -45,9 +45,9 @@ To prevent this, you may send the end-user's IP address to Auth0 along with the 
 
 ### Configuring the Auth0 Application to receive and trust the IP sent by your server
 
-1. Navigate to your [dashboard](${manage_url}) and configure a regular web application or machine to machine application using this [tutorial](/applications#how-to-configure-an-application).
+1. Navigate to your [dashboard](${manage_url}) and [configure a regular web application or machine to machine application](/applications/concepts/app-types-auth0).
 
-2. Choose a __Token Endpoint Authentication Method__ other than `None` under the [Settings](/applications#application-settings) section.
+2. Choose a __Token Endpoint Authentication Method__ other than `None` under the [Settings](/dashboard/reference/settings-application) section.
 
 ![Token Endpoint Authentication Method](/media/articles/api-auth/client-auth-method.png)
 
@@ -88,19 +88,18 @@ app.post('/api/auth', function(req, res, next) {
     method: 'POST',
     url: 'https://${account.namespace}/oauth/token',
     headers: {
-      'content-type': 'application/json',
+      'content-type': 'application/x-www-form-urlencoded',
       'auth0-forwarded-for': req.ip // End user ip
     },
-    body: {
+    form: {
       grant_type: 'password',
       username: 'USERNAME',
       password: 'PASSWORD',
-      audience: 'API_IDENTIFIER',
+      audience: 'YOUR_API_IDENTIFIER',
       scope: 'SCOPE',
       client_id: '${account.clientId}',
       client_secret: 'YOUR_CLIENT_SECRET' // Client is authenticated
-    },
-    json: true
+    }
   };
 
   request(options, function (error, response, body) {

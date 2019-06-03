@@ -23,17 +23,17 @@ Confirm your application code uses the correct Client ID. You can find the Clien
 
 ## Correct application type
 
-Make sure the correct [application type](/applications/application-types) is set in your application settings. Setting the correct application type helps Auth0 check for certain security risks.
+Make sure the correct [application type](/applications/concepts/app-types-auth0) is set in your application settings. Setting the correct application type helps Auth0 check for certain security risks.
 
 ## Flag third-party applications
 
-You should flag [first-party and third-party applications](/applications/application-types#first-vs-third-party-applications). First-party applications can be configured from the [Applications page](${manage_url}/#/applications) of the Auth0 dashboard. Third-party applications must be created using the Auth0 Management API and have the `is_first_party` attribute set to false.
+You should flag [first-party and third-party applications](/applications/concepts/app-types-first-third-party). First-party applications can be configured from the [Applications page](${manage_url}/#/applications) of the Auth0 dashboard. Third-party applications must be created using the Auth0 Management API and have the `is_first_party` attribute set to false.
 
 ## Set JWT token expiration
 
 Set the [ID Token expiration time](/tokens/id-token#token-lifetime) in your Application Settings. By default ID Tokens expire after 10 hours.
 
-Once issued, [an ID Token cannot be revoked](/tokens/id-token#revoke-access). So use a short expiration time and renew the session, if the user remains active.
+Once issued, [an ID Token cannot be revoked](/tokens/guides/revoke-tokens). So use a short expiration time and renew the session, if the user remains active.
 
 ## Do not use wildcards or localhost in callbacks or origins fields
 
@@ -73,4 +73,4 @@ If you are not using delegation, provide your application's Client ID in the **A
 
 Go to [Applications > Settings > Advanced Settings > Grant Types](${manage_url}/#/applications) and turn off any unneeded grant type for your application. This prevents someone from issuing authorization requests for unauthorized grant types.
 
-For example, you should turn off the authorization code grant type for a single page application, because it is not appropriate for a public client.
+For example, you should turn off the authorization code grant type for a single-page application, because it is not appropriate for a public client.
