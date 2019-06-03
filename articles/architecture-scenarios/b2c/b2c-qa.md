@@ -1,6 +1,6 @@
 ---
 title: Quality Assurance
-description: Quality Assurance considerations for your B2C implementation.
+description: Quality assurance considerations for your B2C implementation.
 toc: true
 topics:
     - qa
@@ -13,17 +13,7 @@ useCase:
 ---
 # Quality Assurance
 
-Quality Assurance is important in identifying issues before they impact your customers and, depending on the nature of your project, there are several different types of quality assurance testing that you’re going to want to consider as part of your integration with Auth0:
-
-* Is my application easy to understand and use, even by those with a disability? 
-* Does my application need to work across various different browsers and devices?
-* Does my application need to work in multi-national and/or international environments? 
-* How will my application perform when subjected to unexpected production loads?
-* How can I ensure my applications is safe from security-related vulnerabilities?
-
-Auth0 [Universal Login](/universal-login) and associated UI widgets (such as [Lock](/libraries/lock)) have already been designed and built following usability and accessibility best practices, and provide tested out-of-box support for a whole host of [browsers and devices](/support/matrix#browsers). Support for [internationalization](/i18n) (I18N) is also provided out-of-box, with built-in extensibility designed for custom multi-language and localization (L10N) situations.  
-
-To ensure funcional requirements are met and unexpected events are handled correctly, guidance is provided for testing the [integration](#integration-testing) between your application(s) and Auth0, and for [unit testing](#unit-testing) individual extensibility modules (such as [Rules](/rules/guides/debug#try-this-rule), [Hooks](/hooks/guides/edit-hooks-using-dashboard#test-hooks), and Custom Database scripts). Guidance is also provided regarding Auth0's [penetration testing policy](/policies/penetration-testing) to help when testing for security vulnerability, and also how [Mock](#mock-testing) testing can be leveraged in conjunction with our [load testing policy](/policies/load-testing) to help ensure your application(s) perform under unexpected load.  
+<%= include('../_includes/_qa-intro.md') %>
 
 ## Unit testing
 
@@ -37,21 +27,19 @@ It is a recommended best practice that you set up different tenants for developm
 * For use of variables in Hooks, see how to [configure secrets](https://webtask.io/docs/editor/secrets) in the editor used for Hooks
 * For use of variables in Custom DB Scripts, see the [configuration parameters](/connections/database/custom-db/create-db-connection#step-3-add-configuration-parameters) 
 
-::: panel Best Practice
-It’s a recommended best practice to use variables to contain tenant-specific values as well as any sensitive secrets that should not be exposed in your custom code. If your custom code is deployed in GitHub, then using a tenant-specific variable avoids exposure of sensitive values via your GitHub repository.
-:::
+<%= include('../_includes/_bp-variables.md') %>
 
 ### Test automation
 
-You can automate your overall build process by incorporating deployment automation as well as test automation. This can be used to deploy new versions of configuration and/or custom code to Auth0 and execute automated tests. If the tests uncover any failures, the deployment automation capabilities can be used to revert to the last working version. For further information, see the [deployment automation guidance](/architecture-scenarios/b2c/b2c-deployment) provided.
+You can automate your overall build process by incorporating deployment automation as well as test automation. This can be used to deploy new versions of configuration and/or custom code to Auth0 and execute automated tests. If the tests uncover any failures, the deployment automation capabilities can be used to revert to the last working version. See [Deployment automation](/architecture-scenarios/b2c/b2c-deployment) for more information.
 
 ## Mock testing 
 
-In a balance between Auth0’s [load testing policy](/policies/load-testing) and the desire to load test, it is common practice among Auth0’s customers to mock out Auth0’s endpoints. This is a valuable practice in order to ensure that your application works with your expected interfaces without having to restrict your testing, and tools such as [MockServer](http://www.mock-server.com/), [JSON Server](https://github.com/typicode/json-server) or even [Postman](https://learning.getpostman.com/docs/postman/mock_servers/setting_up_mock/) can be used to assist. 
+<%= include('../_includes/_bp-mock-testing.md') %>
 
 ## Planning
 
-To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
+<%= include('../_includes/_b2c-planning.md') %>
 
 ## Keep reading
 
