@@ -36,20 +36,19 @@
   },
   "openid": {
     "title": "OpenID",
-    "definition": "OpenID is an open standard for authentication. It allows third-party services to verify that users are who they say they are without clients needing to collect, store, and therefore become liable for a user’s login information. At its most simple, it works like this:",
+    "definition": "OpenID is an open standard for authentication. It allows applications to verify that users are who they say they are without needing to collect, store, and therefore become liable for a user’s login information. At its most simple, it works like this:",
     "subitems": {
-      "1": "User selects OpenID option upon login",
-      "2": "Client sends external server (your Facebook, Google, Twitter, etc.) an authentication request",
-      "3": "External server verifies the identity of the user, sending proof to user if successful",
-      "4": "User sends proof of authentication to the client",
-      "5": "Client approves or denies access",
-    "short": "An open standard for authentication that allows third-party services to verify users without collecting and storing login information." 
+      "1": "Application sends an authorization request to an OpenID server (e.g. Auth0) an authentication request",
+      "2": "The authorization server verifies the identity of the user, sending proof to user if successful",
+      "3": "User sends proof of authentication to the application",
+      "4": "Application approves or denies access",
+    "short": "An open standard for authentication that allows applications to verify users' identity without collecting and storing login information." 
     }
   },
   "passwordless": {
     "title": "Passwordless",
-    "definition": "Passwordless is a form of authentication based on tokens, most commonly received and sent through SMS, email (magic links) or biometric sensors. Entirely based on inherence and ownership factors, making passwordless sometimes more secure than traditional username/password logins.",
-    "short": "A form of authentication commonly received and sent through SMS, email or biometric sensors."
+    "definition": "Passwordless is a form of authentication where the first factor is not a password. It can be one-time passwords received by email or SMS, push notifications or biometric sensors. Given it's harder to attack, it's more secure than traditional username/password logins.",
+    "short": "A form of authentication that does not rely on password as a first factor."
   },
   "refresh-token": {
     "title": "Refresh Token",
@@ -78,7 +77,7 @@
   },
  "universal-login": {
    "title": "Universal Login",
-   "definition": "Universal Login is Auth0’s implementation of the login flow, which is the key feature of an Authorization Server. Each time a user needs to prove their identity, your applications redirect to Universal Login and Auth0 will do what’s needed to guarantee the user’s identity. When the user needs to log in, the login page is hosted by Auth0 and the appearance and behavior of the page is customizable from the Dashboard.",
-   "short": "Your application redirects to Universal Login, hosted on Auth0's Authorization Server, to guarantee a user's identity. "
+   "definition": "Universal Login is Auth0’s implementation of the authentication flow, which is the key feature of an Authorization Server. Each time a user needs to prove their identity, your applications redirect to Universal Login and Auth0 will do what’s needed to guarantee the user’s identity. ",
+   "short": "Your application redirects to Universal Login, hosted on Auth0's Authorization Server, to verify a user's identity."
  } 
 }
