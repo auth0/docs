@@ -31,7 +31,7 @@ It’s important to consider both security and user experience when designing ho
 * How you will provide a good user experience as you migrate away from any legacy authentication system
 * What do you need to consider when integrating your applications with Auth0?
 * Can users log in using their existing social (e.g., Facebook or Google) accounts?
-* Will I need to add multi-factor authentication (MFA)?
+* Will I need to provide for multi-factor authentication (MFA)?
 
 Auth0 [Universal Login](#universal-login) provides users with a safe and secure experience - no matter whether you choose to provide for user ID/password credentials sign in, or allow the so-called Bring Your Own Identity scenarios provided via [Social Login](https://auth0.com/learn/social-login/). There are also brand recognition benefits to centralizing the login experience with Universal Login, even if you feel you will also have product-specific [branding](/architecture-scenarios/implementation/b2c/b2c-branding) requirements. The Auth0 UI widgets typically used with Universal Login also provide out-of-the-box support with regards to [internationalization](/libraries/lock/v11/i18n) for users with different language requirements, and out-of-the-box support for Auth0 features such as [MFA](#multifactor-authentication-(mfa)) and [anomaly detection](#anomaly-detection) allow you to put barriers in place in order to prevent hackers attempting to access users' accounts. 
 
@@ -146,7 +146,7 @@ The “bring your own identity” scenario offered by Facebook, Google, etc., is
 Auth0 provides a simple way to test social connections using [pre-configured developer keys](https://auth0.com/docs/connections/social/devkeys). However these have [limitations] (https://auth0.com/docs/connections/social/devkeys#limitations-of-developer-keys), and before going into production, you’ll need to set up your own application-specific keys by following the [instructions] (https://auth0.com/docs/identityproviders#social) for your chosen social provider(s).
 :::
 
-With [Social Login](https://auth0.com/learn/social-login/), user identities and credentials are managed by the social provider, as well as claims - which Auth0 will use this information to populate the user [profile](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt). Auth0 can also provide access to Social Identity Providers (Social IdP) [Access tokens](https://auth0.com/docs/tokens/overview-idp-access-tokens), so that your application can also call 3rd party Social IdP APIs on behalf of the user.  
+With [social](https://auth0.com/learn/social-login/) support, user identities and credentials are managed by the social provider, as well as certain identity claims - which Auth0 will use to populate the user [profile](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt). Auth0 can also provide access to Social Identity Providers (Social IdP) [Access tokens](https://auth0.com/docs/tokens/overview-idp-access-tokens), so that your application can also call 3rd party Social IdP APIs on behalf of the user.  
 
 ::: panel Best Practice
 Social is a great feature to provide, but when you offer more than one way to sign-in, you need to consider the possibility that your customers will actually use more than one way to sign-in. By default, every user identity in Auth0 has its own user profile, so you’ll probably want to consider Auth0's capability to [Link User Accounts](https://auth0.com/docs/link-accounts) (a.k.a. Account Linking) to provide an effective way of associating one user profile with multiple identities.
@@ -155,6 +155,13 @@ Social is a great feature to provide, but when you offer more than one way to si
 The Auth0 [Custom Social Connections extension](https://auth0.com/docs/extensions/custom-social-extensions) extends social authentication even further by allowing you to connect with any OpenID Connect ([OIDC](/protocols/oidc)) 3rd-party compliant vendor not supported out-of-box. For example, support for the government-issued-identity provider [SwissID](https://www.swissid.ch/) can be configured in Auth0 by using a Custom Social Connection and by following the guidance described in our [SwissID blog post](https://auth0.com/blog/configuring-swissid-login-into-custom-applications/). 
 
 ## Multi-factor authentication (MFA)
+
+In an era where misuse of user credentials is at an all-time high, protecting your systems when it’s so common for hackers to steal users identity information is a challenge. One of the most effective ways though is to provide users with the ability to configure a second factor for protecting their account. More commonly referred to as [Multi-Factor Authentication](/multifactor-authentication). This will ensure that only a valid user can access his/her account, even if they use a username and password that may have been compromised from a different application.
+
+::: panel Best Practice
+It's quite common for customer facing applications to provide users with an _option_ for adding a second factor rather than _forcing_ them to use a second factor. For more information regarding this, see [providing your users with an option to add MFA](https://auth0.com/learn/multifactor-authentication-customers/).
+:::
+
 
 
 
