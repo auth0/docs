@@ -1,0 +1,1 @@
+You’ll also want to make sure that you are working with a verified user account at all times, and make use of the mechanisms Auth0 provides. You should also consider regulatory compliance like [GDPR](https://eugdpr.org/), which has some very specific requirements when it comes to protecting all EU citizens from privacy and data breaches and guidance.  

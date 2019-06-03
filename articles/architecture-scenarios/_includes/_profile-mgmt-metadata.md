@@ -1,0 +1,7 @@
+In addition to the Normalized User Profile information, [Metadata](/users/concepts/overview-user-metadata) can be stored in an Auth0 user profile. Metadata provides a way to store information that did not originate from an identity provider, or can be used as a way to store information that overrides what an identity provider supplied. 
+
+::: panel Best Practice
+Use of Metadata should follow Auth0 [best practice guidance](/best-practices/user-data-storage-best-practices#metadata). Metadata storage is not designed to be a general purpose data store, and you should still use your own external storage facility when possible. Metadata size and complexity should also be kept to a minimum, and the Auth0 Management API has a strict set of guidance when it comes to updating and/or deleting metadata associated with a user.
+:::
+
+Metadata can be manipulated via both the Auth0 Management API and the Auth0 Authentication API, and the [documentation provided](/users/guides/manage-user-metadata) further describes the endpoints for doing this. As is the case when managing the Normalized User Profile, calls to the Management API for manipulating Metadata will require use of an [Access Token](api/management/v2/tokens).
