@@ -55,6 +55,10 @@ Social signup is synonymous with sign in via [social authentication](/architectu
 
 <%= include('../_includes/_identity-store-proxy.md') %>
 
+## Deprovisioming limitations
+
+<%= include('../_includes/_provisioning-deprovisioning.md') %>
+
 ## Planning
 
 <%= include('../_includes/_b2c-planning.md') %>

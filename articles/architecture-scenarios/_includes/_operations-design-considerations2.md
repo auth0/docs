@@ -1,0 +1,7 @@
+Auth0 supports functionality for [monitoring](#monitoring) Auth0 service operation as well as providing information regarding Auth0 [service status](#service-status). In addition, Auth0 makes security-related bulletins as well as information regarding upcoming changes to the Auth0 service available via various [notifications](#notifications). 
+
+Auth0 [logging](#logging) services provide extensive functionality for tracing and identifying operational anomalies, including restrictions encountered due to rate limiting and/or excessive loading.
+
+Out-of-box, Auth0 provides email delivery services to help you accelerate your integration. These services, however, are not meant for scale-of-use in production environments, and do not provide for any specific service level or guarantee when it comes to email delivery. Our best practice recommendation is to configure your own [email service provider](#email-provider-setup).
+
+You may also need to make changes to [infrastructure](#infrastructure) configuration to support integration with Auth0 and use of Auth0 extensibility. For example, if you need to provide callbacks to your internal or even external infrastructure (e.g., if you need to make external API calls in Rules or Hooks, or via custom database scripts to leverage legacy identity storage), then you may need to configure your Firewall settings.

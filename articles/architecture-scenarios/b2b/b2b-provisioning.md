@@ -73,6 +73,10 @@ User app metadata allows information to be stored in a user’s profile that can
 Since users are shared, you won’t be able to determine who has access by isolating them to their own connection, therefore you will need to use their app metadata to make the determination. When provisioning you will need a way to set the organizations they have access to or add a new organization to an already existing user.
 :::
 
+### Deprovisioming limitations
+
+<%= include('../_includes/_provisioning-deprovisioning.md') %>
+
 ## User invite
 
 In most B2B scenarios, only particular individuals are allowed access to the application. As a result, it is often simpler to have an administrator provision user accounts instead of having users signup and then have an administrator approve them. This provisioning can often be done in an automated fashion when users are added to a centralized system as well.
