@@ -51,7 +51,7 @@ The Auth0 Management API, on the other hand, can be used to [directly change the
 
 ## Account verification
 
-<%= include('../_includes/_profile-mgmt-accouint-verification.md') %>
+<%= include('../_includes/_profile-mgmt-account-verification.md') %>
 
 Auth0 provides out-of-box functionality for sending a [verification email](/email/custom#verification-email) to a user's email address as one way of verifying their account. By default, Auth0 is configured to automatically send verification emails for any [Database Connection](/connections/database) identity created (e.g., as part of [self sign-up](/architecture-scenarios/b2b/b2b-provisioning#self-sign-up)). However, Auth0 also provides a [Management API endpoint](/api/v2#!/Tickets/post_email_verification) that can also be used to send verification emails (e.g., in cases where email address validation is not performed by a Social Provider upon user registration). 
 
