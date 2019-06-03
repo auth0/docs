@@ -11,7 +11,7 @@ contentType:
 
 Using email as an MFA factor is useful when you want to provide users a way to perform MFA when they don't have their primary factor available (e.g. they don't have their phone to receive an SMS or push notification). 
 
-You can only enable email as an MFA factor is there already another factor enabled. 
+You can only enable email as an MFA factor is there already another factor enabled. Email will only be available as a factor from Universal Login when you have the [New Universal Login Experience](/universal-login/new) enabled.
 
 Once Email MFA is enabled user will be prompted to complete MFA with the other enabled factor. If they have a verified email they will be given the option to select Email, and get an one time code in their email which they can then enter to complete MFA.
 
@@ -31,7 +31,7 @@ You can explicitly enroll an email for MFA [using the MFA API](/multifactor-auth
 
 ## Administrative setup
 
-In order to set up Email, you need to enable the Email factor in the Dashboard.
+In order to set up Email, you need to enable the Email factor in the Dashboard. You will only be able to enable it if there is another factor enabled. 
 
 ![MFA Email Settings](/media/articles/multifactor-authentication/email-settings.png)
 
