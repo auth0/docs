@@ -1,5 +1,5 @@
 ---
-title: Architecture Implementation Resources
+title: Implementation Resources
 description: Learn about all the resources Auth0 provides to help you with your architecture implementation.
 toc: true
 topics:
@@ -21,11 +21,11 @@ useCase:
   - get-help
   - enter-support-ticket
 ---
-# Architecture Implementation Resources
+# Implementation Resources
 
-Auth0 provides a wealth of services to assist our customers. This document lists the resources available to customers, by category. 
+Auth0 provides a wealth of services to assist you. This document lists the resources available to customers, by category. 
 
-The objective of this list is to provide awareness of the resources available and help customers engage most effectively with Auth0.
+The objective of this list is to provide awareness of the resources available and help you engage most effectively with Auth0.
 
 ## Get started
 
