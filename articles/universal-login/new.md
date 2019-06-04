@@ -9,7 +9,7 @@ toc: true
 ---
 # New Universal Login Experience
 
-Auth0's New [Universal Login](/universal-login) experience provides a reimagined login flow, with a fresh UX design and lightweight pages. When you pick this new experience, Auth0 will use it for all pages that haven't been customized. It can be enabled from the [Universal Login Settings](https://manage.auth0.com/#/login_settings) dashboard section:
+Auth0's New [Universal Login](/universal-login) experience provides a reimagined login flow, with a fresh UX design, and lightweight pages. When you pick this new experience, Auth0 will use it for all pages that haven't been customized. It can be enabled from the [Universal Login Settings](https://manage.auth0.com/#/login_settings) dashboard section:
 
 ![Login Page](/media/articles/universal-login/experience-picker.png)
 
