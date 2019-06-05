@@ -78,5 +78,5 @@ Proceed with the authentication process using `/oauth/token` as usual, sending t
 {
 	"name": "oob_code",
 	"value": "asdae35fdt5...oob_code_redacted"
-},
+}
 ```
