@@ -537,7 +537,7 @@ add_filter( 'auth0_slo_return_to', 'auth0_docs_hook_auth0_slo_return_to', 10 );
 
 ### auth0_use_management_api_for_userinfo
 
-This filter determines whether or not to use the Management API for user profile data when not using the Implicit Login Flow. Return a boolean `true` (default) to use the API, `false` to use the ID token.
+This filter determines whether or not user profile data retrieved from the Management API should when you're *not* using the Implicit Login Flow. Return a boolean `true` (default) to use the API, `false` to use the ID token.
 
 ```php
 // Always use the ID token for user profile data.
