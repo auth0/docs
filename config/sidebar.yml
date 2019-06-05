@@ -346,11 +346,11 @@ articles:
       - title: "Classic Experience"
         url: "/universal-login/classic"
 
-      - title: "Internationalization"
-        url: "/universal-login/i18n"
-
       - title: "New Experience"
         url: "/universal-login/new"
+        
+      - title: "Internationalization"
+        url: "/universal-login/i18n"
 
       - title: "Advanced Customization"
         url: "/universal-login/advanced-customization"
