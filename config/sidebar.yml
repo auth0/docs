@@ -61,15 +61,15 @@ articles:
               - title: SDK
                 url: /0/login/universal-login/new/sdk
           - title: "Password Reset Page"
-             url: "/0/login/universal-login/password-reset"
+            url: "/0/login/universal-login/password-reset"
           - title: "Guardian MFA"
-             url: "/0/login/universal-login/guardian"
+            url: "/0/login/universal-login/guardian"
           - title: "Error Pages"
-             url: "/0/login/universal-login/error-pages"
+            url: "/0/login/universal-login/error-pages"
           - title: "Default Login Page"
-             url: "/0/login/universal-login/default-login-url"
+            url: "/0/login/universal-login/default-login-url"
           - title: "Version Control"
-             url: "/0/login/universal-login/version-control"
+            url: "/0/login/universal-login/version-control"
       - title: Embedded Login
         url: /0/login/embedded
         children:
