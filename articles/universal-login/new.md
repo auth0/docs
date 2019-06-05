@@ -34,15 +34,30 @@ From a functional perspective, it has much better support for [Localization](/un
 
 - If users have more than one MFA factor enrolled (e.g. SMS and Push notifications), the new MFA page will let the user select which one they want to use.
 
+- You can use [Email as an MFA factor](/multifactor-authentication/factors/email).
+
 ## Password Reset
 
 - In the Classic Experience you can [configure a url](/email/templates#redirect-to-results-for-the-change-password-email-template) to redirect users after completing the password reset. The URL will receive a success indicator and a message. The New Experience will redirect the users to the [default login route](/universal-login/default-login-url) when it succeeds, and will handle the error cases as part of the Universal Login flow. The Redirect URL in the email template will be ignored.  
 
 - A 'show password' icon will be displayed next to the password fields.
 
+- If the Database Connection is set to ['Require Username'](/connections/database/require-username), the password reset flow will ask the user for the username and send an the password reset email to the associated email address.
+
+## Email Verification
+
+- After user clicks in the email verification link, they'll get redirected to a page that will confirm that their email is verified. If the [default login route](/universal-login/default-login-url) is configured, users will be able to click a button and get redirected to it.
+
 ## Consent
 
 - The logo and colors selected in the dashboard configuration section will be properly applied.
+
+## Custom DB Connections
+
+When using [Custom DB Connections](/connections/database/custom-db):
+
+- The password reset flow will function properly even if you return errors from the change password script.
+- The [errors](/connections/database/custom-db/error-handling) returned in ValidationErrors or WrongUsernameOrPasswordError will be displayed in the corresponding pages.
 
 ## Internationalization
 
