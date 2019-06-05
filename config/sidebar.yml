@@ -159,7 +159,72 @@ articles:
 
           - title: "Redirect After Logout"
             url: "/logout/guides/redirect-users-after-logout"
-      
+  
+  - title: Connections
+    url: "/connections"
+    children:
+      - title: Database
+        url: "/connections/database"
+
+      - title: "Social/Enterprise"
+        url: "/identityproviders"
+        children:
+          - title: "Custom Social Extensions"
+            url: "/extensions/custom-social-extensions"
+
+      - title: SAML
+        url: /protocols/saml/samlp
+
+      - title: "Passwordless"
+        url: "/connections/passwordless"
+        children:
+
+          - title: "Native Passwordless"
+            url: "/connections/passwordless/native-passwordless-universal"
+
+          - title: "Using Email"
+            url: "/connections/passwordless/email"
+
+          - title: "Using SMS"
+            url: "/connections/passwordless/sms"
+
+          - title: "FAQ"
+            url: "/connections/passwordless/faq"
+
+  - title: "Authorize"
+    url: "/authorization"
+    children:
+      - title: "Role-based Access Control (RBAC)"
+        url: "/authorization/concepts/rbac"
+        children:
+          - title: "Getting Started"
+            url: "/authorization/guides/how-to"
+          - title: "Manage Roles"
+            url: "/authorization/guides/manage-roles"
+          - title: "Manage RBAC Users"
+            url: "/authorization/guides/manage-users"
+          - title: "Manage RBAC Permissions"
+            url: "/authorization/guides/manage-permissions"
+          - title: "Enable RBAC for APIs"
+            url: "/dashboard/guides/apis/enable-rbac"
+      - title: Authorization Extension
+        url: /extensions/authorization-extension
+      - title: "Authz Core vs. Authz Extension"
+        url: "/authorization/concepts/core-vs-extension"
+      - title: Authorization Flows
+        url: "/api-auth"
+        children:
+          - title: "Which OAuth Flow to Use"
+            url: "/api-auth/which-oauth-flow-to-use"
+          - title: "Authorization Code"
+            url: "/flows/guides/auth-code/call-api-auth-code"
+          - title: Authorization Code with PKCE
+            url: /flows/guides/auth-code-pkce/call-api-auth-code-pkce
+          - title: Implicit
+            url: "/flows/guides/implicit/call-api-implicit"
+          - title: Client Credentials
+            url: /flows/guides/client-credentials/call-api-client-credentials
+
       # - title: Dashboard Overview
       #   url: /getting-started/dashboard-overview
 
