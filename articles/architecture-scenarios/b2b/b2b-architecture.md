@@ -17,12 +17,8 @@ useCase:
 
 <%= include('../_includes/_bp-sso-training.md') %>
 
-## Design considerations
-
 <%= include('../_includes/_architecture-design-considerations.md') %>
 * How can I align the structure and domain of my customers' organization with my Auth0 deployment?
-
-### How your domains and user community impact architecture
 
 <%= include('../_includes/_domains-impact-architecture-intro.md') %>
 
@@ -31,8 +27,6 @@ useCase:
 If you need to provision an independent tenant then you’ll also want to [associate this with your existing Auth0 account](#tenant-association), so that you can take full advantage of the benefits provided at your organization’s contracted subscription level.
 
 <%= include('../_includes/_architecture-dev-process.md') %>
-
-### How the protocol you choose impacts architecture
 
 <%= include('../_includes/_protocol-impact-architecture-intro.md') %>
 
