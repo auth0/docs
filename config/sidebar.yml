@@ -532,8 +532,7 @@ articles:
         url: "/troubleshoot/har"
       - title: AD/LDAP Connector Issues
         url: /connector/troubleshooting
-
-      - 
+        
       # - title: Dashboard Overview
       #   url: /getting-started/dashboard-overview
 
