@@ -141,6 +141,9 @@ articles:
       # - title: B2E
       #   url: /architecture-scenarios/b2e 
 
+    - title: Implementation Resources
+      url: /architecture-scenarios/implementation-resources
+      
   - title: "Applications"
     url: "/applications"
     children:
