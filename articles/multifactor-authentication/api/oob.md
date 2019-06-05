@@ -16,7 +16,7 @@ useCase:
 
 In this tutorial, you'll learn how to configure your application so users can self-associate out-of-band (OOB) authenticators.
 
-<%= include('./_authenticator-before-start') %>
+<%= include('./_includes/_authenticator-before-start') %>
 
 ## 1. Get the MFA token
 
