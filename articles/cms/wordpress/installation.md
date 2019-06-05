@@ -75,6 +75,10 @@ This step connects your WordPress user with an Auth0 user that authorizes you to
 
 This will create and configure an Application and a database connection plus data migration from your WordPress database. This requires an inbound connection from Auth0 servers and cannot be changed later without losing data. [More information on user migration is here](/cms/wordpress/user-migration).
 
+:::warning
+If you have more than one custom database connection in Auth0, you'll need to make sure that the user IDs are namespaced to avoid conflicts. This is done automatically for sites installing version 3.11.0 or later. If your connections are/were being created with an earlier version, please see the [troubleshooting steps here](/cms/wordpress/user-migration#cannot-change-email-or-incorrect-user-data).
+:::
+
 ![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/auth0-authorize-app.png)
 
 Once the setup process is complete, log out of your WordPress site and attempt to log back in using your existing WordPress credentials in the Auth0 login form. This should create an Auth0 user linked to your WordPress account.
