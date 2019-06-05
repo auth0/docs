@@ -7,43 +7,40 @@
 articles:
 
   - title: About Auth0
-    url: /getting-started/overview
+    url: /0/about
     children:
-      - title: Overview
-        url: /getting-started/the-basics
-
       - title: Auth0 & Data Privacy
-        url: /compliance
+        url: /0/about/compliance
 
       - title: Deployment Options
-        url: /getting-started/deployment-models
+        url: /0/about/deployment-options
 
       - title: Changelog
         url: https://auth0.com/changelog
 
   - title: Getting Started
-    url: "/getting-started"
+    url: /0/getting-started
     children:
       - title: Create a Tenant
-        url: /getting-started/the-basics
+        url: /0/getting-started/create-tenant
       
       - title: Set up an App
-        url: /getting-started/the-basics
+        url: /0/getting-started/setup-app
         children:
           - title: Regular Web App
-            url: /dashboard/guides/applications/register-app-regular-web
+            url: /0/getting-started/setup-app/web-app
           - title: Native App
-            url: /dashboard/guides/applications/register-app-native
+            url: /0/getting-started/setup-app/native-app
           - title: Single-Page App
-            url: /dashboard/guides/applications/register-app-spa
+            url: /0/getting-started/setup-app/spa
           - title: Backend/Service
-            url: /dashboard/guides/applications/register-app-m2m
+            url: /0/getting-started/setup-app/backend
 
       - title: Set up an API
-        url: /apis
+        url: /0/setup-api
 
-      - title: "Next Steps"
-        url: "/getting-started"
+      - title: Next Steps
+        url: /0/getting-started/next-steps
       
       # - title: Dashboard Overview
       #   url: /getting-started/dashboard-overview

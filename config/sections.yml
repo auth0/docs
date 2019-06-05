@@ -4,10 +4,10 @@
 ##
 ## ------------------------------------------------------------
 
-- id: "articles"
+- id: "guides and tutorials"
   title: "Guides & Tutorials"
-  url: "/getting-started"
-  folder: ""
+  url: "/0/about"
+  folder: "/0"
   default: true
 
 - id: "quickstarts"
