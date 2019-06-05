@@ -1,0 +1,1 @@
+The [Guardian Multi-factor](/universal-login/guardian) page is used whenever multi-factor authentication is enabled with Auth0 Guardian as the second factor and, as with the login page, you can [customize the Guardian page](/universal-login/guardian#guardian-login-page-html-editor) to reflect your organization's particular branding requirements. 
