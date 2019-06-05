@@ -5,7 +5,7 @@
 ## ------------------------------------------------------------
 
 - id: "articles"
-  title: "Articles"
+  title: "Guides & Tutorials"
   url: "/getting-started"
   folder: ""
   default: true

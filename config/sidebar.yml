@@ -6,126 +6,153 @@
 
 articles:
 
+  - title: About Auth0
+    url: /getting-started/overview
+    children:
+      - title: Overview
+        url: /getting-started/the-basics
+
+      - title: Auth0 & Data Privacy
+        url: /compliance
+
+      - title: Deployment Options
+        url: /getting-started/deployment-models
+
+      - title: Changelog
+        url: https://auth0.com/changelog
+
   - title: Getting Started
     url: "/getting-started"
     children:
-      - title: Auth0 Overview
-        url: /getting-started/overview
-      
-      - title: The Basics
+      - title: Create a Tenant
         url: /getting-started/the-basics
-
-      - title: "Sessions"
-        url: "/sessions"
       
-      - title: Dashboard Overview
-        url: /getting-started/dashboard-overview
+      - title: Set up an App
+        url: /getting-started/the-basics
+        children:
+          - title: Regular Web App
+            url: /dashboard/guides/applications/register-app-regular-web
+          - title: Native App
+            url: /dashboard/guides/applications/register-app-native
+          - title: Single-Page App
+            url: /dashboard/guides/applications/register-app-spa
+          - title: Backend/Service
+            url: /dashboard/guides/applications/register-app-m2m
 
-      - title: Deployment Models
-        url: /getting-started/deployment-models
+      - title: Set up an API
+        url: /apis
 
-  - title: Architecture Scenarios
-    url: /architecture-scenarios
+      - title: "Next Steps"
+        url: "/getting-started"
+      
+      # - title: Dashboard Overview
+      #   url: /getting-started/dashboard-overview
 
-    children:
-      - title: Implementation Checklists
-        url: /architecture-scenarios/checklists
+      # - title: Deployment Models
+      #   url: /getting-started/deployment-models
+
+  # - title: Architecture Scenarios
+  #   url: /architecture-scenarios
+
+  #   children:
+  #     - title: Implementation Checklists
+  #       url: /architecture-scenarios/checklists
         
-      - title: SSO for Regular Web Apps
-        url: /architecture-scenarios/web-app-sso
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/web-app-sso/part-1
+  #     - title: SSO for Regular Web Apps
+  #       url: /architecture-scenarios/web-app-sso
+  #       children:
+  #          - title: Solution Overview
+  #            url: /architecture-scenarios/web-app-sso/part-1
            
-           - title: Configuration
-             url: /architecture-scenarios/web-app-sso/part-2
+  #          - title: Configuration
+  #            url: /architecture-scenarios/web-app-sso/part-2
            
-           - title: Implementation
-             url: /architecture-scenarios/web-app-sso/part-3
+  #          - title: Implementation
+  #            url: /architecture-scenarios/web-app-sso/part-3
            
-           - title: Conclusion
-             url: /architecture-scenarios/web-app-sso/part-4
+  #          - title: Conclusion
+  #            url: /architecture-scenarios/web-app-sso/part-4
 
-      - title: Server Application + API
-        url: /architecture-scenarios/server-api
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/server-api/part-1
+  #     - title: Server Application + API
+  #       url: /architecture-scenarios/server-api
+  #       children:
+  #          - title: Solution Overview
+  #            url: /architecture-scenarios/server-api/part-1
            
-           - title: Configuration
-             url: /architecture-scenarios/server-api/part-2
+  #          - title: Configuration
+  #            url: /architecture-scenarios/server-api/part-2
            
-           - title: Implementation
-             url: /architecture-scenarios/server-api/part-3
+  #          - title: Implementation
+  #            url: /architecture-scenarios/server-api/part-3
            
-           - title: Conclusion
-             url: /architecture-scenarios/server-api/part-4
+  #          - title: Conclusion
+  #            url: /architecture-scenarios/server-api/part-4
 
-      - title: SPA + API
-        url: /architecture-scenarios/spa-api
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/spa-api/part-1
+  #     - title: SPA + API
+  #       url: /architecture-scenarios/spa-api
+  #       children:
+  #          - title: Solution Overview
+  #            url: /architecture-scenarios/spa-api/part-1
            
-           - title: Configuration
-             url: /architecture-scenarios/spa-api/part-2
+  #          - title: Configuration
+  #            url: /architecture-scenarios/spa-api/part-2
            
-           - title: Implementation
-             url: /architecture-scenarios/spa-api/part-3
+  #          - title: Implementation
+  #            url: /architecture-scenarios/spa-api/part-3
            
-           - title: Conclusion
-             url: /architecture-scenarios/spa-api/part-4
+  #          - title: Conclusion
+  #            url: /architecture-scenarios/spa-api/part-4
 
-      - title: Mobile + API
-        url: /architecture-scenarios/mobile-api
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/mobile-api/part-1
+  #     - title: Mobile + API
+  #       url: /architecture-scenarios/mobile-api
+  #       children:
+  #          - title: Solution Overview
+  #            url: /architecture-scenarios/mobile-api/part-1
            
-           - title: Configuration
-             url: /architecture-scenarios/mobile-api/part-2
+  #          - title: Configuration
+  #            url: /architecture-scenarios/mobile-api/part-2
            
-           - title: Implementation
-             url: /architecture-scenarios/mobile-api/part-3
+  #          - title: Implementation
+  #            url: /architecture-scenarios/mobile-api/part-3
            
-           - title: Conclusion
-             url: /architecture-scenarios/mobile-api/part-4
+  #          - title: Conclusion
+  #            url: /architecture-scenarios/mobile-api/part-4
 
-      - title: Business to Consumer
-        url: /architecture-scenarios/b2c
-        children:
-            - title: Architecture
-              url: /architecture-scenarios/implementation/b2c/b2c-architecture
+  #     - title: Business to Consumer
+  #       url: /architecture-scenarios/b2c
+  #       children:
+  #           - title: Architecture
+  #             url: /architecture-scenarios/implementation/b2c/b2c-architecture
 
-            - title: Provisioning
-              url: /architecture-scenarios/implementation/b2c/b2c-provisioning
+  #           - title: Provisioning
+  #             url: /architecture-scenarios/implementation/b2c/b2c-provisioning
 
-            - title: Authentication
-              url: /architecture-scenarios/implementation/b2c/b2c-authentication
+  #           - title: Authentication
+  #             url: /architecture-scenarios/implementation/b2c/b2c-authentication
 
-            - title: Branding
-              url: /architecture-scenarios/implementation/b2c/b2c-branding
+  #           - title: Branding
+  #             url: /architecture-scenarios/implementation/b2c/b2c-branding
 
-            - title: Deployment Automation
-              url: /architecture-scenarios/implementation/b2c/b2c-deployment
+  #           - title: Deployment Automation
+  #             url: /architecture-scenarios/implementation/b2c/b2c-deployment
 
-            - title: Quality Assurance
-              url: /architecture-scenarios/implementation/b2c/b2c-qa
+  #           - title: Quality Assurance
+  #             url: /architecture-scenarios/implementation/b2c/b2c-qa
 
-            - title: Profile Management
-              url: /architecture-scenarios/implementation/b2c/b2c-profile-mgmt
+  #           - title: Profile Management
+  #             url: /architecture-scenarios/implementation/b2c/b2c-profile-mgmt
 
-            - title: Authorization
-              url: /architecture-scenarios/implementation/b2c/b2c-authorization
+  #           - title: Authorization
+  #             url: /architecture-scenarios/implementation/b2c/b2c-authorization
 
-            - title: Logout
-              url: /architecture-scenarios/implementation/b2c/b2c-logout
+  #           - title: Logout
+  #             url: /architecture-scenarios/implementation/b2c/b2c-logout
 
-            - title: Operations
-              url: /architecture-scenarios/implementation/b2c/b2c-operations
+  #           - title: Operations
+  #             url: /architecture-scenarios/implementation/b2c/b2c-operations
 
-      - title: Business to Employees
-        url: /architecture-scenarios/b2e
+  #     - title: Business to Employees
+  #       url: /architecture-scenarios/b2e
       # - title: SAML for Regular Web Apps
       #   url: /architecture-scenarios/web-saml
 
