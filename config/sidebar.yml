@@ -41,6 +41,124 @@ articles:
 
       - title: Next Steps
         url: /0/getting-started/next-steps
+
+  - title: Login
+    url: /0/login
+    children:
+      - title: Universal Login
+        url: /0/login/universal-login
+        children:
+          - title: Classic Experience
+            url: /0/login/universal-login/classic
+            children:
+              - title: Lock
+                url: /0/login/universal-login/classic/lock
+              - title: Auth0.js
+                url: /0/login/universal-login/classic/auth0js
+          - title: New Experience
+            url: /0/login/universal-login/new
+            children:
+              - title: SDK
+                url: /0/login/universal-login/new/sdk
+          - title: "Password Reset Page"
+             url: "/0/login/universal-login/password-reset"
+          - title: "Guardian MFA"
+             url: "/0/login/universal-login/guardian"
+          - title: "Error Pages"
+             url: "/0/login/universal-login/error-pages"
+          - title: "Default Login Page"
+             url: "/0/login/universal-login/default-login-url"
+          - title: "Version Control"
+             url: "/0/login/universal-login/version-control"
+      - title: Embedded Login
+        url: /0/login/embedded
+        children:
+          - title: Lock
+            url: /0/login/embedded/lock
+          - title: Auth0.js
+            url: /0/login/embedded/auth0js
+          - title: Universal vs Embedded Login
+            url: /0/login/embedded/vs-universal-login
+          - title: Cross Origin Authentication
+            url: /0/login/embedded/cors
+      - title: Authentication Flows
+        url: /0/login/flows
+        children:
+          - title: Regular Web App
+            url: /0/login/flows/web-app
+          - title: Native App
+            url: /0/login/flows/native-app
+          - title: Single-Page App
+            url: /0/login/flows/spa
+      - title: "Multi-factor Authentication"
+        url: "/multifactor-authentication"
+        children:
+          - title: "Factors"
+            url: "/multifactor-authentication/factors"
+            children:
+              - title: "Push"
+                url: "/multifactor-authentication/factors/push"
+              - title: "One Time Passwords"
+                url: "/multifactor-authentication/factors/otp"
+              - title: "SMS"
+                url: "/multifactor-authentication/factors/sms"
+              - title: "Duo"
+                url: "/multifactor-authentication/factors/duo"
+          - title: "Custom MFA"
+            url: "/multifactor-authentication/custom"
+          - title: "Step-up Authentication"
+            url: "/multifactor-authentication/step-up-authentication"
+            children:
+              - title: "Step-up Authentication for Web Apps"
+                url: "/multifactor-authentication/step-up-authentication/step-up-for-web-apps"
+                hidden: true
+              - title: "Step-up Authentication for APIs"
+                url: "/multifactor-authentication/step-up-authentication/step-up-for-apis"
+                hidden: true
+          - title: "MFA API"
+            url: "/multifactor-authentication/api"
+            children:
+              - title: "Trigger MFA"
+                url: "/multifactor-authentication/api/challenges"
+
+              - title: "One-Time Password Challenge"
+                url: "/multifactor-authentication/api/otp"
+
+              - title: "SMS Message Challenge"
+                url: "/multifactor-authentication/api/oob"
+
+              - title: "Email Authenticator"
+                url: "/multifactor-authentication/api/email"
+
+              - title: "Manage Authenticators"
+                url: "/multifactor-authentication/api/manage"
+
+              - title: "FAQ"
+                url: "/multifactor-authentication/api/faq"
+          - title: "MFA Troubleshooting"
+            url: "/multifactor-authentication/troubleshooting"
+      - title: Silent Authentication
+        url: /0/login/silent-authentication
+      - title: Redirect After Login
+        url: /0/login/redirect-users-after-login
+      - title: "Logout"
+        url: "/0/login/logout"
+        children:
+          - title: "Applications"
+            url: "/logout/guides/logout-applications"
+
+          - title: "Auth0"
+            url: "/logout/guides/logout-auth0"
+
+          - title: "Identity Providers"
+            url: "/logout/guides/logout-idps"
+            hidden: true 
+
+          - title: "SAML Identity Providers"
+            url: "/logout/guides/logout-saml-idps"
+
+          - title: "Redirect After Logout"
+            url: "/logout/guides/redirect-users-after-logout"
       
       # - title: Dashboard Overview
       #   url: /getting-started/dashboard-overview
@@ -165,18 +283,18 @@ articles:
       # - title: B2E
       #   url: /architecture-scenarios/b2e 
 
-  - title: "Applications"
-    url: "/applications"
-    children:
+  # - title: "Applications"
+  #   url: "/applications"
+  #   children:
 
-      - title: Grant Types
-        url: "/applications/concepts/application-grant-types"
+  #     - title: Grant Types
+  #       url: "/applications/concepts/application-grant-types"
 
-      - title: "Available Grant Types"
-        url: "/applications/reference/grant-types-available"
+  #     - title: "Available Grant Types"
+  #       url: "/applications/reference/grant-types-available"
 
-      - title: "Multiple Tenants"
-        url: "/applications/concepts/multiple-tenants"
+  #     - title: "Multiple Tenants"
+  #       url: "/applications/concepts/multiple-tenants"
 
   - title: "Authentication"
     url: "/application-auth/current"
@@ -360,39 +478,39 @@ articles:
       - title: "Send extra parameters"
         url: "/connections/pass-parameters-to-idps"
 
-  - title: "Universal Login"
-    url: "/universal-login"
-    children:
+  # - title: "Universal Login"
+  #   url: "/universal-login"
+  #   children:
 
-      - title: "Overview"
-        url: "/universal-login"
+  #     - title: "Overview"
+  #       url: "/universal-login"
 
-      - title: "Classic Experience"
-        url: "/universal-login/classic"
+  #     - title: "Classic Experience"
+  #       url: "/universal-login/classic"
 
-      - title: "New Experience"
-        url: "/universal-login/new"
+  #     - title: "New Experience"
+  #       url: "/universal-login/new"
         
-      - title: "Internationalization"
-        url: "/universal-login/i18n"
+  #     - title: "Internationalization"
+  #       url: "/universal-login/i18n"
 
-      - title: "Advanced Customization"
-        url: "/universal-login/advanced-customization"
+  #     - title: "Advanced Customization"
+  #       url: "/universal-login/advanced-customization"
       
-      - title: "Password Reset Page"
-        url: "/universal-login/password-reset"
+  #     - title: "Password Reset Page"
+  #       url: "/universal-login/password-reset"
 
-      - title: "Guardian MFA"
-        url: "/universal-login/guardian"
+  #     - title: "Guardian MFA"
+  #       url: "/universal-login/guardian"
 
-      - title: "Error Pages"
-        url: "/universal-login/error-pages"
+  #     - title: "Error Pages"
+  #       url: "/universal-login/error-pages"
 
-      - title: "Version Control"
-        url: "/universal-login/version-control"
+  #     - title: "Version Control"
+  #       url: "/universal-login/version-control"
 
-      - title: "Default Login Page"
-        url: "/universal-login/default-login-url"
+  #     - title: "Default Login Page"
+  #       url: "/universal-login/default-login-url"
 
   - title: "Rules"
     url: "/rules"
@@ -721,64 +839,64 @@ articles:
             hidden: true
 
 
-  - title: "Multi-factor Authentication"
-    url: "/multifactor-authentication"
-    children:
-      - title: "Overview"
-        url: "/multifactor-authentication"
+  # - title: "Multi-factor Authentication"
+  #   url: "/multifactor-authentication"
+  #   children:
+  #     - title: "Overview"
+  #       url: "/multifactor-authentication"
 
-      - title: "Factors"
-        url: "/multifactor-authentication/factors"
-        children:
-          - title: "Push"
-            url: "/multifactor-authentication/factors/push"
+  #     - title: "Factors"
+  #       url: "/multifactor-authentication/factors"
+  #       children:
+  #         - title: "Push"
+  #           url: "/multifactor-authentication/factors/push"
 
-          - title: "One Time Passwords"
-            url: "/multifactor-authentication/factors/otp"
+  #         - title: "One Time Passwords"
+  #           url: "/multifactor-authentication/factors/otp"
 
-          - title: "SMS"
-            url: "/multifactor-authentication/factors/sms"
+  #         - title: "SMS"
+  #           url: "/multifactor-authentication/factors/sms"
 
-          - title: "Duo"
-            url: "/multifactor-authentication/factors/duo"
+  #         - title: "Duo"
+  #           url: "/multifactor-authentication/factors/duo"
 
-      - title: "Custom MFA"
-        url: "/multifactor-authentication/custom"
+  #     - title: "Custom MFA"
+  #       url: "/multifactor-authentication/custom"
 
-      - title: "Step-up Authentication"
-        url: "/multifactor-authentication/step-up-authentication"
-        children:
-          - title: "Step-up Authentication for Web Apps"
-            url: "/multifactor-authentication/step-up-authentication/step-up-for-web-apps"
-            hidden: true
+  #     - title: "Step-up Authentication"
+  #       url: "/multifactor-authentication/step-up-authentication"
+  #       children:
+  #         - title: "Step-up Authentication for Web Apps"
+  #           url: "/multifactor-authentication/step-up-authentication/step-up-for-web-apps"
+  #           hidden: true
           
-          - title: "Step-up Authentication for APIs"
-            url: "/multifactor-authentication/step-up-authentication/step-up-for-apis"
-            hidden: true
+  #         - title: "Step-up Authentication for APIs"
+  #           url: "/multifactor-authentication/step-up-authentication/step-up-for-apis"
+  #           hidden: true
 
-      - title: "MFA API"
-        url: "/multifactor-authentication/api"
-        children:
-          - title: "Trigger MFA"
-            url: "/multifactor-authentication/api/challenges"
+  #     - title: "MFA API"
+  #       url: "/multifactor-authentication/api"
+  #       children:
+  #         - title: "Trigger MFA"
+  #           url: "/multifactor-authentication/api/challenges"
 
-          - title: "One-Time Password Challenge"
-            url: "/multifactor-authentication/api/otp"
+  #         - title: "One-Time Password Challenge"
+  #           url: "/multifactor-authentication/api/otp"
 
-          - title: "SMS Message Challenge"
-            url: "/multifactor-authentication/api/oob"
+  #         - title: "SMS Message Challenge"
+  #           url: "/multifactor-authentication/api/oob"
 
-          - title: "Email Authenticator"
-            url: "/multifactor-authentication/api/email"
+  #         - title: "Email Authenticator"
+  #           url: "/multifactor-authentication/api/email"
 
-          - title: "Manage Authenticators"
-            url: "/multifactor-authentication/api/manage"
+  #         - title: "Manage Authenticators"
+  #           url: "/multifactor-authentication/api/manage"
 
-          - title: "FAQ"
-            url: "/multifactor-authentication/api/faq"
+  #         - title: "FAQ"
+  #           url: "/multifactor-authentication/api/faq"
 
-      - title: "MFA Troubleshooting"
-        url: "/multifactor-authentication/troubleshooting"
+  #     - title: "MFA Troubleshooting"
+  #       url: "/multifactor-authentication/troubleshooting"
 
   - title: "Security"
     url: "/security"
