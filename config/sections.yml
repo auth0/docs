@@ -7,7 +7,7 @@
 - id: "articles"
   title: "Guides & Tutorials"
   url: "/0/about"
-  folder: "/0"
+  folder: ""
   default: true
 
 - id: "quickstarts"
