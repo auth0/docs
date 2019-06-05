@@ -38,7 +38,14 @@ If successful, you'll receive the following response:
 }
 ```
 
-Proceed with the authentication process as usual.
+The user will collect a one-time password, which you will then collect from them. Proceed with the authentication process using `/oauth/token` as usual, adding the `otp` value that you collect as a parameter (format below) in the request.
+
+```har
+{
+	"name": "otp",
+	"value": "000000"
+}
+```
 
 ## OOB Challenges
 
@@ -65,8 +72,11 @@ If successful, you'll receive the following response, as well as an SMS message 
 }
 ```
 
-Proceed with the authentication process as usual.
+Proceed with the authentication process using `/oauth/token` as usual, sending the `oob_code` as a parameter (format below) in the request.
 
-## Posting the MFA Responses
-
-You can post MFA OTP or MFA OOB responses using the `/oauth/token` endpoint.
+```har
+{
+	"name": "oob_code",
+	"value": "asdae35fdt5...oob_code_redacted"
+},
+```
