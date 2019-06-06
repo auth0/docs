@@ -165,13 +165,13 @@ public class APIController {
 To build and run the project, use the command:
 
 ```bash
-mvn spring-boot:run
+./gradlew bootRun
 ```
 
 or if you are on Windows:
 
 ```bash
-mvn.cmd spring-boot:run
+gradlew.cmd bootRun
 ```
 
 Using a REST client such as Postman or cURL, issue a `GET` request to `http://localhost:3010/api/public`. You should receive the response:
