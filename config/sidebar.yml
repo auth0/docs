@@ -981,6 +981,22 @@ articles:
 
   - title: "Auth0 Deprecations"
     url: "/deprecations"
+
+  - title: "Auth0 Migrations"
+    url: "/migrations"
+    children:
+
+      - title: "Past Migrations"
+        url: "/migrations/past-migrations"
+        hidden: true
+
+      - title: "Management API and ID Tokens"
+        url: "/migrations/guides/calling-api-with-idtokens"
+        hidden: true
+      
+      - title: "Extensibility and Node.js v8"
+        url: "/migrations/guides/extensibility-node8"
+        hidden: true
         
   - title: "Data Privacy"
     url: "/compliance"
