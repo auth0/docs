@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to configure your application so users can us
 Currently, email authenticators are only supported by the multi-factor authentication (MFA) API. Users can only use email authenticators with applications using the MFA API,  but not in applications that redirect to the [hosted MFA page](/hosted-pages/guardian).
 :::
 
-<%= include('./_authenticator-before-start') %>
+<%= include('./_includes/_authenticator-before-start') %>
 
 ## 1. Enable email authenticators with the Management API
 
