@@ -981,6 +981,10 @@ articles:
 
   - title: "Auth0 Deprecations"
     url: "/deprecations"
+    children:
+
+      - title: "Planned Deprecations"
+        url: "/deprecations/planned-deprecations"
 
   - title: "Auth0 Migrations"
     url: "/migrations"
