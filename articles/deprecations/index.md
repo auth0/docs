@@ -34,18 +34,21 @@ Typcially there will be a replacement for the feature being removed (e.g. new ve
       <td><a href="/users/search/v3/migrate-search-v2-v3">User Search v2</a></td>
       <td>6 June 2018</td>
       <td>30 June 2019</td>
-      <td>User Search v2 is being deprecated and you may be required to take action before June 30, 2019. A <a href="/users/search/v3/migrate-search-v2-v3">migration guide</a> is available to walk you through the steps required. Notifications have been and will continue to be sent to customers that need to complete this migration.<br>Useful Resources:<br><ul><li><a href="/users/search/v3">User Search v3</a></li><li><a href="/users/search/v3/query-syntax">User Search v3 - Query Syntax</a></li><li><a href="/best-practices/search-best-practices">User Search Best Practices</a></li><li><a href="/users/search/v3/migrate-search-v2-v3">User Search v2 to v3 Migration Guide</a></li></ul></td>
+      <td>User Search v2 is being deprecated and you may be required to take action before June 30, 2019. A <a href="/users/search/v3/migrate-search-v2-v3">migration guide</a> is available to walk you through the steps required. Notifications have been and will continue to be sent to customers that need to complete this migration.<br>Useful Resources:<br>
+        <a href="/users/search/v3">User Search v3</a><br>
+        <a href="/users/search/v3/query-syntax">User Search v3 - Query Syntax</a><br>
+        <a href="/best-practices/search-best-practices">User Search Best Practices</a><br>
+        <a href="/users/search/v3/migrate-search-v2-v3">User Search v2 to v3 Migration Guide</a><br>
+      </td>
     </tr>
     <tr>
       <td><a href="/logs/migrate-logs-v2-v3">Tenant Logs Search v2</a></td>
       <td>21 May 2019</td>
       <td>
-        <ul>
-          <li><b>Free</b>: 15 June 2019</li>
-          <li><b>Developer</b>: 20 August 2019</li>
-          <li><b>Developer Pro</b>: 20 August 2019</li>
-          <li><b>Enterprise</b>: 4 November 2019</li>
-        </ul>
+        <b>Free</b>: 15 June 2019<br>
+        <b>Developer</b>: 20 August 2019<br>
+        <b>Developer Pro</b>: 20 August 2019<br>
+        <b>Enterprise</b>: 4 November 2019
       </td>
       <td>To provide our customers with the most reliable and scalable solution, Auth0 has deprecated Tenant Logs Search Engine v2 in favor of v3. Auth0 is proactively migrating customers unaffected by this change, while those who are potentially affected are being notified to opt in for v3 during the provided grace period.  See the <a href="/logs/migrate-logs-v2-v3">migration guide</a> for more information.</td>
     </tr>
