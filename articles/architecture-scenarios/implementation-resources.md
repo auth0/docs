@@ -67,7 +67,7 @@ The [Auth0 Learn](https://auth0.com/learn/) site features short descriptions of 
 
 Once your development team is ready to build, Auth0 provides many sample programs, SDKs and libraries to speed your project along.
 
-* [**Quickstarts**0(/quickstarts)
+* [**Quickstarts**](/quickstarts)
   Auth0 provides a rich array of quickstarts - small sample programs that demonstrate how to do the key features you’ll want to implement in your program such as authentication, session management, profile updates and logout to name a few of the examples available. The quickstarts will give developers a head start on understanding how to integrate applications with Auth0.
 
 * [**Libraries and SDKs**](/libraries)
@@ -151,7 +151,7 @@ Information on [monitoring endpoints](/monitoring/how-to-monitor-auth0) made ava
 
 ### Log data
 
-[Log data](/logs) made available by Auth0, information on log data retention and tools for exporting log data to external analytical tools for analysis and long-term data retention. This information will be useful for developers and operations teams as well as compliance teams interested in data retention.
+[Log data](/logs) made available by Auth0 includes information on log data retention and tools for exporting log data to external analytical tools for analysis and long-term data retention. This information will be useful for developers and operations teams as well as compliance teams interested in data retention.
 
 ### Announcements 
 
