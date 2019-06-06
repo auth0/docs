@@ -43,7 +43,7 @@ See [Deprecations](/deprecations) for migrations that are a part of a Deprecatio
 | Google Cloud Messaging to Firebase Cloud Messaging Migration | 3rd Party Change | Existing applications will keep working but if you want to migrate, you can find instructions [here](/migrations/guides/google_cloud_messaging) |
 | Facebook Login and Graph API | 3rd Party Change | [Changes to Facebook Login and Graph API](/migrations/guides/facebook-graph-api-deprecation) |
 | LinkedIn API v2 | 3rd Party Change | [Migration to LinkedIn API V2](/migrations/guides/linkedin-api-deprecation) |
-| ID Tokens on the Auth0 Management API | Planned Deprecation | [Management API and ID Tokens](/migrations/guides/calling-api-with-idtokens) |
+| Allow ID Tokens for Management API v2 Authentication | Planned Deprecation | [Management API and ID Tokens](/migrations/guides/calling-api-with-idtokens) |
 | Legacy `oauth/ro` Endpoint | Planned Deprecation | [Migration Guide for Resource Owner Password Credentials Exchange](/migrations/guides/migration-oauthro-oauthtoken) |
 | Legacy Delegation Endpoint | Planned Deprecation | In Progress |
 | Legacy User Profile | Planned Deprecation | In Progress |
