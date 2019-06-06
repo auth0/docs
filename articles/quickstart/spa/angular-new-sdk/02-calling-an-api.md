@@ -1,5 +1,3 @@
-<!-- markdownlint-disable MD041 MD034 MD002 MD006 -->
-
 ---
 title: Calling an API
 description: This tutorial demonstrates how to call a backend API using an access token.
@@ -14,3 +12,5 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
+
+<!-- markdownlint-disable MD006 -->
