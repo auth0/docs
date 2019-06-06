@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: Understand user authorization and related planning considerations for your B2C implementation.
+description: Understand user authorization and related planning considerations for your B2B implementation.
 topics:
     - b2b
     - iam

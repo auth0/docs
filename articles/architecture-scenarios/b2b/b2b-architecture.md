@@ -43,7 +43,7 @@ We recommend that you create a full suite of [SDLC supporting tenants](#sdlc-sup
 
 ### Complex organization tenant provisioning
 
-In most cases, provisioning separate Auth0 tenants for your customers organization is not necessary, however, in certain circumstancees its valuable to simplify setup. For instance, we recommend provisioning a separate Auth0 tenant for your customers' organization as a best practice if the following circumstances exist.
+In most cases, provisioning separate Auth0 tenants for your customers' organization is not necessary, however, in certain circumstances it can simplify your configuration to move some organizations to their own tenant. For instance, we recommend provisioning a separate Auth0 tenant for your customers' organization as a best practice if the following circumstances exist:
 
 * Your customers' organizations have isolated users, meaning the users are never shared between organizations.
 * Your have some customer organizations that support more than one IDP. For example, you might have a customer that has their own enterprise IDP, but who also has some users that aren't in their IDP and whose credentials you'll need to store. You may also have a customer who wants to provide for one or more social connections in addition to their enterprise IDP.
@@ -51,7 +51,7 @@ In most cases, provisioning separate Auth0 tenants for your customers organizati
 If both of these circumstances exist, then you should consider creating a separate Auth0 tenant for each customer. This allows you to have separate custom domains for them and to easily customize their login experience, including [Home Realm Discovery](/b2b/b2b-authentication#home-realm-discovery) on their login page. 
 
 ::: warning
-Maintaining multiple Auth0 tenants can add complexity to your system and should not be done unless absolutely necessary. 
+Maintaining multiple Auth0 tenants can add complexity to your system and should not be done unless absolutely necessary. It can also have an impact on the way your Monthly Active Users are calculated, so be sure to take that into consideration when evaluating this option.  We recommend you consider purchasing professional services to ensure this is the best option for you.
 :::
 
 ## Custom domains

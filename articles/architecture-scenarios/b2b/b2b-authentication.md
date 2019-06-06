@@ -21,7 +21,7 @@ useCase:
 
 * What do yuo do if you need to isolate my users by organization?
 * How do you handle identifying which organization your users' belong to?
-* What's the benefite of providing enterprise connections for your organization?
+* What's the benefit of providing enterprise connections for your organization?
 
 <%= include('../_includes/_authentication-design-considerations2.md') %>
 
@@ -35,8 +35,8 @@ Often companies need to segregate their users by organization and sometimes user
 
 Home realm discovery (HRD) is the process of identifying which identity provider the user belongs to *before* authenticating them. There are two ways HRD can occur: 
 
-* Provide a way for the user to tell the application
-* HRD through Universal Login
+* Provide a way for the decision to be made at the application
+* Have Home Realm Discovery happen on the Universal Login page
 
 Your system may need to do either or both methods so it is important to understand all approaches to HRD so that you can apply the one(s) that make the most sense to your applications. 
 
@@ -48,13 +48,13 @@ If you don’t need to know ahead of time (for example, all of your users are in
 A common and effective way for determining which realm a user belongs to is when an application is branded for each organization.  The organization has its own instance of the application.  This copy or instance can be physically isolated (running on a separate set of servers) or virtually (running on shared servers, but presented as if it could be isolated), and is generally denoted through either a custom hostname (companyA.application1.yourcompany.com) or path (application1.yourcompany.com/companyA).
 
 ::: panel Best practice
-If your application already knows what connection (IDP) the user needs, then pass that along to the redirect to /authorize.
+If your application already knows what connection (IDP) the user needs, then pass that along to the redirect to /authorize using the connection query parameter.
 :::
 
-If this is the case for your application(s) then home realm discovery is a simple matter of storing the Auth0 connection name with the organization specific application configuration and sending that connection name as a parameter when redirecting the user for Universal Login. Sending the connection parameter can be achieved by adding it as a query parameter when you redirect them to the authorize endpoint. For more information see the Authentication API docs; however, you will generally accomplish this using the SDK for whichever language your application is written in.
+If this is the case for your application(s) then home realm discovery is a simple matter of storing the Auth0 connection name with the organization specific application configuration and sending that connection name as a parameter when redirecting the user for Universal Login. Sending the connection parameter can be achieved by adding it as a query parameter when you redirect them to the authorize endpoint. For more information see the [Authentication API docs](https://auth0.com/docs/api/authentication); however, you will generally accomplish this using the SDK for whichever language your application is written in.
 
 ::: panel Best practice
-If an organization needs more than one IDP, then you will have to do a second round of Home Realm Discovery once identifying their organization.  This can be achieved easily with Auth0 through creating a dedicated Auth0 tenant for that organization and federating out to it. 
+If an organization needs more than one IDP, then you will have to do a second round of Home Realm Discovery once identifying their organization.  This can be achieved with Auth0 through creating a dedicated Auth0 tenant for that organization and creating an enterprise connection to that tenant. 
 :::
 
 ### HRD through Universal Login
@@ -65,10 +65,10 @@ There are three main approaches to Home Realm Discovery through Universal Login:
 * Discover the realm by looking up a user identifier in some sort of map of identifier to realm map.
 * Allow the user to choose or enter their realm (or organization).
 
-In both of the approaches, you may consider doing “Identifier First Login”. This means that you present only the ability to enter an identifier first.  After which you collect the user’s identifier, and then based on the identifier you either automatically redirect the user or present a way for the user to enter their password if redirection is unnecessary.
+In both of the first two approaches, you may consider doing “Identifier First Login”. This means that you present only the ability to enter an identifier first.  After which you collect the user’s identifier, and then based on the identifier you either automatically redirect the user or present a way for the user to enter their password if redirection is unnecessary.
 
 ::: warning
-Though it is possible to implement Identifier First Login or allow a user to select their organization at the application, this can add complexity with respect to single sign on as well as complexity associated with replicating that behavior in all of your applications.  Instead Auth0 recommends implementing some form of HRD through Universal Login.
+Though it is possible to implement Identifier First Login or allow a user to select their organization at the application instead of on the Universal Login Page, this can add complexity with respect to single sign on as well as complexity associated with replicating that behavior in all of your applications.  Instead Auth0 recommends implementing some form of HRD through Universal Login.
 :::
 
 #### HRD through Universal Login using the email subdomain
@@ -85,7 +85,7 @@ Any public endpoint should have rate limiting applied to it to prevent hackers f
 
 #### HRD through Universal Login using user choice
 
-The other simple option is to allow your users to choose from a list, if you don’t mind making public the list of organizations who use your product, or by allowing the user to enter their organization name explicitly.  Once the user tells you which organization they belong to, you can redirect back to Auth0 with the connection for that organization specified.
+The other simple option is to allow your users to choose from a list, if you don’t mind making public the list of organizations who use your product, or by allowing the user to enter their organization name explicitly.  Once the user tells you which organization they belong to, you can redirect back to Auth0 with the connection for that organization specified, or simply prompt them for their username and password if the connection is a database connection.
 
 ## Username and password authentication
 
