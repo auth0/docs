@@ -23,7 +23,7 @@ useCase:
 ---
 # Implementation Resources
 
-Auth0 provides a wealth of services to assist you. This document lists the resources available to customers, by category. 
+Auth0 provides a wealth of services to assist you. This page lists the resources available to you, by category. 
 
 The objective of this list is to provide awareness of the resources available and help you engage most effectively with Auth0.
 
@@ -33,11 +33,11 @@ The following resources are designed to help you quickly learn the basics of Aut
 
 ### Getting Started resources 
 
-An [overview of Auth0](/getting-started), the Auth0 Dashboard and common terms used for components of the Auth0 service. This page is useful for a broad understanding of Auth0 as well as terms you might hear when working with Auth0 staff or reading documentation. 
+An [overview of Auth0](/getting-started), the Auth0 Dashboard, and common terms used for components of the Auth0 service. This page is useful for a broad understanding of Auth0 as well as terms you might hear when working with Auth0 staff or reading documentation. 
 
 ### Architecture scenarios 
 
-Descriptions of [common architecture scenarios](/architecture-scenarios) and how to solve them with Auth0, including tutorials for implementing common architecture patterns such as a Single Page Application calling an API. The high level descriptions will be useful for architects and the tutorials will be helpful for development teams.
+Descriptions of [common architecture scenarios](/architecture-scenarios) and how to solve them with Auth0, including tutorials for implementing common architecture patterns such as a Single Page Application calling an API. The high-level descriptions will be useful for architects and the tutorials will be helpful for development teams.
 
 ### Implementation Guides 
 
@@ -49,11 +49,11 @@ A description of [typical and atypical requirements](https://auth0.com/blog/how-
 
 ## Learn
 
-Auth0 provides numerous documentation pages, white papers and blog posts with both learning and quick reference checks in mind.
+Auth0 provides numerous tutorials, guides, white papers, and blog posts with both learning and quick reference checks in mind.
 
 ### Documentation Pages
 
-Auth0 provides [documentation}(https://auth0.docs) on this site that covers a wealth of topics.  You can browse through the navigation, or do a search in your favorite browser for "Auth0 *topic of interest*" to quickly find content on a topic. Documentation covers architectural guidance, product documentation, API documentation, Extensibility Patterns and samples
+Auth0 provides [documentation}(https://auth0.docs) on this site that covers a wealth of topics. You can browse through the navigation, or do a search in your favorite browser for "Auth0 *topic of interest*" to quickly find content on a topic. Documentation covers architectural guidance, product documentation, API documentation, Extensibility Patterns and samples
 
 ### Feature descriptions and white papers
 
@@ -65,7 +65,7 @@ The [Auth0 Learn](https://auth0.com/learn/) site features short descriptions of 
 
 ## Run sample code
 
-Once your development team is ready to build, Auth0 provides many sample programs, SDKs and libraries to speed your project along.
+Once your development team is ready to build, Auth0 provides many sample programs, SDKs, and libraries to speed your project along.
 
 * [**Quickstarts**](/quickstarts)
   Auth0 provides a rich array of quickstarts - small sample programs that demonstrate how to do the key features you’ll want to implement in your program such as authentication, session management, profile updates and logout to name a few of the examples available. The quickstarts will give developers a head start on understanding how to integrate applications with Auth0.
@@ -83,7 +83,7 @@ The [Management API](/api/management/v2 ) allows you to manage objects, configur
 
 ### Authentication API
 
-The [Authentication API](/api/authentication) supports authentication and authorization via the OIDC, OAuth and SAML protocols. The Authentication API explorer allows you to experiment with the Authentication API.  Developers can quickly experiment with and test API calls before coding them into your applications.
+The [Authentication API](/api/authentication) supports authentication and authorization via the OIDC, OAuth, and SAML protocols. The Authentication API explorer allows you to experiment with the Authentication API.  Developers can quickly experiment with and test API calls before coding them into your applications.
 
 ## Try things quickly
 
