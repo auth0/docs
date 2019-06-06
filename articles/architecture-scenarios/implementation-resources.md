@@ -67,11 +67,9 @@ The [Auth0 Learn](https://auth0.com/learn/) site features short descriptions of 
 
 Once your development team is ready to build, Auth0 provides many sample programs, SDKs, and libraries to speed your project along.
 
-* [**Quickstarts**](/quickstarts)
-  Auth0 provides a rich array of quickstarts - small sample programs that demonstrate how to do the key features you’ll want to implement in your program such as authentication, session management, profile updates and logout to name a few of the examples available. The quickstarts will give developers a head start on understanding how to integrate applications with Auth0.
+* [**Quickstarts**](/quickstarts): Auth0 provides a rich array of quickstarts - small sample programs that demonstrate how to do the key features you’ll want to implement in your program such as authentication, session management, profile updates and logout to name a few of the examples available. The quickstarts will give developers a head start on understanding how to integrate applications with Auth0.
 
-* [**Libraries and SDKs**](/libraries)
-  Auth0 provides an extensive set of libraries and SDKs to support those developing custom applications by abstracting many of the details of the identity protocols for you. The libraries and SDKs will greatly simplify the work of developers to adopt OIDC and OAuth in your programs and integrate with Auth0.
+* [**Libraries and SDKs**](/libraries): Auth0 provides an extensive set of libraries and SDKs to support those developing custom applications by abstracting many of the details of the identity protocols for you. The libraries and SDKs will greatly simplify the work of developers to adopt OIDC and OAuth in your programs and integrate with Auth0.
 
 ### SDKs
 
