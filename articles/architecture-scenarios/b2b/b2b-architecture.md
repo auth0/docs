@@ -25,8 +25,6 @@ useCase:
 
 <%= include('../_includes/_bp-user-communities.md') %>
 
-If you need to provision an independent tenant then you’ll also want to [associate this with your existing Auth0 account](#tenant-association), so that you can take full advantage of the benefits provided at your organization’s contracted subscription level.
-
 <%= include('../_includes/_architecture-dev-process.md') %>
 
 <%= include('../_includes/_protocol-impact-architecture-intro.md') %>
