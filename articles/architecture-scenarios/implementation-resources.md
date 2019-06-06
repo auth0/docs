@@ -1,6 +1,6 @@
 ---
 title: Implementation Resources
-description: Learn about all the resources Auth0 provides to help you with your architecture implementation.
+description: Learn about all the resources Auth0 provides to help you with your Auth0 implementation.
 toc: true
 topics:
     - architecture
