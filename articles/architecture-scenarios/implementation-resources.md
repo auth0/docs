@@ -53,7 +53,7 @@ Auth0 provides numerous tutorials, guides, white papers, and blog posts with bot
 
 ### Documentation Pages
 
-Auth0 provides [documentation}(https://auth0.docs) on this site that covers a wealth of topics. You can browse through the navigation, or do a search in your favorite browser for "Auth0 *topic of interest*" to quickly find content on a topic. Documentation covers architectural guidance, product documentation, API documentation, Extensibility Patterns and samples
+Auth0 provides documentation (on this site) that covers a wealth of topics. You can browse through the navigation, or do a search in your favorite browser for "Auth0 *topic of interest*" to quickly find content on a topic. Documentation covers architectural guidance, product documentation, API documentation, Extensibility Patterns and samples
 
 ### Feature descriptions and white papers
 
@@ -111,7 +111,7 @@ The [Auth0 Community forum](https://community.auth0.com/) provides a way to conn
 
 The [Auth0 Support Center](https://support.auth0.com/) allows you to view and manage your subscription, tenants, file or view support requests, run an automated production check on a tenant, and view compliance information. Paying customers will find the support center a valuable resource if an issue or question cannot be solved by docs or by searching the forum.
 
-* [**Create support case**](https://auth0.com/docs/support/tickets): Documentation on how to file a support case if you need help
+* [**Create support case**](/support/tickets): Documentation on how to file a support case if you need help
 
 * [**Support Plans and Service Level Agreements available**](support#defect-responses): Description of the multiple levels of support available for purchase
 
@@ -133,7 +133,7 @@ Our world-wide [professional services team](/services) is ready to help speed yo
 
 ### Pre-launch advice and production check 
 
-Tips and tools to help you plan for your launch are available in our [Prelaunch Advice](/pre-deployment) and [Production Check](/docs/pre-deployment/how-to-run-test). Project managers as well as the development and operations teams should go through these resources to leverage advice for a smooth launch.
+Tips and tools to help you plan for your launch are available in our [Prelaunch Advice](/pre-deployment) and [Production Check](/pre-deployment/how-to-run-test). Project managers as well as the development and operations teams should go through these resources to leverage advice for a smooth launch.
 
 ### Operational policies 
 
@@ -141,7 +141,7 @@ Familiarize yourself with [policies](/policies) so you know the lead times for o
 
 ### Status Dashboard 
 
-Our [Status Dashboard](http://status.auth0.com/) provides status on Auth0 availability and the ability to subscribe to status updates. Although rare, if there is a service interruption, Auth0 conducts a root cause analysis and publishes the results on this site as well. Operations and support teams should be familiar with how to check the Auth0 status.
+Our [Status Dashboard](https://status.auth0.com/) provides status on Auth0 availability and the ability to subscribe to status updates. Although rare, if there is a service interruption, Auth0 conducts a root cause analysis and publishes the results on this site as well. Operations and support teams should be familiar with how to check the Auth0 status.
 
 ### Monitoring endpoints for Auth0
 
