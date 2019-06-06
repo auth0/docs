@@ -90,9 +90,9 @@ Throughout Auth0, you will find **TRY** buttons and links that allow you to quic
 
 * [**Operational policies**](/policies): Familiarize yourself with our  policies so you know the lead times for operational requests. The policies are useful for an entire team, but project owners and operations teams especially should be aware of Auth0's operational policies.
 
-* [**Status Dashboard**](/https://status.auth0.com): Our Status Dashboard provides status on Auth0 availability. You can subscribe to status updates. Although rare, if there is a service interruption, Auth0 conducts a root cause analysis and publishes the results on this site. Operations and support teams should be familiar with how to check the Auth0 status.
+* [**Status Dashboard**](https://status.auth0.com): Our Status Dashboard provides status on Auth0 availability. You can subscribe to status updates. Although rare, if there is a service interruption, Auth0 conducts a root cause analysis and publishes the results on this site. Operations and support teams should be familiar with how to check the Auth0 status.
 
-* [**Monitor endpoints**](/monitoring/how-to-monitor-auth0): We provide monitoring endpoints that you can integrate into your monitoring infrastructure. This information is of particular use to operations teams and project owners.
+* [**Monitor endpoints**](/monitoring): We provide monitoring endpoints that you can integrate into your monitoring infrastructure. This information is of particular use to operations teams and project owners.
 
 * [**Log data**](/logs): Learn about the types of logs Auth0 provides,  information on data retention, and tools for exporting log data to external analytical tools for analysis and long-term data retention. This information is useful for developers and operations teams as well as compliance teams interested in data retention.
 
@@ -102,6 +102,6 @@ Throughout Auth0, you will find **TRY** buttons and links that allow you to quic
 
 View information on Auth0’s privacy policy, security policy, compliance certifications achieved, and how Auth0 can help you with your compliance needs. This information is useful for project owners as well as security, privacy teams, and procurement teams.
 
-* [Privacy Policy](https://auth0.com/privacy)
-* [Security and Compliance](https://auth0.com/security/)
-* [GDPR and Compliance Frameworks](/compliance)
+* [Privacy and Cookie Policy](https://auth0.com/privacy)
+* [Security, Privacy and Compliance](https://auth0.com/security/)
+* [Compliance Frameworks and Certifications](/compliance)
