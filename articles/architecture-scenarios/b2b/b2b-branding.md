@@ -21,8 +21,6 @@ useCase:
 
 <%= include('../_includes/_branding-intro.md') %>
 
-## Design considerations
-
 When considering the items you want to brand, as well as how best to brand them, there are a number of things you'll want to consider:
 
 * Can I use my own branding with Auth0 hosted pages, such as Universal Login?

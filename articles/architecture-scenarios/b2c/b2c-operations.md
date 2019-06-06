@@ -16,8 +16,6 @@ useCase:
 
 <%= include('../_includes/_operations-intro.md') %>
 
-## Design considerations
-
 <%= include('../_includes/_operations-design-considerations.md') %>
 
 <%= include('../_includes/_operations-design-considerations2.md') %>

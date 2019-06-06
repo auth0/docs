@@ -16,8 +16,6 @@ useCase:
 
 <%= include('../_includes/_warning-user-profiles-across-tenants.md') %>
 
-## Design considerations
-
 <%= include('../_includes/_profile-mgmt-design-considerations.md') %>
 
 <%= include('../_includes/_note-rule-override-user-profile.md') %>

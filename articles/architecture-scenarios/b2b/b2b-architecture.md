@@ -18,6 +18,7 @@ useCase:
 <%= include('../_includes/_bp-sso-training.md') %>
 
 <%= include('../_includes/_architecture-design-considerations.md') %>
+
 * How can I align the structure and domain of my customers' organization with my Auth0 deployment?
 
 <%= include('../_includes/_domains-impact-architecture-intro.md') %>

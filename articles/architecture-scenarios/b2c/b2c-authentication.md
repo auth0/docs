@@ -17,8 +17,6 @@ useCase:
 
 <%= include('../_includes/_bp-authentication.md') %>
 
-## Design considerations
-
 <%= include('../_includes/_authentication-design-considerations.md') %>
 
 <%= include('../_includes/_authentication-design-considerations2.md') %>

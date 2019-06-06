@@ -19,8 +19,6 @@ useCase:
 
 <%= include('../_includes/_bp-universal-login.md') %>
 
-## Design considerations
-
 <%= include('../_includes/_provisioning-design-considerations.md') %>
 
 * Does a user get added to my company's domain or do they belong to or remain in their organization's domain?

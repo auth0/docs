@@ -20,8 +20,6 @@ useCase:
 
 <%= include('../_includes/_bp-universal-login.md') %>
 
-## Design considerations
-
 <%= include('../_includes/_provisioning-design-considerations.md') %>
 
 * Can you use Auth0 as an identity store?

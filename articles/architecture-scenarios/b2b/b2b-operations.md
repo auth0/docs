@@ -16,9 +16,8 @@ useCase:
 
 <%= include('../_includes/_operations-intro.md') %>
 
-## Design considerations
-
 <%= include('../_includes/_operations-design-considerations.md') %>
+
 * Will you want to provide serlf-service provisioning of your customer organization IDPs?
 
 <%= include('../_includes/_operations-design-considerations2.md') %>

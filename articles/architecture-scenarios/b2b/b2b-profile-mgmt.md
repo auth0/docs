@@ -16,9 +16,8 @@ useCase:
 
 <%= include('../_includes/_warning-user-profiles-across-tenants.md') %>
 
-## Design considerations
-
 <%= include('../_includes/_profile-mgmt-design-considerations.md') %>
+
 * How do you provide an administrator from a third-party organization the ability to manage their users?
 
 <%= include('../_includes/_note-rule-override-user-profile.md') %>

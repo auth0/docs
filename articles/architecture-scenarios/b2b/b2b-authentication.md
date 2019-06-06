@@ -17,9 +17,8 @@ useCase:
 
 <%= include('../_includes/_bp-authentication.md') %>
 
-## Design considerations
-
 <%= include('../_includes/_authentication-design-considerations.md') %>
+
 * What do yuo do if you need to isolate my users by organization?
 * How do you handle identifying which organization your users' belong to?
 * What's the benefite of providing enterprise connections for your organization?
