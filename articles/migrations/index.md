@@ -32,7 +32,7 @@ If you need help with the migration, create a ticket in our [Support Center](${e
 
 ## Active migrations
 
-See [Deprecations](/deprecations) for migrations that are a part of a Deprecation for removal dates.
+Migrations of type **Deprecation** require action by the features **Removal Date.** See [Deprecations](/deprecations) for more information.
 
 | Description | Type | Guide |
 | - | - | - |
@@ -45,8 +45,8 @@ See [Deprecations](/deprecations) for migrations that are a part of a Deprecatio
 | LinkedIn API v2 | 3rd Party Change | [Migration to LinkedIn API V2](/migrations/guides/linkedin-api-deprecation) |
 | Allow ID Tokens for Management API v2 Authentication | Planned Deprecation | [Management API and ID Tokens](/migrations/guides/calling-api-with-idtokens) |
 | Legacy `oauth/ro` Endpoint | Planned Deprecation | [Migration Guide for Resource Owner Password Credentials Exchange](/migrations/guides/migration-oauthro-oauthtoken) |
-| Legacy Delegation Endpoint | Planned Deprecation | In Progress |
-| Legacy User Profile | Planned Deprecation | In Progress |
+| Legacy Delegation Endpoint | Planned Deprecation | See [Planned Deprecations](/deprecations/planned-descriptions) for more info |
+| Legacy User Profile | Planned Deprecation | See [Planned Deprecations](/deprecations/planned-descriptions) for more info |
 
 For migrations that have already been enabled for all customers, see [Past Migrations](/migrations/past-migrations).
 
