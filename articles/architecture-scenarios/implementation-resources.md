@@ -53,7 +53,7 @@ Auth0 provides numerous documentation pages, white papers and blog posts with bo
 
 ### Documentation Pages
 
-Auth0 provides documenation on this site that covers a wealth of topics.  You can browse through the navigation, or do a search in your favorite browser for "Auth0 *topic of interest*" to quickly find content on a topic. Documentation covers architectural guidance, product documentation, API documentation, Extensibility Patterns and samples
+Auth0 provides [documentation}(https://auth0.docs) on this site that covers a wealth of topics.  You can browse through the navigation, or do a search in your favorite browser for "Auth0 *topic of interest*" to quickly find content on a topic. Documentation covers architectural guidance, product documentation, API documentation, Extensibility Patterns and samples
 
 ### Feature descriptions and white papers
 
@@ -67,13 +67,13 @@ The [Auth0 Learn](https://auth0.com/learn/) site features short descriptions of 
 
 Once your development team is ready to build, Auth0 provides many sample programs, SDKs and libraries to speed your project along.
 
-Quickstarts
-Auth0 provides a rich array of quickstarts - small sample programs that demonstrate how to do the key features you’ll want to implement in your program such as authentication, session management, profile updates and logout to name a few of the examples available. The quickstarts will give developers a head start on understanding how to integrate applications with Auth0.
+* [**Quickstarts**0(/quickstarts)
+  Auth0 provides a rich array of quickstarts - small sample programs that demonstrate how to do the key features you’ll want to implement in your program such as authentication, session management, profile updates and logout to name a few of the examples available. The quickstarts will give developers a head start on understanding how to integrate applications with Auth0.
 
-Libraries & SDKs
-Auth0 provides an extensive set of libraries and SDKs to support those developing custom applications by abstracting many of the details of the identity protocols for you. The libraries and SDKs will greatly simplify the work of developers to adopt OIDC and OAuth in your programs and integrate with Auth0.
+* [**Libraries and SDKs**](/libraries)
+  Auth0 provides an extensive set of libraries and SDKs to support those developing custom applications by abstracting many of the details of the identity protocols for you. The libraries and SDKs will greatly simplify the work of developers to adopt OIDC and OAuth in your programs and integrate with Auth0.
 
-## SDKs
+### SDKs
 
 Auth0 provides an [Auth0 SDK](/libraries) for numerous languages and frameworks to simplify your development and integration with Auth0. There is also a Lock library which provides a login widget across several platforms including iOS and Android mobile platforms.
 
@@ -99,7 +99,7 @@ The [Authentication API Explorer](/api/authentication#introduction) allows you t
 
 The [Management API Explorer](/api/management/v2) allows you to experiment with calls to the management API to manage objects, configuration and settings within Auth0. You can use this to test out the management API before coding API calls into your application or to quickly manipulate individual objects on an ad-hoc basis.
 
-### Postman Collection 
+### Postman collection 
 
 For fans of postman - there are [postman collections](/api/postman) for the Auth0 APIs. This provides another way to quickly try out API calls.
 
@@ -133,7 +133,7 @@ Our world-wide [professional services team](/services) is ready to help speed yo
 
 ## Set up operations
 
-### Pre-launch advice and Production Check 
+### Pre-launch advice and production check 
 
 Tips and tools to help you plan for your launch are available in our [Prelaunch Advice](/pre-deployment) and [Production Check](/docs/pre-deployment/how-to-run-test). Project managers as well as the development and operations teams should go through these resources to leverage advice for a smooth launch.
 
@@ -149,9 +149,9 @@ Our [Status Dashboard](http://status.auth0.com/) provides status on Auth0 availa
 
 Information on [monitoring endpoints](/monitoring/how-to-monitor-auth0) made available by Auth0 that you can integrate into your monitoring infrastructure. This information will be of particular use for operations teams and project owners.
 
-### Logs data
+### Log data
 
-[Logs data](/logs) made available by Auth0, information on logs data retention and tools for exporting log data to external analytical tools for analysis and long-term data retention. This information will be useful for developers and operations teams as well as compliance teams interested in data retention.
+[Log data](/logs) made available by Auth0, information on log data retention and tools for exporting log data to external analytical tools for analysis and long-term data retention. This information will be useful for developers and operations teams as well as compliance teams interested in data retention.
 
 ### Announcements 
 
