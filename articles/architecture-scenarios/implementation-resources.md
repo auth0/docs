@@ -62,7 +62,7 @@ Once your development team is ready to build, Auth0 provides sample programs, SD
 
 While building, Auth0 allows you to experiment with and test out various product features.
 
-* **TRY** buttons/links: Quickly try out Auth0 product features. **TRY** buttons are located throughout Auth0 and allow you to experiment with connections, rules, hooks, and email templates.
+* **TRY buttons/links**: Quickly try out Auth0 product features. **TRY** buttons are located throughout Auth0 and allow you to experiment with connections, rules, hooks, and email templates.
 
 * [**Authentication API Explorer**](/api/authentication#introduction): Experiment with authentication and authorization flows, and test API calls before coding them into your applications. 
 
