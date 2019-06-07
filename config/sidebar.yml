@@ -28,9 +28,6 @@ articles:
     url: /architecture-scenarios
 
     children:
-      - title: Implementation Checklists
-        url: /architecture-scenarios/checklists
-        
       - title: SSO for Regular Web Apps
         url: /architecture-scenarios/web-app-sso
         children:
@@ -141,6 +138,12 @@ articles:
       # - title: B2E
       #   url: /architecture-scenarios/b2e 
 
+      - title: Implementation Checklists
+        url: /architecture-scenarios/checklists
+      
+      - title: Implementation Resources
+        url: /architecture-scenarios/implementation-resources
+       
   - title: "Applications"
     url: "/applications"
     children:
