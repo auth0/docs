@@ -11,7 +11,7 @@ contentType: concept
 useCase:
     - authentication
 ---
-<%= include('../../_includes/_authentication/introduction.md') %>
+<%= include('../../_includes/_authentication/_introduction.md') %>
 
 ## Universal Login
 
