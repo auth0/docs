@@ -13,7 +13,7 @@ useCase:
 ---
 # Authentication
 
-<%= include('../../_includes/_authentication/_introduction.md', { scenario: 'b2c' }) %>
+<%= include('../../_includes/_authentication/_introduction.md', { platform: 'b2c' }) %>
 
 ## Universal Login
 
