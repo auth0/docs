@@ -25,7 +25,7 @@ useCase:
 
 ## Custom domain naming
 
-<%= include('../../_includes/_branding/_custom-domain-name.md', { platform: 'b2c' }) %>
+<%= include('../../_includes/_branding/_custom-domain-naming.md', { platform: 'b2c' }) %>
 
 ## Email template customization
 
