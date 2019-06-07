@@ -1,16 +1,3 @@
----
-title: Introduction
-description: Workstreak Introduction.
-toc: false
-topics:
-    - authentication
-    - introduction
-contentType: concept
-useCase:
-    - authentication
----
-# Authentication
-
 In order to provide services to your users, you must be able to identify who those users are. This process is called User  Authentication. There are a number of ways to perform authentication of a user - via social media accounts, username & password, passwordless - and it's often recommended that you go beyond a first factor for authenticating the user by adding a second factor as well (a.k.a. Multi-factor Authentication).
 
 ::: panel Best Practice
