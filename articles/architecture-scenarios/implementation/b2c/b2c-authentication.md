@@ -13,9 +13,7 @@ useCase:
 ---
 # Authentication
 
-<%= include('./_includes/_introduction-sms', { isMobile: true }) %>
-
-<%= include('../../_includes/_authentication/_introduction.md', { scenario: "b2c" }) %>
+<%= include('../../_includes/_authentication/_introduction.md', { scenario: 'b2c' }) %>
 
 ## Universal Login
 
