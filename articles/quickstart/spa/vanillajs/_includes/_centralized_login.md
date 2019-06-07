@@ -52,7 +52,7 @@ The example below shows the following functions:
 * `handleAuthentication`: looks for the result of authentication in the URL hash and processes it with the `parseHash` method from auth0.js.
 * `renewTokens`: performs silent authentication to renew the session.
 * `localLogin`: sets the user's Access Token, ID Token, and the Access Token's expiry time.
-* `logout`: removes the user's tokens and expiry time from browser memory.
+* `logout`: removes the user's tokens and expiry time from browser memory. It also calls webAuth.logout to log the user out at the authorization server.
 * `isAuthenticated`: checks whether the expiry time for the user's Access Token has passed.
 
 ```js
@@ -127,6 +127,11 @@ window.addEventListener('load', function() {
     accessToken = '';
     idToken = '';
     expiresAt = 0;
+
+    webAuth.logout({
+      return_to: window.location.origin
+    });
+
     displayButtons();
   }
 

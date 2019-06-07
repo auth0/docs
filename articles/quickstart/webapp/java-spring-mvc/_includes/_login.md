@@ -45,6 +45,8 @@ Lastly, the project defines a helper class: the `AuthController.java` which will
 Let's begin by making your Auth0 credentials available on the App. In the `AppConfig` class we tell Spring to map the properties defined in the `auth0.properties` file to the corresponding fields by using the `@Configuration` and `@Value` annotations. We also define the class as a `@Component` so we can later autowire it to make it available on other classes:
 
 ```java
+// src/main/java/com/auth0/example/AppConfig.java
+
 @Component
 @Configuration
 public class AppConfig {
@@ -62,7 +64,7 @@ public class AppConfig {
 Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. Any customization on the behavior of the component should be done here, such as requesting a different scope or using a different signature verification algorithm.
 
 ```java
-// src/main/java/com/auth0/example/AppConfig.java
+// src/main/java/com/auth0/example/AuthController.java
 
 @Component
 public class AuthController {
@@ -92,6 +94,8 @@ public class AuthController {
 To authenticate the users we will redirect them to the **Auth0 Login Page** which uses the best version available of [Lock](/lock). This page is what we call the "Authorize URL". By using this library we can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where our app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. Finally, we will request the "User Info" *audience* in order to obtain an Open ID Connect compliant response. After we create the Authorize URL, we redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
 
 ```java
+// src/main/java/com/auth0/example/LoginController.java
+
 @RequestMapping(value = "/login", method = RequestMethod.GET)
 protected String login(final HttpServletRequest req) {
     String redirectUri = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/callback";
@@ -103,6 +107,8 @@ protected String login(final HttpServletRequest req) {
 After the user logs in the result will be received in our `CallbackController`, either via a GET or a POST Http method. The request holds the call context that we've previously set by generating the Authorize URL with the controller. When we pass it to the controller, we get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, we need to save the credentials somewhere we can access them later. We will use again the `HttpSession` of the request. A helper class called `SessionUtils` is included in the library to set and read values from a request's session.
 
 ```java
+// src/main/java/com/auth0/example/CallbackController.java
+
 @RequestMapping(value = "/callback", method = RequestMethod.GET)
 protected void getCallback(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
   try {
@@ -125,6 +131,8 @@ It it's recommended to store the time in which we requested the tokens and the r
 Now that the user is authenticated (the tokens exists), the `Auth0Filter` will allow them to access our protected resources. In the `HomeController` we obtain the tokens from the request's session and set them as the `userId` attribute so they can be used from the JSP code:
 
 ```java
+// src/main/java/com/auth0/example/HomeController.java
+
 @RequestMapping(value = "/portal/home", method = RequestMethod.GET)
 protected String home(final Map<String, Object> model, final HttpServletRequest req) {
     String accessToken = (String) SessionUtils.get(req, "accessToken");
@@ -136,6 +144,36 @@ protected String home(final Map<String, Object> model, final HttpServletRequest 
     }
     return "home";
 }
+```
+
+## Handle Logout
+
+To properly handle logout, we need to clear the session and log the user out of Auth0. This is handled in the `LogoutController` of our sample application.
+
+First, we clear the session by calling `request.getSession().invalidate()`. We then construct the logout URL, being sure to include the `returnTo` query parameter, which is where the user will be redirected to after logging out. Finally, we redirect the response to our logout URL.
+
+```java
+// src/main/java/com/auth0/example/LogoutController.java
+
+@RequestMapping(value = "/logout", method = RequestMethod.GET)
+protected String logout(final HttpServletRequest req) {
+    invalidateSession(req);
+
+    String returnTo = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort();
+
+    // Build logout URL like:
+    // https://{YOUR-DOMAIN}/v2/logout?client_id={YOUR-CLIENT-ID}&returnTo=http://localhost:3000
+    String logoutUrl = String.format("https://%s/v2/logout?client_id=%s&returnTo=%s", domain, clientId, returnTo);
+    
+    return "redirect:" + logoutUrl;
+}
+
+private void invalidateSession(HttpServletRequest request) {
+    if (request.getSession() != null) {
+        request.getSession().invalidate();
+    }
+}
+
 ```
 
 ## Run the Sample

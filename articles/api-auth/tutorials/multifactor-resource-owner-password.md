@@ -321,7 +321,6 @@ function mfaRecovery(mfa_token, recovery_code) {
     form:
     { mfa_token: mfa_token,
       recovery_code: recovery_code,
-      otp: otp,
       grant_type: 'http://auth0.com/oauth/grant-type/mfa-recovery-code',
       client_id: '${account.clientId}',
       client_secret: 'YOUR_CLIENT_SECRET' }
@@ -336,7 +335,7 @@ function mfaRecovery(mfa_token, recovery_code) {
       // The tokens returned depend on the scopes requested on the password grant request
       console.log(body.access_token, body.id_token, body.refresh_token);
     } else if (body.error === 'invalid_grant') {
-      // Invalid otp code
+      // Invalid recovery code
       console.error('Invalid recovery_code');
     } else {
       console.error('Something went wrong');

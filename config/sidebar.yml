@@ -28,9 +28,6 @@ articles:
     url: /architecture-scenarios
 
     children:
-      - title: Implementation Checklists
-        url: /architecture-scenarios/checklists
-        
       - title: SSO for Regular Web Apps
         url: /architecture-scenarios/web-app-sso
         children:
@@ -141,6 +138,12 @@ articles:
       # - title: B2E
       #   url: /architecture-scenarios/b2e 
 
+      - title: Implementation Checklists
+        url: /architecture-scenarios/checklists
+      
+      - title: Implementation Resources
+        url: /architecture-scenarios/implementation-resources
+       
   - title: "Applications"
     url: "/applications"
     children:
@@ -343,18 +346,21 @@ articles:
       - title: "Overview"
         url: "/universal-login"
 
-      - title: "Password Reset Page"
-        url: "/universal-login/password-reset"
-
-      - title: "Advanced Customization"
-        url: "/universal-login/advanced-customization"
-
       - title: "Classic Experience"
         url: "/universal-login/classic"
 
       - title: "New Experience"
         url: "/universal-login/new"
+        
+      - title: "Internationalization"
+        url: "/universal-login/i18n"
+
+      - title: "Advanced Customization"
+        url: "/universal-login/advanced-customization"
       
+      - title: "Password Reset Page"
+        url: "/universal-login/password-reset"
+
       - title: "Guardian MFA"
         url: "/universal-login/guardian"
 
