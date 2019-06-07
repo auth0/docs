@@ -36,7 +36,8 @@ github:
   repo: auth0-spring-security-api-sample
 requirements:
   - Java 8 or above
-  - Maven 3.0.x or above
+  - Gradle 5.4.1
+  - Spring Boot 1.5.21
 next_steps:
   - path: 01-authorization
     list:
