@@ -1,5 +1,3 @@
-## Application integration
-
 Once you've figured out how you want to authenticate your users, the next step is to determine how you will initiate that authentication. Each application will typically have its own starting point.
 
 ::: warning
