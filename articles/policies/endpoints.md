@@ -29,4 +29,4 @@ The following endpoints are used by Auth0 public cloud service:
 * https://login.[eu|au].auth0.com
 * https://cdn.[eu|au].auth0.com
 * https://{YOUR ACCOUNT}.[eu|au].auth0.com
-* https://{YOUR ACCOUNT}.[eu|au].guardian.auth0.com
+* https://{YOUR ACCOUNT}.guardian.[eu|au].auth0.com

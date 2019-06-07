@@ -22,9 +22,9 @@ github:
   repo: auth0-spring-security-mvc-sample
   branch: master
 requirements:
-  - Java 7 and up
-  - Gradle 3.3 and up
-  - Spring Boot 1.5.3 or above
+  - Java 8
+  - Gradle 5.4.1
+  - Spring Boot 1.5.21
 next_steps:
   - path: 01-login
     list:

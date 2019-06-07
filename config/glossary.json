@@ -1,419 +1,83 @@
 {
-  "access-control-rule": {
-    "title": "access control rule",
-    "definition": "Settings that define the specific resources that a user is authorized to access or change. In Auth0, controlled through <a href='#rules'>rules</a>."
+  "access-token": {
+    "title": "Access Token",
+    "definition": "A credential that can be used by an application to access an API. It informs the API that the bearer of the token has been authorized to access the API and perform specific actions specified by the scope that has been granted. An Access Token can be either an opaque string or a JSON Web Token (JWT), and should be transmitted to the API as a Bearer credential in an HTTP Authorization header.",
+    "short": "An authorization credential, in the form of an opaque string or JWT, used to access an API."
   },
-  "access-management": {
-    "title": "access management",
-    "definition": "Administering the logins and passwords of users across a range of apps and resources—typically contained inside a single organization. Largely superseded by <a href='#federated-identity-management'>federated identity management.</a>"
+  "audience": {
+    "title": "Audience",
+    "definition": "The unique identifier of the audience for an issued token, identified within a token as the `aud` claim. The audience value is either the application (`Client ID`) for an ID Token or the API that is being called (`API Identifier`) for an Access Token. At Auth0, the Audience value sent in a request for an Access Token dictates whether that token is returned in an opaque or JWT format.",
+    "short": "A unique identifier, <b>aud</b> in a token, for an application (ID Token) or an API (Access Token)."
   },
-  "actas": {
-    "title": "ActAs",
-    "definition": "Fundamental to delegation, an authorization allowing a third party to act <i>as if</i> they were another user."
+  "callback": {
+    "title": "Callback",
+    "definition": "The URL to which Auth0 sends its response after an API call. It is often the same URL to which a user is redirected after authentication.",
+    "short": "The URL to which Auth0 sends its response after an API call and sometimes where a user is redirected after authentication."
   },
-  "active-client": {
-    "title": "active client",
-    "definition": "A claims-based application component that makes calls directly to the claims provider. Compare with passive client."
+  "json-web-token": {
+    "title": "JSON Web Token (JWT)",
+    "definition": "An open, industry standard <a href='https://tools.ietf.org/html/rfc7519'>RFC 7519</a> method for representing claims securely between two parties. At Auth0, ID Tokens are always returned in JWT format, and Access Tokens are often in JWT format. You may decode well-formed JWTs at <a href='https://jwt.io'>JWT.io</a> to view their claims.",
+    "short": "The standard ID Token format and often Access Token format used to represent claims securely between two parties."
   },
-  "active-federation": {
-    "title": "active federation",
-    "definition": "A technique for accessing a claims provider that does not involve the redirection feature of the HTTP protocol. With active federation, both endpoints of a message exchange are claims-aware. Compare with passive federation."
-  },
-  "assertion": {
-    "title": "Assertion",
-    "definition": "A statement about a user, generally relating to authentication, that is trusted by default. Contrast with <a href='#claims'>claims</a>."
-  },
-  "authentication": {
-    "title": "Authentication",
-    "definition": "(from Greek <i>authentikos</i>, “real, genuine”) Validating an identity as true or false—generally used to verify that a user is who he/she says they are. Most commonly achieved through a username/password combination, but the same principle applies to other forms of authentication like secret questions, secret links, bio-metric identification, etc. See <a href='#factor'>factor</a>."
-  },
-  "authorization": {
-    "title": "Authorization",
-    "definition": "Specifying which resources a user (with a given identity) should be allowed to access."
-  },
-  "back-end-server": {
-    "title": "Back-end server",
-    "definition": "A server where user information is processed that the user cannot access—where Auth0 authenticates users, for instance."
-  },
-  "blind-credential": {
-    "title": "Blind credential",
-    "definition": "A statement with the potential to authorize a user without identifying them—for example, confirming that you are 21 years of age on a site with protected materials."
-  },
-  "bootstrap-token": {
-    "title": "Bootstrap token",
-    "definition": "Code passed to a claims provider to request identity delegation."
-  },
-  "certificate-authority": {
-    "title": "Certificate authority",
-    "definition": "An entity that issues X.509 certificates, or digitally-signed identity verification."
-  },
-  "claim": {
-    "title": "Claim",
-    "definition": "A declaration about a subject that is supposed to be true and trusted depending on the identity provider. This declaration could be an attribute such as name, role, or permission."
-  },
-  "claims-model": {
-    "title": "Claims model",
-    "definition": "An identity model that uses the vocabulary of claims within an application. The provider and requester need to agree on this nomenclature for the process to be successful."
-  },
-  "claims-processing": {
-    "title": "claims processing",
-    "definition": "When an application provides, requests, or transforms a claim."
-  },
-  "claims-provider": {
-    "title": "claims provider",
-    "definition": "The application that issues the original claim and security token."
-  },
-  "claims-requester": {
-    "title": "claims requester",
-    "definition": "The client that will be using the claims in the identity process."
-  },
-  "claims-transformer": {
-    "title": "claims transformer",
-    "definition": "An application that has an input of a claim, and then translate that into an action, such as implementing access control or other identity service."
-  },
-  "claims-type": {
-    "title": "claims type",
-    "definition": "The claim's identifier—could be <i>role</i>, <i>name</i>, <i>company</i>, etc."
-  },
-  "claims-value": {
-    "title": "claims value",
-    "definition": "The claim's value—could be <i>admin</i>, <i>Martin</i>, <i>Auth0</i>, etc."
-  },
-  "claims-based-application": {
-    "title": "claims-based application",
-    "definition": "An application that is using a claims-based identity model and grants access based on claims."
-  },
-  "claims-based-identity": {
-    "title": "claims-based identity",
-    "definition": "The combined claims that go together to make up the full identity of the user. These components could be username, email address, full name, company, and role for a SaaS login application."
-  },
-  "claims-based-identity-model": {
-    "title": "claims-based identity model",
-    "definition": " A model of identity verification where the user’s identity is established externally through claims rather than intrinsic to the application itself."
-  },
-  "client": {
-    "title": "client",
-    "definition": "An application that obtains information from a server for local use."
-  },
-  "credentials": {
-    "title": "credentials",
-    "definition": "Usernames, passwords, email addresses—any of a variety of means for communicating parties to generate or obtain security tokens."
-  },
-  "credential-provisioning": {
-    "title": "credential provisioning",
-    "definition": "How you set up user identities for an application. Variants include <i>discretionary</i> (where a network administrator decides), <i>self-service</i>, (where users participate), and <i>workflow-based </i>(where a designated figure approves new provisions)."
-  },
-  "cryptography": {
-    "title": "cryptography",
-    "definition": "The science and practice of finding techniques for secure and stable communication, undeterred by third parties. Similar to <a href='#encryption'>encryption</a>."
-  },
-  "delegation": {
-    "title": "delegation",
-    "definition": "Calling external APIs to authenticate and authorize users. Keeps apps and services from having to store passwords and user information on-site. "
-  },
-  "digital-signature": {
-    "title": "digital signature",
-    "definition": "A cryptographic method for ascertaining whether or not a digital message or set of documents is genuine, has not been altered or tampered with in transit, and comes from a known sender. "
-  },
-  "domain": {
-    "title": "domain",
-    "definition": "A network where all resources and users are linked to a centralized database on which all authentication and authorization takes place. "
-  },
-  "domain-controller": {
-    "title": "domain controller",
-    "definition": " A server that handles requests for authentication such as logging in or checking for certain permissions."
-  },
-  "encryption": {
-    "title": "encryption",
-    "definition": "Altering data so that it becomes meaningless unless decrypted with a secret key. For comprehensive security, data should be encrypted both in communication (with a scheme like TLS), “at rest” (with a scheme like GPG or PGP), and supplemented with authentication (encryption alone does not protect you from data integrity attacks (http://security.stackexchange.com/questions/33569/why-do-you-need-message-authentication-in-addition-to-encryption))."
-  },
-  "enterprise-directory": {
-    "title": "enterprise directory",
-    "definition": "A central repository of information about employees, information enabling access to resources, instructions for authentication and encryption, information on digital signatures, and more."
-  },
-  "enterprise-identity-backbone": {
-    "title": "enterprise identity backbone",
-    "definition": "The mechanism you choose for providing identity and access control inside an organization."
-  },
-  "event": {
-    "title": "event",
-    "definition": "A user interaction with your application that can be tracked. Common examples within Auth0 include signup and login. "
-  },
-  "factor": {
-    "title": "factor",
-    "definition": " In authentication, a vector through which identity can be confirmed. There are three basic categories—<i>knowledge factors</i> (a password, PIN, security answer), <i>ownership factors</i> (security token, ID card), and <i>inherence factors</i> (fingerprint, DNA, retinal scan)."
-  },
-  "federated-identity-management": {
-    "title": "federated identity management",
-    "definition": "A system of shared protocols that allows user identities to be managed *across *organizations. See <a href='#access-management'>access management</a> and <a href='#single-sign-on'>single sign-on</a>."
-  },
-  "federation-provider": {
-    "title": "federation provider",
-    "definition": "An identity provider that provides single sign on, consistency in authorization practices, attributes exchange practices, and user management practices between identity providers (issuers) and relying parties (applications)."
-  },
-  "federation-provider-security-token-service": {
-    "title": "federation provider security token service (FP-STS)",
-    "definition": "A service that behaves like a go-between connecting various federation partners/identity providers to relaying parties (other web services or applications). Generates claims and security tokens on behalf of the client assuming trust exists between it and the IP."
-  },
-  "forest": {
-    "title": "forest",
-    "definition": "A collection of domains overseen by one central authority."
-  },
-  "forward-chaining-logic": {
-    "title": "forward chaining logic",
-    "definition": "A fundamental concept in inference engines, forward chaining logic controls how access control systems determine user permissions. Relies on the transitive rules between groups, roles, and users. "
-  },
-  "home-realm-discovery": {
-    "title": "home realm discovery",
-    "definition": "How passive clients figure out a user's issuer."
-  },
-  "identification": {
-    "title": "identification",
-    "definition": "The process by which a user's information is received, collected, and taken up for authentication."
-  },
-  "identity-provider": {
-    "title": "identity provider (IdP)",
-    "definition": " A website, app, or service responsible for coordinating identities between users and clients. An IdP can provide a user with identifying information and serve that information to services when the user requests access, with a basic flow that works like this:",
-    "subitem": "IdP returns approval to the service, and the user successfully logs in"
-  },
-  "identity-security-token-service": {
-    "title": "identity security token service (I-STS)",
-    "definition": "See <a href='#identity provider'>identity provider (IdP) </a>."
-  },
-  "input-claims": {
-    "title": "input claims",
-    "definition": "The claims sent into an access control system."
-  },
-  "issuer": {
-    "title": "issuer",
-    "definition": "The entity that possesses the key used to sign off on security tokens."
-  },
-  "kerberos": {
-    "title": "Kerberos",
-    "definition": "A ticket-based protocol for authentication built on symmetric-key cryptography."
-  },
-  "kerberos-ticket": {
-    "title": "Kerberos ticket",
-    "definition": "The authentication token used in Kerberos systems."
-  },
-  "key": {
-    "title": "key",
-    "definition": "A piece of data, also known as a parameter, that controls the output of a cryptographic algorithm. "
-  },
-  "key-distribution-center": {
-    "title": "key distribution center (KDC)",
-    "definition": "An encryption “clearinghouse” designed to operate in situations where permissions are fluid and changing. Reduces the risk of exchanging keys."
+  "lock": {
+    "title": "Lock",
+    "definition": "Auth0's UI widget for authenticating users. It is ready to go as-is and is the default face of the Classic Universal Login experience. Lock allows you to customize minor behavioral and appearance options, but its primary goal is ease of use.",
+    "short": "A UI widget for authenticating users."
   },
   "multifactor-authentication": {
-    "title": "multifactor authentication",
-    "definition": "An authentication process that takes into account multiple factors. Commonly used in reference to <a href='#two-factor-authentication'>two-factor authentication</a>, which most commonly appears in the form of an SMS code sent to a supplement a user's username/password login.  "
+    "title": "Multi-factor authentication (MFA)",
+    "definition": "An authentication process that considers multiple factors. Typically at Auth0, the first factor is the standard username/password exchange, and the second is a code or link via email or SMS, a one-time-password via an app such as Authy or Google Authenticator, or a push notification via a phone app such as Guardian or Duo. Using multiple factors allows your account to remain secure if someone captures one or the other factor--acquires your password or steals your phone, for example.",
+    "short": "A user authentication process that uses a factor in addition to username and password such as a code via SMS."
   },
-  "multitenancy": {
-    "title": "multitenancy",
-    "definition": "A term in software architecture referring to the serving of many users (tenants) from a single instance of an application. The most common form for SaaS products, which exist as a single instance but have dedicated shares served to many companies and teams. "
-  },
-  "oauth": {
-    "title": "OAuth",
-    "definition": "An open standard for authorization. Development began in 2006 as employees from companies like Twitter and Google saw the need for a set of shared protocols dictating how web services should authorize other web apps to access to their users' information. At its most simple, it works like this:",
-    "subitems": {
-      "1": "User is prompted to authorize the client, or not, for a specific need (access to your Facebook friends list, say)",
-      "2": "Proof of that authorization is sent to an (external) authentication server",
-      "3": "Authentication server gives the client a token representing access to the user's friends list"
-    }
+  "nonce": {
+    "title": "Nonce",
+    "definition": "An arbitrary (often random or pseudo-random) number issued in an authentication protocol to ensure that old communications cannot be reused in replay attacks. In other words, the nonce is only issued once, so if an attacker attempts to replay a transaction with a different nonce, its false transaction can be detected more easily.",
+    "short": "An arbitrary number issued once in an authentication protocol to detect and prevent replay attacks."
   },
   "openid": {
     "title": "OpenID",
-    "definition": "An open standard for authentication. Allows third-party services to verify that users are who they say they are without clients needing to collect, store, and therefore become liable for a user's login information. At its most simple, it works like this:",
+    "definition": "An open standard for authentication that allows applications to verify users are who they say they are without needing to collect, store, and therefore become liable for a user’s login information. At its most simple, it works like this:",
     "subitems": {
-      "1": "User selects OpenID option upon login",
-      "2": "Client sends external server (your Facebook, Google, Twitter, etc.) an authentication request",
-      "3": "External server verifies the identity of the user, sending proof to user if successful",
-      "4": "User sends proof of authentication to the client",
-      "5": "Client approves or denies access"
+      "1": "Application sends an authentication request to an OpenID server (e.g., Auth0)",
+      "2": "The authorization server verifies the identity of the user, sending proof to user if successful",
+      "3": "User sends proof of authentication to the application",
+      "4": "Application approves or denies access",
+    "short": "An open standard for authentication that allows applications to verify users' identities without collecting and storing login information." 
     }
   },
-  "on-premises-computing": {
-    "title": "on-premises computing",
-    "definition": "In contrast to SaaS, a form of software distribution where the application and physical hardware are owned by the same organization."
-  },
-  "output-claims": {
-    "title": "output claims",
-    "definition": "The claims produced by a claims transformer such as an output control system."
-  },
-  "passive-client": {
-    "title": "passive client",
-    "definition": " A web browser that receives HTTP redirects to obtain claims, generates tokens to send to claims issuers, and relies on home realm discovery to figure out the right IdP to use."
-  },
-  "passive-federation": {
-    "title": "passive federation",
-    "definition": "A form of federation in Windows Identity Foundation that relies on HTTP redirects and login forms to authenticate users."
-  },
   "passwordless": {
-    "title": "passwordless",
-    "definition": "A form of authentication based on tokens, most commonly received and sent through SMS, email (magic links) or biometric sensors. Entirely based on inherence and ownership factors, making passwordless more secure than traditional username/password logins. "
+    "title": "Passwordless",
+    "definition": "A form of authentication where the first factor is not a password. Instead, it could be a one-time password received by email or SMS, a push notification, or a biometric sensor. Because passwordless is harder to attack, it's more secure than traditional username/password logins.",
+    "short": "A form of authentication that does not rely on a password as the first factor."
   },
-  "perimeter-network": {
-    "title": "perimeter network",
-    "definition": "Also known as a DMZ or demilitarized zone, a perimeter network is one that wraps around an organization's network and sets it off from a larger network (like the Internet)."
-  },
-  "permission": {
-    "title": "permission",
-    "definition": "Consent, held inside an object's properties, that allows certain actions to be performed upon it—read it, modify it, etc. "
-  },
-  "personalization": {
-    "title": "personalization",
-    "definition": "Agreement between two or more service providers, users, or identity providers on a custom security policy."
-  },
-  "policy": {
-    "title": "policy",
-    "definition": "The policy of a system determines the kind of authentication that should be required, how messages should be sent and protected, how tokens should be signed."
-  },
-  "portal": {
-    "title": "portal",
-    "definition": "Dashboard or other interface users and administrators can use to update or edit data held on a backend server."
-  },
-  "principal": {
-    "title": "principal",
-    "definition": "A coded object representing the subject or user. "
-  },
-  "private-key": {
-    "title": "private key",
-    "definition": "The key that is kept secret in public key cryptography."
-  },
-  "privilege": {
-    "title": "privilege",
-    "definition": "Permission to perform an action. It is a property held by individual users and allows them to access non-public resources or services."
-  },
-  "proof-key": {
-    "title": "proof key",
-    "definition": "A cryptographic key that generates a digital signature, used in conjunction with bearer tokens in WS-Trust and WS-Federation."
-  },
-  "public-key": {
-    "title": "public key",
-    "definition": " The key that is published in public key cryptography"
-  },
-  "public-key-cryptography": {
-    "title": "public key cryptography",
-    "definition": "A system of encryption that uses one key known only to the responsible user and another key known to all."
-  },
-  "public-key-infrastructure": {
-    "title": "public key infrastructure (PKI)",
-    "definition": "The protocols concerning creation, management, distribution, use, storage, and revocation of public keys in public-key encryption."
-  },
-  "realm": {
-    "title": "realm",
-    "definition": "A set of configured providers, users, groups, roles and other constraints that protect access to a set of resources."
-  },
-  "relying-party": {
-    "title": "relying party (RP)",
-    "definition": "An application or service that uses or relies on the tokens sent by a Security Token Service (STS)."
-  },
-  "relying-party-security-token-service": {
-    "title": "relying party security token service (RP-STS)",
-    "definition": "A STS (Security Token Service) that relies on a SAML token sent by an IP-STS."
-  },
-  "resource": {
-    "title": "resource",
-    "definition": "Any capability or data contained within a web service, software application, or server."
-  },
-  "rest-protocols": {
-    "title": "REST protocols",
-    "definition": "REpresentational State Transfer protocols rely not on XML but on HTTP commands sent through URLS: GET, POST, PUT, DELETE. Allows for creation, retrieval, and updating of user information."
+  "refresh-token": {
+    "title": "Refresh Token",
+    "definition": "A special kind of token that can be used to obtain a renewed Access Token. It is useful for renewing expiring Access Tokens without forcing the user to log in again. Using the Refresh Token, you can request a new Access Token at any time until the Refresh Token is blacklisted.",
+    "short": "A token used to obtain a renewed Access Token without forcing users to log in again."
   },
   "role": {
-    "title": "role",
-    "definition": "An aspect of a user's identity that gives them certain permissions. "
-  },
-  "role-based-access-control": {
-    "title": "role-based access control (RBAC)",
-    "definition": "A model for authorization based on <a href='#users'>users</a> gaining certain <a href='#permission'>permissions </a>based on their <a href='#role'>roles</a>."
-  },
-  "rules": {
-    "title": "rules",
-    "definition": "Rules are Javascript functions in Auth0 that help you track events as they occur inside your web app or service. You can use them to query user information for profile enrichment, create unique authorization logic, enable context-based multifactor authentication, and more. Because they're based on Auth0's servers and not client-side, their analytics are far more reliable than your standard tracking products. "
+    "title": "Role",
+    "definition": "An aspect of a user’s identity assigned to the user to indicate the level of access they should have to the system. Roles are essentially collections of permissions.",
+    "short": "An aspect of a user’s identity assigned to the user to give them a certain set of permissions."
   },
   "security-assertion-markup-language": {
     "title": "Security Assertion Markup Language (SAML)",
-    "definition": "An authentication and authorization standard commonly found in the enterprise, SAML differs from Open ID in that it does not dynamically discover and accept authentication from new identity providers. The IdPs that a service wants to trust must be specified and hard-coded into each login event. Typically used to give the users of a corporate network access to a specific 3rd party service—for instance, so you don't have to sign in again when you click a link to Salesforce on your company's intranet."
+    "definition": "An XML-based standardized protocol by which two parties can exchange authentication information without the use of a password.",
+    "short": "A standardized protocol allowing two parties to exchange authentication information without a password."
   },
   "scope": {
-    "title": "scope",
-    "definition": "A description of the access control rules for a given application. "
-  },
-  "security-token-service": {
-    "title": "security token service (STS)",
-    "definition": "A service that works with the WS-Trust and WS-Federation protocols to build, sign and issue security tokens. "
-  },
-  "service-provider": {
-    "title": "service provider",
-    "definition": "Application that provides services to other entities."
-  },
-  "session-key": {
-    "title": "session key",
-    "definition": "A private encryption/decryption key that's generated randomly and used both to read and obscure data. "
+    "title": "Scope",
+    "definition": "A mechanism that defines the specific actions applications can be allowed to do or information that they can request on a user’s behalf. Often, applications will want to make use of the information that has already been created in an online resource. To do so, the application must ask for authorization to access this information on a user’s behalf. When an app requests permission to access a resource through an authorization server, it uses the Scope parameter to specify what access it needs, and the authorization server uses the Scope parameter to respond with the access that was actually granted.",
+    "short": "A mechanism that determines actions applications can perform on a user’s behalf with information previously created in an online resource."
   },
   "single-sign-on": {
-    "title": "Single sign-on",
-    "definition": "A subset of federated identity management, a means through which authentication and interoperability can be achieved in a federated system. See <a href='#federated-identity-management'>federated identity management </a>and <a href='#authentication'>authentication</a>."
+    "title": "Single Sign-On (SSO)",
+    "definition": "A service that, after a user logs into one application, automatically logs that user in to other applications, regardless of the platform, technology, or domain the user is using. The user signs in only one time (hence the name of the feature). Similarly, Single Logout (SLO) occurs when, after a user logs out from one application, they are logged out of each application or service where they were logged in. SSO and SLO are possible through the use of sessions.",
+    "short": "A services that, after a user logs into one applicaton, automatically logs that user in to other applications."
   },
-  "soap": {
-    "title": "SOAP",
-    "definition": "Simple Object Access Protocol. Allows applications running on different operating systems to communicate using HTTP and XML."
-  },
-  "social-identity-provider": {
-    "title": "social identity provider (social IdP)",
-    "definition": "A term used to refer to identity providers originating in social services like Facebook, Google, Twitter, etc."
-  },
-  "software-as-a-service": {
-    "title": "software as a service (SaaS)",
-    "definition": "A model for software purchasing that relies on monthly subscriptions rather than the one-time purchase of a license. Software"
-  },
-  "subject": {
-    "title": "subject",
-    "definition": " A person. In some cases, business organizations or software components are considered to be subjects. Subjects are represented as principals in a software system. All claims implicitly speak of a particular subject."
-  },
-  "token": {
-    "title": "token",
-    "definition": "A piece of hardware or software used to authorize access to a service."
-  },
-  "trust": {
-    "title": "trust",
-    "definition": "Assurance given from a user or a web service that claims made are truthful."
-  },
-  "trusted-issuer": {
-    "title": "trusted issuer",
-    "definition": "A trusted claims provider."
-  },
-  "user-credentials": {
-    "title": "user credentials",
-    "definition": "Information belonging to a user used for authentication. See <a href='#factor'>factor</a>."
-  },
-  "web-identity": {
-    "title": "web identity",
-    "definition": "Identifying characters extracted from an HTTP request, often an authenticated email address."
-  },
-  "windows-communication-foundation": {
-    "title": "Windows Communication Foundation (WCF)",
-    "definition": "A framework inside the Windows operating system that allows the construction of service-oriented applications."
-  },
-  "windows-identity": {
-    "title": "Windows identity",
-    "definition": "How Active Directory organizes user information."
-  },
-  "windows-identity-foundation": {
-    "title": "Windows Identity Foundation (WIF)",
-    "definition": "A framework for building applications with in-built identification protocols, with support for federation, identity delegation and step-up authentication."
-  },
-  "ws-federation": {
-    "title": "WS-Federation",
-    "definition": "A federated standard or common infrastructure for identity, used both by web services and browsers on Windows Identity Foundation."
-  },
-  "ws-trust": {
-    "title": "WS-Trust",
-    "definition": "A system for generating trusted authentication claims through Secure Token Service (STS), part of Windows Identity Foundation."
-  },
-  "X-509": {
-    "title": "X.509",
-    "definition": "A standard format for digitally-signed identity certificates."
-  }
+ "universal-login": {
+   "title": "Universal Login",
+   "definition": "Auth0’s implementation of the authentication flow, which is the key feature of an Authorization Server. Each time a user needs to prove their identity, your applications redirect to Universal Login, and Auth0 will do what’s needed to guarantee the user’s identity.",
+   "short": "Your application redirects to Universal Login, hosted on Auth0's Authorization Server, to verify a user's identity."
+ } 
 }

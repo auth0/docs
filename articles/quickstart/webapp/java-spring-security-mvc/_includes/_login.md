@@ -63,7 +63,7 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
-Next, define the rules that will prevent unauthenticated users to access our protected resources. You do that by allowing anyone to access the `/login` and `/callback` endpoints in order to be able to complete the login flow, and blocking them from accessing any other endpoint if they are not authenticated:
+Next, define the rules that will prevent unauthenticated users to access our protected resources. You do that by allowing anyone to access the `/login` and `/callback` endpoints in order to be able to complete the login flow, and blocking them from accessing any other endpoint if they are not authenticated. We also configure Spring Security to handle logout by registering our `LogoutController`.
 
 ```java
 // src/main/java/com/auth0/example/security/AppConfig.java
@@ -136,6 +136,45 @@ protected void getCallback(final HttpServletRequest req, final HttpServletRespon
   }
 }
 ```
+
+## Handle Logout
+
+To properly handle logout, we need to clear the session and log the user out of Auth0. This is handled in the `LogoutController` of our sample application.
+
+First, we clear the session by calling `request.getSession().invalidate()`. We then construct the logout URL, being sure to include the `returnTo` query parameter, which is where the user will be redirected to after logging out. Finally, we redirect the response to our logout URL.
+
+```java
+// src/main/java/com/auth0/example/mvc/LogoutController.java
+
+@Override
+public void onLogoutSuccess(HttpServletRequest req, HttpServletResponse res, Authentication authentication) {
+    invalidateSession(req);
+
+    String returnTo = req.getScheme() + "://" + req.getServerName();
+    if ((req.getScheme().equals("http") && req.getServerPort() != 80) || (req.getScheme().equals("https") && req.getServerPort() != 443)) {
+        returnTo += ":" + req.getServerPort();
+    }
+    returnTo += "/login";
+    
+    // Build logout URL like:
+    // https://{YOUR-DOMAIN}/v2/logout?client_id={YOUR-CLIENT-ID}&returnTo=http://localhost:3000/login
+    String logoutUrl = String.format(
+            "https://%s/v2/logout?client_id=%s&returnTo=%s",
+            appConfig.getDomain(),
+            appConfig.getClientId(),
+            returnTo);
+    try {
+        res.sendRedirect(logoutUrl);
+    } catch(IOException e){
+        e.printStackTrace();
+    }
+}
+
+private void invalidateSession(HttpServletRequest request) {
+    if (request.getSession() != null) {
+        request.getSession().invalidate();
+    }
+}
 
 ## Display the Home Page
 

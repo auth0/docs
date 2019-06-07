@@ -106,8 +106,8 @@ If OTP is supported by the user and you don't want to request a different factor
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `challenge_type` | A whitespace-separated list of the challenges types accepted by your application. Accepted challenge types are `oob` or `otp`. Excluding this parameter means that your client application accepts all supported challenge types. |
-| `oob_channel` | **(early access users only)** The channel to use for OOB. Can only be provided when `challenge_type` is `oob`. Accepted channel types are `sms` or `auth0`. Excluding this parameter means that your client application will accept all supported OOB channels. |
-| `authenticator_id` | **(early access users only)** The ID of the authenticator to challenge. You can get the ID by querying the list of available authenticators for the user as explained on [List authenticators](#list-authenticators) below. |
+| `oob_channel` | The channel to use for OOB. Can only be provided when `challenge_type` is `oob`. Accepted channel types are `sms` or `auth0`. Excluding this parameter means that your client application will accept all supported OOB channels. |
+| `authenticator_id` | The ID of the authenticator to challenge. You can get the ID by querying the list of available authenticators for the user as explained on [List authenticators](#list-authenticators) below. |
 
 ### Remarks
 
@@ -115,7 +115,7 @@ If OTP is supported by the user and you don't want to request a different factor
 - Auth0 chooses the challenge type based on the application's supported types and types the user is enrolled with.
 - An `unsupported_challenge_type` error is returned if your application does not support any of the challenge types the user has enrolled with.
 - An `unsupported_challenge_type` error is returned if the user is not enrolled.
-- **(early access only)** If the user is not enrolled, you will get a `association_required` error, indicating the user needs to enroll to use MFA. Check [Add an authenticator](#add-an-authenticator) below on how to proceed.
+- If the user is not enrolled, you will get a `association_required` error, indicating the user needs to enroll to use MFA. Check [Add an authenticator](#add-an-authenticator) below on how to proceed.
 
 ### More information
 
@@ -304,14 +304,14 @@ When the challenge response includes a `binding_method: prompt`, your app needs 
 POST https://${account.namespace}/oauth/token
 Content-Type: application/x-www-form-urlencoded
 
-client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&mfa_token=MFA_TOKEN&grant_type=http%3A%2F%2Fauth0.com%2Foauth%2Fgrant-type%2Fmfa-recovery-code&recover_code=RECOVERY_CODE
+client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&mfa_token=MFA_TOKEN&grant_type=http%3A%2F%2Fauth0.com%2Foauth%2Fgrant-type%2Fmfa-recovery-code&recovery_code=RECOVERY_CODE
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&mfa_token=MFA_TOKEN&grant_type=http://auth0.com/oauth/grant-type/mfa-recover-code&recover_code=RECOVERY_CODE'
+  --data 'client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&mfa_token=MFA_TOKEN&grant_type=http://auth0.com/oauth/grant-type/mfa-recovery-code&recovery_code=RECOVERY_CODE'
 ```
 
 ```javascript
@@ -323,7 +323,7 @@ var options = { method: 'POST',
   form:
    { mfa_token: 'MFA_TOKEN',
      recovery_code: 'RECOVERY_CODE',
-     grant_type: 'http://auth0.com/oauth/grant-type/mfa-recover-code',
+     grant_type: 'http://auth0.com/oauth/grant-type/mfa-recovery-code',
      client_id: '${account.clientId}',
      client_secret: 'YOUR_CLIENT_SECRET' }
    };

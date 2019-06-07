@@ -3,14 +3,15 @@ title: Log Users Out of Applications
 description: Learn how to force a user to log out of applications using the Auth0 logout endpoint. 
 topics:
   - logout
-contentType: how-to
+contentType: 
+  - how-to
 useCase:
   - manage-logout
 ---
 
 # Log Users Out of Applications
 
-Enterprise users will typically have SSO enabled for multiple applications (e.g.: SharePoint, a few .NET applications, a few Java applications, Zendesk). In this case it's very common that when users sign out, this needs to happen for all of their applications.
+Enterprise users typically have SSO enabled for multiple applications (e.g., SharePoint, a few .NET applications, a few Java applications, Zendesk). In this case, when users sign out, often they must be signed out for all of their applications.
 
 <%= include('../_includes/_logout-endpoint') %>
 
@@ -19,8 +20,6 @@ Redirecting users to the logout endpoint **does not** cover the scenario where u
 ## Single Sign-out configuration example
 
 The following example shows how to use this information to sign out of each application before clearing the SSO cookie in Auth0. The example uses an Angular.js application which is also registered as an application in Auth0.
-
-![Single Sign-Out Screen](/media/articles/logout/single-sign-out.png)
 
 ::: note
 All applications you use, including the logout application, need to be enabled for SSO.

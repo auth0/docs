@@ -11,6 +11,7 @@ useCase: localize
 Below you can find useful links in our documentation to handle different languages within Auth0.
 
 -  [Customizing Your Emails](/email/templates)
+-  [Universal Login Internationalization](/universal-login/i18n)
 -  [Lock: Internationalization](/libraries/lock/i18n)
 -  [Password Options Translation](/i18n/password-options)
 -  [iOS guide to i18n](/i18n/i18n-guide-ios)

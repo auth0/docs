@@ -22,10 +22,11 @@ When running user searches:
   * Avoid dynamic property names.
   * Avoid large schema sizes and deep structures.
   * Avoid storing data you do not need for authentication and authorization purposes.
+* Don't use a search criteria that returns a large data set (more than 1000 results).
 * Don't use existence queries (for example, "give me all users with a property regardless of its value").
-* Don't use full text search or partial searches.
 * Don't poll the search APIs.
 * Don't use large metadata fields (try to keep metadata fields to 2 KB or less).
+* Using wildcard on searches can affect performance.
 * If you are using [user search engine v2](/api/management/v2/user-search), check out the section on [migrating from v2 to v3](/users/search/v3/migrate-search-v2-v3).
 
 ::: note
