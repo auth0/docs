@@ -8,10 +8,11 @@ topics:
     - managed-private-cloud
 contentType: concept
 useCase: private-saas
+title: Private Saas Deployment
 ---
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
-  <h1>Private Saas Deployment Models</h1>
+  <h1>Private Saas Deployment</h1>
   <p>
     A low-friction, dedicated Auth0 deployment that exists in Auth0's Private Cloud.
   </p>
