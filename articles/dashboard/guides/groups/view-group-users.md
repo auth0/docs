@@ -22,11 +22,11 @@ This guide will show you how to view the users assigned to a group using Auth0's
 
 1. Navigate to the [Users & Roles > Groups](${manage_url}/#/groups) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the group to view.
 
-![Select Group](/media/articles/authorization/role-list.png)
+![Select Group](/media/articles/dashboard/guides/group-list-added.png)
 
 2. Click the **Users** view.
 
-![View Users](/media/articles/authorization/role-def-users.png)
+![View Users](/media/articles/dashboard/guides/group-def-users.png)
 
 The following information is displayed for each user:
 

@@ -21,8 +21,8 @@ This guide will show you how to remove the [roles](/authorization/concepts/rbac)
 
 1. Navigate to the [Users & Roles > Groups](${manage_url}/#/groups) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the group to view.
 
-![Select Group](/media/articles/authorization/role-list.png)
+![Select Group](/media/articles/dashboard/guides/group-list-added.png)
 
 2. Click the **Roles** view, then click the trashcan icon next to the role you want to remove, and confirm.
 
-![Remove Roles](/media/articles/authorization/role-def-permissions.png)
+![Remove Roles](/media/articles/dashboard/guides/group-def-roles.png)

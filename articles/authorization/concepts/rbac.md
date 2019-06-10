@@ -6,6 +6,7 @@ topics:
   - rbac
   - roles
   - permissions
+  - access-control
 contentType: 
     - concept
 useCase:
@@ -42,9 +43,17 @@ Essentially, a role is a collection of permissions that you can apply to users. 
 
 You can also use roles to collect permissions defined for various APIs. For example, say you have a marketing module that allows users to create and distribute newsletters to customers. Your marketing content specialist creates all of the newsletters and prepares them for distribution. Similarly, you have an event module that allows users to create, publish, and manage event registration. Your event coordinator creates the events. Once the VP of Marketing approves the newsletters and events, their assistant publishes the events and distributes the newsletters. In this case, your Newsletter API could have a `distribute:newsletters` permission and your Event API could have a `publish:events` permission. These permissions could then be gathered into a role called `Marketing Publisher` and assigned to the VP of Marketing's assistant.
 
-## Overlapping role assignments
+### Groups
 
-RBAC is an additive model, so if you have overlapping role assignments, your effective permissions are the union of your role assignments.
+Whereas a role is a collection of permissions, a group is a collection of users. Roles are then assigned to groups and then transitively, the permissions assigned to the roles apply to the group's users.
+
+You can use groups in many ways, but when creating groups for access control, the general idea is that groups are based on identity whereas roles are meant to indicate rights.
+
+Using the same example as we did above for Roles, maybe instead of restricting newletter and event publication to only the VP of Marketing's assistant, we want everyone in the company's Marketing organization to be able to publish. In this case, we would create a group called `Marketing` and assign all of the users in the marketing organization to that group. Then we would assign the `Marketing Publisher` role to that group. Then the `distribute:newsletters` and `publish:events` permissions that were gathered into the `Marketing Publisher` role would apply to every user assigned to the `Marketing` group.
+
+## Overlapping role and group assignments
+
+RBAC is an additive model, so if you have overlapping role and/or group assignments, your effective permissions are the union of all assignments.
 
 For example, let's say you have an API that provides data for an event application. You create a role of `Organizer` and assign it permissions that allow it to view, create, and edit events. You also create a role of `Registrant` and assign it permissions that allow it to view and register for events. Any users with both `Organizer` and `Registrant` roles will be able to view, create, edit, and register for events.
 

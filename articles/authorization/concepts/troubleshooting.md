@@ -8,6 +8,7 @@ topics:
   - permissions
   - policies
   - troubleshooting
+  - access-control
 contentType: 
     - concept
 useCase:

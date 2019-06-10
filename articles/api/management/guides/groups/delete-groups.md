@@ -1,13 +1,13 @@
 ---
 title: Delete Groups
-description: Learn how to delete a group using the Auth0 Management Dashboard. For use with Auth0's API Authorization Core feature set.
+description: Learn how to delete a group using the Auth0 Management API. For use with Auth0's API Authorization Core feature set.
 topics:
   - authorization
-  - dashboard
+  - mgmt-api
   - permissions
-  - group
+  - groups
 contentType: 
-    - how-to
+  - how-to
 useCase:
   - build-an-app
   - call-api
@@ -15,14 +15,23 @@ useCase:
 ---
 # Delete Groups
 
-This guide will show you how to delete a group using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/groups/delete-groups). Groups are used with the API Authorization Core feature set.
+This guide will show you how to delete a group using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/groups/delete-groups). Groups are used with the API Authorization Core feature set.
 
-<%= include('../../../authorization/_includes/_enable-authz-core') %>
+<%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
-1. Navigate to the [Users & Roles > Groups](${manage_url}/#/groups) page in the [Auth0 Dashboard](${manage_url}/).
+1. Make a `DELETE` call to the [Delete Group endpoint](/api/management/v2#!/groups/delete_group). Be sure to replace `GROUP_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your group ID and Management API Access Token, respectively.
 
-![Select Group](/media/articles/authorization/role-list.png)
+```har
+{
+	"method": "DELETE",
+	"url": "https://${account.namespace}/api/v2/groups/GROUP_ID",
+	"headers": [
+   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
+	]
+}
+```
 
-2. Click **Delete Group**, and confirm.
-
-![Delete Group](/media/articles/authorization/role-def-settings.png)
+| **Value** | **Description** |
+| - | - |
+| `GROUP_ID` | Τhe ID of the group you want to delete. |
+| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the scope `delete:groups`. |
