@@ -9,9 +9,9 @@ contentType:
 useCase: 
   - strategize
 ---
-# Cross-origin Authentication
+# Cross-Origin Authentication
 
-Auth0 strongly recommends that authentication transactions be handled via [Universal Login](/hosted-pages/login). Doing so offers [the easiest and most secure way to authenticate users](guides/login/universal-vs-embedded). However, some situations may require that authentication forms be directly embedded in an application. Cross-origin authentication provides a way to do this however, it is not recommended or secure.
+Auth0 strongly recommends that authentication transactions be handled via [Universal Login](/hosted-pages/login). Doing so offers [the easiest and most secure way to authenticate users](guides/login/universal-vs-embedded). However, some situations may require that authentication forms be directly embedded in an application. Cross-origin authentication provides a way to do this however it is not recommended.
 
 ## What is Cross-Origin Authentication?
 
@@ -21,11 +21,6 @@ Auth0 provides a [cross-origin authentication flow](https://raw.githubuserconten
 
 ::: note
 Cross-origin authentication is not recommended and is only necessary when authenticating against a directory using a username and password. Social IdPs and enterprise federation use a different mechanism, redirecting via standard protocols like OpenID Connect and SAML. Additionally, cross-origin authentication is only applicable to embedded login on the web (using Lock or auth0.js). Native applications using embedded login make use of the standard OAuth 2.0 token endpoint.
-:::
-
-::: panel Deprecated library version migrations
-
-Cross-origin authentication performed using deprecated versions of the [Lock](/libraries/lock) (< v11) and [Auth0.js](/libraries/auth0js) (< v9) libraries is [unsafe](https://auth0.com/blog/managing-and-mitigating-security-vulnerabilities-at-auth0/), and the deprecated versions have been removed from service. For any applications which have yet to update and are still using embedded login from those deprecated libraries, a mitigation to the danger has been applied. All requests to the deprecated endpoints from those applications will be [fingerprinted](/cross-origin-authentication/fingerprinting), to allow the Auth0 server to compare the request with previous ones and further mitigate risks. This measure does **NOT** prevent attacks, nor does it remove the need to migrate applications.
 :::
 
 ## Limitations

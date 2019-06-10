@@ -58,7 +58,7 @@ This means that there is a user in WordPress that has the same email as the one 
 
 ## I see the error message "Failed cross origin authentication" or "No verifier returned from client" in my browser's console logs when trying to log in
 
-Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the [Application](${manage_url}/#/applications) settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, review our [docs page on cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) to make sure you don't have third-party cookies turned off.  
+Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the [Application](${manage_url}/#/applications) settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, see [Cross-Origin Authentication](/cross-origin-authentication#limitations) to make sure you don't have third-party cookies turned off.  
 
 ## I need to rerun the Setup Wizard, but I don't see that menu option anymore.
 
