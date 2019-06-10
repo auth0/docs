@@ -42,7 +42,7 @@ While we recommend using the RBAC features present in the Authorization Core, we
 | Search users by user, email, connection | Yes | Yes |
 | Search users by identity provider, login count, last login, phone number | Yes | No |
 | Search users using lucene syntax | Yes | No |
-| Users can be assigned to roles | Yes&nbsp;[see&nbsp;limits](/authorization/concepts/authz-limits) | Yes |
+| Users can be assigned to roles | Yes&nbsp;([See&nbsp;limits](/authorization/concepts/authz-limits)) | Yes |
 | Users can be assigned to groups | Yes | Yes |
 | View roles by user | Yes | Yes |
 | View permissions by user | Yes | Yes |
@@ -79,7 +79,7 @@ While we recommend using the RBAC features present in the Authorization Core, we
 | Create custom authorization policies | Yes | No |
 | Create deny assignments | To be determined | No |
 | **Performance/Scalability** |
-| Enhanced performance and scalability | Yes&nbsp;[see&nbsp;limits](/authorization/concepts/authz-limits) | No [see&nbsp;limits](/extensions/authorization-extension/v2/limits) |
+| Enhanced performance and scalability | Yes&nbsp;([See&nbsp;limits](/authorization/concepts/authz-limits)) | No ([See&nbsp;limits](/extensions/authorization-extension/v2/limits)) |
 
 ## Keep reading
 
