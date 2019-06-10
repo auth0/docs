@@ -126,20 +126,12 @@ The contents of the authResult object returned by parseHash depend upon which au
 - __accessToken__: An Access Token for the API, specified by the __audience__.
 - __expiresIn__: A string containing the expiration time (in seconds) of the Access Token.
 
-You also need to store the tokens returned by the authentication result in local storage to keep track of the fact that the user is logged in. You can also subsequently retrieve the Access Token from local storage when calling your API.
+Determine where best to [store the tokens](/security/store-tokens#single-page-apps). If your single-page app has a backend server at all, then tokens should be handled server-side using the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), or [Hybrid Flow](/api-auth/grant/hybrid).
 
-```js
-this.auth0.parseHash((err, authResult) => {
-  if (authResult && authResult.accessToken && authResult.idToken) {
-    window.location.hash = '';
-    // Store the authResult in local storage and redirect the user elsewhere
-    localStorage.setItem('access_token', authResult.accessToken);
-    localStorage.setItem('id_token', authResult.idToken);
-  } else if (err) {
-    // Handle authentication error, for example by displaying a notification to the user
-  }
-});
-```
+If you have a single-page app (SPA) with no corresponding backend server, your SPA should request new tokens on login and store them in memory without any persistence. To make API calls, your SPA would then use the in-memory copy of the token.
+
+For an example of how to handle sessions in SPAs, check out the [Handle Authentication Tokens](/quickstart/spa/vanillajs#handle-authentication-tokens) section of the [JavaScript Single-Page App Quickstart](/quickstart/spa/vanillajs).
+
 
 ::: note
 See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#2-authorize-the-user)
@@ -171,7 +163,7 @@ The `client.userInfo` method can be called passing the returned `authResult.acce
 You can access any of these properties in the callback function passed when calling the `userInfo` function:
 
 ```js
-const accessToken = localStorage.getItem('access_token');
+const accessToken = authResult.accessToken;
 
 auth0.client.userInfo(accessToken, (err, profile) => {
   if (profile) {
@@ -183,7 +175,7 @@ auth0.client.userInfo(accessToken, (err, profile) => {
 ```
 
 ::: note
-See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#3-get-the-user-profile)
+See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#3-get-the-user-profile).
 :::
 
 ### Display UI Elements Conditionally Based on Scope

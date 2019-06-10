@@ -16,7 +16,7 @@ useCase:
 
 When you design the authentication experience for your application, you have to choose whether the login flow will use **universal** or **embedded** login.
 
-With Universal Login, when the users try to log in they are redirected to a central domain, through which authentication is performed, and then they are redirected back to the app. An example is Google Apps. No matter which service you are trying to access (gmail, google calendar, google docs, etc) if you are not logged in you are redirected to `https://accounts.google.com` and once you successfully log in you are redirected back to the calling app.
+With Universal Login, when the users try to log in they are redirected to a central domain, through which authentication is performed, and then they are redirected back to the app. An example is G Suite. No matter which service you are trying to access (gmail, google calendar, google docs, etc) if you are not logged in you are redirected to `https://accounts.google.com` and once you successfully log in you are redirected back to the calling app.
 
 ![Google Universal Login](/media/articles/guides/login/google-login.jpg)
 

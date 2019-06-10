@@ -70,7 +70,7 @@ For example:
 
 ## List Authenticators
 
-To get a list of the authenticators you've associated and can be used with your tenant, you can make the appropriate call to the `/mfa/authenticators` endpoint:
+To get a list of the authenticators a user has associated and can be used with your tenant, you can make the appropriate call to the `/mfa/authenticators` endpoint:
 
 ```har
 {
@@ -109,7 +109,7 @@ You should receive information about the authenticator type(s) in the response:
 
 ## Delete Authenticators
 
-To delete an authenticator you've associated, send a delete request to the `/mfa/authenticators/AUTHENTICATOR_ID` endpoint (be sure to replace `AUTHENTICATOR_ID` with your authenticator ID).
+To delete an associated authenticator, send a delete request to the `/mfa/authenticators/AUTHENTICATOR_ID` endpoint (be sure to replace `AUTHENTICATOR_ID` with the relevant authenticator ID).
 
 ```har
 {

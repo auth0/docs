@@ -31,7 +31,9 @@ Complete the form. In the **Authorization callback URLs** field, enter this URL:
 
   https://${account.namespace}/login/callback
 
-and click **Submit**:
+  <%= include('../_find-auth0-domain-redirects') %>
+
+Click **Submit**.
 
 ![](/media/articles/connections/social/planning-center/planning-center-api-2.png)
 

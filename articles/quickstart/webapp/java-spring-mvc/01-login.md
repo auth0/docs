@@ -14,7 +14,7 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Java Spring MVC', callback: 'http://localhost:3000/callback' }) %>
 
-<%= include('../../../_includes/_logout_url') %>
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
 <%= include('_includes/_setup') %>
 

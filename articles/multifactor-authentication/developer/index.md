@@ -16,10 +16,7 @@ With Guardian, you can customize your users' multi-factor experience and even bu
 
 ## Getting started with Guardian within your application
 
-Generally you'll manage multi-factor configuration for applications from the Dashboard. For more advanced use cases, Guardian also provides direct control of user access.
-
-* [Example Application using Guardian for multi-factor Authentication](https://github.com/auth0/guardian-example)
-* [Step-up Authentication](/multifactor-authentication/step-up-authentication)
+Manage multi-factor configuration for applications from the Dashboard or the Auth0 Management API. 
 
 ## Customize the Guardian widget
 

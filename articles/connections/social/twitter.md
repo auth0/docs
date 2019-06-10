@@ -32,6 +32,8 @@ If you're using a [custom domain](/custom-domains), you'll need to add that doma
 
 3. Provide the required information. For the **Callback URL**, enter `https://${account.namespace}/login/callback`. If you're using a [custom domain](/custom-domains), add that domain as another callback URL. 
 
+<%= include('../_find-auth0-domain-redirects') %>
+
     ![Callback URL](/media/articles/connections/social/twitter/twitter-api-2.png)
 
 4. Ensure the **Enabled Sign in with Twitter** option is selected. 

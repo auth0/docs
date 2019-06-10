@@ -12,6 +12,6 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
-<%= include('../_includes/_getting_started', { library: 'JavaScript', callback: 'http://localhost:3000' }) %>
+<%= include('../_includes/_getting_started', { library: 'JavaScript', callback: 'http://localhost:3000', showLogoutInfo: true, showWebOriginInfo: true }) %>
 
 <%= include('_includes/_centralized_login') %>

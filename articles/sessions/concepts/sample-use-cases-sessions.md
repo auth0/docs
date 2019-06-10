@@ -53,7 +53,7 @@ Let's say that instead of using their username and password, the user decides to
 6. Facebook creates a session, then authenticates the user, and updates the session to indicate that the user is logged in.
 7. Facebook redirects the user back to the Authorization Server, where the Authorization Server updates its session to indicate that the user is logged in.
 8. The Authorization Server redirects the user back to the application, along with either an ID Token or code (depending on which flow you use).
-9. The application authenticates the user and updates itslocal session to indicate that the user is logged in.
+9. The application authenticates the user and updates it's local session to indicate that the user is logged in.
 
 In addition to the two session created in the previous example, a third session is created:
 

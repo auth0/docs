@@ -39,7 +39,9 @@ In the `Redirect URI`field, enter this value:
 
     https://${account.namespace}/login/callback
 
-and click **Save**.
+    <%= include('../_find-auth0-domain-redirects') %>
+
+Click **Save**.
 
 ## 3. Get your new app's *Client Id* and *Client Secret*
 

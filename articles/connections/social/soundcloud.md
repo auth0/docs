@@ -46,6 +46,8 @@ Once your Auth0 Application has been added to your SoundCloud account, you can g
 
 Be sure to provide the following as your `Redirect URI for Authentication` on the SoundCloud dashboard: `https://${account.namespace}/login/callback`
 
+<%= include('../_find-auth0-domain-redirects') %>
+
 Go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard and enable **SoundCloud**.
 
 ![](/media/articles/connections/social/soundcloud/social.png)
