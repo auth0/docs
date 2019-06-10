@@ -27,6 +27,10 @@ useCase:
 
 <%= include('../../_includes/_authentication/_application-integration.md', { platform: 'b2c' }) %>
 
+## Anomaly detection
+
+<%= include('../../_includes/_authentication/_anomaly-detection.md', { platform: 'b2c' }) %>
+
 ## Social authentication
 
 <%= include('../../_includes/_authentication/_social-authentication.md', { platform: 'b2c' }) %>
