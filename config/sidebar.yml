@@ -340,8 +340,7 @@ articles:
 
       - title: "How to Configure Core RBAC"
         url: "/authorization/guides/how-to"
-        children:
-
+        children: 
           - title: "Manage Roles"
             url: "/authorization/guides/manage-roles"
 
@@ -350,6 +349,9 @@ articles:
 
           - title: "Manage RBAC Permissions"
             url: "/authorization/guides/manage-permissions"
+
+          - title: "Manage Groups"
+            url: "/authorization/guides/manage-groups"
 
           - title: "Enable RBAC for APIs"
             url: "/dashboard/guides/apis/enable-rbac"

@@ -22,13 +22,15 @@ This guide will show you how to assign <dfn data-key="role">[roles](/authorizati
 
 <%= include('../../../authorization/_includes/_predefine-roles') %>
 
+<%= include('../../../../authorization/_includes/_view-limits') %>
+
 1. Navigate to the [Users & Roles > Users](${manage_url}/#/users) page in the [Auth0 Dashboard](${manage_url}/). 
 
 ![View Users](/media/articles/authorization/user-list.png)
 
 2. Click **`...`** next to the user you want to modify, and select **Assign Roles**.
 
-![Select Assign Roles](/media/articles/authorization/user-list-assign-roles.png)
+![Select Assign Roles](/media/articles/authorization/user-list-menu.png)
 
 3. Choose the role(s) you wish to assign, then click **Assign**.
 

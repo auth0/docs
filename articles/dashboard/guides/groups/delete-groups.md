@@ -21,8 +21,8 @@ This guide will show you how to delete a group using Auth0's Dashboard. This tas
 
 1. Navigate to the [Users & Roles > Groups](${manage_url}/#/groups) page in the [Auth0 Dashboard](${manage_url}/).
 
-![Select Group](/media/articles/authorization/role-list.png)
+![Select Group](/media/articles/dashboard/guides/group-list-added.png)
 
 2. Click **Delete Group**, and confirm.
 
-![Delete Group](/media/articles/authorization/role-def-settings.png)
+![Delete Group](/media/articles/dashboard/guides/group-def-settings.png)

@@ -3,6 +3,7 @@ description: Learn how to manage permissions in a role-based access control (RBA
 topics:
   - authorization
   - dashboard
+  - mgmt-api
   - rbac
   - scopes
   - permissions

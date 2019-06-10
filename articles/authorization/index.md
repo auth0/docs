@@ -2,6 +2,7 @@
 description: Understand the concept of Authorization using Auth0.
 topics:
   - authorization
+  - access-control
 contentType: 
     - index
     - concept
