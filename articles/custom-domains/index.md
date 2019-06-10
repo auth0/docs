@@ -32,7 +32,7 @@ Currently, the following Auth0 features and flows support the use of custom doma
 * Guardian (MFA Widget Version 1.3.3/Guardian.js Version 1.3.0 or later)
 * Emails (the links included in the emails will use your custom domain)
 * Database and social connections
-* Lock 11 with  authentication
+* Lock 11 with cross-origin authentication
 * Passwordless connections with Universal Login (The email link will be sent using the custom domain if the option is enabled in **Tenant Settings > Custom Domains**)
 * G Suite connections
 * SAML connections and applications
