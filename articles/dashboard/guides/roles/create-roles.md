@@ -20,7 +20,7 @@ This guide will show you how to create <dfn data-key="role">[roles](/authorizati
 
 <%= include('../../../authorization/_includes/_predefine-permissions') %>
 
-<%= include('../../../../authorization/_includes/_view-limits') %>
+<%= include('../../../authorization/_includes/_view-limits') %>
 
 1. Navigate to the [Users & Roles > Roles](${manage_url}/#/roles) page in the [Auth0 Dashboard](${manage_url}/), and click **Create Role**.
 

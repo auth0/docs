@@ -20,7 +20,7 @@ This guide will show you how to create [groups](/authorization/concepts/rbac) us
 
 <%= include('../../../authorization/_includes/_predefine-roles') %>
 
-<%= include('../../../../authorization/_includes/_view-limits') %>
+<%= include('../../../authorization/_includes/_view-limits') %>
 
 1. Navigate to the [Users & Roles > Groups](${manage_url}/#/groups) page in the [Auth0 Dashboard](${manage_url}/), and click **Create Group**.
 
