@@ -1,27 +1,33 @@
 ---
-section: private-cloud
-description: Overview of the Private Cloud onboarding process
+section: private-saas-deployment
+description: Overview of the Auth0-hosted Managed Private Cloud onboarding process
 topics: private-cloud
 contentType: concept
-useCase: private-cloud
+useCase: private-saas-deployment
 ---
 # Onboarding
 
-This article will cover all facets of the Private Cloud onboarding process, including timelines, information about future updates, technical requirements, and implementation instructions for key Private Cloud features.
+This article will cover all facets of the **Auth0-hosted Managed Private Cloud** onboarding process, including timelines, information about future updates, technical requirements, and implementation instructions for key Managed Private Cloud features.
 
 ## Timeline
 
-After your purchase of the Private Cloud, Auth0 will host a **kickoff meeting** with you to begin the implementation process. We strongly recommend that this meeting occur no later than **five (5) days** after the contract signing.
+After your purchase of the Managed Private Cloud, Auth0 will host a **kickoff meeting** with you to begin the implementation process. We strongly recommend that this meeting occur no later than **five (5) days** after the contract signing.
 
 Implementation begins immediately after the kickoff meeting, and the process takes **two (2) weeks**. At this point, you're ready for the **Environment Handover**, where your Private Cloud deployment is ready for Production use.
 
 ## Updates
 
-Auth0 will issue monthly updates to the Private Cloud automatically. The [Private Cloud Release Notes](https://auth0.com/releases/) will contain full details on the changes made to your deployment.
+Auth0 will issue monthly updates to the Managed Private Cloud, but the specific time during which the update is applied will be coordinated with you. 
 
-::: note
-The four most recent PSaaS releases are considered to be the **Active Releases**.
-:::
+Auth0 provides monthly releases to the Managed Private Cloud, of which the four most recent are considered *active*. Updating to an active release is mandatory and ensures that you receive:
+
+* The latest features
+* Security fixes and enhancements
+* Bug fixes
+
+Auth0 will reach out to you to coordinate the specific dates and times during which updates are applied to your deployment.
+
+The [Private Cloud Release Notes](https://auth0.com/releases/) will contain full details on the changes made to your deployment.
 
 ## Custom domains
 
