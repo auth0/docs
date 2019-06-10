@@ -26,7 +26,7 @@ Adding permissions directly to a user circumvents the benefits of [role-based ac
 
 <%= include('../../../authorization/_includes/_predefine-permissions') %>
 
-<%= include('../../../../authorization/_includes/_view-limits') %>
+<%= include('../../../authorization/_includes/_view-limits') %>
 
 1. Navigate to the [Users & Roles > Users](${manage_url}/#/users) page in the [Auth0 Dashboard](${manage_url}/). 
 

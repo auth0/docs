@@ -17,7 +17,7 @@ useCase:
 
 This guide will show you how to assign roles to [groups](/authorization/concepts/rbac) using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/groups/assign-group-roles). The groups and their roles can be used with the API Authorization Core feature set.
 
-<%= include('../../../authorization/_includes/_enable-authz-core') %>
+<%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
 <%= include('../../../../authorization/_includes/_view-limits') %>
 
