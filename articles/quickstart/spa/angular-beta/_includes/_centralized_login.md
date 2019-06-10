@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD041 MD034 MD002 -->
 
-<%= include('../../_includes/_login_preamble', { library: 'Angular 7+', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-spa-js-angular-samples/tree/master/01-Login'}) %>
+<%= include('../../_includes/_login_preamble', { library: 'Angular 7+' }) %>
 
 This tutorial will guide you in modifying an Angular application to support login using Auth0, that demonstrates how users can log in, log out, and how to view their profile information. It will also show you how to protect routes from unauthenticated users.
 
