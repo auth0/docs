@@ -1,5 +1,9 @@
 title: Angular
 image: /media/platforms/angular.png
+author:
+  name: Steve Hobbs
+  email: steve.hobbs@auth0.com
+  community: false
 alias:
   - angular
 language:

@@ -28,7 +28,7 @@ Finally, modify `package.json` to add two new scripts `dev` and `server` that ca
 ```json
 "scripts": {
   "ng": "ng",
-  "start": "ng serve --host 0.0.0.0 --port 3000",
+  "start": "ng serve",
   "build": "ng build",
   "test": "ng test",
   "lint": "ng lint",
@@ -59,7 +59,7 @@ In order to call the API from the frontend application, the development server m
 }
 ```
 
-Finally, modify `angular.json` to include a reference to this proxy configuration file. Open `angular.json` and look for the `serve` node. Modify it to include a reference to the proxy config file:
+Finally, modify `angular.json` to include a reference to this proxy configuration file, by adding a new key called `proxyConfig` and `proxy.conf.json` as the value. Open `angular.json` and look for the `serve` node. Modify it to include a reference to the proxy config file:
 
 ```json
 ...
@@ -82,7 +82,7 @@ With this in place, the frontend application can make a request to `/api/externa
 
 ## Modify the AuthService Class
 
-First of all, modify the `src/app/auth.service.ts` file so that the `audience` value is passed through to the Auth0 client:
+Modify the `src/app/auth.service.ts` file so that the `audience` value is passed through to the Auth0 client:
 
 ```js
 // src/app/auth.service.ts
@@ -92,77 +92,6 @@ this.auth0Client = await createAuth0Client({
   client_id: "${account.clientId}"
   audience: "${apiIdentifier}" // NEW - add in the audience value
 });
-```
-
-Now add a new `BehaviorSubject` to this class that can store the access token:
-
-```ts
-// src/app/auth.service.ts
-
-isAuthenticated = new BehaviorSubject(false);
-profile = new BehaviorSubject<any>(null);
-
-// NEW - add a BehaviorSubject for the token
-token = new BehaviorSubject<string>(null);
-```
-
-Further down the file, modify the `getAuth0Client` function so that the token is set when it is retrieved from the Auth0 client:
-
-```js
-// src/app/auth.service.ts
-
-this.token.next(await this.auth0Client.getTokenSilently());
-```
-
-Once all of the changes are made, your `AuthService` file might look something like the following:
-
-```js
-// src/app/auth.service.ts
-
-import { Injectable, OnInit } from '@angular/core';
-import createAuth0Client from '@auth0/auth0-spa-js';
-import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
-import * as config from '../../../auth_config.json';
-import { BehaviorSubject } from 'rxjs';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class AuthService {
-  isAuthenticated = new BehaviorSubject(false);
-  profile = new BehaviorSubject<any>(null);
-  token = new BehaviorSubject<string>(null);
-
-  private auth0Client: Auth0Client;
-
-  async getAuth0Client(): Promise<Auth0Client> {
-    if (!this.auth0Client) {
-      this.auth0Client = await createAuth0Client({
-        domain: config.domain,
-        client_id: config.clientId,
-        audience: config.audience
-      });
-
-      try {
-        this.token.next(await this.auth0Client.getTokenSilently());
-
-        this.isAuthenticated.next(await this.auth0Client.isAuthenticated());
-
-        this.isAuthenticated.subscribe(async isAuthenticated => {
-          if (isAuthenticated) {
-            return this.profile.next(await this.auth0Client.getUser());
-          }
-
-          this.profile.next(null);
-        });
-      } catch {}
-
-      return this.auth0Client;
-    }
-
-    return this.auth0Client;
-  }
-}
 ```
 
 ## Calling the API
@@ -185,7 +114,7 @@ Open `src/app/external-api/external-api.component.html` and replace its contents
     <div [ngClass]="{ show: hasResponse }">
       <h6 class="muted">Result</h6>
       <pre>
-        <code [highlight]="responseJson"></code>
+        <code>{{ responseJson }}</code>
       </pre>
     </div>
   </div>
@@ -235,6 +164,42 @@ export class ApiService {
 
 All the endpoints that the API exposes can be added here. Right now, there is just one: the `ping` endpoint. The `ping()` method above retrieves the current access token from the `AuthService` instance and then uses `HttpClient` to make a GET request to the backend API, passing the access token inside the [Authorization header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization).
 
+For `HttpClient` to work properly, the `HttpClientModule` should also be included in the application. To do this, open `app.module.ts` and import the module. Then, add the module to the list of imports as in the declaration of your `AppModule`.
+
+With these changes, `app.module.ts` should look something like the following:
+
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CallbackComponent } from './callback/callback.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ExternalApiComponent } from './external-api/external-api.component';
+
+// NEW - import the HttpClientModule type
+import { HttpClientModule } from '@angular/common/http';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    CallbackComponent,
+    ProfileComponent,
+    ExternalApiComponent
+  ],
+  imports: [BrowserModule,
+    AppRoutingModule, 
+    HttpClientModule   // NEW - include HttpClientModule in the import list
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
 Next, open `src/app/external-api/external-api.component.ts` and replace its contents with the following:
 
 ```js
@@ -264,7 +229,7 @@ export class ExternalApiComponent {
 
 ```
 
-This component imports the `ApiService` that was created in the previous step, and calls the `ping()` method on it when the _Ping API_ button is clicked. The response from this call is then saved into a local property, and then ultimately displayed on the screen in JSON format.
+This component imports the `ApiService` that was created in the previous step, and calls the `ping()` method on it when the **Ping API** button is clicked. The response from this call is then saved into a local property, and then ultimately displayed on the screen in JSON format.
 
 With this in place, modify the application router so that this new page can be accessed. Open the `src/app/app-routing.module.ts` file and modify the routes list to include the new component for calling the API:
 
@@ -273,6 +238,7 @@ With this in place, modify the application router so that this new page can be a
 
 // .. other imports
 
+// NEW - import the ExternalApiComponent class
 import { ExternalApiComponent } from './external-api/external-api.component';
 
 const routes: Routes = [
@@ -287,24 +253,19 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    canActivate: [LoginGuard]
-  },
-  {
-    path: 'login',
-    children: [],
-    canActivate: [LoginGuard]
+    canActivate: [AuthGuard]
   },
 
   // NEW - add a route to the External API component
   {
     path: 'external-api',
     component: ExternalApiComponent,
-    canActivate: [LoginGuard]
+    canActivate: [AuthGuard]
   }
 ];
 ```
 
-Note that the `external-api` route also makes use of the login guard. This prevents the route from being accessed by unauthenticated users.
+Note that the `external-api` route also makes use of the authentication guard. This prevents the route from being accessed by unauthenticated users.
 
 Finally, add a link to the navigation bar so that the user may reach this new page. Open `src/app/navbar/navbar.component.html` and modify it to include a link to the `/external-api` route:
 
@@ -315,7 +276,7 @@ Finally, add a link to the navigation bar so that the user may reach this new pa
 
   <!-- NEW - add a couple of router links to the home page, and to profile -->
   <a [routerLink]="['']">Home</a>&nbsp;
-  <a [routerLink]="['profile']" *ngIf="isAuthenticated">Profile</a>
+  <a [routerLink]="['profile']" *ngIf="isAuthenticated">Profile</a>&nbsp;
   <a [routerLink]="['external-api']" *ngIf="isAuthenticated">External API</a>
 </header>
 ```
