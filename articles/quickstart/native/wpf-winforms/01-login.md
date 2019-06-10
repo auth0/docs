@@ -15,13 +15,15 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-<%= include('../_includes/_getting_started', { library: 'Windows Forms or WPF') %>
+<%= include('../_includes/_getting_started', { library: 'Windows Forms or WPF' }) %>
 
 <%= include('../../../_includes/_callback_url') %>
 
 ::: note
-If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URL** to `https://${account.namespace}/mobile`.
+If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URLs** to `https://${account.namespace}/mobile`.
 :::
+
+<%= include('../../../_includes/_logout_url', { returnTo: `https://${account.namespace}/mobile` }) %>
 
 ## Integrate Auth0 in your Application
 
@@ -112,4 +114,13 @@ if (!loginResult.IsError)
         Debug.WriteLine($"{claim.Type} = {claim.Value}");
     }
 }
+```
+
+## Logout
+
+To log the user out call the `LogoutAsync` method.
+
+```csharp
+// Form1.cs
+await client.LogoutAsync();
 ```
