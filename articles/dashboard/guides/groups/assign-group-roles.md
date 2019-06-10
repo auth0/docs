@@ -23,7 +23,7 @@ This guide will show you how to assign roles to [groups](/authorization/concepts
 
 <%= include('../../../authorization/_includes/_predefine-roles') %>
 
-<%= include('../../../../authorization/_includes/_view-limits') %>
+<%= include('../../../authorization/_includes/_view-limits') %>
 
 1. Navigate to the [Users & Roles > Groups](${manage_url}/#/groups) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the group to view.
 
