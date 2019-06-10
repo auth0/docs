@@ -22,15 +22,15 @@ This guide will show you how to view the [roles](/authorization/concepts/rbac) a
 
 1. Navigate to the [Users & Roles > Groups](${manage_url}/#/groups) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the group to view.
 
-![Select Group](/media/articles/authorization/role-list.png)
+![Select Group](/media/articles/dashboard/guides/group-list-added.png)
 
 2. Click the **Roles** view.
 
-![View Roles](/media/articles/authorization/role-def-permissions.png)
+![View Roles](/media/articles/dashboard/guides/group-def-roles.png)
 
 The following information is displayed for each role:
 
 | **Column** | **Description** |
 |----------------|-----------------|
-| Name | Name of the permission from the permission definition. |
-| Description | Description of the permission from the permission definition. |
+| Name | Name of the role from the role definition. |
+| Description | Description of the role from the role definition. |

@@ -22,8 +22,8 @@ This guide will show you how to edit a group definition using Auth0's Dashboard.
 
 1. Navigate to the [Users & Roles > Groups](${manage_url}/#/groups) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the group to view.
 
-![Select Group](/media/articles/authorization/role-list.png)
+![Select Group](/media/articles/dashboard/guides/group-list-added.png)
 
-2. Edit the group name and description, then click **Update Group**.
+2. Edit the group name, description, and connection, then click **Update Group**.
 
-![Edit Group Definition](/media/articles/authorization/role-def-settings.png)
+![Edit Group Definition](/media/articles/dashboard/guides/group-def-settings.png)

@@ -3,7 +3,7 @@ title: View Group Users
 description: Learn how to view users assigned to a group using the Auth0 Management API. For use with Auth0's API Authorization Core feature set.
 topics:
   - authorization
-  - dashboard
+  - mgmt-api
   - permissions
   - groups
   - users

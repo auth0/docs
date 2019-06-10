@@ -3,6 +3,7 @@ description: Learn how to manage users in a role-based access control (RBAC) sys
 topics:
   - authorization
   - dashboard
+  - mgmt-api
   - rbac
   - users
   - user-profile
@@ -32,6 +33,7 @@ Using the Dashboard, you can:
 - [Assign permissions to users](/dashboard/guides/users/assign-permissions-users)
 - [View user permissions](/dashboard/guides/users/view-user-permissions)
 - [Remove permissions from users](/dashboard/guides/users/remove-user-permissions)
+- [View user groups](/dashboard/guides/users/view-user-groups)
 
 Using the Management API, you can:
 - [Assign roles to users](/api/management/guides/users/assign-roles-users)
@@ -40,11 +42,14 @@ Using the Management API, you can:
 - [Assign permissions to users](/api/management/guides/users/assign-permissions-users)
 - [View user permissions](/api/management/guides/users/view-user-permissions)
 - [Remove permissions from users](/api/management/guides/users/remove-user-permissions)
+- [Assign groups to users](/api/management/guides/users/assign-user-groups)
+- [View user groups](/api/management/guides/users/view-user-groups)
 
 ## Keep reading
 
 - [Role-Based Access Control (RBAC)](/authorization/concepts/rbac)
 - [Create Roles](/dashboard/guides/roles/create-roles)
+- [Create Groups](/dashboard/guides/roles/create-groups)
 - [Register APIs with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
 - [Add API Permissions](/dashboard/guides/apis/add-permissions-apis)
 - [Troubleshooting: Role-Based Access Control and Authorization](/authorization/concepts/troubleshooting)
