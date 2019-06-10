@@ -35,7 +35,7 @@ Embedded login with Lock v11 and Auth0.js v9 now rely entirely on [cross-origin 
 
 This cross-origin authentication protocol relies on cookies, which will be considered third-party cookies if the domain of the application and Auth0 tenant do not match. Unfortunately, some browsers block third-party cookies, and even if supported, many users may have manually disabled third-party cookies in their browsers. 
 
-Because of these [cross-origin authentication issues](/cross-origin-authentication#limitations-of-cross-origin-authentication), there are only two general implementations that can be recommended. 
+Because of these [cross-origin authentication issues](/cross-origin-authentication#limitations), there are only two general implementations that can be recommended. 
 
 1. [Migrate to Universal Login](#1-migrate-to-universal-login). Universal Login will work with or without [custom domains](/custom-domains), and will work from most application types as well. It requires the least application code to implement and is the most secure option. 
 
