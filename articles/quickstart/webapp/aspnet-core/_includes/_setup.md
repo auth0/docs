@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD002 MD034 MD041 -->
+
 ## Configure Callback URLs
 
 The Callback URL of your application is the URL where Auth0 will redirect to after the user has authenticated in order for the OpenID Connect middleware to complete the authentication process.
@@ -6,7 +8,7 @@ You will need to add this URL to the list of Allowed URLs for your application. 
 
 If you deploy your application to a different URL you will also need to ensure to add that URL to the **Allowed Callback URLs**. For ASP.NET Core this URL will take the format `http://YOUR_APPLICATION_URL/callback`.
 
-<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
+<%= include('../../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
 ### Configure JSON Web Token Signature Algorithm
 
