@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to add user login to a Symfony application..
+description: This tutorial demonstrates how to add user login to a Symfony application.
 budicon: 448
 topics:
   - quickstarts
@@ -15,7 +15,7 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Symfony', callback: 'http://localhost:3000/auth0/callback' }) %>
 
-<%= include('../../../_includes/_logout_url') %>
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
 ## Configure Symfony to Use Auth0
 
@@ -178,6 +178,7 @@ security:
             logout:
                 path:   /auth0/logout
                 target: /
+                success_handler: logoutlistener
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
@@ -202,4 +203,48 @@ Set the following in `app/resources/views/index.html.twig`
     <h1>Symfony Auth0 Quickstart</h1>
     <a href="/connect/auth0"><button>Login</button></a>
 {% endif %}
+```
+
+## Logout
+
+In your `app/config/services.yml` add register the logout listener.
+
+```yml
+services:
+    # ...
+    logoutlistener:
+        class: AppBundle\Listener\LogoutListener
+```
+
+Then in your `src/listener/LogoutListener.php` define the `LogoutListener` class to handle the logout event.
+
+```php
+<?php
+
+namespace AppBundle\Listener;
+
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Http\Logout\LogoutSuccessHandlerInterface;
+
+class LogoutListener implements LogoutSuccessHandlerInterface
+{
+
+    /**
+     * Creates a Response object to send upon a successful logout.
+     *
+     * @return Response never null
+     */
+    public function onLogoutSuccess(Request $request)
+    {
+        $returnTo = $request->getSchemeAndHttpHost();
+        $logoutUrl = sprintf(
+            'https://%s/v2/logout?client_id=%s&returnTo=%s',
+            getenv('AUTH0_DOMAIN'),
+            getenv('AUTH0_CLIENT_ID'),
+            $returnTo);
+        return new RedirectResponse($logoutUrl);
+    }
+}
 ```
