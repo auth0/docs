@@ -18,3 +18,4 @@ The preferred way to integrate Auth0 in iOS apps is using Swift. Read about it i
 :::
 
 <%= include('_includes/_login_centralized') %>
+<%= include('../../../_includes/_logout_url') %>
