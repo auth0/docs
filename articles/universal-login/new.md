@@ -14,7 +14,7 @@ Auth0's New [Universal Login](/universal-login) experience provides a reimagined
 
 The key structural difference with the [Classic Experience](/universal-login/classic) is that while the former uses Javascript widgets in all the pages, the New Experience is rendered on the server and does not require Javascript. 
 
-From a functional perspective, it has much better support for [Localization](/universal-login/i18n). However, there is still a [feature gap](/universal-login/new-experience-limitations) with the Classic experience, and some pages in the New Experience have certain differences detailed below.
+From a functional perspective, it has much better support for [Localization](/universal-login/i18n), a better MFA experience, and several improvements across all pages. However, there is still a [feature gap](/universal-login/new-experience-limitations) with the Classic experience, and some pages in the New Experience have certain differences detailed below.
 
 ## Login
 
@@ -67,4 +67,4 @@ When using [Custom DB Connections](/connections/database/custom-db):
 
 ## Branding
 
-You can configure the favicon URL and a custom font URL by using [the Branding API](/api/management/v2#!/Branding).
+- You can configure the favicon URL and a custom font URL by using [the Branding API](/api/management/v2#!/Branding).
