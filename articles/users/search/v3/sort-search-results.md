@@ -47,6 +47,10 @@ For example, to sort users in ascending order by the `created_at` field you can 
 }
 ```
 
+## Limitation
+
+Auth0 limits the total number of users you can retrieve to 1000, so the sort will be applied over the results only.
+
 ## Keep reading
 
 For more information on `sort` and other parameters, see the [Management API Explorer](/api/management/v2#!/users/get_users) documentation.
