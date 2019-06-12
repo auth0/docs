@@ -16,13 +16,13 @@ Auth0 is proactively migrating customers unaffected by this change, while those 
 
 ## Am I affected by the migration?
 
-Affected customers are those:
+Affected customers are those who meet all of the following criteria:
 * With tenants created before or on May 21st, 2019
 * With tenants hosted in Auth0's public cloud in the AU or EU regions
 * Who use the [GET /api/v2/logs](/api/v2#!/Logs/get_logs) or the [GET /api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user) endpoint with the parameter `include_totals=true` or the `q` parameter. 
 
 The following tenants are NOT affected:
-* Cloud customers in the US region who are already using Search Engine V3.
+* Cloud customers in the US region. The US region has already been fully migrated to using Search Engine V3.
 * PSaaS customers (Migration for PSaaS customers will begin at a later date).
 * Cloud tenants in the EU and AU regions that:
   * are not using the `GET /api/v2/logs` or `GET /api/v2/users/{user_id}/logs` endpoints of Management API at all.
@@ -45,6 +45,8 @@ For more details on these changes, see [Logs Search Query Syntax](/logs/query-sy
 After reviewing your queries, you can opt in to Tenant Logs Search Engine v3 via the Dashboard. Go to *Tenant Settings > Advanced*, then scroll down to *Migrations*. Toggle the *Legacy Logs Search V2* switch to off. 
 Toggling this switch to off disables the deprecated logs search engine v2 and forces the use of search engine v3.
 
+::: note If you do not see this option you've already been migrated to v3. No further action is required. :::
+
 ![](/media/articles/logs/tenant-logs-migration.png)
  
 If you need help with the migration, contact us using the [Support Center](https://support.auth0.com/).
@@ -52,3 +54,4 @@ If you need help with the migration, contact us using the [Support Center](https
 ## Keep reading
 * [Tenant Logs Overview](/logs)
 * [Query Syntax](/logs/query-syntax)
+
