@@ -40,7 +40,9 @@ type:depnote AND description:migrate-logs
 
 These log entries include `feature` and `description` fields that specify what deprecated behavior you're still using.
 
-::: note Please note that only one log of the same `type` and `feature` will be generated every 60 minutes. This means even though you may be making multiple calls with deprecated behavior to the impacted endpoints, you will only see one log of each `type`/`feature` combination per hour. This also means you'll need to wait 60 minutes after implementing any changes to your queries before you can consider a lack of new `depnote` logs to mean the deprecated behaviour has been removed from your code. :::
+::: note
+Please note that only one log of the same `type` and `feature` will be generated every 60 minutes. This means even though you may be making multiple calls with deprecated behavior to the impacted endpoints, you will only see one log of each `type`/`feature` combination per hour. This also means you'll need to wait 60 minutes after implementing any changes to your queries before you can consider a lack of new `depnote` logs to mean the deprecated behaviour has been removed from your code.
+:::
 
 
 ## What’s changing?
@@ -58,7 +60,9 @@ For more details on these changes, see [Logs Search Query Syntax](/logs/query-sy
 After reviewing your queries, you can opt in to Tenant Logs Search Engine v3 via the Dashboard. Go to *Tenant Settings > Advanced*, then scroll down to *Migrations*. Toggle the *Legacy Logs Search V2* switch to off. 
 Toggling this switch to off disables the deprecated logs search engine v2 and forces the use of search engine v3.
 
-::: note If you do not see this option you've already been migrated to v3. No further action is required. :::
+::: note
+If you do not see this option you've already been migrated to v3. No further action is required.
+:::
 
 ![](/media/articles/logs/tenant-logs-migration.png)
  
