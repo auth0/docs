@@ -19,83 +19,7 @@ At the end of the implementation process, you're ready for the **Environment Han
 
 ## Infrastructure
 
-The following steps are required to get your AWS infrastructure ready to deploy the Managed Private Cloud:
-
-1. Set up the infrastructure after Auth0 provides you with the required AMI file
-2. Complete and submit the Managed Private Cloud Install Checklist to notify Auth0 that you have the required infrastructure in place and that Auth0 can begin configuring the Managed Private Cloud
-3. Meet with Auth0 to deploy your Development and Production environments
-
-### Development/Test/Production lifecycle
-
-All PSaaS Appliance multi-node cluster subscription agreements require the deployment of a single-node Development/Test (non-Production) instance. This node is used to verify that the PSaaS Appliance is working as expected with your applications prior to deployment to Production. It also allows for a thorough PSaaS Appliance update and testing cadence. Lastly, this improves any possible support experiences, since Auth0 engineers prefer testing or reviewing planned changes/fixes to your implementation in a non-Production environment.
-
-Please note that Production and non-Production (test/development) must be on completely isolated networks.
-
-### Virtual machine templates
-
-Auth0 provides the Managed Private Cloud via an [Amazon Machine Image (AMI)](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/AMIs.html) file for you to provision on to your infrastructure.
-
-Before Auth0 can share the AMI with you, please provide Auth0 with your:
-
-* AWS account number
-* AWS region name
-
-Your AWS region should have at least three [availability zones](https://aws.amazon.com/about-aws/global-infrastructure) for your Production cluster.
-
-If your production and development/test environments are within separate AWS accounts/regions, Auth0 will require the account number for **both** environments.
-
-### Infrastructure requirements
-
-Auth0 recommends use of the **M4.2xlarge** [instance type](https://aws.amazon.com/ec2/instance-types/) (at minimum).
-
-The following are the minimum requirements for your virtual machine. Note that each *node* requires a separate virtual machine that meets the specifications.
-
-<table class="table">
-    <tr>
-        <td><b>Memory</b></td>
-        <td>32 GB RAM</td>
-    </tr>
-    <tr>
-        <td><b>CPU</b></td>
-        <td>8 vCPU</td>
-    </tr>
-    <tr>
-        <td><b>Storage (all drives should be thick provisioned)</b></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td><i>For Non-Production Nodes</i></td>
-        <td>4 drives: 60 GB for system/operating system storage, 50 GB for data storage, 50 GB for User Search, and 50 GB for backup purposes (if you want to test the backup process)</td>
-    </tr>
-    <tr>
-        <td><i>For three-node, high availability Production clusters</i></td>
-        <td>
-            <ul>
-                <li>Two of the virtual machines with 3 drives: 60 GB for system/operating system storage, 100 GB for data storage, and 100 GB for User Search</li>
-                <li>One virtual machine with 4 drives: 60 GB for system/operating system storage, 100 GB for data storage, 100 GB for User Search, and 100 GB for backup purposes.</li>
-            </ul>
-        </td>
-    </tr>
-</table>
-
-For multi-node clusters, Auth0 recommends deploying the Private Cloud virtual machines across more than one physical host server/blade.
-
-### Networking
-
-Auth0 supports and recommends cross-LAN availability zones.
-
-Each Private Cloud virtual machine (VM) must have its own private static IP address and outbound access. This can be accomplished through:
-
-* A public IP address
-* NAT or transparent proxy
-
-For multi-node clusters, all virtual machines must be:
-
-* On the same segment of the internal network;
-* Able to communicate between each other via ports `7777`, `27017`, `8721`, and `8701`.
-* Able to reach the load balancer via port `443`
-
-
+Please see the [PSaaS Infrastructure Guide](/appliance/infrastructure) for information on the infrastructure requirements for implementation.
 
 ## Updates
 
@@ -114,6 +38,39 @@ The [Private Cloud Release Notes](https://auth0.com/releases/) will contain full
 ## Custom domains
 
 See [Custom Domains](/custom-domains) for instructions on how to map your tenant domain to a custom domain of your choosing, as well as how to manage the required certificates.
+
+## SSL Certificates and SMTP
+
+When using the Managed Private Cloud, you will need to provide several SSL certificates. You must create and install a unique SSL certificate for:
+
+* Each Private Cloud (e.g., your development environment, your production environment)
+* Extensions
+* Custom Domains
+* Webtasks (with or without Dedicated Domains)
+  
+The SSL Certificate:
+
+* must be created by a public certificate authority. They cannot be self-signed;
+* can be a wildcard or a multi-domain (SAN) certificate;
+* must contain all required DNS/domain names, including those for the:
+  * Management Dashboard;
+  * Configuration Tenant;
+  * Webtask;
+  * App Tenant(s) (current and future) specific to that particular Private Cloud
+
+Auth0 accepts the PFX/PKCS12 certificate format. If you are using the CER/PEM formats, please convert to the PFC format.
+
+The PFX certificate must contain the full chain (all intermediate certificates must be included in the public key).
+
+### SMTP
+
+You must configure an SMTP server for the Managed Private Cloud to send emails. The Managed Private Cloud requires an authentication SMTP server that has been configured with SMTP PLAIN authentication.
+
+AWS SES Users: If your domain is not validated, you will not be able to send email with AWS SES.
+
+Optionally, you may use a Transactional Email Provider (such as SendGrid, Amazon SES, Mandrill).
+
+The Managed Private Cloud supports STARTTLS, but it is not required.
 
 ## Tenant logging
 
