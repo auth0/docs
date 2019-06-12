@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD031 MD041 -->
+
 To run the sample follow these steps:
 
 1) Set the **Callback URL** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to
