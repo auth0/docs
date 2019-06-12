@@ -9,10 +9,10 @@ If you are following along with the sample project you downloaded from the top o
 :::
 
 <% if(typeof showLogoutInfo !== 'undefined' && showLogoutInfo === true) { %>
-    <% if(returnTo) { %>
-    <%= include('../../../_includes/_logout_url', { returnTo: '${returnTo}' }) %>
+    <% if(typeof returnTo !== 'undefined') { %>
+        <%= include('../../../_includes/_logout_url', { returnTo: returnTo }) %>
     <% } else { %>
-    <%= include('../../../_includes/_logout_url') %>
+        <%= include('../../../_includes/_logout_url') %>
     <% } %>
 <% } %>
 
