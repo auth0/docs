@@ -17,7 +17,7 @@ useCase: quickstart
 
 Most single-page apps use resources from data APIs. You may want to restrict access to those resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
 
-This tutorial shows you how to create a simple API using [Express](https://expressjs.com) that validates incoming JSON Web Tokens. You will then see how to call this API using an Access Token granted by the Auth0 authorization server.
+This tutorial shows you how to create a simple API using [Express](https://expressjs.com) that serves resources protected by a middleware that looks for and validates access tokens. You will then see how to call this API using an access token granted by the Auth0 authorization server.
 
 <%= include('../_includes/_calling_api_create_api') %>
 
@@ -48,7 +48,9 @@ This will start both the backend API and the frontend application together.
 
 ### Set up a proxy to the backend API
 
-In order to call the API from the frontend application, the development server must be configured to proxy requests through to the backend API. To do this, add a `proxy.conf.json` file to the root of the project and populate it with the following code:
+In this example, the backend and the frontend apps run on two different ports. In order to call the API from the frontend application, the development server must be configured to proxy requests through to the backend API. This is so that the frontend application can make a request to `/api/external` and it will be correctly proxied through to the backend API at `http://localhost:3001/api/external`.
+
+To do this, add a `proxy.conf.json` file to the root of the project and populate it with the following code:
 
 ```json
 {
@@ -62,7 +64,6 @@ In order to call the API from the frontend application, the development server m
 Finally, modify `angular.json` to include a reference to this proxy configuration file, by adding a new key called `proxyConfig` and `proxy.conf.json` as the value. Open `angular.json` and look for the `serve` node. Modify it to include a reference to the proxy config file:
 
 ```json
-...
   "serve": {
     "builder": "@angular-devkit/build-angular:dev-server",
     "options": {
@@ -75,10 +76,7 @@ Finally, modify `angular.json` to include a reference to this proxy configuratio
       }
     }
   },
-...
 ```
-
-With this in place, the frontend application can make a request to `/api/external` and it will be correctly proxied through to the backend API at `http://localhost:3001/api/external`.
 
 ## Modify the AuthService Class
 
@@ -164,32 +162,23 @@ export class ApiService {
 
 All the endpoints that the API exposes can be added here. Right now, there is just one: the `ping` endpoint. The `ping()` method above retrieves the current access token from the `AuthService` instance and then uses `HttpClient` to make a GET request to the backend API, passing the access token inside the [Authorization header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization).
 
-For `HttpClient` to work properly, the `HttpClientModule` should also be included in the application. To do this, open `app.module.ts` and import the module. Then, add the module to the list of imports as in the declaration of your `AppModule`.
-
-With these changes, `app.module.ts` should look something like the following:
+For `HttpClient` to work properly, the `HttpClientModule` must also be registered in the application. To add this, open `app.module.ts` and import the module at the top of the file:
 
 ```ts
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+// src/app/app.module.ts
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { CallbackComponent } from './callback/callback.component';
-import { ProfileComponent } from './profile/profile.component';
-import { ExternalApiComponent } from './external-api/external-api.component';
+// .. other imports
 
-// NEW - import the HttpClientModule type
 import { HttpClientModule } from '@angular/common/http';
+```
+
+ Then, add the module to the list of imports as in the declaration of your `AppModule`:
+
+ ```ts
+ // src/app/app.module.ts
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    CallbackComponent,
-    ProfileComponent,
-    ExternalApiComponent
-  ],
+  declarations: [...],
   imports: [BrowserModule,
     AppRoutingModule, 
     HttpClientModule   // NEW - include HttpClientModule in the import list
@@ -197,8 +186,7 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
-```
+ ```
 
 Next, open `src/app/external-api/external-api.component.ts` and replace its contents with the following:
 

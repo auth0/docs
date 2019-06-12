@@ -176,7 +176,7 @@ Notice that the `AuthService` class you created in the previous section is being
 
 The main setup work is being carried out inside `ngOnInit`, where the RxJS `BehaviorSubject` instances are being used. Whenever the values of these change, the Navbar component will react to those changes and provide an updated UI.
 
-Functions are provided to log in and log out the user using `loginWithRedirect` and `logout` directly on the Auth0 client. In the login scenario, a URI is provided that indicates where Auth0 should redirect to once authentication is complete. This URL must be registered with Auth0 as an Allowed Callback URL in order for login to work.
+Functions are provided to log in and log out the user using `loginWithRedirect` and `logout` directly on the Auth0 client. In the login scenario, a URI is provided that indicates where Auth0 should redirect to once authentication is complete. For login to work, this URL must be specified as an **Allowed Callback URL** in your [application settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 Next, configure the UI for the `navbar` component by opening the `src/app/navbar/navbar.component.html` file and replacing its contents with the following:
 
@@ -201,7 +201,7 @@ Finally, to show this component on the screen, open the `src/app/app.component.h
 
 ## Handle Login Redirects
 
-To log the user into your application, the redirect from Auth0 should be handled so that a proper login state can be achieved. To do this, the `handleLoginRedirect` SDK method should be called when Auth0 redirects back to your application. This can be done by using a separate component, whose sole job is to handle the redirect callback.
+To log the user into your application, the redirect from Auth0 should be handled so that a proper login state can be achieved. To do this, the `handleLoginRedirect` SDK method must be called when Auth0 redirects back to your application. This can be done by using a separate component to handle the redirect callback.
 
 Use the Angular CLI to create a new component called `Callback`:
 
@@ -244,9 +244,11 @@ export class CallbackComponent implements OnInit {
 }
 ```
 
-Once again the `AuthService` class is injected so that the component can gain access to the Auth0 SDK client. The key line is `await client.handleRedirectCallback`, which takes the processes the data in the callback from Auth0 and retrieves the tokens. It also sets some internal state that can be used to determine whether the user is authenticated or not.
+Once again the `AuthService` class is injected so that the component can gain access to the Auth0 SDK client. The key line is `await client.handleRedirectCallback`, which processes the callback data from Auth0 and retrieves the tokens. It also sets some internal state that can be used to determine whether the user is authenticated or not.
 
-Notice also the the component updates the observable properties inside the `AuthService` instance. This means that other components that are watching these observables can update their UI at the right time, when the user logs in. This component also handles the scenario where the user is trying to reach some content that is unavailable to unauthenticated users. In this case, `targetRoute` holds the URL they were trying to reach before redirecting to Auth0, and is used to redirect the user to the right place after the callback.
+Notice that the component updates the observable properties inside the `AuthService` instance. This means that other components that are watching these observables can update their UI at the right time: when the user logs in.
+
+This component also recovers the URL the user was trying to reach before redirecting to Auth0 for authentication. They are then redirected to that URL to continue their journey through the site.
 
 In order for this component to work, the Angular router must be adjusted so that this component is used when the `/callback` route is hit. Open `src/app/app-routing.module.ts` and replace its content with the following:
 
@@ -271,7 +273,7 @@ export class AppRoutingModule {}
 
 The primary change here is to add in the `callback` route which points to the `CallbackComponent`.
 
-> **Checkpoint**: Run the app again. This time you should be able to log in and have the application handle the callback appropriately, sending you back to the default route. The "log out" button should now be visible. Check that the "log out" button works and that the user is unauthenticated when clicked.
+> **Checkpoint**: Run the app again using `npm start` in the terminal. This time you should be able to log in and have the application handle the callback appropriately, sending you back to the default route. The "log out" button should now be visible. Check that the "log out" button works and that the user is unauthenticated when clicked.
 
 ## Showing Profile Information
 
@@ -359,7 +361,7 @@ Finally, update the navigation bar to include some router links so that we can n
 </header>
 ```
 
-Run the application and log in. You should now find that, once you have logged in, you should be able to browse to the profile page. Your profile information should be present on the screen in JSON format. Try logging out of the application again to make sure that the profile information disappears as you would expect.
+Run the application and log in. Click on the **Profile** link to browse to the `/profile` URL. Your profile information should now be present on the screen in JSON format. Try logging out of the application again to make sure that the profile information disappears as you would expect.
 
 ## Gated Content
 
