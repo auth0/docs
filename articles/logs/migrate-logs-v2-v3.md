@@ -29,6 +29,19 @@ The following tenants are NOT affected:
   * are consuming the logs from the Dashboard Logs section only.
   * are using the `GET /api/v2/logs endpoint` with the by checkpoint method (using `from` parameter).
   * are consuming logs using any of the [Auth0 Logs to External Service Dashboard extensions](/extensions#export-auth0-logs-to-an-external-service) (which use the by checkpoint method).
+  
+## How can I check if I've migrated all my queries?
+
+You can search your tenant logs with the following query to check for queries that would result in an error after migrating to v3:
+
+```
+type:depnote AND description:migrate-logs
+```
+
+These log entries include `feature` and `description` fields that specify what deprecated behavior you're still using.
+
+::: note Please note that only one log of the same `type` and `feature` will be generated every 60 minutes. This means even though you may be making multiple calls with deprecated behavior to the impacted endpoints, you will only see one log of each `type`/`feature` combination per hour. This also means you'll need to wait 60 minutes after implementing any changes to your queries before you can consider a lack of new `depnote` logs to mean the deprecated behaviour has been removed from your code. :::
+
 
 ## What’s changing?
 
