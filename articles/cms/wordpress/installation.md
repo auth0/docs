@@ -58,19 +58,19 @@ As always, if you have any questions about this setup process, create a post on 
 
 ## Setup Wizard
 
-The Setup Wizard will attempt to create all the necessary components needed to use Auth0 on your WordPress site. If you have an existing Application or database Connection you want to use, please see the [Manual Setup](#manual-setup) steps below.
+The Setup Wizard will attempt to create all the necessary components needed to use Auth0 on your WordPress site. If you have an existing Application or Database Connection you want to use, please see the [Manual Setup](#manual-setup) steps below.
 
-### Option 1: Standard Setup
+### Option 1: standard setup
 
-This will create and configure an Application and a database Connection for this site.
+This will create and configure an Application and a Database Connection for this site.
 
-First, [follow the instructions here](/api/management/v2/get-access-tokens-for-test#get-access-tokens-manually) to generate an Auth0 Management API token. Once the token is generated, make a note of the domain name used in the "Identifier" field under the **Settings** tab. For example, if your Identifier is `https://tenant-name.auth0.com/api/v2/`, then the tenant Domain is `tenant-name.auth0.com`. [More about tenant Domains can be found here](https://auth0.com/docs/getting-started/the-basics#domains).
+First, [follow the instructions](/api/management/v2/get-access-tokens-for-test#get-access-tokens-manually) for generating a Management API token. Once the token is generated, make a note of the domain name used in the **Identifier** field under the **Settings** tab. For example, if your Identifier is `https://tenant-name.auth0.com/api/v2/`, then the tenant domain is `tenant-name.auth0.com`. [More about tenant Domains can be found here](https://auth0.com/docs/getting-started/the-basics#domains).
 
-Back in the Setup Wizard in the WordPress admin, click **Standard**. In the modal that appears, click **Start Standard Setup**.
+Back in the WordPress admin's Setup Wizard, click **Standard**. In the modal that appears, click **Start Standard Setup**.
 
 ![WordPress Installation standard setup fields](/media/articles/cms/wordpress/setup-wizard-social-modal.png)
 
-Enter the tenant Domain and API token from above. This token is only used for the setup process and will not be saved in the database.
+Enter the tenant domain and API token from above. This token is only used for the setup process and will not be saved in the database.
 
 If the first part of the setup successfully completes, you'll see the "Configure your social connections" screen. Click **Next** to continue the setup process by migrating your administrator account.
 
@@ -80,11 +80,11 @@ This step connects your WordPress user with an Auth0 user that authorizes you to
 
 If the Setup Wizard does not finish successfully, check the Auth0 Error Log in wp-admin for more information about what went wrong.
 
-To start the process over completely, delete any Applications or database Connections that were created in the Auth0 dashbaord. In WordPress, to go **Auth0 > Settings > Basic**, delete the Client ID field, and click **Save**. Finally, click **Setup Wizard** in the admin menu to start the process over again.
+To start the process over completely, delete any Applications or Database Connections that were created in the Auth0 Dashbaord. In WordPress, to go **Auth0 > Settings > Basic**, delete the Client ID field, and click **Save**. Finally, click **Setup Wizard** in the admin menu to start the process over again.
 
 If you're still not able to install, [please post a thread in our Community](https://community.auth0.com/tags/wordpress) with the error messages you're seeing in the Error Log and we'll be happy to help!
 
-### Option 2: User Migration Setup
+### Option 2: user migration setup
 
 This will create and configure an Application and a database connection plus data migration from your WordPress database. This requires an inbound connection from Auth0 servers and cannot be changed later without losing data. [More information on user migration is here](/cms/wordpress/user-migration).
 
@@ -96,7 +96,7 @@ If you have more than one custom database connection in Auth0, you'll need to ma
 
 Once the setup process is complete, log out of your WordPress site and attempt to log back in using your existing WordPress credentials in the Auth0 login form. This should create an Auth0 user linked to your WordPress account.
 
-### Option 3: Manual Setup
+### Option 3: manual setup
 
 This will skip the automatic setup and allow you to create and configure your own Application and database connection ([see below](#manual-setup)). This should be used if you want this site to use an existing Application or database connection.
 
@@ -115,7 +115,7 @@ This is a good time to confirm that the basics are working for your site before 
 
 Now you're ready to [Configure](/cms/wordpress/configuration)!
 
-## Manual Setup
+## Manual setup
 
 The plugin can be configured using the built-in setup wizard (covered below) or manually by creating an Application and
 assigning connections. The completely manual setup process can be used if you're having trouble with the
@@ -127,7 +127,7 @@ wizard, have been through the setup process before, or want to share a database 
 
 Once the steps above are complete, your site will be configured and ready to use!
 
-## Keep Reading
+## Keep reading
 
 More information on the Login by Auth0 WordPress plugin:
 
