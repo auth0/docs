@@ -18,7 +18,7 @@ The Password Reset Page is a page that is hosted by Auth0, and uses Auth0's pass
 
 Using the [Auth0 Dashboard](${manage_url}/#/password_reset), you can customize your Password Reset Page by flipping the toggle switch to enable customizations and providing a custom script.
 
-![Hosted Password Reset Page](/media/articles/hosted-pages/password-reset.png)
+![Hosted Password Reset Page](/media/articles/universal-login/password-reset.png)
 
 ## Edit the Password Reset Page
 
