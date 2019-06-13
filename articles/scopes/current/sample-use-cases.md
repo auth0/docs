@@ -71,7 +71,7 @@ Your app now can retrieve the user attributes and use them to personalize your U
 In this example, we request a custom scope for a calendar API that will authorize the calling application to read appointments for the user. To do this, we want to get an Access Token containing the proper scope to read appointments from the API. Note that requesting an Access Token is not dependent on requesting an ID Token.
 
 ::: note
-Before using a custom API, you need to know what scopes are available for the API you are calling. If the custom API is under your control, you need to register both your application and API with Auth0 and [define the scopes for your API using the Auth0 Dashboard](/scopes/current/guides/define-api-scope-dashboard). You can also use defined permissions to [customize the consent prompt](/scopes/current/guides/customize-consent-prompt) for your users.
+Before using a custom API, you need to know what scopes are available for the API you are calling. If the custom API is under your control, you need to register both your application and API with Auth0 and [define the scopes/permissions for your API](/authorization/guides/dashboard/add-permissions-apis). You can also use defined scopes/permissions to [customize the consent prompt](/scopes/current/guides/customize-consent-prompt) for your users.
 :::
 
 1. Initiate the authorization flow by sending the user to the authorization URL:
@@ -105,7 +105,7 @@ Notice that in this example:
 In this example, we combine our previous two examples to authenticate a user, request standard claims, and also request a custom scope for a calendar API that will allow the calling application to read appointments for the user. To do this, we want to get two tokens--an ID Token that contains the user's name, nickname, profile picture, and email information, and an Access Token containing the proper scope to read appointments from the API. Note that requesting an Access Token is not dependent on requesting an ID Token.
 
 ::: note
-Before using a custom API, you need to know what scopes are available for the API you are calling. If the custom API is under your control, you need to register both your application and API with Auth0 and [define the scopes for your API using the Auth0 Dashboard](/scopes/current/guides/define-api-scope-dashboard). You can also use defined permissions to [customize the consent prompt](/scopes/current/guides/customize-consent-prompt) for your users.
+Before using a custom API, you need to know what scopes are available for the API you are calling. If the custom API is under your control, you need to register both your application and API with Auth0 and [define the scopes/permissions for your API](/authorization/guides/dashboard/add-permissions-apis). You can also use defined scopes/permissions to [customize the consent prompt](/scopes/current/guides/customize-consent-prompt) for your users.
 :::
 
 1. Initiate the authentication flow by sending the user to the authorization URL:

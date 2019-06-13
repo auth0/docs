@@ -16,8 +16,8 @@ useCase:
 As an [API](/apis) developer, you need to:
 
 1. Decide which information you would like applications to be able to access on a user's behalf.
-2. Define these access levels as custom scopes.
-3. Identify these scopes so that calling applications can use them. 
+2. Define these access levels as custom scopes (or permissions, if using our [Authorization core feature set or Authorization Extension](/authorization/concepts/core-vs-extension)).
+3. Identify the defined scopes so that calling applications can use them. 
 
 ## Ways to use API scopes
 
@@ -28,7 +28,7 @@ You can use API scopes in different ways:
 * In an API where the calling application is a back-end service, whether third-party or first-party, and no user exists. In this case, user consent is never requested.
 
 ::: note
-All of these examples use scopes to limit access through use of a token. If you so choose, your API may also use additional logic beyond the token to enforce more extensive access control.
+All of these examples use scopes to limit access through use of a token. If you so choose, your API may also use additional logic beyond the token or you may use our [Authorization core feature set or Authorization Extension](/authorization/concepts/core-vs-extension) to enforce more extensive access control.
 :::
 
 For an example showing how to request custom API access for your application, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#request-custom-API-access).
@@ -43,7 +43,7 @@ Now, when the app calls your API, it will include a token which verifies that th
 
 ### Example: An API called by a first-party application
 
-Let's say you are building an API that provides data to an events application, which you have also written. You implement role-based access control, creating a role of `organizer` and a role of `participant`. Users with a role of `organizer` need to create and update events, whereas users with a role of `participant` need to view events and register for events. To do this, you create four scopes for your API: one that authorizes create access for events(`create:events`), one that authorizes update access for events (`update:events`), one that authorizes read-only access for events (`view:events`), and one that authorizes registration access for events (`register:events`). Both your API and event application are registered with Auth0, and the **Allow Skipping User Consent** for first-party applications option is enabled for your API. You have installed the Authorization Extension and configured an `organizer` role and created the `create:events` and `update:events` scopes for it, and assigned it to User A. You have also configured a `participant` role and created the `view:events` and `register:events` scopes for it, and assigned it to User B.
+Let's say you are building an API that provides data to an events application, which you have also written. You implement role-based access control, creating a role of `organizer` and a role of `participant`. Users with a role of `organizer` need to create and update events, whereas users with a role of `participant` need to view events and register for events. To do this, you create four scopes (or [permissions](/authorization/concepts/permissions), if using our [Authorization core feature set or Authorization Extension](/authorization/concepts/core-vs-extension)) for your API: one that authorizes create access for events(`create:events`), one that authorizes update access for events (`update:events`), one that authorizes read-only access for events (`view:events`), and one that authorizes registration access for events (`register:events`). Both your API and event application are registered with Auth0, and the **Allow Skipping User Consent** for first-party applications option is enabled for your API. Using our [Authorization core feature set or Authorization Extension](/authorization/concepts/core-vs-extension), you have configured an `organizer` role and created the `create:events` and `update:events` [permissions](/authorization/concepts/permissions) for it, and assigned it to User A. You have also configured a `participant` role and created the `view:events` and `register:events` permissions for it, and assigned it to User B.
 
 User A authenticates with the calling application, which requests the necessary scopes, but because it is a first-party application, user consent will not be requested. The app may request any combination of `create:events`, `update:events`, `view:events`, and `register:events` scopes, but User A is recognized as having the role of `organizer` and therefore is only granted the `create:events` and `update:events` scopes.
 
@@ -57,11 +57,29 @@ To do this, you create two scopes for your API: one that authorizes read access 
 
 The calling automated service will request the necessary scopes, but because there is no user, consent will not be requested. The service may request read access to your imaging data by including the `read:images` scope in its request, delete access by including the `delete:images` scope in its request, or both read and delete access by including the `read:images` and `delete:images` scopes in its request.
 
-Now, when the automated service calls your API, it will include a token which verifies that it has authorization for the requested scopes.
+Now, when the automated service calls your API, it will include a token that includes the requested scopes.
+
+## API scope parameter format
+
+Technically, [OAuth 2.0](/protocols/oauth2) does not define a format for scopes, so you can use them in whatever way you like. For Auth0's purposes, the only restrictions are that a scope must match what you have configured in Auth0 for your registered API and cannot contain spaces.
+
+In practice, the following format is often adopted: `action:entity`. In this, the _action_ represents the extent to which the app may handle data, while the _entity_ represents the object for which an app wants to handle data.
+
+Say you are building an API that provides bank account information to online payment applications. At various times, apps may need to read account balances or transfer funds. For this app, you have two entities: balance and funds. You also have two actions: read and transfer. The scopes this app uses may look like this: `read:balance` and `transfer:funds`.
+
+For the same API, a separate application allows bank employees to update customers' profiles and deposit funds for customers. For this app, you have an additional entity: profile. You also have two additional actions: update and deposit. The scopes this app uses may look like this: `update:profile` and `deposit:funds`.
+
+To accommodate both applications, your API should have the following scopes defined for it: `read:balance`, `update:profile`, `transfer:funds`, and `deposit:funds`.
+
+::: note
+If an application omits the scope parameter or gives it an empty value, it will default to requesting all scopes defined for your API.
+:::
+
+For an example showing how to request custom API access for your application, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#request-custom-API-access).
 
 ## Limit API scopes
 
-An application can include any scope defined for an API in its request. Instead of allowing all available scopes to be requested, however, you can limit scopes for certain users. For example, a user of your application can be given a role so that requests on their behalf are limited to just the scopes assigned to that role. To do this, you can use the [Authorization Extension](/extensions/authorization-extension) and a custom [Rule](/rules).
+An application can include any scope defined for an API in its request. Instead of allowing all available scopes to be requested, however, you can limit scopes for certain users. For example, a user of your application can be given a role so that requests on their behalf are limited to just the [permissions](/authorization/concepts/permissions) assigned to that role. To do this, you can use either our [Authorization core feature set](/authorization), or the [Authorization Extension](/extensions/authorization-extension) with a custom [Rule](/rules).
 
 We discuss this approach in more depth in our [SPA+API Architecture Scenario](/architecture-scenarios/spa-api). Specifically, you can review the [Configure the Authorization Extension](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension) section to learn how to configure the Authorization Extension and create a custom Rule that will ensure scopes are granted based on a user's role.
 

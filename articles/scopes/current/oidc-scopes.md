@@ -16,6 +16,10 @@ useCase:
 This document discusses scopes included within the OpenID Connect (OIDC) authentication protocol. For more info about OIDC itself, see our docs on [OpenID Connect](/protocols/oidc).
 :::
 
+Different pieces of user information are often stored across a number of online resources. Users may upload and store photos with a service like Flickr, keep digital files on Dropbox, and store contacts and events in Google Calendar or on Facebook.
+
+Often, new applications will want to make use of the information that has already been created in an online resource. To do so, the application must ask for authorization to access this information on a user's behalf.
+
 OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details, like name and picture. Each scope returns a set of user attributes, which are called _claims_. The scopes an application should request depend on which user attributes the application needs. Once the user authorizes the requested scopes, the claims are returned in an ID Token and are also available through the [/userinfo endpoint](/api/authentication#get-user-info).
 
 For example, let's say you have built a regular web application, registered it with Auth0, and have configured it to allow a user to log in using a username and password. Once a user logs in to your app, you want to auto-generate and send a personalized welcome email, including the user's name.
@@ -26,7 +30,7 @@ For example, let's say you have built a regular web application, registered it w
 * `profile` (so you can personalize the email with the user's name)
 * `email` (so you know where to send the welcome email)
 3. Your Auth0 Authorization Server redirects the user to the login prompt.
-4. The user authenticates and sees a consent page listing the scopes Auth0 will give to your app, which include access to their profile information and email address.
+4. The user authenticates and sees a consent page listing the scopes Auth0 will give to your app, which include access to their Auth0 profile information and email address.
 5. The user accepts and authorizes your app to have this level of access to their information stored by Auth0.
 6. Your app now has access to the user's profile information and email address.
 
