@@ -61,37 +61,72 @@ When an application is using Lock 10 or 11 within the Login Page hosted by Auth0
 
 In some cases the requirement could be to automatically sign in the user if Kerberos is possible (based on the IP-address of the end user). The following changes can be added to the Auth0 Login Page to automatically sign in the user if Kerberos is possible:
 
-```js
-/*
- * Helper to get a querystring value.
- */
-function getParameterByName( name ){
-  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-  var regexS = "[\\?&]"+name+"=([^&#]*)";
-  var regex = new RegExp( regexS );
-  var results = regex.exec( window.location.href );
-  if( results == null )
-    return "";
-  else
-    return decodeURIComponent(results[1].replace(/\+/g, " "));
-}
+```html
+<script src="https://cdn.auth0.com/js/lock/11.x.x/lock.min.js"></script>
+<script src="https://cdn.auth0.com/js/auth0/9.x/auth0.min.js"></script>
+<script src="https://cdn.auth0.com/js/polyfills/1.0/object-assign.min.js"></script>
 
-/*
- * Verify if Kerberos is possible (based on the IP address).
- * If it is, try to authenticate the user.
- */
-lock.$auth0.getSSOData(true, function(err, data) {
-  if (!err) {
+<script>
+  var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
+  
+  var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
+      //...additional configuration
+  });
+  
+  function handleError(err) {
+    // add proper error handling
+    console.log(err);
+  };
+  
+  var params = Object.assign(
+    {
+      /* additional configuration needed for use of custom domains 
+      overrides: {
+        __tenant: config.auth0Tenant,
+        __token_issuer: 'YOUR_CUSTOM_DOMAIN'
+      }, */
+      domain: config.auth0Domain,
+      clientID: config.clientID,
+      redirectUri: config.callbackURL,
+      responseType: 'code'
+    },
+    config.internalOptions
+  );
+  
+  var webAuth = new auth0.WebAuth(params);
+  
+  /*
+   * Verify if Kerberos is possible, if it is, try to authenticate the user.
+   *
+   * the response from getSSOData will only have a connection and strategy if 
+   * the IP address is within the Kerberos range in the connection's settings
+   */
+  webAuth.client.getSSOData(true, function(err, data) {
+    if (err) handleError(err);
+  
     if (data.connection && data.strategy === 'ad') {
-      lock.$auth0.signin({
-        connection: data.connection,
-        state: getParameterByName('state'),
-        protocol: getParameterByName('protocol') || 'oauth2',
-        scope: getParameterByName('scope') || 'openid'
+      webAuth.authorize({connection: data.connection}, function(err) {
+        if (err) handleError(err);
       });
+    } else {
+      lock.show();
     }
-  }
-});
+  });
+</script>
+```
+
+## Skipping Kerberos at runtime
+
+You can prevent Kerberos from being used, even if the user is logging in from an IP address within the range configured in the connection's settings, by passing `rememberLastLogin: false` to `lock.show()`
+
+
+```js
+
+function useKerberos() {
+  // return true to use Kerberos, false to bypass
+};
+
+lock.show({rememberLastLogin: useKerberos()});
 ```
 
 ## Troubleshooting

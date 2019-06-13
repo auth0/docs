@@ -198,8 +198,6 @@ This section was changed from "Appearance" to "Embedded" to reflect the fact tha
 
 * **Form Title:** Sets the title of the embedded Auth0 login form. Option name is `form_title`.
 
-* **Large Social Buttons:** Toggles the social buttons size between big and small on the embedded Auth0 login form. Option name is `social_big_buttons`.
-
 * **Enable Gravatar Integration:** When user enters their email, their associated Gravatar picture is displayed in the embedded Auth0 login form. Option name is `gravatar`.
 
 * **Login Name Style:** Selecting **Email** will require users to enter their email address to login. Set this to **Username** if you do not want to force a username to be a valid email address. Option name is `username_style`. Option name is `client_secret_b64_encoded`.

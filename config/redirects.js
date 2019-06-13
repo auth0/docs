@@ -428,7 +428,7 @@ module.exports = [
   },
   {
     from: '/sharepoint-clientid',
-    to: '/connections/enterprise/sharepoint-online'
+    to: '/connections/enterprise/sharepoint-apps'
   },
   {
     from: '/shopify-clientid',

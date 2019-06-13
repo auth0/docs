@@ -25,6 +25,10 @@ In this page, we have collected some of the common troubleshooting questions we 
 
 State validation is a security feature added in [version 3.6.0](https://github.com/auth0/wp-auth0/releases/tag/3.6.0). A cached callback URL usually causes this error message (see your Application settings for the callback URLs that should not be cached). If this is not the issue or you need more information, please see our detailed [troubleshooting guide](/cms/wordpress/invalid-state).
 
+## I'm having an issue logging in or changing email/password using a custom database
+
+[Please see our specific troubleshooting page](/cms/wordpress/user-migration#troubleshooting).
+
 ## I'm seeing the error message "Invalid ID token" or "Expired ID token" that prevents me from logging in
 
 This is typically caused by a server set to an incorrect time. If the error message includes "used too early," then your server time is set in the future. If it says that the token is expired, then the server time is set too far in the past. A difference in time between two servers is common. Output `echo date(DateTime::ISO8601)` in PHP on your server and compare that, including seconds, to the current UTC time. If your server's time is more than 30 seconds off from UTC time, then you’ll need to set a longer leeway to account for your server’s clock skew. You can paste the below code in your theme's `functions.php` or anywhere else that would run it after the plugin loads and before the login hook runs:
@@ -54,7 +58,7 @@ This means that there is a user in WordPress that has the same email as the one 
 
 ## I see the error message "Failed cross origin authentication" or "No verifier returned from client" in my browser's console logs when trying to log in
 
-Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the [Application](${manage_url}/#/applications) settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, review our [docs page on cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) to make sure you don't have third-party cookies turned off.  
+Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the [Application](${manage_url}/#/applications) settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, see [Cross-Origin Authentication](/cross-origin-authentication#limitations) to make sure you don't have third-party cookies turned off.  
 
 ## I need to rerun the Setup Wizard, but I don't see that menu option anymore.
 
@@ -167,10 +171,6 @@ There are many options on the **Appearance** tab of the plugin settings page tha
 There is also a field called "Extra Settings" on the **Advanced** tab that accepts a valid JSON object with all the settings you want to configure. This will override any changes made on the **Appearance** tab. For all the possible configuration options, please see our [documentation](/libraries/lock/v11/configuration).
 
 To use custom styling or JavaScript with the embedded Auth0 login form, please see our [documentation here](https://auth0.com/docs/libraries/lock/v11/ui-customization#overriding-css). External style sheets and JS files should be loaded in your theme using the [`wp_enqueue_scripts`](https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/) hook for shortcodes/widgets and the [`login_enqueue_scripts`](https://developer.wordpress.org/reference/hooks/login_enqueue_scripts/) hook for `wp-login.php`.
-
-## Database migration does not work
-
-[Please see our specific troubleshooting page](/cms/wordpress/user-migration#troubleshooting).
 
 ## The session expires too soon
 

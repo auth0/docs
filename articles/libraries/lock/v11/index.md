@@ -71,7 +71,7 @@ Embedding Lock within your application requires [cross-origin authentication](/c
 
 ![Allowed Web Origins](/media/articles/libraries/lock/allowed-origins.png)
 
-Make sure you read about the [limitations of cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) before implementing Lock. 
+Make sure you read about the [limitations of cross-origin authentication](/cross-origin-authentication#limitations) before implementing Lock. 
 
 ## Usage
 

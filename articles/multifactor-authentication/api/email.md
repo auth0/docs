@@ -17,10 +17,10 @@ useCase:
 In this tutorial, you'll learn how to configure your application so users can use email authenticators.
 
 ::: note
-Currently, email authenticators are only supported by the multi-factor authentication (MFA) API. Users can only use email authenticators with applications using the MFA API,  but not in applications that redirect to the [hosted MFA page](/hosted-pages/guardian).
+Currently, email authenticators are only supported by the multi-factor authentication (MFA) API or when using the [New Universal Login Experience](/universal-login/new). It's not supported in the Classic Universal Login experience.
 :::
 
-<%= include('./_authenticator-before-start') %>
+<%= include('./_includes/_authenticator-before-start') %>
 
 ## 1. Enable email authenticators with the Management API
 
@@ -39,6 +39,8 @@ Start by enabling email authenticators with the [Management API](/api/management
   }
 }
 ```
+
+You can also enable this factor in in the Multi-factor Authentication section in the [Auth0 Dashboard](${manage_url}/#/mfa).
 
 ## 2. Get the MFA Token
 
