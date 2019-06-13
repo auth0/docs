@@ -15,7 +15,7 @@ An Access Token is a credential that can be used by an application to access an 
 
 <dfn data-key="access-token">Access Token</dfn> should be used as a **Bearer** credential and transmitted in an HTTP **Authorization** header to the API. 
 
-Depending on how your application needs to use the <dfn id="access-token">Access Token</dfn>, you can:
+Depending on how your application needs to use the <dfn data-key="access-token">Access Token</dfn>, you can:
 
 * [Get Access Tokens](/tokens/guides/access-token/get-access-tokens) using any OAuth 2.0-compatible library or you can use one of Auth0's libraries that work with Auth0 endpoints.
 * [Use Access Tokens](/tokens/guides/access-token/use-access-tokens) either in server-to-server or custom API interactions.
