@@ -42,7 +42,7 @@ type:depnote AND description:migrate-logs
 These log entries include a `description` field that specifies exactly what deprecated behavior you're still using.
 
 ::: note
-Please note that only one log of the same `type` and `description` will be generated every 60 minutes. This means even though you may be making multiple calls with deprecated behavior to the impacted endpoints, you will only see one log for each deprecated bahavior per hour. This also means you'll need to wait 60 minutes after implementing any changes to your queries before you can consider a lack of new `depnote` logs to mean the deprecated behaviour has been removed from your code.
+Please note that only one log of the same `type` and `description` will be generated every 60 minutes. This means even though you may be making multiple calls with deprecated behavior to the impacted endpoints, you will only see one log for each deprecated bahavior per hour. This also means you'll need to wait 60 minutes after implementing any changes to your queries before you can consider a lack of new `depnote` logs to mean the deprecated behavior has been removed from your code.
 :::
 
 
