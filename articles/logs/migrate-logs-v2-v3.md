@@ -39,7 +39,7 @@ You can search your tenant logs with the following to look for queries that woul
 type:depnote AND description:*logs migration*
 ```
 
-These log entries include a `description` field that specifies the deprecated behavior you're using.
+These log entries include a `description` field that specifies the deprecated behavior you're using. You can also check the `details.request.path` field to see if the warning was triggered from `GET /api/v2/logs` or `GET /api/v2/users/{user_id}/logs`. 
 
 ::: note
 Auth0 generates only one log of the same **type** and **description** every 60 minutes. No matter how many calls you make using deprecated features to the impacted endpoints, you will still see a single log for *each* deprecated feature each hour.
