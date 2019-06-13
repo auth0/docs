@@ -18,7 +18,7 @@ Enabling this flag on an application will have the following effects:
     - Refresh Tokens on authentication with the [implicit grant](/api-auth/tutorials/adoption/implicit)
     - /ssodata endpoint and `getSSOData()` method from Lock/auth0.js
 * [Single sign-on (SSO)](/api-auth/tutorials/adoption/single-sign-on) can only be performed from Auth0 login pages.
-* Using `response_type=token` will only return an Access Token, not an ID Token. Use `response_type=id_token` or `response_type=token id_token` instead.
+* Using `response_type=token` will only return an <dfn data-key="access-token">Access Token</dfn>, not an ID Token. Use `response_type=id_token` or `response_type=token id_token` instead.
 * ID Tokens obtained with the implicit grant will be signed asymmetrically using RS256.
 * The /tokeninfo endpoint is disabled.
 * Responses from /userinfo will [conform to the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse), similar to the [contents of ID Tokens](/api-auth/tutorials/adoption/scope-custom-claims)

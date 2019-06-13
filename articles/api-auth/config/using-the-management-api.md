@@ -17,7 +17,7 @@ You will need the following:
 
 ## 1. Create your Resource Server
 
-Let's start by creating the Resource Server. This is the entity that represents the API that you want to issue Access Tokens for, identified by a friendly name and a URN identifier.
+Let's start by creating the Resource Server. This is the entity that represents the API that you want to issue <dfn data-key="access-token">Access Tokens</dfn> for, identified by a friendly name and a URN identifier.
 
 The following restrictions apply to the identifier:
 - It must be a valid URN.

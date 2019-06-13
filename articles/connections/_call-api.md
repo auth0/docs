@@ -1,4 +1,4 @@
-Once you successfully authenticate a user, ${idp} includes an [Access Token](/tokens/access-token) in the user profile it returns to Auth0. 
+Once you successfully authenticate a user, ${idp} includes an <dfn data-key="access-token">Access Token</dfn> in the user profile it returns to Auth0. 
 
 You can then use this token to call their API.
 

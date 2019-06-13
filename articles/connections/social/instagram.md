@@ -9,7 +9,7 @@ toc: true
 ---
 # Connect your app to Instagram
 
-This article describes how to add login with Instagram to your app. It also discusses how you can get an Access Token in order to access the Instagram API.
+This article describes how to add login with Instagram to your app. It also discusses how you can get an <dfn data-key="access-token">Access Token</dfn> in order to access the Instagram API.
 
 First you need to connect your Auth0 application to Instagram. This is summarized in the following steps:
 

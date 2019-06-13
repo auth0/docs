@@ -41,7 +41,7 @@ This document describes the differences of this flow between the legacy and OIDC
     &redirect_uri=https://app.example.com
     &audience=https://api.example.com </code></pre>
     <ul>
-        <li>This <code>response_type</code> parameter indicates that we want to receive both an Access Token and ID Token.</li>
+        <li>This <code>response_type</code> parameter indicates that we want to receive both an <dfn data-key="access-token">Access Token</dfn> and ID Token.</li>
         <li>Refresh Tokens are not allowed in the implicit grant. <a href="/api-auth/tutorials/silent-authentication">Use <code>prompt=none</code> instead</a>.</li>
         <li><code>favorite_color</code> is no longer a valid scope.</li>
         <li>The <code>audience</code> parameter is optional.</li>

@@ -81,7 +81,7 @@ Pragma: no-cache
     "id_token": "eyJ..."
 }</code></pre>
     <ul>
-        <li>The returned Access Token is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
+        <li>The returned <dfn data-key="access-token">Access Token</dfn> is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
         <li>A Refresh Token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
     </ul>
     </div>

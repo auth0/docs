@@ -13,7 +13,7 @@ crews: crew-2
 
 An API is an entity that represents an external resource, capable of accepting and responding to protected resource requests made by applications. At the [OAuth2 spec](https://tools.ietf.org/html/rfc6749) an API maps to the **Resource Server**.
 
-When an application wants to access an API's protected resources it must provide an [Access Token](/tokens/access-token). The same Access Token can be used to access the API's resources without having to authenticate again, until it expires.
+When an application wants to access an API's protected resources it must provide an <dfn data-key="access-token">Access Token</dfn>. The same Access Token can be used to access the API's resources without having to authenticate again, until it expires.
 
 Each API has a set of defined permissions. Applications can request a subset of those defined permissions when they execute the authorization flow, and include them in the Access Token as part of the **scope** request parameter.
 

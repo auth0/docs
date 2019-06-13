@@ -45,7 +45,7 @@ Any applicable [rules](/rules) will be executed as part of the silent authentica
 
 If the user was already logged in via SSO, Auth0 will respond exactly as if the user had authenticated manually through the SSO login page.
 
-For example, when using the [Authorization Code Grant](/api-auth/grant/authorization-code) (`response_type=code`, used for regular web applications), Auth0 will respond with an authorization code that can be exchanged for an ID Token and optionally an Access Token:
+For example, when using the [Authorization Code Grant](/api-auth/grant/authorization-code) (`response_type=code`, used for regular web applications), Auth0 will respond with an authorization code that can be exchanged for an ID Token and optionally, an <dfn data-key="access-token">Access Token</dfn>:
 
 ```text
 GET ${account.callback}

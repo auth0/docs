@@ -13,7 +13,7 @@ toc: true
 ---
 # Connect your App to Google
 
-This article describes how to add login with Google functionality to your app. It also discusses how you can get an Access Token in order to access the Google API.
+This article describes how to add login with Google functionality to your app. It also discusses how you can get an <dfn data-key="access-token">Access Token</dfn> in order to access the Google API.
 
 First you need to connect your Auth0 application to Google. This is summarized in the following steps:
 

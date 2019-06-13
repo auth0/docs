@@ -88,7 +88,7 @@ Add these two scopes to your API and **Save** your changes.
 
 ## Grant Access to the Auth0 API
 
-You are now ready to provide access to your APIs by granting Access Tokens to the Auth0 API. By including specific scopes, you can control an application to some or all of the APIs represented by the Auth0 API.
+You are now ready to provide access to your APIs by granting <dfn data-key="access-token">Access Tokens</dfn> to the Auth0 API. By including specific scopes, you can control an application to some or all of the APIs represented by the Auth0 API.
 
 :::panel Authorization Flows
 

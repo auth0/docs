@@ -12,7 +12,7 @@ With the OIDC-conformant pipeline, [all APIs should be secured with Access Token
 
 In the OIDC-conformant pipeline, **ID Tokens should never be used as API tokens**.
 
-Instead, applications and APIs (resource services) should be defined as separate Auth0 entities. This allows you to obtain Access Tokens for your APIs.
+Instead, applications and APIs (resource services) should be defined as separate Auth0 entities. This allows you to obtain <dfn data-key="access-token">Access Tokens</dfn> for your APIs.
 
 You get simpler API integration since your APIs are no longer tied to the applications that make calls to it. You're also enabling [machine-to-machine integration scenarios](/api-auth/grant/client-credentials), since applications
 can authenticate as themselves](/api-auth/grant/client-credentials (that is, they are not acting on behalf of any user) to programmatically and securely obtain an API token.

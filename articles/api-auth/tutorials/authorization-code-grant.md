@@ -59,7 +59,7 @@ Note that if you alter the value in `scope`, Auth0 will require consent to be gi
 
 ## 2. Exchange the Authorization Code for an Access Token
 
-Now that you have an Authorization Code, you must exchange it for an Access Token that can be used to call your API. Using the Authorization Code (`code`) from the previous step, you will need to `POST` to the [Token URL](/api/authentication?http#authorization-code):
+Now that you have an Authorization Code, you must exchange it for an <dfn data-key="access-token">Access Token</dfn> that can be used to call your API. Using the Authorization Code (`code`) from the previous step, you will need to `POST` to the [Token URL](/api/authentication?http#authorization-code):
 
 ```har
 {

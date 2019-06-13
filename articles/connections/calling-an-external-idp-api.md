@@ -6,7 +6,7 @@ crews: crew-2
 ---
 # Call an Identity Provider API
 
-Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an Access Token in the user profile it returns to Auth0. 
+Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an <dfn data-key="access-token">Access Token</dfn> in the user profile it returns to Auth0. 
 
 You can retrieve and use this token to call the IdP's API.
 
