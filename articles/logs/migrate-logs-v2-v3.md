@@ -19,7 +19,8 @@ Auth0 is proactively migrating customers unaffected by this change, while those 
 Affected customers are those who meet all of the following criteria:
 * With tenants created before or on May 21st, 2019
 * With tenants hosted in Auth0's public cloud in the AU or EU regions
-* Who use the [GET /api/v2/logs](/api/v2#!/Logs/get_logs) or the [GET /api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user) endpoint with the parameter `include_totals=true` or the `q` parameter. 
+* Who use the [GET /api/v2/logs](/api/v2#!/Logs/get_logs) or the [GET /api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user) endpoint with the parameter `include_totals=true` or the `q` parameter.
+* Who attempt to paginate through more than 1000 results.
 
 The following tenants are NOT affected:
 * Cloud customers in the US region. The US region has already been fully migrated to using Search Engine V3.
@@ -38,10 +39,10 @@ You can search your tenant logs with the following query to check for queries th
 type:depnote AND description:migrate-logs
 ```
 
-These log entries include `feature` and `description` fields that specify what deprecated behavior you're still using.
+These log entries include a `description` field that specifies exactly what deprecated behavior you're still using.
 
 ::: note
-Please note that only one log of the same `type` and `feature` will be generated every 60 minutes. This means even though you may be making multiple calls with deprecated behavior to the impacted endpoints, you will only see one log of each `type`/`feature` combination per hour. This also means you'll need to wait 60 minutes after implementing any changes to your queries before you can consider a lack of new `depnote` logs to mean the deprecated behaviour has been removed from your code.
+Please note that only one log of the same `type` and `description` will be generated every 60 minutes. This means even though you may be making multiple calls with deprecated behavior to the impacted endpoints, you will only see one log for each deprecated bahavior per hour. This also means you'll need to wait 60 minutes after implementing any changes to your queries before you can consider a lack of new `depnote` logs to mean the deprecated behaviour has been removed from your code.
 :::
 
 
@@ -50,7 +51,7 @@ Please note that only one log of the same `type` and `feature` will be generated
 The breaking changes are minor, but you should review your queries to make sure the results you are getting are as expected.
 
 Breaking changes are related to:
-* Pagination: the value of the `totals` field returned in the summary result when calling `GET /api/v2/logs` or `GET /api/v2/users/{user_id}/logs` is changing
+* Pagination: The value of the `totals` field returned in the summary result when calling `GET /api/v2/logs` or `GET /api/v2/users/{user_id}/logs` is changing. There is a limit of 100 logs per request. Additionally, you may only paginate through up to 1,000 search results.
 * Query Syntax: The query syntax when using the `q` parameter in the `GET /api/v2/logs` has minor changes that need to be taken into account
 
 For more details on these changes, see [Logs Search Query Syntax](/logs/query-syntax#search-engine-v3-breaking-changes). 
