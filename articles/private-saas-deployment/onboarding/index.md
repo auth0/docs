@@ -5,9 +5,9 @@ topics: private-cloud
 contentType: concept
 useCase: private-saas-deployment
 ---
-# Onboarding: Private SaaS Deployment
+# Onboarding
 
-To provide clarity around the onboarding and implementation processes, Auth0 has created the following onboarding documentation:
+To provide clarity around the onboarding and implementation processes for the Private SaaS Deployment options, Auth0 has created the following documentation:
 
 * [Private Cloud](/private-saas-deployment/onboarding/private-cloud)
 * [Managed Private Cloud](/private-saas-deployment/onboarding/managed-private-cloud)

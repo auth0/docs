@@ -5,7 +5,7 @@ topics: private-cloud
 contentType: concept
 useCase: private-saas-deployment
 ---
-# Onboarding: Managed Private Cloud
+# Managed Private Cloud Onboarding
 
 This article will cover all facets of the **Managed Private Cloud** (both Auth0-hosted and customer-hosted) onboarding process, including timelines, information about future updates, technical requirements, and implementation instructions for key Managed Private Cloud features.
 

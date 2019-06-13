@@ -5,7 +5,7 @@ topics: private-cloud
 contentType: concept
 useCase: private-saas-deployment
 ---
-# Onboarding: Private Cloud
+# Private Cloud Onboarding
 
 This article will cover all facets of the **Private Cloud** onboarding process, including timelines, information about future updates, technical requirements, and implementation instructions for key Private Cloud features.
 
