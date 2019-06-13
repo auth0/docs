@@ -5,9 +5,13 @@ topics: private-cloud
 contentType: concept
 useCase: private-saas-deployment
 ---
-# Onboarding
+# Onboarding: Private Cloud
 
-This article will cover all facets of the Private Cloud onboarding process, including timelines, information about future updates, technical requirements, and implementation instructions for key Private Cloud features.
+This article will cover all facets of the **Private Cloud** onboarding process, including timelines, information about future updates, technical requirements, and implementation instructions for key Private Cloud features.
+
+::: note
+If you are a Managed Private Cloud customer, please see the appropriate [onboarding document](/private-saas-deployment/onboarding/managed-private-cloud.md). 
+:::
 
 ## Timeline
 
@@ -29,7 +33,7 @@ See [Custom Domains](/custom-domains) for instructions on how to map your tenant
 
 ## Tenant logging
 
-Auth0 provides [logs] that are accessible via the Dashboard of the Management API's [`logs` endpoint](/api/v2#!/Logs/get_logs).
+Auth0 provides [logs](/logs) that are accessible via the Dashboard of the Management API's [`logs` endpoint](/api/v2#!/Logs/get_logs).
 
 You can also choose to send the data logged by Auth0 to an external service. To help with this, there are Auth0 extensions that support automatic log export to services like Sumo Logic or Loggly. The following is a list of Auth0 log export extensions currently available:
 
@@ -45,7 +49,7 @@ You can also choose to send the data logged by Auth0 to an external service. To 
 
 ## Rate limits
 
-To ensure the quality of Auth0's services, the APIs are subject to [rate limiting](/policies/rate-limits).
+To ensure the quality of Auth0's services, the APIs are subject to rate limiting.
 
 ## Support
 
