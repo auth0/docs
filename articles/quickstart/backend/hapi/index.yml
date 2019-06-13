@@ -9,8 +9,10 @@ alias:
 languages:
   - Javascript
 image: /media/platforms/node.png
-tags:
+topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-apis/hapi/dependencies
   setup: server-apis/hapi/setup
@@ -18,3 +20,27 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
+  - 03-troubleshooting
+show_steps: true
+github:
+  org: auth0-community
+  repo: auth0-hapi-api-samples
+  branch: master
+requirements:
+  - Hapi.js 16.0.0
+  - hapi-auth-jwt2 7.2.4
+next_steps:
+  - path: 01-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

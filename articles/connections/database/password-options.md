@@ -2,6 +2,13 @@
 title: Password Options in Auth0 Database Connections
 description: Auth0's Password Options allow you to disallow users from repeating prior passwords, to customize a password dictionary of passwords to disallow, and to disallow passwords related to the user's personal data.
 crews: crew-2
+topics:
+    - connections
+    - database
+    - db-connections
+    - passwords
+contentType: concept
+useCase: customize-connections
 ---
 # Password Options in Auth0 Database Connections
 

@@ -1,29 +1,26 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to add authentication and authorization to a Python Web Application built with the Flask framework.
+description: This tutorial demonstrates how to add user login to a Python web Application built with the Flask framework.
 budicon: 448
+contentType: tutorial
+useCase: quickstart
+topics:
+  - quickstarts
+  - webapp
+  - login
+  - python
+  - flask
+github:
+    path: 01-Login
 ---
-
-You can get started by either downloading the complete sample or following the tutorial steps to integrate Auth0 with an existing application.
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-python-web-app',
-  path: '01-Login',
-   requirements: [
-    'Python 2.7, 3.0 and up',
-    'Flask 0.10.1 and up',
-    'Python-dotenv 0.6.5 and up',
-    'Requests 2.3.0 and up',
-    'Authlib 0.6',
-    'Six 1.10.0 and up'
-  ]
-}) %>
-
 <%= include('../_includes/_getting_started', { library: 'Python', callback: 'http://localhost:3000/callback' }) %>
 
-## Add the Dependencies
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
+
+## Configure Flask to Use Auth0
+
+### Add the Dependencies
 
 This example uses [Flask](http://flask.pocoo.org) and the [Authlib](https://github.com/lepture/authlib) OAuth library.
 
@@ -39,13 +36,13 @@ authlib
 six
 ```
 
-## Initialize Authlib
+### Initialize Authlib
 
 Create a file named `server.py`, and instantiate an application with your client keys, scopes, and OAuth endpoints.
 
 ```python
 # /server.py
-    
+
 from functools import wraps
 import json
 from os import environ as env
@@ -60,8 +57,7 @@ from flask import session
 from flask import url_for
 from authlib.flask.client import OAuth
 from six.moves.urllib.parse import urlencode
-import requests
-    
+
 app = Flask(__name__)
 
 oauth = OAuth(app)
@@ -79,11 +75,11 @@ auth0 = oauth.register(
 )
 ```
 
-## Add the Auth0 Callback Handler
+### Add the Callback Handler
 
-This handler exchanges the `code` that Auth0 sends to the callback URL for an `access_token` and an `id_token`.
+This handler exchanges the `code` that Auth0 sends to the callback URL for an Access Token and an ID Token.
 
-The `access_token` will be used to call the `/userinfo` endpoint to get the user profile. After the user information is obtained, store then in the flask `session`.
+The Access Token will be used to call the `/userinfo` endpoint to get the user profile. After the user information is obtained, store then in the flask `session`.
 
 ```python
 # /server.py
@@ -92,22 +88,17 @@ The `access_token` will be used to call the `/userinfo` endpoint to get the user
 @app.route('/callback')
 def callback_handling():
     # Handles response from token endpoint
-    resp = auth0.authorize_access_token()
-
-    url = 'https://${account.namespace}/userinfo'
-    headers = {'authorization': 'Bearer ' + resp['access_token']}
-    resp = requests.get(url, headers=headers)
+    auth0.authorize_access_token()
+    resp = auth0.get('userinfo')
     userinfo = resp.json()
 
-    # Store the tue user information in flask session.
+    # Store the user information in flask session.
     session['jwt_payload'] = userinfo
-
     session['profile'] = {
         'user_id': userinfo['sub'],
         'name': userinfo['name'],
         'picture': userinfo['picture']
     }
-
     return redirect('/dashboard')
 ```
 
@@ -134,27 +125,7 @@ Create a `home.html` file in a `/template` folder. Add a link to the `/login` ro
 </div>
 ```
 
-## Logout
-
-To log the user out, you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint. You can find more information about this in [our logout documentation](/logout).
-
-```python
-# /server.py
-
-@app.route('/logout')
-def logout():
-    # Clear session stored data
-    session.clear()
-    # Redirect user to logout endpoint
-    params = {'returnTo': url_for('home', _external=True), 'client_id': '${account.clientId}'}
-    return redirect(auth0.base_url + '/v2/logout?' + urlencode(params))
-```
-
-::: note
-Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the application as explained in [our documentation](/logout#redirect-users-after-logout)
-:::
-
-## Check if the user is authenticated
+### Check if the user is authenticated
 
 Add the following decorator to your `Flask` app. Use it to decorate methods that require authentication.
 
@@ -172,11 +143,11 @@ def requires_auth(f):
       # Redirect to Login page here
       return redirect('/')
     return f(*args, **kwargs)
-    
+
   return decorated
 ```
 
-## Showing the User Profile
+## Display User Information
 
 Add a `/dashboard` route to `server.py` that will render the user information stored in the Flask session.
 
@@ -206,3 +177,23 @@ Add a link to allow users to Log Out.
     <a class="btn btn-primary btn-lg btn-logout btn-block" href="/logout">Logout</a>
 </div>
 ```
+
+## Logout
+
+To log the user out, you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint. You can find more information about this in [our documentation logout documentation](/logout).
+
+```python
+# /server.py
+
+@app.route('/logout')
+def logout():
+    # Clear session stored data
+    session.clear()
+    # Redirect user to logout endpoint
+    params = {'returnTo': url_for('home', _external=True), 'client_id': '${account.clientId}'}
+    return redirect(auth0.api_base_url + '/v2/logout?' + urlencode(params))
+```
+
+::: note
+The redirect URL needs to be in the list of Allowed Logout URLs in the settings section of the application, For more information, see [Redirect Users After Logout](/logout/guides/redirect-users-after-logout).
+:::

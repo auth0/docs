@@ -1,6 +1,15 @@
 ---
 section: appliance
 description: How to use Webtasks on the PSaaS Appliance
+topics:
+    - appliance
+    - webtask
+contentType: 
+    - concept
+    - index
+useCase: appliance
+applianceId: appliance51
+sitemap: false
 ---
 
 # PSaaS Appliance: Webtasks
@@ -14,23 +23,7 @@ Prior to working with Webtasks, please ensure that you have configured the:
 * [Webtask Command Line Interface (`wt-cli`)](https://webtask.io/docs/101)
 :::
 
-## Sandboxes
-
-Auth0 provides different stages (which are known as sandboxes) on which you may run your rules and custom database logic:
-
-* `node_sandbox` (default): while more secure than `eval`, `node_sandbox` is more resource intensive;
-* `eval`: provides the best performance, but is the least secure of the three available modes;
-* `auth0-sandbox`: provides better performance that `node_sandbox`, improved isolation over `eval`, and offers a greater number of Node.js modules for use with your custom code.
-
-::: note
-Only one sandbox mode may be selected at any given time (for example, you may not run selected rules in one sandbox and other rules in another sandbox). If you would like to change the sandbox mode, please discuss this with your Auth0 Customer Success Engineer.
-:::
-
-## Code Compatibility
-
-Code that you have written for use with `node-sandbox` or `eval` will work in `auth0-sandbox`. However, code that is written for `auth0-sandbox` may not be compatible with `node-sandbox` or `eval`, especially if your code uses modules.
-
-The `auth0-sandbox` is the recommended method for running your custom code.
+Auth0 provides `auth0-sandbox`, a stage (sometimes referred to as a *sandbox*) on which you may run your rules and custom database logic.
 
 ## Working with Webtasks
 
@@ -38,11 +31,13 @@ You may use Webtasks by calling its endpoints directly. This can be done using t
 
 ### Node.js Modules
 
-Currently, not all of the [Node.js modules available for the Auth0 Cloud Environment](https://tehsis.github.io/webtaskio-canirequire/) are available for the PSaaS Appliance.
+Currently, not all of the [Node.js modules available for the Auth0 Cloud Environment](https://auth0-extensions.github.io/canirequire/) are available for the PSaaS Appliance.
 
-To see which modules are available for Webtasks running on PSaaS Appliance instances, execute the [`List Modules` Webtask](https://github.com/tehsis/webtaskio-canirequire/blob/gh-pages/tasks/list_modules.js) using the appropriate sandbox on your PSaaS Appliance instance.
+To see which modules are available for Webtasks running on PSaaS Appliance instances, execute the [`List Modules` Webtask](https://github.com/auth0-extensions/canirequire/blob/gh-pages/tasks/list_modules.js) on your PSaaS Appliance instance.
 
-First, copy locally the [`List Modules` Webtask](https://github.com/tehsis/webtaskio-canirequire/blob/gh-pages/tasks/list_modules.js), either by downloading the file or by copying this code:
+#### Set up the List Modules Webtask
+
+First, copy locally the [`List Modules` Webtask](https://github.com/auth0-extensions/canirequire/blob/gh-pages/tasks/list_modules.js), either by downloading the file from GitHub or by copying this code:
 
 ```js
 'use npm';
@@ -88,13 +83,13 @@ module.exports = cb => {
 };
 ```
 
-Afterwards, create a webtask profile using `wt-cli`, if you don't already have one.
+Next, create a Webtask profile using `wt-cli` (if you don't already have one):
 
 ```bash
 wt init --container "YOUR_TENANT_NAME" --url "WEBTASK_URL" --token "eyJhbGci..." -p "a``YOUR_TENANT_NAME-default"
 ```
 
-Now you are ready to register your webtask, using the `wt create` command. This command receives as input a path or URL of the webtasks's code and provides as output the URL where the webtask is available.
+Finally, you are ready to register your Webtask using the `wt create` command. This command receives as input a path or URL of the ebtask's code and provides as output the URL where the Webtask is available.
 
 If you saved the file under a `my-webtasks` directory as `list_modules.js` you would use the following:
 
@@ -102,8 +97,7 @@ If you saved the file under a `my-webtasks` directory as `list_modules.js` you w
 wt create ./my-webtasks/list_modules.js
 ```
 
-You should get a message that the webtask was created, alongside with the URL to access it. The response is a JSON object.
-
+You should get a message that the Webtask was created, alongside with the URL to access it. The response is a JSON object.
 
 ```json
 {

@@ -3,74 +3,57 @@
 
 <template>
   <div>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Auth0 - Vue</a>
-
-          <router-link :to="'/'"
-            class="btn btn-primary btn-margin">
-              Home
-          </router-link>
-
-          <button
-            class="btn btn-primary btn-margin"
-            v-if="!authenticated"
-            @click="login()">
-              Log In
-          </button>
-
-          <button
-            class="btn btn-primary btn-margin"
-            v-if="authenticated"
-            @click="logout()">
-              Log Out
-          </button>
-
-        </div>
+    <nav>
+      <div>
+        <a href="#">Auth0 - Vue</a>
       </div>
-    </nav>
 
-    <div class="container">
-      <router-view 
-        :auth="auth" 
-        :authenticated="authenticated">
-      </router-view>
+      <ul>
+        <li>
+          <router-link to="/">Home</router-link>
+        </li>
+        <li v-if="!isAuthenticated">
+          <a href="#" @click.prevent="login">Login</a>
+        </li>
+        <li v-if="isAuthenticated">
+          <a href="#" @click.prevent="logout">Log out</a>
+        </li>
+      </ul>
+  </nav>
+
+    <div>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-
-import AuthService from './auth/AuthService'
-
-const auth = new AuthService()
-
-const { login, logout, authenticated, authNotifier } = auth
-
 export default {
-  name: 'app',
-  data () {
-    authNotifier.on('authChange', authState => {
-      this.authenticated = authState.authenticated
-    })
+  name: "app",
+  data() {
     return {
-      auth,
-      authenticated
+      isAuthenticated: false
+    };
+  },
+  async created() {
+    try {
+      await this.$auth.renewTokens();
+    } catch (e) {
+      console.log(e);
     }
   },
   methods: {
-    login,
-    logout
+    login() {
+      this.$auth.login();
+    },
+    logout() {
+      this.$auth.logOut();
+    },
+    handleLoginEvent(data) {
+      this.isAuthenticated = data.loggedIn;
+      this.profile = data.profile;
+    }
   }
-}
+};
 </script>
-
-<style>
-@import '../node_modules/bootstrap/dist/css/bootstrap.css';
-</style>
-
-.btn-margin {
-  margin-top: 7px
-}
 ```

@@ -2,17 +2,26 @@
 description: This page lists several examples of user search queries using query string syntax.
 crews: crew-2
 toc: true
+topics:
+  - users
+  - user-management
+  - search
+contentType:
+  - reference
+  - how-to
+  - index
+useCase:
+  - manage-users
 ---
-
 # User Search
 
 ::: version-warning
-This document covers a previous version of user search. We recommend you use [user search v3](/users/search/v3).
+User search v2 has been deprecated as of **June 6th 2018**. Tenants created after this date will not have the option of using it. We recommend that you use [User Search v3](/users/search/v3) instead.
 :::
 
 Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).
 
-This document will demonstrate how you can search for users and give some example queries. It is however suggested that you also reference the [Query String Syntax document](/api/management/v2/query-string-syntax) for more examples of the query string syntax.
+This document provides sample queries and demonstrates how you can search for users. We also suggest that you refer to [Query String Syntax](/api/management/v2/query-string-syntax) for more examples of query string syntax.
 
 ::: warning
 The user search endpoint allows you to return a maximum of **10,000** users. For additional results, please use either the [User Export Job endpoint](/api/management/v2#!/Jobs/post_users_exports) or the [User Export Extension](/extensions/user-import-export).
@@ -22,7 +31,7 @@ The user search endpoint allows you to return a maximum of **10,000** users. For
 
 You can also search for users using the [Management API](/api/v2). Two of the easiest ways to do this is by either making use of the **API Explorer** or by using **Postman**. These two techniques are discussed briefly below, but please note that the Auth0 Management API is a REST API, so you can make API calls using anything that can make HTTP requests, or by using one of the [Auth0 SDKs](/support/matrix#sdks).
 
-In order to make requests to the Management API, you will need a token. Please refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens) for more information.
+In order to make requests to the Management API, you will need a token. Please refer to [Access Tokens for the Management API](/api/management/v2/tokens) for more information.
 
 ### Search using the API Explorer
 
@@ -44,7 +53,7 @@ For general information on making Postman request, please refer to the [Postman 
 
 ## Sorting search results 
 
-To sort the list of users returned from the Management API, you can make use of the `sort` parameter.  Use the format `field:order` for the value of the `sort` field, where `field` is the name of the field you want to sort by, and `order` can be `1` for ascending and `-1` for descending. For example, to sort users in ascending order by the `created_at` field you can pass the value of `created_at:1` for the `sort` parameter. 
+To sort the list of users returned from the Management API, you can make use of the `sort` parameter.  Use the format `field:order` for the value of the `sort` field, where `field` is the name of the field you want to sort by, and `order` can be `1` for ascending and `-1` for descending. For example, to sort users in ascending order by the `created_at` field you can pass the value of `created_at:1` for the `sort` parameter. Sorting by `app_metadata` or `user_metadata` is not supported.
 
 For more information on the `sort` and other parameters, please refer to the [Management API Explorer documentation](/api/v2#!/users/get_users).
 
@@ -126,9 +135,7 @@ Below is an example request for searching all users whose email is exactly "john
 }
 ```
 
-## Next steps
+## Keep reading
 
-::: next-steps
-* [Learn how you can use the query string syntax to build custom queries](/users/search/v2/query-syntax)
-* [Learn about the Auth0 best practices for user search](/users/search/best-practices)
-:::
+* [Query Syntax](/users/search/v2/query-syntax)
+* [Search Best Practices](/best-practices/search-best-practices)

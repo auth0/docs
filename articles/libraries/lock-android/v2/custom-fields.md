@@ -2,6 +2,16 @@
 section: libraries
 title: Lock Android v2 Custom Fields at Signup
 description: Adding additional fields to signups with Lock for Android
+topics:
+  - libraries
+  - lock
+  - android
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Custom Fields at Signup
 
@@ -36,7 +46,7 @@ Lock lock = Lock.newBuilder(auth0, callback)
               .build(this);
 ```
 
-Thats it! If you have enabled users Sign Up in the Application's Dashboard, after they complete the basic fields (email/username, password) and hit Submit, they will be prompted to fill the remaining fields.
+That's it! If you have enabled users Sign Up in the Application's Dashboard, after they complete the basic fields (email/username, password) and hit Submit, they will be prompted to fill the remaining fields.
 
 ::: note
 The user must fill all of the custom fields before being able to complete signup.

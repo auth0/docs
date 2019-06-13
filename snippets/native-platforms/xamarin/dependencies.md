@@ -1,12 +1,12 @@
 If you are using Visual Studio 2017, simply open the Package Manager Console (View -> Other Windows -> Package Manager Console), and install the package:
 
-For Android:
+**For Android:**
 
 ```text
 Install-Package Auth0.OidcClient.Android
 ```
 
-For iOS:
+**For iOS:**
 
 ```text
 Install-Package Auth0.OidcClient.iOS

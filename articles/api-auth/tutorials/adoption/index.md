@@ -1,6 +1,13 @@
 ---
 url: /api-auth/tutorials/adoption
 title: OIDC Conformant Authentication Adoption Guide
+topics:
+  - api-authentication
+  - oidc
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # OIDC Conformant Authentication Adoption Guide
@@ -37,7 +44,7 @@ The new features provided by the OIDC-conformant pipeline include:
 
 * [Create third-party applications for your APIs and display consent dialogs for authorization](/api-auth/user-consent)
 * Restrict the user profile information provided to applications upon authentication
-* [OIDC Dynamic Application Registration](/api-auth/dynamic-application-registration)
+* [OIDC Dynamic Client Registration](/api-auth/dynamic-client-registration)
 
 ## Is there a deadline to adopt these new features?
 

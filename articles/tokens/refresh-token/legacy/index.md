@@ -1,5 +1,14 @@
 ---
-description: A Refresh Token allows an application to request Auth0 to issue a new id_token directly, without needing to re-authenticate the user.
+description: A Refresh Token allows an application to request Auth0 to issue a new ID Token directly, without needing to re-authenticate the user.
+topics:
+  - tokens
+  - refresh-tokens
+contentType:
+  - how-to
+  - concept
+  - index
+useCase:
+  - invoke-api
 ---
 
 # Refresh Token
@@ -61,7 +70,7 @@ In this case, the token was returned to the application directly in the URL beca
 
 ## Use a Refresh Token
 
-To obtain a new `id_token`, call the [delegation](/api/authentication/reference#delegation) endpoint in the Authentication API:
+To obtain a new ID Token, call the [delegation](/api/authentication/reference#delegation) endpoint in the Authentication API:
 
 ```text
 POST https://${account.namespace}/delegation
@@ -87,9 +96,8 @@ A response from this request could be as follows:
 The `expires_in` parameter indicates the lifetime of the new JWT in seconds. It can be calculated by the difference between the `exp` and `iat` claims of the JWT.
 
 ::: panel Rate limits
-Obtaining new tokens using the `refresh_token` should occur only if the `id_token` has expired. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
+Obtaining new tokens using the Refresh Token should occur only if the ID Token has expired. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
 :::
-
 
 ## Revoke a Refresh Token
 

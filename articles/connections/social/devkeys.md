@@ -1,5 +1,13 @@
 ---
 description: Caveats you need to be aware of when using Auth0 Dev Keys for social providers.
+topics:
+  - connections
+  - social
+  - dev-keys
+contentType: reference
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Test Social Connections with Auth0 Developer Keys
@@ -11,7 +19,7 @@ Auth0 allows you to test a Social Identity Provider without specifying your own 
 For production environments, make sure to [follow the steps for your chosen provider](/identityproviders) to obtain the Client ID and Client secret from the provider, this will avoid the [limitations](#limitations-of-developer-keys) of using developer keys.
 
 ::: panel-warning Custom Developer keys
-One or more connections are using Auth0 development keys which are only intended for use in development and testing. The connections should be configured with your own Developer Keys to enable the consent page to show your logo instead of Auth0's and to enable SSO for these connections. Auth0 development keys are not recommended for Production environments.
+One or more connections are using Auth0 development keys which are only intended for use in development and testing. The connections should be configured with your own Developer Keys to enable the consent page to show your logo instead of Auth0's and to configure SSO for these connections. Auth0 development keys are not recommended for Production environments.
 :::
 
 ::: panel Client ID and Client Secret
@@ -20,7 +28,7 @@ The exact terminology of a Client ID / Client Secret may differ between various 
 
 ## Limitations of Developer Keys
 
-They Auth0 developer keys are to be used for testing purposes so there are a few caveats you need to be aware of when using them. These may cause your application to behave differently - or some functionality to not work at all - depending on whether you use your own Client ID and Client Secret, or whether you use the Auth0 developer keys.
+The Auth0 developer keys are to be used for testing purposes so there are a few caveats you need to be aware of when using them. These may cause your application to behave differently - or some functionality to not work at all - depending on whether you use your own Client ID and Client Secret, or whether you use the Auth0 developer keys.
 
 1. You cannot use developer keys with [custom domains](/custom-domains).
 

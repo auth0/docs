@@ -11,8 +11,10 @@ author:
   email: josh.cunningham@auth0.com
   community: false
 image: /media/platforms/php.png
-tags:
+topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-apis/php-laravel/dependencies
   setup: server-apis/php-laravel/setup
@@ -21,3 +23,28 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
+  - 03-troubleshooting
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-laravel-api-samples
+requirements:
+  - Composer 1.5 
+  - PHP 7.0
+  - Laravel 5.5
+  - laravel-auth0 5.0.2
+next_steps:
+  - path: 01-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

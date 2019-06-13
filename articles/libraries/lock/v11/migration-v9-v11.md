@@ -3,6 +3,15 @@ section: libraries
 title: Migrating from Lock v9 to v11
 description: How to migrate from Lock v9 to v11
 toc: true
+topics:
+  - libraries
+  - lock
+  - migrations
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 # Migrating from Lock v9 to v11
 
@@ -12,7 +21,7 @@ This guide includes all the information you need to update your Lock v9 applicat
 
 Given that Lock v10 is very similar to Lock v11 you can read the [Lock v9 to Lock v10 migration guide](/libraries/lock/v10/migration-guide).
 
-Building Single Page Applications with Lock v9 has some key differences with the way they should be built in Lock v11. Lock v11 uses OIDC conformant APIs that are more secure, and some of the coding patterns with Lock v9 need to be changed.
+Building Single-Page Applications with Lock v9 has some key differences with the way they should be built in Lock v11. Lock v11 uses OIDC conformant APIs that are more secure, and some of the coding patterns with Lock v9 need to be changed.
 
 <%= include('../../_includes/_get_lock_latest_version') %>
 

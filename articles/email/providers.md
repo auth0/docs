@@ -1,24 +1,33 @@
 ---
-description: How to configure your own SMTP email provider.
+description: How to configure your own SMTP email provider
 toc: true
+topics:
+  - email
+  - smtp
+contentType: how-to
+useCase: customize-emails
 ---
-# Use your own SMTP Email Provider
+# Use Your Own SMTP Email Provider
 
 Auth0 allows you to configure your own SMTP email provider. Auth0's built-in email infrastructure should be used for testing level emails only. By using your own provider you can more completely manage, monitor and troubleshoot your email communications.
 
 Auth0 currently supports the following providers:
 
-* [Amazon SES](#configure-amazon-ses-for-sending-email)
-* [Mandrill](#configure-mandrill-for-sending-email)
-* [SendGrid](#configure-sendgrid-for-sending-email)
-* [SparkPost](#configure-sparkpost-for-sending-email)
-* [Custom SMTP](#configure-a-custom-smtp-server-for-sending-email)
+* [Amazon SES](#configure-amazon-ses)
+* [Mandrill](#configure-mandrill)
+* [SendGrid](#configure-sendgrid)
+* [SparkPost](#configure-sparkpost)
+* [Other SMTP](#configure-a-custom-smtp-server) (e.g., Gmail, Yahoo)
 
-::: note
 You can only configure one email provider (Amazon SES, Sendgrid, and so on.) which will be used for all emails.
-:::
 
-## Configure Amazon SES for Sending Email
+## Whitelist IP addresses
+
+To make sure that emails can be sent from Auth0 to your SMTP, you must open the right ports and allow inbound connections from specific IP addresses.
+
+To get the list of IPs, go to [Dashboard > Emails > Provider](${manage_url}/#/emails/provider).
+
+## Configure Amazon SES
 
 There are several steps to follow to configure Amazon SES for sending email. If you want to use the SES API, please follow this guide.
 
@@ -29,7 +38,7 @@ You can use two types of credentials
 
 For more information about SES credentials, visit [Using Credentials With Amazon SES](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/using-credentials.html).
 
-### Using API Credentials
+### Use API credentials
 
 1. Sign up for an [Amazon AWS](http://aws.amazon.com/ses/) account, or login.
 2. [Verify your domain](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
@@ -58,7 +67,7 @@ Now you can send a test email using the **SEND TEST EMAIL** button on the [Custo
 
 The [Amazon SES console](https://console.aws.amazon.com/ses) will now display all emails which have been sent to your users.
 
-### Using SMTP Credentials
+### Use SMTP credentials
 
 1. Sign up for an [Amazon AWS](http://aws.amazon.com/ses/) account, or login.
 2. [Verify your domain](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
@@ -83,7 +92,7 @@ Now you can send a test email using the **SEND TEST EMAIL** button on the [Custo
 
 The [Amazon SES console](https://console.aws.amazon.com/ses) will now display all emails which have been sent to your users.
 
-## Configure Mandrill for Sending Email
+## Configure Mandrill
 
 1. Sign up for a [Mandrill](https://www.mandrill.com/signup/) account, or login. Go to the [Settings page](https://mandrillapp.com/settings) and click **Add API key**. Save this key value.
 
@@ -101,7 +110,7 @@ The [Outbound Activity](https://mandrillapp.com/activity) page in Mandrill will 
 
 ![](/media/articles/email/providers/email-mandrill-monitoring.png)
 
-## Configure SendGrid for Sending Email
+## Configure SendGrid
 
 1. Sign up for a [SendGrid](https://sendgrid.com) account, or login. (If you have a Microsoft Azure subscription you can get a free account in the Azure Marketplace).
 
@@ -133,7 +142,15 @@ The [Email Activity](https://sendgrid.com/logs/index) page in SendGrid will now 
 
 ![](/media/articles/email/providers/email-sendgrid-monitoring.png)
 
-## Configure SparkPost for Sending Email
+## Configure SparkPost
+
+::: note
+You must create your SparkPost account in the US region; Auth0 does not currently support EU-based SparkPost accounts.
+:::
+
+::: note
+You should create your Sparkpost account in the US region for it to work with Auth0, as we do not currently have support for EU based Sparkpost accounts. 
+:::
 
 1. Sign up for a [SparkPost](https://www.sparkpost.com/) account, or login. Go to the [Account API Keys page](https://app.sparkpost.com/account/credentials) and click **New API key**. Save this key value. The key must have `Transmissions: Read/Write` access.
 
@@ -153,7 +170,7 @@ The [Message Events](https://app.sparkpost.com/reports/message-events) page in S
 
 ![](/media/articles/email/providers/sparkpost-message-events.png)
 
-## Configure a Custom SMTP Server for Sending Email
+## Configure a custom SMTP server
 
 You can use your own SMTP server to send email. There are three requirements for the SMTP server:
 

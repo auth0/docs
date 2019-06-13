@@ -3,6 +3,15 @@ title: Call an Identity Provider API
 description: How to call an Identity Provider API
 toc: true
 crews: crew-2
+topics:
+  - connections
+  - social
+  - access-tokens
+  - api
+contentType: how-to
+useCase:
+  - customize-connections
+  - add-idp
 ---
 # Call an Identity Provider API
 
@@ -22,9 +31,9 @@ The process you will follow differs, depending on whether your code runs in the 
 
 ## From the backend
 
-Once you authenticate a user, the IdP often includes an Access Token in the user profile it returns to Auth0. 
+Once you authenticate a user, the IdP often includes an Access Token in the user profile it returns to Auth0.
 
-Auth0, for security and compliance reasons, does **not** sent this token to your app as part of the user profile. In order to get it you will have to access the Auth0 Management API and retrieve the **full** user's profile. 
+Auth0, for security and compliance reasons, does **not** sent this token to your app as part of the user profile. In order to get it you will have to access the Auth0 Management API and retrieve the **full** user's profile.
 
 The steps to follow are:
 
@@ -45,7 +54,7 @@ This will create a new application and grant **all scopes of the Management API*
 ::: panel Can't see the button?
 If you don't see this button, it means that you have at least one authorized application already. In this case you can either update the scopes of an existing application and use that, or create a new one following these steps:
 1. Go to [Dashboard > Applications](${manage_url}/#/applications)
-2. Click **+ Create Application**, select **Non Interactive Applications** and click **Create**
+2. Click **+ Create Application**, select **Machine to Machine Applications** and click **Create**
 3. At the **Select an API** dropdown select `Auth0 Management API`
 4. Click **Navigate to the API and Authorize**
 5. Set the toggle to **Authorized** and enable the required scopes
@@ -53,7 +62,7 @@ If you don't see this button, it means that you have at least one authorized app
 
 It is recommended, for security reasons, that you only assign the required scopes to the application you will be using. For this particular case, the scopes you need are: `read:users`, `read:user_idp_tokens`.
 
-You can grant or remove scopes from a application, at the [Dashboard > APIs > Auth0 Management API > Non Interactive Applications tab](${manage_url}/#/apis/management/authorized-applications).
+You can grant or remove scopes from an application, at the [Dashboard > APIs > Auth0 Management API > Machine to Machine Applications tab](${manage_url}/#/apis/management/authorized-applications).
 
 ![Edit the scopes granted to the Application](/media/articles/connections/edit-granted-scopes.png)
 
@@ -66,15 +75,15 @@ Pick your application using the dropdown at the top, and choose your language of
 Copy and run the snippet. Extract the `access_token` property from the response. This is what you will use to access the Management API.
 
 ::: panel More info on the snippets
-The snippets make a `POST` operation to the [/oauth/token endpoint of the Auth0 Authentication API](/api/authentication#client-credentials), using the **OAuth 2.0 Client Credentials grant**. This is the grant that machine-to-machine processes utilize in order to access an API. For more information on the grant, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
+The snippets make a `POST` operation to the [/oauth/token endpoint of the Auth0 Authentication API](/api/authentication#client-credentials), using the **OAuth 2.0 Client Credentials grant**. This is the grant that machine-to-machine processes use to access an API. For more information on the flow, refer to [Client Credentials Flow](/flows/concepts/client-credentials).
 :::
 
 #### Token expiration
 
-The token you received has, by default, an expiration time of 24 hours (86400 seconds). To change this, update the **Token Expiration (Seconds)** field, at the [Settings tab](${manage_url}/#/apis/management/settings) and save your changes. The next token you generate will use the updated expiration time.
+The token you received has, by default, an expiration time of 24 hours (86400 seconds). To change this, update the **Token Expiration (Seconds)** field, at the [Settings tab](${manage_url}/#/apis/management/settings) and save your changes. The next token you generate will use the updated expiration time. The maximum value you can set is 2592000 seconds (30 days) however our recommendation is to keep the default value.
 
 ::: panel-warning Security warning
-These tokens **cannot be revoked**. To minimize the risk, we recommend issuing short-lived tokens (and granting only the necessary scopes for each application). For a production environment you can configure a simple CLI that will fetch a new token when the old one expires. You can find a sample implementation in Python [here](/api/management/v2/tokens#sample-implementation-python).
+These tokens **cannot be revoked**. To minimize the risk, we recommend issuing short-lived tokens (and granting only the necessary scopes for each application). For a production environment you can configure a simple CLI that will fetch a new token when the old one expires. You can find a sample implementation in Python [here](/api/management/v2/get-access-tokens-for-production#Example:-Python-Implementation).
 :::
 
 ### Step 2: Get the full User Profile
@@ -106,10 +115,10 @@ Replace these values:
 
 ### Step 3: Extract the IdP Access Token
 
-Within the user's `identities` array, there will be an `access_token` that you can extract and use to make calls to the IdP's API: `user.identities[0].access_token`.
+Within the user's `identities` array, there will be an Access Token that you can extract and use to make calls to the IdP's API: `user.identities[0].access_token`.
 
 ::: note
-For certain Identity Providers, Auth0 will store a `refresh_token` which you can use to obtain a new `access_token` for the IdP. This works for: BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint, Azure AD. For more information, refer to [Identity Provider Access Tokens](/tokens/idp#renewing-the-token).
+For certain Identity Providers, Auth0 will store a Refresh Token which you can use to obtain a new Access Token for the IdP. This works for: BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint, Azure AD. For more information, refer to [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens).
 :::
 
 In most cases, the user will only have one identity, but if you have used the [account linking feature](/link-accounts), there may be more.
@@ -153,7 +162,7 @@ Make sure that you don't expose the IdP tokens to your client-side application! 
 :::
 
 ::: note
-For more information on how to request specific scopes for an Identity Provider `access_token`, please see [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp).
+For more information on how to request specific scopes for an Identity Provider Access Token, please see [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp).
 :::
 
 ## From the frontend
@@ -179,8 +188,8 @@ You can build a process in your backend and expose it to your application as an 
 The backend process will implement the steps of [the backend section](#from-the-backend). You will call the IdP's API from the same backend process so the Access Token is never exposed to your public application.
 
 Then, you will call your proxy API from your public application using the respective flow for your case:
-- [Implicit Grant](/api-auth/tutorials/implicit-grant) if you are working with a SPA
-- [Authorization Code Grant (PKCE)](/api-auth/tutorials/authorization-code-grant-pkce) if you are working with a mobile application
+- [Implicit Flow](/flows/guides/implicit/call-api-implicit) if you are working with a SPA
+- [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/guides/auth-code-pkce/call-api-auth-code-pkce) if you are working with a mobile application
 
 :::panel Show me how to do it
 If you haven't implemented this before, you might find our [SPA + API](/architecture-scenarios/application/spa-api) article useful. It covers a different scenario but it does explain how to configure Auth0, call an API from a SPA, and implement the API validations. It comes with a sample that uses [Angular 2](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-spa/angular) and [Node.js](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node). We also offer a [Mobile + API](/architecture-scenarios/application/mobile-api) variation (the sample uses [Android](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-mobile/android) and [Node.js](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node)).
@@ -191,10 +200,6 @@ If you haven't implemented this before, you might find our [SPA + API](/architec
 If you don't have a backend server, and you don't want to set up one, then you can leverage serverless technology, using webtasks.
 
 Webtasks are the Auth0 way to create HTTP endpoints with Node.js and access them from anywhere. It's a way to safely execute server-side logic, when you do not have a backend. They come with a command line tool and an editor. For more information refer to [the webtask.io documentation](https://webtask.io/).
-
-:::note
-This option comes with an additional cost, for details see [Auth0 Extend pricing](https://auth0.com/extend/pricing).
-:::
 
 In this scenario, you will create a webtask and implement the steps of [the backend section](#from-the-backend). Then the webtask will call the IdP's API so the Access Token is never exposed to your public application.
 

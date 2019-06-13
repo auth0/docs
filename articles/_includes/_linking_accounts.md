@@ -2,9 +2,9 @@ There may be situations when your users want to log in with multiple accounts th
 
 ## Linking Accounts
 
-To link accounts, call the [link a user account](/api/management/v2#!/Users/post_identities) endpoint. You will need the `id_token` and `user_id` of the primary account and the `id_token` of the secondary account.
+To link accounts, call the [link a user account](/api/management/v2#!/Users/post_identities) endpoint. You will need the ID Token and `user_id` of the primary account and the ID Token of the secondary account.
 
-To differentiate the login from the linking login, you will need to create a second instance of `Auth0Lock` to obtain the `id_token` of the secondary account.
+To differentiate the login from the linking login, you will need to create a second instance of `Auth0Lock` to obtain the ID Token of the secondary account.
 
 Since all instances of `Auth0Lock` will receive the `authenticated` event, you will need a way to determine if authentication came from the primary login or the linking login.
 

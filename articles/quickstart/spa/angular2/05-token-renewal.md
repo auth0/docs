@@ -1,39 +1,38 @@
 ---
 title: Token Renewal
-description: This tutorial demonstrates how to add automatic Access Token renewal to an application with Auth0
+description: This tutorial demonstrates how to add automatic Access Token renewal to an Angular2+ application with Auth0.
 budicon: 448
+topics:
+  - quickstarts
+  - spa
+  - angular2
+  - tokens
+github:
+  path: 05-Token-Renewal
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-angular-samples',
-  path: '05-Token-Renewal',
-  requirements: [
-    'Angular 2+'
-  ]
-}) %>
-
 <%= include('../_includes/_token_renewal_preamble') %>
 
 ## Add Token Renewal
 
-To the `AuthService` service, add a method which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
+To the `AuthService` service, add a method which calls the `checkSession` method from auth0.js. If the renewal is successful, use the existing `localLogin` method to set the new tokens in memory.
 
-```typescript
+```ts
 // src/app/auth/auth.service.ts
 
-public renewToken() {
+public renewTokens() {
   this.auth0.checkSession({}, (err, result) => {
     if (err) {
       console.log(err);
     } else {
-      this.setSession(result);
+      this.localLogin(result);
     }
   });
 }
 ```
 
-Add a method called `scheduleRenewal` to set up the time when authentication is silently renewed. 
+Add a method called `scheduleRenewal` to set up the time when authentication is silently renewed.
 
 Define the `refreshSubscription` class property, which will hold a reference to the subscription that refreshes your token.
 
@@ -50,7 +49,7 @@ export class AuthService {
     if (!this.isAuthenticated()) { return; }
     this.unscheduleRenewal();
 
-    const expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
+    const expiresAt = this._expiresAt;
 
     const expiresIn$ = Observable.of(expiresAt).pipe(
       mergeMap(
@@ -68,7 +67,7 @@ export class AuthService {
     // additional refreshes
     this.refreshSub = expiresIn$.subscribe(
       () => {
-        this.renewToken();
+        this.renewTokens();
         this.scheduleRenewal();
       }
     );
@@ -82,20 +81,19 @@ export class AuthService {
 }
 ```
 
-This lets you schedule token renewal any time. For example, you can schedule a renewal after the user logs in and then again, if the page is refreshed. 
+This lets you schedule token renewal any time. For example, you can schedule a renewal after the user logs in and then again, if the page is refreshed.
 
-In the `setSession` method, add the function right after setting the `access_token` and `id_token` into local storage.
+In the `localLogin` method, add the function right after setting the Access Token and ID Token into memory.
 
 ```ts
 // src/app/auth/auth.service.ts
 
-private setSession(authResult): void {
+private localLogin(authResult): void {
   // Set the time that the Access Token will expire at
-  const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + Date.now());
-
-  localStorage.setItem('access_token', authResult.accessToken);
-  localStorage.setItem('id_token', authResult.idToken);
-  localStorage.setItem('expires_at', expiresAt);
+  const expiresAt = (authResult.expiresIn * 1000) + Date.now();
+  this._accessToken = authResult.accessToken;
+  this._idToken = authResult.idToken;
+  this._expiresAt = expiresAt;
 
   this.scheduleRenewal();
 }
@@ -122,10 +120,10 @@ Since client-side sessions should not be renewed after the user logs out, call t
 // src/app/auth/auth.service.ts
 
 public logout(): void {
-  // Remove tokens and expiry time from localStorage
-  localStorage.removeItem('access_token');
-  localStorage.removeItem('id_token');
-  localStorage.removeItem('expires_at');
+  // Remove tokens and expiry time
+  this._idToken = '';
+  this._accessToken = '';
+  this._expiresAt = 0;
   this.unscheduleRenewal();
   // Go back to the home route
   this.router.navigate(['/']);
@@ -133,4 +131,3 @@ public logout(): void {
 ```
 
 <%= include('../_includes/_token_renewal_troubleshooting') %>
-

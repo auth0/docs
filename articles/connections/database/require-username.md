@@ -2,6 +2,12 @@
 title: Adding Username for Database Connections
 description: How to add a username field for login to database connections.
 crews: crew-2
+topics:
+    - connections
+    - database
+    - db-connections
+contentType: how-to
+useCase: customize-connections
 ---
 
 # Adding Username for Database Connections
@@ -35,7 +41,7 @@ The default allowed length for usernames is between 1 and 15 characters. However
 
 The username field accepts the following characters:
 
-* Alphanumeric characters (without accent marks);
+* Alphanumeric characters (without accent marks, automatically converted to lowercase);
 * The underscore (_) character;
 * The plus (+) character;
 * The minus (-) character;

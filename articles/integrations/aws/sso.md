@@ -1,9 +1,18 @@
 ---
 description: How to use SSO with AWS
 toc: true
+topics:
+  - integrations
+  - aws
+  - sso
+contentType: how-to
+useCase:
+  - secure-an-api
+  - integrate-third-party-apps
+  - integrate-saas-sso
 ---
 
-# Enable SSO to the AWS Console
+# Configure SSO with the AWS Console
 
 By integrating Auth0 with AWS, you'll allow your users to log in to AWS using any supported [identity provider](/identityproviders). 
 
@@ -126,7 +135,7 @@ function (user, context, callback) {
 
 In the code snippet above, `user.awsRole` identifies the AWS role and the IdP. The AWS role identifier comes before the comma, and the IdP identifier comes after the comma.
 
-There are multiple ways by which you can obtain these two values. In the example above, both of these values are hard-coded into the rules. You might also store these values in the [user profile](/user-profile), or you might derive them using other attributes.
+There are multiple ways by which you can obtain these two values. In the example above, both of these values are hard-coded into the rules. You might also store these values in the [user profile](/users/concepts/overview-user-profile), or you might derive them using other attributes.
 
 For example, if you're using Active Directory, you can map properties associated with users, such as `group` to the appropriate AWS role:
 
@@ -187,6 +196,29 @@ function (user, context, callback) {
 
   callback(null, user, context);
 
+}
+```
+
+## Configure Session Expiration
+
+If you want to extend the amount of time allowed to elapse before the AWS session expires (which is, by default, **3600 seconds**), you can do so using a custom [rule](/rules). Your rule sets the [**SessionDuration** attribute](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.html) that changes the duration of the session.
+
+```js
+function (user, context, callback) {
+    if(context.clientID !== 'YOUR_CLIENT_ID_HERE'){
+      return callback(null, user, context);
+    }
+
+  user.awsRole = 'YOUR_ARN_HERE';
+  user.awsRoleSession = 'YOUR_ROLE_SESSION_HERE';
+  user.time = 1000; // time until expiration in seconds
+
+  context.samlConfiguration.mappings = {
+    'https://aws.amazon.com/SAML/Attributes/Role': 'YOUR-AWS-ROLE-NAME',
+    'https://aws.amazon.com/SAML/Attributes/RoleSessionName': 'YOUR-AWS-ROLE-SESSION-NAME',
+    'https://aws.amazon.com/SAML/Attributes/SessionDuration': 'time'   };
+
+  callback(null, user, context);
 }
 ```
 

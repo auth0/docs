@@ -1,0 +1,10 @@
+changed:
+  -
+    title: "Access from a different device or location"
+    tags:
+      - custom mfa
+      - custom multifactor
+      - rules
+      - mfa
+    description: |
+      The rule illustrated in this example is easily circumvented and should not be utilized as a robust control for requiring MFA. Therefore, it has been removed from documentation.

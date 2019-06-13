@@ -1,25 +1,21 @@
 ---
 title: Calling APIs
-description: This tutorial will show you how to manage tokens to make authenticated API calls, using NSURLSession.
+description: This tutorial will show you how to use Access Tokens to make authenticated API calls, using NSURLSession.
 budicon: 546
+topics:
+  - quickstarts
+  - native
+  - ios
+  - objective-c
+github:
+    path: 04-Calling-APIs
+contentType: tutorial
+useCase: quickstart
 ---
-
-You may want to restrict access to your API resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-objc-sample',
-  path: '04-Calling-APIs',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
 
 Auth0 provides a set of tools for protecting your resources with end-to-end authentication in your application. 
 
-This tutorial shows you how to get an Access Token, attach it to a request with an authorization header and call an API. We recommend you use this method for the best security and compliance with RFC standards. 
+This tutorial shows you how to get an Access Token, attach it to a request with an authorization header and call an API. We recommend you use this method for the best security and compliance with RFC standards.
 
 Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:
 * You have completed the [Session Handling](/quickstart/native/ios-objc/03-user-sessions) tutorial and you know how to handle the `Credentials` object.
@@ -31,7 +27,7 @@ Before you continue with this tutorial, make sure that you have completed the pr
 
 ## Get the User's Access Token
 
-To retrieve an access token that is authorized to access your API, you need to specify the **API Identifier** value you created in the [Auth0 APIs Dashboard](https://manage.auth0.com/#/apis).
+To retrieve an Access Token that is authorized to access your API, you need to specify the **API Identifier** value you created in the [Auth0 APIs Dashboard](https://manage.auth0.com/#/apis).
 
 Present the Hosted Login Page:
 
@@ -53,13 +49,13 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 
 ## Attach the Access Token
 
-To give the authenticated user access to secured resources in your API, include the user's access token in the requests you send to the API.
+To give the authenticated user access to secured resources in your API, include the user's Access Token in the requests you send to the API.
 
 ::: note
 Depending on the standards in your API, you configure the authorization header differently. The code below is just an example.
 :::
 
-To attach an Access Token to a request: 
+To attach an Access Token to a request:
 
 ```objc
 // ProfileViewController.m
@@ -87,7 +83,7 @@ NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL U
 // Configure your request here (method, body, and so on)
 ```
 
-After you send a request and receive a response from your API, you can check the request status code in an alert view. 
+After you send a request and receive a response from your API, you can check the request status code in an alert view.
 
 ::: note
 Read more about authentication API on the server-side in [the API documentation](/api/authentication).

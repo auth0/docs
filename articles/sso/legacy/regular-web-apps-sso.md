@@ -1,6 +1,14 @@
 ---
 toc: true
 description: Server-side SSO with regular web applications.
+topics:
+  - sso
+  - web-apps
+contentType:
+  - how-to
+  - concept
+useCase:
+  - integrate-saas-sso
 ---
 
 # Server-side SSO (Regular Web Apps)
@@ -15,8 +23,8 @@ To log a user in silently (that is, without displaying the Lock screen) the foll
 
 In our SSO scenario, let's say we have 3 applications
 
-* App 1: app1.com (Single Page App)
-* App 2: app2.com (Single Page App)
+* App 1: app1.com (Single-Page App)
+* App 2: app2.com (Single-Page App)
 * App 3: app3.com (Regular Web app)
 
 If a user logs in to any of these applications, and then subsequently navigates from this application to any of the other applications, we would want the user to be logged in automatically.
@@ -25,7 +33,7 @@ In this document we will be looking specifically how to achieve this in a Regula
 
 ## Case 1: The user is already logged in and clicks on a link that redirects to a specific URL app3.com
 
-The user logs in on one of the Single Page Applications and click on a link that should take them to a particular URL on app3.com. In this case, you can create an endpoint on the target application (app3) that will redirect to the URL the user wanted to go after SSO. For example:
+The user logs in on one of the Single-Page Applications and click on a link that should take them to a particular URL on app3.com. In this case, you can create an endpoint on the target application (app3) that will redirect to the URL the user wanted to go after SSO. For example:
 
 ```text
 https://app3.com/sso?targetUrl=/foo/bar&connection=CONNECTION_NAME

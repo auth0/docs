@@ -1,9 +1,17 @@
 ---
 title: Tableau Server SAML Configuration
 description: Tableau Server SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - tableau
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {

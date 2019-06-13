@@ -5,6 +5,14 @@ image: /media/connections/thecity.png
 seo_alias: thecity
 description: How to obtain an App ID and Secret with The City.
 toc: true
+topics:
+  - connections
+  - social
+  - thecity
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to The City
@@ -24,6 +32,8 @@ Select __API > Plugin > Create plugin__:
 ![](/media/articles/connections/social/thecity/thecity-register-2.png)
 
 Complete the form using this callback URL: `https://${account.namespace}/login/callback`
+
+<%= include('../_find-auth0-domain-redirects') %>
 
 ![](/media/articles/connections/social/thecity/thecity-register-3.png)
 

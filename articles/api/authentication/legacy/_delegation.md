@@ -38,7 +38,7 @@ curl --request POST \
 This feature is disabled by default for new tenants as of 8 June 2017. See the [migration notice](/migrations#api-authorization-with-third-party-vendor-apis) for more information.
 :::
 
-A delegation token can be obtained and used when a application needs to call the API of an Application Addon, such as Firebase or SAP, registered and configured in Auth0, in the same tenant as the calling program.
+A delegation token can be obtained and used when an application needs to call the API of an Application Addon, such as Firebase or SAP, registered and configured in Auth0, in the same tenant as the calling program.
 
 Given an existing token, this endpoint will generate a new token signed with the `target` app' secret. This is used to flow the identity of the user from the application to an API.
 
@@ -63,7 +63,7 @@ Given an existing token, this endpoint will generate a new token signed with the
 
 1. At the *Configuration* tab, set the **Application** field to the app you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the fields **ID Token**, **Refresh Token** and **Target Client ID**. Click **Delegation**.
 

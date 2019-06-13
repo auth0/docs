@@ -3,6 +3,11 @@ description: Describes the major differences between Auth0's Management API v1 a
 section: apis
 crews: crew-2
 toc: true
+topics:
+    - management-api
+    - apis
+contentType: reference
+useCase: invoke-api
 ---
 # Management API v1 vs v2
 
@@ -11,7 +16,6 @@ This document describes the major differences between Auth0's Management API v1 
 ## tl;dr
 
 * v2 uses JWTs instead of opaque tokens.
-* v2 allows you to send an `id_token` to perform operations on the user to which the `id_token` refers.
 * v2 includes `user_metadata` for trivial data about users and `app_metadata` for data that affects how your application functions. Unlike `metadata` in API v1, these fields are not merged into the root `user` object.
 * Fewer endpoints on existing features make development easier.
 * All endpoints work with ids. Strings (such as `connection_name`) are no longer used.
@@ -72,7 +76,7 @@ This document describes the major differences between Auth0's Management API v1 
 | [GET /api/connections/{connection}/users?search={criteria}](/api/v1) | None. | [GET  /api/v2/users](/api/v2#!/Users/get_users) (see note) |
 
 ::: note
-For PSaaS Appliance (search_engine:v1), use `connection` field; for cloud (search_engine:v2), use `q=identities.connection:"connection_name"`
+For Private Cloud (search_engine:v2), use `q=identities.connection:"connection_name"`
 :::
 
 ### Rules endpoints
@@ -86,11 +90,17 @@ For PSaaS Appliance (search_engine:v1), use `connection` field; for cloud (searc
 
 ### Logs endpoints
 
-Logs endpoints have not been implemented in Management API v2. Logs must first be indexed in Elastic Search.
+Logs endpoints in Management API v2 are described at [Search Log Events](https://auth0.com/docs/api/management/v2#!/Logs/get_logs)
+
+| v1 Endpoint | Change | v2 Endpoint |
+| ----------- | ------ | ----------- |
+| [GET /logs](/api/v1#logs) | Syntax Changes, described at [Breaking Changes](https://auth0.com/docs/logs/query-syntax#search-engine-v3-breaking-changes) | [GET /api/v2/logs](/api/v2#!/Logs/get_logs) |
+| [GET /logs/{id}](/api/v1#logs) | None. | [GET /api/v2/logs/{id}](/api/v2#!/Logs/get_logs_by_id) |
+
 
 ## Authentication mechanism
 
-Auth0's API v1 requires sending an `access_token` obtained by performing a [`POST /oauth/token`](/api/v1#!#post--oauth-token) request along with the `clientId` and `clientSecret`. All subsequent requests must include the `access_token` in the `Authorization` header: `Authorization: Bearer {access_token}`.
+Auth0's API v1 requires sending an Access Token obtained by performing a [`POST /oauth/token`](/api/v1#!#post--oauth-token) request along with the `clientId` and `clientSecret`. All subsequent requests must include the Access Token in the `Authorization` header: `Authorization: Bearer {access_token}`.
 
 Auth0's API v2 requires sending an Access Token with specific scope(s). To perform requests with API v2, use the `Authorization` header: `Authorization: Bearer YOUR_ACCESS_TOKEN`.
 

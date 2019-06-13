@@ -6,6 +6,14 @@ image: /media/connections/soundcloud.png
 seo_alias: soundcloud
 description: How to obtain a Client Id and Client Secret for SoundCloud.
 toc: true
+topics:
+  - connections
+  - social
+  - soundcloud
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to SoundCloud
@@ -37,6 +45,8 @@ Once your Auth0 Application has been added to your SoundCloud account, you can g
 ![](/media/articles/connections/social/soundcloud/soundcloud-devportal-2.png)
 
 Be sure to provide the following as your `Redirect URI for Authentication` on the SoundCloud dashboard: `https://${account.namespace}/login/callback`
+
+<%= include('../_find-auth0-domain-redirects') %>
 
 Go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard and enable **SoundCloud**.
 

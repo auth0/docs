@@ -4,6 +4,16 @@ toc: true
 url: /libraries/lock-ios/v2/configuration
 title: Lock for iOS v2 Configuration Options
 description: Behavior configuration options available with Lock v2 for iOS
+topics:
+  - libraries
+  - lock
+  - ios
+contentType:
+  - reference
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock v2 for iOS - Configuration Options
@@ -39,7 +49,7 @@ Allows Lock to be dismissed by the user. By default this is `false`.
 
 ### scope
 
-Scope used for authentication. By default is `openid`. It will return not only the **access\_token**, but also an **id_token** which is a [JSON Web Token (JWT)](https://jwt.io/) containing user information. See the documentation on [Scopes](/scopes) for more information about authentication scopes.
+Scope used for authentication. By default is `openid`. It will return not only the **Access Token**, but also an **ID Token** which is a [JSON Web Token (JWT)](https://jwt.io/) containing user information. See the documentation on [Scopes](/scopes) for more information about authentication scopes.
 
 ```swift
 .withOptions {
@@ -62,7 +72,27 @@ By default Lock will use Auth0's [Terms of Service](https://auth0.com/terms) and
 }
 ```
 
-## Database Options
+### Show Terms of Service
+
+Database connections display the Terms of Service dialog. Default is `true`. Note that the Terms of Service will always be shown if the `mustAcceptTerms` flag is enabled.
+
+```swift
+.withOptions {
+    $0.showTerms = true
+}
+```
+
+### Require users to accept the Terms of Service
+
+Database connection require explicit acceptance of the Terms of Service.
+
+```swift
+.withOptions {
+    $0.mustAcceptTerms = true
+}
+```
+
+## Database options
 
 ### allow
 
@@ -96,7 +126,7 @@ Specify the type of identifier the login will require.  The default is either: `
 
 #### Custom Signup Fields
 
-When signing up the default information requirements are the user's *email* and *password*. You can expand your data capture requirements as needed. Capturing additional signup fields here will store them in the `user_metadata`, which you can read more about in the [Metadata Documentation](/metadata). Note that you must specify the icon to use with your custom text field.
+When signing up the default information requirements are the user's *email* and *password*. You can expand your data capture requirements as needed. Capturing additional signup fields here will store them in the `user_metadata`, which you can read more about in [Metadata](/users/concepts/overview-user-metadata). Note that you must specify the icon to use with your custom text field.
 
 ```swift
 .withOptions {

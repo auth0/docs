@@ -3,6 +3,15 @@ section: libraries
 title: Migrating from Lock v8 to v11
 description: How to migrate from Lock v8 to v11
 toc: true
+topics:
+  - libraries
+  - lock
+  - migrations
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 # Migrating from Lock v8 to v11
 

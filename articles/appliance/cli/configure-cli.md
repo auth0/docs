@@ -1,6 +1,13 @@
 ---
 section: appliance
 description: How to configure the PSaaS Appliance CLI
+topics:
+    - appliance
+    - cli
+contentType: how-to
+useCase: appliance
+applianceId: appliance13
+sitemap: false
 ---
 
 # Configuring and Using the Auth0 Appliance Command Line Interface
@@ -9,7 +16,7 @@ The PSaaS Appliance Command Line Interface (CLI) allows you to perform operation
 
 ## Downloading the CLI Setup Files
 
-To download the files required to set up the CLI, please contact your Auth0 Customer Success Manager for your custom download link.
+To download the files required to set up the CLI, submit a [support ticket](https://support.auth0.com/tickets) for your custom download link.
 
 ## Installing and Using the CLI
 
@@ -26,7 +33,7 @@ Usage: a0cli [options] <command>
    create-key           Creates private/public keys pair on current path.
    show-key             Shows public key on current path.
    delete-key           Deletes keys pair from current path.
-   update-commands      Retrieve availables commands from the specified node.
+   update-commands      Retrieve available commands from the specified node.
 
  Options:
 
@@ -47,7 +54,7 @@ Usage: a0cli [options] <command>
     create-key                       Creates private/public keys pair on current path.
     show-key                         Shows public key on current path.
     delete-key                       Deletes keys pair from current path.
-    update-commands                  Retrieve availables commands from the specified node.
+    update-commands                  Retrieve available commands from the specified node.
     backup <password>                Creates a new backup.
     backup-delete                    Deletes the current sensitive backup
     backup-retrieve                  retrieves the current backup.

@@ -1,5 +1,12 @@
 ---
 description: This article explains how to install and configure the Facebook Analytics for Auth0 integration.
+topics:
+  - facebook
+  - analytics
+contentType: how-to
+useCase:
+  - manage-analytics
+  - analyze-external-analytics
 ---
 # Facebook Analytics for Auth0
 
@@ -39,7 +46,7 @@ window.auth0AnalyticsOptions = {
 
 ### Using Facebook Pixel
 
-If you already have the Facebook Pixel installed on your site you can use that configuration mode. Note that with the Facebook Pixel, certain features of Facebook Analytics are not availible. The configuration for using the pixel is shown below.
+If you already have the Facebook Pixel installed on your site you can use that configuration mode. Note that with the Facebook Pixel, certain features of Facebook Analytics are not available. The configuration for using the pixel is shown below.
 
 ```
 <script>
@@ -57,4 +64,4 @@ window.auth0AnalyticsOptions = {
 
 For the most up to date information on using Facebook Analytics, check out the [Facebook Analytics documentation](https://www.facebook.com/help/analytics/1710582659188030).
 
-We recommend [creating funnels](https://www.facebook.com/help/analytics/935921203105136) to measure the success of your aquistion and registration flows using these new events.
+We recommend [creating funnels](https://www.facebook.com/help/analytics/935921203105136) to measure the success of your acquisition and registration flows using these new events.

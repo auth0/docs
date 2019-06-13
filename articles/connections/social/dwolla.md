@@ -5,6 +5,14 @@ image: /media/connections/dwolla.png
 seo_alias: dwolla
 description: How to obtain a Client Id and Client Secret for Dwolla.
 toc: true
+topics:
+  - connections
+  - social
+  - dwolla
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Dwolla
@@ -22,6 +30,8 @@ Log into the Dwolla [Developer portal](https://uat.dwolla.com/applications) and 
 Complete the information on this page. Enter the following URL in the **OAuth Redirect URL** field:
 
   https://${account.namespace}/login/callback
+
+  <%= include('../_find-auth0-domain-redirects') %>
 
 ![](/media/articles/connections/social/dwolla/dwolla-2.png)
 

@@ -1,5 +1,13 @@
 ---
 title: Using Passwordless Authentication on Android with SMS
+topics:
+    - connections
+    - passwordless
+    - android
+    - sms
+    - mobile
+contentType: how-to
+useCase: customize-connections
 ---
 # Authenticate users with a one-time code via SMS
 
@@ -7,11 +15,11 @@ title: Using Passwordless Authentication on Android with SMS
 
 <%= include('../../_includes/_native_passwordless_warning') %>
 
-<%= include('./_introduction-sms', { isMobile: true }) %>
+<%= include('./_includes/_introduction-sms', { isMobile: true }) %>
 
 ## Setup
 
-<%= include('./_setup-sms-twilio') %>
+<%= include('./_includes/_setup-sms-twilio') %>
 
 ## Implementation
 

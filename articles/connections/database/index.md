@@ -2,6 +2,16 @@
 description: How to create and use a database connection using either the Auth0 user store or your own user store.
 crews: crew-2
 url: /connections/database
+topics:
+    - connections
+    - database
+    - db-connections
+contentType: 
+    - index
+    - concept
+    - how-to
+useCase:
+    - customize-connections
 ---
 
 # Database Identity Providers
@@ -17,7 +27,7 @@ You can create a new database connection and manage existing ones in the [Dashbo
 Typical database connection scenarios include:
 
 * [Using the Auth0 user store](#using-the-auth0-user-store)
-* [Using your own user store](#using-your-own-store)
+* [Using your own user store](#using-your-own-user-store)
 * [Migrating to Auth0 from a custom user store](#migrating-to-auth0-from-a-custom-user-store)
 * [Requiring a username for users](/connections/database/require-username)
 
@@ -53,4 +63,4 @@ Check out [Authenticate Users Using Your Database](/connections/database/custom-
 
 ### Migrating to Auth0 from a custom user store
 
-In this scenario, you have a legacy user store and wish to switch to the Auth0 store. Auth0 provides an automatic migration feature that adds your users to the Auth0 database one-at-a-time as each logs in and avoids asking your users to reset their passwords all at the same time. For a detailed guide to this feature see [Automatic User Migration](/users/migrations/automatic).
+In this scenario, you have a legacy user store and wish to switch to the Auth0 store. Auth0 provides an automatic migration feature that adds your users to the Auth0 database one-at-a-time as each logs in and avoids asking your users to reset their passwords all at the same time. For more information, see [Configure Automatic User Migration](/users/guides/configure-automatic-migration).

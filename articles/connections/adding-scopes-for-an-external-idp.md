@@ -1,7 +1,14 @@
 ---
 description: How to add scopes to your IdP connection.
+topics:
+  - connections
+  - scopes
+contentType: how-to
+useCase:
+  - customize-connections
+  - add-idp
 ---
-# Add scopes/permissions to call  Identity Provider's APIs
+# Add scopes/permissions to call Identity Provider's APIs
 
 Once user is logged in, you can get the user profile and then the associated `accessToken` to call the Identity Provider APIs as described in: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api)
 

@@ -1,13 +1,18 @@
 ---
 title: Security Advice for Customers
 description: How to protect your end users' data
+topics:
+    - compliance
+    - gdpr
+contentType: reference
+useCase: compliance
 ---
 # Security Advice for Customers
 
 Auth0 recommends the following practices to help ensure the security of your end users data and minimize the probability of a data breach:
 
 * Protect client secrets and keys
-* Protect Management Dashboard credentials, and require multifactor authentication for access to the Dashboard
+* Protect Management Dashboard credentials, and require multi-factor authentication for access to the Dashboard
 * Review the list of administrators for the Dashboard on a regular basis and remove outdated entries
 * Review the list of connections and applications associated with your Auth0 tenants and remove outdated entries
 * Ensure that Dashboard administrators use corporate credentials that can be easily revoked if necessary, *not* personal credentials such as a personal email account

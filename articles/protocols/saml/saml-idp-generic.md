@@ -2,6 +2,12 @@
 title: Auth0 as Identity Provider
 description: How to configure Auth0 to serve as an Identity Provider in a SAML federation.
 toc: true
+topics:
+  - saml
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 # Auth0 as Identity Provider
 
@@ -17,7 +23,7 @@ In this section you will configure Auth0 to serve as an Identity Provider. You w
 
 1. Go to [Dashboard > Applications](${manage_url}/#/applications).
 1. Click the **+ CREATE APPLICATION** button on the right.
-1. In the **Name** field, enter a name like `MySAMLApp`, and select the [application type](/applications/application-settings).
+1. In the **Name** field, enter a name like `MySAMLApp`, and select the [application type](/dashboard/reference/settings-application).
 1. Click **SAVE**.
 1. Go back to [Dashboard > Applications](${manage_url}/#/applications).
 1. Find the row for the application you just created, and click on the **Settings** icon to the right of the application name. (the round gear icon)
@@ -28,7 +34,7 @@ In this section you will configure Auth0 to serve as an Identity Provider. You w
     ![SAML Protocol URL](/media/articles/saml/saml-idp-generic/saml-idp-generic2.png)
 1. Scroll back up and click on the **Addons** tab.  Then click on **SAML2 WEB APP**.
     ![SAML2 WEB APP](/media/articles/saml/saml-idp-generic/saml-idp-generic3.png)
-1. In the **Application Callback URL** field, enter the URL of the Service Provider (or application) to which the SAML assertions should be sent after Auth0 has authenticated the user.  
+1. In the **Application Callback URL** field, enter the URL of the Service Provider (or application) to which the SAML assertions should be sent after Auth0 has authenticated the user. This is the Assertion Consumer Service (ACS) URL. If your Service Provider is sending multiple ACS URLs in the SAML Request, you will need to whitelist them by adding them to the Application's **Allowed Callback URLs** setting in Application Settings.
     ![Application Callback URL](/media/articles/saml/saml-idp-generic/saml-idp-generic4.png)
 1.  In the Addon SAML2 Web App popup, click on the **Usage** tab.  This tab will provide you with the information needed to configure the Service Provider application.
     ![Usage](/media/articles/saml/saml-idp-generic/saml-idp-generic5.png)

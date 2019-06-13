@@ -11,7 +11,7 @@ An Access Token (also referred to as `access_token`) is an opaque string represe
 
 It is quite common for Access Tokens to be implemented as [JSON Web Tokens](/jwt).
 
-For more information on Auth0 Access Tokens refer to [Access Token](/tokens/access-token).
+For more information on Auth0 Access Tokens refer to [Access Token](/tokens/overview-access-tokens).
 :::
 
 An API can enforce fine-grained control over who can access the various endpoints exposed by the API. These permissions are expressed as scopes.
@@ -40,5 +40,5 @@ In any OAuth 2.0 flow we can identify the following roles:
 - __Client__: an application requesting access to a protected resource on behalf of the Resource Owner.
 - __Authorization Server__: the server that authenticates the Resource Owner, and issues Access Tokens after getting proper authorization. In this case, Auth0.
 
-Using [different grants types (or flows)](/api-auth/which-oauth-flow-to-use), these participants will interact to grant to the client apps limited access to the APIs you are building. As a result, the client app will obtain an `access_token` that can be used to call the API on behalf of the user.
+Using [different grants types (or flows)](/api-auth/which-oauth-flow-to-use), these participants will interact to grant to the client apps limited access to the APIs you are building. As a result, the client app will obtain an Access Token that can be used to call the API on behalf of the user.
 :::

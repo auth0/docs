@@ -6,13 +6,24 @@ title: Lock v1 for iOS and macOS
 snippets:
   dependencies: native-platforms/ios-objc/dependencies
 description: A widget that provides a frictionless login and signup experience for your native iOS and macOS apps.
+topics:
+  - libraries
+  - lock
+  - ios
+contentType:
+  - index
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock v1 for iOS and macOS
 
 <%= include('../_includes/_lock-version-1') %>
 
-Auth0 is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
+Auth0 is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, G Suite and Salesforce.
 
 ## Key features
 
@@ -21,7 +32,6 @@ Auth0 is an authentication broker that supports social identity providers as wel
 * Provides support for **Social Providers** (Facebook, Twitter, and so on), **Enterprise Providers** (AD, LDAP, and so on) and **Username & Password** authentication.
 * Provides the ability to do **SSO** with 2 or more mobile apps, similar to Facebook and Messenger apps.
 * [1Password](https://agilebits.com/onepassword) integration using the **iOS 8** [Extension](https://github.com/AgileBits/onepassword-app-extension).
-* Passwordless authentication using **Touch ID** and **SMS**.
 
 ::: note
 Check out the [Lock.swift repository](https://github.com/auth0/Lock.swift/tree/v1) on GitHub.
@@ -271,7 +281,7 @@ Your `viewController` should also implement the `A0LockEventDelegate` methods:
 - (void)userAuthenticatedWithToken:(A0Token *)token profile:(A0UserProfile *)profile; - Calls `onAuthenticationBlock` of `A0LockViewController` with token and profile
 ```
 
-After implementating your `viewController`, you will need to return it in a `customSignUp` block of `A0LockViewController`. The default value for this block is `nil`.
+After implementing your `viewController`, you will need to return it in a `customSignUp` block of `A0LockViewController`. The default value for this block is `nil`.
 
 **Objective-C**:
 

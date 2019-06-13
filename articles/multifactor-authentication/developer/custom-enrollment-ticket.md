@@ -1,9 +1,20 @@
 ---
-description: Describes how to create an enrollment ticket from api
+description: Describes how to create an enrollment ticket from API
+topics:
+  - mfa
+  - step-up-authentication
+  - api
+  - custom-enrollment
+  - tickets
+contentType:
+  - how-to
+  - concept
+useCase:
+  - customize-mfa
 ---
 # Custom Enrollment
 
-In addition to [directly sending emails to enroll users](/multifactor-authentication/administrator/guardian-enrollment-email), it is also possible to manage users' enrollments by creating _enrollment tickets_ via the [post_ticket API](/api/management/v2#!/Guardian/post_ticket).
+It is also possible to manage users' enrollments by creating _enrollment tickets_ via the [post_ticket API](/api/management/v2#!/Guardian/post_ticket).
 
 This API will return an _enrollment ticket_ containing a `ticket_id` and a `ticket_url`, which can be used to enroll a user.
 
@@ -103,9 +114,9 @@ Alternatively, the ticket can be leveraged inside the Guardian [Hosted Page](${m
 </html>
 ```
 
-Since this hosted page is used for displaying the Guardian widget in both enrollment and standard multifactor login scenarios, it's important to note that the existence of the `ticket` variable can be used to determine which scenario is being used, and to control the content accordingly.
+This hosted page displays the Guardian widget in both enrollment and standard multi-factor login scenarios. You can use the ticket variable to check which scenario is in use and control the content accordingly.
 
-For example, the following code could be used to used to alter the message:
+For example, the following code displays a different message depending on whether the user is enrolling or authenticating:
 
 ```html
 {% if ticket %}
@@ -116,9 +127,3 @@ For example, the following code could be used to used to alter the message:
 ````
 
 Note that this conditional logic around the existence of the `ticket` variable is also used in the initialization of the `Auth0MFAWidget` above.
-
-## Keep reading
-
-::: next-steps
-* [Sending Guardian Enrollment Emails](/multifactor-authentication/administrator/guardian-enrollment-email)
-:::

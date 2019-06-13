@@ -1,5 +1,11 @@
 ---
 description: List of Identity Provider services known to support the SAML protocol.
+topics:
+  - saml
+contentType:
+  - reference
+useCase:
+  - add-idp
 ---
 # List of SAML-P Identity Providers
 
@@ -29,3 +35,4 @@ The following providers have participated in a Kantara inter-operability test an
   * __Tivoli Federated Identity Manager__
   * __TrustBuilder__
   * __Ubisecure SSO__
+  * __WSO2 Identity Server__

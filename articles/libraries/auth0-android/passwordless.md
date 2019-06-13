@@ -2,6 +2,12 @@
 section: libraries
 toc: true
 description: How to use Auth0.Android with passwordless connections
+topics:
+  - libraries
+  - android
+  - passwordless
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # Auth0.Android Passwordless Authentication
 

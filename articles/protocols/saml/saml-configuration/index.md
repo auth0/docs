@@ -1,5 +1,12 @@
 ---
 description: An overview of the SAML configuration process
+topics:
+  - saml
+  - saml-configuration
+contentType:
+  - index
+useCase:
+  - add-idp
 ---
 
 # SAML Configuration
@@ -44,7 +51,7 @@ The following documentation cover the different aspects of SAML configuration:
 * [Supported SAML Options and Bindings](/protocols/saml/saml-configuration/supported-options-and-bindings)
 * [Special Configuration Scenarios](/protocols/saml/saml-configuration/special-configuration-scenarios)
 * [Customize SAML Assertions](/protocols/saml/saml-configuration/saml-assertions)
-* [Select Between Multiple Identity Providers](/protocols/saml/saml-configuration/selecting-between-multiple-idp)
+* [Select Between Multiple Identity Providers](/hrd)
 * [Logout](/protocols/saml/saml-configuration/logout)
 * [Deprovision Users](/protocols/saml/saml-configuration/deprovision-users)
 * [Troubleshoot](/protocols/saml/saml-configuration/troubleshoot)

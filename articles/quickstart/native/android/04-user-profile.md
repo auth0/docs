@@ -3,20 +3,17 @@ title: User Profile
 description: This tutorial will show you how to get and modify the user's profile data.
 seo_alias: android
 budicon: 292
+topics:
+  - quickstarts
+  - native
+  - android
+github:
+    path: 04-User-Profile
+contentType: tutorial
+useCase: quickstart
 ---
 
 This tutorial shows you how to get and modify the user's profile data with Auth0 in your Android apps.
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  path: '04-User-Profile',
-  requirements: [
-    'Android Studio 2.3',
-    'Android SDK 25',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>
 
 ## Before You Start
 
@@ -39,15 +36,15 @@ WebAuthProvider.init(auth0)
 ```
 
 ::: note
-Note that the Management API audience value ends in `/` in constrast to the User Info audience. 
+Note that the Management API audience value ends in `/` in contrast to the User Info audience.
 :::
 
 ## Request User Data
 
 
 To get the user's information:
-1. Use the user's access token to call the `userInfo` method in the `AuthenticationAPIClient` application instance.
-The profile obtained this way is OIDC-conformant. Depending on the [scopes](/scopes/current) you requested when logging in, the profile contains different information. The result will never contain fields outside the OIDC specification.
+1. Use the user's Access Token to call the `userInfo` method in the `AuthenticationAPIClient` application instance.
+The profile obtained this way is OIDC-conformant. Depending on the [scopes](/scopes) you requested when logging in, the profile contains different information. The result will never contain fields outside the OIDC specification.
 2. Get the user's full profile using the [Management API](/api/management/v2#!/Users). Since fields such as [user_metadata](#additional-information) are not part of the OIDC specification you need to obtain the full profile to read them. This step is explained next:
 
 
@@ -73,7 +70,7 @@ Do not hardcode the Auth0 `domain` and `clientId` values when creating the Auth0
 
 To get the user's profile:
 1. Use the user's Access Token to call the `userInfo` method in the `AuthenticationAPIClient` application instance.
-You get an instance of the `UserProfile` profile. The profile is OIDC-conformant. Depending on the on the [scopes](/scopes/current) you requested, the profile contains different information. 
+You get an instance of the `UserProfile` profile. The profile is OIDC-conformant. Depending on the on the [scopes](/scopes) you requested, the profile contains different information.
 2. To get the user's full profile, use the [Management API](/api/management/v2#!/Users). Use the user ID obtained in previous step to call `getProfile` on the Users API application and obtain the full user profile. Use the received data to update the layout.
 
 ```java
@@ -147,7 +144,7 @@ You can choose the key names and value types for subscripting the `user_metadata
 The `appMetadata` map contains fields that are usually added with a [Rule](/rules) or a [Hook](/hooks). For native platforms, this information is read-only.
 
 ::: note
-To learn more about metadata, see the [metadata documentation](/metadata).
+To learn more about metadata, see [Metadata](/users/concepts/overview-user-metadata).
 :::
 
 #### C. Extra information
@@ -184,5 +181,5 @@ usersClient.updateMetadata(userInfo.getId(), userMetadata).start(new BaseCallbac
 
 
 ::: note
-A call to `updateMetadata` will replace any previous user metadata stored in Auth0. Remember to copy the old values that you wish to maintain. 
-::: 
+A call to `updateMetadata` will replace any previous user metadata stored in Auth0. Remember to copy the old values that you wish to maintain.
+:::

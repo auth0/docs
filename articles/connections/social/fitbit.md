@@ -6,6 +6,14 @@ seo_alias: fitbit
 index: 14
 description: How to obtain a Client Id and Client Secret for Fitbit.
 toc: true
+topics:
+  - connections
+  - social
+  - fitbit
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Fitbit
@@ -34,6 +42,8 @@ Log in to the [Fitbit's Developer site](https://dev.fitbit.com), then select **R
 - **OAuth 2.0 Application Type**- select **Application**, applications (clients) authenticate using either the Authorization Code Grant Flow or the Implicit Grant Flow
 - **Callback URL**- this is the URL called after a request, in this field enter: `https://${account.namespace}/login/callback`
 - **Default Access Type**- the type of access granted to the application
+
+<%= include('../_find-auth0-domain-redirects') %>
 
 When finished, click **Register**.
 

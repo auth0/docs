@@ -2,6 +2,16 @@
 section: libraries
 title: Lock Passwordless for iOS
 description: Using Passwordless authentication with Lock for iOS v2
+topics:
+  - libraries
+  - lock
+  - ios
+  - passwordless
+contentType:
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Passwordless for iOS
 
@@ -28,7 +38,7 @@ Lock
 
 ### Passwordless Method
 
-When using Lock Passwordless the default `passwordlessMethod` is `.code` which sends the user a one time passcode to login. If you want to use [Universal Links](/applications/enable-universal-links) you can add the following:
+When using Lock Passwordless the default `passwordlessMethod` is `.code` which sends the user a one time passcode to login. If you want to use [Universal Links](/dashboard/guides/applications/enable-universal-links) you can add the following:
 
 ```swift
 .withOptions {

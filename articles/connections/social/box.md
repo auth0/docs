@@ -5,6 +5,14 @@ image: /media/connections/box.png
 seo_alias: box
 description: How to obtain a Client Id and Client Secret for Box.
 toc: true
+topics:
+  - connections
+  - social
+  - box
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Box
@@ -34,6 +42,8 @@ Scroll down to find the `client_id` and `client_secret` fields under the **OAuth
 Enter this URL as the `redirect_uri`:
 
   https://${account.namespace}/login/callback
+
+  <%= include('../_find-auth0-domain-redirects') %>
 
 While on this page, make sure to define the appropriate permission **Scopes** for your app.
 

@@ -1,72 +1,90 @@
 ---
-title: Multifactor Authentication in Auth0
-description: The basics of multifactor authentication and the different methods of implementing it with Auth0.
+title: Multi-factor Authentication in Auth0
+description: The basics of multi-factor authentication and the different methods of implementing it with Auth0.
 url: /multifactor-authentication
+toc: true
+topics:
+    - mfa
+contentType:
+  - index
+useCase:
+  - customize-mfa
 ---
+# Multi-factor Authentication
 
-# Multifactor Authentication in Auth0
+## What is multi-factor authentication?
 
-Multifactor Authentication (MFA) is a method of verifying a user's identity by requiring them to present more than one piece of identifying information. This method provides an additional layer of security, decreasing the likelihood of unauthorized access. The type of information required from the user is typically two or more of the following:
+Multi-factor Authentication (MFA) is a method of verifying a user's identity by requiring them to present more than one piece of identifying information. This method provides an additional layer of security, decreasing the likelihood of unauthorized access. The type of information required from the user is typically two or more of the following:
 
-* **Knowledge**: Something the user knows (such as a password)
-* **Possession**: Something the user has (such as a cell phone)
-* **Inheritance**: Something the user is (such as a fingerprint or retina scan)
+* **Knowledge**: Something the user **knows** (such as a password)
+* **Possession**: Something the user **has** (such as a mobile device)
+* **Inheritance**: Something the user **is** (such as a fingerprint or retina scan)
 
-## Implementing MFA with Auth0
+## Implement MFA with Auth0
 
-Auth0 supports the following methods of implementing MFA:
+Enabling MFA for your tenant is a fairly straightforward process. First, you toggle on the factors you choose to enable on your tenant, such as push notifications or SMS. Next, you perform any further setup required to configure that factor, and last, you choose whether you wish to force MFA for all users or not. See the instructions below for details.
 
-1. [Push Notifications (Auth0 Guardian)](/multifactor-authentication#mfa-using-push-notifications-auth0-guardian-) - Auth0's mobile application Guardian sends push notifications for MFA
-2. [SMS (Auth0 Guardian)](/multifactor-authentication#mfa-with-sms) - Verification by sending a six-digit code via SMS
-3. Support for one-time password authentication services [Google Authenticator](/multifactor-authentication#mfa-using-google-authenticator) and [Duo Security](/multifactor-authentication#mfa-using-duo-security).
-4. [Configuring rules for custom processes](/multifactor-authentication#mfa-using-custom-rules) - such as Contextual MFA, which allows you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
-5. Using a [custom provider](/multifactor-authentication#mfa-using-a-custom-provider), such as **Yubikey**.
+You can also [customize your MFA flow](/multifactor-authentication/custom) with [Auth0 Rules](/rules), to allow MFA to only be required in specific circumstances or force a particular factor to be used.
 
-## MFA using Push Notifications (Auth0 Guardian)
+### 1. Enable the factors you require
 
-<div class="phone-mockup"><img src="/media/articles/mfa/guardian-push.png" alt="Guardian Push Screenshot"/></div>
+In the [Dashboard > Multifactor Auth](${manage_url}/#/mfa), head to the Multifactor Auth section. Here you will find a series of toggles for the MFA factors supported by Auth0. 
 
-Guardian is Auth0's MFA application. It is a frictionless approach to implementing MFA for your apps, and provides a full MFA experience without requiring integration with third-party utilities.
+![MFA Dashboard Page](/media/articles/multifactor-authentication/mfa-dashboard-1.png)
 
-[Click here to learn more about enabling push notifications with Guardian](/multifactor-authentication/guardian)
+Any or all of these factors can be enabled simultaneously. When logging in the first time, the user will be shown the most secure factor available, but will be allowed to choose another factor to use if you have more than one factor enabled in the Dashboard. The SMS and the Duo factors require further setup. You will have to click on the factor and fill in a few further settings before continuing.
 
-## MFA with SMS
+::: note
+Duo will only be available to end-users as a factor if it is the only factor that is enabled.
+:::
 
-<div class="phone-mockup"><img src="/media/articles/mfa/sms-screenshot.png" alt="MFA SMS Screenshot"/></div>
+#### Always require multi-factor authentication
 
-Auth0 supports sending an SMS with a one-time password code to be used for another step of verification.
+![MFA Dashboard Page](/media/articles/multifactor-authentication/mfa-dashboard-2.png)
 
-[Click here to learn more about enabling SMS](/multifactor-authentication/guardian/admin-guide#support-for-sms)
+The **Always require Multi-factor Authentication** setting, when enabled, will force all your applications to prompt for MFA during the authentication flow. Users will be able to use any of the factors enabled in the Dashboard.
 
-## MFA Using Google Authenticator
+### 2. Set up your services
 
-<div class="phone-mockup"><img src="/media/articles/mfa/google-auth-screenshot.png" alt="Screenshot of Google Authenticator"/></div>
+<%= include('./factors/_factors-index') %>
 
-Google Authenticator is a mobile app that generates 2-step verification codes. This creates a one-time use password that is used as the second factor after your user has attempted to log in with their Google credentials.
+## Customizing multi-factor authentication
 
-[Click here to learn more about enabling Google Authenticator](/multifactor-authentication/google-authenticator)
+### Customizing MFA
 
-## MFA Using Duo Security
+::: note
+These customizations do not apply to Duo, which has its own UI.
+:::
 
-<div class="phone-mockup"><img src="/media/articles/mfa/duo-screenshot.png" alt="DUO Screenshot"/></div>
+The hosted page for MFA can also be customized. You may change the logo and the name that is displayed to your users. To do so, make the appropriate changes to the Guardian page's settings on the **General** tab in [Dashboard > Tenant Settings](${manage_url}/#/tenant). You can also reach the Tenant Settings page by clicking on your tenant name on the top right of the page and then selecting **Settings** from the dropdown menu.
 
-Duo Security allows you to request either of the following as your second factor once the user has provided their initial login credentials:
+* **Friendly Name**: the name of the app that you want displayed to users
+* **Logo URL**: the URL that points to the logo image you want displayed to users
 
-* A user response to a push notification sent to the appropriate device
-* A passcode provided to the user via SMS
+Additionally, you can [customize the MFA hosted page](/hosted-pages/guardian) as well.
 
-[Click here to learn more about enabling Duo](/multifactor-authentication/duo)
+### Customizing via Rules
 
-## MFA Using Custom Rules
+If you need to customize the multi-factor experience you are offering to your users, you may do so via [custom rules configurations for multi-factor authentication](/multifactor-authentication/custom). This might be needed, for example, if you wish to trigger MFA for only specific applications, or for specific users based on user metadata or on IP addresses.
 
-You may [configure rules](/rules) for custom MFA processes, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
+### MFA API
 
-[Click here for sample code snippets](/multifactor-authentication/custom) to assist you in building your rules here.
+Additionally, the [MFA API](/multifactor-authentication/api) is available for other customized MFA requirements.
 
-## MFA Using a Custom Provider
+## Recovery methods
 
-For a detailed look at implementing a custom MFA provider, see [Multifactor Authentication with YubiKey-NEO](/multifactor-authentication/yubikey) as an introduction.
+With most MFA factors, upon signup, the end user will be given a recovery code which should be noted and kept secret. They will enter this code, after their username and password, to login if they do not have their device or are temporarily unable to use their normal MFA. 
 
-## User-initiated MFA
+![MFA Recovery Code](/media/articles/multifactor-authentication/recovery-code.png)
 
-For details on how to implement user-initiated MFA, so you can flag users for MFA as part of the user creation/login process, refer to [User-Initiated Multifactor Authentication](/multifactor-authentication/user-initiated-mfa).
+::: note
+If a recovery code is used, a new recovery code will be provided at that time.
+:::
+
+If they have lost their recovery code and device, you will need to [reset the user's MFA](/multifactor-authentication/reset-user).
+
+If a user uninstalls then later re-installs Guardian, they may be prompted to enter their recovery code. If the recovery code has been lost, the user can perform a new installation of the app by disabling automatic restoration of their Guardian backup. To do so, the user will need to uninstall Guardian, temporarily disable automatic restoration of backups within their device settings (steps to do so will vary according to the device), then re-install the app. They will then need to add their MFA account(s) to the app as if performing a first-time setup. If automatic backups or automatic restoration are not enabled on the user's device, re-installation of the app will not prompt for a recovery code and the user will be required to add their MFA account(s) as in a first-time setup.
+
+## Troubleshooting
+
+See the [MFA Troubleshooting Guide](/multifactor-authentication/troubleshooting) for help troubleshooting common end-user issues.

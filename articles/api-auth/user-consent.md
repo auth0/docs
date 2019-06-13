@@ -1,5 +1,13 @@
 ---
 title: User consent and third-party applications
+topics:
+  - api-authentication
+  - oidc
+  - user-consent
+contentType: how-to
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # User Consent and Third-Party Applications
@@ -28,7 +36,7 @@ All applications created from the [management dashboard](${manage_url}/#/applica
 At the time of writing, third-party applications cannot be created from the management dashboard.
 They must be created through the management API, by setting `is_first_party: false`.
 
-All applications created through [Dynamic Application Registration](/api-auth/dynamic-application-registration) will be third-party.
+All applications created through [Dynamic Client Registration](/api-auth/dynamic-client-registration) will be third-party.
 
 ## Consent dialog
 
@@ -56,11 +64,37 @@ client_id=some_third_party_client
   </tbody>
 </table>
 
-If the user chooses to allow the application, this will create a user grant which represents this user's consent to this combination of application, resource server and scopes.
+If the user allows the application, this creates a *user grant* which represents the user's consent to this combination of application, resource server, and scopes. 
 
-The application will then receive a successful authentication response from Auth0 as usual.
+The application then receives a successful authentication response from Auth0 as usual. Once consent has been given, the user won't see the consent dialog during subsequent logins until consent is revoked explicitly.
 
-Once consent has been given, the user will no longer see the consent dialog on subsequent logins.
+## Scope Descriptions 
+
+By default, the consent page will use the scopes' names to prompt for the user's consent. As shown below, you should define scopes using the **action:resource_name** format.
+
+![API Scopes](/media/articles/api-auth/consent-scopes.png)
+
+The consent page groups scopes for the same resource and displays all actions for that resource in a single line. For example, the configuration above would result in **Posts: read and write your posts**.
+
+If you would like to display the **Description** field instead, you can do so by setting the tenant's **use_scope_descriptions_for_consent** to **true**. This will affect consent prompts for all of the APIs on that tenant.
+
+To set the **use_scope_descriptions_for_consent** flag, you will need to make the appropriate call to the API:
+
+```har
+{
+  "method": "PATCH",
+  "url": "https://${account.namespace}/api/v2/tenants/settings",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" },
+    { "name": "Authorization", "value": "Bearer API2_ACCESS_TOKEN" },
+    { "name": "Cache-Control", "value": "no-cache" }
+  ],
+  "postData": {
+      "mimeType": "application/json",
+      "text" : "{ \"flags\": { \"use_scope_descriptions_for_consent\": true } }"
+  }
+}
+```
 
 ## Handling rejected permissions
 
@@ -84,7 +118,7 @@ Note that this option only allows __verifiable__ first-party applications to ski
 127.0.0.1       myapp.example
 ```
 
-Once you do this, remember to update your application configuration URLs, such as the **Allowed Callback URLs** (found in [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings)), and the callback URL you configured in your application, to match the updated domain-mapping.
+Similarly, you **cannot** skip consent (even for first-party applications) if `localhost` appears in any domain in the **Allowed Callback URLs** setting (found in [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings)). Make sure to update **Allowed Callback URLs**, and the callback URL you configured in your application, to match the updated domain-mapping.
 :::
 
 Since third-party applications are assumed to be untrusted, they are not able to skip consent dialogs.
@@ -106,5 +140,4 @@ When redirecting to /authorize, the `prompt=consent` parameter will force users 
 
 ### Customizing the consent dialog
 
-As of today the consent dialog UI cannot be customized or set to a custom domain.
-We plan to implement this in future releases.
+The consent dialog UI cannot be customized or set to a custom domain.

@@ -2,6 +2,16 @@
 section: libraries
 title: Lock Android v2 Custom Theming
 description: Customizing the Lock for Android UI
+topics:
+  - libraries
+  - lock
+  - android
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Custom Theming
 

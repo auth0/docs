@@ -1,13 +1,17 @@
 ---
 description: An overview of the Auth0 Management API v1 which has been deprecated.
+topics:
+  - apis
+  - management-api
+contentType: 
+    - reference
+    - index
+useCase: invoke-api
 ---
 
 # Management API v1 (deprecated)
 
-::: warning
-This version of the Management API has been deprecated.
-Please use the [new version](/api/v2) instead.
-:::
+<%= include('../../../_includes/_version_warning_api') %>
 
 ## Authentication
 
@@ -16,19 +20,16 @@ Please use the [new version](/api/v2) instead.
   <div class="span4 col-sm-4 api-description" style="text-align:right">Obtain a token to call the API</div>
 </div>
 
-Auth0 API requires an `access_token`. You can get one by authenticating with your `client_id` and `client_secret` (It will be valid for 24 hours). To obtain the global client ID and global client secret see the **Advanced** tab under [Tenant Settings](${manage_url}/#/tenant/advanced) in the Auth0 dashboard.
+Auth0 API requires an Access Token. You can get one by authenticating with your `client_id` and `client_secret` (It will be valid for 24 hours). To obtain the global client ID and global client secret see the **Advanced** tab under [Tenant Settings](${manage_url}/#/tenant/advanced) in the Auth0 dashboard.
 
 ```text
 POST /oauth/token
-Content-Type: application/json
-{
-  "client_id": "",
-  "client_secret": "",
-  "grant_type": "client_credentials"
-}
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET
 ```
 
-Once authenticated, the `access_token` can be included in the request as part of the querystring ( `?access_token=...`) or in an HTTP header (`Authorization: Bearer ...access_token...`).
+Once authenticated, the Access Token can be included in the request as part of the querystring ( `?access_token=...`) or in an HTTP header (`Authorization: Bearer ...access_token...`).
 
 
 ## Users
@@ -73,7 +74,7 @@ Authorization: Bearer {token}
   <div class="span4 col-sm-4 api-description" style="text-align:right">Gets all user's devices</div>
 </div>
 
-Gets all devices/refresh_tokens being used by the user.
+Gets all devices/Refresh Tokens being used by the user.
 
 ```text
 GET /api/users/{user_id}/devices
@@ -98,9 +99,9 @@ Authorization: Bearer {token}
 </div>
 
 **Search** remarks: Depending on the connection's type the search will be done in different fields:
-*   Active Directory/LDAP: by default uses Ambigous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of e-mail addresses over all e-mail address spaces that the Exchange server knows about).
+*   Active Directory/LDAP: by default uses ambiguous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of email addresses over all email address spaces that the Exchange server knows about).
 *   Database Connections (not custom): Name/Email case insensitive.
-*   Google Apps: Email/username case insensitive.
+*   G Suite: Email/username case insensitive.
 *   WAAD/WAAD2: Name/Email case insensitive.
 *   Windows Azure Active Directory or Office365: name/email case insensitive
 Heads up! If the connection does not support querying for users (for instance ADFS, SAMLP), it will return the users who have logged in through that connection.
@@ -117,9 +118,9 @@ Authorization: Bearer {token}
 
 Search users from all enterprise directories based on the specified `criteria`. The parameter is mandatory.
 **Search** remarks: Depending on the connection's type the search will be done in different fields:
-*   Active Directory/LDAP: by default uses Ambigous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of e-mail addresses over all e-mail address spaces that the Exchange server knows about).
+*   Active Directory/LDAP: by default uses ambiguous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of email addresses over all email address spaces that the Exchange server knows about).
 *   Database Connections (not custom): Name/Email case insensitive.
-*   Google Apps: Email/username case insensitive.
+*   G Suite: Email/username case insensitive.
 *   WAAD/WAAD2: Name/Email case insensitive.
 *   Windows Azure Active Directory or Office365: name/email case insensitive
 Heads up! If the connection does not support querying for users (for instance ADFS, SAMLP), it will return the users who have logged in through that connection.
@@ -412,7 +413,7 @@ Authorization: Bearer {token}
 Content-Type: application/json
 {
   "name":     ""
-  "strategy": "waad|google-apps|adfs|PingFederate|samlp|auth0",
+  "strategy": "waad|g-suite|adfs|PingFederate|samlp|auth0",
   "options":   {
     "tenant_domain":
     "domain_aliases":
@@ -439,7 +440,7 @@ Content-Type: application/json
 </div>
 
 Updates a connection. The body of the request must include the `options` object with the connection parameters and the `status`.
-The request's body depends on the strategy that was used to create the connection. Select a strategy: waad google-apps adfs PingFederate samlp auth0
+The request's body depends on the strategy that was used to create the connection. Select a strategy: waad g-suite adfs PingFederate samlp auth0
 
 ```text
 PUT /api/connections/{connection-name}
@@ -696,13 +697,13 @@ The following is a description of the values returned by the request:
 *   `total`: The amount of entries in the page.
 *   `limit`: The maximum amount of items in a page.
 *   `logs`: A collection of log entries.
-    *   `date`: The moment when the event occured.
+    *   `date`: The moment when the event occurred.
     *   `connection`: The connection related to the event.
     *   `client_id`: The id of the application related to the event.
     *   `client_name`: The name of the application related to the event.
     *   `ip`: The IP address from where the request that caused the log entry originated.
-    *   `user_id`: The user id releated to the event.
-    *   `user_name`: The user name releated to the event.
+    *   `user_id`: The user id related to the event.
+    *   `user_name`: The user name related to the event.
     *   `description`: The event's description.
     *   `user_agent`: The user agent that was used to cause the creation of the log entry.
     *   `type`: An abbreviation of the event type. Refer to the event acronym mappings below for the mapping between abbreviations and their meaning.
@@ -743,10 +744,10 @@ Retrieves data about log entries based on the specified parameters. Log entries 
 *   `fields`: Can be used to either include or exclude the specified fields by providing a comma (,) separated list of fields, for example `at,c,cn,un`. If no list is provided all fields are included in the response.
 *   `exclude_fields`: To exclude the fields `exclude_fields=true` must be used (if not specified it defaults to false).
 Possible values for `field` are:
-*   `date`: The moment when the event occured.
+*   `date`: The moment when the event occurred.
 *   `connection`: The connection related to the event.
 *   `client_name`: The name of the application related to the event.
-*   `user_name`: The user name releated to the event.
+*   `user_name`: The user name related to the event.
 
 ```text
 GET /api/logs?page={number}&per_page={items}&sort={field}:{-1|1}&fields={fields}&exclude_fields{true|false}
@@ -760,13 +761,13 @@ The following is a description of the values returned by the request:
 *   `total`: The amount of entries in the page.
 *   `limit`: The maximum amount of items in a page.
 *   `logs`: A collection of log entries.
-    *   `date`: The moment when the event occured.
+    *   `date`: The moment when the event occurred.
     *   `connection`: The connection related to the event.
     *   `client_id`: The id of the application related to the event.
     *   `client_name`: The name of the application related to the event.
     *   `ip`: The IP address from where the request that caused the log entry originated.
-    *   `user_id`: The user id releated to the event.
-    *   `user_name`: The user name releated to the event.
+    *   `user_id`: The user id related to the event.
+    *   `user_name`: The user name related to the event.
     *   `description`: The event's description.
     *   `user_agent`: The user agent that was used to cause the creation of the log entry.
     *   `type`: An abbreviation of the event type. Refer to the event acronym mappings below for the mapping between abbreviations and their meaning.
@@ -807,7 +808,7 @@ If no fields are provided a case insensitive 'starts with' search is performed o
 *   `user_name`
 
 Otherwise, you can specify multiple fields and specify the search using the `%field%:%search%`, for example: `application:node user:"John@contoso.com"`.
-Values specified without quotes are matched using a case insensitive 'starts with' search. If quotes are used a case insensitve exact search is used. If multiple fields are used, the AND operator is used to join the clauses.
+Values specified without quotes are matched using a case insensitive 'starts with' search. If quotes are used a case insensitive exact search is used. If multiple fields are used, the AND operator is used to join the clauses.
 
 ##### Available Fields
 *   `application`: Maps to the `client_name` field.
@@ -826,13 +827,13 @@ The following is a description of the values returned by the request:
 *   `total`: The amount of entries in the page.
 *   `limit`: The maximum amount of items in a page.
 *   `logs`: A collection of log entries.
-    *   `date`: The moment when the event occured.
+    *   `date`: The moment when the event occurred.
     *   `connection`: The connection related to the event.
     *   `client_id`: The id of the application related to the event.
     *   `client_name`: The name of the application related to the event.
     *   `ip`: The IP address from where the request that caused the log entry originated.
-    *   `user_id`: The user id releated to the event.
-    *   `user_name`: The user name releated to the event.
+    *   `user_id`: The user id related to the event.
+    *   `user_name`: The user name related to the event.
     *   `description`: The event's description.
     *   `user_agent`: The user agent that was used to cause the creation of the log entry.
     *   `type`: An abbreviation of the event type. Refer to the event acronym mappings below for the mapping between abbreviations and their meaning.
@@ -883,13 +884,13 @@ The following is a description of the values returned by the request:
 *   `total`: The amount of entries in the page.
 *   `limit`: The maximum amount of items in a page.
 *   `logs`: A collection of log entries.
-    *   `date`: The moment when the event occured.
+    *   `date`: The moment when the event occurred.
     *   `connection`: The connection related to the event.
     *   `client_id`: The id of the application related to the event.
     *   `client_name`: The name of the application related to the event.
     *   `ip`: The IP address from where the request that caused the log entry originated.
-    *   `user_id`: The user id releated to the event.
-    *   `user_name`: The user name releated to the event.
+    *   `user_id`: The user id related to the event.
+    *   `user_name`: The user name related to the event.
     *   `description`: The event's description.
     *   `user_agent`: The user agent that was used to cause the creation of the log entry.
     *   `type`: An abbreviation of the event type. Refer to the event acronym mappings below for the mapping between abbreviations and their meaning.

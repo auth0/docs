@@ -1,4 +1,4 @@
-## Add a Scope
+#### Add a Scope
 
 By default, the Access Token does not contain any authorization information. To limit access to your resources based on authorization, you must use scopes. Read more about scopes in the  [scopes documentation](/scopes).
 

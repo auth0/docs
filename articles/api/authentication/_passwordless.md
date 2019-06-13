@@ -101,7 +101,7 @@ You have three options for [passwordless authentication](/connections/passwordle
 
 ### Remarks
 
-- If you sent a verification code, using either email or SMS, after you get the code, you have to authenticate the user using the [/oauth/ro endpoint](#authenticate-user), using `email` or `phone_number` as the `username`, and the verification code as the `password`.
+- If you sent a verification code, using either email or SMS, after you get the code, you have to authenticate the user using the [/passwordless/verify endpoint](#authenticate-user), using `email` or `phone_number` as the `username`, and the verification code as the `password`.
 - This endpoint is designed to be called from the client-side, and has a [rate limit](/policies/rate-limits#authentication-api) of 50 requests per hour per IP.
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
@@ -114,13 +114,12 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 - [Passwordless Authentication](/connections/passwordless)
 - [Authenticate users with using Passwordless Authentication via Email](/connections/passwordless/email)
 - [Authenticate users with a one-time code via SMS](/connections/passwordless/sms)
-- [Authenticate users with Touch ID](/connections/passwordless/ios-touch-id-swift)
 - [Passwordless FAQ](/connections/passwordless/faq)
 
 ## Authenticate User
 
 ```http
-POST https://${account.namespace}/oauth/ro
+POST https://${account.namespace}/passwordless/verify
 Content-Type: application/json
 {
   "client_id": "${account.clientId}",
@@ -134,7 +133,7 @@ Content-Type: application/json
 
 ```shell
 curl --request POST \
-  --url 'https://${account.namespace}/oauth/ro' \
+  --url 'https://${account.namespace}/passwordless/verify' \
   --header 'content-type: application/json' \
   --data '{"client_id":"${account.clientId}", "connection":"email|sms", "grant_type":"password", "username":"EMAIL|PHONE", "password":"VERIFICATION_CODE", "scope":"SCOPE"}'
 ```
@@ -184,12 +183,12 @@ curl --request POST \
 <%= include('../../_includes/_http-method', {
   "http_badge": "badge-success",
   "http_method": "POST",
-  "path": "/oauth/ro",
+  "path": "/passwordless/verify",
   "link": "#authenticate-user"
 }) %>
 
 ::: warning
-This feature is disabled by default for new tenants as of 8 June 2017. Please see [Application Grant Types](/applications/application-grant-types) for more information.
+This feature is disabled by default for new tenants as of 8 June 2017. Please see [Application Grant Types](/applications/concepts/application-grant-types) for more information.
 :::
 
 Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.
@@ -203,7 +202,7 @@ Once you have a verification code, use this endpoint to login the user with thei
 | `grant_type` <br/><span class="label label-danger">Required</span> | Use `password` |
 | `username` <br/><span class="label label-danger">Required</span> | The user's phone number if `connection=sms`, or the user's email if `connection=email`. |
 | `password` <br/><span class="label label-danger">Required</span> | The user's verification code.  |
-| `scope` | Use `openid` to get an `id_token`, or `openid profile email` to include also user profile information in the `id_token`. |
+| `scope` | Use `openid` to get an ID Token, or `openid profile email` to include also user profile information in the ID Token. |
 
 ### Test with Postman
 
@@ -215,7 +214,7 @@ Once you have a verification code, use this endpoint to login the user with thei
 
 1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (use `sms` or `email`).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set **Username** to the user's phone number if `connection=sms`, or the user's email if `connection=email`, and **Password** to the user's verification code. Click **Resource Owner Endpoint**.
 
@@ -227,7 +226,7 @@ Once you have a verification code, use this endpoint to login the user with thei
 
 ### Error Codes
 
-For the complete error code reference for this endpoint refer to [Errors > POST /oauth/ro](#post-oauth-ro).
+For the complete error code reference for this endpoint refer to [Errors > POST /passwordless/verify](#post-passwordless-verify).
 
 ### More Information
 

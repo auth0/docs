@@ -2,10 +2,19 @@
 title: Configure Custom Domains with Self-Managed Certificates
 description: How to create custom domains with self-managed certificates
 toc: true
+topics:
+  - custom-domains
+  - certificates
+contentType: how-to
+useCase: customize-domains
 ---
 # Custom Domains with Self-Managed Certificates
 
-Custom Domains with the **Self-Managed Certificates** option is available for enterprise customers only. Choosing this option means that you are responsible for managing your SSL/TLS certificates and configuring a reverse proxy to handle SSL termination and forwarding requests to Auth0. 
+::: warning
+Custom Domains with the **Self-Managed Certificates** option is available for enterprise customers only.
+:::
+
+You can choose to manage the certificates for your custom domains yourself, which means that you are responsible for managing your SSL/TLS certificates and configuring a reverse proxy to handle SSL termination and forwarding requests to Auth0. 
 
 Choose this option if:
 
@@ -74,7 +83,7 @@ If you are unable to complete the verification process within three days, you'll
 
 ### Step 3: Configure the Reverse Proxy
 
-Next you will need  to [set up your reverse proxy using AWS CloudFront](/custom-domains/set-up-cloudfront).
+Next you will need  to set up your reverse proxy. In this example, we will walk through [how to do so using AWS CloudFront](/custom-domains/set-up-cloudfront).
 
 ### Step 4: Complete Feature-Specific Setup
 

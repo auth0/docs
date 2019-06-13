@@ -1,6 +1,6 @@
 <%= include('../../_includes/_login_preamble', { library: 'JavaScript', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-javascript-samples/tree/embedded-login/01-Embedded-Login'}) %>
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 Add a new file called `app.js`. In the file, you can create and manage an instance of the `auth0.WebAuth` object. In that instance, you can define the following:
 
@@ -16,12 +16,14 @@ You can also use it to hold logic for hiding and displaying DOM elements.
 // app.js
 
 window.addEventListener('load', function() {
+  var idToken;
+  var accessToken;
+  var expiresAt;
 
   var webAuth = new auth0.WebAuth({
     domain: '${account.namespace}',
     clientID: '${account.clientId}',
     responseType: 'token id_token',
-    audience: 'https://${account.namespace}/userinfo',
     scope: 'openid',
     redirectUri: window.location.href
   });
@@ -42,15 +44,16 @@ window.addEventListener('load', function() {
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-### Finish the Authentication Functions
+## Handle Authentication Tokens
 
 Add more functions to the `app.js` file to handle authentication in the app.
 
 The example below shows the following functions:
-* `handleAuthentication`: looks for the result of authentication in the URL hash and processes it with the `parseHash` method from auth0.js
-* `setSession`: sets the user's Access Token, ID Token, and the Access Token's expiry time 
-* `logout`: removes the user's tokens and expiry time from browser storage
-* `isAuthenticated`: checks whether the expiry time for the user's Access Token has passed
+* `handleAuthentication`: looks for the result of authentication in the URL hash and processes it with the `parseHash` method from auth0.js.
+* `renewTokens`: performs silent authentication to renew the session.
+* `localLogin`: sets the user's Access Token, ID Token, and the Access Token's expiry time.
+* `logout`: removes the user's tokens and expiry time from browser memory. It also calls webAuth.logout to log the user out at the authorization server.
+* `isAuthenticated`: checks whether the expiry time for the user's Access Token has passed.
 
 ```js
 // app.js
@@ -78,7 +81,7 @@ window.addEventListener('load', function() {
     webAuth.parseHash(function(err, authResult) {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
-        setSession(authResult);
+        localLogin(authResult);
         loginBtn.style.display = 'none';
         homeView.style.display = 'inline-block';
       } else if (err) {
@@ -92,29 +95,51 @@ window.addEventListener('load', function() {
     });
   }
 
-  function setSession(authResult) {
+  function localLogin(authResult) {
+    // Set isLoggedIn flag in localStorage
+    localStorage.setItem('isLoggedIn', 'true');
     // Set the time that the Access Token will expire at
-    var expiresAt = JSON.stringify(
+    expiresAt = JSON.stringify(
       authResult.expiresIn * 1000 + new Date().getTime()
     );
-    localStorage.setItem('access_token', authResult.accessToken);
-    localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('expires_at', expiresAt);
+    accessToken = authResult.accessToken;
+    idToken = authResult.idToken;
+  }
+
+  function renewTokens() {
+    webAuth.checkSession({}, (err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        localLogin(authResult);
+      } else if (err) {
+        alert(
+            'Could not get a new token '  + err.error + ':' + err.error_description + '.'
+        );
+        logout();
+      }
+      displayButtons();
+    });
   }
 
   function logout() {
-    // Remove tokens and expiry time from localStorage
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
+    // Remove isLoggedIn flag from localStorage
+    localStorage.removeItem('isLoggedIn');
+    // Remove tokens and expiry time
+    accessToken = '';
+    idToken = '';
+    expiresAt = 0;
+
+    webAuth.logout({
+      return_to: window.location.origin
+    });
+
     displayButtons();
   }
 
   function isAuthenticated() {
     // Check whether the current time is past the
     // Access Token's expiry time
-    var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
-    return new Date().getTime() < expiresAt;
+    var expiration = parseInt(expiresAt) || 0;
+    return localStorage.getItem('isLoggedIn') === 'true' && new Date().getTime() < expiration;
   }
 
   function displayButtons() {
@@ -132,7 +157,7 @@ window.addEventListener('load', function() {
 });
 ```
 
-## Provide a Login Control
+### Provide a Login Control
 
 Provide a template with controls for the user to log in and out.
 
@@ -180,7 +205,7 @@ Depending on whether the user is authenticated or not, they see the **Log In** o
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
-## Process the Authentication Result
+### Process the Authentication Result
 
 When a user authenticates at the login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `app.js` file processes the hash. 
 
@@ -192,6 +217,10 @@ Call the `handleAuthentication` method in the `app.js` file. The method processe
 window.addEventListener('load', function() {
 
   // ...
-  handleAuthentication();
+  if (localStorage.getItem('isLoggedIn') === 'true') {
+    renewTokens();
+  } else {
+    handleAuthentication();
+  }
 });
 ```

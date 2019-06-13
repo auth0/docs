@@ -1,29 +1,34 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization and access control to your application
+description: This tutorial demonstrates how to add authorization and access control to a React application.
 budicon: 546
+topics:
+  - quickstarts
+  - spa
+  - react
+  - authorization
+github:
+  path: 04-Authorization
+sample_download_required_data:
+  - client
+  - api
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-react-samples',
-  path: '04-Authorization',
-  requirements: [
-    'React 15.5'
-  ]
-}) %>
-
 <%= include('../_includes/_authz_preamble') %>
 
 <%= include('../_includes/_authz_determining_scopes') %>
 
 ## Handle Scopes in the `Auth` Service
 
-Add a local member to your `Auth` service and intialize it with all the scopes you want to request when users log in. Use this member when initializing your instance of the `auth0.WebAuth` object.
+Add a local member to your `Auth` service and initialize it with all the scopes you want to request when users log in. Use this member when initializing your instance of the `auth0.WebAuth` object.
 
 ```js
 // src/Auth/Auth.js
 
+// ...
+
+scopes;
 requestedScopes = 'openid profile read:messages write:messages';
 
 auth0 = new auth0.WebAuth({
@@ -37,13 +42,19 @@ auth0 = new auth0.WebAuth({
 ```js
 // src/Auth/Auth.js
 
-setSession(authResult) {
+// ...
 
-  const scopes = authResult.scope || this.requestedScopes || '';
+setSession(authResult) {
+  // ...
+
+  // Set the users scopes
+  this.scopes = authResult.scope || this.requestedScopes || '';
 
   // ...
-  localStorage.setItem('scopes', JSON.stringify(scopes));
 }
+
+// ...
+
 ```
 
 <%= include('../_includes/_authz_user_has_scopes') %>
@@ -51,8 +62,10 @@ setSession(authResult) {
 ```js
 // src/Auth/Auth.js
 
+// ...
+
 userHasScopes(scopes) {
-  const grantedScopes = JSON.parse(localStorage.getItem('scopes')).split(' ');
+  const grantedScopes = this.scopes.split(' ');
   return scopes.every(scope => grantedScopes.includes(scope));
 }
 ```

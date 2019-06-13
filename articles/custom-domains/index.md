@@ -2,6 +2,10 @@
 title: Custom Domains
 description: How to map custom domains
 toc: true
+topics:
+  - custom-domains
+contentType: how-to
+useCase: customize-domains
 ---
 # Custom Domains
 
@@ -9,24 +13,33 @@ Auth0 allows you to map the domain for your tenant to a custom domain of your ch
 
 For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
 
-Currently, each tenant on the Auth0 public cloud supports **one** custom domain.
+We recommend that you use custom domains with Universal Login for the most seamless and secure experience for your users. Check the [Universal Login documentation](/hosted-pages/login) to see if your plan and use case support custom domains. 
 
-Using custom domains with universal login is the most seamless and secure experience for developers and end users. For more information, please see our docs on [universal login](/hosted-pages/login).
+::: warning
+Private Cloud customers should see [this page](/appliance/custom-domains) for information on using custom domains.
+:::
 
 ## Prerequisites
 
-You'll need to register and own the domain name to which you're mapping your Auth0 domain.
+* This feature is not available for free plans. To configure a custom domain you have to [upgrade your account to any paid plan](${manage_url}/#/tenant/billing/subscription)
+* You must register and own the domain name to which you are mapping your Auth0 domain
 
 ## Features supporting use of custom domains
 
 Currently, the following Auth0 features and flows support the use of custom domains:
 
-* OAuth 2.0/OIDC-Compliant Flows (those using the [`/authorize`](/api/authentication#authorize-application) and [`/oauth/token`](/api/authentication#get-token) endpoints)
+* OAuth 2.0/OIDC-Compliant flows (those using the [`/authorize`](/api/authentication#authorize-application) and [`/oauth/token`](/api/authentication#get-token) endpoints)
 * Guardian (MFA Widget Version 1.3.3/Guardian.js Version 1.3.0 or later)
 * Emails (the links included in the emails will use your custom domain)
-* Database and Social connections
-* Lock 11 with Cross Origin Authentication
-* SAML Connections and Applications
+* Database and social connections
+* Lock 11 with cross-origin authentication
+* Passwordless connections with Universal Login (The email link will be sent using the custom domain if the option is enabled in **Tenant Settings > Custom Domains**)
+* G Suite connections
+* SAML connections and applications
+* WS-Fed clients (Auth0 as IDP using WS-Fed Add-on)
+* Azure AD connections
+* ADFS connections
+* AD/LDAP connections
 
 :::warning
 Features not in the list are **not supported** by Auth0 with custom domains.
@@ -99,6 +112,10 @@ This means the verification process is complete and within 1 to 2 minutes, your 
 If you are unable to complete the verification process within three days, you'll need to start over.
 :::
 
+::: warning
+Once added, the CNAME record must be present at all times to avoid issues during certificate renewal.
+:::
+
 ### Step 3: Additional configuration steps
 
 There may be additional steps you must complete depending on which Auth0 features you are using. See the [Additional Configuration for Custom Domains](/custom-domains/additional-configuration) document for more information.
@@ -107,22 +124,24 @@ There may be additional steps you must complete depending on which Auth0 feature
 
 1. **If I use a custom domain, will I still be able to use my ${account.namespace} domain to access Auth0?**
   
-Yes, you will be able to use either the default `${account.namespace}` or your custom domain. There are however a few exceptions:
+Yes, you will be able to use either the default `${account.namespace}` or your custom domain. There are, however, a few exceptions:
 
-- If you are using embedded lock or an SDK, the configuration is pre-defined as using either your custom domain or the `${account.namespace}` domain, so you have to use one or the other
+- If you are using embedded Lock or an SDK, the configuration is pre-defined as using either your custom domain or the `${account.namespace}` domain, so you have to use one or the other
 - If you start a session in `${account.namespace}`, and go to `custom-domain.com`, the user will have to login again
 
-2. **What about support for other features?**
-  
-We are planning to support several additional features in the future, including WS-Fed applications and enterprise and Passwordless connections.
-
-3. **How many custom domains can I use per tenant?**
+2. **How many custom domains can I use per tenant?**
 
 Currently, each tenant on the Auth0 public cloud supports **one** custom domain.
 
+3. **Can you provide me a static list of IP addresses for my custom domain so I can whitelist them?**
+
+We cannot provide a static list of IP addresses as they are subject to change. Our recommendation is to whitelist your custom domain instead.
+
 ## Troubleshooting
 
-If you are seeing errors, refer to the following troubleshooting steps.
+If you are seeing errors, take a look at this video on common issues with Custom Domains, or refer to the below sections for troubleshooting steps for specific scenarios.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/f6fkOkS1RFA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Custom domain is still pending verification
 
@@ -139,20 +158,32 @@ Please remember that it can take up to 48 hours for the DNS to be propagated.
 
 Cloudflare has a service called CNAME Flattening. During the verification process, turn off the CNAME flattening process until the domain verification steps are complete to prevent IP address confusion.
 
-### Domains with existing CAA records
-
-If your domain, or the parent domain, already has a **Certification Authority Authorization** (CAA) record, then you  have to add another one for `letsencrypt.org`.
-
-The reason for that is that Auth0 uses `letsencrypt.org` to sign certificates so if it's not authorized to issue certificates for your domain, the custom domain functionality will not work for you.
-
-To add a new CAA record and whitelist `letsencrypt.org` use the following:
-
-```text
-"0 issue \"letsencrypt.org\""
-```
+### "You should not be hitting this endpoint"
+If you see this error when configuring a custom domain, you must perform [additional configuration](/custom-domains/additional-configuration), which varies depending on your setup.
 
 ### "Service not found"
 
 If your application issues an `/authorize` request with `audience=https://login.northwind.com/userinfo`, the server will return a `Service not found: https://login.northwind.com/userinfo` error. This is because even if you set a custom domain the API identifier for the `/userinfo` endpoint remains `https://{YOUR_ORIGINAL_AUTH0_DOMAIN}/userinfo`. 
 
 To fix this your app should instead use `audience=https://{YOUR_ORIGINAL_AUTH0_DOMAIN}/userinfo`. You can also remove this `audience=[...]/userinfo` parameter altogether if your application is flagged as **OIDC-Conformant** in the **OAuth2** tab of the application's **Advanced Settings**.
+
+### Errors related to Internet Explorer
+
+If you are using Internet Explorer, you may see any of the following error messages:
+
+* "No verifier returned from client"
+* "Origin header required"
+* "Failed cross origin authentication"
+
+#### Why you see these errors
+
+When both the Auth0 domain and the app domain are in the same trusted or local intranet zone, Internet Explorer does *not* treat the request as a cross-domain request and therefore does not send the cross-origins header.
+
+If you see any of these errors and you are using Embedded Login, you can move one of the sites out of the trusted or local intranet zone. To do this:
+
+1. Go to Internet Options > Security. 
+2. Select the **Local Intranet Zone** tab and go to Sites > Advanced. Add your domain.
+3. Return to the **Security** tab, and make sure the proper zone has been selected.
+4. Click **Custom Level** and look for **Access data sources across domains** under the **Miscellaneous** section. Check the radio button next to **Enable.**.
+
+Alternatively, you can remove reliance on cross-origin authentication by implementing [Universal Login](/hosted-pages/login).

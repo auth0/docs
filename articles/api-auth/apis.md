@@ -4,6 +4,14 @@ toc: true
 title: APIs Overview
 description: Learn the basics of APIs, their role in OAuth and how to configure an API in Auth0 Dashboard.
 crews: crew-2
+topics:
+  - api-authentication
+  - oidc
+  - apis
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # APIs
 
@@ -39,7 +47,7 @@ You need to provide the following information for your API:
 
 - **Name**: a friendly name for the API. Does not affect any functionality.
 
-- **Identifier**: a unique identifier for the API. We recommend using a URL but note that this doesn't have to be a publicly available URL, Auth0 will not call your API at all. This value **cannot be modified** afterwards.
+- **Identifier**: a unique identifier for the API. Auth0 recommends using a URL. Auth0 does differentiate between URLs that include the last forward slash. For example, https://example.com and https://example.com/ are two different identifiers. The URL does not have to be a publicly available URL. Auth0 will not call your API. This value **cannot** be modified afterwards. 
 
 - **Signing Algorithm**: the algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting `RS256` the token will be signed with the tenant's private key. For more details on the signing algorithms go to the [Signing Algorithms paragraph](#signing-algorithms).
 
@@ -49,9 +57,6 @@ Once you do so you will be navigated to the *Quick Start* of your API. Here you 
 
 ![API Quick Starts](/media/articles/api/overview/quickstarts-view.png)
 
-::: note
-Keep in mind that we are working on building quickstarts for more stacks, apart from those currently available.
-:::
 
 The other available views for your API are:
 
@@ -59,9 +64,9 @@ The other available views for your API are:
 
 - **Scopes**: here you can define the scopes for this API, by setting a name and a description.
 
-- **Machine to Machine Applications**: lists your Machine to Machine Applications. You can authorize which Machine to Machine Applications can request Access Tokens for your API. You can optionally select a subset of the defined scopes to further limit the access that an authorized your application has. Only Machine to Machine Applications require explicit permission. That is because, when you authorize a Machine to Machine Applications to access an API, Auth0 is creating an Application Grant for that application. For more details on this case refer to: [Setting up a Client Credentials Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard).
+- **Machine to Machine Applications**: lists all applications for which the **Client Credentials** grant is **enabled**. By default, this grant is **enabled* for [Regular Web Applications and Machine to Machine Applications](/applications/concepts/app-types-auth0). You can authorize any of these applications to request Access Tokens for your API. Optionally, you can select a subset of the defined scopes to  limit your authorized application's access. 
 
-- **Test**: from this view you can execute a sample Client Credentials flow with any of your Authorized Machine to Machine Applications to check that everything is working as expected.
+- **Test**: from this view, you can execute a sample Client Credentials flow with any of your authorized applications to check that everything is working as expected.
 
 ### API Settings
 
@@ -73,7 +78,7 @@ Click on the *Settings* tab of your [API](${manage_url}/#/apis) to review the av
 
 - **Identifier**: A unique identifier for your API. This value is set upon API creation and cannot be modified afterwards. We recommend using a URL but note that this doesn't have to be a publicly available URL, Auth0 will not call your API at all.
 
-- **Token Expiration (Seconds)**: The amount of time (in seconds) before the Auth0 `access_token` expires.
+- **Token Expiration (Seconds)**: The amount of time (in seconds) before the Auth0 Access Token expires. The default value is 86400 seconds (24 hours). The maximum value you can set is 2592000 seconds (30 days).
 
 - **Allow Skipping User Consent**: When a first party application requests authorized access against an API with the *Allow Skipping User Consent* flag set, the User Consent dialog will not be shown to the final user. Note that if the hostname of your application's **callbackURL** is `localhost` or `127.0.0.1` the consent dialog will always be displayed.
 

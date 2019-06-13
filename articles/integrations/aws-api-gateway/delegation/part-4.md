@@ -1,12 +1,17 @@
 ---
 title: Amazon API Gateway Tutorial - Using Multiple Roles
 description: Step 4 of Amazon API Gateway Tutorial
+topics:
+  - integrations
+  - aws
+  - api-gateway
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 # AWS API Gateway Tutorial
 
-::: version-warning
-Delegation is considered deprecated in Auth0. Please integrate Auth0 using custom authorizers. Use the drop-down to switch to these docs.
-:::
+<%= include('./_delegation-version-warning') %>
 
 ## Step 4 - Use Multiple Roles with Amazon API Gateway
 
@@ -26,7 +31,7 @@ The following diagram illustrates AWS IAM role assignments for two different use
 
 ![AWS Roles in Use](/media/articles/integrations/aws-api-gateway/roles-in-use.png)
 
-For cases where you want to make decisions within your code (for example, you might want a credit check of a user buying a pet), you will want to flow identity as well. This will be demonstrated below in [Step 5 - Using Identity Tokens to Flow Identity](/integrations/aws-api-gateway/part-5).
+For cases where you want to make decisions within your code (for example, you might want a credit check of a user buying a pet), you will want to flow identity as well. This will be demonstrated below in [Step 5 - Using Identity Tokens to Flow Identity](/integrations/aws-api-gateway/delegation/part-5).
 
 ### 1. Create the PetPurchase API Resource
 
@@ -177,7 +182,7 @@ In the Auth0 Dashboard, go back to **Applications**, select your Application, an
 
 ![AWS Connections](/media/articles/integrations/aws-api-gateway/part-4/aws-connections.png)
 
-#### Deploy the API and Update the Single Page Application
+#### Deploy the API and Update the Single-Page Application
 
 ##### Deploy the API
 

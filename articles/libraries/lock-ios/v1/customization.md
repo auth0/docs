@@ -2,6 +2,16 @@
 section: libraries
 title: Customization
 description: Learn how to customize the look and feel of Lock
+topics:
+  - libraries
+  - lock
+  - ios
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock iOS: Customization

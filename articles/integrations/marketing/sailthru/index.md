@@ -1,19 +1,19 @@
 ---
-title: Sailthru Integration
-description: Learn how to import your Auth0 user data into Sailthru.
+title: Export User Data To Sailthru
+description: Learn how to export your Auth0 user data and import it into Sailthru.
 toc: true
+topics:
+    - marketing
+    - sailthru
+contentType: how-to
+useCase: export-users-marketing
 ---
 
-# Sailthru Integration
+# Export User Data To Sailthru
 
-## Import Users to Sailthru
+In this article, you’ll learn how to export user data in Auth0 to a CSV file then import it into the Sailthru dashboard.
 
-To import your Auth0 users into Sailthru:
-
-- Export your user data as a CSV file with the [User Import / Export Extension](/extensions/user-import-export).
-- Import the file to a list on your Sailthru dashboard.
-
-### Create a User Data File
+## Create a user data file
 
 Start by navigating to the [Extensions](${manage_url}/#/extensions) section of the Dashboard and open the **User Import / Export Extension**. On the extension page, select **Export** from the menu.
 
@@ -34,7 +34,7 @@ User Field | Column Name
 
 After adding the user fields, click on the **Export Users** button to start the export. Once the export is complete, download the CSV file to use in the following section.
 
-### Import a User Data File
+### Import a user data file
 
 ::: note
 [Sailthru Documentation: Adding Users to Sailthru and Sailthru Lists](https://getstarted.sailthru.com/audience/managing-users/add-users-to-sailthru-and-lists/#List_File_Upload)

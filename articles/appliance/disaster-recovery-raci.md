@@ -1,6 +1,14 @@
 ---
 description: An in-depth summary of the roles and responsibilities allocated between Auth0 and the subscriber
 section: appliance
+topics:
+    - appliance
+    - disaster-recovery
+    - raci
+contentType: reference
+useCase: appliance
+applianceId: appliance55
+sitemap: false
 ---
 
 <!-- markdownlint-disable MD033 -->
@@ -118,7 +126,7 @@ The following table details the task division for configuring, creating, and mon
             <td>Restore the Data Backup</td>
             <td>R, C</td>
             <td>I</td>
-            <td>Please open a ticket in the <a href="${env.DOMAIN_URL_SUPPORT}">Auth0 Support Center</a> to request assistance with restoring a backup. Auth0 Customer Success Engineers will review your request, and if necessary, partner with the subscriber's infrastructure engineers to restore the environment. Please note that, in certain cases, a <a href="/services/private-saas-configuration">Professional Services</a> fee may apply.</td>
+            <td>Please open a ticket in the <a href="${env.DOMAIN_URL_SUPPORT}">Auth0 Support Center</a> to request assistance with restoring a backup. Auth0 Customer Success Engineers will review your request, and if necessary, partner with the subscriber's infrastructure engineers to restore the environment. Please note that, in certain cases, a <a href="/services/private-cloud-configuration">Professional Services</a> fee may apply.</td>
         </tr>
     </tbody>
 </table>
@@ -148,6 +156,12 @@ The following table details the task division for configuring, creating, and mon
             <td>I</td>
             <td>R, A</td>
             <td>The subscriber is responsible for restoring a VM Snapshot..</td>
+        </tr>
+        <tr>
+            <td>Recover Auth0 Environment</td>
+            <td>R</td>
+            <td>I, A</td>
+            <td>Auth0 is responsible for recovering the authentication environment.</td>
         </tr>
     </tbody>
 </table>

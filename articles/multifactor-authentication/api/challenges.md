@@ -1,8 +1,17 @@
 ---
-title: Associate a New Authenticator for Use with Multifactor Authentication
-description: How to associate a new authenticator for use with MFA using the new MFA API endpoints
+title: Trigger MFA using the API
+description: How to trigger MFA challenges for enrolled authenticators using the MFA API
+topics:
+  - mfa
+  - mfa-api
+  - mfa-challenges
+contentType:
+  - how-to
+  - reference
+useCase:
+  - customize-mfa
 ---
-# Multifactor Authentication Challenges
+# Trigger MFA using the API
 
 You can trigger MFA challenges for enrolled authenticators by calling the `/mfa/challenge` endpoint.
 
@@ -29,13 +38,20 @@ If successful, you'll receive the following response:
 }
 ```
 
-Proceed with the authentication process as usual.
+The user will collect a one-time password, which you will then collect from them. Proceed with the authentication process using `/oauth/token` as usual, adding the `otp` value that you collect as a parameter (format below) in the request.
+
+```
+{
+	"name": "otp",
+	"value": "000000"
+}
+```
 
 ## OOB Challenges
 
 To trigger an OOB challenge, make the appropriate `POST` call to `mfa/challenge`.
 
-```har
+```
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/mfa/challenge",
@@ -56,8 +72,11 @@ If successful, you'll receive the following response, as well as an SMS message 
 }
 ```
 
-Proceed with the authentication process as usual.
+Proceed with the authentication process using `/oauth/token` as usual, sending the `oob_code` as a parameter (format below) in the request.
 
-## Posting the MFA Responses
-
-You can post MFA OTP or MFA OOB responses using the `/oauth/token` endpoint.
+```
+{
+	"name": "oob_code",
+	"value": "asdae35fdt5...oob_code_redacted"
+}
+```

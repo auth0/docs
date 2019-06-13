@@ -9,6 +9,8 @@ The first step in adding authentication to your application is to provide a way 
 In the file `android/app/src/main/AndroidManifest.xml` you must make sure the **MainActivity** of the app has a **launchMode** value of `singleTask` and that it has the following intent filter:
 
 ```xml
+// android/app/src/main/AndroidManifest.xml
+
 <intent-filter>
     <action android:name="android.intent.action.VIEW" />
     <category android:name="android.intent.category.DEFAULT" />
@@ -23,6 +25,8 @@ In the file `android/app/src/main/AndroidManifest.xml` you must make sure the **
 So your **MainActivity** should look like this:
 
 ```xml
+// android/app/src/main/AndroidManifest.xml
+
 <activity
 android:name=".MainActivity"
 android:label="@string/app_name"
@@ -50,6 +54,8 @@ android:windowSoftInputMode="adjustResize">
 In the file `ios/<YOUR PROJECT>/AppDelegate.m` add the following:
 
 ```objc
+// ios/<YOUR PROJECT>/AppDelegate.m
+
 #import <React/RCTLinkingManager.h>
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
@@ -65,6 +71,8 @@ Next you will need to add a URLScheme using your App's bundle identifier.
 Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`
 
 ```xml
+// ios/<YOUR PROJECT>/Info.plist
+
 <key>CFBundleIdentifier</key>
 <string>org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)</string>
 ```
@@ -72,6 +80,8 @@ Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundle
 and then register a URL type entry using the value of `CFBundleIdentifier` as the value for the `CFBundleURLSchemes`
 
 ```xml
+// ios/<YOUR PROJECT>/Info.plist
+
 <key>CFBundleURLTypes</key>
 <array>
     <dict>
@@ -93,10 +103,10 @@ The value org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier) is the de
 
 ## Add Authentication with Auth0
 
-We recommend using universal login for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your application.
+We recommend using Universal Login for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your application.
 
 ::: note
-You can also embed login functionality directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
+You can also embed login functionality directly in your application. If you use this method, some features, such as single sign-on, will not be accessible.
 To learn how to embed functionality using a custom login form in your application, follow the [Custom Login Form Sample](https://github.com/auth0-samples/auth0-react-native-sample/tree/Embedded/01-Custom-Form).
 :::
 
@@ -108,8 +118,8 @@ Then present the hosted login screen, like this:
 
 ${snippet(meta.snippets.use)}
 
-Upon successful authentication the user's `credentials` will be returned, containing an `access_token`, an `id_token` and an `expires_in` value.
+Upon successful authentication the user's `credentials` will be returned, containing an Access Token, an ID Token and an `expires_in` value.
 
 ::: note
-For more information on the `accessToken`, refer to [Access Token](/tokens/access-token).
+For more information on the `accessToken`, refer to [Access Token](/tokens/overview-access-tokens).
 :::

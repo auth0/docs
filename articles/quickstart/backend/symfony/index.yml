@@ -9,8 +9,10 @@ languages:
 framework:
   - Symfony
 image: /media/platforms/php.png
-tags:
+topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-apis/php-symfony/dependencies
   setup: server-apis/php-symfony/setup
@@ -18,3 +20,26 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
+  - 03-troubleshooting
+show_steps: true
+github:
+  org: auth0-community
+  repo: auth0-symfony-api-samples
+requirements:
+  - PHP 5.5
+  - Symfony 3.3
+next_steps:
+  - path: 01-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

@@ -1,6 +1,15 @@
 ---
 title: Testing Your Auth0 Implementation
 description: Guidelines for testing your Auth0 implementation prior to deployment to Production environments
+topics:
+    - support
+    - testing
+    - pre-deployment-testing
+contentType:
+  - how-to
+  - reference
+useCase:
+  - support
 ---
 
 # Testing Your Auth0 Implementation
@@ -32,7 +41,7 @@ There are a number of third-party testing tools that you can use for performance
 
 * [Apache JMeter](http://jmeter.apache.org/)
 * [Artillery](https://artillery.io/)
-* [Micro Focusa LoadRunner](https://www.radview.com/)
+* [Micro Focus LoadRunner](https://www.radview.com/)
 * [Loader](https://loader.io/)
 * [RadView Webload](https://www.radview.com/)
 * [SmartBear LoadUI](https://smartbear.com/)
@@ -44,11 +53,3 @@ These tools should provide activity logs that help you identify anything that is
 ### HAR Files
 
 If you discover an issue that you can reproduce, you can [create a HAR file](/tutorials/troubleshooting-with-har-files) and send it to our Support team for additional assistance.
-
-## Testing Rules and Custom Database Connections
-
-If you would like to automate the testing of [Rules](/rules) or [Custom Database Connections](/connections/database/custom-db), there are a couple of NPM packages that can assist you with this.
-
-The [auth0-rules-testharness](https://www.npmjs.com/package/auth0-rules-testharness) package provides an easy way to deploy, execute, and test the output of Auth0 Rules using a real webtask sandbox environment.
-
-The [auth0-custom-db-testharness](https://www.npmjs.com/package/auth0-custom-db-testharness) package provides an easy way to deploy, execute, and test the output of Auth0 Custom DB Scripts using a real webtask sandbox environment.

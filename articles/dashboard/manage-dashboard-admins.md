@@ -1,30 +1,65 @@
 ---
 description: How to add and remove tenant admins in the Auth0 dashboard.
+topics:
+  - dashboard
+  - admins
+contentType: how-to
+useCase:
+  - manage-users
+  - manage-accounts
 ---
-# Manage Admins in the Dashboard
+# Manage Tenant Administrators in the Dashboard
 
 ::: note
 Please see [Reset Your Auth0 Account Password](/tutorials/reset-account-password) if you're having issues logging in.
 :::
 
-Tenant Administrators can be added and removed from the dashboard, by going to **Tenant Settings** and choosing the [Dashboard Admins](${manage_url}/#/tenant/admins) tab.
+You can add, edit, and remove tenant administrators from the Dashboard by going to **Tenant Settings** > [Dashboard Admins](${manage_url}/#/tenant/admins).
 
 ![Change Dashboard Admins](/media/articles/tutorials/manage-admins.png)
 
-To add an Admin, enter the email of the account and then select the applications you would like this user to have admin access to in the **Application** box. Then click the **ADD** button. Admins can be removed by clicking the **REMOVE** button after they have been added.
+## Add administrator
 
-The MFA indicator will indicate whether an Admin has enabled their account for [Multifactor Authentication](/multifactor-authentication), which they can do in their Account Settings.
+To add an administrator, enter their email and select the applications to which you would like this user to have administrative access in the **Application** box. Click **ADD**.
+
+When the recipient opens and accepts the invite, the current Auth0 account in the browser will be added as a Dashboard Admin (regardless of the email address to which the invite was sent). If there is no current session, the recipient will be prompted to log in or create an Auth0 account.
+
+Administrators are application-specific, so areas to which the admin doesn't have access rights (e.g., APIs, Rules, Hooks, Hosted Pages, and so on) will appear as blank pages. Administrators will also *not* be allowed to manage users, create rules, and perform other functions for applications to which they don't have access.
+
+## Update Admin
+
+To update the email address associated with an existing tenant administrator, invite a new dashboard administrator using a new email address. Once they accept the invite, you can remove the tenant administrator associated with the old email address.
+
+### Remove admin
+
+You can remove administrators by clicking **REMOVE** after they have been added.
+
+::: warning
+You are responsible for managing your tenant administrators, **including revoking privileges from users as necessary**. You are responsible for all activities that occur under your account/tenant.
+:::
+
+## Enrolling in Multi-factor Authentication
+
+The administrator can self-enroll for multi-factor authentication.
+
+The MFA indicator will indicate whether an administrator has enabled their account for [Multi-factor Authentication](/multifactor-authentication), which they can do in their Account Settings.
 
 ![Dashboard Admins with MFA Indicator](/media/articles/tutorials/dashboard-admins.png)
 
-## Enrolling in Multifactor Authentication
-
-The admin can self-enroll for multifactor authentication. To begin, they should click on their user name in the top right and going to **View Profile** in the dropdown menu.
+To self-enroll for MFA, the administrator should click on their user name in the top right and going to **View Profile** in the dropdown menu.
 
 Click **Enroll your device now.**
 
 ![Admin Profile](/media/articles/tutorials/your-profile.png)
 
-Follow the on-screen instructions to complete your enrollment.
+Follow the on-screen instructions to complete the enrollment.
 
+## Support-Only Users
 
+If you want to allow employees of your organization to have access to our [Support Center](https://support.auth0.com), but you don't want to give them complete Administrator access over the tenant or a particular application, you can alternatively add them as Support-Only users. If that's the case, please follow the instructions described in our [Support Options](/support#add-support-only-users) documentation.
+
+## Missing Tenants
+
+We've occasionally found that Dashboard administrations inadvertently create multiple Auth0 accounts. For example, they might sign up with a social provider (e.g., Google, GitHub), then sign up again using the email address. If you have a Dashboard administrator that reports that they cannot see all of their tenants after logging in, check to see if they have multiple Auth0 accounts.
+
+You can confirm the signup method used by the Dashboard adminsitrator by going to **Tenant Settings** > [**Dashboard Admins**](${manage_url}/#/tenant/admins). 

@@ -1,6 +1,14 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard Troubleshoot page
+topics:
+    - appliance
+    - dashboard
+    - troubleshooting
+contentType: reference
+useCase: appliance
+applianceId: appliance26
+sitemap: false
 ---
 
 # PSaaS Appliance Dashboard: Troubleshoot

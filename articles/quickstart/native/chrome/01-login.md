@@ -1,26 +1,22 @@
 ---
 title: Login
-description: This tutorial demonstrates how to use the Auth0-Chrome SDK to add authentication and authorization to your Chrome extension
+description: This tutorial demonstrates how to use the Auth0-Chrome SDK to add authentication and authorization to your Chrome extension.
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - chrome
+github:
+  path: 00-Starter-Seed
+contentType: tutorial
+useCase: quickstart
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-chrome-sample',
-  path: '00-Starter-Seed',
-  requirements: [
-    'auth0-chrome 0.1.2',
-    'jwt-decode 2.1.0'
-  ]
-}) %>
-
-This quickstart demonstrates how to add authentication to a Chrome extension with Auth0. The tutorial is based on a sample application which uses Auth0's hosted Lock widget and Chrome's `launchWebAuthFlow`.
-
-## Overview
-
-To integrate Auth0 in a Chrome extension, you can use the `auth0-chrome` package available on npm. This package provides a generic `PKCEClient.js` file which allows you to use the [Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636) spec. PKCE is recommended for native applications to mitigate the threat of authorization code interception.
+<%= include('../_includes/_getting_started', { library: 'Chrome') %>
 
 ## Install the Dependencies
+
+The tutorial is based on a sample application which uses Universal Login and Chrome's `launchWebAuthFlow`.
 
 Install `auth0-chrome` and `jwt-decode` with npm. The `jwt-decode` library is useful for decoding JSON Web Tokens and will be used to check the expiry time in this example.
 
@@ -54,7 +50,7 @@ Configure your `manifest.json` file to run the `auth0chrome` script, along with 
 }
 ```
 
-## Set Your Auth0 Credentials
+## Integrate Auth0 in your Application
 
 The **client ID** and **domain** for your application are used to connect to Auth0 and these will be required when instantiating `Auth0Chrome`. Create an `env.js` file and populate it with your application keys. Alternatively, you can pass these keys to the `Auth0Chrome` constructor directly.
 
@@ -71,7 +67,7 @@ window.env = {
 When downloading the sample project above, these values will come prepopulated for you.
 :::
 
-## Create the Main Popup
+### Create the Main Popup
 
 Create a `browser_action.html` file in `src/browser_action` and provide a view for your extension's popup. In this example the view has controls for allowing the user to log in and log out, as well as an area for displaying the user's profile after authentication.
 
@@ -118,7 +114,7 @@ The `jwt-decode` library is included within a `script` tag, as is a `browser_act
 For this example, `document.querySelector` and `document.querySelectorAll` are used as a minimal way to mimic jQuery. Keep in mind that the specific technologies used to power the Chrome extension are at your discretion.
 :::
 
-At a minimum, the Chrome extension needs to have views and logic to handle two cases: when the user is authenticated and when they are not. JWT authentication is stateless by nature, so the best indication we have that the user is authenicated is whether they have an unexpired token saved.
+At a minimum, the Chrome extension needs to have views and logic to handle two cases: when the user is authenticated and when they are not. JWT authentication is stateless by nature, so the best indication we have that the user is authenticated is whether they have an unexpired token saved.
 
 When the user is authenticated, a profile area should be displayed. When they aren't authenticated (they don't have a JWT or it becomes expired), the "Log In" button should be shown.
 
@@ -193,13 +189,13 @@ function main () {
 document.addEventListener('DOMContentLoaded', main);
 ```
 
-Two functions are provided to handle the scenarios described above. The `renderProfileView` function fetches the user's profile from Auth0's API at the `/userinfo` endpoint and shows the profile in the popup. The `renderDefaultView` function displays the Log In button and emits a message to trigger the authentication flow when clicked. Note that the user's `access_token` is attached as an `Authorization` header in the call to the `/userinfo` endpoint.
+Two functions are provided to handle the scenarios described above. The `renderProfileView` function fetches the user's profile from Auth0's API at the `/userinfo` endpoint and shows the profile in the popup. The `renderDefaultView` function displays the Log In button and emits a message to trigger the authentication flow when clicked. Note that the user's Access Token is attached as an `Authorization` header in the call to the `/userinfo` endpoint.
 
-The `main` function takes the `authResult` object saved in local storage and renders the profile view if the user's `id_token` is unexpired, or the default view if it is expired.
+The `main` function takes the `authResult` object saved in local storage and renders the profile view if the user's ID Token is unexpired, or the default view if it is expired.
 
 ![popup](/media/articles/native-platforms/chrome/01-popup.png)
 
-## Initiate the Authentication Flow
+### Initiate the Authentication Flow
 
 The `browser_action.js` file controls the popup view and responds to button clicks, but the logic for the authentication flow still needs to be implemented.
 
@@ -212,8 +208,8 @@ chrome.runtime.onMessage.addListener(function (event) {
   if (event.type === 'authenticate') {
 
     // scope
-    //  - openid if you want an id_token returned
-    //  - offline_access if you want a refresh_token returned
+    //  - openid if you want an ID Token returned
+    //  - offline_access if you want a Refresh Token returned
     // device
     //  - required if requesting the offline_access scope.
     let options = {
@@ -249,7 +245,7 @@ The `Auth0Chrome` constructor takes the **domain** and **client ID** for your ap
 
 ![hosted-lock](/media/articles/native-platforms/chrome/02-hosted-lock.png)
 
-## Configure Your Auth0 Application
+## Configure Auth0 Application Settings
 
 Chrome extensions are packaged as `.crx` files for distribution but may be loaded "unpacked" for development. For more information on how to load an unpacked extension, see the [Chrome extension docs](https://developer.chrome.com/extensions/getstarted#unpacked).
 
@@ -261,14 +257,10 @@ In the **Allowed Callback URLs** section, whitelist your callback URL.
 https://<YOUR_EXTENSION_ID>.chromiumapp.org/auth0
 ```
 
-In the **Allowed Origins** section, whitelist your chrome extension as an origin.
+In the **Allowed Origins (CORS)** section, whitelist your chrome extension as an origin.
 
 ```bash
 chrome-extension://<YOUR_EXTENSION_ID>
 ```
 
 Once the extension is published in the Chrome Web Store the Callback URL and the CORS origins used for development must be changed.
-
-## Further Reading
-
-With authentication implemented in your Chrome extension, you'll likely want to make secure calls to a remote API. For more information on how to set up an API in your Auth0 dashboard and how to use Access Tokens to make requests for protected resources, see the [API authorization docs](https://auth0.com/docs/api-auth).

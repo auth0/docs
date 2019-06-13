@@ -1,4 +1,4 @@
-## Install angular-auth0
+### Install angular-auth0
 
 To use auth0.js in your AngularJS application, you need a thin wrapper called angular-auth0.
 

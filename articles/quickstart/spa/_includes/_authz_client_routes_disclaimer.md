@@ -1,4 +1,4 @@
-## Considerations for Application-Side Access Control
+### Considerations for Client-Side Access Control
 
 For the access control on the application-side, the `scope` values that you get in local storage are only a clue that the user has those scopes. The user could manually adjust the scopes in local storage to access routes they shouldn't have access to. 
 

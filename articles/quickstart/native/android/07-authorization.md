@@ -3,20 +3,17 @@ title: Authorization
 description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login screen.
 seo_alias: android
 budicon: 500
+topics:
+  - quickstarts
+  - native
+  - android
+github:
+  path: 07-Authorization
+contentType: tutorial
+useCase: quickstart
 ---
 
 This tutorial shows you how to use Auth0 to create access roles for your users. With access roles, you can authorize or deny access to your content to different users based on the level of access they have.
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  path: '07-Authorization',
-  requirements: [
-    'Android Studio 2.3',
-    'Android SDK 25',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>
 
 ## Before You Start
 
@@ -29,21 +26,34 @@ Create a rule that assigns the users either an `admin` role, or a simple `user` 
 ```js
 function (user, context, callback) {
 
-  //Define the name of the claim. Must look like a url:
-  //Have 'http' or 'https' scheme and a hostname other than
-  //'auth0.com', 'webtask.io' and 'webtask.run'.
-  var claimName = 'https://access.control/roles';
-
-  //Check if the email has the 'admin.com' domain and give the 'admin' role.
-  //Otherwise, keep a default 'user' role.
-  var roles = ['user'];
-  if (user.email && user.email.indexOf('@admin.com') > -1) {
-      roles.push('admin');
+  // Roles should only be set to verified users.
+  if (!user.email || !user.email_verified) {
+    return callback(null, user, context);
   }
-  //Set the role claim in the id_token
-  context.idToken[claimName] = roles;
 
-  callback(null, user, context);
+  user.app_metadata = user.app_metadata || {};
+  // You can add a Role based on what you want
+  // In this case I check domain
+  const addRolesToUser = function(user) {
+    const endsWith = '@example.com';
+
+    if (user.email && (user.email.substring(user.email.length - endsWith.length, user.email.length) === endsWith)) {
+      return ['admin']
+    }
+    return ['user'];
+  };
+
+  const roles = addRolesToUser(user);
+
+  user.app_metadata.roles = roles;
+  auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+    .then(function() {
+      context.idToken['https://example.com/roles'] = user.app_metadata.roles;
+      callback(null, user, context);
+    })
+    .catch(function (err) {
+      callback(err);
+    });
 }
 ```
 
@@ -71,7 +81,7 @@ authenticationClient.userInfo(accessToken)
       public void onSuccess(UserProfile userInfo) {
         //Obtain the claim from the "extra info" of the user info
         List<String> roles = userInfo.getExtraInfo().containsKey("https://access.control/roles") ? (List<String>) userInfo.getExtraInfo().get("https://access.control/roles") : Collections.<String>emptyList();
-        
+
         if (!roles.contains("admin")) {
           // User is not authorized
         } else {

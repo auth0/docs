@@ -2,6 +2,17 @@
 section: libraries
 title: Lock Android v2 Passwordless with Magic Link
 description: Passwordless with Magic Link with Lock Android
+topics:
+  - libraries
+  - lock
+  - android
+  - passwordless
+  - magic-link
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Passwordless with Magic Link
 

@@ -13,7 +13,7 @@ android {
 }
 dependencies {
   //---> Add the next line
-  compile 'com.auth0.android:auth0:1.+'
+  implementation 'com.auth0.android:auth0:1.+'
   //<---
 }
 ```
@@ -27,6 +27,8 @@ Add manifest placeholders required by the SDK. The placeholders are used interna
 To add the manifest placeholders, add the next line:
 
 ```xml
+// app/build.gradle
+
 apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25

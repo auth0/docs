@@ -1,22 +1,29 @@
 ---
-title: Using Passwordless Authentication with a one-time code via email on SPA
-description: Learn how to authenticate users with a one-time-code using email in a Single Page Application (SPA).
+title: Implement Passwordless Email in Single-Page Apps
+description: Learn how to authenticate users with a one-time code sent by email in a Single-Page Application (SPA).
+topics:
+    - connections
+    - passwordless
+    - spa
+    - email
+contentType: how-to
+useCase: customize-connections
 ---
-# Using Passwordless Authentication in SPA with Email
+# Implement Passwordless Email in Single-Page Apps
 
-<%= include('_introduction-email', { isMobile: false }) %>
+<%= include('./_includes/_introduction-email', { isMobile: false }) %>
 
 ## Setup
 
-<%= include('_setup-email') %>
+<%= include('./_includes/_setup-email') %>
 
-<%= include('_setup-cors') %>
+<%= include('./_includes/_setup-cors') %>
 
 ## Implementation
 
 ### Use Lock (the Auth0 UI widget)
 
-<%= include('_init-passwordless-lock') %>
+<%= include('./_includes/_init-passwordless-lock') %>
 
 Then you can trigger the login with the following code:
 
@@ -44,6 +51,8 @@ Then you can trigger the login with the following code:
 <a href="javascript:login()">Login</a>
 ```
 
+<%= include('./_includes/_custom-domains') %>
+
 First, this will open a dialog that asks the user for their email address:
 
 ![](/media/articles/connections/passwordless/passwordless-email-request-web.png)
@@ -56,7 +65,7 @@ Lock will ask for the code that has been emailed to the provided address. The co
 
 ![](/media/articles/connections/passwordless/passwordless-email-enter-code-web.png)
 
-Once the user enters the code received by email, Lock will authenticate them and call the callback function where the `id_token` and profile will be available.
+Once the user enters the code received by email, Lock will authenticate them and call the callback function where the ID Token and profile will be available.
 
 ### Use your own UI
 
@@ -68,9 +77,9 @@ Once the user enters the code received by email, Lock will authenticate them and
 
 You can perform passwordless authentication in your SPA with your own custom UI using the [Auth0 JavaScript SDK](/libraries/auth0js).
 
-<%= include('_init-auth0js_v9', {redirectUri:true} ) %>
+<%= include('./_includes/_init-auth0js_v9', {redirectUri:true} ) %>
 
-Be sure to provide a `redirectUri` and to set the `responseType: 'token'`. 
+Be sure to provide a `redirectUri` and to set the `responseType: 'token'`.
 
 You must provide a way for the user to enter a address to which the email will be sent. Then you can begin the passwordless authentication as follows (assuming the name of your form input as `input.email`):
 
@@ -118,7 +127,7 @@ The `passwordlessVerify` method will verify the Passwordless transaction, then r
 ```js
 $(document).ready(function() {
   if(window.location.hash){
-    webAuth.parseHash(window.location.hash, function(err, authResult) {
+    webAuth.parseHash({hash: window.location.hash}, function(err, authResult) {
       if (err) {
         return console.log(err);
       } else if (authResult){

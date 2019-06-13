@@ -1,17 +1,24 @@
 ---
-title: Using Passwordless Authentication on Android with e-mail
+title: Using Passwordless Authentication on Android with email
+topics:
+    - connections
+    - passwordless
+    - android
+    - email
+contentType: how-to
+useCase: customize-connections
 ---
-# Authenticate users with a one-time code via e-mail
+# Authenticate users with a one-time code via email
 
 <!-- markdownlint-disable -->
 
 <%= include('../../_includes/_native_passwordless_warning') %>
 
-<%= include('./_introduction-email', { isMobile: true }) %>
+<%= include('./_includes/_introduction-email', { isMobile: true }) %>
 
 ## Setup
 
-<%= include('./_setup-email') %>
+<%= include('./_includes/_setup-email') %>
 
 ## Implementation
 

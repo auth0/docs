@@ -1,4 +1,4 @@
-## Determine a User's Scopes
+### Determine a User's Scopes
 
 You can use scopes to make decisions about the behavior of your application's interface.
 

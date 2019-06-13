@@ -2,6 +2,11 @@
 title: "GDPR: Data Portability"
 description: This article discusses how customers can export user data in order to comply with data portability GDPR requirements
 toc: true
+topics:
+    - compliance
+    - gdpr
+contentType: how-to
+useCase: compliance
 ---
 # GDPR: Data Portability
 
@@ -23,4 +28,4 @@ To export a user's data manually from the Dashboard:
 
 ## Export data using the API
 
-You can export a user's full profile using our Management API. The response will be in JSON format. You can either [search for a user using their ID](/users/search/best-practices#users-by-id), or [export a list of your users](/users/search/best-practices#user-export).
+You can export a user's full profile using our Management API. The response will be in JSON format. You can either [search for a user using their ID](/best-practices/search-best-practices#users-by-id), or [export a list of your users](/best-practices/search-best-practices#user-export).

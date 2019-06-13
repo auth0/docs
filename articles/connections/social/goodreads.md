@@ -4,6 +4,14 @@ connection: Goodreads
 image: /media/connections/goodreads.png
 seo_alias: goodreads
 description: How to obtain a Consumer Key and Consumer Secret for Goodreads.
+topics:
+  - connections
+  - social
+  - goodreads
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Connect your app to Goodreads
 
@@ -24,6 +32,8 @@ Complete the form then click **Apply for a Developer Key**. Enter this in the `C
 ```text
 https://${account.namespace}/login/callback
 ```
+
+<%= include('../_find-auth0-domain-redirects') %>
 
 ![Enter information about your app](/media/articles/connections/social/goodreads/goodreads-register-2.png)
 
@@ -58,7 +68,7 @@ You will need to use [this endpoint of our Management API v2](/api/management/v2
  ```
 
 ::: note
-You have to replace `YOUR_API_V2_TOKEN_HERE` with a Management API v2 token. You can [get one from the dashboard](${manage_url}/#/apis/management/explorer) or [follow this process](/api/management/v2/tokens#get-a-token-manually) if this is the first time.
+You have to replace `YOUR_API_V2_TOKEN_HERE` with a Management API v2 token. For more information on how to get one see [Access Tokens for the Management API](/api/management/v2/tokens).
 :::
 
 This sample uses the following `fetchUserProfile` script, you can change it as you please:

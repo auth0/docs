@@ -2,24 +2,36 @@
 title: "GDPR: Track Consent with Lock"
 description: This tutorial describes how you can customize Lock to capture consent information
 toc: true
+topics:
+    - compliance
+    - gdpr
+contentType: tutorial
+useCase: compliance
 ---
 # Track Consent with Lock
 
-In this tutorial we will see how you can use Lock to ask for consent information, and then save this input at the user's [metadata](/metadata).
+In this tutorial we will see how you can use Lock to ask for consent information, and then save this input at the user's [metadata](/users/concepts/overview-user-metadata).
 
 <%= include('../_legal-warning.md') %>
 
 ## Overview
 
-We will configure a simple JavaScript Single Page Application and a database connection (we will use Auth0's infrastructure, instead of setting up our own database).
+We will configure a simple JavaScript Single-Page Application and a database connection (we will use Auth0's infrastructure, instead of setting up our own database).
 
 Instead of building an app from scratch, we will use [Auth0's JavaScript Quickstart sample](/quickstart/spa/vanillajs). We will also use [Auth0's Universal Login Page](/hosted-pages/login) so we can implement a [Universal Login experience](/guides/login/centralized-vs-embedded), instead of embedding the login in our app.
 
-We will capture consent information, under various scenarios, and save this at the user's metadata, as follows:
+We will capture consent information, under various scenarios, and save this at the user's metadata.
+
+All scenarios will save the following properties at the [user's metadata](/users/concepts/overview-user-metadata):
+- a `consentGiven` property, with true/false values, shows if the user has provided consent (true) or not (false)
+- a `consentTimestamp` property, holding the Unix timestamp of when the user provided consent
+
+For example:
 
 ```text
 {
-  "consentGiven": true
+  "consentGiven": "true"
+  "consentTimestamp": "1525101183"
 }
 ```
 
@@ -27,8 +39,6 @@ We will see three different implementations for this:
 - one that displays links to other pages where the Terms & Conditions and/or privacy policy information can be reviewed
 - one that adds custom fields at the signup widget and works for database connections
 - one that redirects to another page where the user can provide consent, and works for social connections
-
-All implementations will have the same final result, a `consentGiven` property saved at the user's metadata.
 
 ## Configure the application
 
@@ -92,13 +102,14 @@ This works both for database connections and social logins.
       
       // first time login/signup
       user.user_metadata.consentGiven = true;
-        auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
-        .then(function(){
-          callback(null, user, context);
-        })
-        .catch(function(err){
-          callback(err);
-        });
+      user.user_metadata.consentTimestamp = Date.now();
+      auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
+      .then(function(){
+        callback(null, user, context);
+      })
+      .catch(function(err){
+        callback(err);
+      });
     }
     ```
 
@@ -133,6 +144,8 @@ This works only for database connections (if you use social logins, see the next
 1. To see what this will look like, click the **Preview** tab, and when Lock loads select the **Sign Up** tab.
 
     ![Preview Lock with consent flag](/media/articles/compliance/lock-db-consent-flag.png)
+
+Note that in this option we only set the flag and not the timestamp. Displaying the current time in the login widget is not optimal, that's why we didn't add an additional signup field. What you should do is set the timestamp in the background, with a rule that will check the value of `consentGiven` and set the additional `consentTimestamp` metadata to the current timestamp.
 
 ## Option 3: Redirect to another page
 
@@ -187,7 +200,8 @@ We are done with the configuration part, let's test!
 
     ```text
     {
-      "consentGiven": true
+      "consentGiven": "true"
+      "consentTimestamp": "1525101183"
     }
     ```
 

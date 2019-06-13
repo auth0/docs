@@ -1,6 +1,6 @@
 added:
   -
-    title: "New doc: Why you should always use access tokens to secure an API"
+    title: "New doc: Why you should always use Access Tokens to secure an API"
     tags:
       - API Authorization
       - OAuth 2.0

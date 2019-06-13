@@ -6,11 +6,20 @@ alias:
   - ip-based-auth
   - ip
   - address-authentication
-seo_alias: ip-address
 description: How to use IP Address Authentication with Auth0.
-crews: crew-2
+topics:
+    - connections
+    - enterprise
+    - ip-addresses
+useCase:
+    - customize-connections
+    - add-idp
 ---
-# Configure IP Address Authentication
+# Configure IP Address Authentication [DEPRECATED]
+
+::: warning
+ IP Address Authentication has been deprecated and will not be enabled for new customers. The functionality will continue to work for existing customers that currently have it enabled. If at some point the IP Address Authentication feature is changed or removed from service, customers who currently use it will be notified beforehand and given ample time to migrate.
+:::
 
 For this type of connection, Auth0 checks if the request is coming from an IP Address within the specified range. 
 

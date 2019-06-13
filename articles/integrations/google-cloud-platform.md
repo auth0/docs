@@ -2,6 +2,11 @@
 title: Securing Google Cloud Endpoints with Auth0
 description: How to secure a Google Cloud Endpoints API with Auth0.
 toc: true
+topics:
+  - integrations
+  - google-cloud
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 # Securing Google Cloud Endpoints with Auth0
@@ -187,7 +192,7 @@ You'll get the following response:
 
 Which is exactly what we want!
 
-Now go to the **Test** page of your Google Endpoints API definition on the [Auth0 Dashboard](${manage_url}/#/apis), and copy the `access_token`:
+Now go to the **Test** page of your Google Endpoints API definition on the [Auth0 Dashboard](${manage_url}/#/apis), and copy the Access Token:
 
 ![Copy Token](/media/articles/tutorials/gce-copy-token.png)
 

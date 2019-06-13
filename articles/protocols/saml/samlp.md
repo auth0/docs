@@ -1,6 +1,13 @@
 ---
 title: SAML
 description: SAML Identity Provider Configuration
+topics:
+  - saml
+  - samlp
+contentType:
+  - reference
+useCase:
+  - add-idp
 ---
 
 # SAML Identity Provider Configuration
@@ -26,7 +33,7 @@ These are the parameters used to configure a SAML Identity Provider:
 ```
 
 ::: note
-You need to replace the `ACCESS_TOKEN` header value, with a Management APIv2 Token. For information on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+You need to replace the `ACCESS_TOKEN` header value, with a Management APIv2 Token. For information on how to do that see [Access Tokens for the Management API](/api/management/v2/tokens).
 :::
 
 * The __SAML Request Binding__ (also called the __Protocol Binding__): sent to the IdP from Auth0. If possible, dynamically set the value based on `connection.options.protocolBinding`:

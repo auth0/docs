@@ -2,6 +2,12 @@
 title: Dashboard
 description: Working with the Dashboard
 classes: topic-page
+topics:
+  - dashboard
+contentType: 
+    - index
+    - how-to
+useCase: manage-accounts
 ---
 
 <div class="topic-page-header">
@@ -14,7 +20,7 @@ classes: topic-page
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/dashboard/creating-users-in-the-management-portal">Create Users using the Dashboard</a>
+    <i class="icon icon-budicon-715"></i><a href="/users/guides/create-users">Create Users using the Dashboard</a>
     <p>How to create end users using the Dashboard</p>
   </li>
   <li>

@@ -1,18 +1,17 @@
 ---
 title: User Profile
-description: This tutorial demonstrates how to fetch a user's information from Auth0
+description: This tutorial demonstrates how to fetch a user's information from Auth0.
 budicon: 292
+topics:
+  - quickstarts
+  - spa
+  - react
+  - user-profile
+github:
+  path: 02-User-Profile
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-react-samples',
-  path: '02-User-Profile',
-  requirements: [
-    'React 15.5'
-  ]
-}) %>
-
 <%= include('../_includes/_user_profile_preamble') %>
 
 ## Request the Profile Scope
@@ -28,7 +27,7 @@ auth0 = new auth0.WebAuth({
 });
 ``` 
 
-## Make a Call for the User's Information
+## Retrieve User Information
 
 <%= include('../_includes/_user_profile_auth0js_method') %>
 
@@ -37,39 +36,43 @@ Add a method that calls the `client.userInfo` method to the `Auth` service.
 ```js
 // src/Auth/Auth.js
 
+// ...
+
+userProfile;
+
+// ...
+
 constructor() {
   // ...
   this.getProfile = this.getProfile.bind(this);
 }
 
 // ...
-userProfile;
 
-// ...
-
-getAccessToken() {
-    const accessToken = localStorage.getItem('access_token');
-    if (!accessToken) {
-      throw new Error('No Access Token found');
-    }
-    return accessToken;
-  }
-
-//...
 getProfile(cb) {
-  let accessToken = this.getAccessToken();
-  this.auth0.client.userInfo(accessToken, (err, profile) => {
+  this.auth0.client.userInfo(this.accessToken, (err, profile) => {
     if (profile) {
       this.userProfile = profile;
     }
     cb(err, profile);
   });
 }
+
+logout() {
+  // ...
+
+  // Remove user profile
+  this.userProfile = null;
+
+  // ...
+}
+
+// ...
 ```
 
 <%= include('../_includes/_user_profile_in_memory') %>
 
-## Add a Profile Component
+## Display the User Profile
 
 Some applications have a dedicated profile section for displaying user information. The example below shows how to set it up. 
 

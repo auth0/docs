@@ -1,6 +1,13 @@
 ---
 title: Troubleshooting the Authorization Extension
 description: How to troubleshoot the Authorization Extension
+topics:
+  - extensions
+  - authorization_v2
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 
 # Authorization Extension: Troubleshoot Issues
@@ -15,4 +22,8 @@ Alternatively, you might see this if you click the **Try** button in the Auth0 D
 
 ## My application is not shown in the drop-down menu when setting up the extension.
 
-The supported application types for the Authorization extension are: **Native**, **Single Page Web Applications** and **Regular Web Applications**. Applications with no type assigned and **Machine to Machine Applications** are not supported.
+The supported application types for the Authorization extension are: **Native**, **Single-Page Web Applications** and **Regular Web Applications**. Applications with no type assigned and **Machine to Machine Applications** are not supported.
+
+## I upgraded to v2 and my users get an error upon login
+
+If you see the error `You are not allowed to access this application`, most probably there is some conflict with the old rule. Turn off the persistence settings, delete the existing rule, re-enable the settings, and test again.

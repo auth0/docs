@@ -2,22 +2,31 @@
 title: How to implement the Resource Owner Password Grant
 description: Step-by-step guide on how to implement the OAuth 2.0 Resource Owner Password Grant
 toc: true
+topics:
+  - api-authentication
+  - oidc
+  - resource-owner-password
+contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 # How to implement the Resource Owner Password Grant
 
 <%= include('../../_includes/_pipeline2') %>
 
-In this tutorial we will go through the steps required to implement the Resource Owner Password Grant.
+In this tutorial, we will go through the steps required to implement the Resource Owner Password Grant.
 
 You should use this flow **only if** the following apply:
-- The application is absolutely trusted with the user's credentials. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead.
-- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application you should use the [Authorization Code Grant](/api-auth/grant/authorization-code) instead.
+- The application is absolutely trusted with the user's credentials. For [Single-Page Apps](/flows/concepts/implicit) and [Native/Mobile Apps](/flows/concepts/auth-code-pkce), we recommend using web flows instead.
+- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application, you should use the [Authorization Code Flow](/flows/concepts/auth-code) instead.
 
 ## Before you start
 
-* Check that your application's [grant type property](/applications/application-grant-types) is set appropriately
+* Check that your application's [grant type property](/applications/concepts/application-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 * Check that the [Default Audience and/or Default Directory](/dashboard/dashboard-tenant-settings#api-authorization-settings) has been set appropriately
+* Update or disable any [rules](/rules), such as rules that deny access based on an email domain whitelist, so they only impact specific connections. If you get an `'access_denied'` error when testing the Password Grant, this could be due to an access control rule.
 
 ## Configure your tenant
 
@@ -38,11 +47,40 @@ In order to execute the flow the application needs to acquire the Resource Owner
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+        {
+          "name": "grant_type",
+          "value": "password"
+        },
+        {
+          "name": "username",
+          "value": "user@example.com"
+        },
+        {
+          "name": "password",
+          "value": "pwd"
+        },
+        {
+          "name": "audience",
+          "value": "YOUR_API_IDENTIFIER"
+        },
+        {
+          "name": "scope",
+          "value": "read:sample"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "client_secret",
+          "value": "YOUR_CLIENT_SECRET"
+        }
+    ]
   }
 }
 ```
@@ -70,13 +108,13 @@ The response contains a [signed JSON Web Token](/jwt), the token's type (which i
 In case the scopes issued to the application differ from the scopes requested, a `scope` parameter will be included in the response JSON, listing the issued scopes.
 
 ::: panel Password grant and standard scopes
-If **no** API scopes (such as `read:notes`) are included in the request, all API scopes (such as `read:notes`, `create:notes`, and so on.) are included in the `access_token`.
+If **no** API scopes (such as `read:notes`) are included in the request, all API scopes (such as `read:notes`, `create:notes`, and so on.) are included in the Access Token.
 If only the `openid` scope is included in the request, all `openid` standard scopes will be returned, such as `openid profile email address phone`.
 In these cases, the `scope` parameter will be included in the response, listing the issued scopes. This happens because a password is equal to full access and hence any password-based exchange gives access to all scopes.
 :::
 
 ::: panel How to get the user's claims
-If you need the user's claims you can include the scope `openid` to your request. If the API uses `RS256` as the signing algorithm, the `access_token` will now also include `/userinfo` as a valid audience. You can use this `access_token` to invoke the [/userinfo endpoint](/api/authentication#get-user-info) and retrieve the user's claims.
+If you need the user's claims you can include the scope `openid` to your request. If the API uses `RS256` as the signing algorithm, the Access Token will now also include `/userinfo` as a valid audience. You can use this Access Token to invoke the [/userinfo endpoint](/api/authentication#get-user-info) and retrieve the user's claims.
 :::
 
 ### Realm Support
@@ -94,11 +132,44 @@ To use this variation you will have to change the following request parameters:
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"http://auth0.com/oauth/grant-type/password-realm\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"realm\": \"employees\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+        {
+          "name": "grant_type",
+          "value": "password"
+        },
+        {
+          "name": "username",
+          "value": "user@example.com"
+        },
+        {
+          "name": "password",
+          "value": "pwd"
+        },
+        {
+          "name": "audience",
+          "value": "YOUR_API_IDENTIFIER"
+        },
+        {
+          "name": "scope",
+          "value": "read:sample"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "client_secret",
+          "value": "YOUR_CLIENT_SECRET"
+        },
+        {
+          "name": "realm",
+          "value": "employees"
+        }
+    ]
   }
 }
 ```
@@ -109,7 +180,7 @@ You can configure Auth0 Connections as realms, as long as they support active au
 
 ## Use the token
 
-Once the `access_token` has been obtained it can be used to make calls to the Resource Server by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
+Once the Access Token has been obtained it can be used to make calls to the Resource Server by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
 ```har
 {
@@ -124,7 +195,7 @@ Once the `access_token` has been obtained it can be used to make calls to the Re
 
 ## Verify the token
 
-Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+Once your API receives a request with a Bearer Access Token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
 For details on the validations that should be performed by the API, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 
@@ -136,7 +207,7 @@ If you wish to execute special logic unique to the Password exchange, you can lo
 
 ## Optional: Configure MFA
 
-In case you need stronger authentication, than username and password, you can configure MultiFactor Authentication (MFA) using the Resource Owner Password Grant. For details on how to implement this refer to [Multifactor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
+In case you need stronger authentication, than username and password, you can configure Multi- Factor Authentication (MFA) using the Resource Owner Password Grant. For details on how to implement this refer to [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
 
 ## Optional: Configure Anomaly Detection
 

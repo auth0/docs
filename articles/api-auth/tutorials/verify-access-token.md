@@ -1,14 +1,28 @@
 ---
 description: How an API can verify a bearer JWT Access Token
 toc: true
+topics:
+  - api-authentication
+  - oidc
+  - access-tokens
+contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 # Verify Access Tokens for Custom APIs
 
 <%= include('../../_includes/_pipeline2') %>
 
-When a custom API receives a request with a bearer <dfn data-key="access-token">Access Token</dfn>, the first thing to do is to validate the token. At Auth0, an Access Token used for a custom API is formatted as a [JSON Web Token](/jwt). Validating the token consists of a series of steps, and if any of these fails then the request **must** be rejected.
+When a custom API receives a request with a bearer <dfn data-key="access-token">Access Token</dfn>, the first thing to do is to validate the token.
 
-This document lists all the validations that your API should perform:
+At Auth0, an Access Token used for a custom API is formatted as a [JSON Web Token](/jwt) which must be validated before use.
+
+:::note
+If the Access Token you got from Auth0 is not a JWT but an opaque string (like `kPoPMRYrCEoYO6s5`), this means that the Access Token was not issued for your custom API as the audience. When requesting a token for your API, make sure to use the `audience` parameter in the authorization or token request with the API identifier as the value of the parameter.
+:::
+
+Validating the token consists of a series of steps, and if any of these fails, then the request **must** be rejected. This document lists all the validations that your API should perform:
 
 - Check that the JWT is well formed
 - Check the signature
@@ -16,7 +30,7 @@ This document lists all the validations that your API should perform:
 - Check the Application permissions (scopes)
 
 ::: note
-<a href="https://jwt.io/">JWT.io</a> provides a list of libraries that can do most of the work for you: parse the JWT, verify the signature and the claims.
+<a href="https://jwt.io/">JWT.io</a> provides a list of libraries that can do most of the work for you: parse the JWT, verify the signature and the claims. All of the [backend API quickstarts](/quickstart/backend) use SDKs that perform the JWT validation and parsing.
 :::
 
 ## Parse the JWT
@@ -95,7 +109,7 @@ If the verification fails you will get a `invalid signature` error.
 Once the API verifies the token's signature, the next step is to validate the standard claims of the token's payload. The following validations need to be made:
 
 - _Token expiration_: The current date/time _must_ be before the expiration date/time listed in the `exp` claim (which is a Unix timestamp). If not, the request must be rejected.
-- _Token issuer_: The `iss` claim denotes the issuer of the JWT. The value _must_ match the one configured in your API. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`.
+- _Token issuer_: The `iss` claim denotes the issuer of the JWT. The value _must_ match the one configured in your API. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`. If you are using the [custom domains](/custom-domains) feature, the value will instead be in the following format: `https://<YOUR-CUSTOM-DOMAIN>/`.
 - _Token audience_: The `aud` claim identifies the recipients that the JWT is intended for. For JWTs issued by Auth0, `aud` holds the unique identifier of the target API (field __Identifier__ at your [API's Settings](${manage_url}/#/apis)). If the API is not the intended audience of the JWT, it _must_ reject the request.
 
 ::: panel Token issuance

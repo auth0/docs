@@ -1,20 +1,29 @@
 ---
 description: How to execute an Authorization Code Grant flow with PKCE for a Mobile Application
 toc: true
+topics:
+  - api-authentication
+  - oidc
+  - authorization-code
+  - pkce
+contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 # Execute an Authorization Code Grant Flow with PKCE
 
 <%= include('../../_includes/_pipeline2') %>
 
 ::: note
-This tutorial will help you implement the Authorization Code (PKCE) grant. If you are looking for some theory on the flow refer to [Calling APIs from Mobile App](/api-auth/grant/authorization-code-pkce).
+This tutorial will help you implement the Authorization Code (PKCE) grant. If you are looking for some theory on the flow refer to [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce).
 :::
 
 The __Authorization Code with PKCE__ is the OAuth 2.0 grant that [native apps](/quickstart/native) use in order to access an API. In this document we will work through the steps needed in order to implement this: create a code verifier and a code challenge, get the user's authorization, get a token and access the API using the token.
 
 Before beginning this tutorial, please:
 
-* Check that your Application's [Grant Type property](/Applications/Application-grant-types) is set appropriately
+* Check that your Application's [Grant Type property](/applications/concepts/application-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 
 ## 1. Create a Code Verifier
@@ -186,11 +195,32 @@ Now that you have an Authorization Code, you must exchange it for an <dfn data-k
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"com.myclientapp://myclientapp.com/callback\", }"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "authorization_code"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "code_verifier",
+        "value": "YOUR_GENERATED_CODE_VERIFIER"
+      },
+      {
+        "name": "code",
+        "value": "YOUR_AUTHORIZATION_CODE"
+      },
+      {
+        "name": "redirect_ui",
+        "value": "${account.callback}"
+      }
+    ]
   }
 }
 ```
@@ -222,7 +252,7 @@ The Authorization Code flow with PKCE can only be used for Applications whose ty
 
 ## 5. Call the API
 
-Once you have the `access_token`, you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
+Once you have the Access Token, you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
 ```har
 {
@@ -237,7 +267,7 @@ Once you have the `access_token`, you can use it to make calls to the API, by pa
 
 ## 6. Verify the Token
 
-Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+Once your API receives a request with a Bearer Access Token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
 For details on the validations that should be performed refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 
@@ -249,7 +279,7 @@ If you wish to execute special logic unique to the Authorization Code (PKCE) gra
 
 ## Sample application
 
-For an example implementation see the [Mobile + API](/architecture-scenarios/application/mobile-api) architecture scenario. 
+For an example implementation see the [Mobile + API](/architecture-scenarios/application/mobile-api) architecture scenario.
 
 This is a series of tutorials that describe a scenario for a fictitious company. The company wants to implement a mobile app that the employees can use to send their timesheets to the company's Timesheets API using OAuth 2.0. The tutorials are accompanied by a sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
 

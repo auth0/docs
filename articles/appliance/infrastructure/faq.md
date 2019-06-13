@@ -1,6 +1,13 @@
 ---
 description: This page answers several common questions regarding the PSaaS Appliance infrastructure.
 section: appliance
+topics:
+    - appliance
+    - infrastructure
+contentType: reference
+useCase: appliance
+applianceId: appliance33
+sitemap: false
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Frequently Asked Questions
@@ -23,7 +30,9 @@ No, the PSaaS Appliance is a managed service that runs within your network. You 
 While this is currently not supported, preinstalled anti-virus software may be included in future updates.
 
 #### Will Auth0 provide me with a CSR file for my SSL Certificate?
-If Auth0 hosts the PSaaS Appliance, Auth0 will provide the required certificate(s).
+No. The details of generating certificates, such as a CSR, vary among public certificate providers. Please work with your public certificate authority for these requirements.
+
+If Auth0 hosts the PSaaS Appliance, Auth0 will provide the required `*.auth0.com` SSL certificates.
 
 #### Why do both the DEV (non-prod) node and PROD cluster require unique certificates signed by a public Certificate Authority?
 Webtasks and web extensions require this due to Node.js security requirements.
@@ -32,7 +41,7 @@ Webtasks and web extensions require this due to Node.js security requirements.
 
 For Auth0 PSaaS Appliance updates, we can provide you with specific addresses that are required.
 
-For certain protocols, Internet connectivity is required during operation (such as social connections or emails).
+For certain protocols, [Internet connectivity is required during operation](/appliance/infrastructure/internet-restricted-deployment) (such as social connections or emails).
 
 Your server also needs to be able to access **cdn.auth0.com** if you run web extensions. The browsers used by your admins will also need to access the CDN if they navigate to the Management Dashboard.
 
@@ -40,7 +49,7 @@ Your server also needs to be able to access **cdn.auth0.com** if you run web ext
 
 Yes, you can use Lock with your PSaaS Appliance implementation.
 
-However, if you choose to operate your applications connected to the PSaaS Appliance in an Internet-restricted environment, you will need to copy the library files to your network (you won't be able to access the CDN that hosts Lock).
+However, if you choose to operate your applications connected to the [PSaaS Appliance in an Internet-restricted environment](/appliance/infrastructure/internet-restricted-deployment), you will need to copy the library files to your network (you won't be able to access the CDN that hosts Lock).
 
 If you choose this option, you are responsible for ensuring that your copy of the Lock source code stays up-to-date.
 
@@ -74,7 +83,6 @@ Auth0 requires [remote access](/appliance/remote-access-options) to your PSaaS A
 
 1. Jumphost + Firewall Whitelist
 2. Two Jumphosts
-3. VPN
 
 We do not support other methods, such as VDI or Screen Sharing mechanisms.
 
@@ -87,3 +95,7 @@ To assist in the rebuilding of the environment, we would need to have an active 
 #### What are the legal terms of the Private SaaS Appliance?
 
 You can read the PSaaS Appliance terms [here](https://auth0.com/legal/baseline/PSaaS).
+
+#### Does the PSaaS Appliance require internet access?
+
+Please refer to [our documentation on the internet-related requirements](/appliance/infrastructure/internet-restricted-deployment) for the PSaaS Appliance.

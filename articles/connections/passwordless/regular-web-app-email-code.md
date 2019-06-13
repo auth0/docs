@@ -1,21 +1,32 @@
 ---
-title: Using Passwordless Authentication with a one-time code via email on Regular Web Apps
+title: Implement Passwordless Email in Regular Web Apps
+description: Learn how to authenticate users with a one-time code sent by email in a regular web apps.
+toc: true
+topics:
+    - connections
+    - web-apps
+    - passwordless
+    - email
+contentType: how-to
+useCase: customize-connections
 ---
-# Passwordless Authentication with a one-time code via e-mail on Regular Web Apps
+# Implement Passwordless Email in Regular Web Apps
 
-<%= include('_introduction-email', { isMobile: false }) %>
+<%= include('./_includes/_call-from-client-side') %>
+
+<%= include('./_includes/_introduction-email', { isMobile: false }) %>
 
 ## Setup
 
-<%= include('_setup-email') %>
+<%= include('./_includes/_setup-email') %>
 
-<%= include('_setup-callback', {spa:false} )%>
+<%= include('./_includes/_setup-callback', {spa:false} )%>
 
 ## Implementation
 
 ### Use Lock (the Auth0 UI widget)
 
-<%= include('_init-passwordless-lock') %>
+<%= include('./_includes/_init-passwordless-lock') %>
 
 Then you can trigger the login using the `callbackURL` option to specify the endpoint that will handle the server-side authentication:
 
@@ -38,6 +49,8 @@ Then you can trigger the login using the `callbackURL` option to specify the end
 
 <a href="javascript:login()">Login</a>
 ```
+
+<%= include('./_includes/_custom-domains') %>
 
 This will open a dialog that asks the user for their email address:
 
@@ -67,7 +80,7 @@ You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to s
 
 You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript application library](/libraries/auth0js).
 
-<%= include('_init-auth0js_v9', {redirectUri:true} ) %>
+<%= include('./_includes/_init-auth0js_v9', {redirectUri:true} ) %>
 
 You must provide a way for the user to enter a address to which the email will be sent. Then you can begin the passwordless authentication as follows (assuming the name of your form input as `input.email`):
 

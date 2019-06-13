@@ -2,6 +2,10 @@
 description: How to customize the signup process for an invite-only application with Auth0
 toc: true
 crews: crew-2
+topics:
+  - design
+contentType: tutorial
+useCase: strategize
 ---
 # Invite-Only Applications
 
@@ -29,7 +33,7 @@ You can store all ExampleCo end users in a single database, since everyone will 
 
 To prevent users from signing themselves up and adding themselves to the database connection, be sure to select the **Disable Sign Ups** option on the connection to make sure users can only be created on the backend.
  
-You will need to create a [application](/applications) in the [Dashboard](${manage_url}/#/applications) with the correct parameters:
+You will need to create an [application](/applications/concepts/app-types-auth0) in the [Dashboard](${manage_url}/#/applications) with the correct parameters:
 
  - **Name**: give your application a clear name as this will be used in the emails being sent out during the invite-only workflow
  - **Application Type**: this will be a regular web application.
@@ -46,7 +50,7 @@ Since this application needs to access the [Management API](/api/v2), you'll nee
 * Use the **down arrow** to open up the scopes selection area. Select the following scopes: `read:users`, `update:users`, `delete:users`, `create:users`, and `create:user_tickets`.
 * Click **Update**.
 
-![Authorize Application](/media/articles/invite-only/invite-only-authorize-application.png)
+![Authorize Application](/media/articles/invite-only/invite-only-authorize-client.png)
 
 ### Import Users
 
@@ -84,7 +88,7 @@ Be sure to update the following placeholder values:
 
 ### Password Reset
 
-Once you've verified the user's password, you will need to initiate the [password change process](/connections/database/password-change). To do so, your app should make a `POST` request to Auth0's Management API.
+Once you've verified the user's email, you will need to initiate the [password change process](/connections/database/password-change). To do so, your app should make a `POST` request to Auth0's Management API.
 
 Be sure to replace the placeholder values for your [API Access Token](/api/management/v2/tokens), as well as those within the body of the call, including the callback/return URL for your app and the user's details.
 

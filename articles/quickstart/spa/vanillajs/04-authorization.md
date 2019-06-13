@@ -1,15 +1,20 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization and access control to your application
+description: This tutorial demonstrates how to add authorization and access control to a Javascript application.
 budicon: 546
+topics:
+  - quickstarts
+  - spa
+  - vanillajs
+  - authorization
+github:
+    path: 04-Authorization
+sample_download_required_data:
+  - client
+  - api
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-javascript-samples',
-  path: '04-Authorization'
-}) %>
-
 <%= include('../_includes/_authz_preamble') %>
 
 <%= include('../_includes/_authz_determining_scopes') %>
@@ -34,27 +39,25 @@ var auth0 = new auth0.WebAuth({
 ```js
 // app.js
 
-function setSession(authResult) {
+function localLogin(authResult) {
   
-  const scopes = authResult.scope || requestedScopes || '';
+  scopes = authResult.scope || requestedScopes || '';
 
   // ...
-  localStorage.setItem('scopes', JSON.stringify(scopes));
 }
 ```
 
-Add a function called `userHasScopes` that checks for scopes in local storage. Add an array of strings to the method. Check if the array of scopes saved in local storage contains those values. 
+Add a function called `userHasScopes` that checks for scopes in memory. Add an array of strings to the method. Check if the array of scopes saved in memory contains those values.
 You can use this method to conditionally hide and show UI elements to the user and to limit route access.
 
 ```js
 // app.js
 
-function userHasScopes(scopes) {
-  var savedScopes = JSON.parse(localStorage.getItem('scopes'));
-  if (!savedScopes) return false;
-  var grantedScopes = savedScopes.split(' ');
-  for (var i = 0; i < scopes.length; i++) {
-    if (grantedScopes.indexOf(scopes[i]) < 0) {
+function userHasScopes(requiredScopes) {
+  if (!scopes) return false;
+  var grantedScopes = scopes.split(' ');
+  for (var i = 0; i < requiredScopes.length; i++) {
+    if (grantedScopes.indexOf(requiredScopes[i]) < 0) {
       return false;
     }
   }

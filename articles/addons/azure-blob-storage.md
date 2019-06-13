@@ -1,21 +1,26 @@
 ---
 addon: Azure Blob Storage
+title: Azure Blob Storage Add-on
 thirdParty: true
 url: /addons/azure-blob-storage
 alias:
   - azure blob storage
   - azblob
 image: /media/platforms/azure.png
-tags:
+topics:
   - quickstart
+  - azure
+  - addons
 articles:
   - authenticate
-description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Blob Storage.
+contentType: how-to
+description: Learn how to use Auth0 to authenticate and authorize Azure Blob Storage.
+useCase: integrate-third-party-apps
 ---
 
-# Azure Blob Storage Addon
+# Azure Blob Storage Add-on
 
-Here's a sample call to the delegation endpoint to get the SAS:
+Here's a sample call to the delegation endpoint to get the Shared Access Signature (SAS):
 
 ```text
 POST https://${account.namespace}/delegation

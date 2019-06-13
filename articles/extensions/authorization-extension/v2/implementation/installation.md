@@ -2,6 +2,13 @@
 title: Installing the Authorization Extension
 description: How to install the Authorization Extension
 toc: true
+topics:
+  - extensions
+  - authorization_v2
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 # Authorization Extension: Installation
 
@@ -11,7 +18,7 @@ Before you begin, make sure that you have an existing [application](/application
 
 * Native
 * Regular Web Applications
-* Single Page Applications
+* Single-Page Applications
 
 Applications without an assigned type or Machine to Machine Applications cannot be used with this extension.
 

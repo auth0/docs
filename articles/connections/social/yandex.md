@@ -5,6 +5,14 @@ image: /media/connections/yandex.png
 seo_alias: yandex
 description: How to obtain an Application ID and Application Password for Yandex.
 toc: true
+topics:
+  - connections
+  - social
+  - yandex
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Yandex
@@ -29,6 +37,8 @@ Complete the form:
 The callback address for your app should be:
 
   https://${account.namespace}/login/callback
+
+  <%= include('../_find-auth0-domain-redirects') %>
 
 
 Notice that `scopes` in Yandex are defined in this screen. Select what kind of information you are requesting for your app.

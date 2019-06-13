@@ -326,7 +326,7 @@ The [Access Token](#get-an-access-token) should have the following scopes:
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-PUT https://{extension_url}/groups/{group_id}/mappings
+PATCH https://{extension_url}/groups/{group_id}/mappings
 Content-Type:   'application/json'
 Authorization:  'Bearer {access_token}'
 {
@@ -336,10 +336,11 @@ Authorization:  'Bearer {access_token}'
 ```
 
 ```shell
-curl --request PUT \
-  --url 'https://{extension_url}/groups/{group_id}/mappings' \
+curl -v -X PATCH \
+  --url 'https://{extension_url}/api/groups/{group_id}/mappings' \
+  --header 'Content-Type: application/json' \
   --header 'Authorization: Bearer {access_token}' \
-  --data '{"groupName": "Test", "connectionName": "google-oauth2"}'
+  --data '[{"groupName": "Test", "connectionName": "google-oauth2"}]'
 ```
 
 > RESPONSE SAMPLE:
@@ -349,13 +350,13 @@ curl --request PUT \
 ```
 
 <h5 class="http-method-box">
-  <span class="badge badge-warning" href="#create-group-mappings">PUT</span>
+  <span class="badge badge-warning" href="#create-group-mappings">PATCH</span>
   <span class="path" href="#create-group-mappings">/groups/{group_id}/mappings</span>
 </h5>
 
 Use this endpoint to create one or more mappings in a group.
 
-Group Mappings allow you to dynamically "add" users to different Groups based on the users' Connections. Essentially, using the Connection and the Groups information provided by the Identity Provider, you can dynamically make the user a member of the group in which you've created the appropriate mapping. For more information, refer to [Group Mappings](/extensions/authorization-extension/v2#group-mappings).
+Group Mappings allow you to dynamically "add" users to different Groups based on the users' Connections. Essentially, using the Connection and the Groups information provided by the Identity Provider, you can dynamically make the user a member of the group in which you've created the appropriate mapping. For more information, refer to [Group Mappings](/extensions/authorization-extension/v2/implementation/setup#group-mappings). 
 
 ### Scopes
 
@@ -423,7 +424,7 @@ The [Access Token](#get-an-access-token) should have the following scopes:
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [machine-to-machine flow implementation guide](/flows/guides/client-credentials/call-api-client-credentials) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group whose mappings you want to delete |
 
 ## Get Group Members
@@ -499,6 +500,9 @@ The [Access Token](#get-an-access-token) should have the following scopes:
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
 | `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group whose members you want to retrieve |
+| `{page}` | The page number. One-based. |
+| `{per_page}` | The amount of entries per page. Default: `25`. Max value: `25`. |
+
 
 ## Add Group Members
 
@@ -654,6 +658,8 @@ The [Access Token](#get-an-access-token) should have the following scopes:
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
 | `{access_token}` <br/><span class="label label-danger">Required</span> | The token your application retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which the nested members will be retrieved |
+| `{page}` | The page number. One-based. |
+| `{per_page}` | The amount of entries per page. Default: `25`. Max value: `25`. |
 
 ## Get Nested Groups
 

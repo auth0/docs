@@ -1,8 +1,14 @@
 ---
 title: Troubleshooting
-name: Shows how to troubleshoot the JWT middeware configuration
+name: Shows how to troubleshoot the JWT middleware configuration
 description: This document will help you troubleshoot your configuration if you get 401 (Unauthorized) response from your API.
 budicon: 500
+topics:
+    - quickstart
+    - backend
+    - webapi-owin
+contentType: tutorial
+useCase: quickstart
 ---
 
 If you configured the JWT middleware correctly, you will be able to get proper responses from your API when you make requests. However, in the case where you get a 401 (Unauthorized) response from your API, it is because the configuration of your JWT middleware does not match with the JWT which was passed.
@@ -33,7 +39,7 @@ A quick way to inspect a JWT is by using the [JWT.io](https://jwt.io/) website. 
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-rs256.png)
 
-In the screenshot above you can see that the token was signed using the **RS256** algorithm. The **Issuer** of the token is **https://jerrie.auth0.com/**, and the **Audience** is **https://rs256.test.api**.
+In the screenshot above you can see that the token was signed using the **RS256** algorithm. The **Issuer** of the token is **https://jerrie.auth0.com/**, and the **Audience** is **https://quickstarts/api**.
 
 So in other words these values in your JWT middleware registration must match **exactly** - including the trailing slash for the Issuer, such as
 
@@ -45,9 +51,9 @@ app.UseJwtBearerAuthentication(
         AuthenticationMode = AuthenticationMode.Active,
         TokenValidationParameters = new TokenValidationParameters()
         {
-            ValidAudience = "https://rs256.test.api",
+            ValidAudience = "https://quickstarts/api",
             ValidIssuer = "https://jerrie.auth0.com/",
-            IssuerSigningKeyResolver = (token, securityToken, identifier, parameters) => keyResolver.GetSigningKey(identifier)
+            IssuerSigningKeyResolver = (token, securityToken, kid, parameters) => keyResolver.GetSigningKey(kid)
         }
     });
 ```
@@ -56,7 +62,7 @@ For a token signed using HS256, the debugger view will look a little different:
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-hs256.png)
 
-In the screenshot above you can see that the token was signed using the **HS256** algorithm. The **Issuer** of the token is **https://jerrie.auth0.com/**, and the **Audience** is **https://hs256.test.api**.
+In the screenshot above you can see that the token was signed using the **HS256** algorithm. The **Issuer** of the token is **https://jerrie.auth0.com/**, and the **Audience** is **https://quickstarts/api/hs256**.
 
 In this case the middleware needs to be configured as follows:
 
@@ -65,12 +71,12 @@ app.UseJwtBearerAuthentication(
     new JwtBearerAuthenticationOptions
     {
         AuthenticationMode = AuthenticationMode.Active,
-        AllowedAudiences = new[] { "https://hs256.test.api" },
-        IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
+        AllowedAudiences = new[] { "https://quickstarts/api/hs256" },
+        IssuerSecurityKeyProviders = new IIssuerSecurityKeyProvider[]
         {
-            new SymmetricKeyIssuerSecurityTokenProvider("https://jerrie.auth0.com/",
+            new SymmetricKeyIssuerSecurityKeyProvider("https://jerrie.auth0.com/",
               Encoding.UTF8.GetBytes("your api secret"))
-        },
+        }
     });
 ```
 
@@ -150,7 +156,7 @@ The error message to look for is the following:
 IDX10205: Issuer validation failed.
 ```
 
-The resolve this issue, ensure that you specify the correct issuer for your JWT middeware. If your middleware is configured for RS256 signed tokens, this means ensuring that you have specified the correct value for the `TokenValidationParameters.ValidIssuer` property of the `JwtBearerAuthenticationOptions` parameter passed when calling `app.UseJwtBearerAuthentication(...)`.
+The resolve this issue, ensure that you specify the correct issuer for your JWT middleware. If your middleware is configured for RS256 signed tokens, this means ensuring that you have specified the correct value for the `TokenValidationParameters.ValidIssuer` property of the `JwtBearerAuthenticationOptions` parameter passed when calling `app.UseJwtBearerAuthentication(...)`.
 
 If your middleware is configured for HS256 signed tokens, this means ensuring that you have passed the correct value to the constructor of `SymmetricKeyIssuerSecurityTokenProvider` which was configured as one of the `IssuerSecurityTokenProviders` for the `JwtBearerAuthenticationOptions`.
 
@@ -166,6 +172,6 @@ The error message to look for is the following:
 IDX10214: Audience validation failed.
 ```
 
-The resolve this issue, ensure that you specify the correct audience for your JWT middeware.  If your middleware is configured for RS256 signed tokens, this means ensuring that you have specified the correct value for the `ValidAudience` property of the `TokenValidationParameters`
+The resolve this issue, ensure that you specify the correct audience for your JWT middleware.  If your middleware is configured for RS256 signed tokens, this means ensuring that you have specified the correct value for the `ValidAudience` property of the `TokenValidationParameters`
 
 If your middleware is configured for HS256 signed tokens, this means ensuring that you have added the correct audience to the list of `AllowedAudiences` for the `JwtBearerAuthenticationOptions`.

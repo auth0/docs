@@ -1,21 +1,24 @@
 ---
 title: Login
-description: This tutorial will demonstrates how to use the OAuth2 Go package to add authentication and authorization to your web app.
+description: This tutorial demonstrates how to add user login to a Go web application using Auth0.
 budicon: 448
+topics:
+  - quickstarts
+  - webapp
+  - login
+  - golang
+contentType: tutorial
+useCase: quickstart
+github:
+  path: 01-Login
 ---
+<%= include('../_includes/_getting_started', { library: 'Go', callback: 'http://localhost:3000/callback' }) %>
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-golang-web-app',
-  path: '01-Login',
-	requirements: [
-		'Go 1.5.3 and up'
-	]
-}) %>
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
-<%= include('../_includes/_getting_started', { library: 'Go', callback: 'http://localhost:3000' }) %>
+## Configure Go to Use Auth0
 
-## Add Dependencies
+### Add Dependencies
 
 Install the following dependencies using `go get`.
 
@@ -25,7 +28,33 @@ ${snippet(meta.snippets.dependencies)}
 This example uses `mux` for routing but you can use whichever router you want.
 :::
 
-## Add the Auth0 Callback Handler
+### Configure Session Storage
+
+Configure session storage to use FilesystemStore.
+
+```go
+// app/app.go
+
+package app
+
+import (
+	"encoding/gob"
+
+	"github.com/gorilla/sessions"
+)
+
+var (
+	Store *sessions.FilesystemStore
+)
+
+func Init() error {
+	Store = sessions.NewFilesystemStore("", []byte("something-very-secret"))
+	gob.Register(map[string]interface{}{})
+	return nil
+}
+```
+
+### Add the Auth0 Callback Handler
 
 You'll need to create a callback handler that Auth0 will call once it redirects to your app. For that, you can do the following:
 
@@ -46,12 +75,12 @@ import (
 
 func CallbackHandler(w http.ResponseWriter, r *http.Request) {
 
-	domain := os.Getenv("${account.namespace}")
+	domain := "${account.namespace}"
 
 	conf := &oauth2.Config{
-		ClientID:     os.Getenv("${account.clientId}"),
-		ClientSecret: os.Getenv("YOUR_CLIENT_SECRET"),
-		RedirectURL:  os.Getenv("http://localhost:3000/callback"),
+		ClientID:     "${account.clientId}",
+		ClientSecret: "YOUR_CLIENT_SECRET",
+		RedirectURL:  "http://localhost:3000/callback",
 		Scopes:       []string{"openid", "profile"},
 		Endpoint: oauth2.Endpoint{
 			AuthURL:  "https://" + domain + "/authorize",
@@ -119,8 +148,7 @@ Remember to set this handler to the `/callback` path:
 
 ${snippet(meta.snippets.setup)}
 
-
-## Triggering the Login
+## Trigger Authentication
 
 Create a file called `login.go` in the `routes/login` folder, and add `LoginHandler` function to handle `/login` route.
 
@@ -142,13 +170,13 @@ import (
 
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
 
-	domain := os.Getenv("${account.namespace}")
-	aud := os.Getenv("YOUR_API_AUDIENCE")
+	domain := "${account.namespace}"
+	aud := "YOUR_API_AUDIENCE"
 
 	conf := &oauth2.Config{
-		ClientID:     os.Getenv("${account.clientId}"),
-		ClientSecret: os.Getenv("YOUR_CLIENT_SECRET"),
-		RedirectURL:  os.Getenv("http://localhost:3000/callback"),
+		ClientID:     "${account.clientId}",
+		ClientSecret: "YOUR_CLIENT_SECRET",
+		RedirectURL:  "http://localhost:3000/callback",
 		Scopes:       []string{"openid", "profile"},
 		Endpoint: oauth2.Endpoint{
 			AuthURL:  "https://" + domain + "/authorize",
@@ -206,7 +234,7 @@ Add a link to `/login` route in the `index.html` template.
 </div>
 ```
 
-## Accessing User Information
+## Display User Information
 
 You can access the user information via the `profile` you stored in the session previously.
 
@@ -235,7 +263,7 @@ func UserHandler(w http.ResponseWriter, r *http.Request) {
 </div>
 ```
 
-[Click here](/user-profile) to check all the information that the userinfo hash has.
+For information about the userinfo hash, see [User Profile](/users/concepts/overview-user-profile).
 
 ## Logout
 
@@ -256,7 +284,7 @@ import (
 
 func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 
-	domain := os.Getenv("AUTH0_DOMAIN")
+	domain := "${account.namespace}"
 
 	var Url *url.URL
 	Url, err := url.Parse("https://" + domain)
@@ -268,7 +296,7 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 	Url.Path += "/v2/logout"
 	parameters := url.Values{}
 	parameters.Add("returnTo", "http://localhost:3000")
-	parameters.Add("client_id", os.Getenv("${account.clientId}"))
+	parameters.Add("client_id", "${account.clientId}")
 	Url.RawQuery = parameters.Encode()
 
 	http.Redirect(w, r, Url.String(), http.StatusTemporaryRedirect)
@@ -276,7 +304,7 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 ```
 
 ::: note
-Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the application as explained in [our documentation](/logout#redirect-users-after-logout)
+The redirect URL needs to be in the list of Allowed Logout URLs in the settings section of the application, For more information, see [Redirect Users After Logout](/logout/guides/redirect-users-after-logout).
 :::
 
 Add the function to `mux` handle `/logout` route.
@@ -301,9 +329,9 @@ $(document).ready(function() {
 This sample is using [js.cookie](https://github.com/js-cookie/js-cookie/tree/latest#readme) to cookie handling. You need to add `js.cookie.js` file in the `public` folder to use it.
 :::
 
-## Optional Steps
+### Optional Steps
 
-### Checking if the User is Authenticated
+#### Checking if the User is Authenticated
 
 We can use [Negroni](https://github.com/codegangsta/negroni) to create a Middleware that will check if the user is Authenticated or not.
 

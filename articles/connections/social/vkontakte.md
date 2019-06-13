@@ -5,6 +5,14 @@ image: /media/connections/vkontakte.png
 seo_alias: vkontakte
 description: How to connect your Auth0 app to vKontakte.
 toc: true
+topics:
+  - connections
+  - social
+  - vkontakte
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to vKontakte
@@ -30,6 +38,8 @@ In the **Site address** field, enter the following:
 In the **Base domain** field, enter the following:
 
 `${account.namespace}`
+
+<%= include('../_find-auth0-domain-redirects') %>
 
 ![](/media/articles/connections/social/vkontakte/vkontakte-create-app.png)
 

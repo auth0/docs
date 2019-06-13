@@ -6,6 +6,14 @@ seo_alias: salesforce
 index: 6
 description: How to connect your app to Salesforce using Auth0.
 toc: true
+topics:
+  - connections
+  - social
+  - salesforce
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Salesforce
@@ -27,6 +35,9 @@ Navigate to **Platform Tools > Apps**. Under **App Manager**, click **New Connec
 1. Enter the required basic information (*Connected App Name*, *API Name* and *Contact Email*).
 2. Select **Enable OAuth Settings**  under **API (Enable OAuth Settings)**.
 3. Enter your callback URL: `https://${account.namespace}/login/callback`
+
+<%= include('../_find-auth0-domain-redirects') %>
+
 4. Add *Access your basic information* to the **Selected OAuth Scopes**.
 5. Click **Save**.
 
@@ -34,7 +45,7 @@ Navigate to **Platform Tools > Apps**. Under **App Manager**, click **New Connec
 
 ## 3. Get your Consumer Key and Consumer Secret
 
-Once your app is registered, the page will diplay your `Consumer Key` and `Consumer Secret`:
+Once your app is registered, the page will display your `Consumer Key` and `Consumer Secret`:
 
 ![](/media/articles/connections/social/salesforce/salesforce-register-3.png)
 

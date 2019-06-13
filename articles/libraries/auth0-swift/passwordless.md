@@ -2,6 +2,12 @@
 section: libraries
 toc: true
 description: Using Auth0.Swift in Passwordless mode
+topics:
+  - libraries
+  - swift
+  - passwordless
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # Passwordless Authentication with Auth0.Swift
 

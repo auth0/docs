@@ -5,6 +5,14 @@ image: /media/connections/exact.png
 seo_alias: exact
 description: How to obtain a Client Id and Client Secret for Exact.
 toc: true
+topics:
+  - connections
+  - social
+  - exact
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Exact
@@ -31,7 +39,9 @@ In the `Redirect URI`field, enter this value:
 
     https://${account.namespace}/login/callback
 
-and click **Save**.
+    <%= include('../_find-auth0-domain-redirects') %>
+
+Click **Save**.
 
 ## 3. Get your new app's *Client Id* and *Client Secret*
 

@@ -2,6 +2,16 @@
 classes: topic-page
 title: Guides
 description: Helpful docs for implementing Auth0
+topics:
+  - architecture
+  - tokens
+  - user-management
+  - users
+  - mfa
+  - email
+  - guides
+contentType: index
+useCase: development
 ---
 
 <div class="topic-page-header">
@@ -26,15 +36,15 @@ description: Helpful docs for implementing Auth0
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/user-profile">User Management</a>
+    <i class="icon icon-budicon-715"></i><a href="/users/concepts/overview-user-profile">User Management</a>
     <p>
       Learn how to manage your users in Auth0, as well as what can be stored in the user profile
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/multifactor-authentication">Multifactor Authentication</a>
+    <i class="icon icon-budicon-715"></i><a href="/multifactor-authentication">Multi-factor Authentication</a>
     <p>
-      Learn what multifactor authentication is and how to implement it to ensure a more secure sign on process for your users.
+      Learn what multi-factor authentication is and how to implement it to ensure a more secure sign on process for your users.
     </p>
   </li>
   <li>

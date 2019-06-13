@@ -2,6 +2,14 @@
 description: Learn about Auth0 advanced features
 toc: true
 public: false
+topics:
+  - auth0-101
+  - auth0-basics
+contentType: concept
+useCase:
+  - strategize
+  - development
+  - get-started
 ---
 # What's Next? - UNDER CONSTRUCTION
 

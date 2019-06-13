@@ -1,5 +1,12 @@
 ---
-  description: How to customize SAML assertions
+description: How to customize SAML assertions
+topics:
+  - saml
+  - saml-assertions
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Customize SAML Assertions
@@ -69,7 +76,7 @@ The following is a list of customization options for your SAML assertions.
 
 * **recipient** (string): The recipient of the SAML Assertion (SubjectConfirmationData). Default is `AssertionConsumerUrl` on SAMLRequest or Callback URL if no SAMLRequest was sent.
 
-* **mappings** (Array): The mappings between Auth0 profile and the output attributes on the SAML Assertion. Default mapping is shown above.
+* **mappings** (Object): The mappings between Auth0 profile and the output attributes on the SAML Assertion. Default mapping is shown above.
 
 * **createUpnClaim** (bool): Whether or not a UPN claim should be created. Default is true.
 
@@ -77,9 +84,9 @@ The following is a list of customization options for your SAML assertions.
 
 * **mapUnknownClaimsAsIs** (bool): if `passthroughClaimsWithNoMapping` is true and this is false (default), for each claim that is not mapped to the common profile Auth0 will add a prefix `http://schema.auth0.com`. If true it will passthrough the claim as-is. Default is false.
 
-* **mapIdentities**: If true, it will will add more information in the token like the provider used (google, adfs, ad, and so on) and the access_token if available. Default is true.
+* **mapIdentities**: If true, it will will add more information in the token like the provider used (google, adfs, ad, and so on) and the Access Token if available. Default is true.
 
-* **signatureAlgorithm**: Signature algorithm to sign the SAML Assertion or response. Default is `sha1` and it could be `sha256`.
+* **signatureAlgorithm**: Signature algorithm to sign the SAML Assertion or response. Default is `rsa-sha1` and it could be `rsa-sha256`.
 
 * **digestAlgorithm**: Digest algorithm to calculate digest of the SAML Assertion or response. Default is `sha1` and it could be `sha256`.
 

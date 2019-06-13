@@ -2,6 +2,14 @@
 title: Learn the Basics
 description: Learn the basics of Auth0 and familiarize yourself with the terminology
 toc: true
+topics:
+  - auth0-101
+  - auth0-basics
+contentType: concept
+useCase:
+  - development
+  - strategize
+  - get-started
 ---
 # Learn the Basics
 
@@ -10,12 +18,12 @@ Often, the biggest barrier to learning new things, especially in the tech indust
 ::: panel TL;DR
 This article uses an example to introduce some core concepts of Auth0: **accounts**, **tenants**, **domains**, **applications**, and **connections**. If you already know what these are (in the context of Auth0) you can safely skip reading it.
 
-We will use a very simple example: A company named `Example-Co` wants to use Auth0 for authentication. They have a web app and a mobile app, and they want their users to be able to login with username/password, Google, or GitHub.
+We will use a very simple example: A company named `Example-Co` wants to use Auth0 for authentication. They have a web app and a mobile app, and they want their users to be able to log in with username/password, Google, or GitHub.
 :::
 
 ## Account and tenants
 
-If you haven't already signed up for an Auth0 **account**, do so (it's free). You can either use username/password or log in with a social provider (GitHub, Google, or Microsoft).
+If you haven't already [signed up](https://auth0.com/signup) for an Auth0 **account**, do so (it's free). You can either use username/password or log in with a social provider (GitHub, Google, or Microsoft).
 
 Once you create your account you will be asked to create a **Tenant**. This is a **logical isolation unit**.
 
@@ -24,22 +32,36 @@ The term is borrowed from "software multitenancy". This refers to an architectur
 Some characteristics:
 
 - The tenant name has to be unique (we will see in the next paragraph that it is used to create your own personal domain).
+- The tenant name must be all lowercase.
 - The tenant name cannot be changed after creation.
 - You can create more than one tenant; in fact, you are encouraged to do so for each environment you have (such as Development, Staging, or Production).
 - If you chose to host your data in Europe or Australia, then your tenant will have a suffix (`eu` or `au`). In our example, if `Example-Co` picked the name `example-co`, then depending on where the data is stored, the tenant name would be `example-co-eu` or `example-co-au`.
 
-## Domain
+You can create additional tenants at any time. To do so, go to the upper-right corner of the Dashboard and click on your tenant name to display the pulldown menu. Click **Create Tenant**.
 
-As discussed in the previous section, when you create a new account with Auth0, you are asked to pick a name for your **Tenant**. This name, appended with `auth0.com`, will be your Auth0 **Domain**. It's the base URL you will be using when you want to access our API (for example, to authenticate a user). The name format is `TENANT-NAME.auth0.com` (you get to pick the `TENANT-NAME` part).
+## Domains
 
-In our example, `Example-Co` picked the name `example-co`; hence their domain is `example-co.auth0.com`.
+As discussed in the previous section, when you create a new account with Auth0, you are asked to pick a name for your **Tenant**. This name, appended with `auth0.com`, will be your Auth0 **Domain** (you can also use [custom domains](#custom-domains)). It's the base URL you will be using to access our API and the URL where users are redirected in order to authenticate.
 
-::: panel Custom Domains
-You can use a custom domain, such as `example-co.com`. This comes with an additional cost. This feature is in beta for **public-cloud tenants** (see the [Custom Domains](/custom-domains) documentation for details). If you have a **single-tenant** implementation, you can deploy your custom domain in one of three locations:
+Auth0 supports three regional subdomains: 
+- `auth0.com` for US
+- `eu.auth0.com` for Europe
+- `au.auth0.com` for Australia
+
+When you create your tenant you are asked for the region you want to use. This choice affects which regional subdomain will be assigned to you and where your data will be hosted. So if you pick US then the name format will be `YOUR-TENANT-NAME.auth0.com`, for Europe it will be `YOUR-TENANT-NAME.eu.auth0.com`, and so forth.
+
+In our example, `Example-Co` picked the name `example-co` and Americas as their region. Therefore their domain is `example-co.auth0.com`.
+
+### Custom domains
+
+We recommend the use of custom domains, such as `example-co.com`, in your production environments to provide your users with the most secure and seamless experience. This comes with an additional cost. 
+
+If you have a [**single-tenant** implementation](/private-cloud), you can deploy your custom domain in:
+
 - The cloud managed by Auth0
-- A cloud managed by you
-- An [on-premise installation](/appliance)
-:::
+- An AWS cloud managed by you
+
+For more information, see [Custom Domains](/custom-domains). 
 
 ## Application
 
@@ -71,7 +93,7 @@ Connections are sources of users and they can be of the following types:
 
 - [Database connections](/connections/database): Users log in with username and passwords, stored either in the Auth0 cloud or your own database
 - [Social logins](/identityproviders#social): Google, Facebook, Twitter, and more
-- [Enterprise directories](/identityproviders#enterprise): LDAP, Google Apps, Office 365, ADFS, AD, SAML-P, WS-Federation, and more
+- [Enterprise directories](/identityproviders#enterprise): LDAP, G Suite, Office 365, ADFS, AD, SAML-P, WS-Federation, and more
 - [Passwordless systems](/connections/passwordless): Users log in with one-time codes, sent via SMS or email
 
 Each connection can be shared among multiple applications. You can configure any number of connections, and then choose which of them to enable for each application.
@@ -84,7 +106,7 @@ In our example, `ExampleCo` wants their users to be able to login with username/
 1. Enable all three connections for the mobile app
 
 ::: note
-For more information on the supported identity providers, refer to [Identity Providers Supported by Auth0](/identityproviders). For details on how to enable a connection for an application, refer to [Application Connections](/applications/connections).
+For more information on the supported identity providers, refer to [Identity Providers Supported by Auth0](/identityproviders). For details on how to enable a connection for an application, refer to [Connections](/connections).
 :::
 
 ## Where to go from here
@@ -95,7 +117,7 @@ If you wish to learn more about the next steps in setting up Auth0, you can read
 
 - **Hook Auth0 up to your app**: Assuming that your app has a login and a logout button, you need to add some code in order to invoke Auth0 APIs each time one of these buttons is clicked. For details you can refer to one of our [quickstarts](/quickstarts). Alternatively, you can directly call our API to [log in](/api/authentication#login) or [log out](/api/authentication#logout) a user, or implement one of Auth0's [libraries and SDKs](/libraries).
 
-- **Migrate your users to Auth0**: If you already have a user store, you need to migrate these users to Auth0 before you go live. For more information refer to [User Migration](/users/migrations). Alternatively, you can [connect your app to your own user database](/connections/database/custom-db) and access it via Auth0.
+- **Migrate your users to Auth0**: If you already have a user store, you need to migrate these users to Auth0 before you go live. For more information refer to [User Migration](/users/concepts/overview-user-migration). Alternatively, you can [connect your app to your own user database](/connections/database/custom-db) and access it via Auth0.
 
 ## Keep reading
 

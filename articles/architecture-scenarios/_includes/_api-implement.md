@@ -60,7 +60,7 @@ For retrieving the list of timesheets this is to ensure that we only return the 
 
 One of the standard JWT claims is the `sub` claim which identifies the principal that is the subject to the claim. In the case of the Implicit Grant flow this claim will contain the user's identity, which will be the unique identifier for the Auth0 user. You can use this to associate any information in external systems with a particular user.
 
-You can also use a custom claim to add another attribute of the user - such as their email address - to the `access_token` and use that to uniquely identify the user.
+You can also use a custom claim to add another attribute of the user - such as their email address - to the Access Token and use that to uniquely identify the user.
 
 ::: note
 See the implementation in [Node.js](/architecture-scenarios/application/mobile-api/api-implementation-nodejs#4-determine-the-user-identity)

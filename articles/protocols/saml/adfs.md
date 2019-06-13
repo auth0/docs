@@ -1,6 +1,13 @@
 ---
 description: How to Set up an Auth0 SAML Connection Against ADFS
 toc: true
+topics:
+  - saml
+  - adfs
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # ADFS SAML Connection
@@ -68,7 +75,19 @@ Click **Add Rule...** to launch the wizard. Use **Send LDAP Attributes as Claims
 
 ![](/media/articles/protocols/saml-adfs/saml12.png)
 
-Provide a value for the **Claim rule name**, such as LDAP Attributes (it can be anything you want). Choose **Active Directory** as your **Attribute Store**. Map your LDAP attributes to outgoing claim types as shown below. The only mandatory mapping you need is for the email address, but you can add as many as you'd like. Click **Finish**.
+Provide a value for the **Claim rule name**, such as LDAP Attributes (it can be anything you want). Choose **Active Directory** as your **Attribute Store**. Map your LDAP attributes to outgoing claim types as shown below:
+
+| LDAP Attribute | Outgoing Claim |
+| - | - |
+| E-Mail-Addresses | E-Mail Address |
+| Display-Name | Name |
+| User-Principal-Name | Name ID |
+| Given-Name | Given Name |
+| Surname | Surname |
+
+The only mandatory mapping you need is for the email address, but we strongly recommend adding all of the ones listed above, especially **Name ID**, since they are the ones most commonly used.
+
+Click **Finish**.
 
 ![](/media/articles/protocols/saml-adfs/saml13.png)
 
@@ -165,8 +184,8 @@ You can add additional claims mappings if necessary; for assistance on which LDA
 
 Before you can test your Auth0-ADFS integration, you'll need to make sure that you've completed the following steps:
 
-1. [Create a user](/tutorials/creating-users-in-the-management-portal) for your newly-created Connection.
-2. [Enable your Connection](/applications/connections) for at least one Application.
+1. [Create a user](/users/guides/create-users) for your newly-created Connection.
+2. [Enable your Connection](/connections) for at least one Application.
 
 To test your connection, navigate to **Connections > Enterprise > ADFS**. Click the ADFS row (or the hamburger icon to the right) to bring up a list of your ADFS connections. Identify the one you're testing, and click the **play** button to test the connection.
 

@@ -1,5 +1,13 @@
 ---
 description: How to configure Auth0 to use SalesForce as an identity provider.
+topics:
+    - saml
+    - identity-providers
+    - salesforce
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # SAML SSO with SalesForce

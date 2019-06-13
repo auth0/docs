@@ -1,6 +1,9 @@
 ---
 title: Authentication API Explorer
 fullWidth: true
+contentType: 
+    - index
+    - reference
 ---
 
 <div class="api-section" data-section="none">
@@ -32,15 +35,15 @@ fullWidth: true
 </div>
 
 <div class="api-section" data-section="none">
+  <%= include('./_multifactor-authentication') %>
+</div>
+
+<div class="api-section" data-section="none">
   <%= include('./_saml-sso') %>
 </div>
 
 <div class="api-section" data-section="none">
   <%= include('./_wsfed-req') %>
-</div>
-
-<div class="api-section" data-section="none">
-  <%= include('./_impersonation') %>
 </div>
 
 <div class="api-section" data-section="none">
@@ -65,11 +68,14 @@ fullWidth: true
 <div class="api-section" data-section="legacy">
   <%= include('./legacy/_userinfo') %>
 </div>
-<div class="api-section" data-section="none">
+<div class="api-section" data-section="legacy">
   <%= include('./legacy/_linking') %>
 </div>
 <div class="api-section" data-section="legacy">
   <%= include('./legacy/_delegation') %>
+</div>
+<div class="api-section" data-section="legacy">
+  <%= include('./legacy/_impersonation') %>
 </div>
 <div class="api-section" data-section="legacy">
   <%= include('./legacy/_resource-owner') %>
@@ -86,7 +92,7 @@ fullWidth: true
  <%= include('./errors/_oauth-access_token') %>
 </div>
 <div class="api-section" data-section="errors">
- <%= include('./errors/_oauth-ro') %>
+ <%= include('./errors/_passwordless-verify') %>
 </div>
 <div class="api-section" data-section="errors">
  <%= include('./errors/_passwordless-start') %>

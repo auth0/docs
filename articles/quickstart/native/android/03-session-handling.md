@@ -1,26 +1,21 @@
 ---
 title: Session Handling
-description: This tutorial will show you how to login and maintain a session’s connectivity.
+description: This tutorial will show you how to handle user sessions and retrieve the user's profile.
 seo_alias: android
 budicon: 280
+topics:
+  - quickstarts
+  - native
+  - android
+github:
+    path: 03-Session-Handling
+contentType: tutorial
+useCase: quickstart
 ---
-
-This tutorial shows you how to let users log in and maintain an active session with Auth0.
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  path: '03-Session-Handling',
-  requirements: [
-    'Android Studio 2.3',
-    'Android SDK 25',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>
 
 You need the `Credentials` class to handle users' credentials. The class is composed of these elements:
 
-* `accessToken`: Access Token used by the Auth0 API. To learn more, see the [Access Token documentation](/tokens/access-token).
+* `accessToken`: Access Tokens used by the Auth0 API. To learn more, see the [Access Tokens](/tokens/overview-access-tokens).
 * `idToken`: Identity Token that proves the identity of the user. To learn more, see the [ID Token documentation](/tokens/id-token).
 * `refreshToken`: Refresh Token that can be used to request new tokens without signing in again. To learn more, see the [Refresh Token documentation](/tokens/refresh-token/current).
 * `tokenType`: The type of tokens issued by the server.
@@ -53,14 +48,14 @@ WebAuthProvider.init(auth0)
 ## Check for Tokens when the Application Starts
 
 ::: panel Learn about Refresh Tokens
-Before you go further with this tutorial, read the [refresh token documentation](/refresh-token).
+Before you go further with this tutorial, read the [Refresh Token documentation](/refresh-token).
 It is important that you remember the following:
 * Refresh Tokens must be securely saved.
 * Even though Refresh Tokens cannot expire, they can be revoked.
 * New tokens will have the same scope as was originally requested during the first authentication.
 :::
 
-You can simplify the way you handle user sessions using a Credential Manager class, which knows how to securely store, retrieve and renew credentials obtained from Auth0. Two classes are provided in the SDK to help you achieve this. Further read on how they work and their implementation differences is available in the [Saving and Renewing Tokens](/libraries/auth0-android/save-and-refresh-tokens.md) article. For this series of tutorials we're going to use the `SecureCredentialsManager` class as it encrypts the credentials before storing them in a private SharedPreferences file.
+You can simplify the way you handle user sessions using a Credential Manager class, which knows how to securely store, retrieve and renew credentials obtained from Auth0. Two classes are provided in the SDK to help you achieve this. Further read on how they work and their implementation differences is available in the [Saving and Renewing Tokens](/libraries/auth0-android/save-and-refresh-tokens) article. For this series of tutorials we're going to use the `SecureCredentialsManager` class as it encrypts the credentials before storing them in a private SharedPreferences file.
 
 
 Create a new instance of the Credentials Manager. When you run the application, you should check if there are any previously stored credentials. You can use these credentials to bypass the login screen:
@@ -116,7 +111,7 @@ private final AuthCallback webCallback = new AuthCallback() {
 ```
 
 ::: note
-A Storage defines how data is going to be persisted in the device. The Storage implementation given to the Credentials Manager in the seed project uses a SharedPreferences file to store the user credentials in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE). You can modify this behavior by implementing a custom Storage. 
+A Storage defines how data is going to be persisted in the device. The Storage implementation given to the Credentials Manager in the seed project uses a SharedPreferences file to store the user credentials in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE). You can modify this behavior by implementing a custom Storage.
 :::
 
 ## Recover the User's Credentials
@@ -140,7 +135,7 @@ credentialsManager.getCredentials(new BaseCallback<Credentials, CredentialsManag
 ```
 
 ::: note
-The `SecureCredentialsManager` can prompt the user for local device authentication using the configured Lock Screen (PIN, Password, Pattern, Fingerprint) before giving them the stored credentials. This behavior can be enabled calling the `SecureCredentialsManager#requireAuthentication` method when setting up the Credentials Manager. The sample has this line commented for convenience, remove the comment to try it. 
+The `SecureCredentialsManager` can prompt the user for local device authentication using the configured Lock Screen (PIN, Password, Pattern, Fingerprint) before giving them the stored credentials. This behavior can be enabled calling the `SecureCredentialsManager#requireAuthentication` method when setting up the Credentials Manager. The sample has this line commented for convenience, remove the comment to try it.
 :::
 
 ## Log the User Out

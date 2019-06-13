@@ -2,6 +2,10 @@
 title: Additional Configuration for Custom Domains
 description: Describes the configuration steps you might need to follow in order to set up custom domains, depending on the Auth0 features you are using
 toc: true
+topics:
+  - custom-domains
+contentType: how-to
+useCase: customize-domains
 ---
 # Additional Configuration for Custom Domains
 
@@ -17,18 +21,23 @@ You have already configured and verified your custom domain. If not, see [How to
 
 | **Feature** | **Section to read** |
 |-|-|
-| You use [universal login](/hosted-pages/login) and you have customized the login page | [Universal login](#universal-login) |
+| You use [Universal Login](/hosted-pages/login) and you have customized the login page | [Universal Login](#universal-login) |
 | You use Lock embedded in your application | [Embedded Lock](#embedded-lock) |
 | You use Auth0.js or other Auth0 SDKs | [Auth0.js and other SDKs](#auth0-js-and-other-sdks) |
 | You want to use your custom domain with Auth0 emails | [Use custom domains in emails](#use-custom-domains-in-emails) |
 | You want to use social identity providers with your custom domain | [Configure social identity providers](#configure-social-identity-providers) |
+| You want to use G Suite connections with your custom domain | [Configure G Suite connections](#configure-g-suite-connections) |
+| You issue Access Tokens for your APIs or you access the Auth0 APIs from your application | [APIs](#apis) |
 | You want to use SAML identity providers with your custom domain| [Configure SAML identity providers](#configure-saml-identity-providers) |
 | You want to use SAML applications with your custom domain | [Configure your SAML applications](#configure-your-saml-applications) |
-| You issue Access Tokens for your APIs or you access the Auth0 APIs from your application | [APIs](#apis)
+| You want to use WS-Fed Clients with your custom domain | [Configure your WS-Fed Clients](#configure-your-ws-fed-clients) |
+| You want to use Azure AD connections with your custom domain | [Configure Azure AD connections](#configure-azure-ad-connections) |
+| You want to use ADFS connections with your custom domain | [Configure ADFS connections](#configure-adfs-connections) |
+| You want to use AD/LAP connections with Kerberos support with your custom domain | [Configure AD/LAP connections](#configure-ad-ldap-connections) |
 
-## Universal login
+## Universal Login
 
-If you use [universal login](/hosted-pages/login) and you have customized the login page, you must update the code to use your custom domain. 
+If you use [Universal Login](/hosted-pages/login) and you have customized the login page, you must update the code to use your custom domain. 
 
 If you are using [Lock](/libraries/lock), the additional values required in the initialization can be seen in the following sample script:
 
@@ -38,7 +47,7 @@ var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
   configurationBaseUrl: config.clientConfigurationBaseUrl,
   overrides: {
   	__tenant: config.auth0Tenant,
-  	__token_issuer: config.auth0Domain
+  	__token_issuer: config.authorizationServer.issuer
   },
   //code omitted for brevity
 });
@@ -47,19 +56,23 @@ var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
 If you use [Auth0.js](/libraries/auth0js) on the hosted login page, you need to set the `overrides` option like this:
 
 ```js
-var webAuth = new new auth0.WebAuth({
+var webAuth = new auth0.WebAuth({
   clientID: config.clientID, 
   domain: config.auth0Domain, 
   //code omitted for brevity
   overrides: {
   	__tenant: config.auth0Tenant,
-  	__token_issuer: config.auth0Domain
+  	__token_issuer: config.authorizationServer.issuer
   },
   //code omitted for brevity
 });
 ```
 
 If you use the **default** login page without customization, you do not need to make any changes.
+
+::: note
+For most, the Auth0.js and Lock libraries get the tenant name (required for `/usernamepassword/login`) and the issuer (required for `id_token` validation) from the domain. However, if you're a Private Cloud customer who uses a proxy or a custom domain name where the domain name is different from the tenant/issuer, you can use `__tenant` and `__token_issuer` to provide your unique values.
+:::
 
 ## Embedded Lock
 
@@ -103,26 +116,10 @@ If you want to use social identity providers with your custom domain, you must u
 ::: warning
 You cannot use [Auth0 developer keys](/connections/social/devkeys) with custom domains.
 :::
+  
+## Configure G Suite connections
 
-## Configure SAML identity providers
-
-If you want to use SAML identity providers (IdPs) with your custom domain, you must get the service provider metadata from Auth0 (such as `https://YOUR-CUSTOM-DOMAIN/samlp/metadata?connection=YOUR-CONNECTION-NAME`). This includes updated **Assertion Consumer Service (ACS) URLs**. Then, you have to manually update this value in your IdP(s). This change to your IdP(s) must happen at the same time as you begin using your custom domain in your applications. This can pose a problem if there are multiple IdPs to configure.
-
-Alternatively, you can use signed requests to fulfill this requirement:
-- Once your custom domain is set up, go to [Dashboard > Tenant Settings > Custom Domains](${manage_url}/#/tenant/custom_domains) and download the certificate from the link under the **Sign Request** toggle
-- Give the certificate to the IdP(s) to upload. This enables the IdP to validate the signature on the `AuthnRequest` message that Auth0 sends to the IdP
-- The IdP will import the certificate and if necessary, signature verification should be enabled (exact steps vary by IdP)
-- Turn on the **Sign Request** toggle in the Dashboard under **Connections > Enterprise > SAMLP > CONNECTION**. This will trigger Auth0 to sign the SAML `AuthnRequest` messages it sends to the IdP
-
-Once this is done, and you start using your custom domain, the IdP will receive that custom domain in your signed request. Because your application is trusted, the IdP should automatically override whatever was configured as your ACS URL and replace it with the value sent in the signed request. However, there are IdPs that do **not** accept the ACS URL in the signed request, so you must check with yours to confirm whether this is supported or not.
-
-If this is supported, it will prevent you from having to change one or many IdP settings all at the same time, and allow you to prepare them to accept your signed requests ahead of time. You can then at a later date have the IdPs change the ACS URL as well.
-
-Something else to keep in mind, is that if your Identity Provider is configured to use custom domains, the **Try** button in the Dashboard will **not** work.
-
-## Configure your SAML applications
-
-If you want to use SAML applications with your custom domain, you must update your Service Provider with new Identity Provider metadata from Auth0 (such as `https://YOUR-CUSTOM-DOMAIN/samlp/metadata/YOUR-CLIENT-ID`). Note that the issuer entity ID will change when using a custom domain (from something like `urn:northwind.auth0.com` to the custom domain such as `urn:login.northwind.com`).
+If you want to use G Suite connections with your custom domain, you must update the Authorized redirect URI in your OAuth Client Settings. In the Google Developer Console, go to **Credentials**, choose your OAuth client in the list, and you will see a settings page with the app Client ID, secret, and other fields. In the **Authorized redirect URIs** field, add a URL in the format `https://<CUSTOM DOMAIN>/login/callback` that includes your custom domain (such as `https://login.northwind.com/login/callback`).
 
 ## APIs
 
@@ -130,9 +127,54 @@ If you use Auth0 with a custom domain to issue Access Tokens for your APIs, then
 
 ```js
 app.use(jwt({ 
-  issuer: 'https://YOUR-CUSTOM-DOMAIN',
+  issuer: 'https://<YOUR-CUSTOM-DOMAIN>',
   //code omitted for brevity
 }));
 ```
 
+## Configure SAML identity providers
+
+If you want to use SAML identity providers (IdPs) with your custom domain, you must get the service provider metadata from Auth0 (such as `https://<YOUR-CUSTOM-DOMAIN>/samlp/metadata?connection=<YOUR-CONNECTION-NAME>`). This includes updated **Assertion Consumer Service (ACS) URLs**. Then, you have to manually update this value in your IdP(s). This change to your IdP(s) must happen at the same time as you begin using your custom domain in your applications. This can pose a problem if there are multiple IdPs to configure.
+
+Alternatively, you can use signed requests to fulfill this requirement:
+
+- Download the signing certificate from `https://<TENANT>.auth0.com/pem`. Note that `https://<YOUR-CUSTOM-DOMAIN>.com/pem` will return the same certificate.
+- Give the certificate to the IdP(s) to upload. This enables the IdP to validate the signature on the `AuthnRequest` message that Auth0 sends to the IdP
+- The IdP will import the certificate and if necessary, signature verification should be enabled (exact steps vary by IdP)
+- Turn on the **Sign Request** toggle in the Dashboard under **Connections > Enterprise > SAMLP > CONNECTION**. This will trigger Auth0 to sign the SAML `AuthnRequest` messages it sends to the IdP
+
+Once this is done, and you start using your custom domain when you initiate an authentication request in your application, the IdP will receive that custom domain in your signed request. Because your application’s signed request is trusted, the IdP should automatically override whatever was configured as your ACS URL and replace it with the value sent in the signed request. However, there are IdPs that do **not** accept the ACS URL in the signed request, so you must check with yours to confirm whether this is supported or not.
+
+If this is supported, it will prevent you from having to change one or many IdP settings all at the same time, and allow you to prepare them to accept your signed requests ahead of time, one by one. You can then at a later date have the IdPs change the statically configured ACS URL as well.
+
+Note that if your Identity Provider is configured to use the Auth0 custom domains, testing the connection via the **Try** button in the Dashboard will **not** work and the default links for downloading metadata from Auth0 will always show the default domain, not the custom domain.
+
+If you have an IdP-initiated authentication flow, you will need to update the IdP(s) and your application(s) at the same time to use the custom domain.
+
+## Configure your SAML applications
+
+If you want to use SAML applications with your custom domain, you must update your Service Provider with new Identity Provider metadata from Auth0 (You can obtain the metadata reflecting the custom domain from: `https://<YOUR-CUSTOM-DOMAIN>/samlp/metadata/<YOUR-CLIENT-ID>`). Note that the issuer entity ID for the assertion returned by Auth0 will change when using a custom domain (from something like `urn:northwind.auth0.com` to the custom domain such as `urn:login.northwind.com`).
+
+If you have an IdP-initiated authentication flow, you will need to update the URL used to invoke the IdP-initiated authentication flow to reflect the custom domain. Instead of `https://<TENANT>.auth0.com/samlp/<CLIENTID>` you should use `https://<CNAME>/samlp/<CLIENTID>`.
+
 If you use the Auth0 APIs, such as the Management API, the API identifier will use your default tenant domain name (such as `https://${account.namespace}/userinfo` and `https://${account.namespace}/api/v2/`)
+
+## Configure your WS-Fed Clients
+
+If you want to use your WS-Fed applications with your custom domain with Auth0 as the IDP, you must update your Service Provider with new Identity Provider metadata from Auth0 (You can obtain the metadata reflecting the custom domain from: `https://<CUSTOM DOMAIN>/wsfed/FederationMetadata/2007-06/FederationMetadata.xml`).
+
+## Configure Azure AD connections
+
+If you want to use Azure AD connections with your custom domain, you must update the Allowed Reply URL in your Azure AD settings. In your Azure Active Directory, go to **Apps registrations** and select your app. Then click **Settings -> Reply URLs** and add a URL in the format `https://<CUSTOM DOMAIN>/login/callback` that includes your custom domain (such as `https://login.northwind.com/login/callback`).
+
+## Configure ADFS connections
+
+The process is the same as [setting up the ADFS connection normally](/connections/enterprise/adfs) except that your callback URL needs to be changed from this format `https://<TENANT>.auth0.com/login/callback` to this one use `https://<YOUR-CUSTOM-DOMAIN>/login/callback`.
+
+## Configure AD/LDAP connections
+
+If Kerberos support is not needed, AD/LDAP connections should not require further configuration.
+
+In order to use AD/LDAP connections with Kerberos support, you will need to update the ticket endpoint to work with the custom domain. As mentioned in the [Auth0 AD/LDAP connector documentation](/connector/modify#point-an-ad-ldap-connector-to-a-new-connection), the `config.json` file needs to be modified, with the `PROVISIONING_TICKET` value changed from this format `https://<TENANT>.auth0.com/p/ad/jUG0dN0R/info` to `https://<CUSTOM DOMAIN>/p/ad/jUG0dN0R/info`.
+
+Once this change is saved, be sure to restart the AD/LDAP Connector service.

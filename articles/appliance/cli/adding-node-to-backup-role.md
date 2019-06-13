@@ -1,13 +1,18 @@
 ---
 section: appliance
 description: How to add an PSaaS Appliance node in the backup node
+topics:
+    - appliance
+    - backups
+    - cli
+    - nodes
+contentType: how-to
+useCase: appliance
+applianceId: appliance11
+sitemap: false
 ---
 
 # PSaaS Appliance: Adding a Node to the Backup Role
-
-::: note
-  This document applies beginning with PSaaS Appliance update **build 7247**.
-:::
 
 ## Prerequisites
 

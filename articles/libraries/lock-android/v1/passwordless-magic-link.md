@@ -1,13 +1,25 @@
 ---
 title: Lock Android v1 Passwordless with Magic Link
 description: Passwordless with Magic Link with Lock Android
+topics:
+  - libraries
+  - lock
+  - android
+  - passwordless
+  - magic-link
+contentType:
+  - how-to
+  - concept
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Passwordless Magic link
 
 <%= include('../_includes/_lock-version') %>
 
 ::: warning
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Application Grant Types](/applications/application-grant-types) for more information. Alternatively, you can use Lock Passwordless with Auth0's [universal login](/hosted-pages/login).
+Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Application Grant Types](/applications/concepts/application-grant-types) for more information. Alternatively, you can use Lock Passwordless with Auth0's [Universal Login](/hosted-pages/login).
 :::
 
 ## Passwordless Authentication with Magic Link
@@ -25,7 +37,7 @@ This feature works as long as the user has not already chosen a default app to h
 You could find more information about App Links in the [Android docs](http://developer.android.com/training/app-links/index.html).
 
 ::: note
-The links will work in all versions of Android, but the dialog asking the user whether to use the browser or the app to open the link will be displayed (whether the verification passed or not) in versions of Andrdoi prior to 6.0, at least until the user chooses to always open the links with the app.
+The links will work in all versions of Android, but the dialog asking the user whether to use the browser or the app to open the link will be displayed (whether the verification passed or not) in versions of Android prior to 6.0, at least until the user chooses to always open the links with the app.
 :::
 
 In this article we'll show how Auth0 helps you set up your app to use app links to log in.
@@ -39,7 +51,7 @@ Auth0 will generate the [Digital Asset Links](https://developers.google.com/digi
 We'll have to configure/add some field to our Auth0 application. The fields we need to configure are:
 
 - **app\_package\_name**: This is the package name, as declared in the app's manifest. An example would be *com.example.android.myapp*
-- **sha256\_cert\_fingerprints**: This is an array of the SHA256 fingerprints of our android app’s signing certificates. This is an arbitrary lenght array, it can include all the fingerprints we want, so for example we could add both our release and debug fingerprints.
+- **sha256\_cert\_fingerprints**: This is an array of the SHA256 fingerprints of our android app’s signing certificates. This is an arbitrary length array, it can include all the fingerprints we want, so for example we could add both our release and debug fingerprints.
 
 #### Getting your signing certificates fingerprint
 
@@ -155,9 +167,9 @@ Also notice that in case we'll only use one passwordless method (SMS or Email) y
 
 ### Usage
 
-As you should already know, `LockPasswordlessActivity` authenticates users by sending them an Email or SMS, in this case we'll send them a link instead of a code. The only difference w.r.t. the regular passwordless is that we now explicitly indicate that we will use magic/app links. This is accomplished using the appropiate mode.
+As you should already know, `LockPasswordlessActivity` authenticates users by sending them an Email or SMS, in this case we'll send them a link instead of a code. The only difference w.r.t. the regular passwordless is that we now explicitly indicate that we will use magic/app links. This is accomplished using the appropriate mode.
 
-If we would like to send app links by **Email**, just start `LockPasswordlessActivity` especifying the passwordless mode `MODE_EMAIL_MAGIC_LINK`:
+If we would like to send app links by **Email**, just start `LockPasswordlessActivity` specifying the passwordless mode `MODE_EMAIL_MAGIC_LINK`:
 
 ```java
 LockPasswordlessActivity.showFrom(MyActivity.this,

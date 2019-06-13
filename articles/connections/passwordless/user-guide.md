@@ -1,3 +1,14 @@
+---
+title: Passwordless Authentication User Guide
+topics:
+    - connections
+    - passwordless
+contentType:
+    - concept
+    - how-to
+    - reference
+useCase: customize-connections
+---
 # User Guide: Passwordless
 
 If you are using an app that allows for **Passwordless** authentication, you can register using either your **email address** or your **mobile phone number** instead of a login/password combination. Depending on which piece of information you provide, you will then access the app using a link that has been emailed to you or by providing a code that has been emailed or sent to you via SMS.
@@ -20,6 +31,9 @@ If you provide your **email address**, you will receive an email containing eith
 You may opt to register and authenticate yourself using a magic link sent via email. Upon receipt, you will need to click on the link to access the app.
 
 ![](/media/articles/connections/passwordless/passwordless-email-receive-link.png)
+
+<%= include('./_includes/_single-browser-magic-link') %>
+
 
 ### Authentication Using a One-time Use Code Received via Email
 

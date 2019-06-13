@@ -8,13 +8,26 @@ alias:
 seo_alias: adfs
 description: How to connect ADFS with Auth0.
 crews: crew-2
+topics:
+    - connections
+    - enterprise
+    - azure
+    - active-directory
+    - microsoft
+    - ad-fs
+contentType: how-to
+toc: true
+useCase: customize-connections
+useCase:
+    - customize-connections
+    - add-idp
 ---
 # Connect your app to ADFS
 
 First, provide this information to your ADFS administrator:
 
 * Realm Identifier: `urn:auth0:${account.tenant}`
-* Endpoint: `https://${account.namespace}/login/callback`
+* Endpoint: `https://${account.namespace}/login/callback` (or, if you are using the [custom domains](/custom-domains) feature, `https://<YOUR CUSTOM DOMAIN>/login/callback`)
 
 ::: note
 If you want to use the [/oauth/ro](/api/authentication/reference#resource-owner) endpoint you must enable `/adfs/services/trust/13/usernamemixed`.
@@ -32,6 +45,8 @@ For automated integration, this script uses the [ADFS PowerShell SnapIn](http://
 (new-object Net.WebClient -property @{Encoding = [Text.Encoding]::UTF8}).DownloadString("https://raw.github.com/auth0/adfs-auth0/master/adfs.ps1") | iex
 AddRelyingParty "urn:auth0:${account.tenant}" "https://${account.namespace}/login/callback"
 ```
+
+If you are using the [custom domains](/custom-domains) feature, you will need to replace the last URL in the above script with `https://<YOUR CUSTOM DOMAIN>/login/callback`.
 
 Copy and paste the script above into the Windows PowerShell window.
 
@@ -56,9 +71,11 @@ Add-ADFSRelyingPartyTrust -Name $realm -Identifier $realm -WSFedEndpoint $webApp
 $rp = Get-ADFSRelyingPartyTrust -Name $realm
 ```
 
+If you are using the [custom domains](/custom-domains) feature, you will need to replace the `$webAppEndpoint` value with `https://<YOUR CUSTOM DOMAIN>/login/callback`.
+
 #### 2. Creates rules to output common attributes
 
-The script also creates rules to output the most common attribures, such as email, UPN, given name, or surname:
+The script also creates rules to output the most common attributes, such as email, UPN, given name, or surname:
 
 ```powershell
 $rules = @'
@@ -94,6 +111,10 @@ If you don't feel comfortable executing the script, you can follow these manual 
 
     `https://${account.namespace}/login/callback`
     ![](/media/articles/connections/enterprise/adfs/adfs-url.png)
+
+    ::: note
+    If you are using the [custom domains](/custom-domains) feature, use the following URL format instead: `https://<YOUR CUSTOM DOMAIN>/login/callback`.
+    :::
 
 1. Add a *Relying party trust identifier* with the following value and click **Add** and then **Next**.
 

@@ -2,6 +2,12 @@
 section: libraries
 toc: true
 description: How to use Auth0.Android to manage users
+topics:
+  - libraries
+  - android
+  - users
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 # Use Auth0.Android to Manage Users
 
@@ -9,7 +15,7 @@ The Management API provides functionality that you can use to manage users of yo
 
 * Link separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0)
 * Unlink user accounts, returning them to separate identities
-* Update user [metadata](/metadata)
+* Update user [metadata](/users/concepts/overview-user-metadata)
 
 ## Initializing the API Application
 

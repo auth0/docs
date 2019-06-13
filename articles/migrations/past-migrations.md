@@ -1,6 +1,12 @@
 ---
 toc: true
 description: List of Auth0 migrations that have already been enabled for all customers
+topics:
+  - migrations
+contentType:
+  - reference
+useCase:
+  - migrate
 ---
 # Past Migrations
 
@@ -103,7 +109,7 @@ Even if you are not using Lock, the vulnerable reset flow can be accessed direct
 | --- | --- | --- |
 | Medium | 2017-01-03 |  2017-03-01 |
 
-As part of Auth0's efforts to improve security and standards compliance, we will stop supporting account linking as part of the authorization callback (that is, accepting an [Access Token](/tokens/access-token) as part of the [authorize](/api/authentication#authorization-code-grant) call as stated [in the account linking section](/api/authentication?http#account-linking).
+As part of Auth0's efforts to improve security and standards compliance, we will stop supporting account linking as part of the authorization callback (that is, accepting an [Access Token](/tokens/overview-access-tokens) as part of the [authorize](/api/authentication#authorization-code-grant) call as stated [in the account linking section](/api/authentication?http#account-linking).
 
 ### Am I affected by the change?
 
@@ -127,7 +133,7 @@ You could be impacted if you are currently using these exchanges and have Rules 
 
 You can add logic to your rules to alter their behavior for these exchanges by checking the `context.protocol` property:
 - `oauth2-password` indicates the password (and password-realm) exchange
-- `oauth2-refresh-token` indicates the refresh token exchange
+- `oauth2-refresh-token` indicates the Refresh Token exchange
 
 If you would like to enable the new behavior on this tenant for testing before the mandatory opt-in date, login to [Dashboard](${manage_url}) and enable the __Run Rules on Password and Refresh Token Exchanges__ toggle in [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 
@@ -151,13 +157,13 @@ For more information, see: [Emails in Auth0](/email).
 | --- | --- |
 | Low | 2016-06-01 |
 
-When calling the [TokenInfo](/api/authentication/reference#get-token-info) endpoint, the URL of the API call (for example `https://${account.namespace}/`) must match the value of the `iss` attribute of the `id_token` being validated.
+When calling the [TokenInfo](/api/authentication/reference#get-token-info) endpoint, the URL of the API call (for example `https://${account.namespace}/`) must match the value of the `iss` attribute of the ID Token being validated.
 
 If these values do not match, the response will be `HTTP 400 - Bad Request`.
 
 ### Am I affected by the change?
 
-If you are calling the [tokeninfo](/api/authentication#get-token-info) endpoint directly, make sure that the value of the `iss` attribute of the `id_token` being validated matches your Auth0 tenant namespace: `https://${account.namespace}/`.
+If you are calling the [tokeninfo](/api/authentication#get-token-info) endpoint directly, make sure that the value of the `iss` attribute of the ID Token being validated matches your Auth0 tenant namespace: `https://${account.namespace}/`.
 
 ::: note
 You can use [jwt.io](https://jwt.io/) to decode the token to confirm the `iss` attribute value.
@@ -169,7 +175,7 @@ You can use [jwt.io](https://jwt.io/) to decode the token to confirm the `iss` a
 | --- | --- | --- | --- |
 | Medium | 2016-07-11 | 2016-08-18 |
 
-The format of the user profile JSON object (id_token) that is returned by Auth0 Authentication APIs has been changed to remove the Identity Provider's Access Token, which had been included in the user profile `identities` array.
+The format of the user profile JSON object (ID Token) that is returned by Auth0 Authentication APIs has been changed to remove the Identity Provider's Access Token, which had been included in the user profile `identities` array.
 
 Now, to obtain a user's IdP Access Token, you will need to make an HTTP GET call to the `/api/v2/users/{user-id}` endpoint containing an API token generated with  `read:user_idp_tokens` scope.
 
@@ -181,7 +187,7 @@ You will still have access to the Identity Provider Access Token in the `user` a
 
 You are affected by the change only if you are using the Identity Provider Access Token (`identities[0].access_token` in the user profile) outside of rules to call other services from the Identity Provider (such as Facebook Graph API, Google APIs, and so on).
 
-For more information on how to obtain an Access Token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Token](/tokens/idp).
+For more information on how to obtain an Access Token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens).
 
 ::: note
 If your tenant was created after the change, this update will be applied automatically.

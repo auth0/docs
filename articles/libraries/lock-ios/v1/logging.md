@@ -2,6 +2,15 @@
 section: libraries
 title: Logging
 description: Learn how to debug Lock by enabling logging.
+topics:
+  - libraries
+  - lock
+  - ios
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock iOS: Logging

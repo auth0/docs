@@ -1,23 +1,81 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to add authentication and authorization to an Ionic 3 app
+description: This tutorial demonstrates how to add user login to an Ionic 3 application using Auth0.
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - ionic3
+github:
+  path: 01-Login
+contentType: tutorial
+useCase: quickstart
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ionic3-samples',
-  path: '01-Login',
-  requirements: [
-    'Ionic 3.x',
-    'Angular 5+'
-  ]
-}) %>
+<%= include('../_includes/_getting_started', { library: 'Swift') %>
 
-<%= include('../_includes/_ionic_setup') %>
+<%= include('../../../_includes/_callback_url') %>
 
-## Set Up URL Redirects
+The **Callback URL** to be used for your application includes your app's package ID which is found in the `config.xml` file for your app.
+
+Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in your Auth0 dashboard and set your **Callback URL** in the **Allowed Callback URLs** box.
+
+If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URL** to  
+
+```bash
+# replace YOUR_PACKAGE_ID with your app package ID
+YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
+```
+
+Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
+```bash
+# replace YOUR_PACKAGE_ID with your app package ID
+YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
+```
+
+Add `file` as an allowed origin to the **Allowed Origins (CORS)** box.
+
+```bash
+file://*
+```
+
+Lastly, be sure that the **Application Type** for your application is set to **Native** in the application settings.
+
+## Install the Dependencies
+
+The required dependencies for using Auth0 in an Ionic application are **auth0.js** and **auth0-cordova**. Install them with npm or yarn.
+
+```bash
+# installation with npm
+npm install auth0-js @auth0/cordova --save
+
+# installation with yarn
+yarn add auth0-js @auth0/cordova
+```
+
+### Add Cordova Plugins
+
+You must install the `SafariViewController` plugin from Cordova to be able to use universal login. The downloadable sample project already has this plugin added, but if you are embedding Auth0 in your own application, install the plugin via the command line.
+
+```bash
+ionic cordova plugin add cordova-plugin-safariviewcontroller
+```
+
+The `CustomURLScheme` plugin from Cordova is also required to handle redirects properly. The sample project has it already, but if you're adding Auth0 to your own project, install this plugin as well.
+
+```bash
+# replace YOUR_PACKAGE_ID with your app identifier
+ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_HOST=${account.namespace} --variable ANDROID_PATHPREFIX=/cordova/{YOUR_PACKAGE_ID}/callback
+```
+
+## Integrate Auth0 in your Application
+
+### Modify config.xml
+
+Add `<preference name="AndroidLaunchMode" value="singleTask" />` to your config.xml. This will allow the Auth0 dialog to properly redirect back to your app.
+
+### Set Up URL Redirects
 
 Use the `onRedirectUri` method from **auth0-cordova** when your app loads to properly handle redirects after authentication.
 
@@ -60,7 +118,7 @@ export class MyApp {
 }
 ```
 
-## Configure Auth0
+### Configure Auth0
 
 Create a new file called `auth.config.ts` in your `src/services` folder to provide the necessary Auth0 configuration for your Ionic app:
 
@@ -79,7 +137,7 @@ export const AUTH_CONFIG = {
 
 Be sure to replace `YOUR_PACKAGE_ID` with the identifier for your app.
 
-## Create an Authentication Service
+### Create an Authentication Service
 
 To coordinate authentication tasks, it's best to set up an injectable service that can be reused across the application. This service needs methods for logging users in and out, as well as checking their authentication state.
 
@@ -124,10 +182,10 @@ export class AuthService {
       if (err) {
         throw err;
       }
-      // Set access token
+      // Set Access Token
       this.storage.set('access_token', authResult.accessToken);
       this.accessToken = authResult.accessToken;
-      // Set access token expiration
+      // Set Access Token expiration
       const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
       this.storage.set('expires_at', expiresAt);
       // Set logged in
@@ -156,7 +214,7 @@ export class AuthService {
 }
 ```
 
-## Show Authentication State and Profile Data
+## Add Authentication with Auth0
 
 Add a control to your app to allow users to log in. The control should call the `login` method from the `AuthService`. Start by injecting the `AuthService` in a component.
 
@@ -171,7 +229,7 @@ import { AuthService } from './../../services/auth.service';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  
+
   constructor(
     public navCtrl: NavController,
     public auth: AuthService
@@ -220,7 +278,7 @@ The `AuthService` is now accessible in the view and its `login` method can be ca
 </ion-content>
 ```
 
-## Add Platform and Run the App
+#### Add Platform and Run the App
 
 You will now need to allow Ionic / Cordova to install the necessary plugins and update your `config.xml` appropriately for the platform you wish to run on.
 
@@ -237,7 +295,7 @@ This will then launch your app in the local emulation environment for the platfo
 
 Don't be alarmed if you _cannot authenticate_ successfully yet at this stage! There was some configuration generated by running the app that you still need to add to your Auth0 settings.
 
-## Update Auth0 Dashboard Configuration
+### Update Auth0 Dashboard Configuration
 
 1. After executing the `run` command, your `config.xml` file should contain `<allow-navigation>` tag(s).
 2. Make note of IP address URLs from any `<allow-navigation>` tags.

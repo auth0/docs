@@ -5,6 +5,14 @@ image: /media/connections/baidu.png
 seo_alias: baidu
 description: How to obtain an API Key and Secret Key for Baidu.
 toc: true
+topics:
+  - connections
+  - social
+  - baidu
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Baidu
@@ -28,6 +36,8 @@ Once the application is registered, enter your new `API Key` and `Secret Key` in
 Use the following value for the callback URL:
 
   https://${account.namespace}/login/callback
+
+  <%= include('../_find-auth0-domain-redirects') %>
 
 Select your application on the console, and then click on `API 管理 -> 安全设置`
 

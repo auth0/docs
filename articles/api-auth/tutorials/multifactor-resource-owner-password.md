@@ -1,25 +1,34 @@
 ---
-title: Multifactor Authentication and Resource Owner Password
-description: How to use Multifactor Authentication with Resource Owner Password Grant.
+title: Multi-factor Authentication and Resource Owner Password
+description: How to use Multi-factor Authentication with Resource Owner Password Grant.
 toc: true
+topics:
+  - api-authentication
+  - oidc
+  - mfa
+  - resource-owner-password
+contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
-# Multifactor Authentication and the Resource Owner Password Grant
+# Multi-factor Authentication and the Resource Owner Password Grant
 
 <%= include('../../_includes/_pipeline2') %>
 
-Highly-trusted applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials to be submitted to Auth0. In some scenarios, however, stronger authentication may be required. This document outlines using [multifactor authentication](/multifactor-authentication) with the [Resource Owner Password Grant](/api-auth/grant/password).
+Highly-trusted applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials to be submitted to Auth0. In some scenarios, however, stronger authentication may be required. This document outlines using [multi-factor authentication](/multifactor-authentication) with the [Resource Owner Password Grant](/api-auth/grant/password).
 
 ## Prerequisites
 
 Before you continue, make sure that you've met the following prerequisites:
 
-1. MFA is enabled on the [Auth0 dashboard](${manage_url}). Currently, the supported providers for this flow are [Google Authenticator](/multifactor-authentication/google-auth/admin-guide#enabling-google-authenticator-for-mfa) and [Guardian](/multifactor-authentication/administrator#guardian-basics). [Duo Security](/multifactor-authentication/duo) is __not__ supported.
+1. MFA is enabled on the [Auth0 dashboard](${manage_url}). [Duo Security](/multifactor-authentication/factors/duo) is __not__ supported as a factor with this flow.
 
 1. An Application is configured to execute the Resource Owner Password Grant (either [password](/api-auth/tutorials/password-grant) or [password-realm](/api-auth/tutorials/password-grant#realm-support) grant types). For details on how to implement this, refer to [Execute the Resource Owner Password Grant](/api-auth/tutorials/password-grant).
 
 1. End users are enrolled in MFA.
 
-## Initiate Multifactor Authentication
+## Initiate Multi-factor Authentication
 
 The flow starts by collecting end-user credentials and sending them to Auth0, as described in [Resource Owner Password Grant](/api-auth/grant/password). Both [password](/api-auth/tutorials/password-grant) and [password-realm](/api-auth/tutorials/password-grant#realm-support) flows are available.
 
@@ -36,11 +45,11 @@ The flow starts by collecting end-user credentials and sending them to Auth0, as
   Content-Type: application/json
   {
     "error": "mfa_required",
-    "error_description": "Multifactor authentication required",
+    "error_description": "Multi-factor authentication required",
     "mfa_token": "eyJ0eXAiOiJKV1QiLCJhbGci....D3QCiQ"
   }
   ```
-  
+
 5. The Application will then make a request to the [MFA challenge](/api/authentication#resource-owner-password-and-mfa) endpoint, specifying the challenge types it supports. Valid challenge types are: [OTP](#challenge-type-otp), [OOB with binding method `prompt`](#challenge-type-oob-and-binding-method-prompt), and [OOB with no binding method](#challenge-type-oob-with-no-binding-method). If you already know that `otp` is supported by the end-user and you don't want to request a different factor, you can skip this and the next steps an go directly to [Challenge Type `OTP`](#challenge-type-otp) below.
 
 6. Auth0 sends a response containing the `challenge_type` derived from the types supported by the Application and the specific user. Additionally, extra information, such as `binding_method` may be included to assist in resolving the challenge and displaying the correct UI to the user.
@@ -59,7 +68,7 @@ To execute MFA, follow the next steps according to the challenge type you will u
 
 - [OOB with no binding method](#challenge-type-oob-with-no-binding-method): in this case, the proof of possession will be driven entirely in a side channel (such as a push notification-based authenticator). The response will include an `oob_code` that the Application will use to periodically check for the resolution of the transaction. Continue the flow using the __mfa-oob__ grant type.
 
-## Execute Multifactor Authentication
+## Execute Multi-factor Authentication
 
 The following sections cover how to execute MFA based on the challenge type used.
 
@@ -70,7 +79,7 @@ The following sections cover how to execute MFA based on the challenge type used
 For this type of challenge, the Application must get an one-time password (`otp`) code from a OTP Generator app, such as Google Authenticator or Microsoft Authenticator.
 
 ::: note
-If you already know that the user supports OTP, then steps 5 and 6 above of the [Initiate Multifactor Authentication](#initiate-multifactor-authentication) section are optional.
+If you already know that the user supports OTP, then steps 5 and 6 above of the [Initiate Multi-factor Authentication](#initiate-multifactor-authentication) section are optional.
 :::
 
 7. The Application prompts the end user to enter an OTP code.
@@ -79,9 +88,9 @@ If you already know that the user supports OTP, then steps 5 and 6 above of the 
 
 9. The Application forwards the OTP code to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-otp](/api/authentication#resource-owner-password) and includes the `mfa_token` obtained in step 4 above.
 
-10. Auth0 validates the provided OTP and returns the `access_token` and the `refresh_token`.
+10. Auth0 validates the provided OTP and returns the Access Token and the Refresh Token.
 
-11. The Application can use the `access_token` to call the API on behalf of the end user.
+11. The Application can use the Access Token to call the API on behalf of the end user.
 
 ### Challenge Type: `OOB` with Binding Method `prompt`
 
@@ -95,9 +104,9 @@ This challenge type, together with `prompt` binding method, indicates that the c
 
 9. The Application forwards the `binding_code` to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
 
-10. Auth0 validates the `binding_code` and `oob_code` and returns the `access_token` and the `refresh_token`.
+10. Auth0 validates the `binding_code` and `oob_code` and returns the Access Token and the Refresh Token.
 
-11. The Application can use the `access_token` to call the API on behalf of the end user.
+11. The Application can use the Access Token to call the API on behalf of the end user.
 
 ### Challenge Type: `OOB` with No Binding Method
 
@@ -107,15 +116,15 @@ In this scenario, the challenge will be sent using a side channel, however, ther
 
 7. The Application asks the user to accept the delivered challenge and keeps the `oob_code` from step 6 for future use.
 
-8. The Application polls Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/docs/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
+8. The Application polls Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
 
 9. Auth0 validates the provided `oob_code`, the `mfa_token` and returns:
     - `authorization_pending` error: if the challenge has not been accepted nor rejected.
     - `slow_down` error: if the polling is too frequent.
     - an `access_token` and a `refresh_token`: if the challenge has been accepted; polling should be stopped at this point.
     - `invalid_grant` error: if the challenge has been rejected; polling should be stopped at this point.
-  
-10. The Application can use the `access_token` to call the API on behalf of the end user.
+
+10. The Application can use the Access Token to call the API on behalf of the end user.
 
 ## Using Recovery Codes
 
@@ -139,9 +148,9 @@ Steps 1-4 are the same as above.
 
 8. The Application forwards the recovery code to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-otp](/api/authentication#resource-owner-password) and includes the `mfa_token` from step 4.
 
-9. Auth0 validates the recovery code and returns the `access_token` and the `refresh_token`.
+9. Auth0 validates the recovery code and returns the Access Token and the Refresh Token.
 
-10. The Application can use the `access_token` to call the API on behalf of the end user.
+10. The Application can use the Access Token to call the API on behalf of the end user.
 
 ## Samples
 
@@ -154,16 +163,16 @@ var request = require("request");
 
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
-  headers: { 'content-type': 'application/json' },
-  body:
+  headers: { 'content-type': 'application/x-www-form-urlencoded' },
+  form:
    { grant_type: 'password',
      username: 'USERNAME',
      password: 'PASSWORD',
      audience: 'API_IDENTIFIER',
      scope: 'SCOPE',
      client_id: '${account.clientId}',
-     client_secret: 'YOUR_CLIENT_SECRET' },
-  json: true };
+     client_secret: 'YOUR_CLIENT_SECRET' }
+  };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -224,14 +233,14 @@ function mfaChallenge(mfa_token) {
 function mfaOTP(mfa_token, otp) {
   var options = { method: 'POST',
     url: 'https://${account.namespace}/oauth/token',
-    headers: { 'content-type': 'application/json' },
-    body:
+    headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    form:
     { mfa_token: mfa_token,
       otp: otp,
       grant_type: 'http://auth0.com/oauth/grant-type/mfa-otp',
       client_id: '${account.clientId}',
-      client_secret: 'YOUR_CLIENT_SECRET' },
-    json: true };
+      client_secret: 'YOUR_CLIENT_SECRET' }
+  };
 
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
@@ -270,15 +279,15 @@ function mfaOOB(mfa_token, oob_code, /* optional */ binding_code) {
 function makeOOBGrantRequest(mfa_token, oob_code, /* optional  */ binding_code, cb) {
   var options = { method: 'POST',
     url: 'https://${account.namespace}/oauth/token',
-    headers: { 'content-type': 'application/json' },
-    body:
+    headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    form:
     { mfa_token: mfa_token,
       oob_code: oob_code,
       binding_code: binding_code, // Only when binding_method = prompt
       grant_type: 'http://auth0.com/oauth/grant-type/mfa-oob',
       client_id: '${account.clientId}',
-      client_secret: 'YOUR_CLIENT_SECRET' },
-    json: true };
+      client_secret: 'YOUR_CLIENT_SECRET' }
+    };
 
   request(options, function (error, response, body) {
     if (error) { return cb(error); }
@@ -308,15 +317,14 @@ function makeOOBGrantRequest(mfa_token, oob_code, /* optional  */ binding_code, 
 function mfaRecovery(mfa_token, recovery_code) {
   var options = { method: 'POST',
     url: 'https://${account.namespace}/oauth/token',
-    headers: { 'content-type': 'application/json' },
-    body:
+    headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    form:
     { mfa_token: mfa_token,
       recovery_code: recovery_code,
-      otp: otp,
       grant_type: 'http://auth0.com/oauth/grant-type/mfa-recovery-code',
       client_id: '${account.clientId}',
-      client_secret: 'YOUR_CLIENT_SECRET' },
-    json: true };
+      client_secret: 'YOUR_CLIENT_SECRET' }
+    };
 
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
@@ -327,7 +335,7 @@ function mfaRecovery(mfa_token, recovery_code) {
       // The tokens returned depend on the scopes requested on the password grant request
       console.log(body.access_token, body.id_token, body.refresh_token);
     } else if (body.error === 'invalid_grant') {
-      // Invalid otp code
+      // Invalid recovery code
       console.error('Invalid recovery_code');
     } else {
       console.error('Something went wrong');

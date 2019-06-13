@@ -5,6 +5,14 @@ languages:
     url: swift
   - name: Objective-C
     url: objc
+topics:
+    - connections
+    - passwordless
+    - sms
+    - ios
+    - objective-c
+contentType: how-to
+useCase: customize-connections
 ---
 # Using Passwordless on iOS with SMS
 
@@ -12,4 +20,4 @@ languages:
 
 <%= include('../../_includes/_native_passwordless_warning') %>
 
-<%= include('./_using-lock-ios-sms', { language: 'objc' }) %>
+<%= include('./_includes/_using-lock-ios-sms', { language: 'objc' }) %>

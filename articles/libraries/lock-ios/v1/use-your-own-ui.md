@@ -2,6 +2,16 @@
 section: libraries
 title: Build your own UI
 description: Customize the UI of Lock in your App
+topics:
+  - libraries
+  - lock
+  - ios
+  - custom-ui
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock iOS: Build your own UI

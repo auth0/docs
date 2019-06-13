@@ -1,3 +1,5 @@
+## Token Lifetime
+
 For security, keep the expiry time of a user's Access Token short. 
 
 When you create an API in the Auth0 dashboard, the default expiry time for browser flows is 7200 seconds (2 hours).

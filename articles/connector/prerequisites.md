@@ -1,5 +1,12 @@
 ---
 description: Lists all the prerequisites to installing and configuring the connector.
+topics:
+  - connector
+contentType: reference
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 
 # Prerequisites
@@ -43,7 +50,7 @@ You can enable a proxy through the environment or configuration variable `HTTP_P
 
 ### LDAP
 
-The Connector must be installed on a server with access to the LDAP server on port **389 for ldap** or **636 for ldaps**. Before installing the Connector you should know the **LDAP Connection String** and the **Base DN** required to connect to your LDAP directory ([more infomation](/connector/install#link-to-ldap)).
+The Connector must be installed on a server with access to the LDAP server on port **389 for ldap** or **636 for ldaps**. Before installing the Connector you should know the **LDAP Connection String** and the **Base DN** required to connect to your LDAP directory ([more information](/connector/install#link-to-ldap)).
 
 ## Inbound Connectivity
 

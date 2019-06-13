@@ -1,5 +1,13 @@
 ---
 description: How to configure the Connector for OpenLDAP and other directories that are not AD.
+topics:
+  - connector
+  - openldap
+contentType: how-to
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 
 # Considerations for OpenLDAP and non-AD directories

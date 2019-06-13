@@ -1,6 +1,13 @@
 ---
 toc: true
 description: The Account Link extension allows users with two accounts with the same email to be prompted to link them.
+topics:
+  - extensions
+  - account-linking
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 # Account Link
 
@@ -22,7 +29,7 @@ We recommend changing the name of the default application used for the extension
 
 ### Updating the Login Page
 
-By default, Auth0's [universal login](/hosted-pages/login) allows a user to both login and sign up as one may expect. However, when the account linking asks you to authenticate your primary account in order to link it with the new account, providing a sign up option can be confusing for users.
+By default, Auth0's [Universal Login](/hosted-pages/login) allows a user to both login and sign up as one may expect. However, when the account linking asks you to authenticate your primary account in order to link it with the new account, providing a sign up option can be confusing for users.
 
 To prevent this, we send over a query parameter to let the login page know that it should hide the **Sign Up** option. In order for this query parameter to take effect, however, we must first customize the login page.
 

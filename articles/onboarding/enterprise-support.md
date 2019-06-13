@@ -1,7 +1,15 @@
 ---
 toc: true
 section: appliance
-description: Outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience. 
+description: Outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience.
+topics:
+  - appliance
+  - onboarding 
+contentType:
+  - concept
+useCase:
+  - appliance
+applianceId: appliance66
 ---
 # Enterprise Support Guidance
 
@@ -73,9 +81,9 @@ To speed resolution, please check the following before logging an issue:
 * Is the issue experienced by all users or just a few?
   * All? - Could be a service or configuration issue
     * Check status of Auth0 service
-      * Americas: (http://status.auth0.com)
-      * EU Region: (http://status.eu.auth0.com)
-      * APAC Region: (http://status.au.auth0.com)
+      * Americas: (https://status.auth0.com)
+      * EU Region: (https://status.auth0.com/?region=EU)
+      * APAC Region: (https://status.auth0.com/?region=AU)
       * You can subscribe to updates via the button on those pages
     * Check authentication services (connections) are up and reachable
     * Check application components - make sure they are functioning
@@ -108,8 +116,8 @@ To speed resolution, please provide the following when logging an issue:
 * Screenshot of error message (if any)
 * HTTP trace in the form of a [.har file](/har)
 
-*For PSaaS Appliance Customers*:
+*For Private Cloud Customers*:
 
-* PSaaS Appliance version/build number (top left hand corner of configuration screen on config tenant, such as https://yourmanage.yourdomain.com/configuration#/)
+* Private Cloud version/build number (top left hand corner of configuration screen on config tenant, such as https://yourmanage.yourdomain.com/configuration#/)
 * Status of nodes (https://yourmanage.yourdomain.com/configuration#/nodes)
 * Status of health check (https://yourmanage.yourdomain.com/configuration#/troubleshoot)

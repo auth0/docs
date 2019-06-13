@@ -1,6 +1,16 @@
 ---
 title: Migration from Lock 10 in Cordova Apps
 description: Learn how to migrate from Lock 10 in your Cordova app.
+topics:
+  - libraries
+  - lock
+  - migrations
+  - cordova
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 
 # Migration from Lock in Cordova Applications

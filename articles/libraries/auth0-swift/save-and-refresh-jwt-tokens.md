@@ -1,6 +1,12 @@
 ---
 section: libraries
 description: Keeping your user logged in with Auth0.swift
+topics:
+  - libraries
+  - swift
+  - tokens
+contentType: how-to
+useCase: enable-mobile-auth
 ---
 
 # Auth0.swift Saving and Renewing Tokens
@@ -19,7 +25,7 @@ import Auth0
 
 Next, present the Login:
 
-```swift 
+```swift
 let credentialsManager = CredentialsManager(authentication: Auth0.authentication())
 
 Auth0
@@ -60,7 +66,7 @@ credentialsManager.credentials { error, credentials in
 }
 ```
 
-::: note 
+::: note
 Renewing a user's credentials works exactly the same way, if the token has expired. The Credentials Manager will automatically renew the credentials, then store the renewed credentials to the Keychain and finally return them in the closure.
 :::
 
@@ -68,7 +74,7 @@ Renewing a user's credentials works exactly the same way, if the token has expir
 
 If you are familiar with Lock v1, you may already be using the [SimpleKeychain](https://github.com/auth0/SimpleKeychain) SDK to handle iOS Keychain read/write access. This section is for developers who would prefer to keep using the SimpleKeychain and not upgrade to the preferred Credentials Manager.
 
-First thing you need to do is store the tokens you need, in this case you will store the `access_token` and `refresh_token` in the Keychain after a successful authentication.
+First thing you need to do is store the tokens you need. In this case, you will store the `access_token` and `refresh_token` in the Keychain after a successful authentication.
 
 ```swift
 let keychain = A0SimpleKeychain(service: "Auth0")

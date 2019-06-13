@@ -2,6 +2,13 @@
 title: Configuring the Authorization Extension
 description: How to configure the Authorization Extension
 toc: true
+topics:
+  - extensions
+  - authorization_v2
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 
 # Authorization Extension: Configuration
@@ -19,6 +26,12 @@ This brings you to the **Rule Configuration** section of the **Configuration** p
 ![Configuration page](/media/articles/extensions/authorization/configuration.png)
 
 All of the changes you make in the sections under **Token Contents**, such as those related to groups, roles, and permissions, will be reflected in the rule you export at the completion of this step. 
+
+### ApiKey
+
+The rule is using ApiKey to communicate with the Authorization Extension API and can be used only to get the policy. ApiKey is stored as a rule config and it will be created automatically when the rule is published. You can rotate the ApiKey by pressing the "Rotate" button. It will update the rule config automatically.
+
+![ApiKey config](/media/articles/extensions/authorization/apikey-config.png)
 
 ## Add Authorization Information to the Token Issued
 

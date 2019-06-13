@@ -8,6 +8,14 @@ alias:
 seo_alias: 37signals
 description: How to obtain a Client Id and Client Secret for 37Signals.
 toc: true
+topics:
+  - connections
+  - social
+  - 37signals
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to 37Signals
@@ -25,6 +33,8 @@ Log into the Integration Portal. Select **New Application** and enter some gener
 On the next page, select which 37Signals applications you want to access, and enter your Auth0 callback URL in the **Redirect URI** field:
 
     https://${account.namespace}/login/callback
+
+    <%= include('../_find-auth0-domain-redirects') %>
 
 ![](/media/articles/connections/social/37signals/37signals-register-2.png)
 

@@ -1,25 +1,27 @@
 ---
 title: Calling an API
-description: This tutorial demonstrates how to make API calls for protected resources on your server
+description: This tutorial demonstrates how to make API calls for protected resources on your server.
 budicon: 546
+topics:
+  - quickstarts
+  - spa
+  - angular
+  - api
+github:
+  path: 03-Calling-an-API
+sample_download_required_data:
+  - client
+  - api
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-angularjs-samples',
-  path: '03-Calling-an-API',
-  requirements: [
-    'AngularJS 1.6'
-  ]
-}) %>
-
 <%= include('../_includes/_calling_api_preamble') %>
 
 <%= include('../_includes/_calling_api_create_api') %>
 
 <%= include('../_includes/_calling_api_create_scope') %>
 
-## Set the Audience and Scope
+## Configure your Application
 
 In the `angularAuth0Provider.init` call, enter your API identifier as the value for `audience`. Set the scopes in the `scope` parameter.
 
@@ -38,7 +40,7 @@ angularAuth0Provider.init({
 
 <%= include('../_includes/_calling_api_access_token') %>
 
-You can use the [angular-jwt](https://github.com/auth0/angular-jwt) module to automatically attach JSON Web Tokens to requests you make with Angular's `$http` service. 
+You can use the [angular-jwt](https://github.com/auth0/angular-jwt) module to automatically attach JSON Web Tokens to requests you make with Angular's `$http` service.
 
 Install angular-jwt using npm or yarn.
 
@@ -50,9 +52,9 @@ npm install --save angular-jwt
 yarn add angular-jwt
 ```
 
-Reference the `angular-jwt` module from your application's main module. Inject `jwtOptionsProvider` and `$httpProvider`. In the provider, specify a `tokenGetter` function which retrieves the user's Access Token from local storage. The token can then be attached as an `Authorization` header. 
+Reference the `angular-jwt` module from your application's main module. Inject `jwtOptionsProvider` and `$httpProvider`. In the provider, specify a `tokenGetter` function which retrieves the user's Access Token from memory. The token can then be attached as an `Authorization` header.
 
-Whitelist any domains you want to enable authenticated `$http` calls for. 
+Whitelist any domains you want to enable authenticated `$http` calls for.
 Push `jwtInterceptor` into the `$httpProvider.interceptors` array.
 
 ```js
@@ -79,9 +81,9 @@ Push `jwtInterceptor` into the `$httpProvider.interceptors` array.
   ) {
 
     jwtOptionsProvider.config({
-      tokenGetter: function() {
-        return localStorage.getItem('access_token');
-      },
+      tokenGetter: ['authService', function(authService) {
+        return authService.getAccessToken();
+      }],
       whiteListedDomains: ['localhost']
     });
 
@@ -91,10 +93,10 @@ Push `jwtInterceptor` into the `$httpProvider.interceptors` array.
 })();
 ```
 
-## Make Authenticated Calls with `$http`
+## Call the API
 
-With `jwtInterceptor` in place, the user's Access Token is automatically attached to `$http` calls. 
-When you make `$http` calls, your protected API resources become accessible to the user. 
+With `jwtInterceptor` in place, the user's Access Token is automatically attached to `$http` calls.
+When you make `$http` calls, your protected API resources become accessible to the user.
 
 ```js
 // app/ping/ping.controller.js
@@ -121,10 +123,18 @@ When you make `$http` calls, your protected API resources become accessible to t
       $http.get(API_URL + '/private').then(function(result) {
         vm.message = result.data.message;
       }, function(error) {
-        vm.message = error;
+        vm.message = error.data.message || error.data;
       });
     }
 
+  vm.securedScopedPing = function() {
+      vm.message = '';
+      $http.get(API_URL + '/private-scoped').then(function(result) {
+        vm.message = result.data.message;
+      }, function(error) {
+        vm.message = error.data.message || error.data;
+      });
+    }
   }
 
 })();

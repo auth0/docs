@@ -25,6 +25,10 @@ articles:
   - scopes/current
   - tokens
   - tokens/jwt
+topics:
+  - glossary
+contentType: reference
+useCase: development
 ---
 
 ::: note

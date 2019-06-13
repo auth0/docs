@@ -5,6 +5,14 @@ image: /media/connections/dropbox.png
 seo_alias: dropbox
 description: This page shows you how to connect your Auth0 app to Dropbox. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
+topics:
+  - connections
+  - social
+  - dropbox
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Dropbox
@@ -37,6 +45,8 @@ Click **Create your app**:
 On your app's **Settings** page that follows, enter this URL in the **Redirect URIs** field:
 
 `https://${account.namespace}/login/callback`
+
+<%= include('../_find-auth0-domain-redirects') %>
   
 Click **Add**:
 

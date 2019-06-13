@@ -1,6 +1,14 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard Updates page
+topics:
+    - appliance
+    - dashboard
+    - updates
+contentType: reference
+useCase: appliance
+applianceId: appliance27
+sitemap: false
 ---
 
 # PSaaS Appliance Dashboard: Updates
@@ -11,9 +19,9 @@ description: Overview of the PSaaS Appliance Dashboard Updates page
 
 The Updates page of the PSaaS Appliance configuration area allows you to make the required/selected updates to your PSaaS Appliance instance.
 
-::: note
-  Updates cannot be rolled back/undone, so take VM snapshots and make backups as needed.
-:::
+Auth0 recommends taking VM snapshots and backups prior to beginning an upgrade. If there are issues with you upgrade, it might be possible to roll back the PSaaS Appliance to the version used immediately prior to the upgrade (this is the preferred option, since there would not be any data loss).
+
+However, if the option of rolling back to the existing version is not possible, Auth0 will need to restore your environment using the VM snapshots created prior to the update (there will be some data loss in this instance).
 
 ![](/media/articles/appliance/dashboard/updates.png)
 

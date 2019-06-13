@@ -1,5 +1,11 @@
 ---
 description: This page explains how to configure and install Auth0's Logs to Application Insights extension.
+topics:
+  - extensions
+  - application-insights
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Auth0 Logs to Application Insights
@@ -15,7 +21,7 @@ To install and configure this extension, click on the __Auth0 Logs to Applicatio
 At this point you should set the following configuration variables:
 
 - __Schedule__: The frequency with which logs should be exported.
-- __Batch_Size__: TThe amount of logs to be read on each execution. Maximun is 100.
+- __Batch_Size__: The amount of logs to be read on each execution. Maximun is 100.
 - __AppInsights_Instrumentation_Key__: The Application Insights instrumentation key.
 
  Once you have provided the appropriate values for the above fields, click __Install__ to proceed.

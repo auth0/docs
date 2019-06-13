@@ -23,7 +23,7 @@ Each endpoint supports only one option.
 
 ### OAuth2 token
 
-In this case, you have to send a valid [Access Token](/tokens/access-token) in the `Authorization` header, using the `Bearer` authentication scheme. An example is the [Get User Info endpoint](#get-user-info). In this scenario, you get an Access Token when you authenticate a user, and then you can make a request to the [Get User Info endpoint](#get-user-info), using that token in the `Authorization` header, in order to retrieve the user's profile.
+In this case, you have to send a valid [Access Token](/tokens/overview-access-tokens) in the `Authorization` header, using the `Bearer` authentication scheme. An example is the [Get User Info endpoint](#get-user-info). In this scenario, you get an Access Token when you authenticate a user, and then you can make a request to the [Get User Info endpoint](#get-user-info), using that token in the `Authorization` header, in order to retrieve the user's profile.
 
 ### Client ID and Client Secret
 
@@ -54,6 +54,8 @@ For each endpoint you will find sample snippets you can use, in three available 
 - Curl command
 - JavaScript: depending on the endpoint each snippet may use the [Auth0.js library](/libraries/auth0js), Node.js code or simple JavaScript
 
+Each request should be sent with a Content-Type of `application/json`.
+
 ## Testing
 
 You can test the endpoints using either the [Authentication API Debugger](/extensions/authentication-api-debugger) or our preconfigured [Postman collection](https://app.getpostman.com/run-collection/2a9bc47495ab00cda178). For some endpoints both options are available.
@@ -77,7 +79,7 @@ We have preconfigured a collection that you can [download](https://app.getpostma
 
 ## Errors
 
-When an error occurs, you will receive an error object. All error objects have an error code and an error description so that your applications can tell what the problem is.
+When an error occurs, you will receive an error object. Most of these error objects contain an error code and an error description so that your applications can more efficiently identify the problem.
 
 If you get an `4xx` HTTP response code, then you can assume that there is a bad request from your end. In this case, check the [Standard Error Responses](#standard-error-responses) for more context. 
 

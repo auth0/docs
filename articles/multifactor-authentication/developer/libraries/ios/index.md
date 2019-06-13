@@ -2,12 +2,21 @@
 title: Getting Started with Guardian for iOS
 url: /multifactor-authentication/developer/libraries/ios
 description: Installation, usage, and configuration options guide for Guardian for iOS
+topics:
+  - mfa
+  - guardian
+  - ios
+contentType:
+  - how-to
+  - reference
+useCase:
+  - customize-mfa
 ---
-
 # Guardian for iOS
-The [Guardian for iOS Software Development Kit](https://github.com/auth0/GuardianSDK.iOS) allows developers to create iOS apps with Guardian functionality, providing easy and secure access to multifactor authentication with push notifications. For example, this toolkit gives you the power to build a 'white label' version of the Guardian application for your users, using your own look-and-feel.
 
-More information can be found on Guardian [here](/multifactor-authentication/guardian). For general multifactor discussion, read more [here](/multifactor-authentication).
+The [Guardian for iOS Software Development Kit](https://github.com/auth0/GuardianSDK.iOS) helps you create iOS apps with Guardian functionality, providing secure access to multi-factor authentication (MFA) with push notifications. With this toolkit you can build your own customized version of the Guardian application that matches the look and feel of your organization.
+
+For more general information on MFA, read our [multi-factor authentication](/multifactor-authentication) documentation.
 
 Get started using Guardian for iOS below, or, if you're looking for a specific document, try the listing of [additional documents](#additional-documents) related to Guardian for iOS.
 
@@ -36,7 +45,7 @@ github "auth0/Guardian.swift"
 
 ## Dashboard Settings
 
-To enable Guardian Push Notifications for your users, go to the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard. Then toggle the **Push Notification** slider to enable it.
+To enable Guardian Push Notifications for your users, go to the [Multi-factor Auth](${manage_url}/#/guardian) section of the dashboard. Then toggle the **Push Notification** slider to enable it.
 
 ![](/media/articles/mfa/guardian-dashboard.png)
 
@@ -135,7 +144,7 @@ Guardian
         .start { result in
             switch result {
             case .success:
-                // the auth request was successfuly allowed
+                // the auth request was successfully allowed
             case .failure(let cause):
                 // something failed, check cause to see what went wrong
             }
@@ -144,7 +153,7 @@ Guardian
 
 ### Reject a login request
 
-To deny an authentication request just call `reject` instead. You can also send a reject reason if
+To deny an authentication request call `reject` instead. You can also send an optional reject reason if
 you want. The reject reason will be available in the guardian logs.
 
 ```swift
@@ -155,7 +164,7 @@ Guardian
         .start { result in
             switch result {
             case .success:
-                // the auth request was successfuly rejected
+                // the auth request was successfully rejected
             case .failure(let cause):
                 // something failed, check cause to see what went wrong
             }

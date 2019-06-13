@@ -6,6 +6,14 @@ seo_alias: yahoo
 index: 15
 description: How to obtain a Consumer Key and Consumer Secret for Yahoo!
 toc: true
+topics:
+  - connections
+  - social
+  - yahoo
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Yahoo!
@@ -28,6 +36,8 @@ In the **Callback Domain** field enter:
 
 `https://${account.namespace}`
 
+<%= include('../_find-auth0-domain-redirects') %>
+
 For the **API Permissions** make sure to select at least one user data API:
 
 ![API Permissions](/media/articles/connections/social/yahoo/api-permissions.png)
@@ -40,7 +50,7 @@ Once the application is created you will see a **Client ID** (Consumer Key) and 
 
 ## 3. Set up the Connection in Auth0
 
-In a seperate tab or page, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
+In a separate tab or page, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
 Click on the **Yahoo!** connection.
 

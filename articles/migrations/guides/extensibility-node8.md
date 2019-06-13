@@ -2,19 +2,44 @@
 title: "Migration Guide: Extensibility and Node 8"
 description: This article covers the Auth0 features/modules affected, as well as our recommendations to ensure a smooth migration process.
 toc: true
+topics:
+  - migrations
+  - extensibility
+  - nodejs
+  - rules
+  - hooks
+  - custom-db
+  - custom-social-connections
+  - extensions
+contentType:
+  - concept
+  - how-to
+useCase:
+  - manage-accounts
+  - migrate
 ---
 # Migration Guide: Extensibility and Node 8
 
-Beginning April 30, 2018, [Node.js v4 will be going out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team will no longer be back-porting critical security fixes to this version and this _could_ expose your extensibility code to security vulnerabilities.
+On April 30, 2018, [Node.js v4 went out of long-term support (LTS)](https://github.com/nodejs/Release#release-schedule), which means that the Node.js development team no longer back-ports critical security fixes to this version. This _could_ expose your extensibility code to security vulnerabilities.
 
-As such, Auth0 will be migrating from Node 4 to Node 8.
+As such, Auth0 is migrating from Node 4 to Node 8.
 
-We will **NOT** be shutting down the Node 4 runtime after the April 30 LTS deadline. Your extensibility code will continue to run on Node 4, if you choose not to upgrade to Node 8 at this time. After April 30, you will assume the risk of potential security issues if you choose to continue with Node 4.
+**We will be ending support for the Node 4 runtime on June 30, 2019**. Tenants which have not already migrated to Node 8 will be migrated automatically. Automatic migrations will begin on April 29, 2019, and continue through June 30, 2019. Automatic migrations are happening in cohorts: 
+
+* Free tier tenants will be migrated beginning on April 29, 2019
+* Self-serve tenants will follow through early May 2019
+* Enterprise tenants will be migrated in late May and June 2019
+
+Customers will be notified two weeks in advance of their automatic migration date, with additional periodic reminders leading up to their automatic migration date.
+
+::: warning
+Tenant automatic upgrade to Node 8 will be completed by June 30, 2019.
+:::
 
 In this document, we:
 
 * Provide recommendations on how you can ensure a smooth migration for your environment
-* Detail the specific modules effected
+* Detail the specific modules affected
 
 ## Summary of the migration
 
@@ -26,11 +51,13 @@ The Webtask runtime powering the following Auth0 features utilize Node 4:
 * Custom social connections
 * Extensions
 
-If you do not use any of the extensibility features mentioned above, you are not affected by this migration. **Additionally, your tenant will automatically be upgraded to use the Node 8 runtime on April 30, 2018.** This will ensure that any future extensibility code you author will be running on a secure runtime.
+If you do not use any of the extensibility features mentioned above, you are not affected by this migration. **Additionally, your tenant will automatically be upgraded to use the Node 8 runtime by June 30, 2019.** This will ensure that any future extensibility code you author will be running on a secure runtime.
 
-Due to the end of long-term support (LTS) for Node 4, we will be migrating the Webtask runtime to use Node 8. As part of this migration, the Auth0 development team has performed extensive testing to detect any breaking changes proactively.
+As part of this migration, the Auth0 development team has performed extensive testing to detect any breaking changes proactively. However, there may be behavioral changes as a result of this migration. As such, we have provided a migration switch that allows you to control the migration of your environment to the new Webtask runtime using Node 8.
 
-However, there may be behavioral changes as a result of this migration. As such, we have provided a migration switch that allows you to control the migration of your environment to the new Webtask runtime using Node 8.
+::: note
+Private Cloud and Managed Private Cloud (PSaaS) customers have had their tenants migrated already. No further action is necessary.
+:::
 
 ### Important Dates
 
@@ -38,6 +65,17 @@ However, there may be behavioral changes as a result of this migration. As such,
 * **2018 April 23**: All official Auth0 Extensions will be updated to run on Node 8 and available for you to upgrade in the **Installed Extensions** tab of the [Extensions page](${manage_url}/#/extensions)
 * **2018 April 30**: [Node 4 is no longer under long-term support (LTS)](https://github.com/nodejs/Release#release-schedule)
 * **2018 April 30**: Tenants with NO Extensibility code will be automatically be upgraded to use Node 8
+* **2018 July 26**: Any tenants created after this date are already using the Node.js 8 runtime, and no action is required.
+* **2019 April 29**: All Auth0 tenants on the Auth0 public cloud which have not already migrated to the Node.js 8 runtime, will be automatically migrated between April 29, 2019 and June 30, 2019
+* **2019 June 30**: Node 4 support in Auth0 is permanently removed
+
+### Migration Assistant
+
+We have created a [migration assistant](https://github.com/auth0/webtask-migration-assistant) to help ease the copying of code between production and development tenants.
+
+Please be sure to test each script *individually* with its associated **Try** button. You may, however, test all rules simultaneously with the **Try All Rules With** button.
+
+In addition, test _logging in_ using the development tenant to ensure that all of the items that you have set up work as expected.
 
 ## How to enable the Node 8 runtime
 
@@ -53,17 +91,29 @@ Changing the runtime may break your existing Rules, Hooks, and Custom Database/S
 
 ## Whitelist the new URLs
 
-When you upgrade to Node 8, the URLs you use to access our extensions, change. The change is an `8` that is appened before the `webtask.io` part. So if you accessed an extension using the URL `https://${account.tenant}.us.webtask.io/dummy-extension-url`, when you upgrade to Node 8 the URL will be `https://${account.tenant}.us8.webtask.io/dummy-extension-url`.
+The [Authorization Extension](/extensions/authorization), the [Delegated Administration Extension](/extensions/delegated-admin) and the [Single Sign-On (SSO) Dashboard Extension](/extensions/sso-dashboard) require whitelisting the URLs used to access extensions and custom webtasks. When you upgrade to Node 8, the URLs you use to access extensions and custom webtasks will change. This is a breaking change for these extensions.
 
-This is a breaking change for some extensions, that require whitelisting the URLs in order to properly work.
+If you use any of these extensions, **you must whitelist the new URLs** both as Allowed Callback and as Allowed Logout URLs.
 
-The affected extensions are the [Delegated Administration Extension](/extensions/delegated-admin) and the [Single Sign-On (SSO) Dashboard](/extensions/sso-dashboard). If you use either, **you must whitelist the new URLs** both as Allowed Callback and as Allowed Logout URLs.
+The change is an `8` that is appended before the `webtask.io` part. So if you accessed an extension using the URL `https://${account.tenant}.us.webtask.io/dummy-extension-url`, when you upgrade to Node 8 the URL will be `https://${account.tenant}.us8.webtask.io/dummy-extension-url`.
 
 To do so, go to [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings), and add the URL to the fields **Allowed Callback URLs** and **Allowed Logout URLs**.
 
+The execution URLs will also change for custom webtasks in your Auth0 container. You must update any external applications that call those webtasks.
+
+### Authorization Extension URLs
+
+If you use the Authorization Extension, it generates an `auth0-authorization-extension` rule. When migrating to Node 8, the EXTENSION_URL in that rule needs to be updated as follows:
+
+`var EXTENSION_URL = "https://<tenant>.us.webtask.io/<container_id>";`
+
+to
+
+`var EXTENSION_URL = "https://<tenant>.us8.webtask.io/<container_id>";`
+
 ### Delegated Administration URLs
 
-The matrix that follows contains the updated URLs you must configure after you migrate to Node 8. The URL varies based on your location.
+If you use the Delegated Administration Extension, the matrix that follows contains the updated URLs you must configure after you migrate to Node 8. The URL varies based on your location.
 
 | Location | Allowed Callback URL for Node 8 | Allowed Logout URL for Node 8 |
 | --- | --- | --- |
@@ -119,20 +169,6 @@ Similarly, you can find Custom Social Connections in `options.scripts.fetchUserP
 
 You will need to manually copy over any Hooks-related code that you use since they cannot be accessed via the Management API.
 
-### Migration assistance
-
-We have created a [migration assistant](https://github.com/auth0/webtask-migration-assistant) to help ease the copying of code between production and development tenants.
-
-Please be sure to test each script *individually* with its associated **Try** button. You may, however, test all rules simultaneously with the **Try All Rules With** button.
-
-In addition, test _logging in_ using the development tenant to ensure that all of the following items that you have set up work as expected:
-
-* Rules
-* Hooks
-* Database Connections
-* Custom Social Connections
-* Extensions
-
 ## Affected modules
 
 If you are using the following built-in modules (that is, modules that you did not explicitly require), please be aware that some versions were updated to work with Node 8. The following table summarizes the changes.
@@ -176,6 +212,6 @@ Some of the behavioral and syntactic changes in modules were not forward-compati
 
 For example, the default encoding of the `crypto` module was changed from `binary` to `utf8`, and the use of `new Buffer()` has been deprecated in favor of `Buffer.from()`.
 
-Please consult Node.js' migration nodes for [v4 to v6](https://github.com/nodejs/node/wiki/Breaking-changes-between-v4-LTS-and-v6-LTS) and [v6 to v8](https://github.com/nodejs/node/wiki/Breaking-changes-between-v6-LTS-and-v8-LTS) for additional information.
+Please consult Node.js' migration guide for [v4 to v6](https://github.com/nodejs/wiki-archive/blob/master/Breaking-changes-between-v4-LTS-and-v6-LTS.md) and [v6 to v8](https://github.com/nodejs/wiki-archive/blob/master/Breaking-changes-between-v6-LTS-and-v8-LTS.md) for additional information.
 
-**To ensure that your Auth0 implementation functions as intended, please be sure to migrate to the Node 8 runtime before April 30 2018.**
+**To ensure that your Auth0 implementation functions as intended, please be sure to migrate to the Node 8 runtime before June 30, 2019.**

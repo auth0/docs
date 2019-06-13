@@ -1,6 +1,11 @@
-## Install auth0.js
+## Integrate Auth0 in your Application
+
+### Loading auth0.js
 
 You need the auth0.js library to integrate Auth0 into your application.
+You can either install the library locally in your application or load it from CDN.
+
+### Loading via dependencies
 
 Install auth0.js using npm or yarn.
 
@@ -18,6 +23,8 @@ Once you install auth0.js, add it to your build system or bring it in to your pr
 <script type="text/javascript" src="node_modules/auth0-js/build/auth0.js"></script>
 ```
 
+### Loading it from CDN
+ 
 If you do not want to use a package manager, you can retrieve auth0.js from Auth0's CDN.
 
 ```html

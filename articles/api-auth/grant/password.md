@@ -1,6 +1,14 @@
 ---
 title: Call APIs from Highly Trusted Applications
 description: Describes how to call APIs from highly trusted applications using the Resource Owner Password Grant.
+topics:
+  - implicit
+  - api-authorization
+  - resource-owner-password
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 # Call APIs from Highly Trusted Applications
 
@@ -9,8 +17,8 @@ description: Describes how to call APIs from highly trusted applications using t
 Highly trusted applications can use this flow to access APIs. In this flow the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is sent to the backend and from there to Auth0.
 
 You should use this flow **only if** the following apply:
-- The application is absolutely trusted with the user's credentials. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead.
-- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application you should use the [Authorization Code Grant](/api-auth/grant/authorization-code) instead.
+- The application is absolutely trusted with the user's credentials. For [Single-Page Applications](/flows/concepts/implicit) and [Native/Mobile Apps](/flows/concepts/auth-code-pkce) we recommend using web flows instead.
+- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application, you should use the [Authorization Code Flow](/flows/concepts/auth-code) instead.
 
 ::: note
 If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
@@ -26,8 +34,8 @@ This grant type can eliminate the need for the application to store the user cre
 
  1. The end user enters the credentials into the application.
  1. The application forwards the credentials to Auth0.
- 1. Auth0 validates the information and returns an `access_token`, and optionally a `refresh_token`.
- 1. The application can use the `access_token` to call the API on behalf of the end user.
+ 1. Auth0 validates the information and returns an Access Token, and optionally a Refresh Token.
+ 1. The application can use the Access Token to call the API on behalf of the end user.
 
 ::: note
 In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
@@ -47,7 +55,7 @@ For more information on how to implement this extension grant refer to [Executin
 
 ## Scopes
 
-Due to the implied trust in these grants (a user providing his or her password to an application), the `access_token` returned will include all of the available scopes defined for the audience API. An application can request a restricted set of scopes by using the `scope` parameter, or you can restrict the returned scopes by using a [rule](#customize-the-returned-token).
+Due to the implied trust in these grants (a user providing his or her password to an application), the Access Token returned will include all of the available scopes defined for the audience API. An application can request a restricted set of scopes by using the `scope` parameter, or you can restrict the returned scopes by using a [rule](#customize-the-returned-token).
 
 ## Rules
 
@@ -61,7 +69,7 @@ For details on how to implement this, refer to [Execute the Resource Owner Passw
 
 ## MFA Support
 
-For details on how to implement multifactor authentication, refer to [Multifactor Αuthentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
+For details on how to implement multi-factor authentication, refer to [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
 
 ## Keep reading
 

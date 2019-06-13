@@ -1,5 +1,15 @@
 ---
 description: How to use secure AWS API Gateway using custom authorizers that accept Auth0-issued Access Tokens
+topics:
+  - integrations
+  - aws
+  - api-gateway
+contentType:
+  - index
+  - concept
+  - tutorial
+useCase:
+  - secure-an-api
 ---
 
 # Secure AWS API Gateway Endpoints Using Custom Authorizers
@@ -45,13 +55,11 @@ For a valid policy, API caches the returned policy, associating it with the inco
 
 Before beginning this tutorial, you'll need to [sign up for an AWS account](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html). This grants you access to all of the AWS features we'll use in this tutorial, including API Gateway and Lambda. All new members receive twelve months of free tier access to AWS.
 
-## Further Reading
+## Next steps
 
-::: next-steps
 * [API Authorization](/api-auth)
-* [Obtain an Auth0 Access Token](/tokens/access-token#how-to-get-an-access-token)
+* [Get Access Tokens](/tokens/guides/access-token/get-access-tokens)
 * [JSON Web Key Sets (JWKS)](/jwks)
-:::
 
 <%= include('./_stepnav', {
  next: ["Configure the Auth0 API", "/integrations/aws-api-gateway/custom-authorizers/part-1"]

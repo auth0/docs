@@ -2,6 +2,14 @@
 title: Getting started
 description: Short Introduction to the Auth0 Android Quickstarts.
 budicon: 715
+topics:
+  - quickstarts
+  - native
+  - android
+github:
+  path: 00-Login
+contentType: tutorial
+useCase: quickstart
 ---
 
 This quickstart guide walks you through managing authentication with Auth0 in your Android apps.

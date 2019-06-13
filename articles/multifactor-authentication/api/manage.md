@@ -1,20 +1,76 @@
 ---
-title: Manage the Authenticators for Multifactor Authentication
+title: Manage the Authenticators for Multi-factor Authentication
 description: How to manage your MFA authenticators
-beta: true
+topics:
+  - mfa
+  - mfa-api
+  - mfa-authenticators
+contentType:
+  - how-to
+  - reference
+useCase:
+  - customize-mfa
 ---
 
 # Manage the Authenticators
 
-::: warning
-This article includes documentation on features that are still under development. These features are available to customers with early access.
-:::
+Auth0 provides several API endpoints to help you manage the authenticators you're using with an application for multi-factor authentication (MFA).
 
-Auth0 provides several API endpoints to help you manage the authenticators you're using with a particular tenant for multifactor authentication (MFA).
+## Before you start
+
+The MFA endpoints require an [Access Token](/tokens/overview-access-tokens) with:
+
+- `audience`: Set to `https://${account.namespace}/mfa/`
+- `scope`: Include `enroll` for enrollment, `read:authenticators` to list authenticators, and `remove:authenticators` to delete authenticators.
+
+For example:
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [{
+    "name": "Content-Type", "value": "application/x-www-form-urlencoded"
+  }],
+  "postData": {
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "password"
+      },
+      {
+        "name": "username",
+        "value": "user@example.com"
+      },
+      {
+        "name": "password",
+        "value": "pwd"
+      },
+      {
+        "name": "audience",
+        "value": "https://${account.namespace}/mfa/"
+      },
+      {
+        "name": "scope",
+        "value": "enroll read:authenticators remove:authenticators"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      }
+    ]
+  }
+}
+```
 
 ## List Authenticators
 
-To get a list of the authenticators you've associated and can be used with your tenant, you can make the appropriate call to the `/mfa/authenticators` endpoint:
+To get a list of the authenticators a user has associated and can be used with your tenant, you can make the appropriate call to the `/mfa/authenticators` endpoint:
 
 ```har
 {
@@ -22,7 +78,7 @@ To get a list of the authenticators you've associated and can be used with your 
 	"url": "https://${account.namespace}/mfa/authenticators",
 	"headers": [{
 		"name": "Authorization",
-		"value": "Bearer YOUR_API_ACCESS_TOKEN"
+		"value": "Bearer ACCESS_TOKEN"
 	}]
 }
 ```
@@ -53,7 +109,7 @@ You should receive information about the authenticator type(s) in the response:
 
 ## Delete Authenticators
 
-To delete an authenticator you've associated, send a delete request to the `/mfa/authenticators/AUTHENTICATOR_ID` endpoint (be sure to replace `AUTHENTICATOR_ID` with your authenticator ID).
+To delete an associated authenticator, send a delete request to the `/mfa/authenticators/AUTHENTICATOR_ID` endpoint (be sure to replace `AUTHENTICATOR_ID` with the relevant authenticator ID).
 
 ```har
 {
@@ -61,7 +117,7 @@ To delete an authenticator you've associated, send a delete request to the `/mfa
 	"url": "https://${account.namespace}/mfa/authenticators/AUTHENTICATOR_ID",
 	"headers": [{
 		"name": "Authorization",
-		"value": "Bearer YOUR_API_ACCESS_TOKEN"
+		"value": "Bearer ACCESS_TOKEN"
 	}]
 }
 ```

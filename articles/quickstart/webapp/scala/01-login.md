@@ -1,24 +1,25 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Auth0 Play 2 Scala SDK to add authentication and authorization to your web app
+description: This tutorial demonstrates how to add user login to a Scala Play application.
 budicon: 448
+topics:
+  - quickstarts
+  - webapp
+  - login
+  - scala
+contentType: tutorial
+useCase: quickstart
+github:
+  path: 00-Starter-Seed
 ---
+<%= include('../_includes/_getting_started', { library: 'Scala', callback: 'http://localhost:3000/callback' }) %>
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-scala-samples',
-  path: '00-Starter-Seed',
-  requirements: [
-    'Scala 2.11.7',
-    'Typesafe Activator 1.3.7',
-    'Play framework 2.4.6'
-  ]
-}) %>
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
-<%= include('../_includes/_getting_started', { library: 'Node.js', callback: 'http://localhost:3000/callback' }) %>
+## Configure Scala to Use Auth0
 
-## Add the Auth0 Callback Handler
+### Add the Auth0 Callback Handler
 
 Add the handler for the Auth0 callback so you can authenticate the user and retrieve their information:
 
@@ -43,15 +44,16 @@ import play.api.mvc.Controller
 import helpers.Auth0Config
 
 class Callback @Inject() (cache: CacheApi, ws: WSClient) extends Controller {
-  
-  def callback(codeOpt: Option[String] = None, stateOpt: Option[String] = None) = Action.async {
-    if (stateOpt == cache.get("state")) {
+
+  def callback(codeOpt: Option[String] = None, stateOpt: Option[String] = None) = Action.async { request =>
+    val sessionId = request.session.get("id").get
+    if (stateOpt == cache.get(sessionId + "state")) {
       (for {
         code <- codeOpt
       } yield {
-        getToken(code).flatMap { case (idToken, accessToken) =>
+        getToken(code, sessionId).flatMap { case (idToken, accessToken) =>
           getUser(accessToken).map { user =>
-            cache.set(idToken + "profile", user)
+            cache.set(request.session.get("id").get + "profile", user)
             Redirect(routes.User.index())
               .withSession(
                 "idToken" -> idToken,
@@ -68,39 +70,37 @@ class Callback @Inject() (cache: CacheApi, ws: WSClient) extends Controller {
     }
   }
 
-  def getToken(code: String): Future[(String, String)] = {
-    val config = Auth0Config.get()
-    var audience = config.audience
-    if (config.audience == ""){
-      audience = String.format("https://%s/userinfo",config.domain)
-    }
-    val tokenResponse = ws.url(String.format("https://%s/oauth/token", config.domain)).
+  def getToken(code: String, sessionId: String): Future[(String, String)] = {
+
+    val tokenResponse = ws.url(String.format("https://%s/oauth/token", "${account.namespace}")).
       withHeaders(HeaderNames.ACCEPT -> MimeTypes.JSON).
       post(
         Json.obj(
-          "client_id" -> config.clientId,
-          "client_secret" -> config.secret,
-          "redirect_uri" -> config.callbackURL,
+          "client_id" -> "${account.clientId}",
+          "client_secret" -> "YOUR_CLIENT_SECRET",
+          "redirect_uri" -> "http://localhost:3000/callback",
           "code" -> code,
           "grant_type"-> "authorization_code",
-          "audience" -> audience
+          "audience" -> "${apiIdentifier}"
         )
       )
-      
+
     tokenResponse.flatMap { response =>
       (for {
         idToken <- (response.json \ "id_token").asOpt[String]
         accessToken <- (response.json \ "access_token").asOpt[String]
       } yield {
-        Future.successful((idToken, accessToken)) 
+        cache.set(sessionId + "id_token", idToken)
+        cache.set(sessionId + "access_token", accessToken)
+        Future.successful((idToken, accessToken))
       }).getOrElse(Future.failed[(String, String)](new IllegalStateException("Tokens not sent")))
     }
-    
+
   }
-  
+
   def getUser(accessToken: String): Future[JsValue] = {
     val config = Auth0Config.get()
-    val userResponse = ws.url(String.format("https://%s/userinfo", config.domain))
+    val userResponse = ws.url(String.format("https://%s/userinfo", "${account.namespace}"))
       .withQueryString("access_token" -> accessToken)
       .get()
 
@@ -125,6 +125,7 @@ import play.api.mvc.Controller
 import helpers.Auth0Config
 import java.security.SecureRandom
 import java.math.BigInteger
+import java.util.UUID.randomUUID
 
 class Application @Inject() (cache: CacheApi) extends Controller {
 
@@ -133,7 +134,6 @@ class Application @Inject() (cache: CacheApi) extends Controller {
   }
 
   def login = Action {
-    val config = Auth0Config.get()
     // Generate random state parameter
     object RandomUtil {
       private val random = new SecureRandom()
@@ -143,20 +143,17 @@ class Application @Inject() (cache: CacheApi) extends Controller {
       }
     }
     val state = RandomUtil.alphanumeric()
-    var audience = config.audience
-    cache.set("state", state)
-    if (config.audience == ""){
-      audience = String.format("https://%s/userinfo",config.domain)
-    }
 
+    val id = randomUUID().toString
+    cache.set(id + "state", state)
     val query = String.format(
       "authorize?client_id=%s&redirect_uri=%s&response_type=code&scope=openid profile&audience=%s&state=%s",
-      config.clientId,
-      config.callbackURL,
-      audience,
+      "${account.clientId}",
+      "http://localhost:3000/callback",
+      "${apiIdentifier}",
       state
     )
-    Redirect(String.format("https://%s/%s",config.domain,query))
+    Redirect(String.format("https://%s/%s", "${account.namespace}", query)).withSession("id" -> id)
   }
 }
 ```
@@ -170,11 +167,11 @@ In the `index` view add a link to `login` route.
   <img src="https://i.cloudup.com/StzWWrY34s.png" />
   <h3>Auth0 Example</h3>
   <p>Zero friction identity infrastructure, built for developers</p>
-  <a class="btn btn-primary btn-lg btn-block" href="/login">SignIn</a>
+  <a class="btn btn-primary btn-lg btn-block" href="/login">Sign in</a>
 </div>
 ```
 
-## Access User Information
+## Display User Information
 
 You can access the user information from the `cache`.
 
@@ -193,8 +190,8 @@ import play.api.cache._
 class User @Inject() (cache: CacheApi) extends Controller {
   def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = {
     Action { request =>
-      (request.session.get("idToken").flatMap { idToken =>
-        cache.get[JsValue](idToken + "profile")
+      (request.session.get("id").flatMap { id =>
+        cache.get[JsValue](id + "profile")
       } map { profile =>
         f(request)
       }).orElse {
@@ -202,10 +199,10 @@ class User @Inject() (cache: CacheApi) extends Controller {
       }.get
     }
   }
-  
+
   def index = AuthenticatedAction { request =>
-    val idToken = request.session.get("idToken").get
-    val profile = cache.get[JsValue](idToken + "profile").get
+    val id = request.session.get("id").get
+    val profile = cache.get[JsValue](id + "profile").get
     Ok(views.html.user(profile))
   }
 }
@@ -234,22 +231,22 @@ Add the `logout` action in the `Application` controller.
 // app/controllers/Application.scala
 
 class Application @Inject() (cache: CacheApi) extends Controller {
-  
+
   //...
-  
+
   def logout = Action {
     val config = Auth0Config.get()
     Redirect(String.format(
-      "https://%s/v2/logout?client_id=%s&returnTo=http://localhost:9000",
-      config.domain,
-      config.clientId)
+      "https://%s/v2/logout?client_id=%s&returnTo=http://localhost:3000",
+      "${account.namespace}",
+      "${account.clientId}")
     ).withNewSession
   }
 }
 ```
 
 ::: note
-Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the application as explained in [our documentation](/logout#redirect-users-after-logout)
+The redirect URL needs to be in the list of Allowed Logout URLs in the settings section of the application, For more information, see [Redirect Users After Logout](/logout/guides/redirect-users-after-logout).
 :::
 
 In the `user` view add a link to `logout` route.
@@ -269,8 +266,8 @@ You can add the following `Action` to check if the user is authenticated. If not
 
 def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = {
   Action { request =>
-    (request.session.get("idToken").flatMap { idToken =>
-      cache.getAs[JsValue](idToken + "profile")
+    (request.session.get("id").flatMap { id =>
+      cache.getAs[JsValue](id + "profile")
     } map { profile =>
       f(request)
     }).orElse {
@@ -280,8 +277,8 @@ def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = 
 }
 
 def index = AuthenticatedAction { request =>
-  val idToken = request.session.get("idToken").get
-  val profile = cache.getAs[JsValue](idToken + "profile").get
+  val id = request.session.get("id").get
+  val profile = cache.getAs[JsValue](id + "profile").get
   Ok(views.html.user(profile))
 }
 ```

@@ -6,7 +6,7 @@ This quickstart uses the Auth0.Android SDK to help you add authentication and AP
 
 ```gradle
 dependencies {
-    compile "com.auth0.android:auth0:1.+"
+    implementation "com.auth0.android:auth0:1.+"
 }
 ```
 
@@ -14,7 +14,7 @@ dependencies {
 You can check for the latest version on the repository [Readme](https://github.com/auth0/auth0.android#installation), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0).
 :::
 
-Next, Syncronize bundle.gradle in Android Studio or run `./gradlew clean assembleDebug` from the command line.
+Next, synchronize bundle.gradle in Android Studio or run `./gradlew clean assembleDebug` from the command line.
 
 ::: note
 For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
@@ -113,7 +113,7 @@ protected void onNewIntent(Intent intent) {
 
 ## Making an Authenticated API Call
 
-Use the `access_token` to invoke your Resource Server (API). In this example we are using the [Unirest library for Java](http://unirest.io/java.html):
+Use the Access Token to invoke your Resource Server (API). In this example we are using the [Unirest library for Java](http://unirest.io/java.html):
 
 ```java
 HttpResponse<String> response = Unirest.get("https://someapi.com/api")

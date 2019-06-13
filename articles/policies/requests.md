@@ -1,5 +1,12 @@
 ---
 description: The following is a list of requests Auth0 currently doesn't support.
+topics:
+    - auth0-policies
+    - support
+contentType:
+  - reference
+useCase:
+  - support
 ---
 
 # Unsupported Requests
@@ -11,3 +18,9 @@ Our support team strives to assist you to the best of our ability. However, we a
 * Renaming a tenant
 
 * Renaming a connection
+
+* Re-using the name of a previously deleted tenant
+
+* Migrating a tenant from one region to another (for example, from US to EU)
+
+* Ad hoc usage data reports.

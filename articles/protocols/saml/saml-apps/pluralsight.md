@@ -1,9 +1,17 @@
 ---
 title: Pluralsight SAML Configuration
 description: Pluralsight SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - pluralsight
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 
 ```json

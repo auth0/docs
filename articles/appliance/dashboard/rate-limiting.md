@@ -1,6 +1,14 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard Rate Limiting page
+topics:
+    - appliance
+    - dashboard
+    - rate-limiting
+conceptType: concept
+useCase: appliance
+applianceId: appliance23
+sitemap: false
 ---
 
 # Auth0 Appliance Dashboard: Rate Limiting

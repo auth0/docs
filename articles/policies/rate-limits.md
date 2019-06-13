@@ -1,12 +1,22 @@
 ---
+title: Rate Limit Policy For Auth0 APIs
 description: This page details Auth0's Rate Limit Policy with hitting Auth0 API endpoints.
+toc: true
+topics:
+    - auth0-policies
+    - rate-limits
+    - testing
+contentType:
+  - reference
+useCase:
+  - support
 ---
-# Auth0 API Rate Limit Policy
+# Rate Limit Policy For Auth0 APIs
 
 To ensure the quality of Auth0's services, the Auth0 APIs are subject to rate limiting.
 
-::: note
-If you are looking for information on the rate limits on user logins, refer to [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
+::: warning
+Auth0 reserves the right to modify the rate limits at any time. For the up-to-date information on rate limits, please review the headers returned from rate limited endpoints.
 :::
 
 ## Limits
@@ -34,9 +44,13 @@ For some API endpoints, the rate limits are defined per bucket, so the origins o
 
 If you exceed the provided rate limit for a given API endpoint, you will receive a response with [HTTP Status Code 429 (Too Many Requests)](http://tools.ietf.org/html/rfc6585#section-4). You can refer to the [HTTP Response Headers](#http-response-headers) for more information on the rate limits applicable to that endpoint.
 
-Actions such as rapidly updating configuration settings, aggressive polling, or making highy concurrent API calls may result in your app being rate limited.
+Actions such as rapidly updating configuration settings, aggressive polling, or making highly concurrent API calls may result in your app being rate limited.
 
 If your app triggers the rate limit, please refrain from making additional requests until the appropriate amount of time has elapsed.
+
+::: warning How to Handle Rate Limits when calling Auth0 APIs
+For scripts and rules that call Auth0 APIs, you should always handle rate limiting by checking the X-RateLimit-Remaining header and acting appropriately when the number returned nears 0. You should also add logic to handle cases in which you exceed the provided rate limits and receive the HTTP Status Code 429 (Too Many Requests); in this case, if a re-try is needed, it is best to allow for a back-off to avoid going into an infinite re-try loop.
+:::
 
 ## HTTP Response Headers
 
@@ -54,7 +68,7 @@ If you are using an API endpoint **not** listed below and you receive rate limit
 
 ### Management API v2
 
-The rate limits for this API defer depending on whether your tenant is free or paid, production or not.
+The rate limits for this API differ depending on whether your tenant is free or paid, production or not.
 
 ::: note
 - The tenants that have no credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment) are free.
@@ -63,9 +77,9 @@ The rate limits for this API defer depending on whether your tenant is free or p
 
 The following rate limits apply:
 
-- For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This policy goes into effect on __Tuesday, September 12 at 1PM PT__.
-- For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This policy goes into effect on __Tuesday, September 19 at 1PM PT__.
-- For __paid__ tenants, usage of the Management API is restricted to 50 requests per second.
+- For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
+- For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
+- For __paid__ tenants, usage of the Management API is restricted to 15 requests per second (and bursts up to 50 requests).
 
 The aforementioned rate limits include calls made via [Rules](/rules).
 
@@ -152,7 +166,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
   <tr>
       <td>Jobs</td>
       <td>/jobs/{id} <br /> /jobs/{id}/errors</td>
-      <td>/jobs/verification-email <br />/jobs/users-imports</td>
+      <td>/jobs/verification-email <br />/jobs/users-imports <br />/jobs/users-exports</td>
       <td></td>
       <td></td>
   </tr>
@@ -184,10 +198,6 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 The following Auth0 Authentication API endpoints return rate limit-related headers.
 
-::: warning
-Auth0 reserves the right to modify the rate limits at any time. For the up-to-date information on rate limits, please review the headers returned from rate limited endpoints.
-:::
-
 <table class="table">
   <thead>
     <tr>
@@ -199,6 +209,29 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
     </tr>
   </thead>
   <tbody>
+  <tr>
+    <td colspan="2">All endpoints</td>
+    <td>(any request)</td>
+    <td>Enterprise</td>
+    <td>100 requests per second</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Authentication and authorization</td>
+    <td rowspan="3">/authorize</td>
+    <td>IP</td>
+    <td>Non-Free (*)</td>
+    <td>500 requests per minute</td>
+  </tr>
+  <tr>
+    <td>(any request)</td>
+    <td>Free (*)</td>
+    <td>300 requests per minute</td>
+  </tr>
+  <tr>
+    <td>Session</td>
+    <td>All</td>
+    <td>10 requests per second</td>
+  </tr>
   <tr>
     <td rowspan="2">User Profile</td>
     <td>/tokeninfo (legacy)</td>
@@ -268,7 +301,7 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
     <td>10 requests per second</td>
   </tr>
   <tr>
-    <td>Json Web Token Keys</td>
+    <td>JSON Web Token Keys</td>
     <td>/.well-known/jwks.json</td>
     <td>(any request)</td>
     <td>Free</td>
@@ -280,3 +313,11 @@ Auth0 reserves the right to modify the rate limits at any time. For the up-to-da
 :::note
 (*) In all instances above, **Free** includes tenants on the Free plan, as well as the non-production tenants of enterprise customers.
 :::
+
+## Limits on Database Logins
+
+For database connections, Auth0 limits certain types of repeat login attempts depending on the user account and IP address. For more information, see [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
+
+## Limits on SMS Messages for MFA
+
+There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configuring Twilio for Guardian SMS](/multifactor-authentication/twilio-configuration).

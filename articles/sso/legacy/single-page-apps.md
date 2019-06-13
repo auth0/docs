@@ -1,8 +1,16 @@
 ---
-description: Client-side SSO with single page applications.
+description: Client-side SSO with single-page applications.
 toc: true
+topics:
+  - sso
+  - spas
+contentType:
+  - how-to
+  - concept
+useCase:
+  - integrate-saas-sso
 ---
-# Client-side SSO (Single Page Apps)
+# Client-side SSO (Single-Page Apps)
 
 ::: version-warning
 This document covers an outdated version of the Auth0 authentication pipeline. We recommend you use the current version. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
@@ -18,13 +26,13 @@ To log a user in silently (that is, without displaying the Lock screen) the foll
 
 In our SSO scenario, let's say we have 3 applications
 
-* App 1: app1.com (Single Page App)
-* App 2: app2.com (Single Page App)
+* App 1: app1.com (Single-Page App)
+* App 2: app2.com (Single-Page App)
 * App 3: app3.com (Regular Web app)
 
-If a user logs in to any of these applications, and then subsequently navigates from this application to any of the other applications, we would want the user to be logged in automatically. 
+If a user logs in to any of these applications, and then subsequently navigates from this application to any of the other applications, we would want the user to be logged in automatically.
 
-In this document we will be looking specifically how to achieve this in a Single Page (JavaScript) Application
+In this document we will be looking specifically how to achieve this in a Single-Page (JavaScript) Application
 
 ## Obtaining the SSO cookie information  
 
@@ -56,7 +64,7 @@ This function will return an `ssoData` object which will indicate whether an act
 
 ## Passing the Connection Name when logging the user in
 
-You can then use this information to call the `signin` function to log the user in. When you call the `signin` function you pass along the name of the connection used in the active SSO session as the `connection` parameter. Auth0 will determine that an SSO cookie is saved for that connection, and will log the user directly without displaying the Lock user interface. 
+You can then use this information to call the `signin` function to log the user in. When you call the `signin` function you pass along the name of the connection used in the active SSO session as the `connection` parameter. Auth0 will determine that an SSO cookie is saved for that connection, and will log the user directly without displaying the Lock user interface.
 
 
 ```js
@@ -75,7 +83,7 @@ auth0.getSSOData(function (err, ssoData) {
 
 ## Full SSO Sample Code
 
-Below is an expanded code sample of how you can implement this in a SPA application using jQuery to either show or hide the Login button or user information depending on whether a user is logged in or not. 
+Below is an expanded code sample of how you can implement this in a SPA application using jQuery to either show or hide the Login button or user information depending on whether a user is logged in or not.
 
 The full code sample for both the SPA applications as well as the normal web application can be found in [this github repository](https://github.com/auth0/auth0-sso-sample/tree/master/app1.com)
 
@@ -98,7 +106,7 @@ The full code sample for both the SPA applications as well as the normal web app
     callbackOnLocationHash: true
   });
 
-  // Handle authenticated event to store id_token in localStorage
+  // Handle authenticated event to store ID Token in localStorage
   lock.on("authenticated", function (authResult) {
     isAuthCallback = true;
 
@@ -158,7 +166,7 @@ The full code sample for both the SPA applications as well as the normal web app
 
 ## Single Logout
 
-If the user logged out from app1.com, then we want to clean up the token on app2.com (and app3.com). Read more about [Single Log Out](/logout). 
+If the user logged out from app1.com, then we want to clean up the token on app2.com (and app3.com). Read more about [Single Log Out](/logout).
 
 To do that, you have to check every X amount of time whether the SSO session is still alive in Auth0. If it is not, then remove the token from Local Storage for the application. This will ensure that the user's local session is cleared.
 

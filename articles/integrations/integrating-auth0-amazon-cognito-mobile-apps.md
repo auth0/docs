@@ -1,5 +1,12 @@
 ---
 description: How to integrate Auth0 with Amazon Cognito using an OpenID Connect Provider.
+topics:
+  - integrations
+  - amazon
+  - cognito
+  - oidc
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 # Integrate Auth0 with Amazon Cognito
 
@@ -57,7 +64,7 @@ Now, you need to create an Identity Pool in the [Cognito Console](https://consol
 
     ![Confirmation page](/media/articles/scenarios/amazon-cognito/allow-role.png)
 
-1. Click **Edit Identity Pool** to view the the Identity Pool ID.
+1. Click **Edit Identity Pool** to view the Identity Pool ID.
 
     ![View the Identity Pool ID](/media/articles/scenarios/amazon-cognito/pool-id.png)
 

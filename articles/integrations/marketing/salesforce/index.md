@@ -1,19 +1,19 @@
 ---
-title: Salesforce Integration
-description: Learn how to import your Auth0 user data into Salesforce.
+title: Export User Data To Salesforce
+description: Learn how to export your Auth0 user data and import it into Salesforce.
 toc: true
+topics:
+    - marketing
+    - salesforce
+contentType: how-to
+useCase: export-users-marketing
 ---
 
-# Salesforce Integration
+# Export User Data To Salesforce
 
-## Import Users to Salesforce
+In this article, you’ll learn how to export user data in Auth0 to a CSV file then import it into Salesforce using the [Data Import Wizard](https://help.salesforce.com/articleView?id=data_import_wizard.htm).
 
-To import your Auth0 users into Salesforce:
-
-- Export your user data as a CSV file with the [User Import / Export Extension](/extensions/user-import-export).
-- Import the file into Salesforce using the [Data Import Wizard](https://help.salesforce.com/articleView?id=data_import_wizard.htm).
-
-### Create a User Data File
+## Create a user data file
 
 Start by navigating to the [Extensions](${manage_url}/#/extensions) section of the Dashboard and open the **User Import / Export Extension**. On the extension page, select **Export** from the menu.
 
@@ -38,7 +38,7 @@ User Field | Column Name
 
 After adding the user fields, click on the **Export Users** button to start the export. Once the export is complete, download the CSV file to use in the following section.
 
-### Import a User Data File
+## Import a user data file
 
 ::: note
 [Salesforce: Import Data with the Data Import Wizard](https://help.salesforce.com/articleView?id=import_with_data_import_wizard.htm)

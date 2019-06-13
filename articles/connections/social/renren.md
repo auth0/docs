@@ -5,6 +5,14 @@ image: /media/connections/renren.png
 seo_alias: renren
 description: How to obtain an API Key and Secret Key for RenRen.
 toc: true
+topics:
+  - connections
+  - social
+  - renren
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to RenRen
@@ -22,6 +30,8 @@ Log into the RenRen [integration portal](http://app.renren.com/developers) and c
 Complete the required information on this page. Enter the following value for the *callback URL*:
 
   https://${account.namespace}/login/callback
+
+  <%= include('../_find-auth0-domain-redirects') %>
 
 Click **Create App**.
 

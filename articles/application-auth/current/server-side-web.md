@@ -2,15 +2,26 @@
 title: Authentication for Server-side Web Apps
 description: Explains how to authenticate users in a Server-side Web application.
 toc: true
+topics:
+  - oauth2
+  - authentication
+  - server-side-apps
+contentType: 
+    - concept
+    - how-to
+useCase:
+  - add-login
 ---
 
 # Authentication for Server-side Web Apps
 
-You can use the Auth0 Authentication API to create server-side web applications that uses OAuth 2.0 authorization to authenticate users.
+You can use the Auth0 Authentication API to create server-side web applications that uses OAuth 2.0 and OpenID Connect to authenticate users and get their authorization to access protected resources.
 
 ## Overview
 
-Auth0 exposes OAuth 2.0 endpoints for authenticating any user. You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to the `redirect_uri` (also referred to as the Callback URL), returning an authorization `code` in the query string parameters of the Callback URL. This `code` can then be exchanged for an [ID Token](/tokens/id-token) which contains the identity of the user.
+Auth0 exposes endpoints that you can use to authenticate users and get their authorization. 
+
+You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to a pre-configured callback URL, returning an authorization code in the query string parameters of the callback URL. This code can then be exchanged for an [ID Token](/tokens/id-token) (which contains information about the identity of the user) and an [Access Token](/tokens/overview-access-tokens).
 
 ## The Authentication Flow
 
@@ -23,7 +34,7 @@ After the user has authenticated, Auth0 will redirect the browser back to the **
 The ID Token is a [JSON Web Token (JWT)](/jwt) and contains various attributes regarding the user, such as the user's name, email address, profile picture and so on. These attributes are referred to as **Claims** and they can be extracted from the ID Token and used in your application (for example, to display a user's name and profile image).
 
 ::: note
-You will also receive an [Access Token](/tokens/access-token) which you can use to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or your own APIs. For more information on calling APIs web apps running on the server, see [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
+You will also receive an [Access Token](/tokens/overview-access-tokens) which you can use to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or your own APIs. For more information on calling APIs web apps running on the server, see [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
 :::
 
 ![Authentication flow for server-side web apps](/media/articles/client-auth/server-side-web/server-side-web-flow.png)
@@ -89,11 +100,32 @@ You application will need to handle the request to this callback URL, extract th
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "authorization_code"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "code",
+        "value": "YOUR_AUTHORIZATION_CODE"
+      },
+      {
+        "name": "redirect_ui",
+        "value": "https://${account.callback}"
+      }
+    ]
   }
 }
 ```
@@ -109,7 +141,7 @@ The response from `/oauth/token` contains `access_token`, `expires_in`, `id_toke
 }
 ```
 
-The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You will need to decode the `id_token` in order to read the claims (or attributes) of the user. The [JWT section of our website](/jwt) contains more information about the structure of a JWT.
+The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You will need to decode the ID Token in order to read the claims (or attributes) of the user. The [JWT section of our website](/jwt) contains more information about the structure of a JWT.
 
 You can refer to the [libraries section on the JWT.io website](https://jwt.io/#libraries-io) in order to obtain a library for your programming language of choice which will assist you in decoding the ID Token.
 
@@ -178,7 +210,7 @@ After the user has authenticated, they will be redirected back to the `redirect_
 ${account.callback}?code=2OKj...
 ```
 
-You can then exchange the `code` for an ID Token. This is an example of the decoded payload of the `id_token` which will be returned:
+You can then exchange the `code` for an ID Token. This is an example of the decoded payload of the ID Token which will be returned:
 
 ```json
 {
@@ -208,7 +240,7 @@ After the user has authenticated, they will be redirected back to the `redirect_
 ${account.callback}?code=2OKj...
 ```
 
-You can then exchange the `code` for an ID Token. The profile attributes of the user, such as the name and profile picture will be available in the `name` and `picture` claims of the returned `id_token`:
+You can then exchange the `code` for an ID Token. The profile attributes of the user, such as the name and profile picture will be available in the `name` and `picture` claims of the returned ID Token:
 
 ```json
 {

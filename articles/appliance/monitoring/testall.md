@@ -1,6 +1,14 @@
 ---
 section: appliance
 description: Overview of using the testall endpoint with the PSaaS Appliance
+topics:
+    - appliance
+    - monitoring
+    - testing
+contentType: how-to
+useCase: appliance
+applianceId: appliance49
+sitemap: false
 ---
 
 # Using the `testall` Endpoint
@@ -25,9 +33,11 @@ Alternatively, if there are any issues, `/testall` returns a `5xx` response code
 
 Typically, the above endpoint will reach the load balancer, but since a typical, highly-available deployment will have at least three nodes, Auth0 recommends monitoring those endpoints as well:
 
-* `https://{IP Address Node 1}/testall`
-* `https://{IP Address Node 2}/testall`
-* `https://{IP Address Node 3}/testall`
+* `http://{IP Address Node 1}/testall`
+* `http://{IP Address Node 2}/testall`
+* `http://{IP Address Node 3}/testall`
+
+Be sure to use the `http` *not* `https` in your URLs.
 
 ### Non-Responsive Nodes
 

@@ -1,12 +1,20 @@
 ---
 title: OIDC-conformant Implicit grant
+topics:
+  - api-authentication
+  - oidc
+  - implicit
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Implicit grant
 
 <%= include('./_about.md') %>
 
-The [Implicit grant](/api-auth/grant/implicit) is used by applications that are incapable of securely storing secrets, such as single-page JavaScript applications.
+The [Implicit grant](/flows/concepts/implicit) is used by applications that are incapable of securely storing secrets, such as single-page JavaScript applications.
 This document describes the differences of this flow between the legacy and OIDC-conformant authentication pipelines.
 
 ## Authentication request

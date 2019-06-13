@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Migration Guide for Resource Owner Password Credentials Exchange"
+    tags:
+      - migration
+      - guide
+    description: |
+      Migration guide explaining how to migrate API calls and responses from the /oauth/ro endpoint to the /oauth/token endpoint.

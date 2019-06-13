@@ -1,20 +1,18 @@
 ---
 title: Touch ID Authentication
-description: This tutorial will show you how to utilise Touch ID and the Credentials Manager
+description: This tutorial will show you how to use Touch ID and the Credentials Manager.
 budicon: 345
+topics:
+  - quickstarts
+  - native
+  - ios
+  - swift
+  - touch-id
+github:
+  path: 08-Credentials-TouchID
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-swift-sample',
-  path: '08-Credentials-TouchID',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)',
-    'Touch ID Enrolled Device'
-  ]
-}) %>
 
 ## Before You Start
 
