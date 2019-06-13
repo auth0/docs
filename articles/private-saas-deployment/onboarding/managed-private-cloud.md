@@ -10,7 +10,7 @@ useCase: private-saas-deployment
 This article will cover all facets of the **Managed Private Cloud** (both Auth0-hosted and customer-hosted) onboarding process, including timelines, information about future updates, technical requirements, and implementation instructions for key Managed Private Cloud features.
 
 ::: note
-If you are a Private Cloud customer, please see the appropriate [onboarding document](/private-saas-deployment/onboarding/private-cloud.md). 
+If you are a Private Cloud customer, please see the appropriate [onboarding document](/private-saas-deployment/onboarding/private-cloud). 
 :::
 
 ## Timeline
