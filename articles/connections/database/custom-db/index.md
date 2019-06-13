@@ -70,8 +70,6 @@ Here are some things to know before you begin the process of setting up your dat
 
 The following video tutorial will show you how to set up a custom database connection that includes user migration functionality. It will also demonstrate basic troubleshooting steps.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Go_rvdYuF5c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ### Keep reading
 
 * [Create and Configure a Custom Database Connection](/connections/database/custom-db/create-db-connection)
