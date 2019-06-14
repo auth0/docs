@@ -32,7 +32,3 @@ Allowing users to sign in via user ID/password credentials means that you're not
 If you have an existing legacy identity store, you’ll also want to see [User Migration](/architecture-scenarios/implementation/${platform}/${platform}-provisioning#user-migration). This section discusses the advantages of migrating to Auth0’s managed identity storage in terms of safety and security.
 
 For customer facing applications, OpenID Connect ([OIDC](/protocols/oidc)) is the most frequently used industry standard protocol, and OIDC has first-class citizen support in Auth0. Auth0 provides support for various different approaches for integrating various different applications, so you'll want to see the section on [application integration](#application-integration) for the information you'll need to make an informed choice. 
-
-<% if (platform === "b2b") { >
-Often companies need to segregate their users by organization and sometimes users can have access to more than one organization.  Knowing which of these scenarios is relevant to your company will help define how to determine in which connection a user exists: whether you need to do it, when you need to do it, and how to accomplish it.  See [Home Realm Discovery](#home-realm-discovery) to determine if this is something relevant to your company.
-<% } %>
