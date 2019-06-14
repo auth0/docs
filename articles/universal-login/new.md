@@ -63,7 +63,7 @@ When using [Custom DB Connections](/connections/database/custom-db):
 
 ## Internationalization
 
-- The New Experience provides a more consistent approach for [Internationalization](/universal-login/i8n).
+- The New Experience provides a more consistent approach for [Internationalization](/universal-login/i18n).
 
 ## Branding
 
