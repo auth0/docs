@@ -4,6 +4,10 @@ alias:
   - reactjs
 language:
   - Javascript
+author:
+  name: Steve Hobbs
+  email: steve.hobbs@auth0.com
+  community: false
 framework:
   - React
 image: /media/platforms/react.png
