@@ -18,7 +18,7 @@ In an effort to keep the Auth0 platform stable and secure some features and func
 
 This proccess starts with the feature or behavior being **Deprecated**. At the time of deprecation we will also typically announce an **End Of Life Date**.
 
-Our policy provides at least a six month grace period from the Deprecation announcement and the **End Of Life Date**, at which point using the deprecated behavior cannot be expected to work, and continued use of the behavior will likely result in errors. Depending on the severity of the issue the grace period time frame may be accelerated.
+If at all possible we will provide at least a six month grace period from the Deprecation announcement and the **End Of Life Date**, at which point using the deprecated behavior cannot be expected to work, and continued use of the behavior will likely result in errors. Depending on the severity of the issue the grace period time frame may be accelerated.
 
 To help prepare for the End Of Life we will publish a **Migration** guide. This guide includes instruction on determining the impact on your tenants and the action required. To ensure a smooth transition and avoid any service disruption, we will also provide instructions on how to opt-in to the new behavior prior to the **End Of Life Date** 
 
