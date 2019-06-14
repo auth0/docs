@@ -12,15 +12,15 @@ useCase:
 
 # Business to Consumer Identity and Access Management
 
-<%= include('../../_includes/_base-intro.md', { platform: 'b2c' }) %>
+<%= include('./_includes/_base-intro.md', { platform: 'b2c' }) %>
 
 ## Ways to integrate Auth0 and how to choose
 
-<%= include('../../_includes/_base-ways-to-integrate.md', { platform: 'b2c' }) %>
+<%= include('./_includes/_base-ways-to-integrate.md', { platform: 'b2c' }) %>
 
 ## Implementation checklists
 
-<%= include('../../_includes/_implementation-checklists.md') %>
+<%= include('./_includes/_implementation-checklists.md') %>
 
 ## Keep reading
 
