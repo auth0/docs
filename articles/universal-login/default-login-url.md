@@ -70,3 +70,8 @@ When the password reset flow is completed and the default URI for the applicatio
 
 This behavior only happens when the [New Universal Login Experience](/universal-login/new) is enabled. In Classic mode, you will need to [configure the Redirect URL in the Password Reset Email Template](/email/templates#configuring-the-redirect-to-url).
 
+### Completing the email verification flow
+
+As part of the signup process, users get an email to verify their email address. If they click on the link, they will land on a page that says that the email was verified, with a button to go back to the application. When clicked, users will be redirected to the login page, and if they already have a valid session, they'll end up being redirected to the application.
+
+This behavior only happens when the [New Universal Login Experience](/universal-login/new) is enabled. In Classic mode, you will need to [configure the Redirect URL in the Verification Email Template](/email/templates#configuring-the-redirect-to-url).

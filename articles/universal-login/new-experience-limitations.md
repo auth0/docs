@@ -16,12 +16,11 @@ The New Universal Login Experience currently has these limitations:
 
 - The Signup page only lets users enter username / email / password, and does not offer the ability to prompt users to accept terms of service.
 
+- It's not possible to link to the Signup page or default to it. Users will land in the login page, and can navigate to Signup from there.
+
 - In order to be able to use [DUO](/multifactor-authentication/factors/duo) as an MFA factor, it needs to be the only factor enabled. It will render the same pages as in the Classic Experience.
 
 - [Passwordless login](/connections/passwordless) is not supported.
 
 - [MFA Enrollment Tickets](/multifactor-authentication/developer/custom-enrollment-ticket) will keep using the Classic Experience even when the New Experience is enabled.
 
-## Known Bugs
-
-- If you specify the name of a Database Connection in the `connection` parameter to  `/authorize`, the login page will also show the enabled social connections.
