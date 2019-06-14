@@ -13,7 +13,7 @@ useCase:
 
 In December 2018, LinkedIn [deprecated version 1.0 of their sign-in API](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). The final shutdown date we set for March 1st, 2019 them moved to May 1st, 2019. In June 2019 the current status is that "Applications requesting Version 1.0 APIs may experience issues as we begin to remove services."
 
-LinkedIn is replacing the sign-in API with [version 2.0 that has some key differences](https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/migration-faq?context=linkedin/consumer/context).
+LinkedIn is replaced the sign-in API with [version 2.0 that has some key differences](https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/migration-faq?context=linkedin/consumer/context).
 
 We've added the option to set the LinkedIn API version for LinkedIn Connections. On the Auth0 Dashboard you can change the API version for a LinkedIn Connection by selecting a **Strategy Version** under the connection's settings.
 
