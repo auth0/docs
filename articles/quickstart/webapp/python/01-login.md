@@ -16,7 +16,7 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Python', callback: 'http://localhost:3000/callback' }) %>
 
-<%= include('../../../_includes/_logout_url') %>
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
 ## Configure Flask to Use Auth0
 

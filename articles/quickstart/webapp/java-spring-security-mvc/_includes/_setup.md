@@ -2,8 +2,8 @@
 
 ### Setup Dependencies
 
-You'll need to configure **Spring Boot** in your project first. You can generate the base project in [this](https://start.spring.io/) link, choosing `Web` in the dependencies and clicking the button "Generate Project". The downloaded project has the Spring Boot dependencies and plugin applied. You then need to add a Server dependency like Tomcat or Gretty, which one is up to you. Check our sample code for more information.
-The next step is to add the **auth0-java-mvc-commons** library. This one allows you to use Auth0 with Java for server-side MVC web apps. It generates the Authorize URL that you need to call in order to authenticate and validates the result received on the way back to finally obtain the [Auth0 Tokens](/tokens) that identify the user. You can always check the latest version in the [library's GitHub](https://github.com/auth0/auth0-java-mvc-common).
+You'll need to configure **Spring Boot** in your project first. You can generate the base project in [this](https://start.spring.io/) link, choosing `Web` in the dependencies and clicking the button "Generate Project". The downloaded project has the Spring Boot dependencies and plugin applied. 
+The next step is to add the **auth0-java-mvc-commons** library. This allows you to use Auth0 with Java for server-side MVC web apps. It generates the Authorize URL that you need to call in order to authenticate and validates the result received on the way back to finally obtain the [Auth0 Tokens](/tokens) that identify the user. You can always check the latest version in the [library's GitHub](https://github.com/auth0/auth0-java-mvc-common).
 
 If you are using Gradle, add it to your `build.gradle`:
 
@@ -16,12 +16,12 @@ compile 'com.auth0:mvc-auth-commons:1.+'
 If you are using Maven, add it to your `pom.xml`:
 
 ```xml
-//pom.xml
+<!-- pom.xml -->
 
 <dependency>
   <groupId>com.auth0</groupId>
   <artifactId>mvc-auth-commons</artifactId>
-  <version>1.+</version>
+  <version>(1.0,2.0)</version>
 </dependency>
 ```
 
