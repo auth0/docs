@@ -381,47 +381,34 @@ Open the `src/app/auth.guard.ts` file and replace its contents with the followin
 
 ```js
 import { Injectable } from '@angular/core';
-import {
-  CanActivate,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  UrlTree,
-  Router
-} from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class LoginGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(
+  async canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    return this.authService.getAuth0Client().then(client => {
-      return client.isAuthenticated().then(isAuthenticated => {
-        if (isAuthenticated) {
-          return true;
-        }
+  ): Promise<boolean | UrlTree> {
+    const client = await this.authService.getAuth0Client();
+    const isAuthenticated = await client.isAuthenticated();
 
-        client.loginWithRedirect({
-          redirect_uri: `<%= "${window.location.origin}" %>/callback`,
-          appState: { target: state.url }
-        });
+    if (isAuthenticated) {
+      return true;
+    }
 
-        return false;
-      });
+    client.loginWithRedirect({
+      redirect_uri: `${window.location.origin}/callback`,
+      appState: { target: state.url }
     });
+
+    return false;
   }
 }
-
 ```
 
 The key part here is the implementation of the `canActivate` method. First, the Auth0 client is retrieved. Then, the `isAuthenticated` value is interrogated. If the user is already authenticated, then `true` is returned to indicate that the current route can continue.
