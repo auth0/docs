@@ -1551,7 +1551,7 @@ module.exports = [
   },
   {
     from: '/tutorials/google-cloud-platform',
-    to: '/tutorials/google-cloud-platform',
+    to: '/integrations/google-cloud-platform',
   },
   {
     from: '/tutorials/configuration-to-query-users-from-google-apps',
