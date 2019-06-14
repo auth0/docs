@@ -20,7 +20,7 @@ This proccess starts with the feature or behavior being **Deprecated**. At the t
 
 If at all possible we will provide at least a six month grace period from the Deprecation announcement and the **End Of Life Date**, at which point using the deprecated behavior cannot be expected to work, and continued use of the behavior will likely result in errors. Depending on the severity of the issue the grace period time frame may be accelerated.
 
-To help prepare for the End Of Life we will publish a **Migration** guide. This guide includes instruction on determining the impact on your tenants and the action required. To ensure a smooth transition and avoid any service disruption, we will also provide instructions on how to opt-in to the new behavior prior to the **End Of Life Date** 
+To help prepare for the End Of Life we will publish a **Migration** guide. This guide includes instruction on determining the impact on your tenants and the action required. To ensure a smooth transition and avoid any service disruption we will also provide instructions on how to opt-in to the new behavior prior to the **End Of Life Date** 
 
 ::: note
 <h4>Glossary</h4>
@@ -32,7 +32,7 @@ To help prepare for the End Of Life we will publish a **Migration** guide. This 
 
 #### Deprecations
 
-We are actively migrating customers to new behaviors for all **Deprecations** with an **End Of Life Date**. Please review these carefully to ensure you've taken any necesarry steps to avoid any service disruptions.
+We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necesarry steps to avoid any service disruptions.
 
 <table class="table">
   <thead>
