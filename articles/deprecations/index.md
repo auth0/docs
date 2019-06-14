@@ -23,11 +23,11 @@ Our policy provides at least a six month grace period from the Deprecation annou
 To help prepare for the End Of Life we will publish a **Migration** guide. This guide includes instruction on determining the impact on your tenants and the action required. To ensure a smooth transition and avoid any service disruption, we will also provide instructions on how to opt-in to the new behavior prior to the **End Of Life Date** 
 
 ::: note
-**Glossary**<br>
-Breaking Change: A change to the Auth0 Platform that, to Auth0's knowledge, will cause failures in the interoperation of the Auth0 Platform and Customer Applications.<br>
-Deprecated: The feature or behavior is no longer supported or maintained, no additional functionality will be added. Bug fixes will be made only in extreme circumstances. Tenants using the functionality at the time of deprecation will continue to have access. The functionality will be disabled for newly created Tenants.<br>
-End Of Life Date: The date the behavior is removed from the platform. End Of Life Dates can vary between different plan types.<br>
-Migration: The process by which a customer moves out from a particular behavior.
+<h4>Glossary</h4>
+**Breaking Change** A change to the Auth0 Platform that, to Auth0's knowledge, will cause failures in the interoperation of the Auth0 Platform and Customer Applications.<br>
+**Deprecated** The feature or behavior is no longer supported or maintained, no additional functionality will be added. Bug fixes will be made only in extreme circumstances. Tenants using the functionality at the time of deprecation will continue to have access. The functionality will be disabled for newly created Tenants.<br>
+**End Of Life Date** The date the behavior is removed from the platform. End Of Life Dates can vary between different plan types.<br>
+**Migration** The process by which a customer moves out from a particular behavior.
 :::
 
 #### Deprecations
