@@ -14,18 +14,28 @@ useCase:
 
 # Deprecations
 
-In an effort to keep the Auth0 platform stable and secure some features must occasionally be removed from service.
+In an effort to keep the Auth0 platform stable and secure some features and functionality must occasionally be modified or removed. These changes will sometimes result in a **Breaking Change.**
 
-This proccess starts with the feature being **Deprecated**. Our policy provides at least a six month grace period before the **Removal Date**, at which point using the deprecated functionality will result in an error. Depending on the severity of the issue the grace period time frame may be accelerated.
+This proccess starts with the feature or behavior being **Deprecated**. At the time of deprecation we will also typically announce an **End Of Life Date**.
 
-Typcially there will be a replacement for the feature being removed (e.g. new version of an API or SDK, alternative API endpoint, etc.). While we make our best effort to maintain backward compatibility, the replacement will often result in a breaking change or require a migration to a new version. In that case a migration guide will be provided to help ensure you're fully prepared for the.
+Our policy provides at least a six month grace period from the End Of Life announcement and the final **End Of Life Date**, at which point using the deprecated behavior cannot be expected to work, and continued use of the behavior will likely result in errors. Depending on the severity of the issue the grace period time frame may be accelerated.
+
+To help prepare for the End Of Life we will publish a **Migration** guide. This guide includes instruction on determining the impact on your tenants and the action required. To ensure a smooth transition and avoid any service disruption, we will also provide instructions on how to opt-in to the new behavior prior to the **End Of Life Date** 
+
+::: info
+**Glossary**
+Breaking Change: A change to the Auth0 Platform that, to Auth0's knowledge, will cause failures in the interoperation of the Auth0 Platform and Customer Applications.
+Deprecated: The feature or behavior is no longer supported or maintained, no additional functionality will be added. Bug fixes will be made only in extreme circumstances. Tenants using the functionality at the time of deprecation will continue to have access. The functionality will be disabled for newly created Tenants.
+End Of Life Date: The date the behavior is removed from the platform. End Of Life Dates can vary between different plan types.
+Migration: The process by which a customer moves out from a particular behavior.
+:::
 
 <table class="table">
   <thead>
     <tr>
-      <th style="width: 156px;">Feature</th>
+      <th style="width: 156px;">Feature/Behavior</th>
       <th style="width: 100px;">Deprecated</th>
-      <th style="width: 233px;">Removal Date</th>
+      <th style="width: 233px;">End Of Life Date</th>
       <th>Details</th>
     </tr>
   </thead>
