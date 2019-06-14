@@ -24,10 +24,10 @@ To help prepare for the End Of Life we will publish a **Migration** guide. This 
 
 ::: note
 <h4>Glossary</h4>
-**Breaking Change** A change to the Auth0 Platform that, to Auth0's knowledge, will cause failures in the interoperation of the Auth0 Platform and Customer Applications.<br>
-**Deprecated** The feature or behavior is no longer supported or maintained, no additional functionality will be added. Bug fixes will be made only in extreme circumstances. Tenants using the functionality at the time of deprecation will continue to have access. The functionality will be disabled for newly created Tenants.<br>
-**End Of Life Date** The date the behavior is removed from the platform. End Of Life Dates can vary between different plan types.<br>
-**Migration** The process by which a customer moves out from a particular behavior.
+<b>Breaking Change</b> A change to the Auth0 Platform that, to Auth0's knowledge, will cause failures in the interoperation of the Auth0 Platform and Customer Applications.<br>
+<b>Deprecated</b> The feature or behavior is no longer supported or maintained, no additional functionality will be added. Bug fixes will be made only in extreme circumstances. Tenants using the functionality at the time of deprecation will continue to have access. The functionality will be disabled for newly created Tenants.<br>
+<b>End Of Life Date</b> The date the behavior is removed from the platform. End Of Life Dates can vary between different plan types.<br>
+<b>Migration</b> The process by which a customer moves out from a particular behavior.
 :::
 
 #### Deprecations
