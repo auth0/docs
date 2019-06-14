@@ -4,7 +4,9 @@ In addition to hosting the [User Profile](/architecture-scenarios/implementation
 Customers often opt for a two-stage approach to user migration, employing Automatic Migration in the first instance in order to migrate as many users as possible, and then performing Bulk Migration for the users that remain. For further details on migration scenarios see the [Auth0 documentation](users/references/user-migration-scenarios). 
 :::
 
-Automatic Migration is preferred as it allows users to be migrated in a piecemeal fashion, and also allows them to retain their existing password. For Bulk Migration we recommend the use of the [Management API](api/management/v2#!/Jobs/post_users_imports) over use of the [User Import/Export extension](/users/concepts/overview-user-migration#migrate-users-with-the-user-import-export-extension) in all but the most simple cases, as the Management API provides for greater flexibility and control. With Bulk Migration users will typically need to **reset their password once migration is complete**.
+Automatic Migration is preferred as it allows users to be migrated in a piecemeal fashion, and also allows them to retain their existing password in almost all situations. For Bulk Migration we recommend the use of the [Management API](api/management/v2#!/Jobs/post_users_imports) over use of the [User Import/Export extension](/users/concepts/overview-user-migration#migrate-users-with-the-user-import-export-extension) in all but the most simple cases, as the Management API provides for greater flexibility and control.
+
+With Bulk Migration users will typically need to **reset their password once migration is complete**, _unless_ passwords are stored hashed in your legacy identity store using bcrypt (or you can generate them in bcrypt form). In this case, you _may_ be able to use bulk migration and **preserve user passwords** as part of the process (depending on the bcrypt algorithm and the number of salt rounds used). For more information regarding this please contact Auth0 support. 
 
 ::: panel Best Practice
 <%= include('../../_includes/_rate-limit-policy.md') %>
