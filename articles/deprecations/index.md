@@ -18,7 +18,7 @@ In an effort to keep the Auth0 platform stable and secure some features and func
 
 This proccess starts with the feature or behavior being **Deprecated**. At the time of deprecation we will also typically announce an **End Of Life Date**.
 
-Our policy provides at least a six month grace period from the End Of Life announcement and the final **End Of Life Date**, at which point using the deprecated behavior cannot be expected to work, and continued use of the behavior will likely result in errors. Depending on the severity of the issue the grace period time frame may be accelerated.
+Our policy provides at least a six month grace period from the Deprecation announcement and the **End Of Life Date**, at which point using the deprecated behavior cannot be expected to work, and continued use of the behavior will likely result in errors. Depending on the severity of the issue the grace period time frame may be accelerated.
 
 To help prepare for the End Of Life we will publish a **Migration** guide. This guide includes instruction on determining the impact on your tenants and the action required. To ensure a smooth transition and avoid any service disruption, we will also provide instructions on how to opt-in to the new behavior prior to the **End Of Life Date** 
 
@@ -29,6 +29,10 @@ Deprecated: The feature or behavior is no longer supported or maintained, no add
 End Of Life Date: The date the behavior is removed from the platform. End Of Life Dates can vary between different plan types.
 Migration: The process by which a customer moves out from a particular behavior.
 :::
+
+#### Deprecations
+
+We are actively migrating customers to new behaviors for all **Deprecations** with an **End Of Life Date**. Please review these carefully to ensure you've taken any necesarry steps to avoid any service disruptions.
 
 <table class="table">
   <thead>
@@ -68,6 +72,14 @@ Migration: The process by which a customer moves out from a particular behavior.
       <td>30 June 2019</td>
       <td>
         The Webtask engine powering Auth0 extensibility points currently utilizes Node 4. Beginning <strong>30 April 2018</strong>, <a href="https://github.com/nodejs/Release#release-schedule">Node.js v4 will no longer be under long-term support (LTS)</a>. This means that critical security fixes will no longer be back-ported to this version. As such, Auth0 will be migrating the Webtask runtime from Node.js v4 to Node.js v8.<br><br>On <strong>17 April 2018</strong> we will make the Node 8 runtime available for extensibility to all public cloud customers. You will be provided a migration switch that allows you to control your environment's migration to the new runtime environment.<br><br>For more information on this migration and the steps you should follow to upgrade your implementation, see <a href="/migrations/guides/extensibility-node8">Migration Guide: Extensibility and Node.js v8</a>.
+      </td>
+    </tr>
+    <tr>
+      <td><a href="/migrations/guides/migration-oauthro-oauthtoken">oauth/ro</a></td>
+      <td>26 December 2017</td>
+      <td>TBD</td>
+      <td>
+        If you are currently implementing the <a href="/api/authentication#resource-owner">/oauth/ro</a> endpoint your application can be updated to use the <a href="/api/authentication#authorization-code">/oauth/token</a> endpoint. For details on how to make this transition, see the <a href="/migrations/guides/migration-oauthro-oauthtoken">Migration Guide for Resource Owner Password Credentials Exchange</a>.
       </td>
     </tr>
   </tbody>
