@@ -19,7 +19,7 @@ We've added the option to set the LinkedIn API version for LinkedIn Connections.
 
 ![New LinkedIn Connection Settings](/media/articles/connections/social/linkedin/linkedin-connection-new.png)
 
-Auth0 will not automatically migrate all connections to Version 2 until Version 1 stops working completely. We strongly recommend you update your connection settings to Version 2. You may need to update your application code to accomodate these API changes.
+Auth0 will not automatically migrate all connections to Version 2 until Version 1 stops working completely. We strongly recommend you to update your connection settings to Version 2. You may need to update your application code to accomodate these API changes.
 
 ## What's changed?
 
