@@ -1,5 +1,5 @@
 ---
-title: Add Login with Apple to Your App
+title: Add Sign in with Apple to Your App
 connection: Apple
 index: 3
 image: /media/connections/apple.svg
@@ -17,12 +17,12 @@ useCase:
   - customize-connections
   - add-idp
 ---
-# Add Apple Login to Your App
+# Add Sign in with Apple to Your App
 
-This guide will show you how to add functionality to your web app that allows your users to "Sign in with Apple". Using the Apple connection will require the following:
+This guide will show you how to add functionality to your web app that allows your users to use Apple's "Sign in with Apple" functionality. Using the Apple connection will require the following:
 
-* An Apple Developer account, which is a paid account with Apple.
-* A Custom Domain set up on your Auth0 tenant (This is required because you must be able to do domain verification with Apple).
+* An [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple.
+* A [Custom Domain](/custom-domains) set up on your Auth0 tenant (this is required because you must be able to do domain verification with Apple).
 
 ## 1. Set up your app in your Apple Developer Account
 
