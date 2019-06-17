@@ -121,6 +121,39 @@ articles:
             - title: Operations
               url: /architecture-scenarios/implementation/b2c/b2c-operations
 
+      - title: Business to Business
+        url: /architecture-scenarios/b2b
+        children:
+            - title: Architecture
+              url: /architecture-scenarios/implementation/b2b/b2b-architecture
+
+            - title: Provisioning
+              url: /architecture-scenarios/implementation/b2b/b2b-provisioning
+
+            - title: Authentication
+              url: /architecture-scenarios/implementation/b2b/b2b-authentication
+
+            - title: Branding
+              url: /architecture-scenarios/implementation/b2b/b2b-branding
+
+            - title: Deployment Automation
+              url: /architecture-scenarios/implementation/b2b/b2b-deployment
+
+            - title: Quality Assurance
+              url: /architecture-scenarios/implementation/b2b/b2b-qa
+
+            - title: Profile Management
+              url: /architecture-scenarios/implementation/b2b/b2b-profile-mgmt
+
+            - title: Authorization
+              url: /architecture-scenarios/implementation/b2b/b2b-authorization
+
+            - title: Logout
+              url: /architecture-scenarios/implementation/b2b/b2b-logout
+
+            - title: Operations
+              url: /architecture-scenarios/implementation/b2b/b2b-operations
+
       - title: Business to Employees
         url: /architecture-scenarios/b2e
       # - title: SAML for Regular Web Apps
@@ -128,12 +161,6 @@ articles:
 
       # - title: B2B + B2E
       #   url: /architecture-scenarios/b2b-b2e
-
-      # - title: B2B
-      #   url: /architecture-scenarios/b2b
-
-      # - title: B2C
-      #   url: /architecture-scenarios/b2c
 
       # - title: B2E
       #   url: /architecture-scenarios/b2e 
