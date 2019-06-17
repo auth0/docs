@@ -31,11 +31,12 @@ Start by enabling email authenticators with the [Management API](/api/management
   "method": "PUT",
   "url": "https://${account.namespace}/api/v2/guardian/factors/email",
   "headers": [
-    { "name": "Authorization", "value": "Bearer MANAGEMENT_API_TOKEN" }
+    { "name": "Authorization", "value": "Bearer MANAGEMENT_API_TOKEN" },
+    { "name": "Content-Type", "value": "application/json" }
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"enabled\":\"true\"}"
+    "text": "{\"enabled\": true }"
   }
 }
 ```

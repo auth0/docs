@@ -1,6 +1,7 @@
 ---
 title: Connecting G Suite with Auth0
 connection: G Suite
+image: /media/connections/googleapps.png
 seo_alias: g-suite
 description: Connecting G Suite with Auth0.
 crews: crew-2
