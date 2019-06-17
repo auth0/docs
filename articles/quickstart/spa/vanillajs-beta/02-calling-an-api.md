@@ -81,7 +81,7 @@ Next, open the `auth_config.json` file and modify the data so that the `audience
 }
 ```
 
-:::node
+::: note
 As `auth_config.json` is served publicly, this file should **never** contain sensitive information such as 
 passwords and client secrets.
 :::
@@ -192,28 +192,10 @@ Open `index.html` and add a new button that will invoke the API call, as well as
 ```html
 <!-- index.html -->
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>SPA SDK Sample</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-  </head>
+<button id="btn-call-api" disabled="true" onclick="callApi()">Call Api</button>
 
-  <body>
-    <h2>SPA Authentication Sample</h2>
-    <p>Welcome to our page!</p>
-    <button id="btn-login" disabled="true" onclick="login()">Log in</button>
-    <button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
-
-    <!-- NEW - add a button to call the API -->
-    <button id="btn-call-api" disabled="true" onclick="callApi()">Call Api</button>
-
-    <!-- NEW - add a container to hold the result of the API call -->
-    <pre id="api-call-result"></pre>
-
-  </body>
-</html>
+<!-- Add a container to hold the response from the call -->
+<pre id="api-call-result"></pre>
 ```
 
 Next, open `public/js/app.js`. Configure the `auth0` client object to specify the audience value that was added earlier to the `auth_config.json` file:
