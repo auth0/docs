@@ -14,7 +14,7 @@ useCase:
 
 <%= include('../../_includes/_pipeline2') %>
 
-The OpenID Connect protocol supports a `prompt=none` parameter on the authentication request that allows applications to indicate that the authorization server must not display any user interaction (such as authentication, consent or MFA). Auth0 will either return the requested response back to the application or return an error if the user is not already authenticated, or some type of consent or prompt is required before proceeding.
+The <dfn data-key="openid">OpenID Connect protocol</dfn> supports a `prompt=none` parameter on the authentication request that allows applications to indicate that the authorization server must not display any user interaction (such as authentication, consent or MFA). Auth0 will either return the requested response back to the application or return an error if the user is not already authenticated, or some type of consent or prompt is required before proceeding.
 
 This flow can be used by Single-Page Applications to renew tokens as explained below.
 
@@ -41,7 +41,7 @@ GET https://${account.namespace}/authorize
   The individual parameters on the authentication request will depend on the specific needs of the application.
 :::
 
-The `prompt=none` parameter will cause Auth0 to immediately send a result to the specified `redirect_uri` (callback URL) using the specified `response_mode` with one of two possible responses:
+The `prompt=none` parameter will cause Auth0 to immediately send a result to the specified `redirect_uri` (<dfn data-key="callback">callback URL</dfn>) using the specified `response_mode` with one of two possible responses:
 
 * A successful authentication response if the user already has a valid session in Auth0 and no consent or other prompts are needed.
 * An error response if the user doesn't have a valid session or some interactive prompt is required.
@@ -91,7 +91,7 @@ If any of these errors are returned, the user must be redirected to the Auth0 lo
 Please review [our notes on token renewal for Safari users](/api-auth/token-renewal-in-safari).
 :::
 
-Since Single-Page Applications cannot request or use Refresh Tokens to renew an expired token, a silent authentication request can be used instead to get new tokens as long as the user still has a valid session at Auth0.
+Since Single-Page Applications cannot request or use <dfn data-key="refresh-token">Refresh Tokens</dfn> to renew an expired token, a silent authentication request can be used instead to get new tokens as long as the user still has a valid session at Auth0.
 
 
 The [`checkSession` method from auth0.js](/libraries/auth0js#using-checksession-to-acquire-new-tokens) uses a silent token request in combination with `response_mode=web_message` so that the request happens in a hidden iframe. Auth0.js handles the result processing (either the token or the error code) and passes the information through a callback function provided by the application. This results in no UX disruption (no page refresh or lost state).

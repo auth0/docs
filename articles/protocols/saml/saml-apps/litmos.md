@@ -37,7 +37,7 @@ useCase:
 }
 ```
 
-The **Callback URL** is `https://{YOUR DOMAIN}.litmos.com/integration/samllogin`.
+The **<dfn data-key="callback">Callback URL</dfn>** is `https://{YOUR DOMAIN}.litmos.com/integration/samllogin`.
 
 ## Sample SAML
 

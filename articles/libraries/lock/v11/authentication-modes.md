@@ -13,7 +13,7 @@ useCase:
 ---
 # Lock Authentication Modes
 
-Lock can function in two different modes. The default mode is **redirect mode**. In this mode, your user is redirected to be authenticated, and then is returned to the application. In the second mode, **popup mode**, a popup window allows the user to authenticate with the identity provider without leaving the application.
+<dfn data-key="lock">Lock</dfn> can function in two different modes. The default mode is **redirect mode**. In this mode, your user is redirected to be authenticated, and then is returned to the application. In the second mode, **popup mode**, a popup window allows the user to authenticate with the identity provider without leaving the application.
 
 ## Redirect Mode
 
@@ -38,11 +38,11 @@ var lock = new Auth0Lock(
 ```
 
 ::: note
-Multi-factor authentication (MFA) is not supported when Lock is in popup mode and embedded in your application.
+<dfn data-key="multifactor-authentication">Multi-factor authentication (MFA)</dfn> is not supported when Lock is in popup mode and embedded in your application.
 :::
 
 ::: note
-Popup mode does not work with [Universal Login](/hosted-pages/login).
+Popup mode does not work with <dfn data-key="universal-login">Universal Login</dfn>.
 :::
 
 Some Auth0 features such as [SSO](/sso/current/sso-auth0) between multiple applications depend on users being redirected to Auth0 to set a cookie on `'${account.namespace}'`.

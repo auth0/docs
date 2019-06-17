@@ -16,7 +16,7 @@ useCase:
 
 # Authentication for Client-side Web Apps
 
-You can use the Auth0 Authentication API to create client-side web applications that use [OpenID Connect](/protocols/oidc) and [OAuth 2.0](/protocols/oauth2) to authenticate users and get their authorization to access protected resources.
+You can use the Auth0 Authentication API to create client-side web applications that use <dfn data-key="openid">[OpenID Connect](/protocols/oidc)</dfn> and [OAuth 2.0](/protocols/oauth2) to authenticate users and get their authorization to access protected resources.
 
 ## Overview
 

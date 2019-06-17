@@ -13,7 +13,7 @@ useCase:
 ---
 # Refresh Token
 
-A **Refresh Token** contains the information required to obtain a new [Access Token](/tokens/overview-access-tokens) or [ID Token](/tokens/id-token).
+A **Refresh Token** contains the information required to obtain a new <dfn data-key="access-token">Access Token</dfn> or [ID Token](/tokens/id-token).
 
 Typically, a user needs a new Access Token when gaining access to a resource for the first time, or after the previous Access Token granted to them expires.
 
@@ -23,10 +23,10 @@ Refresh Tokens:
 * [Can be revoked](#revoke-a-refresh-token) by the Authorization Server
 
 ::: panel-warning OIDC-conformant applications
-The behavior in this document is applicable to [OIDC-conformant applications](/api-auth/tutorials/adoption/oidc-conformant). You can configure an application to be OIDC-conformant using one of the following two ways:
+The behavior in this document is applicable to [OIDC-conformant applications](/api-auth/tutorials/adoption/oidc-conformant). You can configure an application to be OIDC-conformant in one of the following two ways:
 
 1. Enabling the **OIDC Conformant** flag for an Application
-2. Passing an `audience` to the `/authorize` endpoint of the Authentication API 
+2. Passing an <dfn data-key="audience">`audience`</dfn> to the `/authorize` endpoint of the Authentication API 
 
 For more information on our authentication pipeline, see [Introducing OIDC-Conformant Authentication](/api-auth/intro).
 :::
@@ -45,7 +45,7 @@ A Single-Page Application (normally implementing [Implicit Flow](/flows/concepts
 
 If you are implementing an SPA using [Implicit Flow](/flows/concepts/implicit) and you need to renew a token, the only secure option for doing so is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
 
-If you limit offline access to your API, a safeguard configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis), Auth0 will not return a Refresh Token for the API (even if you include the `offline_access` scope in your request).
+If you limit offline access to your API, a safeguard configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis), Auth0 will not return a Refresh Token for the API (even if you include the `offline_access` <dfn data-key="scope">scope</dfn> in your request).
 
 ## Get a Refresh Token
 

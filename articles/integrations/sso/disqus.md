@@ -1,6 +1,6 @@
 ---
-title: Disqus Single Sign On Integration
-description: How to set up Single Sign On (SSO) integration with Disqus and Auth0.
+title: Disqus Single Sign-On Integration
+description: Learn how to set up Single Sign-On (SSO) integration with Disqus and Auth0.
 toc: true
 public: true
 topics:
@@ -10,9 +10,9 @@ contentType: how-to
 useCase: integrate-saas-sso
 ---
 
-# Disqus Single Sign On Integration
+# Disqus Single Sign-On Integration
 
-Disqus allows you to embed a discussion section onto your site where your users can enter comments and interact with you and your other visitors. By implementing a Single Sign On (SSO) integration between Disqus and Auth0, users that have signed in and authenticated via Auth0 can leave comments as themselves in your Disqus discussion section.
+Disqus allows you to embed a discussion section onto your site where your users can enter comments and interact with you and your other visitors. By implementing a <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn> integration between Disqus and Auth0, users that have signed in and authenticated via Auth0 can leave comments as themselves in your Disqus discussion section.
 
 ## Install and Configure Disqus
 
@@ -37,9 +37,9 @@ Disqus allows you to embed a discussion section onto your site where your users 
 
 5. Configure your Disqus installation by providing the requested information about your website. When done (or if you want to complete this at a later time using the *Settings* page), click **Complete Setup**.
 
-## Enable and Configure Single Sign On with Disqus
+## Enable and Configure Single Sign-On with Disqus
 
-Once you have installed and configured your Disqus instance, you need to enable Single Sign On.
+Once you have installed and configured your Disqus instance, you need to enable SSO.
 
 ::: warning
 A Disqus Pro level subscription is required to use the [Disqus Single Sign-On (SSO) add-on](https://help.disqus.com/customer/portal/articles/236206-integrating-single-sign-on).

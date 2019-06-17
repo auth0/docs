@@ -20,7 +20,7 @@ To authorize the applications to call an API:
 
 2. Select the API you want to invoke using the **Client Credentials** Grant.
 
-3. Under the **Authorized Application** tab, look for the application you want to authorize, click the Authorize button, and optionally, select the list of scopes that will be granted in the <dfn data-key="access-token">Access Token</dfn>. This will create a 'client grant' in Auth0, which will allow the application to call the API.
+3. Under the **Authorized Application** tab, look for the application you want to authorize, click the Authorize button, and optionally, select the list of <dfn data-key="scope">scopes</dfn> that will be granted in the <dfn data-key="access-token">Access Token</dfn>. This will create a 'client grant' in Auth0, which will allow the application to call the API.
 
 ![Authorize the Application](/media/articles/api-auth/apis-authorize-client-tab.png)
 

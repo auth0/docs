@@ -13,7 +13,7 @@ useCase:
 ---
 # Lock Configuration Options
 
-The **Auth0Lock** can be configured through the `options` parameter sent to the constructor. These options can alter the way that the Lock widget behaves, how it deals with connections, additional signup fields that you require for your project, the language and text values, colors, and images on the widget, and many more. Take a look at the index below if you know what you are looking for, or browse the options for more details.
+The **Auth0Lock** can be configured through the `options` parameter sent to the constructor. These options can alter the way that the <dfn data-key="lock">Lock widget</dfn> behaves, how it deals with connections, additional signup fields that you require for your project, the language and text values, colors, and images on the widget, and many more. Take a look at the index below if you know what you are looking for, or browse the options for more details.
 
 ```js
 var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
@@ -54,9 +54,9 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | Option | Description |
 | --- | --- |
 | [auth](#auth-object-) | The auth object contains the below auth options |
-| [audience](#audience-string-) | The API which will be consuming your Access Token |
+| [audience](#audience-string-) | The API which will be consuming your <dfn data-key="access-token">Access Token</dfn> |
 | [autoParseHash](#autoparsehash-boolean-) | Whether or not to automatically parse hash and continue |
-| [connectionScopes](#connectionscopes-object-) | Specify connection scopes |
+| [connectionScopes](#connectionscopes-object-) | Specify connection <dfn data-key="scope">scopes</dfn> |
 | [params](#params-object-) | Option to send parameters at login |
 | [redirect](#redirect-boolean-) | Whether or not to use redirect mode |
 | [redirectUrl](#redirecturl-string-) | The URL to redirect to after auth |
@@ -311,7 +311,7 @@ var options = {
 ::: note
 The **Last time you signed in with [...]** message will not be available under the following circumstances:
 
-- You used Lock in a [Hosted Login Page](/hosted-pages/login) with the session established using [Passwordless authentication](/connections/passwordless).
+- You used Lock in a [Hosted Login Page](/hosted-pages/login) with the session established using <dfn data-key="passwordless">[Passwordless authentication](/connections/passwordless)</dfn>.
 - You used Lock in an [embedded login scenario](/guides/login/universal-vs-embedded#embedded-login-with-auth0) where `responseType: code` (indicating the [Authorization Code Flow](/flows/concepts/auth-code), which is used for Regular Web Apps).
 :::
 
@@ -440,7 +440,7 @@ var options = {
 
 #### connectionScopes {Object}
 
-This option allows you to set scopes to be sent to the oauth2/social connection for authentication.
+This option allows you to set <dfn data-key="scope">scopes</dfn> to be sent to the oauth2/social connection for authentication.
 
 ```js
 var options = {
@@ -850,7 +850,7 @@ var options = {
 
 ### hashCleanup {Boolean}
 
-When the `hashCleanup` option is enabled, it will remove the hash part of the callback url after the user authentication. It defaults to true.
+When the `hashCleanup` option is enabled, it will remove the hash part of the <dfn data-key="callback">callback URL</dfn> after the user authentication. It defaults to true.
 
 ```js
 var options = {

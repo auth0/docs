@@ -33,9 +33,9 @@ Currently, the following Auth0 features and flows support the use of custom doma
 * Emails (the links included in the emails will use your custom domain)
 * Database and social connections
 * Lock 11 with cross-origin authentication
-* Passwordless connections with Universal Login (The email link will be sent using the custom domain if the option is enabled in **Tenant Settings > Custom Domains**)
+* <dfn data-key="passwordless">Passwordless</dfn> connections with Universal Login (The email link will be sent using the custom domain if the option is enabled in **Tenant Settings > Custom Domains**)
 * G Suite connections
-* SAML connections and applications
+* <dfn data-key="security-assertion-markup-language">SAML</dfn> connections and applications
 * WS-Fed clients (Auth0 as IDP using WS-Fed Add-on)
 * Azure AD connections
 * ADFS connections

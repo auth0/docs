@@ -29,7 +29,7 @@ Navigate to the [Addons](${manage_url}/#/applications/${account.clientId}/addons
 
 The *Settings* window will be displayed. Set the following values:
 
-- **Application Callback URL**: `{YOUR_GITHUB_SERVER_URL}/saml/consume`
+- **Application <dfn data-key="callback">Callback URL</dfn>**: `{YOUR_GITHUB_SERVER_URL}/saml/consume`
 
 - **Settings**:
 
@@ -76,7 +76,7 @@ Follow the instruction from [Using SAML on Enterprise Server- GitHub Help](https
   `{CLIENT_ID}` will be the `client_id` for the GitHub application you just created in Auth0.
 * **Issuer**: `urn:auth0:${account.tenant}`
 * **Verification Certificate**: You will need to download it from `https://${account.namespace}/pem` and upload it in this field.
-* **User Attributes**: you should leave the defaults here, as the mapping that we configured in the SAML Web App addon uses the default attribute names proposed by GitHub.
+* **User Attributes**: you should leave the defaults here, as the mapping that we configured in the <dfn data-key="security-assertion-markup-language">SAML</dfn> Web App addon uses the default attribute names proposed by GitHub.
 * **Signature method**: `RSA256-SHA256`
 * **Digest method**: `SHA256`
 

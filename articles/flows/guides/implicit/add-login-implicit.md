@@ -51,6 +51,6 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 ::: next-steps
 - [The OAuth 2.0 protocol](/protocols/oauth2)
-- [The OpenID Connect protocol](/protocols/oidc)
+- [OpenID Connect (OIDC) protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
 :::

@@ -17,7 +17,7 @@ useCase:
 ---
 # View Roles Assigned to Users
 
-This guide will show you how to view the [roles](/authorization/concepts/rbac) assigned to a user using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/users/view-user-roles). The assigned roles are used with the API Authorization Core feature set.
+This guide will show you how to view the <dfn data-key="role">[roles](/authorization/concepts/rbac)</dfn> assigned to a user using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/users/view-user-roles). The assigned roles are used with the API Authorization Core feature set.
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
@@ -36,4 +36,4 @@ This guide will show you how to view the [roles](/authorization/concepts/rbac) a
 | **Value** | **Description** |
 | - | - |
 | `USER_ID` | Τhe ID of the user for whom you want to get roles. |
-| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the scopes `read:users` and `read:roles`. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scopes</dfn> `read:users` and `read:roles`. |

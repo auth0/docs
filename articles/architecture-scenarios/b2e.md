@@ -22,7 +22,7 @@ useCase:
 
 The B2E (Business to Employees) scenario involves applications that are used by employee users.  These are applications that are targeted toward users who are typically acting on behalf of an organization such as an employer, a university, or a group in which they are a member, as opposed to acting on their own behalf.  
 
-Such applications that are custom written by the organization may use the OIDC/OAuth protocol to externalize authentication whereas those that have been purchased will often use the SAML protocol. In either case, the enterprise will typically want to use some form of Enterprise connection, such as a SAML Identity Provider, ADFS, G Suite, Azure AD or a directory service such as AD or OpenLDAP, and less frequently, a custom DB, for authentication of enterprise users.
+Such applications that are custom written by the organization may use the OIDC/OAuth protocol to externalize authentication whereas those that have been purchased will often use the <dfn data-key="security-assertion-markup-language">SAML</dfn> protocol. In either case, the enterprise will typically want to use some form of Enterprise connection, such as a SAML Identity Provider, ADFS, G Suite, Azure AD or a directory service such as AD or OpenLDAP, and less frequently, a custom DB, for authentication of enterprise users.
 
 For a business that is creating or integrating applications with Auth0 for a B2E environment,  there are several requirements that are common for this scenario.  This guide will summarize the most common requirements for B2E applications and explain the Auth0 features which help meet each need.  
  
@@ -36,7 +36,7 @@ Auth0 makes it easy to enable login via a wide variety of enterprise providers w
 
 ## Groups and roles
 
-With a lot of users, you may set up groups and roles to manage access and privileges. Often, these are stored and administered in a directory service.
+With a lot of users, you may set up groups and <dfn data-key="role">roles</dfn> to manage access and privileges. Often, these are stored and administered in a directory service.
 
 Auth0 can get user attributes, like groups and roles, from a directory service or enterprise identity provider during authentication. You can then make the attributes available through tokens returned to the application or with the Auth0 Management API.
 

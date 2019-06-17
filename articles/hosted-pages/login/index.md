@@ -8,7 +8,7 @@ crews: crew-2
 
 ## About Universal Login
 
-Auth0's universal login is the most secure way to easily authenticate users for your applications. The login page appearance and behavior is easily customizable right from the [Dashboard](${manage_url}). By default, the login page uses Auth0's [Lock Widget](/libraries/lock) to authenticate your users, but the code of the login page can be customized to replace Lock with the Lock Passwordless widget, or an entirely custom UI can be built in its place, using the [Auth0.js SDK](/libraries/auth0js) for authentication.
+Auth0's universal login is the most secure way to easily authenticate users for your applications. The login page appearance and behavior is easily customizable right from the [Dashboard](${manage_url}). By default, the login page uses Auth0's [Lock Widget](/libraries/lock) to authenticate your users, but the code of the login page can be customized to replace Lock with the Lock <dfn data-key="passwordless">Passwordless</dfn> widget, or an entirely custom UI can be built in its place, using the [Auth0.js SDK](/libraries/auth0js) for authentication.
 
 If you cannot use universal login, you can embed the Lock widget or a custom login form in your application using [cross-origin authentication](/cross-origin-authentication), but be sure to read about its limitations before choosing to do so.
 
@@ -18,7 +18,7 @@ To find the default page name for the login page, see [How to Use Version Contro
 
 ### How Does Universal Login Work
 
-Auth0 shows the login page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a SAML login request.
+Auth0 shows the login page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a <dfn data-key="security-assertion-markup-language">SAML</dfn> login request.
 
 Users will see the login page, typically with either the Lock widget or with your custom UI. Once they login, they will be redirected back to your application.
 
@@ -79,7 +79,7 @@ All changes to the page's appearance and/or behavior will apply to **all** users
 
 #### Parameters for the Authorize Endpoint
 
-If you initiate universal login via the `authorize` endpoint, whether by an SDK like auth0.js or by calling the endpoint directly, you may also pass some customization parameters to the login page. However, parameters passed to the `authorize` endpoint must be [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) compliant parameters.
+If you initiate universal login via the `authorize` endpoint, whether by an SDK like auth0.js or by calling the endpoint directly, you may also pass some customization parameters to the login page. However, parameters passed to the `authorize` endpoint must be [OpenID Connect (OIDC) specification](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) compliant parameters.
 
 The `config` object contains the set of configuration values that adjusts the behavior of the login page at runtime. Set the `config` object up in the login page editor so that you can access the config parameters to use in your page:
 

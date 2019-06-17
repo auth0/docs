@@ -16,7 +16,7 @@ Auth0 provides Content Management System Plugins/Extensions to integrate your CM
 
 Login features are implemented through a new Login Widget (powered by Auth0) that enables:
 
-- Single Sign On with Enterprise Directories (LDAP, AD, G Suite, Office365 and SAML Provider)
+- Single Sign On with Enterprise Directories (LDAP, AD, G Suite, Office365 and <dfn data-key="security-assertion-markup-language">SAML</dfn> Provider)
 - Shared User/Password between multiple WordPress accounts for Single Sign On
 - Single Sign On with over 30 [Social Providers](/identityproviders)
 - User Management Dashboard

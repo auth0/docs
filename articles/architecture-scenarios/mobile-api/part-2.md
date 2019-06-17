@@ -66,7 +66,7 @@ Proceed to create the permissions for all the remaining scopes:
 
 ### Define Roles
 
-Head over to the _Roles_ tab and create 2 Roles. Click the **Create Role** button and select the **Timesheets SPA** application. Give the Role a name and description of Employee, and select the `delete:timesheets`, `create:timesheets` and `read:timesheets` permissons. Click on **Save**.
+Head over to the _Roles_ tab and create two <dfn data-key="role">Roles</dfn>. Click the **Create Role** button and select the **Timesheets SPA** application. Give the Role a name and description of Employee, and select the `delete:timesheets`, `create:timesheets` and `read:timesheets` permissons. Click on **Save**.
 
 ![Create Employee Role](/media/articles/architecture-scenarios/mobile-api/create-employee-role.png)
 

@@ -23,7 +23,7 @@ Amazon API Gateway extends the capabilities of AWS Lambda by adding a service la
 
 However, you often want to tie your APIs to your existing users, either from social providers like Twitter and Facebook, or within your own organization from Active Directory or a customer database. This tutorial demonstrates how to authorize access of your Amazon API Gateway methods for your existing users using Auth0 delegation for AWS and integration with AWS Identity and Access Management (IAM).
 
-Next, the tutorial walks you through setting up the Amazon API Gateway using AWS Lambda functions, securing those functions with AWS IAM roles, and then using Auth0 delegation to obtain a token for the AWS IAM role. It will then show you how to assign different permissions to various classes of users, like internal database or social users, and how to flow identity using a JSON Web Token (JWT).
+Next, the tutorial walks you through setting up the Amazon API Gateway using AWS Lambda functions, securing those functions with AWS IAM roles, and then using Auth0 delegation to obtain a token for the AWS IAM role. It will then show you how to assign different permissions to various classes of users, like internal database or social users, and how to flow identity using a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>.
 
 You will be taken through the following steps:
 

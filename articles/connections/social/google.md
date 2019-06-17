@@ -67,7 +67,7 @@ If you are planning to connect to G Suite enterprise domains, you will need to e
 <%= include('../_find-auth0-domain-redirects') %>
 
 ::: warning
-If your application requests sensitive OAuth scopes, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
+If your application requests sensitive OAuth <dfn data-key="scope">scopes</dfn>, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
 :::
 
 ## 2. Enable the **Google Admin SDK Service**

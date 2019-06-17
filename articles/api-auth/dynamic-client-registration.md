@@ -49,7 +49,7 @@ Alternatively, you can update this flag using the [Update tenant settings endpoi
 }
 ```
 
-You need to update the `API2_ACCESS_TOKEN` with a valid token with the scope `update:tenant_settings`. See [Access Tokens for the Management API](/api/management/v2/tokens) for details on how to do so.
+You need to update the `API2_ACCESS_TOKEN` with a valid token with the <dfn data-key="scope">scope</dfn> `update:tenant_settings`. See [Access Tokens for the Management API](/api/management/v2/tokens) for details on how to do so.
 
 ## Use dynamic registration
 
@@ -59,7 +59,7 @@ In this section we will see how you can dynamically register and configure an ap
 
 To dynamically register an application with Auth0, you need to send an HTTP `POST` message to the Application Registration endpoint: `https://${account.namespace}/oidc/register`. Note that Auth0 supports **Open Dynamic Registration**, which means that the endpoint will accept a registration request without an <dfn data-key="access-token">Access Token</dfn>.
 
-To create an application with the name `My Dynamic application` and the callback URLs `https://application.example.com/callback` and `https://application.example.com/callback2`, use the following snippet.
+To create an application with the name `My Dynamic application` and the <dfn data-key="callback">callback URLs</dfn> `https://application.example.com/callback` and `https://application.example.com/callback2`, use the following snippet.
 
 ```har
 {
@@ -122,12 +122,12 @@ https://${account.namespace}/authorize?
   response_type={RESPONSE_TYPE}&
   client_id=${account.clientId}&
   redirect_uri=${account.callback}&
-  nonce={CRYPTOGRAPHIC_NONCE}
+  nonce={NONCE}
   state={OPAQUE_VALUE}
 ```
 
 Where:
-- **audience** (optional): The target API for which the Application is requesting access on behalf of the user. Set this parameter if you need API access.
+- <dfn data-key="audience">**audience**</dfn> (optional): The target API for which the Application is requesting access on behalf of the user. Set this parameter if you need API access.
 - **scope** (optional): The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). Set this parameter if you need API access.
 
   ::: panel Custom claims namespaced format

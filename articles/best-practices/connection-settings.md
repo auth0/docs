@@ -29,7 +29,7 @@ You should review the data you are requesting from each social connection. Users
 
 Configure the [password policy](/connections/database/password-strength) for your [Auth0 database connections](/connections/database) so created users have strong passwords. You can configure the password policy in the [database connection settings](${manage_url}/#/connections/database/) on the dashboard or with the [Auth0 Management API](/api/management/v2/#!/Connections/patch_connections_by_id).
 
-The password policy applies to password resets performed with the [Universal Login Page](/hosted-pages/login) as well as the [Auth0 Management API](/api/management/v2/).
+The password policy applies to password resets performed with the <dfn data-key="universal-login">Universal Login</dfn> [Page](/hosted-pages/login) as well as the [Auth0 Management API](/api/management/v2/).
 
 ## Disable user signup if it's not appropriate for each database connection
 
@@ -43,4 +43,4 @@ For each connection, review the list of allowed applications. Make sure there ar
 
 ## Use RSA-SHA256 for SAML connections
 
-Configure any SAML connections to sign requests and use RSA-SHA256 as the signature algorithm. This ensures the remote SAML Identity Provider can validate whether the authentication requests came from a legitimate application or not.
+Configure any <dfn data-key="security-assertion-markup-language">SAML</dfn> connections to sign requests and use RSA-SHA256 as the signature algorithm. This ensures the remote SAML Identity Provider can validate whether the authentication requests came from a legitimate application or not.

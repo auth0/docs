@@ -93,7 +93,7 @@ Single Logout is the process where you terminate the session of each application
 
 There may be up to three different layers of sessions for a user with SSO.
 
-* A session from an Identity Provider such as Google, Facebook or an enterprise SAML Identity Provider
+* A session from an Identity Provider such as Google, Facebook or an enterprise <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider
 * A session from Auth0 if the above SSO flag is turned on
 * A session maintained by an application
 

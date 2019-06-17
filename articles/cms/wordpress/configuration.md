@@ -94,7 +94,7 @@ In order for your WordPress site to perform certain actions on behalf of your Au
 
 ### Database Connection setup
 
-Database Connections enable the typical username and password login seen on most sites. This type of Connection is not required and can be skipped if you're using passwordless or social logins only.
+Database Connections enable the typical username and password login seen on most sites. This type of Connection is not required and can be skipped if you're using <dfn data-key="passwordless">passwordless</dfn> or social logins only.
 
 1. If you used the wizard during setup, navigate to the [Connections > Database](${manage_url}/#/connections/database) page and look for a Connection that has a similar name to the Application setup above. Otherwise, you can create a new Connection, use an existing Connection, or use the default **Username-Password-Authentication**. Click an existing Connection name to view settings or click **Create DB Connection** and follow the steps.
 

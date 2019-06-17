@@ -109,7 +109,7 @@ Then click on the **CREATE APP** button to add a new application.
 
 You will then need to enter the following fields for the new application:
 
-* **Type**: This field is a dropdown where you select the either SAML, OpenID-Connect, or WS-Federation depending on the type of application.
+* **Type**: This field is a dropdown where you select the either <dfn data-key="security-assertion-markup-language">SAML</dfn>, <dfn data-key="openid">OpenID-Connect</dfn>, or WS-Federation depending on the type of application.
 * **Application**: This is the application name of the application you have created that you wish to associate the login of users.
 * **Name**: The name of the new application you are adding.
 * **Logo**: Enter the url of the logo you wish to user as an icon for the application.

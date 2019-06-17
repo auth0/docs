@@ -61,10 +61,10 @@ Our recommendation is to use Universal Login when you use Auth0. The first and f
 Embedded logins in web apps with Auth0 use [Cross-Origin Authentication](/cross-origin-authentication). This uses [third-party cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Third-party_cookies) to allow for secure authentication transactions across different origins. This does not apply to native applications since they use the standard OAuth 2.0 token endpoint.
 
 ::: note
-Cross-origin authentication is not recommended and is only necessary when authenticating against a directory using a username and password. Social IdPs and enterprise federation use a different mechanism, redirecting via standard protocols like OpenID Connect and SAML. Additionally, cross-origin authentication is only applicable to embedded login on the web (using Lock or auth0.js). Native applications using embedded login make use of the standard OAuth 2.0 token endpoint.
+Cross-origin authentication is not recommended and is only necessary when authenticating against a directory using a username and password. Social IdPs and enterprise federation use a different mechanism, redirecting via standard protocols like <dfn data-key="openid">OpenID Connect (OIDC)</dfn> and <dfn data-key="security-assertion-markup-language">SAML</dfn>. Additionally, cross-origin authentication is only applicable to embedded login on the web (using Lock or auth0.js). Native applications using embedded login make use of the standard OAuth 2.0 token endpoint.
 :::
 
-In addition, if you have not enabled [custom domains](/custom-domains), the end user must have a browser that supports third-party cookies. Otherwise, in some browsers, cross-origin authentication will fail. For more information, see  [Cross-Origin Authentication](/cross-origin-authentication#limitations). This limitation applies to both traditional username/password database connections as well as to passwordless database connections.
+In addition, if you have not enabled [custom domains](/custom-domains), the end user must have a browser that supports third-party cookies. Otherwise, in some browsers, cross-origin authentication will fail. For more information, see  [Cross-Origin Authentication](/cross-origin-authentication#limitations). This limitation applies to both traditional username/password database connections as well as to <dfn data-key="passwordless">passwordless</dfn> database connections.
 
 
 ### Security risks

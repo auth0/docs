@@ -16,7 +16,7 @@ useCase:
 
 ## I have an Application that needs to talk to different Resource Servers
 
-If a single Application needs <dfn data-key="access-token">Access Tokens</dfn> for different resource servers, then multiple calls to `/authorize` (that is, multiple executions of the same or different Authorization Flow) needs to be performed. Each authorization will use a different value for `audience`, which will result in a different Access Token at the end of the flow.
+If a single Application needs <dfn data-key="access-token">Access Tokens</dfn> for different resource servers, then multiple calls to `/authorize` (that is, multiple executions of the same or different Authorization Flow) needs to be performed. Each authorization will use a different value for <dfn data-key="audience">`audience`</dfn>, which will result in a different Access Token at the end of the flow.
 
 For more information, see the [OAuth 2.0: Audience Information Specification](https://tools.ietf.org/html/draft-tschofenig-oauth-audience-00#section-3).
 

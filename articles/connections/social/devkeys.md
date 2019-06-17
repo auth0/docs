@@ -36,7 +36,7 @@ The Auth0 developer keys are to be used for testing purposes so there are a few 
 
     ![Consent Screen](/media/articles/connections/social/devkeys/consent-screen.png)
 
-2. [Single Sign On](/sso) will not function properly when using the Auth0 developer keys. The reason for this is that the Auth0 developer applications with all the relevant Identity Providers are configured to call back to the URL `https://login.auth0.com/login/callback` instead of the callback URL for your own tenant, for example `https://${account.namespace}/login/callback`.
+2. [Single Sign On](/sso) will not function properly when using the Auth0 developer keys. The reason for this is that the Auth0 developer applications with all the relevant Identity Providers are configured to call back to the URL `https://login.auth0.com/login/callback` instead of the <dfn data-key="callback">callback URL</dfn> for your own tenant, for example `https://${account.namespace}/login/callback`.
 
     This results in the SSO cookie not being set on your own tenant domain, so the next time a user authenticates no SSO cookie will be detected, even if you configured your application to **Use Auth0 instead of the Identity Provider to do Single Sign On**.
 
@@ -46,4 +46,4 @@ The Auth0 developer keys are to be used for testing purposes so there are a few 
 
 5. `prompt=none` won't work on the [/authorize](/api/authentication/reference#social) endpoint. [Auth0.js' checkSession() method](/libraries/auth0js#using-checksession-to-acquire-new-tokens) uses `prompt=none` internally, so that won't work either.
 
-6. If Auth0 is acting as a SAML Identity Provider and you use a social connection with the Auth0 developer keys, the generated SAML response will have some errors, like a missing `InResponseTo` attribute or an empty `AudienceRestriction` element.
+6. If Auth0 is acting as a <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider and you use a social connection with the Auth0 developer keys, the generated SAML response will have some errors, like a missing `InResponseTo` attribute or an empty `AudienceRestriction` element.

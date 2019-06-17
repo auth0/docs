@@ -2,7 +2,7 @@
   "access-token": {
     "title": "Access Token",
     "definition": "A credential that can be used by an application to access an API. It informs the API that the bearer of the token has been authorized to access the API and perform specific actions specified by the scope that has been granted. An Access Token can be either an opaque string or a JSON Web Token (JWT), and should be transmitted to the API as a Bearer credential in an HTTP Authorization header.",
-    "short": "An authorization credential, in the form of an opaque string or JWT, used to access an API."
+    "short": "An authorization credential, in the form of an opaque string or JWT, used to access an API. More: <a href='/tokens'>Access Tokens</a>"
   },
   "audience": {
     "title": "Audience",

@@ -14,14 +14,14 @@ useCase:
 
 # Manage the Authenticators
 
-Auth0 provides several API endpoints to help you manage the authenticators you're using with an application for multi-factor authentication (MFA).
+Auth0 provides several API endpoints to help you manage the authenticators you're using with an application for <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
 ## Before you start
 
-The MFA endpoints require an [Access Token](/tokens/overview-access-tokens) with:
+The MFA endpoints require an <dfn data-key="access-token">Access Token</dfn> with:
 
 - `audience`: Set to `https://${account.namespace}/mfa/`
-- `scope`: Include `enroll` for enrollment, `read:authenticators` to list authenticators, and `remove:authenticators` to delete authenticators.
+- <dfn data-key="scope">`scope`</dfn>: Include `enroll` for enrollment, `read:authenticators` to list authenticators, and `remove:authenticators` to delete authenticators.
 
 For example:
 

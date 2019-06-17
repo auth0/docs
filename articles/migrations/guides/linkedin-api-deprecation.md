@@ -42,7 +42,7 @@ For version 2.0 we expose these options:
 
 As you can see version 2.0:
 
-* Adds support for the `r_liteprofile` scope
+* Adds support for the `r_liteprofile` <dfn data-key="scope">scope</dfn>
 * Removes support for the `r_fullprofile` and `r_network` scopes
 * Supports the `r_basicprofile` scope only for clients that are part of [LinkedIn’s Developer Enterprise](https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/migration-faq#what-are-the-main-differences-with-the-new-sign-in-with-linkedin) services.
 

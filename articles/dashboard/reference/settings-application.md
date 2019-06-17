@@ -109,5 +109,5 @@ Manage or add the signing certificate, and its fingerprint and thumbprint.
 
 ### Endpoints
 
-View endpoint information for OAuth, SAML, and WS-Fed.
+View endpoint information for OAuth, <dfn data-key="security-assertion-markup-language">SAML</dfn>, and WS-Fed.
 

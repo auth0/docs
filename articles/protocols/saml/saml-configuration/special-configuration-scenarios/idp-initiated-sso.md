@@ -11,7 +11,7 @@ useCase:
 
 # Special Configuration Scenarios: IdP Initiates SSO
 
-Many instructions for setting up a SAML federation begin with SSO initiated by the service provider:
+Many instructions for setting up a <dfn data-key="security-assertion-markup-language">SAML</dfn> federation begin with SSO initiated by the service provider:
 
 1. The service provider returns a browser redirect so that the user authenticates using the identity provider.
 2. After authentication, the browser redirects the user back to the Service Provider with a SAML assertion containing information about the authentication status.

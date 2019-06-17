@@ -22,7 +22,7 @@ During authentication, single-page applications (SPAs) have some special require
 
 ## How it works
 
-For SPAs, you should use the Implicit Flow in which issued tokens are short-lived. Refresh Tokens are not available in this flow.
+For SPAs, you should use the Implicit Flow in which issued tokens are short-lived. <dfn data-key="refresh-token">Refresh Tokens</dfn> are not available in this flow.
 
 ![Implicit Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-implicit.png)
 

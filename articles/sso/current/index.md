@@ -20,7 +20,7 @@ Single Sign-On and Single Logout are possible through the use of [sessions](/ses
 
 * Local session maintained by the application
 * Authorization Server session, if SSO is enabled
-* Identity Provider session, if the user chose to log in through an Identity Provider (such as Google, Facebook, or an enterprise SAML Identity Provider)
+* Identity Provider session, if the user chose to log in through an Identity Provider (such as Google, Facebook, or an enterprise <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider)
 
 ## Single Sign-On and Single Logout Example
 

@@ -1,7 +1,7 @@
 # Get Token
 
 Use this endpoint to:
-- Get an Access Token in order to call an API. You can, optionally, retrieve an ID Token and a Refresh Token as well.
+- Get an <dfn data-key="access-token">Access Token</dfn> in order to call an API. You can, optionally, retrieve an ID Token and a <dfn data-key="refresh-token">Refresh Token</dfn> as well.
 - Refresh your Access Token, using a Refresh Token you got during authorization.
 
 Note that the only OAuth 2.0 flows that can retrieve a Refresh Token are:
@@ -94,7 +94,7 @@ If you have just executed the [Authorization Code Grant](#authorization-code-gra
 
 1. At the *Configuration* tab, set the **Application** field to the application you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](#authorization-code-grant). Click **OAuth2 Code Exchange**.
 
@@ -185,7 +185,7 @@ If you have just executed the [Authorization Code Grant (PKCE)](#authorization-c
 
 1. At the *Configuration* tab, set the **Client** field to the application you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](#authorization-code-grant-pkce-), and the **Code Verifier** to the key. Click **OAuth2 Code Exchange**.
 
@@ -251,7 +251,7 @@ Content-Type: application/json
   "link": "#client-credentials"
 }) %>
 
-This is the OAuth 2.0 grant that server processes use to access an API. Use this endpoint to directly request an Access Token by using the Client's credentials (a Client ID and a Client Secret).
+This is the OAuth 2.0 grant that server processes use to access an API. Use this endpoint to directly request an <dfn data-key="access-token">Access Token</dfn> by using the Client's credentials (a Client ID and a Client Secret).
 
 ### Request Parameters
 
@@ -269,7 +269,7 @@ This is the OAuth 2.0 grant that server processes use to access an API. Use this
 
 1. At the *Configuration* tab, set the **Client** field to the application you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, click **OAuth2 Client Credentials**.
 
@@ -358,7 +358,7 @@ This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In th
 | `audience` | The unique identifier of the target API you want to access. |
 | `username` <br/><span class="label label-danger">Required</span> | Resource Owner's identifier. |
 | `password` <br/><span class="label label-danger">Required</span> | Resource Owner's secret. |
-| `scope` | String value of the different scopes the application is asking for. Multiple scopes are separated with whitespace. |
+| `scope` | String value of the different <dfn data-key="scope">scopes</dfn> the application is asking for. Multiple scopes are separated with whitespace. |
 | `realm` | String value of the realm the user belongs. Set this if you want to add realm support at this grant. For more information on what realms are refer to [Realm Support](/api-auth/grant/password#realm-support). |
 
 ### Request headers
@@ -373,14 +373,14 @@ This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In th
 
 1. At the *Configuration* tab, set the **Client** field to the application you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the **Username** and **Password**, and click **Password Grant**.
 
 
 ### Remarks
 
-- The scopes issued to the application may differ from the scopes requested. In this case, a `scope` parameter will be included in the response JSON.
+- The <dfn data-key="scope">scopes</dfn> issued to the application may differ from the scopes requested. In this case, a `scope` parameter will be included in the response JSON.
 - If you don't request specific scopes, all scopes defined for the audience will be returned due to the implied trust to the application in this grant. You can customize the scopes returned in a rule. For more information, refer to [Calling APIs from Highly Trusted Applications](/api-auth/grant/password).
 - To add realm support set the `grant_type` to `http://auth0.com/oauth/grant-type/password-realm`, and the `realm` to the realm the user belongs. This maps to a connection in Auth0. For example, if you have configured a database connection for your internal employees and you have named the connection `employees`, then use this value. For more information on how to implement this refer to: [Realm Support](/api-auth/tutorials/password-grant#realm-support).
 - In addition to username and password, Auth0 may also require the end-user to provide an additional factor as proof of identity before issuing the requested scopes. In this case, the request described above will return an `mfa_required` error along with an `mfa_token`. You can use these tokens to request a challenge for the possession factor and validate it accordingly. For details refer to [Resource Owner Password and MFA](#resource-owner-password-and-mfa).
@@ -447,7 +447,7 @@ Content-Type: application/json
   "link": "#refresh-token"
 }) %>
 
-Use this endpoint to refresh an Access Token using the Refresh Token you got during authorization.
+Use this endpoint to refresh an <dfn data-key="access-token">Access Token</dfn> using the <dfn data-key="refresh-token">Refresh Token</dfn> you got during authorization.
 
 
 ### Request Parameters
@@ -466,7 +466,7 @@ Use this endpoint to refresh an Access Token using the Refresh Token you got dur
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the field **Refresh Token** to the Refresh Token you have. Click **OAuth2 Refresh Token Exchange**.
 

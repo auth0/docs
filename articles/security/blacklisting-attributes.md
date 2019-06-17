@@ -22,7 +22,7 @@ To blacklist attributes make a `PATCH` call to the [Update Connection](/api/mana
 
 ### Step 1. Get a token
 
-First, you need a valid Access Token in order to access that endpoint. The token must include the `update:connections` scope. 
+First, you need a valid <dfn data-key="access-token">Access Token</dfn> to access that endpoint. The token must include the `update:connections` <dfn data-key="scope">scope</dfn>. 
 
 For detailed steps on how to get one, see [Access Tokens for the Management API](/api/management/v2/tokens).
 
@@ -63,12 +63,12 @@ Where:
 
 - Only [root fields](/users/references/user-profile-structure#attributes) (such as `user.name` or `user.email`) can be blacklisted
 - When you blacklist attributes, they will be still be available via rules and outgoing tokens. However, if any of the following apply, the blacklist attributes will **not** be included in tokens:
-  - You have enabled multi-factor authentication
+  - You have enabled <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>
   - You have performed a redirect via rules
   - Your app is using delegation (and you haven't set `scope = passthrough`)
   - Your app is using impersonation
   - You have enabled the **Use Auth0 instead of the IdP to do Single Sign On** setting
-- For SAMLP connections, if you enable Debug mode, your logs will contain information on the blacklisted attributes
+- For <dfn data-key="security-assertion-markup-language">SAMLP</dfn> connections, if you enable Debug mode, your logs will contain information on the blacklisted attributes
 
 :::panel Working around the limitations
 If any of these limitations are unacceptable, you can write a [rule](/rules) to encrypt the data and have the data persist to the `user.app_metadata` object.

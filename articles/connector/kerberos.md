@@ -57,7 +57,7 @@ On the other hand, when users are not in the corporate network (for example, at 
 Detecting IP ranges in an Active Directory/LDAP connection and using those ranges with Lock to allow integrated Windows Authentication is a feature that works in Lock 10, but can only be used in Lock 11 in Universal Login scenarios. This feature is *disabled* in Lock 11 when Lock 11 is used in Embedded Login scenarios.
 :::
 
-When an application is using Lock 10 or 11 within the Login Page hosted by Auth0 (typically used for SAML/WS-Federation protocols and SSO Integrations), there will be a button which allows users to authenticate using "Windows Authentication". 
+When an application is using Lock 10 or 11 within the Login Page hosted by Auth0 (typically used for <dfn data-key="security-assertion-markup-language">SAML</dfn>/WS-Federation protocols and <<dfn data-key="single-sign-on">SSO</dfn> Integrations), there will be a button which allows users to authenticate using "Windows Authentication". 
 
 In some cases the requirement could be to automatically sign in the user if Kerberos is possible (based on the IP-address of the end user). The following changes can be added to the Auth0 Login Page to automatically sign in the user if Kerberos is possible:
 

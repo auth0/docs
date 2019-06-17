@@ -13,7 +13,7 @@ useCase:
 
 Various grant types are valid when registering Auth0 Applications. These can be divided into the following categories:
  
-* **[Spec-conforming grants](#spec-conforming-grants)**: Grants defined by and conforming to external specifications (such as [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html))
+* **[Spec-conforming grants](#spec-conforming-grants)**: Grants defined by and conforming to external specifications (such as <dfn data-key="openid">OpenID Connect (OIDC)</dfn>).
 * **[Auth0 extension grants](#auth0-extension-grants)**: Auth0-specific grants that conform to the [OAuth extension mechanism](https://tools.ietf.org/html/rfc6749#section-4.5) to support additional clients or to provide a bridge between OAuth and other trust frameworks.
 * **[Auth0 legacy grants](#auth0-legacy-grants)**: Traditional grant types supported for legacy customers only. If you are a legacy customer, we highly recommend moving to a more secure alternative. For info on working with legacy grant types and their alternatives, see [Legacy Grant Types](/applications/concepts/grant-types-legacy).
 

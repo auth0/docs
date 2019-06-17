@@ -16,7 +16,7 @@ useCase:
 ---
 # Remove Roles from Users
 
-This guide will show you how to remove the roles assigned to a user using Auth0's Management API. This task can also be performed using the Dashboard by either [removing users from a role](/dashboard/guides/users/remove-role-users) or [removing roles from a user](/dashboard/guides/users/remove-user-roles). Roles are used with the API Authorization Core feature set.
+This guide will show you how to remove the <dfn data-key="role">[roles](/authorization/concepts/rbac)</dfn> assigned to a user using Auth0's Management API. This task can also be performed using the Dashboard by either [removing users from a role](/dashboard/guides/users/remove-role-users) or [removing roles from a user](/dashboard/guides/users/remove-user-roles). Roles are used with the API Authorization Core feature set.
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
@@ -41,5 +41,5 @@ This guide will show you how to remove the roles assigned to a user using Auth0'
 | **Value** | **Description** |
 | - | - |
 | `USER_ID` | Τhe ID of the user to be updated. |
-| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the scope `update:users`. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:users`. |
 | `ROLE_ID` | ID(s) of the role(s) you would like to remove for the specified user. |

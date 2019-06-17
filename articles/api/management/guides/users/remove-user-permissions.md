@@ -41,6 +41,6 @@ This guide will show you how to remove the [permissions](/authorization/concepts
 | **Value** | **Description** |
 | - | - |
 | `USER_ID` | Τhe ID of the user to be updated. |
-| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the scope `update:users`. |
+| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:users`. |
 | `API_ID` | ID(s) of the API(s) associated with the permission(s) you would like to remove for the specified user. |
 | `PERMISSION_NAME` | Name(s) of the permission(s) you would like to remove for the specified user. |

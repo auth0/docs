@@ -28,9 +28,9 @@ When an app requests permission to access a resource through an authorization se
 
 Generally, you use scopes in three ways:
 
-* From an [application](/applications), to verify the identity of a user and get basic profile information about the user, such as their email or picture. In this scenario, the scopes available to you include those implemented by the [OpenID Connect](/protocols/oidc) protocol. For details, refer to [OpenID Connect Scopes](/scopes/current/oidc-scopes).
+* From an [application](/applications), to verify the identity of a user and get basic profile information about the user, such as their email or picture. In this scenario, the scopes available to you include those implemented by the <dfn data-key="openid">OpenID Connect (OIDC) protocol</dfn>. For details, see [OpenID Connect Scopes](/scopes/current/oidc-scopes).
 
-* In an [API](/apis), to implement access control. In this case, you need to define custom scopes for your API and then identify these scopes so that calling applications can use them. For details, refer to [API Scopes](/scopes/current/api-scopes).
+* In an [API](/apis), to implement access control. In this case, you need to define custom scopes for your API and then identify these scopes so that calling applications can use them. For details, see [API Scopes](/scopes/current/api-scopes).
 
 * From an application, to call an API that has implemented its own custom scopes. In this case, you need to know which custom scopes are defined for the API you are calling. For an example of calling a custom API from an application, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#request-custom-API-access)
 

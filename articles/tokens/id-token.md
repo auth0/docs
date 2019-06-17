@@ -14,7 +14,7 @@ useCase:
 
 ## Overview
 
-The ID Token is a [JSON Web Token (JWT)](/jwt) that contains user profile information (such as the user's name and email) which is represented in the form of **claims**. These claims are statements about the user, which can be trusted if the consumer of the token can [verify its signature](/tokens/guides/id-token/validate-id-token#verify-the-signature).
+The ID Token is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> that contains user profile information (such as the user's name and email) which is represented in the form of **claims**. These claims are statements about the user, which can be trusted if the consumer of the token can [verify its signature](/tokens/guides/id-token/validate-id-token#verify-the-signature).
 
 You can [get an ID Token](/tokens/guides/id-token/get-id-tokens) for a user after they successfully authenticate.
 

@@ -1,6 +1,6 @@
 ---
-title: SAML SSO with SSOCircle as an Identity Provider
-description: How to configure an application to use Auth0 for SAML Single Sign On (SSO), authenticating users against SSOCircle
+title: SAML Single Sign-On with SSOCircle as an Identity Provider
+description: Learn how to configure an application to use Auth0 for SAML Single Sign-On (SSO), authenticating users against SSOCircle
 toc: true
 topics:
     - saml
@@ -13,7 +13,7 @@ useCase:
 ---
 # SAML SSO with SSOCircle as an Identity Provider
 
-This tutorial will create a sample application that uses Auth0 for SAML Single Sign On (SSO), authenticating users against identity provider **SSOCircle**.
+This tutorial will create a sample application that uses Auth0 for <dfn data-key="security-assertion-markup-language">SAML</dfn> <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn>, authenticating users against identity provider **SSOCircle**.
 
 ::: warning
 As of July 8, 2016, SSOCircle supports integration via [manual configuration using public settings](http://www.ssocircle.com/en/idp-tips-tricks/public-idp-configuration/). If you have previously used account-specific metadata, your integration will still function, though this usage is now deprecated.
@@ -48,7 +48,7 @@ While logged in to the [Auth0 Management Dashboard](${manage_url}), navigate to 
 You will be presented with a pop-up window titled **Create SAMLP Identity Provider Connection**. Enter the following information into the appropriate fields on the **Configuration** tab:
 
 * **Connection Name:** the name of your connection
-* **Email Domains:** if you are using Lock, the email domain name(s) for the users that will be logging in via this Connection (for example `auth0.com`)
+* **Email Domains:** if you are using <dfn data-key="lock">Lock</dfn>, the email domain name(s) for the users that will be logging in via this Connection (for example `auth0.com`)
 * **Sign In URL:** the location URL for the `SingleSignOnService` attribute with an `HTTP-Redirect` type from SSOCircle's metadata
 * **Sign Out URL:** the Location URL for the `SingleLogoutService` attribute with an `HTTP-Redirect` type from SSOCircle's metadata
 * Upload the **SSOCircle CA Certificate** you saved in [step 1](#1-obtain-the-ssocircle-metadata) as the **X509 Signing Certificate**.
@@ -124,7 +124,7 @@ Click **Create** to finish configuration and begin the Application creation proc
 
 You will be directed to the dashboard landing page for your Application. Click over to the **Settings** page.
 
-In the **Allowed Callback URL** field, enter `http://jwt.io`. The list of allowed callback URLs includes those to which users will be redirected after authentication. The URL(s) entered here must match the **callback URL** in the HTML code you will create in a later step. Normally, you would enter a URL for your Application, but to keep this example simple, users will simply be sent to the Auth0 JWT Tool.
+In the **Allowed Callback URL** field, enter `http://jwt.io`. The list of allowed <dfn data-key="callback">callback URLs</dfn> includes those to which users will be redirected after authentication. The URL(s) entered here must match the **callback URL** in the HTML code you will create in a later step. Normally, you would enter a URL for your Application, but to keep this example simple, users will simply be sent to the Auth0 JWT Tool.
 
 ![Allowed Callback URLS field](/media/articles/saml/identity-providers/ssocircle/allowed-callback-urls.png)
 

@@ -18,7 +18,7 @@ useCase:
 
 <%= include('../../../_includes/_native_passwordless_warning') %>
 
-In order to avoid asking the user to input the one-time password sent for passwordless authentication in Android apps, we introduced the ability to send a link that the user can tap to login without any manual input involved.
+In order to avoid asking the user to input the one-time password sent for <dfn data-key="passwordless">passwordless</dfn> authentication in Android apps, we introduced the ability to send a link that the user can tap to login without any manual input involved.
 
 These links include the same code that would be used in the traditional passwordless flow, but with the correct configuration they will be handled automatically by the Android system and delivered to our application.
 

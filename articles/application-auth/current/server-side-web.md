@@ -15,7 +15,7 @@ useCase:
 
 # Authentication for Server-side Web Apps
 
-You can use the Auth0 Authentication API to create server-side web applications that uses OAuth 2.0 and OpenID Connect to authenticate users and get their authorization to access protected resources.
+You can use the Auth0 Authentication API to create server-side web applications that uses OAuth 2.0 and <dfn data-key="openid">OpenID Connect (OIDC)</dfn> to authenticate users and get their authorization to access protected resources.
 
 ## Overview
 

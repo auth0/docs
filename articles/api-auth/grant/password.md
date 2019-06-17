@@ -26,7 +26,7 @@ If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth
 
 ## Overview
 
-The **Resource Owner Password Grant** (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to obtain an <dfn data-key="access-token">Access Token</dfn>, and optionally a Refresh Token. This grant should only be used when there is a high degree of trust between the user and the application and when other authorization flows are not available.
+The **Resource Owner Password Grant** (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to obtain an <dfn data-key="access-token">Access Token</dfn>, and optionally a <dfn data-key="refresh-token">Refresh Token</dfn>. This grant should only be used when there is a high degree of trust between the user and the application and when other authorization flows are not available.
 
 This grant type can eliminate the need for the application to store the user credentials for future use, by exchanging the credentials with a long-lived Access Token or Refresh Token.
 
@@ -55,7 +55,7 @@ For more information on how to implement this extension grant refer to [Executin
 
 ## Scopes
 
-Due to the implied trust in these grants (a user providing his or her password to an application), the Access Token returned will include all of the available scopes defined for the audience API. An application can request a restricted set of scopes by using the `scope` parameter, or you can restrict the returned scopes by using a [rule](#customize-the-returned-token).
+Due to the implied trust in these grants (a user providing his or her password to an application), the Access Token returned will include all of the available <dfn data-key="scope">scopes</dfn> defined for the <dfn data-key="audience">audience</dfn> API. An application can request a restricted set of scopes by using the `scope` parameter, or you can restrict the returned scopes by using a [rule](#customize-the-returned-token).
 
 ## Rules
 
@@ -69,7 +69,7 @@ For details on how to implement this, refer to [Execute the Resource Owner Passw
 
 ## MFA Support
 
-For details on how to implement multi-factor authentication, refer to [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
+For details on how to implement <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>, refer to [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
 
 ## Keep reading
 

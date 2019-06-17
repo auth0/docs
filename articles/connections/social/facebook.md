@@ -28,7 +28,7 @@ To learn how, follow Facebook's [App Development](https://developers.facebook.co
 While setting up your app, make sure you use the following settings:
 
 * When asked to select scenarios, choose **Facebook Login**.
-* On the **Facebook Login** > **Settings** page, under **Valid Oauth Redirect URIs**, enter `https://${account.namespace}/login/callback`.
+* On the **Facebook Login** > **Settings** page, under **Valid Oauth Redirect URIs**, enter your <dfn data-key="callback">callback URL</dfn>: `https://${account.namespace}/login/callback`.
 * On the **Facebook Login** > **Settings** page, you can also set a **Deauthorize Callback URL** that will be called when a user deauthorizes your app.
 
 <%= include('../_find-auth0-domain-redirects') %>

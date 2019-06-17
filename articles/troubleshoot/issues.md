@@ -60,7 +60,7 @@ Here are things to check to help you narrow down where issues are occurring duri
 ### If you decode the token or assertion does it have information you expect?
 
 * JSON Web Tokens (JWT) can be viewed with [JWT.io](http://jwt.io)
-* SAML assertions can be viewed with [SAMLTool.io](http://samltool.io)
+* <dfn data-key="security-assertion-markup-language">SAML</dfn> assertions can be viewed with [SAMLTool.io](http://samltool.io)
 
 ### Check your application logs
 

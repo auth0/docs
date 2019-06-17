@@ -39,7 +39,7 @@ curl --request POST \
   "link": "#dynamic-application-client-registration"
 }) %>
 
-With a name and the necessary callback URLs, you can dynamically register a client with Auth0. No token is needed for this request.
+With a name and the necessary <dfn data-key="callback">callback URL</dfn>, you can dynamically register a client with Auth0. No token is needed for this request.
 
 ### Request Parameters
 

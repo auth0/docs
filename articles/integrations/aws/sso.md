@@ -24,7 +24,7 @@ Log in to the [Management Dashboard](${manage_url}/#/applications), and create a
 
 You'll be asked to configure this add-on using the pop-up that appears immediately after you've enabled the SAML2 Web App. 
 
-On the **Settings** tab, populate **Application Callback URL** with `https://signin.aws.amazon.com/saml` and paste the following SAML configuration code into **Settings**:
+On the **Settings** tab, populate **Application <dfn data-key="callback">Callback URL</dfn>** with `https://signin.aws.amazon.com/saml` and paste the following <dfn data-key="security-assertion-markup-language">SAML</dfn> configuration code into **Settings**:
 
 ```js
 {
@@ -224,7 +224,7 @@ function (user, context, callback) {
 
 ## Test Your Setup
 
-You are now set up for single sign-on to AWS. You can find the `Identity Provider Login URL` on the [Management Dashboard](${manage_url}). Open up your [application](${manage_url}/#/applications) to the **SAML2 Addon** settings area, and click over to the **Usage** tab.
+You are now set up for <dfn data-key="single-sign-on">single sign-on (SSO)</dfn> to AWS. You can find the `Identity Provider Login URL` on the [Management Dashboard](${manage_url}). Open up your [application](${manage_url}/#/applications) to the **SAML2 Addon** settings area, and click over to the **Usage** tab.
 
 ![](/media/articles/integrations/aws/idp-download.png)
 

@@ -17,7 +17,7 @@ We believe versioning is a crucial part of our offering. By providing a consiste
 ## Semantic versioning
 
 ::: note
-This scheme is used in [Auth0 Lock](https://github.com/auth0/lock), [Auth0 AD Connector](https://github.com/auth0/ad-ldap-connector), [Auth0.js](https://github.com/auth0/auth0.js) and SDKs.
+This scheme is used in <dfn data-key="lock">Auth0 Lock</dfn>, [Auth0 AD Connector](https://github.com/auth0/ad-ldap-connector), [Auth0.js](https://github.com/auth0/auth0.js) and SDKs.
 :::
 
 [Semantic versioning](http://semver.org) (also known as semver) is a versioning strategy whose main feature is making breaking changes discoverable. A version is composed of 3 numbers separated by dots: `{major}.{minor}.{patch}`. For instance, `2.12.5`, `0.1.0` and `10.5.35` are valid semver numbers. 

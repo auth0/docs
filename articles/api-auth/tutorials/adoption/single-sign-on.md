@@ -18,7 +18,7 @@ Single sign-on (SSO) occurs when a user logs in to one application and is then s
 
 In the context of the OIDC-conformant authentication pipeline, SSO must happen at the authorization server (i.e. Auth0) and not applications.
 
-This means that for SSO to happen, you must employ [Universal Login](/hosted-pages/login) and redirect users to the login page.
+This means that for SSO to happen, you must employ <dfn data-key="universal-login">Universal Login</dfn> and redirect users to the login page.
 
 ## How SSO works
 

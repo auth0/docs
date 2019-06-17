@@ -56,7 +56,7 @@ Once your development team is ready to build, Auth0 provides sample programs, SD
 
 * [**Management API**](/api/management/v2): Explore and manipulate objects, configurations, and settings within Auth0. The Management API Explorer allows you to quickly manipulate individual objects and settings on an *ad-hoc* basis and test API calls before coding them into your applications.
 
-* [**Authentication API**](/api/authentication): Authenticate and authorize users via the OIDC, OAuth, and SAML protocols. The Authentication API Explorer allows you to experiment with authentication and authorization flows, and test API calls before coding them into your applications.
+* [**Authentication API**](/api/authentication): Authenticate and authorize users via the OIDC, OAuth, and <dfn data-key="security-assertion-markup-language">SAML</dfn> protocols. The Authentication API Explorer allows you to experiment with authentication and authorization flows, and test API calls before coding them into your applications.
 
 ## Try out features and API calls
 

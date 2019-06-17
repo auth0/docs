@@ -44,7 +44,7 @@ Once your Auth0 Application has been added to your SoundCloud account, you can g
 
 ![](/media/articles/connections/social/soundcloud/soundcloud-devportal-2.png)
 
-Be sure to provide the following as your `Redirect URI for Authentication` on the SoundCloud dashboard: `https://${account.namespace}/login/callback`
+Be sure to provide your <dfn data-key="callback">callback URL</dfn> as your `Redirect URI for Authentication` on the SoundCloud dashboard: `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects') %>
 

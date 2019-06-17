@@ -22,7 +22,7 @@ This guide will show you how to enable your users to log in to your Auth0 app us
 
 Begin by [registering your Auth0 app with Weibo](https://open.weibo.com/authentication).
 
-You will be prompted to provide a callback URL during the registration process. Use `https://${account.namespace}/login/callback`.
+You will be prompted to provide a <dfn data-key="callback">callback URL</dfn> during the registration process. Use `https://${account.namespace}/login/callback`.
 
 <%= include('../_find-auth0-domain-redirects') %>
 

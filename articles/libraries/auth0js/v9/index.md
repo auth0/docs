@@ -76,7 +76,7 @@ There are two required parameters that must be passed in the `options` object wh
 | `domain` | required | (String) Your Auth0 account domain (ex. myaccount.auth0.com) |
 | `clientID` | required | (String) Your Auth0 client ID |
 | `redirectUri` | optional* | (String)  The default `redirectUri` used. Defaults to an empty string (none). **If you do not provide a global `redirectUri` value here, you will need to provide a redirectUri value for *each* method you use.** |
-| `scope` | optional | (String)  The default scope(s) used by the application. Using scopes can allow you to return specific claims for specific fields in your request. You should read our [documentation on scopes](/scopes) for further details. |
+| `scope` | optional | (String)  The default <dfn data-key="scope">scope(s)</dfn> used by the application. Using scopes can allow you to return specific claims for specific fields in your request. You should read our [documentation on scopes](/scopes) for further details. |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
 | `responseType` | optional* | (String)  The default `responseType` used. It can be any space separated list of the values `code`, `token`, `id_token`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. **If you do not provide a global `responseType` value, you will need to provide a `responseType` value for *each* method you use.** |
 | `responseMode` | optional | (String)  This option is omitted by default. Can be set to `'form_post'` in order to send the token or code to the `'redirectUri'` via POST. Supported values are `query`, `fragment` and `form_post`. |
@@ -105,13 +105,13 @@ You can choose a method for login based on the type of auth you need in your app
 
 ### webAuth.authorize()
 
-The `authorize()` method can be used for logging in users via [Universal Login](/hosted-pages/login), or via social connections, as exhibited in the examples below. This method invokes the [/authorize endpoint](/api/authentication?javascript#social) of the Authentication API, and can take a variety of parameters via the `options` object.
+The `authorize()` method can be used for logging in users via <dfn data-key="universal-login">Universal Login</dfn>, or via social connections, as exhibited in the examples below. This method invokes the [/authorize endpoint](/api/authentication?javascript#social) of the Authentication API, and can take a variety of parameters via the `options` object.
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
 | `connection` | optional | (String) Specifies the connection to use rather than presenting all connections available to the application. |
-| `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a Refresh Token. |
+| `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a <dfn data-key="refresh-token">Refresh Token</dfn>. |
 | `responseType` | optional | (String) It can be any space separated list of the values `code`, `token`, `id_token`.  It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
 | `clientID` | optional | (String)  Your Auth0 client ID. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
@@ -162,7 +162,7 @@ webAuth.popup.authorize({
 
 #### Handling popup authentication results
 
-When using popup authentication, you'll have to provide a `redirectUri` where the destination page communicates the authorization results back to the main page by using the `webAuth.popup.callback` method. A simple implementation would be something like this:
+When using popup authentication, you'll have to provide a `redirectUri` where the destination page communicates the authorization results back to the <dfn data-key="callback">callback</dfn> by using the `webAuth.popup.callback` method. A simple implementation would be something like this:
 
 ```HTML
 <!-- popup_response_handler.html -->
@@ -234,7 +234,7 @@ The `state` parameter is an opaque value that Auth0 will send back to you. This 
 
 ## Passwordless login
 
-Passwordless authentication allows users to log in by receiving a one-time password via email or text message. The process will require you to start the Passwordless process, generating and dispatching a code to the user, (or a code within a link), followed by accepting their credentials via the verification method. That could happen in the form of a login screen which asks for their (email or phone number) and the code you just sent them. It could also be implemented in the form of a Passwordless link instead of a code sent to the user. They would simply click the link in their email or text and it would hit your endpoint and verify this data automatically using the same verification method (just without manual entry of a code by the user).
+<dfn data-key="passwordless">Passwordless authentication</dfn> allows users to log in by receiving a one-time password via email or text message. The process will require you to start the Passwordless process, generating and dispatching a code to the user, (or a code within a link), followed by accepting their credentials via the verification method. That could happen in the form of a login screen which asks for their (email or phone number) and the code you just sent them. It could also be implemented in the form of a Passwordless link instead of a code sent to the user. They would simply click the link in their email or text and it would hit your endpoint and verify this data automatically using the same verification method (just without manual entry of a code by the user).
 
 In order to use Passwordless, you will want to initialize Auth0.js with a `redirectUri` and to set the `responseType: 'token'`.
 
@@ -308,14 +308,14 @@ The `parseHash` method takes an `options` object that contains the following par
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `state` | optional | (String) An opaque value the application adds to the initial request that Auth0 includes when redirecting back to the application. This value is used by auth0.js to prevent CSRF attacks. |
-| `nonce` | optional | (String) Used to verify the ID Token
+| <dfn data-key="nonce">`nonce`</dfn> | optional | (String) Used to verify the ID Token
 | `hash` | optional | (String) The URL hash (if not provided, `window.location.hash` will be used by default) |
 
 The contents of the authResult object returned by `parseHash` depend upon which authentication parameters were used. It can include:
 
 | **Item** | **Description** |
 | --- | --- |
-| `accessToken` | An Access Token for the API, specified by the `audience` |
+| `accessToken` | An <dfn data-key="access-token">Access Token</dfn> for the API, specified by the `audience` |
 | `expiresIn` |  A string containing the expiration time (in seconds) of the `accessToken` |
 | `idToken` |  An ID Token JWT containing user profile information |
 

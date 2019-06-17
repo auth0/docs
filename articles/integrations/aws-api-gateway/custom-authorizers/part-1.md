@@ -23,7 +23,7 @@ You'll be asked to provide values for the following fields:
 | - | - |
 | Name | A friendly name for your API. This is the name you'll see in your list of Auth0 APIs |
 | Identifier | A logical identifier for your API (we recommend formatting this identifier like a URL `https://your-api-gateway`) |
-| Signing Algorithm | The algorithm you want Auth0 to use to sign the issued Access Tokens |
+| Signing Algorithm | The algorithm you want Auth0 to use to sign the issued <dfn data-key="access-token">Access Tokens</dfn> |
 
 Click **Create** to proceed.
 

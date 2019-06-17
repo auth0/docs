@@ -29,7 +29,7 @@ You get simpler API integration since your APIs are no longer tied to the applic
 can authenticate as themselves (that is, they are not acting on behalf of any user) to programmatically and securely obtain an API token.
 
 For example, [the Auth0 Management API is already defined as a resource server on your
-Auth0 domain](${manage_url}/#/apis/management/settings). You can then authorize applications seeking access to obtain API tokens with specific scopes in a secure way.
+Auth0 domain](${manage_url}/#/apis/management/settings). You can then authorize applications seeking access to obtain API tokens with specific <dfn data-key="scope">scopes</dfn> in a secure way.
 
 ### Access vs. ID Tokens
 
@@ -56,7 +56,7 @@ One way to understand how Access and ID Tokens differ in their behavior is to lo
 
 The sample above shows the contents of an ID Token. ID Tokens are meant only for **authenticating** the users to the **application**.
 
-Note that the audience value (located in the **aud** claim) of the token is set to the application's identifier. This means that only this specific application should consume the token.
+Note that the <dfn data-key="audience">audience</dfn> value (located in the **aud** claim) of the token is set to the application's identifier. This means that only this specific application should consume the token.
 
 You can think of the ID Token as a performance optimization that allows applications to obtain user profile information without making additional requests after the completion of the authentication process. ID Tokens should never be used to obtain direct access to resources or to make authorization decisions.
 

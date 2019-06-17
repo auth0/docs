@@ -27,7 +27,7 @@ If you have several mobile applications (such as Google Drive, Google Docs/Sheet
 If your applications use a wholly native experience, your users have to enter their credentials for each application. However, if you use a browser-based login flow you can implement SSO, reducing the number of times the user has to log in.
 
 ::: note
-You can implement SSO with native apps by storing Refresh Tokens on a shared keychain, but this technique is not compliant with the OAuth 2.0 specifications.
+You can implement SSO with native apps by storing <dfn data-key="refresh-token">Refresh Tokens</dfn> on a shared keychain, but this technique is not compliant with the OAuth 2.0 specifications.
 :::
 
 ## SSO across devices/desktops/laptops

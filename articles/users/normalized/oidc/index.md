@@ -15,7 +15,7 @@ useCase:
 # User Profiles Returned from OIDC-Compliant Pipelines
 
 ::: version-warning
-This article describes the user profile that includes only the [OpenID Connect standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). Use the toggle for information on the Auth0 normalized profile, which might contain information from many identity providers.
+This article describes the user profile that includes only the [OpenID Connect (OIDC) standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). Use the toggle for information on the Auth0 normalized profile, which might contain information from many identity providers.
 :::
 
 When you're using an OIDC-conformant authentication flow, the user profile you receive in return may differ slightly from the [Auth0 Normalized User Profile](/users/normalized).

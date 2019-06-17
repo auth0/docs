@@ -6,7 +6,7 @@ crews: crew-2
 ---
 # Application Connections
 
-Connections are sources of users. They are categorized into Database, Social, Enterprise, and Passwordless and can be shared among different applications.
+Connections are sources of users. They are categorized into Database, Social, Enterprise, and <dfn data-key="passwordless">Passwordless</dfn> and can be shared among different applications.
 
 You can configure any number of connections for your applications to use in your Dashboard. To view all the connections that you have configured or create new ones navigate to [Dashboard](${manage_url}/#/) and select the connection type you want:
 - [Database](${manage_url}/#/connections/database)

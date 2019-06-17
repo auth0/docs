@@ -13,9 +13,9 @@ useCase:
 
 # Configure Auth0 as Identity Provider for GitHub Enterprise Cloud
 
-These instructions explain how to configure Auth0 to serve as an Identity Provider for [GitHub Enterprise Cloud](https://help.github.com/en/articles/about-authentication-with-saml-single-sign-on) (i.e. github.com). Note that GitHub requires an Enterprise-level subscription to enable using an external SAML identity provider.
+These instructions explain how to configure Auth0 to serve as an Identity Provider for [GitHub Enterprise Cloud](https://help.github.com/en/articles/about-authentication-with-saml-single-sign-on) (i.e., github.com). Note that GitHub requires an Enterprise-level subscription to enable using an external <dfn data-key="security-assertion-markup-language">SAML</dfn> identity provider.
 
-When setting up SAML SSO in your organization, you can test your implementation without affecting your organization members by leaving Require SAML SSO authentication for all members of the organization name organization unchecked. See [GitHub documentation on authentication with SAML](https://help.github.com/en/articles/about-authentication-with-saml-single-sign-on) for more information.
+When setting up SAML <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn> in your organization, you can test your implementation without affecting your organization members by leaving Require SAML SSO authentication for all members of the organization name organization unchecked. See [GitHub documentation on authentication with SAML](https://help.github.com/en/articles/about-authentication-with-saml-single-sign-on) for more information.
 
 ::: note
 **Heads up!** This article applies to GitHub Enterprise Cloud (github.com). If you are looking for instructions to set up Auth0 as the identity provider for GitHub Enterprise Server (private instance), check [this page](/protocols/saml/saml-apps/github-server) instead.
@@ -31,7 +31,7 @@ Navigate to the [Addons](${manage_url}/#/applications/${account.clientId}/addons
 
 The *Settings* window will be displayed. Set the following values:
 
-- **Application Callback URL**: `https://github.com/orgs/{YOUR_GITHUB_ORG_NAME}/saml/consume`
+- **Application <dfn data-key="callback">Callback URL</dfn>**: `https://github.com/orgs/{YOUR_GITHUB_ORG_NAME}/saml/consume`
 
 - **Settings**:
 

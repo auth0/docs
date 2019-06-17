@@ -122,7 +122,7 @@ You will need to add at least one user to your connection. You can do this via t
 
 ### Assign roles to users
 
-Auth0 grants the user(s) in your connection access to the Delegated Administration extension based on their roles:
+Auth0 grants the user(s) in your connection access to the Delegated Administration extension based on their <dfn data-key="role">roles</dfn>:
 
 - **Delegated Admin - User**: Grants permission to search for users, create users, open users and execute actions on these users (such as `delete`, `block`, and so on);
 

@@ -34,11 +34,11 @@ If you implement [a custom login UI](/libraries/when-to-use-lock#when-to-impleme
 
 ## Lock and multiple connections
 
-[Lock](/libraries/lock) has built in functionality for identity provider selection. For social connections, it shows logos for all those enabled in a particular app. It also provides username/email and password fields if a database connection or Active Directory connection are enabled. 
+<dfn data-key="lock">Lock</dfn> has built in functionality for identity provider selection. For social connections, it shows logos for all those enabled in a particular app. It also provides username/email and password fields if a database connection or Active Directory connection are enabled. 
 
 ## Using email domains with enterprise connections
 
-An additional feature in Lock is the use of email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. For example, when configuring an ADFS or a SAML-P identity provider:
+An additional feature in Lock is the use of email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. For example, when configuring an ADFS or a <dfn data-key="security-assertion-markup-language">SAML-P</dfn> identity provider:
 
 ![](/media/articles/libraries/lock/enterprise-connection.png)
 

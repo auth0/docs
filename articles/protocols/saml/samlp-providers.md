@@ -9,7 +9,7 @@ useCase:
 ---
 # List of SAML-P Identity Providers
 
-This is a list of Identity Provider services known to support the SAML protocol.  There may be additional services beyond what is shown below.
+This is a list of Identity Provider services known to support the <dfn data-key="security-assertion-markup-language">SAML</dfn> protocol. There may be additional services beyond what is shown below.
 
 ## SAML-P
 

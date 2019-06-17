@@ -21,7 +21,7 @@ If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth
 
 ## Overview of the flow
 
-The [Authorization Code Grant](/api-auth/grant/authorization-code) has some security issues when implemented on native applications. For instance, a malicious attacker can intercept the `authorization_code` returned by Auth0 and exchange it for an <dfn data-key="access-token">Access Token</dfn> (and possibly a [Refresh Token](/tokens/refresh-token)).
+The [Authorization Code Grant](/api-auth/grant/authorization-code) has some security issues when implemented on native applications. For instance, a malicious attacker can intercept the `authorization_code` returned by Auth0 and exchange it for an <dfn data-key="access-token">Access Token</dfn> (and possibly a <dfn data-key="refresh-token">Refresh Token</dfn>).
 
 The **Proof Key for Code Exchange (PKCE)** (defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)) is a technique used to mitigate this authorization code interception attack.
 

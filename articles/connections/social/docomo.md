@@ -36,8 +36,8 @@ Fill out the form by providing the following information:
 Service name (サービス名) | Your application's name.
 Service overview (サービス概要) | A brief description of your application.
 <dfn data-key="access-token">Access Token</dfn> lifetime (アクセストークン有効期間 秒) | The lifetime of your Access Token in seconds.
-Redirect URI (リダイレクトURI) | The callback url for your application (`https://${account.namespace}/login/callback`)
-Available scopes (利用可能スコープ) | The scopes for the information you are requesting for your app.
+Redirect URI (リダイレクトURI) | The <dfn data-key="callback">callback URL</dfn> for your application (`https://${account.namespace}/login/callback`)
+Available scopes (利用可能スコープ) | The <dfn data-key="scope">scopes</dfn> for the information you are requesting for your app.
 
 <%= include('../_find-auth0-domain-redirects') %>
 

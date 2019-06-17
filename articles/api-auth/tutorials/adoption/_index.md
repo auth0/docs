@@ -5,7 +5,7 @@
 * Initiating authentication flows:
   - [Authorization Code grant](/api-auth/tutorials/adoption/authorization-code)
   - [Implicit grant](/api-auth/tutorials/adoption/implicit)
-    * [Silent authentication](/api-auth/tutorials/silent-authentication) (replaces Refresh Tokens for single-page applications)
+    * [Silent authentication](/api-auth/tutorials/silent-authentication) (replaces <dfn data-key="refresh-token">Refresh Tokens</dfn> for single-page applications)
   - [Resource Owner Password Credentials exchange](/api-auth/tutorials/adoption/password)
   - [Client Credentials exchange](/api-auth/tutorials/adoption/client-credentials) (only available in new pipeline)
 * [Refresh Tokens](/api-auth/tutorials/adoption/refresh-tokens)

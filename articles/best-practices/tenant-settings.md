@@ -36,9 +36,9 @@ The support email address and URL is shown on the default error page, so users c
 
 You can configure [custom domains](/custom-domains) in your tenant settings.
 
-If you want to use a custom domain name for the [Universal Login page](/hosted-pages/login), set up the custom domain at the start to minimize changes you’ll need to make later.
+If you want to use a custom domain name for the <dfn data-key="universal-login">Universal Login</dfn> [page](/hosted-pages/login), set up the custom domain at the start to minimize changes you’ll need to make later.
 
-For SAML connections that authenticate users against remote SAML Identity Providers, you should set up the custom domain before configuring any SAML providers as changing the domain across multiple SAML providers is challenging.
+For <dfn data-key="security-assertion-markup-language">SAML</dfn> connections that authenticate users against remote SAML Identity Providers, you should set up the custom domain before configuring any SAML providers as changing the domain across multiple SAML providers is challenging.
 
 ## Set SSO session timeout
 
@@ -57,7 +57,7 @@ On a regular basis, review the list of [dashboard administrators](/dashboard/das
 - former employees no longer have access
 - there's more than one dashboard admin
 
-For further protection, turn on Multi-Factor Authentication (MFA) for your dashboard admins. There is the possibility of an admin being locked out if they lose their phone, but if you have multiple dashboard admins, another admin can temporarily disable the MFA for the admin who lost their phone.
+For further protection, turn on <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> for your dashboard admins. There is the possibility of an admin being locked out if they lose their phone, but if you have multiple dashboard admins, another admin can temporarily disable the MFA for the admin who lost their phone.
 
 ## Turn off Enable Application Connections
 

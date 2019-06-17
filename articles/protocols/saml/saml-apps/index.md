@@ -16,7 +16,7 @@ useCase:
   <div data-name="example" class="topic-page-badge"></div>
   <h1>SAML Configurations for SSO Integrations</h1>
   <p>
-    This page lists SAML Configurations for various SSO integrations.
+    This page lists <dfn data-key="security-assertion-markup-language">SAML Configurations</dfn> for various SSO integrations.
   </p>
 </div>
 

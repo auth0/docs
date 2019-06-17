@@ -37,7 +37,7 @@ callback(new ValidationError('email-too-long', 'Email is too long.'));
 
 ### Returning errors when using Lock
 
-If you use [Lock](/libraries/lock), you can [customize the error messages](libraries/lock/customizing-error-messages) that will be displayed by adding them to the dictionary.
+If you use <dfn data-key="lock">Lock</dfn>, you can [customize the error messages](libraries/lock/customizing-error-messages) that will be displayed by adding them to the dictionary.
 
 ## Troubleshooting Errors
 

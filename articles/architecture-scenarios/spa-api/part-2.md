@@ -106,7 +106,7 @@ Proceed to create the permissions for all the remaining scopes:
 
 ### Define Roles
 
-Next let's configure the two Roles: employee and manager.
+Next let's configure the two <dfn data-key="role">Roles</dfn>: employee and manager.
 
 Head over to the **Roles** tab, click the **Create Role** button, and select the **Timesheets SPA** application.
 

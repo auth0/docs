@@ -66,7 +66,7 @@ The following is a sample AWS IAM policy:
 }
 ```
 
-The IAM policy is a dynamic policy that gives access to a folder in a bucket. The folder name is set based on an attribute of the digitally-signed SAML token that Auth0 exchanges with AWS on your behalf.
+The IAM policy is a dynamic policy that gives access to a folder in a bucket. The folder name is set based on an attribute of the digitally-signed <dfn data-key="security-assertion-markup-language">SAML</dfn> token that Auth0 exchanges with AWS on your behalf.
 
 The `<%= "${saml:sub}" %>` will be automatically mapped from the authenticated user (`sub` means `subject` and is equal to the user identifier), which allows the *original* identity of the user to be used throughout your app and AWS.
 

@@ -16,7 +16,7 @@ useCase:
 As an [API](/apis) developer, you need to:
 
 1. Decide which information you would like applications to be able to access on a user's behalf.
-2. Define these access levels as custom scopes.
+2. Define these access levels as custom <dfn data-key="scope">scopes</dfn>.
 3. Identify these scopes so that calling applications can use them. 
 
 ## Ways to use API scopes
@@ -43,7 +43,7 @@ Now, when the app calls your API, it will include a token which verifies that th
 
 ### Example: An API called by a first-party application
 
-Let's say you are building an API that provides data to an events application, which you have also written. You implement role-based access control, creating a role of `organizer` and a role of `participant`. Users with a role of `organizer` need to create and update events, whereas users with a role of `participant` need to view events and register for events. To do this, you create four scopes for your API: one that authorizes create access for events(`create:events`), one that authorizes update access for events (`update:events`), one that authorizes read-only access for events (`view:events`), and one that authorizes registration access for events (`register:events`). Both your API and event application are registered with Auth0, and the **Allow Skipping User Consent** for first-party applications option is enabled for your API. You have installed the Authorization Extension and configured an `organizer` role and created the `create:events` and `update:events` scopes for it, and assigned it to User A. You have also configured a `participant` role and created the `view:events` and `register:events` scopes for it, and assigned it to User B.
+Let's say you are building an API that provides data to an events application, which you have also written. You implement [role-based access control (RBAC)](/authorization/concepts/rbac), creating a <dfn data-key="role">role</dfn> of `organizer` and a role of `participant`. Users with a role of `organizer` need to create and update events, whereas users with a role of `participant` need to view events and register for events. To do this, you create four scopes for your API: one that authorizes create access for events(`create:events`), one that authorizes update access for events (`update:events`), one that authorizes read-only access for events (`view:events`), and one that authorizes registration access for events (`register:events`). Both your API and event application are registered with Auth0, and the **Allow Skipping User Consent** for first-party applications option is enabled for your API. You have installed the Authorization Extension and configured an `organizer` role and created the `create:events` and `update:events` scopes for it, and assigned it to User A. You have also configured a `participant` role and created the `view:events` and `register:events` scopes for it, and assigned it to User B.
 
 User A authenticates with the calling application, which requests the necessary scopes, but because it is a first-party application, user consent will not be requested. The app may request any combination of `create:events`, `update:events`, `view:events`, and `register:events` scopes, but User A is recognized as having the role of `organizer` and therefore is only granted the `create:events` and `update:events` scopes.
 

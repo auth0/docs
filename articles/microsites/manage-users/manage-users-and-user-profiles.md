@@ -10,7 +10,7 @@ template: microsite
 v2: true
 ---
 
-Auth0 stores user profiles for your application in a hosted cloud database. User profile information can come from your users directly or from any number of other external sources including Social Identity Providers, Enterprise connections like SAML, or custom sources like Active Directory. Auth0 refers to all user profile attribute sources as connections because Auth0 *connects* to them to authenticate the user.
+Auth0 stores user profiles for your application in a hosted cloud database. User profile information can come from your users directly or from any number of other external sources including Social Identity Providers, Enterprise connections like <dfn data-key="security-assertion-markup-language">SAML</dfn>, or custom sources like Active Directory. Auth0 refers to all user profile attribute sources as connections because Auth0 *connects* to them to authenticate the user.
 
 You can manage and store custom user attributes such as favorite color or phone number along with the standard profile information. Using our Rules engine you can modify or enhance the user profiles.   
 

@@ -22,7 +22,7 @@ Set the following parameters:
 
 | Parameter | Description and Sample Value |
 | - | - |
-| Provider Type | The type of provider. Set as `SAML` |
+| Provider Type | The type of provider. Set as <dfn data-key="security-assertion-markup-language">`SAML`</dfn> |
 | Provider Name | A descriptive name for the provider, such as `auth0SamlProvider` |
 | Metadata Document | Upload the file containing the Auth0 metadata, found in **Dashboard > Applications > Application Settings > Advanced Settings > Endpoints > SAML Metadata URL** |
 

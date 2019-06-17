@@ -40,7 +40,7 @@ Content-Type: application/json
   "device": "my-device-name"
 }</code></pre>
     <ul>
-        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a Refresh Token</a> by passing the <code>offline_access</code> scope.</li>
+        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a <dfn data-key="refresh-token">Refresh Token</dfn></a> by passing the <code>offline_access</code> <dfn data-key="scope">scope</dfn>.</li>
     </ul>
     </div>
     <div id="request-oidc" class="tab-pane">
@@ -54,7 +54,7 @@ grant_type=http%3A%2F%2Fauth0.com%2Foauth%2Fgrant-type%2Fpassword-realm&client_i
         <li><a href="/api-auth/tutorials/password-grant#realm-support">Auth0's own grant type</a> is used to authenticate users from a specific connection (<code>realm</code>). The <a href="/api-auth/tutorials/password-grant">standard OIDC password grant</a> is also supported, but it does not accept Auth0-specific parameters such as <code>realm</code>.</li>
         <li><code>favorite_color</code> is no longer a valid scope.</li>
         <li>The <code>device</code> parameter is removed.</li>
-        <li>The <code>audience</code> parameter is optional.</li>
+        <li>The <dfn data-key="audience"><code>audience</code></dfn> parameter is optional.</li>
     </ul>
     </div>
   </div>
@@ -84,7 +84,7 @@ Pragma: no-cache
 }</code></pre>
     <ul>
         <li>The returned <dfn data-key="access-token">Access Token</dfn> is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
-        <li>A Refresh Token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
+        <li>A <dfn data-key="refresh-token">Refresh Token</dfn> will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
     </ul>
     </div>
     <div id="response-oidc" class="tab-pane">

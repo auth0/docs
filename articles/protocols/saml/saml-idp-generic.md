@@ -11,7 +11,7 @@ useCase:
 ---
 # Auth0 as Identity Provider
 
-These instructions explain how to configure Auth0 to serve as an Identity Provider in a SAML federation.
+These instructions explain how to configure Auth0 to serve as an Identity Provider in a <dfn data-key="security-assertion-markup-language">SAML</dfn> federation.
 
 ## 1. Obtain Information from the Service Provider
 

@@ -1,6 +1,6 @@
 ---
-title: Single Sign On Integrations
-description: Overview of Auth0 Single Sign On (SSO) Integrations.
+title: Single Sign-On Integrations
+description: Overview of Auth0 Single Sign-On (SSO) Integrations.
 topics:
   - sso
 contentType:
@@ -9,9 +9,9 @@ contentType:
 useCase: integrate-saas-sso
 ---
 
-# Single Sign On Integrations
+# Single Sign-On Integrations
 
-Single Sign On (SSO) Integrations enable the use of external services for single sign-on.
+Single Sign-On (SSO) Integrations enable the use of external services for <dfn data-key="single-sign-on">single sign-on (SS0)</dfn>.
 
 Auth0 provides SSO Integrations for the following services:
 

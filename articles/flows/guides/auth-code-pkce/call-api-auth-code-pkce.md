@@ -36,7 +36,7 @@ Auth0 makes it easy for your app to implement the Authorization Code Flow with P
   * Make sure the Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include **Authorization Code**.
 
 * [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
-  * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
+  * If you want your API to receive <dfn data-key="refresh-token">Refresh Tokens</dfn> to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
 
 ## Steps 
 
@@ -51,7 +51,7 @@ Exchange your `authorization_code` and `code_verifier` for tokens.
 5. [Call Your API](#call-your-api):
 Use the retrieved Access Token to call your API.
 6. [Refresh Tokens](#refresh-tokens):
-Use a refresh token to request new tokens when the existing ones expire.
+Use a Refresh Token to request new tokens when the existing ones expire.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
@@ -74,7 +74,7 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 ::: next-steps
 - [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
-- [The OAuth 2.0 protocol](/protocols/oauth2)
-- [The OpenID Connect protocol](/protocols/oidc)
+- [OAuth 2.0 framework](/protocols/oauth2)
+- [OpenID Connect (OIDC) protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
 :::

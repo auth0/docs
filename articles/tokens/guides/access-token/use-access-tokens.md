@@ -11,7 +11,7 @@ useCase:
 
 # How to Use Access Tokens
 
-Access Tokens are typically obtained in order to access user-owned resources. For example, a Calendar application needs access to a Calendar API in the cloud in order to read the user's scheduled events and create new events.
+<dfn data-key="access-token">Access Tokens</dfn> are typically obtained in order to access user-owned resources. For example, a Calendar application needs access to a Calendar API in the cloud in order to read the user's scheduled events and create new events.
 
 Such access is requested by the application and granted by the user, using the [Authorize endpoint](/api/authentication#authorize-application).
 
@@ -22,7 +22,7 @@ https://${account.namespace}/authorize?
   response_type=token&
   client_id={account.clientId}&
   redirect_uri=${account.callback}&
-  nonce={CRYPTOGRAPHIC_NONCE}
+  nonce={NONCE}
   state={OPAQUE_VALUE}
 ```
 
@@ -121,7 +121,7 @@ Before permitting access to the API using this token, the API must verify the to
 1. Check that the JWT is well formed.
 1. Check the signature.
 1. Validate the standard claims (specifically the `exp`, `iss` and `aud` claims)
-1. Check the Application permissions (scopes)
+1. Check the Application permissions (<dfn data-key="scope">scopes</dfn>)
 
 ::: note
 For a more detailed description of the process of verifying Access Tokens, please refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).

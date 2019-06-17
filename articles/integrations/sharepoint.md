@@ -9,7 +9,7 @@ useCase: integrate-saas-sso
 
 # SharePoint 2010/2013 Integration
 
-Auth0 can help to radically simplify the authentication process for SharePoint. In this tutorial, you'll learn how to add Single Sign On (SSO) to Sharepoint using Auth0. Your users will be able to log in using any of our [Social Identity Providers](/identityproviders) (Facebook, Twitter, Github, and so on), [Enterprise Providers](/identityproviders) (LDAP, Active Directory, ADFS, and so on) or with a username and password.
+Auth0 can help to radically simplify the authentication process for SharePoint. In this tutorial, you'll learn how to add <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn> to Sharepoint using Auth0. Your users will be able to log in using any of our [Social Identity Providers](/identityproviders) (Facebook, Twitter, Github, and so on), [Enterprise Providers](/identityproviders) (LDAP, Active Directory, ADFS, and so on) or with a username and password.
 
 ## Setup
 
@@ -83,7 +83,7 @@ You can customize the login page by following the instructions in the [documenta
 
 You might wish to provide a way to let users authenticate with Sharepoint using Windows Authentication, bypassing Auth0. You can do that by customizing the login page, adding a link to the Windows Authentication endpoint (usually similar to `https://yoursharepointserver/_windows/default.aspx?ReturnUrl=/_layouts/15/Authenticate.aspx`).
 
-On way of doing it is by using jQuery to modify the Lock widget and add a link to the Windows Authentication endpoint.
+On way of doing it is by using jQuery to modify the <dfn data-key="lock">Lock widget</dfn> and add a link to the Windows Authentication endpoint.
 
 You need to add a reference to jQuery at the top of the `<body>` section of the customized login page.
 
@@ -169,7 +169,7 @@ When David logs in using his Azure AD account (and the Security Groups attribute
 
 ![User Groups](/media/articles/integrations/sharepoint/sharepoint-profile-groups.png)
 
-If we want to make these groups available as Roles in SharePoint we'll need to write a [Rule](${manage_url}/#/rules) that adds this to the SAML configuration. This rule will only run for the application named **Fabrikam Intranet (SharePoint)**.
+If we want to make these groups available as Roles in SharePoint we'll need to write a [Rule](${manage_url}/#/rules) that adds this to the <dfn data-key="security-assertion-markup-language">SAML</dfn> configuration. This rule will only run for the application named **Fabrikam Intranet (SharePoint)**.
 
 ```
 function (user, context, callback) {

@@ -145,7 +145,7 @@ This call is required to be able to return to your application when authenticati
 
 `A0LockViewController` will handle email/password, enterprise, and social provider authentication based on the connections enabled on your application in the [Auth0 Dashboard](${manage_url}/#/connections/social).
 
-First, instantiate `A0LockViewController` and register the authentication callback that will receive the authenticated user's credentials. Then present it as a modal view controller:
+First, instantiate `A0LockViewController` and register the authentication <dfn data-key="callback">callback</dfn> that will receive the authenticated user's credentials. Then present it as a modal view controller:
 
 #### Objective C
 

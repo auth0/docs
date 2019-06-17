@@ -57,11 +57,11 @@ Then Auth0 will use Twilio to send an SMS to the user containing the one-time co
 
 <div class="phone-mockup"><img src="/media/articles/connections/passwordless/passwordless-sms-receive-code-web.png" alt="SMS one-time code"/></div>
 
-Lock will ask for the code that has been sent to the provided number via SMS. The code can then be used as a one-time password to log in:
+<dfn data-key="lock">Lock</dfn> will ask for the code that has been sent to the provided number via SMS. The code can then be used as a one-time password to log in:
 
 ![](/media/articles/connections/passwordless/passwordless-sms-enter-code-web.png)
 
-Once the user enters the code received via SMS, Lock will authenticate the user and redirect to the specified `callbackURL`.
+Once the user enters the code received via SMS, Lock will authenticate the user and redirect to the specified <dfn data-key="callback">`callbackURL`</dfn>.
 
 ::: note
 You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the server-side authentication callback.

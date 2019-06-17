@@ -38,7 +38,7 @@ If this case matches your needs, then for more information on how this flow work
 
 ## Is the Application a web app executing on the server?
 
-If the Application is a regular web app executing on a server, then the **Authorization Code Flow (Authorization Code grant)** is the flow you should use. Using this the Application can retrieve an Access Token and, optionally, a Refresh Token. It's considered the safest choice since the Access Token is passed directly to the web server hosting the Application, without going through the user's web browser and risk exposure.
+If the Application is a regular web app executing on a server, then the **Authorization Code Flow (Authorization Code grant)** is the flow you should use. Using this the Application can retrieve an Access Token and, optionally, a <dfn data-key="refresh-token">Refresh Token</dfn>. It's considered the safest choice since the Access Token is passed directly to the web server hosting the Application, without going through the user's web browser and risk exposure.
 
 If this case matches your needs, then for more information on how this flow works and how to implement it, refer to [Authorization Code Flow](/flows/concepts/auth-code).
 

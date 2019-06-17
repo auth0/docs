@@ -14,7 +14,7 @@ useCase:
 
 # Why Use JSON Web Token (JWT)
 
-Let's talk about the benefits of **JSON Web Token (JWT)** when compared to **Simple Web Token (SWT)** and **Security Assertion Markup Language (SAML) tokens**.
+Let's talk about the benefits of **<dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>** when compared to **Simple Web Token (SWT)** and **<dfn data-key="security-assertion-markup-language">Security Assertion Markup Language (SAML)</dfn> tokens**.
 
 ## More compact
 

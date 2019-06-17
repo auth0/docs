@@ -94,7 +94,7 @@ You can determine if you will be responsible for sales tax during the checkout p
 
 ## In our pricing, what is the difference between internal and external users? Are they different technically?
 
-An active user is a user that has authenticated with a username/password combination, a Passwordless connection, or any social provider in a given calendar month.
+An active user is a user that has authenticated with a username/password combination, a <dfn data-key="passwordless">Passwordless</dfn> connection, or any social provider in a given calendar month.
 
 Auth0 counts users on a per-tenant basis. That means that somebody who logs in to multiple applications still counts as one user as long as you've created all of the applications using a single tenant.
 

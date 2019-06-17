@@ -24,7 +24,7 @@ If you are new to Auth0, go through the [What’s New](#what-s-new) section of t
 
 If you are already using Auth0 in your app, you should read the complete doc. We have taken great care to make sure that we do not break our existing customers with this new OIDC conformant implementation. However, you should be aware of all changes and new features, and how you can use them (or avoid doing so). It goes without saying that we strongly encourage you to adopt this authentication pipeline, to improve your app’s security.
 
-If you are using Auth0 as a [SAML or WS-Federation identity provider](/protocols/saml/saml-idp-generic) to your application (that is, you're not using OIDC/OAuth), then you do not need to make any changes.
+If you are using Auth0 as a [SAML or WS-Federation identity provider](/protocols/saml/saml-idp-generic) for your application (that is, you're not using OIDC/OAuth), then you do not need to make any changes.
 
 ## What's New
 
@@ -72,7 +72,7 @@ For more information, refer to [Calling your APIs with Auth0 tokens](/api-auth/t
 
 ### User Profile Claims and Scope
 
-Historically, you were able to define and request arbitrary application-specific claims. From now on, your application can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), as [defined by the OIDC Specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims), or any scopes supported by your [API](/apis).
+Historically, you were able to define and request arbitrary application-specific claims. From now on, your application can request any of the [standard OpenID Connect (OIDC) scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), as [defined by the OIDC Specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims), or any <dfn data-key="scope">scopes</dfn> supported by your [API](/apis).
 
 In order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims.
 
@@ -89,7 +89,7 @@ For more information, refer to [User profile claims and scope](/api-auth/tutoria
 
 ### Single Sign On (SSO)
 
-Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from applications. This means that for SSO to work, you must be using [Universal Login](/hosted-pages/login). Users must be redirected to the login page and then redirected to your application once authentication is complete.
+Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from applications. This means that for SSO to work, you must be using <dfn data-key="universal-login">Universal Login</dfn>. Users must be redirected to the login page and then redirected to your application once authentication is complete.
 
 ::: note
 Support for SSO from applications is planned for a future release.
@@ -135,7 +135,7 @@ Some changes were introduced in the implementation of Authorization Code grant:
 - The `device` request parameter has been removed.
 - The `audience` request parameter has been introduced. This denotes the target API for which the token should be issued.
 - The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
-- A Refresh Token will be returned only if the `offline_access` scope was granted.
+- A <dfn data-key="refresh-token">Refresh Token</dfn> will be returned only if the `offline_access` scope was granted.
 
 ::: note
 For more information, refer to [Authorization Code grant](/api-auth/tutorials/adoption/authorization-code).
@@ -149,7 +149,7 @@ Some changes were introduced in the implementation of Implicit grant:
 - The `audience` request parameter has been introduced. This denotes the target API for which the token should be issued.
 - The `response_type` request parameter indicates whether we want to receive both an Access Token and ID Token. If using `response_type=id_token`, we will return only an ID Token.
 - Refresh Tokens are not allowed. [Use `prompt=none` instead](/api-auth/tutorials/silent-authentication).
-- The `nonce` request parameter must be a [cryptographically secure random string](/api-auth/tutorials/nonce). After validating the ID Token, the application must [validate the nonce to mitigate replay attacks](/api-auth/tutorials/nonce). Requests made without a `nonce` parameter will be rejected.
+- The <dfn data-key="nonce">`nonce`</dfn> request parameter must be a [cryptographically-secure random string](/api-auth/tutorials/nonce). After validating the ID Token, the application must [validate the nonce to mitigate replay attacks](/api-auth/tutorials/nonce). Requests made without a `nonce` parameter will be rejected.
 - The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
 - ID Tokens will be signed asymmetrically using `RS256`.
 
@@ -188,9 +188,9 @@ At the moment there is no OIDC-compliant mechanism to obtain third-party API tok
 
 ### Passwordless
 
-Our new implementation only supports an [OIDC-conformant](/api-auth/tutorials/adoption) passwordless authentication mechanism when using web applications (with Lock.js or auth0.js).
+Our new implementation only supports an [OIDC-conformant](/api-auth/tutorials/adoption) <dfn data-key="passwordless">passwordless</dfn> authentication mechanism when using web applications (with Lock.js or auth0.js).
 
-Native applications need to use Universal Login (with an Auth0-hosted login page). Customers can use the Lock (Passwordless) template in the [Dashboard](${manage_url}/#/login) under **Hosted Pages -> Login -> Default Templates**, or customize it to fit specific requirements.
+Native applications need to use Universal Login (with an Auth0-hosted login page). Customers can use the <dfn data-key="lock">Lock</dfn> (Passwordless) template in the [Dashboard](${manage_url}/#/login) under **Hosted Pages -> Login -> Default Templates**, or customize it to fit specific requirements.
 
 ### Other Authentication API endpoints
 

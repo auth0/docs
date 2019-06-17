@@ -13,7 +13,7 @@ useCase:
 ---
 # Sample Use Cases: Scopes and Claims
 
-In these examples, we use the [Authorization Code Flow](/flows/concepts/auth-code) to authenticate a user and request the necessary permissions and tokens. For details on the request parameters or to learn how to fully implement this flow, refer to our tutorial: [Add Login to Regular Web Applications](/flows/guides/auth-code/add-login-auth-code).
+In these examples, we use the [Authorization Code Flow](/flows/concepts/auth-code) to authenticate a user and request the necessary permissions (<dfn data-key="scope">scopes</dfn>) and tokens. For details on the request parameters or to learn how to fully implement this flow, refer to our tutorial: [Add Login to Regular Web Applications](/flows/guides/auth-code/add-login-auth-code).
 
 ## Authenticate a user and request standard claims
 
@@ -185,7 +185,7 @@ When creating your rule, make sure to set some logic that determines when to inc
 ## Keep reading
 
 - [Scopes](/scopes)
-- [OpenID Connect Scopes](/scopes/current/oidc-scopes)
+- [OpenID Connect (OIDC) Scopes](/scopes/current/oidc-scopes)
 - [Custom Claims](/scopes/current/custom-claims)
 - [API Scopes](/scopes/current/api-scopes)
 - [Add API Permissions (Scopes)](/dashboard/guides/apis/add-permissions-apis)

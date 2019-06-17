@@ -27,7 +27,7 @@ Log into the [Goodreads developer site](https://www.goodreads.com/api), and sele
 
 ## 2. Enter information about your app
 
-Complete the form then click **Apply for a Developer Key**. Enter this in the `Callback URL` field:
+Complete the form then click **Apply for a Developer Key**. Enter your <dfn data-key="callback">callback URL</dfn> in the `Callback URL` field:
 
 ```text
 https://${account.namespace}/login/callback
@@ -119,7 +119,7 @@ https://${account.namespace}/authorize?
   client_id=YOUR_ENABLED_CLIENT_ID&
   redirect_uri=${account.callback}&
   connection=custom-goodreads&
-  nonce=YOUR_CRYPTOGRAPHIC_NONCE
+  nonce=YOUR_NONCE
 ```
 
 

@@ -27,7 +27,7 @@ If you do not use the above libraries and do not specifically call the above end
 
 ### If you already use Universal Login / Hosted Login Page
 
-Applications which log users in via Universal Login through an Auth0 hosted page are not _required_ to update the version of Lock or Auth0.js that they use _inside_ that login page (if you have customized your login page in the [Dashboard](${manage_url}/#/login_page). However, the use of the newest library versions is strongly recommended, even in the Universal Login Page. For those who have not customized their login page, the Lock v11 widget is already in use and no further action is required.
+Applications which log users in via <dfn data-key="universal-login">Universal Login</dfn> through an Auth0 hosted page are not _required_ to update the version of Lock or Auth0.js that they use _inside_ that login page (if you have customized your login page in the [Dashboard](${manage_url}/#/login_page). However, the use of the newest library versions is strongly recommended, even in the Universal Login Page. For those who have not customized their login page, the Lock v11 widget is already in use and no further action is required.
 
 ### If you use embedded login
 
@@ -58,11 +58,11 @@ Universal Login is **strongly** recommended for most use cases because it [offer
 * Developed, hosted and maintained by Auth0 (less maintenance required by your team).
 * Provides a single place to make changes.
 * More secure because credentials are collected and verified within the same domain. This reduces exposure of static credentials to multiple applications as well as the possibility of CSRF and man-in-the-middle attacks.
-* Provides reliable Single Sign On functionality without relying on third-party cookies or restricting the domain of applications.
+* Provides reliable <dfn data-key="single-sign-on">Single Sign-On (SS0)</dfn> functionality without relying on third-party cookies or restricting the domain of applications.
 * Fully customizable in terms of colors, text, logos, buttons as well as [custom domain](/custom-domains).
 * Provides proper cache control to avoid browsers caching old versions.
 * Can leverage either the [Lock Widget](/libraries/lock) or [Auth0.js SDK](/libraries/auth0js) for flexibility in appearance and function.
-* Works with any type of Auth0 connection as well as [multi-factor authentication](/multifactor-authentication).
+* Works with any type of Auth0 connection as well as <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
 #### Universal Login migration guides
 
@@ -108,7 +108,7 @@ Embedded login (embedding Lock or a custom authentication UI) should be used onl
   </li>
 </ul>
 
-Continued use of embedded login will require the use of [custom domains](/custom-domains) in order to prevent cross-origin authentication issues. The custom domains documentation includes important information on the use of custom domains, how to set them up, and what configuration is required for more intricate use cases, such as custom domains with SAML.
+Continued use of embedded login will require the use of [custom domains](/custom-domains) in order to prevent cross-origin authentication issues. The custom domains documentation includes important information on the use of custom domains, how to set them up, and what configuration is required for more intricate use cases, such as custom domains with <dfn data-key="security-assertion-markup-language">SAML</dfn>.
 
 ## Other considerations
 
@@ -124,9 +124,9 @@ Once a user has been authenticated, an application may wish to retrieve informat
 
 For customers who are using the [/tokeninfo](/api/authentication#get-token-info) endpoint, this endpoint is being replaced with the /userinfo endpoint. Customers should migrate to use the /userinfo endpoint instead of /tokeninfo. The /userinfo endpoint is the only one that will be maintained going forward and is the only endpoint for user information that is supported with the [custom domains](/custom-domains) feature.
 
-As explained in the /userinfo endpoint docs entry, /userinfo obtains information using the Management API and therefore requires an [Access Token](/tokens/overview-access-tokens) (obtained during login) instead of the [ID Token](/tokens/id-token) used by /tokeninfo.
+As explained in the /userinfo endpoint docs entry, /userinfo obtains information using the Management API and therefore requires an <dfn data-key="access-token">Access Token</dfn> (obtained during login) instead of the [ID Token](/tokens/id-token) used by /tokeninfo.
 
-Note also that the [/userinfo response](/api-auth/tutorials/adoption/scope-custom-claims) may vary based on scopes requested and the value of the [OIDC Conformant](/api-auth/tutorials/adoption/oidc-conformant) setting in the [Dashboard](${manage_url}) under **Applications > (Your Application) > Settings > Advanced Settings**. In that case, application code might need adjusted to handle the slightly altered response format.
+Note also that the [/userinfo response](/api-auth/tutorials/adoption/scope-custom-claims) may vary based on <dfn data-key="scope">scopes</dfn> requested and the value of the [OIDC Conformant](/api-auth/tutorials/adoption/oidc-conformant) setting in the [Dashboard](${manage_url}) under **Applications > (Your Application) > Settings > Advanced Settings**. In that case, application code might need adjusted to handle the slightly altered response format.
 
 ### Session management
 

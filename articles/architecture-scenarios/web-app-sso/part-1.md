@@ -28,7 +28,7 @@ Identity-as-Service ("IDaaS") is a cloud-based service for identity and access m
 
 ## Which protocol to use
 
-The next decision has to do with which protocol to use, OAuth 2.0 with OpenID Connect (OIDC) or SAML.
+The next decision has to do with which protocol to use, OAuth 2.0 with <dfn data-key="openid">OpenID Connect (OIDC)</dfn> or <dfn data-key="security-assertion-markup-language">SAML</dfn>.
 
 ::: note
 Auth0 implements proven, common and popular identity protocols, both for consumer oriented web products (OAuth 2.0, OAuth 1.0, OpenID) and for enterprise deployments (SAML, WS-Federation, LDAP). You have complete freedom to use the one that best meets your business needs.

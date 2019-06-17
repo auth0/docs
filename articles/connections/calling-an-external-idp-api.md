@@ -49,7 +49,7 @@ If this is the first time you are requesting a [Management APIv2 Token](/api/man
 
 To do so, go to [Dashboard > APIs > Auth0 Management API > API Explorer](${manage_url}/#/apis/management/explorer) and click **Create & Authorize a Test Application**.
 
-This will create a new application and grant **all scopes of the Management API**. This means that the tokens generated for this application will be able to access **all Management API endpoints**.
+This will create a new application and grant **all <dfn data-key="scope">scopes</dfn> of the Management API**. This means that the tokens generated for this application will be able to access **all Management API endpoints**.
 
 ::: panel Can't see the button?
 If you don't see this button, it means that you have at least one authorized application already. In this case you can either update the scopes of an existing application and use that, or create a new one following these steps:
@@ -118,7 +118,7 @@ Replace these values:
 Within the user's `identities` array, there will be an Access Token that you can extract and use to make calls to the IdP's API: `user.identities[0].access_token`.
 
 ::: note
-For certain Identity Providers, Auth0 will store a Refresh Token which you can use to obtain a new Access Token for the IdP. This works for: BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint, Azure AD. For more information, refer to [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens).
+For certain Identity Providers, Auth0 will store a <dfn data-key="refresh-token">Refresh Token</dfn> which you can use to obtain a new Access Token for the IdP. This works for: BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint, Azure AD. For more information, refer to [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens).
 :::
 
 In most cases, the user will only have one identity, but if you have used the [account linking feature](/link-accounts), there may be more.

@@ -41,7 +41,7 @@ On the *Create a New Application Integration* pop-up window, select the **Platfo
 
 ![Create New app Integration](/media/articles/saml/identity-providers/okta/new-app-integration.png)
 
-You will now create your SAML integration. On the *General Settings* page, provide the following:
+You will now create your <dfn data-key="security-assertion-markup-language">SAML</dfn> integration. On the *General Settings* page, provide the following:
 
 * **App name**;
 * **App logo** (optional);
@@ -148,7 +148,7 @@ See [IdP-Initiated SSO](/protocols/saml/idp-initiated-sso) for information on co
 
 ## Troubleshooting
 
-The user might see the Okta dashboard after authenticating using a Service Provider-initiated login flow. If you integrated you application with Auth0 using the OpenID Connect protocol, Auth0 takes the value of the `state` parameter and passes it to Okta using the SAML "RelayState" parameter. As such, make sure that you set `state` to a value that Okta can use.
+The user might see the Okta dashboard after authenticating using a Service Provider-initiated login flow. If you integrated you application with Auth0 using the <dfn data-key="openid">OpenID Connect (OIDC)</dfn> protocol, Auth0 takes the value of the `state` parameter and passes it to Okta using the SAML "RelayState" parameter. As such, make sure that you set `state` to a value that Okta can use.
 
 
 <%= include('../../../connections/_quickstart-links.md') %>
