@@ -2,6 +2,10 @@ title: JavaScript
 language:
   - JavaScript
 image: /media/platforms/html5.png
+author:
+  name: Steve Hobbs
+  email: steve.hobbs@auth0.com
+  community: false
 topics:
   - quickstart
 contentType: tutorial
