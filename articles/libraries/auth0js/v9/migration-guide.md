@@ -26,7 +26,7 @@ Everyone should migrate to v9. All previous versions are deprecated, and the dep
 The documents below describe all the changes that you should be aware of when migrating from different versions of Auth0.js to v9. Make sure you go through the relevant guide(s) before upgrading.
 
 * [Migrating from Auth0.js v8](/libraries/auth0js/v9/migration-v8-v9)
-    * [Recommendations for migrating from Auth0.js v8 when SSO is required](/guides/login/migration-sso)
+    * [Recommendations for migrating from Auth0.js v8 when Single Sign-on (SSO) is required](/guides/login/migration-sso)
 * [Migrating from Auth0.js v7](/libraries/auth0js/v9/migration-v7-v9)
 * [Migrating from Auth0.js v6](/libraries/auth0js/v9/migration-v6-v9)
 * [Migrating from Auth0.js v8 in Angular 1.x Applications](/libraries/auth0js/v9/migration-angularjs-v8)

@@ -110,7 +110,7 @@ Next let's configure the two <dfn data-key="role">Roles</dfn>: employee and mana
 
 Head over to the **Roles** tab, click the **Create Role** button, and select the **Timesheets SPA** application.
 
-Set the **Name** and **Description** to `Employee`, and select the `delete:timesheets`, `create:timesheets` and `read:timesheets` permissons. Click on **Save**.
+Set the **Name** and **Description** to `Employee`, and select the `delete:timesheets`, `create:timesheets` and `read:timesheets` permissions. Click on **Save**.
 
 ![Create Employee Role](/media/articles/architecture-scenarios/spa-api/create-employee-role.png)
 

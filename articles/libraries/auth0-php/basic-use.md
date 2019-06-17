@@ -168,7 +168,7 @@ $auth0 = new Auth0([
 $auth0->logout();
 ```
 
-If you're using SSO and also want to end their Auth0 session, see the [SSO Logout section here](/libraries/auth0-php/authentication-api#sso-logout). More information about logging out, in general, can be found [here](/logout).
+If you're using <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> and also want to end their Auth0 session, see the [SSO Logout section here](/libraries/auth0-php/authentication-api#sso-logout). More information about logging out, in general, can be found [here](/logout).
 
 ### Read more
 

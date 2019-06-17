@@ -1,6 +1,6 @@
 ---
-title: IdP-Initiated SSO
-description: How to setup SAML Identity Provider initiated SSO.
+title: IdP-Initiated Single Sign-On
+description: How to setup SAML Identity Provider-initiated Single Sign-on (SSO).
 topics:
   - saml
   - sso
@@ -11,9 +11,9 @@ useCase:
   - add-idp
 ---
 
-# IdP-Initiated SSO
+# IdP-Initiated Single Sign-On
 
-Many instructions for setting up a <dfn data-key="security-assertion-markup-language">SAML</dfn> federation begin with SSO initiated by the service provider. The service provider redirects the user to the identity provider for the purposes of authentication. This process is commonly used for consumer-facing scenarios.
+Many instructions for setting up a <dfn data-key="security-assertion-markup-language">SAML</dfn> federation begin with <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> initiated by the service provider. The service provider redirects the user to the identity provider for the purposes of authentication. This process is commonly used for consumer-facing scenarios.
 
 However, in enterprise scenarios, it is sometimes common to begin with the identity provider initiating SSO, not the service provider. For example, an enterprise company might set up a portal to ensure that users navigate to the correct application after they sign on to the portal.
 

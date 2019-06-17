@@ -13,7 +13,7 @@ useCase:
   - secure-an-api
   - build-an-app
 ---
-# SSO for Regular Web Apps: Auth0 Configuration
+# Single Sign-On for Regular Web Apps: Auth0 Configuration
 
 In this section we will review all the configurations we need to apply using the [Auth0 Dashboard](${manage_url}).
 

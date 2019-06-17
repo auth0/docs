@@ -44,7 +44,7 @@ Before beginning this tutorial:
 3. [Register a logical API in Auth0](#register-a-logical-api-in-auth0): Register a single logical API to represent your multiple APIs.
 4. [Configure scopes for the logical API](#configure-scopes-for-the-logical-API): Create the scopes that will allow the logical API to represent your multiple APIs.
 5. [Grant access to the logical API](#grant-access-to-the-logical-api): Configure the login link in your sample application, initiate the authorization flow, and extract the Access Token to be used to call your multiple APIs.
-Optional: [Implement Single Log Out (SLO) or Single Sign On (SSO)](#implement-single-log-out-slo-or-single-sign-on-sso)
+Optional: [Implement Single Logout (SLO) or Single Sign-on (SSO)](#implement-single-log-out-slo-or-single-sign-on-sso)
 
 ## Enable a connection for your Application
 
@@ -164,6 +164,6 @@ In our sample, after you successfully log in, you will see buttons that allow yo
 ![SPA Home after Login](/media/articles/api-auth/tutorials/represent-multiple-apis/apis.png)
 
 
-## Implement Single Log Out (SLO) or Single Sign-On (SSO)
+## Implement Single Logout (SLO) or Single Sign-on (SSO)
 
 <%= include('../../_includes/_checksession_polling') %>

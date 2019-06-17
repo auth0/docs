@@ -52,7 +52,7 @@ For details on how to implement this, refer to [How to implement the Implicit Gr
 
 ## Silent Authentication
 
-If you need to authenticate your users without a login page (for example, when the user is already logged in via [SSO](/sso) scenario) or get a new Access Token (thus simulate refreshing an expired token), you can use Silent Authentication.
+If you need to authenticate your users without a login page (for example, when the user is already logged in via <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> scenario) or get a new Access Token (thus simulate refreshing an expired token), you can use Silent Authentication.
 
 For details on how to implement this, refer to [Silent Authentication](/api-auth/tutorials/silent-authentication).
 

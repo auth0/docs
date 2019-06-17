@@ -51,13 +51,13 @@ If dynamically setting the value isn't possible, then set as either `HTTP-Redire
 * The SAML assertion, and the SAML response can be individually or simultaneously signed.
 * The __SingleLogout service URL__, where the SAML Identity Provider will send logout requests and responses, is: `https://${account.namespace}/logout`. SAML logout requests must be signed by the Identity Provider.
 
-## Encrypted Assertions:
+## Encrypted assertions:
 
 Optionally, assertions can be encrypted. Use this public key to configure the IdP: [CER](https://${account.namespace}/cer) | [PEM](https://${account.namespace}/pem) | [PKCS#7](https://${account.namespace}/pb7)
 
-## IdP-Initiated SSO
+## IdP-initiated Single Sign-on
 
-[Click here to learn more about IdP-Initiated SSO](/protocols/saml/idp-initiated-sso)
+[Click here to learn more about IdP-Initiated Single Sign-on (SSO)](/protocols/saml/idp-initiated-sso)
 
 ## Metadata
 

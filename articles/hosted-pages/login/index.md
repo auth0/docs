@@ -26,13 +26,13 @@ Users will see the login page, typically with either the Lock widget or with you
 If the incoming authentication request includes a `connection` parameter that uses an external identity provider (such as a social provider), the login page will not display. Instead, Auth0 will direct the user to the [identity provider's](/identityproviders) login page.
 :::
 
-#### Single Sign-On (SSO)
+#### Single Sign-on (SSO)
 
-If you want to use single sign on, you should use universal login rather than an embedded login solution. When a user logs in via the login page, a cookie will be created and stored. On future calls to the `authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user will not ever be redirected to the login page. They will see the page only when they need to actually login.
+If you want to use <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>, you should use universal login rather than an embedded login solution. When a user logs in via the login page, a cookie will be created and stored. On future calls to the `authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user will not ever be redirected to the login page. They will see the page only when they need to actually login.
 
 This behavior occurs without the need for any modification to the login page itself. This is a simple two step process:
 
-1. Enable SSO for the application in the [Dashboard](${manage_url}) (Go to the Application's Settings, then scroll down to the **Use Auth0 instead of the IdP to do Single Sign On** setting and toggle it on.
+1. Enable SSO for the application in the [Dashboard](${manage_url}) (Go to the Application's Settings, then scroll down to the **Use Auth0 instead of the IdP to do Single Sign-on** setting and toggle it on.
 1. Use the [authorize endpoint](/api/authentication#authorization-code-grant) with `?prompt=none` for [silent SSO](/api-auth/tutorials/silent-authentication).
 
 ::: note

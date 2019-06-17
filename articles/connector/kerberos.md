@@ -39,7 +39,7 @@ When Auth0 is running in the cloud, it won't be able to see your user's internal
 
 Depending on the location of the user the authentication flow will be different when IP ranges are set. Let's take Fabrikam as an example. Since Fabrikam uses the SaaS version of Auth0 they configured their Public IP Address (`24.12.34.56/32`) in the connection.
 
-Users connecting from within the building will all originate from `24.12.34.56` (as configured on the connection). When they authenticate, the users can follow the AD/LDAP native flow and have a seamless SSO experience.
+Users connecting from within the building will all originate from `24.12.34.56` (as configured on the connection). When they authenticate, the users can follow the AD/LDAP native flow and have a seamless <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> experience.
 
 ::: note
 For this to work, the network must allow the users to connect to the AD/LDAP Connector on the port configured in the `config.json` file. In [highly available](/connector/high-availability) deployments of the connector, the address users will be connecting to is the network load balancer in front of all connectors instances.
@@ -57,7 +57,7 @@ On the other hand, when users are not in the corporate network (for example, at 
 Detecting IP ranges in an Active Directory/LDAP connection and using those ranges with Lock to allow integrated Windows Authentication is a feature that works in Lock 10, but can only be used in Lock 11 in Universal Login scenarios. This feature is *disabled* in Lock 11 when Lock 11 is used in Embedded Login scenarios.
 :::
 
-When an application is using Lock 10 or 11 within the Login Page hosted by Auth0 (typically used for <dfn data-key="security-assertion-markup-language">SAML</dfn>/WS-Federation protocols and <<dfn data-key="single-sign-on">SSO</dfn> Integrations), there will be a button which allows users to authenticate using "Windows Authentication". 
+When an application is using Lock 10 or 11 within the Login Page hosted by Auth0 (typically used for <dfn data-key="security-assertion-markup-language">SAML</dfn>/WS-Federation protocols and <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> Integrations), there will be a button which allows users to authenticate using "Windows Authentication". 
 
 In some cases the requirement could be to automatically sign in the user if Kerberos is possible (based on the IP-address of the end user). The following changes can be added to the Auth0 Login Page to automatically sign in the user if Kerberos is possible:
 

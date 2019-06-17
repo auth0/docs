@@ -39,7 +39,7 @@ Navigate to [Connections -> Enterprise](${manage_url}/#/connections/enterprise).
 
 Check and confirm the following with the IdP administrator:
 
-* That the Sign In URL is the correct <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn> URL. This is the URL that Auth0 will redirect the user to for authentication.
+* That the Sign In URL is the correct <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> URL. This is the URL that Auth0 will redirect the user to for authentication.
 * If the IdP expects HTTP-POST binding or HTTP-Redirect binding. You can switch the default binding in the __Settings__ tab.
 * If your authentication requests should be signed. If so, which signing algorithm does the IdP expect you to use? (Note that authentication requests are not commonly signed.) If you're sending signed requests, enable the Connection Settings **Sign Request** toggle and make sure the **Signing Algorithm** value matches what the IdP expects.
 * Ask the IdP administrator to check for log entries that might provide information on the problem.

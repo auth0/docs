@@ -1,5 +1,5 @@
 ---
-description: Learn how to use SAML Single Sign-On (SSO) with Auth0 as both the Service Provider and Identity Provider, using two Auth0 tenants, allowing you to test your Auth0 SAML without configuring another provider to do so.
+description: Learn how to use SAML Single Sign-on (SSO) with Auth0 as both the Service Provider and Identity Provider, using two Auth0 tenants, allowing you to test your Auth0 SAML without configuring another provider to do so.
 toc: true
 topics:
   - saml
@@ -12,7 +12,7 @@ useCase:
 
 # SAML SSO with Auth0 as Service Provider and as an Identity Provider
 
-This tutorial will create a simple example application that uses Auth0 to do <dfn data-key="security-assertion-markup-language">SAML</dfn> <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn>, using one Auth0 tenant (tenant 1) as a SAML Service Provider(SP), and authenticating users against a second Auth0 tenant (tenant 2) serving as SAML Identity Provider(IDP).  This gives you a way to test your Auth0 SAML tenant (tenant 1) configuration, using Auth0 as an IDP so you don't have to learn and set up another IDP.
+This tutorial will create a simple example application that uses Auth0 to do <dfn data-key="security-assertion-markup-language">SAML</dfn> <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>, using one Auth0 tenant (tenant 1) as a SAML Service Provider(SP), and authenticating users against a second Auth0 tenant (tenant 2) serving as SAML Identity Provider(IDP).  This gives you a way to test your Auth0 SAML tenant (tenant 1) configuration, using Auth0 as an IDP so you don't have to learn and set up another IDP.
 
 There are **9 steps** to this sample and the tenth is a troubleshooting section to help resolve any problems that might arise.
 
@@ -89,7 +89,7 @@ Next, create a user to use in testing the SAML SSO sequence.
 
 ## 3. Set up the Auth0 service provider (tenant 1)
 
-In this section you will configure another Auth0 tenant (tenant 1) so it knows how to communicate with the second Auth0 tenant (tenant 2) for Single Sign-On via the SAML protocol.
+In this section you will configure another Auth0 tenant (tenant 1) so it knows how to communicate with the second Auth0 tenant (tenant 2) for SSO via the SAML protocol.
 
 Switch to **Tenant 1**. You can do this using the **Switch tenant** option in the upper-right menu.
 

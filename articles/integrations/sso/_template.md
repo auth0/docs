@@ -6,7 +6,7 @@ The steps in this tutorial are valid for Active Directory Rights Management Serv
 :::
 <% } %>
 
-The ${service} <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn> Integration lets your users log in to ${service} with Auth0 [identity providers](/identityproviders), and provides SSO to [configured applications](/sso).
+The ${service} <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> Integration lets your users log in to ${service} with Auth0 [identity providers](/identityproviders), and provides SSO to configured applications.
 
 ## Create a New SSO Integration
 
@@ -133,7 +133,7 @@ On the **Settings** page, configure the following values:
         </tr>
         <% } %>
         <tr>
-            <td>Use Auth0 instead of the IdP to do Single Sign-On (SSO)</td>
+            <td>Use Auth0 instead of the IdP to do Single Sign-on (SSO)</td>
             <td>If enabled, Auth0 will handle SSO instead of ${service}.</td>
         </tr>
     </tbody>

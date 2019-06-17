@@ -1,6 +1,6 @@
 ---
 title: "SSO for Regular Web Apps: ASP.NET Core Implementation"
-description: The ASP.NET Core implementation for the SSO for Regular Web Apps architecture scenario
+description: The ASP.NET Core implementation for the Single Sign-on (SSO) for Regular Web Apps architecture scenario
 topics:
     - architecture
     - regular-web-apps
@@ -15,7 +15,7 @@ useCase:
   - build-an-app
 ---
 
-# SSO for Regular Web Apps: ASP.NET Core implementation
+# Single Sign-On (SSO) for Regular Web Apps: ASP.NET Core implementation
 
 Full source code for the ASP.NET Core implementation can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-webapp-oidc).
 

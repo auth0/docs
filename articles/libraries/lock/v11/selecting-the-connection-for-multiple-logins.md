@@ -28,7 +28,7 @@ If you use at most one database connection and zero or more social connections t
 * Click on one of the social identity providers buttons (e.g. "Log in with Google")
 * Enter their email and password (meaning "I will use the database connection").
 
-But if the application or tenant have other connection types enabled (like enterprise connections or multiple databases) the selection process might be more involved. How do you indicate that a user wants to use a specific database connection if more than one is enabled? What if a user wants to use an enterprise connection to log in using SSO?
+But if the application or tenant have other connection types enabled (like enterprise connections or multiple databases) the selection process might be more involved. How do you indicate that a user wants to use a specific database connection if more than one is enabled? What if a user wants to use an enterprise connection to log in using <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>?
 
 If you implement [a custom login UI](/libraries/when-to-use-lock#when-to-implement-lock-vs-a-custom-ui) you have full control over the authentication flow. You can choose the connection based on context (like the given email address) or by asking the user, then provide the `connection` parameter to one of Auth0.js' [login methods](/libraries/auth0js/v9#login).
 

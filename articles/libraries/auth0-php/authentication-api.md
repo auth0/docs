@@ -246,9 +246,9 @@ Array
 - The `email_verified` key will always be `false`.
 - The `email` key will be the same email address that was passed to the endpoint.
 
-## SSO Logout
+## Single Sign-on Logout
 
-Basic logout (covered on the [Basic Use page](/libraries/auth0-php/basic-use#logout)) closes the session in your application, but for customers using SSO, they also need to close the session at Auth0. This means that the next time the user sees an Auth0 login form, they will be required to provide their credentials to log in. This step should be completed **after** the session is closed in your application.
+Basic logout (covered on the [Basic Use page](/libraries/auth0-php/basic-use#logout)) closes the session in your application, but for customers using <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>, they also need to close the session at Auth0. This means that the next time the user sees an Auth0 login form, they will be required to provide their credentials to log in. This step should be completed **after** the session is closed in your application.
 
 First, determine where the user should end up after the logout has completed. Save this in the Auth0 Application settings in the "Allowed Logout URLs" field. Also, add an `AUTH0_LOGOUT_RETURN_URL` key with this URL as the value in your `.env` file.
 

@@ -10,7 +10,7 @@ useCase: integrate-saas-sso
 ---
 # Office 365 Integration
 
-Auth0 can help radically simplify the authentication process for Office 365. In this tutorial, you'll learn how to add <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn> to Office 365 using Auth0.
+Auth0 can help radically simplify the authentication process for Office 365. In this tutorial, you'll learn how to add <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> to Office 365 using Auth0.
 
 ## Why use Auth0 for Office 365
 

@@ -64,7 +64,7 @@ When troubleshooting, we recommend beginning by gathering information that helps
 * Check to see if the browser has enabled JavaScript and cookies.
 * Check that the caps lock key is disabled.
 * If the user is using a mobile device, check to see if there's any software that might impact authentication and/or authorization (such as not running some type of required software).
-* Check to see if the user can access some of the app's key URLs, such as the IdP's SSO URL (indicating a network connectivity issue).
+* Check to see if the user can access some of the app's key URLs, such as the IdP's <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> URL (indicating a network connectivity issue).
 
 ## Next Steps
 

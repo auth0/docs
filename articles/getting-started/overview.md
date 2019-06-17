@@ -28,7 +28,7 @@ Take a look at just a few of Auth0's use cases:
 
 - You built an awesome app and you want to add user authentication and authorization. Your users should be able to log in either with username/password or with their social accounts (Facebook, Twitter, and so on). You want to retrieve the user's profile after the login so you can customize the UI and apply your authorization policies.
 - You built an API and you want to secure it with [OAuth 2.0](/protocols/oauth2).
-- You have more than one app, and you want to implement <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn>.
+- You have more than one app, and you want to implement <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>.
 - You built a JavaScript front-end app and a mobile app, and you want them both to securely access your API.
 - You have a web app which needs to authenticate users using <dfn data-key="security-assertion-markup-language">SAML</dfn>.
 - You believe passwords are broken and you want your users to log in with one-time codes delivered by email or SMS.

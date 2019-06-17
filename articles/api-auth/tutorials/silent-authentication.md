@@ -68,7 +68,7 @@ Note that this response is indistinguishable from a login performed directly wit
 
 ### Error response
 
-If the user was not logged in via SSO or their SSO session had expired, Auth0 will redirect to the specified `redirect_uri` (callback URL) with an error:
+If the user was not logged in via <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> or their SSO session had expired, Auth0 will redirect to the specified `redirect_uri` (callback URL) with an error:
 
 ```
 GET https://your_callback_url/

@@ -16,9 +16,9 @@ Auth0 only supports using Auth0 as the identity provider in <dfn data-key="secur
 
 Depending on the type of application you're working with, configuring Auth0 to serve as the SAML Identity Provider (IdP) is done in several places.
 
-## SSO Integrations with Built-in Auth0 Support
+## Single Sign-on Integrations with Built-in Auth0 Support
 
-For some SSO Integrations that support SAML, the configuring Auth0 is done using the [**SSO Integrations** area of the Management Dashboard](${manage_url}/#/externalapps). To create a new integration, click **Create SSO Integration**.
+For some <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> Integrations that support SAML, the configuring Auth0 is done using the [**SSO Integrations** area of the Management Dashboard](${manage_url}/#/externalapps). To create a new integration, click **Create SSO Integration**.
 
 ![](/media/articles/protocols/saml/saml-configuration/sso-integrations.png)
 

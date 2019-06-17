@@ -52,9 +52,9 @@ You can also map SAML attributes to the Auth0 user profile from the dashboard. T
 
 You may want to enrich user profiles with attributes or data retrieved from other services. For example, you might receive an address or phone number and wish to translate that into a geographic region. [Auth0 Rules](/rules) enable you to write small snippets of code that execute during the authentication transaction. This lets you execute logic or call other services for user information, then add [user metadata](/users/concepts/overview-user-metadata) to the Auth0 user profile and optionally the resulting tokens sent to your applications.
 
-## Single sign-on
+## Single Sign-on
 
-If you have several internal applications, you can set up [single sign-on (SSO)](/sso/current) across them so users only have to log in once.
+If you have several internal applications, you can set up <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> across them so users only have to log in once.
 
 Auth0 supports integration with applications that externalize authentication using industry standard identity protocols:
 
@@ -66,9 +66,9 @@ After some configuration, all your applications can leverage your enterprise ide
 
 Now when a user signs in to one application, they can access other applications integrated with Auth0 without having to log in again. This will be true until their SSO session expires. You should configure the SSO session length within Auth0 to meet security policies.
 
-## Single sign-on integrations
+## Single Sign-on integrations
 
-You can also integrate purchased applications with Auth0 for single sign-on (SSO). Auth0 provides [pre-built integrations](/integrations/sso) for applications such as:
+You can also integrate purchased applications with Auth0 for <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>. Auth0 provides [pre-built integrations](/integrations/sso) for applications such as:
 
 * SalesForce
 * Zendesk

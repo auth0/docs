@@ -73,7 +73,7 @@ The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section expl
 
 ![](/media/articles/tutorials/tenant-settings/login-logout.png)
 
-**Allowed Logout URLs**:  These are a set of URLs that are valid to redirect to after logout from Auth0 when no `client_id` is specified on the logout endpoint invocation. It's useful as a global list when SSO is enabled.  Learn more about [Logout](/logout).
+**Allowed Logout URLs**:  These are a set of URLs that are valid to redirect to after logout from Auth0 when no `client_id` is specified on the logout endpoint invocation. It's useful as a global list when <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> is enabled.  Learn more about [Logout](/logout).
 
 **Tenant Login URI**: In some scenarios Auth0 will need your tenant to start the OIDC login flow . This URI should point to a route in your application that starts the flow by redirecting to the `/authorize` endpoint. It would usually take the form of 'https://mytenant.org/login'. [Learn more about the tenant default login URI](/universal-login/default-login-url).
 
@@ -87,7 +87,7 @@ This is the session timeout for the Auth0 session. You can configure separately 
 
 Auth0 also sets a value for the session idle timeout, which is the allowed duration of inactivity for a session before a new session is required. Currently, this value is set at 7 days and is not configurable. If the **SSO Cookie Timeout** is set to longer than the idle timeout, then if the session is not used within 7 days, the session will expire and a new session must be created.
 
-Learn more about [Single Sign On](/sso/current).
+Learn more about [Single Sign-on (SSO)](/sso/current).
 
 ### Global Application Information
 

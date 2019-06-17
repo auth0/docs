@@ -74,9 +74,9 @@ useCase:
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-334"></i><a href="/integrations/sso">Single Sign-On Integrations</a>
+    <i class="icon icon-budicon-334"></i><a href="/integrations/sso">Single Sign-On (SSO) Integrations</a>
     <p>
-        Learn how to set up <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn> between Auth0 and various services.
+        Learn how to set up <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> between Auth0 and various services.
     </p>
     <ul>
       <li>

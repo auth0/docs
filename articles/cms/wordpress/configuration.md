@@ -178,13 +178,13 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 ### Features
 
-* **Universal Login Page:** Redirects the `wp-login.php` page to the Universal Login Page for SSO authentication using all active Connections for this Application. Option name is `auto_login`.
+* **Universal Login Page:** Redirects the `wp-login.php` page to the Universal Login Page for <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> authentication using all active Connections for this Application. Option name is `auto_login`.
 
 * **Auto Login Method:** A single, active connection to use for authentication when **Universal Login Page** is turned on. Leave this blank to show all active Connections on the Universal Login Page. Option name is `auto_login_method`.
 
 * **Single Logout:** Enable this option to log out of Auth0 when logging out of WordPress. Option name is `singlelogout`.
 
-* **Single Sign On (SSO):** *This option is deprecated and will be removed in the next major. Please use the Universal Login Page option to enable SSO* Enable this option to attempt SSO on the `wp-login.php` page. Option name is `sso`.
+* **Single Sign-On (SSO):** *This option is deprecated and will be removed in the next major. Please use the Universal Login Page option to enable SSO* Enable this option to attempt SSO on the `wp-login.php` page. Option name is `sso`.
 
 * **Override WordPress Avatars:** Forces WordPress to use Auth0 avatars. Option name is `override_wp_avatars`.
 

@@ -40,9 +40,9 @@ If you want to use a custom domain name for the <dfn data-key="universal-login">
 
 For <dfn data-key="security-assertion-markup-language">SAML</dfn> connections that authenticate users against remote SAML Identity Providers, you should set up the custom domain before configuring any SAML providers as changing the domain across multiple SAML providers is challenging.
 
-## Set SSO session timeout
+## Set Single Sign-on session timeout
 
-The [SSO session timeout value](/dashboard/dashboard-tenant-settings#session-timeout) in your tenant settings specifies the time until a user's session expires. By default the value is 7 days. During this time, users can access your Auth0-integrated applications without re-entering their credentials.
+The <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> [session timeout value](/dashboard/dashboard-tenant-settings#session-timeout) in your tenant settings specifies the time until a user's session expires. By default the value is 7 days. During this time, users can access your Auth0-integrated applications without re-entering their credentials.
 
 Adjust this value to fit your application’s desired user experience and security requirements.
 

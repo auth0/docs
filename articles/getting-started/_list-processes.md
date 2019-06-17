@@ -8,7 +8,7 @@
   Use this page to manage your APIs. Here you can register a new API of yours, that you want to secure with Auth0, and manage your existing ones.
   [More info on APIs](/apis).
 <% } else if (screen === "sso") { %>
-  <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn> Integrations enable the use of external services for single sign-on. In this page you can see a list of the available external services that you can use, such as Office 365, Salesforce, and others. Here you can create a new SSO integration, find tutorials on how to configure it, and review and update the settings of a particular integration.
+  <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> Integrations enable the use of external services for SSO. In this page you can see a list of the available external services that you can use, such as Office 365, Salesforce, and others. Here you can create a new SSO integration, find tutorials on how to configure it, and review and update the settings of a particular integration.
   [More info on SSO Integrations](/integrations/sso).
 <% } else if (screen === "connections") { %>
   Use this page to manage the identity providers that you use to login to your apps. There are four types:

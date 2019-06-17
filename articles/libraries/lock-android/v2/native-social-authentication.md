@@ -236,7 +236,7 @@ _You can check for the latest version on the repository [Readme](https://github.
 3. Add the **SHA-1** Base64 encoded Key Hashes of the certificates you're using to sign your application and click the Next button. If you need help obtaining the SHA-1 check [this](#certificate-fingerprints) section.
 4. Finally, scroll to the top of the page and click the Skip Quickstart button to go to your Facebook app's page.
 5. On the top of the page, you will find the `APP ID` and `APP SECRET` values. Save them as you're going to need them later.
-6. On the left side you have the navigation drawer. Click Settings and then Basic. Turn ON the <dfn data-key="single-sign-on">**Single Sign On**</dfn> switch and click the Save button.
+6. On the left side you have the navigation drawer. Click Settings and then Basic. Turn ON the <dfn data-key="single-sign-on">**Single Sign-On**</dfn> switch and click the Save button.
 7. Click Settings and then Advanced. Turn ON the **Native or desktop app?** switch.
 
 #### Auth0 dashboard

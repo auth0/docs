@@ -95,7 +95,7 @@ Auth0Mosca.prototype.authenticateWithJWT = function(){
 
     if( username !== 'JWT' ) { return callback("Invalid Credentials", false); }
 
-    // console.log('Passsord:'+password);
+    // console.log('Password:'+password);
 
     jwt.verify(password, self.clientSecret, function(err,profile){
           if( err ) { return callback("Error getting UserInfo", false); }

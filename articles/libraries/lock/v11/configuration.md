@@ -300,7 +300,7 @@ var options = {
 ### rememberLastLogin {Boolean}
 
 Determines whether or not to show a screen that allows you to quickly log in with the account you used the last time. Defaults to true.
-Request for SSO data and enable **Last time you signed in with[...]** message. Defaults to `true`.
+Request for <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> data and enable **Last time you signed in with[...]** message. Defaults to `true`.
 
 ```js
 var options = {

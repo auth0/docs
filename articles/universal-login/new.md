@@ -20,7 +20,7 @@ From a functional perspective, it has much better support for [Localization](/un
 
 - If you are using Development Keys for Social Providers:
 
-    - Single Sign On and Silent Authentication will work properly, which does not happen in the Classic experience.
+    - <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> and Silent Authentication will work properly, which does not happen in the Classic experience.
 
     - Users will see a warning in the login page mentioning that the tenant is configured with [Development Keys](docs/connections/social/devkeys).
 

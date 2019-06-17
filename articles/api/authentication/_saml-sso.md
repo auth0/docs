@@ -89,7 +89,7 @@ This endpoint returns the <dfn data-key="security-assertion-markup-language">SAM
 - [SAML](/protocols/saml)
 
 
-## IdP-Initiated SSO Flow
+## IdP-Initiated Single Sign-On (SSO) Flow
 
 ```http
 POST https://${account.namespace}/login/callback?connection=CONNECTION

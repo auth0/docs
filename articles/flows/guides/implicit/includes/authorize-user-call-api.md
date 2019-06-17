@@ -4,7 +4,7 @@ To begin the flow, you'll need to get the user's authorization. This step may in
 
 * Authenticating the user;
 * Redirecting the user to an Identity Provider to handle authentication;
-* Checking for active SSO sessions;
+* Checking for active <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> sessions;
 * Obtaining user consent for the requested permission level, unless consent has been previously given.
 
 To authorize the user, your app must send the user to the authorization URL.

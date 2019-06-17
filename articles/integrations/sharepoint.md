@@ -9,7 +9,7 @@ useCase: integrate-saas-sso
 
 # SharePoint 2010/2013 Integration
 
-Auth0 can help to radically simplify the authentication process for SharePoint. In this tutorial, you'll learn how to add <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn> to Sharepoint using Auth0. Your users will be able to log in using any of our [Social Identity Providers](/identityproviders) (Facebook, Twitter, Github, and so on), [Enterprise Providers](/identityproviders) (LDAP, Active Directory, ADFS, and so on) or with a username and password.
+Auth0 can help to radically simplify the authentication process for SharePoint. In this tutorial, you'll learn how to add <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> to Sharepoint using Auth0. Your users will be able to log in using any of our [Social Identity Providers](/identityproviders) (Facebook, Twitter, Github, and so on), [Enterprise Providers](/identityproviders) (LDAP, Active Directory, ADFS, and so on) or with a username and password.
 
 ## Setup
 

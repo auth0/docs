@@ -30,7 +30,7 @@ Auth0 is an authentication broker that supports social identity providers as wel
 * **Integrates** your iOS app with **Auth0** (OS X coming soon).
 * Provides a elegant **native UI** to log in your users.
 * Provides support for **Social Providers** (Facebook, Twitter, and so on), **Enterprise Providers** (AD, LDAP, and so on) and **Username & Password** authentication.
-* Provides the ability to do **SSO** with 2 or more mobile apps, similar to Facebook and Messenger apps.
+* Provides the ability to do <dfn data-key="single-sign-on">**Single Sign-on (SSO)**</dfn> with 2 or more mobile apps, similar to Facebook and Messenger apps.
 * [1Password](https://agilebits.com/onepassword) integration using the **iOS 8** [Extension](https://github.com/AgileBits/onepassword-app-extension).
 
 ::: note

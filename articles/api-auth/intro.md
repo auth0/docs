@@ -87,9 +87,9 @@ To customize the tokens, use Hooks for the Client Credentials Flow, and Rules fo
 For more information, refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
 :::
 
-### Single Sign On (SSO)
+### Single Sign-on (SSO)
 
-Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from applications. This means that for SSO to work, you must be using <dfn data-key="universal-login">Universal Login</dfn>. Users must be redirected to the login page and then redirected to your application once authentication is complete.
+Initiating an <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> session must now happen __only__ from an Auth0-hosted page and not from applications. This means that for SSO to work, you must be using <dfn data-key="universal-login">Universal Login</dfn>. Users must be redirected to the login page and then redirected to your application once authentication is complete.
 
 ::: note
 Support for SSO from applications is planned for a future release.
@@ -125,7 +125,7 @@ Not all [OAuth 2.0 grants](/protocols/oauth2#authorization-grant-types) support 
 </table>
 
 ::: note
-For more information, refer to [OIDC Single sign-on](/api-auth/tutorials/adoption/single-sign-on).
+For more information, refer to [OIDC Single Sign-on (SSO)](/api-auth/tutorials/adoption/single-sign-on).
 :::
 
 ### Authorization Code Grant

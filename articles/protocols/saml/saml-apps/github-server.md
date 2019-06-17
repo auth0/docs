@@ -69,7 +69,7 @@ As an example, if you want `nickname` as the Name Identifier, the `mappings` sec
 }
 ```
 
-## Configure SAML Single Sign-On on GitHub
+## Configure SAML Single Sign-on on GitHub
 Follow the instruction from [Using SAML on Enterprise Server- GitHub Help](https://help.github.com/en/enterprise/admin/user-management/using-saml#configuring-saml-settings) to complete the configuration on GitHub Enterprise Cloud. You will need the following information:
 
 * **Sign On URL**: `https://${account.namespace}/samlp/{CLIENT_ID}`

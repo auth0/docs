@@ -58,7 +58,7 @@ Universal Login is **strongly** recommended for most use cases because it [offer
 * Developed, hosted and maintained by Auth0 (less maintenance required by your team).
 * Provides a single place to make changes.
 * More secure because credentials are collected and verified within the same domain. This reduces exposure of static credentials to multiple applications as well as the possibility of CSRF and man-in-the-middle attacks.
-* Provides reliable <dfn data-key="single-sign-on">Single Sign-On (SS0)</dfn> functionality without relying on third-party cookies or restricting the domain of applications.
+* Provides reliable <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> functionality without relying on third-party cookies or restricting the domain of applications.
 * Fully customizable in terms of colors, text, logos, buttons as well as [custom domain](/custom-domains).
 * Provides proper cache control to avoid browsers caching old versions.
 * Can leverage either the [Lock Widget](/libraries/lock) or [Auth0.js SDK](/libraries/auth0js) for flexibility in appearance and function.

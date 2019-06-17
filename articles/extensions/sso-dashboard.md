@@ -12,7 +12,7 @@ useCase: extensibility-extensions
 
 # Auth0 Extension: Single Sign-On (SSO) Dashboard
 
-The **SSO Dashboard** extension allows you to create a dashboard with multiple enterprise applications that can be enabled for single sign-on for your users for login.
+The **<dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> Dashboard** extension allows you to create a dashboard with multiple enterprise applications that can be enabled for SSO for your users for login.
 
 The SSO dashboard supports two types of users: 
 **Users**- who will login to the dashboard to then select an application to sign into with SSO. 
@@ -101,7 +101,7 @@ For **Users** use `https://${account.tenant}.<REGION>8.webtask.io/auth0-sso-dash
 
 ### Add a new application
 
-To add a new application to your dashboard to be used for single sign-on, go to the **Settings** page of the dashboard by clicking on the link on the upper right corner of the page and click **Settings** from the dropdown.
+To add a new application to your dashboard to be used for SSO, go to the **Settings** page of the dashboard by clicking on the link on the upper right corner of the page and click **Settings** from the dropdown.
 
 Then click on the **CREATE APP** button to add a new application.
 

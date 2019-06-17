@@ -20,11 +20,11 @@ When using a **native** login flow, the user signs up or enters their credential
 
 The rest of this article discusses more things to consider, before you decide on a browser-based, or a native login flow.
 
-## SSO across native applications
+## Single Sign-on across native applications
 
 If you have several mobile applications (such as Google Drive, Google Docs/Sheets, YouTube, and so on), you might want to automatically log the user into all of them if they log into any one app.
 
-If your applications use a wholly native experience, your users have to enter their credentials for each application. However, if you use a browser-based login flow you can implement SSO, reducing the number of times the user has to log in.
+If your applications use a wholly native experience, your users have to enter their credentials for each application. However, if you use a browser-based login flow you can implement <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>, reducing the number of times the user has to log in.
 
 ::: note
 You can implement SSO with native apps by storing <dfn data-key="refresh-token">Refresh Tokens</dfn> on a shared keychain, but this technique is not compliant with the OAuth 2.0 specifications.

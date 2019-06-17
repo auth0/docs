@@ -44,7 +44,7 @@ For POST requests, parameters not included in the URL should be encoded as JSON 
 `curl --request POST --url 'https://${account.namespace}/some-endpoint' --header 'content-type: application/json' --data '{"param": "value", "param": "value"}'`
 
 ::: note
-An exception to that is the [SAML IdP-Initiated SSO Flow](#idp-initiated-sso-flow), which uses both a query string parameter and a `x-www-form-urlencoded` value.
+An exception to that is the [SAML IdP-Initiated Single Sign-on (SSO) Flow](#idp-initiated-sso-flow), which uses both a query string parameter and a `x-www-form-urlencoded` value.
 :::
 
 ## Code samples

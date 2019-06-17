@@ -1,6 +1,6 @@
 ---
 title: SAML Single Sign-On with SSOCircle as an Identity Provider
-description: Learn how to configure an application to use Auth0 for SAML Single Sign-On (SSO), authenticating users against SSOCircle
+description: Learn how to configure an application to use Auth0 for SAML Single Sign-on (SSO), authenticating users against SSOCircle
 toc: true
 topics:
     - saml
@@ -11,9 +11,9 @@ contentType:
 useCase:
   - add-idp
 ---
-# SAML SSO with SSOCircle as an Identity Provider
+# SAML Single Sign-on with SSOCircle as an Identity Provider
 
-This tutorial will create a sample application that uses Auth0 for <dfn data-key="security-assertion-markup-language">SAML</dfn> <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn>, authenticating users against identity provider **SSOCircle**.
+This tutorial will create a sample application that uses Auth0 for <dfn data-key="security-assertion-markup-language">SAML</dfn> <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>, authenticating users against identity provider **SSOCircle**.
 
 ::: warning
 As of July 8, 2016, SSOCircle supports integration via [manual configuration using public settings](http://www.ssocircle.com/en/idp-tips-tricks/public-idp-configuration/). If you have previously used account-specific metadata, your integration will still function, though this usage is now deprecated.
@@ -33,7 +33,7 @@ From this page, you will need to save the following attributes (you will use the
 
 2. The Location URL for the `SingleLogoutService` attribute with an `HTTP-Redirect` type.
 
-![HTTP Redirect URL for Log Out](/media/articles/saml/identity-providers/ssocircle/metadata-snippet2.png)
+![HTTP Redirect URL for Logout](/media/articles/saml/identity-providers/ssocircle/metadata-snippet2.png)
 
 [Download](http://www.ssocircle.com/en/idp-tips-tricks/public-idp-configuration) and save the SSOCircle CA Certificate. You will also use this in Step 2.
 
@@ -154,7 +154,7 @@ You should be redirected from Auth0 to the SSOCircle login page. Log in with the
 
 You may receive a window that says, "Your session has timed out." If so, click the **Return to Login page** link below this message.
 
-Once you have logged in, you will see a SAML Consent Page. Click the box indicating that you're not a robot, then click **Continue SAML Single Sign On**.
+Once you have logged in, you will see a SAML Consent Page. Click the box indicating that you're not a robot, then click **Continue SAML Single Sign-On**.
 
 ![Consent to SAML Screen Screen](/media/articles/saml/identity-providers/ssocircle/saml-consent.png)
 
@@ -219,7 +219,7 @@ At this point, you will be redirected to the SSOCircle IDP to log in.
 
 ![Login Screen](/media/articles/saml/identity-providers/ssocircle/login.png)
 
-Once you have logged in, you will see a SAML Consent Page. Click the box indicating that you're not a robot, then click **Continue SAML Single Sign On**.
+Once you have logged in, you will see a SAML Consent Page. Click the box indicating that you're not a robot, then click **Continue SAML Single Sign-On**.
 
 ![Consent to SAML Screen Screen](/media/articles/saml/identity-providers/ssocircle/saml-consent.png)
 

@@ -10,7 +10,7 @@ useCase:
   - add-idp
 ---
 
-# SAML SSO with SalesForce
+# SAML Single Sign-on (SSO) with SalesForce
 
 This article describes how to configure Auth0 to use **SalesForce** as an Identity Provider.
 
@@ -45,7 +45,7 @@ There are 6 steps to this sample:
 
 ## 2. Set up Auth0 as a Service Provider
 
-In this step, you will configure Auth0 as a Service Provider to communicate with the **SalesForce** Identity Provider for <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn>.
+In this step, you will configure Auth0 as a Service Provider to communicate with the **SalesForce** Identity Provider for <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>.
 
 1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) section of the Auth0 dashboard.
 2. Click on **SAMLP Identity Provider**

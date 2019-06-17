@@ -12,7 +12,7 @@ useCase: integrate-saas-sso
 
 # Office 365 Custom Provisioning
 
-The default Office 365 setup will include Active Directory and DirSync/Azure AD Sync Services to synchronize and provision your AD users in Azure AD for SSO. Auth0 will then be configured to be an identity provider which is providing SSO for these users.
+The default Office 365 setup will include Active Directory and DirSync/Azure AD Sync Services to synchronize and provision your AD users in Azure AD for SSO. Auth0 will then be configured to be an identity provider which is providing <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> for these users.
 
 All of this is fine when you want SSO for your own users living in your AD. But for scenarios where you want to allow contractors, partners or even customers to access your Office 365 environment (eg: SharePoint) this approach is not optimal since these users would need to be created in your own AD environment. This is why Auth0 allows custom provisioning of Azure AD users from our rules. This would allow you to create users in Azure AD (and effectively Office 365) just as they login from any connection available in Auth0 (in that case your rule will take over DirSync's task for any type of connection where DirSync would not work). This will allow you to offer Facebook, LinkedIn, G Suite, ... logins to your Office 365 environment.
 

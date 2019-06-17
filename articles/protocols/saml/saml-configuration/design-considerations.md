@@ -10,7 +10,7 @@ useCase:
 
 # SAML Design Considerations
 
-Regardless of how you implement <dfn data-key="security-assertion-markup-language">SAML</dfn> <dfn data-key="single-sign-on">SSO</dfn>, it's important to consider:
+Regardless of how you implement <dfn data-key="security-assertion-markup-language">SAML</dfn> <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>, it's important to consider:
 
 * Which system(s) will serve as the authoritative source for user profile information if there's ever a conflict between two or more sources;
 * What user profile attributes each application needs;

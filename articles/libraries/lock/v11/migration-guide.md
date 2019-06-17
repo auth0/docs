@@ -28,7 +28,7 @@ The documents below describe all the changes that you should be aware of when mi
 
 * [Migrating from the lock-passwordless widget](/libraries/lock/v11/migration-lock-passwordless)
 * [Migrating from Lock v10](/libraries/lock/v11/migration-v10-v11)
-    * [Recommendations for migrating from Lock v10 when SSO is required](/guides/login/migration-sso)
+* [Recommendations for migrating from Lock v10 when Single Sign-on (SSO) is required](/guides/login/migration-sso)
 * [Migrating from Lock v10 in Angular 1.x Applications](/libraries/lock/v11/migration-angularjs-v10)
 * [Migrating from Lock v10 in Angular 2+ Applications](/libraries/lock/v11/migration-angular)
 * [Migrating from Lock v10 in React Applications](/libraries/lock/v11/migration-react)
