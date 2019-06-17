@@ -6,6 +6,7 @@ image: /media/connections/apple.svg
 seo_alias: apple
 description: Learn how to add login functionality to your app with Apple. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
+beta: true
 topics:
   - authentication
   - connections
@@ -24,6 +25,10 @@ This guide will show you how to add functionality to your web app that allows yo
 * An [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple.
 * A [Custom Domain](/custom-domains) set up on your Auth0 tenant (this is required because you must be able to do domain verification with Apple).
 
+::: note
+You can test out the Apple connection by simply going to the [Dashboard](${manage_url}) to **Connections > Social** and Try the Apple connection, leaving the settings blank. This will let you test it out with Auth0’s developer credentials. Prior to use in your applications, however, you will need to set up your own, which this guide details.
+:::
+
 ## 1. Set up your app in your Apple Developer Account
 
 Once your Developer Account is set up, you can follow the instructions in the [Sign In With Apple Documentation](https://developer.apple.com/sign-in-with-apple/get-started/) to get your app set up.
@@ -31,8 +36,9 @@ Once your Developer Account is set up, you can follow the instructions in the [S
 While setting up your app, make sure you make save the following items for later:
 
 * The Client ID (the Service ID)
-* The Client Signin Key
+* The Client Secret Signing Key
 * The Apple Team ID
+* The Client Signin Key ID (optional)
 
 Also note that when setting up the app, your **Return URL** should be in the following format: `https://<YOUR CUSTOM DOMAIN>/login/callback`.
 
@@ -40,7 +46,7 @@ Also note that when setting up the app, your **Return URL** should be in the fol
 
 Navigate to the [Connections > Social page](${manage_url}) in the Auth0 Dashboard, and click on the Apple connection.
 
-Fill in the Client ID, Client Signin Key, and the Team ID here. 
+Fill in the Client ID, Client Secret Signing Key, and the Team ID here. You can also fill in the Key ID, but this is optional, as Apple will accept the key without it.
 
 ![Apple Connection Settings](/media/articles/connections/social/apple/apple_connection.png)
 
