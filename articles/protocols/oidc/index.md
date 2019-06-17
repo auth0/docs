@@ -1,5 +1,5 @@
 ---
-url: /oidc
+url: /protocols/oidc
 title: OpenID Connect
 description: Learn about the OpenID Connect (OIDC) protocol and how it works
 topics:

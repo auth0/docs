@@ -11,7 +11,7 @@ contentType:
 useCase:
   - invoke-api
 ---
-# Refresh Token
+# Refresh Tokens
 
 A **Refresh Token** contains the information required to obtain a new <dfn data-key="access-token">Access Token</dfn> or [ID Token](/tokens/id-token).
 

@@ -16,7 +16,7 @@
   },
   "json-web-token": {
     "title": "JSON Web Token (JWT)",
-    "definition": "An open, industry standard <a href='https://tools.ietf.org/html/rfc7519'>RFC 7519</a> method for representing claims securely between two parties. At Auth0, ID Tokens are always returned in JWT format, and Access Tokens are often in JWT format. You may decode well-formed JWTs at <a href='https://jwt.io'>JWT.io</a> to view their claims. See <a href='/docs/jwt'>JSON Web Token (JWT)</a>.",
+    "definition": "An open, industry standard <a href='https://tools.ietf.org/html/rfc7519'>RFC 7519</a> method for representing claims securely between two parties. At Auth0, ID Tokens are always returned in JWT format, and Access Tokens are often in JWT format. You may decode well-formed JWTs at <a href='https://jwt.io'>JWT.io</a> to view their claims. See <a href='/docs/jwt'>JSON Web Tokens</a>.",
     "short": "The standard ID Token format and often Access Token format used to represent claims securely between two parties."
   },
   "lock": {
@@ -62,7 +62,7 @@
   },
   "security-assertion-markup-language": {
     "title": "Security Assertion Markup Language (SAML)",
-    "definition": "An XML-based standardized protocol by which two parties can exchange authentication information without the use of a password. See <a href='/protocols/saml'>SAML</a>.",
+    "definition": "An XML-based standardized protocol by which two parties can exchange authentication information without the use of a password. See <a href='/docs/protocols/saml'>SAML</a>.",
     "short": "A standardized protocol allowing two parties to exchange authentication information without a password."
   },
   "scope": {
@@ -72,12 +72,12 @@
   },
   "single-sign-on": {
     "title": "Single Sign-On (SSO)",
-    "definition": "A service that, after a user logs into one application, automatically logs that user in to other applications, regardless of the platform, technology, or domain the user is using. The user signs in only one time (hence the name of the feature). Similarly, Single Logout (SLO) occurs when, after a user logs out from one application, they are logged out of each application or service where they were logged in. SSO and SLO are possible through the use of sessions. See <a href='/docs/sso'>Single Sign-On</a>.",
+    "definition": "A service that, after a user logs into one application, automatically logs that user in to other applications, regardless of the platform, technology, or domain the user is using. The user signs in only one time (hence the name of the feature). Similarly, Single Logout (SLO) occurs when, after a user logs out from one application, they are logged out of each application or service where they were logged in. SSO and SLO are possible through the use of sessions. See <a href='/docs/sso'>Single Sign-On and Single Logout</a>.",
     "short": "A services that, after a user logs into one applicaton, automatically logs that user in to other applications."
   },
  "universal-login": {
    "title": "Universal Login",
-   "definition": "Auth0’s implementation of the authentication flow, which is the key feature of an Authorization Server. Each time a user needs to prove their identity, your applications redirect to Universal Login, and Auth0 will do what’s needed to guarantee the user’s identity. See <a href='/docs/universal-login'>Universal Login</a>.",
+   "definition": "Auth0’s implementation of the authentication flow, which is the key feature of an Authorization Server. Each time a user needs to prove their identity, your applications redirect to Universal Login, and Auth0 will do what’s needed to guarantee the user’s identity. See <a href='/docs/universal-login'>Auth0 Universal Login</a>.",
    "short": "Your application redirects to Universal Login, hosted on Auth0's Authorization Server, to verify a user's identity."
  } 
 }
