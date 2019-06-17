@@ -1,5 +1,5 @@
 ---
-title: Business to Consumer Identity and Access Management
+title: Business to Business Identity and Access Management
 image: /media/articles/architecture-scenarios/b2b.png
 description: Explains the architecture scenario B2B IAM with a SAAS application.
 topics:
