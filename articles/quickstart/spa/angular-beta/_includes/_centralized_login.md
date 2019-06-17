@@ -402,7 +402,7 @@ export class LoginGuard implements CanActivate {
     }
 
     client.loginWithRedirect({
-      redirect_uri: `${window.location.origin}/callback`,
+      redirect_uri: `<%= "${window.location.origin}" %>/callback`,
       appState: { target: state.url }
     });
 
