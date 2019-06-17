@@ -38,7 +38,11 @@ Also note that when setting up the app, your **Return URL** should be in the fol
 
 ## 2. Create and enable a connection in Auth0
 
-[Set up the Apple social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the required Client ID, Signin Key, and Team ID that were generated in Step 1.
+Navigate to the [Connections > Social page](${manage_url}) in the Auth0 Dashboard, and click on the Apple connection.
+
+Fill in the Client ID, Client Signin Key, and the Team ID here. 
+
+![Apple Connection Settings](/media/articles/connections/social/apple/apple_connection.png)
 
 ## 3. Test the connection
 
