@@ -26,7 +26,7 @@ This guide will show you how to add functionality to your web app that allows yo
 * A [Custom Domain](/custom-domains) set up on your Auth0 tenant (this is required because you must be able to do domain verification with Apple).
 
 ::: note
-You can test out the Apple connection by simply going to the [Dashboard](${manage_url}) to **Connections > Social** and Try the Apple connection, leaving the settings blank. This will let you test it out with Auth0’s developer credentials. Prior to use in your applications, however, you will need to set up your own, which this guide details.
+You can test out the Apple connection by simply going to the [Dashboard](${manage_url}) to **Connections > Social** and Try the Apple connection, leaving the settings blank. This will let you test it out with Auth0’s developer credentials. Prior to use in production applications, however, you will need to set up your own, which this guide details.
 :::
 
 ## 1. Set up your app in your Apple Developer Account
