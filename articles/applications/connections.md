@@ -1,7 +1,7 @@
 ---
 url: /connections
 title: Connections
-description: Source of users. Connections are categorized into Database, Social, Enterprise, and Passwordless and can be shared among different applications.
+description: Learn about connections, which are sources of users. Connections are categorized into Database, Social, Enterprise, and Passwordless and can be shared among different applications.
 crews: crew-2
 ---
 # Application Connections
