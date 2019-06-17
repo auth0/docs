@@ -15,8 +15,15 @@ It’s important to consider both security and user experience when designing ho
 * What to do if you want to make login easy for your users when they come from different language backgrounds
 * How you will provide a good user experience as you migrate away from any legacy authentication system
 * What do you need to consider when integrating your applications with Auth0?
+<% if (platform === "b2c") { %>
 * Can users log in using their existing social (e.g., Facebook or Google) accounts?
+<%  } %>
 * Will I need to provide for multi-factor authentication (MFA)?
+<% if (platform === "b2b") { %>
+* What do I do if I need to isolate my users by organization?
+* How do I handle identifying which organization my users belong to?
+* What’s the benefit of providing enterprise connections for my organizations?
+<%  } %>
 
 Auth0 [Universal Login](#universal-login) provides users with a safe and secure experience - no matter whether you choose to provide for user ID/password credentials sign in, or allow the so-called Bring Your Own Identity scenarios provided via [Social Login](https://auth0.com/learn/social-login/). There are also brand recognition benefits to centralizing the login experience with Universal Login, even if you feel you will also have product-specific [branding](/architecture-scenarios/implementation/${platform}/${platform}-branding) requirements. The Auth0 UI widgets typically used with Universal Login also provide out-of-the-box support with regards to [internationalization](/libraries/lock/v11/i18n) for users with different language requirements, and out-of-the-box support for Auth0 features such as [MFA](#multi-factor-authentication-mfa-) and [anomaly detection](#anomaly-detection) allow you to put barriers in place in order to prevent hackers attempting to access users' accounts. 
 
@@ -25,4 +32,3 @@ Allowing users to sign in via user ID/password credentials means that you're not
 If you have an existing legacy identity store, you’ll also want to see [User Migration](/architecture-scenarios/implementation/${platform}/${platform}-provisioning#user-migration). This section discusses the advantages of migrating to Auth0’s managed identity storage in terms of safety and security.
 
 For customer facing applications, OpenID Connect ([OIDC](/protocols/oidc)) is the most frequently used industry standard protocol, and OIDC has first-class citizen support in Auth0. Auth0 provides support for various different approaches for integrating various different applications, so you'll want to see the section on [application integration](#application-integration) for the information you'll need to make an informed choice. 
-
