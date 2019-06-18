@@ -33,7 +33,7 @@ You can test out the Apple connection by simply going to the [Dashboard](${manag
 
 Once your Developer Account is set up, you can follow the instructions in the [Sign In With Apple Documentation](https://developer.apple.com/sign-in-with-apple/get-started/) to get your app set up.
 
-While setting up your app, make sure you make save the following items for later:
+While setting up your app, make sure you save the following items for later:
 
 * The Client ID (the Service ID)
 * The Client Secret Signing Key
