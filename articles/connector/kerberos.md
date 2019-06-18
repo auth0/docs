@@ -35,6 +35,12 @@ We recommend restarting the Windows Service that hosts the AD Connector every ti
 
 When Auth0 is running in the cloud, it won't be able to see your user's internal IP address. In that case you'd configure the public facing/WAN IP address(es) of your company.
 
+### Auto-detected range for Kerberos
+
+When Kerberos authentication is enabled, the visible IP address of the server where the AD Connector is running is implicitly added to the network IP range.  
+
+This means that if a user's requests originate from the same visible IP address as that of the AD Connector, then Kerberos authentication will be attempted.
+
 ## Flow
 
 Depending on the location of the user the authentication flow will be different when IP ranges are set. Let's take Fabrikam as an example. Since Fabrikam uses the SaaS version of Auth0 they configured their Public IP Address (`24.12.34.56/32`) in the connection.
