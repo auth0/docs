@@ -32,7 +32,10 @@ The Device Authorization Flow contains two different paths; one occurs on the de
 1. The user starts the app on the device.
 2. The device app requests authorization from the Auth0 Authorization Server using its Client ID (**/oauth/device/code** endpoint).
 3. The Auth0 Authorization Server responds with a `device_code`, `user_code`, `verification_uri`, `verification_uri_complete` `expires_in` (lifetime in seconds for `device_code` and `user_code`), and polling `interval`.
-4.  The device app asks the user to activate using their computer or smartphone and displays the `verification_uri` and `user_code`. (Instead of the user code, the app could also display a QR code or shortened URL with embedded user code.)
+4.  The device app asks the user to activate using their computer or smartphone. The app may accomplish this by:
+    - asking the user to visit the `verification_uri` and enter the `user_code` after displaying these values on-screen
+    - asking the user to interact with either a QR Code or shortened URL with embedded user code generated from the `verification_uri_complete`
+    - directly navigating to the verification page with embedded user code using `verification_uri_complete`, if running natively on a browser-based device
 5. The device app begins polling your Auth0 Authorization Server for an Access Token (**/oauth/token** endpoint) using the time period specified by `interval` and counting from receipt of the last polling request's response. The device app continues polling until either the user completes the browser flow path or the user code expires.
 6. When the user successfully completes the browser flow path, your Auth0 Authorization Server responds with an Access Token (and optionally, a Refresh Token). The device app should now forget its `device_code` because it will expire.
 7. Your device app can use the Access Token to call an API to access information about the user.
