@@ -23,6 +23,10 @@ This tutorial shows you how to create a simple API using [Express](https://expre
 
 <%= include('../_includes/_calling_api_create_backend.md') %>
 
+:::note
+If you are not logged in when viewing this tutorial, the sample above will show the `domain` and `audience` values as "YOUR_TENANT" and "YOUR_API_IDENTIFIER" respectively. These should be replaced with the values from your Auth0 application.
+:::
+
 Finally, modify `package.json` to add two new scripts `dev` and `server` that can be used to start the frontend and the backend API together:
 
 ```json
