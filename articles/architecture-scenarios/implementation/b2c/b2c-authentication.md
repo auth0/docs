@@ -35,7 +35,7 @@ useCase:
 
 <%= include('../../_includes/_authentication/_social-authentication.md', { platform: 'b2c' }) %>
 
-## M2M authentication
+## Machine-to-Machine (M2M) authentication
 
 <%= include('../../_includes/_authentication/_m2m.md', { platform: 'b2c' }) %>
 
