@@ -337,7 +337,6 @@ import { CallbackComponent } from './callback/callback.component';
 // NEW - import the Profile component
 import { ProfileComponent } from './profile/profile.component';
 
-// NEW - add a route to the profile component
 const routes: Routes = [
   {
     path: 'callback',
