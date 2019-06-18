@@ -19,7 +19,7 @@ If you want to call the Management API directly, you will first need to generate
 Alternatively, you can use an SDK to implement the functionality you need to call the Management API from your application. For a list of available SDKs, refer to [the SDKs section of our Support Matrix](/support/matrix#sdks).
 
 ::: note
-You can setup Access Control List (ACL)/Roles functionality using our Role-based Access Control (RBAC) [here](https://auth0.com/docs/authorization/concepts/rbac).
+You can setup Access Control List (ACL)/Roles functionality using our [Role-based Access Control (RBAC)](/authorization/concepts/rbac).
 :::
 
 ## Limitations
