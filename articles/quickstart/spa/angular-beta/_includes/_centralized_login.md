@@ -51,7 +51,7 @@ To make it easier to use the Auth0 SDK within an Angular application, create an 
 To start, generate a new service called `Auth`:
 
 ```bash
-ng generate service Auth
+ng generate service auth
 ```
 
 Open the `src/app/auth.service.ts` file inside your code editor and add the following content:
@@ -216,7 +216,7 @@ To log the user into your application, the redirect from Auth0 should be handled
 Use the Angular CLI to create a new component called `Callback`:
 
 ```bash
-ng generate component Callback
+ng generate component callback
 ```
 
 Open the newly-generated `src/app/callback/callback.component.ts` file and replace its contents with the following:
@@ -290,7 +290,7 @@ The primary change here is to add in the `callback` route which points to the `C
 Create a new component called "Profile" using the Angular CLI:
 
 ```bash
-ng generate component Profile
+ng generate component profile
 ```
 
 Open `src/app/profile/profile.component.ts` and replace its contents with the following:
