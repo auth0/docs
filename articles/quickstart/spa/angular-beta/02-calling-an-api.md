@@ -19,6 +19,10 @@ Most single-page apps use resources from data APIs. You may want to restrict acc
 
 This tutorial shows you how to create a simple API using [Express](https://expressjs.com) that serves resources protected by a middleware that looks for and validates access tokens. You will then see how to call this API using an access token granted by the Auth0 authorization server.
 
+:::note
+If you have been following [part 1 of this tutorial](/docs/quickstart/angular-beta/01-login), then the following steps can be completed within the same project.
+:::
+
 <%= include('../_includes/_calling_api_create_api') %>
 
 <%= include('../_includes/_calling_api_create_backend.md') %>
@@ -37,7 +41,7 @@ Finally, modify `package.json` to add two new scripts `dev` and `server` that ca
   "test": "ng test",
   "lint": "ng lint",
   "e2e": "ng e2e",
-  "server": "node server.js",
+  "server ": "node server.js",
   "dev": "npm-run-all --parallel start server"
 },
 ```
