@@ -11,7 +11,7 @@ It’s important to start by distinguishing between Authentication, Authorizatio
     
     * **Fine grained Access Control**. Again, this is where access is either granted or denied depending on what the principal (subject) can operate on within the context of an Application or API. However both the data required to enforce this, and the enforcement process, is defined in the context of the Application or API. In this scenario, the data communicated as one or more custom claims in an [`id`](/tokens/id-token) or [`access`](/tokens/overview-access-tokens) token may be consumed, with or wthout data from an external source that is not Auth0.
 
-In addition, Role-Based Access Control (a.k.a [RBAC](/authorization/concepts/rbac) and Attribute-Based Access Control (a.k.a. ABAC) mechanisms can be applied in any of the Access Control categories described above. Whatever your use case then, there are a number of things you will want to consider when looking at the functionality and workflow you require:
+In addition, Role-based Access Control (a.k.a. [RBAC](#role-based-access-control-rbac-)) and Attribute-based Access Control (a.k.a. ABAC) mechanisms can be applied in any of the Access Control categories described above. Whatever your use case then, there are a number of things you will want to consider when looking at the functionality and workflow you require:
 
 * Are there scenarios where access to an entire application or API should be rejected?
 * Will I be providing APIs that can be accessed by third-party applications?
@@ -32,5 +32,8 @@ When deciding what data to include in OIDC tokens, consider token size, especial
 :::
 
 For [API level integration](#api-integration), Auth0 supports both [custom claims](#access-token-claims) as well as [scope](#access-token-scopes) re-configuration, both within the context of an Access Token. Again, you will need to decide what information will be required in order for your API to make access control decisions, and then your API will need to enforce that access control by validating the contents of the Access Token.
+<<<<<<< HEAD
 
 Additionally, Auth0 has out-of-box support for Role-Based Access Control ([RBAC](/authorization/concepts/rbac)). RBAC refers to assigning permissions to users based on their <dfn data-key="role">role</dfn> within an organization. RBAC provides for simpler access control by offering a more manageable approach that is less prone to error. 
+=======
+>>>>>>> master
