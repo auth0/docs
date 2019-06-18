@@ -20,7 +20,7 @@ Most single-page apps use resources from data APIs. You may want to restrict acc
 This tutorial shows you how to create a simple API using [Express](https://expressjs.com) that serves resources protected by a middleware that looks for and validates access tokens. You will then see how to call this API using an access token granted by the Auth0 authorization server.
 
 :::note
-If you have been following [part 1 of this tutorial](/docs/quickstart/angular-beta/01-login), then the following steps can be completed within the same project.
+If you have been following [part 1 of this tutorial](/quickstart/spa/angular-beta/01-login), then the following steps can be completed within the same project.
 :::
 
 <%= include('../_includes/_calling_api_create_api') %>
@@ -259,5 +259,9 @@ Finally, add a link to the navigation bar so that the user may reach this new pa
   <a [routerLink]="['external-api']" *ngIf="isAuthenticated">External API</a>
 </header>
 ```
+
+:::note
+You may need to restart the application in order for the server changes to take effect. Press `Ctrl+C` in the terminal to stop the application, then run it again using `npm run dev`
+:::
 
 At this point, you should be able to run the application, browse to the External API page and click the **Ping API** button to initiate the API call. The results of that call should then be available in the browser.
