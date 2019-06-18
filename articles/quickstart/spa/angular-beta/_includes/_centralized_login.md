@@ -21,10 +21,20 @@ npm install -g @angular/cli
 Then use it to generate a new Angular application. When asked _"Would you like to use Angular routing?"_, select **yes**:
 
 ```bash
-ng new auth0-demo
+ng new auth0-angular-demo
 ```
 
-Once the project has been created, open the `auth0-demo` folder in your favorite code editor.
+Once the project has been created, open the `auth0-angular-demo` folder in your favorite code editor.
+
+Finally, by default the application runs on port `4200`. This should run on port `3000` so that it matches the Auth0 URLs configured above. This can be done inside the `package.json` file by modifying NPM's `start` command as follows:
+
+```json
+"start": "ng serve --port 3000"
+```
+
+:::note
+If you are following this tutorial using your own Angular application that runs on a different port, you should modify the URLs above when configuring Auth0 so that they match the host and port number of your own application.
+:::
 
 ## Install the SDK
 
@@ -45,6 +55,10 @@ ng generate service Auth
 ```
 
 Open the `src/app/auth.service.ts` file inside your code editor and add the following content:
+
+:::note
+Make sure that the domain and client ID values are correct for the application that you want to connect with. 
+:::
 
 ```ts
 import { Injectable } from '@angular/core';
@@ -97,8 +111,6 @@ export class AuthService {
 This service provides a single method `getAuth0Client`. When called, it will in turn call `createAuth0Client` from the Auth0 JS SDK and save it in a class-level variable. Subsequent calls to `getAuth0Client` will return the same instance.
 
 The service uses [RxJS](https://www.learnrxjs.io/) to emit changes in values to the `isAuthenticated` state and the user's profile. These will be used in a moment to listen for changes and update the UI accordingly.
-
-Make sure that the domain and client ID values are correct for the application that you want to connect with.
 
 ## Create a Navigation Bar Component
 
@@ -195,7 +207,7 @@ Finally, to show this component on the screen, open the `src/app/app.component.h
 <router-outlet></router-outlet>
 ```
 
-> **Checkpoint**: Run the application now using `npm start`. The login button should be visible, and you should be able to click it to be redirected to Auth0 for login.
+> **Checkpoint**: Run the application now using `npm start`. The login button should be visible, and you should be able to click it to be redirected to Auth0 for login. If you log in and are redirected back to the app, you'll see an error in the console about a missing route. The callback route used when redirected back to the app is setup in the next section.
 
 ## Handle Login Redirects
 
