@@ -37,9 +37,9 @@ When Auth0 is running in the cloud, it won't be able to see your user's internal
 
 ### Auto-detected range for Kerberos
 
-When Kerberos authentication is enabled the visible IP address of the server where the AD Connector is running is implicitly added to the network IP range.  
+When Kerberos authentication is enabled, the visible IP address of the server where the AD Connector is running is implicitly added to the network IP range.  
 
-This means that if a user's requests originate from the same visible IP address than that of the AD Connector then Kerberos authentication will be attempted.
+This means that if a user's requests originate from the same visible IP address as that of the AD Connector, then Kerberos authentication will be attempted.
 
 ## Flow
 
