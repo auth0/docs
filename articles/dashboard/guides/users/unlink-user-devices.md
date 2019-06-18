@@ -23,8 +23,8 @@ This guide will show you how to unlink the devices assigned to a user using Auth
 
 1. Navigate to the [Users & Roles > Users](${manage_url}/#/users) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the user to view.
 
-![Select User](/media/articles/authorization/user-list.png)
+![Select User](/media/articles/dashboard/guides/users-roles/users-list.png)
 
-2. Click the **Devices** view, then click **Unlink** next to the device you want to unlink, and confirm.
+2. Click the **Devices** view, then click the trashcan icon next to the device you want to unlink, and confirm.
 
-
+![Unlink Device](/media/articles/dashboard/guides/users-roles/users-prof-devices.png)
