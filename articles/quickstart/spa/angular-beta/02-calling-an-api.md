@@ -83,8 +83,6 @@ Finally, modify `angular.json` to include a reference to this proxy configuratio
 Modify the `src/app/auth.service.ts` file so that the `audience` value is passed through to the Auth0 client:
 
 ```js
-// src/app/auth.service.ts
-
 this.auth0Client = await createAuth0Client({
   domain: "${account.tenant}",
   client_id: "${account.clientId}"
@@ -103,8 +101,6 @@ ng generate component external-api
 Open `src/app/external-api/external-api.component.html` and replace its contents with the following:
 
 ```html
-<!-- src/app/external-api/external-api.component.html -->
-
 <div>
   <button (click)="pingApi()">Ping API</button>
 
@@ -130,8 +126,6 @@ ng generate service api
 Then open `src/app/api.service.ts` and replace its contents with the following:
 
 ```ts
-// src/app/api.service.ts
-
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { HttpClient } from '@angular/common/http';
@@ -162,24 +156,21 @@ export class ApiService {
 
 All the endpoints that the API exposes can be added here. Right now, there is just one: the `ping` endpoint. The `ping()` method above retrieves the current access token from the `AuthService` instance and then uses `HttpClient` to make a GET request to the backend API, passing the access token inside the [Authorization header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization).
 
-For `HttpClient` to work properly, the `HttpClientModule` must also be registered in the application. To add this, open `app.module.ts` and import the module at the top of the file:
+For `HttpClient` to work properly, the `HttpClientModule` must also be registered in the application. To add this, open `src/app/app.module.ts` and import the module at the top of the file:
 
 ```ts
-// src/app/app.module.ts
-
 // .. other imports
 
 import { HttpClientModule } from '@angular/common/http';
 ```
 
- Then, add the module to the list of imports as in the declaration of your `AppModule`:
+Then, add the module to the list of imports as in the declaration of your `AppModule`:
 
  ```ts
- // src/app/app.module.ts
-
 @NgModule({
   declarations: [...],
-  imports: [BrowserModule,
+  imports: [
+    BrowserModule,
     AppRoutingModule, 
     HttpClientModule   // NEW - include HttpClientModule in the import list
   ],
@@ -191,8 +182,6 @@ import { HttpClientModule } from '@angular/common/http';
 Next, open `src/app/external-api/external-api.component.ts` and replace its contents with the following:
 
 ```js
-// src/app/external-api/external-api.component.ts
-
 import { Component } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 
@@ -222,8 +211,6 @@ This component imports the `ApiService` that was created in the previous step, a
 With this in place, modify the application router so that this new page can be accessed. Open the `src/app/app-routing.module.ts` file and modify the routes list to include the new component for calling the API:
 
 ```js
-// src/app/app-routing.module.ts
-
 // .. other imports
 
 // NEW - import the ExternalApiComponent class

@@ -47,8 +47,6 @@ ng generate service Auth
 Open the `src/app/auth.service.ts` file inside your code editor and add the following content:
 
 ```ts
-// src/app/auth.service.ts
-
 import { Injectable } from '@angular/core';
 import createAuth0Client from '@auth0/auth0-spa-js';
 import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
@@ -367,7 +365,7 @@ Run the application and log in. Click on the **Profile** link to browse to the `
 
 Right now, your users could simply enter the `/profile` path into their URL bar and reach the profile page, even if they're unauthenticated. You're going to use a [Guard](https://angular.io/guide/router#milestone-5-route-guards) to help prevent that from happening.
 
-### Add a login guard
+### Add an authentication guard
 
 The Angular CLI can be used to generate a guard:
 
