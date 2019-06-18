@@ -56,11 +56,11 @@ You should also see the page for viewing pets.
 
 ### Use Delegation to Get an AWS Token
 
-At this point, you have authentication set up with Auth0, and you have an OpenId JWT. Here is the directory structure for the generated code:
+At this point, you have authentication set up with Auth0, and you have an OpenID JWT. Here is the directory structure for the generated code:
 
 ![S3 website directory structure](/media/articles/integrations/aws-api-gateway/aws-api-gateway-project.png)
 
-You can use Auth0's delegation capability to obtain an AWS Access Token that is based on the Auth0 identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the addon that you configured.
+You can use Auth0's delegation capability to obtain an AWS Access Token that is based on the Auth0 identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses <dfn data-key="security-assertion-markup-language">SAML</dfn> based on the addon that you configured.
 
 Update `pets/login/login.js` as follows to get an AWS delegation token from the identity token after a successful signin with `auth.signin`. Note that you are treating any user not logged in using a Social Connection as an admin. Later, we'll code a second role and show better ways to enforce role selection.
 

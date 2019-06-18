@@ -83,7 +83,7 @@ If you are unable to complete the verification process within three days, you'll
 
 ### Step 3: Configure the Reverse Proxy
 
-Next you will need  to [set up your reverse proxy using AWS CloudFront](/custom-domains/set-up-cloudfront).
+Next you will need  to set up your reverse proxy. In this example, we will walk through [how to do so using AWS CloudFront](/custom-domains/set-up-cloudfront).
 
 ### Step 4: Complete Feature-Specific Setup
 

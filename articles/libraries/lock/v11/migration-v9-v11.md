@@ -15,7 +15,7 @@ useCase:
 ---
 # Migrating from Lock v9 to v11
 
-This guide includes all the information you need to update your Lock v9 applications to [Lock v11](/libraries/lock).
+This guide includes all the information you need to update your <dfn data-key="lock">Lock</dfn> v9 applications to [Lock v11](/libraries/lock).
 
 ## Migration Steps
 
@@ -86,7 +86,7 @@ function login()
 }
 ```
 
-Note that the parameters that were passed to `show()` in Lock v9 are used to initialize Lock in Lock v11, and that the callback specified in `show()` is replaced by an `authenticated` event handler. 
+Note that the parameters that were passed to `show()` in Lock v9 are used to initialize Lock in Lock v11, and that the <dfn data-key="callback">callback</dfn> specified in `show()` is replaced by an `authenticated` event handler. 
 
 ### Using Lock in SPAs with Redirect Mode
 

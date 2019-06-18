@@ -19,7 +19,7 @@ useCase:
 
 <%= include('../../../_includes/_pipeline2') %>
 
-You can now add [Hooks](/hooks) into your [client credentials](/api-auth/grant/client-credentials) flow. This way you can change the scopes and add custom claims to the tokens issued by Auth0.
+You can now add [Hooks](/hooks) into your [client credentials](/api-auth/grant/client-credentials) flow. This way you can change the <dfn data-key="scope">scopes</dfn> and add custom claims to the tokens issued by Auth0.
 
 ## Overview
 
@@ -79,7 +79,7 @@ You can create more than one hooks per extensibility point but __only one__ can 
   - add an `extra` scope to the default scopes configured on your [API](${manage_url}/#/apis).
 
   ::: panel Custom claims namespaced format
-  In order to improve compatibility for applications, Auth0 now returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `claim`, you would name the claim `https://foo.com/claim`, instead of just `claim`.
+  In order to improve compatibility for applications, Auth0 now returns profile information in a [structured claim format as defined by the OpenID Connect (OIDC) specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or <dfn data-key="access-token">Access Tokens</dfn>, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `claim`, you would name the claim `https://foo.com/claim`, instead of just `claim`.
   :::
 
   ![Webtask Editor](/media/articles/api-auth/hooks/cc-webtask-editor.png)
@@ -254,7 +254,7 @@ Let's see what each one contains.
     }
     ```
 
-- __cb__: The callback. In our example we returned the token (`cb(null, access_token)`). If you decide, however, not to issue a token, you can return `Error (cb(new Error('access denied')))`.
+- __cb__: The <dfn data-key="callback">callback</dfn>. In our example we returned the token (`cb(null, access_token)`). If you decide, however, not to issue a token, you can return `Error (cb(new Error('access denied')))`.
 
 ## Keep reading
 

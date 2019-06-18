@@ -15,7 +15,7 @@ useCase:
 ---
 # Programmatically Parse and Validate a JSON Web Token
 
-To programmatically parse and validate a JSON Web Token (JWT), you can:
+To programmatically parse and validate a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>, you can:
 
 * Choose a third-party library from [JWT.io](https://jwt.io/#libraries)
 * Use any existing middleware for your web framework

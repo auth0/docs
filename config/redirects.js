@@ -428,7 +428,7 @@ module.exports = [
   },
   {
     from: '/sharepoint-clientid',
-    to: '/connections/enterprise/sharepoint-online'
+    to: '/connections/enterprise/sharepoint-apps'
   },
   {
     from: '/shopify-clientid',
@@ -1551,7 +1551,7 @@ module.exports = [
   },
   {
     from: '/tutorials/google-cloud-platform',
-    to: '/tutorials/google-cloud-platform',
+    to: '/integrations/google-cloud-platform',
   },
   {
     from: '/tutorials/configuration-to-query-users-from-google-apps',
@@ -2139,10 +2139,6 @@ module.exports = [
       to: '/protocols/saml/saml-apps/github-server'
     },
     {
-      from: '/enterprise/private-cloud/overview',
-      to: '/private-cloud'
-    },
-    {
       from: '/tokens/get-access-tokens',
       to: '/tokens/guides/access-token/get-access-tokens'
     },
@@ -2173,5 +2169,13 @@ module.exports = [
     {
       from: '/users/references/user-data-storage-best-practices',
       to: '/best-practices/user-data-storage-best-practices'
+    },
+    {
+      from: '/enterprise/private-cloud/overview',
+      to: '/private-saas-deployment'
+    },
+    {
+      from: '/private-cloud',
+      to: '/private-saas-deployment'
     }
 ];

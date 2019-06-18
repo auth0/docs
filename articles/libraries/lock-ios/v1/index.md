@@ -23,14 +23,14 @@ useCase:
 
 <%= include('../_includes/_lock-version-1') %>
 
-Auth0 is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
+Auth0 is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, G Suite and Salesforce.
 
 ## Key features
 
 * **Integrates** your iOS app with **Auth0** (OS X coming soon).
 * Provides a elegant **native UI** to log in your users.
 * Provides support for **Social Providers** (Facebook, Twitter, and so on), **Enterprise Providers** (AD, LDAP, and so on) and **Username & Password** authentication.
-* Provides the ability to do **SSO** with 2 or more mobile apps, similar to Facebook and Messenger apps.
+* Provides the ability to do <dfn data-key="single-sign-on">**Single Sign-on (SSO)**</dfn> with 2 or more mobile apps, similar to Facebook and Messenger apps.
 * [1Password](https://agilebits.com/onepassword) integration using the **iOS 8** [Extension](https://github.com/AgileBits/onepassword-app-extension).
 
 ::: note
@@ -145,7 +145,7 @@ This call is required to be able to return to your application when authenticati
 
 `A0LockViewController` will handle email/password, enterprise, and social provider authentication based on the connections enabled on your application in the [Auth0 Dashboard](${manage_url}/#/connections/social).
 
-First, instantiate `A0LockViewController` and register the authentication callback that will receive the authenticated user's credentials. Then present it as a modal view controller:
+First, instantiate `A0LockViewController` and register the authentication <dfn data-key="callback">callback</dfn> that will receive the authenticated user's credentials. Then present it as a modal view controller:
 
 #### Objective C
 

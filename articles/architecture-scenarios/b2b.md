@@ -21,11 +21,11 @@ useCase:
 
 Your applications are used by a number of businesses, each with their own expectations for how identities should be managed. Auth0 can streamline the process of setting up identity management for those applications.
 
-This guide outlines some common requirements for business to business (B2B) application scenarios and how Auth0 can help you meet them. We'll provide tips for setting up all the common requirements like enterprise providers, leveraging existing groups and roles, as well as single sign-on.
+This guide outlines some common requirements for business to business (B2B) application scenarios and how Auth0 can help you meet them. We'll provide tips for setting up all the common requirements like enterprise providers, leveraging existing groups and <dfn data-key="role">roles</dfn>, as well as <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>.
 
 ## Enterprise providers
 
-Most businesses already have a corporate identity repository which has information on all the employee users and user profile information. It may also contain information on partners and contractors. A common requirement for the B2B scenario, therefore, is to allow such customers to log in to your B2B application via their [Enterprise provider](/identityproviders#enterprise) such as SAML2 providers, ADFS, Google Apps, Azure AD or an on-premise corporate directory service.
+Most businesses already have a corporate identity repository which has information on all the employee users and user profile information. It may also contain information on partners and contractors. A common requirement for the B2B scenario, therefore, is to allow such customers to log in to your B2B application via their [Enterprise provider](/identityproviders#enterprise) such as <dfn data-key="security-assertion-markup-language">SAML2</dfn> providers, ADFS, G Suite, Azure AD or an on-premise corporate directory service.
 
 This is attractive to your customers because it allows them to avoid creating more unmanaged usernames and passwords for cloud applications. They can create, update and delete accounts in their corporate systems and have the changes immediately reflected in their B2B cloud applications, ensuring tight control for compliance. 
 
@@ -45,7 +45,7 @@ Auth0 can receive user attributes, like groups and roles, from a [directory serv
 
 ## Profile Translation
 
-Sometimes a customer’s directory or identity provider returns attributes in one format, but your application uses another format. Using Auth0's [Rules](/rules/current/metadata-in-rules), you can [map and translate user profile attributes](https://auth0.com/rules/saml-attribute-mapping). You can even translate between OIDC/OAuth, SAML, WS-Fed, and LDAP.
+Sometimes a customer’s directory or identity provider returns attributes in one format, but your application uses another format. Using Auth0's [Rules](/rules/current/metadata-in-rules), you can [map and translate user profile attributes](https://auth0.com/rules/saml-attribute-mapping). You can even translate between OIDC/OAuth, <dfn data-key="security-assertion-markup-language">SAML</dfn>, WS-Fed, and LDAP.
 
 For example, you retrieve attributes in SAML assertion format from a SAML Identity Provider. With a rule you can then translate the attributes to custom claims in an ID Token for an OIDC/OAuth application.
 
@@ -55,9 +55,9 @@ You can also map SAML attributes to the Auth0 user profile from the dashboard. T
 
 You may want to enrich user profiles with attributes or data retrieved from other services. For example, you might receive an address or phone number and wish to translate that into a geographic region. [Auth0 Rules](/rules) enable you to write small snippets of code that execute during the authentication transaction. This lets you execute logic or call other services for user information, then add [user metadata](/users/concepts/overview-user-metadata) to the Auth0 user profile and optionally the resulting tokens sent to your applications.
 
-## Single sign-on
+## Single Sign-on
 
-If you have several applications, you can set up [single sign-on (SSO)](/sso/current) across them so users only have to log in once.
+If you have several applications, you can set up <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> across them so users only have to log in once.
 
 Auth0 supports integration with applications that externalize authentication using industry standard identity protocols:
 

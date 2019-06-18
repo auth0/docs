@@ -12,9 +12,9 @@ useCase:
 ---
 # Configuring Amazon SNS
 
-In order to receive push notifications from Guardian, it's necessary to override Guardian's default SNS settings.
+To receive push notifications from Guardian, it's necessary to override Guardian's default SNS settings.
 
-To do this, go to the [multi-factor Auth](${manage_url}/#/guardian) section of the dashboard and click on the **Push Notifications** box.
+To do this, go to the [Multi-factor Authentication](${manage_url}/#/guardian) section of the dashboard and click on the **Push Notifications** box.
 
 ![Push Notifications](/media/articles/mfa/push-notification-config.png)
 

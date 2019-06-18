@@ -11,7 +11,7 @@ useCase:
 
 # OpenID Connect Discovery
 
-Auth0 exposes OIDC discovery documents (`https://${account.namespace}/.well-known/openid-configuration`). These can be used to automatically configure applications.
+Auth0 exposes <dfn data-key="openid">OpenID Connect (OIDC)</dfn> discovery documents (`https://${account.namespace}/.well-known/openid-configuration`). These can be used to automatically configure applications.
 
 A good example is __OpenID Connect middleware for Katana v3 (OWIN)__:
 

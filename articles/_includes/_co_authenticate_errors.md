@@ -12,7 +12,6 @@ The error description is human readable. It **should not be parsed by any code**
 | 401 | unauthorized_client | Cross origin login not allowed. |
 | 400 | unsupported_credential_type | Unknown credential type parameter. |
 | 400 | invalid_request | Unknown realm non-existent-connection. |
-| 403 | access_denied | Invalid user credentials. |
 | 403 | access_denied | Wrong email or password. |
 | 403 | access_denied | Authentication error |
 | 403 | blocked_user | Blocked user |

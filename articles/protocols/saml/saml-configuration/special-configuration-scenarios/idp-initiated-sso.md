@@ -1,5 +1,5 @@
 ---
-  description: Setting up IdP-initiated SSO
+  description: Learn to set up IdP-initiated Single Sign-on (SSO)
   topics:
     - saml
     - sso
@@ -9,9 +9,9 @@ useCase:
   - add-idp
 ---
 
-# Special Configuration Scenarios: IdP Initiates SSO
+# Special Configuration Scenarios: IdP-Initiated Single Sign-On
 
-Many instructions for setting up a SAML federation begin with SSO initiated by the service provider:
+Many instructions for setting up a <dfn data-key="security-assertion-markup-language">SAML</dfn> federation begin with <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> initiated by the service provider:
 
 1. The service provider returns a browser redirect so that the user authenticates using the identity provider.
 2. After authentication, the browser redirects the user back to the Service Provider with a SAML assertion containing information about the authentication status.

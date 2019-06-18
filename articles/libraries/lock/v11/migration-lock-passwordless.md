@@ -19,7 +19,7 @@ useCase:
 
 The following instructions assume you are migrating from the **lock-passwordless** widget to Lock v11.2+ using **Passwordless Mode**.
 
-The [lock-passwordless](https://github.com/auth0/lock-passwordless) widget was previously a standalone library, separate from [Lock](/libraries/lock). Now, you can migrate your apps to use the Passwordless Mode which is integrated directly into Lock v11. Lock v11 with Passwordless Mode is the latest method by which to deploy a login widget for passwordless authentication in your apps.
+The [lock-passwordless](https://github.com/auth0/lock-passwordless) widget was previously a standalone library, separate from [Lock](/libraries/lock). Now, you can migrate your apps to use the Passwordless Mode which is integrated directly into Lock v11. Lock v11 with Passwordless Mode is the latest method by which to deploy a login widget for <dfn data-key="passwordless">passwordless authentication</dfn> in your apps.
 
 To get started, you will need to remove **lock-passwordless** from your project, and instead include the [latest release version of Lock v11](https://github.com/auth0/lock/releases). 
 
@@ -181,7 +181,7 @@ lock.show();
 
 ### Subscribe to events
 
-Lock exposes a few events that you can subscribe to in order to be notified when the user is authenticated or an error occurs. So, instead of callbacks from `lock-passwordless`, you have to subscribe to events that you want to know about. To read more about Lock events, see [here](/libraries/lock/v11/api#on-).
+Lock exposes a few events that you can subscribe to in order to be notified when the user is authenticated or an error occurs. So, instead of <dfn data-key="callback">callbacks</dfn> from `lock-passwordless`, you have to subscribe to events that you want to know about. To read more about Lock events, see [here](/libraries/lock/v11/api#on-).
 
 ```js
 var lock = new Auth0LockPasswordless(clientID, domain);

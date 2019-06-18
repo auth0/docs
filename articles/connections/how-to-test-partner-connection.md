@@ -20,7 +20,7 @@ Auth0 simulates the authentication flow as if it was an application, displaying 
 
 There's a caveat though: for this to work you have to be logged-in in the dashboard.
 
-This is often not possible if you are testing a connection that belongs to someone else, and you don't have test credentials with them. This is common when connecting to __Enterprise connections__ such as __SAML IdPs__ or __Active Directory__. 
+This is often not possible if you are testing a connection that belongs to someone else, and you don't have test credentials with them. This is common when connecting to __Enterprise connections__ such as __<dfn data-key="security-assertion-markup-language">SAML</dfn> IdPs__ or __Active Directory__. 
 
 Having your partners test the new connection is very easy nevertheless:
 

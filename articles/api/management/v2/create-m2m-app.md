@@ -22,10 +22,10 @@ To create and authorize a Machine-to-Machine Application for the Management API:
 
 ![Create and Authorize Application](/media/articles/api/tokens/create-authorize-client.png)
 
-The application created in the steps above has been granted __all__ the Management API scopes. This means that it can access all endpoints.
+The application created in the steps above has been granted __all__ the Management API <dfn data-key="scope">scopes</dfn>. This means that it can access all endpoints.
 
 ::: panel How can I find out which scopes/permissions are required?
-Each machine-to-machine application that accesses an API must be granted a set of scopes. Scopes are permissions that should be granted by the owner. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. To see the required scopes/permissions for each endpoint, go to the [Management API Explorer](/api/management/v2#!) and find the endpoint you want to call. Each endpoint has a section called **Scopes** listing all the scopes that the endpoint requires. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`.
+Each machine-to-machine application that accesses an API must be granted a set of <dfn data-key="scope">scopes</dfn>. Scopes are permissions that should be granted by the owner. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. To see the required scopes/permissions for each endpoint, go to the [Management API Explorer](/api/management/v2#!) and find the endpoint you want to call. Each endpoint has a section called **Scopes** listing all the scopes that the endpoint requires. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`.
 :::
 
 ## Example: Get All Clients Endpoint

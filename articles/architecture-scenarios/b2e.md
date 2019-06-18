@@ -22,13 +22,13 @@ useCase:
 
 The B2E (Business to Employees) scenario involves applications that are used by employee users.  These are applications that are targeted toward users who are typically acting on behalf of an organization such as an employer, a university, or a group in which they are a member, as opposed to acting on their own behalf.  
 
-Such applications that are custom written by the organization may use the OIDC/OAuth protocol to externalize authentication whereas those that have been purchased will often use the SAML protocol. In either case, the enterprise will typically want to use some form of Enterprise connection, such as a SAML Identity Provider, ADFS, Google Apps, Azure AD or a directory service such as AD or OpenLDAP, and less frequently, a custom DB, for authentication of enterprise users.
+Such applications that are custom written by the organization may use the OIDC/OAuth protocol to externalize authentication whereas those that have been purchased will often use the <dfn data-key="security-assertion-markup-language">SAML</dfn> protocol. In either case, the enterprise will typically want to use some form of Enterprise connection, such as a SAML Identity Provider, ADFS, G Suite, Azure AD or a directory service such as AD or OpenLDAP, and less frequently, a custom DB, for authentication of enterprise users.
 
 For a business that is creating or integrating applications with Auth0 for a B2E environment,  there are several requirements that are common for this scenario.  This guide will summarize the most common requirements for B2E applications and explain the Auth0 features which help meet each need.  
  
 ## Enterprise providers
 
-Most businesses already have a corporate identity repository which has information on all the employee users and user profile information.  It may also contain information on partners and contractors. A common requirement for the B2E scenario therefore, is to allow such users to log in via [Auth0 Enterprise connections](/identityproviders#enterprise) such as SAML2 providers, ADFS, Google Apps, Azure AD or an on-premise corporate directory service.  This is attractive to users because it allows them to avoid creating yet another username and password for each application and instead leverage the same login credential across all their enterprise applications.  
+Most businesses already have a corporate identity repository which has information on all the employee users and user profile information.  It may also contain information on partners and contractors. A common requirement for the B2E scenario therefore, is to allow such users to log in via [Auth0 Enterprise connections](/identityproviders#enterprise) such as SAML2 providers, ADFS, G Suite, Azure AD or an on-premise corporate directory service.  This is attractive to users because it allows them to avoid creating yet another username and password for each application and instead leverage the same login credential across all their enterprise applications.  
 
 This is especially attractive to security interests within the company because user credentials are only exposed to the identity stack instead of to each application.  Furthermore, this architecture allows the business to retain control over access to applications because the enterprise identity provider provides a single shutoff point.  If a user leaves the organization, administrators can simply disable the user’s account in the corporate identity provider and the user can no longer log in to any of the applications using that identity provider.  
 
@@ -36,7 +36,7 @@ Auth0 makes it easy to enable login via a wide variety of enterprise providers w
 
 ## Groups and roles
 
-With a lot of users, you may set up groups and roles to manage access and privileges. Often, these are stored and administered in a directory service.
+With a lot of users, you may set up groups and <dfn data-key="role">roles</dfn> to manage access and privileges. Often, these are stored and administered in a directory service.
 
 Auth0 can get user attributes, like groups and roles, from a directory service or enterprise identity provider during authentication. You can then make the attributes available through tokens returned to the application or with the Auth0 Management API.
 
@@ -52,9 +52,9 @@ You can also map SAML attributes to the Auth0 user profile from the dashboard. T
 
 You may want to enrich user profiles with attributes or data retrieved from other services. For example, you might receive an address or phone number and wish to translate that into a geographic region. [Auth0 Rules](/rules) enable you to write small snippets of code that execute during the authentication transaction. This lets you execute logic or call other services for user information, then add [user metadata](/users/concepts/overview-user-metadata) to the Auth0 user profile and optionally the resulting tokens sent to your applications.
 
-## Single sign-on
+## Single Sign-on
 
-If you have several internal applications, you can set up [single sign-on (SSO)](/sso/current) across them so users only have to log in once.
+If you have several internal applications, you can set up <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> across them so users only have to log in once.
 
 Auth0 supports integration with applications that externalize authentication using industry standard identity protocols:
 
@@ -66,9 +66,9 @@ After some configuration, all your applications can leverage your enterprise ide
 
 Now when a user signs in to one application, they can access other applications integrated with Auth0 without having to log in again. This will be true until their SSO session expires. You should configure the SSO session length within Auth0 to meet security policies.
 
-## Single sign-on integrations
+## Single Sign-on integrations
 
-You can also integrate purchased applications with Auth0 for single sign-on (SSO). Auth0 provides [pre-built integrations](/integrations/sso) for applications such as:
+You can also integrate purchased applications with Auth0 for <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>. Auth0 provides [pre-built integrations](/integrations/sso) for applications such as:
 
 * SalesForce
 * Zendesk

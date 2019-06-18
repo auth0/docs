@@ -20,7 +20,7 @@ useCase:
 
 To connect your Auth0 application to Twitter, you will need to generate **Consumer** and **Secret** Keys in a Twitter application, copy these into your Auth0 settings, and enable the connection.
 
-If you're using a [custom domain](/custom-domains), you'll need to add that domain to the callback URLs list of your [Twitter application](https://developer.twitter.com/en/apps/create). For more information on this change, see this [Twitter developer forum post](https://twittercommunity.com/t/action-required-sign-in-with-twitter-users-must-whitelist-callback-urls/105342).
+If you're using a [custom domain](/custom-domains), you'll need to add that domain to the <dfn data-key="callback">callback URLs</dfn> list of your [Twitter application](https://developer.twitter.com/en/apps/create). For more information on this change, see this [Twitter developer forum post](https://twittercommunity.com/t/action-required-sign-in-with-twitter-users-must-whitelist-callback-urls/105342).
 
 ## 1. Create a Twitter application
 
@@ -31,6 +31,8 @@ If you're using a [custom domain](/custom-domains), you'll need to add that doma
     ![Create new Twitter app](/media/articles/connections/social/twitter/twitter-api-1.png)
 
 3. Provide the required information. For the **Callback URL**, enter `https://${account.namespace}/login/callback`. If you're using a [custom domain](/custom-domains), add that domain as another callback URL. 
+
+<%= include('../_find-auth0-domain-redirects') %>
 
     ![Callback URL](/media/articles/connections/social/twitter/twitter-api-2.png)
 

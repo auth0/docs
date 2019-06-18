@@ -17,7 +17,7 @@ useCase:
 
 # Authentication and Authorization Flows
 
-Auth0 uses [OpenID Connect](/protocols/oidc) and [OAuth 2.0](/protocols/oauth2) to authenticate users and get their authorization to access protected resources. With Auth0, you can easily support different flows in your own applications and APIs without worrying about the OAuth 2.0/OpenID Connect specification, or the other technical aspects of authentication and authorization.
+Auth0 uses <dfn data-key="openid">[OpenID Connect (OIDC)](/protocols/oidc)</dfn> and [OAuth 2.0](/protocols/oauth2) to authenticate users and get their authorization to access protected resources. With Auth0, you can easily support different flows in your own applications and APIs without worrying about the OAuth 2.0/OIDC specification, or the other technical aspects of authentication and authorization.
 
 We support scenarios for server-side, mobile, desktop, client-side, machine-to-machine, and device applications:
 

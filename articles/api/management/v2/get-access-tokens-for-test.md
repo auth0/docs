@@ -14,7 +14,7 @@ useCase: invoke-api
 # Get Access Tokens for Testing
 
 ::: warning
-This method for obtaining Access Tokens is **only for test purposes**. Do not get manually long-lived tokens and use them in your applications, because that nullifies the security advantages that tokens offer. 
+This method for obtaining <dfn data-key="access-token">Access Tokens</dfn> is **only for test purposes**. Do not get manually long-lived tokens and use them in your applications, because that nullifies the security advantages that tokens offer. 
 :::
 
 ## Prerequisite
@@ -45,7 +45,7 @@ To use the Access Token you just created for testing purposes, use the [Manageme
 1. Go to the [Management API v2 explorer page](/api/management/v2#!).
 1. Click the __Set API Token__ button at the top left.
 1. Set the __API Token__ field, and click __Set Token__.
-1. Under the __Set API Token__ button at the top left, some new information is now displayed: the domain and token set, and the scopes that have been granted to this application.
+1. Under the __Set API Token__ button at the top left, some new information is now displayed: the domain and token set, and the <dfn data-key="scope">scopes</dfn> that have been granted to this application.
 1. Go to the endpoint you want to call, fill any parameters that might be required and click __Try__.
 
 ![Set the Token](/media/articles/api/tokens/set-token.png)

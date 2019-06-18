@@ -122,7 +122,7 @@ You will need to add at least one user to your connection. You can do this via t
 
 ### Assign roles to users
 
-Auth0 grants the user(s) in your connection access to the Delegated Administration extension based on their roles:
+Auth0 grants the user(s) in your connection access to the Delegated Administration extension based on their <dfn data-key="role">roles</dfn>:
 
 - **Delegated Admin - User**: Grants permission to search for users, create users, open users and execute actions on these users (such as `delete`, `block`, and so on);
 
@@ -142,6 +142,10 @@ You can set these fields manually or via [rules](/rules).
 #### Set user roles via rules
 
 As an example, the following rule gives users from the `IT Department` the `Delegated Admin - Administrator` role and users from `Department Managers` are the `Delegated Admin - User` role.
+
+::: warning
+`auth0.com`, `webtask.io` and `webtask.run` are Auth0 domains and cannot be used as namespace identifiers for custom claims.
+:::
 
 ```js
 function (user, context, callback) {

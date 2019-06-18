@@ -22,7 +22,7 @@ Your user will authenticate, and Auth0 will generate an ID Token that will be pa
 In a single-page application (SPA): 
 
 1. The user clicks your "login" button or link, and our SDK redirects the user to your Auth0 Authorization Server requesting an ID Token.
-2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML).
+2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, <dfn data-key="security-assertion-markup-language">SAML</dfn>).
 3. Auth0 responds with the user's ID Token.
 
 For security in SPAs, Auth0 uses the [Implicit Flow](/flows/concepts/implicit).
@@ -32,7 +32,7 @@ For security in SPAs, Auth0 uses the [Implicit Flow](/flows/concepts/implicit).
 ## Implementation overview
 
 ::: steps
-  1. <h4>Configure the sign-in methods</h4>Auth0 supports a wide range of authentication methods: regular username/password (users can be stored in Auth0 or your own database), social (i.e., Google, Facebook, and 50+ other providers), passwordless (email magic link, email code, and phone code), and enterprise (e.g., SAML-based, ADFS, Ping, Okta).<br/><br/>Go to the dashboard and turn on the methods you want to allow; they will automatically show up in the login/sign-up page. By default, email/password and Google are enabled.
+  1. <h4>Configure the sign-in methods</h4>Auth0 supports a wide range of authentication methods: regular username/password (users can be stored in Auth0 or your own database), social (i.e., Google, Facebook, and 50+ other providers), <dfn data-key="passwordless">passwordless</dfn> (email magic link, email code, and phone code), and enterprise (e.g., SAML-based, ADFS, Ping, Okta).<br/><br/>Go to the dashboard and turn on the methods you want to allow; they will automatically show up in the login/sign-up page. By default, email/password and Google are enabled.
 
   2. <h4>Customize the sign-in UI (optional)</h4>The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.<br/><br/><img src="/media/articles/microsites/login-screen-default-web.png" alt="Default Login Screen for Native/Mobile Apps" width="70%">
 

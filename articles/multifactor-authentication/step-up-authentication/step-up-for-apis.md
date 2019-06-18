@@ -16,9 +16,9 @@ useCase:
 
 With step-up authentication, applications that allow access to different types of resources can require users to authenticate with a stronger mechanism to access sensitive information or perform certain transactions.
 
-For instance, a user may be allowed to transfer money only after they have confirmed their identity using Multi-factor Authentication (MFA).
+For instance, a user may be allowed to transfer money only after they have confirmed their identity using <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
-When your audience is an API, you can implement step-up authentication with Auth0 using [scopes](/scopes), [Access Tokens](/tokens/overview-access-tokens) and [rules](/rules). In this article we will explain how you can do that and use a sample implementation to go through the process step-by-step.
+When your <dfn data-key="audience">audience</dfn> is an API, you can implement step-up authentication with Auth0 using <dfn data-key="scope">scopes</dfn>, <dfn data-key="access-token">Access Tokens</dfn> and [rules](/rules). In this article we will explain how you can do that and use a sample implementation to go through the process step-by-step.
 
 ## How to check the Access Token
 
@@ -106,7 +106,7 @@ https://${account.namespace}/authorize?
   &response_type=id_token%20token
   &client_id=${account.clientId}
   &redirect_uri=${account.callback}
-  &nonce=CRYPTOGRAPHIC_NONCE
+  &nonce=NONCE
   &state=OPAQUE_VALUE
         </code>
       </pre>
@@ -120,7 +120,7 @@ https://${account.namespace}/authorize?
   &response_type=id_token%20token
   &client_id=${account.clientId}
   &redirect_uri=${account.callback}
-  &nonce=CRYPTOGRAPHIC_NONCE
+  &nonce=NONCE
   &state=OPAQUE_VALUE
         </code>
       </pre>
@@ -132,7 +132,7 @@ https://${account.namespace}/authorize?
 - The `response_type` is set to `id_token token` so we get both an ID Token and an Access Token in the response
 - Set `client_id` to the Client ID of your application (find it at [Application Settings](${manage_url}/#/applications/${account.clientId}/settings))
 - Set the `redirect_uri` to the URL of your application that Auth0 should redirect back to after authentication (find it at [Application Settings](${manage_url}/#/applications/${account.clientId}/settings))
-- Set `nonce` to a string value which will be included in the response from Auth0. This is [used to prevent token replay attacks](/api-auth/tutorials/nonce) and is required for `response_type=id_token token`
+- Set `nonce` to a cryptographically-secure string value which will be included in the response from Auth0. This is [used to prevent token replay attacks](/api-auth/tutorials/nonce) and is required for `response_type=id_token token`
 - Set `state` to an opaque value that Auth0 includes when redirecting back to the application. This value must be used by the application to [prevent CSRF attacks](/protocols/oauth2/oauth-state)
 
 ### 3. Configure your API

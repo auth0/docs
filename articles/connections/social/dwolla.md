@@ -27,9 +27,11 @@ Log into the Dwolla [Developer portal](https://uat.dwolla.com/applications) and 
 
 ## 2. Register your new app
 
-Complete the information on this page. Enter the following URL in the **OAuth Redirect URL** field:
+Complete the information on this page. Enter your <dfn data-key="callback">callback URL</dfn> in the **OAuth Redirect URL** field:
 
   https://${account.namespace}/login/callback
+
+  <%= include('../_find-auth0-domain-redirects') %>
 
 ![](/media/articles/connections/social/dwolla/dwolla-2.png)
 

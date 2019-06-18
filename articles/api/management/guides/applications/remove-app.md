@@ -31,4 +31,4 @@ This guide will show you how to remove an application using Auth0's Management A
 | Value | Description |
 | - | - |
 | `YOUR_CLIENT_ID` | Τhe ID of the application to be deleted. |
-| `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the scope `delete:clients`. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `delete:clients`. |

@@ -26,9 +26,9 @@ You have already configured and verified your custom domain. If not, see [How to
 | You use Auth0.js or other Auth0 SDKs | [Auth0.js and other SDKs](#auth0-js-and-other-sdks) |
 | You want to use your custom domain with Auth0 emails | [Use custom domains in emails](#use-custom-domains-in-emails) |
 | You want to use social identity providers with your custom domain | [Configure social identity providers](#configure-social-identity-providers) |
-| You want to use Google Apps connections with your custom domain | [Configure Google Apps connections](#configure-google-apps-connections) |
+| You want to use G Suite connections with your custom domain | [Configure G Suite connections](#configure-g-suite-connections) |
 | You issue Access Tokens for your APIs or you access the Auth0 APIs from your application | [APIs](#apis) |
-| You want to use SAML identity providers with your custom domain| [Configure SAML identity providers](#configure-saml-identity-providers) |
+| You want to use <dfn data-key="security-assertion-markup-language">SAML</dfn> identity providers with your custom domain| [Configure SAML identity providers](#configure-saml-identity-providers) |
 | You want to use SAML applications with your custom domain | [Configure your SAML applications](#configure-your-saml-applications) |
 | You want to use WS-Fed Clients with your custom domain | [Configure your WS-Fed Clients](#configure-your-ws-fed-clients) |
 | You want to use Azure AD connections with your custom domain | [Configure Azure AD connections](#configure-azure-ad-connections) |
@@ -117,9 +117,9 @@ If you want to use social identity providers with your custom domain, you must u
 You cannot use [Auth0 developer keys](/connections/social/devkeys) with custom domains.
 :::
   
-## Configure Google Apps connections
+## Configure G Suite connections
 
-If you want to use Google Apps connections with your custom domain, you must update the Authorized redirect URI in your OAuth Client Settings. In the Google Developer Console, go to **Credentials**, choose your OAuth client in the list, and you will see a settings page with the app Client ID, secret, and other fields. In the **Authorized redirect URIs** field, add a URL in the format `https://<CUSTOM DOMAIN>/login/callback` that includes your custom domain (such as `https://login.northwind.com/login/callback`).
+If you want to use G Suite connections with your custom domain, you must update the Authorized redirect URI in your OAuth Client Settings. In the Google Developer Console, go to **Credentials**, choose your OAuth client in the list, and you will see a settings page with the app Client ID, secret, and other fields. In the **Authorized redirect URIs** field, add a URL in the format `https://<CUSTOM DOMAIN>/login/callback` that includes your custom domain (such as `https://login.northwind.com/login/callback`).
 
 ## APIs
 

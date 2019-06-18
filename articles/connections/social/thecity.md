@@ -31,7 +31,9 @@ Select __API > Plugin > Create plugin__:
 
 ![](/media/articles/connections/social/thecity/thecity-register-2.png)
 
-Complete the form using this callback URL: `https://${account.namespace}/login/callback`
+Complete the form using this <dfn data-key="callback">callback URL</dfn>: `https://${account.namespace}/login/callback`
+
+<%= include('../_find-auth0-domain-redirects') %>
 
 ![](/media/articles/connections/social/thecity/thecity-register-3.png)
 

@@ -18,7 +18,7 @@ After you have set up your [user profiles](/microsites/manage-users/manage-users
 There are two kinds of metadata in Auth0:
 
 * **`user_metadata`** stores user attributes (such as preferences) that do not impact users' core functionality. An authenticated user can modify this type of data. 
-* **`app_metadata`** stores information (such as users' support plans, security roles, and access control groups) that can impact users' core functionality. For example, how an application functions or what the user can access. A user cannot modify this type of data. 
+* **`app_metadata`** stores information (such as users' support plans, security <dfn data-key="role">roles</dfn>, and access control groups) that can impact users' core functionality. For example, how an application functions or what the user can access. A user cannot modify this type of data. 
 
 For example, suppose the following metadata is stored for a use with the email address `jane.doe@example.com`:
 

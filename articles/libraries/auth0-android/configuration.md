@@ -36,7 +36,7 @@ WebAuthProvider.init(account)
 
 ## withScope
 
-Using scopes can allow you to return specific claims for specific fields in your request. Adding parameters to `withScope` will allow you to add more scopes. You should read our [documentation on scopes](/scopes) for further details about them.
+Using <dfn data-key="scope">scopes</dfn> can allow you to return specific claims for specific fields in your request. Adding parameters to `withScope` will allow you to add more scopes. You should read our [documentation on scopes](/scopes) for further details about them.
 
 ```java
 WebAuthProvider.init(account)
@@ -72,7 +72,7 @@ WebAuthProvider.init(account)
 
 ## withScheme
 
-If you are not using Android "App Links" or you want to use a different scheme for the redirect URI, then use `withScheme`. Note that you'll need to update the `auth0Scheme` Manifest Placeholder in the `app/build.gradle` file and the whitelisted **Allowed Callback URLs** on the [Dashboard](${manage_url}) in the Application's settings to match the chosen scheme.
+If you are not using Android "App Links" or you want to use a different scheme for the redirect URI, then use `withScheme`. Note that you'll need to update the `auth0Scheme` Manifest Placeholder in the `app/build.gradle` file and the whitelisted **Allowed <dfn data-key="callback">Callback URLs</dfn>** on the [Dashboard](${manage_url}) in the Application's settings to match the chosen scheme.
 
 ```java
 WebAuthProvider.init(account)
@@ -86,7 +86,7 @@ Scheme must be lowercase!
 
 ## withAudience
 
-To provide an audience, use `withAudience`.
+To provide an <dfn data-key="audience">audience</dfn>, use `withAudience`.
 
 ```java
 WebAuthProvider.init(account)
@@ -107,7 +107,7 @@ WebAuthProvider.init(account)
 
 ## withNonce
 
-By default a random [nonce](/api-auth/tutorials/nonce) is generated and sent when the response type includes `id_token`. If you need to use a custom value instead, use `withNonce`:
+By default a random <dfn data-key="nonce">nonce</dfn> is generated and sent when the response type includes `id_token`. If you need to use a custom value instead, use `withNonce`:
 
 ```java
 WebAuthProvider.init(account)

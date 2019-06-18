@@ -16,7 +16,7 @@ useCase:
 
 <%= include('../_includes/_pipeline2') %>
 
-OAuth 2.0 supports several different **grants**. By grants, we mean ways of retrieving an Access Token. Deciding which one is suited for your case depends mostly on your Application's type, but other parameters weigh in as well, like the level of trust for the Application, or the experience you want your users to have.
+OAuth 2.0 supports several different **grants**. By grants we mean ways of retrieving an <dfn data-key="access-token">Access Token</dfn>. Deciding which one is suited for your case depends mostly on your Application's type, but other parameters weigh in as well, like the level of trust for the Application, or the experience you want your users to have.
 
 Follow this flow to identify the grant that best matches your case.
 
@@ -38,7 +38,7 @@ If this case matches your needs, then for more information on how this flow work
 
 ## Is the Application a web app executing on the server?
 
-If the Application is a regular web app executing on a server, then the **Authorization Code Flow (Authorization Code grant)** is the flow you should use. Using this the Application can retrieve an Access Token and, optionally, a Refresh Token. It's considered the safest choice since the Access Token is passed directly to the web server hosting the Application, without going through the user's web browser and risk exposure.
+If the Application is a regular web app executing on a server, then the **Authorization Code Flow (Authorization Code grant)** is the flow you should use. Using this the Application can retrieve an Access Token and, optionally, a <dfn data-key="refresh-token">Refresh Token</dfn>. It's considered the safest choice since the Access Token is passed directly to the web server hosting the Application, without going through the user's web browser and risk exposure.
 
 If this case matches your needs, then for more information on how this flow works and how to implement it, refer to [Authorization Code Flow](/flows/concepts/auth-code).
 

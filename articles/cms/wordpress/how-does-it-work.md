@@ -22,7 +22,7 @@ The Login by Auth0 plugin handles login and account creation flows automatically
 The process runs as follows:
 
 1. The user accesses the WordPress site's login page. This could be the main login page at `[SITE URL]/wp-login.php` or a page containing a widget or shortcode.
-2. The user provides their username and password, clicks on a social icon to use another identity provider, or completes the Passwordless process in the Auth0 login form, Lock.
+2. The user provides their username and password, clicks on a social icon to use another identity provider, or completes the <dfn data-key="passwordless">Passwordless</dfn> process in the Auth0 login form, Lock.
 3. Auth0 attempts to authenticate the user with the method selected.
   - If login or signup with a username + password or with Passwordless fails, an error message will appear on Lock.
   - If it is successful, the process continues below.

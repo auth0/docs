@@ -30,7 +30,7 @@ When a client asks the API to create a new timesheet entry, then the Access Toke
 For more information on scopes refer to [Scopes](/scopes).
 :::
 
-By using the OAuth 2.0 authorization framework, you can give your own applications or third-party applications limited access to your APIs on behalf of the application itself. Using Auth0, you can easily support different flows in your own APIs without worrying about the OAuth 2.0/OpenID Connect specification, or the many other technical aspects of API authorization.
+By using the OAuth 2.0 authorization framework, you can give your own applications or third-party applications limited access to your APIs on behalf of the application itself. Using Auth0, you can easily support different flows in your own APIs without worrying about the OAuth 2.0/<dfn data-key="openid">OpenID Connect (OIDC)</dfn> specification, or the many other technical aspects of API authorization.
 
 ::: panel OAuth Roles
 In any OAuth 2.0 flow we can identify the following roles:

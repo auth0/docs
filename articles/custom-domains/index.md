@@ -13,7 +13,7 @@ Auth0 allows you to map the domain for your tenant to a custom domain of your ch
 
 For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
 
-It is recommended that you use custom domains with Universal Login for the most seamless and secure experience for your end users. Check the [Universal Login documentation](/hosted-pages/login) to see if your plan and use case support custom domains. 
+We recommend that you use custom domains with Universal Login for the most seamless and secure experience for your users. Check the [Universal Login documentation](/hosted-pages/login) to see if your plan and use case support custom domains. 
 
 ::: warning
 Private Cloud customers should see [this page](/appliance/custom-domains) for information on using custom domains.
@@ -33,9 +33,9 @@ Currently, the following Auth0 features and flows support the use of custom doma
 * Emails (the links included in the emails will use your custom domain)
 * Database and social connections
 * Lock 11 with cross-origin authentication
-* Passwordless connections with Universal Login (The email link will be sent using the custom domain if the option is enabled in **Tenant Settings > Custom Domains**)
-* Google Apps connections
-* SAML connections and applications
+* <dfn data-key="passwordless">Passwordless</dfn> connections with Universal Login (The email link will be sent using the custom domain if the option is enabled in **Tenant Settings > Custom Domains**)
+* G Suite connections
+* <dfn data-key="security-assertion-markup-language">SAML</dfn> connections and applications
 * WS-Fed clients (Auth0 as IDP using WS-Fed Add-on)
 * Azure AD connections
 * ADFS connections

@@ -18,7 +18,7 @@ useCase:
 
 <%= include('../_includes/_lock-version-1') %>
 
-Lock UI can be customized by creating your own `A0Theme` and overriding the default one before displaying `A0LockViewController`:
+<dfn data-key="lock">Lock</dfn> UI can be customized by creating your own `A0Theme` and overriding the default one before displaying `A0LockViewController`:
 
 ```objc
 A0Theme *myAwesomeTheme = [[A0Theme alloc] init];

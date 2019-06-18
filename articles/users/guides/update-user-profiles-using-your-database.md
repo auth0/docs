@@ -55,7 +55,7 @@ Auth0 caches the user profile received from a [database connection](/connections
 
 The cached values for the [Normalized User Profile](/users/normalized/auth0/normalized-user-profile-schema) fields are based on the values returned from the Login Script of your custom database connection.
 
-The User Profile is cached for several reasons. First, caching allows you the option of implementing [Single Sign-On](/sso) at the Auth0 layer to avoid going to the Connection for every request. Additionally, this provides resilience if a Connection is temporarily unavailable.
+The User Profile is cached for several reasons. First, caching allows you the option of implementing <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> at the Auth0 layer to avoid going to the Connection for every request. Additionally, this provides resilience if a Connection is temporarily unavailable.
 
 You can delete a user's cached profile with the Auth0 Dashboard or the Management API. 
 

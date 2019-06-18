@@ -15,12 +15,12 @@ useCase:
 ---
 # Custom Signup
 
-You can customize the user signup form with more fields in addition to email and password when using Lock or the Auth0 API. 
+You can customize the user signup form with more fields in addition to email and password when using <dfn data-key="lock">Lock</dfn> or the Auth0 API. 
 
 There are many factors to consider before you choose [Lock vs. Custom UI](/libraries/when-to-use-lock). For example, using Lock, you can redirect to another page to capture data or use progressive profiling. When using the Auth0 API, you can capture custom fields and store them in a database. There are certain limitations to the customization that should be considered when choosing the method that best suits your purpose. Some typical customizations include adding a username and verifying password strength.
 
 :::panel Universal Login
-Auth0 offers a [Universal Login](/hosted-pages/login) option that you can use instead of designing your own custom signup page. If you want to offer signup and login options, and you only need to customize the application name, logo and background color, then Universal Login via an Auth0 login page might be an easier option to implement. 
+Auth0 offers a <dfn data-key="universal-login">Universal Login</dfn> option that you can use instead of designing your own custom signup page. If you want to offer signup and login options, and you only need to customize the application name, logo and background color, then Universal Login via an Auth0 login page might be an easier option to implement. 
 :::
 
 ## Using Lock
@@ -111,7 +111,7 @@ When your users sign up, the custom fields are sent as part of `user_metadata`. 
 
 ## Redirect mode
 
-After a successful login, Auth0 will redirect the user to your configured callback URL with a JWT (`id_token`) in the query string.
+After a successful login, Auth0 will redirect the user to your configured <dfn data-key="callback">callback URL</dfn> with a JWT (`id_token`) in the query string.
 
 ::: note
 To learn more about the differences between popup and redirect modes, please refer to [this document](/libraries/lock/v10/popup-mode).

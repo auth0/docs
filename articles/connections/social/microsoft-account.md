@@ -34,7 +34,7 @@ During this process, Microsoft will generate an **Application (client) ID** for 
 
 While setting up your app, make sure you use the following settings:
 
-* When asked to set a **Redirect URI**, enter `https://${account.namespace}/login/callback`.
+* When asked to set a **Redirect URI**, enter your <dfn data-key="callback">callback URL</dfn> `https://${account.namespace}/login/callback`.
 
 <%= include('../_find-auth0-domain-redirects.md') %>
 

@@ -23,9 +23,9 @@ The examples below assume you completed the [Installation and Getting Started se
 
 ## Authorization Code Flow
 
-An [Authorization Code grant](/api-auth/tutorials/authorization-code-grant) is the basic way to grant users access to your application. This flow is the same one used on the [Basic Use page](/libraries/auth0-php/basic-use#login). If you need more granular control over the login or callback process, this section walks through how to use the Authentication API directly.
+An [Authorization Code grant](/api-auth/tutorials/authorization-code-grant) is the basic way to grant users access to your application. This flow is the same one used on the [Basic Use page](/libraries/auth0-php/basic-use#login). If you need more granular control over the login or <dfn data-key="callback">callback</dfn> process, this section walks through how to use the Authentication API directly.
 
-In the example below, we're going to receive the Access Token in the POST body instead of a URL parameter. First, the user must authenticate with Auth0 to generate the authorization code. This is done by redirecting to the `/authorize` endpoint for your tenant domain. The following code would appear on a page that requires authentication:
+In the example below, we're going to receive the <dfn data-key="access-token">Access Token</dfn> in the POST body instead of a URL parameter. First, the user must authenticate with Auth0 to generate the authorization code. This is done by redirecting to the `/authorize` endpoint for your tenant domain. The following code would appear on a page that requires authentication:
 
 ```php
 // auth-required.php
@@ -84,9 +84,9 @@ function isUserAuthenticated()
 The process above does the following:
 
 1. First, we check if there is a user session with `isUserAuthenticated()`. The implementation here just checks if the SDK has a persisted user. Your application might handle user sessions differently.
-1. If there is no session, then we need to log the user in by redirecting to the Universal Login Page.
+1. If there is no session, then we need to log the user in by redirecting to the <dfn data-key="universal-login">Universal Login</dfn> Page.
 1. We set a state value with the login request and then verify that value when the code is returned on the callback URL. The `$state_handler->issue()` call above both generates a value and stores it in the PHP session store. This can also be done manually and stored in either the PHP session or cookies.
-1. The `$auth0_api->get_authorize_link()` call builds the correct `/authorize` link with the correct response type (`code` in this case), redirect URI (wherein the application we will handle the response, explained below), state (from above), response mode (POST body), and scopes requested.
+1. The `$auth0_api->get_authorize_link()` call builds the correct `/authorize` link with the correct response type (`code` in this case), redirect URI (wherein the application we will handle the response, explained below), state (from above), response mode (POST body), and <dfn data-key="scope">scopes</dfn> requested.
 1. Then we redirect to this URL and wait for a response.
 
 After authentication, the user is redirected to the callback URL, which is handled with the following:
@@ -246,9 +246,9 @@ Array
 - The `email_verified` key will always be `false`.
 - The `email` key will be the same email address that was passed to the endpoint.
 
-## SSO Logout
+## Single Sign-on Logout
 
-Basic logout (covered on the [Basic Use page](/libraries/auth0-php/basic-use#logout)) closes the session in your application, but for customers using SSO, they also need to close the session at Auth0. This means that the next time the user sees an Auth0 login form, they will be required to provide their credentials to log in. This step should be completed **after** the session is closed in your application.
+Basic logout (covered on the [Basic Use page](/libraries/auth0-php/basic-use#logout)) closes the session in your application, but for customers using <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>, they also need to close the session at Auth0. This means that the next time the user sees an Auth0 login form, they will be required to provide their credentials to log in. This step should be completed **after** the session is closed in your application.
 
 First, determine where the user should end up after the logout has completed. Save this in the Auth0 Application settings in the "Allowed Logout URLs" field. Also, add an `AUTH0_LOGOUT_RETURN_URL` key with this URL as the value in your `.env` file.
 

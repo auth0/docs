@@ -12,7 +12,7 @@ useCase:
 
 # ADFS SAML Connection
 
-Auth0 allows you to create a custom SAML connection to Microsoft's Active Directory Federation Services. In addition to getting a bit more flexibility when configuring your mappings, the SAML Connection allows you identity provider-initiated flows (this is something that you cannot do with WS-Fed).
+Auth0 allows you to create a custom <dfn data-key="security-assertion-markup-language">SAML</dfn> connection to Microsoft's Active Directory Federation Services. In addition to getting a bit more flexibility when configuring your mappings, the SAML Connection allows you identity provider-initiated flows (this is something that you cannot do with WS-Fed).
 
 ## Step 1: Configure ADFS
 

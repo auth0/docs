@@ -12,7 +12,7 @@ useCase:
 
 # Troubleshooting SAML when Auth0 is the Identity Provider
 
-When troubleshooting a SAML login, there are four primary stages to check:
+When troubleshooting a <dfn data-key="security-assertion-markup-language">SAML</dfn> login, there are four primary stages to check:
 
 * Stage 1: The user is successfully redirected to IDP and is able to login.
 * Stage 2: After login with the IDP, the user returns to Auth0 with a successful login event recorded.
@@ -31,7 +31,7 @@ In this case, the user successfully logs in with the idp, but a successful login
 
   * Disable your [rules](/rules) temporarily to make sure that nothing is interfering with the login process.
 
-  * If you've enabled [multi-factor authentication](/multifactor-authentication), disable it temporarily to make sure that it is not interfering with the login process.
+  * If you've enabled <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>, disable it temporarily to make sure that it is not interfering with the login process.
 
 * If you're using an Auth0 Database Connection **or** a remote SAML connection:
 

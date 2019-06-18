@@ -20,7 +20,7 @@ useCase: invoke-api
   <div class="span4 col-sm-4 api-description" style="text-align:right">Obtain a token to call the API</div>
 </div>
 
-Auth0 API requires an Access Token. You can get one by authenticating with your `client_id` and `client_secret` (It will be valid for 24 hours). To obtain the global client ID and global client secret see the **Advanced** tab under [Tenant Settings](${manage_url}/#/tenant/advanced) in the Auth0 dashboard.
+Auth0 API requires an <dfn data-key="access-token">Access Token</dfn>. You can get one by authenticating with your `client_id` and `client_secret` (It will be valid for 24 hours). To obtain the global client ID and global client secret see the **Advanced** tab under [Tenant Settings](${manage_url}/#/tenant/advanced) in the Auth0 dashboard.
 
 ```text
 POST /oauth/token
@@ -74,7 +74,7 @@ Authorization: Bearer {token}
   <div class="span4 col-sm-4 api-description" style="text-align:right">Gets all user's devices</div>
 </div>
 
-Gets all devices/Refresh Tokens being used by the user.
+Gets all devices/<dfn data-key="refresh-token">Refresh Tokens</dfn> being used by the user.
 
 ```text
 GET /api/users/{user_id}/devices
@@ -101,7 +101,7 @@ Authorization: Bearer {token}
 **Search** remarks: Depending on the connection's type the search will be done in different fields:
 *   Active Directory/LDAP: by default uses ambiguous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of email addresses over all email address spaces that the Exchange server knows about).
 *   Database Connections (not custom): Name/Email case insensitive.
-*   Google Apps: Email/username case insensitive.
+*   G Suite: Email/username case insensitive.
 *   WAAD/WAAD2: Name/Email case insensitive.
 *   Windows Azure Active Directory or Office365: name/email case insensitive
 Heads up! If the connection does not support querying for users (for instance ADFS, SAMLP), it will return the users who have logged in through that connection.
@@ -120,7 +120,7 @@ Search users from all enterprise directories based on the specified `criteria`. 
 **Search** remarks: Depending on the connection's type the search will be done in different fields:
 *   Active Directory/LDAP: by default uses ambiguous name resolution ([ANR](http://technet.microsoft.com/en-us/library/cc755809(v=ws.10).aspx)) which expands to givenName (first name), sn (surname, or last name), displayName, RDN, legacyExchangeDN, physicalDeliveryOfficeName (for example, Building A, Suite 1234), proxyAddresses (the collection of email addresses over all email address spaces that the Exchange server knows about).
 *   Database Connections (not custom): Name/Email case insensitive.
-*   Google Apps: Email/username case insensitive.
+*   G Suite: Email/username case insensitive.
 *   WAAD/WAAD2: Name/Email case insensitive.
 *   Windows Azure Active Directory or Office365: name/email case insensitive
 Heads up! If the connection does not support querying for users (for instance ADFS, SAMLP), it will return the users who have logged in through that connection.
@@ -342,7 +342,7 @@ Authorization: Bearer {token}
   <div class="span4 col-sm-4 api-description" style="text-align:right">Revokes a Refresh Token</div>
 </div>
 
-Revokes a user's Refresh Token
+Revokes a user's <dfn data-key="refresh-token">Refresh Token</dfn>
 
 ```text
 DELETE /api/users/{user_id}/refresh_tokens/{refresh_token}
@@ -413,7 +413,7 @@ Authorization: Bearer {token}
 Content-Type: application/json
 {
   "name":     ""
-  "strategy": "waad|google-apps|adfs|PingFederate|samlp|auth0",
+  "strategy": "waad|g-suite|adfs|PingFederate|samlp|auth0",
   "options":   {
     "tenant_domain":
     "domain_aliases":
@@ -440,7 +440,7 @@ Content-Type: application/json
 </div>
 
 Updates a connection. The body of the request must include the `options` object with the connection parameters and the `status`.
-The request's body depends on the strategy that was used to create the connection. Select a strategy: waad google-apps adfs PingFederate samlp auth0
+The request's body depends on the strategy that was used to create the connection. Select a strategy: waad g-suite adfs PingFederate samlp auth0
 
 ```text
 PUT /api/connections/{connection-name}
@@ -482,7 +482,7 @@ Authorization: Bearer {token}
   <div class="span4 col-sm-4 api-description" style="text-align:right">Creates a new applications/APIs</div>
 </div>
 
-Create an application. The body of the request can include the `name` and `callbacks` parameters.
+Create an application. The body of the request can include the `name` and <dfn data-key="callback">`callbacks`</dfn> parameters.
 
 ```text
 POST /api/clients

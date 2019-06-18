@@ -11,7 +11,7 @@ useCase:
 
 # Special Configuration Scenarios: Signing and Encrypting SAML Requests
 
-To increase the security of your transactions, you can sign or encrypt both your requests and your responses in the SAML protocol. In this article you'll find configurations for specific scenarios, separated under two use cases:
+To increase the security of your transactions, you can sign or encrypt both your requests and your responses in the <dfn data-key="security-assertion-markup-language">SAML</dfn> protocol. In this article you'll find configurations for specific scenarios, separated under two use cases:
 
 - Auth0 as the SAML **service provider** (i.e. a SAML **Connection**)
 - Auth0 as the SAML **identity provider** (i.e. an **Application** configured with the **SAML Web App Addon**)

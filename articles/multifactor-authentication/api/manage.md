@@ -14,14 +14,14 @@ useCase:
 
 # Manage the Authenticators
 
-Auth0 provides several API endpoints to help you manage the authenticators you're using with an application for multi-factor authentication (MFA).
+Auth0 provides several API endpoints to help you manage the authenticators you're using with an application for <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
 ## Before you start
 
-The MFA endpoints require an [Access Token](/tokens/overview-access-tokens) with:
+The MFA endpoints require an <dfn data-key="access-token">Access Token</dfn> with:
 
 - `audience`: Set to `https://${account.namespace}/mfa/`
-- `scope`: Include `enroll` for enrollment, `read:authenticators` to list authenticators, and `remove:authenticators` to delete authenticators.
+- <dfn data-key="scope">`scope`</dfn>: Include `enroll` for enrollment, `read:authenticators` to list authenticators, and `remove:authenticators` to delete authenticators.
 
 For example:
 
@@ -70,7 +70,7 @@ For example:
 
 ## List Authenticators
 
-To get a list of the authenticators you've associated and can be used with your tenant, you can make the appropriate call to the `/mfa/authenticators` endpoint:
+To get a list of the authenticators a user has associated and can be used with your tenant, you can make the appropriate call to the `/mfa/authenticators` endpoint:
 
 ```har
 {
@@ -109,7 +109,7 @@ You should receive information about the authenticator type(s) in the response:
 
 ## Delete Authenticators
 
-To delete an authenticator you've associated, send a delete request to the `/mfa/authenticators/AUTHENTICATOR_ID` endpoint (be sure to replace `AUTHENTICATOR_ID` with your authenticator ID).
+To delete an associated authenticator, send a delete request to the `/mfa/authenticators/AUTHENTICATOR_ID` endpoint (be sure to replace `AUTHENTICATOR_ID` with the relevant authenticator ID).
 
 ```har
 {
