@@ -226,10 +226,6 @@ import { ExternalApiComponent } from './external-api/external-api.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomeComponent
-  },
-  {
     path: 'callback',
     component: CallbackComponent
   },
