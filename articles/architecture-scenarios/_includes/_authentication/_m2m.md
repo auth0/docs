@@ -1,15 +1,14 @@
-There are many scenarios that require an application that is not a user-interactive session to get an access token.  In these scenarios you are authenticating the client instead of the user.  Some common times where this is needed:
-* There is a cron job or other service that needs to communicate with your API.  For example the system needs to generate a daily report and email it to an administrator.
-* There is a separate API the supports privileged access.  This API is not exposed to users directly, but instead to a backend only.
-* In certain microservice architectures some layers of APIs need to communicate to other API layers without a user involvement, or after a user token has expired.
-* A privileged API may need to be called before a user has authenticated (i.e. from a rule or custom DB script in your Auth0 tenant)
+There are many scenarios that require an application _without_ any user-interactive session to obtain an access token in order to call an API. In such scenarios you must authenticate the client instead of the user, and OAuth 2 provides the [client credentials](/flows/concepts/client-credentials) grant type to make this easy to achieve. Some common examples of where this is required include:
+* A cron job or other service that needs to communicate with your API (e.g. where a daily report needs to be generated and emailed it to an administrator).
+* A separate API the supports privileged access (e.g. the API is not exposed to users directly, but instead to a backend only).
+* In certain microservice architectures, where some API layers need to communicate to other API layers without a user involvement, or after a user token has expired.
+* A privileged API that may need to be called before a user has authenticated (i.e. from a rule or custom DB script in your Auth0 tenant)
 
 ::: panel best practice
-Back in the day, people would often create a special "service account".  A user with a username and password that was stored in configuration for services that needed to be non-interactive.  That is no longer a recommended approach for many reasons.  The current best practice is to use [OAuth 2.0 Client Credentials Grant](https://auth0.com/docs/flows/concepts/client-credentials)
+Traditionally, a special "service account" would have been created in order to cater for these scenarios: a user with a username and password that was configured for services which supported non-interactive use cases. That is no longer a recommended approach for many reasons, and the current best practice is to use [OAuth 2.0 Client Credentials Grant](https://auth0.com/docs/flows/concepts/client-credentials) in these situations.
 :::
 
-In these scenarios, OAuth 2.0 provides a nice grant type to make this easy.  This grant type is called the client credentials grant type.  See [client credentials](https://auth0.com/docs/flows/concepts/client-credentials) for a more in-depth description of where it is and is not appropriate to use this grant type.
 
 ::: warning
-Though the client credentials hook can be used to add custom claims, it is important to consider the purpose for which client credentials was created and avoid extending it beyond its intended purpose as this can result in new vectors for attackers to exploit.
+Though the [Client Credentials Exchange Hook](/hooks/concepts/credentials-exchange-extensibility-point) in Auth0 can be used to add custom claims, it's important to consider the purpose for which a token was requested and to avoid extending use of the token beyond its intended purpose. Doing otherwise can result in the creation of unintended attack vectors for attackers to exploit.
 :::

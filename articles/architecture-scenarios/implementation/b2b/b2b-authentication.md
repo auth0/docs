@@ -108,7 +108,7 @@ With enterprise connection support, user identities and credentials are managed 
 "Bring your own identity" is a great feature to provide, but if you don't support this from day one, and sometimes even if you do, you may have an organization that wants to switch to their own IDP after already having used the application for a while.  You will need a way to [Link User Accounts](https://auth0.com/docs/link-accounts) (a.k.a. Account Linking) to provide an effective way of associating the new identity with the old database identity.
 :::
 
-## M2M Authentication
+## Machine-to-Machine (M2M) Authentication
 
 <%= include('../../_includes/_authentication/_m2m.md', { platform: 'b2b' }) %>
 
