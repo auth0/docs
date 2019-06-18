@@ -24,7 +24,7 @@ In this case Auth0 will never store any password hashes, unless you choose to [p
 
 ## I don't want to use proprietary Auth0 components
 
-Auth0 mainly uses [OpenID Connect as its authentication protocol](/protocols), so you should be able to implement an integration to your application using standard libraries.
+Auth0 mainly uses <dfn data-key="openid">OpenID Connect (OIDC)</dfn> as its authentication protocol, so you should be able to implement an integration to your application using standard libraries.
 The same applies when [integrating Auth0 through SAML](/saml-configuration).
 
 All of Auth0's SDKs, libraries and samples [are published on GitHub as free software](https://github.com/auth0/).

@@ -25,14 +25,14 @@ Auth0 lets you create [PingFederate Server](https://documentation.pingidentity.c
 
 If your PingFederate server is configured in the standard way, create a PingFederate connection by going to [Dashboard > Connections > Enterprise](${manage_url}/#/connections/enterprise) and selecting **PingFederate**.
 
-If additional setup is required, such as attribute mapping, create a new [SAML connection](/connections/enterprise/samlp) instead of the PingFederate connection. To do this, go to [Dashboard > Connections > Enterprise](${manage_url}/#/connections/enterprise) and select **SAMLP Identity Provider**.
+If additional setup is required, such as attribute mapping, create a new <dfn data-key="security-assertion-markup-language">[SAML connection](/connections/enterprise/samlp)</dfn> instead of the PingFederate connection. To do this, go to [Dashboard > Connections > Enterprise](${manage_url}/#/connections/enterprise) and select **SAMLP Identity Provider**.
 
 Click __Create New Connection__ and complete the form.
 
 Field | Description
 ------|------------
 Connection Name | A descriptive name for the connection.
-Email Domains (Optional) |  A comma-separated list of valid domains. Only needed if you want to use the [Lock login widget](/libraries/lock).
+Email Domains (Optional) |  A comma-separated list of valid domains. Only needed if you want to use the <dfn data-key="lock">Lock login widget</dfn>.
 PingFederate Server URL | The URL for your PingFederate Server.
 X509 Signing Certificate | The PingFederate Server public key encoded in PEM or CER format. See the [PingFederate documentation](https://documentation.pingidentity.com/pingfederate/pf84/index.shtml#concept_digitalSignatureSettings.html) for instructions on managing your server's certificates.
 Sign Request | Enable or disable signing of the SAML authentication request.  If enabled, you'll need to provide the PingFederate server with your [tenant's certificate](https://${account.namespace}/pem).

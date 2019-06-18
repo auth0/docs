@@ -28,7 +28,7 @@ You have already configured and verified your custom domain. If not, see [How to
 | You want to use social identity providers with your custom domain | [Configure social identity providers](#configure-social-identity-providers) |
 | You want to use G Suite connections with your custom domain | [Configure G Suite connections](#configure-g-suite-connections) |
 | You issue Access Tokens for your APIs or you access the Auth0 APIs from your application | [APIs](#apis) |
-| You want to use SAML identity providers with your custom domain| [Configure SAML identity providers](#configure-saml-identity-providers) |
+| You want to use <dfn data-key="security-assertion-markup-language">SAML</dfn> identity providers with your custom domain| [Configure SAML identity providers](#configure-saml-identity-providers) |
 | You want to use SAML applications with your custom domain | [Configure your SAML applications](#configure-your-saml-applications) |
 | You want to use WS-Fed Clients with your custom domain | [Configure your WS-Fed Clients](#configure-your-ws-fed-clients) |
 | You want to use Azure AD connections with your custom domain | [Configure Azure AD connections](#configure-azure-ad-connections) |

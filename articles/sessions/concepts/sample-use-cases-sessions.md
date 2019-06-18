@@ -57,4 +57,4 @@ Let's say that instead of using their username and password, the user decides to
 
 In addition to the two session created in the previous example, a third session is created:
 
-* The session on Facebook's server (facebook.com): Allows Facebook to know if the user is authenticated and if so, provides a [Single Sign-On (SSO)](/sso) experience for the user. Since there’s a high probability that the user is already logged in to Facebook, if they choose to log in to storezero.io using Facebook, they will likely not be prompted to enter their credentials.
+* The session on Facebook's server (facebook.com): Allows Facebook to know if the user is authenticated and if so, provides a <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> experience for the user. Since there’s a high probability that the user is already logged in to Facebook, if they choose to log in to storezero.io using Facebook, they will likely not be prompted to enter their credentials.

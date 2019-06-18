@@ -39,8 +39,8 @@ This guide will show you how to enable [role-based access control (RBAC)](/autho
 | **Value** | **Description** |
 | - | - |
 | `API_ID` | Τhe ID of the API for which you want to enable RBAC. |
-| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the scope `update:resource_servers`. |
-| `TOKEN_DIALECT` | Dialect of the Access Token for the specified API.|
+| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:resource_servers`. |
+| `TOKEN_DIALECT` | Dialect of the <dfn data-key="access-token">Access Token</dfn> for the specified API.|
 
 ## Token Dialect Options
 

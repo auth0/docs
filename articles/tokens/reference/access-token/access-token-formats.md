@@ -11,16 +11,16 @@ useCase:
 
 # Access Token Formats
 
-Auth0 generates Access Tokens in two formats: 
+Auth0 generates <dfn data-key="access-token">Access Tokens</dfn> in two formats: 
 
 * Opaque strings: When not using a custom API
-* [JSON Web Tokens (JWTs)](/jwt): When using a custom API
+* <dfn data-key="json-web-token">JSON Web Tokens (JWTs)</dfn>: When using a custom API
 
-When doing a token request, there is always one or more target "audiences" for the Access Token that Auth0 will issue. The target audience will depend on a few things:
+When doing a token request, there is always one or more target <dfn data-key="audience">audiences</dfn> for the Access Token that Auth0 will issue. The target audience will depend on a few things:
 
 - Whether you are specifying an `audience` parameter in the `/authorize` or token request. The value can be either the identifier for a custom API defined in the dashboard, the Management API v2 identifier (`https://{tenant}.auth0.com/api/v2/`) or the OIDC `/userinfo` endpoint (`${account.namespace}`) for [retrieving the user profile](/api/authentication#get-user-info).
 - Whether your tenant has a [Default Audience](/dashboard/dashboard-tenant-settings#api-authorization-settings) configured.
-- Whether you include a `scope` value of `openid` in the `/authorize` request, which implicitely means that the token audience will include the OIDC `/userinfo` endpoint.
+- Whether you include a <dfn data-key="scope">`scope`</dfn> value of `openid` in the `/authorize` request, which implicitely means that the token audience will include the OIDC `/userinfo` endpoint.
 
 Access Tokens can have more than one audience: if you specify both `scope=openid` and `audience={your_custom_api_identifier}` then the resulting Access Token will be valid for both your custom API and for the `/userinfo` endpoint.
 

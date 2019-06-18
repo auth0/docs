@@ -15,7 +15,7 @@ useCase:
 ---
 # Remove Permissions from Roles
 
-This guide will show you how to remove the [permissions](/authorization/concepts/rbac) assigned to a role using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/roles/remove-role-permissions). The assigned permissions and roles are used with the API Authorization Core feature set.
+This guide will show you how to remove the [permissions](/authorization/concepts/rbac) assigned to a <dfn data-key="role">role</dfn> using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/roles/remove-role-permissions). The assigned permissions and roles are used with the API Authorization Core feature set.
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
@@ -40,6 +40,6 @@ This guide will show you how to remove the [permissions](/authorization/concepts
 | **Value** | **Description** |
 | - | - |
 | `ROLE_ID` | Τhe ID of the role for which you want to remove permissions. |
-| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the scope `update:roles`. |
+| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:roles`. |
 | `API_ID` | ID(s) of the API(s) associated with the permission(s) you would like to remove for the specified role. |
 | `PERMISSION_NAME` | Name(s) of the permission(s) you would like to remove for the specified role. |

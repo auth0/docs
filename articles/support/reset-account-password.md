@@ -18,7 +18,7 @@ If you need to change your password or you have forgotten the password to your A
 
 ## Notes and caveats
 
-* If you've enabled multi-factor authentication and you need your account reset, please [contact Support](${env.DOMAIN_URL_SUPPORT}).
+* If you've enabled <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> and you need your account reset, please [contact Support](${env.DOMAIN_URL_SUPPORT}).
 * If you're using a social or enterprise account to log in to Auth0, you will need to reset your password with the appropriate identity provider.
 * If you are an administrator trying to reset a *user's* password, see [Change Users' Passwords](/connections/database/password-change).
 * If you are an administrator trying to configure the custom Password Reset page, see [Password Reset Page](/hosted-pages/password-reset).

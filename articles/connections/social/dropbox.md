@@ -20,7 +20,7 @@ useCase:
 To connect your Auth0 app to Dropbox, you will need to generate a *Client ID* and *Client Secret* in a Dropbox app, copy these keys into your Auth0 settings, and enable the connection.
 
 ::: note
-  <strong>Heads up!</strong> This connection will only work with Lock version 9.2 or higher.
+  <strong>Heads up!</strong> This connection will only work with <dfn data-key="lock">Lock</dfn> version 9.2 or higher.
 :::
 
 ## 1. Login to the developer portal
@@ -42,12 +42,11 @@ Click **Create your app**:
 
 ## 3. Enter your callback URL
 
-On your app's **Settings** page that follows, enter this URL in the **Redirect URIs** field:
+On your app's **Settings** page that follows, enter your <dfn data-key="callback">callback URL</dfn> in the **Redirect URIs** field:
 
 `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects') %>
-  
 Click **Add**:
 
 ![](/media/articles/connections/social/dropbox/dropbox-03.png)

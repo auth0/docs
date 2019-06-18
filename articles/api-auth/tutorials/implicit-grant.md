@@ -47,7 +47,7 @@ Where:
 
 * `audience`: The unique identifier of the API the app wants to access. Use the **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial.
 
-* `scope`: The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). Note that user's consent will be requested, every time the `scope` value changes. The custom scopes must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). For more information on this, refer to the [Namespacing Custom Claims](#optional-customize-the-tokens) panel.
+* `scope`: The <dfn data-key="scope">scopes</dfn> which you want to request authorization for. These must be separated by a space. You can request any of the [standard OpenID Connect (OIDC) scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). Note that user's consent will be requested, every time the `scope` value changes. The custom scopes must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). For more information on this, refer to the [Namespacing Custom Claims](#optional-customize-the-tokens) panel.
 
 * `response_type`: Indicates the type of credentials returned in the response. For this flow you can either use `token` to get only an Access Token, `id_token` to get only an ID Token (if you don't plan on accessing an API), or `id_token token` to get both an ID Token and an Access Token.
 
@@ -139,7 +139,7 @@ If you wish to execute special logic unique to the Implicit grant, you can look 
 
 ## Optional: Silent Authentication
 
-If you need to authenticate your users without a login page (for example, when the user is already logged in via [SSO](/sso) scenario) or get a new `access_token` (thus simulate refreshing an expired token), you can use Silent Authentication.
+If you need to authenticate your users without a login page (for example, when the user is already logged in via <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> scenario) or get a new `access_token` (thus simulate refreshing an expired token), you can use Silent Authentication.
 
 For details on how to implement this, refer to [Silent Authentication](/api-auth/tutorials/silent-authentication).
 

@@ -35,7 +35,7 @@ Secrets can be stored in a list (or similar structure) until they're no longer n
 | Value | Description |
 | - | - |
 | `YOUR_CLIENT_ID` | Τhe ID of the application to be updated. |
-| `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the scope `update:client_keys`. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:client_keys`. |
 
 2. Update authorized applications
 

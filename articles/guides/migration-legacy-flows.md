@@ -20,7 +20,7 @@ When using Lock versions below 11 and Auth0.js version below 9, you could use le
 
 ## Renewing Tokens
 
-Legacy applications used [Refresh Tokens](/tokens/refresh-token) and the `refreshToken()` function as a way to get new tokens upon expiration (an example of this is below).
+Legacy applications used <dfn data-key="refresh-token">Refresh Tokens</dfn> and the `refreshToken()` function as a way to get new tokens upon expiration (an example of this is below).
 
 ```js
 function renewToken() {

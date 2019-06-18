@@ -17,7 +17,7 @@ Most options are the default values. These are the most important configuration 
 * __EntityID:__ `urn:auth0:${account.tenant}`
 * __Assertion Consumer Service URL:__ `https://${account.namespace}/login/callback`
 * __Logout URL:__ `https://${account.namespace}/logout`
-* __HTTP-Redirect__ binding for SAML Request
+* __HTTP-Redirect__ binding for <dfn data-key="security-assertion-markup-language">SAML</dfn> Request
 * __HTTP-POST__ binding for SAML Response
 
 The instructions below will guide you into where these values need to be entered in SiteMinder.
@@ -61,7 +61,7 @@ Add any other properties you wish to share about the authenticated user to this 
 
 ![](/media/articles/saml/identity-providers/siteminder/siteminder-attributes.png)
 
-### 6. Enter the Single Sign Out URL
+### 6. Enter the Single Sign-Out URL
 
 * __SLO Location URL:__ `https://${account.namespace}/logout`
 

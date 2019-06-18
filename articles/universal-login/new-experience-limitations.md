@@ -8,7 +8,7 @@ toc: true
 ---
 # New Universal Login Experience Limitations
 
-The New Universal Login Experience currently has these limitations:
+The New <dfn data-key="universal-login">Universal Login</dfn> Experience currently has these limitations:
 
 - If you customize the HTML of any of the Universal Login pages, you will get pages that behave like the Classic Experience. There's no way to tweak the content of the new pages.
 
@@ -20,7 +20,7 @@ The New Universal Login Experience currently has these limitations:
 
 - In order to be able to use [DUO](/multifactor-authentication/factors/duo) as an MFA factor, it needs to be the only factor enabled. It will render the same pages as in the Classic Experience.
 
-- [Passwordless login](/connections/passwordless) is not supported.
+- <dfn data-key="passwordless">[Passwordless login](/connections/passwordless)</dfn> is not supported.
 
 - [MFA Enrollment Tickets](/multifactor-authentication/developer/custom-enrollment-ticket) will keep using the Classic Experience even when the New Experience is enabled.
 

@@ -16,9 +16,9 @@ useCase:
 
 <%= include('./_about.md') %>
 
-The behavior of the `scope` parameter has been changed to conform to the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims).
+The behavior of the `scope` parameter has been changed to conform to the [OpenID Connect (OIDC) specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims).
 
-Instead of requesting arbitrary application-specific claims, applications can request any of the standard OIDC scopes such as `profile` and `email`, as well as any [scopes supported by the API they want to access](/api-auth/tutorials/adoption/api-tokens).
+Instead of requesting arbitrary application-specific claims, applications can request any of the standard <dfn data-key="openid">OIDC</dfn> <dfn data-key="scope">scopes</dfn> such as `profile` and `email`, as well as any [scopes supported by the API they want to access](/api-auth/tutorials/adoption/api-tokens).
 
 ## Standard claims
 
@@ -26,7 +26,7 @@ The OIDC specification defines a [set of standard claims](https://openid.net/spe
 
 ## Custom claims
 
-To improve compatibility for applications, Auth0 now returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). You can still add custom claims, but they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. Otherwise, it is no longer possible to add arbitrary claims to ID Tokens or Access Tokens. 
+To improve compatibility for applications, Auth0 now returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). You can still add custom claims, but they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. Otherwise, it is no longer possible to add arbitrary claims to ID Tokens or <dfn data-key="access-token">Access Tokens</dfn>. 
 
 For example, suppose an identity provider returns a `favorite_color` claim as part of the user’s profile, and that we’ve used the Auth0 management API to set application-specific information for this user.
 
@@ -86,7 +86,7 @@ This follows a [recommendation from the OIDC specification](https://openid.net/s
 ::: note
 Auth0 will allow non-OIDC claims without a namespace (the "legacy" user profile, from which we strongly recommend moving away) if:
 
-* You are using the non-OIDC conformant pipeline (i.e., you are not using the `audience` parameter in the `/authorize` or token request and the application does not have the [**OIDC-Conformant** toggle](https://auth0.com/docs/api-auth/tutorials/adoption/oidc-conformant) enabled).
+* You are using the non-OIDC conformant pipeline (i.e., you are not using the <dfn data-key="audience">`audience`</dfn> parameter in the `/authorize` or token request and the application does not have the [**OIDC-Conformant** toggle](https://auth0.com/docs/api-auth/tutorials/adoption/oidc-conformant) enabled).
 * You have the **Legacy User Profile** toggle turned on in the [tenant Advanced Settings](https://manage.auth0.com/#/tenant/advanced), under the **Migrations** section. This setting is only enabled for old tenants, but newly created tenants can't see or enable the **Legacy User Profile**. 
 
 We strongly recommend moving away from the Legacy User Profile.
@@ -94,7 +94,7 @@ We strongly recommend moving away from the Legacy User Profile.
 
 ## Token refresh flow and custom claims
 
-When an application requests new tokens using a [Refresh Token](/tokens/refresh-token/current), the new tokens will not automatically inherit any custom claims previously added. But since rules run on a token refresh flow as well, the same claim customization code will be executed in these cases. This gives the flexibility of adding or changing claims in newly issued tokens without forcing applications to obtain a new refresh token.
+When an application requests new tokens using a <dfn data-key="refresh-token">Refresh Token</dfn>, the new tokens will not automatically inherit any custom claims previously added. But since rules run on a token refresh flow as well, the same claim customization code will be executed in these cases. This gives the flexibility of adding or changing claims in newly issued tokens without forcing applications to obtain a new refresh token.
 
 ## Keep reading
 

@@ -1,6 +1,6 @@
 ---
 title: Single Sign-On and Single Logout
-description: Learn about single sign-on (SSO) and single logout
+description: Learn about Single Sign-on (SSO) and Single Logout
 classes: topic-page
 topics:
   - sso
@@ -12,17 +12,17 @@ useCase:
 ---
 # Single Sign-On and Single Logout
 
-Single Sign-On (SSO) occurs when a user logs in to one application and is then signed in to other applications automatically, regardless of the platform, technology, or domain the user is using. The user signs in only one time, hence the name of the feature (Single Sign-On).
+<dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> occurs when a user logs in to one application and is then signed in to other applications automatically, regardless of the platform, technology, or domain the user is using. The user signs in only one time, hence the name of the feature (Single Sign-on).
 
 Similarly, Single Logout occurs when you terminate the session of each application or service where a user is logged in. For more info, see [Logout](/logout).
 
-Single Sign-On and Single Logout are possible through the use of [sessions](/sessions). There may be up to three different layers of sessions for a user with SSO:
+Single Sign-on and Single Logout are possible through the use of [sessions](/sessions). There may be up to three different layers of sessions for a user with SSO:
 
 * Local session maintained by the application
 * Authorization Server session, if SSO is enabled
-* Identity Provider session, if the user chose to log in through an Identity Provider (such as Google, Facebook, or an enterprise SAML Identity Provider)
+* Identity Provider session, if the user chose to log in through an Identity Provider (such as Google, Facebook, or an enterprise <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider)
 
-## Single Sign-On and Single Logout Example
+## Single Sign-on and Single Logout Example
 
 Google's implementation of login for their products, such as Gmail, YouTube, and Google Analytics, is an example of SSO. Any user that logs in to one of Google's products is automatically logged in to their other products as well.
 

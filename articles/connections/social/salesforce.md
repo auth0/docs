@@ -34,7 +34,7 @@ Navigate to **Platform Tools > Apps**. Under **App Manager**, click **New Connec
 
 1. Enter the required basic information (*Connected App Name*, *API Name* and *Contact Email*).
 2. Select **Enable OAuth Settings**  under **API (Enable OAuth Settings)**.
-3. Enter your callback URL: `https://${account.namespace}/login/callback`
+3. Enter your <dfn data-key="callback">callback URL</dfn>: `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects') %>
 

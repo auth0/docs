@@ -50,7 +50,7 @@ Given an existing token, this endpoint will generate a new token signed with the
 | `grant_type` <br/><span class="label label-danger">Required</span> | Use `urn:ietf:params:oauth:grant-type:jwt-bearer`|
 | `id_token` or `refresh_token` <br/><span class="label label-danger">Required</span> | The existing token of the user. |
 | `target `        | The target `client_id` |
-| `scope `         | Use `openid` or `openid profile email` |
+| <dfn data-key="scope">`scope`</dfn>         | Use `openid` or `openid profile email` |
 | `api_type`       | The API to be called. |
 
 ### Test with Postman
@@ -63,7 +63,7 @@ Given an existing token, this endpoint will generate a new token signed with the
 
 1. At the *Configuration* tab, set the **Application** field to the app you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the fields **ID Token**, **Refresh Token** and **Target Client ID**. Click **Delegation**.
 

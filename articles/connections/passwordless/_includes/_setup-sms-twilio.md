@@ -65,4 +65,4 @@ The following parameters are available when defining the message template:
 
 ### Enable your apps
 
-Click the **Apps** tab, and enable the apps for which you would like to use Passwordless SMS.
+Click the **Apps** tab, and enable the apps for which you would like to use <dfn data-key="passwordless">Passwordless</dfn> SMS.

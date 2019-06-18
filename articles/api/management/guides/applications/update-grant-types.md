@@ -47,5 +47,5 @@ Grant type `grant_type` not allowed for the client.
 | Value | Description |
 | - | - |
 | `YOUR_CLIENT_ID` | Τhe ID of the application to be updated. |
-| `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the scope `update:clients`. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:clients`. |
 | `GRANT_TYPES` | The grant types you would like to enable for the specified application. |

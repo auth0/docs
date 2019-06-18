@@ -15,7 +15,7 @@ useCase:
 When running user searches:
 
 * You'll need a token to make requests to the Management API. Check out [Access Tokens for the Management API](/api/management/v2/tokens) for more information.
-* To perform user search requests, the `read:users` [scope](/scopes/) is required.
+* To perform user search requests, the `read:users` <dfn data-key="scope">scope</dfn> is required.
 * To get the latest search results, use an **immediately consistent** endpoint during authentication processes such as [Get Users by ID](/users/search/v3/get-users-by-id-endpoint) and [Get Users by Email](/users/search/v3/get-users-by-email-endpoint). Searches using these endpoints will reflect the results of all successful write operations, including those that occurred shortly prior to your request. 
 * Use a well-known schema for metadata:
   * Use consistent data types for properties.

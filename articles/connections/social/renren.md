@@ -27,7 +27,7 @@ Log into the RenRen [integration portal](http://app.renren.com/developers) and c
 
 ## 2. Enter app information
 
-Complete the required information on this page. Enter the following value for the *callback URL*:
+Complete the required information on this page. Enter your <dfn data-key="callback">callback URL</dfn> for the *callback URL*:
 
   https://${account.namespace}/login/callback
 
