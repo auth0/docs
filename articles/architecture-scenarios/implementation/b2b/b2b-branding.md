@@ -23,9 +23,23 @@ useCase:
 
 <%= include('../../_includes/_branding/_universal-login.md', { platform: 'b2b' }) %>
 
+## Branding login by organization
+
+Whether or not you need to do special customization on the Universal Login page is determined by how you plan to manage your customers’ organizations.  Before reading through this section, make sure you have read through the Universal Login sections.
+
+If your organization users will all be isolated from each other, than it’s important to make it clear on the Universal Login page which organization the login page is for.  This can be done in a couple of ways:
+
+* Create JavaScript on the Universal Login Page that can pull resources from a CDN based on the organization presented to it.
+
+* Create a separate tenant for the organization and use the Universal Login page to customize as desired for that organization.
+
 ## Custom domain naming
 
 <%= include('../../_includes/_branding/_custom-domain-naming.md', { platform: 'b2b' }) %>
+
+::: warning
+If your organization users will all be isolated from each other and you **require** that those users are presented a login page at a custom domain, then your only option is to create a [separate tenant for each organization](/architecture-scenarios/b2b/b2b-architecture#tenant-provision-for-complex-organizations).
+:::
 
 ## Email template customization
 
@@ -34,6 +48,12 @@ useCase:
 ## Password reset page customization
 
 <%= include('../../_includes/_branding/_password-reset.md', { platform: 'b2b' }) %>
+
+If your organization users will all be isolated from each other, than it is important to make it clear on the Universal Login page which organization the change password page is for. This can be done in a couple of ways:
+
+* Create JavaScript on the Change Password Page that can pull resources from a CDN based on the connection parameter presented to it which should tell you which organization the user is from.
+
+* Create a separate tenant for the organization and use the Universal Login page to customize any way desired for that organization
 
 ## Error page customization
 
