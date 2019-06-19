@@ -27,6 +27,8 @@ By default, Auth0 creates public applications with the following `grant_types` e
 * `authorization_code`
 * `refresh_token`
 
+**Native Apps** can also use the `device_code` grant type.
+
 ::: note
 Public applications **cannot** utilize the `client_credentials` grant type. To use this grant type, you will need to indicate that the application is confidential rather than public. To do so, use the [Management API](/api/management/v2#!/Clients/patch_clients_by_id) to set the **token_endpoint_auth_method** to `client_secret_post` or `client_secret_basic`.
 :::

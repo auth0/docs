@@ -26,7 +26,7 @@ https://${account.namespace}/authorize?
 
 #### Parameters
 
-Note that for authorizing a user when calling an API, you:
+Note that for authorizing a user when calling a custom API, you:
 
 - must include an audience parameter
 - can include additional scopes supported by the target API

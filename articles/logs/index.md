@@ -140,10 +140,14 @@ The following table lists the codes associated with the appropriate log events.
 | `fcpr` | Failed Change Password Request | | [Changing a User's Password](/connections/database/password-change) |
 | `fcpro` | Failed Connector Provisioning | Failed to provision a AD/LDAP connector | [Active Directory/LDAP Connector](/connector) |
 | `fcu` | Failed Change Username | Failed to change username | [User Profile](/users/concepts/overview-user-profile) |
-| `fd` | Failed Delegation | Failed to generate delegation token | [Delegation Tokens](/tokens/delegation) |
+| `fd` | Failed Delegation | Failed to generate delegation token | [Delegation Tokens](/tokens/delegation) |	
+| `fdeac`   | Failed Device Activation | Failed to activate device. | [Device Authorization Flow](/flows/concepts/device-auth) |
+| `fdeaz`    | Failed Device Authorization Request | Device authorization request failed. | [Device Authorization Flow](/flows/concepts/device-auth) |
+| `fdecc`    | User Canceled Device Confirmation | User did not confirm device. | [Device Authorization Flow](/flows/concepts/device-auth) |
 | `fdu` | Failed User Deletion | | [User Profile](/users/concepts/overview-user-profile) |
 | `feacft` | Failed Exchange | Failed to exchange authorization code for <dfn data-key="access-token">Access Token</dfn> | [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
 | `feccft` | Failed Exchange | Failed exchange of Access Token for a Client Credentials Grant | [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens) |
+| `fede`    | Failed Exchange | Failed to exchange Device Code for Access Token | [Device Authorization Flow](/flows/concepts/device-auth) |
 | `feoobft` | Failed Exchange | Failed exchange of Password and OOB Challenge for Access Token | |
 | `feotpft` | Failed Exchange | Failed exchange of Password and OTP Challenge for Access Token | |
 | `fepft` | Failed Exchange | Failed exchange of Password for Access Token | |
@@ -193,6 +197,7 @@ The following table lists the codes associated with the appropriate log events.
 | `sdu` | Success User Deletion | User successfully deleted | [User Profile](/users/concepts/overview-user-profile) |
 | `seacft` | Success Exchange | Successful exchange of authorization code for Access Token | [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code) |
 | `seccft` | Success Exchange | Successful exchange of Access Token for a Client Credentials Grant | [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens) |
+| `sede`     | Success Exchange | Successful exchange of device code for Access Token | [Device Authorization Flow](/flows/concepts/device-auth) |
 | `seoobft` | Success Exchange | Successful exchange of Password and OOB Challenge for Access Token | |
 | `seotpft` | Success Exchange | Successful exchange of Password and OTP Challenge for Access Token | |
 | `sepft` | Success Exchange | Successful exchange of Password for Access Token | |

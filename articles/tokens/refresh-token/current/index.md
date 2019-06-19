@@ -39,7 +39,7 @@ A Refresh Token allows the application to ask Auth0 to issue a new Access Token 
 
 ## Restrictions on Refresh Token Usage
 
-You can only get a Refresh Token if you are implementing the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), or [Resource Owner Password Grant](/api-auth/grant/password).
+You can only get a Refresh Token if you are implementing the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), [Resource Owner Password Grant](/api-auth/grant/password), or [Device Authorization Flow](/flows/concepts/device-auth).
 
 A Single-Page Application (normally implementing [Implicit Flow](/flows/concepts/implicit)) should not ever receive a Refresh Token. A Refresh Token is essentially a user credential that allows a user to remain authenticated indefinitely. This sensitive information should be stored securely and *not* exposed client-side in a browser.
 
@@ -183,6 +183,8 @@ You should only ask for a new token if the Access Token has expired or you want 
 ## Revoke a Refresh Token
 
 Since Refresh Tokens never expire, it is essential to be able to revoke them in case they get compromised.
+
+For the Device Authorization Flow, the only way to force a device to reauthorize is to revoke the Refresh Token assigned to the device. To learn how, see [Unlink Devices from Users](/dashboard/guides/users/unlink-user-devices). Note that the device will not be forced to reauthorize until the current Access Token expires and the application tries to use the revoked Refresh Token.
 
 Auth0 handles token revocation as though the token has been potentially exposed to malicious adversaries. Therefore, each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, application, and audience will be revoked**.
 
