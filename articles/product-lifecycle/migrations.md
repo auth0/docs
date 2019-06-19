@@ -11,6 +11,8 @@ usecase:
   - migrate
 ---
 
+# Migrations
+
 We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necesarry steps to avoid any service disruptions. More information about our Deprecations process can be found on our [Product Lifecycle page](/product-lifecycle).
 
 <table class="table">
