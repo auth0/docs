@@ -981,10 +981,9 @@ articles:
 
   - title: "Product Lifecycle"
     url: "/product-lifecycle"
-        children:        
-          - title: "Migrations"
-            hidden: false
-            url: "/product-lifecycle/migrations"
+    children:        
+      - title: "Migrations"
+        url: "/product-lifecycle/migrations"
         
   - title: "Data Privacy"
     url: "/compliance"

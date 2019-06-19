@@ -37,6 +37,6 @@ Note that **Migrations** will usually involve a replacement with substantially c
 
 Whenever possible we will provide at least a six month migration window between the End Of Life announcement and the **End Of Life Date**. This time frame may be accelerated in cases of emergency, such as critical vulnerability remediation, in which case Auth0 will provide as much prior notice as is reasonable in the circumstances.
 
-A list of all active **Migrations** can be found [here](/product-lifecycle/migrations) 
+A list of all active **Migrations** can be found [here](/product-lifecycle/migrations).
 
 See our [Self Service Terms of Service](https://auth0.com/legal/ss-tos) or your Enterprise Subscription Agreement for more information.
