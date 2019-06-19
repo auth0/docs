@@ -25,7 +25,10 @@ In March 2018, Auth0 added support for custom domains for those deploying on the
 
 ## Requirements
 
-Forthcoming.
+* A new DNS domain dedicated to the Custom Domain's origin server hostname. This could a subdomain of your existing Auth0 Domain (i.e., if your domain name is `*.auth.mydomain.com`, the new subdomain would be `*.cd.auth.mydomain.com`).
+* A wildcard public SSL certificate for the new DNS domain
+* A layer 4 network load balancer. This could be the existing one used by your PSaaS deployment. Please note that if you are using a layer 7 load balancer, you **must** add a layer 4 load balancer.
+* A DNS record pointing to the layer 4 load balancer
 
 ## Migration
 
