@@ -16,6 +16,9 @@ The Normalized User Profile is updated from the identity provider during login, 
 * What do I do if I need to store user-related information that a user cannot modify?
 * What happens if a user forgets their password?
 * What should a user do if they want to change their password?
+<% if (platform === "b2b") { %>
+* How do I provide an administrator from a third-party organization with the ability to manage their users?
+<%  } %>
 
 Auth0 provides for the storage of [Metadata](#metadata) against a user’s profile, which allows for the capture of additional information, such as preference for language and/or accessibility in order to enhance the user experience. Metadata can be used to store both information that a user can change, and also information they can’t; the latter giving you the capability of associating, for example, a user profile with records in your existing systems without modifying existing implementation. 
 
@@ -30,3 +33,7 @@ Self-service profile management can raise security as well as data privacy conce
 :::
 
 Alternatively, the Auth0 Dashboard can be used to [manage aspects of a user’s profile](users/guides/manage-users-using-the-dashboard). Managing a user’s profile via the Auth0 Dashboard is more of an administrative provision and **should not** be used for self-serviced profile management in a production environment. However, the interface provided by the Dashboard can be extremely useful during development as it provides a quick and simple way of manipulating a user’s profile information.
+
+<% if (platform === "b2b") { %>
+* If you need to provide a way for your customers to have an administrator that can manage their own users when they are storing those credentials in your system, you can either build something yourself or use an Auth0 Extension. See [Admin Portal](#admin-portal) for more details. 
+<%  } %>

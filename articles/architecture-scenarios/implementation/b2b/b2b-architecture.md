@@ -25,7 +25,7 @@ In most cases, provisioning separate Auth0 tenants for your customer's organizat
 * Your customers' organizations have isolated users that aren't shared with other organizations.
 * You have some customer organizations that support more than one IDP. For example, your customer has their own IDP but also has some users that aren't in their IDP and whose credentials you will need to store. Or, your customer wants to provide for one or more social connections in addition to their enterprise IDP. 
 
-If both of these situations are the case, then you should create separate Auth0 tenants for each customer that needs it. This allows you to have a separate custom domain for them and to easily customize their login experience, including Home Realm Discovery on their login page. 
+If both of these situations are the case, then you can create separate Auth0 tenants for each customer that needs it. This allows you to have a separate custom domain for them and to easily customize their login experience, including Home Realm Discovery on their login page. 
 
 ::: warning
 Maintaining multiple Auth0 tenants can add complexity to your system and should not be done unless absolutely necessary. 
