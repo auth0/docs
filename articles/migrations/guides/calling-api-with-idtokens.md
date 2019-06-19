@@ -175,7 +175,7 @@ If you embed either [Lock v11](/libraries/lock/v11) or [auth0.js v9](/libraries/
 
 If you use auth0.js to access the Management API and manage your users, then your script will have to be updated.
 
-x
+<%= include('./_get-token-auth0js.md', { scope: 'read:current_user' }) %>
 
 ## Changes in Account Linking
 
