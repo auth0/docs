@@ -88,7 +88,7 @@ Finally, modify `angular.json` to include a reference to this proxy configuratio
 
 ## Modify the AuthService Class
 
-Modify the `src/app/auth.service.ts` file so that the `audience` value is passed through to the Auth0 client:
+Modify the `src/app/auth.service.ts` file so that the `audience` value is passed through to the Auth0 client: 
 
 ```js
 this.auth0Client = await createAuth0Client({
@@ -97,6 +97,8 @@ this.auth0Client = await createAuth0Client({
   audience: "${apiIdentifier}" // NEW - add in the audience value
 });
 ```
+
+Doing this provides a hint to the authorization server that your application would like to call the API with the identifier `${apiIdentifier}`. This will cause the authorization server to prompt the user for permission the next time they log in. It will also return an access token that can be used to call the API.
 
 ## Calling the API
 
