@@ -12,12 +12,6 @@ useCase:
   - migrate
 ---
 
-## Deprecation and End Of Life
-
-In an effort to keep the Auth0 platform stable and secure some features and functionality must occasionally be modified or removed. These changes will sometimes result in a **Breaking Change**.
-
-This proccess starts with the feature or behavior being **Deprecated**. At the time of deprecation we will also typically announce an **End Of Life Date**. In some cases a feature will be **Deprecated** to prevent further adoption with an **End Of Life Date** to be determined.
-
 ::: note
 <h4>Definitions</h4>
 <b>Breaking Change</b> A change to the Auth0 Platform that, to Auth0's knowledge, will cause failures in the interoperation of the Auth0 Platform and Customer Applications.<br>
@@ -26,6 +20,12 @@ This proccess starts with the feature or behavior being **Deprecated**. At the t
 <b>End Of Life</b> The feature or behavior is removed from the platform. Continued use of the feature or behaviour will likely result in errors. The new behavior will be automatically enabled for Tenants that had not opted in during the migraiton window. <br>
 <b>Migration</b> The process by which a customer moves out from a particular behavior.
 :::
+
+## Deprecation and End Of Life
+
+In an effort to keep the Auth0 platform stable and secure some features and functionality must occasionally be modified or removed. These changes will sometimes result in a **Breaking Change**.
+
+This proccess starts with the feature or behavior being **Deprecated**. At the time of deprecation we will also typically announce an **End Of Life Date**. In some cases a feature will be **Deprecated** to prevent further adoption with an **End Of Life Date** to be determined.
 
 ## Migration Process
 
