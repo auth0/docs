@@ -41,7 +41,7 @@ Finally, modify `package.json` to add two new scripts `dev` and `server` that ca
   "test": "ng test",
   "lint": "ng lint",
   "e2e": "ng e2e",
-  "server ": "node server.js",
+  "server": "node server.js",
   "dev": "npm-run-all --parallel start server"
 },
 ```
