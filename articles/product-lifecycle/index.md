@@ -1,6 +1,6 @@
 ---
 toc: true
-title: Auth0 Product Lifecycle
+title: Product Lifecycle
 description: Product Lifecycle at Auth0
 topics:
   - deprecations
@@ -11,8 +11,6 @@ contentType:
 useCase:
   - migrate
 ---
-
-# Product Lifecyle
 
 ## Deprecation and End Of Life
 

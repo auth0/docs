@@ -1,6 +1,6 @@
 ---
 toc: true
-title: auth0 migrations
+title: Migrations
 description: list of all the changes made on auth0 platform that might affect customers
 topics:
   - migrations
@@ -10,8 +10,6 @@ contenttype:
 usecase:
   - migrate
 ---
-
-# Migrations
 
 We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necesarry steps to avoid any service disruptions. More information about our Deprecations process can be found on our [Product Lifecycle page](/product-lifecycle).
 
