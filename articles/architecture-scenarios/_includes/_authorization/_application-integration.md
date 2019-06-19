@@ -9,7 +9,7 @@ When you are considering adding custom claims, we recommend that you store any a
 :::
 
 <% if (platform === "b2b") { %>
-If you are creating different instances of your application for your customer organizations, a common practice is to create a custom claim in your ID token to represent the user's organization. For example, <%= context.idToken["http://yourdomain.com/claims/organization"]= "organization A"; %>
+If you are creating different instances of your application for your customer organizations, a common practice is to create a custom claim in your ID token to represent the user's organization. For example, `context.idToken["http://yourdomain.com/claims/organization"]= "organization A";`
 <%  } %>
 
 ### ID Token scopes
