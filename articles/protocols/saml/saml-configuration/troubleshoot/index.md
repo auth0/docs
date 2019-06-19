@@ -13,7 +13,7 @@ useCase:
 
 # Troubleshooting
 
-This guide serves to help you troubleshoot any issues that may arise during the SAML configuration process. It is not intended to be an exhaustive guide, but one that covers the most commonly encountered issues during setup.
+This guide serves to help you troubleshoot any issues that may arise during the <dfn data-key="security-assertion-markup-language">SAML</dfn> configuration process. It is not intended to be an exhaustive guide, but one that covers the most commonly encountered issues during setup.
 
 ## Understand the Situation
 
@@ -64,7 +64,7 @@ When troubleshooting, we recommend beginning by gathering information that helps
 * Check to see if the browser has enabled JavaScript and cookies.
 * Check that the caps lock key is disabled.
 * If the user is using a mobile device, check to see if there's any software that might impact authentication and/or authorization (such as not running some type of required software).
-* Check to see if the user can access some of the app's key URLs, such as the IdP's SSO URL (indicating a network connectivity issue).
+* Check to see if the user can access some of the app's key URLs, such as the IdP's <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> URL (indicating a network connectivity issue).
 
 ## Next Steps
 
@@ -77,7 +77,7 @@ If the troubleshooting steps listed above don't solve the issue you're seeing, p
 5. How far through the login sequence the user gets
 6. The name of the application registered in Auth0 and the identity protocol it uses
 7. The name of the Connection involved
-8. Whether or not you're using the Auth0 Lock widget (if so, what version?)
+8. Whether or not you're using the <dfn data-key="lock">Auth0 Lock widget</dfn> (if so, what version?)
 9. Is a customized version of Lock used?
 10. An HTTP trace of the SSO interaction in [a .har file](/har)
 11. An Auth0 log entry for the failed authentication

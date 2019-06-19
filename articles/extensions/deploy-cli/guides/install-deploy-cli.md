@@ -12,7 +12,55 @@ useCase: extensibility-extensions
 
 This article will walk you through installing Auth0's Deploy CLI tool.
 
-## Prerequisites
+## Install the Deploy CLI tool
+
+There are three ways to install the Deploy CLI tool:
+
+1. Using the Dashboard
+2. Using the command-line interface
+3. Manually
+
+### Install the the Deploy CLI tool using the Dashboard
+
+1. Go to the [Extensions](${manage_url}/#/extensions) tab in the Dashboard. 
+
+   ![Entensions Tab](/media/articles/extensions/deploy-cli/step1-extensions-overview.png)
+
+2. Click **CREATE EXTENSION** and install the extension from the [Deploy CLI Extension repository](https://github.com/auth0-extensions/auth0-deploy-cli-extension).
+
+   ![Extension Link](/media/articles/extensions/deploy-cli/step2-extension-link.png)
+   
+3. Click **Install**.
+
+4. Click the checkmark to allow the extension access to your data. 
+
+   You can now open the extension, which will show instructions on how you can use it:
+
+   ![Deploy CLI Homepage](/media/articles/extensions/deploy-cli/step3-auth0-deploy-cli-homepage.png)
+
+### Install the the Deploy CLI tool using the command-line interface
+
+To install the the Deploy CLI tool using the command-line interface, run:
+
+```bash
+npm i -g auth0-deploy-cli
+```
+
+### Install the the Deploy CLI tool manually
+
+To create the client application manually: 
+
+1. Log into your Dashboard.
+2.  Click the Applications tab.
+3.  Click **CREATE APPLICATION**.
+    - Provide a name for your application (e.g. **Deploy Client**).
+    - Select **Machine-to-Machine** as the application type.
+    - Click **Create**.
+4.  Use the **Select an API** dropdown to choose **Auth0 Management API**.
+5.  Select the [scopes](#scopes-required) as defined below.
+6.  Click **Authorize**.
+
+#### Scopes required
 
 The Deploy CLI tool must be authorized to call the Management API. You can do this by creating an application that grants access to the Management API with the following scopes:
 
@@ -62,54 +110,6 @@ create:roles
 delete:roles
 update:roles
 ```
-
-## Install the Deploy CLI tool
-
-There are three ways to install the Deploy CLI tool:
-
-1. Using the Dashboard
-2. Using the command-line interface
-3. Manually
-
-### Install the the Deploy CLI tool using the Dashboard
-
-1. Go to the [Extensions](${manage_url}/#/extensions) tab in the Dashboard. 
-
-   ![Entensions Tab](/media/articles/extensions/deploy-cli/step1-extensions-overview.png)
-
-2. Click **CREATE EXTENSION** and install the extension from the [Deploy CLI Extension repository](https://github.com/auth0-extensions/auth0-deploy-cli-extension).
-
-   ![Extension Link](/media/articles/extensions/deploy-cli/step2-extension-link.png)
-   
-3. Click **Install**.
-
-4. Click the checkmark to allow the extension access to your data. 
-
-   You can now open the extension, which will show instructions on how you can use it:
-
-   ![Deploy CLI Homepage](/media/articles/extensions/deploy-cli/step3-auth0-deploy-cli-homepage.png)
-
-### Install the the Deploy CLI tool using the command-line interface
-
-To install the the Deploy CLI tool using the command-line interface, run:
-
-```bash
-npm i -g auth0-deploy-cli
-```
-
-### Install the the Deploy CLI tool manually
-
-To create the client application manually: 
-
-1. Log into your Dashboard.
-2.  Click the Applications tab.
-3.  Click **CREATE APPLICATION**.
-    - Provide a name for your application (e.g. **Deploy Client**).
-    - Select **Machine-to-Machine** as the application type.
-    - Click **Create**.
-4.  Use the **Select an API** dropdown to choose **Auth0 Management API**.
-5.  Select the [scopes](#scopes) as defined above.
-6.  Click **Authorize**.
 
 ## Keep reading
 

@@ -15,7 +15,7 @@ useCase: quickstart
 ---
 <%= include('../_includes/_getting_started', { library: 'Django', callback: 'http://localhost:3000/complete/auth0' }) %>
 
-<%= include('../../../_includes/_logout_url') %>
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
 ## Create a Django Application configured to use Auth0
 

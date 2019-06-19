@@ -69,7 +69,7 @@ Use this endpoint to retrieve all groups.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:groups</span>
 
@@ -107,11 +107,11 @@ include('../../_includes/_http-method', {
   "link": "#get-single-group"
 }) %>
 
-Use this endpoint to get a single group based on its unique identifier. Add "?expand" to also load all roles and permissions for this group.
+Use this endpoint to get a single group based on its unique identifier. Add "?expand" to also load all <dfn data-key="role">roles</dfn> and permissions for this group.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:groups</span>
 
@@ -161,7 +161,7 @@ Use this endpoint to create a group.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">create:groups</span>
 
@@ -209,7 +209,7 @@ Use this endpoint to delete a group.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">delete:groups</span>
 
@@ -264,7 +264,7 @@ Use this endpoint to update the name or the description of a group.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:groups</span>
 
@@ -309,7 +309,7 @@ Use this endpoint to retrieve the mappings of a group.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:groups</span>
 
@@ -360,7 +360,7 @@ Group Mappings allow you to dynamically "add" users to different Groups based on
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:groups</span>
 
@@ -415,7 +415,7 @@ Use this endpoint to delete one or more group mappings from a group.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:groups</span>
 
@@ -489,7 +489,7 @@ Use this endpoint to get the members for a group.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:groups</span>
 
@@ -541,7 +541,7 @@ Use this endpoint to add one or more members in a group.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:groups</span>
 
@@ -591,7 +591,7 @@ Use this endpoint to remove one or more members from a group.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:groups</span>
 
@@ -647,7 +647,7 @@ Use this endpoint to get the nested members for a group.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:groups</span>
 
@@ -697,7 +697,7 @@ Use this endpoint to get the nested groups for a group.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:groups</span>
 
@@ -747,7 +747,7 @@ Use this endpoint to add nested groups.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:groups</span>
 
@@ -797,7 +797,7 @@ Use this endpoint to remove one or more nested groups.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:groups</span>
 
@@ -848,7 +848,7 @@ Use this endpoint to get the roles for a group.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:groups</span>
 
@@ -897,7 +897,7 @@ Use this endpoint to add roles to a group.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:groups</span>
 
@@ -947,7 +947,7 @@ Use this endpoint to remove one or more groups roles.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:groups</span>
 
@@ -1025,7 +1025,7 @@ Use this endpoint to get the nested roles for a group.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:groups</span>
 

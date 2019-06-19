@@ -15,7 +15,7 @@ useCase:
 ---
 # Delete Roles
 
-This guide will show you how to delete a role using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/roles/delete-roles). Roles are used with the API Authorization Core feature set.
+This guide will show you how to delete a <dfn data-key="role">[role](/authorization/concepts/rbac)</dfn> using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/roles/delete-roles). Roles are used with the API Authorization Core feature set.
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
@@ -34,4 +34,4 @@ This guide will show you how to delete a role using Auth0's Management API. This
 | **Value** | **Description** |
 | - | - |
 | `ROLE_ID` | Τhe ID of the role you want to delete. |
-| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the scope `delete:roles`. |
+| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `delete:roles`. |

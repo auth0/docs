@@ -1,6 +1,6 @@
 ---
 title: Enable Single Sign-On
-description: Learn how to enable single sign-on for a tenant using the Auth0 Management Dashboard. Only for use with legacy tenants.
+description: Learn how to enable Single Sign-on (SSO) for a tenant using the Auth0 Management Dashboard. Only for use with legacy tenants.
 toc: true
 topics:
   - sso
@@ -14,9 +14,9 @@ useCase:
 ---
 # Enable Single Sign-On
  
-By default, seamless Single Sign-On (SSO) is enabled for all new Auth0 tenants; however, legacy tenants may choose whether to enable this feature.
+By default, seamless <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> is enabled for all new Auth0 tenants; however, legacy tenants may choose whether to enable this feature.
 
-This guide will show you how to enable single sign-on (SSO) for your tenant using Auth0's Dashboard.
+This guide will show you how to enable <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> for your tenant using Auth0's Dashboard.
 
 ::: note
 If you do not choose to enable tenant-level SSO, you may [enable it per application](/dashboard/guides/applications/enable-sso-app).

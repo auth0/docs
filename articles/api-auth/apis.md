@@ -21,9 +21,9 @@ useCase:
 
 An API is an entity that represents an external resource, capable of accepting and responding to protected resource requests made by applications. At the [OAuth2 spec](https://tools.ietf.org/html/rfc6749) an API maps to the **Resource Server**.
 
-When an application wants to access an API's protected resources it must provide an [Access Token](/tokens/overview-access-tokens). The same Access Token can be used to access the API's resources without having to authenticate again, until it expires.
+When an application wants to access an API's protected resources it must provide an <dfn data-key="access-token">Access Token</dfn>. The same Access Token can be used to access the API's resources without having to authenticate again, until it expires.
 
-Each API has a set of defined permissions. Applications can request a subset of those defined permissions when they execute the authorization flow, and include them in the Access Token as part of the **scope** request parameter.
+Each API has a set of defined permissions. Applications can request a subset of those defined permissions when they execute the authorization flow, and include them in the Access Token as part of the <dfn data-key="scope">**scope**</dfn> request parameter.
 
 For example, an API that holds a user's appointments, may accept two different levels of authorization: read only (scope `read:appointments`) or write (scope `write:appointments`). When an application asks the API to list a user's appointments, then the Access Token should contain the `read:appointments` scope. In order to edit an existing appointment or create a new one, the Access Token should contain the `write:appointments` scope.
 
@@ -60,7 +60,7 @@ Once you do so you will be navigated to the *Quick Start* of your API. Here you 
 
 The other available views for your API are:
 
-- **Settings**: lists the settings for your API. Some are editable. Here you can change the token expiration time and enable offline access (this way Auth0 will allow your applications to ask for Refresh Tokens for this API). For details refer to the [API Settings paragraph](#api-settings).
+- **Settings**: lists the settings for your API. Some are editable. Here you can change the token expiration time and enable offline access (this way Auth0 will allow your applications to ask for <dfn data-key="refresh-token">Refresh Tokens</dfn> for this API). For details refer to the [API Settings paragraph](#api-settings).
 
 - **Scopes**: here you can define the scopes for this API, by setting a name and a description.
 
@@ -80,7 +80,7 @@ Click on the *Settings* tab of your [API](${manage_url}/#/apis) to review the av
 
 - **Token Expiration (Seconds)**: The amount of time (in seconds) before the Auth0 Access Token expires. The default value is 86400 seconds (24 hours). The maximum value you can set is 2592000 seconds (30 days).
 
-- **Allow Skipping User Consent**: When a first party application requests authorized access against an API with the *Allow Skipping User Consent* flag set, the User Consent dialog will not be shown to the final user. Note that if the hostname of your application's **callbackURL** is `localhost` or `127.0.0.1` the consent dialog will always be displayed.
+- **Allow Skipping User Consent**: When a first party application requests authorized access against an API with the *Allow Skipping User Consent* flag set, the User Consent dialog will not be shown to the final user. Note that if the hostname of your application's <dfn data-key="callback">**callback URL**</dfn> is `localhost` or `127.0.0.1` the consent dialog will always be displayed.
 
 - **Allow Offline Access**: If this setting is enabled, Auth0 will allow applications to ask for Refresh Tokens for this API.
 
@@ -91,7 +91,7 @@ Click on the *Settings* tab of your [API](${manage_url}/#/apis) to review the av
 When you create an API you have to select the algorithm your tokens will be signed with. The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
 
 ::: note
-The signature is part of a JWT. If you are not familiar with the JWT structure please refer to: [JSON Web Tokens (JWTs) in Auth0](/jwt#what-is-the-json-web-token-structure-).
+The signature is part of a JWT. If you are not familiar with the JWT structure, please see [JSON Web Tokens (JWTs) in Auth0](/jwt#what-is-the-json-web-token-structure-).
 :::
 
 To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that. That algorithm, which is part of the JWT header, is the one you select for your API: `HS256` or `RS256`.
@@ -106,7 +106,7 @@ The most secure practice, and our recommendation, is to use **RS256**. Some of t
 
 - Under HS256, if the secret key is compromised (e.g. by the application) you would have to re-deploy the API with the new secret.
 
-- With RS256 you can request a token that is valid for multiple audiences.
+- With RS256 you can request a token that is valid for multiple <dfn data-key="audience">audiences</dfn>.
 
 - With RS256 you can implement key rotation without having to re-deploy the API with the new secret.
 
@@ -118,7 +118,7 @@ If you want to use the Public Key to verify a JWT signature on [JWT.io](https://
 If you want to verify the signature of a token from one of your applications, we recommend that you get the Public Key from your tenant's [JSON Web Key Set (JWKS)](/jwks). Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
 :::
 
-For a more detailed overview of the JWT signing algorithms refer to: [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
+For a more detailed overview of the JWT signing algorithms, see [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
 
 ## Keep Reading
 

@@ -17,12 +17,12 @@ The `auth0-deploy-cli` tool was updated to include the following changes.
 - Added support for export (deprecation of separate auth0 dump tool)
 - Delete support - The tool will, if configured via `AUTH0_ALLOW_DELETE`, delete objects if does not exist within the deploy configuration.
 - Support for additional Auth0 objects
-  - Connections including Social, Enterprise and Passwordless configurations.
+  - Connections including Social, Enterprise and <dfn data-key="passwordless">Passwordless</dfn> configurations.
   - Improved support for database connections and associated configuration.
   - Email Templates
   - Email Provider
   - Client Grants
-  - Rule Configs
+  - Rule Configs (Import Only)
   - Guardian config
   - Better support for pages
   - Tenant level settings

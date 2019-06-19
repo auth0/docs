@@ -32,7 +32,7 @@ Please note that administrative actions will show up in the logs as `API Operati
 
 ### As an administrator
 
-If you are operating your service as an administrator, there are many helpful metrics and bits of information you can gather from the Logs. If a customer has raised a support ticket that they are unable to sign in to your service or application, you can verify in the logs that they have indeed tried, and are attempting in the manner they say they are. They may think it's a password issue, but you may discover they never completed setting up their Multi-Factor Authentication. Additionally, Logs can help expose some business metrics you may not have had available before. These could include:
+If you are operating your service as an administrator, there are many helpful metrics and bits of information you can gather from the Logs. If a customer has raised a support ticket that they are unable to sign in to your service or application, you can verify in the logs that they have indeed tried, and are attempting in the manner they say they are. They may think it's a password issue, but you may discover they never completed setting up their <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>. Additionally, Logs can help expose some business metrics you may not have had available before. These could include:
 
 - Finding prime times of usage for different regions
 - Identifying a target audience
@@ -123,10 +123,10 @@ The following table lists the codes associated with the appropriate log events.
 | --- | --- | --- | --- |
 | `admin_update_launch` | Auth0 Update Launched | |
 | `api_limit` | Rate Limit on the Authentication API | The maximum number of requests to the Authentication API in given time has reached. | [Rate Limit Policy](/policies/rate-limits) |
-| `cls` | Code/Link Sent | Passwordless login code/link has been sent | [Passwordless](/passwordless) |
+| `cls` | Code/Link Sent | <dfn data-key="passwordless">Passwordless</dfn> login code/link has been sent | [Passwordless](/connections/passwordless) |
 | `coff` | Connector Offline | AD/LDAP Connector is offline | [Active Directory/LDAP Connector](/connector) |
 | `con` | Connector Online | AD/LDAP Connector is online and working | [Active Directory/LDAP Connector](/connector) |
-| `cs` | Code Sent | Passwordless login code has been sent | [Passwordless](/passwordless) |
+| `cs` | Code Sent | Passwordless login code has been sent | [Passwordless](/connections/passwordless) |
 | `du` | Deleted User | User has been deleted. | [User Profile](/users/concepts/overview-user-profile) |
 | `f` | Failed Login | | |
 | `fapi` | Failed API Operation | | |
@@ -142,13 +142,13 @@ The following table lists the codes associated with the appropriate log events.
 | `fcu` | Failed Change Username | Failed to change username | [User Profile](/users/concepts/overview-user-profile) |
 | `fd` | Failed Delegation | Failed to generate delegation token | [Delegation Tokens](/tokens/delegation) |
 | `fdu` | Failed User Deletion | | [User Profile](/users/concepts/overview-user-profile) |
-| `feacft` | Failed Exchange | Failed to exchange authorization code for Access Token | [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
+| `feacft` | Failed Exchange | Failed to exchange authorization code for <dfn data-key="access-token">Access Token</dfn> | [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
 | `feccft` | Failed Exchange | Failed exchange of Access Token for a Client Credentials Grant | [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens) |
 | `feoobft` | Failed Exchange | Failed exchange of Password and OOB Challenge for Access Token | |
 | `feotpft` | Failed Exchange | Failed exchange of Password and OTP Challenge for Access Token | |
 | `fepft` | Failed Exchange | Failed exchange of Password for Access Token | |
 | `fercft` | Failed Exchange | Failed Exchange of Password and MFA Recovery code for Access Token | |
-| `fertft` | Failed Exchange | Failed Exchange of Refresh Token for Access Token | |
+| `fertft` | Failed Exchange | Failed Exchange of <dfn data-key="refresh-token">Refresh Token</dfn> for Access Token | |
 | `flo` | Failed Logout | User logout failed | [Logout](/logout) |
 | `fn` | Failed Sending Notification | Failed to send email notification | [Emails](/email) |
 | `fp` | Failed Login (Incorrect Password) | | |

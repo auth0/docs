@@ -120,7 +120,7 @@ Click on **Save** and the key will be displayed. **Make sure to copy the value o
 
 ### 5. Configure Reply URLs
 
- Next you need to ensure that your Auth0 callback URL is listed in allowed reply URLs for the created application. Navigate to **Azure Active Directory** -> **Apps registrations** and select your app. Then click **Settings** -> **Reply URLs** and add:
+ Next you need to ensure that your Auth0 <dfn data-key="callback">callback URL</dfn> is listed in allowed reply URLs for the created application. Navigate to **Azure Active Directory** -> **Apps registrations** and select your app. Then click **Settings** -> **Reply URLs** and add:
 
  `https://${account.namespace}/login/callback`
 
@@ -156,7 +156,7 @@ Set the name of the **Microsoft Azure AD Domain** and under **Domain Aliases** p
 
 **Multi-tenant applications**: if you are creating multi-tenant applications where you want to dynamically accept users from new directories, you will setup only one connection and enable the **Use Common Endpoint** toggle. By enabling this flag, Auth0 will redirect users to Azure's common login endpoint, and Azure itself will be doing *Home Realm Discovery* based on the domain of the email address.
 
-Then choose the protocol. **Open ID Connect** is the default, and should be selected in the majority of cases. This is independent of the protocol that your application will use to connect to Auth0.
+Then choose the protocol. **OpenID Connect** is the default, and should be selected in the majority of cases. This is independent of the protocol that your application will use to connect to Auth0.
 
 Next complete the **App ID Uri** field if you intend to use [active authentication](/api/authentication#database-ad-ldap-active-), as explained in [Native Azure AD applications with Auth0](/connections/enterprise/azure-active-directory-native).
 

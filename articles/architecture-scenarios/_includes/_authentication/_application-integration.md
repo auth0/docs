@@ -4,7 +4,7 @@ Once you've figured out how you want to authenticate your users, the next step i
 Native mobile applications (and desktop applications) should use the system browser for authentication, or they open themselves up to additional security risks. See [Native vs. Browser Login on Mobile](/design/browser-based-vs-native-experience-on-mobile) for more information. 
 :::
 
-As discussed, we've found that most of our customers use OpenID Connect ([OIDC](/protocols/oidc)) as the industry-standard protocol when it comes to their customer facing applications. Figuring out which [OIDC flow](/api-auth/intro) to use is your first task, and you will want to start by reviewing the our [grant mapping](/applications/reference/grant-types-auth0-mapping) guidance in the first instance.  
+As discussed, we've found that most of our customers use <dfn data-key="openid">[OpenID Connect (OIDC)](/protocols/oidc)</dfn> as the industry-standard protocol when it comes to their customer-facing applications. Figuring out which [OIDC flow](/api-auth/intro) to use is your first task, and you will want to start by reviewing the our [grant mapping](/applications/reference/grant-types-auth0-mapping) guidance in the first instance.  
 
 If you want to allow anonymous users access to any part of our application then you need to determine if you will be redirecting right away or prompting your users to redirect only when required (or perhaps some combination of both; see [Redirect Users After Login](/users/guides/redirect-users-after-login) for further discussion). If users can [deep link](#deep-linking-to-protected-endpoints) to a protected version (or area) of your site then you will need to determine the links to your application that will result in an automatic redirect to Auth0. 
 
@@ -32,7 +32,7 @@ Most modern authentication frameworks support middleware for redirecting to an a
 
 * Is configurable
 * Can check expirations
-* Supports refresh tokens (for confidential clients)
+* Supports <dfn data-key="refresh-token">Refresh Tokens</dfn> (for confidential clients)
 :::
 
 ### Authenticating the user
@@ -58,11 +58,3 @@ If you need a [Refresh Token](/tokens/refresh-token/current) so that you can obt
 ### Authorization code grant (with or without PKCE)
 
 If your SDK only supports the Authorization Code grant, or you need an Access Token or Refresh Token, then Authorization Code grant (with or without [PKCE](/flows/concepts/auth-code-pkce)) can also be used to retrieve an ID Token.  The Authorization Code grant includes an additional API call to exchange the code for a token which can result in additional unnecessary latency if all you need is the ID Token. In many cases the [hybrid flow](/api-auth/tutorials/hybrid-flow) is implemented to provide optimum access to the ID Token while still leveraging Authorization Code grant workflow for the secure and safe retrieval of Access and Refresh Tokens.
-
-## Anomaly detection
-
-The reason that authentication systems are important is to prevent bad actors from accessing applications and user data that they should not. We want to place as many barriers as possible between those bad actors and access to our systems. One of the easiest ways to do this is to ensure that your [anomaly detection](/anomaly-detection) with Auth0 is configured correctly, so take a moment to read the guidance on this subject and ensure that it's working correctly for you.
-
-::: panel Best Practice
-Anomaly detection is handled behind the scenes by Auth0 and provides a great security feature for your product. If you're going to utilize it, ensure that you have set up your [Email Provider](/architecture-scenarios/implementation/${platform}/${platform}-operations#email-provider-setup) and configured your [Email Templates](/architecture-scenarios/implementation/${platform}/${platform}-branding#email-template-customization) before turning on email delivery to your users.
-:::

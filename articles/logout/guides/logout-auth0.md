@@ -18,7 +18,7 @@ To force a logout, redirect the user to the following URL:
 https://${account.namespace}/v2/logout
 ```
 
-Redirecting the user to this URL clears all single sign-on cookies set by Auth0 for the user.
+Redirecting the user to this URL clears all <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> cookies set by Auth0 for the user.
 
 ## Keep reading
 

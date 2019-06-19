@@ -25,8 +25,8 @@ In a native/mobile application, the default experience will open a SafariViewCon
 When your app needs to fetch user data from your API:
 
 1. If the user is not already authenticated, our SDK redirects the user to your Auth0 Authorization Server.
-2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML).
-3. Your app requests an ID Token, Access Token, and Refresh token.
+2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, <dfn data-key="security-assertion-markup-language">SAML</dfn>).
+3. Your app requests an ID Token, Access Token, and <dfn data-key="refresh-token">Refresh Token</dfn>.
 4. Auth0 responds with the requested tokens.
 5. The Access Token can be used to call your API and retrieve requested data.
 

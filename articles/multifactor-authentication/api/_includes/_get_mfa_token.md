@@ -53,4 +53,4 @@ However, if MFA is required for this user, the `mfa_required` error will look li
 }
 ```
 
-In the next step, use the MFA token (`mfa_token`) received in this response instead of the standard Access Token to request association of a new authenticator.
+In the next step, use the MFA token (`mfa_token`) received in this response instead of the standard <dfn data-key="access-token">Access Token</dfn> to request association of a new authenticator.

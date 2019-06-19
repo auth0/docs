@@ -12,7 +12,7 @@ useCase: invoke-api
 
 # Access Tokens for the Management API
 
-To call the [Auth0 Management API v2](/api/management/v2) endpoints, you need to authenticate with a token called the __Auth0 Management API Token__. This token is a [JSON Web Token](/jwt) and it contains specific granted permissions (known as __scopes__).
+To call the [Auth0 Management API v2](/api/management/v2) endpoints, you need to authenticate with a token called the __Auth0 Management API Token__. This token is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> and it contains specific granted permissions (known as <dfn data-key="scope">__scopes__</dfn>).
 
 To call an endpoint for test purposes, you can get a token manually using the Dashboard. For production however, the recommended best practice is to get short-lived tokens programmatically. 
 

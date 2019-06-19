@@ -13,10 +13,10 @@ useCase:
 # OpenID Connect Scopes
 
 :::note 
-This document discusses scopes included within the OpenID Connect (OIDC) authentication protocol. For more info about OIDC itself, see our docs on [OpenID Connect](/protocols/oidc).
+This document discusses <dfn data-key="scope">scopes</dfn> included within the <dfn data-key="openid">OpenID Connect (OIDC) authentication protocol</dfn>. For more info about OIDC itself, see our docs on [OpenID Connect](/protocols/oidc).
 :::
 
-OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details, like name and picture. Each scope returns a set of user attributes, which are called _claims_. The scopes an application should request depend on which user attributes the application needs. Once the user authorizes the requested scopes, the claims are returned in an ID Token and are also available through the [/userinfo endpoint](/api/authentication#get-user-info).
+<dfn data-key="openid">OpenID Connect (OIDC)</dfn> <dfn data-key="scope">scopes</dfn> are used by an application during authentication to authorize access to a user's details, like name and picture. Each scope returns a set of user attributes, which are called _claims_. The scopes an application should request depend on which user attributes the application needs. Once the user authorizes the requested scopes, the claims are returned in an ID Token and are also available through the [/userinfo endpoint](/api/authentication#get-user-info).
 
 For example, let's say you have built a regular web application, registered it with Auth0, and have configured it to allow a user to log in using a username and password. Once a user logs in to your app, you want to auto-generate and send a personalized welcome email, including the user's name.
 

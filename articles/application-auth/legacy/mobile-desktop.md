@@ -59,7 +59,7 @@ Once the application has been created you can navigate to the **Settings** tab o
 
 ## Call the Authorization URL
 
-The URL used when authenticating a user is `https://${account.namespace}/authorize`. This is the initial endpoint to which a user must be redirected. This will handle checking whether any SSO session is active, authenticating the user and also potentially redirect the user directly to any Identity Provider to handle authentication.
+The URL used when authenticating a user is `https://${account.namespace}/authorize`. This is the initial endpoint to which a user must be redirected. This will handle checking whether any <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> [session](/sessions) is active, authenticating the user and also potentially redirect the user directly to any Identity Provider to handle authentication.
 
 This endpoint supports the following query string parameters:
 

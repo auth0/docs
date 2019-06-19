@@ -12,7 +12,7 @@ useCase:
 ---
 # Lock API Reference
 
-Lock has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and discuss how to use them. Click below to go straight the method you're looking for, or just browse! If you're looking for information about events emitted by Lock, they're listed under the [on()](#on-) method section!
+<dfn data-key="lock">Lock</dfn> has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and discuss how to use them. Click below to go straight the method you're looking for, or just browse! If you're looking for information about events emitted by Lock, they're listed under the [on()](#on-) method section!
 
 - [new Auth0Lock](#auth0lock) - Instantiating Lock
 - [getUserInfo()](#getuserinfo-) - Obtaining the profile of a logged in user
@@ -63,7 +63,7 @@ var Auth = (function() {
           return;
         }
 
-        //save access token only if necessary
+        //save Access Token only if necessary
         privateStore.accessToken = accessToken;
         privateStore.profile = profile;
 
@@ -271,7 +271,7 @@ lock.resumeAuth(hash, function(error, authResult) {
   if (error) {
     alert("Could not parse hash");
   }
-  //This is just an example; you should not log access tokens in production.
+  //This is just an example; you should not log Access Tokens in production.
   console.log(authResult.accessToken);
 });
 ```

@@ -15,7 +15,7 @@ useCase:
 
 # JSON Web Token Claims
 
-There are two types of [JSON Web Token (JWT)](/tokens/jwt) claims:
+There are two types of <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> claims:
 
 * **Reserved**: Claims defined by the [JWT specification](https://tools.ietf.org/html/rfc7519) to ensure interoperability with third-party, or external, applications.
 * **Custom**: Claims that you define yourself. Name these claims carefully to avoid collision with reserved claims or other custom claims. It can be challenging to deal with two claims of the same name that contain differing information.
@@ -42,11 +42,11 @@ For your specific use case, you can define your own [custom claims](/scopes/curr
 
 You can create custom claims for public consumption, which might contain generic information like "name" and "email". If you create public claims, you should either register them or use collision-resistant names, such as by adding your domain name as the prefix.
 
-In the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims), you can see some examples of public claims registered by OpenID Connect: 
+In the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims), you can see some examples of public claims registered by <dfn data-key="openid">OpenID Connect (OIDC)</dfn>: 
 
 * auth_time
 * acr
-* nonce
+* <dfn data-key="nonce">nonce</dfn>
 
 #### Private claims
 

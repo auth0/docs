@@ -13,7 +13,7 @@ useCase: invoke-api
 
 # Get Management API Tokens for Single-Page Applications
 
-To call Auth0's [Management API](/api/management/v2#!) endpoints, you need to authenticate with a specialized Access Token called the Auth0 Management API Token. This token is a [JSON Web Token (JWT)](/jwt) and contains specific granted permissions (also known as [scopes](/scopes)). Because single-page applications (SPAs) are public clients, they cannot securely store sensitive information, such as the **Client Secret**, so they cannot retrieve this token in the same way as other application types.
+To call Auth0's [Management API](/api/management/v2#!) endpoints, you need to authenticate with a specialized <dfn data-key="access-token">Access Token</dfn> called the Auth0 Management API Token. This token is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> and contains specific granted permissions (also known as <dfn data-key="scope">scopes</dfn>. Because single-page applications (SPAs) are public clients, they cannot securely store sensitive information, such as the **Client Secret**, so they cannot retrieve this token in the same way as other application types.
 
 SPAs can still retrieve tokens for the Management API, but they must do so from the frontend, and the Access Token will be issued in the context of the user who is currently signed in to Auth0. Although this restricts the token to certain scopes and limits updates to only the logged-in user's data, it can be useful for actions such as updating the user profile. 
 
@@ -52,7 +52,7 @@ If you are not familiar with authentication for SPAs, see [Implicit Flow](/flows
 
 Notice:
 
-- The `audience` is set to `https://${account.namespace}/api/v2/` (representing your tenant's Management API URI)
+- The <dfn data-key="audience">`audience`</dfn> is set to `https://${account.namespace}/api/v2/` (representing your tenant's Management API URI)
 - The `response_type` is `id_token token` (indicating that we want to receive both an ID Token as well as an Access Token, which represents the Management API Token)
 - The requested `scope` is `read:current_user`
 

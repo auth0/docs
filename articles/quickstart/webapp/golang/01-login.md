@@ -14,7 +14,9 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Go', callback: 'http://localhost:3000/callback' }) %>
 
-## Configure Go to Use Auth0 
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
+
+## Configure Go to Use Auth0
 
 ### Add Dependencies
 

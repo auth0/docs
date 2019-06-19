@@ -64,7 +64,7 @@ client_id=some_third_party_client
   </tbody>
 </table>
 
-If the user allows the application, this creates a *user grant* which represents the user's consent to this combination of application, resource server, and scopes. 
+If the user allows the application, this creates a *user grant* which represents the user's consent to this combination of application, resource server, and <dfn data-key="scope">scopes</dfn>. 
 
 The application then receives a successful authentication response from Auth0 as usual. Once consent has been given, the user won't see the consent dialog during subsequent logins until consent is revoked explicitly.
 
@@ -118,7 +118,7 @@ Note that this option only allows __verifiable__ first-party applications to ski
 127.0.0.1       myapp.example
 ```
 
-Similarly, you **cannot** skip consent (even for first-party applications) if `localhost` appears in any domain in the **Allowed Callback URLs** setting (found in [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings)). Make sure to update **Allowed Callback URLs**, and the callback URL you configured in your application, to match the updated domain-mapping.
+Similarly, you **cannot** skip consent (even for first-party applications) if `localhost` appears in any domain in the <dfn data-key="callback">**Allowed Callback URLs**</dfn> setting (found in [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings)). Make sure to update **Allowed Callback URLs**, and the callback URL you configured in your application, to match the updated domain-mapping.
 :::
 
 Since third-party applications are assumed to be untrusted, they are not able to skip consent dialogs.

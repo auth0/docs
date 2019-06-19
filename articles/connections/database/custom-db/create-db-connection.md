@@ -144,7 +144,7 @@ Depending on your custom database script, you may return a user profile to Auth0
 
 ### Identity Provider (IdP) Tokens
 
-If the `user` object returns the `access_token` and `refresh_token` properties, Auth0 handles these slightly differently from other pieces of user information. They will be stored in the `user` object's `identities` property, and retrieving them using the API, therefore, requires an additional scope: `read:user_idp_tokens`.
+If the `user` object returns the `access_token` and `refresh_token` properties, Auth0 handles these slightly differently from other pieces of user information. They will be stored in the `user` object's `identities` property, and retrieving them using the API, therefore, requires an additional <dfn data-key="scope">scope</dfn>: `read:user_idp_tokens`.
 
 ```
 {

@@ -25,7 +25,7 @@ Most JWT libraries will take care of the token validation for you automatically,
 
 ## Check that the ID Token is correctly formatted
 
-Auth0 will generate the ID Token in [JSON Web Token (JWT) format](/jwt#what-is-the-json-web-token-structure-). Before doing anything else, your app should parse the ID Token to make sure it conforms to the structure of a JWT.
+Auth0 will generate the ID Token in <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> [format](/jwt#what-is-the-json-web-token-structure-). Before doing anything else, your app should parse the ID Token to make sure it conforms to the structure of a JWT.
 
 A correctly formatted, or well-formed, JWT consists of three concatenated base64url-encoded strings, separated by dots (`.`):
 

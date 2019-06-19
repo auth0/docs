@@ -63,5 +63,5 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 - [GitLab Deployments Extension](/extensions/gitlab-deploy)
 - [Visual Studio Team Services Deployments Extension](/extensions/visual-studio-team-services-deploy)
 
-### Create a SSO dashboard with multiple enterprise applications 
-- [SSO Dashboard Extension](extensions/sso-dashboard)
+### Create a Single Sign-on dashboard with multiple enterprise applications 
+- [Single Sign-on (SSO) Dashboard Extension](extensions/sso-dashboard)

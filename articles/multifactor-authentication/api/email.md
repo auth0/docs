@@ -17,28 +17,31 @@ useCase:
 In this tutorial, you'll learn how to configure your application so users can use email authenticators.
 
 ::: note
-Currently, email authenticators are only supported by the multi-factor authentication (MFA) API. Users can only use email authenticators with applications using the MFA API,  but not in applications that redirect to the [hosted MFA page](/hosted-pages/guardian).
+Currently, email authenticators are only supported by the <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> API or when using the [New Universal Login Experience](/universal-login/new). It's not supported in the Classic Universal Login experience.
 :::
 
 <%= include('./_includes/_authenticator-before-start') %>
 
 ## 1. Enable email authenticators with the Management API
 
-Start by enabling email authenticators with the [Management API](/api/management). To do this, make a `PUT` request to the [/api/v2/guardian/factors/email](/api/management/v2/#!/Guardian/put_factors_by_name) endpoint. You'll need a [Management API Token](/api/management/v2/tokens) with the `update:guardian_factors` scope to perform the request:
+Start by enabling email authenticators with the [Management API](/api/management). To do this, make a `PUT` request to the [/api/v2/guardian/factors/email](/api/management/v2/#!/Guardian/put_factors_by_name) endpoint. You'll need a [Management API Token](/api/management/v2/tokens) with the `update:guardian_factors` <dfn data-key="scope">scope</dfn> to perform the request:
 
 ```har
 {
   "method": "PUT",
   "url": "https://${account.namespace}/api/v2/guardian/factors/email",
   "headers": [
-    { "name": "Authorization", "value": "Bearer MANAGEMENT_API_TOKEN" }
+    { "name": "Authorization", "value": "Bearer MANAGEMENT_API_TOKEN" },
+    { "name": "Content-Type", "value": "application/json" }
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"enabled\":\"true\"}"
+    "text": "{\"enabled\": true }"
   }
 }
 ```
+
+You can also enable this factor in in the Multi-factor Authentication section in the [Auth0 Dashboard](${manage_url}/#/mfa).
 
 ## 2. Get the MFA Token
 

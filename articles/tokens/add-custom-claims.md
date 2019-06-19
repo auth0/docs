@@ -16,7 +16,7 @@ useCase:
 
 # Add Custom Claims to Tokens
 
-You can add custom claims to your [Access Tokens](/tokens/overview-access-tokens) or [ID Tokens](/tokens/id-token) using [Rules](/rules). The claim name must conform to a namespaced format to avoid possible collisions with standard OIDC claims. 
+You can add custom claims to your <dfn data-key="access-token">Access Tokens</dfn> or [ID Tokens](/tokens/id-token) using [Rules](/rules). The claim name must conform to a namespaced format to avoid possible collisions with standard OIDC claims. 
 
 The format you should follow is:  `http://my-namespace/claim-name`.
 
@@ -30,5 +30,5 @@ You cannot use the following Auth0 namespaces:
 ## Keep reading
 
 * [User Profile Claims and Scope](/api-auth/tutorials/adoption/scope-custom-claims#custom-claims)
-* [Open ID Standard OIDC Claims Specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims)
+* [OpenID Connect (OIDC) Specification - Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims)
 

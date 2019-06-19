@@ -58,7 +58,7 @@ The existing Auth0 CDN service is one of our older services. It was been built a
 
 ### Am I using the CDN?
 
-If you use Lock (hosted by our CDN) in Europe or Australia, yes.
+If you use <dfn data-key="lock">Lock</dfn> (hosted by our CDN) in Europe or Australia, yes.
 
 ### Do I need to do something?
 
@@ -109,7 +109,7 @@ Even if you are not using Lock, the vulnerable reset flow can be accessed direct
 | --- | --- | --- |
 | Medium | 2017-01-03 |  2017-03-01 |
 
-As part of Auth0's efforts to improve security and standards compliance, we will stop supporting account linking as part of the authorization callback (that is, accepting an [Access Token](/tokens/overview-access-tokens) as part of the [authorize](/api/authentication#authorization-code-grant) call as stated [in the account linking section](/api/authentication?http#account-linking).
+As part of Auth0's efforts to improve security and standards compliance, we will stop supporting account linking as part of the authorization callback (that is, accepting an <dfn data-key="access-token">Access Token</dfn> as part of the [authorize](/api/authentication#authorization-code-grant) call as stated [in the account linking section](/api/authentication?http#account-linking).
 
 ### Am I affected by the change?
 
@@ -123,7 +123,7 @@ If you need help with the migration, create a ticket in our [Support Center](${e
 | --- | --- | --- |
 | Medium | 2017-02-23 |  2017-05-31 |
 
-As part of Auth0's efforts to improve security, we recently added the ability to execute rules during the OAuth 2.0 Resource Owner Password Grant exchange (the password exchange) and the Refresh Token exchange.
+As part of Auth0's efforts to improve security, we recently added the ability to execute rules during the OAuth 2.0 Resource Owner Password Grant exchange (the password exchange) and the <dfn data-key="refresh-token">Refresh Token</dfn> exchange.
 
 You are using this feature if you are calling the [/oauth/token](/api/authentication#authorization-code) endpoint of our Authentication API with `grant_type = "password"` , `grant_type = "http://auth0.com/oauth/grant-type/password-realm"`, or `grant_type = "refresh_token"`.
 
@@ -177,7 +177,7 @@ You can use [jwt.io](https://jwt.io/) to decode the token to confirm the `iss` a
 
 The format of the user profile JSON object (ID Token) that is returned by Auth0 Authentication APIs has been changed to remove the Identity Provider's Access Token, which had been included in the user profile `identities` array.
 
-Now, to obtain a user's IdP Access Token, you will need to make an HTTP GET call to the `/api/v2/users/{user-id}` endpoint containing an API token generated with  `read:user_idp_tokens` scope.
+Now, to obtain a user's IdP Access Token, you will need to make an HTTP GET call to the `/api/v2/users/{user-id}` endpoint containing an API token generated with  `read:user_idp_tokens` <dfn data-key="scope">scope</dfn>.
 
 ::: note
 You will still have access to the Identity Provider Access Token in the `user` argument in Auth0 [rules](/rules).

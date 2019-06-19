@@ -204,7 +204,7 @@ Once expired, an Access Token can no longer be used to access an API. In order t
 
 Obtaining a new Access Token can be done by repeating the authentication flow, used to obtain the initial Access Token. In a SPA this is not ideal, as you may not want to redirect the user away from their current task to complete the authentication flow again.
 
-In cases like this you can make use of [Silent Authentication](/api-auth/tutorials/silent-authentication). Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. This does however require that the user was already logged in via [SSO (Single Sign-On)](/sso).
+In cases like this you can make use of [Silent Authentication](/api-auth/tutorials/silent-authentication). Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. This does however require that the user was already logged in via <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn>.
 
 ::: note
 See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#6-renew-the-access-token)

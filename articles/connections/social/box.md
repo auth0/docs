@@ -39,13 +39,13 @@ Scroll down to find the `client_id` and `client_secret` fields under the **OAuth
 
 ![](/media/articles/connections/social/box/box-register-4.png)
 
-Enter this URL as the `redirect_uri`:
+Enter your <dfn data-key="callback">callback URL</dfn> as the `redirect_uri`:
 
   https://${account.namespace}/login/callback
 
   <%= include('../_find-auth0-domain-redirects') %>
 
-While on this page, make sure to define the appropriate permission **Scopes** for your app.
+While on this page, make sure to define the appropriate permission <dfn data-key="scope">**scopes**</dfn> for your app.
 
 ## 3. Copy your *Client Id* and *Client Secret*
 

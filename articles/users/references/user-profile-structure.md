@@ -20,7 +20,7 @@ Auth0's normalized user profile consists of a few different components:
 
   * `user_metadata`: Store attributes that do not impact what the user can access, such as work address, home address, or user preferences. 
 
-  * `app_metadata`: Store attributes that can impact what the user can access or how an application functions, such as support plan, security roles, or access control groups.
+  * `app_metadata`: Store attributes that can impact what the user can access or how an application functions, such as support plan, security <dfn data-key="role">roles</dfn>, or access control groups.
 
   [Learn more](/users/concepts/overview-user-metadata) about metadata, including when to use `app_metadata` and `user_metadata`, and best practices.
 

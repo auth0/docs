@@ -29,4 +29,4 @@ This guide will show you how to retrieve the options object for a [connection](/
 | Value | Description |
 | - | - |
 | `CONNECTION_ID` | Τhe ID of the connection for which you want to retrieve the `options` object. |
-| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the scope `read:connections`. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `read:connections`. |

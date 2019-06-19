@@ -13,7 +13,7 @@ useCase:
 ---
 # Configure OneLogin as an Identity Provider
 
-In this article, we will cover how you can configure OneLogin for use with Auth0 as a SAML Identity Provider.
+In this article, we will cover how you can configure OneLogin for use with Auth0 as a <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider.
 
 ## Step 1: Configure app on the OneLogin dashboard
 

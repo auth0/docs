@@ -14,7 +14,7 @@ useCase: quickstart
 ---
 <%= include('../_includes/_getting_started', { library: 'Java Spring Security', callback: 'http://localhost:3000/callback' }) %>
 
-<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000/login' }) %>
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000/' }) %>
 
 <%= include('_includes/_setup') %>
 
