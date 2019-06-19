@@ -33,7 +33,7 @@ As such, Auth0 is migrating from Node 4 to Node 8.
 Customers will be notified two weeks in advance of their automatic migration date, with additional periodic reminders leading up to their automatic migration date.
 
 ::: warning
-Tenant automatic upgrade to Node 8 will be completed by June 30, 2019.
+All tenant automatic upgrades to Node 8 will be completed no later than June 30, 2019. Most tenant upgrades will be completed before this date. Admins for affected tenants will be notified of their exact migration date.
 :::
 
 In this document, we:
@@ -101,15 +101,21 @@ To do so, go to [Dashboard > Applications > Settings](${manage_url}/#/applicatio
 
 The execution URLs will also change for custom webtasks in your Auth0 container. You must update any external applications that call those webtasks.
 
-### Authorization Extension URLs
+### Authorization Extension Changes
 
-If you use the Authorization Extension, it generates an `auth0-authorization-extension` rule. When migrating to Node 8, the EXTENSION_URL in that rule needs to be updated as follows:
+If you use the Authorization Extension, it generates an `auth0-authorization-extension` rule. Republishing this rule from within the Authorization Extension will update the URLs automatically.
 
-`var EXTENSION_URL = "https://<tenant>.us.webtask.io/<container_id>";`
+To ensure a clean upgrade:
 
-to
+1. Ensure you have upgraded to the latest version of the Authorization Extension from the "Installed Extensions" tab. If the upgrade button is present, click to upgrade. If the button is not present, you are already on the latest version of the extension.
+2. Open the Authorization Extension configuration page.
+3. To update the URL in the rule, publish the rule again by clicking the "Publish Rule" button. 
+4. Test to make sure everything is still working.
+5. If you see an "Invalid API Key" error after updating, use the "Rotate" button to generate a new API key.
 
-`var EXTENSION_URL = "https://<tenant>.us8.webtask.io/<container_id>";`
+![Authorization Extension Configuration](/media/articles/migrations/node-auth-ext-config.png)
+
+![Authorization Extension Buttons](/media/articles/migrations/node-auth-ext-buttons.png)
 
 ### Delegated Administration URLs
 
