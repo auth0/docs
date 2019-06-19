@@ -33,3 +33,7 @@ If the user logs out and you redirect them back to the application, and the appl
 ## Automatic termination of sessions
 
 Not all users will trigger the logout process manually, so Auth0 also provides **session timeout** to prevent overly long-lived sessions. This setting is [available and configurable via the Auth0 Dashboard](/dashboard/dashboard-tenant-settings#session-timeout).
+
+<% if (platform === "b2b") { %>
+If you are redirecting users to a separate IDP to login then [Federated User Logout](/logout/guides/logout-idps) is something that you need to consider for your application.  *Should* you log the user out of their IDP when they log out of your application?  The answer to this depends on what your users would expect. If the application is tied closely to the organization and is a central part, then they may expect to be logged out of their IDP, if not, then it may be frustrating to them to get logged out of their IDP when they log out of your application. In most B2B applications, federated logout is not expected by the user.
+<%  } %>

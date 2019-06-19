@@ -15,8 +15,6 @@ useCase:
 
 <%= include('../../_includes/_logout/_introduction.md', { platform: 'b2b' }) %>
 
-If you are redirecting users to a separate IDP to login then [Federated User Logout](/logout/guides/logout-idps) is something that you need to consider for your application.  *Should* you log the user out of their IDP when they log out of your application?  The answer to this depends on what your users would expect. If the application is tied closely to the organization and is a central part, then they may expect to be logged out of their IDP, if not, then it may be frustrating to them to get logged out of their IDP when they log out of your application. In most B2B applications, federated logout is not expected by the user.
-
 ## Planning
 
 To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
