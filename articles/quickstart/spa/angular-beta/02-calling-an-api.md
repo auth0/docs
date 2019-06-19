@@ -98,7 +98,7 @@ this.auth0Client = await createAuth0Client({
 });
 ```
 
-Doing this provides a hint to the authorization server that your application would like to call the API with the identifier `${apiIdentifier}`. This will cause the authorization server to prompt the user for permission the next time they log in. It will also return an access token that can be used to call the API.
+This parameter tells the authorization server that your application would like to call the API with the identifier ${apiIdentifier} on the user's behalf. This will cause the authorization server to prompt the user for consent the next time they log in. It will also return an access token that can be used to call the API.
 
 ## Calling the API
 
