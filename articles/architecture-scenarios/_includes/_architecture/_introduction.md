@@ -10,6 +10,9 @@ The value of investing time on the landscape of the architecture up-front is som
 * How can Auth0 be structured to support our SDLC (Software Development Lifecycle)?
 * How can I ensure that my Auth0 Tenants are appropriately associated with my contract?
 * What do I need to consider if there are other projects in my organization integrating with Auth0? Particularly projects that target their own, or a different domain of users (for example, applications that only employees will use)? 
+<% if (platform === "b2b") { %>
+* How can I align the structure and domain of my customers’ organization with my Auth0 deployment?
+<%  } %>
 
 Organizations often service more than one domain of user - customers, employees, and affiliates being the most frequently encountered, with typically little to no cross-over: employees, say, don’t use the same applications as customers and vice-versa. In some cases there can also be a need to partition further within a domain - separate groups of customers, say, who use different and unconnected products. Auth0 provides a way to segregate your users and the associated collateral, and [tenant provision](#tenant-provision) covers this in more detail. If you need to provision an independent tenant then you’ll also want to [associate this with your existing Auth0 account](#tenant-association), so that you can take full advantage of the benefits provided at your organization’s contracted subscription level.
 
@@ -22,5 +25,9 @@ In addition, you’ll undoubtedly have an established set of processes and proce
 For customer facing applications we typically see [OpenID Connect (OIDC)](/protocols/oidc) as being the most frequently used protocol. OIDC makes use of web based workflows with browser URLs that are presented to the user. Out-of-the-box, client facing URLs as part of Auth0 OIDC support are Auth0 branded, however we recommend using the Auth0 [custom domain](#custom-domains) capability to provide for consistent corporate identity and to also address potential user confidence concerns before they arise. 
 
 ::: panel Best Practice
-Other groups within your organisation may also be working with Auth0; it’s not uncommon for our customers to have disparate departments that serve different user communities. Identifying these will potentially influence your design choices, and doing so early could mitigate decisions that might prove costly later on.
+Other groups within your organization may also be working with Auth0; it’s not uncommon for our customers to have disparate departments that serve different user communities. Identifying these will potentially influence your design choices, and doing so early could mitigate decisions that might prove costly later on.
 :::
+
+<% if (platform === "b2b") { %>
+If your customers' organization supports the use of mutliple IDPs, then you should create separate Auth0 tenants for that organization; see [Tenant provision for complex organizations](#tenant-provision-for-complex-organizations) for further details. This allows you to keep the rest of your setup much simpler by maintaining a one-to-one connection relationship between your organization and all your customer organizations within your main tenant. 
+<%  } %>
