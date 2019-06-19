@@ -14,10 +14,6 @@ If you are following along with the sample project you downloaded from the top o
 <%= include('../../../_includes/_logout_url') %>
 <% } %>
 
-::: note
-If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Logout URL** to `${callback}`.
-:::
-
 <% if (typeof showWebOriginInfo !== 'undefined' && showWebOriginInfo === true) { %>
 <%= include('../../../_includes/_web_origins') %>
 <% } %>
