@@ -74,10 +74,6 @@ The first step is to create new domains using the Auth0 [Custom Domains](/custom
 
 Once done, you may have [additional configuration steps](/custom-domains/additional-configuration#configure-social-identity-providers), depending on the Auth0 features you use.
 
-::: note
-To use your SAML and Social Connections with your new custom domains, recreate the association using the guidelines specific to the Connection type.
-:::s
-
 #### Final configuration
 
 One you have completed all of the required modifications on your applications, a Managed Services Engineer will assist you in completing the migration process.
