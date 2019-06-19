@@ -19,13 +19,13 @@ useCase:
 
 For some use cases you could use [ID Tokens](/tokens/id-token) in order to call some of the [Users](/api/management/v2#!/Users/get_users_by_id) and [Device Credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints of the Management API. 
 
-This functionality is being deprecated. You will have to use proper <dfn data-key="access-token">Access Tokens</dfn> in order to access any of the endpoints of the [Management API](/api/management/v2). Make sure the `Allow ID Tokens for Management API v2 Authentication` toggle is turned off after completing the migration to Access Tokens.
+This functionality is being deprecated. You will have to use proper <dfn data-key="access-token">[Access Tokens](/tokens/access-token)</dfn> in order to access any of the endpoints of the [Management API](/api/management/v2). Make sure the `Allow ID Tokens for Management API v2 Authentication` toggle is turned off after completing the migration to Access Tokens.
 
 The grace period for this migration started on **March 31, 2018** and at the moment is open-ended. This means that you will still be able to use ID Tokens to access these endpoints. When a mandatory opt-in date is set for this migration customers will be notified beforehand.
 
 Customers are encouraged to migrate to Access Tokens. This guide will help you with that. 
 
-First, we will see which use cases are affected. We will continue with reviewing how you can use <dfn data-key="scope">scopes</dfn> to get tokens with different access rights, and then see all the ways you can use to get an Access Token. Finally, we will review the changes introduced in the [Account Linking](/link-accounts) process.
+First, we will see which use cases are affected. We will continue with reviewing how you can use <dfn data-key="scope">[scopes](/scopes)</dfn> to get tokens with different access rights, and then see all the ways you can use to get an Access Token. Finally, we will review the changes introduced in the [Account Linking](/link-accounts) process.
 
 ## Does this affect me?
 
@@ -85,7 +85,7 @@ In the example below, we want to use the [GET User by ID endpoint](/api/manageme
 
 On the `Legacy (ID Token)` panel you can see an implementation of the old approach that gets an ID Token (and then uses it to call the endpoint). On the `Current (Access Token)` panel you can see the new approach that gets an Access Token as well.
 
-<%= include('./_get-token-authorize.md', { scope: 'read:current_user', idPrevious: 'authZ-id-token', idCurrent: 'authZ-access-token' }) %>
+x
 
 Once you have the Access Token you can use it to call the endpoint. This part remains the same, nothing else changes in the request except for the value you use as `Bearer` token. The response remains also the same.
 
@@ -175,7 +175,7 @@ If you embed either [Lock v11](/libraries/lock/v11) or [auth0.js v9](/libraries/
 
 If you use auth0.js to access the Management API and manage your users, then your script will have to be updated.
 
-
+x
 
 ## Changes in Account Linking
 
