@@ -6,7 +6,7 @@ classes: video-page
 
 The canonical OAuth2 scenario! How to obtain and use access and refresh tokens for delegated authorization.
 
-<div class="video-wrapper">yw6hmdhnft</div>
+<div class="video-wrapper" data-video="yw6hmdhnft" data-padding="100% 0 0"></div>
 
 ## Bookmarks
 

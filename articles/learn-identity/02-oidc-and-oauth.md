@@ -6,7 +6,7 @@ classes: video-page
 
 Open ID Connect and OAuth specifications, roles and grants.
 
-<div class="video-wrapper">djvvz13kcz</div>
+<div class="video-wrapper" data-video="djvvz13kcz"></div>
 
 ## Bookmarks
 

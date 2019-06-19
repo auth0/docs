@@ -6,7 +6,7 @@ classes: video-page
 
 A whirlwind tour of identity, protocols, open standards, SSO, OAuth2, and Open ID Connect.
 
-<div class="video-wrapper">pdlav16113</div>
+<div class="video-wrapper" data-video="pdlav16113"></div>
 
 ## Bookmarks
 

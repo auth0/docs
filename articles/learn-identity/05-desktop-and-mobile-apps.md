@@ -6,7 +6,7 @@ classes: video-page
 
 Authentication and delegated authorization for desktop and mobile applications and a public client overview.
 
-<div class="video-wrapper">dq3c4pz9lb</div>
+<div class="video-wrapper" data-video="dq3c4pz9lb" data-padding="100% 0 0"></div>
 
 ## Bookmarks
 

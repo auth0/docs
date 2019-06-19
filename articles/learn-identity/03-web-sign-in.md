@@ -6,7 +6,7 @@ classes: video-page
 
 Authentication for web applications using Open ID Connect and ID token validation.
 
-<div class="video-wrapper">k4rwcky3p5</div>
+<div class="video-wrapper" data-video="k4rwcky3p5" data-padding="100% 0 0"></div>
 
 ## Bookmarks
 
