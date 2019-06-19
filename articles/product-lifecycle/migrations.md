@@ -66,4 +66,4 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
   </tbody>
 </table>
 
-If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
+If you have any questions, please visit the Migrations section of the [Auth0 Community site](https://community.auth0.com/c/auth0-community/Migrations) or create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
