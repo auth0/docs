@@ -14,13 +14,15 @@ useCase:
 
 # Deprecations
 
-In an effort to keep the Auth0 platform stable and secure some features and functionality must occasionally be modified or removed. These changes will sometimes result in a **Breaking Change.**
+In an effort to keep the Auth0 platform stable and secure some features and functionality must occasionally be modified or removed. These changes will sometimes result in a **Breaking Change**.
 
-This proccess starts with the feature or behavior being **Deprecated**. At the time of deprecation we will also typically announce an **End Of Life Date**.
+This proccess starts with the feature or behavior being **Deprecated**. At the time of deprecation we will also typically announce an **End Of Life Date**. In some cases a feature will be **Deprecated** to prevent further adoption (see Glossary below) with an **End Of Life Date** to be determined.
+
+At the time of the **End Of Life Date** announcement we will also kick off a **Migration** to allow customers prepare for the **End Of Life Date**. The **Migration** will usually involve modifying your applications code in order to contiue working with the new behavior of the Auth0 platform. As outlined in our [Self Service Terms of Service](https://auth0.com/legal/ss-tos) and Enterprise Subscription Agreements, Auth0 may remove behavior without providing a substantially equivalent replacement in order to (i) remain compliant with applicable law, (ii) comply with changes in its third party certification standards, or (iii) adress a security vulnerability.
+
+We will publish a migration guide which includes instruction on determining the impact on your tenants and the action required. To ensure a smooth transition and avoid any service disruption we will also provide instructions on how to opt-in to the new behavior prior to the **End Of Life Date**.
 
 If at all possible we will provide at least a six month grace period from the Deprecation announcement and the **End Of Life Date**, at which point using the deprecated behavior cannot be expected to work, and continued use of the behavior will likely result in errors. Depending on the severity of the issue the grace period time frame may be accelerated.
-
-To help prepare for the End Of Life we will publish a **Migration** guide. This guide includes instruction on determining the impact on your tenants and the action required. To ensure a smooth transition and avoid any service disruption we will also provide instructions on how to opt-in to the new behavior prior to the **End Of Life Date** 
 
 ::: note
 <h4>Glossary</h4>
