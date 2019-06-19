@@ -979,8 +979,12 @@ articles:
       - title: "Overview"
         url: "/addons"
 
-  - title: "Auth0 Deprecations"
-    url: "/deprecations"
+  - title: "Product Lifecycle"
+    url: "/product-lifecycle"
+        children:        
+          - title: "Migrations"
+            hidden: false
+            url: "/product-lifecycle/migrations"
         
   - title: "Data Privacy"
     url: "/compliance"

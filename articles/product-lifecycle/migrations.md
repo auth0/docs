@@ -1,40 +1,19 @@
 ---
 toc: true
-title: Auth0 Deprecations
-description: List of all the deprecations in progress
+title: auth0 migrations
+description: list of all the changes made on auth0 platform that might affect customers
 topics:
-  - deprecations
   - migrations
-contentType:
+contenttype:
   - concept
   - reference
-useCase:
+usecase:
   - migrate
 ---
 
-# Deprecations
+# Migrations
 
-In an effort to keep the Auth0 platform stable and secure some features and functionality must occasionally be modified or removed. These changes will sometimes result in a **Breaking Change**.
-
-This proccess starts with the feature or behavior being **Deprecated**. At the time of deprecation we will also typically announce an **End Of Life Date**. In some cases a feature will be **Deprecated** to prevent further adoption (see Glossary below) with an **End Of Life Date** to be determined.
-
-At the time of the **End Of Life Date** announcement we will also kick off a **Migration** to allow customers prepare for the **End Of Life Date**. The **Migration** will usually involve modifying your applications code in order to contiue working with the new behavior of the Auth0 platform. As outlined in our [Self Service Terms of Service](https://auth0.com/legal/ss-tos) and Enterprise Subscription Agreements, Auth0 may remove behavior without providing a substantially equivalent replacement in order to (i) remain compliant with applicable law, (ii) comply with changes in its third party certification standards, or (iii) adress a security vulnerability.
-
-We will publish a migration guide which includes instruction on determining the impact on your tenants and the action required. To ensure a smooth transition and avoid any service disruption we will also provide instructions on how to opt-in to the new behavior prior to the **End Of Life Date**.
-
-If at all possible we will provide at least a six month grace period from the Deprecation announcement and the **End Of Life Date**, at which point using the deprecated behavior cannot be expected to work, and continued use of the behavior will likely result in errors. Depending on the severity of the issue the grace period time frame may be accelerated.
-
-::: note
-<h4>Glossary</h4>
-<b>Breaking Change</b> A change to the Auth0 Platform that, to Auth0's knowledge, will cause failures in the interoperation of the Auth0 Platform and Customer Applications.<br>
-<b>Deprecated</b> The feature or behavior is no longer supported or maintained, no additional functionality will be added. Bug fixes will be made only in extreme circumstances. Tenants using the functionality at the time of deprecation will continue to have access. The functionality will be disabled for newly created Tenants.<br>
-<b>End Of Life Date</b> The date the behavior is removed from the platform. End Of Life Dates can vary between different plan types.<br>
-<b>Migration</b> The process by which a customer moves out from a particular behavior.
-:::
-
-#### Deprecations
-
-We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necesarry steps to avoid any service disruptions.
+We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necesarry steps to avoid any service disruptions. More information about our Deprecations process can be found on our [Product Lifecycle page](/product-lifecycle).
 
 <table class="table">
   <thead>
