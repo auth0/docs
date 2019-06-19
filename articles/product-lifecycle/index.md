@@ -33,8 +33,9 @@ An End Of Life announcement will also initiate a **Migration** to allow customer
 
 Note that **Migrations** will usually involve a replacement with substantially comparable functionality to the **Deprecated** behavior, however Auth0 may at times elect to discontinue support for some functionality entirely. In these cases Auth0 will provide at least 6 months' prior notice before the **End Of Life Date**. The exception to this would be for changes required to comply with applicable law, third party certification standards, or to address security vulterabilities.
 
-Whenever possible we will provide at least a six month migration window between the End Of Life announcement and the **End Of Life Date**. This time frame may be accelerated in cases of emergency, such as critical vulnerability remediation, in which case Auth0 will provide as much prior notice as is reasonable in the circumstances.
+Whenever possible we will provide at least a six month migration window between the End Of Life announcement and the **End Of Life Date**. This time frame may be accelerated in cases of emergency, such as critical vulnerability remediation, in which case Auth0 will provide as much prior notice as is reasonable in the circumstances. See our [Self Service Terms of Service](https://auth0.com/legal/ss-tos) or your Enterprise Subscription Agreement for more information.
+
+#### Active Migrations
 
 A list of all active **Migrations** can be found [here](/product-lifecycle/migrations).
 
-See our [Self Service Terms of Service](https://auth0.com/legal/ss-tos) or your Enterprise Subscription Agreement for more information.
