@@ -70,21 +70,13 @@ During this stage, you will need to:
 
 The goal of the migration phase is to create custom domains that have all the new functionality and to update all dependencies to function correctly with your newly-created domain names.
 
-* Create new domains using the Auth0 Custom Domains feature
+The first step is to create new domains using the Auth0 [Custom Domains](/custom-domains) feature.
 
-  You will need to create new domain names using the Auth0 [Custom Domains](/custom-domains) feature.
+Once done, you may have [additional configuration steps](/custom-domains/additional-configuration#configure-social-identity-providers), depending on the Auth0 features you use.
 
-* Update your applications to use your new custom domain names
-
-    There are several steps to this process, including:
-
-    * Modifing your applications to accept tokens issued with the default domain or the custom domain
-
-
-    * Reviewing that your Universal Login pages work with Auth0 Custom Domains
-
-
-    * Modifying your SAML/Social connections if you would like to use your custom domain in lieu of your default domain.
+::: note
+To use your SAML and Social Connections with your new custom domains, recreate the association using the guidelines specific to the Connection type.
+:::s
 
 #### Final configuration
 
