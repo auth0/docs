@@ -16,7 +16,7 @@ To refresh your token, make a `POST` request to the `/token` endpoint in the Aut
     "method": "POST",
     "url": "https://${account.namespace}/oauth/token",
     "headers": [
-      { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+      { "name": "Content-Type", "value": "application/json" }
     ],
     "postData" : {
       "text" : "{ \"grant_type\": \"refresh_token\", \"client_id\": \"${account.clientId}\", \"refresh_token\": \"YOUR_REFRESH_TOKEN\" }"

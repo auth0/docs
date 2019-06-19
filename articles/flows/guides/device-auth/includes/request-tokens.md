@@ -11,10 +11,10 @@ To avoid errors due to network latency, you should start counting each interval 
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+    { "name": "Content-Type", "value": "application/json" }
   ],
   "postData": {
-    "text": "{\"grant_type\":\"urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Adevice_code\",\"device_code\": \"YOUR_DEVICE_CODE\", \"client_id\": \"${account.clientId}\" }"
+    "text": "{\"grant_type\":\"urn:ietf:params:oauth:grant-type:device_code\",\"device_code\": \"YOUR_DEVICE_CODE\", \"client_id\": \"${account.clientId}\" }"
   }
 }
 ```

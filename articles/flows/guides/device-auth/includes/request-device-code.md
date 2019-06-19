@@ -11,7 +11,7 @@ To get the device code, your app must request a code from the [device code URL](
   "method": "POST",
   "url": "https://${account.namespace}/oauth/device/code",
   "headers": [
-    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+    { "name": "Content-Type", "value": "application/json" }
   ],
   "postData": { 
     "text" : "{\"client_id\":\"${account.clientId}\",\"scope\":\"SCOPE\",\"audience\":\"AUDIENCE\" }"
