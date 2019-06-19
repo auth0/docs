@@ -52,8 +52,8 @@ var auth0Manage = new auth0.Management({
       </pre>
       <div class="tab-pane-footer">
         <ul>
-          <li>Asks for both an ID Token and an <dfn data-key="access-token">Access Token</dfn> in the response (<code>responseType: 'token id_token'</code>)</li>
-          <li>Sets the Management API as the intended <dfn data-key="audience">audience</dfn> of the token (<code>audience: 'https://${account.namespace}/api/v2/'</code>)</li>
+          <li>Asks for both an ID Token and an Access Token in the response (<code>responseType: 'token id_token'</code>)</li>
+          <li>Sets the Management API as the intended audience of the token (<code>audience: 'https://${account.namespace}/api/v2/'</code>)</li>
           <li>Asks for the required permission (<code>scope: '${scope}'</code>)</li>
           <li>Authenticates with the Management API using the Access Token</li>
         </ul>
