@@ -90,17 +90,37 @@ The last thing to do on the server side is to add an API endpoint that requires 
 Open `server.js` and add a new route for `/api/protected` above the other routes that returns some JSON:
 
 ```js
+// ..
+
 app.get("/api/protected", checkJwt, (req, res) => {
   res.send({
     msg: "Your access token was successfully validated!"
   });
 });
+
+// ..
 ```
 
 Note that `checkJwt` is used as the second argument here. This causes `checkJwt` to be executed before the main route handler, and will reject the call and return a 401 response if:
 
 - there is no access token present in the `Authorization` header,
 - or the token itself is not valid
+
+Finally, add an error handler so that a JSON response is returned from your API in the event of a missing or invalid token:
+
+```js
+// ..
+
+app.use(function(err, req, res, next) {
+  if (err.name === "UnauthorizedError") {
+    return res.status(401).send({ msg: "Invalid token" });
+  }
+
+  next(err, req, res);
+});
+
+//..
+```
 
 At the end, your `server.js` file will look something like the following:
 
@@ -146,6 +166,15 @@ app.get("/auth_config.json", (req, res) => {
 // Serve the index page to everything else
 app.get("/*", (req, res) => {
   res.sendFile(join(__dirname, "index.html"));
+});
+
+// Error handler
+app.use(function(err, req, res, next) {
+  if (err.name === "UnauthorizedError") {
+    return res.status(401).send({ msg: "Invalid token" });
+  }
+
+  next(err, req, res);
 });
 
 module.exports = app;
