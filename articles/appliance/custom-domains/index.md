@@ -15,7 +15,7 @@ sitemap: false
 # Private SaaS (PSaaS) Appliance: Custom Domains
 
 ::: warning
-Private SaaS Deployments (beginning with release 1905) must use the Auth0 Custom Domains (link here) feature instead when creating new Custom Domains (regardless of whether they have existing Custom Domains using the PSaaS Custom Domains features or not). The PSaaS Custom Domains feature is deprecated. Please contact your Auth0 MSE if you have any questions.
+Private SaaS Deployments (beginning with release 1905) must use the Auth0 [Custom Domains](/custom-domains) feature instead when creating new Custom Domains (regardless of whether they have existing Custom Domains using the PSaaS Custom Domains features or not). **The PSaaS Custom Domains feature is deprecated.** Please contact your Auth0 MSE if you have any questions.
 :::
 
 If you are using **PSaaS Appliance Build 5XXX** or later, you may configure custom domains using the Management Dashboard.
