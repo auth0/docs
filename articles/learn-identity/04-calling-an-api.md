@@ -10,7 +10,7 @@ How to obtain and use access and refresh tokens for delegated authorization in a
 
 ## Bookmarks
 
-<div class="video-transcript video-bookmarks">
+<div class="video-transcript video-bookmarks" id="wistia-video-bookmarks">
   <ul>
     <li><a href="#wistia_yw6hmdhnft?time=28">Code grant definition</a></li>
     <ul>

@@ -10,7 +10,7 @@ A whirlwind tour of identity history, concepts, and terminology: protocols, open
 
 ## Bookmarks
 
-<div class="video-transcript video-bookmarks">
+<div class="video-transcript video-bookmarks" id="wistia-video-bookmarks">
   <ul>
     <li><a href="#wistia_pdlav16113?time=32">What is the problem with identity?</a></li>
     <li><a href="#wistia_pdlav16113?time=255">What can Auth0 do for you?</a></li>

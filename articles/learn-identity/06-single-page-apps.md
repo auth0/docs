@@ -10,7 +10,7 @@ Authentication and delegated authorization for single page applications.
 
 ## Bookmarks
 
-<div class="video-transcript video-bookmarks">
+<div class="video-transcript video-bookmarks" id="wistia-video-bookmarks">
   <ul>
     <li><a href="#wistia_0pi7bt90c9?time=12">Single Page Apps (SPA)</a></li>
     <ul>

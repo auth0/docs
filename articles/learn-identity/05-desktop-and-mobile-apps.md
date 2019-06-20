@@ -10,7 +10,7 @@ Authentication and delegated authorization for desktop and mobile applications a
 
 ## Bookmarks
 
-<div class="video-transcript video-bookmarks">
+<div class="video-transcript video-bookmarks" id="wistia-video-bookmarks">
   <ul>
     <li><a href="#wistia_dq3c4pz9lb?time=30">Public clients</a></li>
     <ul>
