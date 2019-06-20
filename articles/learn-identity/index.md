@@ -6,6 +6,12 @@ classes: video-page
 
 Welcome to Auth0's Learn Identity! This video series will help you make sense of OAuth, Open ID Connect, and many pieces that come together to make authentication and delegated authorization happen. This series of videos is the lecture portion of our new hire orientation for engineers.
 
+---
+
+![Learn Identity with Auth0](/media/articles/learn-identity/learn-identity-intro.png)
+
+---
+
 <ul class="up-next">
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>48:54</span>
