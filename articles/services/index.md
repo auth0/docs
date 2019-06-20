@@ -85,7 +85,7 @@ These packaged offerings generally fall into two categories: Design and Implemen
 ### Design and Implement packages
 
 #### [Discovery Workshop](/media/articles/services/Auth0-Services-Discovery-Workshop.pdf)
-* 3 days of services
+* 2 days of services
 * Remote/on-site, as mutually agreed
 * Expires in 90 days
 * Terms and Conditions apply
