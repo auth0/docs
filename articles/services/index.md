@@ -80,9 +80,9 @@ _We provide continuous education and knowledge transfer throughout the engagemen
 
 We provide packaged Professional Services offerings that are designed to optimize our customers' investments in Auth0 by helping design, deploy, implement, and maintain solutions based on proven practices, avoiding common pitfalls and reducing risk.
 
-These packaged offerings generally fall into two categories: Design and Implementation packages, and Maintain and Improve packages. 
+These packaged offerings generally fall into two categories: Design and Implement packages, and Maintain and Improve packages. 
 
-## Design and Implementation packages
+## Design and Implement packages
 
 [**Discovery Workshop**](https://cdn.auth0.com/website/legal/services/DiscoveryWorkshop.pdf)
  * 3 days of services
