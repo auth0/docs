@@ -14,16 +14,16 @@ How to obtain and use access and refresh tokens for delegated authorization in a
   <ul>
     <li><a href="#wistia_yw6hmdhnft?time=28">Code grant definition</a></li>
     <ul>
-      <li><a href="#wistia_yw6hmdhnft?time=103">scopes and the true meaning of delegated authorization</a></li>
-      <li><a href="#wistia_yw6hmdhnft?time=190">code grant needs secrets</a></li>
+      <li><a href="#wistia_yw6hmdhnft?time=110">scopes and the true meaning of delegated authorization</a></li>
+      <li><a href="#wistia_yw6hmdhnft?time=192">code grant needs secrets</a></li>
       <li><a href="#wistia_yw6hmdhnft?time=224">offline_access scope</a></li>
     </ul>
     <li><a href="#wistia_yw6hmdhnft?time=314">Code grant diagram</a></li>
     <ul>
       <li><a href="#wistia_yw6hmdhnft?time=402">authorization request message</a></li>
-      <li><a href="#wistia_yw6hmdhnft?time=562">audience parameter (mistake in the slide, ? instead of &)</a></li>
+      <li><a href="#wistia_yw6hmdhnft?time=563">audience parameter (mistake in the slide, ? instead of &)</a></li>
       <ul>
-        <li><a href="#wistia_yw6hmdhnft?time=638">“scope stuffing”</a></li>
+        <li><a href="#wistia_yw6hmdhnft?time=638.5">“scope stuffing”</a></li>
         <li><a href="#wistia_yw6hmdhnft?time=685">resources indicator</a></li>
       </ul>
       <li><a href="#wistia_yw6hmdhnft?time=712">authorization response</a></li>
@@ -42,9 +42,9 @@ How to obtain and use access and refresh tokens for delegated authorization in a
       <li><a href="#wistia_yw6hmdhnft?time=1268">scopes</a></li>
       <li><a href="#wistia_yw6hmdhnft?time=1300">effective permissions</a></li>
     </ul>
-    <li><a href="#wistia_yw6hmdhnft?time=1462">Refresh token diagram</a></li>
+    <li><a href="#wistia_yw6hmdhnft?time=1464.5">Refresh token diagram</a></li>
     <ul>
-      <li><a href="#wistia_yw6hmdhnft?time=1477">what are refresh tokens and why do we need them?</a></li>
+      <li><a href="#wistia_yw6hmdhnft?time=1476">what are refresh tokens and why do we need them?</a></li>
       <li><a href="#wistia_yw6hmdhnft?time=1553">requesting refresh tokens: offline_access scope</a></li>
       <li><a href="#wistia_yw6hmdhnft?time=1623">using a refresh token</a></li>
       <ul>
@@ -54,23 +54,23 @@ How to obtain and use access and refresh tokens for delegated authorization in a
     </ul>
     <li><a href="#wistia_yw6hmdhnft?time=1875">Refresh tokens and sessions</a></li>
     <li><a href="#wistia_yw6hmdhnft?time=1927">Refresh tokens and persistence, token caching</a></li>
-    <li><a href="#wistia_yw6hmdhnft?time=2008">Access tokens vs ID tokens recap</a></li>
+    <li><a href="#wistia_yw6hmdhnft?time=2007.5">Access tokens vs ID tokens recap</a></li>
     <ul>
       <li><a href="#wistia_yw6hmdhnft?time=2126">do not use ID tokens for calling APIs</a></li>
     </ul>
-    <li><a href="#wistia_yw6hmdhnft?time=2270">Getting ID tokens on the back channel</a></li>
+    <li><a href="#wistia_yw6hmdhnft?time=2270.6">Getting ID tokens on the back channel</a></li>
     <ul>
-      <li><a href="#wistia_yw6hmdhnft?time=2333">validating ID tokens obtained on the back channel</a></li>
+      <li><a href="#wistia_yw6hmdhnft?time=2332.5">validating ID tokens obtained on the back channel</a></li>
     </ul>
     <li><a href="#wistia_yw6hmdhnft?time=2410">Userinfo endpoint</a></li>
     <li><a href="#wistia_yw6hmdhnft?time=2556">Userinfo usage diagram</a></li>
     <ul>
       <li><a href="#wistia_yw6hmdhnft?time=2586">formatless access token</a></li>
-      <li><a href="#wistia_yw6hmdhnft?time=2675">userinfo response</a></li>
+      <li><a href="#wistia_yw6hmdhnft?time=2676">userinfo response</a></li>
     </ul>
     <li><a href="#wistia_yw6hmdhnft?time=2697">Hybrid grant</a></li>
-    <li><a href="#wistia_yw6hmdhnft?time=2766">Trusted subsystem</a></li>
-    <li><a href="#wistia_yw6hmdhnft?time=2940">Client credentials grant diagram</a></li>
+    <li><a href="#wistia_yw6hmdhnft?time=2766.5">Trusted subsystem</a></li>
+    <li><a href="#wistia_yw6hmdhnft?time=2941">Client credentials grant diagram</a></li>
     <ul>
       <li><a href="#wistia_yw6hmdhnft?time=3042">confusing client credentials with the client credentials grant</a></li>
       <li><a href="#wistia_yw6hmdhnft?time=3093">no refresh token needed for the client credentials grant</a></li>
