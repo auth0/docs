@@ -12,26 +12,26 @@ Authentication and delegated authorization for desktop and mobile applications a
 
 <div class="video-transcript video-bookmarks">
   <ul>
-    <li><a href="#wistia_dq3c4pz9lb?time=24">Public clients</a></li>
+    <li><a href="#wistia_dq3c4pz9lb?time=30">Public clients</a></li>
     <ul>
       <li><a href="#wistia_dq3c4pz9lb?time=44">definition of a public client</a></li>
-      <li><a href="#wistia_dq3c4pz9lb?time=141">native clients identity vs user identity</a></li>
+      <li><a href="#wistia_dq3c4pz9lb?time=141.5">native clients identity vs user identity</a></li>
       <li><a href="#wistia_dq3c4pz9lb?time=207">client ID is not a secret</a></li>
     </ul>
     <li><a href="#wistia_dq3c4pz9lb?time=256">Authorization code grant and public clients</a></li>
     <ul>
       <li><a href="#wistia_dq3c4pz9lb?time=290">driving interactive authentication using browser surfaces</a></li>
       <li><a href="#wistia_dq3c4pz9lb?time=328">embedded browser/webview; browser controls</a></li>
-      <li><a href="#wistia_dq3c4pz9lb?time=446">system browsers on iOS and Android</a></li>
+      <li><a href="#wistia_dq3c4pz9lb?time=447">system browsers on iOS and Android</a></li>
       <li><a href="#wistia_dq3c4pz9lb?time=520">need PKCE when using system browsers</a></li>
       <li><a href="#wistia_dq3c4pz9lb?time=620">system browser in desktop apps is not easy</a></li>
-      <li><a href="#wistia_dq3c4pz9lb?time=804">no browser available on the device requires the device flow</a></li>
+      <li><a href="#wistia_dq3c4pz9lb?time=804.2">no browser available on the device requires the device flow</a></li>
     </ul>
-    <li><a href="#wistia_dq3c4pz9lb?time=850">Authorization code + PKCE diagram</a></li>
+    <li><a href="#wistia_dq3c4pz9lb?time=859">Authorization code + PKCE diagram</a></li>
     <ul>
       <li><a href="#wistia_dq3c4pz9lb?time=936">authorization request from the system browser</a></li>
       <ul>
-        <li><a href="#wistia_dq3c4pz9lb?time=1001">the refresh token somewhat represents a session between client and resource</a></li>
+        <li><a href="#wistia_dq3c4pz9lb?time=1002">refresh token somewhat represents a session between client and resource</a></li>
         <li><a href="#wistia_dq3c4pz9lb?time=1027">redirect URI using a protocol scheme for handling system browser-app communication</a></li>
         <li><a href="#wistia_dq3c4pz9lb?time=1073">PKCE code challenge</a></li>
       </ul>
@@ -42,30 +42,29 @@ Authentication and delegated authorization for desktop and mobile applications a
         <li><a href="#wistia_dq3c4pz9lb?time=1244">PKCE code verifier</a></li>
         <li><a href="#wistia_dq3c4pz9lb?time=1271">token endpoint response</a></li>
       </ul>
-      <li><a href="#wistia_dq3c4pz9lb?time=1300">challenges with refresh tokens without secrets</a></li>
-      <li><a href="#wistia_dq3c4pz9lb?time=1342">using a refresh token for getting a new access token in native clients</a></li>
+      <li><a href="#wistia_dq3c4pz9lb?time=1301">challenges with refresh tokens without secrets</a></li>
+      <li><a href="#wistia_dq3c4pz9lb?time=1340">using a refresh token for getting a new access token in native clients</a></li>
       <li><a href="#wistia_dq3c4pz9lb?time=1380">mitigating issues with the use of bearer tokens and secret-less refresh tokens</a></li>
       <ul>
-        <li><a href="#wistia_dq3c4pz9lb?time=1400">idea: binding tokens to the channel they are meant to be used with</a></li>
-        <li><a href="#wistia_dq3c4pz9lb?time=1407">token binding specifications</a></li>
-        <li><a href="#wistia_dq3c4pz9lb?time=1474">mutual TLS (MTLS)</a></li>
-      /<ul>
-      <li><a href="#wistia_dq3c4pz9lb?time=1542">refresh tokens play the function of session artifacts for native clients and APIs</a></li>
+        <li><a href="#wistia_dq3c4pz9lb?time=1398">token binding</a></li>
+        <li><a href="#wistia_dq3c4pz9lb?time=1473.5">mutual TLS (MTLS)</a></li>
+      </ul>
+      <li><a href="#wistia_dq3c4pz9lb?time=1541.5">refresh tokens play the function of session artifacts for native clients and APIs</a></li>
     </ul>  
     <li><a href="#wistia_dq3c4pz9lb?time=1580">Resource Owner Password Grant (ROPG)</a></li>
     <ul>
-      <li><a href="#wistia_dq3c4pz9lb?time=1619">dangers and limitations of use of raw credentials</a></li>
+      <li><a href="#wistia_dq3c4pz9lb?time=1619.5">dangers and limitations of use of raw credentials</a></li>
       <li><a href="#wistia_dq3c4pz9lb?time=1855">how to address requests for ROPG from customers</a></li>
       <li><a href="#wistia_dq3c4pz9lb?time=1930">one exception in which ROPG might be temporarily acceptable</a></li>
     </ul>
-    <li><a href="#wistia_dq3c4pz9lb?time=2038">ROPG diagram</a></li>
+    <li><a href="#wistia_dq3c4pz9lb?time=2038.4">ROPG diagram</a></li>
     <ul>
       <li><a href="#wistia_dq3c4pz9lb?time=2090">authorization request</a></li>
       <li><a href="#wistia_dq3c4pz9lb?time=2119">authorization response</a></li>
     </ul>
     <li><a href="#wistia_dq3c4pz9lb?time=2154">Other grants</a></li>
     <ul>
-      <li><a href="#wistia_dq3c4pz9lb?time=2170">device profile grant</a></li>
+      <li><a href="#wistia_dq3c4pz9lb?time=2168.5">device profile grant</a></li>
       <li><a href="#wistia_dq3c4pz9lb?time=2282">token exchange flow</a></li>
       <li><a href="#wistia_dq3c4pz9lb?time=2363">assertion profile</a></li>
     </ul>
