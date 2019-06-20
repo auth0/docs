@@ -33,7 +33,7 @@ useCase:
 
 ## Planning
 
-To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
+To help you with planning your implementation, we've put together some [planning guidance](/media/articles/architecture-scenarios/planning/B2C-Project-Planning.pdf) that details our recommended strategies.
 
 ## Keep reading
 
