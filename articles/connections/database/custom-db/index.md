@@ -66,10 +66,6 @@ Here are some things to know before you begin the process of setting up your dat
 
 <%= include('../../../_includes/_ip_whitelist') %>
 
-## Video tutorial
-
-The following video tutorial will show you how to set up a custom database connection that includes user migration functionality. It will also demonstrate basic troubleshooting steps.
-
 ### Keep reading
 
 * [Create and Configure a Custom Database Connection](/connections/database/custom-db/create-db-connection)
