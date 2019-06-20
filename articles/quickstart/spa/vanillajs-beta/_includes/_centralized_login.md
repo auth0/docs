@@ -345,11 +345,11 @@ Open the `index.html` file and insert the following lines at the bottom of the b
     </p>
     <label>
       Access token:
-      <textarea readonly="true" rows="1" id="ipt-access-token"></textarea>
+      <pre id="ipt-access-token"></pre>
     </label>
     <label>
       User profile:
-      <textarea readonly="true" rows="12" id="ipt-user-profile"></textarea>
+      <pre id="ipt-user-profile"></pre>
     </label>
   </div>
   

@@ -37,8 +37,6 @@ npm install express-jwt jwks-rsa
 Next, open `server.js` and bring in these libraries as imports at the top of the file. Also bring in the `auth_config.json` file so that the script can get access to the authentication credentials that have been configured:
 
 ```js
-// server.js
-
 // .. other imports
 
 const jwt = require("express-jwt");
@@ -49,11 +47,9 @@ const authConfig = require("./auth_config.json");
 - [`express-jwt`](https://npmjs.com/package/express-jwt) - validates JWTs from the `authorization` header and sets the `req.user` object
 - [`jwks-rsa`](https://npmjs.com/package/jwks-rsa) - downloads RSA signing keys from a JSON Web Key Set (JWKS) endpoint
 
-Then add a call to `jwt()`, which creates the middleware needed in order to parse incoming access tokens. This should go after the `require` statements but before any routes are defined in your app:
+Then add a call to `jwt()`, which creates the middleware needed in order to validate and parse incoming access tokens. This should go after the `require` statements but before any routes are defined in your app:
 
 ```js
-// server.js
-
 // create the JWT middleware
 const checkJwt = jwt({
   secret: jwksRsa.expressJwtSecret({
@@ -69,7 +65,7 @@ const checkJwt = jwt({
 });
 ```
 
-This code configures the `express-jwt` middleware with the settings that relate to your Auth0 application. It uses a [JWKS](https://auth0.com/docs/jwks) endpoint to download information about the RSA signing key, which it uses to verify the signatures of incoming access tokens.
+This code configures the `express-jwt` middleware with the settings that relate to your Auth0 application. It uses a [JWKS](/jwks) endpoint to download the RSA public key, which it uses to verify the signatures of incoming access tokens.
 
 Next, open the `auth_config.json` file and modify the data so that the `audience` appears as a key within the JSON, using the value that you just used when creating the API:
 
@@ -82,20 +78,19 @@ Next, open the `auth_config.json` file and modify the data so that the `audience
 ```
 
 ::: note
-As `auth_config.json` is served publicly, this file should **never** contain sensitive information such as 
-passwords and client secrets.
+As `auth_config.json` is served publicly, this file should **never** contain sensitive information such as passwords and client secrets.
 :::
 
-The values for `domain` and `clientId` should have already been specified as part of the previous tutorial. They should point to the Domain and Client ID values for your Auth0 app respectively.
+The values for `domain` and `clientId` should have already been specified as part of the [Login tutorial](/quickstarts/spa/vanillajs-beta/01-login). They should point to the Domain and Client ID values for your Auth0 app respectively.
 
 ### Add a protected endpoint
 
 The last thing to do on the server side is to add an API endpoint that requires an access token to be provided for the call to succeed. This endpoint will use the middleware that you created earlier in the tutorial to provide that protection in a scalable way.
 
-Open `server.js` and add a new route for `/api/external` above the other routes that returns some JSON:
+Open `server.js` and add a new route for `/api/protected` above the other routes that returns some JSON:
 
 ```js
-app.get("/api/external", checkJwt, (req, res) => {
+app.get("/api/protected", checkJwt, (req, res) => {
   res.send({
     msg: "Your access token was successfully validated!"
   });
@@ -137,7 +132,7 @@ const checkJwt = jwt({
 
 // Create an endpoint that uses the above middleware to
 // protect this route from unauthorized requests
-app.get("/api/external", checkJwt, (req, res) => {
+app.get("/api/protected", checkJwt, (req, res) => {
   res.send({
     msg: "Your access token was successfully validated!"
   });
@@ -161,7 +156,7 @@ module.exports = app;
 With this in place, run the application using `npm run dev`. In another terminal window, use the `curl` tool to make a request to this API endpoint and observe the results:
 
 ```bash
-$ curl -i localhost:3000/api/external
+$ curl -I localhost:3000/api/external
 ```
 
 You should find that a 401 Unauthorized result is returned, because it requires a valid access token:
@@ -179,8 +174,6 @@ Content-Type: text/html; charset=utf-8
 Content-Length: 1582
 Date: Wed, 03 Apr 2019 13:10:43 GMT
 Connection: keep-alive
-
-<... body omitted ...>
 ```
 
 ## Calling the API
@@ -190,8 +183,6 @@ Now you can turn your attention to the front-end application. You will update th
 Open `index.html` and add a new button that will invoke the API call, as well as a `pre` element with an ID of `api-call-result` to show the result of the API call in the browser:
 
 ```html
-<!-- index.html -->
-
 <button id="btn-call-api" disabled="true" onclick="callApi()">Call Api</button>
 
 <!-- Add a container to hold the response from the call -->
@@ -216,8 +207,6 @@ const configureClient = async () => {
 Add a new function called `callApi` to `app.js`, with the following content:
 
 ```js
-// public/js/app.js
-
 const callApi = async () => {
   try {
 
@@ -226,7 +215,7 @@ const callApi = async () => {
 
     // Make the call to the API, setting the token
     // in the Authorization header
-    const response = await fetch("/api/external", {
+    const response = await fetch("/api/protected", {
       headers: {
         Authorization: `Bearer <%= "${token}" %>`
       }
