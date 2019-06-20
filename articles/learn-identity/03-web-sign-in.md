@@ -10,7 +10,7 @@ Authentication for web applications using OpenID Connect.
 
 ## Bookmarks
 
-<div class="video-transcript">
+<div class="video-transcript video-bookmarks">
   <ul>
     <li><a href="#wistia_k4rwcky3p5?time=32">Confidential clients - definition</a></li>
     <li><a href="#wistia_k4rwcky3p5?time=251">The grant used for web sign in: implicit with form_post</a></li>

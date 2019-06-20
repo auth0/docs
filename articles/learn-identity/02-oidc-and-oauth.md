@@ -10,7 +10,7 @@ OpenID Connect and OAuth specifications, roles and grants.
 
 ## Bookmarks
 
-<div class="video-transcript">
+<div class="video-transcript video-bookmarks">
   <ul>
     <li><a href="#wistia_djvvz13kcz?time=17">Specifications and complexity</a></li>
     <li><a href="#wistia_djvvz13kcz?time=121">Specifications landscape</a></li>
