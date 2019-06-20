@@ -27,7 +27,7 @@ Blog post explaining how to integrate with a Microsoft Azure Mobile Services bac
 
 ### Tip: change Auth0 configuration when deploying to Microsoft Azure
 
-You'll need to make some configuration changes when deploying to Microsoft Azure. Auth0 recommends creating one application per environment (e.g. Development, Test, Production). This is because each environment should have and use a different `Client Id` and `Client Secret`, as well as the appropriate `Callback URL`.
+You'll need to make some configuration changes when deploying to Microsoft Azure. Auth0 recommends creating one application per environment (e.g. Development, Test, Production). This is because each environment should have and use a different `Client Id` and `Client Secret`, as well as the appropriate <dfn data-key="callback">`Callback URL`</dfn>.
 
 For ASP.NET applications, we recommend utilizing [Web.config transformations](http://msdn.microsoft.com/en-us/library/dd465326.aspx) to make configuration changes targeted for each environment. Application settings that appear in the transformed `web.config` will depend on the build target name used at compilation and deployment.
 

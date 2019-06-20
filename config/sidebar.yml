@@ -257,6 +257,9 @@ articles:
       - title: "APIs & M2M Apps"
         url: "/flows/concepts/client-credentials"
 
+      - title: "APIs & Devices"
+        url: "/flows/concepts/device-auth"
+
       - title: "APIs & Server-side Apps"
         url: "/api-auth/grant/authorization-code"
         hidden: true

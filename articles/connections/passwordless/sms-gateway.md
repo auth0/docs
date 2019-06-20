@@ -78,7 +78,7 @@ This will return your SMS connection with your Twilio settings:
 
 3. Send the updated configuration to the Management API using the [PATCH connections endpoint](/api/v2#!/Connections/patch_connections_by_id).
 
-After updating the connection for any user that signs up or authenticates using the Passwordless SMS connection, the following payload will be sent to your SMS gateway:
+After updating the connection for any user that signs up or authenticates using the <dfn data-key="passwordless">Passwordless</dfn> SMS connection, the following payload will be sent to your SMS gateway:
 
 ```
 {

@@ -16,6 +16,8 @@ Throughout the authentication process, your users may encounter errors. Auth0 pr
 
 ![Hosted Error Page](/media/articles/hosted-pages/error-pages.png)
 
+To find the default page name for the Generic Error Page, see [How to Use Version Control to Manage Your Hosted Pages](/hosted-pages/version-control).
+
 By going into the [Tenant Settings](${manage_url}/#/tenant/) page of the Management Dashboard, you may customize your Auth0 error page with the following fields:
 
 * **Friendly Name**: the name of your company;

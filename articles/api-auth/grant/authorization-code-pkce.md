@@ -13,7 +13,7 @@ useCase:
 
 <%= include('../../_includes/_pipeline2') %>
 
-In order to access an API from a [mobile app](/quickstart/native), you need to implement the **Authorization Code using Proof Key for Code Exchange (PKCE)** OAuth 2.0 grant. In this document we will see how this flow works.
+To access an API from a [mobile app](/quickstart/native), you need to implement the **Authorization Code using Proof Key for Code Exchange (PKCE)** OAuth 2.0 grant. In this document, we will see how this flow works.
 
 ::: note
 If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
@@ -21,7 +21,7 @@ If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth
 
 ## Overview of the flow
 
-The [Authorization Code Grant](/api-auth/grant/authorization-code) has some security issues, when implemented on native applications. For instance, a malicious attacker can intercept the `authorization_code` returned by Auth0 and exchange it for an [Access Token](/tokens/overview-access-tokens) (and possibly a [Refresh Token](/tokens/refresh-token)).
+The [Authorization Code Grant](/api-auth/grant/authorization-code) has some security issues when implemented on native applications. For instance, a malicious attacker can intercept the `authorization_code` returned by Auth0 and exchange it for an <dfn data-key="access-token">Access Token</dfn> (and possibly a <dfn data-key="refresh-token">Refresh Token</dfn>).
 
 The **Proof Key for Code Exchange (PKCE)** (defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)) is a technique used to mitigate this authorization code interception attack.
 

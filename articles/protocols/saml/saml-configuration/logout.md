@@ -13,7 +13,7 @@ useCase:
 ---
 # Log Users Out of Auth0 as the SAML Identity Provider
 
-When integrating with a SAML identity provider, there are many ways to implement logout or *user session termination*.
+When integrating with a <dfn data-key="security-assertion-markup-language">SAML</dfn> identity provider, there are many ways to implement logout or *user session termination*.
 
 SAML logout is configured differently depending on whether Auth0 acts as the service provider (when you create a SAML **connection**) the identity provider (when you have an application with the SAML2 Web App addon) or both.
 
@@ -36,7 +36,7 @@ When a logout request is triggered by the service provider, a logout request is 
 
 3. Click to open the **SAML2 Web App** addon.
 
-4. In the **Settings** editor, uncomment the `logout` portion and update it with your callback URL:
+4. In the **Settings** editor, uncomment the `logout` portion and update it with your <dfn data-key="callback">callback URL</dfn>:
 
   ```json
   "logout": {

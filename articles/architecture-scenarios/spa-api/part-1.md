@@ -42,7 +42,7 @@ Once the user authenticates, the application receives the ID Token and Access To
 
 ## Authorization Extension
 
-The [Auth0 Authorization Extension](/extensions/authorization-extension) allows you to configure Roles, Groups, and Permissions, and assign them to Users.
+The [Auth0 Authorization Extension](/extensions/authorization-extension) allows you to configure <dfn data-key="role">Roles</dfn>, Groups, and Permissions, and assign them to Users.
 
 - The Permissions are actions that someone can do. For ExampleCo's business needs, we will configure four Permissions: read, create, delete and approve timesheets.
 - The Roles are collections of Permissions. ExampleCo's timesheets app will be used by two kinds of users (employees and managers), with different permissions each, so we will configure two Roles: employee and manager.

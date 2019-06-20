@@ -27,7 +27,7 @@ Go to the [Planning Center Developer](https://api.planningcenteronline.com/) por
 
 ## 2. Complete information about your instance of Auth0
 
-Complete the form. In the **Authorization callback URLs** field, enter this URL:
+Complete the form. In the **Authorization callback URLs** field, enter your <dfn data-key="callback">callback URL</dfn>:
 
   https://${account.namespace}/login/callback
 

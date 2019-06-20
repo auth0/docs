@@ -11,9 +11,9 @@ contentType:
 useCase:
   - invoke-api
 ---
-# Refresh Token
+# Refresh Tokens
 
-A **Refresh Token** contains the information required to obtain a new [Access Token](/tokens/overview-access-tokens) or [ID Token](/tokens/id-token).
+A **Refresh Token** contains the information required to obtain a new <dfn data-key="access-token">Access Token</dfn> or [ID Token](/tokens/id-token).
 
 Typically, a user needs a new Access Token when gaining access to a resource for the first time, or after the previous Access Token granted to them expires.
 
@@ -23,10 +23,10 @@ Refresh Tokens:
 * [Can be revoked](#revoke-a-refresh-token) by the Authorization Server
 
 ::: panel-warning OIDC-conformant applications
-The behavior in this document is applicable to [OIDC-conformant applications](/api-auth/tutorials/adoption/oidc-conformant). You can configure an application to be OIDC-conformant using one of the following two ways:
+The behavior in this document is applicable to [OIDC-conformant applications](/api-auth/tutorials/adoption/oidc-conformant). You can configure an application to be OIDC-conformant in one of the following two ways:
 
 1. Enabling the **OIDC Conformant** flag for an Application
-2. Passing an `audience` to the `/authorize` endpoint of the Authentication API 
+2. Passing an <dfn data-key="audience">`audience`</dfn> to the `/authorize` endpoint of the Authentication API 
 
 For more information on our authentication pipeline, see [Introducing OIDC-Conformant Authentication](/api-auth/intro).
 :::
@@ -39,13 +39,13 @@ A Refresh Token allows the application to ask Auth0 to issue a new Access Token 
 
 ## Restrictions on Refresh Token Usage
 
-You can only get a Refresh Token if you are implementing the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), or [Resource Owner Password Grant](/api-auth/grant/password).
+You can only get a Refresh Token if you are implementing the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), [Resource Owner Password Grant](/api-auth/grant/password), or [Device Authorization Flow](/flows/concepts/device-auth).
 
 A Single-Page Application (normally implementing [Implicit Flow](/flows/concepts/implicit)) should not ever receive a Refresh Token. A Refresh Token is essentially a user credential that allows a user to remain authenticated indefinitely. This sensitive information should be stored securely and *not* exposed client-side in a browser.
 
 If you are implementing an SPA using [Implicit Flow](/flows/concepts/implicit) and you need to renew a token, the only secure option for doing so is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
 
-If you limit offline access to your API, a safeguard configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis), Auth0 will not return a Refresh Token for the API (even if you include the `offline_access` scope in your request).
+If you limit offline access to your API, a safeguard configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis), Auth0 will not return a Refresh Token for the API (even if you include the `offline_access` <dfn data-key="scope">scope</dfn> in your request).
 
 ## Get a Refresh Token
 
@@ -183,6 +183,8 @@ You should only ask for a new token if the Access Token has expired or you want 
 ## Revoke a Refresh Token
 
 Since Refresh Tokens never expire, it is essential to be able to revoke them in case they get compromised.
+
+For the Device Authorization Flow, the only way to force a device to reauthorize is to revoke the Refresh Token assigned to the device. To learn how, see [Unlink Devices from Users](/dashboard/guides/users/unlink-user-devices). Note that the device will not be forced to reauthorize until the current Access Token expires and the application tries to use the revoked Refresh Token.
 
 Auth0 handles token revocation as though the token has been potentially exposed to malicious adversaries. Therefore, each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, application, and audience will be revoked**.
 

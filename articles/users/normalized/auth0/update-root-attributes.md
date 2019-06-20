@@ -27,7 +27,7 @@ Auth0 is the IdP for the following connection types:
 
 * [regular database connections](/connections/database)
 * [custom database connections](/connections/database/custom-db) with import mode
-* [passwordless connections](/connections/passwordless)
+* <dfn data-key="passwordless">[passwordless connections](/connections/passwordless)</dfn>
 
 ## Upstream Identity Providers
 

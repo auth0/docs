@@ -47,6 +47,6 @@ Patching the permissions with an empty object removes the permissions completely
 | **Value** | **Description** |
 | - | - |
 | `API_ID` | Τhe ID of the API for which you want to add permissions. |
-| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the scope `update:resource_servers`. |
+| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:resource_servers`. |
 | `PERMISSION_NAME` | Name(s) of the permission(s) you would like to add for the specified API. | 
 | `PERMISSION_DESC` | User-friendly description(s) of the permission(s) you would like to add for the specified API. |

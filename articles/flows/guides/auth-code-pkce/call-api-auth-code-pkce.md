@@ -34,9 +34,10 @@ Auth0 makes it easy for your app to implement the Authorization Code Flow with P
   * Select an **Application Type** of **Native**.
   * Add an **Allowed Callback URL** of **`YOUR_CALLBACK_URL`**. Your callback URL format will vary depending on your platform. For details about the format for your platform, see our [Native/Mobile Quickstarts](/quickstart/native).
   * Make sure the Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include **Authorization Code**.
+  * If you want your Application to be able to use [Refresh Tokens](/tokens/refresh-token), make sure the Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include **Refresh Token**.
 
 * [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
-  * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
+  * If you want your API to receive <dfn data-key="refresh-token">Refresh Tokens</dfn> to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
 
 ## Steps 
 
@@ -48,10 +49,10 @@ Generate a `code_challenge` from the `code_verifier` that will be sent to Auth0 
 Request the user's authorization and redirect back to your app with an `authorization_code`.
 4. [Request Tokens](#request-tokens): 
 Exchange your `authorization_code` and `code_verifier` for tokens.
-5. [Call Your API](#call-your-api):
+5. [Call your API](#call-your-api):
 Use the retrieved Access Token to call your API.
 6. [Refresh Tokens](#refresh-tokens):
-Use a refresh token to request new tokens when the existing ones expire.
+Use a Refresh Token to request new tokens when the existing ones expire.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
@@ -74,7 +75,7 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 ::: next-steps
 - [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
-- [The OAuth 2.0 protocol](/protocols/oauth2)
-- [The OpenID Connect protocol](/protocols/oidc)
+- [OAuth 2.0 framework](/protocols/oauth2)
+- [OpenID Connect (OIDC) protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
 :::

@@ -32,7 +32,7 @@ Create an **Application Name** and select **Web Application** as the **Applicati
 
 ![Enter your app data](/media/articles/connections/social/yahoo/enter-fields.png)
 
-In the **Callback Domain** field enter:
+In the **<dfn data-key="callback">Callback</dfn> Domain** field enter:
 
 `https://${account.namespace}`
 

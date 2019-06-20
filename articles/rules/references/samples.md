@@ -25,7 +25,7 @@ function (user, context, callback) {
 }
 ```
 
-Note that the claim is namespaced: we named it `http://mynamespace/hello` instead of just `hello`. This is what you have to do in order to add arbitrary claims to an ID Token or Access Token.
+Note that the claim is namespaced: we named it `http://mynamespace/hello` instead of just `hello`. This is what you have to do in order to add arbitrary claims to an ID Token or <dfn data-key="access-token">Access Token</dfn>.
 
 ::: panel Namespace Identifiers
 Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. Exceptions are `webtask.io` and `webtask.run`, which are Auth0 domains and therefore cannot be used. The namespace URL does not have to point to an actual resource; it's only used as an identifier and will not be called by Auth0. For more information, refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
@@ -33,7 +33,7 @@ Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any n
 
 ## Add roles to a user
 
-In this example, all authenticated users will get a **guest** role, but `johnfoo@gmail.com` will also be an **admin**:
+In this example, all authenticated users will get a **guest** <dfn data-key="role">role</dfn>, but `johnfoo@gmail.com` will also be an **admin**:
 
 ```js
 function (user, context, callback) {
@@ -117,10 +117,10 @@ function (user, context, callback) {
 }
 ```
 
-This will cause a redirect to your callback URL with an `error` querystring parameter containing the message you set. (such as `https://yourapp.com/callback?error=unauthorized&error_description=Access%20to%20this%20application%20has%20been%20temporarily%20revoked`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
+This will cause a redirect to your <dfn data-key="callback">callback URL</dfn> with an `error` querystring parameter containing the message you set. (such as `https://yourapp.com/callback?error=unauthorized&error_description=Access%20to%20this%20application%20has%20been%20temporarily%20revoked`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
 
 ::: note
-Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a `SAMLResponse`.
+Error reporting to the app depends on the protocol. <dfn data-key="openid">OpenID Connect (OIDC)</dfn> apps will receive the error in the querystring. <dfn data-key="security-assertion-markup-language">SAML</dfn> apps will receive the error in a `SAMLResponse`.
 :::
 
 ## Copy user metadata to ID Token
@@ -137,9 +137,9 @@ function(user, context, callback) {
 }
 ```
 
-## Modify scope of Acess Token
+## Modify scope of Access Token
 
-This will override the returned scopes of the Access Token. The Rule will run after user authentication and before authorization.
+This will override the returned <dfn data-key="scope">scopes</dfn> of the Access Token. The Rule will run after user authentication and before authorization.
 
 ```js
 function(user, context, callback) {
@@ -151,7 +151,7 @@ function(user, context, callback) {
 }
 ```
 
-The user will be granted three scopes: `array`, `of`, and `strings`.
+The user will be granted three <dfn data-key="scope">scopes</dfn>: `array`, `of`, and `strings`.
 
 ## Add claims to Access Token
 

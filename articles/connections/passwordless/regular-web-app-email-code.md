@@ -60,7 +60,7 @@ Then Auth0 will send an email to the user containing the one-time code:
 
 ![](/media/articles/connections/passwordless/passwordless-email-receive-code-web.png)
 
-Lock will ask for the code that has been emailed to the provided address. The code can then be used as a one-time password to log in:
+<dfn data-key="lock">Lock</dfn> will ask for the code that has been emailed to the provided address. The code can then be used as a one-time password to log in:
 
 ![](/media/articles/connections/passwordless/passwordless-email-enter-code-web.png)
 

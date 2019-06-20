@@ -19,7 +19,7 @@ Auth0 allows you to test a Social Identity Provider without specifying your own 
 For production environments, make sure to [follow the steps for your chosen provider](/identityproviders) to obtain the Client ID and Client secret from the provider, this will avoid the [limitations](#limitations-of-developer-keys) of using developer keys.
 
 ::: panel-warning Custom Developer keys
-One or more connections are using Auth0 development keys which are only intended for use in development and testing. The connections should be configured with your own Developer Keys to enable the consent page to show your logo instead of Auth0's and to configure SSO for these connections. Auth0 development keys are not recommended for Production environments.
+One or more connections are using Auth0 development keys which are only intended for use in development and testing. The connections should be configured with your own Developer Keys to enable the consent page to show your logo instead of Auth0's and to configure <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> for these connections. Auth0 development keys are not recommended for Production environments.
 :::
 
 ::: panel Client ID and Client Secret
@@ -36,9 +36,9 @@ The Auth0 developer keys are to be used for testing purposes so there are a few 
 
     ![Consent Screen](/media/articles/connections/social/devkeys/consent-screen.png)
 
-2. [Single Sign On](/sso) will not function properly when using the Auth0 developer keys. The reason for this is that the Auth0 developer applications with all the relevant Identity Providers are configured to call back to the URL `https://login.auth0.com/login/callback` instead of the callback URL for your own tenant, for example `https://${account.namespace}/login/callback`.
+2. [Single Sign-on](/sso) will not function properly when using the Auth0 developer keys. The reason for this is that the Auth0 developer applications with all the relevant Identity Providers are configured to call back to the URL `https://login.auth0.com/login/callback` instead of the <dfn data-key="callback">callback URL</dfn> for your own tenant, for example `https://${account.namespace}/login/callback`.
 
-    This results in the SSO cookie not being set on your own tenant domain, so the next time a user authenticates no SSO cookie will be detected, even if you configured your application to **Use Auth0 instead of the Identity Provider to do Single Sign On**.
+    This results in the SSO cookie not being set on your own tenant domain, so the next time a user authenticates no SSO cookie will be detected, even if you configured your application to **Use Auth0 instead of the Identity Provider to do Single Sign-on**.
 
 3. [Redirecting users from Rules](/rules/redirect) will not function properly. This is because redirect rules are resumed on the endpoint `https://${account.namespace}/continue`. When using Auth0's developer keys, the session is established on a special endpoint that is generic and tenant agnostic, and calling `/continue` will not find your previous session, resulting in an error.
 
@@ -46,4 +46,4 @@ The Auth0 developer keys are to be used for testing purposes so there are a few 
 
 5. `prompt=none` won't work on the [/authorize](/api/authentication/reference#social) endpoint. [Auth0.js' checkSession() method](/libraries/auth0js#using-checksession-to-acquire-new-tokens) uses `prompt=none` internally, so that won't work either.
 
-6. If Auth0 is acting as a SAML Identity Provider and you use a social connection with the Auth0 developer keys, the generated SAML response will have some errors, like a missing `InResponseTo` attribute or an empty `AudienceRestriction` element.
+6. If Auth0 is acting as a <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider and you use a social connection with the Auth0 developer keys, the generated SAML response will have some errors, like a missing `InResponseTo` attribute or an empty `AudienceRestriction` element.

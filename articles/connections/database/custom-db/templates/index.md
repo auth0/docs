@@ -38,7 +38,7 @@ Use the following checklist to make sure your scripts achieve the results you in
    :::
 
 4. **If using Auth0 to do machine-to-machine to the legacy database, restrict access to that audience with a rule.**
-   As with any API that you create, if you create it solely for client credentials, then you will want to restrict access to the API in a rule. By default, Auth0 gives you a token for any API if you authenticate successfully and include the audience. Someone could intercept the redirect to authorize and add the audience to your legacy database API. If you don’t block this in a rule, they will get an access token.
+   As with any API that you create, if you create it solely for client credentials, then you will want to restrict access to the API in a rule. By default, Auth0 gives you a token for any API if you authenticate successfully and include the <dfn data-key="audience">audience</dfn>. Someone could intercept the redirect to authorize and add the audience to your legacy database API. If you don’t block this in a rule, they will get an access token.
 
 ::: note
 You can also update the API to expect the sub of the token to end in `@clients`.

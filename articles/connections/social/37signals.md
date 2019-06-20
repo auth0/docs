@@ -30,7 +30,7 @@ Log into the Integration Portal. Select **New Application** and enter some gener
 
 ## 2. Define the scope of access and enter your callback URL
 
-On the next page, select which 37Signals applications you want to access, and enter your Auth0 callback URL in the **Redirect URI** field:
+On the next page, select which 37Signals applications you want to access, and enter your Auth0 <dfn data-key="callback">callback URL</dfn> in the **Redirect URI** field:
 
     https://${account.namespace}/login/callback
 

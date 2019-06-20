@@ -35,4 +35,4 @@ The following information is displayed for each permission:
 | Name | Name of the permission from the permission definition. |
 | Description | Description of the permission from the permission definition. |
 | API | Name of the API to which the permission is attached. |
-| Assignment | Indicates whether the permission is directly assigned to the user or is assigned via a role. |
+| Assignment | Indicates whether the permission is directly assigned to the user or is assigned via a <dfn data-key="role">role</dfn>. |

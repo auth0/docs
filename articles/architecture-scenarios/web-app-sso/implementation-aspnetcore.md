@@ -1,6 +1,6 @@
 ---
 title: "SSO for Regular Web Apps: ASP.NET Core Implementation"
-description: The ASP.NET Core implementation for the SSO for Regular Web Apps architecture scenario
+description: The ASP.NET Core implementation for the Single Sign-on (SSO) for Regular Web Apps architecture scenario
 topics:
     - architecture
     - regular-web-apps
@@ -15,7 +15,7 @@ useCase:
   - build-an-app
 ---
 
-# SSO for Regular Web Apps: ASP.NET Core implementation
+# Single Sign-On (SSO) for Regular Web Apps: ASP.NET Core implementation
 
 Full source code for the ASP.NET Core implementation can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-webapp-oidc).
 
@@ -88,7 +88,7 @@ The second is the OIDC middleware which is done with the call to `UseOpenIdConne
 
 Once the user has signed in to Auth0 using the OIDC middleware, their information will automatically be stored inside a session cookie. All you need to do is to configure the middleware as above and it will take care of managing the user session.
 
-The OpenID Connect middleware will also extract all the claims from the ID Token, which is sent from Auth0 once the user has authenticated, and add them as claims on the `ClaimsIdentity`.
+The <dfn data-key="openid">OpenID Connect (OIDC)</dfn> middleware will also extract all the claims from the ID Token, which is sent from Auth0 once the user has authenticated, and add them as claims on the `ClaimsIdentity`.
 
 ## Implement the Logout
 
@@ -129,7 +129,7 @@ You will also need to ensure that you add your application's URL to the __Allowe
 
 ## Implement Admin permissions
 
-The easiest way to integrate the groups into an ASP.NET Core application is to use the built-in [Role based Authorization](https://docs.asp.net/en/latest/security/authorization/roles.html) available in ASP.NET Core. In order to achieve this we will need to add a Claim of type
+The easiest way to integrate the groups into an ASP.NET Core application is to use the built-in [Role-based Authorization](https://docs.asp.net/en/latest/security/authorization/roles.html) available in ASP.NET Core. In order to achieve this we will need to add a Claim of type
 
 ```text
 http://schemas.microsoft.com/ws/2008/06/identity/claims/role
@@ -137,7 +137,7 @@ http://schemas.microsoft.com/ws/2008/06/identity/claims/role
 
 for each of the groups a user is assigned to.
 
-Once the claims has been added we can easily ensure that a specific action is available only to `Admin` users by decorating the claim with the `[Authorize(Roles = "Admin")]` attribute. You can also check whether a user is in a specific role from code by making a call to `User.IsInRole("Admin")` from inside your controller.
+Once the claims has been added we can easily ensure that a specific action is available only to `Admin` users by decorating the claim with the `[Authorize(Roles = "Admin")]` attribute. You can also check whether a user is in a specific <dfn data-key="role">role</dfn> from code by making a call to `User.IsInRole("Admin")` from inside your controller.
 
 The ASP.NET OIDC middleware will automatically add all claims returned in the JWT as claims to the `ClaimsIdentity`. We would therefore need to extract the information from the `authorization` claim, deserialize the JSON body of the claim, and for each of the groups add a `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` claim to the `ClaimsIdentity`.
 

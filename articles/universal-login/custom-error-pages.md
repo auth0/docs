@@ -12,7 +12,7 @@ useCase: customize-hosted-pages
 ---
 # Custom Error Pages
 
-In the event of an authorization error, you may choose to display to your users either [the default Auth0 error page](/hosted-pages/error-pages) or a customized error page. 
+In the event of an authorization error, you may choose to display to your users either [the default Auth0 error page](/hosted-pages/error-pages) or a customized error page.
 
 This article will show you how to use a customized error page. For details on the default Auth0 error page see [Error Pages](/hosted-pages/error-pages).
 
@@ -36,6 +36,14 @@ If you use the Dashboard, follow these steps:
 1. Select the option **Redirect users to your own error page**.
 1. Provide the URL of the error page you would like your users to see.
 
+## Customize error pages via the Management API
+
+Instead of using the Management Portal, you may configure your error pages by making the appropriate `PATCH /api/v2/tenants/settings` call to the Management API.
+
+### Redirect users to a custom error page
+
+To redirect users to a custom error page, update the `url` field of your JSON body to point to the location of the error page.
+
 ![Error Page Redirect Option](/media/articles/error-pages/redirect-error-page.png)
 
 If you use the API instead, use the `PATCH /api/v2/tenants/settings` endpoint. Update the `url` field of your JSON body to point to the location of the error page.
@@ -47,7 +55,7 @@ If you use the API instead, use the `PATCH /api/v2/tenants/settings` endpoint. U
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
-      { "name": "Authorization", "value": "Bearer YOUR_TOKEN"}, 
+      { "name": "Authorization", "value": "Bearer YOUR_TOKEN"},
       { "name": "Content-Type", "value": "application/json" }
     ],
     "queryString" : [],
@@ -82,7 +90,7 @@ To provide the appropriate HTML, pass in a string containing the appropriate Liq
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
-      { "name": "Authorization", "value": "Bearer YOUR_TOKEN"}, 
+      { "name": "Authorization", "value": "Bearer YOUR_TOKEN"},
       { "name": "Content-Type", "value": "application/json" }
     ],
     "queryString" : [],

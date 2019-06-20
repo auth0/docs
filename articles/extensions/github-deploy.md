@@ -205,7 +205,7 @@ __secret_number.json__
 ```json
 {
   "key": "secret_number",
-  "value": 42
+  "value": "42"
 }
 ```
 

@@ -14,7 +14,7 @@ useCase:
 ---
 # How to Verify a JSON Web Token's Signature using the JSON Web Key Set Endpoint
 
-Auth0 exposes a discovery endpoint, which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to configure your application automatically and locate the [JSON Web Key Set (JWKS)](/jwks) endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued [JSON Web Tokens (JWTs)](/tokens/jwt) for your API.
+Auth0 exposes a discovery endpoint, which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to configure your application automatically and locate the [JSON Web Key Set (JWKS)](/jwks) endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued <dfn data-key="json-web-token">JSON Web Tokens (JWTs)</dfn> for your API.
 
 When verifying a JWT using a JWKS, you will need to:
 

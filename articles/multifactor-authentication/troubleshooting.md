@@ -12,7 +12,7 @@ useCase:
 ---
 # MFA Troubleshooting
 
-This guide serves as a troubleshooting reference if you have end-users unable to log in with multi-factor authentication (MFA).
+This guide serves as a troubleshooting reference if you have end-users unable to log in with <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
 ## Generic issues
 

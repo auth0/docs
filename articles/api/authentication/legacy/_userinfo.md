@@ -73,7 +73,7 @@ webAuth.parseHash(window.location.hash, function(err, authResult) {
 This endpoint is part of the legacy authentication pipeline and will be disabled for those who use our latest, OIDC conformant, pipeline. We encourage using the [/userinfo endpoint](#get-user-info) instead. For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
-This endpoint validates a JSON Web Token (signature and expiration) and returns the user information associated with the user id `sub` property of the token.
+This endpoint validates a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> (signature and expiration) and returns the user information associated with the user id `sub` property of the token.
 
 ### Request Parameters
 

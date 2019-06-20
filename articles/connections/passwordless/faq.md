@@ -12,7 +12,7 @@ useCase: customize-connections
 
 ### Q: When is passwordless authentication the best option for login? How does this feature improve the user experience?
 
-**A:** The number of passwords that users must remember has become overwhelming, and passwords that aren’t used frequently are often forgotten. When a user forgets their password, they must recover it through email using a process more cumbersome than Auth0’s simple, passwordless user experience. For many users, recovering a lost password for infrequently visited sites and apps is a common and unpleasant experience. 
+**A:** The number of passwords that users must remember has become overwhelming, and passwords that aren’t used frequently are often forgotten. When a user forgets their password, they must recover it through email using a process more cumbersome than Auth0’s simple, <dfn data-key="passwordless">passwordless</dfn> user experience. For many users, recovering a lost password for infrequently visited sites and apps is a common and unpleasant experience. 
 
 In a [recent survey](https://www.passwordboss.com/password-habits-survey-part-1/), 59% of users admit to reusing passwords because it is too difficult to remember them all. Although this habit avoids the password recovery scramble, it exposes these users to risk.
 
@@ -22,7 +22,7 @@ For frequently visited sites, passwordless authentication offers a streamlined a
 
 ### Q: When is passwordless login not a good idea? What are its limitations?
 
-**A:** For sites and apps that users access every day, the passwordless flow may feel slower than the muscle memory of quickly entering a memorized password. As with a username/password login, if an email account is hacked or a phone is stolen and unlocked, the passwordless login is compromised, but so is every site not using multi-factor authentication.
+**A:** For sites and apps that users access every day, the passwordless flow may feel slower than the muscle memory of quickly entering a memorized password. As with a username/password login, if an email account is hacked or a phone is stolen and unlocked, the passwordless login is compromised, but so is every site not using <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
 Websites and web applications are trending toward longer session expirations so that users are not asked to login frequently, behaving more like native apps on a mobile device. Then, when a user initiates a sensitive operation, users are asked for *step-up* authentication such as a one-time password or a code from an authentication app like Google Authenticator. Auth0’s passwordless authentication takes the same approach. Like the `sudo` command on Linux, when the user initiates an activity that requires elevated privileges, they are presented with an extra challenge. Simple and effective, this procedure eliminates the hassle of multi-factor authentication, except when necessary.
 
@@ -52,7 +52,7 @@ One option is to offer users several popular social logins, and offer passwordle
 
 ### Q: What are the advantages of using emailed codes?
 
-**A:** An emailed code requires slightly more effort for end-users than a magic link. A numeric code is sent to the user’s email. The user then types this code into a response field of the Auth0 passwordless lock widget on your site, which handles this part automatically. Once entered and validated, the user is logged in.
+**A:** An emailed code requires slightly more effort for end-users than a magic link. A numeric code is sent to the user’s email. The user then types this code into a response field of the Auth0 passwordless <dfn data-key="lock">Lock widget</dfn> on your site, which handles this part automatically. Once entered and validated, the user is logged in.
 
 ### Q: What are the advantages of using codes delivered through SMS?
 
@@ -62,7 +62,7 @@ An SMS login, like an emailed code, requires slightly more effort for end-users 
 
 ### Q: Can I offer both email and SMS options at the same time?
 
-**A:** Using [Auth0’s Javascript SDK](https://github.com/auth0/auth0.js), you have complete control of how passwordless authentication works with your site or application. It’s easy to implement a mixed-mode user experience and build your own UI using the SDK. However, the passwordless lock widget does not yet support this sort of mixed-mode interface. Such a mode may be added to future versions of the widget.
+**A:** Using [Auth0’s Javascript SDK](https://github.com/auth0/auth0.js), you have complete control of how passwordless authentication works with your site or application. It’s easy to implement a mixed-mode user experience and build your own UI using the SDK. However, the passwordless Lock widget does not yet support this sort of mixed-mode interface. Such a mode may be added to future versions of the widget.
 
 ### Q: How would a user sign-in to your application using a *magic link* from a device that doesn’t have access to the registered email account?
 
@@ -72,9 +72,9 @@ The simplest way to solve this problem would be for the user to forward the *mag
 
 If this is likely to be a common scenario for your end-users, you might want to consider using emailed codes, or codes sent through SMS, rather than emailed links. 
 
-### Q: How do I style the passwordless lock widget to my own brand identity?
+### Q: How do I style the passwordless Lock widget to my own brand identity?
 
-**A:** The passwordless lock widget accepts two parameters to change its appearance: the *primaryColor* option to change background color and the *icon* option to add your brand’s icon. You can also style the widget by modifying the CSS stylesheet.
+**A:** The passwordless Lock widget accepts two parameters to change its appearance: the *primaryColor* option to change background color and the *icon* option to add your brand’s icon. You can also style the widget by modifying the CSS stylesheet.
 
 If you need more design control, you can implement your own UI and call any of the passwordless connections through the [Auth0 JavaScript SDK](https://github.com/auth0/auth0.js).
 

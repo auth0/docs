@@ -75,7 +75,7 @@ You will need to add an `Auth0.plist` file, containing your Auth0 client id and 
 
 ### Web-based Auth (iOS Only)
 
-First go to [Auth0 Dashboard](${manage_url}/#/applications) and go to application's settings. Make sure you have in **Allowed Callback URLs** a URL with the following format:
+First go to [Auth0 Dashboard](${manage_url}/#/applications) and go to application's settings. Make sure you have in **Allowed <dfn data-key="callback">Callback URLs</dfn>** a URL with the following format:
 
 ```text
 {YOUR_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{YOUR_BUNDLE_IDENTIFIER}/callback
@@ -117,10 +117,10 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 #### Authenticate with Universal Login
 
-The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use [Universal Login](/hosted-pages/login).
+The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use <dfn data-key="universal-login">Universal Login</dfn>.
 
 ::: note
-To ensure an [OpenID Connect compliant response](/api-auth/intro), you must either request an `audience` or enable the **OIDC Conformant** switch in your [Auth0 dashboard](${manage_url}), under **Application > Settings > Show Advanced Settings > OAuth**. For more information, refer to [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).
+To ensure a response that complies with <dfn data-key="openid">OpenID Connect (OIDC)</dfn>, you must either request an <dfn data-key="audience">`audience`</dfn> or enable the **OIDC Conformant** switch in your [Auth0 dashboard](${manage_url}), under **Application > Settings > Show Advanced Settings > OAuth**. For more information, refer to [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).
 :::
 
 ```swift
@@ -162,7 +162,7 @@ Auth0
 
 #### Authenticate using a specific scope
 
-Using scopes can allow you to return specific claims for specific fields in your request. Adding parameters to `scope` will allow you to add more scopes. The default scope is `openid`, and you should read our [documentation on scopes](/scopes) for further details about them.
+Using <dfn data-key="scope">scopes</dfn> can allow you to return specific claims for specific fields in your request. Adding parameters to `scope` will allow you to add more scopes. The default scope is `openid`, and you should read our [documentation on scopes](/scopes) for further details about them.
 
 ```swift
 Auth0
