@@ -29,7 +29,7 @@ Auth0 provides a number of checklists in Google Sheets format, each of which ali
 
 ## Analyze
 
-![Analyze Checklist](/media/articles/architecture-scenarios/checklists/Analyze-Checklist.xlsx)
+[Analyze Checklist](/media/articles/architecture-scenarios/checklists/Analyze-Checklist.xlsx)
 
 [Analyze Checklist](https://docs.google.com/spreadsheets/d/1hTtRvvO6Szlvcr4XnsgzzmJj7FmmucAZAmFF275hB20/edit?usp=sharing)
 
