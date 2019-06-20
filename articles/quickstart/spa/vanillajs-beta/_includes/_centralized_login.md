@@ -6,11 +6,11 @@
 
 ### Create a basic HTML page
 
-Create a folder on your machine to house the application, then add an `index.html` file to the root of the project. This HTML page will display a welcome message and have a "gated" section which requires the user to be authenticated before accessing. You can copy/paste the following content into the file. You will be adding more lines as you progress with this article:
+Create a folder on your machine to house the application, then add an `index.html` file to the root of the project. This HTML page will display a welcome message and have a "gated" section which requires the user to be authenticated before accessing. You can copy/paste the following content into the file. You will be adding more lines as you progress with this article.
+
+Add the following content to the `index.html` file you just created:
 
 ```html
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -28,11 +28,11 @@ Create a folder on your machine to house the application, then add an `index.htm
 </html>
 ```
 
-Additionally, create a new folder called `public`, a folder inside that called `css` and a new file in there called `main.css`. This will be used to define how the gated content elements will be hidden in the page. Add the following CSS:
+Additionally, create a new folder called `public`, a folder inside that called `css` and a new file in there called `main.css`. This will be used to define how the gated content elements will be hidden in the page.
+
+Open the newly-created `public/css/main.css` file and add the following CSS:
 
 ```css
-/* public/css/main.css */
-
 .hidden {
   display: none;
 }
@@ -68,7 +68,7 @@ This article is based on the new SPA SDK available [here](https://github.com/aut
   
   <!-- add the lines below existing code -->
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.0.0/auth0-spa-js.production.js"></script>
-  <script src="/js/app.js"></script>
+  <script src="js/app.js"></script>
 </body>
 ```
 
@@ -121,7 +121,7 @@ Finally, open the `package.json` file and modify the "scripts" entry to look lik
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
-  }
+  },
   // ...
 }
 ```
@@ -131,11 +131,11 @@ Finally, open the `package.json` file and modify the "scripts" entry to look lik
 
 ### Creating server.js
 
-Next, create a new file in the root of the project alongside `index.html` and `package.json`, called `server.js`. This will be our backend server and will be used to serve the SPA pages. Populate it with the following:
+Next, create a new file in the root of the project alongside `index.html` and `package.json`, called `server.js`. This will be our backend server and will be used to serve the SPA pages.
+
+Open `public/js/app.js` and populate it with the following code:
 
 ```js
-// server.js
-
 const express = require("express");
 const { join } = require("path");
 const app = express();
@@ -164,22 +164,21 @@ The server provides two endpoints:
 
 The app also serves all of the static files, such as the `.js` and `.css` files from the `/public` folder.
 
-### The application
+## Initialize the SDK
 
-Open the `public/js/app.js` file, ready to start adding the client-side logic.
+The SDK must be properly initialized with the information of the Auth0 application created above.
 
-First things first. The SDK needs to be properly initialized with the information of the application created above. Create a new variable to hold this:
+To start, open the `public/js/app.js` file and add a variable to hold the Auth0 client object:
 
 ```js
-// public/js/app.js
-
 let auth0 = null;
 ```
 
-This needs to be initialized with the values from the `auth_config.json` file. This can be done by calling the endpoint on the server that was created in the previous section. To do this, create a new function called `fetchAuthConfig` further down the `app.js` file, which can be used to download this information:
+This must be initialized using the values from the `auth_config.json` file. This can be done by calling the endpoint on the server that was created in the previous section. To do this, create a new function called `fetchAuthConfig` further down the `app.js` file, which can be used to download this information:
 
 ```js
-// public/js/app.js
+
+// ..
 
 const fetchAuthConfig = () => fetch("/auth_config.json");
 ```
@@ -187,7 +186,7 @@ const fetchAuthConfig = () => fetch("/auth_config.json");
 Next, create another new function called `configureClient`. This will use `fetchAuthConfig` to download the configuration file and initialize the `auth0` variable:
 
 ```js
-// public/js/app.js
+// ..
 
 const configureClient = async () => {
   const response = await fetchAuthConfig();
@@ -205,25 +204,23 @@ This call will also populate the in-memory cache with a valid access token and u
 Add a handler for the `window.onload` function that will then make this call to initialize the application:
 
 ```js
-// public/js/app.js
+// ..
 
 window.onload = async () => {
   await configureClient();
 }
 ```
 
-> **Checkpoint:** At this point you can start testing how it looks so far. To start the app, run `npm run dev` from the terminal to start the application.
-
 Now go and access it at [http://localhost:3000](http://localhost:3000). You should see the welcome message and both authentication buttons disabled. Note however that some browsers cache the page sources. When checking each step results you should perform a full page refresh ignoring the cache. This can be achieved by using the `CMD+SHIFT+R` keys on OSX and `CTRL+SHIFT+R` keys on Windows.
 
-### Evaluate the authentication state
+## Evaluate the authentication state
 
-As a first approach, you want to make sure anyone is able to visit the public page but not the protected contents' page, such as a settings panel or the user profile details. You can decide which content is available by hidding, disabling or removing it if no user is currently logged in. You do so by checking the result of calling the `auth0.isAuthenticated()` method. Use this to enable or disable the "Log in" and "Log out" buttons, which are disabled by default. This can be part of a `updateUI()` function called from the `window.onload` method right after the initialization.
+As a first approach, you want to make sure anyone is able to visit the public page but not the page that is meant for authenticated users only, such as a settings panel or the user profile details. You can decide which content is available by hiding, disabling, or removing it if no user is currently logged in. You do so by checking the result of calling the `auth0.isAuthenticated()` method. Use this to enable or disable the **Log in** and **Log out** buttons, which are disabled by default. This can be part of a new `updateUI()` function called from the `window.onload` method right after the initialization.
 
-Modify the previous `onload` handler to look like the following:
+Still inside the `app.js` file, add a new function called `updateUI` and modify the `onload` handler to call this new function:
 
 ```js
-// public/js/app.js
+// ..
 
 window.onload = async () => {
   await configureClient();
@@ -232,6 +229,7 @@ window.onload = async () => {
   updateUI();
 };
 
+// NEW
 const updateUI = async () => {
   const isAuthenticated = await auth0.isAuthenticated();
 
@@ -242,14 +240,14 @@ const updateUI = async () => {
 
 > **Checkpoint:** If you run the project again, you should see that the "Log in" button is shown as enabled as no user has previously logged in. But clicking it will not do anything as there is no logic associated to that action yet.
 
-### Log in to the application
+## Log In to the Application
 
-Authentication is achieved through a redirect to the Auth0 [Universal Login Page](https://auth0.com/docs/hosted-pages/login). Once the user signs up or signs in, the result will be passed to the redirect URI given as part of the authentication call.
+Authentication is achieved through a redirect to the Auth0 [Universal Login Page](https://auth0.com/docs/hosted-pages/login). Once the user signs up or logs in, the result will be passed to your app's redirect URI, which is provided with the authorization request.
 
-Start the authentication on the **Log in** button click by calling the `auth0.loginWithRedirect()` method passing a valid redirect URI. In this sample you will redirect the user back to the same page they are now. You can obtain that value from `window.location.origin` property. Abstract this logic into a `login()` method.
+Inside the `app.js` file, provide a `login` function that calls `auth0.loginWithRedirect()` to perform the login step. The `login` function is called by the **Log in** button previously defined in the HTML page. In this sample, you will redirect the user back to the same page they are now. You can obtain that value from `window.location.origin` property:
 
 ```js
-// public/js/app.js
+// ..
 
 const login = async () => {
   await auth0.loginWithRedirect({
@@ -263,38 +261,54 @@ Additionally, because this is a _single page application_, the result of this ca
 1. The user does not want to authenticate and is just navigating through public content or
 2. The user has recently initiated the authentication process and is now looking to complete it.
 
-This second scenario is the one you need to handle. In your `window.onload` method you want to check if the user is not authenticated and the URL query contains both the `code` and the `state` parameters. This will indicate that an authentication result is present and needs to be parsed. In that scenario, you do so by calling the `auth0.handleRedirectCallback()` method. This will attempt to exchange the result that the Auth0 backend gave you back for real tokens you can use.
+This second scenario is the one you need to handle. In your `window.onload` method, check whether the user is authenticated or not, and if the URL query contains both a `code` and `state` parameter. This will indicate that an authentication result is present and needs to be parsed. In that scenario, you do so by calling the `auth0.handleRedirectCallback()` method. This will attempt to exchange the result that the Auth0 backend gave you back for real tokens you can use.
+
+In addition, the query parameters must be removed from the URL so that if the user refreshes the page, the app does not try to parse the `state` and `code` parameters again. This is achieved with the `window.history.replaceState` method.
+
+Modify the `window.onload` function inside `app.js` to include these changes:
 
 ```js
-// public/js/app.js
+// ..
 
 window.onload = async () => {
+
   // .. code ommited for brevity
+
   updateUI();
 
   const isAuthenticated = await auth0.isAuthenticated();
 
   if (isAuthenticated) {
     // show the gated content
-  } else {
-    // check the current scenario
-    const query = window.location.search;
-    if (query.includes("code=") && query.includes("state=")) {
-      await auth0.handleRedirectCallback();
-      updateUI();
-      window.history.replaceState({}, document.title, "/");
-    }
+    return;
+  }
+
+  // NEW - check for the code and state parameters
+  const query = window.location.search;
+  if (query.includes("code=") && query.includes("state=")) {
+
+    // Process the login state
+    await auth0.handleRedirectCallback();
+    
+    updateUI();
+
+    // Use replaceState to redirect the user away and remove the querystring parameters
+    window.history.replaceState({}, document.title, "/");
   }
 };
+
+// ..
 ```
 
-Now the redirect is properly handled and the authentication can be completed successfully, but you need to remove the query parameters from the URL so that if the user refreshes the page this is not considered as if a new exchange needs to be done. This is achieved with the `window.history.replaceState` method.
+The callback is now handled properly and the authentication can be completed successfully.
 
-> **Checkpoint:** Run the project and click the "Log in" button. You should be taken to the Universal Login Page configured for your application. Go ahead and create a new user or log in using a social connection. After authenticating successfully, you will be redirected to the page you were before. This time, the result will be present in the URL query and the exchange will happen automatically. If everything went fine, you will end up with no query parameters in the URL, the user would now be logged in and the "Log out" button will be enabled.
+Run the project and click the **Log in** button. You should be taken to the Universal Login Page configured for your application. Go ahead and create a new user or log in using a social connection. After authenticating successfully, you will be redirected to the page you were before. This time, the result will be present in the URL query and the exchange will happen automatically. If everything went fine, you will end up with no query parameters in the URL, the user would now be logged in and the "Log out" button will be enabled.
 
-If at this part you see any errors on the Auth0 page, check that you have not forgotten to whitelist the callback URL or the allowed origins as explained initially.
+:::note
+If you see any errors from the Auth0 server, check that you have not forgotten to whitelist the callback URL or the allowed origins as explained initially.
+:::
 
-### Log the user out
+## Log the User Out
 
 You may have noticed that the **Log out** button is clickable when the user is authenticated, but does nothing. You need to add the code that will log the user out from the Auth0 backend.
 
@@ -312,15 +326,15 @@ const logout = () => {
 
 > **Checkpoint:** Being authenticated click the **Log out** button. You should be taken to the Universal Login Page configured for your application and then back to the page you were before. Now the authentication cookies were cleared and the user is logged out. The "Log in" button will be enabled back again.
 
-If at this part you see any errors on the Auth0 page, check that you have not forgotten to whitelist the logout url as explained initially.
+If you see any errors from the Auth0 server, check that you have not forgotten to whitelist the logout url as explained initially.
 
-### Read the user profile
+## Read the User Profile
 
-Everytime a user is logged in you get access both to the **access token** and the associated **user profile** information. Typically, the token is used to call your backend application and the profile information to display their name and profile picture. In this guide you are going to display them in separate text areas so you can easily inspect them. Open the `index.html` file and insert the following lines at the bottom of the body.
+Everytime a user is logged in you get access both to the **access token** and the **ID token**. The user's profile information is then extracted from the ID token. Typically, the token is used to call your backend application and the profile information is used to display their name and profile picture. In this section you are going to display them in separate text areas so you can easily inspect them.
+
+Open the `index.html` file and insert the following lines at the bottom of the body.
 
 ```html
-<!-- index.html -->
-
 <body>
   <!-- ... -->
 
@@ -339,15 +353,17 @@ Everytime a user is logged in you get access both to the **access token** and th
     </label>
   </div>
   
-  <!-- existing script tags -->
+  <!-- .. existing script tags .. -->
 </body>
 ```
 
-Now re-open the `app.js` file and modify the `updateUI()` function declared previously. Add the logic such that when the user is logged in the gated content is shown. Use the existing `isAuthenticated` variable and the `auth0.getTokenSilently()` and `auth0.getUser()` functions to obtain and display this information in the text areas.
+Now re-open the `app.js` file and modify the `updateUI()` function declared previously. Add the logic such that when the user is logged in the gated content is shown. Use the existing variables and functions from the SDK client to obtain and display this information on the page.
 
-At the start of this article you added a `public/css/main.css` file with the definition of the `hidden` class. This is used to give the `display=none` style property to the HTML elements you want to hide. Using the authenticated flag as shown below, add or remove this class to the elements you want to show or hide in the `updateUI()` function:
+In addition, at the start of this article you added a `public/css/main.css` file with the definition of the `hidden` class, which can be used to easily hide elements on the page. Using the authenticated flag as shown below, add or remove this class to the elements you want to show or hide in the `updateUI()` function:
 
 ```js
+// ...
+
 const updateUI = async () => { 
   const isAuthenticated = await auth0.isAuthenticated();
 
@@ -357,16 +373,21 @@ const updateUI = async () => {
   // NEW - add logic to show/hide gated content after authentication
   if (isAuthenticated) {
     document.getElementById("gated-content").classList.remove("hidden");
+
     document.getElementById(
       "ipt-access-token"
     ).value = await auth0.getTokenSilently();
+
     document.getElementById("ipt-user-profile").value = JSON.stringify(
       await auth0.getUser()
     );
+
   } else {
     document.getElementById("gated-content").classList.add("hidden");
   }
 };
+
+// ..
 ```
 
 Note that calls to the SDK instance can throw an exception if the authentication fails, if there is no user currently authenticated, or if the token needs to be refreshed and that request fails. You will need to put a try/catch block around them to correctly handle any errors. These error checks are not shown on the article but they are available on the final sample app that you can download.
