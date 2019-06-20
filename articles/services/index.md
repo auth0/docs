@@ -16,10 +16,11 @@ useCase:
   <h1>Auth0 Professional Services</h1>
   <p>
     The Auth0 Professional Services portfolio consists of innovative, specialized service offerings designed to optimize customers' investments in Auth0. Professional Services help customers deploy, implement, and maintain solutions based on proven practices, avoiding common pitfalls and reducing risk.
-
-    * Avoid costly security pitfalls and reduce risk
-    * Accelerate your Auth0 deployments and reduce time to ROI
-    * Optimize your investment in Auth0
+<ul>
+<li>Avoid costly security pitfalls and reduce risk</li>
+<li>Accelerate your Auth0 deployments and reduce time to ROI</li>
+<li>Optimize your investment in Auth0</li>
+</ul>
   </p>
 </div>
 
