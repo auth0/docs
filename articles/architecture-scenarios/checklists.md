@@ -29,9 +29,7 @@ Auth0 provides a number of checklists in Google Sheets format, each of which ali
 
 ## Analyze
 
-[Analyze Checklist](/media/articles/architecture-scenarios/checklists/Analyze-Checklist.xlsx)
-
-[Analyze Checklist](https://docs.google.com/spreadsheets/d/1hTtRvvO6Szlvcr4XnsgzzmJj7FmmucAZAmFF275hB20/edit?usp=sharing)
+![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Analyze Checklist](/media/articles/architecture-scenarios/checklists/Analyze-Checklist.xlsx)
 
 In the Analyze phase, analyze end-user business requirements and determine project goals as part of the high-level plan for the project. Convert the requirements and goals into system functions that the organization intends to develop. Activities include:
 
