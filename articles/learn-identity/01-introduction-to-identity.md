@@ -10,7 +10,7 @@ A whirlwind tour of identity history, concepts, and terminology: protocols, open
 
 ## Bookmarks
 
-<div class="video-transcript">
+<div class="video-transcript" id="wisita-video-bookmarks">
   <ul>
     <li><a href="#wistia_pdlav16113?time=32">What is the problem with identity?</a></li>
     <li><a href="#wistia_pdlav16113?time=255">What can Auth0 do for you?</a></li>
@@ -45,23 +45,22 @@ A whirlwind tour of identity history, concepts, and terminology: protocols, open
       <li><a href="#wistia_pdlav16113?time=1948">Problem 1: sharing credentials with the wrong entity</a></li>
       <li><a href="#wistia_pdlav16113?time=1990">Problem 2: more privileges than necessary</a></li>
     </ul>  
-    <li><a href="#wistia_pdlav16113?time=2040">Delegated authorization: OAuth2</a></li>
+    <li><a href="#wistia_pdlav16113?time=2048">Delegated authorization: OAuth2</a></li>
     <ul>
-      <li><a href="#wistia_pdlav16113?time=2088">authorization server</a></li>
+      <li><a href="#wistia_pdlav16113?time=2086">authorization server</a></li>
       <li><a href="#wistia_pdlav16113?time=2150">OAuth2 is NOT an authentication protocol</a></li>
       <li><a href="#wistia_pdlav16113?time=2209">consent</a></li>
       <li><a href="#wistia_pdlav16113?time=2234">authorization code</a></li>
       <li><a href="#wistia_pdlav16113?time=2257">client registration, client secret</a></li>
-      <li><a href="#wistia_pdlav16113?time=2300">access token, scope</a></li>
+      <li><a href="#wistia_pdlav16113?time=2301">access token, scope</a></li>
     </ul>      
-    <li><a href="#wistia_pdlav16113?time=2409">Layering sign in on OAuth2: OpenID Connect</a></li>
+    <li><a href="#wistia_pdlav16113?time=2409">Layering sign in on top of OAuth2: OpenID Connect</a></li>
     <ul>
       <li><a href="#wistia_pdlav16113?time=2526">confused deputy problem</a></li>
-      <li><a href="#wistia_pdlav16113?time=2626">OIDC</a></li>
+      <li><a href="#wistia_pdlav16113?time=2627">OpenID Connect</a></li>
       <li><a href="#wistia_pdlav16113?time=2664">ID token</a></li>
     </ul>
     <li><a href="#wistia_pdlav16113?time=2753">Auth0: an intermediary keeping complexity at bay</a></li>
-    <li><a href="#wistia_pdlav16113?time=2880">Wrap</a></li>
   </ul>
 
 </div>
