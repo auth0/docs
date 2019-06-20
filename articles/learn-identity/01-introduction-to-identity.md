@@ -1,5 +1,5 @@
 ---
-description: A whirlwind tour of identity history, concepts, and terminology: protocols, open standards, SSO, OAuth2, OpenID Connect and more.
+description: A whirlwind tour of identity history, concepts, and terminology - protocols, open standards, SSO, OAuth2, OpenID Connect and more.
 classes: video-page
 ---
 # Introduction to Identity
