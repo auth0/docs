@@ -82,41 +82,41 @@ We provide packaged Professional Services offerings that are designed to optimiz
 
 These packaged offerings generally fall into two categories: Design and Implement packages, and Maintain and Improve packages. 
 
-## Design and Implement packages
+### Design and Implement packages
 
-[**Discovery Workshop**](https://cdn.auth0.com/website/legal/services/DiscoveryWorkshop.pdf)
- * 3 days of services
- * Remote/on-site, as mutually agreed
- * Expires in 90 days
- * Terms and Conditions apply
+#### [Discovery Workshop](https://cdn.auth0.com/website/legal/services/DiscoveryWorkshop.pdf)
+* 3 days of services
+* Remote/on-site, as mutually agreed
+* Expires in 90 days
+* Terms and Conditions apply
 
-[**Basic Package**](https://cdn.auth0.com/website/legal/services/BasicPackage.pdf)
+#### [Basic Package](https://cdn.auth0.com/website/legal/services/BasicPackage.pdf)
 * 5 days of services
 * Remote only
 * Expires in 90 days
 * Terms and Conditions apply
 
-[**Standard Package**](https://cdn.auth0.com/website/legal/services/StandardPackage.pdf)
+#### [Standard Package](https://cdn.auth0.com/website/legal/services/StandardPackage.pdf)
 * 12 days of services
 * Remote/on-site, as mutually agreed
 * Expires in 180 days
 * Terms and Conditions apply
 
-[**Advanced Package**](https://cdn.auth0.com/website/legal/services/AdvancedPackage.pdf)
+#### [Advanced Package](https://cdn.auth0.com/website/legal/services/AdvancedPackage.pdf)
 * 25 days of services
 * On-site
 * Expires in 180 days
 * Terms and Conditions apply
 
-## Maintain and Improve packages
+### Maintain and Improve packages
 
-[**Implementation HealthCheck Package**](https://cdn.auth0.com/website/legal/services/HealthCheck.pdf)
+#### [Implementation HealthCheck Package](https://cdn.auth0.com/website/legal/services/HealthCheck.pdf)
  * 3 days of services
  * Remote/on-site, as mutually agreed
  * Expires in 365 days
  * Terms and Conditions apply
 
-[**Premier Success Package**](https://cdn.auth0.com/website/legal/services/PremierSuccess.pdf)
+#### [Premier Success Package](https://cdn.auth0.com/website/legal/services/PremierSuccess.pdf)
 * 24 days of services
 * On-site
 * Expires in 365 days
