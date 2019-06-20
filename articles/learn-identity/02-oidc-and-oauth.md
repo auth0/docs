@@ -12,10 +12,10 @@ OpenID Connect and OAuth specifications, roles and grants.
 
 <div class="video-transcript video-bookmarks">
   <ul>
-    <li><a href="#wistia_djvvz13kcz?time=17">Specifications and complexity</a></li>
-    <li><a href="#wistia_djvvz13kcz?time=121">Specifications landscape</a></li>
-    <li><a href="#wistia_djvvz13kcz?time=213">This course will be scenario-first, not protocol-first</a></li>
-    <li><a href="#wistia_djvvz13kcz?time=280">OAuth2 roles</a></li>
+    <li><a href="#wistia_djvvz13kcz?time=19">Specifications and complexity</a></li>
+    <li><a href="#wistia_djvvz13kcz?time=123">Specifications landscape</a></li>
+    <li><a href="#wistia_djvvz13kcz?time=215">This course will be scenario-first, not protocol-first</a></li>
+    <li><a href="#wistia_djvvz13kcz?time=284">OAuth2 roles</a></li>
     <ul>
       <li><a href="#wistia_djvvz13kcz?time=301">resource owner (end user)</a></li>
       <li><a href="#wistia_djvvz13kcz?time=315">resource server (app or API controlling data)</a></li>
@@ -23,7 +23,7 @@ OpenID Connect and OAuth specifications, roles and grants.
       <li><a href="#wistia_djvvz13kcz?time=410">authorization server (see next segment)</a></li>
     </ul>  
     <li><a href="#wistia_djvvz13kcz?time=425">Authorization server (authorization, token, & discovery endpoints)</a></li>
-    <li><a href="#wistia_djvvz13kcz?time=492">OAuth2 and OIDC grants - definition</a></li>
+    <li><a href="#wistia_djvvz13kcz?time=494">OAuth2 and OIDC grants - definition</a></li>
     <li><a href="#wistia_djvvz13kcz?time=621">A diagram with all the grants covered in the course</a></li>
     <ul>
       <li><a href="#wistia_djvvz13kcz?time=666">web application sign-in</a></li>
@@ -31,7 +31,7 @@ OpenID Connect and OAuth specifications, roles and grants.
       <li><a href="#wistia_djvvz13kcz?time=745">SPA calling an API</a></li>
       <li><a href="#wistia_djvvz13kcz?time=758">native app calling an API</a></li>
       <li><a href="#wistia_djvvz13kcz?time=805">headless like daemons, CLIs</a></li>
-      <li><a href="#wistia_djvvz13kcz?time=841">API calling an API</a></li>
+      <li><a href="#wistia_djvvz13kcz?time=842">API calling an API</a></li>
     </ul>
   </ul>
 </div>
