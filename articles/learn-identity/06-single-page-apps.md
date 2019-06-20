@@ -12,55 +12,55 @@ Authentication and delegated authorization for single page applications.
 
 <div class="video-transcript video-bookmarks">
   <ul>
-    <li><a href="#wistia_0pi7bt90c9?time=11">Single Page Apps (SPA)</a></li>
+    <li><a href="#wistia_0pi7bt90c9?time=12">Single Page Apps (SPA)</a></li>
     <ul>
-      <li><a href="#wistia_0pi7bt90c10?time=151">modeling SPAs in OAuth2 and OIDC</a></li>
-      <li><a href="#wistia_0pi7bt90c11?time=216">choosing between token and cookie based strategies depending on where the API lives</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=151">modeling SPAs in OAuth2 and OIDC</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=216">choosing between token and cookie based strategies depending on where the API lives</a></li>
     </ul>
-    <li><a href="#wistia_0pi7bt90c12?time=273">Implicit grant</a></li>
+    <li><a href="#wistia_0pi7bt90c9?time=274">Implicit grant</a></li>
     <ul>
-      <li><a href="#wistia_0pi7bt90c13?time=294">definition of “implicit” in oauth2</a></li>
-      <li><a href="#wistia_0pi7bt90c14?time=314">classic use of “implicit” in the context of SPAs</a></li>
-      <li><a href="#wistia_0pi7bt90c15?time=384">mechanics of implicit + fragment token delivery</a></li>
-      <li><a href="#wistia_0pi7bt90c16?time=436">considerations on implicit flow usage today</a></li>
-      <li><a href="#wistia_0pi7bt90c17?time=462">issues with implicit+fragment for requesting access tokens</a></li>
-      <li><a href="#wistia_0pi7bt90c18?time=512">challenges renewing tokens in SPAs</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=294">definition of “implicit” in OAuth2</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=314">classic use of “implicit” in the context of SPAs</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=384.5">mechanics of implicit + fragment token delivery</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=436.2">considerations on implicit flow usage today</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=462">issues with implicit + fragment for requesting access tokens</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=512.5">challenges renewing tokens in SPAs</a></li>
     </ul>
-    <li><a href="#wistia_0pi7bt90c19?time=573">Implicit grant + fragment diagram</a></li>
+    <li><a href="#wistia_0pi7bt90c9?time=573.5">Implicit grant + fragment diagram</a></li>
     <ul>
-      <li><a href="#wistia_0pi7bt90c20?time=664">authorization request</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=664">authorization request</a></li>
       <ul>
-        <li><a href="#wistia_0pi7bt90c21?time=711">OAuth2 state parameter</a></li>
+        <li><a href="#wistia_0pi7bt90c9?time=711.7">OAuth2 state parameter</a></li>
       </ul>
-      <li><a href="#wistia_0pi7bt90c22?time=852">authorization response</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=853">authorization response</a></li>
       <ul>
-        <li><a href="#wistia_0pi7bt90c23?time=902">session cookie establishment</a></li>
+        <li><a href="#wistia_0pi7bt90c9?time=902">session cookie establishment</a></li>
       </ul>
-      <li><a href="#wistia_0pi7bt90c24?time=941">considerations on requesting ID token, access tokens for calling API</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=941.5">considerations on requesting ID token, access tokens for calling API</a></li>
     </ul>
-    <li><a href="#wistia_0pi7bt90c25?time=993">Renewing tokens in SPAs</a></li>
+    <li><a href="#wistia_0pi7bt90c9?time=997">Renewing tokens in SPAs</a></li>
     <ul>
-      <li><a href="#wistia_0pi7bt90c26?time=1077">silent (no user interaction) token request via iframe</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=1077">silent (no user interaction) token request via iframe</a></li>
       <ul>
-        <li><a href="#wistia_0pi7bt90c27?time=1106">prompt=none</a></li>
-        <li><a href="#wistia_0pi7bt90c28?time=1128">response_mode=web_message</a></li>
+        <li><a href="#wistia_0pi7bt90c9?time=1105">prompt=none</a></li>
+        <li><a href="#wistia_0pi7bt90c9?time=1128">response_mode=web_message</a></li>
       </ul>
-      <li><a href="#wistia_0pi7bt90c29?time=1182">authorization response</a></li>
-      <li><a href="#wistia_0pi7bt90c30?time=1253">issues with the iframe token renewal approach</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=1182.5">authorization response</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=1253">issues with the iframe token renewal approach</a></li>
       <ul>
-        <li><a href="#wistia_0pi7bt90c31?time=1269">ITP2 in Safari</a></li>
+        <li><a href="#wistia_0pi7bt90c9?time=1269">ITP2 in Safari</a></li>
       </ul>
-    <ul>
-    <li><a href="#wistia_0pi7bt90c32?time=1335">Implicit flow response_type=token deprecation</a></li>
-    <li><a href="#wistia_0pi7bt90c33?time=1451">New OAuth2 SPA best practice: code + PKCE</a></li>
-    <ul>
-      <li><a href="#wistia_0pi7bt90c34?time=1508">requirements for refresh tokens in SPAs</a></li>
-      <li><a href="#wistia_0pi7bt90c35?time=1550">renewing tokens in SPAs with Auth0 today (code in iframe)</a></li>
     </ul>
-    <li><a href="#wistia_0pi7bt90c36?time=1615">Alternative topologies for securing SPAs</a></li>
+    <li><a href="#wistia_0pi7bt90c9?time=1335">Implicit flow response_type=token deprecation</a></li>
+    <li><a href="#wistia_0pi7bt90c9?time=1455">New OAuth2 SPA best practice: code + PKCE</a></li>
     <ul>
-      <li><a href="#wistia_0pi7bt90c37?time=1642">using cookies</a></li>
-      <li><a href="#wistia_0pi7bt90c38?time=1910">proxy pattern with a backend</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=1507.5">requirements for refresh tokens in SPAs</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=1550">renewing tokens in SPAs with Auth0 today (code in iframe)</a></li>
+    </ul>
+    <li><a href="#wistia_0pi7bt90c9?time=1614.5">Alternative topologies for securing SPAs</a></li>
+    <ul>
+      <li><a href="#wistia_0pi7bt90c9?time=1641.3">using cookies</a></li>
+      <li><a href="#wistia_0pi7bt90c9?time=1910.7">proxy pattern with a backend</a></li>
     </ul>
   </ul>
 </div>
