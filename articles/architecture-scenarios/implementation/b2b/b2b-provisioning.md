@@ -86,7 +86,7 @@ In most B2B scenarios, only particular individuals are allowed access to the app
 There are three different personas who might be [inviting users](/docs/design/creating-invite-only-applications):
 
 * An administrator at your company may create the users for each organization.
-* An administrator from each organization may be assigned to createing users.
+* An administrator from each organization may be assigned to creating users.
 * There may be another system responsible for creating users and that system may then create a user in Auth0.
 Regardless of the audience, the technique can be similar, with the exception of the third option which would require the use of the management API and could not be done using the Delegated Administration Extension. The rest is a matter of using the right authorization model for the application.
 User invite can be accomplished in a few ways:
@@ -104,14 +104,14 @@ One of the main principles of OIDC is that no one except the user themselves eve
 
 ## Enterprise sign up
 
-Enterprise signup is synonymous with sign in via [enterprise login](/architecture-scenarios/implementation/b2b/b2b-authentication#enterprise-login) - there’s no distinction here per se, as user [profile](/architecture-scenarios/implementation/b2b/b2b-profile-mgmt) creation happens automatically upon first enterprise login.
+Enterprise sign up is synonymous with sign in via [enterprise login](/architecture-scenarios/implementation/b2b/b2b-authentication#enterprise-login) - there’s no distinction here *per se*, as user [profile](/architecture-scenarios/implementation/b2b/b2b-profile-mgmt) creation happens automatically upon first enterprise login.
 
 ::: panel best practice
 A nice advantage of allowing your customers to use their own IDP is that they can administer their users and assign roles and access in their own IDP setup instead of forcing you to build administration for them.  Working out the mapping for those customers will make this much easier.
 :::
 
 ::: warning
-  If mapping isn't enough and you must put some metadata in your system, you must keep in mind that Auth0 will not create the user until they log into the system the first time.  Therefore you will need to use rule extensibility to pull the initial information from somewhere else, or force users to log in the first time before you can add the metadata.  
+  If mapping isn't enough and you must put some metadata in your system, keep in mind that Auth0 will not create the user until they log into the system the first time.  Therefore you will need to use rule extensibility to pull the initial information from somewhere else, or force users to log in the first time before you can add the metadata.  
 :::
 
 ## Planning
