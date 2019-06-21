@@ -15,8 +15,6 @@ useCase:
 
 <%= include('../../_includes/_authentication/_introduction.md', { platform: 'b2b' }) %>
 
-Often companies need to segregate their users by organization and sometimes users can have access to more than one organization.  Knowing which of these scenarios is relevant to your company will help define how to determine in which connection a user exists: whether you need to do it, when you need to do it, and how to accomplish it.  See [Home Realm Discovery](#home-realm-discovery) to determine if this is something relevant to your company.
-
 ## Universal Login
 
 <%= include('../../_includes/_authentication/_universal-login.md', { platform: 'b2b' }) %>
