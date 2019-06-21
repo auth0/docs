@@ -17,9 +17,9 @@ useCase:
 ::: note
 <h4>Definitions</h4>
 <b>Breaking Change</b> A change to the Auth0 Platform that, to Auth0's knowledge, will cause failures in the interoperation of the Auth0 Platform and Customer Applications.<br>
-<b>Deprecated</b> The feature or behavior is no longer supported or maintained, no additional functionality will be added. Bug fixes will be made only in extreme circumstances. Tenants using the functionality at the time of deprecation will continue to have access. The functionality will be disabled for newly created Tenants.<br>
-<b>End Of Life Date</b> The date the feature or behavior is removed from the platform. End Of Life Dates can vary between different plan types.<br>
-<b>End Of Life</b> The feature or behavior is removed from the platform. Continued use of the feature or behaviour will likely result in errors. The new behavior will be automatically enabled for Tenants that had not opted in during the migraiton window. <br>
+<b>Deprecated</b> Tenants using the feature or behavior at the time of deprecation will continue to have access. The behavior will be disabled for newly created Tenants. While it will continue to be supported and minimally maintained, no additional functionality will be added. <br>
+<b>End Of Life Date</b> The date access to a feature or behavior is removed from the platform. End Of Life Dates can vary between different plan types.<br>
+<b>End Of Life</b> The feature or behavior is removed from the platform. Continued use of the feature or behaviour will likely result in errors. The new behavior will be automatically enabled for Tenants that had not opted in during the migration window. <br>
 <b>Migration</b> The process by which a customer moves out from a particular behavior.
 :::
 
