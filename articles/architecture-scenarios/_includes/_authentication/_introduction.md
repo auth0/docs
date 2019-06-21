@@ -6,19 +6,21 @@ It's important to consider both security and user experience when designing how 
 
 It’s important to consider both security and user experience when designing how you will authenticate your users, and so there are a number of things you will want to consider when looking at functionality and workflow:
 
-* Where users will enter their credentials
-* How you will keep user credentials safe
-* How you will maintain your authentication system
-* How you will provide password authentication for your users
-* How you will prevent hackers from trying to log in as your users
-* How you want to implement authentication in different kinds of applications using Auth0
-* What to do if you want to make login easy for your users when they come from different language backgrounds
-* How you will provide a good user experience as you migrate away from any legacy authentication system
+* Where users will enter their credentials?
+* How you will keep user credentials safe?
+* How you will maintain your authentication system?
+* How you will provide password authentication for your users?
+* How you will prevent hackers from trying to log in as your users?
+* How you want to implement authentication in different kinds of applications using Auth0?
+* What to do if you want to make login easy for your users when they come from different language backgrounds?
+* How you will provide a good user experience as you migrate away from any legacy authentication system?
 * What do you need to consider when integrating your applications with Auth0?
 <% if (platform === "b2c") { %>
 * Can users log in using their existing social (e.g., Facebook or Google) accounts?
 <%  } %>
 * Will I need to provide for multi-factor authentication (MFA)?
+* What do I do if I have a service that doesn't have a way for the user to log in ahead of time?
+* Can I just pass the same user access token from one API to another?
 <% if (platform === "b2b") { %>
 * What do I do if I need to isolate my users by organization?
 * How do I handle identifying which organization my users belong to?
@@ -31,5 +33,6 @@ Allowing users to sign in via user ID/password credentials means that you're not
 
 If you have an existing legacy identity store, you’ll also want to see [User Migration](/architecture-scenarios/implementation/${platform}/${platform}-provisioning#user-migration). This section discusses the advantages of migrating to Auth0’s managed identity storage in terms of safety and security.
 
-For customer-facing applications, <dfn data-key="openid">[OpenID Connect (OIDC)](/protocols/oidc)</dfn> is the most frequently used industry standard protocol, and OIDC has first-class citizen support in Auth0. Auth0 provides support for various different approaches for integrating various different applications, so you'll want to see the section on [application integration](#application-integration) for the information you'll need to make an informed choice. 
+For customer facing applications, OpenID Connect ([OIDC](/protocols/oidc)) is the most frequently used industry standard protocol, and OIDC has first-class citizen support in Auth0. Auth0 provides support for various different approaches for integrating various different applications, so you'll want to see the section on [application integration](#application-integration) for the information you'll need to make an informed choice. 
 
+When calling one API from another API, or from any situation where there is no authenticated user context - such as one or more cron jobs, report generators, or continuous integration/delivery systems - you will need a way to authorize the _application_ instead of a _user_. This is referred to as [Machine-to-Machine (M2M) authentication](#machine-to-machine-m2m-authentication).
