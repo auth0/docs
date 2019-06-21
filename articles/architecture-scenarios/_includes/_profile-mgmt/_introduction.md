@@ -35,5 +35,5 @@ Self-service profile management can raise security as well as data privacy conce
 Alternatively, the Auth0 Dashboard can be used to [manage aspects of a user’s profile](users/guides/manage-users-using-the-dashboard). Managing a user’s profile via the Auth0 Dashboard is more of an administrative provision and **should not** be used for self-serviced profile management in a production environment. However, the interface provided by the Dashboard can be extremely useful during development as it provides a quick and simple way of manipulating a user’s profile information.
 
 <% if (platform === "b2b") { %>
-* If you need to provide a way for your customers to have an administrator that can manage their own users when they are storing those credentials in your system, you can either build something yourself or use an Auth0 Extension. See [Admin Portal](#admin-portal) for more details. 
+If you need to provide a way for your customers to have an administrator that can manage their own users when they are storing those credentials in your system, you can either build something yourself or use an Auth0 Extension. See [Admin Portal](#admin-portal) for more details. 
 <%  } %>

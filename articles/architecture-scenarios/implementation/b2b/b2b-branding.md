@@ -25,7 +25,7 @@ useCase:
 
 ## Branding login by organization
 
-Whether or not you need to do special customization on the Universal Login page is determined by how you plan to manage your customers’ organizations.  Before reading through this section, make sure you have read through the [Universal Login section](#universal-login-and-login-pages) and know how you are approaching organizations by reviewing [Multiple Organization Architecture](https://drive.google.com/a/auth0.com/file/d/1y2G8RNHTBujcCrnMRhp6_phQiRAkZzfF/view?usp=sharing).
+Whether or not you need to do special customization on the Universal Login page is determined by how you plan to manage your customers’ organization.  Before reading through this section, make sure you have read through the [Universal Login section](#universal-login-and-login-pages) and know how you are approaching organizations by reviewing [Multiple Organization Architecture](https://drive.google.com/a/auth0.com/file/d/1y2G8RNHTBujcCrnMRhp6_phQiRAkZzfF/view?usp=sharing).
 
 If your organization users will all be isolated from each other, than it’s important to make it clear on the Universal Login page which organization the login page is for.  This can be done in a couple of ways:
 
