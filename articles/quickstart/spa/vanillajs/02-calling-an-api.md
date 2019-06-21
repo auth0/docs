@@ -81,7 +81,7 @@ Next, open the `auth_config.json` file and modify the data so that the `audience
 As `auth_config.json` is served publicly, this file should **never** contain sensitive information such as passwords and client secrets.
 :::
 
-The values for `domain` and `clientId` should have already been specified as part of the [Login tutorial](/quickstarts/spa/vanillajs-beta/01-login). They should point to the Domain and Client ID values for your Auth0 app respectively.
+The values for `domain` and `clientId` should have already been specified as part of the [Login tutorial](/quickstarts/spa/vanillajs/01-login). They should point to the Domain and Client ID values for your Auth0 app respectively.
 
 ### Add a protected endpoint
 

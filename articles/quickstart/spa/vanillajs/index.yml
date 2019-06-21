@@ -10,7 +10,10 @@ topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
-beta: true
+show_releases: true
+sdk:
+  name: auth0-spa-js 1.0.0
+  url: https://github.com/auth0/auth0-spa-js
 snippets:
   dependencies: application-platforms/vanillajs/dependencies
   setup: application-platforms/vanillajs/setup
@@ -31,14 +34,14 @@ articles:
 show_steps: true
 github:
   org: auth0-samples
-  repo: auth0-spa-js-plain-samples
+  repo: auth0-javascript-samples
   branch: master
 next_steps:
   - path: 01-login
     list:
     - text: "Part 2: Calling an API using an access token"
       icon: 345
-      href: "/quickstart/spa/vanillajs-beta/02-calling-an-api"
+      href: "/quickstart/spa/vanillajs/02-calling-an-api"
   - path: 02-calling-an-api
     list:
     - text: Configure other identity providers
