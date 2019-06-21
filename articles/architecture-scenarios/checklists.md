@@ -16,8 +16,8 @@ Auth0 provides a number of checklists in Google Sheets format, each of which ali
 
 ## How to use the checklists
 
-1. Right-click the links below to open each checklist in a new tab.
-2. Save a copy or export them to another spreadsheet application.
+1. Click the links below to download each checklist.
+2. Open the checklist in any spreadsheet application.
 3. Customize the checklists to suit your needs.
 
 ## ![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Analyze Checklist](/media/articles/architecture-scenarios/checklists/Analyze-Checklist.xlsx)
