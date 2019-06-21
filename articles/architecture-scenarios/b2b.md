@@ -4,7 +4,7 @@ image: /media/articles/architecture-scenarios/b2b.png
 description: Explains the architecture scenario B2B IAM with a SAAS application.
 topics:
     - b2b
-    - B2B_IAM
+    - b2biam
     - SDLC
 contentType: concept
 useCase:
