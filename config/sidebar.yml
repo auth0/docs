@@ -1422,3 +1422,22 @@ libraries:
 videos:
   - title: Learn Identity
     url: "/videos/learn-identity"
+    children:
+
+      - title: "Introduction to Identity"
+        url: "/videos/learn-identity/01-introduction-to-identity"
+
+      - title: "OpenID Connect and OAuth2"
+        url: "/videos/learn-identity/02-oidc-and-oauth"
+
+      - title: "Web Sign-In"
+        url: "/videos/learn-identity/03-web-sign-in"
+
+      - title: "Calling an API"
+        url: "/videos/learn-identity/04-calling-an-api"
+
+      - title: "Desktop and Mobile Apps"
+        url: "/videos/learn-identity/05-desktop-and-mobile-apps"
+
+      - title: "Single Page Apps"
+        url: "/videos/learn-identity/06-single-page-apps"
