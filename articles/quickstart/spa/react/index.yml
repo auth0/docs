@@ -31,7 +31,7 @@ articles:
 show_steps: true
 github:
   org: auth0-samples
-  repo: auth0-spa-js-react-samples
+  repo: auth0-react-samples
   branch: master
 requirements:
   - React 16.8
