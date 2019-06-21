@@ -118,7 +118,7 @@ With enterprise connection support, user identities and credentials are managed 
 
 ## Planning
 
-<%= include('../../_includes/_planning.md'), { platform: 'b2b' }) %>
+<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 
