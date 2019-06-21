@@ -20,7 +20,7 @@ useCase:
 
 Auth0 provides an OpenID Connect Connection, that enables you to connect to OIDC compliant Identity Providers. 
 
-The Open ID Identity Provider needs to provide an OpenID Configuration document and support the `id_token` response type. 
+The Open ID Identity Provider needs to support [OIDC Discovery](ttps://openid.net/specs/openid-connect-discovery-1_0.html) and support the `id_token` response type.
 
 To create a new OpenID Connect Connection, you'll need to complete the following fields:
 
@@ -28,11 +28,11 @@ To create a new OpenID Connect Connection, you'll need to complete the following
 
 * **Connection Name**: The logical identifier for your Connection. It cannot be changed and needs to be unique for the tenant.
 
-* **Issuer URL**: The [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html) specification defines an **OpenID Provider Configuration Document** that should be available in the OpenID Connect Identity Provider at the `/.well-known/openid-configuration` endpoint. In this field you can enter the full path to the configuration document, or just the Issuer URL. Auth0 will add the rest of the path and validate if it exists. You'll see a green check mark if Auth0 can find it, a red mark if it cannot, or an error message if it can't find the required information in the configuration file.
+* **Issuer URL**: The URL where Auth0 can find the **OpenID Provider Configuration Document**, which should be available in the `/.well-known/openid-configuration` endpoint. You can enter the base URL or the full URL. You'll see a green check mark if Auth0 can find it, a red mark if it cannot, or an error message if it can't find the required information in the configuration file.
 
 * **Client ID**: The Client ID for the client that is defined in the target Identity Provider. It's different for each provider, so please check the provider's documentation.
 
-You need to make sure that the **Callback URL** referenced is added as a valid callback URL in the client application that's referenced with the `client_id` specified above.
+You need to make sure that the **Callback URL** referenced is added as a valid callback URL in the client application that's referenced with the Client ID specified above.
 
 Click __Save__.
 
@@ -57,4 +57,3 @@ If you edit the OIDC Connect Connection, you'll see additional configuration opt
 ## Federating with Auth0
 
 The OpenID Connect connection is very useful when federating to another Auth0 tenant. Just enter your Auth0 tenant url in the 'Issuer' field (e.g. https://<tenant>.auth0.com), and the client_id for any application in that tenant in the 'Client ID' field.
-
