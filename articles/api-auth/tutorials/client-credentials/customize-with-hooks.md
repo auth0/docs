@@ -17,8 +17,6 @@ useCase:
 
 # Using Hooks with Client Credentials Grant
 
-<%= include('../../../_includes/_pipeline2') %>
-
 You can now add [Hooks](/hooks) into your [client credentials](/api-auth/grant/client-credentials) flow. This way you can change the <dfn data-key="scope">scopes</dfn> and add custom claims to the tokens issued by Auth0.
 
 ## Overview

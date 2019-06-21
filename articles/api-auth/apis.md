@@ -15,8 +15,6 @@ useCase:
 ---
 # APIs
 
-<%= include('../_includes/_pipeline2') %>
-
 ## Overview
 
 An API is an entity that represents an external resource, capable of accepting and responding to protected resource requests made by applications. At the [OAuth2 spec](https://tools.ietf.org/html/rfc6749) an API maps to the **Resource Server**.

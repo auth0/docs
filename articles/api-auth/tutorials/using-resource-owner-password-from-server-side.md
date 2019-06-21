@@ -14,8 +14,6 @@ useCase:
 
 # Using Resource Owner Password from Server side
 
-<%= include('../../_includes/_pipeline2') %>
-
 Server-side applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials which your server will submit to Auth0 to get an <dfn data-key="access-token">Access Token</dfn>. When using this flow from server side, some anomaly detection features might fail because of the particularities of this scenario. This document details how to use [Resource Owner Password Grant](/api-auth/grant/password) flow from server side preventing some common issues.
 
 ## Prerequisites

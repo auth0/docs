@@ -12,8 +12,6 @@ useCase:
 ---
 # Verify Access Tokens for Custom APIs
 
-<%= include('../../_includes/_pipeline2') %>
-
 When a custom API receives a request with a bearer <dfn data-key="access-token">Access Token</dfn>, the first thing to do is to validate the token.
 
 At Auth0, an Access Token used for a custom API is formatted as a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> which must be validated before use.

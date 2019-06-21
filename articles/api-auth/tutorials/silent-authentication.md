@@ -12,8 +12,6 @@ useCase:
 
 # Silent Authentication
 
-<%= include('../../_includes/_pipeline2') %>
-
 The <dfn data-key="openid">OpenID Connect protocol</dfn> supports a `prompt=none` parameter on the authentication request that allows applications to indicate that the authorization server must not display any user interaction (such as authentication, consent or MFA). Auth0 will either return the requested response back to the application or return an error if the user is not already authenticated, or some type of consent or prompt is required before proceeding.
 
 This flow can be used by Single-Page Applications to renew tokens as explained below.
