@@ -51,7 +51,7 @@ https://yourdomain.com/index.php?auth0=1
 ```
 
 ::: warning
-Do <strong>not</strong> cache Callback URLs, or you might see an "Invalid state" error during login. Please see our <a href="https://auth0.com/docs/cms/wordpress/invalid-state#cached-callback-urls" >troubleshooting steps for this error</a> for more information.
+Do **not** cache Callback URLs, or you might see an "Invalid state" error during login. Please see our [troubleshooting steps for this error](/cms/wordpress/invalid-state#cached-callback-urls) for more information.
 :::
 
 5. Enter your WordPress site's home domain (where the WordPress site appears) and, if different, site domain (where wp-admin is served from) in the **Allowed Web Origins** field
