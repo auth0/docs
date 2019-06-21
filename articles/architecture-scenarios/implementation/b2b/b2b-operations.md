@@ -42,7 +42,7 @@ useCase:
 
 ## Self-Service IDP provisioning
 
-Auth0 makes it easy to configure IDPs, but depending on the number of organizations and the amount of coordination work with those organizations, it can be a time consuming process to onboard several new customer organization IDPs regularly.  As a result, many of our customers have found it worth the time and effort to build a self-service portal for the administrators of their customers' organization so that they can configure their own IDP instead of having your IT department have to work with them.  Auth0’s Management API provides all of the necessary functionality to support your UI.
+While Auth0 [connections](/identityproviders) make it easy to configure IdPs, it can be a time-consuming process to onboard customer organization IdPs especially if you are selling to new customer organizations on a regular basis or existing organizations have changing IdP requirements. As a result, many of our customers have found it worthwhile to build a self-service portal for their customers' organization admins so that they can configure their own IdPs. This cuts down on your IT department's workload. The [Auth0 Management API](/api/management/v2) provides all necessary [connection](/api/management/v2#!/Connections/get_connections) management functionality to achieve this. 
 
 
 ## Planning
