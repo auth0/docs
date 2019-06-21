@@ -1,7 +1,7 @@
 ---
 section: libraries
 toc: true
-title: Auth0 SDK for Single Page Applications
+title: Auth0 Single Page Application SDK
 description: Auth0 SDK for Single Page Applications using Authorization Code Grant Flow with PKCE.
 topics:
   - libraries
@@ -10,11 +10,11 @@ contentType:
   - index
 ---
 
-# Auth0 SDK for Single Page Applications
+# Auth0 Single Page Application SDK
 
-Auth0 SDK for Single Page Applications using the [Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce).
+The Auth0 Single Page Application (SPA) SDK is a new JavaScript library designed to secure SPAs with best practices and less code. It implements [Universal Login](/universal-login) and the [Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce). The Auth0 SPA SDK handles grant and protocol details, manages token expiration and renewal, and it stores and caches tokens for you.
 
-You can find the source code of the library [on Github](https://github.com/auth0/auth0-spa-js) and the full API documentation is [here](https://auth0.github.io/auth0-spa-js/).
+You can find the source code [on Github](https://github.com/auth0/auth0-spa-js) and the full API documentation [here](https://auth0.github.io/auth0-spa-js/).
 
 ## Installation
 
@@ -23,7 +23,7 @@ You have a few options for using auth0-spa-js in your project:
 From the CDN:
 
 ```html
-<script src="https://cdn.auth0.com/js/auth0-spa-js/1.0.0-beta.2/auth0-spa-js.production.js"></script>
+<script src="https://cdn.auth0.com/js/auth0-spa-js/1.0.0/auth0-spa-js.production.js"></script>
 ```
 
 Using [npm](https://npmjs.org):
@@ -42,7 +42,7 @@ yarn add @auth0/auth0-spa-js
 
 ### Create the client
 
-Before rendering or initializing your application, create an instance of the client. You should only have one instance of the client.
+First, you'll need to create a new instance of `Auth0Client` client object. Create the `Auth0Client` instance before rendering or initializing your application. You should only have one instance of the client.
 
 ```js
 // with async/await
@@ -60,11 +60,15 @@ createAuth0Client({
 });
 ```
 
-### Login
+### Login and Get User Info
+
+Next, create a button users can click to start logging in.
 
 ```html
 <button id="login">Click to Login</button>
 ```
+
+Listen for click events on the button you created. When the event occurs, use the desired login method to authenticate the user (`loginWithPopup()` in this example. After the user is authenticated, you can retrieve the user profile with the `getUser()` method.
 
 ```js
 //with async/await
@@ -88,15 +92,17 @@ document.getElementById('login').addEventListener('click', () => {
 
 ### Call an API
 
+To call your API, start by getting the user's Access Token. Then use the Access Token in your request. In this example the `getTokenSilently` method is used to retrieve the Access Token.
+
 ```html
-<button id="call-api">Call an API</button>
+<button id="callApi">Call an API</button>
 ```
 
 ```js
 //with async/await
-document.getElementById('call-api').addEventListener('click', async () => {
+document.getElementById('callApi').addEventListener('click', async () => {
   const accessToken = await auth0.getTokenSilently();
-  const result = await fetch('https://myapi.com', {
+  const result = await fetch('https://exampleco.com/api', {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${accessToken}`
@@ -107,7 +113,7 @@ document.getElementById('call-api').addEventListener('click', async () => {
 });
 
 //with promises
-document.getElementById('call-api').addEventListener('click', () => {
+document.getElementById('callApi').addEventListener('click', () => {
   auth0
     .getTokenSilently()
     .then(accessToken =>
@@ -126,6 +132,8 @@ document.getElementById('call-api').addEventListener('click', () => {
 ```
 
 ### Logout
+
+Finally, add a button users can click to logout.
 
 ```html
 <button id="logout">Logout</button>

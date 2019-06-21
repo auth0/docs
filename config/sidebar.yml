@@ -1267,6 +1267,9 @@ libraries:
   - title: "Overview"
     url: "/libraries"
 
+  - title: "Auth0 Single Page Application SDK"
+    url: "/libraries/auth0-spa-js"
+
   - title: "Lock for Web"
     url: "/libraries/lock/v11"
     children:
