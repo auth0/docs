@@ -5,7 +5,7 @@ There are many scenarios that require an application _without_ any user-interact
 * A privileged API that may need to be called before a user has authenticated (i.e. from a rule or custom DB script in your Auth0 tenant)
 
 ::: panel best practice
-Traditionally, a special "service account" would have been created in order to cater for these scenarios: a user with a username and password that was configured for services which supported non-interactive use cases. That is no longer a recommended approach for many reasons, and the current best practice is to use [OAuth 2.0 Client Credentials Grant](https://auth0.com/docs/flows/concepts/client-credentials) in these situations.
+Traditionally, a special "service account" would have been created in order to cater for these scenarios: a user with a username and password that was configured for services which supported non-interactive use cases. That is no longer a recommended approach for many reasons, and the current best practice is to use [OAuth 2.0 Client Credentials Grant](/flows/concepts/client-credentials) in these situations.
 :::
 
 ::: warning
