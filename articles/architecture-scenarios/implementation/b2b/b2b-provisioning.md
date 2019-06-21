@@ -21,7 +21,7 @@ useCase:
 ## Provisioning organizations
 
 ::: panel best practice
-What you need to do when provisioning an organization will depend on how organizations are represented in your system.  This can take some time to step back and consider how users of those organizations will be interacting with your applications.  Please see our [Multiple Organization Architecture documents](https://drive.google.com/a/auth0.com/file/d/1y2G8RNHTBujcCrnMRhp6_phQiRAkZzfF/view?usp=sharing) to get a better feel for how to decide how to have organizations represented in your IAM system.
+What you need to do when provisioning an organization will depend on how organizations are represented in your system.  This can take some time to step back and consider how users of those organizations will be interacting with your applications.  Please see our [Multiple Organization Architecture](/media/articles/architecture-scenarios/planning/Multiple-Organization-Architecture-Multitenancy-Overview.pdf) guide to get a better feel for how to decide how to have organizations represented in your IAM system.
 :::
 
 When provisioning organizations you need to consider the following:
