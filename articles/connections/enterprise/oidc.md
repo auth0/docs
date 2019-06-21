@@ -52,7 +52,7 @@ If you edit the OIDC Connect Connection, you will see additional configuration o
 
 * **Domain**: The list of email domains that will be routed to this Identity Provider. This is only applicable when using the Classic Universal Login Experience.
 
-* **Scopes**: The list of OAuth scopes that will be requested when connecting to the identity provider. This will affect the data stored in the user profile.
+* **Scopes**: The list of OAuth scopes that will be requested when connecting to the identity provider. This will affect the data stored in the user profile. You are required to include at least the 'openid' scope.
 
 ## Federating with Auth0
 
