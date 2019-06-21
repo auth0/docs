@@ -43,7 +43,7 @@ Before following these steps, please check our [documentation](/libraries/lock-i
 
 ### Facebook
 
-Lock uses Facebook iOS SDK to obtain user's Access Token so you'll need to configure it using your Facebook App info:
+Lock uses Facebook iOS SDK to obtain user's <dfn data-key="access-token">Access Token</dfn> so you'll need to configure it using your Facebook App info:
 
 First, add the following entries to the `Info.plist`:
 * _FacebookAppID_: `YOUR_FACEBOOK_APP_ID`

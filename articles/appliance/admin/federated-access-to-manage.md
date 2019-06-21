@@ -51,7 +51,7 @@ At this point, send Auth0 the information you've collected in a [Support Ticket]
 In your Support ticket, you should include:
 
 * The **email domain(s)** that will be redirected to your Identity Provider
-* The Identity Provider's **single sign on URL**
+* The Identity Provider's **single sign-on URL**
 * The Identity Provider's **public key** (encoded in PEM or CER format)
 * The **sign out URL** (optional)
 

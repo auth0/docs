@@ -13,7 +13,7 @@ useCase:
 ---
 # Lock UI Customization
 
-You can customize the appearance of your Lock widget in a few different ways. The best and safest way to do so is with the provided JavaScript options.
+You can customize the appearance of your <dfn data-key="lock">Lock</dfn> widget in a few different ways. The best and safest way to do so is with the provided JavaScript options.
 
 ## JavaScript Options
 

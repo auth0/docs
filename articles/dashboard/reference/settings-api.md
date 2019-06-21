@@ -26,6 +26,6 @@ In the [API](${manage_url}/#/apis) section, locate your API and click on its *Se
 
 - **Allow Skipping User Consent**: When this is enabled, the User Consent dialog will not be shown to the end user when a first-party application requests authorized access against your API. Please note that if the hostname of your application's **callbackURL** is `localhost` or `127.0.0.1`, the consent dialog will always be displayed.
 
-- **Allow Offline Access**: When this is enabled, Auth0 will allow applications to ask for Refresh Tokens for your API.
+- **Allow Offline Access**: When this is enabled, Auth0 will allow applications to ask for <dfn data-key="refresh-token">Refresh Tokens</dfn> for your API.
 
 - **Signing Algorithm**: The algorithm with which to sign the tokens. The available values are `HS256` and `RS256`. When selecting `RS256` (recommended), the token will be signed with your tenant's private key. This value is set when your API is created and cannot be modified afterwards. For more details, visit [Signing Algorithms](/api-auth/concepts/signing-algorithms).

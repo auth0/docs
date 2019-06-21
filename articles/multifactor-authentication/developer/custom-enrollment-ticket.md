@@ -114,7 +114,7 @@ Alternatively, the ticket can be leveraged inside the Guardian [Hosted Page](${m
 </html>
 ```
 
-This hosted page displays the Guardian widget in both enrollment and standard multi-factor login scenarios. You can use the ticket variable to check which scenario is in use and control the content accordingly.
+This hosted page displays the Guardian widget in both enrollment and standard <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> login scenarios. You can use the ticket variable to check which scenario is in use and control the content accordingly.
 
 For example, the following code displays a different message depending on whether the user is enrolling or authenticating:
 

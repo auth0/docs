@@ -30,7 +30,7 @@ This endpoint accepts a WS-Federation request to initiate a login.
 | `wtrealm`        | Can be used in place of `client-id`. |
 | `whr`            | The name of the connection (used to skip the login page). |
 | `wctx`           | Your application's state. |
-| `wreply`         | The callback URL. |
+| `wreply`         | The <dfn data-key="callback">callback URL</dfn>. |
 
 
 ### Test with Postman

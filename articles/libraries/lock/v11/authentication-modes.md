@@ -13,7 +13,7 @@ useCase:
 ---
 # Lock Authentication Modes
 
-Lock can function in two different modes. The default mode is **redirect mode**. In this mode, your user is redirected to be authenticated, and then is returned to the application. In the second mode, **popup mode**, a popup window allows the user to authenticate with the identity provider without leaving the application.
+<dfn data-key="lock">Lock</dfn> can function in two different modes. The default mode is **redirect mode**. In this mode, your user is redirected to be authenticated, and then is returned to the application. In the second mode, **popup mode**, a popup window allows the user to authenticate with the identity provider without leaving the application.
 
 ## Redirect Mode
 
@@ -38,14 +38,14 @@ var lock = new Auth0Lock(
 ```
 
 ::: note
-Multi-factor authentication (MFA) is not supported when Lock is in popup mode and embedded in your application.
+<dfn data-key="multifactor-authentication">Multi-factor authentication (MFA)</dfn> is not supported when Lock is in popup mode and embedded in your application.
 :::
 
 ::: note
-Popup mode does not work with [Universal Login](/hosted-pages/login).
+Popup mode does not work with <dfn data-key="universal-login">Universal Login</dfn>.
 :::
 
-Some Auth0 features such as [SSO](/sso/current/sso-auth0) between multiple applications depend on users being redirected to Auth0 to set a cookie on `'${account.namespace}'`.
+Some Auth0 features such as <dfn data-key="single-sign-on">[Single Sign-out (SSO)](/sso/current/sso-auth0)</dfn> between multiple applications depend on users being redirected to Auth0 to set a cookie on `'${account.namespace}'`.
 
 When using popup mode, a popup window will be displayed in order to set this cookie. If prompts are unnecessary, this popup window will be blank and be in a hidden iframe to minimize disruption. The reason for this is that cross-origin requests sent from your application to Auth0 are not be able to set cookies.
 

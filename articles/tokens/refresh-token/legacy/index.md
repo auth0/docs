@@ -14,12 +14,12 @@ useCase:
 # Refresh Token
 
 ::: version-warning
-This document covers an outdated version of the Auth0 authentication pipeline and the way Refresh Tokens are used. We recommend you use <a href="/tokens/refresh-token">the latest version</a>. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+This document covers an outdated version of the Auth0 authentication pipeline and the way <dfn data-key="refresh-token">Refresh Tokens</dfn> are used. We recommend you use <a href="/tokens/refresh-token">the latest version</a>. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
 A **Refresh Token** is a special kind of token that is used to authenticate a user without them needing to re-authenticate. This is primarily useful for mobile applications that are installed on a device.
 
-Usually, a user will need a new Access Token only after the previous one expires, or when gaining access to a new resource for the first time.
+Usually, a user will need a new <dfn data-key="access-token">Access Token</dfn> only after the previous one expires, or when gaining access to a new resource for the first time.
 
 If you are new to Refresh Tokens, you can learn more about them in this blog post: [Refresh Tokens: When to Use Them and How They Interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/).
 
@@ -29,7 +29,7 @@ Refresh Tokens are subject to strict storage requirements to ensure that they ar
 
 ## Obtain a Refresh Token
 
-To obtain a Refresh Token, the `offline_access` scope (see: [Scopes](/scopes)) and an arbitrary `device` name must be included when initiating an authentication request through the [authorize](/api/authentication/reference#authorize-application) endpoint.
+To obtain a Refresh Token, the `offline_access` <dfn data-key="scope">scope</dfn> and an arbitrary `device` name must be included when initiating an authentication request through the [authorize](/api/authentication/reference#authorize-application) endpoint.
 
 For example:
 
@@ -47,7 +47,7 @@ GET https://${account.namespace}/authorize/?
 The `device` parameter can be any value, such as a unique mobile device identifier.
 :::
 
-When the authentication flow completes, Auth0 will redirect the user to the `callback_URL` as usual.
+When the authentication flow completes, Auth0 will redirect the user to the <dfn data-key="callback">`callback_URL`</dfn> as usual.
 The complete URL will be as follows:
 
 ```text

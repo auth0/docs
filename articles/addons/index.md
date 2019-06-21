@@ -21,7 +21,7 @@ Some typical scenarios for using add-ons include:
 
 * **Accessing External APIs**: Using the Delegation endpoint, you can exchange your application's Access Token for a third-party service's (e.g., Salesforce, Amazon) Access Token.
 
-* **Integrating with Applications using SAML2/WS-Federation**: Since Add-ons allow you to configure every aspect of the SAML2/WS-Federation integration, they allow you to integrate with any custom or SSO integration that does not currently enjoy built-in Auth0 support.
+* **Integrating with Applications using SAML2/WS-Federation**: Since Add-ons allow you to configure every aspect of the SAML2/WS-Federation integration, they allow you to integrate with any custom or <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> integration that does not currently enjoy built-in Auth0 support.
 
 ![Addons Example Diagram](/media/articles/applications/applications-addon-types.png)
 

@@ -18,13 +18,13 @@ useCase:
 
 ![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/wordpress-plugin-banner.png)
 
-Auth0 provides a WordPress Plugin to integrate your sites with your Auth0 account. This plugin enables Single Sign On for Enterprises, social login, user/password and passwordless login through all your instances.
+Auth0 provides a WordPress Plugin to integrate your sites with your Auth0 account. This plugin enables <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> for Enterprises, social login, user/password, and <dfn data-key="passwordless">passwordless</dfn> login through all your instances.
 
 Login features are implemented through a new form (powered by Auth0) that enables:
 
-- Single Sign On with Enterprise Directories (LDAP, AD, G Suite, Office365, and SAML Provider)
-- Single Sign On with over 30 [Social Providers](/identityproviders)
-- Single Sign On between WordPress installs and other applications
+- SSO with Enterprise Directories (LDAP, AD, G Suite, Office365, and <dfn data-key="security-assertion-markup-language">SAML</dfn> Provider)
+- SSO with over 30 [Social Providers](/identityproviders)
+- SSO between WordPress installs and other applications
 - User Management Dashboard
 - Optional Multi-factor Authentication
 - Optional Passwordless Authentication

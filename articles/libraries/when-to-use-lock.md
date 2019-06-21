@@ -13,18 +13,18 @@ useCase:
 ---
 # Universal Login Page Customization
 
-When adding Auth0 to your web apps, the best solution is to use Auth0's [Universal Login](/hosted-pages/login). If you plan to use the [New Experience](/universal-login/new), you won't even need to choose an Auth0 library to use inside of the login page, and can stop here. If you are using the [Classic Experience](/universal-login/classic), this guide will help you choose a technology to power your login page.
+When adding Auth0 to your web apps, the best solution is to use Auth0's <dfn data-key="universal-login">Universal Login</dfn>. If you plan to use the [New Experience](/universal-login/new), you won't even need to choose an Auth0 library to use inside of the login page, and can stop here. If you are using the [Classic Experience](/universal-login/classic), this guide will help you choose a technology to power your login page.
 
 Universal Login is less complex than embedding the authentication process within your app. It also prevents the dangers of cross-origin authentication.
 
-The Classic login page uses the Lock Widget by default for user authentication. It also has templates for Lock in Passwordless Mode and for a custom UI built with the Auth0.js SDK. 
+The Classic login page uses the <dfn data-key="lock">Lock Widget</dfn> by default for user authentication. It also has templates for Lock in <dfn data-key="passwordless">Passwordless</dfn> Mode and for a custom UI built with the Auth0.js SDK. 
 
 * [Lock for Web](/libraries/lock), Auth0's drop-in login and signup widget
 * The [Auth0 SDK for Web](/libraries/auth0js) with your custom designed interface
 * Or, a custom user interface that you have created which directly ties into the [Authentication API](/auth-api).
 
 ::: note
-Passwordless authentication from native mobile apps currently must use Universal Login - there is no native passwordless option at this time.
+<dfn data-key="passwordless">Passwordless authentication</dfn> from native mobile apps currently must use Universal Login - there is no native passwordless option at this time.
 :::
 
 ## When to Implement Lock vs. a Custom UI

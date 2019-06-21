@@ -30,16 +30,16 @@ The information contained within the JSON object can be verified and trusted bec
 JWTs can be signed using a secret (with the **HMAC** algorithm) or a public/private key pair using **RSA** or **ECDSA**. When tokens are signed using public/private key pairs, the signature also certifies that only the party holding the private key is the one that signed it.
 
 ::: note
-For additional information about why to use JWT over other token formats, including Simple Web Tokens (SWT) and SAML tokens, see [Why Use JSON Web Token](/tokens/concepts/why-use-jwt).
+For additional information about why to use JWT over other token formats, including Simple Web Tokens (SWT) and <dfn data-key="security-assertion-markup-language">SAML</dfn> tokens, see [Why Use JSON Web Token](/tokens/concepts/why-use-jwt).
 :::
 
 ## Use of JWTs
 
 JWT is a standard, which means that all JWTs are tokens, but not all tokens are JWTs. JWTs can be used in varying ways:
 
-- **Authentication**: When a user successfully logs in using their credentials, an [ID Token](/tokens/id-token) is returned. According to the [OpenID specs](https://openid.net/specs/openid-connect-core-1_0.html#IDToken), an ID Token is always a JWT.
+- **Authentication**: When a user successfully logs in using their credentials, an [ID Token](/tokens/id-token) is returned. According to the <dfn data-key="openid">[OpenID Connect (OIDC) specs](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)</dfn>, an ID Token is always a JWT.
 
-- **Authorization**: Once a user is successfully logged in, an application may request to access routes, services, or resources on behalf of that user. To do so, it uses an [Access Token](/tokens/overview-access-tokens), which *may* be in the form of a JWT. Each subsequent request includes the access token. Single Sign On widely uses JWT because of the small overhead of the format, and its ability to easily be used across different domains.
+- **Authorization**: Once a user is successfully logged in, an application may request to access routes, services, or resources on behalf of that user. To do so, it uses an <dfn data-key="access-token">Access Token</dfn>, which *may* be in the form of a JWT. Each subsequent request includes the access token. <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> widely uses JWT because of the small overhead of the format, and its ability to easily be used across different domains.
 
 - **Information Exchange**: JWTs are a good way of securely transmitting information between parties because they can be signed, which means you can be sure that the senders are who they say they are. Additionally, the structure of a JWT allows you to verify that the content hasn't been tampered with.
 

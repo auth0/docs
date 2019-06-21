@@ -27,7 +27,7 @@ You can implement functionality to enable a user to explicitly link accounts.  I
 ## Advantages of linking accounts
 
 * Allows users to log in with any identity provider without creating a separate profile for each
-* Allows registered users to use a new social or passwordless login but continue using their existing profile
+* Allows registered users to use a new social or <dfn data-key="passwordless">passwordless</dfn> login but continue using their existing profile
 * Allows users that registered using a passwordless login to link to an account with a more complete profile
 * Allows your apps to retrieve user profile data stored in various connections
 

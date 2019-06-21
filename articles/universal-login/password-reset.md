@@ -18,7 +18,7 @@ The Password Reset Page is a page that is hosted by Auth0, and uses Auth0's pass
 
 Using the [Auth0 Dashboard](${manage_url}/#/password_reset), you can customize your Password Reset Page by flipping the toggle switch to enable customizations and providing a custom script.
 
-![Hosted Password Reset Page](/media/articles/hosted-pages/password-reset.png)
+![Hosted Password Reset Page](/media/articles/universal-login/password-reset.png)
 
 ## Edit the Password Reset Page
 
@@ -38,7 +38,7 @@ You can use JavaScript to retrieve the following custom variables:
 | `tenant.name` | The name associated with your Auth0 tenant | 
 | `tenant.friendly_name` | The name displayed for your Auth0 tenant | 
 | `tenant.picture_url` | The URL leading to the logo representing you in Auth0 | 
-| `tenant.support_email` | The support email address for your company displayed to your Auth0 users | 
+| `tenant.support_email` | The support email address for your company displayed to your Auth0 users |
 | `tenant.support_url` | The support URL for your company displayed to your Auth0 users | 
 | `lang` | The user's language | 
 | `password_policy` | The active connection's security policy. You can see what this is using `${manage_url}/#/connections/database/con_YOUR-CONNECTION-ID/security`. Be sure to provide your connection ID in the URL.) |

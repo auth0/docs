@@ -21,7 +21,7 @@ github:
 
 ### Using HWIOAuthBundle for Authentication
 
-If you have used [Symfony](http://symfony.com) before, you are probably already familiar with the [HWIOAuth Bundle](https://github.com/hwi/HWIOAuthBundle). We'll be using it to integrate the Symfony WebApp with [Auth0](https://auth0.com/) and achieve Single Sign On with a few simple steps.
+If you have used [Symfony](http://symfony.com) before, you are probably already familiar with the [HWIOAuth Bundle](https://github.com/hwi/HWIOAuthBundle). We'll be using it to integrate the Symfony WebApp with [Auth0](https://auth0.com/) and achieve Single Sign-On with a few simple steps.
 
 Add HWIOAuthBundle to `composer.json`.
 

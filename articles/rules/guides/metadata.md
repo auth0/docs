@@ -36,7 +36,7 @@ To read the available metadata, you will need to access the correct user propert
 
 ### Read `app_metadata`
 
-Make a decision based on the user's roles:
+Make a decision based on the user's <dfn data-key="role">roles</dfn>:
 
 ```js
 function(user, context, callback){

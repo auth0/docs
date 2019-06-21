@@ -36,7 +36,7 @@ If you're developing your application locally, you can use `localhost` and other
 
 To set a callback URL, go to [Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings) and add the URL to the **Allowed Callback URLs** list.
 
-Because Auth0's main identity protocol is [OpenID Connect](/protocols), Auth0 never needs to directly call your application's server. Instead, Auth0 redirects users to your application's endpoint(s) with required information contained in a query string or hash fragment.
+Because Auth0's main identity protocol is <dfn data-key="openid">OpenID Connect (OIDC)</dfn>, Auth0 never needs to directly call your application's server. Instead, Auth0 redirects users to your application's endpoint(s) with required information contained in a query string or hash fragment.
 
 ## Divert emails for testing
 

@@ -41,7 +41,7 @@ You can access the following common variables when using Liquid Syntax in the **
   * `user.nickname`
   * `user.given_name`
   * `user.family_name`
-  * `user.app_metadata` - stores information (such as a user's support plan, security roles, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
+  * `user.app_metadata` - stores information (such as a user's support plan, security <dfn data-key="role">roles</dfn>, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
   * `user.user_metadata` - stores user attributes (such as user preferences) that do not impact a user's core functionality.
 * Tenant-related information (defined in the [Tenant Settings](${manage_url}/#/tenant)):
   * `tenant` - the raw tenant name
@@ -142,7 +142,7 @@ The **Redirect To** URL is an optional destination to redirect the user to after
 * `application.name` (or its synonym `client.name`)
 * `application.callback_domain` (or its synonym `client.callback_domain`)
   
-The `application.callback_domain` variable will contain the domain of the **first** URL listed in the application's **Allowed Callback URL** list. This lets you redirect users to a path of the application that triggered the action by using a syntax like this:
+The `application.callback_domain` variable will contain the domain of the **first** URL listed in the application's **Allowed <dfn data-key="callback">Callback URL</dfn>** list. This lets you redirect users to a path of the application that triggered the action by using a syntax like this:
 
 ```text
 {{ application.callback_domain }}/result_page
@@ -315,7 +315,7 @@ In addition to the [common variables](#common-variables) available, the template
 
 Unlike the previous email templates types, this email template is not configured from the Email Templates section. Instead, it's part of the [settings for the Email Passwordless Connection](${manage_url}/#/connections/passwordless).
 
-The Passwordless Email is sent when a passwordless access is requested, either by code (the user receives a code that types in the application) or by a link (the user clicks on a link and is taken directly to the application).
+The <dfn data-key="passwordless">Passwordless</dfn> Email is sent when a passwordless access is requested, either by code (the user receives a code that types in the application) or by a link (the user clicks on a link and is taken directly to the application).
 
 You can use all the [common variables](#common-variables) available in all templates, plus the following variables defined specifically for the **Passwordless Email** template:
 

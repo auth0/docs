@@ -136,7 +136,7 @@ This endpoint tests outbound internet connectivity on the node over port 443. Th
 
 | Response Code | Response |
 | ------------- | -------- |
-| 204 | The node was able to successful issue a H`HEAD` request to `https://apt-mirror.it.auth0.com`. |
+| 204 | The node was able to successful issue a `HEAD` request to `https://apt-mirror.it.auth0.com`. |
 | 429 | The status endpoint has been called too many times (limit: 10 requests per second). Please wait and try again. |
 | 520 | The was unable to issue a `HEAD` request, or the node received an error message after sending a `HEAD` request to `https://apt-mirror.it.auth0.com`. |
 

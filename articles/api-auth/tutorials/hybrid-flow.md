@@ -13,7 +13,7 @@ useCase:
 ---
 # How to Implement the Hybrid Flow
 
-The [Hybrid Flow](/api-auth/grant/hybrid) is an OpenID Connect (OIDC) grant that enables use cases where your application can immediately use an ID token to access information about the user while obtaining an authorization code that can be exchanged for an Access Token (therefore gaining access to protected resources for an extended period of time).
+The [Hybrid Flow](/api-auth/grant/hybrid) is an <dfn data-key="openid">OpenID Connect (OIDC)</dfn> grant that enables use cases where your application can immediately use an ID token to access information about the user while obtaining an authorization code that can be exchanged for an Access Token (therefore gaining access to protected resources for an extended period of time).
 
 In this article, we will show you how you can use the Hybrid Flow in Auth0.
 
@@ -43,7 +43,7 @@ Where:
 
 * `audience`: The unique identifier of the API the web app wants to access. Use the **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial.
 
-* `scope`: The [scopes](/scopes) which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a Refresh Token (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)). The custom scopes must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). For more information on this, refer to the [Namespacing Custom Claims](#optional-customize-the-tokens) panel.
+* `scope`: The <dfn data-key="scope">scopes</dfn> which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a <dfn data-key="refresh-token">Refresh Token</dfn> (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)). The custom scopes must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). For more information on this, refer to the [Namespacing Custom Claims](#optional-customize-the-tokens) panel.
 
 * `response_type`: Denotes the kind of credential that Auth0 will return (code vs token). For this flow, the value must be `code id_token`, `code token`, or `code id_token token`. More specifically, `token` returns an Access Token, `id_token` returns an ID Token, and `code` returns the Authorization Code.
 

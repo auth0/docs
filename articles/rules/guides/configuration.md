@@ -37,7 +37,7 @@ The following example is a Rule for sending a Slack message when a new user has 
 
 ```js
 function (user, context, callback) {
-  // short-circuit if the user signed up already or is using a refresh token
+  // short-circuit if the user signed up already or is using a Refresh Token
   if (context.stats.loginsCount > 1 || context.protocol === 'oauth2-refresh-token') {
     return callback(null, user, context);
   }

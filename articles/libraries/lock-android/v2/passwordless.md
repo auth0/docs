@@ -17,7 +17,7 @@ useCase:
 
 <%= include('../../../_includes/_native_passwordless_warning') %>
 
-Lock Passwordless authenticates users by sending them an Email or SMS with a one-time password that the user must enter and confirm to be able to log in, similar to how WhatsApp authenticates you. This article will explain how to send a **CODE** using the `Lock.Android` library.
+<dfn data-key="lock">Lock</dfn> <dfn data-key="passwordless">Passwordless</dfn> authenticates users by sending them an Email or SMS with a one-time password that the user must enter and confirm to be able to log in, similar to how WhatsApp authenticates you. This article will explain how to send a **CODE** using the `Lock.Android` library.
 
 ::: note
 You can achieve a similar result by sending a **LINK** that the user can click to finish the passwordless authentication automatically, but a few more configuration steps are involved. You can check that article [here](/libraries/lock-android/v2/passwordless-magic-link).
@@ -29,7 +29,7 @@ Note that Passwordless Lock *cannot be used* with the [OIDC Conformant Mode](/li
 
 ## Implementing CODE Passwordless
 
-In your `app/build.gradle` file add the [Manifest Placeholders](https://developer.android.com/studio/build/manifest-build-variables.html) for the Auth0 Domain and the Auth0 Scheme properties which are going to be used internally by the library to register an intent-filter that captures the callback URI.
+In your `app/build.gradle` file add the [Manifest Placeholders](https://developer.android.com/studio/build/manifest-build-variables.html) for the Auth0 Domain and the Auth0 Scheme properties which are going to be used internally by the library to register an intent-filter that captures the <dfn data-key="callback">callback URI</dfn>.
 
 ```groovy
 apply plugin: 'com.android.application'

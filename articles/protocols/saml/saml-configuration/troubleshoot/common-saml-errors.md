@@ -13,7 +13,7 @@ useCase:
 
 # Common SAML Errors
 
-This article covers SAML errors you might encounter when Auth0 acts as the service provider and the steps you should take to resolve them.
+This article covers <dfn data-key="security-assertion-markup-language">SAML</dfn> errors you might encounter when Auth0 acts as the service provider and the steps you should take to resolve them.
 
 ## Error: The Connection was Disabled
 
@@ -82,7 +82,7 @@ Make sure that the identity provider sends the correct `audience` value in the S
 
 ## Error: Specifying the Incorrect Protocol
 
-One common error is specifying the incorrect response protocol on the IdP-Initiated tab. The response protocol is the one used between Auth0 and the Application (not the remote identity provider). For example, if you set this value to **SAML** when your Application expects **OpenID Connect** or **WS-Fed** results in errors due to the incorrect configuration.
+One common error is specifying the incorrect response protocol on the IdP-Initiated tab. The response protocol is the one used between Auth0 and the Application (not the remote identity provider). For example, if you set this value to **SAML** when your Application expects <dfn data-key="openid">**OpenID Connect**</dfn> or **WS-Fed** results in errors due to the incorrect configuration.
 
 ### How to Fix
 

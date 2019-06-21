@@ -122,7 +122,7 @@ var Auth = (function() {
           return;
         }
 
-        //we recommend not storing access tokens unless absolutely necessary
+        //we recommend not storing Access Tokens unless absolutely necessary
         wm.set(privateStore, {
           accessToken: authResult.accessToken
         });
@@ -164,7 +164,7 @@ document.getElementById('btn-login').addEventListener('click', function() {
 ## Passwordless
 
 ::: note
-Lock's Passwordless Mode is only available in Lock v11.2.0 and later. Please use the [latest release of Lock](https://github.com/auth0/lock/releases) for this feature!
+Lock's <dfn data-key="passwordless">Passwordless</dfn> Mode is only available in Lock v11.2.0 and later. Please use the [latest release of Lock](https://github.com/auth0/lock/releases) for this feature!
 :::
 
 You can use Lock's Passwordless Mode to allow users to authenticate using just an email or mobile number. They will receive the code and then return to input it, or click the link, and they can be authenticated without remembering a password.

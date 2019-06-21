@@ -20,7 +20,7 @@ useCase: invoke-api
   <div class="span4 col-sm-4 api-description" style="text-align:right">Obtain a token to call the API</div>
 </div>
 
-Auth0 API requires an Access Token. You can get one by authenticating with your `client_id` and `client_secret` (It will be valid for 24 hours). To obtain the global client ID and global client secret see the **Advanced** tab under [Tenant Settings](${manage_url}/#/tenant/advanced) in the Auth0 dashboard.
+Auth0 API requires an <dfn data-key="access-token">Access Token</dfn>. You can get one by authenticating with your `client_id` and `client_secret` (It will be valid for 24 hours). To obtain the global client ID and global client secret see the **Advanced** tab under [Tenant Settings](${manage_url}/#/tenant/advanced) in the Auth0 dashboard.
 
 ```text
 POST /oauth/token
@@ -74,7 +74,7 @@ Authorization: Bearer {token}
   <div class="span4 col-sm-4 api-description" style="text-align:right">Gets all user's devices</div>
 </div>
 
-Gets all devices/Refresh Tokens being used by the user.
+Gets all devices/<dfn data-key="refresh-token">Refresh Tokens</dfn> being used by the user.
 
 ```text
 GET /api/users/{user_id}/devices
@@ -342,7 +342,7 @@ Authorization: Bearer {token}
   <div class="span4 col-sm-4 api-description" style="text-align:right">Revokes a Refresh Token</div>
 </div>
 
-Revokes a user's Refresh Token
+Revokes a user's <dfn data-key="refresh-token">Refresh Token</dfn>
 
 ```text
 DELETE /api/users/{user_id}/refresh_tokens/{refresh_token}
@@ -482,7 +482,7 @@ Authorization: Bearer {token}
   <div class="span4 col-sm-4 api-description" style="text-align:right">Creates a new applications/APIs</div>
 </div>
 
-Create an application. The body of the request can include the `name` and `callbacks` parameters.
+Create an application. The body of the request can include the `name` and <dfn data-key="callback">`callbacks`</dfn> parameters.
 
 ```text
 POST /api/clients

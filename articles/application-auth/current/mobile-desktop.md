@@ -83,7 +83,7 @@ Once you've created the `code_verifier` and the `code_challenge`, you'll need to
 
 * Authenticating the user;
 * Redirecting the user to an Identity Provider to handle authentication;
-* Checking for active SSO [sessions](/sessions).
+* Checking for active <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> [sessions](/sessions).
 
 To authorize the user, your application must send the user to the [authorization URL](/api/authentication#authorization-code-grant-pkce-) (which includes the `code_challenge` you generated in the previous step, as well as the method you used to generate the `code_challenge`). Your URL should follow this format:
 

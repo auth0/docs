@@ -26,6 +26,17 @@ When the recipient opens and accepts the invite, the current Auth0 account in th
 
 Administrators are application-specific, so areas to which the admin doesn't have access rights (e.g., APIs, Rules, Hooks, Hosted Pages, and so on) will appear as blank pages. Administrators will also *not* be allowed to manage users, create rules, and perform other functions for applications to which they don't have access.
 
+::: panel Application-Specific Access
+Application-specific access includes the following:
+
+* Read and write access to the specific application configuration
+* Read access to enabled connections for the application
+* Ability to configure add-ons for the specific application
+* Read (not write) access to all user records
+
+In addition, a user can be invited to be an administrator for multiple applications, but each application invite must be sent and accepted individually.
+:::
+
 ## Update Admin
 
 To update the email address associated with an existing tenant administrator, invite a new dashboard administrator using a new email address. Once they accept the invite, you can remove the tenant administrator associated with the old email address.

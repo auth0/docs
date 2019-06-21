@@ -110,7 +110,7 @@ AUTH0_CLIENT_SECRET="application_client_secret"
 AUTH0_REDIRECT_URI="https://yourdomain.com/auth/callback"
 ```
 
-The `AUTH0_REDIRECT_URI` value above is a URL for your application that will handle the callback from Auth0. This is used for both successful logins as well as errors. The processing that happens at this URL is covered later in this documentation.
+The `AUTH0_REDIRECT_URI` value above is a URL for your application that will handle the <dfn data-key="callback">callback</dfn> from Auth0. This is used for both successful logins as well as errors. The processing that happens at this URL is covered later in this documentation.
 
 In your application (below the Composer autoload `require`), add:
 

@@ -60,11 +60,11 @@ Then Auth0 will use Twilio to send to the user an SMS containing the one-time co
 
 <div class="phone-mockup"><img src="/media/articles/connections/passwordless/passwordless-sms-receive-code-web.png" alt="SMS one-time code"/></div>
 
-Lock will ask for the code that has been sent via SMS to the provided number. The code can then be used as a one-time password to log in:
+<dfn data-key="lock">Lock</dfn> will ask for the code that has been sent via SMS to the provided number. The code can then be used as a one-time password to log in:
 
 ![](/media/articles/connections/passwordless/passwordless-sms-enter-code-web.png)
 
-If the code is correct, the user will be authenticated. This will trigger the `authenticated` event where the ID Token and Access Token will be available. Then the user will be allowed to continue to the authenticated part of the application.
+If the code is correct, the user will be authenticated. This will trigger the `authenticated` event where the ID Token and <dfn data-key="access-token">Access Token</dfn> will be available. Then the user will be allowed to continue to the authenticated part of the application.
 
 ### Use your own UI
 

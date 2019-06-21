@@ -35,4 +35,4 @@ This guide will show you how to view the [permissions](/authorization/concepts/r
 | **Value** | **Description** |
 | - | - |
 | `USER_ID` | Τhe ID of the user for whom you want to get permissions. |
-| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the scope `read:users`. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `read:users`. |

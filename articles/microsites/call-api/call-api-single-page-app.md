@@ -22,7 +22,7 @@ Your user will authenticate, and Auth0 will generate an ID Token and Access Toke
 When your app needs to fetch user data from your API:
 
 1. If the user is not already authenticated, our SDK redirects the user to your Auth0 Authorization Server, requesting an ID Token.
-2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML), 
+2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, <dfn data-key="security-assertion-markup-language">SAML</dfn>), 
 3. Auth0 responds with the user's ID Token and Access Token.
 3. The Access Token can be used to call your API and retrieve requested data.
 

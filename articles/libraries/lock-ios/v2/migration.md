@@ -19,7 +19,7 @@ useCase:
 ---
 # Migrating from Lock iOS v1 to v2
 
-Lock 2.0 is the latest major release of Lock iOS-OSX. This guide is provided in order to ease the transition of existing applications using Lock 1.x to the latest APIs.
+<dfn data-key="lock">Lock</dfn> 2.0 is the latest major release of Lock iOS-OSX. This guide is provided in order to ease the transition of existing applications using Lock 1.x to the latest APIs.
 
 ## Requirements
 
@@ -85,7 +85,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 #### Application is asked to continue a User Activity
 
-If you are using Lock passwordless and have specified the `.magicLink` option to send the user a universal link then you will need to add the following to your `AppDelegate.swift`:
+If you are using Lock <dfn data-key="passwordless">passwordless</dfn> and have specified the `.magicLink` option to send the user a universal link then you will need to add the following to your `AppDelegate.swift`:
 
 ```swift
 func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
@@ -143,7 +143,7 @@ Lock
   .present(from: self)
 ```
 
-So, in the `onAuth` callback, you'd only receive the credentials of the user when the authentication is successful.
+So, in the `onAuth` <dfn data-key="callback">callback</dfn>, you'd only receive the credentials of the user when the authentication is successful.
 
 ::: note
 In contrast with Lock v1, in v2, Lock will dismiss itself so there is no need to call `dismissViewController(animated:, completion:)` in any of the callbacks.

@@ -23,4 +23,4 @@ useCase:
 }
 ```
 
-The **Callback URL** is `https://www.hostedgraphite.com/complete/saml/{YOUR-USER-ID}/`.
+The **<dfn data-key="callback">Callback URL</dfn>** is `https://www.hostedgraphite.com/complete/saml/{YOUR-USER-ID}/`.

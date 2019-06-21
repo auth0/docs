@@ -17,7 +17,7 @@ Most options are the default values. You will just need to press __Next__ in mos
 * __EntityID:__ `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME`
 * __Assertion Consumer Service URL:__ `https://${account.namespace}/login/callback`
 * __Logout URL:__ `https://${account.namespace}/logout`
-* __HTTP-Redirect__ binding for SAML Request
+* __HTTP-Redirect__ binding for <dfn data-key="security-assertion-markup-language">SAML</dfn> Request
 * __HTTP-POST__ binding for SAML Response
 
 If you want **IdP-Initiated SSO** make sure to include the `connection` parameter in the Assertion Consumer Service URL: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`.

@@ -1,4 +1,4 @@
-If the call was successful, you'll receive a response in the below format, containing the Access Token:
+If the call was successful, you'll receive a response in the below format, containing the <dfn data-key="access-token">Access Token</dfn>:
 
 ```
 {

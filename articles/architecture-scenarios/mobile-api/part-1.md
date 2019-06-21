@@ -25,7 +25,7 @@ useCase:
 
 OAuth 2 provides several grant types for different use cases. In this particular use case, we want to access the API from a mobile application, which will use the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce) to do so.
 
-The [Authorization Code Flow](/flows/concepts/auth-code) has some security issues when implemented on native applications. For instance, a malicious attacker can intercept the `authorization_code` returned by Auth0 and exchange it for an [Access Token](/tokens/overview-access-tokens) (and possibly a [Refresh Token](/tokens/refresh-token)).
+The [Authorization Code Flow](/flows/concepts/auth-code) has some security issues when implemented on native applications. For instance, a malicious attacker can intercept the `authorization_code` returned by Auth0 and exchange it for an [Access Token](/tokens/overview-access-tokens) (and possibly a <dfn data-key="refresh-token">[Refresh Token](/tokens/refresh-token)</dfn>).
 
 The Proof Key for Code Exchange (PKCE) (defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)) is a technique used to mitigate this authorization code interception attack.
 
@@ -41,7 +41,7 @@ With PKCE, the Application creates, for every authorization request, a cryptogra
 
 ## Authorization Extension
 
-The [Auth0 Authorization Extension](/extensions/authorization-extension) allows you to provide authorization support in your application, by assigning Roles, Groups and Permissions to Users.
+The [Auth0 Authorization Extension](/extensions/authorization-extension) allows you to provide authorization support in your application, by assigning <dfn data-key="role">Roles</dfn>, Groups and Permissions to Users.
 
 The Authorization Extension creates a [Rule](/rules) which will augment the [User profile](/rules/current#rule-syntax) during the authentication flow with the Roles, Groups and Permissions assigned to the user. You can then use this information to ensure that the Access Token issued to a user only contains scopes which are allowed according to the permissions defined in the Authorization Extension.
 

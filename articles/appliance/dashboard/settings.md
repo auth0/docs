@@ -105,7 +105,7 @@ When providing time values to Auth0, please use the following abbreviations to e
 
 ## Advanced Settings
 
-* **Enable Large Cookie Size**: if enabled, cookies larger than 4kb will be permitted (this might be required for protocols such as SAML and WS-Federation).
+* **Enable Large Cookie Size**: if enabled, cookies larger than 4kb will be permitted (this might be required for protocols such as <dfn data-key="security-assertion-markup-language">SAML</dfn> and WS-Federation).
 * **Max Custom Database Timeout**: the maximum time allowed in seconds to make a query to your database (in seconds) for a custom database connection.
 
 ## Deprecated

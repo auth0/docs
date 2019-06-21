@@ -11,13 +11,13 @@ contentType:
 
 Using email as an MFA factor is useful when you want to provide users a way to perform MFA when they don't have their primary factor available (e.g. they don't have their phone to receive an SMS or push notification). 
 
-You can only enable email as an MFA factor if there is already another factor enabled. Email will only be functional as a factor from Universal Login when you have the [New Universal Login Experience](/universal-login/new) enabled.
+You can only enable email as an MFA factor if there is already another factor enabled. Email will only be functional as a factor from <dfn data-key="universal-login">Universal Login</dfn> when you have the [New Universal Login Experience](/universal-login/new) enabled.
 
 Once Email MFA is enabled user will be prompted to complete MFA with the other enabled factor. If they have a verified email they will be given the option to select Email, and get an one time code in their email which they can then enter to complete MFA.
 
 Users do not need to explicitly enroll with email MFA. They will get be able to use it when they have a verified email. This happens when they completed the email verification flow, when the updated the email_verified field using the Management API, or when they logged-in with a connection that provides verified emails (e.g. Google).
 
-Note that Email is not true 'Multi-factor Authentication' as it does not represent a different factor than the password. It does not represent 'something I have' or 'something I am', but rather just another 'something I know' (the email password). It is also weaker than other factors, in that it's only as secure as the email itself (e.g. is it encrypted end-to-end?).
+Note that Email is not true <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> as it does not represent a different factor than the password. It does not represent 'something I have' or 'something I am', but rather just another 'something I know' (the email password). It is also weaker than other factors, in that it's only as secure as the email itself (e.g. is it encrypted end-to-end?).
 
 ## End-user experience
 

@@ -1,13 +1,14 @@
 # Get Token
 
 Use this endpoint to:
-- Get an Access Token in order to call an API. You can, optionally, retrieve an ID Token and a Refresh Token as well.
+- Get an <dfn data-key="access-token">Access Token</dfn> in order to call an API. You can, optionally, retrieve an ID Token and a <dfn data-key="refresh-token">Refresh Token</dfn> as well.
 - Refresh your Access Token, using a Refresh Token you got during authorization.
 
 Note that the only OAuth 2.0 flows that can retrieve a Refresh Token are:
 - [Authorization Code Flow (Authorization Code)](/flows/concepts/auth-code)
 - [Authorization Code Flow with PKCE (Authorization Code with PKCE)](/flows/concepts/auth-code-pkce)
 - [Resource Owner Password](/api-auth/grant/password)
+- [Device Authorization Flow](/flows/concepts/device-auth)
 
 ## Authorization Code Flow
 
@@ -94,7 +95,7 @@ If you have just executed the [Authorization Code Grant](#authorization-code-gra
 
 1. At the *Configuration* tab, set the **Application** field to the application you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](#authorization-code-grant). Click **OAuth2 Code Exchange**.
 
@@ -185,7 +186,7 @@ If you have just executed the [Authorization Code Grant (PKCE)](#authorization-c
 
 1. At the *Configuration* tab, set the **Client** field to the application you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](#authorization-code-grant-pkce-), and the **Code Verifier** to the key. Click **OAuth2 Code Exchange**.
 
@@ -251,7 +252,7 @@ Content-Type: application/json
   "link": "#client-credentials"
 }) %>
 
-This is the OAuth 2.0 grant that server processes use to access an API. Use this endpoint to directly request an Access Token by using the Client's credentials (a Client ID and a Client Secret).
+This is the OAuth 2.0 grant that server processes use to access an API. Use this endpoint to directly request an <dfn data-key="access-token">Access Token</dfn> by using the Client's credentials (a Client ID and a Client Secret).
 
 ### Request Parameters
 
@@ -269,7 +270,7 @@ This is the OAuth 2.0 grant that server processes use to access an API. Use this
 
 1. At the *Configuration* tab, set the **Client** field to the application you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, click **OAuth2 Client Credentials**.
 
@@ -358,7 +359,7 @@ This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In th
 | `audience` | The unique identifier of the target API you want to access. |
 | `username` <br/><span class="label label-danger">Required</span> | Resource Owner's identifier. |
 | `password` <br/><span class="label label-danger">Required</span> | Resource Owner's secret. |
-| `scope` | String value of the different scopes the application is asking for. Multiple scopes are separated with whitespace. |
+| `scope` | String value of the different <dfn data-key="scope">scopes</dfn> the application is asking for. Multiple scopes are separated with whitespace. |
 | `realm` | String value of the realm the user belongs. Set this if you want to add realm support at this grant. For more information on what realms are refer to [Realm Support](/api-auth/grant/password#realm-support). |
 
 ### Request headers
@@ -373,14 +374,14 @@ This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In th
 
 1. At the *Configuration* tab, set the **Client** field to the application you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the **Username** and **Password**, and click **Password Grant**.
 
 
 ### Remarks
 
-- The scopes issued to the application may differ from the scopes requested. In this case, a `scope` parameter will be included in the response JSON.
+- The <dfn data-key="scope">scopes</dfn> issued to the application may differ from the scopes requested. In this case, a `scope` parameter will be included in the response JSON.
 - If you don't request specific scopes, all scopes defined for the audience will be returned due to the implied trust to the application in this grant. You can customize the scopes returned in a rule. For more information, refer to [Calling APIs from Highly Trusted Applications](/api-auth/grant/password).
 - To add realm support set the `grant_type` to `http://auth0.com/oauth/grant-type/password-realm`, and the `realm` to the realm the user belongs. This maps to a connection in Auth0. For example, if you have configured a database connection for your internal employees and you have named the connection `employees`, then use this value. For more information on how to implement this refer to: [Realm Support](/api-auth/tutorials/password-grant#realm-support).
 - In addition to username and password, Auth0 may also require the end-user to provide an additional factor as proof of identity before issuing the requested scopes. In this case, the request described above will return an `mfa_required` error along with an `mfa_token`. You can use these tokens to request a challenge for the possession factor and validate it accordingly. For details refer to [Resource Owner Password and MFA](#resource-owner-password-and-mfa).
@@ -389,6 +390,112 @@ This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In th
 - [Calling APIs from Highly-Trusted Applications](/api-auth/grant/password)
 - [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
 - [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password)
+
+## Device Authorization Flow
+
+```http
+POST https://${account.namespace}/oauth/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id=${account.clientId}&device_code=YOUR_DEVICE_CODE&grant_type=urn:ietf:params:oauth:grant-type:device_code
+```
+
+```shell
+curl --request POST \
+  --url 'https://${account.namespace}/oauth/token' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --data 'client_id=${account.clientId}&device_code=YOUR_DEVICE_CODE&grant_type=urn:ietf:params:oauth:grant-type:device_code'
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://${account.namespace}/oauth/token',
+  headers: { 'content-type': 'application/x-www-form-urlencoded' },
+  form:
+   { client_id: '${account.clientId}',
+     device_code: 'YOUR_DEVICE_CODE',
+     grant_type: 'urn:ietf:params:oauth:grant-type:device_code' }
+   };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+
+> RESPONSE SAMPLE:
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+   "access_token": "eyJz93a...k4laUWw",
+   "id_token": "eyJ...0NE",
+   "refresh_token": "eyJ...MoQ",
+   "scope": "...",
+   "expires_in": 86400,
+   "token_type": "Bearer"
+}
+```
+
+```JSON
+HTTP/1.1 400 BAD REQUEST
+Content-Type: application/json
+ { 
+  // Can be retried
+  "error": "authorization_pending",
+  "error_description": "User has yet to authorize device code."
+ }
+```
+
+```JSON
+HTTP/1.1 400 BAD REQUEST
+Content-Type: application/json
+ { 
+  // Can be retried
+  "error": "slow_down",
+  "error_description": "You are polling faster than the specified interval of 5 seconds."
+ }
+```
+
+```JSON
+HTTP/1.1 400 BAD REQUEST
+Content-Type: application/json
+ { 
+    // Cannot be retried; transaction failed
+    "error": "access_denied|invalid_grant|...",
+    "error_description": "Failure: User cancelled the confirmation prompt or consent page; the code expired; there was an error."
+ }
+```
+
+<%= include('../../../_includes/_http-method', {
+  "http_badge": "badge-success",
+  "http_method": "POST",
+  "path": "/oauth/token",
+  "link": "#device-auth"
+}) %>
+
+This is the OAuth 2.0 grant that input-constrained devices use to access an API. Poll this endpoint using the interval returned with your [device code](/api/authentication#get-device-code) to directly request an Access Token using the application's credentials (a Client ID) and a device code.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Device Authorization, use `urn:ietf:params:oauth:grant-type:device_code`. |
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
+| `device_code` <br/><span class="label label-danger">Required</span> | The device code previously returned from the [/oauth/device/code endpoint](/api/authentication#device-authorization-flow). |
+
+### Remarks
+- Because you will be polling this endpoint (using the `interval` from the initial response to determine frequency) while waiting for the user to go to the verification URL and enter their user code, you will likely receive at least one failure before receiving a successful response. See sample responses for possible responses.
+
+### More Information
+
+- [Device Authorization Flow](/flows/concepts/device-auth)
+- [Call API using the Device Authorization Flow](/flows/guides/device-auth/call-api-device-auth)
+- [Setting up a Device Code Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard)
 
 ## Refresh Token
 
@@ -447,7 +554,7 @@ Content-Type: application/json
   "link": "#refresh-token"
 }) %>
 
-Use this endpoint to refresh an Access Token using the Refresh Token you got during authorization.
+Use this endpoint to refresh an <dfn data-key="access-token">Access Token</dfn> using the <dfn data-key="refresh-token">Refresh Token</dfn> you got during authorization.
 
 
 ### Request Parameters
@@ -466,7 +573,7 @@ Use this endpoint to refresh an Access Token using the Refresh Token you got dur
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the field **Refresh Token** to the Refresh Token you have. Click **OAuth2 Refresh Token Exchange**.
 

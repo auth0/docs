@@ -15,7 +15,7 @@ useCase:
 ---
 # Edit Role Definitions
 
-This guide will show you how to edit a role definition using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/roles/edit-role-definitions). Roles are used with the API Authorization Core feature set.
+This guide will show you how to edit a <dfn data-key="role">[role](/authorization/concepts/rbac)</dfn> definition using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/roles/edit-role-definitions). Roles are used with the API Authorization Core feature set.
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
@@ -40,6 +40,6 @@ This guide will show you how to edit a role definition using Auth0's Management 
 | **Value** | **Description** |
 | - | - |
 | `ROLE_ID` | Τhe ID of the role for which you want to edit the definition. |
-| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the scope `update:roles`. |
+| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:roles`. |
 | `ROLE_NAME` | Name of the role. |
 | `ROLE_DESC` | User-friendly description of the role. |

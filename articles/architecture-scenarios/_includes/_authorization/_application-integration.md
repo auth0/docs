@@ -1,4 +1,4 @@
-In this scenario, your Auth0 tenant provides a token as an indicator of authorized access to an application. For applications utilizing OpenID Connect ([OIDC](/protocols/oidc)), the industry-standard protocol we typically find most utilized when it comes to customer facing applications, this would be an ID Token expressed as a [JWT](/jwt).
+In this scenario, your Auth0 tenant provides a token as an indicator of authorized access to an application. For applications utilizing <dfn data-key="openid">[OpenID Connect (OIDC)](/protocols/oidc)</dfn>, the industry-standard protocol we typically find most utilized when it comes to customer facing applications, this would be an ID Token expressed as a [JWT](/jwt).
 
 ### ID Token claims 
 
@@ -7,6 +7,10 @@ Using Rule extensibility, Auth0 allows you to easily [add custom claims to an ID
 ::: panel Best Practice
 When you are considering adding custom claims, we recommend that you store any access control data you may need to include within claims as part of the user's [`app_metadata`](/users/concepts/overview-user-metadata). Firstly, this prevents you from needing to call an external API to fetch the data, which can negatively impact the performance and scalability of the login sequence. Secondly `app_metadata` **cannot** be modified by a user - so the user cannot directly circumvent any access control restrictions by modifying their own metadata. Also remember to check out our [metadata best practices](architecture-scenarios/implementation/${platform}/${platform}-profile-mgmt#metadata) guidance too.
 :::
+
+<% if (platform === "b2b") { %>
+If you are creating different instances of your application for your customer organizations, a common practice is to create a custom claim in your ID token to represent the user's organization. For example, `context.idToken["http://yourdomain.com/claims/organization"]= "organization A";`
+<%  } %>
 
 ### ID Token scopes
 

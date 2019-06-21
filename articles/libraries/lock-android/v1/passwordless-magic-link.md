@@ -19,12 +19,12 @@ useCase:
 <%= include('../_includes/_lock-version') %>
 
 ::: warning
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Application Grant Types](/applications/concepts/application-grant-types) for more information. Alternatively, you can use Lock Passwordless with Auth0's [Universal Login](/hosted-pages/login).
+<dfn data-key="passwordless">Passwordless</dfn> on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Application Grant Types](/applications/concepts/application-grant-types) for more information. Alternatively, you can use Lock Passwordless with Auth0's <dfn data-key="universal-login">Universal Login</dfn>.
 :::
 
 ## Passwordless Authentication with Magic Link
 
-In order to avoid asking the user to input the one-time password sent for passwordless authentication in Android apps, we introduced the ability to send a link that the user can tap to login without any code input involved.
+In order to avoid asking the user to input the one-time password sent for <dfn data-key="passwordless">passwordless</dfn> authentication in Android apps, we introduced the ability to send a link that the user can tap to login without any code input involved.
 
 These links include the same code that would be used in the traditional passwordless flow, but with the correct configuration they will be handled automatically by the Android system and our application will log in the users effortlessly by relying on **Android App Links**.
 
