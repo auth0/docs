@@ -14,6 +14,10 @@ topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
+show_releases: true
+sdk:
+  name: auth0-spa-js 1.0.0
+  url: https://github.com/auth0/auth0-spa-js
 snippets:
   dependencies: application-platforms/angular2/dependencies
   setup: application-platforms/angular2/setup
@@ -26,7 +30,7 @@ articles:
 show_steps: true
 github:
   org: auth0-samples
-  repo: auth0-spa-js-angular-samples
+  repo: auth0-angular-samples
   branch: master
 requirements:
   - Angular 7+
