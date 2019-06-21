@@ -1,0 +1,1 @@
+Auth0 also provides helpful implementation planning [checklists](/architecture-scenarios/checklists) that you can use to organize your implementation tasks. Though all of these may not apply to you, there are six checklists, each of which is provided in Google Sheets format and aligns with a particular phase of a typical SDLC (Software Development Life Cycle).
