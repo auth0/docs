@@ -12,7 +12,7 @@ Establishing effective operational behaviors is something that successful custom
 *	What email services should I be using to support production volumes of email messages to users? Why can’t I use Auth0's out-of-box email provider in my production environment?
 *	Why would I need to configure my firewall, and what firewall ports will I need to open for internal services that need to receive communications from Auth0 (such as custom databases, web services, and email servers)?
 <% if (platform === "b2b") { %>
-* Will I need to provide self-service provisioning for my customer, so that they can configure their own organizational  IDPs?
+* Will I need to provide self-service provisioning for my customer so that they can configure their own organizational  IDPs?
 <%  } %>
 
 Auth0 supports functionality for [monitoring](#monitoring) Auth0 service operation as well as providing information regarding Auth0 [service status](#service-status). In addition, Auth0 makes security-related bulletins as well as information regarding upcoming changes to the Auth0 service available via various [notifications](#notifications). Auth0 [logging](#logging) services also provide extensive functionality for tracing and identifying operational anomalies, including restrictions encountered due to rate limiting and/or excessive loading.
@@ -22,5 +22,5 @@ Out-of-box, Auth0 provides email delivery services to help you accelerate your i
 You may also need to make changes to [infrastructure](#infrastructure) configuration in order to support integration with Auth0 and to support use of Auth0 extensibility. For example, if you need to provide callbacks to your internal or even external infrastructure (e.g., if you need to make external API calls in Rules or Hooks, or via custom database scripts if you need to leverage existing legacy identity storage), then you may need to configure your Firewall settings.
 
 <% if (platform === "b2b") { %>
-In addition, there are many cases where our customers have invested in developing one or more self-service portals for use by the admins associated with their customers' organizations. Among other things, this provides their customers with self-service capabilities for configuring [IdPs](#self-service-idp-provisioning) for their own organizations.
+In addition, many of our customers have developed one or more self-service portals for use by their customers' organization admins to provide self-service capabilities for configuring [IdPs](#self-service-idp-provisioning) for their own IdPs.
 <%  } %>
