@@ -34,7 +34,6 @@ scripts": {
   "build": "react-scripts build",
   "test": "react-scripts test",
   "eject": "react-scripts eject",
-  "now-build": "react-scripts build",
   "dev": "npm-run-all --parallel start server",
   "server": "node server.js"
 },
