@@ -10,6 +10,6 @@ In general, we see customers having the most success when they use a centralized
 
 <% if (platform === "b2b") { %>
 ::: warning
-If your organization users will all be isolated from each other and you **require** that those users are presented a login page at a custom domain, then your only option is to create a [separate tenant for each organization](/architecture-scenarios/b2b/b2b-architecture#tenant-provision-for-complex-organizations).
+If your organization users will all be isolated from each other and you **require** that those users are presented a login page at a custom domain, then your only option is to create a [separate tenant for each organization](/architecture-scenarios/${platform}/${platform}-architecture#tenant-provision-for-complex-organizations).
 :::
 <%  } %>
