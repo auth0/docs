@@ -1,4 +1,4 @@
-In order to provide services to your users, you must be able to identify who those users are. This process is called User  Authentication. There are a number of ways to perform authentication of a user - via social media accounts, username & password, passwordless - and it's often recommended that you go beyond a first factor for authenticating the user by adding a second factor as well (a.k.a. Multi-factor Authentication).
+In order to provide services to your users, you must be able to identify who those users are. This process is called User  Authentication. There are a number of ways to perform authentication of a user - via social media accounts, username and password, passwordless - and it's often recommended that you go beyond a first factor for authenticating the user by enabling Multi-factor Authentication.
 
 ::: panel Best Practice
 It's important to consider both security and user experience when designing how you will authenticate your users. Providing for multiple primary factors, and/or enforcing more than one factor during authentication, are ways that you can provide both.
@@ -7,24 +7,24 @@ It's important to consider both security and user experience when designing how 
 It’s important to consider both security and user experience when designing how you will authenticate your users, and so there are a number of things you will want to consider when looking at functionality and workflow:
 
 * Where will users enter their credentials?
-* How do I keep user credentials safe?
-* How do I maintain my authentication system?
-* How do I provide password authentication for my users?
-* How do I prevent hackers from trying to log in as my users?
-* How do I implement authentication in different kinds of applications?
-* How do I make login easy for my users when they come from different language backgrounds?
-* How do I provide a good user experience as you migrate away from any legacy authentication system?
-* What should I consider when integrating my applications with Auth0?
+* How will you keep user credentials safe?
+* How will you maintain your authentication system?
+* How can you provide password authentication for your users?
+* How can you prevent hackers from trying to log in as your users?
+* How will you implement authentication in different kinds of applications?
+* How can you make login easy for your users when they come from different language backgrounds?
+* How will you provide a good user experience as you migrate away from any legacy authentication system?
+* What should you consider when integrating applications with Auth0?
 <% if (platform === "b2c") { %>
 * Can users log in using their existing social (e.g., Facebook or Google) accounts?
 <%  } %>
-* Will I need to provide for multi-factor authentication (MFA)?
-* What do I do if I have a service that doesn't have a way for the user to log in ahead of time?
-* Can I just pass the same user access token from one API to another?
+* Do you need to provide multi-factor authentication (MFA)?
+* What do you do if you have a service that doesn't have a way for the user to log in ahead of time?
+* Can you pass the same user access token from one API to another?
 <% if (platform === "b2b") { %>
-* What do I do if I need to isolate my users by organization?
-* How do I handle identifying which organization my users belong to?
-* What’s the benefit of providing enterprise connections for my organizations?
+* What do you do if you need to isolate users by organization?
+* How will you handle identifying which organization users belong to?
+* What’s the benefit of providing enterprise connections for your organizations?
 <%  } %>
 
 Auth0 [Universal Login](#universal-login) provides users with a safe and secure experience - no matter whether you choose to provide for user ID/password credentials sign in, or allow the so-called Bring Your Own Identity scenarios provided via [Social Login](https://auth0.com/learn/social-login/). There are also brand recognition benefits to centralizing the login experience with Universal Login, even if you feel you will also have product-specific [branding](/architecture-scenarios/implementation/${platform}/${platform}-branding) requirements. The Auth0 UI widgets typically used with Universal Login also provide out-of-the-box support with regards to [internationalization](/libraries/lock/v11/i18n) for users with different language requirements, and out-of-the-box support for Auth0 features such as [MFA](#multi-factor-authentication-mfa-) and [anomaly detection](#anomaly-detection) allow you to put barriers in place in order to prevent hackers attempting to access users' accounts. 

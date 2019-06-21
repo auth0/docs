@@ -10,14 +10,14 @@ A user’s profile is populated from data supplied by an [Identity Provider](/id
 The Normalized User Profile is updated from the identity provider during login, and a limited set of the information it contains can be changed through the Auth0 Management API. Auth0 extensibility, such as Rules, can be used as an alternative to override information in the Normalized User Profile as described in the [Auth0 guidance](/users/concepts/overview-user-profile#user-profile-data-modification) provided.
 :::
 
-* What should I do if I need to store information to help customize a user’s experience?
-* What if I need to store user information that didn’t originate from an identity provider?
-* Why would I need to store user-related information that a user cannot modify?
-* What do I do if I need to store user-related information that a user cannot modify?
+* What should you do if you need to store information to help customize a user’s experience?
+* What if you need to store user information that didn’t originate from an identity provider?
+* Why would you need to store user-related information that a user cannot modify?
+* What do you do if you need to store user-related information that a user cannot modify?
 * What happens if a user forgets their password?
 * What should a user do if they want to change their password?
 <% if (platform === "b2b") { %>
-* How do I provide an administrator from a third-party organization with the ability to manage their users?
+* How do you provide an administrator from a third-party organization with the ability to manage their users?
 <%  } %>
 
 Auth0 provides for the storage of [Metadata](#metadata) against a user’s profile, which allows for the capture of additional information, such as preference for language and/or accessibility in order to enhance the user experience. Metadata can be used to store both information that a user can change, and also information they can’t; the latter giving you the capability of associating, for example, a user profile with records in your existing systems without modifying existing implementation. 

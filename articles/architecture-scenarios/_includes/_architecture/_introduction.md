@@ -7,11 +7,11 @@ If you do have multiple applications, and you need to leverage SSO, then we reco
 The value of investing time on the landscape of the architecture up-front is something that we have found pays dividends in the long run, and there are a number of things you will want to consider when looking at functionality and workflow:
 
 * What should the URL look like when Auth0 needs to present a web page to a user?
-* How can Auth0 be structured to support our SDLC (Software Development Lifecycle)?
-* How can I ensure that my Auth0 Tenants are appropriately associated with my contract?
-* What do I need to consider if there are other projects in my organization integrating with Auth0? Particularly projects that target their own, or a different domain of users (for example, applications that only employees will use)? 
+* How can Auth0 be structured to support your SDLC (Software Development Lifecycle)?
+* How can you ensure that your Auth0 tenants are appropriately associated with your contract?
+* What do you need to consider if there are other projects in your organization integrating with Auth0? Particularly projects that target their own, or a different domain of users (for example, applications that only employees will use)? 
 <% if (platform === "b2b") { %>
-* How can I align the structure and domain of my customers’ organization with my Auth0 deployment?
+* How can you align the structure and domain of your customers’ organization with your Auth0 deployment?
 <%  } %>
 
 Organizations often service more than one domain of user - customers, employees, and affiliates being the most frequently encountered, with typically little to no cross-over: employees, say, don’t use the same applications as customers and vice-versa. In some cases there can also be a need to partition further within a domain - separate groups of customers, say, who use different and unconnected products. Auth0 provides a way to segregate your users and the associated collateral, and [tenant provision](#tenant-provision) covers this in more detail. If you need to provision an independent tenant then you’ll also want to [associate this with your existing Auth0 account](#tenant-association), so that you can take full advantage of the benefits provided at your organization’s contracted subscription level.
@@ -29,5 +29,5 @@ Other groups within your organization may also be working with Auth0; it’s not
 :::
 
 <% if (platform === "b2b") { %>
-If your customers' organizations support the use of mutliple IDPs, then we recommend that you can create separate Auth0 tenants for that organization; see [Tenant provision for complex organizations](#tenant-provision-for-complex-organizations) for further details. This allows you to keep the rest of your setup much simpler by maintaining a one-to-one connection relationship between your organization and all your customer organizations within your main tenant. 
+If your customers' organizations support the use of mutliple IdPs, then we recommend that you can create separate Auth0 tenants for that organization; see [Tenant provision for complex organizations](#tenant-provision-for-complex-organizations) for further details. This allows you to keep the rest of your setup much simpler by maintaining a one-to-one connection relationship between your organization and all your customer organizations within your main tenant. 
 <%  } %>

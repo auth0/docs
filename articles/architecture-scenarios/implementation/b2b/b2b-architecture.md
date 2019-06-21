@@ -23,7 +23,7 @@ useCase:
 In most cases, provisioning separate Auth0 tenants for your customer's organizations is not necessary. However, in certain circumstances this can be something that is valuable for reducing the complexity of your setup. For instance, we recommend provisioning a separate Auth0 tenant for your customers' organization as a best practice if:
 
 * Your customers' organizations have isolated users that aren't shared with other organizations.
-* You have some customer organizations that support more than one IDP. For example, your customer has their own IDP but also has some users that aren't in their IDP and whose credentials you will need to store. Or, your customer wants to provide for one or more social connections in addition to their enterprise IDP. 
+* You have some customer organizations that support more than one IdP. For example, your customer has their own IdP but also has some users that aren't in their IdP and whose credentials you will need to store. Or, your customer wants to provide for one or more social connections in addition to their enterprise IdP. 
 
 If both of these situations are the case, then we recommend that you create separate Auth0 tenants for each customer that needs it. This allows you to have a separate custom domain for them and to easily customize their login experience, including [Home Realm Discovery](/architecture-scenarios/b2b/b2b-authentication#home-real-discovery) on their login page. 
 

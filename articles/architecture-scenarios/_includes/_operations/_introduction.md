@@ -2,17 +2,17 @@ Operationalization requires configuring or setting up infrastructure to support 
 
 Establishing effective operational behaviors is something that successful customers have found pays dividends, and there are a number of things you will want to consider when looking at your workflow:
 
-*	What should I be doing to proactively detect failures?
-*	What do I need to know regarding how to obtain data on Auth0’s operational status?
-*	What should I be doing about Auth0 security bulletins related to the Auth0 service?
-*	Does Auth0 provide information regarding impending changes in the Auth0 service?
-*	How can I check for important notices from Auth0?
-*	What should I be doing about Auth0 log data so that I can analyze it and keep it for longer than Auth0’s limited data retention period?
-*	Can I scan Auth0 logs to determine if peak loads in my application trigger any rate limits or other errors?
-*	What email services should I be using to support production volumes of email messages to users? Why can’t I use Auth0's out-of-box email provider in my production environment?
-*	Why would I need to configure my firewall, and what firewall ports will I need to open for internal services that need to receive communications from Auth0 (such as custom databases, web services, and email servers)?
+*	What should you do to proactively detect failures?
+*	How can you obtain data on Auth0’s operational status?
+*	What should you do about Auth0 security bulletins related to the Auth0 service?
+*	Does Auth0 provide information regarding impending changes in the Auth0 service? 
+*   How can you check for important notices from Auth0?
+*	What should you do with Auth0 log data so that you can analyze it and keep it for longer than Auth0’s limited data retention period?
+*	How can you scan Auth0 logs to determine if peak loads in your application trigger any rate limits or other errors?
+*	What email services should you use to support production volumes of email messages to users? Can I use Auth0's out-of-box email provider in my production environment?
+*	Do you need to configure your firewall and what firewall ports will you need to open for internal services that need to receive communications from Auth0 (such as custom databases, web services, and email servers)?
 <% if (platform === "b2b") { %>
-* Will I need to provide self-service provisioning for my customer so that they can configure their own organizational  IDPs?
+* Do you need to provide self-service provisioning for your customer so that they can configure their own organizational IdPs?
 <%  } %>
 
 Auth0 supports functionality for [monitoring](#monitoring) Auth0 service operation as well as providing information regarding Auth0 [service status](#service-status). In addition, Auth0 makes security-related bulletins as well as information regarding upcoming changes to the Auth0 service available via various [notifications](#notifications). Auth0 [logging](#logging) services also provide extensive functionality for tracing and identifying operational anomalies, including restrictions encountered due to rate limiting and/or excessive loading.

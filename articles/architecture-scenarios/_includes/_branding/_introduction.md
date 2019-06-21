@@ -8,15 +8,15 @@ Almost all applications need Internationalization and/or Localization in one for
 
 When considering the items you want to brand, as well as how best to brand them, there are a number of things you'll want to review:
 
-* Will you brand your login page?
-* Will you need to localize your login page?
+* Do you need to brand your login page?
+* Do you need to localize your login page?
 <% if (platform === "b2b") { %>
 * If you are sharing an Auth0 tenant across customer organizations, should you add organization-specific branding to their login experience?
 <%  } %>
-* Will you customize emails so that they're not just branded, but vary based on user preference?
+* How can you customize emails so that they're not just branded, but vary based on user preference?
 * How will users know that they're still on your domain when they see your login page?
 * What do you need to do to provide additional browser security (e.g., implement Extended Validation)?
-* How will you direct users in the event of errors?
+* Where do you want to direct users in the event of errors?
 
 Auth0 provides tremendous flexibility when it comes to customizing and configuring Auth0 pages such as [Universal Login](#universal-login-and-login-pages) and [Password Reset](#password-reset-page-customization). So you can pretty much set up whatever UX look and feel you require. For many, the out-of-the-box experience - with perhaps a little alteration - is all that's required. However, for others the value of their brand and brand awareness requires more extensive customization. This flexibility extends to not only Auth0 pages, but via extensibility can also be applied to the [email templates](/architecture-scenarios/implementation/${platform}/${platform}-branding#email-template-customization). Auth0 [Custom Domain](/architecture-scenarios/implementation/${platform}/${platform}-branding#custom-domain-naming) functionality further enhances consumer awareness by providing users with the confidence and peace of mind when it comes to safety and security. 
 

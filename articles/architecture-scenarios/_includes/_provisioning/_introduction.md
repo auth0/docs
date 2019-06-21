@@ -7,15 +7,15 @@ Whilst Auth0 supports numerous workflows, web based workflows using Auth0 [Unive
 Auth0 supports user sign up via a number of different [identity providers](/identityproviders). During sign up, Auth0 will also provision the [profile](/users/concepts/overview-user-profile) for the user (a.k.a. the user’s Account), and there are a number of things to consider when looking at functionality and workflow:
 
 <% if (platform==="b2b") { %>
-* Does a user get added to my company's domain or do they belong to or remain in their organization's domain?
+* Does a user get added to your company's domain or do they belong to or remain in their organization's domain?
 * If the user stays in their own domain, do they belong to a single organization or can they belong to multiple organizations?
-* How do I provision the organization itself in my system?
+* How do you provision the organization itself in your system?
 <% } %>
-* Can I use Auth0 as an identity store?
-* Can I use my own (legacy) identity store with Auth0?
-* Can I migrate user identities from my identity store to Auth0?
+* Should you use Auth0 as an identity store?
+* Can you use your own (legacy) identity store with Auth0?
+* How do you migrate user identities from your identity store to Auth0?
 <% if (platform==="b2c") { %>
-* Can my users sign up using their existing social - e.g. Facebook or Google - accounts?
+* Can your users sign up using their existing social accounts such as Google and Facebook?
 <% } %>
 <% if (platform==="b2b") { %>
 * Can your users sign up using their organization's identity provider?

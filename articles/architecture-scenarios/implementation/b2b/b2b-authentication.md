@@ -43,13 +43,13 @@ This method will only work if you are not sharing users between organizations.  
 :::
 
 ::: panel Best practice
-If your application already knows what connection (IDP) the user needs, then pass that along when you redirect the user to /authorize using the connection query parameter.
+If your application already knows what connection (IdP) the user needs, then pass that along when you redirect the user to /authorize using the connection query parameter.
 :::
 
 If this is the case for your application(s) then home realm discovery is a simple matter of storing the Auth0 connection name with the organization specific application configuration and sending that connection name as a parameter when redirecting the user for Universal Login. Sending the connection parameter can be achieved by adding it as a query parameter when you redirect them to the authorize endpoint. For more information see the [Authentication API docs](https://auth0.com/docs/api/authentication#authorization-code-flow); however, you will generally accomplish this using the SDK for whichever language your application is written in.
 
 ::: panel Best practice
-If an organization needs more than one IDP, then you will have to do a second round of Home Realm Discovery once identifying their organization.  This can be achieved with Auth0 through creating a dedicated Auth0 tenant for that organization and creating an enterprise connection to that tenant. 
+If an organization needs more than one IdP, then you will have to do a second round of Home Realm Discovery once identifying their organization.  This can be achieved with Auth0 through creating a dedicated Auth0 tenant for that organization and creating an enterprise connection to that tenant. 
 :::
 
 ### HRD through Universal Login
@@ -72,7 +72,7 @@ The simplest way to implement home realm discovery on the universal login page i
 
 #### HRD through Universal Login using the Identifier to Realm Map
 
-A second, more complex alternative is to store a map of identifier’s to IDP and provide a public endpoint to access that information.  Then on the Universal Login page you can find the connection and redirect back to /authorize with the connection.  The main drawbacks to this approach are latency, and more importantly security when it comes to identifier discovery: if you’re using email addresses, this makes it much easier for someone to discover whether a particular email address is a user of yours.
+A second, more complex alternative is to store a map of identifier’s to IdP and provide a public endpoint to access that information.  Then on the Universal Login page you can find the connection and redirect back to /authorize with the connection.  The main drawbacks to this approach are latency, and more importantly security when it comes to identifier discovery: if you’re using email addresses, this makes it much easier for someone to discover whether a particular email address is a user of yours.
 
 ::: panel Best practice
 Any public endpoint should have rate limiting applied to it to prevent hackers from using it to discover information and to prevent denial of service attacks.
@@ -96,7 +96,7 @@ The other simple option is to allow your users to choose from a list, if you don
 
 ## Enterprise Login
 
-The “bring your own identity” scenario has become a must-have for almost all B2B applications.  Most enterprise companies expect to be able to integrate their IDP into your application so their employees don't need to store another set of credentials.  This is a valuable way of simplifying the user authentication experience without compromising security, and using [Universal Login](#universal-login) makes it easy to start adding support for [Enterprise Connections](https://auth0.com/docs/identityproviders#enterprise) with minimal disruption.
+The “bring your own identity” scenario has become a must-have for almost all B2B applications.  Most enterprise companies expect to be able to integrate their IdP into your application so their employees don't need to store another set of credentials.  This is a valuable way of simplifying the user authentication experience without compromising security, and using [Universal Login](#universal-login) makes it easy to start adding support for [Enterprise Connections](https://auth0.com/docs/identityproviders#enterprise) with minimal disruption.
 
 ::: panel Best Practice
 Once you start supporting enterprise connections for users, you must do some form of [Home Realm Discovery](#home-realm-discovery) so that you can determine which connection to send the user to for authentication.
@@ -105,12 +105,8 @@ Once you start supporting enterprise connections for users, you must do some for
 With enterprise connection support, user identities and credentials are managed by the identity provider of your customers' organization, as well as certain identity claims - which Auth0 will use to populate the user [profile](/architecture-scenarios/implementation/b2b/b2b-profile-mgmt).
 
 ::: panel Best Practice
-"Bring your own identity" is a great feature to provide, but if you don't support this from day one, and sometimes even if you do, you may have an organization that wants to switch to their own IDP after already having used the application for a while.  You will need a way to [Link User Accounts](https://auth0.com/docs/link-accounts) (a.k.a. Account Linking) to provide an effective way of associating the new identity with the old database identity.
+"Bring your own identity" is a great feature to provide, but if you don't support this from day one, and sometimes even if you do, you may have an organization that wants to switch to their own IdP after already having used the application for a while.  You will need a way to [Link User Accounts](https://auth0.com/docs/link-accounts) (a.k.a. Account Linking) to provide an effective way of associating the new identity with the old database identity.
 :::
-
-## Machine-to-Machine (M2M) authentication
-
-<%= include('../../_includes/_authentication/_m2m.md', { platform: 'b2b' }) %>
 
 ## Multi-factor authentication (MFA)
 

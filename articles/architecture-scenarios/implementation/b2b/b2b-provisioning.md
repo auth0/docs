@@ -50,17 +50,17 @@ There are two different approaches to how to store your organization users:
 
 When users are isolated to the organization, this can provide a nice clean barrier between organizations.  If there are never any users that need to access more than one organization (or you would rather force them to create multiple accounts), then this is an attractive approach. 
 
-You need to provision those users at the IDP level.  Each of the organizations will have its own IDP for accomplishing this.  This IDP will come in one of three flavors:
+You need to provision those users at the IdP level.  Each of the organizations will have its own IdP for accomplishing this.  This IdP will come in one of three flavors:
 
-* **Your Auth0 Tenant is the IDP**: A Database Connection in your main tenant dedicated to this organization.
-* **Organizations bring their own IDP**: You setup an Enterprise Connection for them.
-* **Organizations with more than one IDP**: This situation is a little more tricky, you have multiple options for approaching this situation, here they are in decending order of complexity:
-    * You convince them to (or find that they already have) one master IDP that can route to their individual IDPs
+* **Your Auth0 Tenant is the IdP**: A Database Connection in your main tenant dedicated to this organization.
+* **Organizations bring their own IdP**: You setup an Enterprise Connection for them.
+* **Organizations with more than one IdP**: This situation is a little more tricky, you have multiple options for approaching this situation, here they are in decending order of complexity:
+    * You convince them to (or find that they already have) one master IdP that can route to their individual IdPs
     * You create separate Organizations (e.g. customerorg-department1 and customerorg-department2) in your applications
-    * You setup a new Auth0 tenant just for them and add as many IDPs (which may include a database in Auth0) as they need to that tenant, along with their own custom domain and branding
-    * You make your existing tenant and login page more complex to handle home realm discovery just for organizations that have more than one IDP.
+    * You setup a new Auth0 tenant just for them and add as many IdPs (which may include a database in Auth0) as they need to that tenant, along with their own custom domain and branding
+    * You make your existing tenant and login page more complex to handle [Home Realm Discovery](/architecture-scenarios/b2b/b2b-authentication#home-real-discovery) just for organizations that have more than one IdP.
 
-Using Auth0 as an IDP is the recommended starting point as it’s simple to implement a user invite workflow: an administrator creates a user; a randomly generated password is created for that user, but never stored or shown to anyone; the user then receives a welcome email with a link to set their password. The only thing special about this compared to other invite flows is that the person who is creating the user will have to either select the organization ahead of time, or the system will force the organization to match that of the user doing the inviting (in situations where there is an organization administrator who belongs to that organization only). See [User invite](#user-invite) for more information.
+Using Auth0 as an IdP is the recommended starting point as it’s simple to implement a user invite workflow: an administrator creates a user; a randomly generated password is created for that user, but never stored or shown to anyone; the user then receives a welcome email with a link to set their password. The only thing special about this compared to other invite flows is that the person who is creating the user will have to either select the organization ahead of time, or the system will force the organization to match that of the user doing the inviting (in situations where there is an organization administrator who belongs to that organization only). See [User invite](#user-invite) for more information.
 
 ::: panel Best Practice
 If you can keep a main Auth0 tenant with a one-to-one mapping between organization and connection, it will greatly simplify your login system, making it more maintainable and extendable for the future.  See [Multiple Organization Architecture documents: isolated users by organization](https://drive.google.com/a/auth0.com/file/d/1fzWWu7CUWaPpmaSO01gEhVYmkSXvV28l/view?usp=sharing) for a more in-depth view.
@@ -107,7 +107,7 @@ One of the main principles of OIDC is that no one except the user themselves eve
 Enterprise sign up is synonymous with sign in via [enterprise login](/architecture-scenarios/implementation/b2b/b2b-authentication#enterprise-login) - there’s no distinction here *per se*, as user [profile](/architecture-scenarios/implementation/b2b/b2b-profile-mgmt) creation happens automatically upon first enterprise login.
 
 ::: panel best practice
-A nice advantage of allowing your customers to use their own IDP is that they can administer their users and assign roles and access in their own IDP setup instead of forcing you to build administration for them.  Working out the mapping for those customers will make this much easier.
+A nice advantage of allowing your customers to use their own IdP is that they can administer their users and assign roles and access in their own IdP setup instead of forcing you to build administration for them.  Working out the mapping for those customers will make this much easier.
 :::
 
 ::: warning
