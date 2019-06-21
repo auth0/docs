@@ -29,5 +29,5 @@ Other groups within your organization may also be working with Auth0; it’s not
 :::
 
 <% if (platform === "b2b") { %>
-If your customers' organization supports the use of mutliple IDPs, then you can create separate Auth0 tenants for that organization; see [Tenant provision for complex organizations](#tenant-provision-for-complex-organizations) for further details. This allows you to keep the rest of your setup much simpler by maintaining a one-to-one connection relationship between your organization and all your customer organizations within your main tenant. 
+If your customers' organizations support the use of mutliple IDPs, then we recommend that you can create separate Auth0 tenants for that organization; see [Tenant provision for complex organizations](#tenant-provision-for-complex-organizations) for further details. This allows you to keep the rest of your setup much simpler by maintaining a one-to-one connection relationship between your organization and all your customer organizations within your main tenant. 
 <%  } %>
