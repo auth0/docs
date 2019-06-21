@@ -16,44 +16,44 @@ useCase:
     - add-idp
 ---
 
-# Connect to an OpenID Connect Identity Providers
+# Connect to an OpenID Connect Identity Provider
 
-Auth0 provides an OpenID Connect Connection, that enables you to connect to OIDC compliant Identity Providers. 
+Auth0 provides an OpenID Connect connection that enables you to connect to OIDC compliant identity providers.
 
-The Open ID Identity Provider needs to support [OIDC Discovery](ttps://openid.net/specs/openid-connect-discovery-1_0.html) and support the `id_token` response type.
+The Open ID identity provider needs to support [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html) and support the `id_token` response type.
 
-To create a new OpenID Connect Connection, you'll need to complete the following fields:
+To create a new OpenID Connect connection, you'll need to complete the following fields:
 
 ![](/media/articles/connections/enterprise/oidc/oidc-small.png)
 
 * **Connection Name**: The logical identifier for your Connection. It cannot be changed and needs to be unique for the tenant.
 
-* **Issuer URL**: The URL where Auth0 can find the **OpenID Provider Configuration Document**, which should be available in the `/.well-known/openid-configuration` endpoint. You can enter the base URL or the full URL. You'll see a green check mark if Auth0 can find it, a red mark if it cannot, or an error message if it can't find the required information in the configuration file.
+* **Issuer URL**: The URL where Auth0 can find the **OpenID Provider Configuration Document**, which should be available in the `/.well-known/openid-configuration` endpoint. You can enter the base URL or the full URL. You will see a green check mark if it can be found at that location, a red mark if it cannot be found, or an error message if the file is found but the required information is not present in the configuration file.
 
-* **Client ID**: The Client ID for the client that is defined in the target Identity Provider. It's different for each provider, so please check the provider's documentation.
+* **Client ID**: The Client ID for the client that is defined in the target identity provider. It's different for each provider, so please check the provider's documentation.
 
 You need to make sure that the **Callback URL** referenced is added as a valid callback URL in the client application that's referenced with the Client ID specified above.
 
-Click __Save__.
+Click **Save**.
 
 Next you will see a list of your registered [applications](${manage_url}/#/applications) with the option to enable the new connection for any of them.
 
 That's it! You are now ready to test and start using your connection.
 
-## Additional Customization Options
+## Additional customization options
 
-If you edit the OIDC Connect Connection, you'll see additional configuration options:
+If you edit the OIDC Connect Connection, you will see additional configuration options:
 
 ![](/media/articles/connections/enterprise/oidc/oidc-details.png)
 
-* **Display Name**: The name that will be used in the Login screen for the New Universal Login Experience to identify the connection. In the Classic Universal Login Experience, the Connection Name will be used
+* **Display Name**: The name that will be used in the Login screen for the New Universal Login Experience to identify the connection. In the Classic Universal Login Experience, the connection name will be used instead.
 
-* **Icon URL**: The icon that will be used in the Login screen for the New Universal Login Experience to identify the connection. In the Classic Universal Login Experience, a default icon will be used
+* **Icon URL**: The icon that will be used in the Login screen for the New Universal Login Experience to identify the connection. In the Classic Universal Login Experience, a default icon will be used.
 
-* **Domain**: The list of email domains that will be routed to this Identity Provider. This is only applicable when using the Classic Login Experience.
+* **Domain**: The list of email domains that will be routed to this Identity Provider. This is only applicable when using the Classic Universal Login Experience.
 
-* **Scopes**: The list of OAuth scopes that will be requested when connecting to the Identity Provider. This will affect the data stored in the user profile.
+* **Scopes**: The list of OAuth scopes that will be requested when connecting to the identity provider. This will affect the data stored in the user profile.
 
 ## Federating with Auth0
 
-The OpenID Connect connection is very useful when federating to another Auth0 tenant. Just enter your Auth0 tenant url in the 'Issuer' field (e.g. https://<tenant>.auth0.com), and the client_id for any application in that tenant in the 'Client ID' field.
+The OpenID Connect connection is very useful when federating to another Auth0 tenant. Just enter your Auth0 tenant URL in the 'Issuer' field (such as `https://<tenant>.auth0.com`), and the Client ID for any application in that tenant in the 'Client ID' field.
