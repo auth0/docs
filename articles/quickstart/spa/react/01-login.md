@@ -12,6 +12,8 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
-<%= include('../_includes/_getting_started', { library: 'React', callback: 'http://localhost:3000/callback', showLogoutInfo: true, showWebOriginInfo: true }) %>
+<!-- markdownlint-disable MD034 MD041 -->
+
+<%= include('../_includes/_getting_started', { library: 'React', callback: 'http://localhost:3000/callback', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true }) %>
 
 <%= include('_includes/_centralized_login') %>
