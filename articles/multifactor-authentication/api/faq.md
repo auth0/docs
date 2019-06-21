@@ -12,7 +12,7 @@ useCase:
 
 # FAQ: MFA and the MFA API
 
-The following is a list of frequently-asked questions about multi-factor authentication (MFA) and Auth0's MFA API.
+The following is a list of frequently-asked questions about <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> and Auth0's MFA API.
 
 ## When can I self-associate authenticators during the authorization process?
 

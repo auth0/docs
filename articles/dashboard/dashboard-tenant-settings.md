@@ -73,7 +73,7 @@ The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section expl
 
 ![](/media/articles/tutorials/tenant-settings/login-logout.png)
 
-**Allowed Logout URLs**:  These are a set of URLs that are valid to redirect to after logout from Auth0 when no `client_id` is specified on the logout endpoint invocation. It's useful as a global list when SSO is enabled.  Learn more about [Logout](/logout).
+**Allowed Logout URLs**:  These are a set of URLs that are valid to redirect to after logout from Auth0 when no `client_id` is specified on the logout endpoint invocation. It's useful as a global list when <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> is enabled.  Learn more about [Logout](/logout).
 
 **Tenant Login URI**: In some scenarios Auth0 will need your tenant to start the OIDC login flow . This URI should point to a route in your application that starts the flow by redirecting to the `/authorize` endpoint. It would usually take the form of 'https://mytenant.org/login'. [Learn more about the tenant default login URI](/universal-login/default-login-url).
 
@@ -83,11 +83,11 @@ The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section expl
 
 Allows you to specify the **SSO Cookie Timeout**. This value is the login session lifetime, which is how long the session will stay valid, measured in minutes. The default value is 10080 minutes (or 7 days).
 
-This is the session timeout for the Auth0 session. You can configure separately the timeouts used with tokens issued by Auth0, such as the OpenID Connect ID Token expiration claim or the SAML lifetime assertions. These are often used to drive the sessions on the applications (SAML SPs) themselves and are independent of the Auth0 (IdP) session.
+This is the session timeout for the Auth0 session. You can configure separately the timeouts used with tokens issued by Auth0, such as the <dfn data-key="openid">OpenID Connect (OIDC)</dfn> ID Token expiration claim or the <dfn data-key="security-assertion-markup-language">SAML</dfn> lifetime assertions. These are often used to drive the sessions on the applications (SAML SPs) themselves and are independent of the Auth0 (IdP) session.
 
 Auth0 also sets a value for the session idle timeout, which is the allowed duration of inactivity for a session before a new session is required. Currently, this value is set at 7 days and is not configurable. If the **SSO Cookie Timeout** is set to longer than the idle timeout, then if the session is not used within 7 days, the session will expire and a new session must be created.
 
-Learn more about [Single Sign On](/sso/current).
+Learn more about [Single Sign-on (SSO)](/sso/current).
 
 ### Global Application Information
 

@@ -35,7 +35,7 @@ Enter your app name:
 
 ![](/media/articles/connections/social/exact/exact-register-3.png)
 
-In the `Redirect URI`field, enter this value:
+In the `Redirect URI`field, enter your <dfn data-key="callback">callback URL</dfn>:
 
     https://${account.namespace}/login/callback
 

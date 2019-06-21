@@ -19,7 +19,7 @@ Before beginning this tutorial, please:
 
 * Make sure you that your application has the `Client Credentials` [grant type enabled](/dashboard/guides/applications/update-grant-types). Regular web applications and machine to machine applications have it enabled by default.
 
-* [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0 with the required scopes.
+* [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0 with the required <dfn data-key="scope">scopes</dfn>.
 
 * Authorize the application to call the API by creating a Client Grant either [using the Dashboard](/api-auth/config/using-the-auth0-dashboard) or [using the Management API](/api-auth/config/using-the-management-api).
 
@@ -65,7 +65,7 @@ Where:
 * `client_secret`: Your application's Client Secret. You can find this value at the [application's settings tab](${manage_url}/#/applications).
 * `audience`: The **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial.
 
-The response contains a [signed JSON Web Token](/jwt), the token's type (which is `Bearer`), and in how much time it expires in [Unix time](https://en.wikipedia.org/wiki/Unix_time) (86400 seconds, which means 24 hours).
+The response contains a signed <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>, the token's type (which is `Bearer`), and in how much time it expires in [Unix time](https://en.wikipedia.org/wiki/Unix_time) (86400 seconds, which means 24 hours).
 
 ```json
 {
@@ -90,7 +90,7 @@ If you [decode the `access_token`](https://jwt.io/#debugger-io) you will see tha
 
 ## Modify scopes and claims
 
-You can change the scopes and add custom claims to the Access Token you got, using [Hooks](/hooks).
+You can change the <dfn data-key="scope">scopes</dfn> and add custom claims to the Access Token you got, using [Hooks](/hooks).
 
 Hooks allow you to customize the behavior of Auth0 using Node.js code. They are actually Webtasks, associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
 

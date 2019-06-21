@@ -65,7 +65,7 @@ The request parameters are:
 | __client_secret__ | This is the value of the __Client Secret__ field of the Machine-to-Machine Application you created. You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
 | __audience__ | This is the value of the __Identifier__ field of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis). |
 
-The response will contain a [signed JWT](/jwt), when it expires, the scopes granted, and the token type.
+The response will contain a [signed JWT](/jwt), when it expires, the <dfn data-key="scope">scopes</dfn> granted, and the token type.
 
 ```json
 {
@@ -76,7 +76,7 @@ The response will contain a [signed JWT](/jwt), when it expires, the scopes gran
 }
 ```
 
-From the above we can see that our Access Token is a [Bearer Access Token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create applications.
+From the above we can see that our <dfn data-key="access-token">Access Token</dfn> is a [Bearer Access Token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create applications.
 
 ### Use Auth0's Node.js Client Library
 

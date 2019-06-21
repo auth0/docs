@@ -25,7 +25,7 @@ To use the Management API, you must authenticate one of two ways:
 - For temporary access or testing, you can [manually generate an API token](/api/management/v2/tokens#get-a-token-manually) and save it in your `.env` file.
 - For extended access, you must create and execute and Client Credentials grant when access is required. This process is detailed on the [Authentication API page](/libraries/auth0-php/authentication-api#regular-web-app-login-flow).
 
-Regardless of the method, the token generated must have the scopes required for the operations your app wants to execute. Consult the [API documentation](/api/management/v2) for the scopes required for the specific endpoint you're trying to access.
+Regardless of the method, the token generated must have the <dfn data-key="scope">scopes</dfn> required for the operations your app wants to execute. Consult the [API documentation](/api/management/v2) for the scopes required for the specific endpoint you're trying to access.
 
 To grant the scopes needed:
 

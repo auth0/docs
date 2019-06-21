@@ -14,7 +14,7 @@ useCase:
 ---
 # Create Roles
 
-This guide will show you how to create [roles](/authorization/concepts/rbac) using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/roles/create-roles). The roles can be used with the API Authorization Core feature set.
+This guide will show you how to create <dfn data-key="role">[roles](/authorization/concepts/rbac)</dfn> using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/roles/create-roles). The roles can be used with the API Authorization Core feature set.
 
 <%= include('../../../authorization/_includes/_enable-authz-core') %>
 

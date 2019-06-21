@@ -11,7 +11,11 @@ If you are following along with the sample project you downloaded from the top o
 :::
 
 <% if(typeof showLogoutInfo !== 'undefined' && showLogoutInfo === true) { %>
-<%= include('../../../_includes/_logout_url') %>
+    <% if(typeof returnTo !== 'undefined') { %>
+        <%= include('../../../_includes/_logout_url', { returnTo: returnTo }) %>
+    <% } else { %>
+        <%= include('../../../_includes/_logout_url') %>
+    <% } %>
 <% } %>
 
 <% if(typeof showWebOriginInfo !== 'undefined' && showWebOriginInfo === true) { %>

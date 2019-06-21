@@ -20,7 +20,7 @@ You can use an application on one Auth0 tenant (referred to below as the **OIDC 
 
 1. Create an Application or edit an existing one. Set the application type to **Regular Web App**.
 2. Take note of your application's **Client ID** and **Client Secret**. You will need these to create the connection in the Relying Party tenant.
-3. Add the Relying Party tenant's login callback to the list of **Allowed Callback URLs**: `https://${account.namespace}/login/callback`
+3. Add the Relying Party tenant's login <dfn data-key="callback">callback</dfn> to the list of **Allowed Callback URLs**: `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects') %>
 
@@ -30,7 +30,7 @@ You can use an application on one Auth0 tenant (referred to below as the **OIDC 
 
 ## Configure the Relying Party Auth0 Tenant
 
-The Auth0-to-Auth0 connection is not yet supported in the Dashboard. You need to create the connection using the [Create a connection](/api/v2#!/Connections/post_connections) endpoint, which will require an [Management API V2 token](/api/management/v2/tokens) with `create:connections` scope.
+The Auth0-to-Auth0 connection is not yet supported in the Dashboard. You need to create the connection using the [Create a connection](/api/v2#!/Connections/post_connections) endpoint, which will require an [Management API V2 token](/api/management/v2/tokens) with `create:connections` <dfn data-key="scope">scope</dfn>.
 
 Here is a sample request:
 
@@ -68,7 +68,7 @@ The required parameters for this connection are:
 
 ## Use the Auth0 connection
 
-You can use any of the standard Auth0 mechanisms (such as direct links, [Auth0 Lock](/libraries/lock), [auth0.js](/auth0js), and so on) to log in a user with the auth0-oidc connection.
+You can use any of the standard Auth0 mechanisms (such as direct links, <dfn data-key="lock">[Auth0 Lock](/libraries/lock)</dfn>, [auth0.js](/auth0js), and so on) to log in a user with the auth0-oidc connection.
 
 A direct link would look like:
 

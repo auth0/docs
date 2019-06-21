@@ -49,7 +49,7 @@ module.exports = function(client, scope, audience, context, cb) {
 
 Pay attention to the following:
 - The callback function `cb` at the end of the sample code is used to signal completion and must not be omitted.
-- The line `access_token.scope = scope` ensures that all granted scopes will be present in the Access Token. Removing it will reset all scopes and the token will include only any additional ones you might add with the script.
+- The line `access_token.scope = scope` ensures that all granted <dfn data-key="scope">scopes</dfn> will be present in the <dfn data-key="access-token">Access Token</dfn>. Removing it will reset all scopes and the token will include only any additional ones you might add with the script.
 
 #### Response
 

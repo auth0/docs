@@ -17,7 +17,7 @@ This article will help you learn how to reset a user's password. If you are tryi
 
 
 :::panel-warning Notice
-This information applies to those using **Change Password flow v2**. If you are using the old **Change Password flow** or Lock 8, check the notice panels like this one for information on differences between the two flows.
+This information applies to those using **Change Password flow v2**. If you are using the old **Change Password flow** or <dfn data-key="lock">Lock</dfn> 8, check the notice panels like this one for information on differences between the two flows.
 
 To determine the flow you are using, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced) to check if the **Change Password flow v2** toggle is enabled. If it is, use Lock 9+. If not, use an older version of Lock to trigger the old Change Password flow.
 

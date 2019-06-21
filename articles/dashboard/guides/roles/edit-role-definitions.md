@@ -15,7 +15,7 @@ useCase:
 ---
 # Edit Role Definitions
 
-This guide will show you how to edit a role definition using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/roles/edit-role-definitions). Roles are used with the API Authorization Core feature set.
+This guide will show you how to edit a <dfn data-key="role">[role](/authorization/concepts/rbac)</dfn> definition using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/roles/edit-role-definitions). Roles are used with the API Authorization Core feature set.
 
 <%= include('../../../authorization/_includes/_enable-authz-core') %>
 

@@ -12,7 +12,7 @@ useCase:
 ---
 # Developer Resources for Guardian
 
-With Guardian, you can customize your users' multi-factor experience and even build applications on top of our multi-factor capabilities.
+With Guardian, you can customize your users' <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> experience and even build applications on top of our multi-factor capabilities.
 
 ## Getting started with Guardian within your application
 

@@ -36,7 +36,7 @@ Then click **Register New App**:
 ## 2. Name your application
 
 Name your app and complete the form.
-For the **Redirect URI**, enter `https://${account.namespace}/login/callback`.
+For the **Redirect URI**, enter your <dfn data-key="callback">callback URL</dfn>: `https://${account.namespace}/login/callback`.
 
 <%= include('../_find-auth0-domain-redirects') %>
 

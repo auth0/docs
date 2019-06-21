@@ -15,7 +15,7 @@ useCase: extensibility-extensions
 This document covers an outdated version. We recommend you to [upgrade to v2](/extensions/authorization-extension/v2).
 :::
 
-The Auth0 Authorization Extension provides user authorization support in Auth0. Version 1 of the extension supports authorizations using Groups. Upgrade to [version 2](/extensions/authorization-extension) to support authorizations with Roles and Permissions.
+The Auth0 Authorization Extension provides user authorization support in Auth0. Version 1 of the extension supports authorizations using Groups. Upgrade to [version 2](/extensions/authorization-extension) to support authorizations with <dfn data-key="role">Roles</dfn> and Permissions.
 
 ## Setting Up a New Authorization Extension
 

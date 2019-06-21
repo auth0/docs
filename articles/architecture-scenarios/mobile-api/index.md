@@ -2,7 +2,7 @@
 order: 04
 title: Mobile + API
 image: /media/articles/architecture-scenarios/mobile-api.png
-extract: Mobile application which talks to an API. The application will use OpenID Connect with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.
+extract: Mobile application which talks to an API. The application will use OpenID Connect (OIDC) with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.
 description: Explains the architecture scenario with a mobile application communicating with an API.
 toc: true
 topics:

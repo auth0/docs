@@ -20,7 +20,7 @@ The method objects will contain the following properties:
 - `name`: a string representing the name of the authentication method that has been completed. It can be one of the following values (additional values may be supported in the future):
   - `federated`: a social or enterprise connection was used to authenticate the user
   - `pwd`: a database connection was used to authenticate the user
-  - `sms`: a Passwordless SMS connection was used to authenticate the user
+  - `sms`: a <dfn data-key="passwordless">Passwordless</dfn> SMS connection was used to authenticate the user
   - `email`: a Passwordless Email connection was used to authenticate the user
   - `mfa`: the user completed a mulifactor authentication
 - `timestamp`: an integer indicating the time in seconds at which the authentication method took place in Unix Epoch time

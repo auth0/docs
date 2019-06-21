@@ -16,7 +16,7 @@ useCase:
 ---
 # View Role Users
 
-This guide will show you how to view the users assigned to a role using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/roles/view-role-users). Roles are used with the API Authorization Core feature set.
+This guide will show you how to view the users assigned to a <dfn data-key="role">[role](/authorization/concepts/rbac)</dfn> using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/roles/view-role-users). Roles are used with the API Authorization Core feature set.
 
 <%= include('../../../authorization/_includes/_enable-authz-core') %>
 

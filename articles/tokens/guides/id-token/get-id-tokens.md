@@ -12,13 +12,13 @@ useCase:
 ---
 # Get an ID Token
 
-The ID Token can be returned when invoking authentication with Auth0 via any available method. These methods include authentication attempts via Universal Login, the Lock widget or any of Auth0's language and framework specific SDKs, or calls directly to the [Authentication API](/api/authentication). The [Lock documentation](/libraries/lock) and the [Auth0.js documentation](/libraries/auth0js) both provide specifics about retrieving the ID Token after authentication.
+The ID Token can be returned when invoking authentication with Auth0 via any available method. These methods include authentication attempts via <dfn data-key="universal-login">Universal Login</dfn>, the <dfn data-key="lock">Lock widget</dfn> or any of Auth0's language and framework specific SDKs, or calls directly to the [Authentication API](/api/authentication). The [Lock documentation](/libraries/lock) and the [Auth0.js documentation](/libraries/auth0js) both provide specifics about retrieving the ID Token after authentication.
 
 ## Control the contents of an ID Token
 
 In order to retrieve an ID Token, the `responseType` should include `id_token`, both for client-side and server-side authentication flows.
 
-The attributes included in the issued ID Token are controlled by the use of a [parameter called `scope`](/scopes).
+The attributes included in the issued ID Token are controlled by the use of a parameter called <dfn data-key="scope">`scope`</dfn>.
 
 - If `scope` is set to `openid`, then the ID Token will contain only the `iss`, `sub`, `aud`, `exp` and `iat` claims.
 - If `scope` is set to `openid email`, then the ID Token will also contain the `email` and `email_verified` claims.
@@ -26,7 +26,7 @@ The attributes included in the issued ID Token are controlled by the use of a [p
 
 ## Add custom claims
 
-You can add custom claims to your ID Token (or [Access Token](/tokens/overview-access-tokens)) using [Rules](/rules).
+You can add custom claims to your ID Token (or <dfn data-key="access-token">Access Token</dfn>) using [Rules](/rules).
 
 The claim name must conform to a namespaced format, which basically means adding any non-Auth0 HTTP or HTTPS URL as a prefix. The Auth0 namespaces you cannot use are `auth0.com`, `webtask.io`, and `webtask.run`. The format you should follow is this:  `http://my-namespace/claim-name`.
 
@@ -37,7 +37,7 @@ For an example of how to add a custom claim, refer to [Add Custom Claims](/scope
 ## ID Token payload
 
 ::: note
-The [JWT.io website](https://jwt.io) has a debugger that allows you to debug any JSON Web Token. This is useful if you want to quickly decode a JWT to see the information it contains.
+The [JWT.io website](https://jwt.io) has a debugger that allows you to debug any <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>. This is useful if you want to quickly decode a JWT to see the information it contains.
 :::
 
 The payload's claims can include some or all of the following:
@@ -61,7 +61,7 @@ The purpose of the ID Token is to cache user information for better performance 
 
 The expiration time can be changed in the [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings) screen using the `JWT Expiration` field.
 
-There are cases where you might want to renew your ID Token. In order to do so, you can either perform another authorization flow with Auth0 (using the `/authorize` endpoint) or use a [Refresh Token](/tokens/refresh-token).
+There are cases where you might want to renew your ID Token. In order to do so, you can either perform another authorization flow with Auth0 (using the `/authorize` endpoint) or use a <dfn data-key="refresh-token">Refresh Token</dfn>.
 
 When performing the initial authorization flow, you can ask for a Refresh Token, by adding `offline_access` at the `scope` parameter, for example `scope=openid offline_access`. The Refresh Token is stored in session, along with the ID Token. Then, when a session needs to be refreshed (for example, a preconfigured timeframe has passed or the user tries to perform a sensitive operation), the app uses the Refresh Token on the backend to obtain a new ID Token, using the `/oauth/token` endpoint with `grant_type=refresh_token`.
 

@@ -25,7 +25,7 @@ While we recommend using the RBAC features present in the Authorization core, we
 
 | Feature | Authorization&nbsp;Core | Authorization&nbsp;Extension |
 |---------|-------------------------|------------------------------|
-| **Roles** |
+| **<dfn data-key="role">Roles</dfn>** |
 | Create/edit/delete roles | Yes | Yes |
 | Search roles by name | In future release | Yes |
 | Roles can contain permissions from one or more APIs | Yes | No |
@@ -59,7 +59,7 @@ While we recommend using the RBAC features present in the Authorization core, we
 | Create/edit/delete groups | In future release | Yes |
 | Search groups by name | In future release | Yes |
 | Groups can be sourced from local users | In future release | Yes |
-| Groups can be sources from third-party directories (for example, AD, LDAP, SAML) | In future release | No |
+| Groups can be sources from third-party directories (for example, AD, LDAP, <dfn data-key="security-assertion-markup-language">SAML</dfn>) | In future release | No |
 | Groups can be nested and are hierarchical | In future release | Yes |
 | Groups can be mapped from pre-existing groups and connections | In future release | Yes |
 | Groups can contain roles from any application | In future release | Yes |
@@ -70,8 +70,8 @@ While we recommend using the RBAC features present in the Authorization core, we
 | Customize configuration | Yes | Yes |
 | Rules allow for customization of authorization decision | Yes | Yes |
 | Configure whether to allow API access to authorization context | Yes | Yes |
-| Configure adding permissions to Access Token | Yes | Yes |
-| Configure adding groups or roles to Access Token | To be determined | Yes |
+| Configure adding permissions to <dfn data-key="access-token">Access Token</dfn> | Yes | Yes |
+| Configure adding groups or roles to <dfn data-key="access-token">Access Token</dfn> | To be determined | Yes |
 | Configure whether authorization context persists in user's app_metadata | To be determined | Yes |
 | Configure third-party identity provider pass-through for groups, roles, and permissions | To be determined | Yes |
 | User import/export via JSON | To be determined | Yes |

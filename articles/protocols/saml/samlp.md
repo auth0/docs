@@ -14,7 +14,7 @@ useCase:
 
 ## Common settings:
 
-These are the parameters used to configure a SAML Identity Provider:
+These are the parameters used to configure a <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider:
 
 * The __post-back URL__ (also called __Assertion Consumer Service URL__) is: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`
 * The __Entity ID__ of the Service Provider is: `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME` (default value). Use `connection.options.entityId` if available. You can obtain this value using the [Get a connection by its id APIv2 endpoint](/api/management/v2#!/Connections/get_connections_by_id):
@@ -33,7 +33,7 @@ These are the parameters used to configure a SAML Identity Provider:
 ```
 
 ::: note
-You need to replace the `ACCESS_TOKEN` header value, with a Management APIv2 Token. For information on how to do that see [Access Tokens for the Management API](/api/management/v2/tokens).
+You need to replace the `ACCESS_TOKEN` header value, with a Management APIv2 <dfn data-key="access-token">Access Token</dfn>. For information on how to do that see [Access Tokens for the Management API](/api/management/v2/tokens).
 :::
 
 * The __SAML Request Binding__ (also called the __Protocol Binding__): sent to the IdP from Auth0. If possible, dynamically set the value based on `connection.options.protocolBinding`:
@@ -51,13 +51,13 @@ If dynamically setting the value isn't possible, then set as either `HTTP-Redire
 * The SAML assertion, and the SAML response can be individually or simultaneously signed.
 * The __SingleLogout service URL__, where the SAML Identity Provider will send logout requests and responses, is: `https://${account.namespace}/logout`. SAML logout requests must be signed by the Identity Provider.
 
-## Encrypted Assertions:
+## Encrypted assertions:
 
 Optionally, assertions can be encrypted. Use this public key to configure the IdP: [CER](https://${account.namespace}/cer) | [PEM](https://${account.namespace}/pem) | [PKCS#7](https://${account.namespace}/pb7)
 
-## IdP-Initiated SSO
+## IdP-initiated Single Sign-on
 
-[Click here to learn more about IdP-Initiated SSO](/protocols/saml/idp-initiated-sso)
+[Click here to learn more about IdP-Initiated Single Sign-on (SSO)](/protocols/saml/idp-initiated-sso)
 
 ## Metadata
 

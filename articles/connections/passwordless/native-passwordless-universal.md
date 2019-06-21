@@ -10,12 +10,12 @@ useCase: customize-connections
 ---
 # Passwordless Authentication in Native Applications with Universal Login
 
-[Universal Login](/hosted-pages/login) is the only recommended way to set up passwordless authentication in your native application. We recommend using the Auth0 login page for the best experience, security and the fullest array of features.
+<dfn data-key="universal-login">Universal Login</dfn> is the only recommended way to set up <dfn data-key="passwordless">passwordless authentication</dfn> in your native application. We recommend using the Auth0 login page for the best experience, security and the fullest array of features.
 
 If you implement passwordless with Universal Login, the user experience will be as follows:
 
 1. Users click login, and the Auth0 SDK redirects them to the login page on the web.
-2. Lock Passwordless asks them for a phone number or email, whichever type you chose.
+2. <dfn data-key="lock">Lock</dfn> Passwordless asks them for a phone number or email, whichever type you chose.
 3. The prompt changes to ask them for a code that they will receive by the designated method.
 4. Once they enter the code, the transaction will finish and the user will be redirected to your app along with their credentials.
 

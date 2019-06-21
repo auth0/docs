@@ -1,6 +1,6 @@
 ---
-title: Zoom Single Sign On Integration
-description: How to set up a Single Sign On (SSO) integration with Zoom and Auth0.
+title: Zoom Single Sign-On Integration
+description: Learn how to set up a Single Sign-on (SSO) integration with Zoom and Auth0.
 toc: true
 public: true
 topics:

@@ -13,8 +13,6 @@ useCase:
 ---
 # How to implement the Resource Owner Password Grant
 
-<%= include('../../_includes/_pipeline2') %>
-
 In this tutorial, we will go through the steps required to implement the Resource Owner Password Grant.
 
 You should use this flow **only if** the following apply:
@@ -93,9 +91,9 @@ Where:
 * `audience`: The **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial.
 * `client_id`: Your application's Client ID. You can find this value at the [Settings tab of the Machine to Machine Application](${manage_url}/#/applications).
 * `client_secret`: Your application's Client Secret. You can find this value at the [Settings tab of the Machine to Machine Application](${manage_url}/#/applications). This is required when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your application is not highly trusted (for example, SPA).
-* `scope`: String value of the different [scopes](/scopes) the application is asking for. Multiple scopes are separated with whitespace.
+* `scope`: String value of the different <dfn data-key="scope">scopes</dfn> the application is asking for. Multiple scopes are separated with whitespace.
 
-The response contains a [signed JSON Web Token](/jwt), the token's type (which is `Bearer`), and in how much time it expires in [Unix time](https://en.wikipedia.org/wiki/Unix_time) (86400 seconds, which means 24 hours).
+The response contains a signed <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>, the token's type (which is `Bearer`), and in how much time it expires in [Unix time](https://en.wikipedia.org/wiki/Unix_time) (86400 seconds, which means 24 hours).
 
 ```js
 {
@@ -114,7 +112,7 @@ In these cases, the `scope` parameter will be included in the response, listing 
 :::
 
 ::: panel How to get the user's claims
-If you need the user's claims you can include the scope `openid` to your request. If the API uses `RS256` as the signing algorithm, the Access Token will now also include `/userinfo` as a valid audience. You can use this Access Token to invoke the [/userinfo endpoint](/api/authentication#get-user-info) and retrieve the user's claims.
+If you need the user's claims you can include the scope `openid` to your request. If the API uses `RS256` as the signing algorithm, the Access Token will now also include `/userinfo` as a valid <dfn data-key="audience">audience</dfn>. You can use this Access Token to invoke the [/userinfo endpoint](/api/authentication#get-user-info) and retrieve the user's claims.
 :::
 
 ### Realm Support
@@ -175,7 +173,7 @@ To use this variation you will have to change the following request parameters:
 ```
 
 ::: panel Auth0 Connections as Realms
-You can configure Auth0 Connections as realms, as long as they support active authentication. This includes [Database](/connections/database), [Passwordless](/connections/passwordless), [Active Directory/LDAP](/connections/enterprise/active-directory), [Windows Azure AD](/connections/enterprise/azure-active-directory) and [ADFS](/connections/enterprise/adfs) connections.
+You can configure Auth0 Connections as realms, as long as they support active authentication. This includes [Database](/connections/database), <dfn data-key="passwordless">[Passwordless](/connections/passwordless)</dfn>, [Active Directory/LDAP](/connections/enterprise/active-directory), [Windows Azure AD](/connections/enterprise/azure-active-directory) and [ADFS](/connections/enterprise/adfs) connections.
 :::
 
 ## Use the token
@@ -207,7 +205,7 @@ If you wish to execute special logic unique to the Password exchange, you can lo
 
 ## Optional: Configure MFA
 
-In case you need stronger authentication, than username and password, you can configure Multi- Factor Authentication (MFA) using the Resource Owner Password Grant. For details on how to implement this refer to [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
+In case you need stronger authentication, than username and password, you can configure <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> using the Resource Owner Password Grant. For details on how to implement this refer to [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
 
 ## Optional: Configure Anomaly Detection
 

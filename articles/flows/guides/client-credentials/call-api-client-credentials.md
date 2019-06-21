@@ -35,8 +35,8 @@ Auth0 makes it easy for your app to implement the Client Credentials Flow. Follo
 ## Steps
 
 1. [Request a token](#request-token): 
-From the authorized application, request an Access Token for your API.
-2. [Call your API](#call-api): 
+From the authorized application, request an Access Token for your API. 
+2. [Call your API](#call-your-api): 
 Use the retrieved Access Token to call your API.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
@@ -56,6 +56,6 @@ Once your API receives a request with an Access Token, it will need to validate 
 ::: next-steps
 - [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
 - [How to change scopes and add custom claims to tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
-- [The OpenID Connect protocol](/protocols/oidc)
+- [OpenID Connect (OIDC) protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
 :::

@@ -22,6 +22,10 @@ useCase:
 
 <%= include('../../_includes/_authorization/_api-integration.md', { platform: 'b2c' }) %>
 
+## Role Based Access Control (RBAC)
+
+<%= include('../../_includes/_authorization/_rbac.md', { platform: 'b2c' }) %>
+
 ## Planning
 
 To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.

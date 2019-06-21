@@ -17,7 +17,7 @@ useCase:
 
 This guide will show you how to update root attributes for an existing user profile using Auth0's Management API. To see which attributes you can update, visit [Normalized User Profile Structure](/users/references/user-profile-structure).
 
-1. Make a `PATCH` call to the [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, `GIVEN_NAME_VALUE`, `FAMILY_NAME_VALUE`, `NAME_VALUE`, `NICKNAME_VALUE`, and `PICTURE` placeholder values with your user ID, Access Token, given name, family name, name, nickname, and picture URL, respectively.
+1. Make a `PATCH` call to the [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, `GIVEN_NAME_VALUE`, `FAMILY_NAME_VALUE`, `NAME_VALUE`, `NICKNAME_VALUE`, and `PICTURE` placeholder values with your user ID, Management API Access Token, given name, family name, name, nickname, and picture URL, respectively.
 
 ```har
 {
@@ -38,7 +38,7 @@ This guide will show you how to update root attributes for an existing user prof
 | **Value** | **Description** |
 | - | - |
 | `USER_ID` | Τhe ID of the user to be updated. |
-| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the scope `update:users`. |
+| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:users`. |
 | `GIVEN_NAME_VALUE` | Given name of the user to be updated. |
 | `FAMILY_NAME_VALUE` | Family name of the user to be updated. |
 | `NAME_VALUE` | Full name of the user to be updated. |

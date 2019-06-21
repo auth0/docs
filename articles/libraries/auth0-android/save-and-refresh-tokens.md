@@ -11,7 +11,7 @@ useCase: enable-mobile-auth
 ---
 # Auth0.Android Saving and Renewing Tokens
 
-When an authentication is performed with the `offline_access` scope included, it will return a [Refresh Token](/refresh-token) that can be used to request a new user token, without forcing the user to perform authentication again.
+When an authentication is performed with the `offline_access` <dfn data-key="scope">scope</dfn> included, it will return a <dfn data-key="refresh-token">Refresh Token</dfn> that can be used to request a new user token, without forcing the user to perform authentication again.
 
 ## Credentials Manager
 
@@ -62,7 +62,7 @@ manager.clearCredentials();
 
 ### Retrieving Credentials
 
-Because the credentials may need to be refreshed against Auth0 Servers, this method is asynchronous. Pass a callback implementation where you'd like to receive the credentials. Credentials returned by this method upon success are always valid.
+Because the credentials may need to be refreshed against Auth0 Servers, this method is asynchronous. Pass a <dfn data-key="callback">callback</dfn> implementation where you'd like to receive the credentials. Credentials returned by this method upon success are always valid.
 
 ```java
 manager.getCredentials(new BaseCallback<Credentials, CredentialsManagerException>() {
@@ -106,7 +106,7 @@ The methods to obtain, save, check for existence and clearing the credentials ar
 
 ### Pre-Authenticate the User
 
-This class provides optional functionality for additional authentication using the device's configured Lock Screen. If the Lock Screen Security is set to something different than PIN, Pattern, Password or Fingerprint, this feature won't be available. You need to call the method below to enable the authentication. Pass a valid `Activity` context, a request code, and 2 optional Strings to use as title and description for the Lock Screen.
+This class provides optional functionality for additional authentication using the device's configured <dfn data-key="lock">Lock</dfn> Screen. If the Lock Screen Security is set to something different than PIN, Pattern, Password or Fingerprint, this feature won't be available. You need to call the method below to enable the authentication. Pass a valid `Activity` context, a request code, and 2 optional Strings to use as title and description for the Lock Screen.
 
 ```java
 private static final int RC_UNLOCK_AUTHENTICATION = 123;

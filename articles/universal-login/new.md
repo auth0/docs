@@ -8,7 +8,7 @@ toc: true
 ---
 # New Universal Login Experience
 
-Auth0's New [Universal Login](/universal-login) experience provides a reimagined login flow, with a fresh UX design, and lightweight pages. When you pick this new experience, Auth0 will use it for all pages that haven't been customized. It can be enabled from the [Universal Login Settings](https://manage.auth0.com/#/login_settings) dashboard section:
+Auth0's New <dfn data-key="universal-login">Universal Login</dfn> experience provides a reimagined login flow, with a fresh UX design, and lightweight pages. When you pick this new experience, Auth0 will use it for all pages that haven't been customized. It can be enabled from the [Universal Login Settings](https://manage.auth0.com/#/login_settings) dashboard section:
 
 ![Login Page](/media/articles/universal-login/experience-picker.png)
 
@@ -20,7 +20,7 @@ From a functional perspective, it has much better support for [Localization](/un
 
 - If you are using Development Keys for Social Providers:
 
-    - Single Sign On and Silent Authentication will work properly, which does not happen in the Classic experience.
+    - <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> and Silent Authentication will work properly, which does not happen in the Classic experience.
 
     - Users will see a warning in the login page mentioning that the tenant is configured with [Development Keys](docs/connections/social/devkeys).
 
@@ -32,7 +32,7 @@ From a functional perspective, it has much better support for [Localization](/un
 
 ## Multi-Factor Authentication
 
-- If users have more than one MFA factor enrolled (e.g. SMS and Push notifications), the new MFA page will let the user select which one they want to use.
+- If users have more than one <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> factor enrolled (e.g., SMS and Push notifications), the new MFA page will let the user select which one they want to use.
 
 - You can use [Email as an MFA factor](/multifactor-authentication/factors/email).
 

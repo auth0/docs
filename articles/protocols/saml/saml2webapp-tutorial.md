@@ -11,7 +11,7 @@ useCase:
 
 # Using Auth0 with a SAML2 Web App
 
-You can configure a SAML2 Web Application for use with an Auth0 Application via the Management Dashboard.
+You can configure a <dfn data-key="security-assertion-markup-language">SAML2</dfn> Web Application for use with an Auth0 Application via the Management Dashboard.
 
 ## Enable the SAML2 Web App Addon for your Auth0 Application
 
@@ -28,7 +28,7 @@ You can configure a SAML2 Web Application for use with an Auth0 Application via 
 
   ![](/media/articles/protocols/saml/saml2-web-app/configure-addon.png)
 
-5. To enable the Addon from the Auth0 side, you will need to provide you **Application Callback URL**, which receives the SAML response, as well as the **Settings** for your setup. Within the *Settings* page, there is a sample object that you can use when determining which settings you want to enable:
+5. To enable the Addon from the Auth0 side, you will need to provide your **Application <dfn data-key="callback">Callback URL</dfn>**, which receives the SAML response, as well as the **Settings** for your setup. Within the *Settings* page, there is a sample object that you can use when determining which settings you want to enable:
 
 ```js
 {

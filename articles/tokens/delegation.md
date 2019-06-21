@@ -24,9 +24,9 @@ The type of the delegation token will vary depending on the by provider. For exa
 
 ## How to get a delegation token
 
-The ID Token for an authenticated user can be used with the [Delegation endpoint](/api/authentication#delegation) to request a delegation token for a particular target. The target can be an application Addon configured in Auth0. The Addons for which this can be done are those that are not SAML or WS-Fed Addons and the Addon must be configured in Auth0 with secrets obtained from the Addon service, such as Firebase. Instructions for setting up the secrets are available from the Addon configuration page for each Addon. The secrets are used to sign the delegation token so that the Addon API can validate and trust the token.
+The ID Token for an authenticated user can be used with the [Delegation endpoint](/api/authentication#delegation) to request a delegation token for a particular target. The target can be an application Addon configured in Auth0. The Addons for which this can be done are those that are not <dfn data-key="security-assertion-markup-language">SAML</dfn> or WS-Fed Addons and the Addon must be configured in Auth0 with secrets obtained from the Addon service, such as Firebase. Instructions for setting up the secrets are available from the Addon configuration page for each Addon. The secrets are used to sign the delegation token so that the Addon API can validate and trust the token.
 
-The delegation endpoint allows the setting of several parameters which will govern the contents of the delegation token, including the `target`, the `scope`, the API to be called (`api_type`) and an additional free-form area for additional parameters.
+The delegation endpoint allows the setting of several parameters which will govern the contents of the delegation token, including the `target`, the <dfn data-key="scope">`scope`</dfn>, the API to be called (`api_type`) and an additional free-form area for additional parameters.
 
 See the [Delegation endpoint](/api/authentication#delegation) for more information.
 

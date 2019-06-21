@@ -38,7 +38,7 @@ You can use JavaScript to retrieve the following custom variables:
 | `tenant.name` | The name associated with your Auth0 tenant | 
 | `tenant.friendly_name` | The name displayed for your Auth0 tenant | 
 | `tenant.picture_url` | The URL leading to the logo representing you in Auth0 | 
-| `tenant.support_email` | The support email address for your company displayed to your Auth0 users | 
+| `tenant.support_email` | The support email address for your company displayed to your Auth0 users |
 | `tenant.support_url` | The support URL for your company displayed to your Auth0 users | 
 | `lang` | The user's language | 
 | `password_policy` | The active connection's security policy. You can see what this is using `${manage_url}/#/connections/database/con_YOUR-CONNECTION-ID/security`. Be sure to provide your connection ID in the URL.) |

@@ -37,7 +37,7 @@ Once issued, [an ID Token cannot be revoked](/tokens/guides/revoke-tokens). So u
 
 ## Do not use wildcards or localhost in callbacks or origins fields
 
-Do not use wildcard or localhost URLs in your application callbacks or allowed origins fields. Using redirect URLs with wildcards [can make your application vulnerable to attacks](https://www.owasp.org/index.php/Unvalidated_Redirects_and_Forwards_Cheat_Sheet).
+Do not use wildcard or localhost URLs in your application <dfn data-key="callback">callbacks</dfn> or allowed origins fields. Using redirect URLs with wildcards [can make your application vulnerable to attacks](https://www.owasp.org/index.php/Unvalidated_Redirects_and_Forwards_Cheat_Sheet).
 
 ## Register logout redirect URLs
 
@@ -49,7 +49,7 @@ You should register redirect URLs in your tenant settings. If you need different
 
 ### RS256 signature algorithm
 
-Make sure that RS256 is the signature method for signing JSON Web Tokens (JWT). The JWT signature method can be found under [Applications > Settings > Advanced Settings > OAuth](${manage_url}/#/applications) on the dashboard.
+Make sure that RS256 is the signature method for signing <dfn data-key="json-web-token">JSON Web Tokens (JWT)</dfn>. The JWT signature method can be found under [Applications > Settings > Advanced Settings > OAuth](${manage_url}/#/applications) on the dashboard.
  
 [Auth0 Blog: Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/)
 

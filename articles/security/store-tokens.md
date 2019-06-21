@@ -18,7 +18,7 @@ Not sure where to store [tokens](/tokens)? This guide outlines how to securely s
 
 ## Regular web apps
 
-ID Tokens, Access Tokens, and (optional) Refresh Tokens should be handled server-side in typical web applications. The application server use the tokens to call APIs on behalf of the user.
+ID Tokens, <dfn data-key="access-token">Access Tokens</dfn>, and (optional) <dfn data-key="refresh-token">Refresh Tokens</dfn> should be handled server-side in typical web applications. The application server use the tokens to call APIs on behalf of the user.
 
 * [Authorization Code Flow](/flows/concepts/auth-code)
 * [Regular Web App Quickstarts](/quickstart/webapp)
