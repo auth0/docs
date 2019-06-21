@@ -14,7 +14,6 @@ topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
-beta: true
 snippets:
   dependencies: application-platforms/angular2/dependencies
   setup: application-platforms/angular2/setup
