@@ -15,6 +15,10 @@ topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
+show_releases: true
+sdk:
+  name: auth0-spa-js 1.0.0
+  url: https://www.github.com/auth0/auth0-spa-js/
 snippets:
   dependencies: application-platforms/react/dependencies
   setup: application-platforms/react/setup
