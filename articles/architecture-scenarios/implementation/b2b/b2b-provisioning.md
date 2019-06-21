@@ -116,7 +116,7 @@ A nice advantage of allowing your customers to use their own IDP is that they ca
 
 ## Planning
 
-<%= include('../../_includes/_b2b-planning.md') %>
+<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 

@@ -54,7 +54,7 @@ If your organization users will all be isolated from each other, than it’s imp
 
 ## Planning
 
-To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
+<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 

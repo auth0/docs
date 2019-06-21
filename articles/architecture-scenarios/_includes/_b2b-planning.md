@@ -1,1 +1,0 @@
-To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/17XVLT3kU7vG49Ix9afJV0pAI9ev4oRUL/view?usp=sharing) that details our recommended strategies.
