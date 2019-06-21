@@ -21,7 +21,6 @@ snippets:
   use: application-platforms/react/use
 seo_alias: react
 default_article: 01-login
-beta: true
 articles:
   - 01-login
   - 02-calling-an-api
