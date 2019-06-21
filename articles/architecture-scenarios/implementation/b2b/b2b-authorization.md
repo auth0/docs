@@ -22,6 +22,10 @@ useCase:
 
 <%= include('../../_includes/_authorization/_api-integration.md', { platform: 'b2b' }) %>
 
+## Machine-to-Machine (M2M) Authorization
+
+<%= include('../../_includes/_authorization/_m2m.md', { platform: 'b2b' }) %>
+
 ## Planning
 
 <%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
