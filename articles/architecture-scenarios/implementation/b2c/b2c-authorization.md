@@ -26,6 +26,10 @@ useCase:
 
 <%= include('../../_includes/_authorization/_rbac.md', { platform: 'b2c' }) %>
 
+## Machine-to-Machine (M2M) Authorization
+
+<%= include('../../_includes/_authorization/_m2m.md', { platform: 'b2c' }) %>
+
 ## Planning
 
 To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
