@@ -12,8 +12,6 @@ useCase:
 ---
 # Call APIs from Highly Trusted Applications
 
-<%= include('../../_includes/_pipeline2') %>
-
 Highly trusted applications can use this flow to access APIs. In this flow the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is sent to the backend and from there to Auth0.
 
 You should use this flow **only if** the following apply:
