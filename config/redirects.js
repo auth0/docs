@@ -117,7 +117,7 @@ module.exports = [
     to: '/tutorials/aspnet-mvc4-enterprise-providers'
   },
   {
-    from: '/migrations,
+    from: '/migrations',
     to: '/product-lifecycle/migrations'
   },
   {
