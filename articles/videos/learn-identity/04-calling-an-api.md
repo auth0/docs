@@ -6,7 +6,7 @@ classes: video-page
 
 How to obtain and use access and refresh tokens for delegated authorization in a traditional web application.
 
-<div class="video-wrapper" data-video="yw6hmdhnft" data-padding="100% 0 0"></div>
+<div class="video-wrapper" data-video="yw6hmdhnft"></div>
 
 ## Bookmarks
 
