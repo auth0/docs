@@ -76,14 +76,14 @@ Social login connections can be found on the Auth0 Dashboard. From the Dashboard
     <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>5:52</span>
     <i class="video-icon icon icon-budicon-676"></i>
-    <a href="/videos/04_1_authenticate-how-it-works">Authenticate: How It Works</a>
+    <a href="/videos/get-started/04_1_authenticate-how-it-works">Authenticate: How It Works</a>
     <p>How user authentication works and various ways to accomplish it with Auth0.</p>
   </li>
 
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>TBD</span>
     <i class="video-icon icon icon-budicon-676"></i>
-    <a href="/videos/04_02_authenticate-spa-example">Authenticate: SPA Example</a>
+    <a href="/videos/get-started/04_02_authenticate-spa-example">Authenticate: SPA Example</a>
     <p>An example using the Auth0 Quickstart for a SPA implementation with Auth0 Universal Login. </p>
   </li>
 </ul>
