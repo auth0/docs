@@ -12,7 +12,7 @@ useCase:
 ---
 # Implementation Checklists
 
-Auth0 provides a number of checklists in Google Sheets format, each of which aligns with a particular phase of a typical SDLC (Software Development Life Cycle). Though all of these may not apply to you, it is recommended that you use applicable checklists as part of your planning and implementation.  
+Auth0 provides checklists in spreadsheet format which align with typical SDLC (Software Development Life Cycle) phases. Though all of the items in the checklists may not apply to you, we recommend that you use the checklists as a starting point for planning and implementation.  
 
 ## How to use the checklists
 
