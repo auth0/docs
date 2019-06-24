@@ -1,27 +1,34 @@
 ---
-title: Business to Business Identity and Access Management
-image: /media/articles/architecture-scenarios/b2b.png
-description: Explains the architecture scenario B2B IAM with a SAAS application.
+title: Authorization
+description: Understand user authorization and related planning considerations for your B2B implementation.
+toc: true
 topics:
     - b2b
     - b2biam
-    - SDLC
+    - authorization
 contentType: concept
 useCase:
-  - implementation
+  - user-authorization
 ---
+# Authorization
 
-# Business to Business Identity and Access Management
+<%= include('../../_includes/_authorization/_introduction.md', { platform: 'b2b' }) %>
 
-<%= include('./_includes/_base-intro.md', { platform: 'b2b' }) %>
+## Application integration
 
-## Ways to integrate Auth0 and how to choose
+<%= include('../../_includes/_authorization/_application-integration.md', { platform: 'b2b' }) %>
 
-<%= include('./_includes/_base-ways-to-integrate.md', { platform: 'b2b' }) %>
+## API integration
 
-## Implementation checklists
+<%= include('../../_includes/_authorization/_api-integration.md', { platform: 'b2b' }) %>
 
-<%= include('./_includes/_implementation-checklists.md') %>
+## Machine-to-Machine (M2M) authorization
+
+<%= include('../../_includes/_authorization/_m2m.md', { platform: 'b2b' }) %>
+
+## Planning
+
+<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 
@@ -32,6 +39,5 @@ useCase:
 * [Deployment Automation](/architecture-scenarios/implementation/b2b/b2b-deployment)
 * [Quality Assurance](/architecture-scenarios/implementation/b2b/b2b-qa)
 * [Profile Management](/architecture-scenarios/implementation/b2b/b2b-profile-mgmt)
-* [Authorization](/architecture-scenarios/implementation/b2b/b2b-authorization)
 * [Logout](/architecture-scenarios/implementation/b2b/b2b-logout)
 * [Operations](/architecture-scenarios/implementation/b2b/b2b-operations)

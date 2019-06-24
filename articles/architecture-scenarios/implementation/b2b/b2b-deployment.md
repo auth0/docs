@@ -1,27 +1,24 @@
 ---
-title: Business to Business Identity and Access Management
-image: /media/articles/architecture-scenarios/b2b.png
-description: Explains the architecture scenario B2B IAM with a SAAS application.
+title: Deployment Automation
+description: Understand how Auth0 tooling helps to automate tenant deployment
+toc: true
 topics:
     - b2b
     - b2biam
-    - SDLC
+    - tenants
+    - deployment
 contentType: concept
 useCase:
-  - implementation
+  - tenant-deployment
 ---
 
-# Business to Business Identity and Access Management
+# Deployment Automation
 
-<%= include('./_includes/_base-intro.md', { platform: 'b2b' }) %>
+<%= include('../../_includes/_deployment/_introduction.md', { platform: 'b2b' }) %>
 
-## Ways to integrate Auth0 and how to choose
+## Planning
 
-<%= include('./_includes/_base-ways-to-integrate.md', { platform: 'b2b' }) %>
-
-## Implementation checklists
-
-<%= include('./_includes/_implementation-checklists.md') %>
+<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 
@@ -29,7 +26,6 @@ useCase:
 * [Provisioning](/architecture-scenarios/implementation/b2b/b2b-provisioning)
 * [Authentication](/architecture-scenarios/implementation/b2b/b2b-authentication)
 * [Branding](/architecture-scenarios/implementation/b2b/b2b-branding)
-* [Deployment Automation](/architecture-scenarios/implementation/b2b/b2b-deployment)
 * [Quality Assurance](/architecture-scenarios/implementation/b2b/b2b-qa)
 * [Profile Management](/architecture-scenarios/implementation/b2b/b2b-profile-mgmt)
 * [Authorization](/architecture-scenarios/implementation/b2b/b2b-authorization)
