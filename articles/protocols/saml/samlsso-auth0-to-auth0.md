@@ -214,7 +214,7 @@ Make sure you are logged into the **Tenant 1 Auth0 dashboard**.
 
 * Click on the red **"+ CREATE APP"** button on the right.
 
-* In the **Name** field, enter a name like "My-HTML-SAML-App".
+* In the **Name** field, enter a name like "My-Auth0-IDP".
 
 * Select "Regular Web App"
 
