@@ -15,18 +15,7 @@ Enterprise users typically have SSO enabled for multiple applications (e.g., Sha
 
 <%= include('../_includes/_logout-endpoint') %>
 
-Redirecting users to the logout endpoint **does not** cover the scenario where users need to be signed out of all of the applications they used.  If you need to provide this functionality you will have to either handle this by calling redirecting to Auth0 to attempt to log in at some interval in your application, or tracking this at your application level and providing a way for one application to call the other applications to force logout. 
-
-## Limitations
-
-The complete single sign-out flow is based on the SSO cookie in Auth0 and rendering IFRAMES. Take into account that:
-
-* For the IFRAMES, there's no way to detect if the IFRAME rendered correctly. You can only detect if it completed or not. For slow applications, if it takes more than 5 seconds to sign out the sample will show a red line instead of the green line.
-
-* Depending on specific browser settings there might be issues with the SSO cookie or the rendering of the IFRAME.
-In IE for example a setting called "Protected Mode" should be disabled or your applications will need a P3P header for this to work correctly.
-
-* In Safari (depending on your settings) cookies might be restricted to a specific tab (and not shared over different tabs).
+Redirecting users to the logout endpoint **does not** cover the scenario where users need to be signed out of all of the applications they used.  If you need to provide this functionality you will have to either handle this by calling redirect to Auth0 to attempt to log in at some interval in your application, or tracking this at your application level and providing a way for one application to call the other applications to force logout. 
 
 ## Keep reading
 
