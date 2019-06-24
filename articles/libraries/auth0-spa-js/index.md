@@ -147,7 +147,7 @@ document.getElementById('logout').addEventListener('click', () => {
 
 ## Usage
 
-JQuery is used in the following examples.
+jQuery is used in the following examples.
 
 ### Login with Popup
 
@@ -157,9 +157,7 @@ JQuery is used in the following examples.
 
 ```js
 $('#loginPopup').click(async () => {
-  await auth0.loginWithPopup({
-    redirect_uri: 'http://localhost:3000/callback.html'
-  });
+  await auth0.loginWithPopup();
 });
 ```
 
