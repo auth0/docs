@@ -105,7 +105,7 @@ document.getElementById('callApi').addEventListener('click', async () => {
   const result = await fetch('https://exampleco.com/api', {
     method: 'GET',
     headers: {
-      Authorization: `Bearer ${accessToken}`
+      Authorization: `Bearer ACCESS_TOKEN`
     }
   });
   const data = await result.json();
@@ -120,7 +120,7 @@ document.getElementById('callApi').addEventListener('click', () => {
       fetch('https://myapi.com', {
         method: 'GET',
         headers: {
-          Authorization: `Bearer ${accessToken}`
+          Authorization: `Bearer ACCESS_TOKEN`
         }
       })
     )
