@@ -26,7 +26,7 @@ The [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/con
 
 ## How to implement the Authorization Code Flow with PKCE
 
-The steps to follow to implement this flow are the following:
+To implement this flow:
 
 1. __Create a Code Verifier__. This is a randomly generated value that will be used to generate the `code_challenge` (which will be sent in the authorization request).
 
