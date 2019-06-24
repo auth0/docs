@@ -39,11 +39,9 @@ useCase:
 
 ## Planning guide
 
-<%= include('../_includes/_topic-links', { links: [
-  'media/articles/architecture-scenarios/planning/B2B-Project-Planning.pdf'
-] }) %>
-
 <%= include('./_includes/_base-ways-to-integrate.md', { platform: 'b2b' }) %>
+
+<%= include('./_includes/_planning.md', { platform: 'b2b' }) %>
 
 ## Implementation checklists
 
