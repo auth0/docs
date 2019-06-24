@@ -13,7 +13,7 @@ useCase: integrate-saas-sso
 Authentication in CLI programs is straightforward if the identity provider supports sending credentials, like database connections, SMS <dfn data-key="passwordless">passwordless</dfn> and AD. If the identity provider requires a browser redirect, then the process is slightly more complicated.
 
 ::: note
-If your identity provider supports sending credentials, then you should use the [Client Credentials Flow](/flows/guides/m2m-flow). For details on how to implement this, refer to [Call API Using the Client Credentials Flow](/flows/guides/client-credentials/call-api-client-credentials).
+If your identity provider supports sending credentials, then you should use the [Client Credentials Flow](/flows/concepts/client-credentials). For details on how to implement this, refer to [Call API Using the Client Credentials Flow](/flows/guides/client-credentials/call-api-client-credentials).
 :::
 
 Auth0 implements the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), which makes use of the [Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636) enhancement. This flow makes it easy to add authentication to a CLI while keeping higher standards of security.
