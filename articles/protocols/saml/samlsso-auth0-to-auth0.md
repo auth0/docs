@@ -214,7 +214,7 @@ Make sure you are logged into the **Tenant 1 Auth0 dashboard**.
 
 * Click on the red **"+ CREATE APP"** button on the right.
 
-* In the **Name** field, enter a name like "My-Auth0-IDP".
+* In the **Name** field, enter a name like "My-HTML-SAML-App".
 
 * Select "Regular Web App"
 
@@ -233,8 +233,6 @@ Make sure you are logged into the **Tenant 1 Auth0 dashboard**.
 * In the same screen, click on the blue **"Connections"** tab (In the row that says Quick Start, Settings and so on.
 
 * Scroll down to the section near the bottom where it says **"ENTERPRISE"**.
-
-![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-17.png)
 
 * Find the row for the SAML connection you created above and click on the on/off toggle at right so that it is green, for "on".  That enables the SAML connection for this application.  
 
