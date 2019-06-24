@@ -8,7 +8,9 @@ A whirlwind tour of identity history, concepts, and terminology: protocols, open
 
 <div class="video-wrapper" data-video="pdlav16113"></div>
 
-## Bookmarks
+## Jump to Section
+
+Jump to a section in the video for explanation on a specific topic.
 
 <div class="video-transcript video-bookmarks" id="wistia-video-bookmarks">
   <ul>
@@ -19,44 +21,44 @@ A whirlwind tour of identity history, concepts, and terminology: protocols, open
     <li><a href="#wistia_pdlav16113?time=540">Introducing the history part of the presentation</a></li>
     <li><a href="#wistia_pdlav16113?time=580">User passwords in every app</a></li>
     <ul>
-      <li><a href="#wistia_pdlav16113?time=600">digital identity</a></li>
-      <li><a href="#wistia_pdlav16113?time=722">shared secrets, raw creds</a></li>
-      <li><a href="#wistia_pdlav16113?time=768">passwords and jellyfish</a></li>
+      <li><a href="#wistia_pdlav16113?time=600">Digital identity</a></li>
+      <li><a href="#wistia_pdlav16113?time=722">Shared secrets, raw creds</a></li>
+      <li><a href="#wistia_pdlav16113?time=768">Passwords and jellyfish</a></li>
     </ul>
     <li><a href="#wistia_pdlav16113?time=853">Directories</a></li>
     <ul>
-      <li><a href="#wistia_pdlav16113?time=970">directory</a></li>
-      <li><a href="#wistia_pdlav16113?time=1068">perimeter</a></li>
+      <li><a href="#wistia_pdlav16113?time=970">Directory</a></li>
+      <li><a href="#wistia_pdlav16113?time=1068">Perimeter</a></li>
     </ul>
     <li><a href="#wistia_pdlav16113?time=1108">Cross domain SSO</a></li>
     <ul>
-      <li><a href="#wistia_pdlav16113?time=1148">shadow accounts</a></li>
+      <li><a href="#wistia_pdlav16113?time=1148">Shadow accounts</a></li>
       <li><a href="#wistia_pdlav16113?time=1242">Kerberos</a></li>
       <li><a href="#wistia_pdlav16113?time=1260">SAML</a></li>
-      <li><a href="#wistia_pdlav16113?time=1293">middleware</a></li>
-      <li><a href="#wistia_pdlav16113?time=1346">trust</a></li>
-      <li><a href="#wistia_pdlav16113?time=1552">security token</a></li>
-      <li><a href="#wistia_pdlav16113?time=1571">digital signature</a></li>
-      <li><a href="#wistia_pdlav16113?time=1630">claims</a></li>
-      <li><a href="#wistia_pdlav16113?time=1757">representing a session with a cookie</a></li>
+      <li><a href="#wistia_pdlav16113?time=1293">Middleware</a></li>
+      <li><a href="#wistia_pdlav16113?time=1346">Trust</a></li>
+      <li><a href="#wistia_pdlav16113?time=1552">Security token</a></li>
+      <li><a href="#wistia_pdlav16113?time=1571">Digital signature</a></li>
+      <li><a href="#wistia_pdlav16113?time=1630">Claims</a></li>
+      <li><a href="#wistia_pdlav16113?time=1757">Representing a session with a cookie</a></li>
     </ul>
-    <li><a href="#wistia_pdlav16113?time=1817">The password sharing antipattern</a></li>
+    <li><a href="#wistia_pdlav16113?time=1817">The password sharing anti-pattern</a></li>
     <ul>
       <li><a href="#wistia_pdlav16113?time=1948">Problem 1: sharing credentials with the wrong entity</a></li>
       <li><a href="#wistia_pdlav16113?time=1990">Problem 2: more privileges than necessary</a></li>
     </ul>  
     <li><a href="#wistia_pdlav16113?time=2048">Delegated authorization: OAuth2</a></li>
     <ul>
-      <li><a href="#wistia_pdlav16113?time=2086">authorization server</a></li>
+      <li><a href="#wistia_pdlav16113?time=2086">Authorization server</a></li>
       <li><a href="#wistia_pdlav16113?time=2150">OAuth2 is NOT an authentication protocol</a></li>
-      <li><a href="#wistia_pdlav16113?time=2209">consent</a></li>
-      <li><a href="#wistia_pdlav16113?time=2234">authorization code</a></li>
-      <li><a href="#wistia_pdlav16113?time=2257">client registration, client secret</a></li>
-      <li><a href="#wistia_pdlav16113?time=2301">access token, scope</a></li>
+      <li><a href="#wistia_pdlav16113?time=2209">Consent</a></li>
+      <li><a href="#wistia_pdlav16113?time=2234">Authorization code</a></li>
+      <li><a href="#wistia_pdlav16113?time=2257">Client registration, client secret</a></li>
+      <li><a href="#wistia_pdlav16113?time=2301">Access token, scope</a></li>
     </ul>      
     <li><a href="#wistia_pdlav16113?time=2409">Layering sign in on top of OAuth2: OpenID Connect</a></li>
     <ul>
-      <li><a href="#wistia_pdlav16113?time=2526">confused deputy problem</a></li>
+      <li><a href="#wistia_pdlav16113?time=2526">Confused deputy problem</a></li>
       <li><a href="#wistia_pdlav16113?time=2627">OpenID Connect</a></li>
       <li><a href="#wistia_pdlav16113?time=2664">ID token</a></li>
     </ul>
@@ -68,7 +70,7 @@ A whirlwind tour of identity history, concepts, and terminology: protocols, open
 <div class="video-transcript-expand" onClick="(function() {
   $('.video-transcript').toggleClass('expanded');
   $('.video-transcript-expand i').attr('class', $('.video-transcript').hasClass('expanded') ? 'icon-budicon-462' : 'icon-budicon-460');
-})()">Expand Bookmarks <i class="icon-budicon-460"></i></div>
+})()">Expand Links <i class="icon-budicon-460"></i></div>
 
 ## Up Next
 

@@ -8,7 +8,9 @@ Authentication for web applications using OpenID Connect.
 
 <div class="video-wrapper" data-video="k4rwcky3p5"></div>
 
-## Bookmarks
+## Jump to Section
+
+Jump to a section in the video for explanation on a specific topic.
 
 <div class="video-transcript video-bookmarks" id="wistia-video-bookmarks">
   <ul>
@@ -16,51 +18,51 @@ Authentication for web applications using OpenID Connect.
     <li><a href="#wistia_k4rwcky3p5?time=252">The grant used for web sign in: implicit with form_post</a></li>
     <li><a href="#wistia_k4rwcky3p5?time=400">Web sign in - detailed walkthrough and diagram</a></li>
     <ul>
-      <li><a href="#wistia_k4rwcky3p5?time=455">request protected route on web app</a></li>
-      <li><a href="#wistia_k4rwcky3p5?time=474">authorization request</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=455">Request protected route on web app</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=474">Authorization request</a></li>
       <ul>
-        <li><a href="#wistia_k4rwcky3p5?time=525">client ID</a></li>
-        <li><a href="#wistia_k4rwcky3p5?time=542">response_type</a></li>
-        <li><a href="#wistia_k4rwcky3p5?time=564">response_mode</a></li>
-        <li><a href="#wistia_k4rwcky3p5?time=620">redirect_uri</a></li>
-        <li><a href="#wistia_k4rwcky3p5?time=725">scope</a></li>
-        <li><a href="#wistia_k4rwcky3p5?time=769">nonce</a></li>
-        <li><a href="#wistia_k4rwcky3p5?time=818">default response_mode per response_type</a></li>
+        <li><a href="#wistia_k4rwcky3p5?time=525">Client ID</a></li>
+        <li><a href="#wistia_k4rwcky3p5?time=542">Response_type</a></li>
+        <li><a href="#wistia_k4rwcky3p5?time=564">Response_mode</a></li>
+        <li><a href="#wistia_k4rwcky3p5?time=620">Redirect_uri</a></li>
+        <li><a href="#wistia_k4rwcky3p5?time=725">Scope</a></li>
+        <li><a href="#wistia_k4rwcky3p5?time=769">Nonce</a></li>
+        <li><a href="#wistia_k4rwcky3p5?time=818">Default response_mode per response_type</a></li>
       </ul>
-      <li><a href="#wistia_k4rwcky3p5?time=845">authorization request (continued)</a></li>
-      <li><a href="#wistia_k4rwcky3p5?time=895">authorization response</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=845">Authorization request (continued)</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=895">Authorization response</a></li>
       <ul>
-        <li><a href="#wistia_k4rwcky3p5?time=906">authorization server session cookie</a></li>
+        <li><a href="#wistia_k4rwcky3p5?time=906">Authorization server session cookie</a></li>
         <li><a href="#wistia_k4rwcky3p5?time=938">ID token returned in the form</a></li>
       </ul>
-      <li><a href="#wistia_k4rwcky3p5?time=983">token validation and web app session creation</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=983">Token validation and web app session creation</a></li>
     </ul>
     <li><a href="#wistia_k4rwcky3p5?time=1076">Anatomy of an ID token</a></li>
     <ul>
       <li><a href="#wistia_k4rwcky3p5?time=1193">JWT.io</a></li>
       <li><a href="#wistia_k4rwcky3p5?time=1208">JWT header</a></li>
-      <li><a href="#wistia_k4rwcky3p5?time=1243">validation claims: issuer, audience, iat, expiration</a></li>
-      <li><a href="#wistia_k4rwcky3p5?time=1309">identity claims, profile</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=1243">Validation claims: issuer, audience, iat, expiration</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=1309">Identity claims, profile</a></li>
     </ul>
     <li><a href="#wistia_k4rwcky3p5?time=1340">Principles of token validation</a></li>
     <ul>
-      <li><a href="#wistia_k4rwcky3p5?time=1359">subject confirmation</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=1359">Subject confirmation</a></li>
       <ul>
-        <li><a href="#wistia_k4rwcky3p5?time=1408">bearer tokens</a></li>
-        <li><a href="#wistia_k4rwcky3p5?time=1436">proof of possession</a></li>
+        <li><a href="#wistia_k4rwcky3p5?time=1408">Bearer tokens</a></li>
+        <li><a href="#wistia_k4rwcky3p5?time=1436">Proof of possession</a></li>
       </ul>
-      <li><a href="#wistia_k4rwcky3p5?time=1560">validating tokens according to format</a></li>
-      <li><a href="#wistia_k4rwcky3p5?time=1692">signature checks</a></li>
-      <li><a href="#wistia_k4rwcky3p5?time=1711">“infrastructural” claims (issuer, audience, expiration)</a></li>
-      <li><a href="#wistia_k4rwcky3p5?time=1764">validating tokens via introspection</a></li>
-      <li><a href="#wistia_k4rwcky3p5?time=1859">attention points with introspection</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=1560">Validating tokens according to format</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=1692">Signature checks</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=1711">"Infrastructural" claims (issuer, audience, expiration)</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=1764">Validating tokens via introspection</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=1859">Attention points with introspection</a></li>
     </ul>
     <li><a href="#wistia_k4rwcky3p5?time=1913">Metadata and discovery</a></li>
     <ul>
-      <li><a href="#wistia_k4rwcky3p5?time=1977">discovery doc retrieval at middleware init</a></li>
-      <li><a href="#wistia_k4rwcky3p5?time=1990">requesting the discovery doc</a></li>
-      <li><a href="#wistia_k4rwcky3p5?time=2004">discovery doc content</a></li>
-      <li><a href="#wistia_k4rwcky3p5?time=2051">keys collection</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=1977">Discovery doc retrieval at middleware init</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=1990">Requesting the discovery doc</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=2004">Discovery doc content</a></li>
+      <li><a href="#wistia_k4rwcky3p5?time=2051">Keys collection</a></li>
     </ul>
   </ul>
 </div>
@@ -68,7 +70,7 @@ Authentication for web applications using OpenID Connect.
 <div class="video-transcript-expand" onClick="(function() {
   $('.video-transcript').toggleClass('expanded');
   $('.video-transcript-expand i').attr('class', $('.video-transcript').hasClass('expanded') ? 'icon-budicon-462' : 'icon-budicon-460');
-})()">Expand Bookmarks <i class="icon-budicon-460"></i></div>
+})()">Expand Links <i class="icon-budicon-460"></i></div>
 
 ## Up Next
 
