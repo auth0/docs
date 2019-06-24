@@ -1,9 +1,9 @@
 ---
-description: Videos that describe how to implement Auth0 features with your applications.
+description: Videos that describe how to get started implementing Auth0 features with your applications.
 ---
-# Implementation Videos
+# Getting Started Videos
 
-Welcome to Auth0's Implementation! This video series will help you make sense of OAuth, OpenID Connect, and many pieces that come together to make authentication and delegated authorization happen. This series of videos is the lecture portion of our new hire orientation for engineers.
+Welcome to Auth0's Get Started video series that will help you understand the basics of implementing Auth0 features. 
 
 1. [Architecture: Your Tenant](/videos/01_architecture-your-tenant)
 2. [Provision: User Stores](/videos/02_provision-user-stores)
