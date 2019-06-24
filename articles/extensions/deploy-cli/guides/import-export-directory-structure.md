@@ -77,7 +77,7 @@ Here is an example of a `config.json` file:
 
 To export your current tenant configuration, run a command that's similar to:
 
-`a0deploy export -c config.json --strip -f directory -o path/to/export`
+`a0deploy export -c config.json -f directory -o path/to/export`
 
 <%= include('../_includes/_strip-option') %>
 
