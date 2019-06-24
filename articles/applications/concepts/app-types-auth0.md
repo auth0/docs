@@ -10,8 +10,7 @@ contentType:
 useCase:
   - build-an-app
 ---
-
-## Auth0 Application Types
+# Auth0 Application Types
 
 To add authentication to your application, you must first register it with Auth0 and select an application type. Auth0 recognizes four application types:
 
