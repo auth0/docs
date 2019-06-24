@@ -3,7 +3,7 @@ description: Videos that describe how to implement Auth0 features with your appl
 ---
 # Implementation Videos
 
-Intro Text TBD
+Welcome to Auth0's Implementation! This video series will help you make sense of OAuth, OpenID Connect, and many pieces that come together to make authentication and delegated authorization happen. This series of videos is the lecture portion of our new hire orientation for engineers.
 
 1. [Architecture: Your Tenant](/videos/01_architecture-your-tenant)
 2. [Provision: User Stores](/videos/02_provision-user-stores)
