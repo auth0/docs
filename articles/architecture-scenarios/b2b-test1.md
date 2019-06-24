@@ -24,9 +24,7 @@ When you embark on your journey to integrate with Auth0, there are many things f
 
 ## Planning guide
 
-<%= include('../_includes/_topic-links', { links: [
-  'media/articles/architecture-scenarios/planning/B2B-Project-Planning.pdf'
-] }) %>
+test
 
 ## Getting started
 
@@ -45,12 +43,8 @@ When you embark on your journey to integrate with Auth0, there are many things f
 
 ## Implementation checklists
 
-<%= include('../_includes/_topic-links', { links: [
-  'architecture-scenarios/checklists'
-] }) %>
+test
 
 ## Implementation resources
 
-<%= include('../_includes/_topic-links', { links: [
-  'architecture-scenarios/implementation-resources'
-] }) %>
+test
