@@ -1,6 +1,4 @@
 ---
-url: /architecture-scenarios/b2b
-image: /media/articles/architecture-scenarios/b2b.png
 classes: topic-page
 title: Business to Business Identity and Access Management
 description: Learn about the B2B IAM architecture scenario best practices.
@@ -19,8 +17,6 @@ useCase:
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Business to Business Identity and Access Management</h1>
 </div>
-
-<%= include('./_includes/_base-intro.md', { platform: 'b2b' }) %>
 
 There are many different ways Auth0 can be integrated into the <% if (platform === "b2c") { %>CIAM<% } else { %>B2B IAM<% } %> project architecture. Auth0's flexibility comprehensively supports many different use cases, however keep in mind that not every project requires 100% of the capabilities provided by Auth0.
 
