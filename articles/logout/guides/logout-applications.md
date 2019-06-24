@@ -15,7 +15,7 @@ Enterprise users typically have SSO enabled for multiple applications (e.g., Sha
 
 <%= include('../_includes/_logout-endpoint') %>
 
-Redirecting users to the logout endpoint **does not** cover the scenario where users need to be signed out of all of the applications they used. In the user's SSO session, Auth0 keeps track of each application the user signs in to. 
+Redirecting users to the logout endpoint **does not** cover the scenario where users need to be signed out of all of the applications they used.  If you need to provide this functionality you will have to either handle this by calling redirecting to Auth0 to attempt to log in at some interval in your application, or tracking this at your application level and providing a way for one application to call the other applications to force logout. 
 
 ## Limitations
 
