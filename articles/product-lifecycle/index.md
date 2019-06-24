@@ -1,12 +1,12 @@
 ---
 toc: true
 title: Product Lifecycle
-description: Product Lifecycle at Auth0
+description: Learn about the Auth0 product lifecycle, including deprecations, end-of-life, and the migration process.
 topics:
   - deprecations
   - migrations
+  - product-lifecycle
 contentType:
-  - concept
   - reference
 useCase:
   - migrate
@@ -14,30 +14,30 @@ useCase:
 
 # Product Lifecycle
 
-::: note
-<h4>Definitions</h4>
-<b>Breaking Change</b> A change to the Auth0 Platform that, to Auth0's knowledge, will cause failures in the interoperation of the Auth0 Platform and Customer Applications.<br>
-<b>Deprecated</b> Tenants using the feature or behavior at the time of deprecation will continue to have access. The behavior will be disabled for newly created Tenants. While it will continue to be supported and minimally maintained, no additional functionality will be added. <br>
-<b>End Of Life Date</b> The date access to a feature or behavior is removed from the platform. End Of Life Dates can vary between different plan types.<br>
-<b>End Of Life</b> The feature or behavior is removed from the platform. Continued use of the feature or behaviour will likely result in errors. The new behavior will be automatically enabled for Tenants that had not opted in during the migration window. <br>
-<b>Migration</b> The process by which a customer moves out from a particular behavior.
+::: note 
+#### Definitions
+**Breaking Change**: A change to the Auth0 Platform that, to Auth0's knowledge, will cause failures in the interoperation of the Auth0 Platform and Customer Applications.<br />
+**Deprecated**: Tenants using the feature or behavior at the time of deprecation will continue to have access. The behavior will be disabled for newly-created Tenants. While it will continue to be supported and minimally maintained, no additional functionality will be added.<br />
+**End Of Life Date**: The date access to a feature or behavior is removed from the platform. End Of Life Dates can vary between different plan types.<br />
+**End Of Life**: The feature or behavior is removed from the platform. Continued use of the feature or behavior will likely result in errors. The new behavior will be automatically enabled for Tenants that had not opted in during the migration window.<br />
+**Migration**: The process by which a customer moves away from a particular behavior.
 :::
 
 ## Deprecation and End Of Life
 
-In an effort to keep the Auth0 platform stable and secure some features and functionality must occasionally be modified or removed. These changes will sometimes result in a **Breaking Change**.
+In an effort to keep the Auth0 platform stable and secure, we must occasionally modify or remove features and behaviors. These changes will sometimes result in a **Breaking Change**.
 
-This proccess starts with the feature or behavior being **Deprecated**. At the time of deprecation we will also typically announce an **End Of Life Date**. In some cases a feature will be **Deprecated** to prevent further adoption with an **End Of Life Date** to be determined.
+This process starts with the feature or behavior being **Deprecated**. At that time, we will also typically announce an **End Of Life Date**; however, in some cases, a feature will be **Deprecated** to prevent further adoption with an **End Of Life Date** to be determined later.
 
 ## Migration Process
 
-An End Of Life announcement will also initiate a **Migration** to allow customers to prepare for the **End Of Life Date**. The **Migration** will typically involve modifying your applications code in order for it to contiue working with the new behavior. We will publish a migration guide which includes instruction on determining the impact on your tenants and any action required. To ensure a smooth transition and avoid any service disruption we will also provide instructions on how to opt in to the new behavior prior to the **End Of Life Date**.
+When we make an **End Of Life** announcement, we will also initiate a **Migration** to allow customers to prepare for the **End Of Life Date**. 
 
-Note that **Migrations** will usually involve a replacement with substantially comparable functionality to the **Deprecated** behavior, however Auth0 may at times elect to discontinue support for some functionality entirely. In these cases Auth0 will provide at least 6 months' prior notice before the **End Of Life Date**. The exception to this would be for changes required to comply with applicable law, third party certification standards, or to address security vulterabilities.
+**Migrations** will _usually_ involve replacing the **Deprecated** behavior with substantially comparable functionality (although at times, we may elect to discontinue support for some functionality entirely) and modifying your application's code so that it can continue working with the new behavior. We will publish a migration guide, which will detail any action required and will help you determine the impact on your tenants. To ensure a smooth transition and avoid service disruption, we will also provide instructions on how to opt in to the new behavior prior to the **End Of Life Date**. 
 
-Whenever possible we will provide at least a six month migration window between the End Of Life announcement and the **End Of Life Date**. This time frame may be accelerated in cases of emergency, such as critical vulnerability remediation, in which case Auth0 will provide as much prior notice as is reasonable in the circumstances. See our [Self Service Terms of Service](https://auth0.com/legal/ss-tos) or your Enterprise Subscription Agreement for more information.
+Whenever possible, we will provide at least a six-month migration window between the **End Of Life** announcement and the **End Of Life Date**. This time frame may be accelerated in cases of emergency, such as critical vulnerability remediation, or changes required to comply with applicable law or third-party certification standards. In these cases, Auth0 will provide as much prior notice as is reasonable under the circumstances. See our [Self Service Terms of Service](https://auth0.com/legal/ss-tos) or your Enterprise Subscription Agreement for more information.
 
 ## Active Migrations
 
-A list of all active **Migrations** can be found [here](/product-lifecycle/migrations).
+For a list of all active migrations, see [Migrations](/product-lifecycle/migrations).
 

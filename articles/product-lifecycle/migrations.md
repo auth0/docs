@@ -1,19 +1,17 @@
 ---
 toc: true
 title: Migrations
-description: list of all the changes made on auth0 platform that might affect customers
+description: View all changes made on the Auth0 platform that might affect customers.
 topics:
   - migrations
-contenttype:
-  - concept
+contentType:
   - reference
-usecase:
+useCase:
   - migrate
 ---
-
 # Migrations
 
-We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necesarry steps to avoid any service disruptions. More information about our Deprecations process can be found on our [Product Lifecycle page](/product-lifecycle).
+We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necessary steps to avoid service disruptions. For more info about our Deprecations process, see [Product Lifecycle](/product-lifecycle).
 
 <table class="table">
   <thead>
@@ -40,10 +38,10 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
       <td><a href="/logs/migrate-logs-v2-v3">Tenant Logs Search v2</a></td>
       <td>21 May 2019</td>
       <td>
-        <b>Free</b>: 15 June 2019<br>
-        <b>Developer</b>: 20 August 2019<br>
-        <b>Developer Pro</b>: 20 August 2019<br>
-        <b>Enterprise</b>: 4 November 2019
+        <strong>Free</strong>: 15 June 2019<br>
+        <strong>Developer</strong>: 20 August 2019<br>
+        <strong>Developer Pro</strong>: 20 August 2019<br>
+        <strong>Enterprise</strong>: 4 November 2019
       </td>
       <td>To provide our customers with the most reliable and scalable solution, Auth0 has deprecated Tenant Logs Search Engine v2 in favor of v3. Auth0 is proactively migrating customers unaffected by this change, while those who are potentially affected are being notified to opt in for v3 during the provided grace period.  See the <a href="/logs/migrate-logs-v2-v3">migration guide</a> for more information.</td>
     </tr>
@@ -52,7 +50,7 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
       <td>17 April 2019</td>
       <td>30 June 2019</td>
       <td>
-        The Webtask engine powering Auth0 extensibility points currently utilizes Node 4. Beginning <strong>30 April 2018</strong>, <a href="https://github.com/nodejs/Release#release-schedule">Node.js v4 will no longer be under long-term support (LTS)</a>. This means that critical security fixes will no longer be back-ported to this version. As such, Auth0 will be migrating the Webtask runtime from Node.js v4 to Node.js v8.<br><br>On <strong>17 April 2018</strong> we will make the Node 8 runtime available for extensibility to all public cloud customers. You will be provided a migration switch that allows you to control your environment's migration to the new runtime environment.<br><br>For more information on this migration and the steps you should follow to upgrade your implementation, see <a href="/migrations/guides/extensibility-node8">Migration Guide: Extensibility and Node.js v8</a>.
+        The Webtask engine powering Auth0 extensibility points currently uses Node 4. Beginning <strong>30 April 2018</strong>, <a href="https://github.com/nodejs/Release#release-schedule">Node.js v4 will no longer be under long-term support (LTS)</a>. This means that critical security fixes will no longer be back-ported to this version. As such, Auth0 will be migrating the Webtask runtime from Node.js v4 to Node.js v8.<br><br>On <strong>17 April 2018</strong> we will make the Node 8 runtime available for extensibility to all public cloud customers. You will be provided a migration switch that allows you to control your environment's migration to the new runtime environment.<br><br>For more information on this migration and the steps you should follow to upgrade your implementation, see <a href="/migrations/guides/extensibility-node8">Migration Guide: Extensibility and Node.js v8</a>.
       </td>
     </tr>
     <tr>
@@ -60,7 +58,7 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
       <td>26 December 2017</td>
       <td>TBD</td>
       <td>
-        If you are currently implementing the <a href="/api/authentication#resource-owner">/oauth/ro</a> endpoint your application can be updated to use the <a href="/api/authentication#authorization-code">/oauth/token</a> endpoint. For details on how to make this transition, see the <a href="/migrations/guides/migration-oauthro-oauthtoken">Migration Guide for Resource Owner Password Credentials Exchange</a>.
+        If you are currently implementing the <a href="/api/authentication#resource-owner">/oauth/ro</a> endpoint, your application can be updated to use the <a href="/api/authentication#authorization-code">/oauth/token</a> endpoint. For details on how to make this transition, see the <a href="/migrations/guides/migration-oauthro-oauthtoken">Migration Guide for Resource Owner Password Credentials Exchange</a>.
       </td>
     </tr>
   </tbody>
