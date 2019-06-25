@@ -42,8 +42,6 @@ useCase:
   'architecture-scenarios/implementation/b2b/b2b-operations'
 ] }) %>
 
-## Implementation checklists
+## Implementation planning checklists
 
-<%= include('../_includes/_topic-links', { links: [
-  'architecture-scenarios/checklists'
-] }) %>
+<%= include('./_includes/_implementation-checklists.md', { platform: 'b2b' }) %>

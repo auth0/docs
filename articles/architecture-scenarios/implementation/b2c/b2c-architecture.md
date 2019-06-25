@@ -1,6 +1,6 @@
 ---
 title: Architecture
-description: Understand how Auth0 lets you create Auth0 tenants for one or more environments
+description: Understand how Auth0 lets you create Auth0 tenants for one or more environments.
 toc: true
 topics:
     - b2c

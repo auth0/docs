@@ -1,6 +1,6 @@
 ---
 title: Operations
-description: Understand operationalization of your Auth0 tenant environments
+description: Understand operationalization of your Auth0 tenant environments.
 toc: true
 topics:
     - b2c

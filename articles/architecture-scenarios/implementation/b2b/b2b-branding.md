@@ -1,6 +1,6 @@
 ---
 title: Branding
-description: Understand how you can configure Auth0 items to reflect your brand and desired user experience
+description: Understand how you can configure Auth0 items to reflect your brand and desired user experience.
 toc: true
 topics:
     - b2b

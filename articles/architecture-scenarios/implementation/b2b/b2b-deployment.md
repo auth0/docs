@@ -1,6 +1,6 @@
 ---
 title: Deployment Automation
-description: Understand how Auth0 tooling helps to automate tenant deployment
+description: Understand how Auth0 tooling helps to automate tenant deployment.
 toc: true
 topics:
     - b2b
