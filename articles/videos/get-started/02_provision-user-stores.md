@@ -101,7 +101,7 @@ classes: video-page
 ## Up next
 
 <ul class="up-next">
-    <li>
+  <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>5:52</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/04_1_authenticate-how-it-works">Authenticate: How It Works</a>
