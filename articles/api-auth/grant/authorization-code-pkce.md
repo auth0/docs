@@ -11,8 +11,6 @@ useCase:
 ---
 # Calling APIs from Mobile Apps
 
-<%= include('../../_includes/_pipeline2') %>
-
 To access an API from a [mobile app](/quickstart/native), you need to implement the **Authorization Code using Proof Key for Code Exchange (PKCE)** OAuth 2.0 grant. In this document, we will see how this flow works.
 
 ::: note

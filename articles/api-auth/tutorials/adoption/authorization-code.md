@@ -77,7 +77,6 @@ An authorization code can be exchanged in the same way in both pipelines:
     "method": "POST",
     "url": "https://${account.namespace}/oauth/token",
     "headers": [
-      { "name": "Authorization", "value": "Bearer ABCD" },
       { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
     ],
     "postData" : {
@@ -100,7 +99,7 @@ An authorization code can be exchanged in the same way in both pipelines:
           "value": "YOUR_AUTHORIZATION_CODE"
         },
         {
-          "name": "redirect_ui",
+          "name": "redirect_uri",
           "value": "${account.callback}"
         }
       ]

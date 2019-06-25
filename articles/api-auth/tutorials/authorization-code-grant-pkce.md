@@ -13,8 +13,6 @@ useCase:
 ---
 # Execute an Authorization Code Grant Flow with PKCE
 
-<%= include('../../_includes/_pipeline2') %>
-
 ::: note
 This tutorial will help you implement the Authorization Code (PKCE) grant. If you are looking for some theory on the flow refer to [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce).
 :::

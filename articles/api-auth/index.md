@@ -20,10 +20,6 @@ useCase:
   </p>
 </div>
 
-::: note
-**Heads up!** As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. For an overview of these changes, and details on how you adopt them, refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
-:::
-
 At some point, your custom APIs will need to allow limited access to users, servers, or servers on behalf of users. With Auth0 you can manage the authorization requirements for server-to-server and application-to-server applications.
 
 By using the OAuth 2.0 authorization framework, you can give your own applications or third-party applications limited access to your APIs on behalf of the application itself. With Auth0, you can easily support different flows in your own APIs without worrying about the OAuth 2.0/<dfn data-key="openid">OpenID Connect (OIDC)</dfn> specification, or the many other technical aspects of API authorization.

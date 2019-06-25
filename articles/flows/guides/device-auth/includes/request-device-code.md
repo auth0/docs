@@ -59,6 +59,8 @@ If all goes well, you'll receive an HTTP 200 response with a payload containing 
 * `interval` indicates the interval (in seconds) at which the app should poll the token URL to request a token.
 
 ::: note
+You can [configure the character set, format, and length of your randomly-generated user code](/dashboard/guides/tenants/configure-device-user-code-settings) in your tenant settings.
+
 To prevent brute force attacks, we enforce the following limits on `user_code`:
 
 **Minimum length**:

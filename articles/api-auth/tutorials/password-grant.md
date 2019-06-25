@@ -13,8 +13,6 @@ useCase:
 ---
 # How to implement the Resource Owner Password Grant
 
-<%= include('../../_includes/_pipeline2') %>
-
 In this tutorial, we will go through the steps required to implement the Resource Owner Password Grant.
 
 You should use this flow **only if** the following apply:

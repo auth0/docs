@@ -10,15 +10,11 @@
 If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URL** to `${callback}`.
 :::
 
-<% if(typeof showLogoutInfo !== 'undefined' && showLogoutInfo === true) { %>
-    <% if(typeof returnTo !== 'undefined') { %>
-        <%= include('../../../_includes/_logout_url', { returnTo: returnTo }) %>
-    <% } else { %>
-        <%= include('../../../_includes/_logout_url') %>
-    <% } %>
+<% if (typeof showLogoutInfo !== 'undefined' && showLogoutInfo === true) { %>
+<%= include('../../../_includes/_logout_url') %>
 <% } %>
 
-<% if(typeof showWebOriginInfo !== 'undefined' && showWebOriginInfo === true) { %>
+<% if (typeof showWebOriginInfo !== 'undefined' && showWebOriginInfo === true) { %>
 <%= include('../../../_includes/_web_origins') %>
 <% } %>
 

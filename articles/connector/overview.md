@@ -26,6 +26,10 @@ If you install an AD/LDAP connector on your customer's servers and it is connect
 
 ![](/media/articles/connector/ad-data-flow.png)
 
+1. When a user authenticates with Auth0, they are redirected to the AD/LDAP Connector.
+2. The AD/LDAP Connector validates the user against against your Active Directory (AD) service.
+3. The AD/LDAP Connector sends the results of the validation back to Auth0.
+
 The Connector supports authentication based on the following:
 
 * [LDAP](/protocols/ldap)

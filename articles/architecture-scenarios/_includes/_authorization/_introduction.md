@@ -14,10 +14,10 @@ It’s important to start by distinguishing between Authentication, Authorizatio
 In addition, Role-based Access Control (a.k.a. [RBAC](#role-based-access-control-rbac-)) and Attribute-based Access Control (a.k.a. ABAC) mechanisms can be applied in any of the Access Control categories described above. Whatever your use case then, there are a number of things you will want to consider when looking at the functionality and workflow you require:
 
 * Are there scenarios where access to an entire application or API should be rejected?
-* Will I be providing APIs that can be accessed by third-party applications?
-* Will my APIs also be accessed by our own (first-party) applications?
-* Will my application be calling a third-party API?
-* Should my applications and/or APIs be enforcing access control based on medium or fine-grained permissions?
+* Will you be providing APIs that can be accessed by third-party applications?
+* Will your APIs also be accessed by your own (first-party) applications?
+* Will your application be calling a third-party API?
+* Should your applications and/or APIs be enforcing access control based on medium or fine-grained permissions?
  
 Auth0 provides multi-grained authorization by restricting access to certain applications or APIs based on certain conditions. In a coarse-grained authorization scenario, a [Rule](/rules) can be built that returns an `UnauthorizedError` when, for example, a user attempts access to an application or an API at an incorrect time (as described in this [example](/authorization/concepts/sample-use-cases-rules#allow-access-only-on-weekdays-for-a-specific-application)) - or if the user doesn’t have the right claim(s) contained in their [`app_metadata`](/users/concepts/overview-user-metadata). For an _application_ using <dfn data-key="openid">[OpenID Connect (OIDC)](/protocols/oidc)</dfn>, this would prevent the allocation of the [ID Token](/tokens/id-token) used to authorize access. Similarly, for an _API_, allocation of any OAuth2 [Access Tokens](/tokens/overview-access-tokens) (used when [calling the API](/api-auth/why-use-access-tokens-to-secure-apis)), could be prevented as described in this [example](/api-auth/restrict-access-api#example-deny-access-to-anyone-calling-the-api).
 

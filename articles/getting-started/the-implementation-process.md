@@ -17,8 +17,6 @@ useCase:
 
 The default [protocol](/protocols) between your application and Auth0 is <dfn data-key="openid">[OpenID Connect (OIDC)](/protocols/oidc)</dfn>, a modern, lightweight, simple to use, and simple to integrate protocol.
 
-<%= include('../_includes/_pipeline2') %>
-
 Auth0 ships [SDKs for all major platforms](/support/matrix#sdks) (.NET, Java, PHP, Python, node, iOS, and many more), but the use of Auth0 SDKs is not required. Virtually anything able to send HTTP requests can integrate with Auth0.
 
 Auth0 also supports other common identity protocols, such as [WS-Federation](/protocols/ws-fed) and <dfn data-key="security-assertion-markup-language">[SAML](/protocols/saml)</dfn>. Applications that are already "claims enabled" can easily connect to Auth0.
