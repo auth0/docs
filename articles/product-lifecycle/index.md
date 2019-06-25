@@ -7,6 +7,7 @@ topics:
   - migrations
   - product-lifecycle
 contentType:
+  - index
   - reference
 useCase:
   - migrate
