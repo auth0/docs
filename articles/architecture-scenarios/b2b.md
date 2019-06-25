@@ -17,11 +17,11 @@ useCase:
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Business to Business Identity and Access Management</h1>
   <p>
-  This guidance is relevant to **all** project stakeholders. We recommend reading it in its entirety at least once, even if you've already started your journey with Auth0. 
+  This guidance is relevant to <b>all</b> project stakeholders. We recommend reading it in its entirety at least once, even if you've already started your journey with Auth0. We provide a Project Planning Guide in PDF format, details about how to get started with each phase of the implementation process, and checklists to help you manage the tasks in each phase.
   </p>
 </div>
 
-<%= include('./_includes/_base-intro.md', { platform: 'b2b' }) %>
+<%= include('./_includes/_base-ways-to-integrate.md', { platform: 'b2b' }) %>
 
 ## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2B-Project-Planning.pdf)
 
@@ -29,7 +29,7 @@ useCase:
 
 ## Get started
 
-<%= include('./_includes/_base-ways-to-integrate.md', { platform: 'b2b' }) %>
+<%= include('./_includes/_base-intro.md', { platform: 'b2b' }) %>
 
 <%= include('../_includes/_topic-links', { links: [
   'architecture-scenarios/implementation/b2b/b2b-architecture',
