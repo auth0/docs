@@ -1,22 +1,30 @@
 ---
-title: Architecture Scenarios
+url: /architecture-scenarios
 classes: topic-page
+title: Architecture Scenarios
 description: Learn about the common architecture scenarios that you will use to solve the authorization and authentication needs of your application.
 topics:
     - architecture
     - api-auth
     - authorization-code
-contentType: 
-    - index
-    - concept
+    - b2c
+    - b2b
+    - ciam
+contentType: index
 useCase:
   - invoke-api
   - secure-an-api
   - build-an-app
+  - implementation
 ---
-# Architecture Scenarios
-
-This page describes the typical architecture scenarios we have identified when working with customers on implementing Auth0. We have also included [implementation checklists](/architecture-scenarios/checklists) that you can use to plan your implementation. 
+<!-- markdownlint-disable MD041 MD002 -->
+<div class="topic-page-header">
+  <div data-name="example" class="topic-page-badge"></div>
+  <h1>Architecture Scenarios</h1>
+  <p>
+  This page describes the typical architecture scenarios we have identified when working with customers on implementing Auth0. 
+  </p>
+</div>
 
 ## Application configurations
 
@@ -47,18 +55,22 @@ The goal of these scenarios is to walk you through the implementation process fr
     <p>Mobile Application which talks to an API. The application will use OpenID Connect with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.</p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2b">Business to Business Identity Scenarios</a>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2b">Business to Business Identity and Access Management</a>
     <p>SaaS applications with users associated with third-party companies registered as tenants of the SaaS app.</p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2c">Business to Consumer Identity Scenarios</a>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2c">Business to Consumer Identity and Access Management</a>
     <p>SaaS/eCommerce apps with customers as end users using the OpenID Connect protocol.</p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2e">Business to Employees Identity Scenarios</a>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2e">Business to Employee Identity Scenarios</a>
     <p>Enterprise directory services using federation to allow employees to log in to applications using their existing enterprise credentials.</p>
   </li>
 </ul>
+
+## Implementation checklists
+
+<%= include('./_includes/_implementation-checklists.md') %>
 
 ## Implementation resources
 
@@ -68,4 +80,4 @@ The Auth0 Community forum and Blog connect you with the world of Auth0, while ou
 
 We've also made it easy to use our Status Dashboard, monitor endpoints, and log data. Notifications keep you up-to-date with Auth0 announcements, and we provide a variety of methods to stay informed about privacy, security, and compliance.
 
-In addition, our Professional Services team is available to help you with any architecture needs, including pre-launch advice, production checklists, and operational policies.
+In addition, our [Professional Services](/services) team is available to help you with any architecture needs, including pre-launch advice, production checklists, and operational policies.
