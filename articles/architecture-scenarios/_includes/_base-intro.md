@@ -1,6 +1,6 @@
 This guide focuses on how to integrate Auth0 within a <% if (platform === "b2c") { %>Consumer Identity and Access Management (CIAM)<% } else { %>Business-to-Business Identity and Access Management (B2B IAM)<% } %> project. Auth0's recommendations are based on real-world customer implementation experiences, and by following the guidance provided you will set up your project for success.
 
-Customers using Auth0 for consumer-focused, also known as <% if (platform === "b2c") { %>Business-to-Consumer (B2C)<% } else { %>Business-to-Business (B2B)<% } %>, projects typically share a common set of goals and objectives, and in the sections that follow we'll focus on our experiences working with this shared set of expectations to help you deliver your solution efficiently.
+Customers using Auth0 for <% if (platform === "b2c") { %>Business-to-Consumer (B2C)<% } else { %>Business-to-Business (B2B)<% } %> projects typically share a common set of goals and objectives, and in the sections that follow we'll focus on our experiences working with this shared set of expectations to help you deliver your solution efficiently.
 
 ::: note
 The information provided is relevant to **all** project stakeholders. We recommend reading through this guidance in its entirety at least once, even if you've already started your journey with Auth0.
