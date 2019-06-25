@@ -116,7 +116,7 @@ A nice advantage of allowing your customers to use their own IdP is that they ca
 
 ## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2B-Project-Planning.pdf)
 
-<%= include('./_includes/_planning.md') %>
+<%= include('../../_includes/_planning.md') %>
 
 ## Keep reading
 

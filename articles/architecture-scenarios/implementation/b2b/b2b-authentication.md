@@ -112,7 +112,7 @@ With enterprise connection support, user identities and credentials are managed 
 
 ## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2B-Project-Planning.pdf)
 
-<%= include('./_includes/_planning.md') %>
+<%= include('../../_includes/_planning.md') %>
 
 ## Keep reading
 
