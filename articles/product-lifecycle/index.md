@@ -1,5 +1,6 @@
 ---
 toc: true
+classes: topic-page
 title: Product Lifecycle
 description: Learn about the Auth0 product lifecycle, including deprecations, end-of-life, and the migration process.
 topics:
