@@ -46,7 +46,7 @@ To provide our customers with the most reliable and scalable solution, Auth0 has
 
 | Plan Type | End Date |
 | - | - |
-| Free | 15 June 2019 |
+| Free | 9 July 2019 |
 | Developer or Developer Pro | 20 August 2019 |
 | Enterprise | 4 November 2019 |
 
