@@ -27,7 +27,7 @@ useCase:
 
 # Native Azure Active Directory applications with Auth0 (Resource Owner flow)
 
-In addition to the **WS-Federation** and **OpenID Connect** flows, it's also possible to use the **Resource Owner** flow with Azure AD. This flow allows you to capture and validate a user's credentials (email and password) instead of showing the Azure AD login page. While this is not the recommended approach for security and SSO reasons, **Resource Owner** flow could be used in Native mobile scenarios or to batch process authentication with Azure AD.
+In addition to the **WS-Federation** and **OpenID Connect** flows, it's also possible to use the **Resource Owner** flow with Azure AD. This flow allows you to capture and validate a user's credentials (email and password) instead of showing the Azure AD login page. While this is not the recommended approach for security and <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> reasons, **Resource Owner** flow could be used in Native mobile scenarios or to batch process authentication with Azure AD.
 
 This setup will require two applications, a *Web Application and/or Web API* and a *Native Client Application*. From Azure AD's point of view, users will be authenticated using the *Native Client Application* to gain access to the *Web Application and/or Web API*. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
@@ -80,7 +80,7 @@ To test the complete setup, you can use the [Resource Owner endpoint](/api/authe
 
 ## Group Memberships and Advanced Profile Information
 
-In this native flow Auth0 will receive an Access Token from Azure AD which has been issued for your **Web Application and/or Web API**. Because of that features like loading group memberships and advanced profile information will no longer work. This is because the Access Token received by Azure AD can no longer be used to query the Azure AD Graph API for this additional information.
+In this native flow Auth0 will receive an <dfn data-key="access-token">Access Token</dfn> from Azure AD which has been issued for your **Web Application and/or Web API**. Because of that features like loading group memberships and advanced profile information will no longer work. This is because the Access Token received by Azure AD can no longer be used to query the Azure AD Graph API for this additional information.
 
 If you depend on group memberships and advanced profile information you can however change your configure. First you will need to configure the **Native** application with additional read permissions for Azure AD:
 

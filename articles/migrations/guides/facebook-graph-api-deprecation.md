@@ -19,7 +19,7 @@ The latest version of the Facebook Graph API changes what permissions and fields
 
 This update may not require changes to your code or configuration, but your application might receive additional profile data if the existing permissions allow it. But keep in mind that:
 
-* If your Facebook connection is configured to request one of the removed permissions, your Access Token will not get them in scope.
+* If your Facebook connection is configured to request one of the removed permissions, your <dfn data-key="access-token">Access Token</dfn> will not get them in <dfn data-key="scope">scope</dfn>.
 * If your Facebook application is marked as "development" then you may still see an error temporarily while trying the connection.
 * If you add new permissions to the connection, end users will be prompted for consent next time they log in. See the Facebook documentation for how to handle actions for users that don't have a specific permission.
  

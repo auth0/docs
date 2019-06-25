@@ -12,14 +12,12 @@ useCase:
 ---
 # Verify Access Tokens for Custom APIs
 
-<%= include('../../_includes/_pipeline2') %>
+When a custom API receives a request with a bearer <dfn data-key="access-token">Access Token</dfn>, the first thing to do is to validate the token.
 
-When a custom API receives a request with a bearer [Access Token](/tokens/overview-access-tokens), the first thing to do is to validate the token. 
-
-At Auth0, an Access Token used for a custom API is formatted as a [JSON Web Token](/jwt) which must be validated before use.
+At Auth0, an Access Token used for a custom API is formatted as a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> which must be validated before use.
 
 :::note
-If the Access Token you got from Auth0 is not a JWT but an opaque string (like `kPoPMRYrCEoYO6s5`), this means that the Access Token was not issued for your custom API as the audience. When requesting a token for your API, make sure to use the `audience` parameter in the authorization or token request with the API identifier as the value of the parameter.
+If the Access Token you got from Auth0 is not a JWT but an opaque string (like `kPoPMRYrCEoYO6s5`), this means that the Access Token was not issued for your custom API as the <dfn data-key="audience">audience</dfn>. When requesting a token for your API, make sure to use the `audience` parameter in the authorization or token request with the API identifier as the value of the parameter.
 :::
 
 Validating the token consists of a series of steps, and if any of these fails, then the request **must** be rejected. This document lists all the validations that your API should perform:
@@ -27,7 +25,8 @@ Validating the token consists of a series of steps, and if any of these fails, t
 - Check that the JWT is well formed
 - Check the signature
 - Validate the standard claims
-- Check the Application permissions (scopes)
+- Check the Application permissions (<dfn data-key="scope">scopes
+</dfn>)
 
 ::: note
 <a href="https://jwt.io/">JWT.io</a> provides a list of libraries that can do most of the work for you: parse the JWT, verify the signature and the claims. All of the [backend API quickstarts](/quickstart/backend) use SDKs that perform the JWT validation and parsing.
@@ -35,7 +34,7 @@ Validating the token consists of a series of steps, and if any of these fails, t
 
 ## Parse the JWT
 
-First, the API needs to parse the JSON Web Token (JWT) to make sure it's well formed. If this fails the token is considered invalid and the request must be rejected.
+First, the API needs to parse the JWT to make sure it's well formed. If this fails the token is considered invalid and the request must be rejected.
 
 A well formed JWT, consists of three strings separated by dots (.): the header, the payload and the signature. Typically it looks like the following:
 
@@ -134,13 +133,13 @@ Following the Node.js example, the [jwt.verify()](https://github.com/auth0/node-
 
 By now you have verified that the JWT is valid. The last step is to verify that the application has the permissions required to access the protected resources.
 
-To do so, you need to check the [scopes](/scopes) of the decoded JWT. This claim is part of the payload and it is a space-separated list of strings.
+To do so, you need to check the [scopes](/scopes) of the decoded JWT. The `scopes` claim is part of the payload and contains a space-separated list of strings.
 
 ### How can I check the permissions?
 
-To check the permissions granted to the application, you need to check the contents of the `scope`.
+To check the permissions granted to the application, you need to check the contents of the `scope` claim.
 
-For example, a user management API might provide three endpoints to read, create or delete a user record: `/create`, `/read` and `/delete`. We have configured this API, so each endpoint requires a specific permission (or scope):
+For example, a user management API might provide three endpoints to read, create, or delete a user record: `/create`, `/read`, and `/delete`. We have configured this API, so each endpoint requires a specific permission (or scope):
 
 - The `read:users` scope provides access to the `/read` endpoint.
 - The `create:users` scope provides access to the `/create` endpoint.

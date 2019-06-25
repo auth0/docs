@@ -20,7 +20,7 @@
 
 <%= include('./_using-lock-email', { platform: 'ios' }) %>
 
-This code will call `onAuthenticationBlock`, where the ID Token, Refresh Token, and user profile are typically stored. Then the user will be allowed to continue to the authenticated part of the application.
+This code will call `onAuthenticationBlock`, where the ID Token, <dfn data-key="refresh-token">Refresh Token</dfn>, and user profile are typically stored. Then the user will be allowed to continue to the authenticated part of the application.
 
 ![](/media/articles/connections/passwordless/passwordless-email-enter-code-ios.png)
 
@@ -36,7 +36,7 @@ If you choose to build your own UI, your code will need to ask the user for thei
 <% } %>
 </div>
 
-After the passwordless login process begins, ask the user for the one-time code. Then authenticate using that code:
+After the <<dfn data-key="passwordless">passwordless</dfn> login process begins, ask the user for the one-time code. Then authenticate using that code:
 
 <div>
 <% if (language === "objc") { %>

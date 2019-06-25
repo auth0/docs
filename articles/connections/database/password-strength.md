@@ -125,7 +125,7 @@ Existing passwords that were created prior to the change in policy will continue
 
 ### Lock
 
-After password policies have been enabled, users will be notified on sign-up and reset password Lock modes if their password does not meet the required criteria.
+After password policies have been enabled, users will be notified on sign-up and reset password <dfn data-key="lock">Lock</dfn> modes if their password does not meet the required criteria.
 
 This is how Lock will appear on the desktop:
 

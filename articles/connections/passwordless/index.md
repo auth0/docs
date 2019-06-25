@@ -17,7 +17,7 @@ useCase: customize-connections
 
 ## Tutorials
 
-See the following guides to learn how to implement passwordless authentication for  the following scenarios:
+See the following guides to learn how to implement <dfn data-key="passwordless">passwordless authentication</dfn> for  the following scenarios:
 
 ### Passwordless in Single-Page Apps
 

@@ -36,7 +36,7 @@ This document describes the differences of this flow between the legacy and OIDC
     &redirect_uri=https://app.example.com/callback
     &device=my-device-name</code></pre>
     <ul>
-        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a Refresh Token</a> by passing the <code>offline_access</code> scope.</li>
+        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a <dfn data-key="refresh-token">Refresh Token</dfn></a> by passing the <code>offline_access</code> <dfn data-key="scope">scope</dfn>.</li>
     </ul>
     </div>
     <div id="request-oidc" class="tab-pane">
@@ -50,7 +50,7 @@ This document describes the differences of this flow between the legacy and OIDC
     <ul>
         <li><code>favorite_color</code> is no longer a valid scope value.</li>
         <li>The <code>device</code> parameter is removed.</li>
-        <li>The <code>audience</code> parameter is optional.</li>
+        <li>The <dfn data-key="audience"><code>audience</code></dfn> parameter is optional.</li>
     </ul>
     </div>
   </div>
@@ -77,7 +77,6 @@ An authorization code can be exchanged in the same way in both pipelines:
     "method": "POST",
     "url": "https://${account.namespace}/oauth/token",
     "headers": [
-      { "name": "Authorization", "value": "Bearer ABCD" },
       { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
     ],
     "postData" : {
@@ -100,7 +99,7 @@ An authorization code can be exchanged in the same way in both pipelines:
           "value": "YOUR_AUTHORIZATION_CODE"
         },
         {
-          "name": "redirect_ui",
+          "name": "redirect_uri",
           "value": "${account.callback}"
         }
       ]
@@ -131,8 +130,8 @@ Pragma: no-cache
     "id_token": "eyJ..."
 }</code></pre>
     <ul>
-        <li>The returned Access Token is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
-        <li>A Refresh Token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
+        <li>The returned <dfn data-key="access-token">Access Token</dfn> is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
+        <li>A <dfn data-key="refresh-token">Refresh Token</dfn> will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
     </ul>
     </div>
     <div id="exchange-oidc" class="tab-pane">

@@ -100,9 +100,9 @@ Logs endpoints in Management API v2 are described at [Search Log Events](https:/
 
 ## Authentication mechanism
 
-Auth0's API v1 requires sending an Access Token obtained by performing a [`POST /oauth/token`](/api/v1#!#post--oauth-token) request along with the `clientId` and `clientSecret`. All subsequent requests must include the Access Token in the `Authorization` header: `Authorization: Bearer {access_token}`.
+Auth0's API v1 requires sending an <dfn data-key="access-token">Access Token</dfn> obtained by performing a [`POST /oauth/token`](/api/v1#!#post--oauth-token) request along with the `clientId` and `clientSecret`. All subsequent requests must include the Access Token in the `Authorization` header: `Authorization: Bearer {access_token}`.
 
-Auth0's API v2 requires sending an Access Token with specific scope(s). To perform requests with API v2, use the `Authorization` header: `Authorization: Bearer YOUR_ACCESS_TOKEN`.
+Auth0's API v2 requires sending an Access Token with specific <dfn data-key="scope">scope(s)</dfn>. To perform requests with API v2, use the `Authorization` header: `Authorization: Bearer YOUR_ACCESS_TOKEN`.
 
 To use an endpoint, at least one of its available scopes (as listed in [Management API v2 explorer](/api/v2)) must be specified for the JWT. The actions available on an endpoint depend on the JWT scope. For example, if a JWT has the `update:users_app_metadata` scope, the [PATCH users `app_metadata`](/api/v2#!/users/patch_users_by_id) action is available, but not other properties.
 

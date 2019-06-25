@@ -19,12 +19,16 @@ The **AD/LDAP Connector** acts as a bridge between your **Active Directory (AD)*
 ::: panel-warning AD/LDAP Connector and Your Customer's Servers
 The AD/LDAP Connector is designed for scenarios where your company controls the AD/LDAP server. The connector should **not** be installed on your customer's servers.
 
-For B2B scenarios where you want to allow your customer's users to access your applications using their enterprise credentials, connect to your customer's federation service (e.g., their own Auth0 service, ADFS, or any SAML identity provider) using one of the available enterprise connections.
+For B2B scenarios where you want to allow your customer's users to access your applications using their enterprise credentials, connect to your customer's federation service (e.g., their own Auth0 service, ADFS, or any <dfn data-key="security-assertion-markup-language">SAML</dfn> identity provider) using one of the available enterprise connections.
 
 If you install an AD/LDAP connector on your customer's servers and it is connected directly to your Auth0 domain, you will have to handle the passwords of your customer's users directly. Auth0 strongly recommends against these types of deployments and does not support them.
 :::
 
 ![](/media/articles/connector/ad-data-flow.png)
+
+1. When a user authenticates with Auth0, they are redirected to the AD/LDAP Connector.
+2. The AD/LDAP Connector validates the user against against your Active Directory (AD) service.
+3. The AD/LDAP Connector sends the results of the validation back to Auth0.
 
 The Connector supports authentication based on the following:
 

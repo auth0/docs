@@ -30,6 +30,6 @@ This guide will show you how to use Auth0's Management API to check whether an a
 | Value | Description |
 | - | - |
 | `YOUR_CLIENT_ID` | Τhe ID of the application to be updated. |
-| `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the scope `read:clients`. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `read:clients`. |
 
 If the application is first-party, the `is_first_party` field will have a value of `true`. If the application is third-party, the `is_first_party` field will have a value of `false`.

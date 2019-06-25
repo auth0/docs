@@ -76,11 +76,11 @@ account.setOIDCConformant(true);
 //Use the account in the API applications
 ```
 
-Passwordless authentication **cannot be used** with this flag set to `true`. For more information, please see the [OIDC adoption guide](/api-auth/tutorials/adoption).
+<dfn data-key="passwordless">Passwordless authentication</dfn> **cannot be used** with this flag set to `true`. For more information, please see the [OIDC adoption guide](/api-auth/tutorials/adoption).
 
 ## Authentication via Universal Login
 
-First go to the [Dashboard](${manage_url}/#/applications) and go to your application's settings. Make sure you have in **Allowed Callback URLs** a URL with the following format:
+First, go to the [Dashboard](${manage_url}/#/applications) and go to your application's settings. Make sure you have in **Allowed <dfn data-key="callback">Callback URLs</dfn>** a URL with the following format:
 
 ```
 https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
@@ -165,7 +165,7 @@ WebAuthProvider.init(account)
 
 The authentication result will be delivered to the callback.
 
-To ensure an Open ID Connect compliant response you must either set an `audience` using [withAudience](/libraries/auth0-android/configuration#withAudience) or enable the **OIDC Conformant** switch in your Auth0 dashboard under **Dashboard > Settings > Advanced > OAuth**. You can read more about this in the documentation page on [how to use new flows](/api-auth/intro#how-to-use-the-new-flows).
+To ensure a response that complies with <dfn data-key="openid">OpenID Connect (OIDC)</dfn>, you must either set an <dfn data-key="audience">`audience`</dfn> using [withAudience](/libraries/auth0-android/configuration#withAudience) or enable the **OIDC Conformant** switch in your Auth0 dashboard under **Dashboard > Settings > Advanced > OAuth**. You can read more about this in the documentation page on [how to use new flows](/api-auth/intro#how-to-use-the-new-flows).
 
 ## Using the Authentication API
 
@@ -177,7 +177,7 @@ AuthenticationAPIClient authentication = new AuthenticationAPIClient(account);
 
 ### Get user information
 
-To get the information associated with a given user's Access Token, you can call the `userInfo` endpoint, passing the token.
+To get the information associated with a given user's <dfn data-key="access-token">Access Token</dfn>, you can call the `userInfo` endpoint, passing the token.
 
 ```java
 authentication

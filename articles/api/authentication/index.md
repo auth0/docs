@@ -55,6 +55,9 @@ contentType:
   <%= include('./api-authz/_authz-client') %>
 </div>
 <div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_device-code') %>
+</div>
+<div class="api-section" data-section="api-authz">
   <%= include('./api-authz/_get-token') %>
 </div>
 <div class="api-section" data-section="api-authz">

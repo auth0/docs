@@ -14,7 +14,7 @@ useCase:
 
 With step-up authentication, applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources.
 
-For example, Fabrikam's Intranet requires users to authenticate with their username and password to access customer data. However, a request for access to employee data (which may contain sensitive salary information) triggers a stronger authentication mechanism like multi-factor authentication.
+For example, Fabrikam's Intranet requires users to authenticate with their username and password to access customer data. However, a request for access to employee data (which may contain sensitive salary information) triggers a stronger authentication mechanism like <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
 You can add step-up authentication to your app with Auth0's extensible multi-factor authentication support. Your app can verify that the user has logged in using multi-factor authentication (MFA) and, if not, require the user to step-up to access certain resources.
 
@@ -22,7 +22,7 @@ You can add step-up authentication to your app with Auth0's extensible multi-fac
 
 ## Step-up Authentication for APIs
 
-When your audience is an API, you can implement step-up authentication with Auth0 using [scopes](/scopes), [Access Tokens](/tokens/overview-access-tokens) and [rules](/rules).
+When your <dfn data-key="audience">audience</dfn> is an API, you can implement step-up authentication with Auth0 using <dfn data-key="scope">scopes</dfn>, <dfn data-key="access-token">Access Tokens</dfn> and [rules](/rules).
 
 ::: note
 An Access Token is a credential you can use to access an API. The actions that you can perform to that API are defined by the scopes your Access Token includes. The rules are JavaScript functions you can use to run custom logic when a user authenticates.

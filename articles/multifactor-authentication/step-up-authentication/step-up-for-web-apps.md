@@ -16,9 +16,9 @@ useCase:
 
 With Step-up Authentication, applications that allow access to different types of resources can require users to authenticate with a stronger mechanism to access sensitive information or perform certain transactions.
 
-For instance, a user may be allowed to access views with sensitive data or reset their password only after confirming their identity using Multi-factor Authentication (MFA).
+For instance, a user may be allowed to access views with sensitive data or reset their password only after confirming their identity using <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
-When a user logs in you can get an [ID Token](/tokens/id-token) which is a [JSON Web Token](/jwt) that contains information relevant to the user's session, in the form of claims.
+When a user logs in you can get an [ID Token](/tokens/id-token) which is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> that contains information relevant to the user's session, in the form of claims.
 
 The claim that is relevant to this scenario is `amr`. If it contains the value `mfa` then you know that the user has authenticated using MFA. Note the following:
 - `amr` **must** be present in the ID Token's payload (if you log in with username/password the claim will not be included in the payload)
@@ -182,6 +182,6 @@ That's it, you are done!
 ::: next-steps
 * [Overview of ID Tokens](/tokens/id-token)
 * [Overview of JSON Web Tokens](/jwt)
-* [OpenID specification](http://openid.net/specs/openid-connect-core-1_0.html)
+* [OpenID Connect (OIDC) specification](http://openid.net/specs/openid-connect-core-1_0.html)
 * [Step-up Authentication for APIs](/multifactor-authentication/developer/step-up-authentication/step-up-for-apis)
 :::

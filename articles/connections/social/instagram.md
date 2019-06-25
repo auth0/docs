@@ -17,7 +17,7 @@ useCase:
 ---
 # Connect your app to Instagram
 
-This article describes how to add login with Instagram to your application.
+This article describes how to add functionality to your app that will allow your user to log in with Instagram.
 
 First you need to connect your Auth0 application to Instagram. This is summarized in the following steps:
 

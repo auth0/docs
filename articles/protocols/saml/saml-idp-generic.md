@@ -11,7 +11,7 @@ useCase:
 ---
 # Auth0 as Identity Provider
 
-These instructions explain how to configure Auth0 to serve as an Identity Provider in a SAML federation.
+These instructions explain how to configure Auth0 to serve as an Identity Provider in a <dfn data-key="security-assertion-markup-language">SAML</dfn> federation.
 
 ## 1. Obtain Information from the Service Provider
 
@@ -23,7 +23,7 @@ In this section you will configure Auth0 to serve as an Identity Provider. You w
 
 1. Go to [Dashboard > Applications](${manage_url}/#/applications).
 1. Click the **+ CREATE APPLICATION** button on the right.
-1. In the **Name** field, enter a name like `MySAMLApp`, and select the [application type](/dashboard/reference/settings-application).
+1. In the **Name** field, enter a name like `MySAMLApp`, and select the [application type](/applications/concepts/app-types-auth0).
 1. Click **SAVE**.
 1. Go back to [Dashboard > Applications](${manage_url}/#/applications).
 1. Find the row for the application you just created, and click on the **Settings** icon to the right of the application name. (the round gear icon)
@@ -73,7 +73,7 @@ This section has a few ideas for things to check if your sample doesn't work.
 
 - If your application doesn't work the first time, you should clear your browser history and ideally cookies each time before you test again. Otherwise, the browser may not be picking up the latest version of your html page or it may have stale cookies that impact execution.
 
-- When troubleshooting SSO, it is often helpful to capture an HTTP trace of the interaction. There are many tools that will capture the HTTP traffic from your browser for analysis.  Search for `HTTP Trace` to find some. Once you have an http trace tool, capture the login sequence from start to finish and analyze the trace to see the sequence of GETs to see how far in the expected sequence you get. You should see a redirect from the Service Provider to the Identity Provider, a post of credentials if you had to log in, and then a redirect back to the callback URL or the Service Provider application.
+- When troubleshooting <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>, it is often helpful to capture an HTTP trace of the interaction. There are many tools that will capture the HTTP traffic from your browser for analysis.  Search for `HTTP Trace` to find some. Once you have an http trace tool, capture the login sequence from start to finish and analyze the trace to see the sequence of GETs to see how far in the expected sequence you get. You should see a redirect from the Service Provider to the Identity Provider, a post of credentials if you had to log in, and then a redirect back to the callback URL or the Service Provider application.
 
 - Make sure cookies and javascript are enabled for your browser.
 

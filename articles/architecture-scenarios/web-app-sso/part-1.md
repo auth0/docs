@@ -14,7 +14,7 @@ useCase:
   - build-an-app
 ---
 
-# SSO for Regular Web Apps: Solution Overview
+# Single Sign-On for Regular Web Apps: Solution Overview
 
 In this section, we'll cover the solution we're implementing, including details on identity management, protocols to use, and the authentication flow required.
 
@@ -23,12 +23,12 @@ In this section, we'll cover the solution we're implementing, including details 
 ExampleCo decided to use Auth0 as their Identity as a Service (IDaaS) provider. The reasoning behind this decision was that the company did not want to commit resources on  training, implementation and maintenance of identity and access management. Furthermore, the company plans on building into this solution in the future, possibly adding a mobile native app and an API to push approved timesheets to their internal systems. Auth0 provides the flexibility to incorporate such changes in their architecture with minimum effort.
 
 ::: note
-Identity-as-Service ("IDaaS") is a cloud-based service for identity and access management. The offered services often include SSO, federated identity, password management, and more.
+Identity-as-Service ("IDaaS") is a cloud-based service for identity and access management. The offered services often include <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>, federated identity, password management, and more.
 :::
 
 ## Which protocol to use
 
-The next decision has to do with which protocol to use, OAuth 2.0 with OpenID Connect (OIDC) or SAML.
+The next decision has to do with which protocol to use, OAuth 2.0 with <dfn data-key="openid">OpenID Connect (OIDC)</dfn> or <dfn data-key="security-assertion-markup-language">SAML</dfn>.
 
 ::: note
 Auth0 implements proven, common and popular identity protocols, both for consumer oriented web products (OAuth 2.0, OAuth 1.0, OpenID) and for enterprise deployments (SAML, WS-Federation, LDAP). You have complete freedom to use the one that best meets your business needs.

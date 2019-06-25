@@ -12,7 +12,7 @@ useCase:
 
 # Multi-factor Authentication API
 
-The Multi-factor Authentication (MFA) API endpoints allow you to enforce MFA when users interact with [the Token endpoints](/api/authentication#get-token), as well enroll and manage user authenticators.
+The <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> API endpoints allow you to enforce MFA when users interact with [the Token endpoints](/api/authentication#get-token), as well enroll and manage user authenticators.
 
 ## Multi-factor authentication with the Token endpoint
 
@@ -37,7 +37,7 @@ This enables users to enroll more than one device and select a fallback MFA mech
 
 Check out [Manage Authenticators](/multifactor-authentication/api/manage) for more on listing or deleting authenticators.
 
-<%= include('./_authenticator-before-start') %>
+<%= include('./_includes/_authenticator-before-start') %>
 
 If you are using the MFA API in conjunction with the [Token endpoint](/api/authentication#get-token), you must meet the requirements of the corresponding grant.
 

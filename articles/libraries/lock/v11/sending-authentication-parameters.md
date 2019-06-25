@@ -22,7 +22,7 @@ var options = {
 };
 ```
 
-The following parameters are supported: `scope`, `device`, `nonce` and `state`.
+The following parameters are supported: <dfn data-key="scope">`scope`</dfn>, `device`, <dfn data-key="nonce">`nonce`</dfn> and `state`.
 
 ::: note
 This would be analogous to triggering the login with `https://${account.namespace}/authorize?state=foo&...`.

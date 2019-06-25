@@ -62,7 +62,7 @@ Throughout this article, we will use the following terms to indicate the varying
 
 ## Browsers
 
-This section covers the browsers that Auth0 will support when using the Auth0 Dashboard or Lock Library, or executing authentication transactions.
+This section covers the browsers that Auth0 will support when using the Auth0 Dashboard or <dfn data-key="lock">Lock</dfn> Library, or executing authentication transactions.
 
 ### Auth0 Dashboard
 
@@ -155,7 +155,7 @@ At this time, Auth0 only supports use of the Dashboard with desktop browsers.
 
 ## Operating Systems
 
-This section covers the operating systems (OS) that Auth0 will support when using the Auth0 Dashboard, Lock Library or executing authentication transactions.
+This section covers the operating systems (OS) that Auth0 will support when using the Auth0 Dashboard, <dfn data-key="lock">Lock</dfn> Library or executing authentication transactions.
 
 ::: note
 Auth0 support is limited to the most recent version of the OS listed (unless otherwise specified). If you are using an older version, please upgrade prior to seeking support.

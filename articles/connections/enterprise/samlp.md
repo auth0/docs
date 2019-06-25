@@ -19,7 +19,7 @@ useCase:
 
 # Create a SAMLP Identity Provider Connection
 
-Auth0 allows you to create SAMLP Identity Provider connections using either the Management [Dashboard](${manage_url}/#/connections/enterprise) or [API](/api/management/v2#!/Connections/post_connections).
+Auth0 allows you to create <dfn data-key="security-assertion-markup-language">SAMLP</dfn> Identity Provider connections using either the Management [Dashboard](${manage_url}/#/connections/enterprise) or [API](/api/management/v2#!/Connections/post_connections).
 
 ## Obtain IdP Signing Certificates
 
@@ -42,7 +42,7 @@ Scroll down to the row for *SAMLP Identity Provider* and click **Add New** (whic
 Provide the following information for your new Connection:
 
 * **Connection Name**: The logical identifier for your Connection
-* **Email Domains** (optional): A comma-separated list of domains for [use with Lock](/libraries/lock)
+* **Email Domains** (optional): A comma-separated list of domains for use with <dfn data-key="lock">Lock</dfn>
 * **Sign In URL**: The SAML single login URL
 * **X509 Signing Certificate**: The signing certificate (encoded in PEM or CER) provided by the identity provider
 * **Sign Out URL** (optional): The SAML single logout URL

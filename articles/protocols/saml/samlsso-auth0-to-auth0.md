@@ -1,5 +1,5 @@
 ---
-description: Learn how to use SAML SSO with Auth0 as both the Service Provider and Identity Provider, using two Auth0 tenants, allowing you to test your Auth0 SAML without configuring another provider to do so.
+description: Learn how to use SAML Single Sign-on (SSO) with Auth0 as both the Service Provider and Identity Provider, using two Auth0 tenants, allowing you to test your Auth0 SAML without configuring another provider to do so.
 toc: true
 topics:
   - saml
@@ -12,7 +12,7 @@ useCase:
 
 # SAML SSO with Auth0 as Service Provider and as an Identity Provider
 
-This tutorial will create a simple example application that uses Auth0 to do SAML Single Sign On (SSO), using one Auth0 tenant (tenant 1) as a SAML Service Provider(SP), and authenticating users against a second Auth0 tenant (tenant 2) serving as SAML Identity Provider(IDP).  This gives you a way to test your Auth0 SAML tenant (tenant 1) configuration, using Auth0 as an IDP so you don't have to learn and set up another IDP.
+This tutorial will create a simple example application that uses Auth0 to do <dfn data-key="security-assertion-markup-language">SAML</dfn> <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>, using one Auth0 tenant (tenant 1) as a SAML Service Provider(SP), and authenticating users against a second Auth0 tenant (tenant 2) serving as SAML Identity Provider(IDP).  This gives you a way to test your Auth0 SAML tenant (tenant 1) configuration, using Auth0 as an IDP so you don't have to learn and set up another IDP.
 
 There are **9 steps** to this sample and the tenth is a troubleshooting section to help resolve any problems that might arise.
 
@@ -89,7 +89,7 @@ Next, create a user to use in testing the SAML SSO sequence.
 
 ## 3. Set up the Auth0 service provider (tenant 1)
 
-In this section you will configure another Auth0 tenant (tenant 1) so it knows how to communicate with the second Auth0 tenant (tenant 2) for single sign on via the SAML protocol.
+In this section you will configure another Auth0 tenant (tenant 1) so it knows how to communicate with the second Auth0 tenant (tenant 2) for SSO via the SAML protocol.
 
 Switch to **Tenant 1**. You can do this using the **Switch tenant** option in the upper-right menu.
 
@@ -109,7 +109,7 @@ In the **"Create SAMLP Identity Provider"** connection window, enter the followi
 
 **Connection Name:** You can enter any name, such as "SAML-Auth0-IDP"
 
-**Email Domains:** In this example, we will use the Lock Widget, so in the Email Domains field enter the email domain name for the users that will log in via this connection.
+**Email Domains:** In this example, we will use the <dfn data-key="lock">Lock widget</dfn>, so in the Email Domains field enter the email domain name for the users that will log in via this connection.
 For example, if your users have an email domain of 'abc-example.com', you would enter that into this field. You can enter multiple email domains if needed.  Make sure the test user you created in section 2 has an email address with email domain that matches what you enter here.
 
 **Sign In URL:** enter the **SAML Protocol URL** field that you copied in section 2 above (from tenant 2, go to: **Dashboard > Applications > Settings > Advanced Settings > ENDPOINTS section > SAML tab > SAML Protocol URL field**).
@@ -226,15 +226,13 @@ Make sure you are logged into the **Tenant 1 Auth0 dashboard**.
 
 * In the **"Allowed Callback URLs"** field, enter **[http://jwt.io](http://jwt.io)**.
 
-* The list of allowed callback URLs is a list of URL(s) to which users will be redirected after authentication.  The URL(s) entered here must match the **"callback URL"** in the HTML code created in the next step.  Normally you would enter a URL for your application, but to keep this example simple, users will simply be sent to the Auth0 JWT online tool which will provide some information about the JSON Web Token returned at the end of the authentication sequence.
+* The list of allowed callback URLs is a list of URL(s) to which users will be redirected after authentication.  The URL(s) entered here must match the **"callback URL"** in the HTML code created in the next step.  Normally you would enter a URL for your application, but to keep this example simple, users will simply be sent to the Auth0 JWT online tool which will provide some information about the <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> returned at the end of the authentication sequence.
 
 * Press the blue **"SAVE CHANGES"** button at the bottom of the screen.
 
 * In the same screen, click on the blue **"Connections"** tab (In the row that says Quick Start, Settings and so on.
 
 * Scroll down to the section near the bottom where it says **"ENTERPRISE"**.
-
-![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-17.png)
 
 * Find the row for the SAML connection you created above and click on the on/off toggle at right so that it is green, for "on".  That enables the SAML connection for this application.  
 
@@ -298,7 +296,7 @@ Create an HTML page and insert the following HTML and javascript code:
 
 Make sure you replace **YOUR_CLIENT_ID** and **YOUR_DOMAIN** with the actual values of the app you registered in step 6 above. If you did not record these values in step 6, they can be found in the **Auth0 dashboard** for **Tenant 1** by going to "Applications" link and clicking on the "Settings" (gear) icon to the right of your application's name.
 
-You can also replace **audience** with the value appropriate for your Application -- however, for the purposes of this test, a placeholder will work. When specifying the **audience** parameter, be sure that it matches an identifier of an existing API that [has been configured in Auth0](/apis#how-to-configure-an-api-in-auth0).
+You can also replace <dfn data-key="audience">**audience**</dfn> with the value appropriate for your Application -- however, for the purposes of this test, a placeholder will work. When specifying the **audience** parameter, be sure that it matches an identifier of an existing API that [has been configured in Auth0](/apis#how-to-configure-an-api-in-auth0).
 
 Save this file in a place where you can access it via a browser.
 For this example, we'll call it **"hello-saml.html"**.

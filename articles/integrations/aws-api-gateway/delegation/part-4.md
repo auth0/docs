@@ -175,7 +175,7 @@ If you haven't used Login with Amazon before, there is also a link called **How 
 Once you've entered the appropriate information, click **Try** to ensure that everything is set up correctly.
 
 ::: note
-When you configure LWA using the Amazon console, be sure to enter into *Allowed Return URLs* the callback URL to your Auth0 Application, which should look something like `https://johndoe.auth0.com/login/callback`. The Auth0 help page will show you specifically what to enter.
+When you configure LWA using the Amazon console, be sure to enter into *Allowed Return URLs* the <dfn data-key="callback">callback URL</dfn> to your Auth0 Application, which should look something like `https://johndoe.auth0.com/login/callback`. The Auth0 help page will show you specifically what to enter.
 :::
 
 In the Auth0 Dashboard, go back to **Applications**, select your Application, and then open up the **Connections** page. Ensure that *amazon* is enabled under Social Connections.
@@ -227,7 +227,7 @@ function buyPet(user, id) {
 …
 ```
 
-Copy the code to your S3 bucket, log out, and then log back in in as a social user by clicking on the Amazon icon in the Lock login dialog. You may need to click **SHOW ALL** if your previous login persists in the Lock pane.
+Copy the code to your S3 bucket, log out, and then log back in in as a social user by clicking on the Amazon icon in the <dfn data-key="lock">Lock</dfn> login dialog. You may need to click **SHOW ALL** if your previous login persists in the Lock pane.
 
 ![Login using AWS](/media/articles/integrations/aws-api-gateway/part-4/login-using-amazon.png)
 

@@ -58,7 +58,7 @@ This means that there is a user in WordPress that has the same email as the one 
 
 ## I see the error message "Failed cross origin authentication" or "No verifier returned from client" in my browser's console logs when trying to log in
 
-Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the [Application](${manage_url}/#/applications) settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, review our [docs page on cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) to make sure you don't have third-party cookies turned off.  
+Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the [Application](${manage_url}/#/applications) settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, see [Cross-Origin Authentication](/cross-origin-authentication#limitations) to make sure you don't have third-party cookies turned off.  
 
 ## I need to rerun the Setup Wizard, but I don't see that menu option anymore.
 
@@ -80,7 +80,7 @@ If you're uploading a settings JSON file and you see an error message "Sorry, th
 
 ## How do I setup Passwordless login?
 
-Passwordless login is possible any Auth0-enabled website using email or SMS. To make this work on your WordPress site:
+<dfn data-key="passwordless">Passwordless</dfn> login is possible any Auth0-enabled website using email or SMS. To make this work on your WordPress site:
 
 1. Turn on "Passwordless Login" from the plugin settings' **Features** tab and save
 2. In your Auth0 dashboard, go to **[Connections > Passwordless](${manage_url}/#/connections/passwordless)**
@@ -176,9 +176,9 @@ To use custom styling or JavaScript with the embedded Auth0 login form, please s
 
 The Auth0 plugin does not handle sessions; it uses the WordPress settings. By default, user sessions are kept alive for two days. You can enable the `Remember users session` setting on the plugin settings' **Advanced** tab to allow sessions to remain live for up to 14 hours.
 
-## How do I implement a refresh token?
+## How do I implement a Refresh Token?
 
-We implemented additional parameters in the login methods used by the plugin to allow for refresh tokens. Use the [`auth0_auth_scope`](/cms/wordpress/extending#auth0_auth_scope) filter combined with the [`auth0_user_login`](/cms/wordpress/extending#auth0_user_login) action to accomplish this.
+We implemented additional parameters in the login methods used by the plugin to allow for <dfn data-key="refresh-token">Refresh Tokens</dfn>. Use the [`auth0_auth_scope`](/cms/wordpress/extending#auth0_auth_scope) filter combined with the [`auth0_user_login`](/cms/wordpress/extending#auth0_user_login) action to accomplish this.
 
 ## Profile data saved in WordPress is not being synced to the Auth0 user account.
 

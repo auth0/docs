@@ -33,7 +33,7 @@ Once the application is registered, enter your new `API Key` and `Secret Key` in
 
 ## 3. Enter the callback URL:
 
-Use the following value for the callback URL:
+Use the following value for the <dfn data-key="callback">callback URL</dfn>:
 
   https://${account.namespace}/login/callback
 

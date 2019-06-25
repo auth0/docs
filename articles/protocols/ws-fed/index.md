@@ -30,7 +30,7 @@ You will need to configure the **Relying Party**, which can be done using the fo
 https://${account.namespace}/wsfed/FederationMetadata/2007-06/FederationMetadata.xml
 ```
 
-You can also use the **samlConfiguration** object (available in [rules](/rules)) to configure claims sent via the SAML token, as well as other lower-level WS-Fed and SAML-P settings.
+You can also use the **samlConfiguration** object (available in [rules](/rules)) to configure claims sent via the <dfn data-key="security-assertion-markup-language"></dfn> token, as well as other lower-level WS-Fed and SAML-P settings.
 
 When redirecting your users to your WS-Fed endpoint, you can use the following (optional) parameters:
 

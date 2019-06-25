@@ -1,6 +1,6 @@
 ---
-title: Migration in Embedded Login Scenarios with SSO
-description: Learn how to migrate from old versions of Lock/Auth0.js when your application uses embedded login and requires SSO.
+title: Migration in Embedded Login Scenarios with Single Sign-On
+description: Learn how to migrate from old versions of Lock/Auth0.js when your application uses embedded login and requires Single Sign-on (SSO).
 topics:
   - lock
   - migrations
@@ -12,9 +12,9 @@ contentType:
 useCase: migrate
 ---
 
-# Migration in Embedded Login Scenarios with SSO
+# Migration in Embedded Login Scenarios with Single Sign-On
 
-Migration from legacy versions of Lock and Auth0.js is required. For Single Sign On (SSO) scenarios, it will imply moving to [Universal Login](/hosted-pages/login) in most cases. 
+Migration from legacy versions of Lock and Auth0.js is required. For <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> scenarios, it will imply moving to [Universal Login](/hosted-pages/login) in most cases. 
 
 ## Single-Page Apps
 
@@ -22,7 +22,7 @@ Single-Page Applications (SPAs) with embedded login can only achieve SSO if they
 
 SSO works by having Auth0 set a cookie that identifies the session in the Auth0 server for a specific domain. 
 
-In order to make embedded login work properly, you need to set up a [custom domain](/custom-domains) that matches your website's top level domain, so as to avoid [cross-origin authentication issues](/cross-origin-authentication#limitations-of-cross-origin-authentication). 
+In order to make embedded login work properly, you need to set up a [custom domain](/custom-domains) that matches your website's top level domain, so as to avoid [cross-origin authentication issues](/cross-origin-authentication#limitations). 
 
 If two applications using embedded login are sitting on different top-level domains, they would need to point to two different custom domains in order implement embedded login properly. If they are on different domains, those domains cannot share the same SSO cookie, so you can’t implement SSO across those sites.
 

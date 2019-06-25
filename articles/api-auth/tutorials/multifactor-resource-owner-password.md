@@ -14,9 +14,7 @@ useCase:
 ---
 # Multi-factor Authentication and the Resource Owner Password Grant
 
-<%= include('../../_includes/_pipeline2') %>
-
-Highly-trusted applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials to be submitted to Auth0. In some scenarios, however, stronger authentication may be required. This document outlines using [multi-factor authentication](/multifactor-authentication) with the [Resource Owner Password Grant](/api-auth/grant/password).
+Highly-trusted applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials to be submitted to Auth0. In some scenarios, however, stronger authentication may be required. This document outlines using <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> with the [Resource Owner Password Grant](/api-auth/grant/password).
 
 ## Prerequisites
 
@@ -88,7 +86,7 @@ If you already know that the user supports OTP, then steps 5 and 6 above of the 
 
 9. The Application forwards the OTP code to Auth0 using [grant_type=http://auth0.com/oauth/grant-type/mfa-otp](/api/authentication#resource-owner-password) and includes the `mfa_token` obtained in step 4 above.
 
-10. Auth0 validates the provided OTP and returns the Access Token and the Refresh Token.
+10. Auth0 validates the provided OTP and returns the Access Token and the <dfn data-key="refresh-token">Refresh Token</dfn>.
 
 11. The Application can use the Access Token to call the API on behalf of the end user.
 

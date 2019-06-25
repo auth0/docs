@@ -23,7 +23,7 @@ useCase:
 ---
 # Add Google Login to Your App
 
-This guide will show you how to add functionality to your web app that allows your users to log in with Google. Along the way, you will also learn how to get an Access Token that will allow you to access the Google API.
+This guide will show you how to add functionality to your web app that allows your users to log in with Google. Along the way, you will also learn how to get an <dfn data-key="access-token">Access Token</dfn> that will allow you to access the Google API.
 
 ## 1. Set up your app in Google
 
@@ -67,7 +67,7 @@ If you are planning to connect to G Suite enterprise domains, you will need to e
 <%= include('../_find-auth0-domain-redirects') %>
 
 ::: warning
-If your application requests sensitive OAuth scopes, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
+If your application requests sensitive OAuth <dfn data-key="scope">scopes</dfn>, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
 :::
 
 ## 2. Enable the **Google Admin SDK Service**

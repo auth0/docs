@@ -13,10 +13,10 @@ useCase:
 # Scopes
 
 ::: version-warning
-This document covers an outdated version of the Auth0 authentication pipeline and the way scopes should be used. We recommend you use the latest version. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+This document covers an outdated version of the Auth0 authentication pipeline and the way <dfn data-key="scope">scopes</dfn> should be used. We recommend you use the latest version. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
-When initiating a client-side authorization transaction through the [`/authorize` endpoint](/api/authentication/reference#social), only an opaque Access Token will be returned by default. To also return a JWT that authenticates the user and contains their profile information, the `scope` parameter can be sent as part of the request.
+When initiating a client-side authorization transaction through the [`/authorize` endpoint](/api/authentication/reference#social), only an opaque Access Token will be returned by default. To also return a JWT that authenticates the user and contains their profile information, the <dfn data-key="scope">`scope`</dfn> parameter can be sent as part of the request.
 
 ## Example (implicit flow)
 

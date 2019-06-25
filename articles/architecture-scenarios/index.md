@@ -32,7 +32,7 @@ The goal of these scenarios is to walk you through the implementation process fr
 <ul class="topic-links">
   <li>
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/web-app-sso">Single Sign-On for Regular Web Apps</a>
-    <p>Traditional web application which needs to authenticate users using OpenID Connect.</p>
+    <p>Traditional web application which needs to authenticate users using <dfn data-key="openid">OpenID Connect (OIDC)</dfn>.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/server-api">Server Application + API</a>
@@ -59,3 +59,13 @@ The goal of these scenarios is to walk you through the implementation process fr
     <p>Enterprise directory services using federation to allow employees to log in to applications using their existing enterprise credentials.</p>
   </li>
 </ul>
+
+## Implementation resources
+
+Auth0 provides many [resources](/architecture-scenarios/implementation-resources) to help you learn about Auth0, get started quickly, test sample code, and try out APIs.
+
+The Auth0 Community forum and Blog connect you with the world of Auth0, while our Support Center helps you report issues and manage your subscription. Additionally, you can submit suggested product enhancements through our feedback portal.
+
+We've also made it easy to use our Status Dashboard, monitor endpoints, and log data. Notifications keep you up-to-date with Auth0 announcements, and we provide a variety of methods to stay informed about privacy, security, and compliance.
+
+In addition, our Professional Services team is available to help you with any architecture needs, including pre-launch advice, production checklists, and operational policies.

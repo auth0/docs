@@ -11,7 +11,7 @@ contentType:
 ---
 # Migration Guide: Enabling Clickjacking Protection
 
-Clickjacking is an attack that tricks a user into clicking a web page element which is invisible or disguised as another element. This is done by loading content in an iframe and rendering elements on top of it. In the context of the Universal Login pages, an attacker could trick the user into clicking a 'Login', or 'Reset Password' button.
+Clickjacking is an attack that tricks a user into clicking a web page element which is invisible or disguised as another element. This is done by loading content in an iframe and rendering elements on top of it. In the context of the <dfn data-key="universal-login">Universal Login</dfn> pages, an attacker could trick the user into clicking a 'Login', or 'Reset Password' button.
 
 This can be prevented by setting the following HTTP headers:
 
