@@ -4,7 +4,7 @@ In addition to the Normalized User Profile information, [Metadata](/users/concep
 Use of Metadata should follow Auth0 [best practice guidance](/best-practices/user-data-storage-best-practices#metadata). Metadata storage is not designed to be a general purpose data store, and you should still use your own external storage facility when possible. Metadata size and complexity should also be kept to a minimum, and the Auth0 Management API has a strict set of guidance when it comes to updating and/or deleting metadata associated with a user.
 :::
 
-Metadata can be manipulated via both the Auth0 Management API and the Auth0 Authentication API, and the [documentation provided](/users/guides/manage-user-metadata) further describes the endpoints for doing this. As is the case when managing the Normalized User Profile, calls to the Management API for manipulating Metadata will require use of an [Access Token](api/management/v2/tokens).
+Metadata can be manipulated via both the Auth0 Management API and the Auth0 Authentication API. See [Manage User Metadata](/users/guides/manage-user-metadata) for more information. As is the case when managing the Normalized User Profile, calls to the Management API for manipulating Metadata will require use of an [Access Token](api/management/v2/tokens).
 
 ::: warning
 <%= include('../../_includes/_rate-limit-policy.md') %>

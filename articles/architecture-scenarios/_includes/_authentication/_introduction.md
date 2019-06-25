@@ -1,4 +1,4 @@
-In order to provide services to your users, you must be able to identify who those users are. This process is called User  Authentication. There are a number of ways to perform authentication of a user - via social media accounts, username and password, passwordless - and it's often recommended that you go beyond a first factor for authenticating the user by enabling Multi-factor Authentication.
+In order to provide services to your users, you must be able to identify who those users are. This process is called User  Authentication. There are a number of ways to perform authentication of a user - via social media accounts, username and password, <dfn> data-key="passwordless">passwordless</dfn> - and it's often recommended that you go beyond a first factor for authenticating the user by enabling <dfn> data-key="Multi-factor Authentication (MFA)">Multi-factor Authentication</dfn>.
 
 ::: panel Best Practice
 It's important to consider both security and user experience when designing how you will authenticate your users. Providing for multiple primary factors, and/or enforcing more than one factor during authentication, are ways that you can provide both.
