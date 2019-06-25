@@ -27,11 +27,88 @@ Implementation begins immediately after the kickoff meeting, and the process tak
 
 At the end of the implementation process, you're ready for the **Environment Handover**. Your Managed Private Cloud deployment is, at this point, ready for Production use.
 
-## Infrastructure Requirements
+## Infrastructure requirements
 
 ::: warning
 This section applies only to the **customer-hosted** Managed Private Cloud.
 :::
+
+The AWS Region(s) in which your deployments are hosted must support:
+
+* At least **three (3)** availability zones
+* Cross-LAN availability zones
+* M4 or M4 instance types
+* RDS for PostgreSQL
+
+### Instance types
+
+The size of your AWS instance must be, at minimum, **M4.2xlarge**, though the **M5.2xlarge** size is preferred.
+
+We ask that the individual volumes have the following resource allocation:
+
+<table class="table">
+    <tr>
+        <td></td>
+        <td>**System / Operating System**</td>
+        <td>**Database**</td>
+        <td>**User Search**</td>
+        <td>**Backup**</td>
+    </tr>
+    <tr>
+        <td>**a0-1 (PROD)**</td>
+        <td>60 GB</td>
+        <td>100 GB</td>
+        <td>100 GB</td>
+        <td>--</td>
+    </tr>
+    <tr>
+        <td>**a0-2 (PROD)**</td>
+        <td>60 GB</td>
+        <td>100 GB</td>
+        <td>100 GB</td>
+        <td>--</td>
+    </tr>
+    <tr>
+        <td>**a0-3 (PROD)**</td>
+        <td>60 GB</td>
+        <td>100 GB</td>
+        <td>100 GB</td>
+        <td>100 GB</td>
+    </tr>
+    <tr>
+        <td>**DEV (non-PROD)**</td>
+        <td>60 GB</td>
+        <td>50 GB</td>
+        <td>50 GB</td>
+        <td>50 GB</td>
+    </tr>
+</table>
+
+Please note that you may have a different number of instances based on your specific deployment type.
+
+### Network
+
+All servers in the cluster must:
+
+* Have outbound access
+* Be on the same subnet
+* Be able to communicate over ports 7777, 27017, 8721, and 8701
+* Listen for and accept traffic from the load balancer over port 443
+
+### Internet connectivity
+
+Internet connectivity is required for all servers in the cluster.
+
+All servers in the cluster require outbound access to:
+* **docker.it.auth0.com** (**52.9.124.234**) on port 443.
+* **cdn.auth0.com** on port 443.
+* Social providers and third-party APIs (as needed)
+
+### DNS records
+
+Forthcoming.
+
+### Load balancers
 
 Forthcoming.
 
