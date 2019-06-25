@@ -38,7 +38,7 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
       <td><a href="/logs/migrate-logs-v2-v3">Tenant Logs Search v2</a></td>
       <td>21 May 2019</td>
       <td>
-        <strong>Free</strong>: 15 June 2019<br>
+        <strong>Free</strong>: 9 July 2019<br>
         <strong>Developer</strong>: 20 August 2019<br>
         <strong>Developer Pro</strong>: 20 August 2019<br>
         <strong>Enterprise</strong>: 4 November 2019
