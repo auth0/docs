@@ -1,6 +1,7 @@
 ---
 description: Authentication for web applications using OpenID Connect.
 classes: video-page
+image: https://cdn2.auth0.com/docs/media/articles/learn-identity/learn-identity-og-image.jpg
 ---
 # Web Sign-In
 
