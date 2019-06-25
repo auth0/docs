@@ -1,6 +1,6 @@
 ---
 title: Authentication
-description: Understand how authentication works in your CIAM implementation.
+description: How authentication works in your B2C IAM implementation.
 toc: true
 topics:
     - b2c

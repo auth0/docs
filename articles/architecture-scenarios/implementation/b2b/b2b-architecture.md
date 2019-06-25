@@ -1,6 +1,6 @@
 ---
 title: Architecture
-description: Understand how tenant architecture affects your B2B IAM implementation.
+description: How tenant architecture affects your B2B IAM implementation.
 toc: true
 topics:
     - b2b

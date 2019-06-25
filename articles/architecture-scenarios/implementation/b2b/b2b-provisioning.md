@@ -1,6 +1,6 @@
 ---
 title: Provisioning
-description: Understand user provisioning functionality and considerations for your B2B implementation. 
+description: User provisioning functionality and considerations for your B2B implementation. 
 toc: true
 topics:
     - b2b

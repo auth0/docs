@@ -1,6 +1,6 @@
 ---
 title: Logout
-description: Understand user logout planning considerations for your B2C implementation.
+description: User logout planning considerations for your B2C implementation.
 toc: true
 topics:
     - b2c

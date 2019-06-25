@@ -1,6 +1,6 @@
 ---
 title: Authentication
-description: Understand how authentication works in your B2B IAM implementation.
+description: How authentication works in your B2B IAM implementation.
 toc: true
 topics:
     - b2b

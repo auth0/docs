@@ -1,6 +1,6 @@
 ---
 title: Profile Management
-description: Understand user profile management planning considerations for your B2B implementation. 
+description: User profile management planning considerations for your B2B implementation. 
 toc: true
 topics:
     - b2b
