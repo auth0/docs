@@ -20,7 +20,7 @@ useCase:
 
 Auth0 provides an OpenID Connect connection that enables you to connect to OIDC compliant identity providers.
 
-The Open ID identity provider needs to support [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html) and support the `id_token` response type.
+The Open ID identity provider needs to support [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html), supports the `id_token` response type and the `form_post` response mode.
 
 To create a new OpenID Connect connection, you'll need to complete the following fields:
 
