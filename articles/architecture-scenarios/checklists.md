@@ -12,7 +12,7 @@ useCase:
 ---
 # Implementation Planning Checklists
 
-Click the each link below to download a checklist that corresponds to a phase in the SDLC (Software Development Lifecycle). You can open the checklist in any spreadsheet application and customize them to suit your needs. 
+Click the links below to download a checklist that corresponds to a phase in the SDLC (Software Development Lifecycle). You can open the checklist in any spreadsheet application and customize them to suit your needs. 
 
 ## ![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Analyze Checklist](/media/articles/architecture-scenarios/checklists/Analyze-Checklist.xlsx)
 
