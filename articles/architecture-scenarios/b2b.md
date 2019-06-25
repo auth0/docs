@@ -22,6 +22,10 @@ useCase:
 
 <%= include('./_includes/_base-intro.md', { platform: 'b2b' }) %>
 
+## Planning guide
+
+<%= include('./_includes/_base-ways-to-integrate.md', { platform: 'b2b' }) %>
+
 ## Get started
 
 <%= include('../_includes/_topic-links', { links: [
@@ -36,12 +40,6 @@ useCase:
   'architecture-scenarios/implementation/b2b/b2b-logout',
   'architecture-scenarios/implementation/b2b/b2b-operations'
 ] }) %>
-
-## Planning guide
-
-<%= include('./_includes/_base-ways-to-integrate.md', { platform: 'b2b' }) %>
-
-<%= include('./_includes/_planning.md', { platform: 'b2b' }) %>
 
 ## Implementation checklists
 
