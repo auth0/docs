@@ -53,14 +53,6 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
         The Webtask engine powering Auth0 extensibility points currently uses Node 4. Beginning <strong>30 April 2018</strong>, <a href="https://github.com/nodejs/Release#release-schedule">Node.js v4 will no longer be under long-term support (LTS)</a>. This means that critical security fixes will no longer be back-ported to this version. As such, Auth0 will be migrating the Webtask runtime from Node.js v4 to Node.js v8.<br><br>On <strong>17 April 2018</strong> we will make the Node 8 runtime available for extensibility to all public cloud customers. You will be provided a migration switch that allows you to control your environment's migration to the new runtime environment.<br><br>For more information on this migration and the steps you should follow to upgrade your implementation, see <a href="/migrations/guides/extensibility-node8">Migration Guide: Extensibility and Node.js v8</a>.
       </td>
     </tr>
-    <tr>
-      <td><a href="/migrations/guides/migration-oauthro-oauthtoken">oauth/ro</a></td>
-      <td>26 December 2017</td>
-      <td>TBD</td>
-      <td>
-        If you are currently implementing the <a href="/api/authentication#resource-owner">/oauth/ro</a> endpoint, your application can be updated to use the <a href="/api/authentication#authorization-code">/oauth/token</a> endpoint. For details on how to make this transition, see the <a href="/migrations/guides/migration-oauthro-oauthtoken">Migration Guide for Resource Owner Password Credentials Exchange</a>.
-      </td>
-    </tr>
   </tbody>
 </table>
 
