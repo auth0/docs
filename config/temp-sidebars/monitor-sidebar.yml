@@ -1,0 +1,70 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## 
+
+articles:
+
+## ------------------------------------------------------------
+## MONITORING
+## ------------------------------------------------------------
+  - title: Monitoring
+    url: /guides-tutorials/monitor
+    children:
+
+      - title: Logs
+        url: /guides-tutorials/monitor/logs
+        children:
+
+          - title: Query Syntax
+            url: /guides-tutorials/monitor/logs/query-syntax
+
+          - title: Migrate from Logs Search v2 to v3
+            url: /guides-tutorials/monitor/logs/migrate-logs-v2-v3
+            hidden: true
+
+      - title: Check Auth0 Status
+        url: /guides-tutorials/monitor/check-auth0-status
+
+      - title: Check Supporting Services Status
+        url: /guides-tutorials/monitor/check-supporting-services
+
+      - title: Check External Services Status
+        url: /guides-tutorials/monitor/check-external-services
+
+      - title: Monitor Applications
+        url: /guides-tutorials/monitor/applications
+
+      - title: Monitor Using SCOM
+        url: /guides-tutorials/monitor/scom
+
+      - title: Monitoring the AD/LDAP Connector with System Center Operations Manager
+        url: /guides-tutorials/monitor/scom-adldap-connector
+        hidden: true
+
+      - title: AD/LDAP Connector Health Monitor
+        url: /guides-tutorials/monitor/adldap-connector
+        hidden: true
+
+      - title: Send Events to Keen
+        url: /guides-tutorials/monitor/send-events-to-keenio
+        hidden: true
+
+      - title: Send Events to Segment
+        url: /guides-tutorials/monitor/send-events-to-segmentio
+        hidden: true
+
+      - title: Send Events to Splunk
+        url: /guides-tutorials/monitor/send-events-to-splunk
+        hidden: true
+
+      - title: Track New Leads in Salesforce
+        url: /guides-tutorials/monitor/track-leads-salesforce
+        hidden: true
+
+      - title: Track New Sign-ups in Salesforce
+        url: /guides-tutorials/monitor/track-signups-salesforce
+        hidden: true
+
+
