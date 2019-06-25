@@ -16,6 +16,9 @@ useCase:
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Business to Business Identity and Access Management</h1>
+  <p>
+  This guidance is relevant to **all** project stakeholders. We recommend reading it in its entirety at least once, even if you've already started your journey with Auth0. 
+  </p>
 </div>
 
 <%= include('./_includes/_base-intro.md', { platform: 'b2b' }) %>
@@ -43,11 +46,16 @@ useCase:
 
 ## Implementation planning checklists
 
-Use the links below to download a spreadsheet that includes tasks for each phase of an <dfn data-key="SDLC">Software Development Lifecycle (SDLC)</dfn> project.
+Use the links below to download a spreadsheet that includes tasks for each phase of an Software Development Lifecycle (SDLC) project.
 
 ![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Analyze Checklist](/media/articles/architecture-scenarios/checklists/Analyze-Checklist.xlsx)
+
 ![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Design Checklist](/media/articles/architecture-scenarios/checklists/Design-Checklist.xlsx) 
+
 ![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Build Checklist](/media/articles/architecture-scenarios/checklists/Build-Checklist.xlsx) 
+
 ![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Test Checklist](/media/articles/architecture-scenarios/checklists/Test-Checklist.xlsx) 
+
 ![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Deploy Checklist](/media/articles/architecture-scenarios/checklists/Deploy-Checklist.xlsx) 
+
 ![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Monitor Checklist](/media/articles/architecture-scenarios/checklists/Monitor-Checklist.xlsx) 
