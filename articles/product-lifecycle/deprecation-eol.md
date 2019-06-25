@@ -35,9 +35,5 @@ When we make an **End Of Life** announcement, we will also initiate a **Migratio
 
 **Migrations** will _usually_ involve replacing the **Deprecated** behavior with substantially comparable functionality (although at times, we may elect to discontinue support for some functionality entirely) and modifying your application's code so that it can continue working with the new behavior. We will publish a migration guide, which will detail any action required and will help you determine the impact on your tenants. To ensure a smooth transition and avoid service disruption, we will also provide instructions on how to opt in to the new behavior prior to the **End Of Life Date**. 
 
-Whenever possible, we will provide at least a six-month migration window between the **End Of Life** announcement and the **End Of Life Date**. This time frame may be accelerated in cases of emergency, such as critical vulnerability remediation, or changes required to comply with applicable law or third-party certification standards. In these cases, Auth0 will provide as much prior notice as is reasonable under the circumstances. See our [Self Service Terms of Service](https://auth0.com/legal/ss-tos) or your Enterprise Subscription Agreement for more information.
-
-## Active Migrations
-
-For a list of all active migrations, see [Migrations](/product-lifecycle/migrations).
+Whenever possible, we will provide at least a six-month migration window between the **End Of Life** announcement and the **End Of Life Date**. This time frame may be accelerated in cases of emergency, such as critical vulnerability remediation, or changes required to comply with applicable law or third-party certification standards. In these cases, Auth0 will provide as much prior notice as is reasonable under the circumstances. See our [Self Service Terms of Service](https://auth0.com/legal/ss-tos) or your Enterprise Subscription Agreement for more information. See [Migrations](/product-lifecycle/migrations) for a list of all **Deprecations** with active **Migrations**.
 
