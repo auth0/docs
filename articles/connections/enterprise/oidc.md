@@ -20,7 +20,7 @@ useCase:
 
 Auth0 provides an OpenID Connect connection that enables you to connect to OIDC compliant identity providers.
 
-The Open ID identity provider needs to support [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html) and support the `id_token` response type.
+The Open ID identity provider needs to support [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html), the `id_token` response type and the `form_post` response mode.
 
 To create a new OpenID Connect connection, you'll need to complete the following fields:
 
@@ -57,3 +57,9 @@ If you edit the OIDC Connect Connection, you will see additional configuration o
 ## Federating with Auth0
 
 The OpenID Connect connection is very useful when federating to another Auth0 tenant. Just enter your Auth0 tenant URL in the 'Issuer' field (such as `https://<tenant>.auth0.com`), and the Client ID for any application in that tenant in the 'Client ID' field.
+
+## Providing Feedback
+
+While in Beta, we'll be answering questions and receiving feedback in our [Community Section for the OIDC Connection Beta Program](https://community.auth0.com/c/auth0-beta-programs/new-oidc-connection-beta).
+
+

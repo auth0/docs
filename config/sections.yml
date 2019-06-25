@@ -24,3 +24,8 @@
   title: "Libraries"
   url: "/libraries"
   folder: "libraries"
+
+- id: "videos"
+  title: "Videos"
+  url: "/videos/learn-identity"
+  folder: "videos"

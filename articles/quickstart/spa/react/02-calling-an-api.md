@@ -83,7 +83,6 @@ ReactDOM.render(
     domain={config.domain}
     client_id={config.clientId}
     audience={config.audience}
-    onRedirectCallback={onRedirectCallback}
   >
     <App />
   </Auth0Provider>,
