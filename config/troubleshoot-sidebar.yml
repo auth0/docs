@@ -1,0 +1,58 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## ------------------------------------------------------------
+
+articles:
+
+  - title: Troubleshooting
+    url: "/guides-tutorials/troubleshoot"
+    children:
+      - title: Basics
+        url: /guides-tutorials/troubleshoot/basics
+      
+      - title: Common Authentication Errors
+        url: /guides-tutorials/troubleshoot/error-messages
+        children:
+          - title: Standard Error Messages
+            url: /api/authentication#standard-error-responses
+
+      - title: Roles-Based Authorization
+        url: "/guides-tutorials/troubleshoot/rbac"
+        children:
+          - title: Authorization Extension
+            url: /guides-tutorials/troubleshoot/auth-extension
+      
+      - title: Multi-factor Authentication
+        url: /guides-tutorials/troubleshoot/mfa
+
+      - title: SAML
+        url: /guides-tutorials/troubleshoot/saml
+        children:
+          - title: Common SAML Errors
+            url: /guides-tutorials/troubleshoot/saml/common-saml-errors
+          
+          - title: Troubleshooting When Auth0 is the Service Provider
+            url: /guides-tutorials/troubleshoot/saml/auth0-as-sp
+          
+          - title: Troubleshooting When Auth0 is the Identity Provider
+            url: /guides-tutorials/troubleshoot/saml/auth0-as-idp
+
+      - title: Deprecation Errors
+        url: /guides-tutorials/troubleshoot/deprecation-errors
+
+      - title: Issues with...
+        url: /guides-tutorials/troubleshoot/issues
+
+      - title: HTTP Archive (HAR) 
+        url: /guides-tutorials/troubleshoot/har
+
+      - title: Custom Databases
+        url: /guides-tutorials/troubleshoot/custom-db
+
+      - title: Deploy CLI
+        url: /guides-tutorials/troubleshoot/deploy-cli
+
+      - title: AD/LDAP Connector
+        url: /guides-tutorials/troubleshoot/connector

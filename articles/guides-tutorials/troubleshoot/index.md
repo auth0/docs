@@ -10,8 +10,7 @@ contentType:
 useCase:
   - troubleshooting
 ---
-
-## Troubleshooting
+# Troubleshooting
 
 Our troubleshooting guides will help you narrow down or solve issues you might be having. We'll share tips on troubleshooting in general, as well as troubleshooting specific points in your authentication sequence.
 
