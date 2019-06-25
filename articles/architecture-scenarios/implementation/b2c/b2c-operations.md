@@ -40,9 +40,9 @@ useCase:
 
 <%= include('../../_includes/_operations/_notifications.md', { platform: 'b2c' }) %>
 
-## Planning
+## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2C-Project-Planning.pdf)
 
-<%= include('../../_includes/_planning.md', { platform: 'b2c' }) %>
+<%= include('./_includes/_planning.md') %>
 
 ## Keep reading
 

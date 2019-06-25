@@ -110,9 +110,9 @@ With enterprise connection support, user identities and credentials are managed 
 
 <%= include('../../_includes/_authentication/_mfa.md', { platform: 'b2b' }) %>
 
-## Planning
+## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2B-Project-Planning.pdf)
 
-<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
+<%= include('./_includes/_planning.md') %>
 
 ## Keep reading
 

@@ -1,7 +1,6 @@
 ---
 title: Deployment Automation
 description: How Auth0 tooling helps to automate tenant deployment.
-toc: true
 topics:
     - b2b
     - b2biam
@@ -16,9 +15,9 @@ useCase:
 
 <%= include('../../_includes/_deployment/_introduction.md', { platform: 'b2b' }) %>
 
-## Planning
+## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2B-Project-Planning.pdf)
 
-<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
+<%= include('./_includes/_planning.md') %>
 
 ## Keep reading
 

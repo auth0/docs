@@ -1,7 +1,6 @@
 ---
 title: Logout
-description: User logout planning considerations for your B2C implementation.
-toc: true
+description: User logout planning considerations for your B2C IAM implementation.
 topics:
     - b2c
     - ciam
@@ -15,9 +14,9 @@ useCase:
 
 <%= include('../../_includes/_logout/_introduction.md', { platform: 'b2c' }) %>
 
-## Planning
+## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2C-Project-Planning.pdf)
 
-<%= include('../../_includes/_planning.md', { platform: 'b2c' }) %>
+<%= include('./_includes/_planning.md') %>
 
 ## Keep reading
 

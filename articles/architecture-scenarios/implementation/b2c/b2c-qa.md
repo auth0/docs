@@ -1,6 +1,6 @@
 ---
 title: Quality Assurance
-description: Quality Assurance considerations for your B2C implementation.
+description: Quality Assurance considerations for your B2C IAM implementation.
 toc: true
 topics:
     - qa
@@ -27,9 +27,9 @@ useCase:
 
 <%= include('../../_includes/_qa/_mock-testing.md', { platform: 'b2c' }) %>
 
-## Planning
+## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2C-Project-Planning.pdf)
 
-<%= include('../../_includes/_planning.md', { platform: 'b2c' }) %>
+<%= include('./_includes/_planning.md') %>
 
 ## Keep reading
 

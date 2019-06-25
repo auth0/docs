@@ -52,9 +52,9 @@ If your organization users will all be isolated from each other, than it’s imp
 
 <%= include('../../_includes/_branding/_guardian.md', { platform: 'b2b' }) %>
 
-## Planning
+## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2B-Project-Planning.pdf)
 
-<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
+<%= include('./_includes/_planning.md') %>
 
 ## Keep reading
 

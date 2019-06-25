@@ -1,6 +1,6 @@
 ---
 title: Provisioning
-description: User provisioning functionality and considerations for your B2B implementation. 
+description: User provisioning functionality and considerations for your B2B IAM implementation. 
 toc: true
 topics:
     - b2b
@@ -114,9 +114,9 @@ A nice advantage of allowing your customers to use their own IdP is that they ca
   If mapping isn't enough and you must put some metadata in your system, keep in mind that Auth0 will not create the user until they log into the system the first time.  Therefore you will need to use rule extensibility to pull the initial information from somewhere else, or force users to log in the first time before you can add the metadata.  
 :::
 
-## Planning
+## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2B-Project-Planning.pdf)
 
-<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
+<%= include('./_includes/_planning.md') %>
 
 ## Keep reading
 

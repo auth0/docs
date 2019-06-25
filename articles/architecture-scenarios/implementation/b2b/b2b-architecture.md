@@ -1,6 +1,6 @@
 ---
 title: Architecture
-description: How tenant architecture affects your B2B IAM implementation.
+description: How you configure your Auth0 tenant architecture affects your B2B IAM implementation.
 toc: true
 topics:
     - b2b
@@ -43,10 +43,9 @@ Maintaining multiple Auth0 tenants can add complexity to your system and should 
 
 <%= include('../../_includes/_architecture/_sdlc-support.md', { platform: 'b2b' }) %>
 
-## Planning
+## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2B-Project-Planning.pdf)
 
-<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
-
+<%= include('./_includes/_planning.md') %>
 
 ## Keep reading
 

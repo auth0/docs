@@ -1,6 +1,6 @@
 ---
 title: Provisioning
-description: User provisioning functionality and considerations for your B2C implementation. 
+description: User provisioning functionality and considerations for your B2C IAM  implementation. 
 toc: true
 topics:
     - b2c
@@ -30,9 +30,9 @@ useCase:
 
 <%= include('../../_includes/_provisioning/_social-signup.md', { platform: 'b2c' }) %>
 
-## Planning
+## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2C-Project-Planning.pdf)
 
-<%= include('../../_includes/_planning.md', { platform: 'b2c' }) %>
+<%= include('./_includes/_planning.md') %>
 
 ## Keep reading
 
