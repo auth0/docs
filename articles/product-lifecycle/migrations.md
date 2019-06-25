@@ -1,7 +1,7 @@
 ---
 toc: true
 title: Migrations
-description: View all changes made on the Auth0 platform that might affect customers.
+description: View all Deprecations with active Migrations which may impact your tenant.
 topics:
   - migrations
 contentType:
@@ -11,7 +11,7 @@ useCase:
 ---
 # Migrations
 
-We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necessary steps to avoid service disruptions. For more info about our Deprecations process, see [Product Lifecycle](/product-lifecycle).
+We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necessary steps to avoid service disruptions. See [Deprecation and End Of Life](/product-lifecycle/deprecation-eol) to learn more about this process.
 
 <table class="table">
   <thead>
