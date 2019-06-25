@@ -16,11 +16,12 @@ useCase:
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Business to Business Identity and Access Management</h1>
+  <p>
+  <%= include('./_includes/_base-intro.md', { platform: 'b2b' }) %>
+  </p>
 </div>
 
 ![Business to Business Identity and Access Management](/media/articles/architecture-scenarios/b2b.png)
-
-<%= include('./_includes/_base-intro.md', { platform: 'b2b' }) %>
 
 ## Planning guide
 
