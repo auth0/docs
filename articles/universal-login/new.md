@@ -38,6 +38,8 @@ From a functional perspective, it has much better support for [Localization](/un
 
 - If you are using the Guardian SDK to create your own native application to handle Push Notifications, you can now configure the name of the application and the URLs to download them in the "Push via Auth0 Guardian" option in the MFA [Dashboard > MFA](${manage_url}/#/mfa) section.
 
+- If you have a rule that sets the MFA provider to `google-authenticator` you need to enable the OTP factor in the [Dashboard > MFA](${manage_url}/#/mfa) section.
+
 ## Password Reset
 
 - In the Classic Experience you can [configure a url](/email/templates#redirect-to-results-for-the-change-password-email-template) to redirect users after completing the password reset. The URL will receive a success indicator and a message. The New Experience will redirect the users to the [default login route](/universal-login/default-login-url) when it succeeds, and will handle the error cases as part of the Universal Login flow. The Redirect URL in the email template will be ignored.  
