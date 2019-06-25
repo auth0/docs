@@ -21,8 +21,6 @@ useCase:
   </p>
 </div>
 
-![Business to Business Identity and Access Management](/media/articles/architecture-scenarios/b2b.png)
-
 ## Planning guide
 
 <%= include('./_includes/_base-ways-to-integrate.md', { platform: 'b2b' }) %>
