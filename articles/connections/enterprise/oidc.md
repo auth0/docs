@@ -60,6 +60,6 @@ The OpenID Connect connection is very useful when federating to another Auth0 te
 
 ## Providing Feedback
 
-While in Beta, we'll be answering questions and receiving feedback in our [Community Section for the OIDC Beta Program](https://community.auth0.com/c/auth0-beta-programs/new-oidc-connection-beta).
+While in Beta, we'll be answering questions and receiving feedback in our [Community Section for the OIDC Connection Beta Program](https://community.auth0.com/c/auth0-beta-programs/new-oidc-connection-beta).
 
 
