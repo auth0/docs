@@ -2177,5 +2177,9 @@ module.exports = [
     {
       from: '/private-cloud',
       to: '/private-saas-deployment'
+    },
+    {
+      from: '/topics/identity-glossary',
+      to: '/glossary'
     }
 ];

@@ -137,5 +137,5 @@ function (user, context, callback) {
 ## Additional Notes
 
 * A tutorial is available on using MFA with the [Resource Owner](/api-auth/tutorials/multifactor-resource-owner-password) endpoint.
-* If you are using MFA for database connections that use Popup Mode, and you are using <dfn data-key="lock">Lock</dfn> or [Auth0.js](/libraries/auth0.js/v9), set `sso` to `true` when defining the options object. If you fail to do this, users will be able to log in without MFA.
+* If you are using MFA for database connections that use Popup Mode, and you are using <dfn data-key="lock">Lock</dfn> or [Auth0.js](/libraries/auth0js/v9), set `sso` to `true` when defining the options object. If you fail to do this, users will be able to log in without MFA.
 * If you are using MFA after an authentication with one or more social providers, you need to use your own application `ID` and `Secret` in the connection to the provider's site in place of the default Auth0 development credentials. For instructions on how to get the credentials for each social provider, select your particular from the list at: [Identity Providers](/identityproviders). In production usage, you should always use your own credentials instead of [Auth0 devkeys](/connections/social/devkeys).

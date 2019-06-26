@@ -215,7 +215,7 @@ guardianFactorTemplates:
 
 To export your current tenant configuration, run a command that's similar to:
 
-`a0deploy export -c config.json --strip -f yaml -o path/to/export`
+`a0deploy export -c config.json -f yaml -o path/to/export`
 
 <%= include('../_includes/_strip-option') %>
 

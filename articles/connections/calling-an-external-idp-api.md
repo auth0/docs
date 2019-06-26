@@ -33,7 +33,7 @@ The process you will follow differs, depending on whether your code runs in the 
 
 Once you authenticate a user, the IdP often includes an Access Token in the user profile it returns to Auth0.
 
-Auth0, for security and compliance reasons, does **not** sent this token to your app as part of the user profile. In order to get it you will have to access the Auth0 Management API and retrieve the **full** user's profile.
+Auth0, for security and compliance reasons, does **not** send this token to your app as part of the user profile. In order to get it you will have to access the Auth0 Management API and retrieve the **full** user's profile.
 
 The steps to follow are:
 

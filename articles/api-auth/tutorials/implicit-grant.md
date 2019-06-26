@@ -13,8 +13,6 @@ useCase:
 ---
 # How to implement the Implicit Grant
 
-<%= include('../../_includes/_pipeline2') %>
-
 ::: note
 This tutorial will help you implement the Implicit Grant. If you are looking for some theory on the flow refer to [Call APIs from Client-side Web Apps](/api-auth/grant/implicit).
 :::
