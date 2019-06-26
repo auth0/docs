@@ -184,8 +184,24 @@ import * as serviceWorker from "./serviceWorker";
 import { Auth0Provider } from "./react-auth0-wrapper";
 import config from "./auth_config.json";
 
+// A function that routes the user to the right place
+// after login
+const onRedirectCallback = appState => {
+  window.history.replaceState(
+    {},
+    document.title,
+    appState && appState.targetUrl
+      ? appState.targetUrl
+      : window.location.pathname
+  );
+};
+
 ReactDOM.render(
-  <Auth0Provider domain={config.domain} client_id={config.clientId}>
+  <Auth0Provider
+    domain={config.domain}
+    client_id={config.clientId}
+    onRedirectCallback={onRedirectCallback}
+>
     <App />
   </Auth0Provider>,
   document.getElementById("root")
@@ -195,6 +211,8 @@ serviceWorker.unregister();
 ```
 
 Notice that the `App` component is now wrapped in the `Auth0Provider` component, where the details about the Auth0 domain and client ID are specified.
+
+Also notice the function `onRedirectCallback`, which tries to route the user to the right place once they have logged in. For example, if the user tries to access a page that requires them to be authenticated, they will be asked to log in. When they return to the application, they will be forwarded to the page they were originally trying to access thanks to this function.
 
 Next, create a new file `auth_config.json` in the `src` folder, and populate it with the following:
 
