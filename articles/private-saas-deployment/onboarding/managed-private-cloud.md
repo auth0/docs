@@ -106,9 +106,53 @@ All servers in the cluster require outbound access to:
 
 ### DNS records
 
-Forthcoming.
+Each environment (e.g., Development, Staging, Production), which are represented by `<env-name>`, requires a separate namespace when it comes to DNS records.
+
+You will need DNS records for the following namespaces:
+
+| **Namespace/Environment | Notes |
+| - | - |
+| **Auth0 environment Namespace** (e.g., `*.<env-name>.customer.com`)| You can choose to use a catch-all CNAME record that represents all of your tenants and Dashboard endpoints **or** individual CNAME records for each tenant. The following `env-names` cannot be used: **manage** (reserved for the Dashboard), **config** (reserved for the root tenant authority), **webtask** (reserved for extensibility) |
+| **Auth0 Webtask with Dedicated Domains Namespace** (e.g., `*.wt.<env-name>.customer.com`) | You can choose to use a catch-all CNAME record to represent all of your tenants **or** you can use an individual CNAME record for each tenant pointing to the balanced endpoint |
+| **Custom Domains Namespace** | Requires a catch-all CNAME record redirecting custom domains to the custom domains balanced endpoint **and** an alias record using `edge.<env-name>.customer.com ` that points to the custom domains balanced endpoint |
 
 ### Load balancers
+
+You must use either an ALB or ELB. For HTTP health check monitoring, you can use the `testall` endpoint provided by Auth0.
+
+#### Software Load Balancers
+
+You can use either NGINX or HA Proxy as the software load balancer in front of the Auth0 environment or for IP whitelisting and/or endpoint filtering (only authentication endpoints are publicly available). If you are using NGINX or HA Proxy as the software load balancer, you must:
+
+* Use TCP mode with Proxy Protocol or HTTPS mode (SSL offloading). In HTTPS mode the connector will not work.
+* Forward the incoming hostname to the nodes
+
+### SSL Certificates
+
+Your SSL certificates must:
+
+* Be signed by a public certificate authority
+* Contain all of the required DNS names (if the certificate is not a wildcard certificate)
+* Be in the PFX or PKCS12 formats
+* Contain the full chain
+
+### TLS
+
+Auth0 requires TLS 1.1 or later.
+
+### SMTP
+
+You must set up and configure a SMTP provider (or a global default email provider) to send emails. Optionally,, you can set up transactional email providers (e.g., SendGrid, Amazon SES, Mandrill) for individual tenants.
+
+STARTTLS is supported by Auth0, but is not required.
+
+### Amazon RDS for PostgreSQL
+
+Amazon RDS for PostgreSQL is currently used to support the Authorization Roles-Based Access Control functionality, but it will be used to support other functionality in the future.
+
+We ask that, at minimum, you use **postgres10, db.r3.xlarge** with 10 GB of storage. You should also allow automated snapshots with seven-day snapshot retention and multi-AZ deployments with automated failover.
+
+### Remote Access
 
 Forthcoming.
 
