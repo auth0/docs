@@ -44,7 +44,7 @@ useCase:
 
 While Auth0 [connections](/identityproviders) make it easy to configure IdPs, it can be a time-consuming process to onboard customer organization IdPs especially if you are selling to new customer organizations on a regular basis or existing organizations have changing IdP requirements. As a result, many of our customers have found it worthwhile to build a self-service portal for their customers' organization admins so that they can configure their own IdPs. This cuts down on your IT department's workload. The [Auth0 Management API](/api/management/v2) provides all necessary [connection](/api/management/v2#!/Connections/get_connections) management functionality to achieve this. 
 
-## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2B-Project-Planning.pdf)
+## Project Planning Guide
 
 <%= include('../../_includes/_planning.md') %>
 

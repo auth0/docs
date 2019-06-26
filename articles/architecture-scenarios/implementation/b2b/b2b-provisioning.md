@@ -114,7 +114,7 @@ A nice advantage of allowing your customers to use their own IdP is that they ca
   If mapping isn't enough and you must put some metadata in your system, keep in mind that Auth0 will not create the user until they log into the system the first time.  Therefore you will need to use rule extensibility to pull the initial information from somewhere else, or force users to log in the first time before you can add the metadata.  
 :::
 
-## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2B-Project-Planning.pdf)
+## Project Planning Guide
 
 <%= include('../../_includes/_planning.md') %>
 

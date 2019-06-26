@@ -31,7 +31,7 @@ useCase:
 
 <%= include('../../_includes/_architecture/_sdlc-support.md', { platform: 'b2c' }) %>
 
-## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2C-Project-Planning.pdf)
+## Project Planning Guide
 
 <%= include('../../_includes/_planning.md') %>
 

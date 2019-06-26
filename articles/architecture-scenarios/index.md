@@ -28,12 +28,7 @@ useCase:
 
 ## Application configurations
 
-These scenarios describe the different type of technology architectures your application may use, and how Auth0 can help for each of those. Each scenario comes with:
-
-* A sample business case
-* The goals and requirements that the implementation must meet
-* Detailed explanations of the architectural solutions
-* A sample implementation
+These scenarios describe the different type of technology architectures your application may use, and how Auth0 can help for each of those. 
 
 The goal of these scenarios is to walk you through the implementation process from beginning to end.
 

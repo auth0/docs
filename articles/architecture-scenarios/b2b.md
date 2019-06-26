@@ -22,7 +22,7 @@ useCase:
 
 <%= include('./_includes/_base-ways-to-integrate.md', { platform: 'b2b' }) %>
 
-## ![](/media/articles/architecture-scenarios/planning/file_type_icons-04.png) [Project Planning Guide](/media/articles/architecture-scenarios/planning/B2B-Project-Planning.pdf)
+## Project Planning Guide
 
 <%= include('./_includes/_planning.md') %>
 
