@@ -1,10 +1,12 @@
 ---
-description: Videos that describe how to get started implementing Auth0 features with your applications.
+description: Learn how to get started implementing Auth0 features with your applications.
 classes: video-page
 ---
 # Getting Started with Auth0
 
-[![Get Started with Auth0]()](/videos/get-started/01-architecture-your-tenant)
+[![Get Started with Auth0](/media/articles/videos/architecture-your-tenant.png)](/videos/get-started/01-architecture-your-tenant)
+
+<p>&nbsp;</p>
 
 <ul class="up-next">
   <li>
