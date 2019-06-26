@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD031 MD041 -->
+
 To run the sample follow these steps:
 
 1) Set the **Callback URL** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to
@@ -15,6 +17,9 @@ npm install && npm start
 You can also run it from a [Docker](https://www.docker.com) image with the following commands:
 
 ```bash
-# In Linux / macOS         In Windows' Powershell
-sh exec.sh                 ./exec.ps1
+# In Linux / macOS         
+sh exec.sh                 
+
+# In Windows' Powershell
+./exec.ps1
 ```

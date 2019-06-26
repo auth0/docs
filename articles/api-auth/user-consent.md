@@ -12,8 +12,6 @@ useCase:
 
 # User Consent and Third-Party Applications
 
-<%= include('../_includes/_pipeline2') %>
-
 The [OIDC-conformant authentication pipeline](/api-auth/tutorials/adoption) supports defining [resource servers (such as APIs) as entities separate from applications](/api-auth/tutorials/adoption/api-tokens).
 This lets you decouple APIs from the applications that consume them, and also lets you define third-party applications that you might not control or even fully trust.
 

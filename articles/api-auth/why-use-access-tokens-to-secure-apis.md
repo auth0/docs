@@ -12,8 +12,6 @@ useCase:
 ---
 # Why you Should Always Use Access Tokens to Secure an API
 
-<%= include('../_includes/_pipeline2') %>
-
 There's a lot of confusion between <dfn data-key="openid">**OpenID Connect**</dfn> and **OAuth 2.0**, especially when it comes to determining which option is the best for a particular use case. As such, many developers publish insecure applications that compromise their users' data.
 
 To help you make an informed decision and be aware of any risks, this article includes:

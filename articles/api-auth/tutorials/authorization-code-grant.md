@@ -12,8 +12,6 @@ useCase:
 ---
 # Execute an Authorization Code Grant Flow
 
-<%= include('../../_includes/_pipeline2') %>
-
 ::: note
 This tutorial will help you implement the Authorization Code grant. If you are looking for some theory on the flow refer to [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code).
 :::

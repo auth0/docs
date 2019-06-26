@@ -105,6 +105,10 @@ Instead of sending the context object to an external service to debug your rules
 
 Always use HTTPS, not HTTP, connections when making calls to external services in your rules code.
 
+### Enforce timeouts when making external HTTP calls
+
+When calling APIs or making external HTTP(S) calls from your rules, we recommend enforcing explicit timeouts. The specific value you choose will vary based on your user case, but in general, we recommend keeping the timeout as low as possible while bearing in mind the performance of the external HTTP service.
+
 ### Don’t use conditional logic for MFA based on silent authentication, device fingerprint, or geolocation
 
 Don’t use rules that trigger <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> based on silent authentication, a known device, or a known location.
