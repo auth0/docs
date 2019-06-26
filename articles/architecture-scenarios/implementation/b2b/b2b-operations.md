@@ -46,7 +46,7 @@ While Auth0 [connections](/identityproviders) make it easy to configure IdPs, it
 
 ## Project Planning Guide
 
-<%= include('../../_includes/_planning.md') %>
+<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 

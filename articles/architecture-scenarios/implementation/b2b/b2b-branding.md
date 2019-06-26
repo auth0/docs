@@ -54,7 +54,7 @@ If your organization users will all be isolated from each other, than it’s imp
 
 ## Project Planning Guide
 
-<%= include('../../_includes/_planning.md') %>
+<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 

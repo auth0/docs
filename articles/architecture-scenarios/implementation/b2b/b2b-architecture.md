@@ -45,7 +45,7 @@ Maintaining multiple Auth0 tenants can add complexity to your system and should 
 
 ## Project Planning Guide
 
-<%= include('../../_includes/_planning.md') %>
+<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 

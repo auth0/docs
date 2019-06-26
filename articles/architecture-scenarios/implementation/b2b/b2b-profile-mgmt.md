@@ -45,7 +45,7 @@ If you are providing your own way for an administrator to manage users, you shou
 
 ## Project Planning Guide
 
-<%= include('../../_includes/_planning.md') %>
+<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 
