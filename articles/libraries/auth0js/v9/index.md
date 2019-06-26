@@ -431,7 +431,7 @@ Signups should be for database connections. Here is an example of the `signup` m
 
 The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against Auth0 for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`. If you omit them, it will use the ones provided when initializing Auth0.
 
-The call to `checkSession` can use get a new token for the API that was specified as the audience when `webAuth` was initialized:
+The call to `checkSession` can be used to get a new token for the API that was specified as the audience when `webAuth` was initialized:
 
 ```js
 webAuth.checkSession({}, function (err, authResult) {
