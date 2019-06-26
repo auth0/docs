@@ -14,12 +14,14 @@ useCase:
 
 Auth0 provides a number of checklists in Google Sheets format, each of which aligns with a particular phase of a typical SDLC (Software Development Life Cycle). Though all of these may not apply to you, it is recommended that you use applicable checklists as part of your planning and implementation.  
 
-* [Analyze](#analyze)
-* [Design](#design)
-* [Build](#build)
-* [Test](#test)
-* [Deploy](#deploy) 
-* [Monitor](#monitor)
+- [Implementation Checklists](#Implementation-Checklists)
+  - [How to use the checklists](#How-to-use-the-checklists)
+  - [Analyze](#Analyze)
+  - [Design](#Design)
+  - [Build](#Build)
+  - [Test](#Test)
+  - [Deploy](#Deploy)
+  - [Monitor](#Monitor)
 
 ## How to use the checklists
 

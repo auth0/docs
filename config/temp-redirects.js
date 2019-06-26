@@ -138,6 +138,38 @@ module.exports = [
     {
         from: '/connector/troubleshooting',
         to: '/guides-tutorials/troubleshoot/connector'
+    },
+    {
+        from: '/getting-started/deployment-models',
+        to: '/guides-tutorials/deploy/deployment-models'
+    },
+    {
+        from: '/pre-deployment',
+        to: '/guides-tutorials/deploy/pre-deployment'
+    },
+    {
+        from: '/pre-deployment/how-to-run-test',
+        to: '/guides-tutorials/deploy/pre-deployment/how-to-run-test'
+    },
+    {
+        from: '/pre-deployment/prelaunch-tips',
+        to: '/guides-tutorials/deploy/pre-deployment/prelaunch-tips'
+    },
+    {
+        from: '/pre-deployment/tests/best-practice',
+        to: '/guides-tutorials/deploy/pre-deployment/tests/best-practice'
+    },
+    {
+        from: '/pre-deployment/tests/recommended',
+        to: '/guides-tutorials/deploy/pre-deployment/tests/recommended'
+    },
+    {
+        from: '/pre-deployment/tests/required',
+        to: '/guides-tutorials/deploy/pre-deployment/tests/required'
+    },
+    {
+        from: '/extensions/deploy-cli',
+        to: '/guides-tutorials/deploy/deploy-cli'
     }
 
 ]

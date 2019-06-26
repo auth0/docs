@@ -1,0 +1,26 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## ------------------------------------------------------------
+
+articles:
+
+## ------------------------------------------------------------
+## Deploy
+## ------------------------------------------------------------
+
+  - title: Deploy
+    url: "/guides-tutorials/deploy"
+    children:
+      - title: Deployment Options
+        url: /guides-tutorials/deploy/deployment-models
+      
+      - title: Deploy Checklist
+        url: /architecture-scenarios/checklists#deploy
+
+      - title: Pre-Deployment
+        url: /guides-tutorials/deploy/pre-deployment
+      
+      - title: Deploy CLI Extension
+        url: /guides-tutorials/deploy/deploy-cli
