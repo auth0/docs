@@ -54,7 +54,7 @@ You will be required to confirm your request with a code send via SMS:
 
 Once the application is created, select **Settings** in the left nav.
 
-In the **Authorized redirect URI** field, enter the following:
+In the **Authorized redirect URI** field, enter your <dfn data-key="callback">callback URL</dfn>:
 
 `https://${account.namespace}/login/callback`
 

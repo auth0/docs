@@ -16,7 +16,7 @@ useCase:
 ---
 # Assign Roles to Users
 
-This guide will show you how to assign [roles](/authorization/concepts/rbac) to a user using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/users/assign-roles-users). The assigned roles can be used with the API Authorization Core feature set.
+This guide will show you how to assign <dfn data-key="role">[roles](/authorization/concepts/rbac)</dfn> to a user using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/users/assign-roles-users). The assigned roles can be used with the API Authorization Core feature set.
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
@@ -43,5 +43,5 @@ This guide will show you how to assign [roles](/authorization/concepts/rbac) to 
 | **Value** | **Description** |
 | - | - |
 | `USER_ID` | Τhe ID of the user to be updated. |
-| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the scopes `read:roles` and `update:users`. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scopes</dfn> `read:roles` and `update:users`. |
 | `ROLE_ID` | ID(s) of the role(s) you would like to add for the specified user. |

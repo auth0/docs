@@ -16,7 +16,7 @@ useCase:
 ---
 # View Role Users
 
-This guide will show you how to view the users assigned to a role using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/roles/view-role-users). Roles are used with the API Authorization Core feature set.
+This guide will show you how to view the users assigned to a <dfn data-key="role">role</dfn> using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/roles/view-role-users). Roles are used with the API Authorization Core feature set.
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
@@ -35,4 +35,4 @@ This guide will show you how to view the users assigned to a role using Auth0's 
 | **Value** | **Description** |
 | - | - |
 | `ROLE_ID` | Τhe ID of the role for which you want to get users. |
-| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the scopes `read:users` and `read:roles`. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scopes</dfn> `read:users` and `read:roles`. |

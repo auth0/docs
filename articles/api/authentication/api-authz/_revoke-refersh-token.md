@@ -50,9 +50,9 @@ HTTP/1.1 200 OK
   "link": "#revoke-refresh-token"
 }) %>
 
-Use this endpoint to invalidate a Refresh Token if it has been compromised.
+Use this endpoint to invalidate a <dfn data-key="refresh-token">Refresh Token</dfn> if it has been compromised.
 
-Each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, application, and audience will be revoked**.
+Each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, application, and <dfn data-key="audience">audience</dfn> will be revoked**.
 
 ### Request Parameters
 

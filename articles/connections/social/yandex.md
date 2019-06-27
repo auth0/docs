@@ -34,7 +34,7 @@ Complete the form:
 
 ![](/media/articles/connections/social/yandex/yandex-create-app.png)
 
-The callback address for your app should be:
+The <dfn data-key="callback">callback URL</dfn> for your app should be:
 
   https://${account.namespace}/login/callback
 

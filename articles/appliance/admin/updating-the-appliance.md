@@ -99,7 +99,7 @@ For additional information on gathering testing information, please see [PSaaS A
         * Login (including those involving Social or other identity providers)
         * Logout
         * Password reset
-        * Single sign on (SSO)
+        * Single sign-on (SSO)
         * Passwordless/SMS login
         * User metadata updates
         * Machine-to-machine interactions

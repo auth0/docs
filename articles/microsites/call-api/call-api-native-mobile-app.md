@@ -25,8 +25,8 @@ In a native/mobile application, the default experience will open a SafariViewCon
 When your app needs to fetch user data from your API:
 
 1. If the user is not already authenticated, our SDK redirects the user to your Auth0 Authorization Server.
-2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, SAML).
-3. Your app requests an ID Token, Access Token, and Refresh token.
+2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, <dfn data-key="security-assertion-markup-language">SAML</dfn>).
+3. Your app requests an ID Token, Access Token, and <dfn data-key="refresh-token">Refresh Token</dfn>.
 4. Auth0 responds with the requested tokens.
 5. The Access Token can be used to call your API and retrieve requested data.
 
@@ -81,5 +81,6 @@ Finally, to use our API endpoints, you can follow our tutorial: [Call Your API U
 ::: whats-next
   * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
   * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect Your API](/microsites/protect-api/protect-api).
+  * If you would like to make your native/mobile app work with input-constrained devices, see [Call Your API from an Input-Constrained Device](/microsites/call-api/call-api-device).
   * If you need to add login to your own native/mobile app, learn how at: [Add Login to Your Native/Mobile App](/microsites/add-login/add-login-native-mobile-app).
 :::

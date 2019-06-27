@@ -15,7 +15,7 @@ useCase:
 ---
 # Add Permissions to Roles
 
-This guide will show you how to add permissions to [roles](/authorization/concepts/rbac) using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/roles/add-permissions-roles). The roles and their permissions can be used with the API Authorization Core feature set.
+This guide will show you how to add permissions to <dfn data-key="role">[roles](/authorization/concepts/rbac)</dfn> using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/roles/add-permissions-roles). The roles and their permissions can be used with the API Authorization Core feature set.
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
@@ -42,6 +42,6 @@ This guide will show you how to add permissions to [roles](/authorization/concep
 | **Value** | **Description** |
 | - | - |
 | `ROLE_ID` | Τhe ID of the role for which you want to add permissions. |
-| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the scope `update:roles`. |
-| `API_IDENTIFIER` | This is the identifier (audience) of the API associated with the permission(s) you would like to add for the specified role. This is not the API ID. |
+| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:roles`. |
+| `API_IDENTIFIER` | This is the identifier of the API associated with the permission(s) you would like to add for the specified role, otherwise known as the audience. This is not the API ID. |
 | `PERMISSION_NAME` | Name(s) of the permission(s) you would like to add for the specified role. |

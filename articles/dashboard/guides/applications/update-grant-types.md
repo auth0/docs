@@ -17,8 +17,10 @@ This guide will show you how to change your application's grant types using Auth
 As of 8 June 2017, new Auth0 customers **cannot** add legacy grant types to their Applications. Customers as of 8 June 2017 can add legacy grant types to only their existing Applications.
 :::
 
-::: warning
-- Attempting to use a flow with an Application lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
+::: panel Troubleshooting
+* The device code grant type is only available for native apps.
+
+* Attempting to use a flow with an Application lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
 
 ```text
 Grant type `grant_type` not allowed for the client.

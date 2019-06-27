@@ -21,7 +21,7 @@ In such instances, your user will need to be re-prompted to grant permission to 
 
 By setting the **prompt=consent** parameter when calling the [/authorize](/api/authentication/reference#social) endpoint of the [Authorization API](/api/authentication), your user will be prompted again to grant permissions for your application.
 
-This parameter can also be set using [Lock](/libraries/lock) as an [Authentication Parameter](/libraries/lock/sending-authentication-parameters) with **prompt: 'consent'**.
+This parameter can also be set using <dfn data-key="lock">Lock</dfn> as an [Authentication Parameter](/libraries/lock/sending-authentication-parameters) with **prompt: 'consent'**.
 
 Alternatively, you can set this with [Auth0.js](https://github.com/auth0/auth0.js) using **prompt: 'consent'**.
 

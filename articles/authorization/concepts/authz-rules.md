@@ -28,7 +28,7 @@ For samples of rule implementations with authorization policies, see [Sample Use
 
 ## Rules in the authorization process
 
-Based on the order in which they run, rules can change the outcome of the authorization decision prior to the permissions being added to the Access Token. The basic process with rules injected is as follows:
+Based on the order in which they run, rules can change the outcome of the authorization decision prior to the permissions being added to the <dfn data-key="access-token">Access Token</dfn>. The basic process with rules injected is as follows:
 
 1. The user tries to authenticate with the application.
 2. Auth0 brings the request to the selected identity provider.

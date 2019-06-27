@@ -26,7 +26,7 @@ While we recommend using the RBAC features present in the Authorization core, we
 
 | Feature | Authorization&nbsp;Core | Authorization&nbsp;Extension |
 |---------|-------------------------|------------------------------|
-| **Roles** |
+| **<dfn data-key="role">Roles</dfn>** |
 | Create/edit/delete roles | Yes | Yes |
 | Search roles by name | In future release | Yes |
 | Roles can contain permissions from one or more APIs | Yes | No |
@@ -71,8 +71,8 @@ While we recommend using the RBAC features present in the Authorization core, we
 | Customize configuration | Yes | Yes |
 | Rules allow for customization of authorization decision | Yes | Yes |
 | Configure whether to allow API access to authorization context | Yes | Yes |
-| Configure adding permissions to Access Token | Yes | Yes |
-| Configure adding groups or roles to Access Token | To be determined | Yes |
+| Configure adding permissions to <dfn data-key="access-token">Access Token</dfn> | Yes | Yes |
+| Configure adding groups or roles to <dfn data-key="access-token">Access Token</dfn> | To be determined | Yes |
 | Configure whether authorization context persists in user's app_metadata | To be determined | Yes |
 | Configure third-party identity provider pass-through for groups, roles, and permissions | To be determined | Yes |
 | User import/export via JSON | To be determined | Yes |

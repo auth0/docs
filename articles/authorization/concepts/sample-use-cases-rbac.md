@@ -49,9 +49,9 @@ Similarly, you [create permissions](/dashboard/guides/apis/add-permissions-apis)
 
 And you [create a role](/dashboard/guides/roles/create-roles) called `Newsletter Admin` and [add these permissions to that role](/dashboard/guides/roles/add-permissions-roles).
 
-Now, when your animal rescue brings in their volunteer, Astrid, to run their pop-up teeshirt shop, Astrid can be [assigned the role](/dashboard/guides/users/assign-roles-users) of `Gift Shop Manager`. When you assign this role to Astrid, she is granted all the permissions that you assigned to the role. Since Astrid knows nothing about publishing newsletters (and isn't the best with email), you never assigned her the `Newsletter Admin` role, so she never has access to the marketing module.
+Now, when your animal rescue brings in their volunteer, Astrid, to run their pop-up teeshirt shop, Astrid can be [assigned the role](/dashboard/guides/users/assign-roles-users) of `Gift Shop Manager`. When you assign this <dfn data-key="role">role</dfn> to Astrid, she is granted all the permissions that you assigned to the role. Since Astrid knows nothing about publishing newsletters (and isn't the best with email), you never assigned her the `Newsletter Admin` role, so she never has access to the marketing module.
  
-From a more technical perspective, when Astrid logs into your product, Auth0 authenticates and authorizes her and includes the permissions in the returned Access Token. Then, your product inspects the token to learn which module to display to Astrid.
+From a more technical perspective, when Astrid logs into your product, Auth0 authenticates and authorizes her and includes the permissions in the returned <dfn data-key="access-token">Access Token</dfn>. Then, your product inspects the token to learn which module to display to Astrid.
 
 By using Auth0's RBAC, you avoid building and maintaining separate authorization systems; instead, you use the token you already receive during authorization. And when Astrid moves away or decides she is tired of running the gift shop and would rather coordinate the foster program, you can easily [remove the `Gift Shop Manager` role](/dashboard/guides/users/remove-user-roles) from her and [assign her a new role](/dashboard/guides/users/assign-roles-users).
 

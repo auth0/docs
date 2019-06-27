@@ -42,5 +42,5 @@ Before completing this step, you should first [retrieve the existing values of t
 | Value | Description |
 | - | - |
 | `CONNECTION_ID` | ID of the connection for which you want to allow updates to root attributes. |
-| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the scope `update:connections`. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:connections`. |
 | `ATTRIBUTE_UPDATE_VALUE` | Indicates when you want to allow updates to user profile root attributes. Valid values are `on_first_login` and `on_each_login`. Defaults to `on_each_login` for new connections. |

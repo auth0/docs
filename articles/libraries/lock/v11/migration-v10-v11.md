@@ -15,7 +15,7 @@ useCase:
 ---
 # Migrating from Lock v10 to v11
 
-This guide includes all the information you need to update your Lock v10 application to [Lock v11](/libraries/lock).
+This guide includes all the information you need to update your <dfn data-key="lock">Lock</dfn> v10 application to [Lock v11](/libraries/lock).
 
 ## Migration demo
 

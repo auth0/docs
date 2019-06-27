@@ -38,7 +38,7 @@ For migrations that have already been enabled for all customers, see [Past Migra
 
 ### Clickjacking Protection
 
-We added a way to [enable clickjacking protection](/migrations/guides/clickjacking-protection) for the Classic Universal Login Experience.
+We added a way to [enable clickjacking protection](/migrations/guides/clickjacking-protection) for the Classic <dfn data-key="universal-login">Universal Login</dfn> Experience.
 
 ### Tenant Logs Search v2 migration to v3
 
@@ -46,7 +46,7 @@ To provide our customers with the most reliable and scalable solution, Auth0 has
 
 | Plan Type | End Date |
 | - | - |
-| Free | 15 June 2019 |
+| Free | 9 July 2019 |
 | Developer or Developer Pro | 20 August 2019 |
 | Enterprise | 4 November 2019 |
 
@@ -69,7 +69,7 @@ Useful Resources:
 
 ### Google Cloud Messaging to Firebase Cloud Messaging Migration
 
-Auth0’s Guardian SDKs for iOS and Android helps you create custom Mobile apps with Guardian functionality, providing secure access to multi-factor authentication with push notifications. 
+Auth0’s Guardian SDKs for iOS and Android helps you create custom Mobile apps with Guardian functionality, providing secure access to <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> with push notifications. 
 
 The Android SDK library was initially built to send Push Notifications using Google Cloud Messaging, which [Google deprecated](https://firebase.googleblog.com/2018/04/time-to-upgrade-from-gcm-to-fcm.html) and replaced with Firebase Cloud Messaging. We updated the SDK to use Firebase Cloud Messaging.
 
@@ -101,7 +101,7 @@ For more information on this migration and the steps you should follow to upgrad
 | --- | --- | --- |
 | Medium | 2017-12-21 |  2018-08-06 |
 
-We are continually improving the security of our service. As part of this effort, we have deprecated the Legacy Lock API, which consists of the /usernamepassword/login and /ssodata endpoints. These endpoints are used by Lock.js v8, v9, and v10 and Auth0.js, v6, v7, and v8, and can also be called directly from applications.
+We are continually improving the security of our service. As part of this effort, we have deprecated the Legacy <dfn data-key="lock">Lock</dfn> API, which consists of the /usernamepassword/login and /ssodata endpoints. These endpoints are used by Lock.js v8, v9, and v10 and Auth0.js, v6, v7, and v8, and can also be called directly from applications.
 
 As of August 6, 2018, Auth0 has permanently disabled the Legacy Lock API. This removal of service fully mitigates the CSRF vulnerability [disclosed in April 2018](https://auth0.com/blog/managing-and-mitigating-security-vulnerabilities-at-auth0/). This also ends the soft removal grace period that was [first announced on July 16, 2018](https://community.auth0.com/t/auth0-legacy-lock-api-disabled-grace-period-available/12949), meaning the Legacy Lock API can no longer be re-enabled.
 
@@ -142,7 +142,7 @@ List of affected endpoints:
 | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | [Link user accounts](/link-accounts) from various identity providers |
 | [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) | [Unlink user accounts](/link-accounts#unlinking-accounts) |
 
-These endpoints can now accept regular [Access Tokens](/tokens/overview-access-tokens).
+These endpoints can now accept regular <dfn data-key="access-token">Access Tokens</dfn>.
 
 The functionality is available and affected users are encouraged to migrate. However the ability to use ID Tokens will not be disabled in the foreseeable future so the mandatory opt-in date for this migration remains open. When this changes, customers will be notified beforehand.
 
@@ -182,7 +182,7 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 ### Improved OpenID Connect interoperability in Auth0
 
-The [userinfo](/api/authentication#get-user-info) endpoint is being updated to return [OIDC conformant user profile attributes](/users/normalized/oidc). The most notable change is that `user_id` becomes `sub`. This will deprecate the [legacy Auth0 user profile](/users/normalized/auth0) (in [userinfo](/api/authentication#get-user-info) and in [ID Tokens](/tokens/id-token)).
+The [userinfo](/api/authentication#get-user-info) endpoint is being updated to return [OpenID Connect (OIDC) conformant user profile attributes](/users/normalized/oidc). The most notable change is that `user_id` becomes `sub`. This will deprecate the [legacy Auth0 user profile](/users/normalized/auth0) (in [userinfo](/api/authentication#get-user-info) and in [ID Tokens](/tokens/id-token)).
 
 #### Am I affected by the change?
 

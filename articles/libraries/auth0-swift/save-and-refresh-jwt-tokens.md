@@ -11,7 +11,7 @@ useCase: enable-mobile-auth
 
 # Auth0.swift Saving and Renewing Tokens
 
-When an authentication is performed with the `offline_access` scope included, it will return a [Refresh Token](/refresh-token) that can be used to request a new user token, without asking for credentials again.
+When an authentication is performed with the `offline_access` <dfn data-key="scope">scope</dfn> included, it will return a <dfn data-key="refresh-token">Refresh Token</dfn> that can be used to request a new user token, without asking for credentials again.
 
 ## Credentials Manager
 
@@ -72,7 +72,7 @@ Renewing a user's credentials works exactly the same way, if the token has expir
 
 ## Alternative Method - SimpleKeychain
 
-If you are familiar with Lock v1, you may already be using the [SimpleKeychain](https://github.com/auth0/SimpleKeychain) SDK to handle iOS Keychain read/write access. This section is for developers who would prefer to keep using the SimpleKeychain and not upgrade to the preferred Credentials Manager.
+If you are familiar with <dfn data-key="lock">Lock</dfn> v1, you may already be using the [SimpleKeychain](https://github.com/auth0/SimpleKeychain) SDK to handle iOS Keychain read/write access. This section is for developers who would prefer to keep using the SimpleKeychain and not upgrade to the preferred Credentials Manager.
 
 First thing you need to do is store the tokens you need. In this case, you will store the `access_token` and `refresh_token` in the Keychain after a successful authentication.
 

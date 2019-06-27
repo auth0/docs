@@ -13,7 +13,7 @@ v2: true
 ---
 # User Management
 
-Auth0's hosted cloud database stores a variety of information on your users that is accessible to you. This information is available to you via a *user profile*, and your users are grouped by tenant. The user information itself can come from a variety of sources, including identity providers, your own databases, and enterprise connections (Active Directory, SAML).
+Auth0's hosted cloud database stores a variety of information on your users that is accessible to you. This information is available to you via a *user profile*, and your users are grouped by tenant. The user information itself can come from a variety of sources, including identity providers, your own databases, and enterprise connections (Active Directory, <dfn data-key="security-assertion-markup-language">SAML</dfn>).
 
 ## User profiles
 
@@ -25,7 +25,7 @@ Auth0 allows you to create, manage, and store [metadata](/users/concepts/overvie
 
 ## Authorization Extension
 
-The [Authorization Extension](/extensions/authorization-extension/v2) provides support for user authorization via Groups, Roles, and Permissions. You can define the expected behavior during the login process, and your configuration settings will be captured in a [rule](/rules) that is executed at runtime.
+The [Authorization Extension](/extensions/authorization-extension/v2) provides support for user authorization via Groups, <dfn data-key="role">Roles</dfn>, and Permissions. You can define the expected behavior during the login process, and your configuration settings will be captured in a [rule](/rules) that is executed at runtime.
 
 You can store authorization data like groups, roles, or permissions in the outgoing token issued by Auth0. Your application can then consume this information by inspecting the token and take appropriate actions based on the user's current authorization context. 
 

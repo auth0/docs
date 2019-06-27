@@ -14,7 +14,7 @@ useCase:
 ---
 # Guardian for Android
 
-The [Guardian for Android Software Development Kit](https://github.com/auth0/Guardian.Android) helps you create Android apps with Guardian functionality, providing secure access to multi-factor authentication (MFA) with push notifications. With this toolkit you can build your own customized version of the Guardian application that matches the look and feel of your organization.
+The [Guardian for Android Software Development Kit](https://github.com/auth0/Guardian.Android) helps you create Android apps with Guardian functionality, providing secure access to <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> with push notifications. With this toolkit you can build your own customized version of the Guardian application that matches the look and feel of your organization.
 
 For more information on MFA, read our [multi-factor authentication](/multifactor-authentication) documentation.
 

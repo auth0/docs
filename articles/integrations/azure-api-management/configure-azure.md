@@ -72,14 +72,14 @@ Set the following parameters:
 | Authorization code grant types | The grant type used for authorization. Select `authorization code` |
 | Authorization endpoint URL | The URL Azure uses to make the authorization request. See the [Auth0 docs on generating the URL](/flows/guides/auth-code/call-api-auth-code#authorize-the-user) |
 | Authorization request method | The HTTP method used by Azure to make the authorization request. By default, this is `GET` |
-| Token endpoint URL | The endpoint used to exchange authorization grants for Access Tokens; Auth0's can be reached at `https://auth0user.auth0.com/oauth/token` |
+| Token endpoint URL | The endpoint used to exchange authorization grants for <dfn data-key="access-token">Access Tokens</dfn>; Auth0's can be reached at `https://auth0user.auth0.com/oauth/token` |
 | Client authentication methods | Method used to authenticate the application; Auth0's is `BASIC` |
 | Access Token sending method | The location of the Access Token in the sending method (typically the **Authorization header**) |
-| Default scope | Specify a default scope (if necessary) |
+| Default scope | Specify a default <dfn data-key="scope">scope</dfn> (if necessary) |
 
 Because we're using the **authorization code** grant, we'll need to provide the **client ID** and **client secret** for the [Auth0 Application we previously registered](/integrations/azure-api-management/configure-auth0#step-1-create-an-api-and-machine-to-machine-application). You can find both values in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
-Once you've provided both the client ID and client secret, you'll see an auto-generated **redirect URI**. Copy this URL, since you'll need to provide this URI in your Auth0 Application Settings page in the Allowed Callback URLs section.
+Once you've provided both the client ID and client secret, you'll see an auto-generated **redirect URI**. Copy this URL, since you'll need to provide this URI in your Auth0 Application Settings page in the Allowed <dfn data-key="callback">Callback URLs</dfn> section.
 
 ::: note
 If you're using the [resource owner password](/api-auth/grant/password) flow, you'll need to provide the **resource owner username** and **resource owner password** instead of the client ID and secret.

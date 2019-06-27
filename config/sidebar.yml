@@ -11,13 +11,13 @@ articles:
     children:
       - title: Auth0 Overview
         url: /getting-started/overview
-      
+
       - title: The Basics
         url: /getting-started/the-basics
 
       - title: "Sessions"
         url: "/sessions"
-      
+
       - title: Dashboard Overview
         url: /getting-started/dashboard-overview
 
@@ -33,13 +33,13 @@ articles:
         children:
            - title: Solution Overview
              url: /architecture-scenarios/web-app-sso/part-1
-           
+
            - title: Configuration
              url: /architecture-scenarios/web-app-sso/part-2
-           
+
            - title: Implementation
              url: /architecture-scenarios/web-app-sso/part-3
-           
+
            - title: Conclusion
              url: /architecture-scenarios/web-app-sso/part-4
 
@@ -48,13 +48,13 @@ articles:
         children:
            - title: Solution Overview
              url: /architecture-scenarios/server-api/part-1
-           
+
            - title: Configuration
              url: /architecture-scenarios/server-api/part-2
-           
+
            - title: Implementation
              url: /architecture-scenarios/server-api/part-3
-           
+
            - title: Conclusion
              url: /architecture-scenarios/server-api/part-4
 
@@ -63,13 +63,13 @@ articles:
         children:
            - title: Solution Overview
              url: /architecture-scenarios/spa-api/part-1
-           
+
            - title: Configuration
              url: /architecture-scenarios/spa-api/part-2
-           
+
            - title: Implementation
              url: /architecture-scenarios/spa-api/part-3
-           
+
            - title: Conclusion
              url: /architecture-scenarios/spa-api/part-4
 
@@ -78,13 +78,13 @@ articles:
         children:
            - title: Solution Overview
              url: /architecture-scenarios/mobile-api/part-1
-           
+
            - title: Configuration
              url: /architecture-scenarios/mobile-api/part-2
-           
+
            - title: Implementation
              url: /architecture-scenarios/mobile-api/part-3
-           
+
            - title: Conclusion
              url: /architecture-scenarios/mobile-api/part-4
 
@@ -121,6 +121,39 @@ articles:
             - title: Operations
               url: /architecture-scenarios/implementation/b2c/b2c-operations
 
+      - title: Business to Business
+        url: /architecture-scenarios/b2b
+        children:
+            - title: Architecture
+              url: /architecture-scenarios/implementation/b2b/b2b-architecture
+
+            - title: Provisioning
+              url: /architecture-scenarios/implementation/b2b/b2b-provisioning
+
+            - title: Authentication
+              url: /architecture-scenarios/implementation/b2b/b2b-authentication
+
+            - title: Branding
+              url: /architecture-scenarios/implementation/b2b/b2b-branding
+
+            - title: Deployment Automation
+              url: /architecture-scenarios/implementation/b2b/b2b-deployment
+
+            - title: Quality Assurance
+              url: /architecture-scenarios/implementation/b2b/b2b-qa
+
+            - title: Profile Management
+              url: /architecture-scenarios/implementation/b2b/b2b-profile-mgmt
+
+            - title: Authorization
+              url: /architecture-scenarios/implementation/b2b/b2b-authorization
+
+            - title: Logout
+              url: /architecture-scenarios/implementation/b2b/b2b-logout
+
+            - title: Operations
+              url: /architecture-scenarios/implementation/b2b/b2b-operations
+
       - title: Business to Employees
         url: /architecture-scenarios/b2e
       # - title: SAML for Regular Web Apps
@@ -129,21 +162,15 @@ articles:
       # - title: B2B + B2E
       #   url: /architecture-scenarios/b2b-b2e
 
-      # - title: B2B
-      #   url: /architecture-scenarios/b2b
-
-      # - title: B2C
-      #   url: /architecture-scenarios/b2c
-
       # - title: B2E
-      #   url: /architecture-scenarios/b2e 
+      #   url: /architecture-scenarios/b2e
 
       - title: Implementation Checklists
         url: /architecture-scenarios/checklists
-      
+
       - title: Implementation Resources
         url: /architecture-scenarios/implementation-resources
-       
+
   - title: "Applications"
     url: "/applications"
     children:
@@ -163,10 +190,10 @@ articles:
 
       - title: "Native/Mobile Apps"
         url: "/flows/guides/auth-code-pkce/add-login-auth-code-pkce"
-        
+
       - title: "Single-Page Apps"
         url: "/flows/guides/implicit/add-login-implicit"
-        
+
       - title: "Regular Web Apps"
         url: "/flows/guides/auth-code/add-login-auth-code"
 
@@ -177,15 +204,15 @@ articles:
           - title: "Server-side App"
             url: "/application-auth/current/server-side-web"
             hidden: true
-      
+
           - title: "Client-side App"
             url: "/application-auth/current/client-side-web"
             hidden: true
-        
+
           - title: "Mobile App"
             url: "/application-auth/current/mobile-desktop"
             hidden: true
-      
+
       - title: "Legacy"
         url: "/application-auth/legacy"
         hidden: true
@@ -193,11 +220,11 @@ articles:
           - title: "Server-side App"
             url: "/application-auth/legacy/server-side-web"
             hidden: true
-      
+
           - title: "Client-side App"
             url: "/application-auth/legacy/client-side-web"
             hidden: true
-        
+
           - title: "Mobile App"
             url: "/application-auth/legacy/mobile-desktop"
             hidden: true
@@ -217,18 +244,21 @@ articles:
 
       - title: "Which OAuth Flow to Use"
         url: "/api-auth/which-oauth-flow-to-use"
-        
+
       - title: "APIs & Mobile Apps"
         url: "/flows/concepts/auth-code-pkce"
-        
+
       - title: "APIs & Single-Page Apps"
         url: "/flows/concepts/implicit"
-        
+
       - title: "APIs & Regular Web Apps"
         url: "/flows/concepts/auth-code"
-        
+
       - title: "APIs & M2M Apps"
         url: "/flows/concepts/client-credentials"
+
+      - title: "APIs & Devices"
+        url: "/flows/concepts/device-auth"
 
       - title: "APIs & Server-side Apps"
         url: "/api-auth/grant/authorization-code"
@@ -245,7 +275,7 @@ articles:
       - title: "APIs & CLIs"
         url: "/api-auth/grant/client-credentials"
         hidden: true
-        
+
       - title: "APIs & Trusted Applications"
         url: "/api-auth/grant/password"
 
@@ -290,7 +320,7 @@ articles:
 
           - title: "Manage RBAC Permissions"
             url: "/authorization/guides/manage-permissions"
-            
+
           - title: "Enable RBAC for APIs"
             url: "/dashboard/guides/apis/enable-rbac"
 
@@ -299,7 +329,7 @@ articles:
     children:
       - title: Enterprise Support
         url: /onboarding/enterprise-support
-        
+
       - title: Release Notes
         url: https://auth0.com/releases/
         external: true
@@ -354,13 +384,13 @@ articles:
 
       - title: "New Experience"
         url: "/universal-login/new"
-        
+
       - title: "Internationalization"
         url: "/universal-login/i18n"
 
       - title: "Advanced Customization"
         url: "/universal-login/advanced-customization"
-      
+
       - title: "Password Reset Page"
         url: "/universal-login/password-reset"
 
@@ -451,7 +481,7 @@ articles:
 
           - title: "Edit Hooks"
             url: "/hooks/guides/edit-hooks-using-cli"
-            
+
           - title: "Delete Hooks"
             url: "/hooks/guides/delete-hooks-using-cli"
 
@@ -470,7 +500,7 @@ articles:
 
           - title: "Edit Hooks"
             url: "/hooks/guides/edit-hooks-using-dashboard"
-            
+
           - title: "Delete Hooks"
             url: "/hooks/guides/delete-hooks-using-dashboard"
 
@@ -523,34 +553,34 @@ articles:
 
               - title: "Identify Users"
                 url: "/users/normalized/auth0/identify-users"
-                hidden: true 
+                hidden: true
 
               - title: "Retrieve Users"
                 url: "/users/search"
-                hidden: true 
+                hidden: true
 
               - title: "Store User Data"
                 url: "/users/normalized/auth0/store-user-data"
-                hidden: true 
+                hidden: true
 
               - title: "Normalized User Profile Schema"
                 url: "/users/normalized/auth0/normalized-user-profile-schema"
-                hidden: true 
-                
+                hidden: true
+
               - title: "Sample User Profiles"
                 url: "/users/normalized/auth0/sample-user-profiles"
-                hidden: true   
+                hidden: true
 
-              - title: "OIDC-Compliant Pipelines"  
+              - title: "OIDC-Compliant Pipelines"
                 url: "/users/normalized/oidc"
-                hidden: true 
+                hidden: true
 
           - title: "Link Accounts"
             url: "/link-accounts"
             hidden: true
 
           - title: "Custom Database"
-            url: "/users/guides/update-user-profiles-using-your-database"  
+            url: "/users/guides/update-user-profiles-using-your-database"
 
           - title: "Progressive Profiling"
             url: "/users/guides/implement-progressive-profiling"
@@ -578,7 +608,7 @@ articles:
           - title: "Installation"
             url: "/extensions/authorization-extension/v2/implementation/installation"
             hidden: true
-          
+
           - title: "Setup"
             url: "/extensions/authorization-extension/v2/implementation/setup"
             hidden: true
@@ -586,7 +616,7 @@ articles:
           - title: "Configuration"
             url: "/extensions/authorization-extension/v2/implementation/configuration"
             hidden: true
-          
+
           - title: "API Access"
             url: "/extensions/authorization-extension/v2/api-access"
             hidden: true
@@ -609,7 +639,7 @@ articles:
         children:
           - title: "User Data Storage Scenario"
             url: "/users/references/user-data-storage-scenario"
-            hidden: true 
+            hidden: true
 
       - title: "User Migration"
         url: "/users/concepts/overview-user-migration"
@@ -635,7 +665,7 @@ articles:
 
           - title: "Import File Schema"
             url: "/users/references/bulk-import-database-schema-examples"
- 
+
       - title: "Redirect After Login"
         url: "/users/guides/redirect-users-after-login"
         children:
@@ -654,7 +684,7 @@ articles:
 
           - title: "Identity Providers"
             url: "/logout/guides/logout-idps"
-            hidden: true 
+            hidden: true
 
           - title: "SAML Identity Providers"
             url: "/logout/guides/logout-saml-idps"
@@ -688,7 +718,7 @@ articles:
 
           - title: "Migrate from Search v2 to V3"
             url: "/users/search/v3/migrate-search-v2-v3"
-            hidden: true 
+            hidden: true
 
       - title: "User Search"
         url: "/users/search/v2"
@@ -724,6 +754,9 @@ articles:
           - title: "Duo"
             url: "/multifactor-authentication/factors/duo"
 
+          - title: "Email"
+            url: "/multifactor-authentication/factors/email"
+
       - title: "Custom MFA"
         url: "/multifactor-authentication/custom"
 
@@ -733,7 +766,7 @@ articles:
           - title: "Step-up Authentication for Web Apps"
             url: "/multifactor-authentication/step-up-authentication/step-up-for-web-apps"
             hidden: true
-          
+
           - title: "Step-up Authentication for APIs"
             url: "/multifactor-authentication/step-up-authentication/step-up-for-apis"
             hidden: true
@@ -772,30 +805,30 @@ articles:
           - title: "CVE 2018-6874"
             url: "/security/bulletins/cve-2018-6874"
             hidden: true
-            
+
           - title: "CVE 2018-6873"
             url: "/security/bulletins/cve-2018-6873"
             hidden: true
-            
+
           - title: "CVE 2018-7307"
             url: "/security/bulletins/cve-2018-7307"
             hidden: true
-            
+
           - title: "CVE 2017-16897"
             url: "/security/bulletins/cve-2017-16897"
             hidden: true
-            
+
           - title: "CVE 2017-17068"
             url: "/security/bulletins/cve-2017-17068"
             hidden: true
       - title: "Where to Store Tokens"
         url: "/security/store-tokens"
         hidden: true
-      
+
       - title: "Common Threats"
         url: "/security/common-threats"
         hidden: true
-      
+
       - title: "Blacklist User Attributes"
         url: "/security/blacklisting-attributes"
         hidden: true
@@ -814,7 +847,7 @@ articles:
         url: "/anomaly-detection/guides/set-anomaly-detection-preferences"
 
       - title: "Customize Emails"
-        url: "/anomaly-detection/guides/customize-blocked-account-emails" 
+        url: "/anomaly-detection/guides/customize-blocked-account-emails"
 
       - title: "Enable and Disable Brute Force Protection"
         url: "/anomaly-detection/guides/enable-disable-brute-force-protection"
@@ -826,13 +859,13 @@ articles:
 
       - title: "Brute-Force Protection Triggers"
         url: "/anomaly-detection/references/brute-force-protection-triggers-actions"
-        hidden: true 
+        hidden: true
 
       - title: "Restrictions and Limitations"
         url: "/anomaly-detection/references/anomaly-detection-restrictions-limitations"
 
       - title: "FAQs"
-        url: "/anomaly-detection/references/anomaly-detection-faqs"    
+        url: "/anomaly-detection/references/anomaly-detection-faqs"
 
   - title: "Logs"
     url: "/logs"
@@ -965,7 +998,7 @@ articles:
         - title: "State Parameter"
           url: "/protocols/oauth2/oauth-state"
           hidden: true
-          
+
       - title: "OpenID Connect"
         url: "/protocols/oidc"
 
@@ -974,10 +1007,10 @@ articles:
 
       - title: "WS-Fed"
         url: "/protocols/ws-fed"
-        
+
       - title: "LDAP"
         url: "/protocols/ldap"
-        
+
   - title: "Addons/Third-Party Apps"
     url: "/addons"
     children:
@@ -996,29 +1029,29 @@ articles:
       - title: "Management API and ID Tokens"
         url: "/migrations/guides/calling-api-with-idtokens"
         hidden: true
-      
+
       - title: "Extensibility and Node.js v8"
         url: "/migrations/guides/extensibility-node8"
         hidden: true
-        
+
   - title: "Data Privacy"
     url: "/compliance"
-    children:   
+    children:
       - title: "GDPR"
         url: "/compliance/gdpr"
-        children:        
+        children:
           - title: "Terminology"
             hidden: true
             url: "/compliance/gdpr/definitions"
-            
+
           - title: "Summary"
             hidden: true
             url: "/compliance/gdpr/gdpr-summary"
-             
+
           - title: "Roles and Responsibilities"
             hidden: true
             url: "/compliance/gdpr/roles-responsibilities"
-          
+
           - title: "Auth0 Data Processing"
             hidden: true
             url: "/compliance/gdpr/data-processing"
@@ -1026,16 +1059,16 @@ articles:
           - title: "How Auth0 can help"
             url: "/compliance/gdpr/features-aiding-compliance"
             children:
-          
+
               - title: "User Consent"
                 hidden: true
                 url: "/compliance/gdpr/features-aiding-compliance/user-consent"
                 children:
-              
+
                   - title: "Track Consent with Lock"
                     hidden: true
                     url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock"
-                  
+
                   - title: "Track Consent with custom UI"
                     hidden: true
                     url: "/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui"
@@ -1055,11 +1088,11 @@ articles:
               - title: "Protect and secure user data"
                 hidden: true
                 url: "/compliance/gdpr/features-aiding-compliance/protect-user-data"
-              
+
           - title: "Security Advice"
             hidden: true
             url: "/compliance/gdpr/security-advice-for-customers"
-  
+
   - title: "Best Practices"
     url: "/best-practices"
     children:
@@ -1116,24 +1149,24 @@ articles:
 
           - title: "Send Events to Keen"
             url: "/monitoring/guides/send-events-to-keenio"
-            hidden: true 
+            hidden: true
 
           - title: "Send Events to Segment"
             url: "/monitoring/guides/send-events-to-segmentio"
-            hidden: true 
+            hidden: true
 
           - title: "Send Events to Splunk"
             url: "/monitoring/guides/send-events-to-splunk"
-            hidden: true 
+            hidden: true
 
           - title: "Track New Leads in Salesforce"
             url: "/monitoring/guides/track-leads-salesforce"
-            hidden: true 
+            hidden: true
 
           - title: "Track New Sign-ups in Salesforce"
             url: "/monitoring/guides/track-signups-salesforce"
-            hidden: true 
-  
+            hidden: true
+
   - title: "Support"
     url: "/support"
     children:
@@ -1154,13 +1187,13 @@ articles:
 
       - title: "Operational Policies"
         url: "/policies"
-    
+
   - title: "Pre-Deployment"
     url: "/pre-deployment"
     children:
       - title: "Run Checks"
         url: "/pre-deployment/how-to-run-test"
-        
+
       - title: "Pre-Launch Tips"
         url: "/pre-deployment/prelaunch-tips"
 
@@ -1202,30 +1235,39 @@ articles:
 
       - title: "Architectural Design Sessions"
         url: "/services/architectural-design"
-      
+        hidden: true
+
       - title: "Performance and Scalability"
         url: "/services/performance-scalability"
+        hidden: true
 
       - title: "Scenario guidance"
         url: "/services/scenario-guidance"
+        hidden: true
 
       - title: "Code Review"
         url: "/services/code-review"
+        hidden: true
 
       - title: "Pair Programming"
         url: "/services/pair-programming"
-      
+        hidden: true
+
       - title: "Private Cloud reconfiguration"
         url: "/services/private-cloud-configuration"
+        hidden: true
 
       - title: "Auth0 Introduction"
         url: "/services/auth0-introduction"
+        hidden: true
 
       - title: "Auth0 Advanced Topics"
         url: "/services/auth0-advanced"
+        hidden: true
 
       - title: "Private Cloud Management Workshop"
         url: "/services/private-cloud-management"
+        hidden: true
 
 apis:
 
@@ -1266,6 +1308,9 @@ libraries:
 
   - title: "Overview"
     url: "/libraries"
+
+  - title: "Auth0 Single Page Application SDK"
+    url: "/libraries/auth0-spa-js"
 
   - title: "Lock for Web"
     url: "/libraries/lock/v11"
@@ -1407,3 +1452,25 @@ libraries:
 
       - title: "Refresh Tokens"
         url: "/libraries/auth0-android/save-and-refresh-tokens"
+videos:
+  - title: Learn Identity
+    url: "/videos/learn-identity"
+    children:
+
+      - title: "Introduction to Identity"
+        url: "/videos/learn-identity/01-introduction-to-identity"
+
+      - title: "OpenID Connect and OAuth2"
+        url: "/videos/learn-identity/02-oidc-and-oauth"
+
+      - title: "Web Sign-In"
+        url: "/videos/learn-identity/03-web-sign-in"
+
+      - title: "Calling an API"
+        url: "/videos/learn-identity/04-calling-an-api"
+
+      - title: "Desktop and Mobile Apps"
+        url: "/videos/learn-identity/05-desktop-and-mobile-apps"
+
+      - title: "Single Page Apps"
+        url: "/videos/learn-identity/06-single-page-apps"

@@ -508,7 +508,7 @@ add_filter( 'auth0_die_on_login_output', 'auth0_docs_hook_die_on_login_output', 
 
 ### auth0_sso_auth0js_url
 
-This filter lets you override the default CDN URL for Auth0.js when doing an SSO check on the `wp-login.php` page.
+This filter lets you override the default CDN URL for Auth0.js when doing a <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> check on the `wp-login.php` page.
 
 ### auth0_coo_auth0js_url
 

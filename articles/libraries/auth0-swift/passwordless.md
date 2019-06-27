@@ -13,7 +13,7 @@ useCase: enable-mobile-auth
 
 <%= include('../../_includes/_native_passwordless_warning') %>
 
-Passwordless authentication allows users to login using only an email address or phone number, reducing the friction that occurs when a user must remember a password. Passwordless authentication can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code.
+<dfn data-key="passwordless">Passwordless authentication</dfn> allows users to login using only an email address or phone number, reducing the friction that occurs when a user must remember a password. Passwordless authentication can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code.
 
 ## How Passwordless works
 

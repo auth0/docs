@@ -16,7 +16,7 @@ You can deny malicious requests by using the `state` parameter to hold a correla
 
 A CSRF attack can occur when a malicious program causes a user's web browser to perform an unwanted action on a trusted site on which the user is currently authenticated. This type of attack specifically targets state-changing requests to initiate an action instead of getting user data because the attacker has no way to see the response to the forged request.
 
-The state parameter helps mitigate CSRF attacks to ensure that the response belongs to a request that was initiated by the same user. For the most basic cases the state parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce), used to correlate the request with the response received from the authentication. 
+The state parameter helps mitigate CSRF attacks to ensure that the response belongs to a request that was initiated by the same user. For the most basic cases the state parameter should be a <dfn data-key="nonce">nonce</dfn>, used to correlate the request with the response received from the authentication. 
 
 ::: note
 Most modern OIDC and OAuth2 SDKs, including Auth0.js in single-page applications, handle the state generation and validation automatically. 

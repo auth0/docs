@@ -21,7 +21,7 @@ Behind the scenes, [role-based authorization](/authorization/concepts/rbac) uses
 
 The authorization policy determines:
 
-* how to define and organize the users or roles that are affected by the policy
+* how to define and organize the users or <dfn data-key="role">roles</dfn> that are affected by the policy
 * what logic and conditions apply to the policy and whether their outcome permits or denies access
 
 When using Auth0's core authorization and [role-based access control (RBAC)](/authorization/concepts/rbac), the policy includes evaluating the roles and permissions assigned to users. To use these features, you must [enable role-based access control for APIs](/dashboard/guides/apis/enable-rbac). 

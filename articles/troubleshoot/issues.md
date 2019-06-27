@@ -60,18 +60,18 @@ Here are things to check to help you narrow down where issues are occurring duri
 ### If you decode the token or assertion does it have information you expect?
 
 * JSON Web Tokens (JWT) can be viewed with [JWT.io](http://jwt.io)
-* SAML assertions can be viewed with [SAMLTool.io](http://samltool.io)
+* <dfn data-key="security-assertion-markup-language">SAML</dfn> assertions can be viewed with [SAMLTool.io](http://samltool.io)
 
 ### Check your application logs
 
 * Do your application logs show any errors?
 * Did the application receive all the information it needs, such as groups or user profile attributes?
 
-## Single sign-on issues
+## Single Sign-on issues
 
-Here's some things to check if the user logged in to one application, but cannot access a second application through single sign-on.
+Here's some things to check if the user logged in to one application, but cannot access a second application through <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>.
 
-### If the logged in user cannot access another application with single sign-on
+### If the logged in user cannot access another application with Single Sign-on
 
 * Is the user trying to login to the second application from the same browser as their initial login?
 * Go to your [Tenant Settings > Advanced Settings](${manage_url}/#/tenant/advanced) and check the **Log In Session Management** settings.
@@ -127,7 +127,7 @@ Here's some things to check if the user logged in to one application, but cannot
 * Check to see if the browser has enabled JavaScript and cookies.
 * Check that the caps lock key is disabled.
 * If the user is using a mobile device, check to see if there's any software that might impact authentication and/or authorization (such as not running some type of required software).
-* Check to see if the user can access some of the application's key URLs, such as the identity provider's single sign-on URL (indicating a network connectivity issue).
+* Check to see if the user can access some of the application's key URLs, such as the identity provider's <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> URL (indicating a network connectivity issue).
 
 ## Issues that occur after go-live (worked before, then stopped working)
 

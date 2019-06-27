@@ -20,13 +20,13 @@ A serverless application runs custom code as a compute service without the need 
 
 The API Gateway extends the capabilities of Lambda by adding a service layer in front of your Lambda functions to extend security, manage input and output message transformations, and provide capabilities like throttling and auditing. A serverless approach simplifies your operational demands since concerns like scaling out and fault tolerance are now the responsibility of the compute service that is executing your code.
 
-This tutorial will show you how to set up your API with API Gateway, create and configure your Lambda functions (including the custom authorizers) to secure your API endpoints, and implement the authorization flow so that your users can retrieve the Access Tokens needed to gain access to your API from Auth0.
+This tutorial will show you how to set up your API with API Gateway, create and configure your Lambda functions (including the custom authorizers) to secure your API endpoints, and implement the authorization flow so that your users can retrieve the <dfn data-key="access-token">Access Tokens</dfn> needed to gain access to your API from Auth0.
 
 More specifically, the custom authorizers will:
 
 1. Confirm that the Access Token has been passed via the `authorization` header of the request to access the API
 2. Verify the [RS256 signature](/apis#signing-algorithms) of the Access Token using a public key obtained via a [JWKS endpoint](/jwks)
-3. Ensure the Access Token has the required Issuer `iss` and Audience `aud` claims
+3. Ensure the Access Token has the required Issuer `iss` and <dfn data-key="audience">Audience</dfn> `aud` claims
 
 ::: note
 New to OAuth 2.0? Check out our [introduction to OAuth 2.0](/protocols/oauth2).
@@ -41,7 +41,7 @@ To that end, this tutorial will be divided into the following sections.
 
 ## How API Gateway Custom Authorizers Work
 
-[According to Amazon](http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html), an API Gateway custom authorizer is a "Lambda function you provide to control access to your API using bearer token authentication strategies, such as OAuth or SAML."
+[According to Amazon](http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html), an API Gateway custom authorizer is a "Lambda function you provide to control access to your API using bearer token authentication strategies, such as OAuth or <dfn data-key="security-assertion-markup-language">SAML</dfn>."
 
 Whenever someone (or some program) attempts to call your API, API Gateway checks to see if there's a custom authorizer configured for the API.
 

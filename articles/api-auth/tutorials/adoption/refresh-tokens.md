@@ -15,7 +15,7 @@ useCase:
 
 <%= include('./_about.md') %>
 
-There are some changes to how Refresh Tokens are used in the OIDC-conformant authentication pipeline:
+There are some changes to how <dfn data-key="refresh-token">Refresh Tokens</dfn> are used in the OIDC-conformant authentication pipeline:
 
 * Using the [implicit grant](/api-auth/tutorials/adoption/implicit) for authentication will no longer return Refresh Tokens.
   Use [silent authentication](/api-auth/tutorials/silent-authentication) (such as `prompt=none`) instead.

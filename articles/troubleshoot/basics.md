@@ -59,7 +59,7 @@ Testing on different browsers, platforms, locations, and users can help narrow d
 ### Test with different users
 
 * Does the issue occur for all users or just some?  
-* If some, is there a pattern? Such as location, connection, or role?
+* If some, is there a pattern? Such as location, connection, or <dfn data-key="role">role</dfn>?
 
 ### Test with different connections (if possible)
 

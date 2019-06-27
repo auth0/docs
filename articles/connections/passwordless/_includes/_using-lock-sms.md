@@ -6,4 +6,4 @@ Then Auth0 will use Twilio to send to the user an SMS containing the one-time co
 
 ![](/media/articles/connections/passwordless/passwordless-sms-receive-code-${platform}.png)
 
-Lastly, the user enters the one-time password into Lock. Then, if the password is correct, the user is authenticated.
+Lastly, the user enters the one-time password into <dfn data-key="lock">Lock</dfn>. Then, if the password is correct, the user is authenticated.

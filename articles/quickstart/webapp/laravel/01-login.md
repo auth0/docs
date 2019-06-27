@@ -13,9 +13,9 @@ useCase: quickstart
 github:
     path: 00-Starter-Seed
 ---
-<%= include('../_includes/_getting_started', { library: 'Laravel', callback: 'http://localhost:3000/callback' }) %>
+<%= include('../_includes/_getting_started', { library: 'Laravel', callback: 'http://localhost:3000/auth0/callback' }) %>
 
-<%= include('../../../_includes/_logout_url') %>
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
 ## Install and Configure Laravel 5.7
 

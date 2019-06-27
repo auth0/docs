@@ -24,7 +24,7 @@ This endpoint is **deprecated** for account linking. The [POST /api/v2/users/{id
 
 Call this endpoint when a user wants to link a second authentication method (for example, a user/password database connection, with Facebook).
 
-This endpoint will trigger the login flow to link an existing account with a new one. This will return a 302 redirect to the `connection` that the current user wants to add. The user is identified by the Access Token that was returned on login success.
+This endpoint will trigger the login flow to link an existing account with a new one. This will return a 302 redirect to the `connection` that the current user wants to add. The user is identified by the <dfn data-key="access-token">Access Token</dfn> that was returned on login success.
 
 
 ### Request Parameters
@@ -40,7 +40,7 @@ This endpoint will trigger the login flow to link an existing account with a new
 
 ### Remarks
 
-- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
+- The `redirect_uri` value must be specified as a valid <dfn data-key="callback">callback URL</dfn> under your [Application's Settings](${manage_url}/#/applications).
 
 
 ### More Information
@@ -105,7 +105,7 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's Access Token |
+| `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's <dfn data-key="access-token">Access Token</dfn> |
 | `user_id`<br/><span class="label label-danger">Required</span>        | The logged-in user's `user_id` |
 
 

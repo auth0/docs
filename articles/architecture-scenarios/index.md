@@ -32,7 +32,7 @@ The goal of these scenarios is to walk you through the implementation process fr
 <ul class="topic-links">
   <li>
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/web-app-sso">Single Sign-On for Regular Web Apps</a>
-    <p>Traditional web application which needs to authenticate users using OpenID Connect.</p>
+    <p>Traditional web application which needs to authenticate users using <dfn data-key="openid">OpenID Connect (OIDC)</dfn>.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/server-api">Server Application + API</a>

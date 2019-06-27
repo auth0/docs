@@ -27,6 +27,14 @@ useCase:
 
 <%= include('../../_includes/_authentication/_application-integration.md', { platform: 'b2c' }) %>
 
+## Anomaly detection
+
+<%= include('../../_includes/_authentication/_anomaly-detection.md', { platform: 'b2c' }) %>
+
+## SSO with legacy systems
+
+<%= include('../../_includes/_authentication/_sso-legacy.md', { platform: 'b2c' }) %>
+
 ## Social authentication
 
 <%= include('../../_includes/_authentication/_social-authentication.md', { platform: 'b2c' }) %>
@@ -37,7 +45,7 @@ useCase:
 
 ## Planning
 
-To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
+<%= include('../../_includes/_planning.md', { platform: 'b2c' }) %>
 
 ## Keep reading
 

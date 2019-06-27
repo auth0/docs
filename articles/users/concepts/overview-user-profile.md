@@ -15,7 +15,7 @@ Auth0 stores user information for your tenant in a hosted cloud database. Those 
 
 ## Data sources
 
-User information is stored in a *user profile* and can come from a variety of sources such as [identity providers](/identityproviders), your own databases, and enterprise connections (Active Directory, SAML, etc.). You can normalize user data that comes from a variety of data sources.
+User information is stored in a *user profile* and can come from a variety of sources such as [identity providers](/identityproviders), your own databases, and enterprise connections (Active Directory, <dfn data-key="security-assertion-markup-language">SAML</dfn>, etc.). You can normalize user data that comes from a variety of data sources.
 
 The user profile attributes can also include information from the authenticating services (such as Facebook or LinkedIn). The authentication service might be an enterprise provider, such as Active Directory, or a SAML-compliant authentication service operated by a business or other organization. For example, attributes can be a person's contacts and their profile picture, or in the case of Enterprise users, an employee number or the name of the department to which an employee belongs.
 
@@ -72,7 +72,7 @@ There are three other types of tokens that can be returned during authentication
 
 * Auth0 Access Token
 * Third-party provider Access Token
-* Refresh Token
+* <dfn data-key="refresh-token">Refresh Token</dfn>
 
 For more information on tokens and claims see the [Tokens](/tokens).
 

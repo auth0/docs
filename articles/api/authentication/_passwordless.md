@@ -2,7 +2,7 @@
 
 # Passwordless
 
-Passwordless connections do not require the user to remember a password. Instead, another mechanism is used to prove identity, such as a one-time code sent through email or SMS, every time the user logs in.
+<dfn data-key="passwordless">Passwordless</dfn> connections do not require the user to remember a password. Instead, another mechanism is used to prove identity, such as a one-time code sent through email or SMS, every time the user logs in.
 
 ## Get Code or Link
 
@@ -202,7 +202,7 @@ Once you have a verification code, use this endpoint to login the user with thei
 | `grant_type` <br/><span class="label label-danger">Required</span> | Use `password` |
 | `username` <br/><span class="label label-danger">Required</span> | The user's phone number if `connection=sms`, or the user's email if `connection=email`. |
 | `password` <br/><span class="label label-danger">Required</span> | The user's verification code.  |
-| `scope` | Use `openid` to get an ID Token, or `openid profile email` to include also user profile information in the ID Token. |
+| <dfn data-key="scope">`scope`</dfn> | Use `openid` to get an ID Token, or `openid profile email` to include also user profile information in the ID Token. |
 
 ### Test with Postman
 
@@ -214,13 +214,13 @@ Once you have a verification code, use this endpoint to login the user with thei
 
 1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (use `sms` or `email`).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set **Username** to the user's phone number if `connection=sms`, or the user's email if `connection=email`, and **Password** to the user's verification code. Click **Resource Owner Endpoint**.
 
 ### Remarks
 
-- The `profile` scope value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
+- The `profile` <dfn data-key="scope">scope</dfn> value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
 - The `email` scope value requests access to the `email` and `email_verified` Claims.
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 

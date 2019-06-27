@@ -47,6 +47,6 @@ Adding permissions directly to a user circumvents the benefits of [role-based ac
 | **Value** | **Description** |
 | - | - |
 | `USER_ID` | Τhe ID of the user for whom you want to assign permissions. |
-| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the scope `update:users`. |
+| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:users`. |
 | `API_IDENTIFIER` | Identifier(s) of the API(s) associated with the permission(s) you would like to assign for the specified user. |
 | `PERMISSION_NAME` | Name(s) of the permission(s) you would like to assign for the specified user. |

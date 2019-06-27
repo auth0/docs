@@ -1,6 +1,6 @@
 # Permissions
 
-Permissions are actions or functions that a user, or group of user, is allowed to do. For example, let's say that you have an application that allows employees to enter in company expenses. You want all employees to be able to submit expenses, but want certain Finance users to have more admin type of actions such as being able to approve or delete expenses. These actions can be mapped to [permissions](/extensions/authorization-extension#permissions) (which later on can be grouped in [roles](/extensions/authorization-extension#roles)):
+Permissions are actions or functions that a user, or group of user, is allowed to do. For example, let's say that you have an application that allows employees to enter in company expenses. You want all employees to be able to submit expenses, but want certain Finance users to have more admin type of actions such as being able to approve or delete expenses. These actions can be mapped to [permissions](/extensions/authorization-extension#permissions) (which later on can be grouped in <dfn data-key="role">[roles](/extensions/authorization-extension#roles)</dfn>):
 
 For more information, refer to [Auth0 Authorization Extension](/extensions/authorization-extension#permissions).
 
@@ -41,7 +41,7 @@ Use this endpoint to retrieve all permissions.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:permissions</span>
 
@@ -83,7 +83,7 @@ Use this endpoint to get a single permission based on its unique identifier.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:permissions</span>
 
@@ -134,7 +134,7 @@ Use this endpoint to create a permission.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">create:permissions</span>
 
@@ -193,7 +193,7 @@ Use this endpoint to update the details of a permission.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:permissions</span>
 
@@ -243,7 +243,7 @@ Use this endpoint to remove a permission.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">delete:permissions</span>
 

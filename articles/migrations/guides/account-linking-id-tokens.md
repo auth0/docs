@@ -18,7 +18,7 @@ On October 19th, 2018 or anytime after, the affected account linking flow will b
 
 ## Am I impacted?
 
-You are impacted if you call the [/api/v2/users/{USER_ID}/identities](/api/management/v2#!/Users/post_identities) endpoint using a token (ID or Access Token) with the scope `update:current_user_identities` in the Authorization header and include the secondary account's `user_id` in the payload.
+You are impacted if you call the [/api/v2/users/{USER_ID}/identities](/api/management/v2#!/Users/post_identities) endpoint using a token (ID or <dfn data-key="access-token">Access Token</dfn>) with the <dfn data-key="scope">scope</dfn> `update:current_user_identities` in the Authorization header and include the secondary account's `user_id` in the payload.
 
 No other use cases are impacted.
 

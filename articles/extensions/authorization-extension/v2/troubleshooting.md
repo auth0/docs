@@ -16,7 +16,7 @@ The following are some issues you might see when setting up the Authorization Ex
 
 ## The authentication results in a token that contains groups information, but not roles or permissions information.
 
-If this happens, chances are that you created roles and permissions for one application, but your users are authenticating using another application. For example, let's say that you created all your roles/permissions against Website A. However, you also create another website application in Auth0 for Website B. Then, you use the `client_id` and `client_secret` for Website B, instead of those for Website A, in your app.
+If this happens, chances are that you created <dfn data-key="role">roles</dfn> and permissions for one application, but your users are authenticating using another application. For example, let's say that you created all your roles/permissions against Website A. However, you also create another website application in Auth0 for Website B. Then, you use the `client_id` and `client_secret` for Website B, instead of those for Website A, in your app.
 
 Alternatively, you might see this if you click the **Try** button in the Auth0 Dashboard on a Connection that contains one of your users. This will execute an authentication flow using the Auth0 _global application_, but this is not the same as the application you configured in the extension.
 
