@@ -4,7 +4,7 @@ Determining how users get signed up is important to address early, and the decis
 Whilst Auth0 supports numerous workflows, web based workflows using Auth0 [Universal Login](/hosted-pages/login) for sign up are considered both industry and Auth0 best practice as they provide for optimal functionality and the best security.
 :::
 
-Auth0 supports user sign up via a number of different [identity providers](/identityproviders). During sign up, Auth0 provisions the [user profile](/users/concepts/overview-user-profile containing the user’s account information. There are a number of things to consider when looking at functionality and workflow:
+Auth0 supports user sign up via a number of different [identity providers](/identityproviders). During sign up, Auth0 provisions the [user profile](/users/concepts/overview-user-profile) so that it contains the user’s account information. There are a number of things to consider when looking at functionality and workflow:
 
 <% if (platform==="b2b") { %>
 * Does a user get added to your company's domain or do they belong to or remain in their organization's domain?
