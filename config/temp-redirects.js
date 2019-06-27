@@ -1,5 +1,44 @@
 module.exports = [
     // 
+    // About Auth0 aliases
+    // 
+    {
+        from: '/getting-started/overview'
+        to:   '/guides-tutorials/about-auth0/overview'
+    },
+    {
+        from: '/getting-started/the-basics'
+        to:   '/guides-tutorials/about-auth0/the-basics'
+    },
+
+    //
+    // Getting Started
+    //
+    {
+        from: ['/getting-started/the-basics#account-and-tenants', '/dev-lifecycle/setting-up-env']
+        to:   '/guides-tutorials/getting-started/create-tenant'
+    },
+    {
+        from: '/dashboard/guides/applications/register-app-regular-web'
+        to:   '/guides-tutorials/getting-started/register-app-rebular-web'
+    },
+    {
+        from: '/dashboard/guides/applications/register-app-native'
+        to:   '/guides-tutorials/getting-started/register-app-native'
+    },
+    {
+        from: '/dashboard/guides/applications/register-app-spa'
+        to:   '/guides-tutorials/getting-started/register-app-spa'
+    },
+    {
+        from: '/dashboard/guides/applications/register-app-m2m'
+        to:   '/guides-tutorials/getting-started/register-app-m2m'
+    },
+    {
+        from: '/apis#how-to-configure-an-api-in-auth0'
+        to:   '/guides-tutorials/getting-started/configure-api'
+    }
+    // 
     // Monitor aliases
     // 
     {
