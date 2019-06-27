@@ -112,7 +112,7 @@ You may receive the following error response:
 
 * `timeout`: Timeout during executing web_message communication
 
-This error is typically associated with fallback to cross-origin authentication. To resolve, make sure to add all of the URLs from which you want to perform silent authentication in the **Allowed Web Origins** field for your Application in the Auth0 Dashboard.
+This error is typically associated with fallback to cross-origin authentication. To resolve, make sure to add all of the URLs from which you want to perform silent authentication in the **Allowed Web Origins** field for your Application using the Auth0 Dashboard.
 
 
 ## Polling with checkSession()
