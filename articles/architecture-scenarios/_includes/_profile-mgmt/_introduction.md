@@ -1,4 +1,4 @@
-At some point, you may need to change the information stored in a user’s [Profile](/users/concepts/overview-user-profile). A user’s profile (also known as the user’s account) is stored in Auth0, and changes to the information it contains may need to happen for a number of different reasons: 
+At some point, you may need to change the information stored in a user’s [profile](/users/concepts/overview-user-profile). A user’s profile (also known as the user’s account) is stored in Auth0, and changes to the information it contains may need to happen for a number of different reasons: 
 
 * Self-served information updates
 * Mandatory updates concerning your organizations T's & C’s
@@ -8,7 +8,7 @@ At some point, you may need to change the information stored in a user’s [Prof
 You cannot directly access a user profile across multiple Auth0 tenants. If you’re deploying multiple Auth0 tenants to production then this is something you need to be aware of.
 :::
 
-An [Identity Provider](/identityproviders) populates a user’s profile from data supplied by aduring the login process, and this is referred to as the [Normalized User Profile](/users/normalized/auth0). 
+An [Identity Provider](/identityproviders) populates a user’s profile from data supplied during the login process, and this is referred to as the [Normalized User Profile](/users/normalized/auth0). 
 
 ::: note
 The Normalized User Profile is updated from the identity provider during login, and you can change the limited set of the information it contains through the Auth0 Management API. You can also use Auth0 extensibility, such as [Rules](/rules), as an alternative to override information in the Normalized User Profile. See [User Profile Data Modification](/users/concepts/overview-user-profile#user-profile-data-modification) for more information.
