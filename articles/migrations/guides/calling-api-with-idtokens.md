@@ -42,6 +42,8 @@ If you use ID Tokens to call any of the following endpoints, then you are affect
 | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | [Link user accounts](/link-accounts) from various identity providers |
 | [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) | [Unlink user accounts](/link-accounts#unlinking-accounts) |
 
+These endpoints can now accept regular [Access Tokens](/tokens/overview-access-tokens).
+
 Note that the last two endpoints are used for Account Linking. To review these changes, see [Changes in Account Linking](#changes-in-account-linking).
 
 **Nothing else changes in how the endpoints work**. You should expect the same request and response schemas and only need update the token that you use for authorization.
