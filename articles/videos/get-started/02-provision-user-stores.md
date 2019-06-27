@@ -129,49 +129,49 @@ Learn how user profiles are provisioned within an Auth0 tenant. Users can come f
     <span class="video-time"><i class="icon icon-budicon-494"></i>3:18</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/05_01-authorize-id-tokens-access-control">Authorize: ID Tokens and Access Control</a>
-    <p>What an ID Token is and how you can add custom claims to customize them and make access control decisions for your users. </p>
+    <p>What an ID Token is and how you can add custom claims to make access control decisions for your users. </p>
   </li>
 
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>5:53</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/05_02-authorize-get-validate-id-tokens">Authorize: Get and Validate ID Tokens</a>
-    <p> </p>
+    <p>How to get and validate ID Tokens before storing and using them. </p>
   </li>
 
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>8:59</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/06-user-profiles">User Profiles</a>
-    <p> </p>
+    <p>What user profiles are, what they contain, and how you can use them to manage users. </p>
   </li>
 
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>3:15</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/07_01-brand-how-it-works">Brand: How It Works</a>
-    <p> </p>
+    <p>Why your branding is important for your users how it works with Auth0. </p>
   </li>
 
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>3:48</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/07_02-brand-signup-login-pages">Brand: Sign Up and Login Pages</a>
-    <p> </p>
+    <p>How to use Universal Login to customize your sign up and login pages. </p>
   </li>
 
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>5:42</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/08-brand-emails-error-pages">Brand: Emails and Error Pages</a>
-    <p> </p>
+    <p>How to use email templates and customize error pages. </p>
   </li>
 
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>8:12</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/10-logout">Logout</a>
-    <p> </p>
+    <p>How to configure different kinds of user logout behavior using callback URLs. </p>
   </li>
 
 </ul>

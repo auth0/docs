@@ -1,5 +1,5 @@
 ---
-description: What an ID Token is and how you can add custom claims to customize them and make access control decisions for your users.
+description: What an ID Token is and how you can add custom claims to make access control decisions for your users.
 classes: video-page
 ---
 # Authorize: ID Tokens and Access Control
@@ -13,59 +13,39 @@ Learn about using Auth0 authorization via the use of ID Tokens and understand wh
 <details>
   <summary>Introduction</summary>
 
-  In part 1, we described a few of the ways that you can provide services to your users through your applications using user authentication. You can authenticate users via their social media accounts or with their usernames and passwords. You can add an additional level of certainty about their identities with Multi-factor Authentication.
+  In this video, you will see how to use custom ID Token claims to support specific authorization requirements in your application. 
 
-  In this video, we will look at how the Quickstart single page application or SPA implementation uses Universal Login - which is the preferred method for authentication workflow in Auth0. 
+  As a refresher, if you’ve just seen the Authentication video, then you know that it’s important to correctly distinguish between Authentication, Authorization, and Access Control. Your Auth0 tenant is your Authorization Server and responsible for Authentication and some or all of Authorization, and sometimes some coarse-grained access control. In contrast, your application or API is responsible for most Access Control because most access control is contextual and too fine-grained for a central service to manage effectively.
 </details>
 
 <details>
-  <summary>Quickstart: SPA with Backend</summary>
+  <summary>Access restrictions</summary>
 
-  You can find the quickstarts at auth0.com/docs/quickstarts. It is a good idea to login to a specific tenant. Here I am using the product-training tenant. This will make the user experience better later on.
+  Auth0 allows you to apply coarse-grained access restrictions to certain applications or APIs using Rule extensibility or provide authorization information to an application through custom claims. For example: 
 
-  Next, we need to select the type of application we want to use. We can start with single page application. Then select the vanilla javascript quickstart.
-
-  Here we are offered two options; the first is a detailed step by step guide to implementing authentication in an existing javascript application, and the second is to download a fully functional sample application.
-
-  Let’s download the sample application. Becuase we are authenticated, the quickstart download gives us an option to select an existing application from our tenant. The downloaded sample application will be configured to use this applications credentials for authentication.
-
-  We are also instructed to add our localhost development url to the **Callback URL** and **Allowed Web Origins** lists.
-
-  Finally, assuming that `node.js` is installed we can install our dependences and start the application.
-
-  Now we can test the authentication by clicking the login button.
+  * You can return an `UnauthorizedError` from a Rule, allowing Auth0 to provide coarse-grained denial of access to an application if the user doesn’t have the right claim or claims in their user profile metadata.
+  * You can return an `UnauthorizedError` from a Rule, allowing Auth0 to provide coarse-grained denial of access to an API if a call is coming from a restricted application or location. 
+  * You can add additional or custom claims to an OIDC-compliant ID Token via  Auth0 Rule extensibility. That information will appear in the body or payload of the returned ID Token and can be used by your application, in combination with application specific data, for fine-grained access control. 
 </details>
 
 <details>
-  <summary>Universal Login</summary>
+  <summary>Apply different access restriction levels</summary>
 
-  Now that we have an application connected, let’s take a look at Universal Login. You can choose from Classic or New to create your own login pages that will authenticate your users. Later in another video, we will show you how to provide more extensive branding for these pages and more. 
+  We’ll talk about API level integration in a future video, but for now, we’ll concentrate on how Auth0 can be leveraged to provide for both coarse-grained and fine-grained application-level authorization.
 
-  The buttons that appear on the login page depend on a number of factors - including the connections that have been enabled and the current state of a session the user may already have. These settings are dynamic and adjustable in real-time - no coding changes are required - since the functionality is driven by the web pages served by the Auth0 Authentication Server.
- 
-  If you have **Enable seamless SSO** enabled or if you have a new tenant, where this option is enabled by default and can’t be turned off, Auth0 will show the login UI only if the user doesn’t have a session. There may or may not be other prompts as well like MFA or consent, but if no user interaction is required then the application will get the results immediately. Therefore, in most cases, applications don’t really check if the user is logged in into the identity provider: they just request an authentication.
+  First, you should decide if you require coarse-grained or fine-grained control. With coarse-grained control, you can use Auth0 extensibility to prevent allocation of an ID Token, thus denying access to the application overall. If you require fine-grained control, then you will need to decide what information your application requires in order to make access control decisions (for example the user may have a role associated with them or specific permissions associated with their profile). In this case, you can use Auth0 extensibility to add this information as custom claims to an ID Token, which can then be verified and used by the application, in combination with application specific data, to apply any access control restrictions. We recommend that you add this information to the user profile metadata, that way you don’t have to call an external API to fetch the information which could negatively impact the performance and scalability of the login sequence. 
 
-  Universal Login works by effectively delegating the authentication of a user; the user is redirected to the Authorization Service, your Auth0 tenant, and that service authenticates the user and then redirects them back to your application. In most cases, when your application needs to authenticate the user, it will request authentication from the OIDC provider, Auth0, via an /authorize request. As you can see from the Quickstart, the best approach to implementing this is to use one of the language-specific Auth0 SDKs - or some 3rd party middleware applicable to your technology stack. How to actually do this depends on the SDK and application type used.
-
-  Once authenticated, and when using an OIDC authentication workflow, Auth0 will redirect the user back to your callback URL with an ID token or a code to fetch the ID token.
-
-  For OIDC, Auth0 returns profile information in the ID token in a structured claim format as defined by the OIDC specification. This means that custom claims added to ID Tokens must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named myclaim, you would name the claim `https://foo.com/myclaim`, instead of myclaim.
-
-  By choosing Universal Login, you don't have to do any integration work to handle the various flavors of authentication. You can start off using a simple username and password, and with a simple toggle switch, you can add new features such as social login and multi-factor authentication. 
 </details>
 
 <details>
-  <summary>Integrate a second application</summary>
+  <summary>Role Based Access Control</summary>
 
-  Next, we’ll see how easy it is to integrate Auth0 in your second application. If you run another Quickstart, for example, to integrate a web application, you don’t have to do anything else. Running the second Quickstart against the same tenant will configure SSO between your applications automatically. 
+  Additionally, Auth0 has out-of-box support for Role Based Access Control or RBAC. RBAC refers to assigning permissions to users based on their role within an organization. Use RBAC for simpler, fine-grained access control that is often less prone to error.
 
-  Let’s download another quickstart and see this in action.
+  Be wary of adding too fine-grained detail to the user profile. Application specific access control data should live with the application, and not in the user profile. Trying to put all access control information in the user profile can quickly grow into a complicated system to maintain. Limit the authorization information stored against the user to apply to attributes about the user themselves, but not about individual items they can access. For example: if a user has access to a document repository, you could store the fact that the user is an administrator of the document repository application in the user’s app_metadata, but you wouldn’t want to store the specific documents the user has access to.
 
-  This time around, I will select the Regular Web App application type and asp.net core sample. Asp.net core is a typical enterprise server side rendered web application framework.
+  In the next video, we'll dig into some of the details on how authorization works with Auth0.
 
-  The steps are the same as before: Select the application, set local developement urls, download and run the sample.
-
-  After authenticating the user and redirecting them to an identity provider, you can check for active SSO sessions.
 </details>
 
 ## Up next
@@ -76,42 +56,42 @@ Learn about using Auth0 authorization via the use of ID Tokens and understand wh
     <span class="video-time"><i class="icon icon-budicon-494"></i>5:53</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/05_02-authorize-get-validate-id-tokens">Authorize: Get and Validate ID Tokens</a>
-    <p> </p>
+    <p>How to get and validate ID Tokens before storing and using them. </p>
   </li>
 
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>8:59</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/06-user-profiles">User Profiles</a>
-    <p> </p>
+    <p>What user profiles are, what they contain, and how you can use them to manage users. </p>
   </li>
 
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>3:15</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/07_01-brand-how-it-works">Brand: How It Works</a>
-    <p> </p>
+    <p>Why your branding is important for your users how it works with Auth0. </p>
   </li>
 
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>3:48</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/07_02-brand-signup-login-pages">Brand: Sign Up and Login Pages</a>
-    <p> </p>
+    <p>How to use Universal Login to customize your sign up and login pages. </p>
   </li>
 
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>5:42</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/08-brand-emails-error-pages">Brand: Emails and Error Pages</a>
-    <p> </p>
+    <p>How to use email templates and customize error pages. </p>
   </li>
 
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>8:12</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/10-logout">Logout</a>
-    <p> </p>
+    <p>How to configure different kinds of user logout behavior using callback URLs. </p>
   </li>
 
 </ul>
