@@ -17,7 +17,7 @@ articles:
         url: /guides-tutorials/deploy/deployment-models
       
       - title: Deploy Checklist
-        url: /architecture-scenarios/checklists#deploy
+        url: /guides-tutorials/deploy/checklist
 
       - title: Pre-Deployment
         url: /guides-tutorials/deploy/pre-deployment
