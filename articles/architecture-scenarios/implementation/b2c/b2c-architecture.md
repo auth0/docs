@@ -1,6 +1,6 @@
 ---
 title: Architecture
-description: Understand how Auth0 lets you create Auth0 tenants for one or more environments
+description: How your configure your Auth0 tenant architecture affects your B2C IAM implementation.
 toc: true
 topics:
     - b2c
@@ -31,9 +31,9 @@ useCase:
 
 <%= include('../../_includes/_architecture/_sdlc-support.md', { platform: 'b2c' }) %>
 
-## Planning
+## Project Planning Guide
 
-<%= include('../../_includes/_planning.md', { platform: 'b2c' }) %>
+<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 
