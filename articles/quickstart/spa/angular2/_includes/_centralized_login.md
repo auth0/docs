@@ -78,7 +78,8 @@ export class AuthService {
   // Auth0 application configuration
   config = {
     domain: "${account.tenant}",
-    client_id: "${account.clientId}"
+    client_id: "${account.clientId}",
+    redirect_uri: `<%= "${window.location.origin}" %>/callback`
   };
 
   /**
@@ -109,6 +110,8 @@ export class AuthService {
 ```
 
 This service provides a single method `getAuth0Client`. When called, it will in turn call `createAuth0Client` from the Auth0 JS SDK and save it in a class-level variable. Subsequent calls to `getAuth0Client` will return the same instance.
+
+Note that the `redirect_uri` property is configured to indicate where Auth0 should redirect to once authentication is complete. For login to work, this URL must be specified as an **Allowed Callback URL** in your [application settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 The service uses [RxJS](https://www.learnrxjs.io/) to emit changes in values to the `isAuthenticated` state and the user's profile. These will be used in a moment to listen for changes and update the UI accordingly.
 
@@ -165,9 +168,7 @@ export class NavbarComponent implements OnInit {
    * Logs in the user by redirecting to Auth0 for authentication
    */
   async login() {
-    await this.auth0Client.loginWithRedirect({
-      redirect_uri: `<%= "${window.location.origin}" %>/callback`
-    });
+    await this.auth0Client.loginWithRedirect({});
   }
 
   /**
@@ -184,9 +185,7 @@ export class NavbarComponent implements OnInit {
 
 Notice that the `AuthService` class you created in the previous section is being injected into the component through the constructor. This allows you to get an instance of the client, as well as react to changes in authentication state.
 
-The main setup work is being carried out inside `ngOnInit`, where the RxJS `BehaviorSubject` instances are being used. Whenever the values of these change, the Navbar component will react to those changes and provide an updated UI.
-
-Functions are provided to log in and log out the user using `loginWithRedirect` and `logout` directly on the Auth0 client. In the login scenario, a URI is provided that indicates where Auth0 should redirect to once authentication is complete. For login to work, this URL must be specified as an **Allowed Callback URL** in your [application settings](${manage_url}/#/applications/${account.clientId}/settings).
+The main setup work is being carried out inside `ngOnInit`, where the RxJS `BehaviorSubject` instances are being used. Whenever the values of these change, the Navbar component will react to those changes and provide an updated UI. Functions are provided to log in and log out the user using `loginWithRedirect` and `logout` directly on the Auth0 client.
 
 Next, configure the UI for the `navbar` component by opening the `src/app/navbar/navbar.component.html` file and replacing its contents with the following:
 
@@ -411,7 +410,6 @@ export class AuthGuard implements CanActivate {
     }
 
     client.loginWithRedirect({
-      redirect_uri: `<%= "${window.location.origin}" %>/callback`,
       appState: { target: state.url }
     });
 
