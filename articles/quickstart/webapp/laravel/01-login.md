@@ -28,7 +28,7 @@ If you are installing Auth0 to an existing app, you can skip this section. Other
 2. **[Configuration](https://laravel.com/docs/5.7/configuration)**
     * Create a .env file, used later for critical and sensitive Auth0 connection values
     * Make sure `APP_DEBUG` is set to `true`
-    
+
 By the end of those 2 sections, you should have a Laravel application up and running locally or on a test server.
 
 ## Integrate Auth0 in your application
@@ -103,7 +103,7 @@ Select the option for `Auth0\Login\LoginServiceProvider` and look for `Publishin
 * `persist_access_token` - Should the Access Token persist in a PHP session? Default is `false`
 * `persist_id_token` - Should the ID Token persist in a PHP session? Default is `false`
 * `authorized_issuers` - An array of authorized token issuers; this should include your tenant domain as a URL
-* `api_identifier` - The optional Identifier for an API meant for individual users. This is created during the [Laravel API quickstart](quickstart/backend/laravel), if needed. 
+* `api_identifier` - The optional Identifier for an API meant for individual users. This is created during the [Laravel API quickstart](quickstart/backend/laravel), if needed.
 * `secret_base64_encoded` - Is the Client Secret Base64 encoded? Look below the Client Secret field in the Auth0 dashboard to see how to set this; default is `false`
 * `supported_algs` - An array of JWT decoding algorithms supported by your application; the default is `[ 'RS256' ]` and the array should typically only have a single value.
 * `guzzle_options` - Specify additional [request options for Guzzle](http://docs.guzzlephp.org/en/stable/request-options.html)
@@ -132,9 +132,9 @@ First, we'll add our route and controller to `routes/web.php`. The route used he
 Route::get( '/auth0/callback', '\Auth0\Login\Auth0Controller@callback' )->name( 'auth0-callback' );
 ```
 
-If you load this callback URL now, you should be immediately redirected back to the homepage rather than getting a 404 error. This tells us that the route is setup and being handled. 
+If you load this callback URL now, you should be immediately redirected back to the homepage rather than getting a 404 error. This tells us that the route is setup and being handled.
 
-Now we need to add this URL to the **Allowed Callback URLs** field in the Application settings screen for the Application used with this app. This should be your Laravel app's `APP_URL` followed by `/auth0/callback`. If you're using one of our samples, this was already configured at the beginning of this tutorial.
+Now we need to add this URL to the **Allowed Callback URLs** field in the Application settings screen for the Application used with this app. This should be your Laravel app's `APP_URL` followed by `/auth0/callback`. If you downloaded a sample from this quickstart, you may have already configured this above.
 
 Lastly, we need to set up how users log in and out of our app. This is handled by redirecting users to Auth0 for the former and clearing out session data for the latter. Let's start by creating a generic route handling controller. In the console:
 
@@ -151,7 +151,7 @@ class Auth0IndexController extends Controller
 {
     /**
      * Redirect to the Auth0 hosted login page
-     * 
+     *
      * @return mixed
      */
     public function login()
@@ -166,7 +166,7 @@ class Auth0IndexController extends Controller
 
     /**
      * Log out of Auth0
-     * 
+     *
      * @return mixed
      */
     public function logout()
@@ -232,9 +232,9 @@ Load the homepage of your app and you should see a **Login** link at the top rig
 1. A Laravel debug screen (is `APP_DEBUG` is set to `true`) which, along with the steps above, should help diagnose the issues
 1. An Auth0 error page with more information under the "Technical Details" heading (click **See details for this error**)
 
-Once you're able to successfully log in, you will be redirected to your homepage with a **Logout** link at the top right. This tells us that the login process was successful and the Auth0 user provider is functioning properly. Click **Logout** and you should be back where you started. 
+Once you're able to successfully log in, you will be redirected to your homepage with a **Logout** link at the top right. This tells us that the login process was successful and the Auth0 user provider is functioning properly. Click **Logout** and you should be back where you started.
 
-At this point you should have a fully-functioning authentication process using Auth0! 
+At this point you should have a fully-functioning authentication process using Auth0!
 
 ## Optional: Custom User Handling
 
@@ -255,7 +255,7 @@ DB_USERNAME=db_user
 DB_PASSWORD=db_password
 ```
 
-In the `database/migrations` folder for the default Laravel project there will be two files, one for creating a users table and one for creating a password reset table. We can delete the password reset one since that's handled by Auth0 but we want to change the users one to remove unnecessary columns and add a new one. 
+In the `database/migrations` folder for the default Laravel project there will be two files, one for creating a users table and one for creating a password reset table. We can delete the password reset one since that's handled by Auth0 but we want to change the users one to remove unnecessary columns and add a new one.
 
 Edit the migration file with a name similar to `create_users_table` and change the `CreateUsersTable::up()` method to remove the `password` field and add one for `sub` (the Auth0 user ID):
 
@@ -284,7 +284,7 @@ Save this file and run the artisan command to create this table:
 
 ```bash
 php artisan migrate
-``` 
+```
 
 Next, make a `CustomUserRepository.php` class we can modify:
 
@@ -383,4 +383,4 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-Logging in for the first time should create a new entry in the database with the Auth0 `sub` ID and email address used. Subsequent logins should simply access that same user and not create any new records. 
+Logging in for the first time should create a new entry in the database with the Auth0 `sub` ID and email address used. Subsequent logins should simply access that same user and not create any new records.
