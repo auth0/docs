@@ -118,21 +118,7 @@ AUTH0_CLIENT_ID=${account.clientId}
 AUTH0_CLIENT_SECRET=YOUR_CLIENT_SECRET
 ```
 
-Call `env()` in `laravel-auth0.php` to get the correct setting:
-
-```php
-// config/laravel-auth0.php
-
-return array(
-    // ...
-    'domain'        => env( 'AUTH0_DOMAIN' ),
-    // ...
-    'client_id'     => env( 'AUTH0_CLIENT_ID' ),
-    // ...
-    'client_secret' => env( 'AUTH0_CLIENT_SECRET' ),
-    // ...
-);
-```
+In `laravel-auth0.php`, the global helper `env()` is used to retrieve these values and load them in your Laravel app.
 
 ### Set Up Routes
 
@@ -148,7 +134,7 @@ Route::get( '/auth0/callback', '\Auth0\Login\Auth0Controller@callback' )->name( 
 
 If you load this callback URL now, you should be immediately redirected back to the homepage rather than getting a 404 error. This tells us that the route is setup and being handled. 
 
-Now we need to add this URL to the **Allowed Callback URLs** field in the Application settings screen for the Application used with this app. Add the complete URL, like `https://myapp.com/auth0/callback`.
+Now we need to add this URL to the **Allowed Callback URLs** field in the Application settings screen for the Application used with this app. This should be your Laravel app's `APP_URL` followed by `/auth0/callback`. If you're using one of our samples, this was already configured at the beginning of this tutorial.
 
 Lastly, we need to set up how users log in and out of our app. This is handled by redirecting users to Auth0 for the former and clearing out session data for the latter. Let's start by creating a generic route handling controller. In the console:
 
@@ -171,8 +157,8 @@ class Auth0IndexController extends Controller
     public function login()
     {
         $authorize_params = [
-            'scope' => 'openid email email_verified',
-            // Use the key below to get an Access Token for your API.
+            'scope' => 'openid profile email',
+            // Use the key below to get an access token for your API.
             // 'audience' => config('laravel-auth0.api_identifier'),
         ];
         return \App::make('auth0')->login(null, null, $authorize_params);
@@ -201,8 +187,8 @@ Now, add the routes tied to the correct handler method along with names we can u
 ```php
 // routes/web.php
 // ...
-Route::get('/login', 'Auth\Auth0IndexController@login' )->name( 'login' );
-Route::get('/logout', 'Auth\Auth0IndexController@logout' )->name( 'logout' )->middleware('auth');
+Route::get( '/login', 'Auth\Auth0IndexController@login' )->name( 'login' );
+Route::get( '/logout', 'Auth\Auth0IndexController@logout' )->name( 'logout' )->middleware('auth');
 ```
 
 ### Integrate with Laravel authentication system
