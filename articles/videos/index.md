@@ -4,5 +4,10 @@ classes: video-page
 ---
 # Auth0 Videos
 
-## [Learn Identity](/videos/learn-identity)
-## [Get Started](/videos/get-started)
+## Learn Identity
+
+[Learn about digital identity](/videos/learn-identity) including OAuth2, OpenID Connect, calling APIs, and more! 
+
+## Get started
+
+Learn how to [get started](/videos/get-started) implementing Auth0 features with your applications.

@@ -4,6 +4,8 @@ classes: video-page
 ---
 # Authenticate: How It Works
 
+Learn about the difference between authentication, authorization, and access control. Understand when and why you might use each type authentication method: First factors, second factors, and multi-factor. Learn about the OpenID Connect authentication protocol.   
+
 <div class="video-wrapper" data-video="tbd"></div>
 
 ## Previous videos

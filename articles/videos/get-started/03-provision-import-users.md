@@ -4,7 +4,9 @@ classes: video-page
 ---
 # Provision: Import Users
 
-<div class="video-wrapper" data-video="tbd"></div>
+Learn how Auth0 allows you to move your existing users to an Auth0 user store and why you may want to use a combination of both automatic and bulk migration methods. Learn why its a good idea to have an API between the cloud and your legacy database and how custom database scripts work.
+
+<div class="video-wrapper" data-video="d0p3ai8gah"></div>
 
 ## Previous videos
 
