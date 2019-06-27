@@ -8,18 +8,6 @@ Learn how user profiles are provisioned within an Auth0 tenant. Users can come f
 
 <div class="video-wrapper" data-video="qmqik9b6vk"></div>
 
-## Previous video
-
-<ul class="up-next">
-  <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>8:33</span>
-    <i class="video-icon icon icon-budicon-676"></i>
-    <a href="/videos/get-started/01-architecture-your-tenant">Architecture: Your Tenant</a>
-    <p>What an Auth0 tenant is and how to configure it in the Auth0 Dashboard.</p>
-  </li>
-
-</ul>
-
 ## Video transcript
 
 <details>
@@ -141,7 +129,7 @@ Learn how user profiles are provisioned within an Auth0 tenant. Users can come f
     <span class="video-time"><i class="icon icon-budicon-494"></i>3:18</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/05_01-authorize-id-tokens-access-control">Authorize: ID Tokens and Access Control</a>
-    <p> </p>
+    <p>What an ID Token is and how you can add custom claims to customize them and make access control decisions for your users. </p>
   </li>
 
   <li>
@@ -187,3 +175,16 @@ Learn how user profiles are provisioned within an Auth0 tenant. Users can come f
   </li>
 
 </ul>
+
+## Previous video
+
+<ul class="up-next">
+  <li>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>8:33</span>
+    <i class="video-icon icon icon-budicon-676"></i>
+    <a href="/videos/get-started/01-architecture-your-tenant">Architecture: Your Tenant</a>
+    <p>What an Auth0 tenant is and how to configure it in the Auth0 Dashboard.</p>
+   </li>
+
+</ul>
+

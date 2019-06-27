@@ -8,25 +8,6 @@ Learn how Auth0 allows you to move your existing users to an Auth0 user store an
 
 <div class="video-wrapper" data-video="d0p3ai8gah"></div>
 
-## Previous videos
-
-<ul class="up-next">
-  <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>8:33</span>
-    <i class="video-icon icon icon-budicon-676"></i>
-    <a href="/videos/get-started/01-architecture-your-tenant">Architecture: Your Tenant</a>
-    <p>What an Auth0 tenant is and how to configure it in the Auth0 Dashboard.</p>
-  </li>
-
-  <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>2:15</span>
-    <i class="video-icon icon icon-budicon-676"></i>
-    <a href="/videos/get-started/02-provision-user-stores">Provision: User Stores</a>
-    <p>How user profiles are provisioned within an Auth0 tenant.</p>
-  </li>
-
-</ul>
-
 ## Video transcript
 
 <details>
@@ -150,7 +131,7 @@ Learn how Auth0 allows you to move your existing users to an Auth0 user store an
     <span class="video-time"><i class="icon icon-budicon-494"></i>3:18</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/05_01-authorize-id-tokens-access-control">Authorize: ID Tokens and Access Control</a>
-    <p> </p>
+    <p>What an ID Token is and how you can add custom claims to customize them and make access control decisions for your users. </p>
   </li>
 
   <li>
@@ -193,6 +174,26 @@ Learn how Auth0 allows you to move your existing users to an Auth0 user store an
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/10-logout">Logout</a>
     <p> </p>
+  </li>
+
+</ul>
+
+## Previous videos
+
+<ul class="up-next">
+
+  <li>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>8:33</span>
+    <i class="video-icon icon icon-budicon-676"></i>
+    <a href="/videos/get-started/01-architecture-your-tenant">Architecture: Your Tenant</a>
+    <p>What an Auth0 tenant is and how to configure it in the Auth0 Dashboard.</p>
+  </li>
+
+  <li>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>2:15</span>
+    <i class="video-icon icon icon-budicon-676"></i>
+    <a href="/videos/get-started/02-provision-user-stores">Provision: User Stores</a>
+    <p>How user profiles are provisioned within an Auth0 tenant.</p>
   </li>
 
 </ul>

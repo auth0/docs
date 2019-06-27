@@ -4,7 +4,7 @@ classes: video-page
 ---
 # Architecture: Your Tenant
 
-Learn what an Auth0 tenant is and how to configure it in the Auth0 Dashboard. Understand why you may want more than one tenant if you have different user communities, and also how you can use more than one tenant to support your Software Development Life Cycle. Learn the importance of tenant naming, use of custom domains, provisioning additional tenant admins, and how to associate tenants with your Auth0 account.
+Learn what an Auth0 tenant is and how to configure it in the Auth0 Dashboard. Understand why you may want more than one tenant if you have different user communities, and also how you can use more than one tenant to support your Software Development Life Cycle. Learn the importance of tenant naming, use of custom domains, provisioning additional tenant administrators, and how to associate tenants with your Auth0 account.
 
 <div class="video-wrapper" data-video="ww3ykoy3vm"></div>
 
@@ -111,7 +111,7 @@ Learn what an Auth0 tenant is and how to configure it in the Auth0 Dashboard. Un
     <span class="video-time"><i class="icon icon-budicon-494"></i>3:18</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/05_01-authorize-id-tokens-access-control">Authorize: ID Tokens and Access Control</a>
-    <p> </p>
+    <p>What an ID Token is and how you can add custom claims to customize them and make access control decisions for your users. </p>
   </li>
 
   <li>

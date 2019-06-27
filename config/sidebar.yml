@@ -1494,6 +1494,9 @@ videos:
       - title: "Authorize: ID Tokens and Access Control"
         url: "/videos/get-started/05_01-authorize-id-tokens-access-control"
 
+      - title: "Authorize: Get and Validate ID Tokens"
+        url: "/videos/get-started/05_02-authorize-get-validate-id-tokens"
+
       - title: "User Profiles"
         url: "/videos/get-started/06-user-profiles"
 

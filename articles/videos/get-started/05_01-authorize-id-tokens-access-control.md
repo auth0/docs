@@ -1,10 +1,10 @@
 ---
-description: An example using the Auth0 Quickstart for a SPA implementation with Auth0 Universal Login.
+description: What an ID Token is and how you can add custom claims to customize them and make access control decisions for your users.
 classes: video-page
 ---
-# Authenticate: SPA Example
+# Authorize: ID Tokens and Access Control
 
-See an example using the Auth0 Quickstart for a SPA implementation and learn how Auth0's Universal Login feature does most of the authentication work for you. Understand how security and user experience work with the authentication process to determine how to plan your application integration to Auth0. See how Single-Sign On works between applications when you use Universal Login. 
+Learn about using Auth0 authorization via the use of ID Tokens and understand what an ID Token is and how to add custom claims to customize them and make access control decisions for your users.
 
 <div class="video-wrapper" data-video="tbd"></div>
 
@@ -71,13 +71,6 @@ See an example using the Auth0 Quickstart for a SPA implementation and learn how
 ## Up next
 
 <ul class="up-next">
-
-  <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>3:18</span>
-    <i class="video-icon icon icon-budicon-676"></i>
-    <a href="/videos/get-started/05_01-authorize-id-tokens-access-control">Authorize: ID Tokens and Access Control</a>
-    <p>What an ID Token is and how you can add custom claims to customize them and make access control decisions for your users. </p>
-  </li>
 
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>5:53</span>
@@ -155,4 +148,12 @@ See an example using the Auth0 Quickstart for a SPA implementation and learn how
     <p>How user authentication works and various ways to accomplish it with Auth0.</p>
   </li>
 
+  <li>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>6:58</span>
+    <i class="video-icon icon icon-budicon-676"></i>
+    <a href="/videos/get-started/04_02-authenticate-spa-example">Authenticate: SPA Example</a>
+    <p>An example using the Auth0 Quickstart for a SPA implementation with Auth0 Universal Login. </p>
+  </li>
+
 </ul>
+

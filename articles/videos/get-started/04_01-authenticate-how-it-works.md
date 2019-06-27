@@ -6,33 +6,7 @@ classes: video-page
 
 Learn about the difference between authentication, authorization, and access control. Understand when and why you might use each type authentication method: First factors, second factors, and multi-factor. Learn about the OpenID Connect authentication protocol.   
 
-<div class="video-wrapper" data-video="tbd"></div>
-
-## Previous videos
-
-<ul class="up-next">
-  <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>8:33</span>
-    <i class="video-icon icon icon-budicon-676"></i>
-    <a href="/videos/get-started/01-architecture-your-tenant">Architecture: Your Tenant</a>
-    <p>What an Auth0 tenant is and how to configure it in the Auth0 Dashboard.</p>
-  </li>
-
-  <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>2:15</span>
-    <i class="video-icon icon icon-budicon-676"></i>
-    <a href="/videos/get-started/02-provision-user-stores">Provision: User Stores</a>
-    <p>How user profiles are provisioned within an Auth0 tenant.</p>
-  </li>
-
-  <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>10:03</span>
-    <i class="video-icon icon icon-budicon-676"></i>
-    <a href="/videos/get-started/03-provision-import-users">Provision: Import Users</a>
-    <p>How to move existing users to an Auth0 user store using automatic migration, bulk migration, or both.</p>
-  </li>
-
-</ul>
+<div class="video-wrapper" data-video="suw4dsi0g8"></div>
 
 ## Video transcript
 
@@ -110,7 +84,7 @@ Learn about the difference between authentication, authorization, and access con
     <span class="video-time"><i class="icon icon-budicon-494"></i>3:18</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/05_01-authorize-id-tokens-access-control">Authorize: ID Tokens and Access Control</a>
-    <p> </p>
+    <p>What an ID Token is and how you can add custom claims to customize them and make access control decisions for your users. </p>
   </li>
 
   <li>
@@ -153,6 +127,33 @@ Learn about the difference between authentication, authorization, and access con
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/10-logout">Logout</a>
     <p> </p>
+  </li>
+
+</ul>
+
+## Previous videos
+
+<ul  class="up-next">
+
+  <li>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>8:33</span>
+    <i class="video-icon icon icon-budicon-676"></i>
+    <a href="/videos/get-started/01-architecture-your-tenant">Architecture: Your Tenant</a>
+    <p>What an Auth0 tenant is and how to configure it in the Auth0 Dashboard.</p>
+  </li>
+
+  <li>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>2:15</span>
+    <i class="video-icon icon icon-budicon-676"></i>
+    <a href="/videos/get-started/02-provision-user-stores">Provision: User Stores</a>
+    <p>How user profiles are provisioned within an Auth0 tenant.</p>
+  </li>
+
+  <li>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>10:03</span>
+    <i class="video-icon icon icon-budicon-676"></i>
+    <a href="/videos/get-started/03-provision-import-users">Provision: Import Users</a>
+    <p>How to move existing users to an Auth0 user store using automatic migration, bulk migration, or both.</p>
   </li>
 
 </ul>
