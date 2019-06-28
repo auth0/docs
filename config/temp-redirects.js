@@ -170,6 +170,70 @@ module.exports = [
     {
         from: '/extensions/deploy-cli',
         to: '/guides-tutorials/deploy/deploy-cli'
-    }
+    },
 
+
+    // 
+    // Manage Users Aliases
+    // 
+    {
+        from: '/users',
+        to:   '/guides-tutorials/manage-users/overview-manage-users'
+    },
+    {
+        from: '/users/concepts/overview-user-profiles',
+        to:   '/guides-tutorials/manage-users/overview-user-profiles'
+    },
+    {
+        from: '/users/concepts/overview-user-metadata',
+        to:   '/guides-tutorials/manage-users/overview-user-metadata'
+    },
+    {
+        from: '/users/guides/manage-users-using-the-dashboard',
+        to:   '/guides-tutorials/manage-users/manage-users-using-the-dashboard'
+    },
+    {
+        from: '/users/guides/manage-users-using-the-management-api',
+        to:   '/guides-tutorials/manage-users/manage-users-using-the-management-api'
+    },
+    {
+        from: '/extensions/account-link',
+        to:   '/guides-tutorials/manage-users/account-link'
+    },
+    {
+        from: '/security/blacklisting-attributes',
+        to:   '/guides-tutorials/manage-users/blacklisting-attributes'
+    },
+    {
+        from: '/users/concepts/overview-user-migration',
+        to:   '/guides-tutorials/manage-users/overview-user-migration'
+    },
+    {
+        from: '/users/references/bulk-import-database-schema-examples',
+        to:   '/guides-tutorials/manage-users/bulk-import-database-schema-examples'
+    },
+    {
+        from: '/users/guides/configure-automatic-migration',
+        to:   '/guides-tutorials/manage-users/configure-automatic-migration'
+    },
+    {
+        from: '/users/guides/bulk-user-imports',
+        to:   '/guides-tutorials/manage-users/bulk-user-imports'
+    },
+    {
+        from: '/users/guides/bulk-user-exports',
+        to:   '/guides-tutorials/manage-users/bulk-user-exports'
+    },
+    {
+        from: '/extensions/user-import-export',
+        to:   '/guides-tutorials/manage-users/user-import-export'
+    },
+    {
+        from: '/users/references/user-migration-scenarios',
+        to:   '/guides-tutorials/manage-users/user-migration-scenarios'
+    },
+    {
+        from: '/users/search/v3',
+        to:   '/guides-tutorials/manage-users/search/v3'
+    }
 ]

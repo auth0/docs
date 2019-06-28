@@ -18,7 +18,7 @@ This endpoint is **immediately consistent**, and as such, we recommend that you 
 * User searches run during the authentication process. 
 * User searches run as part of the account linking process.
 
-<%= include('./_valid-access-token') %>
+<%= include('./_includes/_valid-access-token') %>
 
 ## Syntax
 
