@@ -171,5 +171,23 @@ module.exports = [
         from: '/extensions/deploy-cli',
         to: '/guides-tutorials/deploy/deploy-cli'
     }
-
+    // 
+    // References: Grant Types
+    // 
+    {
+        from: '/applications/concepts/application-grant-types',
+        to:   '/reference/grant-types'
+    },
+    {
+        from: '/applications/reference/grant-types-available',
+        to:   '/reference/grant-types/grant-types-available'
+    },
+    {
+        from: '/applications/reference/grant-types-auth0-mapping',
+        to:   '/reference/grant-types/grant-types-auth0-mapping'
+    },
+    {
+        from: 'https://auth0.com/docs/applications/concepts/grant-types-legacy',
+        to:   '/reference/grant-types/grant-types-legacy'
+    }
 ]
