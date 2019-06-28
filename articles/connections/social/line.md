@@ -6,7 +6,6 @@ image: /media/connections/line.png
 seo_alias: line
 description: Learn how to add login functionality to your app with Line. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
-beta: true
 topics:
   - authentication
   - connections
