@@ -1,5 +1,5 @@
 ---
-title: Update Grant Types
+title: Update Grant Types Using the Dashboard
 description: Learn how to update an application's grant types using the Auth0 Management Dashboard.
 topics:
   - applications
@@ -9,7 +9,7 @@ contentType: how-to
 useCase:
   - build-an-app
 ---
-# Update Grant Types
+# Update Grant Types Using the Dashboard
 
 This guide will show you how to change your application's grant types using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/applications/update-grant-types).
 

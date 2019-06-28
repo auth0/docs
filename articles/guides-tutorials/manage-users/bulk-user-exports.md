@@ -22,7 +22,7 @@ When you create your job, you'll need to provide:
 * Maximum number of user records to be exported
 * User-related fields (such as user ID or name) that you want included in the export
 
-<%= include('../search/v3/_valid-access-token') %>
+<%= include('./includes/_valid-access-token') %>
 
 ## Syntax
 

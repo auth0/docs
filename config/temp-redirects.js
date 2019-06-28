@@ -1,5 +1,44 @@
 module.exports = [
     // 
+    // About Auth0 aliases
+    // 
+    {
+        from: '/getting-started/overview'
+        to:   '/guides-tutorials/about-auth0/overview'
+    },
+    {
+        from: '/getting-started/the-basics'
+        to:   '/guides-tutorials/about-auth0/the-basics'
+    },
+
+    //
+    // Getting Started
+    //
+    {
+        from: ['/getting-started/the-basics#account-and-tenants', '/dev-lifecycle/setting-up-env']
+        to:   '/guides-tutorials/getting-started/create-tenant'
+    },
+    {
+        from: '/dashboard/guides/applications/register-app-regular-web'
+        to:   '/guides-tutorials/getting-started/register-app-rebular-web'
+    },
+    {
+        from: '/dashboard/guides/applications/register-app-native'
+        to:   '/guides-tutorials/getting-started/register-app-native'
+    },
+    {
+        from: '/dashboard/guides/applications/register-app-spa'
+        to:   '/guides-tutorials/getting-started/register-app-spa'
+    },
+    {
+        from: '/dashboard/guides/applications/register-app-m2m'
+        to:   '/guides-tutorials/getting-started/register-app-m2m'
+    },
+    {
+        from: '/apis#how-to-configure-an-api-in-auth0'
+        to:   '/guides-tutorials/getting-started/configure-api'
+    }
+    // 
     // Monitor aliases
     // 
     {
@@ -261,4 +300,87 @@ module.exports = [
 
 
 
+
+    // 
+    // Manage Users Aliases
+    // 
+    {
+        from: '/users',
+        to:   '/guides-tutorials/manage-users/overview-manage-users'
+    },
+    {
+        from: '/users/concepts/overview-user-profiles',
+        to:   '/guides-tutorials/manage-users/overview-user-profiles'
+    },
+    {
+        from: '/users/concepts/overview-user-metadata',
+        to:   '/guides-tutorials/manage-users/overview-user-metadata'
+    },
+    {
+        from: '/users/guides/manage-users-using-the-dashboard',
+        to:   '/guides-tutorials/manage-users/manage-users-using-the-dashboard'
+    },
+    {
+        from: '/users/guides/manage-users-using-the-management-api',
+        to:   '/guides-tutorials/manage-users/manage-users-using-the-management-api'
+    },
+    {
+        from: '/extensions/account-link',
+        to:   '/guides-tutorials/manage-users/account-link'
+    },
+    {
+        from: '/security/blacklisting-attributes',
+        to:   '/guides-tutorials/manage-users/blacklisting-attributes'
+    },
+    {
+        from: '/users/concepts/overview-user-migration',
+        to:   '/guides-tutorials/manage-users/overview-user-migration'
+    },
+    {
+        from: '/users/references/bulk-import-database-schema-examples',
+        to:   '/guides-tutorials/manage-users/bulk-import-database-schema-examples'
+    },
+    {
+        from: '/users/guides/configure-automatic-migration',
+        to:   '/guides-tutorials/manage-users/configure-automatic-migration'
+    },
+    {
+        from: '/users/guides/bulk-user-imports',
+        to:   '/guides-tutorials/manage-users/bulk-user-imports'
+    },
+    {
+        from: '/users/guides/bulk-user-exports',
+        to:   '/guides-tutorials/manage-users/bulk-user-exports'
+    },
+    {
+        from: '/extensions/user-import-export',
+        to:   '/guides-tutorials/manage-users/user-import-export'
+    },
+    {
+        from: '/users/references/user-migration-scenarios',
+        to:   '/guides-tutorials/manage-users/user-migration-scenarios'
+    },
+    {
+        from: '/users/search/v3',
+        to:   '/guides-tutorials/manage-users/search/v3'
+    },
+    // 
+    // References: Grant Types
+    // 
+    {
+        from: '/applications/concepts/application-grant-types',
+        to:   '/reference/grant-types'
+    },
+    {
+        from: '/applications/reference/grant-types-available',
+        to:   '/reference/grant-types/grant-types-available'
+    },
+    {
+        from: '/applications/reference/grant-types-auth0-mapping',
+        to:   '/reference/grant-types/grant-types-auth0-mapping'
+    },
+    {
+        from: 'https://auth0.com/docs/applications/concepts/grant-types-legacy',
+        to:   '/reference/grant-types/grant-types-legacy'
+    }
 ]

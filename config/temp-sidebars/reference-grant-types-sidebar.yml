@@ -1,0 +1,23 @@
+## ------------------------------------------------------------
+## References Sidebar Nav Configuration
+## This document contains configuration for the references sidebar
+##
+## ------------------------------------------------------------
+
+References:
+
+## ------------------------------------------------------------
+## Grant Types
+## ------------------------------------------------------------
+
+  - title: Grant Types
+    url: "/reference/grant-types"
+    children:
+      - title: Available Grant Types
+        url: "/reference/grant-types/grant-types-available"
+      
+      - title: Grant Types Mapping
+        url: "/reference/grant-types/grant-types-auth0-mapping"
+      
+      - title: Legacy Grant Types
+        url: "/reference/grant-types/grant-types-legacy"
