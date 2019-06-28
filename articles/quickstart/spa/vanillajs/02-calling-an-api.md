@@ -71,7 +71,7 @@ Next, open the `auth_config.json` file and modify the data so that the `audience
 
 ```json
 {
-  "domain": "${account.tenant}",
+  "domain": "${account.namespace}",
   "clientId": "${account.clientId}",
   "audience": "${apiIdentifier}"
 }

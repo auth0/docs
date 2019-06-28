@@ -77,7 +77,7 @@ export class AuthService {
 
   // Auth0 application configuration
   config = {
-    domain: "${account.tenant}",
+    domain: "${account.namespace}",
     client_id: "${account.clientId}",
     redirect_uri: `<%= "${window.location.origin}" %>/callback`
   };

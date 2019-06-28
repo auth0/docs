@@ -69,7 +69,7 @@ To specify the audience, open `src/auth_config.json` and add a new key called `a
 
 ```json
 {
-  "domain": "${account.tenant}",
+  "domain": "${account.namespace}",
   "clientId": "${account.clientId}",
   "audience": "${apiIdentifier}"
 }

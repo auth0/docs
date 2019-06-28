@@ -93,7 +93,7 @@ Modify the `src/app/auth.service.ts` file so that the `audience` value is config
 ```js
 // Auth0 application configuration
 config = {
-  domain: "${account.tenant}",
+  domain: "${account.namespace}",
   client_id: "${account.clientId}",
   redirect_uri: `<%= "${window.location.origin}" %>/callback`,
   audience: "${apiIdentifier}" // NEW - add in the audience value

@@ -78,7 +78,7 @@ Create an `auth_config.json` in the root of the project. The values from `domain
 
 ```json
 {
-  "domain": "${account.tenant}",
+  "domain": "${account.namespace}",
   "clientId": "${account.clientId}"
 }
 ```
