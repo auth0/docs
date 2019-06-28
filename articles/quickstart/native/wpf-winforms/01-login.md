@@ -15,6 +15,8 @@ contentType: tutorial
 useCase: quickstart
 ---
 
+<!-- markdownlint-disable MD002 MD034 MD041 -->
+
 <%= include('../_includes/_getting_started', { library: 'Windows Forms or WPF' }) %>
 
 <%= include('../../../_includes/_callback_url') %>
@@ -23,7 +25,7 @@ useCase: quickstart
 If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URLs** to `https://${account.namespace}/mobile`.
 :::
 
-<%= include('../../../_includes/_logout_url', { returnTo: `https://${account.namespace}/mobile` }) %>
+<%= include('../../../_includes/_logout_url', { returnTo: 'https://' + account.namespace + '/mobile' }) %>
 
 ## Integrate Auth0 in your Application
 
