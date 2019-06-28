@@ -1,7 +1,5 @@
 <!-- markdownlint-disable MD002 MD041 MD034 -->
 
-<%= include('../../_includes/_login_preamble', { library: 'React' }) %>
-
 ## Create a Sample Application
 
 ::: note
