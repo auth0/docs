@@ -40,7 +40,7 @@ Among many possibilities, Rules can be used to:
 
 Watch this video learn all about rules in just a few minutes.
 
-<%= include('../../_includes/_video', { id: 'g7dy1fpwc3' }) %>
+<%= include('../../../../_includes/_video', { id: 'g7dy1fpwc3' }) %>
 
 ## Rule Syntax
 

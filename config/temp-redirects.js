@@ -262,6 +262,14 @@ module.exports = [
         from: '/analytics',
         to: '/guides-tutorials/extend-integrate/integrations/analytics'
     },
+    {
+        from: '/extensions/user-import-export',
+        to:   '/guides-tutorials/extend-integrate/extensions/user-import-export'
+    },
+    {
+        from: '/extensions/account-link',
+        to:   '/guides-tutorials/extend-integrate/extensions/account-link'
+    },
 
     // 
     // Branding & Customization aliases 
@@ -296,7 +304,7 @@ module.exports = [
     {
         from: '/i18n',
         to: '/guides-tutorials/branding-customization/i18n'
-    }
+    },
 
 
 
@@ -325,10 +333,6 @@ module.exports = [
         to:   '/guides-tutorials/manage-users/manage-users-using-the-management-api'
     },
     {
-        from: '/extensions/account-link',
-        to:   '/guides-tutorials/manage-users/account-link'
-    },
-    {
         from: '/security/blacklisting-attributes',
         to:   '/guides-tutorials/manage-users/blacklisting-attributes'
     },
@@ -351,10 +355,6 @@ module.exports = [
     {
         from: '/users/guides/bulk-user-exports',
         to:   '/guides-tutorials/manage-users/bulk-user-exports'
-    },
-    {
-        from: '/extensions/user-import-export',
-        to:   '/guides-tutorials/manage-users/user-import-export'
     },
     {
         from: '/users/references/user-migration-scenarios',

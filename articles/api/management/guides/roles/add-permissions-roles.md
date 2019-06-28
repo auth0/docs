@@ -17,7 +17,7 @@ useCase:
 
 This guide will show you how to add permissions to <dfn data-key="role">[roles](/authorization/concepts/rbac)</dfn> using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/roles/add-permissions-roles). The roles and their permissions can be used with the API Authorization Core feature set.
 
-<%= include('../../../../authorization/_includes/_enable-authz-core') %>
+<%= include('../../../../guides-tutorials/authorization/_includes/_enable-authz-core') %>
 
 1. Make a `POST` call to the [Add Role Permissions endpoint](/api/management/v2#!/roles/post_role_permissions). Be sure to replace `ROLE_ID`, `MGMT_API_ACCESS_TOKEN`, `API_IDENTIFIER`, and `PERMISSION_NAME` placeholder values with your role ID, Management API Access Token, API identifier (audience), and permission name(s), respectively.
 

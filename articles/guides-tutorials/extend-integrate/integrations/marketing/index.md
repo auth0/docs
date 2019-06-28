@@ -16,15 +16,15 @@ useCase: export-users-marketing
   </p>
 </div>
 
-<%= include('../../_includes/_topic-links', { links: [
-  'integrations/marketing/adobe-campaign',
-  'integrations/marketing/alterian',
-  'integrations/marketing/constant-contact',
-  'integrations/marketing/eloqua',
-  'integrations/marketing/mailchimp',
-  'integrations/marketing/marketo',
-  'integrations/marketing/sailthru',
-  'integrations/marketing/salesforce',
-  'integrations/marketing/salesforce-marketing-cloud',
-  'integrations/marketing/watson-campaign-automation'
+<%= include('../../../../_includes/_topic-links', { links: [
+  'guides-tutorials/extend-integrate/integrations/marketing/adobe-campaign',
+  'guides-tutorials/extend-integrate/integrations/marketing/alterian',
+  'guides-tutorials/extend-integrate/integrations/marketing/constant-contact',
+  'guides-tutorials/extend-integrate/integrations/marketing/eloqua',
+  'guides-tutorials/extend-integrate/integrations/marketing/mailchimp',
+  'guides-tutorials/extend-integrate/integrations/marketing/marketo',
+  'guides-tutorials/extend-integrate/integrations/marketing/sailthru',
+  'guides-tutorials/extend-integrate/integrations/marketing/salesforce',
+  'guides-tutorials/extend-integrate/integrations/marketing/salesforce-marketing-cloud',
+  'guides-tutorials/extend-integrate/integrations/marketing/watson-campaign-automation'
 ] }) %>

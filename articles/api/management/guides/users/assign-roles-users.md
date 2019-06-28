@@ -18,7 +18,7 @@ useCase:
 
 This guide will show you how to assign <dfn data-key="role">[roles](/authorization/concepts/rbac)</dfn> to a user using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/users/assign-roles-users). The assigned roles can be used with the API Authorization Core feature set.
 
-<%= include('../../../../authorization/_includes/_enable-authz-core') %>
+<%= include('../../../../guides-tutorials/authorization/_includes/_enable-authz-core') %>
 
 1. Make a `POST` call to the [Assign User Roles endpoint](/api/management/v2#!/user_roles/post_user_roles). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, and `ROLE_ID` placeholder values with your user ID, Management API Access Token, and role ID(s), respectively.
 

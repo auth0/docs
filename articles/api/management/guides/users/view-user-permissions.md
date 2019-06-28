@@ -18,7 +18,7 @@ useCase:
 
 This guide will show you how to view the [permissions](/authorization/concepts/rbac) assigned to a user using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/users/view-user-permissions). The assigned permissions are used with the API Authorization Core feature set.
 
-<%= include('../../../../authorization/_includes/_enable-authz-core') %>
+<%= include('../../../../guides-tutorials/authorization/_includes/_enable-authz-core') %>
 
 1. Make a `GET` call to the [Get User Permissions endpoint](/api/management/v2#!/users/get_user_permissions). Be sure to replace `USER_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your user ID and Management API Access Token, respectively.
 
