@@ -68,7 +68,7 @@ Next, you need to use the `WebAuthProvider` to initiate the authentication and a
 
 ```java
 public void startAuth() {
-    WebAuthProvider.init(account)
+    WebAuthProvider.login(account)
         .withConnection("Username-Password-Authentication")
         .withScope("openid profile {API_SCOPES}")
         .withAudience("${apiIdentifier}")
