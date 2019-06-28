@@ -1,0 +1,35 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## ------------------------------------------------------------
+
+articles:
+
+## ------------------------------------------------------------
+## Extend & Integrate
+## ------------------------------------------------------------
+
+  - title: Extend & Integrate
+    url: "/guides-tutorials/extend-integrate"
+    children:
+      - title: Rules
+        url: /guides-tutorials/extend-integrate/rules
+      
+      - title: Hooks
+        url: /guides-tutorials/extend-integrate/hooks
+
+      - title: Extensions
+        url: /guides-tutorials/extend-integrate/extensions
+      
+      - title: Analytics Integrations
+        url: /guides-tutorials/extend-integrate/integrations/analytics
+
+      - title: Single Sign-On Integrations
+        url: /guides-tutorials/extend-integrate/integrations/sso
+
+      - title: Marketing Integrations
+        url: /guides-tutorials/extend-integrate/integrations/marketing
+
+      - title: Add-ons
+        url: /guides-tutorials/extend-integrate/addons

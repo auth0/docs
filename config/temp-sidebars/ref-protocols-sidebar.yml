@@ -1,0 +1,29 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## ------------------------------------------------------------
+
+reference:
+
+## ------------------------------------------------------------
+## Protocols
+## ------------------------------------------------------------
+
+  - title: Protocols
+    url: "/protocols"
+    children:
+      - title: OAuth 2.0
+        url: /protocols/oauth2
+      
+      - title: OpenID Connect
+        url: /protocols/oidc
+
+      - title: SAML
+        url: /protocols/saml
+      
+      - title: WS-Fed
+        url: /protocols/ws-fed
+
+      - title: LDAP
+        url: /protocols/ldap

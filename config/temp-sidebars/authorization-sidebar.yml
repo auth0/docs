@@ -1,0 +1,59 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## ------------------------------------------------------------
+
+articles:
+
+## ------------------------------------------------------------
+## Authorization
+## ------------------------------------------------------------
+
+  - title: Authorization
+    url: "/guides-tutorials/authorization"
+    children:
+      - title: Overview
+        url: /guides-tutorials/authorization
+      
+      - title: Authorization Flows
+        url: /guides-tutorials/authorization/flows
+        children:
+          - title: Authorization Code
+            url: /flows/guides/auth-code/call-api-auth-code
+
+          - title: Authorization Code with PKCE
+            url: /flows/guides/auth-code-pkce/call-api-auth-code-pkce
+
+          - title: Client Credentials
+            url: /flows/guides/client-credentials/call-api-client-credentials
+
+          - title: Implicit
+            url: /flows/guides/implicit/call-api-implicit
+            children: 
+              - title: Mitigate Replay Attacks
+                url: /guides-tutorials/flows/mitigate-replay-attacks
+      
+      - title: Core Role-based Access Control
+        url: /guides-tutorials/authorization/concepts/rbac
+        children:
+          - title: Getting Started
+            url: /guides-tutorials/authorization/guides/how-to
+
+          - title: Manage Roles
+            url: /guides-tutorials/authorization/guides/manage-roles
+
+          - title: Manage RBAC Users
+            url: /guides-tutorials/authorization/guides/manage-users
+
+          - title: Manage RBAC Permissions
+            url: /guides-tutorials/authorization/guides/manage-permissions
+
+          - title: Enable RBAC for APIs
+            url: /dashboard/guides/apis/enable-rbac
+
+      - title: Authorization Extension
+        url: /guides-tutorials/extensions/authorization-extension
+
+      - title: Core vs. Extension
+        url: /guides-tutorials/authorization/concepts/core-vs-extension

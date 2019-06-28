@@ -1,0 +1,26 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## ------------------------------------------------------------
+
+reference:
+
+## ------------------------------------------------------------
+## Tokens
+## ------------------------------------------------------------
+
+  - title: Tokens
+    url: "/tokens"
+    children:
+      - title: Access Token
+        url: /tokens/overview-access-tokens
+        children:
+          - title: Why You Should Always Use Access Tokens to Secure an API
+            url: /api-auth/why-use-access-tokens-to-secure-apis
+
+      - title: ID Token
+        url: /tokens/id-token
+      
+      - title: Refresh Token
+        url: /tokens/refresh-token/current
