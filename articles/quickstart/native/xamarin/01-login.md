@@ -39,6 +39,12 @@ Since callback URLs can be manipulated, you will need to add your application's 
 
 Ensure that the Callback URL is in lowercase.
 
+<%= include('../../../_includes/_logout_url') %>
+
+::: note
+If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to whitelist in the Allowed Logout URLs field is the same as the callback URL.
+:::
+
 ## Install Dependencies
 
 ${snippet(meta.snippets.dependencies)}
@@ -203,4 +209,12 @@ if (!loginResult.IsError)
         Debug.WriteLine($"{claim.Type} = {claim.Value}");
     }
 }
+```
+
+## Logout
+
+To log the user out call the `LogoutAsync` method.
+
+```csharp
+BrowserResultType browserResult = await client.LogoutAsync();
 ```
