@@ -1,0 +1,26 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## ------------------------------------------------------------
+
+articles:
+
+## ------------------------------------------------------------
+## About Auth0
+## ------------------------------------------------------------
+
+  - title: About Auth0
+    url: "/guides-tutorials/about-auth0"
+    children:
+      - title: Overview
+        url: "/guides-tutorials/about-auth0/overview"
+      
+      - title: The Basics
+        url: "/guides-tutorials/about-auth0/the-basics"
+      
+      - title: Auth0 & Data Privacy
+        url: "/guides-tutorials/about-auth0/auth0-and-data-privacy"
+
+      - title: Change Log
+        url: "https://auth0.com/changelog"

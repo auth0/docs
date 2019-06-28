@@ -1,14 +1,10 @@
 ---
 title: Auth0 Overview
 description: Learn what Auth0 is and how you can use it
-toc: true
 topics:
   - auth0-101
   - auth0-overview
 contentType: concept
-useCase:
-  - strategize
-  - get-started
 ---
 # Auth0 Overview
 

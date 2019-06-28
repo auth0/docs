@@ -1,0 +1,42 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## ------------------------------------------------------------
+
+articles:
+
+## ------------------------------------------------------------
+## Getting Started
+## ------------------------------------------------------------
+
+  - title: Getting Started
+    url: "/guides-tutorials/getting-started"
+    children:
+
+      - title: Create a Tenant
+        url: "/guides-tutorials/getting-started/create-tenant"
+      
+      - title: Set Up An App
+        url: "/guides-tutorials/getting-started/set-up-app"
+        children:
+
+          - title: Regular Web App
+            url: "/guides-tutorials/getting-started/register-app-regular-web"
+
+          - title: Native App
+            url: "/guides-tutorials/getting-started/register-app-native"
+
+          - title: Single-Page App
+            url: "/guides-tutorials/getting-started/register-app-spa"
+
+          - title: Backend/Service
+            url: "/guides-tutorials/getting-started/register-app-m2m"
+
+      - title: Set Up an API
+        url: "/guides-tutorials/getting-started/set-up-api"
+        children:
+
+          - title: Set Up Multiple Environments
+            url: "/guides-tutorials/getting-started/setting-up-env"
+            hidden: true
