@@ -45,7 +45,7 @@ To provide the values for `clientID`, `callbackUrl`, and `domain`, create a new 
 
 ```json
 {
-  "domain": "${account.tenant}",
+  "domain": "${account.namespace}",
   "clientId": "${account.clientId}"
 }
 ```

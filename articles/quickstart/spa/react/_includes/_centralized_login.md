@@ -217,7 +217,7 @@ Next, create a new file `auth_config.json` in the `src` folder, and populate it 
 
 ```json
 {
-  "domain": "${account.tenant}",
+  "domain": "${account.namespace}",
   "clientId": "${account.clientId}"
 }
 ```
