@@ -44,7 +44,7 @@ articles:
         hidden: true
 
       - title: AD/LDAP Connector Health Monitor
-        url: /guides-tutorials/monitor/adldap-connector
+        url: /guides-tutorials/extend-integrate/extensions/adldap-connector
         hidden: true
 
       - title: Send Events to Keen

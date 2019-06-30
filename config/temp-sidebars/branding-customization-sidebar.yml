@@ -1,0 +1,53 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## ------------------------------------------------------------
+
+articles:
+
+## ------------------------------------------------------------
+## Branding & Customization
+## ------------------------------------------------------------
+
+  - title: Branding & Customization
+    url: "/guides-tutorials/branding-customization"
+    children:
+      - title: Custom Domains
+        url: /guides-tutorials/branding-customization/custom-domains
+        children:
+          - title: Custom Domains with Self-Managed Certificates
+            url: /guides-tutorials/branding-customization/custom-domains/self-managed-certificates
+      
+      - title: Login Pages
+        url: /test
+        children:
+          - title: Universal Login - Advanced Customization
+            url: /universal-login/advanced-customization
+
+          - title: Signup
+            url: /libraries/custom-signup
+
+          - title: Customize Error Pages
+            url: /universal-login/custom-error-pages
+
+      - title: Email
+        url: /guides-tutorials/branding-customization/email/templates
+        children:
+          - title: Email Template Syntax
+            url: /guides-tutorials/branding-customization/email/liquid-syntax
+
+          - title: Blocked Account Emails
+            url: /anomaly-detection/guides/customize-blocked-account-emails
+      
+      - title: SMS Messages
+        url: /multifactor-authentication/sms-templates
+
+      - title: Consent Prompt
+        url: /scopes/current/guides/customize-consent-prompt
+
+      - title: Internationalization
+        url: /guides-tutorials/branding-customization/i18n
+
+
+

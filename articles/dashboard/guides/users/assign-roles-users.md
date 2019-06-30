@@ -18,9 +18,9 @@ useCase:
 
 This guide will show you how to assign <dfn data-key="role">[roles](/authorization/concepts/rbac)</dfn> to a user using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/users/assign-roles-users). The assigned roles can be used with the API Authorization Core feature set.
 
-<%= include('../../../authorization/_includes/_enable-authz-core') %>
+<%= include('../../../guides-tutorials/authorization/_includes/_enable-authz-core') %>
 
-<%= include('../../../authorization/_includes/_predefine-roles') %>
+<%= include('../../../guides-tutorials/authorization/_includes/_predefine-roles') %>
 
 1. Navigate to the [Users & Roles > Users](${manage_url}/#/users) page in the [Auth0 Dashboard](${manage_url}/). 
 

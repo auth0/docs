@@ -211,6 +211,103 @@ module.exports = [
         to: '/guides-tutorials/deploy/deploy-cli'
     },
 
+    // 
+    // Authorization aliases 
+    // 
+    {
+        from: '/authorization',
+        to: '/guides-tutorials/authorization'
+    },
+    {
+        from: '/api-auth/tutorials/nonce',
+        to: '/guides-tutorials/flows/mitigate-replay-attacks'
+    },
+    {
+        from: '/authorization/concepts',
+        to: '/guides-tutorials/authorization/concepts'
+    },
+    {
+        from: '/authorization/guides',
+        to: '/guides-tutorials/authorization/guides'
+    },
+
+    // 
+    // Extend & Integrate aliases 
+    // 
+    {
+        from: '/addons',
+        to: '/guides-tutorials/extend-integrate/addons'
+    },
+    {
+        from: '/hooks',
+        to: '/guides-tutorials/extend-integrate/hooks'
+    },
+    {
+        from: '/rules',
+        to: '/guides-tutorials/extend-integrate/rules'
+    },
+    {
+        from: '/extensions',
+        to: '/guides-tutorials/extend-integrate/extensions'
+    },
+    {
+        from: '/integrations/sso',
+        to: '/guides-tutorials/extend-integrate/integrations/sso'
+    },
+    {
+        from: '/integrations/marketing',
+        to: '/guides-tutorials/extend-integrate/integrations/marketing'
+    },
+    {
+        from: '/analytics',
+        to: '/guides-tutorials/extend-integrate/integrations/analytics'
+    },
+    {
+        from: '/extensions/user-import-export',
+        to:   '/guides-tutorials/extend-integrate/extensions/user-import-export'
+    },
+    {
+        from: '/extensions/account-link',
+        to:   '/guides-tutorials/extend-integrate/extensions/account-link'
+    },
+
+    // 
+    // Branding & Customization aliases 
+    // 
+    {
+        from: '/custom-domains',
+        to: '/guides-tutorials/branding-customization/custom-domains'
+    },
+    {
+        from: '/email',
+        to: '/guides-tutorials/branding-customization/email'
+    },
+    {
+        from: '/i18n',
+        to: '/guides-tutorials/branding-customization/i18n'
+    },
+    // 
+    // Connections aliases 
+    // 
+    {
+        from: '/custom-domains',
+        to: '/guides-tutorials/branding-customization/custom-domains'
+    },
+    {
+        from: '/email',
+        to: '/guides-tutorials/branding-customization/email'
+    },
+    {
+        from: '/multifactor-authentication/sms-templates',
+        to: '/guides-tutorials/branding-customization/multifactor-authentication/sms-templates'
+    },
+    {
+        from: '/i18n',
+        to: '/guides-tutorials/branding-customization/i18n'
+    },
+
+
+
 
     // 
     // Manage Users Aliases
@@ -236,10 +333,6 @@ module.exports = [
         to:   '/guides-tutorials/manage-users/manage-users-using-the-management-api'
     },
     {
-        from: '/extensions/account-link',
-        to:   '/guides-tutorials/manage-users/account-link'
-    },
-    {
         from: '/security/blacklisting-attributes',
         to:   '/guides-tutorials/manage-users/blacklisting-attributes'
     },
@@ -262,10 +355,6 @@ module.exports = [
     {
         from: '/users/guides/bulk-user-exports',
         to:   '/guides-tutorials/manage-users/bulk-user-exports'
-    },
-    {
-        from: '/extensions/user-import-export',
-        to:   '/guides-tutorials/manage-users/user-import-export'
     },
     {
         from: '/users/references/user-migration-scenarios',

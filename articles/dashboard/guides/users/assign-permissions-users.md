@@ -22,9 +22,9 @@ This guide will show you how to assign [permissions](/authorization/concepts/rba
 Adding permissions directly to a user circumvents the benefits of [role-based access control (RBAC)](/authorization/concepts/rbac) and is not typically recommended.
 :::
 
-<%= include('../../../authorization/_includes/_enable-authz-core') %>
+<%= include('../../../guides-tutorials/authorization/_includes/_enable-authz-core') %>
 
-<%= include('../../../authorization/_includes/_predefine-permissions') %>
+<%= include('../../../guides-tutorials/authorization/_includes/_predefine-permissions') %>
 
 1. Navigate to the [Users & Roles > Users](${manage_url}/#/users) page in the [Auth0 Dashboard](${manage_url}/). 
 

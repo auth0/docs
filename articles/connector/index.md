@@ -47,7 +47,7 @@ useCase:
 ## Monitoring & Troubleshooting
 
 <%= include('../_includes/_topic-links', { links: [
-  'connector/scom-monitoring',
-  'extensions/adldap-connector',
-  'connector/troubleshooting'
+  'guides-tutorials/monitor/scom-adldap-connector',
+  'guides-tutorials/extend-integrate/extensions/adldap-connector',
+  'guides-tutorials/troubleshoot/connector'
 ] }) %>

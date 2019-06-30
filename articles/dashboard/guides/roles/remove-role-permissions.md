@@ -17,7 +17,7 @@ useCase:
 
 This guide will show you how to remove the [permissions](/authorization/concepts/rbac) assigned to a <dfn data-key="role">role</dfn> using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/roles/remove-role-permissions). The assigned permissions and roles are used with the API Authorization Core feature set.
 
-<%= include('../../../authorization/_includes/_enable-authz-core') %>
+<%= include('../../../guides-tutorials/authorization/_includes/_enable-authz-core') %>
 
 1. Navigate to the [Users & Roles > Roles](${manage_url}/#/roles) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the role to view.
 

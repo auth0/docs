@@ -1,0 +1,23 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## ------------------------------------------------------------
+
+reference:
+
+## ------------------------------------------------------------
+## Authentication & Authorization
+## ------------------------------------------------------------
+
+  - title: Authentication & Authorization
+    url: "/"
+    children:
+      - title: What's Authentication?
+        url: /
+      
+      - title: What's Authorization?
+        url: /
+
+      - title: Authentication vs. Authorization
+        url: /

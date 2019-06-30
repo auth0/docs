@@ -32,7 +32,7 @@ articles:
         url: "/guides-tutorials/manage-users/manage-users-using-the-management-api"
       
       - title: Link User Accounts
-        url: "/guides-tutorials/manage-users/account-link"
+        url: "/guides-tutorials/extend-integrate/extensions/account-link"
 
       - title: Blacklist User Attributes
         url: "/guides-tutorials/manage-users/blacklisting-attributes"
@@ -54,7 +54,7 @@ articles:
           url: "/guides-tutorials/manage-users/bulk-user-exports"
 
         - title: User Import/Export Extension
-          url: "/guides-tutorials/manage-users/user-import-export"
+          url: "/guides-tutorials/extend-integrate/extensions/user-import-export"
 
         - title: Examples
           url: "/guides-tutorials/manage-users/user-migration-scenarios"

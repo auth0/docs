@@ -1,0 +1,47 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## ------------------------------------------------------------
+
+articles:
+
+## ------------------------------------------------------------
+## Connections
+## ------------------------------------------------------------
+
+  - title: Connections
+    url: "/connections"
+    children:
+      - title: Overview
+        url: /connections
+      
+      - title: Identity Providers
+        url: /identityproviders
+        children:     
+        - title: Social
+          url: /identityproviders#social
+
+        - title: Enterprise
+          url: /identityproviders#enterprise
+
+        - title: Legal
+          url: /identityproviders#legal
+
+        - title: Pass extra parameters
+          url: /connections/pass-parameters-to-idps
+      
+      - title: Database
+        url: /connections/database
+        children:
+          - title: Auth0 User Store
+            url: (database#using-the-auth0-user-store)
+
+          - title: Your Database
+            url: /database/custom-db
+
+      - title: SAML
+        url: /saml
+
+      - title: Passwordless
+        url: /connections/passwordless

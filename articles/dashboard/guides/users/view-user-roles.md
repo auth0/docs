@@ -19,7 +19,7 @@ useCase:
 
 This guide will show you how to view the <dfn data-key="role">[roles](/authorization/concepts/rbac)</dfn> assigned to a user using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/users/view-user-roles). The assigned roles are used with the API Authorization Core feature set.
 
-<%= include('../../../authorization/_includes/_enable-authz-core') %>
+<%= include('../../../guides-tutorials/authorization/_includes/_enable-authz-core') %>
 
 1. Navigate to the [Users & Roles > Users](${manage_url}/#/users) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the user to view.
 
