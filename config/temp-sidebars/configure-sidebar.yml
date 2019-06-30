@@ -1,0 +1,25 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## 
+
+articles:
+
+## ------------------------------------------------------------
+## CONFIGURATION
+## ------------------------------------------------------------
+  - title: Configuration
+    url: /guides-tutorials/configure
+    children:
+
+      - title: Tenant
+        url: /guides-tutorials/configure/tenant
+        children:
+
+          - title: Settings Dashboard
+            url: /guides-tutorials/configure/tenant/settings-dashboard
+
+          - title: TITLE
+            url: /guides-tutorials/configure/tenant/
+            hidden: true

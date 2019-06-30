@@ -275,6 +275,40 @@ module.exports = [
         from: '/users/search/v3',
         to:   '/guides-tutorials/manage-users/search/v3'
     },
+
+    //
+    // Configure Aliases
+    //
+    {
+        from: '/dashboard/dashboard-tenant-settings',
+        to:   '/guides-tutorials/configure/tenants/settings-dashboard', 
+    },
+    {
+        from: '/dashboard/manage-dashboard-admins',
+        to:   '/guides-tutorials/configure/tenants/dashboard-admins', 
+    },
+    {
+        from: '/dashboard/guides/tenants/configure-session-lifetime-settings',
+        to:   '/guides-tutorials/configure/tenants/session-lifetime', 
+    },
+    {
+        from: '/dashboard/guides/tenants/enable-sso-tenant',
+        to:   '/guides-tutorials/configure/tenants/enable-sso', 
+    },
+    {
+        from: '/best-practices/tenant-settings',
+        to:   '/guides-tutorials/configure/tenants/recommended-settings',
+    },
+    {
+        from: '/dashboard/guides/tenants/configure-device-user-code-settings',
+        to:   '/guides-tutorials/configure/tenants/device-user-code-settings',
+    },
+    {
+        from: '/dashboard/guides/tenants/create-multiple-tenants',
+        to:   '/guides-tutorials/configure/tenants/create-multiple-tenants',
+    },
+    
+
     // 
     // References: Grant Types
     // 
