@@ -1,10 +1,11 @@
 ---
-description: What an ID Token is and how you can add custom claims to make access control decisions for your users.
+description: How to get and validate ID Tokens before storing and using them.
 classes: video-page
 ---
 # Authorize: ID Tokens and Access Control
 
-Learn about using Auth0 authorization via the use of ID Tokens and understand what an ID Token is and how to add custom claims to customize them and make access control decisions for your users.
+Learn how to get and validate an ID Token in JSON Web Token (JWT) format.
+
 
 <div class="video-wrapper" data-video="hhzmeqdyqr"></div>
 
