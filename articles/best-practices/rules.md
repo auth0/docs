@@ -66,7 +66,7 @@ The Auth0 rule ecosystem supports the notion of environment variables, accessed 
 
 It can also be used to support whatever [Software Development Life Cycle (SDLC)](/dev-lifecycle/setting-up-env) best practice strategies you employ, by allowing you to define variables that have tenant specific values. This mitigates hard code values in a rule which may change depending upon which tenant is executing it.   
 
-### 'global' object
+### `global` object
 
 Webtask containers also provide the global object, which can be accessed across all rules executing within a Webtask container instance. The global object acts as a global variable and can be used to cache information, or even define to functions, that can be used across all rules that run.    
 
@@ -94,7 +94,7 @@ Rules can run more than once when a pipeline is executed, and this depends on th
    };
 ```
 
-### 'auth0' object
+### `auth0` object
 
 The `auth0` object is an instance of the [Management API Client](https://github.com/auth0/node-auth0#management-api-client) (defined in the [node-auth0](https://github.com/auth0/node-auth0) Node.js client library), and provides limited access to the [Auth0 Management API](/api/management/v2). It is primarily used for [updating metadata](/rules/guides/metadata#update-metadata) associated with the [`user`](#user-object) object from within a rule. 
 
