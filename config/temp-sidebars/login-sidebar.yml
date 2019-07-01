@@ -45,7 +45,7 @@ articles:
         url: /guides-tutorials/login/universal-vs-embedded
 
       - title: Embedded Login
-        url: /guides-tutorials/login/universal-login/new
+        url: /guides-tutorials/login/universal-login#embedded-login
         children:
 
           - title: Lock for Web
