@@ -11,7 +11,7 @@ useCase:
 ---
 # Migrate from Search v2 to v3
 
-The user search engine v2 has been deprecated as of **June 6th 2018**. We highly recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible. 
+User search v2 has been end-of-life as of **June 30th 2019**. We highly recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible.
 
 ## Migration considerations
 
