@@ -6,7 +6,7 @@ classes: video-page
 
 Learn about using Auth0 authorization via the use of ID Tokens and understand what an ID Token is and how to add custom claims to customize them and make access control decisions for your users.
 
-<div class="video-wrapper" data-video="tbd"></div>
+<div class="video-wrapper" data-video="hhzmeqdyqr"></div>
 
 ## Video transcript
 
@@ -82,7 +82,7 @@ Learn about using Auth0 authorization via the use of ID Tokens and understand wh
   To verify the ID Token’s signature, you will need to base64url-decode the signature. You can check the signing algorithm and confirm that the token is correctly signed using the proper key.  We recommend you use an SDK to validate the signature, and https://jwt.io provides a list of SDKs that can be used for this purpose.
 </details>
 
-</details>
+<details>
   <summary>Summary</summary>
 
   Now that you have validated that the token is legitimate, you can use the custom claims you added to the token combined with your application data to perform fine-grained access control. 
@@ -105,7 +105,7 @@ Learn about using Auth0 authorization via the use of ID Tokens and understand wh
     <span class="video-time"><i class="icon icon-budicon-494"></i>3:15</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/07_01-brand-how-it-works">Brand: How It Works</a>
-    <p>Why your branding is important for your users how it works with Auth0. </p>
+    <p>Why your branding is important for your users and how it works with Auth0. </p>
   </li>
 
   <li>

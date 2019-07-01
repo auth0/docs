@@ -6,7 +6,7 @@ classes: video-page
 
 See an example using the Auth0 Quickstart for a SPA implementation and learn how Auth0's Universal Login feature does most of the authentication work for you. Understand how security and user experience work with the authentication process to determine how to plan your application integration to Auth0. See how Single-Sign On works between applications when you use Universal Login. 
 
-<div class="video-wrapper" data-video="tbd"></div>
+<div class="video-wrapper" data-video="ayvvah2ov1"></div>
 
 ## Video transcript
 
@@ -97,7 +97,7 @@ See an example using the Auth0 Quickstart for a SPA implementation and learn how
     <span class="video-time"><i class="icon icon-budicon-494"></i>3:15</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/07_01-brand-how-it-works">Brand: How It Works</a>
-    <p>Why your branding is important for your users how it works with Auth0. </p>
+    <p>Why your branding is important for your users and how it works with Auth0. </p>
   </li>
 
   <li>

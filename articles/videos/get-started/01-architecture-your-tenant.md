@@ -132,7 +132,7 @@ Learn what an Auth0 tenant is and how to configure it in the Auth0 Dashboard. Un
     <span class="video-time"><i class="icon icon-budicon-494"></i>3:15</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/07_01-brand-how-it-works">Brand: How It Works</a>
-    <p>Why your branding is important for your users how it works with Auth0.  </p>
+    <p>Why your branding is important for your users and how it works with Auth0.  </p>
   </li>
 
   <li>
