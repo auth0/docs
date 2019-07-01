@@ -83,7 +83,7 @@ You'll use the `WebAuthProvider#init` method. If no connection name is given, th
 private void login() {
     Auth0 auth0 = new Auth0(this);
     auth0.setOIDCConformant(true);
-    WebAuthProvider.init(auth0)
+    WebAuthProvider.login(auth0)
         .withScheme("demo")
         .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
         .withConnection("twitter")
