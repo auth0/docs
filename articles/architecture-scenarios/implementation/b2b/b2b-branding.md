@@ -1,6 +1,6 @@
 ---
 title: Branding
-description: Understand how you can configure Auth0 items to reflect your brand and desired user experience
+description: How to configure Auth0 items to reflect your brand and desired user experience.
 toc: true
 topics:
     - b2b
@@ -52,7 +52,7 @@ If your organization users will all be isolated from each other, than it’s imp
 
 <%= include('../../_includes/_branding/_guardian.md', { platform: 'b2b' }) %>
 
-## Planning
+## Project Planning Guide
 
 <%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 

@@ -15,13 +15,19 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-<%= include('../_includes/_getting_started', { library: 'Windows Universal') %>
+<%= include('../_includes/_getting_started', { library: 'Windows Universal' }) %>
 
 <%= include('../../../_includes/_callback_url') %>
 
 For UWP applications, the callback URL needs to be in the format **ms-app://SID**, where **SID** is the **Package SID** for your application. Assuming you have associated your application with and application on the Windows Store, you can go to the Windows Developer Centre, go to the settings for your application, and then go to the App management > App identity section, where you will see the **Package SID** listed.
 
 Alternatively - or if you have not associated your application with the Store yet - you can obtain the value by calling the `Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` method. So for example, in the `OnLaunched` method of your application, you can add the following line of code:
+
+<%= include('../../../_includes/_logout_url') %>
+
+::: note
+If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to whitelist in the Allowed Logout URLs field is the same as the callback URL.
+:::
 
 ```csharp
 // App.xaml.cs
@@ -130,4 +136,14 @@ if (!loginResult.IsError)
         Debug.WriteLine($"{claim.Type} = {claim.Value}");
     }
 }
+```
+
+## Logout
+
+To log the user out call the `LogoutAsync` method.
+
+```csharp
+// MainPage.xaml.cs
+
+await client.LogoutAsync();
 ```

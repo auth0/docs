@@ -1,10 +1,10 @@
-In order to provide services to your users, you must be able to identify who those users are. This process is called User  Authentication. There are a number of ways to perform authentication of a user - via social media accounts, username and password, passwordless - and it's often recommended that you go beyond a first factor for authenticating the user by enabling Multi-factor Authentication.
+In order to provide services to your users, you must be able to identify who those users are. This process is called User  Authentication. There are a number of ways to perform authentication of a user - via social media accounts, username and password, <dfn data-key="passwordless">passwordless</dfn> - and it's often recommended that you go beyond a first factor for authenticating the user by enabling multi-factor authentication (MFA).
 
 ::: panel Best Practice
 It's important to consider both security and user experience when designing how you will authenticate your users. Providing for multiple primary factors, and/or enforcing more than one factor during authentication, are ways that you can provide both.
 :::
 
-It’s important to consider both security and user experience when designing how you will authenticate your users, and so there are a number of things you will want to consider when looking at functionality and workflow:
+There are a number of things you will want to consider when looking at functionality and workflow:
 
 * Where will users enter their credentials?
 * How will you keep user credentials safe?
@@ -18,7 +18,7 @@ It’s important to consider both security and user experience when designing ho
 <% if (platform === "b2c") { %>
 * Can users log in using their existing social (e.g., Facebook or Google) accounts?
 <%  } %>
-* Do you need to provide multi-factor authentication (MFA)?
+* Do you need to provide multi-factor authentication?
 * What do you do if you have a service that doesn't have a way for the user to log in ahead of time?
 * Can you pass the same user access token from one API to another?
 <% if (platform === "b2b") { %>
