@@ -57,3 +57,6 @@ If you select the New Universal Login Experience, you can also configure the fav
 In addition to configuring Universal Login for your tenant's applications, you will also need to set up a connection(s) and set up your application in Auth0's dashboard. You will also need to configure your application's code to call Auth0's `/authorize` endpoint in order to trigger Universal Login, and then to deal with the response.
 
 For step by step instructions on setting up your application to use Universal Login, check out our [Quickstart guides](/quickstarts).
+
+## Embedded Login
+

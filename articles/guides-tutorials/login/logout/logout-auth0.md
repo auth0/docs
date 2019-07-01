@@ -10,7 +10,7 @@ useCase:
 
 # Log Users Out of Auth0
 
-<%= include('../_includes/_logout-endpoint') %>
+<%= include('./_includes/_logout-endpoint') %>
 
 To force a logout, redirect the user to the following URL:
 
