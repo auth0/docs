@@ -355,6 +355,111 @@ In the example above, a `DEBUG` environment configuration variable has been crea
 
 The example (above) also demostrates declaration of a named funtion. For convenience, providing a function name - using some compact and unique naming convention, say - can assist with diagnostic analysis. Anonymous functions make it hard in debugging situations to interpret the call-stack generated as a result of any [exceptional error](#exceptions) condition, and providing a unique function name addresses this.
 
-###Static analysis
+### Static analysis
 The rule editor in the Auth0 dashboard provides some rudimentary syntax checking and analysis of rule semantics. However, no provision is made for more complex static code analysis, such as overwrite detection, loop detection, vulnerability detection or the like. However, the use of third party tooling - such as [JSHint](https://jshint.com/about/), [SonarJS](https://www.sonarsource.com/products/codeanalyzers/sonarjs.html) or [Coverity](https://www.synopsys.com/software-integrity/security-testing/static-analysis-sast.html) - could be leveraged, in conjunction with rule [testing](#testing), as part of [deployment](#deployment) automation.
 
+## Testing
+
+The Auth0 Dashboard provides the facility to [`TRY`](/rules/guides/debug) a rule for the purpose of testing and debugging. This facility allows a mock [`user`](#user-object) and [`context`](#context-object) object to be defined, which is then passed to the rule as part of its execution; any resulting output from the rule (e.g. from console logging) being displayed upon completion. Whilst this provides an immediate at-a-glance way to unit test a rule, it is very much a manual approach, and one which is unable to leverage the use of automated testing tools such as [Mocha](https://mochajs.org/) or [rewire](https://www.npmjs.com/package/rewire), to support automation as part of any Continuous Integration or Continuous Deployment (a.k.a. CI/CD environment; see the [deployment](#deployment) section below for more details).
+
+::: Best practice
+As a best practice, and as part of the recommended [support for the Software Development Life Cycle](https://auth0.com/docs/architecture-scenarios/implementation/b2c/b2c-architecture#sdlc-support), the use of a seperate test Tenant in Auth0 should be employed in order to test any rule/rule changes before deploying to production.
+:::
+
+### Automation
+With the help of a little boilerplate however, it’s possible to implement so that a rule can be deployed and executed in an Auth0 Tenant *and*, without modification, be consumed in any Continuous Integration/Continuous Deployment (CI/CD) automated (unit) testing environment. 
+
+```js
+  const vm = require('vm');
+  const fs = require('fs');
+  var user = {
+      "name":        "jdoe@foobar.com",
+      "email":       "jdoe@foobar.com",
+      "user_id":     "auth0|0123456789",
+          .
+  .
+    };
+  var context = {
+      "clientID":            "123456789",
+      "clientName":          "MyWebApp",
+      "connection":          "MyDbConn",
+      "connectionStrategy":  "auth0",
+      "protocol":            "oidc-basic-profile",
+          .
+          .
+    };
+
+  global.configuration = {
+    DEBUG: true    
+  };
+
+  vm.runInThisContext(
+      "(()=>{return "+ 
+  fs.readFileSync('./rules/Normalized Profile Claims.js')+ "})();", {
+  // filename for stack traces
+          filename: 'Normalized Profile Claims.js',     
+          displayErrors: true
+      }
+  )(
+    user,
+    context,
+    function callback() {
+      console.log("Complete");
+    }
+  );
+```
+
+As shown in the example above, some relatively straightforward testing can be implemented (in an independent node module) by utilizing the Node.js [VM](https://www.w3schools.com/nodejs/ref_vm.asp) to execute the rule to be tested. In this case a rule named Normalized Profile Claims is read from a file, and the boilerplate added around the rule (JavaScript) code prior to executing it (the boilerplate being in the strings that both prefix and suffix the filesystem call to [read the file](https://nodejs.org/api/fs.html#fs_fs_readfilesync_path_options) containing the rule code). 
+
+::: note
+The options object passed on the call to `runInThisContext` provides information that can be used to assist with [debugging](#debugging) in the case where any exceptional error condition(s) may arise. Please See the Node.js [documentation](https://node.readthedocs.io/en/stable/api/vm/) for further information regarding this function call.
+:::
+
+The first two objects passed to the rule during testing represent the [`user`](#user-object) and [`context`](#context-object), and these can be mocked in a fashion similar to that employed in the Auth0 Dashboard `TRY` functionality. The [`callback`](#callback-function) function, supplied as the third parameter, can be implemented to simulate pipeline continuation, subsequently performing execution of the next rule in the [order](#order) required. 
+
+::: Best practice
+The `callback` function supplied can be used to ensure execution of callback is performed *at least* once by it (the function) executing test of the next rule in the chain. Implementing testing in the supplied function to also ensure that multiple execution of the callback is not performed by a rule is also a recommended best practice.
+:::
+
+In addition, the (Node.js) `global` object can be used to provide both the [configuration](#environment) object, and also an instance of the [`auth0`](#auth0-object) object if required. In the sample above, a global `configuration` object in line with recommended practices to assist with [debugging](#debugging) (described in the section above) has been defined.
+
+The sample above also makes use of the file system directory structure provided by Auth0 [Deploy CLI](/extensions/deploy-cli) - the tooling which can assist with rule [deployment](#deployment), as described in the section below.  
+
+## Deployment
+Coding a rule within the Auth0 Dashboard rule editor is a great way to implement and test whilst still in the development stage. However, when it comes time to deploy into automated test and/or production environments, a more automated mechanism is required; copy and pasting code between Auth0 tenants is not a satisfactory method to employ.
+
+Out of the box, Auth0 provides a number of facilities for automated deployment of rule extensibility assets between Auth0 tenant environments. The Auth0 [GitHub](/extensions/github-deploy), [GitLab](/extensions/gitlab-deploy) and [Bitbucket](/extensions/bitbucket-deploy) extensions provide the ability to update rule assets from a respective 3rd party version control system - both manually, and in many instances automatically (i.e. when a change in the version control system is detected) too.
+
+In addition, the Auth0 [Deploy CLI](/extensions/deploy-cli) tool can be used to automate deployment between Auth0 tenants. Deploy CLI works with files stored in the file system together with the Auth0 Management API, and provides capability to allow the export of rule assets from an Auth0 tenant, as well as import of them into an Auth0 tenant too. Further the tool provides for programmatic control over rule ordering and rule environment [configuration](#environment), as part of deployment automation. In many ways, the Deploy CLI is like a Swiss Army Knife when it comes to rule extensibility deployment in Auth0.  
+
+::: Best practice
+As a best practice, use of the Auth0 [Deploy CLI](/extensions/deploy-cli) tool should be preferred in almost all cases involving deployment to test or production environments. Whilst the extensions can provide automated detection of changes deployed to the respective version control system, the Deploy CLI tool allows precise control of what’s deployed, when, where and how. 
+:::
+
+### Versioning
+There is no version management when it comes to rules in Auth0: changes made to a rule deployed to an Auth0 tenant will be made live immediately, as any written change instantly  overwrites what's already there. It's therefore recommended that (a) use of version control - such as Git via GitHub, or the like - is employed to provide change management capability, and that (b) use of a seperate [Test Tenant](/dev-lifecycle/setting-up-env) in Auth0 is employed as part of testing strategy, in order to provide safe testing of any rule/rule changes before deploying to production.  
+
+## Performance
+
+Rules execute as part of a pipeline where artifacts for authenticity are generated, as described in the [Anatomy](#anatomy) section above. As such, an enabled rule will execute for every login operation (interactive or otherwise), every silent authentication, and every time an access token is generated for an API call. This means that even in small scale deployments performance can be a concern, which will only be exacerbated as the scale of deployment increases.
+
+### Exiting early
+For optimal performance, prefer to write rules that complete as soon as possible. For example, if a rule has three checks to decide if it should run, use the first check to eliminate the majority of cases, followed by the check to eliminate the next largest set of cases, and so on and so forth. At the end of each check remember to execute the [callback](#callback-function) function, ideally combined with a (JavaScript) `return` in order to exit the (rule) function. 
+
+### Minimizing API requests
+Calls to APIs, especially calls to 3rd party APIs, can slow down login response time, and can cause rule timeout failures due to call latency - ultimately leading to authentication error situations. We recommended keep API requests to a minimum wherever possible within a rule, and to [avoid excessive calls to paid services](#limiting-calls-to-paid-services). We also recommend you avoid potential security exposure by [limiting what is sent]() to any API - 3rd party or otherwise. 
+
+::: Best practice
+The [global](#global-object) object can be used to cache information from API calls, which can subsequently be used across all rules that execute in the pipeline. Prefer to use this to store information instead of repeatedly calling an API. 
+:::
+
+#### Limiting calls to paid services
+If you have rules that call a paid services - such as sending SMS messages via Twilio - make sure that you only use the service when necessary. This not only provides performance enhancement but helps to avoid extra charges too. To help reduce calls to paid services:
+
+* Disallow public sign-ups to reduce the number of users who can sign up and trigger calls to paid services.
+* Ensure that a rule only gets triggered for an authorized subset of users, or other appropriate conditions. For example, you may want to add logic that checks if a user has a particular email domain, role/group, or subscription level before triggering the call to the paid service.
+
+#### Limiting calls to the Management API 
+Outside the use of the [auth0](#auth0-object) object, prefer to avoid calls to the Auth0 Management API. The Auth0 Management API is [rate limited](/policies/rate-limits#management-api-v2) - which will still be a consideration even when using the auth0 object too (so be sure to use it sparingly). In addition, Management API functions take varying degrees of time to perform so will incur varying degrees of latency; executing user search functions, for instance, should be kept to a minimum and performed only where absolutely necessary - even when executed via the `auth0` object.
+
+## Security
