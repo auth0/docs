@@ -44,6 +44,12 @@ You can find this at the top of your `AndroidManifest.xml` file located in the `
     package="com.auth0samples"
 ```
 
+<%= include('../../../_includes/_logout_url') %>
+
+::: note
+If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to whitelist in the Allowed Logout URLs field is the same as the callback URL.
+:::
+
 ## Install Dependencies 
 
 How to install the React Native Auth0 module.
@@ -195,3 +201,32 @@ Upon successful authentication the user's `credentials` will be returned, contai
 ::: note
 For more information on the `accessToken`, refer to [Access Token](/tokens/overview-access-tokens).
 :::
+
+### Log the User Out
+
+To log the user out, you remove the Access Token from state, and then log the user out from Auth0 authorization server.
+
+```js
+if (Platform.OS === 'android') {
+    this.setState({ accessToken: null });
+    let params = {
+        clientId: credentials.clientId,
+        returnTo: `com.auth0samples://${credentials.domain}/android/com.auth0samples/callback`
+    };
+    let logoutUrl = auth0.auth.logoutUrl(params);
+    CustomTabs.openURL(logoutUrl)
+        .then((launched) => {
+            console.log(`Launched custom tabs: ${launched}`)
+        })
+        .catch(err => {
+            console.error(err)
+        });
+} else {
+    auth0.webAuth
+        .clearSession({})
+        .then(success => {
+            this.setState({ accessToken: null });
+        })
+        .catch(error => console.log(error));
+}
+```
