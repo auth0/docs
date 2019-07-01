@@ -1,0 +1,134 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## 
+
+articles:
+
+## ------------------------------------------------------------
+## LOGIN
+## ------------------------------------------------------------
+  - title: Login
+    url: /guides-tutorials/login
+    children:
+
+      - title: Overview
+        url: /guides-tutorials/login/overview
+
+      - title: Universal Login
+        url: /guides-tutorials/login/universal-login/new
+        children: 
+
+          - title: New Experience
+            url: /guides-tutorials/login/universal-login/new
+
+          - title: Classic Experience
+            url: /guides-tutorials/login/universal-login/new
+
+          - title: Password Reset
+            url: /guides-tutorials/login/universal-login/password-reset
+
+          - title: Guardian
+            url: /guides-tutorials/login/universal-login/guardian
+
+          - title: Error Pages
+            url: /guides-tutorials/login/universal-login/error-pages
+
+          - title: Default Login URL
+            url: /guides-tutorials/login/universal-login/default-login-url
+
+          - title: Version Control
+            url: /guides-tutorials/login/universal-login/version-control
+
+      - title: Universal vs Embedded Login
+        url: /guides-tutorials/login/universal-vs-embedded
+
+      - title: Embedded Login
+        url: /guides-tutorials/login/universal-login#embedded-login
+        children:
+
+          - title: Lock for Web
+            url: /libraries/lock
+
+          - title: Auth0.js
+            url: /libraries/auth0.js
+          
+          - title: Cross-Origin Authentication
+            url: /guides-tutorials/login/embedded/cross-origin-authentication
+
+      - title: Authentication Flows
+        url: /guides-tutorials/login/authentication-flows
+        children:
+
+            - title: Regular Web App
+              url: /guides-tutorials/login/authentication-flows/add-login-auth-code
+
+            - title: Single-Page App
+              url: /guides-tutorials/login/authentication-flows/add-login-implicit
+
+            - title: Native App
+              url: /guides-tutorials/login/authentication-flows/add-login-auth-code-pkce
+
+      - title: Multi-Factor Authentication
+        url: /guides-tutorials/login/multi-factor-authentication
+        children: 
+
+            - title: Overview
+              url: /guides-tutorials/login/multi-factor-authentication
+
+            - title: Factors
+              url: /guides-tutorials/login/multi-factor-authentication/factors
+              children: 
+
+                  - title: Push
+                    url: /guides-tutorials/login/multi-factor-authentication/factors/push
+
+                  - title: OTP
+                    url: /guides-tutorials/login/multi-factor-authentication/factors/otp
+
+                  - title: SMS
+                    url: /guides-tutorials/login/multi-factor-authentication/factors/sms
+
+                  - title: Duo
+                    url: /guides-tutorials/login/multi-factor-authentication/factors/duo
+
+                  - title: Email
+                    url: /guides-tutorials/login/multi-factor-authentication/factors/email
+
+            - title: Custom
+              url: /guides-tutorials/login/multi-factor-authentication/custom
+
+            - title: Step-Up
+              url: /guides-tutorials/login/multi-factor-authentication/step-up-authentication
+
+            - title: MFA API
+              url: /guides-tutorials/login/multi-factor-authentication/api
+
+            - title: Troubleshooting
+              url: /guides-tutorials/login/multi-factor-authentication/troubleshooting
+        
+        - title: Silent Authentication
+          url: /guides-tutorials/login/silent-authentication
+
+        - title: Redirect After Login
+          url: /guides-tutorials/login/redirect-users-after-login
+
+        - title: Logout
+          url: /guides-tutorials/login/logout
+          children: 
+
+              - title: Apps
+                url: /guides-tutorials/login/logout/logout-applications
+
+              - title: Auth0
+                url: /guides-tutorials/login/logout/logout-auth0
+
+              - title: Identity Providers
+                url: /guides-tutorials/login/logout/logout-idps
+
+              - title: SAML Identity Providers
+                url: /guides-tutorials/login/logout/logout-saml-idps
+
+              - title: Redirect After Logout
+                url: /guides-tutorials/login/logout/redirect-users-after-logout

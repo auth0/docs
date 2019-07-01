@@ -13,7 +13,7 @@ useCase:
 
 Enterprise users typically have <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> enabled for multiple applications (e.g., SharePoint, a few .NET applications, a few Java applications, Zendesk). In this case, when users sign out, often they must be signed out for all of their applications.
 
-<%= include('../_includes/_logout-endpoint') %>
+<%= include('./_includes/_logout-endpoint') %>
 
 Redirecting users to the logout endpoint **does not** cover the scenario where users need to be signed out of all of the applications they used. In the user's SSO session, Auth0 keeps track of each application the user signs in to. 
 
