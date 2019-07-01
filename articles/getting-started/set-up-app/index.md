@@ -14,8 +14,8 @@ useCase:
 Learn how to set up an app in the Auth0 Dashboard. You can set up the following app types: 
 
 <%= include('../../_includes/_topic-links', { links: [
-  'guides-tutorials/getting-started/register-app-regular-web',
-  'guides-tutorials/getting-started/register-app-native',
-  'guides-tutorials/getting-started/register-app-spa',
-  'guides-tutorials/getting-started/register-app-m2m',
+  '/getting-started/set-up-app/regular-web',
+  '/getting-started/set-up-app/native',
+  '/getting-started/set-up-app/spa',
+  '/getting-started/set-up-app/m2m',
 ] }) %>

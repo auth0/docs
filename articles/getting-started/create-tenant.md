@@ -27,4 +27,5 @@ Some characteristics:
 You can create additional tenants at any time. To do so, go to the upper-right corner of the Dashboard and click on your tenant name to display the pulldown menu. Click **Create Tenant**.
 
 ## Keep reading
-* [Set Up Multiple Environments](/guides-tutorials/getting-started/setting-up-env)
+
+* [Set Up Multiple Environments](/getting-started/setting-up-env)

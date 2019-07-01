@@ -23,15 +23,19 @@ Welcome! If you are new to Auth0, you are in the right place. Here we will cover
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/guides-tutorials/getting-started/create-tenant">Create a Tenant</a>
+    <i class="icon icon-budicon-715"></i><a href="/getting-started/create-tenant">Dashboard Overview</a>
+    <p>Learn the basics of the Auth0 Dashboard.</p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/getting-started/create-tenant">Create a Tenant</a>
     <p>Learn how to create a tenant in the Auth0 Dashboard.</p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/guides-tutorials/getting-started/set-up-app">Set Up an App</a>
+    <i class="icon icon-budicon-715"></i><a href="/getting-started/set-up-app">Set Up an App</a>
     <p>Learn how to set up an app in the Auth0 Dashboard.</p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/guides-tutorials/getting-started/set-up-api">Set Up an API</a>
+    <i class="icon icon-budicon-715"></i><a href="/getting-started/set-up-api">Set Up an API</a>
     <p>Learn how to set up an API in Auth0 Dashboard. </p>
   </li>
-  </ul>
+</ul>
