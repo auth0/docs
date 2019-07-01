@@ -13,13 +13,181 @@ articles:
     url: /guides-tutorials/configure
     children:
 
-      - title: Tenant
-        url: /guides-tutorials/configure/tenant
+      - title: Tenant Configuration
+        url: /guides-tutorials/configure/tenants
         children:
 
-          - title: Settings Dashboard
-            url: /guides-tutorials/configure/tenant/settings-dashboard
+          - title: Tenant Settings
+            url: /guides-tutorials/configure/tenants/settings
 
-          - title: TITLE
-            url: /guides-tutorials/configure/tenant/
+          - title: Manage Tenant Administrators
+            url: /guides-tutorials/configure/tenants/manage-dashboard-admins
+
+          - title: Configure Session Lifetime Settings
+            url: /guides-tutorials/configure/tenants/session-lifetime
+
+          - title: Enable SSO for Tenants
+            url: /guides-tutorials/configure/tenants/enable-sso
+
+          - title: Configure Device User Code Settings
+            url: /guides-tutorials/configure/tenants/device-user-code-settings
+
+          - title: Recommended Settings
+            url: /guides-tutorials/configure/tenants/recommended-settings
+
+          - title: Create Multiple Tenants
+            url: /guides-tutorials/configure/tenants/create-multiple-tenants
             hidden: true
+
+      - title: Application Configuration
+        url: /guides-tutorials/configure/applications
+        children:
+
+          - title: Application Settings
+            url: /guides-tutorials/configure/applications/settings
+
+          - title: Enable SSO for Applications
+            url: /guides-tutorials/configure/applications/enable-sso
+
+          - title: Update Grant Types
+            url: /guides-tutorials/configure/applications/update-grant-types
+
+          - title: Android App Links
+            url: /guides-tutorials/configure/applications/enable-android-app-links
+
+          - title: Apple Universal Links
+            url: /guides-tutorials/configure/applications/enable-universal-links
+
+          - title: Set Up Add-ons
+            url: /guides-tutorials/configure/applications/set-up-addons
+
+          - title: Remove Applications
+            url: /guides-tutorials/configure/applications/remove-app
+
+          - title: Check App Type
+            url: /guides-tutorials/configure/applications/view-app-type-confidential-public
+
+          - title: Rotate Client Secret
+            url: /guides-tutorials/configure/applications/rotate-client-secret
+
+          - title: Recommended Settings
+            url: /guides-tutorials/configure/applications/recommended-settings
+
+          - title: View Add-ons
+            url: /guides-tutorials/configure/applications/view-addons
+            hidden: true
+
+      - title: API Configuration
+        url: /guides-tutorials/configure/apis
+        children:
+
+          - title: API Settings
+            url: /guides-tutorials/configure/apis/settings
+
+          - title: Signing Algorithms
+            url: /guides-tutorials/configure/apis/signing-algorithms
+
+          - title: Represent Multiple APIs with a Single API
+            url: /guides-tutorials/configure/apis/represent-multiple-apis
+
+          - title: Enable Role-Based Access Control for APIs
+            url: /guides-tutorials/configure/apis/enable-rbac
+
+          - title: Add Permissions
+            url: /guides-tutorials/configure/apis/add-permissions
+
+          - title: Delete Permissions
+            url: /guides-tutorials/configure/apis/delete-permissions
+
+          - title: Dashboard Views for APIs
+            url: /guides-tutorials/configure/apis/views-apis
+
+      - title: Single Sign-On
+        url: /guides-tutorials/configure/sso
+        children:
+
+          - title: Single Sign-On with Auth0
+            url: /guides-tutorials/configure/sso/sso-auth0
+
+      - title: Anomaly Detection
+        url: /guides-tutorials/configure/anomaly-detection
+        children:
+
+          - title: Breached Password Security
+            url: /guides-tutorials/configure/anomaly-detection/breached-passwords
+
+          - title: Set Preferences
+            url: /guides-tutorials/configure/anomaly-detection/set-preferences
+
+          - title: Customize Emails
+            url: /guides-tutorials/configure/anomaly-detection/customize-blocked-account-emails
+
+          - title: Restrictions and Limitations
+            url: /guides-tutorials/configure/anomaly-detection/restrictions-limitations
+
+          - title: FAQs
+            url: /guides-tutorials/configure/anomaly-detection/faqs
+
+          - title: Enable and Disable Brute Force Protection
+            url: /guides-tutorials/configure/anomaly-detection/enable-disable-brute-force-protection
+            hidden: true
+
+          - title: Breached Password Detection Triggers
+            url: /guides-tutorials/configure/anomaly-detection/breached-password-detection-triggers-actions
+            hidden: true
+
+          - title: Brute-Force Protection Triggers
+            url: /guides-tutorials/configure/anomaly-detection/brute-force-protection-triggers-actions
+            hidden: true
+
+      - title: SAML Configuration
+        url: /guides-tutorials/configure/saml
+        children:
+
+          - title: Overview
+            url: /guides-tutorials/configure/saml/overview
+
+          - title: Configure Auth0 as a Service Provider
+            url: /guides-tutorials/configure/saml/auth0-as-service-provider
+
+          - title: Configure Auth0 as an Identity Provider
+            url: /guides-tutorials/configure/saml/auth0-as-identity-provider
+
+          - title: Configure Auth0 as Both Service and Identity Provider
+            url: /guides-tutorials/configure/saml/auth0-as-identity-and-service-provider
+
+          - title: SAML Design Considerations
+            url: /guides-tutorials/configure/saml/design-considerations
+
+          - title: Supported SAML Options and Bindings
+            url: /guides-tutorials/configure/saml/supported-options-and-bindings
+
+          - title: Customize SAML Assertions
+            url: /guides-tutorials/configure/saml/saml-assertions
+
+          - title: Logout
+            url: /guides-tutorials/configure/saml/logout
+
+          - title: Deprovision Users
+            url: /guides-tutorials/configure/saml/deprovision-users
+
+          - title: Logout
+            url: /guides-tutorials/configure/saml/logout
+            
+          - title: SAML Configurations for SSO Integrations
+            url: /guides-tutorials/configure/saml/sso-integrations
+
+          - title: Special SAML Configuration Scenarios
+            url: /guides-tutorials/configure/saml/special-scenarios
+            children:
+
+              - title: IdP-Initiated Single Sign-On
+                url: /guides-tutorials/configure/saml/special-scenarios/idp-initiated-sso
+                hidden: true
+
+              - title: Signing and Encrypting SAML Requests
+                url: /guides-tutorials/configure/saml/special-scenarios/signing-and-encrypting-saml-requests
+                hidden: true
+
+      - title: Whitelist IP Addresses
+        url: /guides-tutorials/configure/ip-whitelist
