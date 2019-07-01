@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "Gradle include file for reusage"
+    tags:
+      - quickstart
+      - android
+    description: |
+      The _auth0.md and the _api_authz.md files were both using redundant and inconsistent gradle instructions. A _gradle file was created on the includes for reusage and consistency.
