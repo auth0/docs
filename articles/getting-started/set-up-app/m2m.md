@@ -23,7 +23,7 @@ M2M applications are linked to an API and its [scopes](/scopes/current/api-scope
 If you want to authorize your application to access only Auth0's [Management API](/api/info#management-api-v2), you do not need to do anything; the Management API is pre-populated for you.
 :::
 
-<%= include('./_includes/_register-app-part1', { application_type: 'M2M', application_type_create: 'Machine-to-Machine App' }) %> 
+<%= include('../_includes/_register-app-part1', { application_type: 'M2M', application_type_create: 'Machine-to-Machine App' }) %> 
 
 3. Select the API you want to be able to call from your Application.
 
@@ -33,6 +33,6 @@ If you want to authorize your application to access only Auth0's [Management API
 
 ![Select Scopes](/media/articles/applications/m2m-select-scopes.png)
 
-<%= include('./_includes/_register-app-part2-m2m', { application_type: 'M2M', application_type_create: 'Machine-to-Machine App' }) %> 
+<%= include('../_includes/_register-app-part2-m2m', { application_type: 'M2M', application_type_create: 'Machine-to-Machine App' }) %> 
 
-<%= include('./_includes/_register-app-next-steps') %>
+<%= include('../_includes/_register-app-next-steps') %>

@@ -1,6 +1,6 @@
 ---
 title: Profile Management
-description: Understand user profile management planning considerations for your B2B implementation. 
+description: User profile management planning considerations for your B2B IAM implementation. 
 toc: true
 topics:
     - b2b
@@ -43,7 +43,7 @@ An admin portal is an application where you can create new users, edit a user’
 If you are providing your own way for an administrator to manage users, you should only allow administrators to send users a change password link through email rather than allowing administrators to set passwords directly. If you must go against this recommendation and allow your administrators to set someone’s password, you should force the user to change their password at their next login so that only they know the password (and not an administrator as well).
 :::
 
-## Planning
+## Project Planning Guide
 
 <%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 

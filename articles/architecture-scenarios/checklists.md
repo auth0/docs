@@ -1,5 +1,5 @@
 ---
-title: Implementation Checklists
+title: Implementation Planning Checklists
 description: Links to checklists for your implementation. 
 topics:
     - SDLC
@@ -10,7 +10,7 @@ contentType: reference
 useCase:
     - implementation
 ---
-# Implementation Checklists
+# Implementation Planning Checklists
 
 Auth0 provides a number of checklists in Google Sheets format, each of which aligns with a particular phase of a typical SDLC (Software Development Life Cycle). Though all of these may not apply to you, it is recommended that you use applicable checklists as part of your planning and implementation.  
 
