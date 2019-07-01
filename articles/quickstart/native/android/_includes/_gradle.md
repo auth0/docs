@@ -1,6 +1,6 @@
 ## Add the Auth0 Android Dependency
 
-Add the [Auth0 Android](https://github.com/auth0/Auth0.Android) SDK into your project. The library makes requests to the Auth0's Authentication and Management APIs.
+Add the [Auth0 Android](https://github.com/auth0/Auth0.Android) SDK into your project. The library will make requests to the Auth0's Authentication and Management APIs.
 
 ### Add Auth0 to Gradle
 
@@ -18,9 +18,9 @@ dependencies {
 ```
 
 ::: note
-If Android Studio lint the `+` sign, or if you want to use a fixed version, you can check for the latest in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0).
+If Android Studio lint the `+` sign, or if you want to use a fixed version, check for the latest in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22) or [JCenter](https://bintray.com/auth0/android/auth0).
 :::
 
-::: panel Synchronize gradle
-Remember to synchronize using the Android Studio propmt or run `./gradlew clean assembleDebug` from the command line. For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
+::: panel Synchronize Gradle
+Remember to synchronize using the Android Studio prompt or run `./gradlew clean assembleDebug` from the command line. For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
 :::
