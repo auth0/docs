@@ -1,5 +1,5 @@
 ---
-description: Explains what features and settings can be changed in the Tenant Settings page of the dashboard.
+description: An overview of the available tenant settings on the Auth0 dashboard.
 toc: true
 topics:
   - dashboard
