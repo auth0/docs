@@ -302,3 +302,12 @@ Alternatively, use of [`try...catch`](https://developer.mozilla.org/en-US/docs/W
 Use of uninitialized objects is a common cause of exceptions. To guard against this, prefer to include provision for initialization - e.g. `user.user_metadata = user.user_metadata || {}` - as part of any declaration in cases where the existence of an object is in question. In a rule, taking steps to prevent an exception from occurring in the first place is a best practice, and is less costly in terms of performance and resource usage than implementing exception handling.
 :::
 
+## Debugging
+
+Out of the box, [runtime debugging](/rules/guides/debug) of a rule is typically achieved via the use of console logging, using the [console.log](https://developer.mozilla.org/en-US/docs/Web/API/Console/log) facility. These is no interactive debugging of a rule available within the Auth0 platform (though one could employ the testing [automation](#automation) technique described below in conjunction with some external interactive debug facility).
+
+::: Best practice
+Adding sufficient line - i.e. `//` - or block - i.e. `/* */` - comments to a rule, particularly around non-obvious functionality, is invaluable to both code debugging and also code understanding. Particularly as there are many occasions where the initial implementer of a rule may not be the same person responsible for maintaining it going forward.
+:::
+
+
