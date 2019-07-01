@@ -31,7 +31,7 @@ A rule is essentially an anonymous JavaScript function that is passed 3 paramete
  ```
 
 ::: note
-Anonymous functions make it hard in [debugging](#debugging) situations to interpret the call-stack generated as a result of any [exceptional error](?) condition. For convenience, consider providing a function name using some compact and unique naming convention to assist with diagnostic analysis (e.g. `function MyRule1 (user, context, callback) {...}`). Do not be tempted to add a trailing semicolon at the end of the function declaration as this will break rule execution.
+Anonymous functions make it hard in [debugging](#debugging) situations to interpret the call-stack generated as a result of any [exceptional error](#exceptions) condition. For convenience, consider providing a function name using some compact and unique naming convention to assist with diagnostic analysis (e.g. `function MyRule1 (user, context, callback) {...}`). Do not be tempted to add a trailing semicolon at the end of the function declaration as this will break rule execution.
 :::
 
 As depicted in the image below, rules execute in what is the pipeline associated with the generation of artifacts for authenticity that forms part of the overall [Auth0 engine](https://cdn.auth0.com/blog/auth0-raises-100m-to-fuel-the-growth/inside-the-auth0-engine-high-res.jpg). When a pipeline is executed, all enabled rules are packaged together in the order in which they are listed and sent as one code blob to be executed as a [Webtask](https://webtask.io/).
@@ -124,7 +124,7 @@ Asynchronous execution will result in a (JavaScript) callback being executed aft
 
 ### `context` object
 
-The [`context`](#context-object) object provides information about the context in which a rule is run (such as client identifier, connection name, session identifier, request context, protocol, etc). Using the context object, a rule can determine the reason for execution. For example, as illustrated in the sample fragment below, [`context.clientID`](/rules/references/context-object#properties-of-the-context-object) as well as [`context.protocol`](/rules/references/context-object#properties-of-the-context-object) can be used to implement conditional processing to determine when rule logic is executed. The sample also shows some best practices for [exception handling](?), use of [`npm` modules](?) (for `Promise` style processing), and the [`callback`](#callback-object) object. 
+The [`context`](#context-object) object provides information about the context in which a rule is run (such as client identifier, connection name, session identifier, request context, protocol, etc). Using the context object, a rule can determine the reason for execution. For example, as illustrated in the sample fragment below, [`context.clientID`](/rules/references/context-object#properties-of-the-context-object) as well as [`context.protocol`](/rules/references/context-object#properties-of-the-context-object) can be used to implement conditional processing to determine when rule logic is executed. The sample also shows some best practices for [exception handling](#exceptions), use of [`npm` modules](#npm-modules) (for `Promise` style processing), and the [`callback`](#callback-object) object. 
 
 ```js
   switch (context.protocol) {
@@ -238,7 +238,7 @@ Failure to call the function will result in a stall of pipeline execution, and u
   }
 ```
 
-As can be seen in the example provided (above), the `callback` function can be called with up to 3 parameters. The first parameter is mandatory and provides an indication of the status of rule operation. The second and third parameters are optional, and represent the user and the context to be supplied to the next rule in the pipeline. If these are specified, then it is a recommended best practice to pass the [`user`](#user-object) and [`context`](#context-object) object (respectively) as supplied to the rule. Passing anything else will have unpredictable results, and may lead to an [exception](?) or [error](#error-handling) condition.
+As can be seen in the example provided (above), the `callback` function can be called with up to 3 parameters. The first parameter is mandatory and provides an indication of the status of rule operation. The second and third parameters are optional, and represent the user and the context to be supplied to the next rule in the pipeline. If these are specified, then it is a recommended best practice to pass the [`user`](#user-object) and [`context`](#context-object) object (respectively) as supplied to the rule. Passing anything else will have unpredictable results, and may lead to an [exception](#exceptions) or [error](#error-handling) condition.
 
 The status parameter should be passed as either `null`, an instance of an `Error` object, or an instance of an `UnauthorizedError` object. Specifying null will permit the continuation of pipeline processing, whilst any of the other values will terminate the pipeline; an `UnauthorizedError` signalling [denial of access, and allowing information to be returned to the originator of the authentication operation](/rules/references/legacy#deny-access-based-on-a-condition) regarding the reason why access is denied. Passing any other value for any of these parameters will have unpredictable results, and may lead to an exception or error condition.  
 
@@ -248,7 +248,7 @@ The example provided (above) also demonstrates best practice use of both [early 
 
 ## Error Handling 
 
-Error conditions returned from API calls and the like must be handled and processed in an appropriate manner. Failure to do so can lead to unhandled [exception](?) situations, resulting in premature termination of pipeline execution and ultimately in an authentication error being returned.
+Error conditions returned from API calls and the like must be handled and processed in an appropriate manner. Failure to do so can lead to unhandled [exception](#exceptions) situations, resulting in premature termination of pipeline execution and ultimately in an authentication error being returned.
 
 ::: Best practice
 Use of [`console.error`](https://developer.mozilla.org/en-US/docs/Web/API/Console/error) in order to log any error conditions encountered is a recommended best practice, and can also assist with any potential [debugging](#debugging) too. We'd also recommend sending error conditions to an external service - such as [Splunk](/monitoring/guides/send-events-to-splunk) - to provide for better visibility and diagnosis of anomalous operation.
@@ -265,6 +265,10 @@ In addition, an instance of the Auth0 specific `UnauthorizedError` can be return
 ```js
   callback(new UnauthorizedError('some description'), user, context);
 ```
+
+::: Best practice
+The `UnauthorizedError` object only returns the description supplied. If you wish to employ specific processing for specific unauthorized error conditions, then we’d recommend you format your descriptions to include some easily accessible “error code” information, e.g: `'[00043] - my specific error description'`.
+:::
 
 ### Exceptions
 
