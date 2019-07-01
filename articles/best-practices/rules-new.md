@@ -105,7 +105,7 @@ The [access token](/tokens/overview-access-tokens) associated with the `auth0` o
 Like the [`context`](#context-object) object (described below), the `auth0` object contains security sensitive information, so you should not pass it to any external or 3rd party service. Further, the Auth0 Management API is both [rate limited](/docs/policies/rate-limits#management-api-v2) and subject to latency, so you should be judicious regarding [how often calls are made](/best-practices/rules#reduce-api-requests). 
 
 ::: Best practice
-It’s recommended best practice to make use of the `auth0` object (and any other mechanisms for calling the Auth0 Management API) sparingly, and to always make sure that adequate [exception](?) and [error](?) handling is employed in order to prevent unexpected interruption of pipeline execution.
+It’s recommended best practice to make use of the `auth0` object (and any other mechanisms for calling the Auth0 Management API) sparingly, and to always make sure that adequate [exception](?) and [error](#error-handling) handling is employed in order to prevent unexpected interruption of pipeline execution.
 :::
 
 ## Execution
@@ -237,11 +237,64 @@ Failure to call the function will result in a stall of pipeline execution, and u
     }
   }
 ```
-As can be seen in the example provided (above), the `callback` function can be called with up to 3 parameters. The first parameter is mandatory and provides an indication of the status of rule operation. The second and third parameters are optional, and represent the user and the context to be supplied to the next rule in the pipeline. If these are specified, then it is a recommended best practice to pass the [`user`](#user-object) and [`context`](#context-object) object (respectively) as supplied to the rule. Passing anything else will have unpredictable results, and may lead to an [exception](?) or [error](?) condition.
+
+As can be seen in the example provided (above), the `callback` function can be called with up to 3 parameters. The first parameter is mandatory and provides an indication of the status of rule operation. The second and third parameters are optional, and represent the user and the context to be supplied to the next rule in the pipeline. If these are specified, then it is a recommended best practice to pass the [`user`](#user-object) and [`context`](#context-object) object (respectively) as supplied to the rule. Passing anything else will have unpredictable results, and may lead to an [exception](?) or [error](#error-handling) condition.
 
 The status parameter should be passed as either `null`, an instance of an `Error` object, or an instance of an `UnauthorizedError` object. Specifying null will permit the continuation of pipeline processing, whilst any of the other values will terminate the pipeline; an `UnauthorizedError` signalling [denial of access, and allowing information to be returned to the originator of the authentication operation](/rules/references/legacy#deny-access-based-on-a-condition) regarding the reason why access is denied. Passing any other value for any of these parameters will have unpredictable results, and may lead to an exception or error condition.  
 
 ::: note
 The example provided (above) also demonstrates best practice use of both [early exit](?) as well as [email address verification](?), as described in the [Performance](#performance) and [Security](#security) sections below. Note: the `getRoles` function used is implemented elsewhere within the rule, as a wrapper function to a 3rd party API.
+:::
+
+## Error Handling 
+
+Error conditions returned from API calls and the like must be handled and processed in an appropriate manner. Failure to do so can lead to unhandled [exception](?) situations, resulting in premature termination of pipeline execution and ultimately in an authentication error being returned.
+
+::: Best practice
+Use of [`console.error`](https://developer.mozilla.org/en-US/docs/Web/API/Console/error) in order to log any error conditions encountered is a recommended best practice, and can also assist with any potential [debugging](#debugging) too. We'd also recommend sending error conditions to an external service - such as [Splunk](/monitoring/guides/send-events-to-splunk) - to provide for better visibility and diagnosis of anomalous operation.
+:::
+
+As described in the section entitled [Execution](#execution) (above), there are time constraints regarding how much time a rule has available in which to execute. If recovery from an error condition is not possible (or probable) within this time period, then an error condition should be explicitly returned; this is as simple as completing rule execution by returning an instance of a Node [Error](https://nodejs.org/api/errors.html#errors_class_error) object, as in:
+
+```js
+  callback(new Error('some description'), user, context);
+```
+
+In addition, an instance of the Auth0 specific `UnauthorizedError` can be returned which will cause an `unauthorized` error condition, with the supplied error description, to be returned to the application that initiated authentication - i.e. the application from which redirect to the `/authorize` end-point, say, was initiated. This provides the capability to implement rule(s) which can be used to [deny access based on certain conditions](/rules/references/legacy#deny-access-based-on-a-condition). For a description of other common authentication error conditions in Auth0, see the [Auth0 SDK library documentation](/libraries/error-messages): 
+
+```js
+  callback(new UnauthorizedError('some description'), user, context);
+```
+
+### Exceptions
+
+Unexpected error conditions must also be handled. Unexpected error conditions - such as uncaught JavaScript exceptions - will typically result in the premature termination of pipeline execution, ultimately resulting in an error in authentication being returned.
+
+::: Best practice
+Use of [`console.exception`](https://developer.mozilla.org/en-US/docs/Web/API/Console/error) in order to log any exceptional error conditions encountered is a recommended best practice, and can also assist with any potential [debugging](#debugging) too. We'd also recommend sending error conditions to an external service - such as [Splunk](/monitoring/guides/send-events-to-splunk) - to provide for better visibility and diagnosis of anomalous operation.
+:::
+
+For situations involving asynchronous operations, a `catch` handler when utilizing [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) object processing is imperative. `Promise` object processing can also be effective for error handling during non-asynchronous operations too. As illustrated below, a `Promise` object can be used to wrap a synchronous function call say, making it easier to implement cascaded error handling via use of [promise chaining](https://javascript.info/promise-error-handling) and the like.
+
+```js
+  return new Promise(function(resolve, reject) {
+    jwt.verify(
+      token, 
+      secret,{
+      clockTolerance: 5},  
+      function(err, decoded) {
+        if (err) {
+          reject(err);
+        } else {  
+          resolve(decoded);
+      
+    });
+  });
+```
+
+Alternatively, use of [`try...catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch) processing can be used to handle JavaScript exceptions that occur during synchronous operation. Setup of this type of exception handling can often incur performance costs, so should be used sparingly: rule [performance](#performance) should be as optimal as possible. A more pragmatic approach then, is to implement processing that prevents exceptions from occurring rather than handling them once they have occurred.
+
+::: Best practice
+Use of uninitialized objects is a common cause of exceptions. To guard against this, prefer to include provision for initialization - e.g. `user.user_metadata = user.user_metadata || {}` - as part of any declaration in cases where the existence of an object is in question. In a rule, taking steps to prevent an exception from occurring in the first place is a best practice, and is less costly in terms of performance and resource usage than implementing exception handling.
 :::
 
