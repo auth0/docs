@@ -53,7 +53,7 @@
       url: "/identityproviders#enterprise"
 
     - title: "Databases"
-        url: "/connections/database"
+      url: "/connections/database"
 
 
 - id: "authorization"
