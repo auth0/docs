@@ -1,3 +1,5 @@
+## Configuring Your Application
+
 <%= include('./_gradle.md') %>
 
 ## Configuration
