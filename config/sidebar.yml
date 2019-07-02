@@ -97,74 +97,74 @@ articles:
         url: /login/authentication-flows
         children:
 
-            - title: Regular Web App
-              url: /login/authentication-flows/add-login-auth-code
+          - title: Regular Web App
+            url: /login/authentication-flows/add-login-auth-code
 
-            - title: Single-Page App
-              url: /login/authentication-flows/add-login-implicit
+          - title: Single-Page App
+            url: /login/authentication-flows/add-login-implicit
 
-            - title: Native App
-              url: /login/authentication-flows/add-login-auth-code-pkce
-
+          - title: Native App
+            url: /login/authentication-flows/add-login-auth-code-pkce
+            
       - title: Multi-Factor Authentication
         url: /login/multi-factor-authentication
         children: 
 
-            - title: Overview
-              url: /login/multi-factor-authentication
+          - title: Overview
+            url: /login/multi-factor-authentication
 
-            - title: Factors
-              url: /login/multi-factor-authentication/factors
-              children: 
+          - title: Factors
+            url: /login/multi-factor-authentication/factors
+            children: 
 
-                  - title: Push
-                    url: /login/multi-factor-authentication/factors/push
+              - title: Push
+                url: /login/multi-factor-authentication/factors/push
 
-                  - title: OTP
-                    url: /login/multi-factor-authentication/factors/otp
+              - title: OTP
+                url: /login/multi-factor-authentication/factors/otp
 
-                  - title: SMS
-                    url: /login/multi-factor-authentication/factors/sms
+              - title: SMS
+                url: /login/multi-factor-authentication/factors/sms
 
-                  - title: Duo
-                    url: /login/multi-factor-authentication/factors/duo
+              - title: Duo
+                url: /login/multi-factor-authentication/factors/duo
 
-                  - title: Email
-                    url: /login/multi-factor-authentication/factors/email
+              - title: Email
+                url: /login/multi-factor-authentication/factors/email
 
-            - title: Custom
-              url: /login/multi-factor-authentication/custom
+          - title: Custom
+            url: /login/multi-factor-authentication/custom
 
-            - title: Step-Up
-              url: /login/multi-factor-authentication/step-up-authentication
+          - title: Step-Up
+            url: /login/multi-factor-authentication/step-up-authentication
 
-            - title: MFA API
-              url: /login/multi-factor-authentication/api
+          - title: MFA API
+            url: /login/multi-factor-authentication/api
         
-        - title: Silent Authentication
-          url: /login/silent-authentication
+      - title: Silent Authentication
+        url: /login/silent-authentication
 
-        - title: Redirect After Login
-          url: /login/redirect-users-after-login
+      - title: Redirect After Login
+        url: /login/redirect-users-after-login
 
-        - title: Logout
-          url: /login/logout
-          children: 
+      - title: Logout
+        url: /login/logout
+        children: 
 
-              - title: Apps
-                url: /login/logout/logout-applications
+            - title: Apps
+              url: /login/logout/logout-applications
 
-              - title: Auth0
-                url: /login/logout/logout-auth0
+            - title: Auth0
+              url: /login/logout/logout-auth0
 
-              - title: Identity Providers
-                url: /login/logout/logout-idps
+            - title: Identity Providers
+              url: /login/logout/logout-idps
 
-              - title: SAML Identity Providers
-                url: /login/logout/logout-saml-idps
+            - title: SAML Identity Providers
+              url: /login/logout/logout-saml-idps
 
-              - title: Redirect After Logout
-                url: /login/logout/redirect-users-after-logout
+            - title: Redirect After Logout
+              url: /login/logout/redirect-users-after-logout
 
 ## ------------------------------------------------------------
 ## Identity Providers / Connections
