@@ -55,6 +55,26 @@ module.exports = [
         from: '/protocols/saml/identity-providers/ssocircle',
         to:   '/connections/saml/ssocircle',
     },
+    {
+        from: '/dashboard/guides/connections/configure-connection-sync',
+        to:   '/connections/configure-connection-sync',
+    },
+    {
+        from: '/dashboard/guides/connections/disable-cache-ad-ldap',
+        to:   '/connections/disable-cache-ad-ldap',
+    },
+    {
+        from: '/dashboard/guides/connections/set-up-connections-social',
+        to:   '/connections/set-up-connections-social',
+    },
+    {
+        from: '/dashboard/guides/connections/test-connections-social',
+        to:   '/connections/test-connections-social',
+    },
+    {
+        from: '/dashboard/guides/connections/view-connections',
+        to:   '/connections/view-connections',
+    },
 
     // 
     // Authorization
@@ -63,291 +83,106 @@ module.exports = [
         from: '/api-auth/tutorials/nonce',
         to: '/authorization/flows/mitigate-replay-attacks'
     },
-
-    // 
-    // Monitor aliases
-    // 
     {
-        from: '/monitoring',
-        to:   '/monitor'
+        from: '/authorization/concepts/rbac',
+        to:   '/authorization/rbac/about',
     },
     {
-        from: '/monitoring/guides'
-        to:   '/monitor'
+        from: '/authorization/guides/how-to',
+        to:   '/authorization/rbac',
     },
     {
-        from: '/logs',
-        to:   '/monitor/logs'
+        from: ['/configure/apis/enable-rbac', '/api/management/guides/enable-rbac'],
+        to:   '/authorization/rbac/enable-rbac',
     },
     {
-        from: '/logs/query-syntax',
-        to:   '/monitor/logs/query-syntax'
+        from: ['/authorization/guides/manage-permissions', '/api/management/guides/update-permissions-apis']
+        to:   '/authorization/rbac/permissions',
     },
     {
-        from: '/logs/migrate-logs-v2-v3',
-        to:   '/monitor/logs/migrate-logs-v2-v3'
-    },
-    {   
-        from: '/monitoring/guides/check-status',
-        to:   '/monitor/check-auth0-status'
-    },
-    {   
-        from: '/monitoring/guides/test-testall-endpoints',
-        to:   '/monitor/check-supporting-services'
-    },
-    {   
-        from: '/monitoring/guides/check-external-services',
-        to:   '/monitor/check-external-services'
-    },
-    {   
-        from: '/monitoring/guides/monitor-applications',
-        to:   '/monitor/applications'   
-    },
-    {   
-        from: '/monitoring/guides/monitor-using-SCOM',
-        to:   '/monitor/scom'
-    },
-    {   
-        from: '/extensions/adldap-connector',
-        to:   '/monitor/adldap-connector'   
-    },
-    {   
-        from: '/connector/scom-monitoring',
-        to:   '/monitor/scom-adldap-connector'   
+        from: '/authorization/guides/manage-roles',
+        to:   '/authorization/rbac/roles',
     },
     {
-        from: '/monitoring/guides/send-events-to-keenio'
-        to:   '/monitor/send-events-to-keenio'
-        
+        from: '/authorization/guides/manage-users',
+        to:   '/authorization/rbac/users',
     },
     {
-        from: '/monitoring/guides/send-events-to-segmentio'
-        to:   '/monitor/send-events-to-segmentio'
-        
+        from: '/dashboard/guides/apis/add-permissions-apis',
+        to:   '/authorization/rbac/permissions/add',
     },
     {
-        from: '/monitoring/guides/send-events-to-splunk'
-        to:   '/monitor/send-events-to-splunk'
-        
+        from: '/dashboard/guides/apis/delete-permissions-apis',
+        to:   '/authorization/rbac/permissions/delete',
     },
     {
-        from: '/monitoring/guides/track-leads-salesforce'
-        to:   '/monitor/track-leads-salesforce'
-        
+        from: '/dashboard/guides/apis/enable-rbac',
+        to:   '/authorization/rbac/enable-rbac',
     },
     {
-        from: '/monitoring/guides/track-signups-salesforce'
-        to:   '/monitor/track-signups-salesforce'
-    },
-
-
-    // 
-    // Troubleshoot aliases 
-    // 
-    {
-        from: '/libraries/error-messages',
-        to: '/troubleshoot/error-messages'
+        from: '/dashboard/guides/users/assign-permissions-users',
+        to:   '/authorization/rbac/users/assign-permissions',
     },
     {
-        from: '/authorization/concepts/troubleshooting',
-        to: '/troubleshoot/rbac'
+        from: '/dashboard/guides/users/assign-roles-users',
+        to:   '/authorization/rbac/users/assign-roles',
     },
     {
-        from: '/extensions/authorization-extension/v2/troubleshooting',
-        to: '/troubleshoot/auth-extension'
+        from: '/dashboard/guides/users/remove-user-permissions',
+        to:   '/authorization/rbac/users/remove-permissions',
     },
     {
-        from: '/multifactor-authentication/troubleshooting',
-        to: '/troubleshoot/mfa'
+        from: '/dashboard/guides/users/remove-user-roles',
+        to:   '/authorization/rbac/users/remove-roles',
     },
     {
-        from: '/protocols/saml/saml-configuration/troubleshoot',
-        to: '/troubleshoot/saml'
+        from: '/dashboard/guides/users/view-user-permissions',
+        to:   '/authorization/rbac/users/view-permissions',
     },
     {
-        from: '/protocols/saml/saml-configuration/troubleshoot',
-        to: '/troubleshoot/saml/auth0-as-idp'
+        from: '/dashboard/guides/users/view-user-roles',
+        to:   '/authorization/rbac/users/view-roles',
     },
     {
-        from: '/protocols/saml/saml-configuration/troubleshoot',
-        to: '/troubleshoot/saml/auth0-as-sp'
+        from: ['/dashboard/guides/roles/add-permissions-roles', '/api/management/guides/roles/add-permissions-roles'],
+        to:   '/authorization/rbac/roles/add-permissions',
     },
     {
-        from: '/protocols/saml/saml-configuration/troubleshoot',
-        to: '/troubleshoot/saml/common-saml-errors'
+        from: ['/dashboard/guides/roles/create-roles', '/api/management/guides/roles/create-roles'],
+        to:   '/authorization/rbac/roles/create-roles',
     },
     {
-        from: '/errors/deprecation-errors',
-        to: '/troubleshoot/deprecation-errors'
+        from: ['/dashboard/guides/roles/delete-roles', '/api/management/guides/roles/delete-roles'],
+        to:   '/authorization/rbac/roles/delete-roles',
     },
     {
-        from: '/connections/database/custom-db/error-handling',
-        to: '/troubleshoot/custom-db'
+        from: ['/dashboard/guides/roles/edit-role-definitions', '/api/management/guides/roles/edit-role-definitions'],
+        to:   '/authorization/rbac/roles/edit-role-definitions',
     },
     {
-        from: '/extensions/deploy-cli/references/troubleshooting',
-        to: '/troubleshoot/deploy-cli'
+        from: ['/dashboard/guides/roles/remove-role-permissions', '/api/management/guides/roles/remove-role-permissions'],
+        to:   '/authorization/rbac/roles/remove-role-permissions',
     },
     {
-        from: '/connector/troubleshooting',
-        to: '/troubleshoot/connector'
+        from: '/dashboard/guides/roles/remove-role-users',
+        to:   '/authorization/rbac/roles/remove-role-users',
+    },
+    {
+        from: ['/dashboard/guides/roles/view-role-permissions', from: '/api/management/guides/roles/view-role-permissions'],
+        to:   '/authorization/rbac/roles/view-role-permissions',
+    },
+    {
+        from: ['/dashboard/guides/roles/view-role-users', '/api/management/guides/roles/view-role-users'],
+        to:   '/authorization/rbac/roles/view-role-users',
     },
 
-    //
-    // Deploy
-    //
-    {
-        from: '/getting-started/deployment-models',
-        to: '/deploy/deployment-models'
-    },
-    {
-        from: '/pre-deployment',
-        to: '/deploy/pre-deployment'
-    },
-    {
-        from: '/pre-deployment/how-to-run-test',
-        to: '/deploy/pre-deployment/how-to-run-test'
-    },
-    {
-        from: '/pre-deployment/prelaunch-tips',
-        to: '/deploy/pre-deployment/prelaunch-tips'
-    },
-    {
-        from: '/pre-deployment/tests/best-practice',
-        to: '/deploy/pre-deployment/tests/best-practice'
-    },
-    {
-        from: '/pre-deployment/tests/recommended',
-        to: '/deploy/pre-deployment/tests/recommended'
-    },
-    {
-        from: '/pre-deployment/tests/required',
-        to: '/deploy/pre-deployment/tests/required'
-    },
-    {
-        from: '/extensions/deploy-cli',
-        to: '/deploy/deploy-cli'
-    },
-
-    // 
-    // Extend & Integrate aliases 
-    // 
-    {
-        from: '/addons',
-        to: '/extend-integrate/addons'
-    },
-    {
-        from: '/hooks',
-        to: '/extend-integrate/hooks'
-    },
-    {
-        from: '/rules',
-        to: '/extend-integrate/rules'
-    },
-    {
-        from: '/extensions',
-        to: '/extend-integrate/extensions'
-    },
-    {
-        from: '/integrations/sso',
-        to: '/extend-integrate/integrations/sso'
-    },
-    {
-        from: '/integrations/marketing',
-        to: '/extend-integrate/integrations/marketing'
-    },
-    {
-        from: '/analytics',
-        to: '/extend-integrate/integrations/analytics'
-    },
-    {
-        from: '/extensions/user-import-export',
-        to:   '/extend-integrate/extensions/user-import-export'
-    },
-    {
-        from: '/extensions/account-link',
-        to:   '/extend-integrate/extensions/account-link'
-    },
-
-    // 
-    // Branding & Customization aliases 
-    // 
-    {
-        from: '/custom-domains',
-        to: '/branding-customization/custom-domains'
-    },
-    {
-        from: '/email',
-        to: '/branding-customization/email'
-    },
-    {
-        from: '/i18n',
-        to: '/branding-customization/i18n'
-    },
-    {
-        from: '/multifactor-authentication/sms-templates',
-        to: '/branding-customization/multifactor-authentication/sms-templates'
-    },
-
-    // 
-    // Manage Users Aliases
-    // 
-    {
-        from: '/users',
-        to:   '/manage-users/overview-manage-users'
-    },
-    {
-        from: '/users/concepts/overview-user-profiles',
-        to:   '/manage-users/overview-user-profiles'
-    },
-    {
-        from: '/users/concepts/overview-user-metadata',
-        to:   '/manage-users/overview-user-metadata'
-    },
-    {
-        from: '/users/guides/manage-users-using-the-dashboard',
-        to:   '/manage-users/manage-users-using-the-dashboard'
-    },
-    {
-        from: '/users/guides/manage-users-using-the-management-api',
-        to:   '/manage-users/manage-users-using-the-management-api'
-    },
-    {
-        from: '/security/blacklisting-attributes',
-        to:   '/manage-users/blacklisting-attributes'
-    },
-    {
-        from: '/users/concepts/overview-user-migration',
-        to:   '/manage-users/overview-user-migration'
-    },
-    {
-        from: '/users/references/bulk-import-database-schema-examples',
-        to:   '/manage-users/bulk-import-database-schema-examples'
-    },
-    {
-        from: '/users/guides/configure-automatic-migration',
-        to:   '/manage-users/configure-automatic-migration'
-    },
-    {
-        from: '/users/guides/bulk-user-imports',
-        to:   '/manage-users/bulk-user-imports'
-    },
-    {
-        from: '/users/guides/bulk-user-exports',
-        to:   '/manage-users/bulk-user-exports'
-    },
-    {
-        from: '/users/references/user-migration-scenarios',
-        to:   '/manage-users/user-migration-scenarios'
-    },
-    {
-        from: '/users/search/v3',
-        to:   '/manage-users/search/v3'
-    },
-
-    //
+        //
     // Configure Aliases
     //
+    {
+        from: '/dev-lifecycle/child-tenants',
+        to:   '/configure/tenants/child-tenants',
+    },
     {
         from: '/dashboard/dashboard-tenant-settings',
         to:   '/configure/tenants/settings', 
@@ -433,26 +268,11 @@ module.exports = [
         to:   '/configure/apis/represent-multiple-apis',
     },
     {
-        from: '/dashboard/guides/apis/add-permissions-apis',
-        to:   '/configure/apis/add-permissions',
-    },
-    {
-        from: '/dashboard/guides/apis/delete-permissions-apis',
-        to:   '/configure/apis/delete-permissions',
-    },
-    {
-        from: '/dashboard/guides/apis/enable-rbac',
-        to:   '/configure/apis/enable-rbac',
-    },
-    {
         from: '/dashboard/reference/views-api',
         to:   '/configure/apis/views-api',
     },
     {
-        from: [
-                '/sso',
-                '/sso/current',
-              ],
+        from: ['/sso', '/sso/current',],
         to:   '/configure/sso',
     },
     {
@@ -667,6 +487,292 @@ module.exports = [
         from: '/anomaly-detection/references/brute-force-protection-triggers-actions',
         to:   '/configure/anomaly-detection/brute-force-protection-triggers-actions',
     },
+    {
+        from: '/api-auth/dynamic-client-registration',
+        to:   '/configure/tenants/dynamic-client-registration',
+    },
+
+    // 
+    // Manage Users Aliases
+    // 
+    {
+        from: '/users',
+        to:   '/manage-users/overview-manage-users'
+    },
+    {
+        from: '/users/concepts/overview-user-profiles',
+        to:   '/manage-users/overview-user-profiles'
+    },
+    {
+        from: '/users/concepts/overview-user-metadata',
+        to:   '/manage-users/overview-user-metadata'
+    },
+    {
+        from: '/users/guides/manage-users-using-the-dashboard',
+        to:   '/manage-users/manage-users-using-the-dashboard'
+    },
+    {
+        from: '/users/guides/manage-users-using-the-management-api',
+        to:   '/manage-users/manage-users-using-the-management-api'
+    },
+    {
+        from: '/security/blacklisting-attributes',
+        to:   '/manage-users/blacklisting-attributes'
+    },
+    {
+        from: '/users/concepts/overview-user-migration',
+        to:   '/manage-users/overview-user-migration'
+    },
+    {
+        from: '/users/references/bulk-import-database-schema-examples',
+        to:   '/manage-users/bulk-import-database-schema-examples'
+    },
+    {
+        from: '/users/guides/configure-automatic-migration',
+        to:   '/manage-users/configure-automatic-migration'
+    },
+    {
+        from: '/users/guides/bulk-user-imports',
+        to:   '/manage-users/bulk-user-imports'
+    },
+    {
+        from: '/users/guides/bulk-user-exports',
+        to:   '/manage-users/bulk-user-exports'
+    },
+    {
+        from: '/users/references/user-migration-scenarios',
+        to:   '/manage-users/user-migration-scenarios'
+    },
+    {
+        from: '/users/search/v3',
+        to:   '/manage-users/search/v3'
+    },
+
+    // 
+    // Branding & Customization aliases 
+    // 
+    {
+        from: '/custom-domains',
+        to: '/branding-customization/custom-domains'
+    },
+    {
+        from: '/email',
+        to: '/branding-customization/email'
+    },
+    {
+        from: '/i18n',
+        to: '/branding-customization/i18n'
+    },
+    {
+        from: '/multifactor-authentication/sms-templates',
+        to: '/branding-customization/multifactor-authentication/sms-templates'
+    },
+
+    // 
+    // Extend & Integrate aliases 
+    // 
+    {
+        from: '/addons',
+        to: '/extend-integrate/addons'
+    },
+    {
+        from: '/hooks',
+        to: '/extend-integrate/hooks'
+    },
+    {
+        from: '/rules',
+        to: '/extend-integrate/rules'
+    },
+    {
+        from: '/extensions',
+        to: '/extend-integrate/extensions'
+    },
+    {
+        from: '/integrations/sso',
+        to: '/extend-integrate/integrations/sso'
+    },
+    {
+        from: '/integrations/marketing',
+        to: '/extend-integrate/integrations/marketing'
+    },
+    {
+        from: '/analytics',
+        to: '/extend-integrate/integrations/analytics'
+    },
+    {
+        from: '/extensions/user-import-export',
+        to:   '/extend-integrate/extensions/user-import-export'
+    },
+    {
+        from: '/extensions/account-link',
+        to:   '/extend-integrate/extensions/account-link'
+    },
+
+    // 
+    // Monitor aliases
+    // 
+    {
+        from: '/monitoring',
+        to:   '/monitor'
+    },
+    {
+        from: '/monitoring/guides'
+        to:   '/monitor'
+    },
+    {
+        from: '/logs',
+        to:   '/monitor/logs'
+    },
+    {
+        from: '/logs/query-syntax',
+        to:   '/monitor/logs/query-syntax'
+    },
+    {
+        from: '/logs/migrate-logs-v2-v3',
+        to:   '/monitor/logs/migrate-logs-v2-v3'
+    },
+    {   
+        from: '/monitoring/guides/check-status',
+        to:   '/monitor/check-auth0-status'
+    },
+    {   
+        from: '/monitoring/guides/test-testall-endpoints',
+        to:   '/monitor/check-supporting-services'
+    },
+    {   
+        from: '/monitoring/guides/check-external-services',
+        to:   '/monitor/check-external-services'
+    },
+    {   
+        from: '/monitoring/guides/monitor-applications',
+        to:   '/monitor/applications'   
+    },
+    {   
+        from: '/monitoring/guides/monitor-using-SCOM',
+        to:   '/monitor/scom'
+    },
+    {   
+        from: '/extensions/adldap-connector',
+        to:   '/monitor/adldap-connector'   
+    },
+    {   
+        from: '/connector/scom-monitoring',
+        to:   '/monitor/scom-adldap-connector'   
+    },
+    {
+        from: '/monitoring/guides/send-events-to-keenio'
+        to:   '/monitor/send-events-to-keenio'
+        
+    },
+    {
+        from: '/monitoring/guides/send-events-to-segmentio'
+        to:   '/monitor/send-events-to-segmentio'
+        
+    },
+    {
+        from: '/monitoring/guides/send-events-to-splunk'
+        to:   '/monitor/send-events-to-splunk'
+        
+    },
+    {
+        from: '/monitoring/guides/track-leads-salesforce'
+        to:   '/monitor/track-leads-salesforce'
+        
+    },
+    {
+        from: '/monitoring/guides/track-signups-salesforce'
+        to:   '/monitor/track-signups-salesforce'
+    },
+
+    //
+    // Deploy
+    //
+    {
+        from: '/getting-started/deployment-models',
+        to: '/deploy/deployment-models'
+    },
+    {
+        from: '/pre-deployment',
+        to: '/deploy/pre-deployment'
+    },
+    {
+        from: '/pre-deployment/how-to-run-test',
+        to: '/deploy/pre-deployment/how-to-run-test'
+    },
+    {
+        from: '/pre-deployment/prelaunch-tips',
+        to: '/deploy/pre-deployment/prelaunch-tips'
+    },
+    {
+        from: '/pre-deployment/tests/best-practice',
+        to: '/deploy/pre-deployment/tests/best-practice'
+    },
+    {
+        from: '/pre-deployment/tests/recommended',
+        to: '/deploy/pre-deployment/tests/recommended'
+    },
+    {
+        from: '/pre-deployment/tests/required',
+        to: '/deploy/pre-deployment/tests/required'
+    },
+    {
+        from: '/extensions/deploy-cli',
+        to: '/deploy/deploy-cli'
+    },
+
+
+    // 
+    // Troubleshoot aliases 
+    // 
+    {
+        from: '/libraries/error-messages',
+        to: '/troubleshoot/error-messages'
+    },
+    {
+        from: '/authorization/concepts/troubleshooting',
+        to: '/troubleshoot/rbac'
+    },
+    {
+        from: '/extensions/authorization-extension/v2/troubleshooting',
+        to: '/troubleshoot/auth-extension'
+    },
+    {
+        from: '/multifactor-authentication/troubleshooting',
+        to: '/troubleshoot/mfa'
+    },
+    {
+        from: '/protocols/saml/saml-configuration/troubleshoot',
+        to: '/troubleshoot/saml'
+    },
+    {
+        from: '/protocols/saml/saml-configuration/troubleshoot',
+        to: '/troubleshoot/saml/auth0-as-idp'
+    },
+    {
+        from: '/protocols/saml/saml-configuration/troubleshoot',
+        to: '/troubleshoot/saml/auth0-as-sp'
+    },
+    {
+        from: '/protocols/saml/saml-configuration/troubleshoot',
+        to: '/troubleshoot/saml/common-saml-errors'
+    },
+    {
+        from: '/errors/deprecation-errors',
+        to: '/troubleshoot/deprecation-errors'
+    },
+    {
+        from: '/connections/database/custom-db/error-handling',
+        to: '/troubleshoot/custom-db'
+    },
+    {
+        from: '/extensions/deploy-cli/references/troubleshooting',
+        to: '/troubleshoot/deploy-cli'
+    },
+    {
+        from: '/connector/troubleshooting',
+        to: '/troubleshoot/connector'
+    },
+    
 
     // 
     // About Auth0 aliases
@@ -700,4 +806,11 @@ module.exports = [
         from: '/applications/concepts/grant-types-legacy',
         to:   '/reference/grant-types/grant-types-legacy'
     }
+
+    {
+        from: '/dev-centers/java',
+        to:   '/libraries/java/index',
+    },
+
+
 ]
