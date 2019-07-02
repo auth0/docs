@@ -13,7 +13,7 @@ useCase:
 
 This article covers some best practices when using [rules](/rules). Rules can be used in a [variety of situations](/rules#what-can-i-use-rules-for-) as part of the pipeline where artifacts for authenticity are generated - i.e. an [ID Token](/tokens/id-token) in [OpenID Connect (OIDC)](/protocols/oidc), an [Access Token](/tokens/overview-access-tokens) in [OAuth 2.0](/protocols/oauth2), or an [assertion in SAML](/protocols/saml/saml-configuration/saml-assertions#use-rules). A new pipeline is created for each authentication request, in which rules execute.
 
-A number of [pre-existing Rules/Rule templates](https://github.com/auth0/rules) are provided out-of-box to help you achieve your goal(s). However there are times when you will want to [build your own Rule(s)](/rules/guides/create) in support of your  specific functionality/requirements. You may choose to extend or modify a pre-existing Rule/Rule template, or you may choose to start from scratch (using one of our [samples](/rules/references/samples) to guide you). Either way, there are a number of [best practices](/best-practices/rules) that you’ll want to adopt in order to ensure that you achieve the best possible outcome.
+A number of [pre-existing Rules/Rule templates](https://github.com/auth0/rules) are provided out-of-box to help you achieve your goal(s). However there are times when you will want to [build your own Rule(s)](/rules/guides/create) in support of your  specific functionality/requirements. You may choose to extend or modify a pre-existing Rule/Rule template, or you may choose to start from scratch (using one of our [samples](/rules/references/samples) to guide you). Either way, there are a number of best practices that you’ll want to adopt in order to ensure that you achieve the best possible outcome.
 
 **TODO: add screenshot here of rules page**
 
@@ -31,7 +31,7 @@ A rule is essentially an anonymous JavaScript function that is passed 3 paramete
  ```
 
 ::: note
-Anonymous functions make it hard in [debugging](#debugging) situations to interpret the call-stack generated as a result of any [exceptional error](#exceptions) condition. For convenience, consider providing a function name using some compact and unique naming convention to assist with diagnostic analysis (e.g. `function MyRule1 (user, context, callback) {...}`). Do not be tempted to add a trailing semicolon at the end of the function declaration as this will break rule execution.
+**Do not** be tempted to add a trailing semicolon at the end of the function declaration as this will break rule execution. Also, anonymous functions make it hard in [debugging](#debugging) situations to interpret the call-stack generated as a result of any [exceptional error](#exceptions) condition. For convenience, consider providing a function name using some compact and unique naming convention to assist with diagnostic analysis (e.g. `function MyRule1 (user, context, callback) {...}`). 
 :::
 
 As depicted in the image below, rules execute in what is the pipeline associated with the generation of artifacts for authenticity that forms part of the overall [Auth0 engine](https://cdn.auth0.com/blog/auth0-raises-100m-to-fuel-the-growth/inside-the-auth0-engine-high-res.jpg). When a pipeline is executed, all enabled rules are packaged together in the order in which they are listed and sent as one code blob to be executed as a [Webtask](https://webtask.io/).
@@ -40,7 +40,7 @@ As depicted in the image below, rules execute in what is the pipeline associated
 
 ## Size
 
-Webtasks currently have a [maximum execution limit](https://webtask.io/docs/limits) of 100 kB of code per instance. So the total size of implementation for all enabled rules must not exceed 100 kB - doing so will have unpredictable results. Note that the 100 kB limit does not include any [`npm`](https://www.npmjs.com/) modules referenced as part of any [`require`](https://nodejs.org/api/modules.html#modules_require_id) statements.  
+Webtasks currently have a [maximum execution limit](https://webtask.io/docs/limits) of 100 kB of code per instance. So the total size of implementation for all enabled rules must not exceed 100 kB. Doing so will have unpredictable results. Note that the 100 kB limit does not include any [`npm`](https://www.npmjs.com/) modules referenced as part of any [`require`](https://nodejs.org/api/modules.html#modules_require_id) statements.  
 
 ## Order
 
@@ -54,10 +54,10 @@ Rules execute as a series of called JavaScript functions, in an instance of a [W
 
 Webtask containers can make use of a wide range of [`npm`](https://www.npmjs.com/) modules; npm modules not only reduce the overall size of rule code implementation, but also provide access to a wide range of pre-built functionality.
 
-By default, a large list of publicly available npm modules are [supported out-of-the-box](https://auth0-extensions.github.io/canirequire/). This list has been compiled and vetted for any potential security concerns. If you require an npm module that is not supported out-of-the-box, then a request can be made via the [Auth0 support](https://support.auth0.com/) portal or via your Auth0 representative. Auth0 will evaluate your request to determine suitability. There is currently no support in Auth0 for the user of npm modules from private repositories.
+By default, a large list of publicly available npm modules are [supported out-of-the-box](https://auth0-extensions.github.io/canirequire/). This list has been compiled and vetted for any potential security concerns. If you require an npm module that is not supported out-of-the-box, then a request can be made via the [Auth0 support](https://support.auth0.com/) portal or via your Auth0 representative. Auth0 will evaluate your request to determine suitability. There is currently no support in Auth0 for the use of npm modules from private repositories.
 
 ::: Best practice
-When using NPM modules to access external services it’s recommended best practice to [keep API requests to a minimum](?), [avoid excessive calls to paid services](?), and avoid potential security exposure by [limiting what is sent](?). For more information on this see the [performance](#performance) and [security](#security) sections below.
+When using NPM modules to access external services it’s recommended best practice to [keep API requests to a minimum](#minimizing-api-requests), [avoid excessive calls to paid services](?), and avoid potential security exposure by [limiting what is sent](?). For more information on this see the [performance](#performance) and [security](#security) sections below.
 :::
 
 ### Environment variables
@@ -68,16 +68,16 @@ It can also be used to support whatever [Software Development Life Cycle (SDLC)]
 
 ### `global` object
 
-Webtask containers also provide the global object, which can be accessed across all rules executing within a Webtask container instance. The global object acts as a global variable and can be used to cache information, or even define to functions, that can be used across all rules that run.    
+Webtask containers provide the `global` object, which can be accessed across all rules executing within a Webtask container instance. The `global` object acts as a global variable and can be used to cache information, or even define to functions, that can be used across all rules that run.    
 
-Rules can run more than once when a pipeline is executed, and this depends on the [context](#context-object) of operation. For each context in which a rule is run, a new Webtask container *may* be instantiated, and for each instantiation of a new Webtask container the `global` object is reset. Thus any global declaration should also include provision for initialization - with that declaration typically being made as early as possible (i.e. in a rule that runs early in the execution [order](#order)), e.g: 
+Rules can run more than once when a pipeline is executed, and this depends on the [context](#context-object) of operation. For each context in which a rule is run, a new Webtask container *may* be instantiated, and for each instantiation of a new Webtask container the `global` object is reset. Thus any declaration in the `global` object should also include provision for initialization - with that declaration ideally being made as early as possible (i.e. in a rule that runs early in the execution [order](#order)), e.g: 
 
 ```js
     global.tokenVerify = global.tokenVerify || function(token, secret) {
-        /* The 'jwt.verify' function is synchronous, however wrapping with a promise
-        * provides for better error management and integration within the logic
-        * flow.
-        */
+     /* The 'jwt.verify' function is synchronous, however wrapping with a promise
+      * provides for better error management and integration within the logic
+      * flow.
+      */
      return new Promise(function(resolve, reject) {
       jwt.verify(
         token, 
@@ -99,13 +99,13 @@ Rules can run more than once when a pipeline is executed, and this depends on th
 The `auth0` object is an instance of the [Management API Client](https://github.com/auth0/node-auth0#management-api-client) (defined in the [node-auth0](https://github.com/auth0/node-auth0) Node.js client library), and provides limited access to the [Auth0 Management API](/api/management/v2). It is primarily used for [updating metadata](/rules/guides/metadata#update-metadata) associated with the [`user`](#user-object) object from within a rule. 
 
 ::: note
-The [access token](/tokens/overview-access-tokens) associated with the `auth0` object has scopes limited to `read:users` and `update:users` only; typically these are sufficient for the majority of operations we recommend being performed from within a rule. However, if you require additional scope(s) then you will need to employ an alternative means of [access to the Management API](/api/management/v2/tokens). 
+The [access token](/tokens/overview-access-tokens) associated with the `auth0` object has scopes limited to `read:users` and `update:users` only. Typically, these are sufficient for the majority of operations we recommend being performed from within a rule. However, if you require additional scope(s) then you will need to employ an alternative means of [access to the Management API](/api/management/v2/tokens). 
 :::
 
-Like the [`context`](#context-object) object (described below), the `auth0` object contains security sensitive information, so you should not pass it to any external or 3rd party service. Further, the Auth0 Management API is both [rate limited](/docs/policies/rate-limits#management-api-v2) and subject to latency, so you should be judicious regarding [how often calls are made](/best-practices/rules#reduce-api-requests). 
+Like the [`context`](#context-object) object (described below), the `auth0` object contains security sensitive information, so you should not pass it to any external or 3rd party service. Further, the Auth0 Management API is both [rate limited](/policies/rate-limits#management-api-v2) and subject to latency, so you should be judicious regarding [how often calls are made](#minimizing-api-requests). 
 
 ::: Best practice
-It’s recommended best practice to make use of the `auth0` object (and any other mechanisms for calling the Auth0 Management API) sparingly, and to always make sure that adequate [exception](?) and [error](#error-handling) handling is employed in order to prevent unexpected interruption of pipeline execution.
+It’s recommended best practice to make use of the `auth0` object (and any other mechanisms for calling the Auth0 Management API) sparingly, and to always make sure that adequate [exception](#exceptions) and [error](#error-handling) handling is employed in order to prevent unexpected interruption of pipeline execution.
 :::
 
 ## Execution
@@ -114,7 +114,7 @@ Each rule is executed as a JavaScript function; these functions are called in th
 
 In pipeline terms, a rule completes when the [`callback`](#callback-function) function supplied to the rule is called. Failure to call the function will result in a stall of pipeline execution, and ultimately in an error being returned. Each rule must call the `callback` function at least once.
  
-Rule execution supports the asynchronous nature of JavaScript, and constructs such as [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) objects and the like can be used. Asynchronous processing effectively results in suspension of a pipeline pending completion of the asynchronous operation. A webtask container typically has a [30 second execution limit](https://webtask.io/docs/limits), after which the container may be recycled. A recycle of a container will prematurely terminate a pipeline (suspended or otherwise), ultimately resulting in an error in authentication being returned (as well as resulting in a reset of the [`global`](#global-object) object). 
+Rule execution supports the asynchronous nature of JavaScript, and constructs such as [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) objects and the like can be used. Asynchronous processing effectively results in suspension of a pipeline pending completion of the asynchronous operation. A webtask container typically has a [30 second execution limit](https://webtask.io/docs/limits), after which the container may be recycled. A recycle of a container will prematurely terminate a pipeline (suspended or otherwise), ultimately resulting in an error in authentication being returned - as well as resulting in a reset of the [`global`](#global-object) object. 
 
 ::: note
 Setting `context.redirect` will trigger a [Redirection](#redirection) once all rules have completed (the redirect is not forced at the point it is set). Whilst all rules must complete within the execution limit of the Webtask container for the redirect to occur, the time taken as part of redirect processing *can* extend beyond that limit. Redirection back to Auth0 via the `/continue` endpoint will cause the creation of a new Webtask container, in the context of the current pipeline, in which all rules will again be run.  
@@ -124,7 +124,7 @@ Asynchronous execution will result in a (JavaScript) callback being executed aft
 
 ### `context` object
 
-The [`context`](#context-object) object provides information about the context in which a rule is run (such as client identifier, connection name, session identifier, request context, protocol, etc). Using the context object, a rule can determine the reason for execution. For example, as illustrated in the sample fragment below, [`context.clientID`](/rules/references/context-object#properties-of-the-context-object) as well as [`context.protocol`](/rules/references/context-object#properties-of-the-context-object) can be used to implement conditional processing to determine when rule logic is executed. The sample also shows some best practices for [exception handling](#exceptions), use of [`npm` modules](#npm-modules) (for `Promise` style processing), and the [`callback`](#callback-object) object. 
+The [`context`](/rules/references/context-object) object provides information about the context in which a rule is run (such as client identifier, connection name, session identifier, request context, protocol, etc). Using the context object, a rule can determine the reason for execution. For example, as illustrated in the sample fragment below, [`context.clientID`](/rules/references/context-object#properties-of-the-context-object) as well as [`context.protocol`](/rules/references/context-object#properties-of-the-context-object) can be used to implement conditional processing to determine when rule logic is executed. The sample also shows some best practices for [exception handling](#exceptions), use of [`npm` modules](#npm-modules) (for `Promise` style processing), and the [`callback`](#callback-object) object. 
 
 ```js
   switch (context.protocol) {
@@ -175,41 +175,41 @@ It’s recommended best practice to [avoid using conditional logic for Multi-Fac
 
 [Redirect from rule](/rules/guides/redirect) provides the ability for implementing custom authentication flows that require additional user interaction (i.e. beyond the standard login form) and is triggered via use of [context.redirect](/rules/references/context-object#properties-of-the-context-object). Redirect from rule can only be utilized when using the [`\authorize`](/api/authentication#login) endpoint
 
-Redirection to your own hosted user interface is performed before a pipeline completes, and can be triggered *only once* per `context.clientID` context. Redirection should only [use HTTPS](?) when executed in a production environment, and additional parameters should be kept to a minimum in order to help mitigate [common security threats](/security/common-threats). Preferably the Auth0 supplied `state` being the only parameter supplied.  
+Redirection to your own hosted user interface is performed before a pipeline completes, and can be triggered *only once* per `context.clientID` context. Redirection should only [use HTTPS](?) when executed in a production environment, and additional parameters should be kept to a minimum in order to help mitigate [common security threats](/security/common-threats). Preferably the Auth0 supplied `state` is the only parameter supplied.  
 
-Once redirected, your own hosted user interface will execute in a user authenticated context. You can obtain authenticity artefacts - e.g. an [ID Token](/tokens/id-token) in [OpenID Connect (OIDC)](/protocols/oidc), and/or an [Access Token](/tokens/overview-access-tokens) in [OAuth 2.0](/protocols/oauth2) - for a `context.clientID` context **that is not** the one which triggered redirect, and this can be achieved via the use of [silent authentication](/libraries/auth0js/v9#using-checksession-to-acquire-new-tokens). This will create a new pipeline which will cause all rules to execute again, and you can use the [`context`](#context-object) object within a rule to perform conditional processing (as discussed above). 
+Once redirected, your own hosted user interface will execute in a user authenticated context. You can obtain authenticity artefacts - e.g. an [ID Token](/tokens/id-token) in [OpenID Connect (OIDC)](/protocols/oidc), and/or an [Access Token](/tokens/overview-access-tokens) in [OAuth 2.0](/protocols/oauth2) - for a `context.clientID` context **that is not** the one which triggered redirect, and this can be achieved via the use of [silent authentication](/libraries/auth0js/v9#using-checksession-to-acquire-new-tokens). This will create a new pipeline which will cause all rules to execute again, and you can use the `context` object within a rule to perform conditional processing (as discussed above). 
 
-Upon completion of whatever processing is to be performed, pipeline execution continues by redirecting the user back to Auth0 via the `/continue` endpoint (and specifying the state supplied). This will cause all rules to execute again within the current pipeline, and you can use the `context` object within a rule to perform conditional processing checks.  
+Upon completion of whatever processing is to be performed, pipeline execution continues by redirecting the user back to Auth0 via the `/continue` endpoint (and specifying the `state` supplied). This will cause all rules to execute again within the current pipeline, and you can use the `context` object within a rule to perform conditional processing checks.  
 
 ### `user` object
 
 The [`user`](/rules/references/user-object) object provides access to a cached copy of the user account (a.k.a. [user profile](/users/concepts/overview-user-profile)) record in Auth0. The object provides access to information regarding the user without the need to access the Auth0 Management API - access which is both [rate limited](/policies/rate-limits) and subject to latency.
 
-Whilst the contents of the `user` object can be modified - for example, one rule could make a change which another rule could use to influence it’s execution - any changes made will not be persisted. There may be occasions when it becomes necessary to persist, say, [updates to metadata](/rules/guides/metadata#update-metadata) associated with a user, and the [`auth0`](#auth0-object) object can be used to perform such operations where required. 
+Whilst the contents of the `user` object can be modified - for example, one rule could make a change which another rule could use to influence it’s execution - any changes made will not be persisted. There may be occasions when it becomes necessary to persist, say, [updates to metadata](/rules/guides/metadata#update-metadata) associated with a user and the [`auth0`](#auth0-object) object can be used to perform such operations where required. 
 
 ::: note
-Updating a user via use of the `auth0` object ultimately results in a call to the Auth0 Management API. As the Auth0 Management API is both rate limited and subject to latency, caution should be exercised regarding when and how often updates are performed.
+Updating a user via use of the `auth0` object ultimately results in a call to the Auth0 Management API. As the Auth0 Management API is both [rate limited](/policies/rate-limits) and subject to latency, caution should be exercised regarding when and how often updates are performed.
 :::
 
 The [`context`](#context-object) object contains the `primaryUser` property which refers to the user identifier of the primary user. This user identifier will typically be the same as `user_id` property in the root of the `user` object. The primary user is the user that is returned to the Auth0 engine when the rule pipeline completes, and the `user_id` is a unique value generated by Auth0 to uniquely identify the user within the Auth0 tenant. This `user_id` should be treated as an opaque value.
 
-There are occasions when `primaryUser` must be updated as the primary user may change - i.e. the user returned to the Auth0 engine will be different from the user on rule pipeline entry. [Automatic account linking](/link-accounts#automatic-account-linking) being one of those occasions. On these occasions, a rule must update `primaryUser` to reflect the new primary user identifier. Note that this change *will not* affect any subsequent rule executed in the current instance of the pipeline; the 'user' object will remain unchanged.
+There are occasions when `primaryUser` must be updated as the primary user may change - i.e. the user returned to the Auth0 engine will be different from the user on rule pipeline entry. [Automatic account linking](/link-accounts#automatic-account-linking) being one of those occasions. On these occasions, a rule must update `primaryUser` to reflect the new primary user identifier. Note that this change *will not* affect any subsequent rule executed in the current instance of the pipeline; the `user` object will remain unchanged.
 
 #### Identities
 
 The `user` object also contains a reference to the identities associated with the user account. The `identities` property is an array of objects, each of which contain properties associated with the respective identity as known to the identity provider (for example the `provider` name, associated `connection` in Auth0, and the `profileData` obtained from the identity provider during the last authentication using that identity). [Linking user accounts](/link-accounts) creates multiple entries in the array. 
 
-Each identity in the `identities` array also contains a `user_id` property. This property is the identifier of the user as known to the identity provider. Whilst the `user_id` property in the root of the `user` object *may* also include the identifier of the user (as known to the identity provider), as a best practice, use of the `user_id` property in an array identity should be preferred. The `user_id` in the root of the user object should be treated as an opaque value and should not be parsed.   
+Each identity in the `identities` array also contains a `user_id` property. This property is the identifier of the user as known to the identity provider. Whilst the `user_id` property in the root of the `user` object *may* also include the identifier of the user as known to the identity provider, as a best practice, use of the `user_id` property in an array identity should be preferred. The `user_id` in the root of the user object should be treated as an opaque value and should not be parsed.   
 
 #### Metadata
 
-The `user_metadata` property and the `app_metadata` property refer to the two different aspects of [metadata](/users/concepts/overview-user-metadata) associated with a user. Both the `user_metadata` property and the `app_metadata` property provide access to cached copies of each.  
+The `user_metadata` property and the `app_metadata` property refer to the two different aspects of the [metadata](/users/concepts/overview-user-metadata) associated with a user. Both the `user_metadata` property and the `app_metadata` property provide access to cached copies of each.  
 
 ::: warning
 Authorization related attributes for a user - such as role(s), group(s), department, job codes, etc - should be stored in `app_metadata` and not `user_metadata`. This is because `user_metadata` can essentially be modified by a user whereas `app_metadata` cannot.
 :::
 
-There may be occasions when it becomes necessary to persist, say, [updates to metadata](/rules/guides/metadata#update-metadata) associated with a user, and the [`auth0`](#auth0-object) object can be used to perform such operations where required. When updating either metadata object, it is important to be judicious regarding what information is stored: in line with [metadata best practice](/users/concepts/overview-user-metadata#user-metadata-best-practices), excessive use of metadata can result in increased latency due to excessive pipeline processing. Use of the `auth0` object also results in a call to the Auth0 Management API, so caution should be exercised regarding when and how often updates are performed - the Auth0 Management API being both rate limited and subject to latency too.
+There may be occasions when it becomes necessary to persist, say, [updates to metadata](/rules/guides/metadata#update-metadata) associated with a user, and the [`auth0`](#auth0-object) object can be used to perform such operations where required. When updating either metadata object, it is important to be judicious regarding what information is stored: in line with [metadata best practice](/users/concepts/overview-user-metadata#user-metadata-best-practices), be mindful of over excessive use of metadata, which can result in increased latency due to over excessive processing within the pipeline. Use of the `auth0` object also results in a call to the Auth0 Management API, so caution should be exercised regarding when and how often updates are performed - the Auth0 Management API being both [rate limited](/policies/rate-limits) and subject to latency too.
 
 ### `callback` function
 
@@ -240,10 +240,10 @@ Failure to call the function will result in a stall of pipeline execution, and u
 
 As can be seen in the example provided (above), the `callback` function can be called with up to 3 parameters. The first parameter is mandatory and provides an indication of the status of rule operation. The second and third parameters are optional, and represent the user and the context to be supplied to the next rule in the pipeline. If these are specified, then it is a recommended best practice to pass the [`user`](#user-object) and [`context`](#context-object) object (respectively) as supplied to the rule. Passing anything else will have unpredictable results, and may lead to an [exception](#exceptions) or [error](#error-handling) condition.
 
-The status parameter should be passed as either `null`, an instance of an `Error` object, or an instance of an `UnauthorizedError` object. Specifying null will permit the continuation of pipeline processing, whilst any of the other values will terminate the pipeline; an `UnauthorizedError` signalling [denial of access, and allowing information to be returned to the originator of the authentication operation](/rules/references/legacy#deny-access-based-on-a-condition) regarding the reason why access is denied. Passing any other value for any of these parameters will have unpredictable results, and may lead to an exception or error condition.  
+The status parameter should be passed as either `null`, an instance of an `Error` object, or an instance of an `UnauthorizedError` object. Specifying null will permit the continuation of pipeline processing, whilst any of the other values will terminate the pipeline; an `UnauthorizedError` signalling [denial of access, and allowing information to be returned to the originator of the authentication operation](/rules/references/legacy#deny-access-based-on-a-condition) (regarding the reason why access is denied). Passing any other value for any of these parameters will have unpredictable results, and may lead to an exception or error condition.  
 
 ::: note
-The example provided (above) also demonstrates best practice use of both [early exit](?) as well as [email address verification](?), as described in the [Performance](#performance) and [Security](#security) sections below. Note: the `getRoles` function used is implemented elsewhere within the rule, as a wrapper function to a 3rd party API.
+The example provided (above) also demonstrates best practice use of both [early exit](#exiting-early) as well as [email address verification](?), as described in the [Performance](#performance) and [Security](#security) sections below. Note: the `getRoles` function used is implemented elsewhere within the rule, as a wrapper function to a 3rd party API.
 :::
 
 ## Error Handling 
@@ -260,7 +260,7 @@ As described in the section entitled [Execution](#execution) (above), there are 
   callback(new Error('some description'), user, context);
 ```
 
-In addition, an instance of the Auth0 specific `UnauthorizedError` can be returned which will cause an `unauthorized` error condition, with the supplied error description, to be returned to the application that initiated authentication - i.e. the application from which redirect to the `/authorize` end-point, say, was initiated. This provides the capability to implement rule(s) which can be used to [deny access based on certain conditions](/rules/references/legacy#deny-access-based-on-a-condition). For a description of other common authentication error conditions in Auth0, see the [Auth0 SDK library documentation](/libraries/error-messages): 
+Alternatively, an instance of the Auth0 specific `UnauthorizedError` can be returned which will cause an `unauthorized` error condition, with the supplied error description, to be returned to the application that initiated authentication - i.e. the application from which redirect to the `/authorize` end-point, say, was initiated. This allows an application to offer (contiional) retry capability, and additionaly provides capability to implement rule(s) which can be used to [deny access based on certain conditions](/rules/references/legacy#deny-access-based-on-a-condition). For a description of other common authentication error conditions in Auth0, see the [Auth0 SDK library documentation](/libraries/error-messages): 
 
 ```js
   callback(new UnauthorizedError('some description'), user, context);
@@ -291,20 +291,20 @@ For situations involving asynchronous operations, a `catch` handler when utilizi
           reject(err);
         } else {  
           resolve(decoded);
-      
+      }
     });
   });
 ```
 
-Alternatively, use of [`try...catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch) processing can be used to handle JavaScript exceptions that occur during synchronous operation. Setup of this type of exception handling can often incur performance costs, so should be used sparingly: rule [performance](#performance) should be as optimal as possible. A more pragmatic approach then, is to implement processing that prevents exceptions from occurring rather than handling them once they have occurred.
+Alternatively, use of [`try...catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch) processing can be used to handle JavaScript exceptions that occur during synchronous operation. Setup of this type of exception handling can often incur performance costs, so should be used sparingly; rule [performance](#performance) should be as optimal as possible. A more pragmatic approach then, is to implement processing that prevents exceptions from occurring rather than handling them once they have occurred.
 
 ::: Best practice
-Use of uninitialized objects is a common cause of exceptions. To guard against this, prefer to include provision for initialization - e.g. `user.user_metadata = user.user_metadata || {}` - as part of any declaration in cases where the existence of an object is in question. In a rule, taking steps to prevent an exception from occurring in the first place is a best practice, and is less costly in terms of performance and resource usage than implementing exception handling.
+Use of uninitialized objects is a common cause of exceptions. To guard against this, prefer to include provision for initialization - e.g. `user.user_metadata = user.user_metadata || {}` - as part of any declaration in cases where the existence of an object is in question. In a rule, taking steps to prevent an exception from occurring in the first place is a best practice, and is typically less costly in terms of performance and resource usage than implementing exception handling.
 :::
 
 ## Debugging
 
-Out of the box, [runtime debugging](/rules/guides/debug) of a rule is typically achieved via the use of console logging, using the [console.log](https://developer.mozilla.org/en-US/docs/Web/API/Console/log) facility. These is no interactive debugging of a rule available within the Auth0 platform (though one could employ the testing [automation](#automation) technique described below in conjunction with some external interactive debug facility).
+Out of the box, [runtime debugging](/rules/guides/debug) of a rule is typically achieved via the use of console logging by using the [console.log](https://developer.mozilla.org/en-US/docs/Web/API/Console/log) facility. These is no interactive debugging of a rule available within the Auth0 platform (though one could employ the testing [automation](#automation) technique described below in conjunction with some external interactive source-debugging facility).
 
 ::: Best practice
 Adding sufficient line - i.e. `//` - or block - i.e. `/* */` - comments to a rule, particularly around non-obvious functionality, is invaluable to both code debugging and also code understanding. Particularly as there are many occasions where the initial implementer of a rule may not be the same person responsible for maintaining it going forward.
@@ -312,17 +312,17 @@ Adding sufficient line - i.e. `//` - or block - i.e. `/* */` - comments to a rul
 
 By default, console log output is unavailable for display during normal execution. However, the [Real-time Webtask Logs extension](/extensions/realtime-webtask-logs) can be utilized to display all console logs, in real-time, for all implemented extensibility in an Auth0 tenant - including rules. The real-time console log display provided by the extension includes all `console.log` output, [`console.error`](https://developer.mozilla.org/en-US/docs/Web/API/Console/error) output and [`console.exception`](https://developer.mozilla.org/en-US/docs/Web/API/Console/error) output.
 
-In a production environment debug logging isn’t something that’s desirable all the time: given the [performance](#performance) considerations associated with rules, it would not be prudent to have it continuously enabled. However in a development or testing environment, the option to enable it on a more continuous basis is much more desirable. Further, excessive debug logging could create substantial “noise” -  which could make identifying problems that much harder.
+In a production environment, debug logging isn’t something that’s desirable all the time: given the [performance](#performance) considerations associated with rules it would not be prudent to have it continuously enabled. However in a development or testing environment, the option to enable it on a more continuous basis is much more desirable. Further, excessive debug logging could create substantial “noise” -  which could make identifying problems that much harder.
 
-Modifying a rule to enable or disable debug logging dependent on the environment would be messy and prone to error. Instead, the environment [configuration](#environment-variables) configuration object can be leveraged in order to implement in a fashion similar to the following:
+Modifying a rule to enable or disable debug logging dependent on the environment would be messy and prone to error. Instead, the environment [configuration](#environment-variables) configuration object can be leveraged in order to implement conditional processing in a fashion similar to the following:
 
 ```js
   function NPClaims(user, context, callback) {
     /*
-      * This rule (https://auth0.com/docs/rules) is used to derive 
-      * effective claims associated with the Normalized User Profile:
-      *   https://auth0.com/docs/user-profile/normalized/auth0   
-      */
+     * This rule (https://auth0.com/docs/rules) is used to derive 
+     * effective claims associated with the Normalized User Profile:
+     *   https://auth0.com/docs/user-profile/normalized/auth0   
+     */
     var LOG_TAG = '[NORMALIZED_PROFILE_CLAIMS]: ';
     var DEBUG = configuration.DEBUG ? console.log : function () {};
     DEBUG(LOG_TAG, "identities=", user.identities);
@@ -333,8 +333,8 @@ Modifying a rule to enable or disable debug logging dependent on the environment
       user.family_name ||
       user.identities.filter(function(identity) {
         /* Filter out identities which do not have anything synonymous with 
-          * Family Name
-          */
+         * Family Name
+         */
         return( 
           identity.profileData && 
           identity.profileData.family_name);
@@ -356,18 +356,18 @@ In the example above, a `DEBUG` environment configuration variable has been crea
 The example (above) also demostrates declaration of a named funtion. For convenience, providing a function name - using some compact and unique naming convention, say - can assist with diagnostic analysis. Anonymous functions make it hard in debugging situations to interpret the call-stack generated as a result of any [exceptional error](#exceptions) condition, and providing a unique function name addresses this.
 
 ### Static analysis
-The rule editor in the Auth0 dashboard provides some rudimentary syntax checking and analysis of rule semantics. However, no provision is made for more complex static code analysis, such as overwrite detection, loop detection, vulnerability detection or the like. However, the use of third party tooling - such as [JSHint](https://jshint.com/about/), [SonarJS](https://www.sonarsource.com/products/codeanalyzers/sonarjs.html) or [Coverity](https://www.synopsys.com/software-integrity/security-testing/static-analysis-sast.html) - could be leveraged, in conjunction with rule [testing](#testing), as part of [deployment](#deployment) automation.
+The rule editor in the Auth0 dashboard provides some rudimentary syntax checking and analysis of rule semantics. However, no provision is made for more complex static code analysis, such as overwrite detection, loop detection, vulnerability detection or the like. To address this, consider leveraging use of third party tooling - such as [JSHint](https://jshint.com/about/), [SonarJS](https://www.sonarsource.com/products/codeanalyzers/sonarjs.html) or [Coverity](https://www.synopsys.com/software-integrity/security-testing/static-analysis-sast.html) - in conjunction with rule [testing](#testing), as part of your [deployment](#deployment) automation process.
 
 ## Testing
 
-The Auth0 Dashboard provides the facility to [`TRY`](/rules/guides/debug) a rule for the purpose of testing and debugging. This facility allows a mock [`user`](#user-object) and [`context`](#context-object) object to be defined, which is then passed to the rule as part of its execution; any resulting output from the rule (e.g. from console logging) being displayed upon completion. Whilst this provides an immediate at-a-glance way to unit test a rule, it is very much a manual approach, and one which is unable to leverage the use of automated testing tools such as [Mocha](https://mochajs.org/) or [rewire](https://www.npmjs.com/package/rewire), to support automation as part of any Continuous Integration or Continuous Deployment (a.k.a. CI/CD environment; see the [deployment](#deployment) section below for more details).
+The Auth0 Dashboard provides the facility to [`TRY`](/rules/guides/debug) a rule for the purpose of testing and debugging. This facility allows a mock [`user`](#user-object) and [`context`](#context-object) object to be defined, which is then passed to the rule as part of its execution. The resulting output from the rule (including any console logging) being displayed upon completion. Whilst this provides an immediate at-a-glance way to unit test a rule, it is very much a manual approach, and one which is unable to leverage the use of automated testing tools such as [Mocha](https://mochajs.org/) or [rewire](https://www.npmjs.com/package/rewire).
 
 ::: Best practice
 As a best practice, and as part of the recommended [support for the Software Development Life Cycle](https://auth0.com/docs/architecture-scenarios/implementation/b2c/b2c-architecture#sdlc-support), the use of a seperate test Tenant in Auth0 should be employed in order to test any rule/rule changes before deploying to production.
 :::
 
 ### Automation
-With the help of a little boilerplate however, it’s possible to implement so that a rule can be deployed and executed in an Auth0 Tenant *and*, without modification, be consumed in any Continuous Integration/Continuous Deployment (CI/CD) automated (unit) testing environment. 
+With the help of a little boilerplate however, it’s possible to implement so that a rule can be deployed and executed in an Auth0 Tenant *and*, without modification, be consumed in any Continuous Integration/Continuous Deployment (CI/CD) automated (unit) testing environment: 
 
 ```js
   const vm = require('vm');
@@ -377,7 +377,7 @@ With the help of a little boilerplate however, it’s possible to implement so t
       "email":       "jdoe@foobar.com",
       "user_id":     "auth0|0123456789",
           .
-  .
+          .
     };
   var context = {
       "clientID":            "123456789",
@@ -394,11 +394,10 @@ With the help of a little boilerplate however, it’s possible to implement so t
   };
 
   vm.runInThisContext(
-      "(()=>{return "+ 
-  fs.readFileSync('./rules/Normalized Profile Claims.js')+ "})();", {
-  // filename for stack traces
-          filename: 'Normalized Profile Claims.js',     
-          displayErrors: true
+      "(()=>{return " + fs.readFileSync('./rules/Normalized Profile Claims.js') + " })();", {
+        // filename for stack traces
+        filename: 'Normalized Profile Claims.js',     
+        displayErrors: true
       }
   )(
     user,
@@ -409,35 +408,35 @@ With the help of a little boilerplate however, it’s possible to implement so t
   );
 ```
 
-As shown in the example above, some relatively straightforward testing can be implemented (in an independent node module) by utilizing the Node.js [VM](https://www.w3schools.com/nodejs/ref_vm.asp) to execute the rule to be tested. In this case a rule named Normalized Profile Claims is read from a file, and the boilerplate added around the rule (JavaScript) code prior to executing it (the boilerplate being in the strings that both prefix and suffix the filesystem call to [read the file](https://nodejs.org/api/fs.html#fs_fs_readfilesync_path_options) containing the rule code). 
+As shown in the example above, some relatively straightforward testing can be implemented (in an independent node module) by utilizing the Node.js [VM](https://www.w3schools.com/nodejs/ref_vm.asp) to execute the rule to be tested. In this case a rule named Normalized Profile Claims is read from a file, and some boilerplate added around the rule (JavaScript) code prior to executing it (the boilerplate being in the strings that both prefix and suffix the filesystem call to [read the file](https://nodejs.org/api/fs.html#fs_fs_readfilesync_path_options) containing the rule code). 
 
 ::: note
 The options object passed on the call to `runInThisContext` provides information that can be used to assist with [debugging](#debugging) in the case where any exceptional error condition(s) may arise. Please See the Node.js [documentation](https://node.readthedocs.io/en/stable/api/vm/) for further information regarding this function call.
 :::
 
-The first two objects passed to the rule during testing represent the [`user`](#user-object) and [`context`](#context-object), and these can be mocked in a fashion similar to that employed in the Auth0 Dashboard `TRY` functionality. The [`callback`](#callback-function) function, supplied as the third parameter, can be implemented to simulate pipeline continuation, subsequently performing execution of the next rule in the [order](#order) required. 
+The first two objects passed to the rule during testing represent the [`user`](#user-object) and [`context`](#context-object), and these can be mocked in a fashion similar to that employed in the Auth0 Dashboard `TRY` functionality. The [`callback`](#callback-function) function, supplied as the third parameter, can be implemented to simulate pipeline continuation, subsequently performing execution of the next rule in [order](#order). 
 
 ::: Best practice
-The `callback` function supplied can be used to ensure execution of callback is performed *at least* once by it (the function) executing test of the next rule in the chain. Implementing testing in the supplied function to also ensure that multiple execution of the callback is not performed by a rule is also a recommended best practice.
+The `callback` function supplied can be used to ensure execution of callback is performed *at least* once by it (the function) executing test of the next rule in the chain. Implementing test(s) in the supplied function to also ensure that multiple execution of the callback is not performed by a rule is also a recommended best practice.
 :::
 
-In addition, the (Node.js) `global` object can be used to provide both the [configuration](#environment) object, and also an instance of the [`auth0`](#auth0-object) object if required. In the sample above, a global `configuration` object in line with recommended practices to assist with [debugging](#debugging) (described in the section above) has been defined.
+In addition, the (Node.js) `global` object can be used to provide both the [configuration](#environment) object, and also an instance of the [`auth0`](#auth0-object) object if required. In the sample above, a global `configuration` object has been defined that aligns with recommended practices to assist with [debugging](#debugging) (as described in the section above) .
 
 The sample above also makes use of the file system directory structure provided by Auth0 [Deploy CLI](/extensions/deploy-cli) - the tooling which can assist with rule [deployment](#deployment), as described in the section below.  
 
 ## Deployment
 Coding a rule within the Auth0 Dashboard rule editor is a great way to implement and test whilst still in the development stage. However, when it comes time to deploy into automated test and/or production environments, a more automated mechanism is required; copy and pasting code between Auth0 tenants is not a satisfactory method to employ.
 
-Out of the box, Auth0 provides a number of facilities for automated deployment of rule extensibility assets between Auth0 tenant environments. The Auth0 [GitHub](/extensions/github-deploy), [GitLab](/extensions/gitlab-deploy) and [Bitbucket](/extensions/bitbucket-deploy) extensions provide the ability to update rule assets from a respective 3rd party version control system - both manually, and in many instances automatically (i.e. when a change in the version control system is detected) too.
+Out of the box, Auth0 provides a number of facilities for automated deployment of rule extensibility assets between Auth0 tenant environments. The Auth0 [GitHub](/extensions/github-deploy), [GitLab](/extensions/gitlab-deploy) and [Bitbucket](/extensions/bitbucket-deploy) extensions provide the ability to update rule assets from the respective 3rd party version control system - both manually, and in many instances automatically too (i.e. when a change in the version control system is detected).
 
-In addition, the Auth0 [Deploy CLI](/extensions/deploy-cli) tool can be used to automate deployment between Auth0 tenants. Deploy CLI works with files stored in the file system together with the Auth0 Management API, and provides capability to allow the export of rule assets from an Auth0 tenant, as well as import of them into an Auth0 tenant too. Further the tool provides for programmatic control over rule ordering and rule environment [configuration](#environment), as part of deployment automation. In many ways, the Deploy CLI is like a Swiss Army Knife when it comes to rule extensibility deployment in Auth0.  
+In addition, the Auth0 [Deploy CLI](/extensions/deploy-cli) tool can be used to automate deployment between Auth0 tenants. Deploy CLI works with files stored in the file system together with the Auth0 Management API, and provides capability to allow the export of rule assets from an Auth0 tenant, as well as import of them into an Auth0 tenant. Further the tool provides for programmatic control over rule ordering and rule environment [configuration](#environment-variables), as part of deployment automation. In many ways, the Deploy CLI is like a Swiss Army Knife when it comes to rule extensibility deployment in Auth0.  
 
 ::: Best practice
 As a best practice, use of the Auth0 [Deploy CLI](/extensions/deploy-cli) tool should be preferred in almost all cases involving deployment to test or production environments. Whilst the extensions can provide automated detection of changes deployed to the respective version control system, the Deploy CLI tool allows precise control of what’s deployed, when, where and how. 
 :::
 
 ### Versioning
-There is no version management when it comes to rules in Auth0: changes made to a rule deployed to an Auth0 tenant will be made live immediately, as any written change instantly  overwrites what's already there. It's therefore recommended that (a) use of version control - such as Git via GitHub, or the like - is employed to provide change management capability, and that (b) use of a seperate [Test Tenant](/dev-lifecycle/setting-up-env) in Auth0 is employed as part of testing strategy, in order to provide safe testing of any rule/rule changes before deploying to production.  
+There is no version management when it comes to rules in Auth0: changes made to a rule deployed to an Auth0 tenant will be made live immediately as any change written instantly overwrites what's already there. It's therefore recommended that (a) use of version control - such as Git via GitHub, or the like - is employed to provide change management capability, and that (b) use of a seperate [Test Tenant](/dev-lifecycle/setting-up-env) in Auth0 is employed (as part of testing strategy) in order to provide safe testing of any rule/rule changes before deploying to production.  
 
 ## Performance
 
@@ -454,12 +453,12 @@ The [global](#global-object) object can be used to cache information from API ca
 :::
 
 #### Limiting calls to paid services
-If you have rules that call a paid services - such as sending SMS messages via Twilio - make sure that you only use the service when necessary. This not only provides performance enhancement but helps to avoid extra charges too. To help reduce calls to paid services:
+If you have rules that call paid services - such as sending SMS messages via Twilio - make sure that you only use those servicess when necessary. This not only provides performance enhancement but helps to avoid extra charges too. To help reduce calls to paid services:
 
 * Disallow public sign-ups to reduce the number of users who can sign up and trigger calls to paid services.
 * Ensure that a rule only gets triggered for an authorized subset of users, or other appropriate conditions. For example, you may want to add logic that checks if a user has a particular email domain, role/group, or subscription level before triggering the call to the paid service.
 
 #### Limiting calls to the Management API 
-Outside the use of the [auth0](#auth0-object) object, prefer to avoid calls to the Auth0 Management API. The Auth0 Management API is [rate limited](/policies/rate-limits#management-api-v2) - which will still be a consideration even when using the auth0 object too (so be sure to use it sparingly). In addition, Management API functions take varying degrees of time to perform so will incur varying degrees of latency; executing user search functions, for instance, should be kept to a minimum and performed only where absolutely necessary - even when executed via the `auth0` object.
+Outside use of the [`auth0`](#auth0-object) object, prefer to avoid calls to the Auth0 Management API. The Auth0 Management API is [rate limited](/policies/rate-limits#management-api-v2) - which will still be a consideration even when using the `auth0` object too (so be sure to use it sparingly). In addition, Management API functions take varying degrees of time to perform, so will incur varying degrees of latency; executing [user search](/api/management/v2#!/Users/get_users) functionality, for example, should be kept to a minimum and performed only where absolutely necessary - even when executed via the `auth0` object.
 
 ## Security
