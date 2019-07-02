@@ -23,21 +23,21 @@ useCase:
 ## SAML Configuration Tutorials
 
 <%= include('../../../_includes/_topic-links', { links: [
-  'protocols/saml/saml-apps/cisco-webex',
-  'protocols/saml/saml-apps/datadog',
-  'protocols/saml/saml-apps/egencia',
-  'protocols/saml/saml-apps/eloqua',
-  'protocols/saml/saml-apps/freshdesk',
-  'protocols/saml/saml-apps/github-cloud',
-  'protocols/saml/saml-apps/github-server',
-  'protocols/saml/saml-apps/google-apps',
-  'protocols/saml/saml-apps/heroku',
-  'protocols/saml/saml-apps/hosted-graphite',
-  'protocols/saml/saml-apps/litmos',
-  'protocols/saml/saml-apps/pluralsight',
-  'protocols/saml/saml-apps/sprout-video',
-  'protocols/saml/saml-apps/tableau-online',
-  'protocols/saml/saml-apps/tableau-server',
-  'protocols/saml/saml-apps/workday',
-  'protocols/saml/saml-apps/workpath'
+  'configure/saml/sso-integrations/cisco-webex',
+  'configure/saml/sso-integrations/datadog',
+  'configure/saml/sso-integrations/egencia',
+  'configure/saml/sso-integrations/eloqua',
+  'configure/saml/sso-integrations/freshdesk',
+  'configure/saml/sso-integrations/github-cloud',
+  'configure/saml/sso-integrations/github-server',
+  'configure/saml/sso-integrations/google-apps',
+  'configure/saml/sso-integrations/heroku',
+  'configure/saml/sso-integrations/hosted-graphite',
+  'configure/saml/sso-integrations/litmos',
+  'configure/saml/sso-integrations/pluralsight',
+  'configure/saml/sso-integrations/sprout-video',
+  'configure/saml/sso-integrations/tableau-online',
+  'configure/saml/sso-integrations/tableau-server',
+  'configure/saml/sso-integrations/workday',
+  'configure/saml/sso-integrations/workpath'
 ] }) %>

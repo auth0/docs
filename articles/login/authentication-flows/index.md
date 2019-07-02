@@ -29,7 +29,7 @@ Auth0 uses [OpenID Connect](/protocols/oidc) and [OAuth 2.0](/protocols/oauth2) 
 We support scenarios for mobile, desktop, server-side, or client-side applications. You can get more details on implementing these flows by exploring:
 
 <%= include('../../_includes/_topic-links', { links: [
-  'flows/guides/auth-code-pkce/add-login-auth-code-pkce',
-  'flows/guides/implicit/add-login-implicit',
-  'flows/guides/auth-code/add-login-auth-code'
+  'login/authentication-flows/add-login-auth-code-pkce',
+  'login/authentication-flows/add-login-implicit',
+  'login/authentication-flows/add-login-auth-code'
 ] }) %>

@@ -22,6 +22,5 @@ You can get more details from the following links:
 
 <%= include('../_includes/_topic-links', { links: [
   'getting-started/setting-up-env',
-  'dev-lifecycle/local-testing-and-development',
-  'dev-lifecycle/child-tenants'
+  'dev-lifecycle/local-testing-and-development'
 ] }) %>
