@@ -12,10 +12,8 @@ articles:
 
   - title: "Getting Started"
     category: true
+    url: "/getting-started"
     children:
-
-      - title: "Overview"
-        url: "/getting-started"
 
       - title: "Dashboard Overview"
         url: "/getting-started/dashboard-overview"
