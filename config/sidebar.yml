@@ -562,10 +562,10 @@ articles:
         hidden: true
       
       - title: Using the Dashboard
-        url: /manage-users/manage-user-using-the-dashboard
+        url: /manage-users/using-the-dashboard
 
       - title: Using the API
-        url: /manage-users/manage-users-using-the-management-api
+        url: /manage-users/using-the-management-api
       
       - title: Link User Accounts
         url: /extend-integrate/extensions/account-link

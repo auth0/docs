@@ -13,10 +13,10 @@ The following pages will cover everything you need to know about managing users 
 
 <%= include('../_includes/_topic-links', { links: [
   'manage-users/overview-manage-users',
-  'manage-users/manage-users-using-the-dashboard',
-  'manage-users/manage-users-using-the-management-api',
+  'manage-users/using-the-dashboard',
+  'manage-users/using-the-management-api',
   'extend-integrate/extensions/account-link',
   'manage-users/blacklisting-attributes',
-  'manage-users/overview-user-migration',
-  'manage-users/search/v3',
+  'manage-users/import-export',
+  'manage-users/search',
 ] }) %>

@@ -19,7 +19,7 @@ The [`GET /api/v2/users` endpoint](/api/management/v2#!/Users/get_users) allows 
 
 This endpoint is **eventually consistent**, and as such, we recommend that you use this endpoint for back office processes such as changing the display name of an existing user.
 
-<%= include('../../_includes/_valid-access-token') %>
+<%= include('../_includes/_valid-access-token') %>
 
 ## Search for users
 

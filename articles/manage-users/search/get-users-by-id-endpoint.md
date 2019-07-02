@@ -22,7 +22,7 @@ This endpoint is **immediately consistent**, and as such, we recommend that you 
 The user ID should be URL encoded since it may contain characters that do not work well in a URL.
 :::
 
-<%= include('../../_includes/_valid-access-token') %>
+<%= include('../_includes/_valid-access-token') %>
 
 ## Syntax
 
