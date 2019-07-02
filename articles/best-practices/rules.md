@@ -15,7 +15,7 @@ This article covers some best practices when using [rules](/rules). Rules can be
 
 A number of [pre-existing Rules/Rule templates](https://github.com/auth0/rules) are provided out-of-box to help you achieve your goal(s). However there are times when you will want to [build your own Rule(s)](/rules/guides/create) in support of your  specific functionality/requirements. You may choose to extend or modify a pre-existing Rule/Rule template, or you may choose to start from scratch (using one of our [samples](/rules/references/samples) to guide you). Either way, there are a number of best practices that you’ll want to adopt in order to ensure that you achieve the best possible outcome.
 
-**TODO: add screenshot here of rules page**
+![Rules Dashboard](/media/articles/rules/rules-best-practice-dashboard.png)
 
 The image above depicts an [Auth0 Dashboard](/dashboard) showing a number of enabled and disabled rules for a specific [Auth0 Tenant](/getting-started/the-basics#account-and-tenants). Enabled rules - those with the green toggle - are those rules that are active and will execute as part of a pipeline. Disabled rules - those with the greyed-out toggle - on the other hand, won't. 
 
