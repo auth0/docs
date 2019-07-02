@@ -11,13 +11,8 @@ articles:
 ## ------------------------------------------------------------
 
   - title: "Getting Started"
-    category: true
-    expanded: true
     url: "/getting-started"
     children:
-
-      - title: "Overview"
-        url: "/getting-started"
 
       - title: "Dashboard Overview"
         url: "/getting-started/dashboard-overview"
@@ -85,7 +80,7 @@ articles:
         url: /guides/login/universal-vs-embedded
 
       - title: Embedded Login
-        url: "/login#embedded-login"
+        url: "/login/embedded-login"
         children:
 
           - title: Lock for Web
@@ -169,6 +164,61 @@ articles:
 
             - title: Redirect After Logout
               url: /logout/redirect-users-after-logout
+
+## ------------------------------------------------------------
+## Identity Providers / Connections
+## ------------------------------------------------------------
+
+  - title: Connections (Identity Providers)
+    url: /connections
+    children:
+
+      - title: Social Identity Providers
+        url: "/identityproviders#social"
+
+      - title: Enterprise Identity Providers
+        url: "/identityproviders#enterprise"
+
+      - title: Legal Identity Providers
+        url: "/identityproviders#legal"
+      
+      - title: Database
+        url: /connections/database
+        children:
+
+          - title: Auth0 User Store
+            url: "/connections/database#using-the-auth0-user-store"
+
+          - title: Your Database
+            url: /connections/database/custom-db
+
+          - title: Password Policies
+            url: /connections/database/password-options
+
+          - title: Password Strength
+            url: /connections/database/password-strength
+
+      - title: SAML Identity Providers
+        url: /protocols/saml/identity-providers/
+
+      - title: Passwordless Authentication
+        url: /connections/passwordless
+        children:
+
+          - title: Native Passwordless
+            url: /connections/passwordless/native-passwordless-universal
+
+          - title: Using Email
+            url: /connections/passwordless/email
+
+          - title: Using SMS
+            url: /connections/passwordless/sms
+
+          - title: FAQ
+            url: /connections/passwordless/faq
+
+      - title: Pass Parameters to Identity Providers
+        url: /connections/pass-parameters-to-idps
 
   - title: Architecture Scenarios
     url: /architecture-scenarios
