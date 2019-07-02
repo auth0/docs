@@ -481,7 +481,7 @@ Removing calls to the Management API (as well as the extra call required to get 
 
 ### Use HTTPS
 
-Always use HTTPS, not HTTP, when making calls to external services or when execting [redirect](#redirection) as part of your rule implementation.
+Always use HTTPS, not HTTP, when making calls to external services or when executing [redirect](#redirection) as part of your rule implementation.
 
 ### Store security sensitive values in rule Settings
 
@@ -491,7 +491,7 @@ Security sensitive information, such as credentials or API keys, should be store
 const myApiKey = 'abc123';
 ```
 
-Instead, prefer to store (secret) information like this so that it's accesible via the [`configuration`](#configuration-object) object:
+Instead, prefer to store (secret) information so that it's accesible via the [`configuration`](#configuration-object) object:
 
 ```js
 const myApiKey = configuration.myApiKey;
