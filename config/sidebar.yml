@@ -281,6 +281,197 @@ articles:
           - title: "Enable RBAC for APIs"
             url: "/dashboard/guides/apis/enable-rbac"
 
+## ------------------------------------------------------------
+## Configuration
+## ------------------------------------------------------------
+
+  - title: Configuration
+    url: /configure
+    children:
+
+      - title: Tenant Configuration
+        url: /dashboard/dashboard-tenant-settings
+        children:
+
+          - title: Manage Tenant Administrators
+            url: /dashboard/manage-dashboard-admins
+
+          - title: Configure Session Lifetime Settings
+            url: /dashboard/guides/tenants/configure-session-lifetime-settings
+
+          - title: Enable SSO for Tenants
+            url: /dashboard/guides/tenants/enable-sso-tenant
+
+          - title: Configure Device User Code Settings
+            url: /dashboard/guides/tenants/device-user-code-settings
+
+          - title: Recommended Settings
+            url: /best-practices/tenant-settings
+
+          - title: Dynamic Client Registration
+            url: /api-auth/dynamic-client-registration
+
+          - title: Create Multiple Tenants
+            url: /dashboard/guides/tenants/create-multiple-tenants
+            hidden: true
+
+          - title: Child Tenant Request Process
+            url: /dev-lifecycle/child-tenants
+            hidden: true
+
+      - title: Application Configuration
+        url: /configure/applications
+        children:
+
+          - title: Application Settings
+            url: /configure/applications/settings
+
+          - title: Enable SSO for Applications
+            url: /configure/applications/enable-sso
+
+          - title: Update Grant Types
+            url: /configure/applications/update-grant-types
+
+          - title: Android App Links
+            url: /configure/applications/enable-android-app-links
+
+          - title: Apple Universal Links
+            url: /configure/applications/enable-universal-links
+
+          - title: Set Up Add-ons
+            url: /configure/applications/set-up-addons
+
+          - title: Remove Applications
+            url: /configure/applications/remove-app
+
+          - title: Check App Type
+            url: /configure/applications/view-app-type-confidential-public
+
+          - title: Rotate Client Secret
+            url: /configure/applications/rotate-client-secret
+
+          - title: Recommended Settings
+            url: /configure/applications/recommended-settings
+
+          - title: View Add-ons
+            url: /configure/applications/view-addons
+            hidden: true
+
+      - title: API Configuration
+        url: /configure/apis
+        children:
+
+          - title: API Settings
+            url: /configure/apis/settings
+
+          - title: Signing Algorithms
+            url: /configure/apis/signing-algorithms
+
+          - title: Represent Multiple APIs with a Single API
+            url: /configure/apis/represent-multiple-apis
+
+          - title: Enable Role-Based Access Control for APIs
+            url: /configure/apis/enable-rbac
+
+          - title: Add Permissions
+            url: /configure/apis/add-permissions
+
+          - title: Delete Permissions
+            url: /configure/apis/delete-permissions
+
+          - title: Dashboard Views for APIs
+            url: /configure/apis/views-apis
+
+      - title: Single Sign-On
+        url: /configure/sso
+        children:
+
+          - title: Single Sign-On with Auth0
+            url: /configure/sso/sso-auth0
+
+      - title: Anomaly Detection
+        url: /configure/anomaly-detection
+        children:
+
+          - title: Breached Password Security
+            url: /configure/anomaly-detection/breached-passwords
+
+          - title: Set Preferences
+            url: /configure/anomaly-detection/set-preferences
+
+          - title: Customize Emails
+            url: /configure/anomaly-detection/customize-blocked-account-emails
+
+          - title: Restrictions and Limitations
+            url: /configure/anomaly-detection/restrictions-limitations
+
+          - title: FAQs
+            url: /configure/anomaly-detection/faqs
+
+          - title: Enable and Disable Brute Force Protection
+            url: /configure/anomaly-detection/enable-disable-brute-force-protection
+            hidden: true
+
+          - title: Breached Password Detection Triggers
+            url: /configure/anomaly-detection/breached-password-detection-triggers-actions
+            hidden: true
+
+          - title: Brute-Force Protection Triggers
+            url: /configure/anomaly-detection/brute-force-protection-triggers-actions
+            hidden: true
+
+      - title: SAML Configuration
+        url: /configure/saml
+        children:
+
+          - title: Overview
+            url: /configure/saml/overview
+
+          - title: Configure Auth0 as a Service Provider
+            url: /configure/saml/auth0-as-service-provider
+
+          - title: Configure Auth0 as an Identity Provider
+            url: /configure/saml/auth0-as-identity-provider
+
+          - title: Configure Auth0 as Both Service and Identity Provider
+            url: /configure/saml/auth0-as-identity-and-service-provider
+
+          - title: SAML Design Considerations
+            url: /configure/saml/design-considerations
+
+          - title: Supported SAML Options and Bindings
+            url: /configure/saml/supported-options-and-bindings
+
+          - title: Customize SAML Assertions
+            url: /configure/saml/saml-assertions
+
+          - title: Logout
+            url: /configure/saml/logout
+
+          - title: Deprovision Users
+            url: /configure/saml/deprovision-users
+
+          - title: Logout
+            url: /configure/saml/logout
+            
+          - title: SAML Configurations for SSO Integrations
+            url: /configure/saml/sso-integrations
+
+          - title: Special SAML Configuration Scenarios
+            url: /configure/saml/special-scenarios
+            children:
+
+              - title: IdP-Initiated Single Sign-On
+                url: /configure/saml/special-scenarios/idp-initiated-sso
+                hidden: true
+
+              - title: Signing and Encrypting SAML Requests
+                url: /configure/saml/special-scenarios/signing-and-encrypting-saml-requests
+                hidden: true
+
+      - title: Whitelist IP Addresses
+        url: /configure/ip-whitelist
+
   - title: Architecture Scenarios
     url: /architecture-scenarios
 
