@@ -442,6 +442,14 @@ There is no version management when it comes to rules in Auth0: changes made to 
 
 Rules execute as part of a pipeline where artifacts for authenticity are generated, as described in the [Anatomy](#anatomy) section above. As such, an enabled rule will execute for every login operation (interactive or otherwise), every silent authentication, and every time an access token is generated for an API call. This means that even in small scale deployments performance can be a concern, which will only be exacerbated as the scale of deployment increases.
 
+### Avoid unecessary execution
+
+Prefer to implment execution based on conditional logic. For example, to run a rule for only specific applications, check on a specific [`clientID`](/rules/references/context-object) or for specific [`clientMetadata`](/rules/references/context-object) - especially when checking against a single `clientMetadata` value, common across multiple applications. Using `clientMetadata` can also make adding new clients (as well as reading rule code) easier, especially if you have a large number of applications defined.
+
+::: note
+Client metadata for an application can be set manually via the dashboard, by going to [Application Settings -> Advanced Settings -> Application Metadata](${manage_url}/#/applications/) or programatically via use of the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
+:::
+
 ### Exiting early
 For optimal performance, prefer to write rules that complete as soon as possible. For example, if a rule has three checks to decide if it should run, use the first check to eliminate the majority of cases, followed by the check to eliminate the next largest set of cases, and so on and so forth. At the end of each check remember to execute the [callback](#callback-function) function, ideally combined with a (JavaScript) `return` in order to exit the (rule) function. 
 
@@ -469,12 +477,68 @@ By way of example, if you are using the **Check if user email domain matches con
 
 Removing calls to the Management API (as well as the extra call required to get the appropriate <dfn data-key="access-token">Access Token</dfn>) will make your rule code perform better as well as be more reliable. 
 
-#### Avoid unecessary execution
+## Security
 
-Prefer to implment execution based on conditional logic. For example, to run a rule for only specific applications, check on a specific [`clientID`](/rules/references/context-object) or for specific [`clientMetadata`](/rules/references/context-object) - especially when checking against a single `clientMetadata` value, common across multiple applications. Using `clientMetadata` can also make adding new clients (as well as reading rule code) easier, especially if you have a large number of applications defined.
+### Use HTTPS
 
-::: note
-Client metadata for an application can be set manually via the dashboard, by going to [Application Settings -> Advanced Settings -> Application Metadata](${manage_url}/#/applications/) or programatically via use of the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
+Always use HTTPS, not HTTP, when making calls to external services or when execting [redirect](#redirection) as part of your rule implementation.
+
+### Store security sensitive values in rule Settings
+
+Security sensitive information, such as credentials or API keys, should be stored in your [rule settings](${manage_url}/#/rules) where they'll be obfuscated, encrypted and available via the [`configuration`](#configuration-object) object. Do not store these values as literals in your rules code. For example, do not write code like this:
+
+```js
+const myApiKey = 'abc123';
+```
+
+Instead, prefer to store (secret) information like this so that it's accesible via the [`configuration`](#configuration-object) object:
+
+```js
+const myApiKey = configuration.myApiKey;
+```
+
+### Don’t send the entire [`context`](#context-object) object to external services
+
+For rules that send information to an external service, make sure you are not sending the entire [context](#context-object), since this object may contain tokens or other sensitive data. For rules that send information to external services, you should only send a *subset* of the less sensitive attributes from the `context` object when and where necessary.
+
+::: warning
+In a similar fashion, avoid passing **any** aspect of the [`auth0`](#auth0-object) object outside of a rule.  
 :::
 
-## Security
+### Check if an email is verified
+
+Whenever granting authorization predicated on email address or email address charisteristics, always start by checking if the email address is verified e.g:
+
+```js
+function (user, context, callback) {
+  // Access should only be granted to verified users.
+  if (!user.email || !user.email_verified) {
+    return callback(new UnauthorizedError('Access denied.'));
+  }
+  // ...
+}
+```
+
+### Check for exact string matches
+
+For rules that determine access control based on a particular string, such as an email domain, check for an exact string match instead of checking for a substring match. If you check only for a substring, your rule may not function as you intend. For example, in:
+
+```js
+if( _.findIndex(connection.options.domain_aliases, function(d){
+  return user.email.indexOf(d) >= 0;
+}
+```
+
+the code (above) would return true given emails such as:
+* `user.domain.com@not-domain.com`
+* `“user@domain.com”@not-domain.com` (quotes included)
+
+which may not be as desired. Instead, prefer to perform exact matches using code such as:
+
+```js
+const emailSplit = user.email.split('@');
+const userEmailDomain = emailSplit[emailSplit.length - 1].toLowerCase();
+```
+
+See the **Check if user email domain matches configured domain rule template** [on GitHub](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or on the [Auth0 dashboard](${manage_url}/#/rules/new) for further explanation.
+
