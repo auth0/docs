@@ -22,25 +22,25 @@ useCase:
 
 <ul class="topic-links">
 <li>
-    <i class="icon icon-budicon-292"></i><a href="/guides-tutorials/extend-integrate/rules">Rules</a>
+    <i class="icon icon-budicon-292"></i><a href="/extend-integrate/rules">Rules</a>
     <p>
         Rules are JavaScript functions that execute when a user authenticates to your application. They run once the authentication process is complete, and you can use them to customize and extend Auth0's capabilities. Learn how to configure and use rules with Auth0.
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-292"></i><a href="/guides-tutorials/extend-integrate/hooks">Hooks</a>
+    <i class="icon icon-budicon-292"></i><a href="/extend-integrate/hooks">Hooks</a>
     <p>
         Hooks are Webtasks associated with specific extensibility points of the Auth0 platform, which allow you to customize the behavior of Auth0 with custom code using Node.js. Learn how to configure and use hooks with Auth0.
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-292"></i><a href="/guides-tutorials/extend-integrate/extensions">Extensions</a>
+    <i class="icon icon-budicon-292"></i><a href="/extend-integrate/extensions">Extensions</a>
     <p>
         Auth0 provides pre-defined extensions that enable you to install applications or run commands/scripts that extend the functionality of the Auth0 base product.
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-292"></i><a href="/guides-tutorials/extend-integrate/integrations/analytics">Analytics Integrations</a>
+    <i class="icon icon-budicon-292"></i><a href="/extend-integrate/integrations/analytics">Analytics Integrations</a>
     <p>
         Learn how to set up analytics integrations with Auth0.
     </p>
@@ -58,7 +58,7 @@ useCase:
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-292"></i><a href="/guides-tutorials/extend-integrate/addons">Add-ons</a>
+    <i class="icon icon-budicon-292"></i><a href="/extend-integrate/addons">Add-ons</a>
     <p>
         Add-ons are plugins associated with an application registered with Auth0. Usually, they are third-party APIs used by application(s) for which Auth0 generates Access Tokens (e.g., Salesforce, Azure Service Bus, Windows Azure Mobile Services, SAP).
     </p>

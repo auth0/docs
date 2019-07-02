@@ -21,7 +21,7 @@ useCase:
 
 <ul class="topic-links">
 <li>
-    <i class="icon icon-budicon-292"></i><a href="/guides-tutorials/branding-customization/custom-domains">Custom Domains</a>
+    <i class="icon icon-budicon-292"></i><a href="/branding-customization/custom-domains">Custom Domains</a>
     <p>
         Auth0 allows you to map the domain for your tenant to a custom domain of your choosing. This allows you to maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain.
     </p>
@@ -32,7 +32,7 @@ useCase:
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-292"></i><a href="/guides-tutorials/branding-customization/email/templates">Email</a>
+    <i class="icon icon-budicon-292"></i><a href="/branding-customization/email/templates">Email</a>
     <p>
         Auth0 [Database Connections](/connections/database) provide several emails as part of their flow, including verification emails, welcome emails, change password emails, breached password emails, and blocked account emails. Learn how to customize these emails.
     </p>
@@ -50,7 +50,7 @@ useCase:
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-705"></i><a href="/guides-tutorials/branding-customization/i18n">Internationalization</a>
+    <i class="icon icon-budicon-705"></i><a href="/branding-customization/i18n">Internationalization</a>
     <p>
         Auth0 supports methods of translating and internationalizing various features of our products. Learn how to set up translation and handling of multiple languages.
     </p>

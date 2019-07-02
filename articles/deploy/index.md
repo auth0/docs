@@ -14,17 +14,17 @@ The following pages will cover everything you need to know about deploying Auth0
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/guides-tutorials/deploy/deployment-models">Deployment Models</a>
+    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/deploy/deployment-models">Deployment Models</a>
   </li>
   <p>
       Learn about the four different deployment models that Auth0 offers and the differences between them.
     </p>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/guides-tutorials/deploy/pre-deployment">Pre-Deployment Tips and Testing</a>
+    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/deploy/pre-deployment">Pre-Deployment Tips and Testing</a>
   </li>
   <p>Get pre-launch tips and tricks, and learn how to use Auth0's pre-deployment testing suite to make sure that you've completed all necessary tasks prior to go live.</p>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/guides-tutorials/deploy/deploy-cli">Deploy CLI Extension</a>
+    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/deploy/deploy-cli">Deploy CLI Extension</a>
   </li>
   <p>The Deploy CI Extension is helpful for multi-environment deployments and can be used to support integration into existing CI/CD pipelines.</p>
 </ul>

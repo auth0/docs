@@ -19,7 +19,7 @@ useCase:
 
 This guide will show you how to view the <dfn data-key="role">[roles](/authorization/concepts/rbac)</dfn> assigned to a user using Auth0's Management API. This task can also be performed [using the Dashboard](/dashboard/guides/users/view-user-roles). The assigned roles are used with the API Authorization Core feature set.
 
-<%= include('../../../../guides-tutorials/authorization/_includes/_enable-authz-core') %>
+<%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
 1. Make a `GET` call to the [Get User Roles endpoint](/api/management/v2#!/user_roles/get_user_roles). Be sure to replace `USER_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your user ID and Management API Access Token, respectively.
 

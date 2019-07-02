@@ -17,14 +17,14 @@ useCase: export-users-marketing
 </div>
 
 <%= include('../../../../_includes/_topic-links', { links: [
-  'guides-tutorials/extend-integrate/integrations/marketing/adobe-campaign',
-  'guides-tutorials/extend-integrate/integrations/marketing/alterian',
-  'guides-tutorials/extend-integrate/integrations/marketing/constant-contact',
-  'guides-tutorials/extend-integrate/integrations/marketing/eloqua',
-  'guides-tutorials/extend-integrate/integrations/marketing/mailchimp',
-  'guides-tutorials/extend-integrate/integrations/marketing/marketo',
-  'guides-tutorials/extend-integrate/integrations/marketing/sailthru',
-  'guides-tutorials/extend-integrate/integrations/marketing/salesforce',
-  'guides-tutorials/extend-integrate/integrations/marketing/salesforce-marketing-cloud',
-  'guides-tutorials/extend-integrate/integrations/marketing/watson-campaign-automation'
+  'extend-integrate/integrations/marketing/adobe-campaign',
+  'extend-integrate/integrations/marketing/alterian',
+  'extend-integrate/integrations/marketing/constant-contact',
+  'extend-integrate/integrations/marketing/eloqua',
+  'extend-integrate/integrations/marketing/mailchimp',
+  'extend-integrate/integrations/marketing/marketo',
+  'extend-integrate/integrations/marketing/sailthru',
+  'extend-integrate/integrations/marketing/salesforce',
+  'extend-integrate/integrations/marketing/salesforce-marketing-cloud',
+  'extend-integrate/integrations/marketing/watson-campaign-automation'
 ] }) %>

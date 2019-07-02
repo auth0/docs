@@ -12,11 +12,11 @@ contentType:
 The following pages will cover everything you need to know about managing users with Auth0. 
 
 <%= include('../../_includes/_topic-links', { links: [
-  'guides-tutorials/manage-users/overview-manage-users',
-  'guides-tutorials/manage-users/manage-users-using-the-dashboard',
-  'guides-tutorials/manage-users/manage-users-using-the-management-api',
-  'guides-tutorials/extend-integrate/extensions/account-link',
-  'guides-tutorials/manage-users/blacklisting-attributes',
-  'guides-tutorials/manage-users/overview-user-migration',
-  'guides-tutorials/manage-users/search/v3',
+  'manage-users/overview-manage-users',
+  'manage-users/manage-users-using-the-dashboard',
+  'manage-users/manage-users-using-the-management-api',
+  'extend-integrate/extensions/account-link',
+  'manage-users/blacklisting-attributes',
+  'manage-users/overview-user-migration',
+  'manage-users/search/v3',
 ] }) %>

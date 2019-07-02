@@ -15,16 +15,16 @@ useCase:
 Our troubleshooting guides will help you narrow down or solve issues you might be having. We'll share tips on troubleshooting in general, as well as troubleshooting specific points in your authentication sequence.
 
 <%= include('../../_includes/_topic-links', { links: [
-  'guides-tutorials/troubleshoot/saml',
-  'guides-tutorials/troubleshoot/auth-extension',
-  'guides-tutorials/troubleshoot/basics',
-  'guides-tutorials/troubleshoot/connector',
-  'guides-tutorials/troubleshoot/custom-db',
-  'guides-tutorials/troubleshoot/deploy-cli',
-  'guides-tutorials/troubleshoot/deprecation-errors',
-  'guides-tutorials/troubleshoot/error-messages',
-  'guides-tutorials/troubleshoot/har',
-  'guides-tutorials/troubleshoot/issues',
-  'guides-tutorials/troubleshoot/mfa',
-  'guides-tutorials/troubleshoot/rbac'
+  'troubleshoot/saml',
+  'troubleshoot/auth-extension',
+  'troubleshoot/basics',
+  'troubleshoot/connector',
+  'troubleshoot/custom-db',
+  'troubleshoot/deploy-cli',
+  'troubleshoot/deprecation-errors',
+  'troubleshoot/error-messages',
+  'troubleshoot/har',
+  'troubleshoot/issues',
+  'troubleshoot/mfa',
+  'troubleshoot/rbac'
 ] }) %>
