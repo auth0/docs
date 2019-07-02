@@ -1,4 +1,5 @@
 ---
+section: libraries
 title: Java Developer Center
 description: Resources and documentation for Java developers
 logo: java

@@ -1,5 +1,4 @@
 ---
-section: deploy
 classes: topic-page
 title: Deploy
 description: Information about deploying Auth0

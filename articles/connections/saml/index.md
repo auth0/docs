@@ -1,5 +1,5 @@
 ---
-class: topic-page
+classes: topic-page
 title: SAML Identity Providers
 description: How to configure Auth0 to use other SAML Identity Providers.
 topics:
