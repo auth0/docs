@@ -1384,23 +1384,23 @@ articles:
 ## About Auth0
 ## ------------------------------------------------------------
 
-  - title: About Auth0
-    url: /about-auth0
-    children:
+  # - title: About Auth0
+  #   url: /about-auth0
+  #   children:
 
-      - title: Overview
-        url: /about-auth0/overview
+  #     - title: Overview
+  #       url: /about-auth0/overview
       
-      - title: The Basics
-        url: /about-auth0/the-basics
+  #     - title: The Basics
+  #       url: /about-auth0/the-basics
       
-      - title: Auth0 & Data Privacy
-        url: /about-auth0/auth0-and-data-privacy
+  #     - title: Auth0 & Data Privacy
+  #       url: /about-auth0/auth0-and-data-privacy
 
-      - title: Change Log
-        external: true
-        forceFullReload: true
-        url: "https://auth0.com/changelog"
+  #     - title: Change Log
+  #       external: true
+  #       forceFullReload: true
+  #       url: "https://auth0.com/changelog"
 
   - title: Auth0 Community
     external: true
