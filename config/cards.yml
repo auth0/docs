@@ -21,9 +21,9 @@
     - title: "Add Login"
       url: "/application-auth/current"
 
-- id: "login"
+- id: "ui-components"
   title: "Login"
-  icon: "icon-budicon-295"
+  icon: "icon-budicon-342"
   color: "oil"
   description: "Integrate Auth0 login into your app."
   url: "/login"
@@ -56,7 +56,7 @@
       url: "/connections/database"
 
 
-- id: "authorization"
+- id: "authentication-flows"
   title: "Authorization"
   icon: "icon-budicon-295"
   color: "oil"
@@ -73,7 +73,7 @@
     - title: "Authorization Extension"
       url: /extensions/authorization-extension
 
-- id: "manage-users"
+- id: "enterprise-identity"
   title: "Manage Users"
   icon: "icon-budicon-292"
   color: "oil"
@@ -110,7 +110,7 @@
       forceFullReload: true
 
 
-- id: "learn-identity"
+- id: "guides"
   title: "Learn Identity"
   icon: "icon-budicon-678"
   color: "green"
@@ -144,7 +144,7 @@
     - title: "Internationalization"
       url: "/i18n"
 
-- id: "guides"
+- id: "appliance"
   title: "Guides"
   icon: "icon-budicon-399"
   color: "green"
