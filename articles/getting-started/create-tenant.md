@@ -28,4 +28,4 @@ You can create additional tenants at any time. To do so, go to the upper-right c
 
 ## Keep reading
 
-* [Set Up Multiple Environments](/getting-started/setting-up-env)
+* [Set Up Multiple Environments](/dev-lifecycle/setting-up-env)
