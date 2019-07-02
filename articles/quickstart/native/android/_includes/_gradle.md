@@ -22,5 +22,5 @@ If Android Studio lint the `+` sign, or if you want to use a fixed version, chec
 :::
 
 ::: panel Sync Project with Gradle Files
-Remember to synchronize using the Android Studio prompt or run `./gradlew clean assembleDebug` from the command line. For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
+Remember to synchronize using the Android Studio prompt or run `./gradlew clean build` from the command line. For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
 :::
