@@ -43,9 +43,9 @@ Following successful login, your application will have access to the user's [ID 
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
-<%= include('./includes/authorize-user-add-login') %>
+<%= include('../../flows/guides/implicit/includes/authorize-user-add-login') %>
 
-<%= include('./includes/sample-use-cases-add-login') %>
+<%= include('../../flows/guides/implicit/includes/sample-use-cases-add-login') %>
 
 ## Keep Reading
 

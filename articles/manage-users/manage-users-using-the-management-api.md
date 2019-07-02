@@ -24,7 +24,7 @@ You can setup Access Control List (ACL)/Roles functionality using our [Role-base
 
 ## Limitations
 
-<%= include('../../_includes/_users_update_normalized_profile_attributes') %>
+<%= include('../_includes/_users_update_normalized_profile_attributes') %>
 
 ### Set passwords
 

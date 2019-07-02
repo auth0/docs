@@ -15,4 +15,10 @@ Given that it is being used by a significant percentage of Auth0 customers, the 
 
 ## Implement Universal Login
 
-<%= include('./_implement_universal_login') %>
+In addition to configuring Universal Login for your tenant's applications, you will also need to complete a few other steps:
+
+1. Set up a connection(s) in the [Dashboard](${manage_url}) (Choose **Connections** in the Dashboard's sidebar, then choose a type and pick one to configure, such as a database or a social login provider). 
+1. Set up your application in the [Dashboard](${manage_url}/#/applications). 
+1. Configure your application's code to call Auth0's [`/authorize`](/api/authentication#login) endpoint in order to trigger Universal Login, and then to deal with the response. You can either do this directly, or use one of our SDKs to make the process easier.
+
+For step by step instructions on setting up your application to use Universal Login, check out our [Quickstart guides](/quickstarts).

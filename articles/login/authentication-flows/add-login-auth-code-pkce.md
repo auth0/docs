@@ -50,15 +50,15 @@ Exchange your `authorization_code` and `code_verifier` for tokens.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
-<%= include('./includes/create-code-verifier') %>
+<%= include('../../flows/guides/auth-code-pkce/includes/create-code-verifier') %>
 
-<%= include('./includes/create-code-challenge') %>
+<%= include('../../flows/guides/auth-code-pkce/includes/create-code-challenge') %>
 
-<%= include('./includes/authorize-user-add-login') %>
+<%= include('../../flows/guides/auth-code-pkce/includes/authorize-user-add-login') %>
 
-<%= include('./includes/request-tokens') %>
+<%= include('../../flows/guides/auth-code-pkce/includes/request-tokens') %>
 
-<%= include('./includes/sample-use-cases-add-login') %>
+<%= include('../../flows/guides/auth-code-pkce/includes/sample-use-cases-add-login') %>
 
 ## Keep Reading
 

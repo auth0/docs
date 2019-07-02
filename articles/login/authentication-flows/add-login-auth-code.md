@@ -44,11 +44,11 @@ Exchange your `authorization_code` for tokens.
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 
-<%= include('./includes/authorize-user-add-login') %>
+<%= include('../../flows/guides/auth-code/includes/authorize-user-add-login') %>
 
-<%= include('./includes/request-tokens') %>
+<%= include('../../flows/guides/auth-code/includes/request-tokens') %>
 
-<%= include('./includes/sample-use-cases-add-login') %>
+<%= include('../../flows/guides/auth-code/includes/sample-use-cases-add-login') %>
 
 
 ## Keep Reading

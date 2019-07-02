@@ -19,7 +19,7 @@ User Management is included as part of the **Developer** subscription plan. You 
 :::
 
 ::: warning
-<%= include('../../_includes/_users_update_normalized_profile_attributes') %>
+<%= include('../_includes/_users_update_normalized_profile_attributes') %>
 :::
 
 ![User Profile Dashboard](/media/articles/user-profile/user1.png)

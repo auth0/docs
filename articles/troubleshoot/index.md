@@ -14,7 +14,7 @@ useCase:
 
 Our troubleshooting guides will help you narrow down or solve issues you might be having. We'll share tips on troubleshooting in general, as well as troubleshooting specific points in your authentication sequence.
 
-<%= include('../../_includes/_topic-links', { links: [
+<%= include('../_includes/_topic-links', { links: [
   'troubleshoot/saml',
   'troubleshoot/auth-extension',
   'troubleshoot/basics',

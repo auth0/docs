@@ -16,10 +16,10 @@ Our best practice guides have information on how to configure and use Auth0. We'
 
 <%= include('../_includes/_topic-links', { links: [
   'best-practices/operations',
-  'best-practices/application-settings',
+  'configure/applications/recommended-settings',
   'best-practices/connection-settings',
   'best-practices/rules',
   'best-practices/search-best-practices',
-  'best-practices/tenant-settings',
+  'configure/tenants/recommended-settings',
   'best-practices/user-data-storage-best-practices'
 ] }) %>

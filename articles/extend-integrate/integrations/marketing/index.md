@@ -16,7 +16,7 @@ useCase: export-users-marketing
   </p>
 </div>
 
-<%= include('../../../../_includes/_topic-links', { links: [
+<%= include('../../../_includes/_topic-links', { links: [
   'extend-integrate/integrations/marketing/adobe-campaign',
   'extend-integrate/integrations/marketing/alterian',
   'extend-integrate/integrations/marketing/constant-contact',

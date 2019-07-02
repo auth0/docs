@@ -151,4 +151,4 @@ See [IdP-Initiated SSO](/protocols/saml/idp-initiated-sso) for information on co
 The user might see the Okta dashboard after authenticating using a Service Provider-initiated login flow. If you integrated you application with Auth0 using the <dfn data-key="openid">OpenID Connect (OIDC)</dfn> protocol, Auth0 takes the value of the `state` parameter and passes it to Okta using the SAML "RelayState" parameter. As such, make sure that you set `state` to a value that Okta can use.
 
 
-<%= include('../../../connections/_quickstart-links.md') %>
+<%= include('../_quickstart-links.md') %>

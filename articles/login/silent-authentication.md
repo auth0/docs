@@ -117,4 +117,4 @@ This error is typically associated with fallback to cross-origin authentication.
 
 ## Polling with checkSession()
 
-<%= include('../../_includes/_checksession_polling') %>
+<%= include('../_includes/_checksession_polling') %>

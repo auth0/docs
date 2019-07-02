@@ -79,7 +79,7 @@ For production environments, verify that the Location URL for the page does not 
 See the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/support/callback-cross-auth.html) for more information.
 :::
 
-<%= include('../_includes/_co_authenticate_errors', { library : 'Auth0.js v9 (and Lock v11)'}) %>
+<%= include('../../_includes/_co_authenticate_errors', { library : 'Auth0.js v9 (and Lock v11)'}) %>
 
 ## Browser testing support
 
