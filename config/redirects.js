@@ -2555,8 +2555,8 @@ module.exports = [
         to:   '/configure/saml/special-scenarios/idp-initiated-sso',
     },
     {
-        from: '/protocols/saml/saml-configuration/special-configuration-scenarios/index',
-        to:   '/configure/saml/special-scenarios/index',
+        from: '/protocols/saml/saml-configuration/special-configuration-scenarios',
+        to:   '/configure/saml/special-scenarios',
     },
     {
         from: '/protocols/saml/saml-configuration/special-configuration-scenarios/signing-and-encrypting-saml-requests',
@@ -2640,7 +2640,7 @@ module.exports = [
     },
     {
         from: '/anomaly-detection',
-        to:   '/configure/anomaly-detection/',
+        to:   '/configure/anomaly-detection',
     },
     {
         from: '/anomaly-detection/concepts/breached-passwords',
@@ -2696,11 +2696,11 @@ module.exports = [
     },
     {
         from: '/users/guides/manage-users-using-the-dashboard',
-        to:   '/manage-users/manage-users-using-the-dashboard'
+        to:   '/manage-users/using-the-dashboard'
     },
     {
         from: '/users/guides/manage-users-using-the-management-api',
-        to:   '/manage-users/manage-users-using-the-management-api'
+        to:   '/manage-users/using-the-management-api'
     },
     {
         from: '/security/blacklisting-attributes',
@@ -2708,31 +2708,31 @@ module.exports = [
     },
     {
         from: '/users/concepts/overview-user-migration',
-        to:   '/manage-users/overview-user-migration'
+        to:   '/manage-users/import-export'
     },
     {
         from: '/users/references/bulk-import-database-schema-examples',
-        to:   '/manage-users/bulk-import-database-schema-examples'
+        to:   '/manage-users/import-export/bulk-import-database-schema-examples'
     },
     {
         from: '/users/guides/configure-automatic-migration',
-        to:   '/manage-users/configure-automatic-migration'
+        to:   '/manage-users/import-export/configure-automatic-migration'
     },
     {
         from: '/users/guides/bulk-user-imports',
-        to:   '/manage-users/bulk-user-imports'
+        to:   '/manage-users/import-export/bulk-user-imports'
     },
     {
         from: '/users/guides/bulk-user-exports',
-        to:   '/manage-users/bulk-user-exports'
+        to:   '/manage-users/import-export/bulk-user-exports'
     },
     {
         from: '/users/references/user-migration-scenarios',
-        to:   '/manage-users/user-migration-scenarios'
+        to:   '/manage-users/import-export/user-migration-scenarios'
     },
     {
         from: '/users/search/v3',
-        to:   '/manage-users/search/v3'
+        to:   '/manage-users/search'
     },
 
     // 
@@ -2995,6 +2995,6 @@ module.exports = [
     },
     {
         from: '/dev-centers/java',
-        to:   '/libraries/java/index',
+        to:   '/libraries/java',
     },
 ];
