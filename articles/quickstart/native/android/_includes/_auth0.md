@@ -1,3 +1,5 @@
+## Add the Auth0 Android Dependency
+
 <%= include('./_gradle.md') %>
 
 Add manifest placeholders required by the SDK. The placeholders are used internally to define an `intent-filter` that captures the authentication callback URL. 
