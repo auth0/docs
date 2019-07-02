@@ -1,5 +1,6 @@
 ---
 description: Best practices for writing and managing Auth0 Rules.
+toc: true
 topics:
   - best-practices
   - rules
