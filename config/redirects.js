@@ -2283,7 +2283,7 @@ module.exports = [
         to:   '/authorization/rbac/enable-rbac',
     },
     {
-        from: ['/authorization/guides/manage-permissions', '/api/management/guides/update-permissions-apis']
+        from: ['/authorization/guides/manage-permissions', '/api/management/guides/update-permissions-apis'],
         to:   '/authorization/rbac/permissions',
     },
     {
