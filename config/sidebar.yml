@@ -10,38 +10,160 @@ articles:
 ## Getting Started
 ## ------------------------------------------------------------
 
-  - title: Getting Started
-    url: /getting-started
+  - title: "Getting Started"
+    url: "/getting-started"
     children:
 
-      - title: Dashboard Overview
-        url: /getting-started/dashboard-overview
+      - title: "Dashboard Overview"
+        url: "/getting-started/dashboard-overview"
 
-      - title: Create a Tenant
-        url: /getting-started/create-tenant
+      - title: "Create a Tenant"
+        url: /getting-started/create-tenant"
       
-      - title: Set Up An App
-        url: /getting-started/set-up-app
+      - title: "Set Up An App"
+        url: "/getting-started/set-up-app"
+        children:
+
+          - title: "Regular Web App"
+            url: "/dashboard/guides/applications/register-app-regular-web"
+
+          - title: "Native App"
+            url: "/dashboard/guides/applications/register-app-native"
+
+          - title: "Single-Page App
+            url: "/dashboard/guides/applications/register-app-spa"
+
+          - title: "Backend/Service"
+            url: "/dashboard/guides/applications/register-app-m2m"
+
+      - title: "Set Up an API"
+        url: "/getting-started/set-up-api"
+
+      - title: "Set Up Multiple Environments"
+        url: "/dev-lifecycle/setting-up-env"
+        hidden: true
+
+## ------------------------------------------------------------
+## LOGIN
+## ------------------------------------------------------------
+
+  - title: "Login"
+    url: "/login"
+    children:
+
+      - title: "Universal Login"
+        url: "/universal-login"
+        children: 
+
+          - title: "New Experience"
+            url: "/universal-login/new"
+
+          - title: "Classic Experience"
+            url: "/universal-login/classic"
+
+          - title: "Password Reset"
+            url: "/universal-login/password-reset"
+
+          - title: "Guardian"
+            url: "/universal-login/guardian"
+
+          - title: "Error Pages"
+            url: "/universal-login/error-pages"
+
+          - title: "Default Login URL"
+            url: "/universal-login/default-login-url"
+
+          - title: "Version Control"
+            url: "/universal-login/version-control"
+
+      - title: Universal vs Embedded Login
+        url: /guides/login/universal-vs-embedded
+
+      - title: Embedded Login
+        url: "/login#embedded-login"
+        children:
+
+          - title: Lock for Web
+            url: /libraries/lock
+
+          - title: Auth0.js
+            url: /libraries/auth0.js
+          
+          - title: Cross-Origin Authentication
+            url: /cross-origin-authentication
+
+      - title: Authentication Flows
+        url: /flows
         children:
 
           - title: Regular Web App
-            url: /dashboard/guides/applications/register-app-regular-web
-
-          - title: Native App
-            url: /dashboard/guides/applications/register-app-native
+            url: /flows/guides/auth-code/add-login-auth-code
 
           - title: Single-Page App
-            url: /dashboard/guides/applications/register-app-spa
+            url: /flows/guides/implicit/add-login-implicit
 
-          - title: Backend/Service
-            url: /dashboard/guides/applications/register-app-m2m
+          - title: Native App
+            url: /flows/guides/auth-code-pkce/add-login-auth-code-pkce
+            
+      - title: Multi-Factor Authentication
+        url: /multi-factor-authentication
+        children: 
 
-      - title: Set Up an API
-        url: /getting-started/set-up-api
+          - title: Overview
+            url: /multi-factor-authentication
 
-      - title: Set Up Multiple Environments
-        url: /dev-lifecycle/setting-up-env
-        hidden: true
+          - title: Factors
+            url: /multi-factor-authentication/factors
+            children: 
+
+              - title: Push
+                url: /multi-factor-authentication/factors/push
+
+              - title: OTP
+                url: /multi-factor-authentication/factors/otp
+
+              - title: SMS
+                url: /multi-factor-authentication/factors/sms
+
+              - title: Duo
+                url: /multi-factor-authentication/factors/duo
+
+              - title: Email
+                url: /multi-factor-authentication/factors/email
+
+          - title: Custom
+            url: /multi-factor-authentication/custom
+
+          - title: Step-Up
+            url: /multi-factor-authentication/step-up-authentication
+
+          - title: MFA API
+            url: /multi-factor-authentication/api
+        
+      - title: Silent Authentication
+        url: /api-auth/tutorials/silent-authentication
+
+      - title: Redirect After Login
+        url: /users/guides/redirect-users-after-login
+
+      - title: Logout
+        url: /logout
+        children: 
+
+            - title: Apps
+              url: /logout/logout-applications
+
+            - title: Auth0
+              url: /logout/logout-auth0
+
+            - title: Identity Providers
+              url: /logout/logout-idps
+
+            - title: SAML Identity Providers
+              url: /logout/logout-saml-idps
+
+            - title: Redirect After Logout
+              url: /logout/redirect-users-after-logout
 
   - title: Architecture Scenarios
     url: /architecture-scenarios
@@ -387,40 +509,6 @@ articles:
 
       - title: "Send extra parameters"
         url: "/connections/pass-parameters-to-idps"
-
-  - title: "Universal Login"
-    url: "/universal-login"
-    children:
-
-      - title: "Overview"
-        url: "/universal-login"
-
-      - title: "Classic Experience"
-        url: "/universal-login/classic"
-
-      - title: "New Experience"
-        url: "/universal-login/new"
-
-      - title: "Internationalization"
-        url: "/universal-login/i18n"
-
-      - title: "Advanced Customization"
-        url: "/universal-login/advanced-customization"
-
-      - title: "Password Reset Page"
-        url: "/universal-login/password-reset"
-
-      - title: "Guardian MFA"
-        url: "/universal-login/guardian"
-
-      - title: "Error Pages"
-        url: "/universal-login/error-pages"
-
-      - title: "Version Control"
-        url: "/universal-login/version-control"
-
-      - title: "Default Login Page"
-        url: "/universal-login/default-login-url"
 
   - title: "Rules"
     url: "/rules"
