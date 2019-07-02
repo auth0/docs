@@ -6,7 +6,6 @@ topics:
    - endpoints
 contentType: concept
 useCase: manage-users
-v2: true
 ---
 
 # User Metadata

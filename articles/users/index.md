@@ -9,7 +9,6 @@ contentType:
   - index
 useCase:
   - manage-users
-v2: true
 ---
 # User Management
 

@@ -6,7 +6,6 @@ topics:
     - user-profiles
 contentType: how-to
 useCase: manage-users
-v2: true
 ---
 # Manage Users Using the Management API
 

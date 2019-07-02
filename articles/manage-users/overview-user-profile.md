@@ -7,7 +7,6 @@ topics:
     - user-profiles
 contentType: concept
 useCase: manage-users
-v2: true
 ---
 # User Profiles
 

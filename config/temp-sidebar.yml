@@ -1,940 +1,940 @@
-## ------------------------------------------------------------
-## Sidebar Nav Configuration
-## This document contains configuration for the sidebar
-##
-## ------------------------------------------------------------
+# ## ------------------------------------------------------------
+# ## Sidebar Nav Configuration
+# ## This document contains configuration for the sidebar
+# ##
+# ## ------------------------------------------------------------
 
-articles:
+# articles:
 
-## ------------------------------------------------------------
-## Getting Started
-## ------------------------------------------------------------
+# ## ------------------------------------------------------------
+# ## Getting Started
+# ## ------------------------------------------------------------
 
-  - title: Getting Started
-    url: /getting-started
-    children:
+#   - title: Getting Started
+#     url: /getting-started
+#     children:
 
-      - title: Dashboard Overview
-        url: /getting-started/dashboard-overview
+#       - title: Dashboard Overview
+#         url: /getting-started/dashboard-overview
 
-      - title: Create a Tenant
-        url: /getting-started/create-tenant
+#       - title: Create a Tenant
+#         url: /getting-started/create-tenant
       
-      - title: Set Up An App
-        url: /getting-started/set-up-app
-        children:
+#       - title: Set Up An App
+#         url: /getting-started/set-up-app
+#         children:
 
-          - title: Regular Web App
-            url: /getting-started/set-up-app/regular-web
+#           - title: Regular Web App
+#             url: /getting-started/set-up-app/regular-web
 
-          - title: Native App
-            url: /getting-started/set-up-app/native
+#           - title: Native App
+#             url: /getting-started/set-up-app/native
 
-          - title: Single-Page App
-            url: /getting-started/set-up-app/spa
+#           - title: Single-Page App
+#             url: /getting-started/set-up-app/spa
 
-          - title: Backend/Service
-            url: /getting-started/set-up-app/m2m
+#           - title: Backend/Service
+#             url: /getting-started/set-up-app/m2m
 
-      - title: Set Up an API
-        url: /getting-started/set-up-api
-        children:
+#       - title: Set Up an API
+#         url: /getting-started/set-up-api
+#         children:
 
-          - title: Set Up Multiple Environments
-            url: /getting-started/setting-up-env
-            hidden: true
+#           - title: Set Up Multiple Environments
+#             url: /getting-started/setting-up-env
+#             hidden: true
 
-## ------------------------------------------------------------
-## LOGIN
-## ------------------------------------------------------------
+# ## ------------------------------------------------------------
+# ## LOGIN
+# ## ------------------------------------------------------------
 
-  - title: Login
-    url: /login
-    children:
+#   - title: Login
+#     url: /login
+#     children:
 
-      - title: Universal Login
-        url: /login/universal-login/new
-        children: 
+#       - title: Universal Login
+#         url: /login/universal-login/new
+#         children: 
 
-          - title: New Experience
-            url: /login/universal-login/new
+#           - title: New Experience
+#             url: /login/universal-login/new
 
-          - title: Classic Experience
-            url: /login/universal-login/classic
+#           - title: Classic Experience
+#             url: /login/universal-login/classic
 
-          - title: Password Reset
-            url: /login/universal-login/password-reset
+#           - title: Password Reset
+#             url: /login/universal-login/password-reset
 
-          - title: Guardian
-            url: /login/universal-login/guardian
+#           - title: Guardian
+#             url: /login/universal-login/guardian
 
-          - title: Error Pages
-            url: /login/universal-login/error-pages
+#           - title: Error Pages
+#             url: /login/universal-login/error-pages
 
-          - title: Default Login URL
-            url: /login/universal-login/default-login-url
+#           - title: Default Login URL
+#             url: /login/universal-login/default-login-url
 
-          - title: Version Control
-            url: /login/universal-login/version-control
+#           - title: Version Control
+#             url: /login/universal-login/version-control
 
-      - title: Universal vs Embedded Login
-        url: /login/universal-vs-embedded
+#       - title: Universal vs Embedded Login
+#         url: /login/universal-vs-embedded
 
-      - title: Embedded Login
-        url: /login/universal-login#embedded-login
-        children:
+#       - title: Embedded Login
+#         url: /login/universal-login#embedded-login
+#         children:
 
-          - title: Lock for Web
-            url: /libraries/lock
+#           - title: Lock for Web
+#             url: /libraries/lock
 
-          - title: Auth0.js
-            url: /libraries/auth0.js
+#           - title: Auth0.js
+#             url: /libraries/auth0.js
           
-          - title: Cross-Origin Authentication
-            url: /login/embedded/cross-origin-authentication
+#           - title: Cross-Origin Authentication
+#             url: /login/embedded/cross-origin-authentication
 
-      - title: Authentication Flows
-        url: /login/authentication-flows
-        children:
+#       - title: Authentication Flows
+#         url: /login/authentication-flows
+#         children:
 
-            - title: Regular Web App
-              url: /login/authentication-flows/add-login-auth-code
+#             - title: Regular Web App
+#               url: /login/authentication-flows/add-login-auth-code
 
-            - title: Single-Page App
-              url: /login/authentication-flows/add-login-implicit
+#             - title: Single-Page App
+#               url: /login/authentication-flows/add-login-implicit
 
-            - title: Native App
-              url: /login/authentication-flows/add-login-auth-code-pkce
+#             - title: Native App
+#               url: /login/authentication-flows/add-login-auth-code-pkce
 
-      - title: Multi-Factor Authentication
-        url: /login/multi-factor-authentication
-        children: 
+#       - title: Multi-Factor Authentication
+#         url: /login/multi-factor-authentication
+#         children: 
 
-            - title: Overview
-              url: /login/multi-factor-authentication
+#             - title: Overview
+#               url: /login/multi-factor-authentication
 
-            - title: Factors
-              url: /login/multi-factor-authentication/factors
-              children: 
+#             - title: Factors
+#               url: /login/multi-factor-authentication/factors
+#               children: 
 
-                  - title: Push
-                    url: /login/multi-factor-authentication/factors/push
+#                   - title: Push
+#                     url: /login/multi-factor-authentication/factors/push
 
-                  - title: OTP
-                    url: /login/multi-factor-authentication/factors/otp
+#                   - title: OTP
+#                     url: /login/multi-factor-authentication/factors/otp
 
-                  - title: SMS
-                    url: /login/multi-factor-authentication/factors/sms
+#                   - title: SMS
+#                     url: /login/multi-factor-authentication/factors/sms
 
-                  - title: Duo
-                    url: /login/multi-factor-authentication/factors/duo
+#                   - title: Duo
+#                     url: /login/multi-factor-authentication/factors/duo
 
-                  - title: Email
-                    url: /login/multi-factor-authentication/factors/email
+#                   - title: Email
+#                     url: /login/multi-factor-authentication/factors/email
 
-            - title: Custom
-              url: /login/multi-factor-authentication/custom
+#             - title: Custom
+#               url: /login/multi-factor-authentication/custom
 
-            - title: Step-Up
-              url: /login/multi-factor-authentication/step-up-authentication
+#             - title: Step-Up
+#               url: /login/multi-factor-authentication/step-up-authentication
 
-            - title: MFA API
-              url: /login/multi-factor-authentication/api
+#             - title: MFA API
+#               url: /login/multi-factor-authentication/api
         
-        - title: Silent Authentication
-          url: /login/silent-authentication
+#         - title: Silent Authentication
+#           url: /login/silent-authentication
 
-        - title: Redirect After Login
-          url: /login/redirect-users-after-login
+#         - title: Redirect After Login
+#           url: /login/redirect-users-after-login
 
-        - title: Logout
-          url: /login/logout
-          children: 
+#         - title: Logout
+#           url: /login/logout
+#           children: 
 
-              - title: Apps
-                url: /login/logout/logout-applications
+#               - title: Apps
+#                 url: /login/logout/logout-applications
 
-              - title: Auth0
-                url: /login/logout/logout-auth0
+#               - title: Auth0
+#                 url: /login/logout/logout-auth0
 
-              - title: Identity Providers
-                url: /login/logout/logout-idps
+#               - title: Identity Providers
+#                 url: /login/logout/logout-idps
 
-              - title: SAML Identity Providers
-                url: /login/logout/logout-saml-idps
+#               - title: SAML Identity Providers
+#                 url: /login/logout/logout-saml-idps
 
-              - title: Redirect After Logout
-                url: /login/logout/redirect-users-after-logout
+#               - title: Redirect After Logout
+#                 url: /login/logout/redirect-users-after-logout
 
-## ------------------------------------------------------------
-## Identity Providers / Connections
-## ------------------------------------------------------------
+# ## ------------------------------------------------------------
+# ## Identity Providers / Connections
+# ## ------------------------------------------------------------
 
-  - title: Connections (Identity Providers)
-    url: /connections
-    children:
+#   - title: Connections (Identity Providers)
+#     url: /connections
+#     children:
 
-      - title: Social Identity Providers
-        url: /identityproviders#social
+#       - title: Social Identity Providers
+#         url: /identityproviders#social
 
-      - title: Enterprise Identity Providers
-        url: /identityproviders#enterprise
+#       - title: Enterprise Identity Providers
+#         url: /identityproviders#enterprise
 
-      - title: Legal Identity Providers
-        url: /identityproviders#legal
+#       - title: Legal Identity Providers
+#         url: /identityproviders#legal
       
-      - title: Database
-        url: /connections/database
-        children:
+#       - title: Database
+#         url: /connections/database
+#         children:
 
-          - title: Auth0 User Store
-            url: /database#using-the-auth0-user-store
+#           - title: Auth0 User Store
+#             url: /database#using-the-auth0-user-store
 
-          - title: Your Database
-            url: /database/custom-db
+#           - title: Your Database
+#             url: /database/custom-db
 
-          - title: Password Policies
-            url: /connections/database/password-options
+#           - title: Password Policies
+#             url: /connections/database/password-options
 
-          - title: Password Strength
-            url: /connections/database/password-strength
+#           - title: Password Strength
+#             url: /connections/database/password-strength
 
-      - title: SAML Identity Providers
-        url: /connections/saml
+#       - title: SAML Identity Providers
+#         url: /connections/saml
 
-      - title: Passwordless Authentication
-        url: /connections/passwordless
-        children:
+#       - title: Passwordless Authentication
+#         url: /connections/passwordless
+#         children:
 
-          - title: Native Passwordless
-            url: /connections/passwordless/native-passwordless-universal
+#           - title: Native Passwordless
+#             url: /connections/passwordless/native-passwordless-universal
 
-          - title: Using Email
-            url: /connections/passwordless/email
+#           - title: Using Email
+#             url: /connections/passwordless/email
 
-          - title: Using SMS
-            url: /connections/passwordless/sms
+#           - title: Using SMS
+#             url: /connections/passwordless/sms
 
-          - title: FAQ
-            url: /connections/passwordless/faq
+#           - title: FAQ
+#             url: /connections/passwordless/faq
 
-      - title: Pass Parameters to Identity Providers
-        url: /connections/pass-parameters-to-idps
+#       - title: Pass Parameters to Identity Providers
+#         url: /connections/pass-parameters-to-idps
 
-## ------------------------------------------------------------
-## Authorization
-## ------------------------------------------------------------
+# ## ------------------------------------------------------------
+# ## Authorization
+# ## ------------------------------------------------------------
 
-  - title: Authorization
-    url: /authorization
-    children:
+#   - title: Authorization
+#     url: /authorization
+#     children:
       
-      - title: Authorization Flows
-        url: /authorization/flows
-        children:
+#       - title: Authorization Flows
+#         url: /authorization/flows
+#         children:
 
-          - title: Authorization Code
-            url: /flows/guides/auth-code/call-api-auth-code
+#           - title: Authorization Code
+#             url: /flows/guides/auth-code/call-api-auth-code
 
-          - title: Authorization Code with PKCE
-            url: /flows/guides/auth-code-pkce/call-api-auth-code-pkce
+#           - title: Authorization Code with PKCE
+#             url: /flows/guides/auth-code-pkce/call-api-auth-code-pkce
 
-          - title: Client Credentials
-            url: /flows/guides/client-credentials/call-api-client-credentials
+#           - title: Client Credentials
+#             url: /flows/guides/client-credentials/call-api-client-credentials
 
-          - title: Implicit
-            url: /flows/guides/implicit/call-api-implicit
-            children:
+#           - title: Implicit
+#             url: /flows/guides/implicit/call-api-implicit
+#             children:
 
-              - title: Mitigate Replay Attacks
-                url: /flows/mitigate-replay-attacks
+#               - title: Mitigate Replay Attacks
+#                 url: /flows/mitigate-replay-attacks
 
-      - title: Core Role-based Access Control (RBAC)
-        url: /authorization/rbac
-        children:
+#       - title: Core Role-based Access Control (RBAC)
+#         url: /authorization/rbac
+#         children:
 
-          - title: Enable RBAC for APIs
-            url: /authorization/rbac/enable-rbac
+#           - title: Enable RBAC for APIs
+#             url: /authorization/rbac/enable-rbac
 
-          - title: Manage Permissions
-            url: /authorization/rbac/permissions
-            children:
+#           - title: Manage Permissions
+#             url: /authorization/rbac/permissions
+#             children:
 
-              - title: Add API Permissions
-                url: /authorization/rbac/permissions/add
+#               - title: Add API Permissions
+#                 url: /authorization/rbac/permissions/add
 
-              - title: Delete API Permissions
-                url: /authorization/rbac/permissions/delete
+#               - title: Delete API Permissions
+#                 url: /authorization/rbac/permissions/delete
 
-          - title: Manage Roles
-            url: /authorization/rbac/roles
-            children:
+#           - title: Manage Roles
+#             url: /authorization/rbac/roles
+#             children:
 
-              - title: Create Roles
-                url: /authorization/rbac/roles/create
+#               - title: Create Roles
+#                 url: /authorization/rbac/roles/create
 
-              - title: Edit Role Definitions
-                url: /authorization/rbac/roles/edit-definitions
+#               - title: Edit Role Definitions
+#                 url: /authorization/rbac/roles/edit-definitions
 
-              - title: Add Permissions to Roles
-                url: /authorization/rbac/roles/add-permissions
+#               - title: Add Permissions to Roles
+#                 url: /authorization/rbac/roles/add-permissions
 
-              - title: View Role Permissions
-                url: /authorization/rbac/roles/view-permissions
+#               - title: View Role Permissions
+#                 url: /authorization/rbac/roles/view-permissions
 
-              - title: Remove Permissions from Roles
-                url: /authorization/rbac/roles/remove-permissions
+#               - title: Remove Permissions from Roles
+#                 url: /authorization/rbac/roles/remove-permissions
 
-              - title: View Role Users
-                url: /authorization/rbac/roles/view-users
+#               - title: View Role Users
+#                 url: /authorization/rbac/roles/view-users
 
-              - title: Remove Users from Roles
-                url: /authorization/rbac/roles/remove-users
+#               - title: Remove Users from Roles
+#                 url: /authorization/rbac/roles/remove-users
 
-              - title: Delete Roles
-                url: /authorization/rbac/roles/delete
+#               - title: Delete Roles
+#                 url: /authorization/rbac/roles/delete
 
-          - title: Manage Users
-            url: /authorization/rbac/users
-            children:
+#           - title: Manage Users
+#             url: /authorization/rbac/users
+#             children:
 
-              - title: Assign Roles to Users
-                url: /authorization/rbac/users/assign-roles
+#               - title: Assign Roles to Users
+#                 url: /authorization/rbac/users/assign-roles
 
-              - title: View User Roles
-                url: /authorization/rbac/users/view-roles
+#               - title: View User Roles
+#                 url: /authorization/rbac/users/view-roles
 
-              - title: Remove Roles from Users
-                url: /authorization/rbac/users/remove-roles
+#               - title: Remove Roles from Users
+#                 url: /authorization/rbac/users/remove-roles
 
-              - title: Assign Permissions to Users
-                url: /authorization/rbac/users/assign-permissions
+#               - title: Assign Permissions to Users
+#                 url: /authorization/rbac/users/assign-permissions
 
-              - title: View User permissions
-                url: /authorization/rbac/users/view-permissions
+#               - title: View User permissions
+#                 url: /authorization/rbac/users/view-permissions
 
-              - title: Remove Permissions from Users
-                url: /authorization/rbac/users/remove-permissions
+#               - title: Remove Permissions from Users
+#                 url: /authorization/rbac/users/remove-permissions
 
-      - title: Authorization Extension
-        url: /extensions/authorization-extension
-        children:
+#       - title: Authorization Extension
+#         url: /extensions/authorization-extension
+#         children:
 
-          - title: Installation
-            url: /extensions/authorization-extension/v2/implementation/installation
-            hidden: true
+#           - title: Installation
+#             url: /extensions/authorization-extension/v2/implementation/installation
+#             hidden: true
 
-          - title: Setup
-            url: /extensions/authorization-extension/v2/implementation/setup
-            hidden: true
+#           - title: Setup
+#             url: /extensions/authorization-extension/v2/implementation/setup
+#             hidden: true
 
-          - title: Configuration
-            url: /extensions/authorization-extension/v2/implementation/configuration
-            hidden: true
+#           - title: Configuration
+#             url: /extensions/authorization-extension/v2/implementation/configuration
+#             hidden: true
 
-          - title: API Access
-            url: /extensions/authorization-extension/v2/api-access
-            hidden: true
+#           - title: API Access
+#             url: /extensions/authorization-extension/v2/api-access
+#             hidden: true
 
-          - title: Rules
-            url: /extensions/authorization-extension/v2/rules
-            hidden: true
+#           - title: Rules
+#             url: /extensions/authorization-extension/v2/rules
+#             hidden: true
 
-          - title: Troubleshooting
-            url: /extensions/authorization-extension/v2/troubleshooting
-            hidden: true
+#           - title: Troubleshooting
+#             url: /extensions/authorization-extension/v2/troubleshooting
+#             hidden: true
 
-          - title: Import / Export Data
-            url: /extensions/authorization-extension/v2/import-export-data
-            hidden: true
+#           - title: Import / Export Data
+#             url: /extensions/authorization-extension/v2/import-export-data
+#             hidden: true
 
-      - title: Core vs. Extension
-        url: /authorization/concepts/core-vs-extension
+#       - title: Core vs. Extension
+#         url: /authorization/concepts/core-vs-extension
 
-## ------------------------------------------------------------
-## Configuration
-## ------------------------------------------------------------
+# ## ------------------------------------------------------------
+# ## Configuration
+# ## ------------------------------------------------------------
 
-  - title: Configuration
-    url: /configure
-    children:
+#   - title: Configuration
+#     url: /configure
+#     children:
 
-      - title: Tenant Configuration
-        url: /configure/tenants
-        children:
+#       - title: Tenant Configuration
+#         url: /configure/tenants
+#         children:
 
-          - title: Tenant Settings
-            url: /configure/tenants/settings
+#           - title: Tenant Settings
+#             url: /configure/tenants/settings
 
-          - title: Manage Tenant Administrators
-            url: /configure/tenants/manage-dashboard-admins
+#           - title: Manage Tenant Administrators
+#             url: /configure/tenants/manage-dashboard-admins
 
-          - title: Configure Session Lifetime Settings
-            url: /configure/tenants/session-lifetime
+#           - title: Configure Session Lifetime Settings
+#             url: /configure/tenants/session-lifetime
 
-          - title: Enable SSO for Tenants
-            url: /configure/tenants/enable-sso
+#           - title: Enable SSO for Tenants
+#             url: /configure/tenants/enable-sso
 
-          - title: Configure Device User Code Settings
-            url: /configure/tenants/device-user-code-settings
+#           - title: Configure Device User Code Settings
+#             url: /configure/tenants/device-user-code-settings
 
-          - title: Recommended Settings
-            url: /configure/tenants/recommended-settings
+#           - title: Recommended Settings
+#             url: /configure/tenants/recommended-settings
 
-          - title: Dynamic Client Registration
-            url: /configure/tenants/dynamic-client-registration
+#           - title: Dynamic Client Registration
+#             url: /configure/tenants/dynamic-client-registration
 
-          - title: Create Multiple Tenants
-            url: /configure/tenants/create-multiple-tenants
-            hidden: true
+#           - title: Create Multiple Tenants
+#             url: /configure/tenants/create-multiple-tenants
+#             hidden: true
 
-          - title: Child Tenant Request Process
-            url: /configure/tenants/child-tenants
-            hidden: true
+#           - title: Child Tenant Request Process
+#             url: /configure/tenants/child-tenants
+#             hidden: true
 
-      - title: Application Configuration
-        url: /configure/applications
-        children:
+#       - title: Application Configuration
+#         url: /configure/applications
+#         children:
 
-          - title: Application Settings
-            url: /configure/applications/settings
+#           - title: Application Settings
+#             url: /configure/applications/settings
 
-          - title: Enable SSO for Applications
-            url: /configure/applications/enable-sso
+#           - title: Enable SSO for Applications
+#             url: /configure/applications/enable-sso
 
-          - title: Update Grant Types
-            url: /configure/applications/update-grant-types
+#           - title: Update Grant Types
+#             url: /configure/applications/update-grant-types
 
-          - title: Android App Links
-            url: /configure/applications/enable-android-app-links
+#           - title: Android App Links
+#             url: /configure/applications/enable-android-app-links
 
-          - title: Apple Universal Links
-            url: /configure/applications/enable-universal-links
+#           - title: Apple Universal Links
+#             url: /configure/applications/enable-universal-links
 
-          - title: Set Up Add-ons
-            url: /configure/applications/set-up-addons
+#           - title: Set Up Add-ons
+#             url: /configure/applications/set-up-addons
 
-          - title: Remove Applications
-            url: /configure/applications/remove-app
+#           - title: Remove Applications
+#             url: /configure/applications/remove-app
 
-          - title: Check App Type
-            url: /configure/applications/view-app-type-confidential-public
+#           - title: Check App Type
+#             url: /configure/applications/view-app-type-confidential-public
 
-          - title: Rotate Client Secret
-            url: /configure/applications/rotate-client-secret
+#           - title: Rotate Client Secret
+#             url: /configure/applications/rotate-client-secret
 
-          - title: Recommended Settings
-            url: /configure/applications/recommended-settings
+#           - title: Recommended Settings
+#             url: /configure/applications/recommended-settings
 
-          - title: View Add-ons
-            url: /configure/applications/view-addons
-            hidden: true
+#           - title: View Add-ons
+#             url: /configure/applications/view-addons
+#             hidden: true
 
-      - title: API Configuration
-        url: /configure/apis
-        children:
+#       - title: API Configuration
+#         url: /configure/apis
+#         children:
 
-          - title: API Settings
-            url: /configure/apis/settings
+#           - title: API Settings
+#             url: /configure/apis/settings
 
-          - title: Signing Algorithms
-            url: /configure/apis/signing-algorithms
+#           - title: Signing Algorithms
+#             url: /configure/apis/signing-algorithms
 
-          - title: Represent Multiple APIs with a Single API
-            url: /configure/apis/represent-multiple-apis
+#           - title: Represent Multiple APIs with a Single API
+#             url: /configure/apis/represent-multiple-apis
 
-          - title: Enable Role-Based Access Control for APIs
-            url: /configure/apis/enable-rbac
+#           - title: Enable Role-Based Access Control for APIs
+#             url: /configure/apis/enable-rbac
 
-          - title: Add Permissions
-            url: /configure/apis/add-permissions
+#           - title: Add Permissions
+#             url: /configure/apis/add-permissions
 
-          - title: Delete Permissions
-            url: /configure/apis/delete-permissions
+#           - title: Delete Permissions
+#             url: /configure/apis/delete-permissions
 
-          - title: Dashboard Views for APIs
-            url: /configure/apis/views-apis
+#           - title: Dashboard Views for APIs
+#             url: /configure/apis/views-apis
 
-      - title: Single Sign-On
-        url: /configure/sso
-        children:
+#       - title: Single Sign-On
+#         url: /configure/sso
+#         children:
 
-          - title: Single Sign-On with Auth0
-            url: /configure/sso/sso-auth0
+#           - title: Single Sign-On with Auth0
+#             url: /configure/sso/sso-auth0
 
-      - title: Anomaly Detection
-        url: /configure/anomaly-detection
-        children:
+#       - title: Anomaly Detection
+#         url: /configure/anomaly-detection
+#         children:
 
-          - title: Breached Password Security
-            url: /configure/anomaly-detection/breached-passwords
+#           - title: Breached Password Security
+#             url: /configure/anomaly-detection/breached-passwords
 
-          - title: Set Preferences
-            url: /configure/anomaly-detection/set-preferences
+#           - title: Set Preferences
+#             url: /configure/anomaly-detection/set-preferences
 
-          - title: Customize Emails
-            url: /configure/anomaly-detection/customize-blocked-account-emails
+#           - title: Customize Emails
+#             url: /configure/anomaly-detection/customize-blocked-account-emails
 
-          - title: Restrictions and Limitations
-            url: /configure/anomaly-detection/restrictions-limitations
+#           - title: Restrictions and Limitations
+#             url: /configure/anomaly-detection/restrictions-limitations
 
-          - title: FAQs
-            url: /configure/anomaly-detection/faqs
+#           - title: FAQs
+#             url: /configure/anomaly-detection/faqs
 
-          - title: Enable and Disable Brute Force Protection
-            url: /configure/anomaly-detection/enable-disable-brute-force-protection
-            hidden: true
+#           - title: Enable and Disable Brute Force Protection
+#             url: /configure/anomaly-detection/enable-disable-brute-force-protection
+#             hidden: true
 
-          - title: Breached Password Detection Triggers
-            url: /configure/anomaly-detection/breached-password-detection-triggers-actions
-            hidden: true
+#           - title: Breached Password Detection Triggers
+#             url: /configure/anomaly-detection/breached-password-detection-triggers-actions
+#             hidden: true
 
-          - title: Brute-Force Protection Triggers
-            url: /configure/anomaly-detection/brute-force-protection-triggers-actions
-            hidden: true
+#           - title: Brute-Force Protection Triggers
+#             url: /configure/anomaly-detection/brute-force-protection-triggers-actions
+#             hidden: true
 
-      - title: SAML Configuration
-        url: /configure/saml
-        children:
+#       - title: SAML Configuration
+#         url: /configure/saml
+#         children:
 
-          - title: Overview
-            url: /configure/saml/overview
+#           - title: Overview
+#             url: /configure/saml/overview
 
-          - title: Configure Auth0 as a Service Provider
-            url: /configure/saml/auth0-as-service-provider
+#           - title: Configure Auth0 as a Service Provider
+#             url: /configure/saml/auth0-as-service-provider
 
-          - title: Configure Auth0 as an Identity Provider
-            url: /configure/saml/auth0-as-identity-provider
+#           - title: Configure Auth0 as an Identity Provider
+#             url: /configure/saml/auth0-as-identity-provider
 
-          - title: Configure Auth0 as Both Service and Identity Provider
-            url: /configure/saml/auth0-as-identity-and-service-provider
+#           - title: Configure Auth0 as Both Service and Identity Provider
+#             url: /configure/saml/auth0-as-identity-and-service-provider
 
-          - title: SAML Design Considerations
-            url: /configure/saml/design-considerations
+#           - title: SAML Design Considerations
+#             url: /configure/saml/design-considerations
 
-          - title: Supported SAML Options and Bindings
-            url: /configure/saml/supported-options-and-bindings
+#           - title: Supported SAML Options and Bindings
+#             url: /configure/saml/supported-options-and-bindings
 
-          - title: Customize SAML Assertions
-            url: /configure/saml/saml-assertions
+#           - title: Customize SAML Assertions
+#             url: /configure/saml/saml-assertions
 
-          - title: Logout
-            url: /configure/saml/logout
+#           - title: Logout
+#             url: /configure/saml/logout
 
-          - title: Deprovision Users
-            url: /configure/saml/deprovision-users
+#           - title: Deprovision Users
+#             url: /configure/saml/deprovision-users
 
-          - title: Logout
-            url: /configure/saml/logout
+#           - title: Logout
+#             url: /configure/saml/logout
             
-          - title: SAML Configurations for SSO Integrations
-            url: /configure/saml/sso-integrations
+#           - title: SAML Configurations for SSO Integrations
+#             url: /configure/saml/sso-integrations
 
-          - title: Special SAML Configuration Scenarios
-            url: /configure/saml/special-scenarios
-            children:
+#           - title: Special SAML Configuration Scenarios
+#             url: /configure/saml/special-scenarios
+#             children:
 
-              - title: IdP-Initiated Single Sign-On
-                url: /configure/saml/special-scenarios/idp-initiated-sso
-                hidden: true
+#               - title: IdP-Initiated Single Sign-On
+#                 url: /configure/saml/special-scenarios/idp-initiated-sso
+#                 hidden: true
 
-              - title: Signing and Encrypting SAML Requests
-                url: /configure/saml/special-scenarios/signing-and-encrypting-saml-requests
-                hidden: true
+#               - title: Signing and Encrypting SAML Requests
+#                 url: /configure/saml/special-scenarios/signing-and-encrypting-saml-requests
+#                 hidden: true
 
-      - title: Whitelist IP Addresses
-        url: /configure/ip-whitelist
+#       - title: Whitelist IP Addresses
+#         url: /configure/ip-whitelist
 
-## ------------------------------------------------------------
-## Manage Users
-## ------------------------------------------------------------
+# ## ------------------------------------------------------------
+# ## Manage Users
+# ## ------------------------------------------------------------
 
-  - title: Manage Users
-    url: /manage-users
-    children:
+#   - title: Manage Users
+#     url: /manage-users
+#     children:
 
-      - title: User Profiles
-        url: /manage-users/overview-user-profile
-        hidden: true
+#       - title: User Profiles
+#         url: /manage-users/overview-user-profile
+#         hidden: true
 
-      - title: Metadata
-        url: /manage-users/overview-user-metadata
-        hidden: true
+#       - title: Metadata
+#         url: /manage-users/overview-user-metadata
+#         hidden: true
       
-      - title: Using the Dashboard
-        url: /manage-users/manage-user-using-the-dashboard
+#       - title: Using the Dashboard
+#         url: /manage-users/manage-user-using-the-dashboard
 
-      - title: Using the API
-        url: /manage-users/manage-users-using-the-management-api
+#       - title: Using the API
+#         url: /manage-users/manage-users-using-the-management-api
       
-      - title: Link User Accounts
-        url: /extend-integrate/extensions/account-link
+#       - title: Link User Accounts
+#         url: /extend-integrate/extensions/account-link
 
-      - title: Blacklist User Attributes
-        url: /manage-users/blacklisting-attributes
+#       - title: Blacklist User Attributes
+#         url: /manage-users/blacklisting-attributes
 
-      - title: Import & Export Users
-        url: /manage-users/overview-user-migration
-        children:
+#       - title: Import & Export Users
+#         url: /manage-users/overview-user-migration
+#         children:
 
-          - title: File Schema
-            url: /manage-users/bulk-import-database-schema-examples
+#           - title: File Schema
+#             url: /manage-users/bulk-import-database-schema-examples
 
-          - title: Automatic
-            url: /manage-users/configure-automatic-migration
+#           - title: Automatic
+#             url: /manage-users/configure-automatic-migration
 
-          - title: Bulk Import
-            url: /manage-users/bulk-user-imports
+#           - title: Bulk Import
+#             url: /manage-users/bulk-user-imports
 
-          - title: Bulk Export
-            url: /manage-users/bulk-user-exports
+#           - title: Bulk Export
+#             url: /manage-users/bulk-user-exports
 
-          - title: User Import/Export Extension
-            url: /extend-integrate/extensions/user-import-export
+#           - title: User Import/Export Extension
+#             url: /extend-integrate/extensions/user-import-export
 
-          - title: Examples
-            url: /manage-users/user-migration-scenarios
+#           - title: Examples
+#             url: /manage-users/user-migration-scenarios
 
-      - title: User Search
-        url: /manage-users/search/v3
-        children: 
+#       - title: User Search
+#         url: /manage-users/search/v3
+#         children: 
 
-          - title: Get Users
-            url: /manage-users/serch/v3/get-users-endpoint
+#           - title: Get Users
+#             url: /manage-users/serch/v3/get-users-endpoint
 
-          - title: Get Users by Email
-            url: /manage-users/serch/v3/get-users-by-email-endpoint
+#           - title: Get Users by Email
+#             url: /manage-users/serch/v3/get-users-by-email-endpoint
 
-          - title: Get Users by ID
-            url: /manage-users/serch/v3/get-users-by-ID-endpoint
+#           - title: Get Users by ID
+#             url: /manage-users/serch/v3/get-users-by-ID-endpoint
 
-          - title: Sort Results
-            url: /manage-users/serch/v3/sort-search-results
+#           - title: Sort Results
+#             url: /manage-users/serch/v3/sort-search-results
 
-          - title: Results Pagination
-            url: /manage-users/serch/v3/view-search-results-by-page
+#           - title: Results Pagination
+#             url: /manage-users/serch/v3/view-search-results-by-page
 
-          - title: Query Syntax
-            url: /manage-users/serch/v3/query-syntax
+#           - title: Query Syntax
+#             url: /manage-users/serch/v3/query-syntax
 
-## ------------------------------------------------------------
-## Branding & Customization
-## ------------------------------------------------------------
+# ## ------------------------------------------------------------
+# ## Branding & Customization
+# ## ------------------------------------------------------------
 
-  - title: Branding & Customization
-    url: /branding-customization
-    children:
+#   - title: Branding & Customization
+#     url: /branding-customization
+#     children:
 
-      - title: Custom Domains
-        url: /branding-customization/custom-domains
-        children:
+#       - title: Custom Domains
+#         url: /branding-customization/custom-domains
+#         children:
 
-          - title: Custom Domains with Self-Managed Certificates
-            url: /branding-customization/custom-domains/self-managed-certificates
+#           - title: Custom Domains with Self-Managed Certificates
+#             url: /branding-customization/custom-domains/self-managed-certificates
 
-      - title: Email
-        url: /branding-customization/email
-        children:
+#       - title: Email
+#         url: /branding-customization/email
+#         children:
 
-          - title: Custom Email Handling
-            url: /branding-customization/email/custom
+#           - title: Custom Email Handling
+#             url: /branding-customization/email/custom
 
-          - title: Customizing Your Emails
-            url: /branding-customization/email/templates
+#           - title: Customizing Your Emails
+#             url: /branding-customization/email/templates
 
-          - title: Use your own SMTP Email Provider
-            url: /branding-customization/email/providers
+#           - title: Use your own SMTP Email Provider
+#             url: /branding-customization/email/providers
 
-          - title: Liquid Syntax in Email Templates
-            url: /branding-customization/email/liquid-syntax
+#           - title: Liquid Syntax in Email Templates
+#             url: /branding-customization/email/liquid-syntax
 
-          - title: Set up a Test SMTP Provider
-            url: /branding-customization/email/testing
+#           - title: Set up a Test SMTP Provider
+#             url: /branding-customization/email/testing
 
-          - title: Consent Prompt
-            url: /scopes/current/guides/customize-consent-prompt
+#           - title: Consent Prompt
+#             url: /scopes/current/guides/customize-consent-prompt
 
-          - title: Internationalization
-            url: /branding-customization/i18n
+#           - title: Internationalization
+#             url: /branding-customization/i18n
 
-## ------------------------------------------------------------
-## Extend & Integrate
-## ------------------------------------------------------------
+# ## ------------------------------------------------------------
+# ## Extend & Integrate
+# ## ------------------------------------------------------------
 
-  - title: Extend & Integrate
-    url: /extend-integrate
-    children:
-      - title: Rules
-        url: /extend-integrate/rules
-        children:
+#   - title: Extend & Integrate
+#     url: /extend-integrate
+#     children:
+#       - title: Rules
+#         url: /extend-integrate/rules
+#         children:
 
-          - title: Create a New Rule
-            url: /extend-integrate/rules/guides/create
+#           - title: Create a New Rule
+#             url: /extend-integrate/rules/guides/create
 
-          - title: Store Configuration for Rules
-            url: /extend-integrate/rules/guides/configuration
+#           - title: Store Configuration for Rules
+#             url: /extend-integrate/rules/guides/configuration
 
-          - title: Cache Expensive Resources
-            url: /extend-integrate/rules/guides/cache-resources
+#           - title: Cache Expensive Resources
+#             url: /extend-integrate/rules/guides/cache-resources
 
-          - title: Debug Rules
-            url: /extend-integrate/rules/guides/debug
+#           - title: Debug Rules
+#             url: /extend-integrate/rules/guides/debug
 
-          - title: Management API in Rules
-            url: /extend-integrate/rules/guides/management-api
+#           - title: Management API in Rules
+#             url: /extend-integrate/rules/guides/management-api
 
-          - title: Metadata in Rules
-            url: /extend-integrate/rules/guides/metadata
+#           - title: Metadata in Rules
+#             url: /extend-integrate/rules/guides/metadata
 
-          - title: C# in Rules
-            url: /extend-integrate/rules/guides/csharp
+#           - title: C# in Rules
+#             url: /extend-integrate/rules/guides/csharp
 
-          - title: Redirect Users from Rules
-            url: /extend-integrate/rules/guides/redirect
+#           - title: Redirect Users from Rules
+#             url: /extend-integrate/rules/guides/redirect
 
-          - title: User Object
-            url: /extend-integrate/rules/references/user-object
+#           - title: User Object
+#             url: /extend-integrate/rules/references/user-object
 
-          - title: Context Object
-            url: /extend-integrate/rules/references/context-object
+#           - title: Context Object
+#             url: /extend-integrate/rules/references/context-object
 
-          - title: Available Node.js Modules
-            url: /extend-integrate/rules/references/modules
+#           - title: Available Node.js Modules
+#             url: /extend-integrate/rules/references/modules
 
-          - title: Deploy Rules with Bitbucket
-            url: /extend-integrate/extensions/bitbucket-deploy
+#           - title: Deploy Rules with Bitbucket
+#             url: /extend-integrate/extensions/bitbucket-deploy
 
-          - title: Deploy Rules with GitLab
-            url: /extend-integrate/extensions/gitlab-deploy
+#           - title: Deploy Rules with GitLab
+#             url: /extend-integrate/extensions/gitlab-deploy
 
-          - title: Deploy Rules with Github
-            url: /extend-integrate/extensions/github-deploy
+#           - title: Deploy Rules with Github
+#             url: /extend-integrate/extensions/github-deploy
       
-      - title: Hooks
-        url: /extend-integrate/hooks
-        children:
+#       - title: Hooks
+#         url: /extend-integrate/hooks
+#         children:
 
-          - title: Extensibility Points
-            url: /hooks/concepts/extensibility-points
-            children:
+#           - title: Extensibility Points
+#             url: /hooks/concepts/extensibility-points
+#             children:
 
-              - title: Credentials Exchange
-                url: /hooks/concepts/credentials-exchange-extensibility-point
+#               - title: Credentials Exchange
+#                 url: /hooks/concepts/credentials-exchange-extensibility-point
 
-              - title: Pre-User Registration
-                url: /hooks/concepts/pre-user-registration-extensibility-point
+#               - title: Pre-User Registration
+#                 url: /hooks/concepts/pre-user-registration-extensibility-point
 
-              - title: Post-User Registration
-                url: /hooks/concepts/post-user-registration-extensibility-point
+#               - title: Post-User Registration
+#                 url: /hooks/concepts/post-user-registration-extensibility-point
 
-          - title: Using the Auth0 CLI
-            url: /hooks/guides/create-hooks-using-cli
-            children:
+#           - title: Using the Auth0 CLI
+#             url: /hooks/guides/create-hooks-using-cli
+#             children:
 
-              - title: Create Hooks
-                url: /hooks/guides/create-hooks-using-cli
+#               - title: Create Hooks
+#                 url: /hooks/guides/create-hooks-using-cli
 
-              - title: Edit Hooks
-                url: /hooks/guides/edit-hooks-using-cli
+#               - title: Edit Hooks
+#                 url: /hooks/guides/edit-hooks-using-cli
 
-              - title: Delete Hooks
-                url: /hooks/guides/delete-hooks-using-cli
+#               - title: Delete Hooks
+#                 url: /hooks/guides/delete-hooks-using-cli
 
-              - title: Enable/Disable Hooks
-                url: /hooks/guides/enable-disable-hooks-using-cli
+#               - title: Enable/Disable Hooks
+#                 url: /hooks/guides/enable-disable-hooks-using-cli
 
-              - title: Get Log Info
-                url: /hooks/guides/logging-hooks-using-cli
+#               - title: Get Log Info
+#                 url: /hooks/guides/logging-hooks-using-cli
 
-          - title: Using the Dashboard
-            url: /hooks/guides/create-hooks-using-dashboard
-            children:
+#           - title: Using the Dashboard
+#             url: /hooks/guides/create-hooks-using-dashboard
+#             children:
 
-              - title: Create Hooks
-                url: /hooks/guides/create-hooks-using-dashboard
+#               - title: Create Hooks
+#                 url: /hooks/guides/create-hooks-using-dashboard
 
-              - title: Edit Hooks
-                url: /hooks/guides/edit-hooks-using-dashboard
+#               - title: Edit Hooks
+#                 url: /hooks/guides/edit-hooks-using-dashboard
 
-              - title: Delete Hooks
-                url: /hooks/guides/delete-hooks-using-dashboard
+#               - title: Delete Hooks
+#                 url: /hooks/guides/delete-hooks-using-dashboard
 
-              - title: Enable/Disable Hooks
-                url: /hooks/guides/enable-disable-hooks-using-dashboard
+#               - title: Enable/Disable Hooks
+#                 url: /hooks/guides/enable-disable-hooks-using-dashboard
 
-      - title: Extensions
-        url: /extend-integrate/extensions
+#       - title: Extensions
+#         url: /extend-integrate/extensions
       
-      - title: Analytics Integrations
-        url: /extend-integrate/integrations/analytics
+#       - title: Analytics Integrations
+#         url: /extend-integrate/integrations/analytics
 
-      - title: Single Sign-On Integrations
-        url: /extend-integrate/integrations/sso
+#       - title: Single Sign-On Integrations
+#         url: /extend-integrate/integrations/sso
 
-      - title: Marketing Integrations
-        url: /extend-integrate/integrations/marketing
+#       - title: Marketing Integrations
+#         url: /extend-integrate/integrations/marketing
 
-      - title: Add-ons
-        url: /extend-integrate/addons
+#       - title: Add-ons
+#         url: /extend-integrate/addons
 
-## ------------------------------------------------------------
-## Monitor
-## ------------------------------------------------------------
+# ## ------------------------------------------------------------
+# ## Monitor
+# ## ------------------------------------------------------------
   
-  - title: Monitoring
-    url: /monitor
-    children:
+#   - title: Monitoring
+#     url: /monitor
+#     children:
 
-      - title: Logs
-        url: /monitor/logs
-        children:
+#       - title: Logs
+#         url: /monitor/logs
+#         children:
 
-          - title: Query Syntax
-            url: /monitor/logs/query-syntax
+#           - title: Query Syntax
+#             url: /monitor/logs/query-syntax
 
-          - title: Migrate from Logs Search v2 to v3
-            url: /monitor/logs/migrate-logs-v2-v3
-            hidden: true
+#           - title: Migrate from Logs Search v2 to v3
+#             url: /monitor/logs/migrate-logs-v2-v3
+#             hidden: true
 
-      - title: Check Auth0 Status
-        url: /monitor/check-auth0-status
+#       - title: Check Auth0 Status
+#         url: /monitor/check-auth0-status
 
-      - title: Check Supporting Services Status
-        url: /monitor/check-supporting-services
+#       - title: Check Supporting Services Status
+#         url: /monitor/check-supporting-services
 
-      - title: Check External Services Status
-        url: /monitor/check-external-services
+#       - title: Check External Services Status
+#         url: /monitor/check-external-services
 
-      - title: Monitor Applications
-        url: /monitor/applications
+#       - title: Monitor Applications
+#         url: /monitor/applications
 
-      - title: Monitor Using SCOM
-        url: /monitor/scom
+#       - title: Monitor Using SCOM
+#         url: /monitor/scom
 
-      - title: Monitoring the AD/LDAP Connector with System Center Operations Manager
-        url: /monitor/scom-adldap-connector
-        hidden: true
+#       - title: Monitoring the AD/LDAP Connector with System Center Operations Manager
+#         url: /monitor/scom-adldap-connector
+#         hidden: true
 
-      - title: AD/LDAP Connector Health Monitor
-        url: /extend-integrate/extensions/adldap-connector
-        hidden: true
+#       - title: AD/LDAP Connector Health Monitor
+#         url: /extend-integrate/extensions/adldap-connector
+#         hidden: true
 
-      - title: Send Events to Keen
-        url: /monitor/send-events-to-keenio
-        hidden: true
+#       - title: Send Events to Keen
+#         url: /monitor/send-events-to-keenio
+#         hidden: true
 
-      - title: Send Events to Segment
-        url: /monitor/send-events-to-segmentio
-        hidden: true
+#       - title: Send Events to Segment
+#         url: /monitor/send-events-to-segmentio
+#         hidden: true
 
-      - title: Send Events to Splunk
-        url: /monitor/send-events-to-splunk
-        hidden: true
+#       - title: Send Events to Splunk
+#         url: /monitor/send-events-to-splunk
+#         hidden: true
 
-      - title: Track New Leads in Salesforce
-        url: /monitor/track-leads-salesforce
-        hidden: true
+#       - title: Track New Leads in Salesforce
+#         url: /monitor/track-leads-salesforce
+#         hidden: true
 
-      - title: Track New Sign-ups in Salesforce
-        url: /monitor/track-signups-salesforce
-        hidden: true
+#       - title: Track New Sign-ups in Salesforce
+#         url: /monitor/track-signups-salesforce
+#         hidden: true
 
-## ------------------------------------------------------------
-## Deploy
-## ------------------------------------------------------------
+# ## ------------------------------------------------------------
+# ## Deploy
+# ## ------------------------------------------------------------
 
-  - title: Deploy
-    url: /deploy
-    children:
-      - title: Deployment Options
-        url: /deploy/deployment-models
+#   - title: Deploy
+#     url: /deploy
+#     children:
+#       - title: Deployment Options
+#         url: /deploy/deployment-models
       
-      - title: Deploy Checklist
-        url: /deploy/checklist
+#       - title: Deploy Checklist
+#         url: /deploy/checklist
 
-      - title: Pre-Deployment
-        url: /deploy/pre-deployment
+#       - title: Pre-Deployment
+#         url: /deploy/pre-deployment
       
-      - title: Deploy CLI Extension
-        url: /deploy/deploy-cli
+#       - title: Deploy CLI Extension
+#         url: /deploy/deploy-cli
 
-## ------------------------------------------------------------
-## Troubleshooting
-## ------------------------------------------------------------
+# ## ------------------------------------------------------------
+# ## Troubleshooting
+# ## ------------------------------------------------------------
 
-  - title: Troubleshooting
-    url: /troubleshoot
-    children:
-      - title: Basics
-        url: /troubleshoot/basics
+#   - title: Troubleshooting
+#     url: /troubleshoot
+#     children:
+#       - title: Basics
+#         url: /troubleshoot/basics
       
-      - title: Common Authentication Errors
-        url: /troubleshoot/error-messages
-        children:
-          - title: Standard Error Messages
-            url: /api/authentication#standard-error-responses
+#       - title: Common Authentication Errors
+#         url: /troubleshoot/error-messages
+#         children:
+#           - title: Standard Error Messages
+#             url: /api/authentication#standard-error-responses
 
-      - title: Roles-Based Authorization
-        url: /troubleshoot/rbac
-        children:
-          - title: Authorization Extension
-            url: /troubleshoot/auth-extension
+#       - title: Roles-Based Authorization
+#         url: /troubleshoot/rbac
+#         children:
+#           - title: Authorization Extension
+#             url: /troubleshoot/auth-extension
       
-      - title: Multi-factor Authentication
-        url: /troubleshoot/mfa
+#       - title: Multi-factor Authentication
+#         url: /troubleshoot/mfa
 
-      - title: SAML
-        url: /troubleshoot/saml
-        children:
-          - title: Common SAML Errors
-            url: /troubleshoot/saml/common-saml-errors
+#       - title: SAML
+#         url: /troubleshoot/saml
+#         children:
+#           - title: Common SAML Errors
+#             url: /troubleshoot/saml/common-saml-errors
           
-          - title: Troubleshooting When Auth0 is the Service Provider
-            url: /troubleshoot/saml/auth0-as-sp
+#           - title: Troubleshooting When Auth0 is the Service Provider
+#             url: /troubleshoot/saml/auth0-as-sp
           
-          - title: Troubleshooting When Auth0 is the Identity Provider
-            url: /troubleshoot/saml/auth0-as-idp
+#           - title: Troubleshooting When Auth0 is the Identity Provider
+#             url: /troubleshoot/saml/auth0-as-idp
 
-      - title: Deprecation Errors
-        url: /troubleshoot/deprecation-errors
+#       - title: Deprecation Errors
+#         url: /troubleshoot/deprecation-errors
 
-      - title: Issues with...
-        url: /troubleshoot/issues
+#       - title: Issues with...
+#         url: /troubleshoot/issues
 
-      - title: HTTP Archive (HAR) 
-        url: /troubleshoot/har
+#       - title: HTTP Archive (HAR) 
+#         url: /troubleshoot/har
 
-      - title: Custom Databases
-        url: /troubleshoot/custom-db
+#       - title: Custom Databases
+#         url: /troubleshoot/custom-db
 
-      - title: Deploy CLI
-        url: /troubleshoot/deploy-cli
+#       - title: Deploy CLI
+#         url: /troubleshoot/deploy-cli
 
-      - title: AD/LDAP Connector
-        url: /troubleshoot/connector
+#       - title: AD/LDAP Connector
+#         url: /troubleshoot/connector
 
-## ------------------------------------------------------------
-## About Auth0
-## ------------------------------------------------------------
+# ## ------------------------------------------------------------
+# ## About Auth0
+# ## ------------------------------------------------------------
 
-  - title: About Auth0
-    url: /about-auth0
-    children:
+#   - title: About Auth0
+#     url: /about-auth0
+#     children:
 
-      - title: Overview
-        url: /about-auth0/overview
+#       - title: Overview
+#         url: /about-auth0/overview
       
-      - title: The Basics
-        url: /about-auth0/the-basics
+#       - title: The Basics
+#         url: /about-auth0/the-basics
       
-      - title: Auth0 & Data Privacy
-        url: /about-auth0/auth0-and-data-privacy
+#       - title: Auth0 & Data Privacy
+#         url: /about-auth0/auth0-and-data-privacy
 
-      - title: Change Log
-        url: https://auth0.com/changelog
+#       - title: Change Log
+#         url: https://auth0.com/changelog
 
-  - title: Auth0 Community
-    url: https://community.auth0.com/
+#   - title: Auth0 Community
+#     url: https://community.auth0.com/
 
-  - title: Auth0 Blog
-    url: https://auth0.com/blog/
+#   - title: Auth0 Blog
+#     url: https://auth0.com/blog/
