@@ -450,6 +450,97 @@ articles:
       - title: Whitelist IP Addresses
         url: /guides/ip-whitelist
 
+## ------------------------------------------------------------
+## Manage Users
+## ------------------------------------------------------------
+
+  - title: Manage Users
+    url: /users
+    children:
+
+      - title: User Profiles
+        url: /users/concepts/overview-user-profile
+
+      - title: Metadata
+        url: /users/concepts/overview-user-metadata
+      
+      - title: Using the Dashboard
+        url: /users/guides/manage-users-using-the-dashboard
+
+      - title: Using the API
+        url: /users/guides/manage-users-using-the-management-api
+      
+      - title: Link User Accounts
+        url: /extensions/account-link
+
+      - title: Blacklist User Attributes
+        url: /security/blacklisting-attributes
+
+      - title: Import & Export Users
+        url: /users/concepts/overview-user-migration
+        children:
+
+          - title: File Schema
+            url: /users/references/bulk-import-database-schema-examples
+
+          - title: Automatic
+            url: /users/guides/configure-automatic-migration
+
+          - title: Bulk Import
+            url: /users/guides/bulk-user-imports
+
+          - title: Bulk Export
+            url: /users/guides/bulk-user-exports
+
+          - title: User Import/Export Extension
+            url: /extensions/user-import-export
+
+          - title: Examples
+            url: /users/references/user-migration-scenarios
+
+      - title: "User Search"
+        url: "/users/search/v3"
+        children:
+
+          - title: "Get Users"
+            url: "/users/search/v3/get-users-endpoint"
+
+          - title: "Get Users by Email"
+            url: "/users/search/v3/get-users-by-email-endpoint"
+
+          - title: "Get Users by ID"
+            url: "/users/search/v3/get-users-by-id-endpoint"
+
+          - title: "Sort Search Results"
+            url: "/users/search/v3/sort-search-results"
+
+          - title: "View Search Results"
+            url: "/users/search/v3/view-search-results-by-page"
+
+          - title: "Query Syntax"
+            url: "/users/search/v3/query-syntax"
+
+          - title: "Best Practices"
+            url: "/best-practices/search-best-practices"
+
+          - title: "Migrate from Search v2 to V3"
+            url: "/users/search/v3/migrate-search-v2-v3"
+            hidden: true
+
+      - title: "User Search"
+        url: "/users/search/v2"
+        hidden: true
+        children:
+          
+          - title: "Query Syntax"
+            url: "/users/search/v2/query-syntax"
+            hidden: true
+
+          - title: "Best Practices"
+            url: "/best-practices/search-best-practices"
+            hidden: true
+
+
   - title: Architecture Scenarios
     url: /architecture-scenarios
 
@@ -722,42 +813,42 @@ articles:
         external: true
         forceFullReload: true
 
-  - title: "Connections"
-    url: "/connections"
-    children:
-      - title: "Overview"
-        url: "/connections"
+  # - title: "Connections"
+  #   url: "/connections"
+  #   children:
+  #     - title: "Overview"
+  #       url: "/connections"
 
-      - title: "Username/Password"
-        url: "/connections/database"
+  #     - title: "Username/Password"
+  #       url: "/connections/database"
 
-      - title: "Social/Enterprise"
-        url: "/identityproviders"
-        children:
-          - title: "Custom Social Extensions"
-            url: "/extensions/custom-social-extensions"
+  #     - title: "Social/Enterprise"
+  #       url: "/identityproviders"
+  #       children:
+  #         - title: "Custom Social Extensions"
+  #           url: "/extensions/custom-social-extensions"
 
-      - title: "Your Database"
-        url: "/connections/database/custom-db"
+  #     - title: "Your Database"
+  #       url: "/connections/database/custom-db"
 
-      - title: "Passwordless Authentication"
-        url: "/connections/passwordless"
-        children:
+  #     - title: "Passwordless Authentication"
+  #       url: "/connections/passwordless"
+  #       children:
 
-          - title: "Native Passwordless"
-            url: "/connections/passwordless/native-passwordless-universal"
+  #         - title: "Native Passwordless"
+  #           url: "/connections/passwordless/native-passwordless-universal"
 
-          - title: "Using Email"
-            url: "/connections/passwordless/email"
+  #         - title: "Using Email"
+  #           url: "/connections/passwordless/email"
 
-          - title: "Using SMS"
-            url: "/connections/passwordless/sms"
+  #         - title: "Using SMS"
+  #           url: "/connections/passwordless/sms"
 
-          - title: "FAQ"
-            url: "/connections/passwordless/faq"
+  #         - title: "FAQ"
+  #           url: "/connections/passwordless/faq"
 
-      - title: "Send extra parameters"
-        url: "/connections/pass-parameters-to-idps"
+  #     - title: "Send extra parameters"
+  #       url: "/connections/pass-parameters-to-idps"
 
   - title: "Rules"
     url: "/rules"
@@ -890,200 +981,197 @@ articles:
       - title: "Password Strength"
         url: "/connections/database/password-strength"
 
-  - title: "User Management"
-    url: "/users"
-    children:
-      - title: "User Profiles"
-        url: "/users/concepts/overview-user-profile"
-        children:
+  # - title: "User Management"
+  #   url: "/users"
+  #   children:
+  #     - title: "User Profiles"
+  #       url: "/users/concepts/overview-user-profile"
+  #       children:
 
-          - title: "Structure"
-            url: "/users/references/user-profile-structure"
+  #         - title: "Structure"
+  #           url: "/users/references/user-profile-structure"
 
-          - title: "Normalized User Profiles"
-            url: "/users/normalized/auth0"
-            children:
+  #         - title: "Normalized User Profiles"
+  #           url: "/users/normalized/auth0"
+  #           children:
 
-              - title: "Identify Users"
-                url: "/users/normalized/auth0/identify-users"
-                hidden: true
+  #             - title: "Identify Users"
+  #               url: "/users/normalized/auth0/identify-users"
+  #               hidden: true
 
-              - title: "Retrieve Users"
-                url: "/users/search"
-                hidden: true
+  #             - title: "Retrieve Users"
+  #               url: "/users/search"
+  #               hidden: true
 
-              - title: "Store User Data"
-                url: "/users/normalized/auth0/store-user-data"
-                hidden: true
+  #             - title: "Store User Data"
+  #               url: "/users/normalized/auth0/store-user-data"
+  #               hidden: true
 
-              - title: "Normalized User Profile Schema"
-                url: "/users/normalized/auth0/normalized-user-profile-schema"
-                hidden: true
+  #             - title: "Normalized User Profile Schema"
+  #               url: "/users/normalized/auth0/normalized-user-profile-schema"
+  #               hidden: true
 
-              - title: "Sample User Profiles"
-                url: "/users/normalized/auth0/sample-user-profiles"
-                hidden: true
+  #             - title: "Sample User Profiles"
+  #               url: "/users/normalized/auth0/sample-user-profiles"
+  #               hidden: true
 
-              - title: "OIDC-Compliant Pipelines"
-                url: "/users/normalized/oidc"
-                hidden: true
+  #             - title: "OIDC-Compliant Pipelines"
+  #               url: "/users/normalized/oidc"
+  #               hidden: true
 
-          - title: "Link Accounts"
-            url: "/link-accounts"
-            hidden: true
+  #         - title: "Link Accounts"
+  #           url: "/link-accounts"
 
-          - title: "Custom Database"
-            url: "/users/guides/update-user-profiles-using-your-database"
+  #         - title: "Custom Database"
+  #           url: "/users/guides/update-user-profiles-using-your-database"
 
-          - title: "Progressive Profiling"
-            url: "/users/guides/implement-progressive-profiling"
-            hidden: true
+  #         - title: "Progressive Profiling"
+  #           url: "/users/guides/implement-progressive-profiling"
 
-          - title: "Blacklist Attributes"
-            url: "/security/blacklisting-attributes"
-            hidden: true
+  #         - title: "Blacklist Attributes"
+  #           url: "/security/blacklisting-attributes"
 
-      - title: "User Metadata"
-        url: "/users/concepts/overview-user-metadata"
+  #     - title: "User Metadata"
+  #       url: "/users/concepts/overview-user-metadata"
 
-      - title: "User Impersonation"
-        url: "/users/guides/impersonate-users-using-the-dashboard"
-        hidden: true
+  #     - title: "User Impersonation"
+  #       url: "/users/guides/impersonate-users-using-the-dashboard"
+  #       hidden: true
 
-      - title: "Delegated Administration"
-        url: "/extensions/delegated-admin/v3"
-        hidden: true
+  #     - title: "Delegated Administration"
+  #       url: "/extensions/delegated-admin/v3"
+  #       hidden: true
 
-      - title: "Authorization Extension"
-        url: "/extensions/authorization-extension/v2"
-        children:
+  #     - title: "Authorization Extension"
+  #       url: "/extensions/authorization-extension/v2"
+  #       children:
 
-          - title: "Installation"
-            url: "/extensions/authorization-extension/v2/implementation/installation"
-            hidden: true
+  #         - title: "Installation"
+  #           url: "/extensions/authorization-extension/v2/implementation/installation"
+  #           hidden: true
 
-          - title: "Setup"
-            url: "/extensions/authorization-extension/v2/implementation/setup"
-            hidden: true
+  #         - title: "Setup"
+  #           url: "/extensions/authorization-extension/v2/implementation/setup"
+  #           hidden: true
 
-          - title: "Configuration"
-            url: "/extensions/authorization-extension/v2/implementation/configuration"
-            hidden: true
+  #         - title: "Configuration"
+  #           url: "/extensions/authorization-extension/v2/implementation/configuration"
+  #           hidden: true
 
-          - title: "API Access"
-            url: "/extensions/authorization-extension/v2/api-access"
-            hidden: true
+  #         - title: "API Access"
+  #           url: "/extensions/authorization-extension/v2/api-access"
+  #           hidden: true
 
-          - title: "Rules"
-            url: "/extensions/authorization-extension/v2/rules"
-            hidden: true
+  #         - title: "Rules"
+  #           url: "/extensions/authorization-extension/v2/rules"
+  #           hidden: true
 
-          - title: "Troubleshooting"
-            url: "/extensions/authorization-extension/v2/troubleshooting"
-            hidden: true
+  #         - title: "Troubleshooting"
+  #           url: "/extensions/authorization-extension/v2/troubleshooting"
+  #           hidden: true
 
-          - title: "Import / Export Data"
-            url: "/extensions/authorization-extension/v2/import-export-data"
-            hidden: true
+  #         - title: "Import / Export Data"
+  #           url: "/extensions/authorization-extension/v2/import-export-data"
+  #           hidden: true
 
-      - title: "Data Storage"
-        url: "/best-practices/user-data-storage-best-practices"
-        hidden: true
-        children:
-          - title: "User Data Storage Scenario"
-            url: "/users/references/user-data-storage-scenario"
-            hidden: true
+  #     - title: "Data Storage"
+  #       url: "/best-practices/user-data-storage-best-practices"
+  #       hidden: true
+  #       children:
+  #         - title: "User Data Storage Scenario"
+  #           url: "/users/references/user-data-storage-scenario"
+  #           hidden: true
 
-      - title: "User Migration"
-        url: "/users/concepts/overview-user-migration"
-        children:
-          - title: "Automatic Migration"
-            url: "/users/guides/configure-automatic-migration"
+  #     - title: "User Migration"
+  #       url: "/users/concepts/overview-user-migration"
+  #       children:
+  #         - title: "Automatic Migration"
+  #           url: "/users/guides/configure-automatic-migration"
 
-          - title: "Bulk User Imports"
-            url: "/users/guides/bulk-user-imports"
+  #         - title: "Bulk User Imports"
+  #           url: "/users/guides/bulk-user-imports"
 
-          - title: "Bulk User Exports"
-            url: "/users/guides/bulk-user-exports"
+  #         - title: "Bulk User Exports"
+  #           url: "/users/guides/bulk-user-exports"
 
-          - title: "User Import/Export Extension"
-            url: "/extensions/user-import-export"
+  #         - title: "User Import/Export Extension"
+  #           url: "/extensions/user-import-export"
 
-          - title: "Scenarios"
-            url: "/users/references/user-migration-scenarios"
+  #         - title: "Scenarios"
+  #           url: "/users/references/user-migration-scenarios"
 
-          - title: "Azure Access Control"
-            url: "/users/guides/azure-access-control"
-            hidden: true
+  #         - title: "Azure Access Control"
+  #           url: "/users/guides/azure-access-control"
+  #           hidden: true
 
-          - title: "Import File Schema"
-            url: "/users/references/bulk-import-database-schema-examples"
+  #         - title: "Import File Schema"
+  #           url: "/users/references/bulk-import-database-schema-examples"
 
-      - title: "Redirect After Login"
-        url: "/users/guides/redirect-users-after-login"
-        children:
-          - title: "Redirect Users from Rules"
-            url: "/rules/current/redirect"
-            hidden: true
+  #     - title: "Redirect After Login"
+  #       url: "/users/guides/redirect-users-after-login"
+  #       children:
+  #         - title: "Redirect Users from Rules"
+  #           url: "/rules/current/redirect"
+  #           hidden: true
 
-      - title: "User Logout"
-        url: "/logout"
-        children:
-          - title: "Applications"
-            url: "/logout/guides/logout-applications"
+  #     - title: "User Logout"
+  #       url: "/logout"
+  #       children:
+  #         - title: "Applications"
+  #           url: "/logout/guides/logout-applications"
 
-          - title: "Auth0"
-            url: "/logout/guides/logout-auth0"
+  #         - title: "Auth0"
+  #           url: "/logout/guides/logout-auth0"
 
-          - title: "Identity Providers"
-            url: "/logout/guides/logout-idps"
-            hidden: true
+  #         - title: "Identity Providers"
+  #           url: "/logout/guides/logout-idps"
+  #           hidden: true
 
-          - title: "SAML Identity Providers"
-            url: "/logout/guides/logout-saml-idps"
+  #         - title: "SAML Identity Providers"
+  #           url: "/logout/guides/logout-saml-idps"
 
-          - title: "Redirect After Logout"
-            url: "/logout/guides/redirect-users-after-logout"
+  #         - title: "Redirect After Logout"
+  #           url: "/logout/guides/redirect-users-after-logout"
 
-      - title: "User Search"
-        url: "/users/search/v3"
-        children:
-          - title: "Get Users"
-            url: "/users/search/v3/get-users-endpoint"
+  #     - title: "User Search"
+  #       url: "/users/search/v3"
+  #       children:
+  #         - title: "Get Users"
+  #           url: "/users/search/v3/get-users-endpoint"
 
-          - title: "Get Users by Email"
-            url: "/users/search/v3/get-users-by-email-endpoint"
+  #         - title: "Get Users by Email"
+  #           url: "/users/search/v3/get-users-by-email-endpoint"
 
-          - title: "Get Users by ID"
-            url: "/users/search/v3/get-users-by-id-endpoint"
+  #         - title: "Get Users by ID"
+  #           url: "/users/search/v3/get-users-by-id-endpoint"
 
-          - title: "Sort Search Results"
-            url: "/users/search/v3/sort-search-results"
+  #         - title: "Sort Search Results"
+  #           url: "/users/search/v3/sort-search-results"
 
-          - title: "View Search Results"
-            url: "/users/search/v3/view-search-results-by-page"
+  #         - title: "View Search Results"
+  #           url: "/users/search/v3/view-search-results-by-page"
 
-          - title: "Query Syntax"
-            url: "/users/search/v3/query-syntax"
+  #         - title: "Query Syntax"
+  #           url: "/users/search/v3/query-syntax"
 
-          - title: "Best Practices"
-            url: "/best-practices/search-best-practices"
+  #         - title: "Best Practices"
+  #           url: "/best-practices/search-best-practices"
 
-          - title: "Migrate from Search v2 to V3"
-            url: "/users/search/v3/migrate-search-v2-v3"
-            hidden: true
+  #         - title: "Migrate from Search v2 to V3"
+  #           url: "/users/search/v3/migrate-search-v2-v3"
+  #           hidden: true
 
-      - title: "User Search"
-        url: "/users/search/v2"
-        hidden: true
-        children:
-          - title: "Query Syntax"
-            url: "/users/search/v2/query-syntax"
-            hidden: true
+  #     - title: "User Search"
+  #       url: "/users/search/v2"
+  #       hidden: true
+  #       children:
+  #         - title: "Query Syntax"
+  #           url: "/users/search/v2/query-syntax"
+  #           hidden: true
 
-          - title: "Best Practices"
-            url: "/best-practices/search-best-practices"
-            hidden: true
+  #         - title: "Best Practices"
+  #           url: "/best-practices/search-best-practices"
+  #           hidden: true
 
 
   - title: "Multi-factor Authentication"
