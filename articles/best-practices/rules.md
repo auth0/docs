@@ -88,7 +88,7 @@ Rules can run more than once when a pipeline is executed, and this depends on th
             reject(err);
           } else {  
             resolve(decoded);
-        
+          }
       });
     });
    };
@@ -471,7 +471,7 @@ Removing calls to the Management API (as well as the extra call required to get 
 
 #### Avoid unecessary execution
 
-Prefer to implment execution based on conditional logic. For example, to run a rule for only specific applications, check on a specific [`clientID`](/rules/references/context-object) or for specific [`clientMetadata`](/rules/references/context-object). This improves performance - especially when checking for a specific `clientMetadata` value that's common across multiple applications. Using `clientMetadata` in this way can also make adding new clients (as well as reading rule code) easier, especially if you have a large number of applications defined.
+Prefer to implment execution based on conditional logic. For example, to run a rule for only specific applications, check on a specific [`clientID`](/rules/references/context-object) or for specific [`clientMetadata`](/rules/references/context-object) - especially when checking against a single `clientMetadata` value, common across multiple applications. Using `clientMetadata` can also make adding new clients (as well as reading rule code) easier, especially if you have a large number of applications defined.
 
 ::: note
 Client metadata for an application can be set manually via the dashboard, by going to [Application Settings -> Advanced Settings -> Application Metadata](${manage_url}/#/applications/) or programatically via use of the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
