@@ -220,6 +220,67 @@ articles:
       - title: Pass Parameters to Identity Providers
         url: /connections/pass-parameters-to-idps
 
+## ------------------------------------------------------------
+## Authorization
+## ------------------------------------------------------------
+
+  - title: "Authorization"
+    url: "/authorization"
+    children:
+
+      - title: Authorization Flows
+        url: /authorization/flows
+        children:
+
+          - title: Authorization Code
+            url: /flows/guides/auth-code/call-api-auth-code
+
+          - title: Authorization Code with PKCE
+            url: /flows/guides/auth-code-pkce/call-api-auth-code-pkce
+
+          - title: Client Credentials
+            url: /flows/guides/client-credentials/call-api-client-credentials
+
+          - title: Implicit
+            url: /flows/guides/implicit/call-api-implicit
+            children:
+
+              - title: Mitigate Replay Attacks
+                url: /flows/mitigate-replay-attacks
+
+      - title: "Role-based Access Control (RBAC)"
+        url: "/authorization/concepts/rbac"
+
+      - title: "Authorization Policies"
+        url: "/authorization/concepts/policies"
+
+      - title: "Rules for Authorization Policies"
+        url: "/authorization/concepts/authz-rules"
+
+      - title: "Sample Use Cases - RBAC"
+        url: "/authorization/concepts/sample-use-cases-rbac"
+
+      - title: "Sample Use Cases - Rules"
+        url: "/authorization/concepts/sample-use-cases-rules"
+
+      - title: "Authz Core vs. Authz Extension"
+        url: "/authorization/concepts/core-vs-extension"
+
+      - title: "How to Configure Core RBAC"
+        url: "/authorization/guides/how-to"
+        children:
+          - title: "Manage Roles"
+            url: "/authorization/guides/manage-roles"
+
+          - title: "Manage RBAC Users"
+            url: "/authorization/guides/manage-users"
+
+          - title: "Manage RBAC Permissions"
+            url: "/authorization/guides/manage-permissions"
+
+          - title: "Enable RBAC for APIs"
+            url: "/dashboard/guides/apis/enable-rbac"
+
   - title: Architecture Scenarios
     url: /architecture-scenarios
 
@@ -480,42 +541,6 @@ articles:
 
       - title: "Verify Access Tokens"
         url: "/api-auth/tutorials/verify-access-token"
-
-  - title: "Authorization"
-    url: "/authorization"
-    children:
-      - title: "Role-based Access Control (RBAC)"
-        url: "/authorization/concepts/rbac"
-
-      - title: "Authorization Policies"
-        url: "/authorization/concepts/policies"
-
-      - title: "Rules for Authorization Policies"
-        url: "/authorization/concepts/authz-rules"
-
-      - title: "Sample Use Cases - RBAC"
-        url: "/authorization/concepts/sample-use-cases-rbac"
-
-      - title: "Sample Use Cases - Rules"
-        url: "/authorization/concepts/sample-use-cases-rules"
-
-      - title: "Authz Core vs. Authz Extension"
-        url: "/authorization/concepts/core-vs-extension"
-
-      - title: "How to Configure Core RBAC"
-        url: "/authorization/guides/how-to"
-        children:
-          - title: "Manage Roles"
-            url: "/authorization/guides/manage-roles"
-
-          - title: "Manage RBAC Users"
-            url: "/authorization/guides/manage-users"
-
-          - title: "Manage RBAC Permissions"
-            url: "/authorization/guides/manage-permissions"
-
-          - title: "Enable RBAC for APIs"
-            url: "/dashboard/guides/apis/enable-rbac"
 
   - title: "Private Cloud"
     url: "/private-cloud"

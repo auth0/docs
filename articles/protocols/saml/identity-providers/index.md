@@ -11,7 +11,7 @@ useCase: customize-connections
 
 # SAML Identity Providers
 
-<%= include('../../_includes/_topic-links', { links: [
+<%= include('../../../_includes/_topic-links', { links: [
   'protocols/saml/identity-providers/okta',
   'protocols/saml/identity-providers/onelogin',
   'protocols/saml/identity-providers/ping7',
