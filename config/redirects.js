@@ -2803,7 +2803,7 @@ module.exports = [
         to:   '/monitor'
     },
     {
-        from: '/monitoring/guides'
+        from: '/monitoring/guides',
         to:   '/monitor'
     },
     {
@@ -2847,27 +2847,27 @@ module.exports = [
         to:   '/monitor/scom-adldap-connector'   
     },
     {
-        from: '/monitoring/guides/send-events-to-keenio'
+        from: '/monitoring/guides/send-events-to-keenio',
         to:   '/monitor/send-events-to-keenio'
         
     },
     {
-        from: '/monitoring/guides/send-events-to-segmentio'
+        from: '/monitoring/guides/send-events-to-segmentio',
         to:   '/monitor/send-events-to-segmentio'
         
     },
     {
-        from: '/monitoring/guides/send-events-to-splunk'
+        from: '/monitoring/guides/send-events-to-splunk',
         to:   '/monitor/send-events-to-splunk'
         
     },
     {
-        from: '/monitoring/guides/track-leads-salesforce'
+        from: '/monitoring/guides/track-leads-salesforce',
         to:   '/monitor/track-leads-salesforce'
         
     },
     {
-        from: '/monitoring/guides/track-signups-salesforce'
+        from: '/monitoring/guides/track-signups-salesforce',
         to:   '/monitor/track-signups-salesforce'
     },
 
@@ -2992,8 +2992,7 @@ module.exports = [
     {
         from: '/applications/concepts/grant-types-legacy',
         to:   '/reference/grant-types/grant-types-legacy'
-    }
-
+    },
     {
         from: '/dev-centers/java',
         to:   '/libraries/java/index',
