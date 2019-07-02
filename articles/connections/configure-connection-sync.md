@@ -18,7 +18,7 @@ useCase:
 This guide will show you how to update connection preferences for an upstream [Identity Provider](/connections) to control when updates to user profile root attributes will be allowed using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/connections/configure-connection-sync).
 
 ::: warning
-<%= include('../../../_includes/_users_update_normalized_profile_attributes') %>
+<%= include('../_includes/_users_update_normalized_profile_attributes') %>
 :::
 
 1. Navigate to the [Auth0 Dashboard](${manage_url}/#/), and click **Connections** in the left nav.
