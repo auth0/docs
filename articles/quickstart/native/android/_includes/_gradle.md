@@ -18,7 +18,7 @@ dependencies {
 ```
 
 ::: note
-If Android Studio lint the `+` sign, or if you want to use a fixed version, check for the latest in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22) or [JCenter](https://bintray.com/auth0/android/auth0).
+If Android Studio lints the `+` sign, or if you want to use a fixed version, check for the latest in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22) or [JCenter](https://bintray.com/auth0/android/auth0).
 :::
 
 ::: panel Sync Project with Gradle Files
