@@ -36,7 +36,7 @@ A rule is essentially an anonymous JavaScript function that is passed 3 paramete
 
 As depicted in the image below, rules execute in what is the pipeline associated with the generation of artifacts for authenticity that forms part of the overall [Auth0 engine](https://cdn.auth0.com/blog/auth0-raises-100m-to-fuel-the-growth/inside-the-auth0-engine-high-res.jpg). When a pipeline is executed, all enabled rules are packaged together in the order in which they are listed and sent as one code blob to be executed as a [Webtask](https://webtask.io/).
 
-**TODO: add picture here**
+![Rules Pipeline](/media/articles/rules/rules-best-practice-pipeline.png)
 
 ## Size
 
@@ -529,16 +529,16 @@ if( _.findIndex(connection.options.domain_aliases, function(d){
 }
 ```
 
-the code (above) would return true given emails such as:
+the code (above) would return `true` given emails such as:
 * `user.domain.com@not-domain.com`
 * `“user@domain.com”@not-domain.com` (quotes included)
 
-which may not be as desired. Instead, prefer to perform exact matches using code such as:
+which may not be as desired. Instead, prefer to perform exact matches, using code such as:
 
 ```js
 const emailSplit = user.email.split('@');
 const userEmailDomain = emailSplit[emailSplit.length - 1].toLowerCase();
 ```
 
-See the **Check if user email domain matches configured domain rule template** [on GitHub](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or on the [Auth0 dashboard](${manage_url}/#/rules/new) for further explanation.
+For further explanation see the **Check if user email domain matches configured domain rule template** [on GitHub](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or via the [Auth0 dashboard](${manage_url}/#/rules/new).
 
