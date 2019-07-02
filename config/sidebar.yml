@@ -511,9 +511,6 @@ articles:
           - title: Customize SAML Assertions
             url: /configure/saml/saml-assertions
 
-          - title: Logout
-            url: /configure/saml/logout
-
           - title: Deprovision Users
             url: /configure/saml/deprovision-users
 

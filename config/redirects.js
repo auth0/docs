@@ -2336,31 +2336,31 @@ module.exports = [
     },
     {
         from: ['/dashboard/guides/roles/create-roles', '/api/management/guides/roles/create-roles'],
-        to:   '/authorization/rbac/roles/create-roles',
+        to:   '/authorization/rbac/roles/creates',
     },
     {
         from: ['/dashboard/guides/roles/delete-roles', '/api/management/guides/roles/delete-roles'],
-        to:   '/authorization/rbac/roles/delete-roles',
+        to:   '/authorization/rbac/roles/delete',
     },
     {
         from: ['/dashboard/guides/roles/edit-role-definitions', '/api/management/guides/roles/edit-role-definitions'],
-        to:   '/authorization/rbac/roles/edit-role-definitions',
+        to:   '/authorization/rbac/roles/edit-definitions',
     },
     {
         from: ['/dashboard/guides/roles/remove-role-permissions', '/api/management/guides/roles/remove-role-permissions'],
-        to:   '/authorization/rbac/roles/remove-role-permissions',
+        to:   '/authorization/rbac/roles/remove-permissions',
     },
     {
         from: '/dashboard/guides/roles/remove-role-users',
-        to:   '/authorization/rbac/roles/remove-role-users',
+        to:   '/authorization/rbac/roles/remove-users',
     },
     {
         from: ['/dashboard/guides/roles/view-role-permissions', '/api/management/guides/roles/view-role-permissions'],
-        to:   '/authorization/rbac/roles/view-role-permissions',
+        to:   '/authorization/rbac/roles/view-permissions',
     },
     {
         from: ['/dashboard/guides/roles/view-role-users', '/api/management/guides/roles/view-role-users'],
-        to:   '/authorization/rbac/roles/view-role-users',
+        to:   '/authorization/rbac/roles/view-users',
     },
 
         //
