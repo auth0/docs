@@ -12,38 +12,41 @@ articles:
 
   - title: "Getting Started"
     category: true
-
-  - title: "Overview"
-    url: /getting-started
-    
-  - title: "Dashboard Overview"
-    url: "/getting-started/dashboard-overview"
-
-  - title: "Create a Tenant"
-    url: /getting-started/create-tenant"
-  
-  - title: "Set Up An App"
-    url: "/getting-started/set-up-app"
+    expanded: true
+    url: "/getting-started"
     children:
 
-      - title: "Regular Web App"
-        url: "/dashboard/guides/applications/register-app-regular-web"
+      - title: "Overview"
+        url: "/getting-started"
 
-      - title: "Native App"
-        url: "/dashboard/guides/applications/register-app-native"
+      - title: "Dashboard Overview"
+        url: "/getting-started/dashboard-overview"
 
-      - title: "Single-Page App"
-        url: "/dashboard/guides/applications/register-app-spa"
+      - title: "Create a Tenant"
+        url: /getting-started/create-tenant"
+      
+      - title: "Set Up An App"
+        url: "/getting-started/set-up-app"
+        children:
 
-      - title: "Backend/Service"
-        url: "/dashboard/guides/applications/register-app-m2m"
+          - title: "Regular Web App"
+            url: "/dashboard/guides/applications/register-app-regular-web"
 
-  - title: "Set Up an API"
-    url: "/getting-started/set-up-api"
+          - title: "Native App"
+            url: "/dashboard/guides/applications/register-app-native"
 
-  - title: "Set Up Multiple Environments"
-    url: "/dev-lifecycle/setting-up-env"
-    hidden: true
+          - title: "Single-Page App"
+            url: "/dashboard/guides/applications/register-app-spa"
+
+          - title: "Backend/Service"
+            url: "/dashboard/guides/applications/register-app-m2m"
+
+      - title: "Set Up an API"
+        url: "/getting-started/set-up-api"
+
+      - title: "Set Up Multiple Environments"
+        url: "/dev-lifecycle/setting-up-env"
+        hidden: true
 
 ## ------------------------------------------------------------
 ## LOGIN
