@@ -1,5 +1,3 @@
-## Add the Auth0 Android Dependency
-
 Add the [Auth0 Android](https://github.com/auth0/Auth0.Android) SDK into your project. The library will make requests to the Auth0's Authentication and Management APIs.
 
 ### Add Auth0 to Gradle
