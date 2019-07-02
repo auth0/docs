@@ -461,4 +461,20 @@ If you have rules that call paid services - such as sending SMS messages via Twi
 #### Limiting calls to the Management API 
 Outside use of the [`auth0`](#auth0-object) object, prefer to avoid calls to the Auth0 Management API. The Auth0 Management API is [rate limited](/policies/rate-limits#management-api-v2) - which will still be a consideration even when using the `auth0` object too (so be sure to use it sparingly). In addition, Management API functions take varying degrees of time to perform, so will incur varying degrees of latency; executing [user search](/api/management/v2#!/Users/get_users) functionality, for example, should be kept to a minimum and performed only where absolutely necessary - even when executed via the `auth0` object.
 
+#### Avoid calls to the Management API for Connection-related details
+
+We've recently expanded [connection related properties](/rules/references/context-object) available to the rules [`context`](#context-object) object. You should now be able to obtain connection info from the `context` object instead of needing to call the Auth0 Management API. 
+
+By way of example, if you are using the **Check if user email domain matches configured domain** rule template, check out the latest version [on Github](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or on the [Auth0 dashboard](${manage_url}/#/rules/new) to see this in action. Note, the changes won't alter functionality but will improving the performance of rules that had once relied on calls to the Management API.
+
+Removing calls to the Management API (as well as the extra call required to get the appropriate <dfn data-key="access-token">Access Token</dfn>) will make your rule code perform better as well as be more reliable. 
+
+#### Avoid unecessary execution
+
+Prefer to implment execution based on conditional logic. For example, to run a rule for only specific applications, check on a specific [`clientID`](/rules/references/context-object) or for specific [`clientMetadata`](/rules/references/context-object). This improves performance - especially when checking for a specific `clientMetadata` value that's common across multiple applications. Using `clientMetadata` in this way can also make adding new clients (as well as reading rule code) easier, especially if you have a large number of applications defined.
+
+::: note
+Client metadata for an application can be set manually via the dashboard, by going to [Application Settings -> Advanced Settings -> Application Metadata](${manage_url}/#/applications/) or programatically via use of the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
+:::
+
 ## Security
