@@ -81,7 +81,7 @@ articles:
         url: /login/universal-vs-embedded
 
       - title: Embedded Login
-        url: /login/universal-login#embedded-login
+        url: "/login/universal-login#embedded-login"
         children:
 
           - title: Lock for Web
@@ -175,20 +175,20 @@ articles:
     children:
 
       - title: Social Identity Providers
-        url: /identityproviders#social
+        url: "/identityproviders#social"
 
       - title: Enterprise Identity Providers
-        url: /identityproviders#enterprise
+        url: "/identityproviders#enterprise"
 
       - title: Legal Identity Providers
-        url: /identityproviders#legal
+        url: "/identityproviders#legal"
       
       - title: Database
         url: /connections/database
         children:
 
           - title: Auth0 User Store
-            url: /database#using-the-auth0-user-store
+            url: "/database#using-the-auth0-user-store"
 
           - title: Your Database
             url: /database/custom-db
@@ -317,31 +317,27 @@ articles:
                 url: /authorization/rbac/users/remove-permissions
 
       - title: Authorization Extension
-        url: /extensions/authorization-extension
+        url: /extend-integrate/extensions/authorization-extension
         children:
 
           - title: Installation
-            url: /extensions/authorization-extension/v2/implementation/installation
+            url: /extend-integrate/extensions/authorization-extension/v2/implementation/installation
             hidden: true
 
           - title: Setup
-            url: /extensions/authorization-extension/v2/implementation/setup
+            url: /extend-integrate/extensions/authorization-extension/v2/implementation/setup
             hidden: true
 
           - title: Configuration
-            url: /extensions/authorization-extension/v2/implementation/configuration
+            url: /extend-integrate/extensions/authorization-extension/v2/implementation/configuration
             hidden: true
 
           - title: API Access
-            url: /extensions/authorization-extension/v2/api-access
+            url: /extend-integrate/extensions/authorization-extension/v2/api-access
             hidden: true
 
           - title: Rules
-            url: /extensions/authorization-extension/v2/rules
-            hidden: true
-
-          - title: Troubleshooting
-            url: /extensions/authorization-extension/v2/troubleshooting
+            url: /extend-integrate/extensions/authorization-extension/v2/rules
             hidden: true
 
           - title: Import / Export Data
@@ -873,7 +869,7 @@ articles:
         children:
 
           - title: Standard Error Messages
-            url: /api/authentication#standard-error-responses
+            url: "/api/authentication#standard-error-responses"
 
       - title: Roles-Based Authorization
         url: /troubleshoot/rbac
@@ -900,7 +896,7 @@ articles:
       - title: Deprecation Errors
         url: /troubleshoot/deprecation-errors
 
-      - title: Issues with...
+      - title: "Issues with..."
         url: /troubleshoot/issues
 
       - title: HTTP Archive (HAR) 
@@ -932,14 +928,14 @@ articles:
       - title: Auth0 & Data Privacy
         url: /about-auth0/auth0-and-data-privacy
 
-      - title: Change Log
-        url: "https://auth0.com/changelog"
+      # - title: Change Log
+      #   url: "https://auth0.com/changelog"
 
-  - title: Auth0 Community
-    url: "https://community.auth0.com/"
+  # - title: Auth0 Community
+  #   url: "https://community.auth0.com/"
 
-  - title: Auth0 Blog
-    url: "https://auth0.com/blog/"
+  # - title: Auth0 Blog
+  #   url: "https://auth0.com/blog/"
 
 apis:
 
