@@ -2355,7 +2355,7 @@ module.exports = [
         to:   '/authorization/rbac/roles/remove-role-users',
     },
     {
-        from: ['/dashboard/guides/roles/view-role-permissions', from: '/api/management/guides/roles/view-role-permissions'],
+        from: ['/dashboard/guides/roles/view-role-permissions', '/api/management/guides/roles/view-role-permissions'],
         to:   '/authorization/rbac/roles/view-role-permissions',
     },
     {
