@@ -30,7 +30,7 @@ articles:
           - title: "Native App"
             url: "/dashboard/guides/applications/register-app-native"
 
-          - title: "Single-Page App
+          - title: "Single-Page App"
             url: "/dashboard/guides/applications/register-app-spa"
 
           - title: "Backend/Service"
