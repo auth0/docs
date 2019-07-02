@@ -53,7 +53,7 @@ articles:
     children:
 
       - title: Universal Login
-        url: /login/universal-login/new
+        url: /login/universal-login
         children: 
 
           - title: New Experience
@@ -88,7 +88,7 @@ articles:
             url: /libraries/lock
 
           - title: Auth0.js
-            url: /libraries/auth0.js
+            url: /libraries/auth0js
           
           - title: Cross-Origin Authentication
             url: /login/embedded/cross-origin-authentication
@@ -246,9 +246,6 @@ articles:
             url: /flows/guides/implicit/call-api-implicit
             children:
 
-              - title: Mitigate Replay Attacks
-                url: /flows/mitigate-replay-attacks
-
       - title: Core Role-based Access Control (RBAC)
         url: /authorization/rbac
         children:
@@ -341,7 +338,7 @@ articles:
             hidden: true
 
           - title: Import / Export Data
-            url: /extensions/authorization-extension/v2/import-export-data
+            url: /extend-integrate/extensions/authorization-extension/v2/import-export-data
             hidden: true
 
       - title: Core vs. Extension
