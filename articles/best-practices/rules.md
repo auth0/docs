@@ -58,7 +58,7 @@ Webtask containers can make use of a wide range of [`npm`](https://www.npmjs.com
 By default, a large list of publicly available npm modules are [supported out-of-the-box](https://auth0-extensions.github.io/canirequire/). This list has been compiled and vetted for any potential security concerns. If you require an npm module that is not supported out-of-the-box, then a request can be made via the [Auth0 support](https://support.auth0.com/) portal or via your Auth0 representative. Auth0 will evaluate your request to determine suitability. There is currently no support in Auth0 for the use of npm modules from private repositories.
 
 ::: Best practice
-When using NPM modules to access external services it’s recommended best practice to [keep API requests to a minimum](#minimizing-api-requests), [avoid excessive calls to paid services](?), and avoid potential security exposure by [limiting what is sent](?). For more information on this see the [performance](#performance) and [security](#security) sections below.
+When using NPM modules to access external services it’s recommended best practice to [keep API requests to a minimum](#minimizing-api-requests), [avoid excessive calls to paid services](#limiting-calls-to-paid-services), and avoid potential security exposure by [limiting what is sent](don-t-send-entire-context-object-to-external-services). For more information on this see the [performance](#performance) and [security](#security) sections below.
 :::
 
 ### Environment variables
@@ -169,14 +169,14 @@ The [`context`](/rules/references/context-object) object provides information ab
 ```
 
 ::: warning
-It’s recommended best practice to [avoid using conditional logic for Multi-Factor Authentication(MFA) based on context](?). For example, **serious security flaws** can surface if use of MFA is predicated on `context.request.query.prompt === 'none'`. Additionally, the contents of the `context` object is **security sensitive**, so you should [**not** directly pass the object to any external or 3rd party service](?).
+It’s recommended best practice to [avoid using conditional logic for Multi-Factor Authentication(MFA) based on context](?). For example, **serious security flaws** can surface if use of MFA is predicated on `context.request.query.prompt === 'none'`. Additionally, the contents of the `context` object is **security sensitive**, so you should [**not** directly pass the object to any external or 3rd party service](don-t-send-entire-context-object-to-external-services).
 :::
 
 #### Redirection
 
 [Redirect from rule](/rules/guides/redirect) provides the ability for implementing custom authentication flows that require additional user interaction (i.e. beyond the standard login form) and is triggered via use of [context.redirect](/rules/references/context-object#properties-of-the-context-object). Redirect from rule can only be utilized when using the [`\authorize`](/api/authentication#login) endpoint
 
-Redirection to your own hosted user interface is performed before a pipeline completes, and can be triggered *only once* per `context.clientID` context. Redirection should only [use HTTPS](?) when executed in a production environment, and additional parameters should be kept to a minimum in order to help mitigate [common security threats](/security/common-threats). Preferably the Auth0 supplied `state` is the only parameter supplied.  
+Redirection to your own hosted user interface is performed before a pipeline completes, and can be triggered *only once* per `context.clientID` context. Redirection should only [use HTTPS](#use-https) when executed in a production environment, and additional parameters should be kept to a minimum in order to help mitigate [common security threats](/security/common-threats). Preferably the Auth0 supplied `state` is the only parameter supplied.  
 
 Once redirected, your own hosted user interface will execute in a user authenticated context. You can obtain authenticity artefacts - e.g. an [ID Token](/tokens/id-token) in [OpenID Connect (OIDC)](/protocols/oidc), and/or an [Access Token](/tokens/overview-access-tokens) in [OAuth 2.0](/protocols/oauth2) - for a `context.clientID` context **that is not** the one which triggered redirect, and this can be achieved via the use of [silent authentication](/libraries/auth0js/v9#using-checksession-to-acquire-new-tokens). This will create a new pipeline which will cause all rules to execute again, and you can use the `context` object within a rule to perform conditional processing (as discussed above). 
 
@@ -244,7 +244,7 @@ As can be seen in the example provided (above), the `callback` function can be c
 The status parameter should be passed as either `null`, an instance of an `Error` object, or an instance of an `UnauthorizedError` object. Specifying null will permit the continuation of pipeline processing, whilst any of the other values will terminate the pipeline; an `UnauthorizedError` signalling [denial of access, and allowing information to be returned to the originator of the authentication operation](/rules/references/legacy#deny-access-based-on-a-condition) (regarding the reason why access is denied). Passing any other value for any of these parameters will have unpredictable results, and may lead to an exception or error condition.  
 
 ::: note
-The example provided (above) also demonstrates best practice use of both [early exit](#exiting-early) as well as [email address verification](?), as described in the [Performance](#performance) and [Security](#security) sections below. Note: the `getRoles` function used is implemented elsewhere within the rule, as a wrapper function to a 3rd party API.
+The example provided (above) also demonstrates best practice use of both [early exit](#exiting-early) as well as [email address verification](#check-if-an-email-is-verified), as described in the [Performance](#performance) and [Security](#security) sections below. Note: the `getRoles` function used is implemented elsewhere within the rule, as a wrapper function to a 3rd party API.
 :::
 
 ## Error Handling 
@@ -498,12 +498,12 @@ Instead, prefer to store (secret) information so that it's accesible via the [`c
 const myApiKey = configuration.myApiKey;
 ```
 
-### Don’t send the entire [`context`](#context-object) object to external services
+### Don’t send entire [`context`](#context-object) object to external services
 
 For rules that send information to an external service, make sure you are not sending the entire [context](#context-object), since this object may contain tokens or other sensitive data. For rules that send information to external services, you should only send a *subset* of the less sensitive attributes from the `context` object when and where necessary.
 
 ::: warning
-In a similar fashion, avoid passing **any** aspect of the [`auth0`](#auth0-object) object outside of a rule.  
+In a similar fashion, avoid passing **any** aspect of the [`auth0`](#auth0-object) object outside of a rule too.  
 :::
 
 ### Check if an email is verified
