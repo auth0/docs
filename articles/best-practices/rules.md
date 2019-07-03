@@ -143,13 +143,12 @@ The [`context`](/rules/references/context-object) object provides information ab
               switch (context.request.query.audience) {
                 case configuration.PROFILE_AUDIENCE: {
                   switch (context.connection) {
-  			  .
-			  .
-                  
+		  			  .
+					  .
+				  }
                 } break;
 			  .
 			  .
-              
             })
           )
           .then(function () {
@@ -220,8 +219,6 @@ Failure to call the function will result in a stall of pipeline execution, and u
 
 ```js
   function (user, context, callback) {
-  	.
-	.
     // Roles should only be set to verified users.
     if (!user.email || !user.email_verified) {
       return callback(null, user, context);
@@ -233,8 +230,6 @@ Failure to call the function will result in a stall of pipeline execution, and u
 
         callback(null, user, context);
       });
-	  .
-	  .
     }
   }
 ```
@@ -343,7 +338,6 @@ Modifying a rule to enable or disable debug logging dependent on the environment
         return identity.profileData.family_name;
       })[0];
     DEBUG(LOG_TAG, "Computed user.family_name as '", user.family_name, "'");
-
       .
       .
   
@@ -516,7 +510,8 @@ function (user, context, callback) {
   if (!user.email || !user.email_verified) {
     return callback(new UnauthorizedError('Access denied.'));
   }
-  // ...
+	  .
+	  .
 }
 ```
 
@@ -542,4 +537,8 @@ const userEmailDomain = emailSplit[emailSplit.length - 1].toLowerCase();
 ```
 
 For further explanation see the **Check if user email domain matches configured domain rule template** [on GitHub](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or via the [Auth0 dashboard](${manage_url}/#/rules/new).
+
+### Use of conditional logic for Multi-Factor Authentication (MFA)
+
+####
 
