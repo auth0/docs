@@ -143,17 +143,17 @@ The [`context`](/rules/references/context-object) object provides information ab
               switch (context.request.query.audience) {
                 case configuration.PROFILE_AUDIENCE: {
                   switch (context.connection) {
-		  			  .
-					  .
+                      .
+                      .
                   }
                 } break;
-			  .
-			  .
+              .
+              .
             })
           )
           .then(function () {
-		      .
-		      .
+              .
+              .
           })
           .catch(function (error) {
             callback(new UnauthorizedError(“unauthorized”), user, context);
