@@ -604,7 +604,7 @@ function (user, context, callback) {
 }
 ```
 
-#### Custom MFA provider
+#### Context checking when using Custom MFA providers
 
 In a similar fashion to that described above, prefer to follow our guidance for [implementing contextual MFA](/multifactor-authentication/custom#implementing-contextual-mfa) when using a custom MFA provider. **Do not** use rules that redirect users to custom multi-factor authentication providers based on silent authentication (i.e. `prompt === 'none'`), as doing so can lead to cases where the user can skip the MFA process. For example, we **do not recommend** use of the following for a custom MFA provider implementation:
 
