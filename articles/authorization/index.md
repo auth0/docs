@@ -1,6 +1,5 @@
 ---
 description: Understand the concept of Authorization using Auth0.
-toc: true
 topics:
   - authorization
 contentType: 
