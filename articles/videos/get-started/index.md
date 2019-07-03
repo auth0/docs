@@ -15,7 +15,7 @@ topics:
    - logout
    - user profiles
 ---
-# Getting Started with Auth0
+# Get Started with Auth0
 
 [![Get Started with Auth0](/media/articles/videos/architecture-your-tenant.jpg)](/videos/get-started/01-architecture-your-tenant)
 
