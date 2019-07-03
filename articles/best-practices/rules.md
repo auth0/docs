@@ -145,7 +145,7 @@ The [`context`](/rules/references/context-object) object provides information ab
                   switch (context.connection) {
 		  			  .
 					  .
-				  }
+                  }
                 } break;
 			  .
 			  .
