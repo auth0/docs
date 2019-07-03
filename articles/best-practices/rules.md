@@ -57,7 +57,7 @@ Webtask containers can make use of a wide range of [`npm`](https://www.npmjs.com
 
 By default, a large list of publicly available npm modules are [supported out-of-the-box](https://auth0-extensions.github.io/canirequire/). This list has been compiled and vetted for any potential security concerns. If you require an npm module that is not supported out-of-the-box, then a request can be made via the [Auth0 support](https://support.auth0.com/) portal or via your Auth0 representative. Auth0 will evaluate your request to determine suitability. There is currently no support in Auth0 for the use of npm modules from private repositories.
 
-::: Best practice
+::: panel Best Practice
 When using `npm` modules to access external services it’s recommended best practice to [keep API requests to a minimum](#minimize-api-requests), [avoid excessive calls to paid services](#limit-calls-to-paid-services), and avoid potential security exposure by [limiting what is sent](don-t-send-entire-context-object-to-external-services). For more information on this see the [performance](#performance) and [security](#security) sections below.
 :::
 
@@ -105,7 +105,7 @@ The [access token](/tokens/overview-access-tokens) associated with the `auth0` o
 
 Like the [`context`](#context-object) object (described below), the `auth0` object contains security sensitive information, so you should not pass it to any external or 3rd party service. Further, the Auth0 Management API is both [rate limited](/policies/rate-limits#management-api-v2) and subject to latency, so you should be judicious regarding [how often calls are made](#minimize-api-requests). 
 
-::: Best practice
+::: panel Best Practice
 It’s recommended best practice to make use of the `auth0` object (and any other mechanisms for calling the Auth0 Management API) sparingly, and to always make sure that adequate [exception](#exceptions) and [error](#error-handling) handling is employed in order to prevent unexpected interruption of pipeline execution.
 :::
 
@@ -168,12 +168,12 @@ The [`context`](/rules/references/context-object) object provides information ab
 ```
 
 ::: warning
-It’s recommended best practice to [avoid using contextual logic for Multi-Factor Authentication(MFA)](?). For example, **serious security flaws** can surface if use of MFA is predicated on `context.request.query.prompt === 'none'`. Additionally, the contents of the `context` object is **security sensitive**, so you should [**not** directly pass the object to any external or 3rd party service](don-t-send-entire-context-object-to-external-services).
+It’s recommended best practice to [avoid using contextual logic for Multi-Factor Authentication](#context-checking-for-multi-factor-authentication-mfa-). For example, **serious security flaws** can surface if use of MFA is predicated on `context.request.query.prompt === 'none'`. Additionally, the contents of the `context` object is **security sensitive**, so you should [**not** directly pass the object to any external or third-party service](#don-t-send-entire-context-object-to-external-services).
 :::
 
 #### Redirection
 
-[Redirect from rule](/rules/guides/redirect) provides the ability for implementing custom authentication flows that require additional user interaction (i.e. beyond the standard login form) and is triggered via use of [context.redirect](/rules/references/context-object#properties-of-the-context-object). Redirect from rule can only be utilized when using the [`\authorize`](/api/authentication#login) endpoint
+[Redirect from rule](/rules/guides/redirect) provides the ability for implementing custom authentication flows that require additional user interaction (i.e. beyond the standard login form) and is triggered via use of [context.redirect](/rules/references/context-object#properties-of-the-context-object). Redirect from rule can only be utilized when using the [`\authorize`](/api/authentication#login) endpoint.
 
 Redirection to your own hosted user interface is performed before a pipeline completes, and can be triggered *only once* per `context.clientID` context. Redirection should only [use HTTPS](#use-https) when executed in a production environment, and additional parameters should be kept to a minimum in order to help mitigate [common security threats](/security/common-threats). Preferably the Auth0 supplied `state` is the only parameter supplied.  
 
@@ -246,7 +246,7 @@ The example provided (above) also demonstrates best practice use of both [early 
 
 Error conditions returned from API calls and the like must be handled and processed in an appropriate manner. Failure to do so can lead to unhandled [exception](#exceptions) situations, resulting in premature termination of pipeline execution and ultimately in an authentication error being returned.
 
-::: Best practice
+::: panel Best Practice
 Use of [`console.error`](https://developer.mozilla.org/en-US/docs/Web/API/Console/error) in order to log any error conditions encountered is a recommended best practice, and can also assist with any potential [debugging](#debugging) too. We'd also recommend sending error conditions to an external service - such as [Splunk](/monitoring/guides/send-events-to-splunk) - to provide for better visibility and diagnosis of anomalous operation.
 :::
 
@@ -262,7 +262,7 @@ Alternatively, an instance of the Auth0 specific `UnauthorizedError` can be retu
   callback(new UnauthorizedError('some description'), user, context);
 ```
 
-::: Best practice
+::: panel Best Practice
 The `UnauthorizedError` object only returns the description supplied. If you wish to employ specific processing for specific unauthorized error conditions, then we’d recommend you format your descriptions to include some easily accessible “error code” information, e.g: `'[00043] - my specific error description'`.
 :::
 
@@ -270,7 +270,7 @@ The `UnauthorizedError` object only returns the description supplied. If you wis
 
 Unexpected error conditions must also be handled. Unexpected error conditions - such as uncaught JavaScript exceptions - will typically result in the premature termination of pipeline execution, ultimately resulting in an error in authentication being returned.
 
-::: Best practice
+::: panel Best Practice
 Use of [`console.exception`](https://developer.mozilla.org/en-US/docs/Web/API/Console/error) in order to log any exceptional error conditions encountered is a recommended best practice, and can also assist with any potential [debugging](#debugging) too. We'd also recommend sending error conditions to an external service - such as [Splunk](/monitoring/guides/send-events-to-splunk) - to provide for better visibility and diagnosis of anomalous operation.
 :::
 
@@ -294,7 +294,7 @@ For situations involving asynchronous operations, a `catch` handler when utilizi
 
 Alternatively, use of [`try...catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch) processing can be used to handle JavaScript exceptions that occur during synchronous operation. Setup of this type of exception handling can often incur performance costs, so should be used sparingly; rule [performance](#performance) should be as optimal as possible. A more pragmatic approach then, is to implement processing that prevents exceptions from occurring rather than handling them once they have occurred.
 
-::: Best practice
+::: panel Best Practice
 Use of uninitialized objects is a common cause of exceptions. To guard against this, prefer to include provision for initialization - e.g. `user.user_metadata = user.user_metadata || {}` - as part of any declaration in cases where the existence of an object is in question. In a rule, taking steps to prevent an exception from occurring in the first place is a best practice, and is typically less costly in terms of performance and resource usage than implementing exception handling.
 :::
 
@@ -302,7 +302,7 @@ Use of uninitialized objects is a common cause of exceptions. To guard against t
 
 Out of the box, [runtime debugging](/rules/guides/debug) of a rule is typically achieved via the use of console logging by using the [console.log](https://developer.mozilla.org/en-US/docs/Web/API/Console/log) facility. These is no interactive debugging of a rule available within the Auth0 platform (though one could employ the testing [automation](#automation) technique described below in conjunction with some external interactive source-debugging facility).
 
-::: Best practice
+::: panel Best Practice
 Adding sufficient line - i.e. `//` - or block - i.e. `/* */` - comments to a rule, particularly around non-obvious functionality, is invaluable to both code debugging and also code understanding. Particularly as there are many occasions where the initial implementer of a rule may not be the same person responsible for maintaining it going forward.
 :::
 
@@ -357,7 +357,7 @@ The rule editor in the Auth0 dashboard provides some rudimentary syntax checking
 
 The Auth0 Dashboard provides the facility to [`TRY`](/rules/guides/debug) a rule for the purpose of testing and debugging. This facility allows a mock [`user`](#user-object) and [`context`](#context-object) object to be defined, which is then passed to the rule as part of its execution. The resulting output from the rule (including any console logging) being displayed upon completion. Whilst this provides an immediate at-a-glance way to unit test a rule, it is very much a manual approach, and one which is unable to leverage the use of automated testing tools such as [Mocha](https://mochajs.org/) or [rewire](https://www.npmjs.com/package/rewire).
 
-::: Best practice
+::: panel Best Practice
 As a best practice, and as part of the recommended [support for the Software Development Life Cycle](https://auth0.com/docs/architecture-scenarios/implementation/b2c/b2c-architecture#sdlc-support), the use of a seperate test Tenant in Auth0 should be employed in order to test any rule/rule changes before deploying to production.
 :::
 
@@ -411,7 +411,7 @@ The options object passed on the call to `runInThisContext` provides information
 
 The first two objects passed to the rule during testing represent the [`user`](#user-object) and [`context`](#context-object), and these can be mocked in a fashion similar to that employed in the Auth0 Dashboard `TRY` functionality. The [`callback`](#callback-function) function, supplied as the third parameter, can be implemented to simulate pipeline continuation, subsequently performing execution of the next rule in [order](#order). 
 
-::: Best practice
+::: panel Best Practice
 The `callback` function supplied can be used to ensure execution of callback is performed *at least* once by it (the function) executing test of the next rule in the chain. Implementing test(s) in the supplied function to also ensure that multiple execution of the callback is not performed by a rule is also a recommended best practice.
 :::
 
@@ -426,7 +426,7 @@ Out of the box, Auth0 provides a number of facilities for automated deployment o
 
 In addition, the Auth0 [Deploy CLI](/extensions/deploy-cli) tool can be used to automate deployment between Auth0 tenants. Deploy CLI works with files stored in the file system together with the Auth0 Management API, and provides capability to allow the export of rule assets from an Auth0 tenant, as well as import of them into an Auth0 tenant. Further the tool provides for programmatic control over rule ordering and rule environment [configuration](#environment-variables), as part of deployment automation. In many ways, the Deploy CLI is like a Swiss Army Knife when it comes to rule extensibility deployment in Auth0.  
 
-::: Best practice
+::: panel Best Practice
 As a best practice, use of the Auth0 [Deploy CLI](/extensions/deploy-cli) tool should be preferred in almost all cases involving deployment to test or production environments. Whilst the extensions can provide automated detection of changes deployed to the respective version control system, the Deploy CLI tool allows precise control of what’s deployed, when, where and how. 
 :::
 
@@ -451,7 +451,7 @@ For optimal performance, prefer to write rules that complete as soon as possible
 ### Minimize API requests
 Calls to APIs, especially calls to 3rd party APIs, can slow down login response time, and can cause rule timeout failures due to call latency - ultimately leading to authentication error situations. We recommended keep API requests to a minimum wherever possible within a rule, and to [avoid excessive calls to paid services](#limit-calls-to-paid-services). We also recommend you avoid potential security exposure by [limiting what is sent]() to any API - 3rd party or otherwise. 
 
-::: Best practice
+::: panel Best Practice
 The [global](#global-object) object can be used to cache information from API calls, which can subsequently be used across all rules that execute in the pipeline. Prefer to use this to store information instead of repeatedly calling an API. 
 :::
 
@@ -476,7 +476,7 @@ Removing calls to the Management API (as well as the extra call required to get 
 
 When calling APIs or accessing external services consider specifiying explicit timeout(s). The specific timeout value you choose will typically vary based on your user case, but in general, choosing a one that's as low as possible - whilst bearing in mind the performance charisteristics of the external service - is advised.
 
-::: Best practice
+::: panel Best Practice
 Whether you choose to employ use of explicit timeouts, or you choose to opt for implicit timout processing, always be sure to cater for [error](#error-handling) and/or [exception](#exceptions) conditions that may occur as a rusult of any timeout period expiration.
 :::
 
@@ -552,7 +552,7 @@ For further explanation see the **Check if user email domain matches configured 
 
 There are situations when it may be seen as desirable to bypass an MFA request. For instance, it maybe desirable to bypass MFA if a user is logging in from a particular location, or if a user has already presented both primary and secondary factors as part of authenticating to the current browser context. However, this can open up security loop-holes which could lead to MFA being skipped and serious subsequent security breaches. We therefore recommend that you follow our guidance for [implementing contextual MFA](/multifactor-authentication/custom#implementing-contextual-mfa), and **do not recommend** that you attempt to base use of MFA on any of the following:        
 
-::: Best practice
+::: panel Best Practice
 As a best practice we recommend that, if you have any MFA-related rules based on the following, you remove the conditional logic and use the `allowRememberBrowser` parameter instead. Setting `allowRememberBrowser` to true lets users check a box so they will only be [prompted for multi-factor authentication periodically](/multifactor-authentication/custom#change-the-frequency-of-authentication-requests).
 :::
 
