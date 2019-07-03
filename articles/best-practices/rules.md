@@ -51,14 +51,14 @@ The order in which rules are displayed in the [Auth0 Dashboard](/dashboard) (see
 
 Rules execute as a series of called JavaScript functions, in an instance of a [Webtask container](https://www.webtask.io/docs/containers). As part of this, a specific environment is provided together with a number of artefacts supplied by both Webtask, and the Auth0 platform. 
 
-### NPM modules
+### `npm` modules
 
 Webtask containers can make use of a wide range of [`npm`](https://www.npmjs.com/) modules; npm modules not only reduce the overall size of rule code implementation, but also provide access to a wide range of pre-built functionality.
 
 By default, a large list of publicly available npm modules are [supported out-of-the-box](https://auth0-extensions.github.io/canirequire/). This list has been compiled and vetted for any potential security concerns. If you require an npm module that is not supported out-of-the-box, then a request can be made via the [Auth0 support](https://support.auth0.com/) portal or via your Auth0 representative. Auth0 will evaluate your request to determine suitability. There is currently no support in Auth0 for the use of npm modules from private repositories.
 
 ::: Best practice
-When using NPM modules to access external services it’s recommended best practice to [keep API requests to a minimum](#minimize-api-requests), [avoid excessive calls to paid services](#limit-calls-to-paid-services), and avoid potential security exposure by [limiting what is sent](don-t-send-entire-context-object-to-external-services). For more information on this see the [performance](#performance) and [security](#security) sections below.
+When using `npm` modules to access external services it’s recommended best practice to [keep API requests to a minimum](#minimize-api-requests), [avoid excessive calls to paid services](#limit-calls-to-paid-services), and avoid potential security exposure by [limiting what is sent](don-t-send-entire-context-object-to-external-services). For more information on this see the [performance](#performance) and [security](#security) sections below.
 :::
 
 ### Environment variables
