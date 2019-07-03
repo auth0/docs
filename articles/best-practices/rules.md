@@ -168,7 +168,7 @@ The [`context`](/rules/references/context-object) object provides information ab
 ```
 
 ::: warning
-It’s recommended best practice to [avoid using conditional logic for Multi-Factor Authentication(MFA) based on context](?). For example, **serious security flaws** can surface if use of MFA is predicated on `context.request.query.prompt === 'none'`. Additionally, the contents of the `context` object is **security sensitive**, so you should [**not** directly pass the object to any external or 3rd party service](don-t-send-entire-context-object-to-external-services).
+It’s recommended best practice to [avoid using contextual logic for Multi-Factor Authentication(MFA)](?). For example, **serious security flaws** can surface if use of MFA is predicated on `context.request.query.prompt === 'none'`. Additionally, the contents of the `context` object is **security sensitive**, so you should [**not** directly pass the object to any external or 3rd party service](don-t-send-entire-context-object-to-external-services).
 :::
 
 #### Redirection
@@ -538,7 +538,89 @@ const userEmailDomain = emailSplit[emailSplit.length - 1].toLowerCase();
 
 For further explanation see the **Check if user email domain matches configured domain rule template** [on GitHub](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or via the [Auth0 dashboard](${manage_url}/#/rules/new).
 
-### Use of conditional logic for Multi-Factor Authentication (MFA)
+### Context checking for Multi-Factor Authentication (MFA)
 
-####
+[Multi-Factor Authentication (MFA)](/multifactor-authentication) provides an additional layer of security in order to guard against unautorized access. From a user experience perspecive this typically requires additional user interaction to provide a second authentication factor - typically presenting some additional credential, or authorizing some form of access request. 
+
+There are situations when it may be seen as desirable to bypass an MFA request. For instance, it maybe desirable to bypass MFA if a user is logging in from a particular location, or if a user has already presented both primary and secondary factors as part of authenticating to the current browser context. However, this can open up security loop-holes which could lead to MFA being skipped and serious subsequent security breaches. We therefore recommend that you follow our guidance for [implementing contextual MFA](/multifactor-authentication/custom#implementing-contextual-mfa), and **do not recommend** that you attempt to base use of MFA on any of the following:        
+
+::: Best practice
+As a best practice we recommend that, if you have any MFA-related rules based on the following, you remove the conditional logic and use the `allowRememberBrowser` parameter instead. Setting `allowRememberBrowser` to true lets users check a box so they will only be [prompted for multi-factor authentication periodically](/multifactor-authentication/custom#change-the-frequency-of-authentication-requests).
+:::
+
+Silent authentication (or `prompt === 'none'`):
+
+```js
+function (user, context, callback) {
+  if (context.request.query && context.request.query.prompt === 'none') {
+    // skip MFA for silent token requests
+    return callback(null, user, context);
+  }
+	  .
+	  .
+}
+```
+
+Device fingerprint:
+
+```js
+function (user, context, callback) {
+  var deviceFingerPrint = getDeviceFingerPrint();
+  user.app_metadata = user.app_metadata || {};
+
+  // Inadequate verification check
+  if (user.app_metadata.lastLoginDeviceFingerPrint !==  deviceFingerPrint) {
+    user.app_metadata.lastLoginDeviceFingerPrint = deviceFingerPrint;
+    context.multi-factor = {
+		  .
+		  .
+    };
+  }
+  function getDeviceFingerPrint() {
+    var shasum = crypto.createHash('sha1');
+    shasum.update(context.request.userAgent);
+    shasum.update(context.request.ip);
+    return shasum.digest('hex');
+  }
+}
+```
+
+Geolocation:
+
+```js
+function (user, context, callback) {
+  user.app_metadata = user.app_metadata || {};
+
+  // Inadequate verification check
+  if (user.app_metadata.last_location !== context.request.geoip.country_code) {
+    user.app_metadata.last_location = context.request.geoip.country_code;
+    context.multi-factor = {
+		  .
+		  .
+    };
+  }
+	  .
+	  .
+}
+```
+
+#### Custom MFA provider
+
+In a similar fashion to that described above, prefer to follow our guidance for [implementing contextual MFA](/multifactor-authentication/custom#implementing-contextual-mfa) when using a custom MFA provider. **Do not** use rules that redirect users to custom multi-factor authentication providers based on silent authentication (i.e. `prompt === 'none'`), as doing so can lead to cases where the user can skip the MFA process. For example, we **do not recommend** use of the following for a custom MFA provider implementation:
+
+```js
+function (user, context, callback) {
+  if (context.request.query && context.request.query.prompt === 'none') {
+	// skip MFA for silent token requests
+    return callback(null, user, context);
+  }
+  
+  //redirect to custom MFA
+  context.redirect = {
+    url: "https://example.com/"
+  };
+	  .
+	  .
+}
+```
 
