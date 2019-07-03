@@ -25,6 +25,8 @@ To get your ADFS server ready, you'll need to:
 
 ### Add a Relying Party Trust
 
+To begin, you'll need to [create a relying party trust](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/create-a-relying-party-trust).
+
 Begin by launching your instance of ADFS. Start the **Add Relying Party Trust** wizard.
 
 ![](/media/articles/protocols/saml-adfs/saml1.png)
@@ -175,6 +177,15 @@ Populate the **Trusted URL** with the **Post-back URL** value.
 ![](/media/articles/protocols/saml-adfs/saml25.png)
 
 Click **OK**. Finally, click **Apply** and exit the Properties window.
+
+### Signing Requests
+
+**Optionally**, if you want to sign your SAML requests to the ADFS server:
+
+1. Go to the **Settings** page for your SAMLP Identity Provider in the Dashboard
+2. Enable **Sign Requests**.
+3. Just below the **Sign Requests** toggle is a link to download your certificate.
+4. Return to ADFS and load the downloaded certificate using the **Signatures** tab of the Relying Party properties dialog.
 
 ### Map Your Claims
 

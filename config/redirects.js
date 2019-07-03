@@ -117,6 +117,10 @@ module.exports = [
     to: '/tutorials/aspnet-mvc4-enterprise-providers'
   },
   {
+    from: '/migrations',
+    to: '/product-lifecycle/migrations'
+  },
+  {
     from: '/nodeapi-tutorial',
     to: '/quickstart/backend/nodejs'
   },
@@ -2177,5 +2181,9 @@ module.exports = [
     {
       from: '/private-cloud',
       to: '/private-saas-deployment'
+    },
+    {
+      from: '/topics/identity-glossary',
+      to: '/glossary'
     }
 ];

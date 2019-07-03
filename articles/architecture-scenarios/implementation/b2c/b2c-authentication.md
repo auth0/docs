@@ -1,6 +1,6 @@
 ---
 title: Authentication
-description: Understand how authentication works in your CIAM implementation.
+description: How authentication works in your B2C IAM implementation.
 toc: true
 topics:
     - b2c
@@ -43,9 +43,9 @@ useCase:
 
 <%= include('../../_includes/_authentication/_mfa.md', { platform: 'b2c' }) %>
 
-## Planning
+## Project Planning Guide
 
-<%= include('../../_includes/_planning.md', { platform: 'b2c' }) %>
+<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 

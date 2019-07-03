@@ -41,7 +41,7 @@ private static final String API_IDENTIFIER = "https://api.mysite.com";
 private void login() {
     Auth0 auth0 = new Auth0(this);
     auth0.setOIDCConformant(true);
-    WebAuthProvider.init(auth0)
+    WebAuthProvider.login(auth0)
         .withScheme("demo")
         .withAudience(API_IDENTIFIER)
         .start(LoginActivity.this, new AuthCallback() {

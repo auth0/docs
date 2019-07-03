@@ -1,6 +1,6 @@
 ---
 title: Quality Assurance
-description: Quality Assurance considerations for your B2B implementation.
+description: Quality Assurance considerations for your B2B IAM implementation.
 toc: true
 topics:
     - qa
@@ -27,7 +27,7 @@ useCase:
 
 <%= include('../../_includes/_qa/_mock-testing.md', { platform: 'b2b' }) %>
 
-## Planning
+## Project Planning Guide
 
 <%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 
