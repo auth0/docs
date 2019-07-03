@@ -58,7 +58,7 @@ Webtask containers can make use of a wide range of [`npm`](https://www.npmjs.com
 By default, a large list of publicly available npm modules are [supported out-of-the-box](https://auth0-extensions.github.io/canirequire/). This list has been compiled and vetted for any potential security concerns. If you require an npm module that is not supported out-of-the-box, then a request can be made via the [Auth0 support](https://support.auth0.com/) portal or via your Auth0 representative. Auth0 will evaluate your request to determine suitability. There is currently no support in Auth0 for the use of npm modules from private repositories.
 
 ::: Best practice
-When using NPM modules to access external services it’s recommended best practice to [keep API requests to a minimum](#minimizing-api-requests), [avoid excessive calls to paid services](#limiting-calls-to-paid-services), and avoid potential security exposure by [limiting what is sent](don-t-send-entire-context-object-to-external-services). For more information on this see the [performance](#performance) and [security](#security) sections below.
+When using NPM modules to access external services it’s recommended best practice to [keep API requests to a minimum](#minimize-api-requests), [avoid excessive calls to paid services](#limit-calls-to-paid-services), and avoid potential security exposure by [limiting what is sent](don-t-send-entire-context-object-to-external-services). For more information on this see the [performance](#performance) and [security](#security) sections below.
 :::
 
 ### Environment variables
@@ -103,7 +103,7 @@ The `auth0` object is an instance of the [Management API Client](https://github.
 The [access token](/tokens/overview-access-tokens) associated with the `auth0` object has scopes limited to `read:users` and `update:users` only. Typically, these are sufficient for the majority of operations we recommend being performed from within a rule. However, if you require additional scope(s) then you will need to employ an alternative means of [access to the Management API](/api/management/v2/tokens). 
 :::
 
-Like the [`context`](#context-object) object (described below), the `auth0` object contains security sensitive information, so you should not pass it to any external or 3rd party service. Further, the Auth0 Management API is both [rate limited](/policies/rate-limits#management-api-v2) and subject to latency, so you should be judicious regarding [how often calls are made](#minimizing-api-requests). 
+Like the [`context`](#context-object) object (described below), the `auth0` object contains security sensitive information, so you should not pass it to any external or 3rd party service. Further, the Auth0 Management API is both [rate limited](/policies/rate-limits#management-api-v2) and subject to latency, so you should be judicious regarding [how often calls are made](#minimize-api-requests). 
 
 ::: Best practice
 It’s recommended best practice to make use of the `auth0` object (and any other mechanisms for calling the Auth0 Management API) sparingly, and to always make sure that adequate [exception](#exceptions) and [error](#error-handling) handling is employed in order to prevent unexpected interruption of pipeline execution.
@@ -239,7 +239,7 @@ As can be seen in the example provided (above), the `callback` function can be c
 The status parameter should be passed as either `null`, an instance of an `Error` object, or an instance of an `UnauthorizedError` object. Specifying null will permit the continuation of pipeline processing, whilst any of the other values will terminate the pipeline; an `UnauthorizedError` signalling [denial of access, and allowing information to be returned to the originator of the authentication operation](/rules/references/legacy#deny-access-based-on-a-condition) (regarding the reason why access is denied). Passing any other value for any of these parameters will have unpredictable results, and may lead to an exception or error condition.  
 
 ::: note
-The example provided (above) also demonstrates best practice use of both [early exit](#exiting-early) as well as [email address verification](#check-if-an-email-is-verified), as described in the [Performance](#performance) and [Security](#security) sections below. Note: the `getRoles` function used is implemented elsewhere within the rule, as a wrapper function to a 3rd party API.
+The example provided (above) also demonstrates best practice use of both [early exit](#exit-early) as well as [email address verification](#check-if-an-email-is-verified), as described in the [Performance](#performance) and [Security](#security) sections below. Note: the `getRoles` function used is implemented elsewhere within the rule, as a wrapper function to a 3rd party API.
 :::
 
 ## Error Handling 
@@ -445,23 +445,23 @@ Prefer to implment execution based on conditional logic. For example, to run a r
 Client metadata for an application can be set manually via the dashboard, by going to [Application Settings -> Advanced Settings -> Application Metadata](${manage_url}/#/applications/) or programatically via use of the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 :::
 
-### Exiting early
+### Exit early
 For optimal performance, prefer to write rules that complete as soon as possible. For example, if a rule has three checks to decide if it should run, use the first check to eliminate the majority of cases, followed by the check to eliminate the next largest set of cases, and so on and so forth. At the end of each check remember to execute the [callback](#callback-function) function, ideally combined with a (JavaScript) `return` in order to exit the (rule) function. 
 
-### Minimizing API requests
-Calls to APIs, especially calls to 3rd party APIs, can slow down login response time, and can cause rule timeout failures due to call latency - ultimately leading to authentication error situations. We recommended keep API requests to a minimum wherever possible within a rule, and to [avoid excessive calls to paid services](#limiting-calls-to-paid-services). We also recommend you avoid potential security exposure by [limiting what is sent]() to any API - 3rd party or otherwise. 
+### Minimize API requests
+Calls to APIs, especially calls to 3rd party APIs, can slow down login response time, and can cause rule timeout failures due to call latency - ultimately leading to authentication error situations. We recommended keep API requests to a minimum wherever possible within a rule, and to [avoid excessive calls to paid services](#limit-calls-to-paid-services). We also recommend you avoid potential security exposure by [limiting what is sent]() to any API - 3rd party or otherwise. 
 
 ::: Best practice
 The [global](#global-object) object can be used to cache information from API calls, which can subsequently be used across all rules that execute in the pipeline. Prefer to use this to store information instead of repeatedly calling an API. 
 :::
 
-#### Limiting calls to paid services
+#### Limit calls to paid services
 If you have rules that call paid services - such as sending SMS messages via Twilio - make sure that you only use those servicess when necessary. This not only provides performance enhancement but helps to avoid extra charges too. To help reduce calls to paid services:
 
 * Disallow public sign-ups to reduce the number of users who can sign up and trigger calls to paid services.
 * Ensure that a rule only gets triggered for an authorized subset of users, or other appropriate conditions. For example, you may want to add logic that checks if a user has a particular email domain, role/group, or subscription level before triggering the call to the paid service.
 
-#### Limiting calls to the Management API 
+#### Limit calls to the Management API 
 Outside use of the [`auth0`](#auth0-object) object, prefer to avoid calls to the Auth0 Management API. The Auth0 Management API is [rate limited](/policies/rate-limits#management-api-v2) - which will still be a consideration even when using the `auth0` object too (so be sure to use it sparingly). In addition, Management API functions take varying degrees of time to perform, so will incur varying degrees of latency; executing [user search](/api/management/v2#!/Users/get_users) functionality, for example, should be kept to a minimum and performed only where absolutely necessary - even when executed via the `auth0` object.
 
 #### Avoid calls to the Management API for Connection-related details
@@ -604,7 +604,7 @@ function (user, context, callback) {
 }
 ```
 
-#### Context checking when using Custom MFA providers
+#### Context checking when using custom MFA providers
 
 In a similar fashion to that described above, prefer to follow our guidance for [implementing contextual MFA](/multifactor-authentication/custom#implementing-contextual-mfa) when using a custom MFA provider. **Do not** use rules that redirect users to custom multi-factor authentication providers based on silent authentication (i.e. `prompt === 'none'`), as doing so can lead to cases where the user can skip the MFA process. For example, we **do not recommend** use of the following for a custom MFA provider implementation:
 
