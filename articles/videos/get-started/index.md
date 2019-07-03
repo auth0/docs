@@ -1,6 +1,19 @@
 ---
 description: Learn how to get started implementing Auth0 features with your applications.
 classes: video-page
+topics: 
+   - tenant architecture
+   - tenants
+   - provisioning
+   - user stores
+   - import users
+   - authorization
+   - authentication
+   - branding
+   - emails
+   - error pages
+   - logout
+   - user profiles
 ---
 # Getting Started with Auth0
 
