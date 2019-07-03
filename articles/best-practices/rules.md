@@ -472,6 +472,14 @@ By way of example, if you are using the **Check if user email domain matches con
 
 Removing calls to the Management API (as well as the extra call required to get the appropriate <dfn data-key="access-token">Access Token</dfn>) will make your rule code perform better as well as be more reliable. 
 
+### Consider use of explicit timeouts when making API calls
+
+When calling APIs or accessing external services consider specifiying explicit timeout(s). The specific timeout value you choose will typically vary based on your user case, but in general, choosing a one that's as low as possible - whilst bearing in mind the performance charisteristics of the external service - is advised.
+
+::: Best practice
+Whether you choose to employ use of explicit timeouts, or you choose to opt for implicit timout processing, always be sure to cater for [error](#error-handling) and/or [exception](#exceptions) conditions that may occur as a rusult of any timeout period expiration.
+:::
+
 ## Security
 
 ### Use HTTPS
