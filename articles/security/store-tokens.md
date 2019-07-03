@@ -48,5 +48,3 @@ If your single-page app has a backend server at all, then tokens should be handl
 ### If no backend is present
 
 If you have a single-page app (SPA) with no corresponding backend server, your SPA should request new tokens on login and store them in memory without any persistence. To make API calls, your SPA would then use the in-memory copy of the token.
-
-For an example of how to handle sessions in SPAs, check out the [Handle Authentication Tokens](/quickstart/spa/vanillajs#handle-authentication-tokens) section of the [JavaScript Single-Page App Quickstart](/quickstart/spa/vanillajs).

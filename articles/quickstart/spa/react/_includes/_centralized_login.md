@@ -147,9 +147,7 @@ const NavBar = () => {
       {!isAuthenticated && (
         <button
           onClick={() =>
-            loginWithRedirect({
-              redirect_uri: window.location.origin
-            })
+            loginWithRedirect({})
           }
         >
           Log in
@@ -184,8 +182,25 @@ import * as serviceWorker from "./serviceWorker";
 import { Auth0Provider } from "./react-auth0-wrapper";
 import config from "./auth_config.json";
 
+// A function that routes the user to the right place
+// after login
+const onRedirectCallback = appState => {
+  window.history.replaceState(
+    {},
+    document.title,
+    appState && appState.targetUrl
+      ? appState.targetUrl
+      : window.location.pathname
+  );
+};
+
 ReactDOM.render(
-  <Auth0Provider domain={config.domain} client_id={config.clientId}>
+  <Auth0Provider
+    domain={config.domain}
+    client_id={config.clientId}
+    redirect_uri={window.location.origin}
+    onRedirectCallback={onRedirectCallback}
+>
     <App />
   </Auth0Provider>,
   document.getElementById("root")
@@ -194,13 +209,15 @@ ReactDOM.render(
 serviceWorker.unregister();
 ```
 
-Notice that the `App` component is now wrapped in the `Auth0Provider` component, where the details about the Auth0 domain and client ID are specified.
+Notice that the `App` component is now wrapped in the `Auth0Provider` component, where the details about the Auth0 domain and client ID are specified. The `redirect_uri` prop is also specified here. Doing this here means that you don't need to pass this URI to every call to `loginWithRedirect`, and it keeps the configuration in one place.
+
+Also notice the function `onRedirectCallback`, which tries to route the user to the right place once they have logged in. For example, if the user tries to access a page that requires them to be authenticated, they will be asked to log in. When they return to the application, they will be forwarded to the page they were originally trying to access thanks to this function.
 
 Next, create a new file `auth_config.json` in the `src` folder, and populate it with the following:
 
 ```json
 {
-  "domain": "${account.tenant}",
+  "domain": "${account.namespace}",
   "clientId": "${account.clientId}"
 }
 ```
@@ -357,7 +374,6 @@ const PrivateRoute = ({ component: Component, path, ...rest }) => {
     const fn = async () => {
       if (!isAuthenticated) {
         await loginWithRedirect({
-          redirect_uri: window.location.origin,
           appState: { targetUrl: path }
         });
       }

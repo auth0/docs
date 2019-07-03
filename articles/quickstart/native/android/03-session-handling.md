@@ -38,7 +38,7 @@ Before you launch the login process, make sure you get a valid Refresh Token in 
 
 Auth0 auth0 = new Auth0(this);
 auth0.setOIDCConformant(true);
-WebAuthProvider.init(auth0)
+WebAuthProvider.login(auth0)
     .withScheme("demo")
     .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
     .withScope("openid offline_access")

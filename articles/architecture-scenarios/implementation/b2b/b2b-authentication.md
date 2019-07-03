@@ -1,6 +1,6 @@
 ---
 title: Authentication
-description: Understand how authentication works in your B2B IAM implementation.
+description: How authentication works in your B2B IAM implementation.
 toc: true
 topics:
     - b2b
@@ -110,7 +110,7 @@ With enterprise connection support, user identities and credentials are managed 
 
 <%= include('../../_includes/_authentication/_mfa.md', { platform: 'b2b' }) %>
 
-## Planning
+## Project Planning Guide
 
 <%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 

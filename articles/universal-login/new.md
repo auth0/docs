@@ -8,19 +8,19 @@ toc: true
 ---
 # New Universal Login Experience
 
-Auth0's New <dfn data-key="universal-login">Universal Login</dfn> experience provides a reimagined login flow, with a fresh UX design, and lightweight pages. When you pick this new experience, Auth0 will use it for all pages that haven't been customized. It can be enabled from the [Universal Login Settings](https://manage.auth0.com/#/login_settings) dashboard section:
+Auth0's New <dfn data-key="universal-login">Universal Login</dfn> Experience provides a reimagined login flow, with a fresh UX design, and lightweight pages. When you pick this new experience, Auth0 will use it for all pages that haven't been customized. It can be enabled from the [Universal Login Settings](${manage_url}/#/login_settings) dashboard section:
 
 ![Login Page](/media/articles/universal-login/experience-picker.png)
 
 The key structural difference with the [Classic Experience](/universal-login/classic) is that while the former uses Javascript widgets in all the pages, the New Experience is rendered on the server and does not require Javascript. 
 
-From a functional perspective, it has much better support for [Localization](/universal-login/i18n), a better MFA experience, and several improvements across all pages. However, there is still a [feature gap](/universal-login/new-experience-limitations) with the Classic experience, and some pages in the New Experience have certain differences detailed below.
+From a functional perspective, it has much better support for [Localization](/universal-login/i18n), a better MFA experience, and several improvements across all pages. The New Experience is being actively developed, so new features are regularly added. However, there is still a [feature gap](/universal-login/new-experience-limitations) with the Classic Experience, and some pages in the New Experience have certain differences detailed below.
 
 ## Login
 
 - If you are using Development Keys for Social Providers:
 
-    - <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> and Silent Authentication will work properly, which does not happen in the Classic experience.
+    - <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> and Silent Authentication will work properly, which does not happen in the Classic Experience.
 
     - Users will see a warning in the login page mentioning that the tenant is configured with [Development Keys](docs/connections/social/devkeys).
 
@@ -70,3 +70,7 @@ When using [Custom DB Connections](/connections/database/custom-db):
 ## Branding
 
 - You can configure the favicon URL and a custom font URL by using [the Branding API](/api/management/v2#!/Branding).
+
+## Implement Universal Login
+
+<%= include('./_implement_universal_login') %>

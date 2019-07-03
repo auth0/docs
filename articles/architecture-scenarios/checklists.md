@@ -1,5 +1,5 @@
 ---
-title: Implementation Checklists
+title: Implementation Planning Checklists
 description: Links to checklists for your implementation. 
 topics:
     - SDLC
@@ -10,15 +10,9 @@ contentType: reference
 useCase:
     - implementation
 ---
-# Implementation Checklists
+# Implementation Planning Checklists
 
-Auth0 provides checklists in spreadsheet format that align with typical SDLC (Software Development Life Cycle) phases. Not all of the items in the checklists will apply to you, so we recommend that you use the checklists as a starting point for planning and implementation.  
-
-## How to use the checklists
-
-1. Click the links below to download each checklist.
-2. Open the checklist in any spreadsheet application.
-3. Customize the checklists to suit your needs.
+Click the links below to download a checklist that corresponds to a phase in the SDLC (Software Development Lifecycle). You can open the checklist in any spreadsheet application and customize them to suit your needs. 
 
 ## ![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Analyze Checklist](/media/articles/architecture-scenarios/checklists/Analyze-Checklist.xlsx)
 
