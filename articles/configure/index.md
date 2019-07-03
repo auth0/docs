@@ -1,4 +1,5 @@
 ---
+classes: topic-page
 title: Configuration
 description: Learn how to configure tenants, applications, APIs, and other settings in Auth0
 topics:

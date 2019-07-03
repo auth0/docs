@@ -29,7 +29,7 @@ useCase:
   <li>
     <i class="icon icon-budicon-292"></i><a href="/email/templates">Email</a>
     <p>
-        Auth0 [Database Connections](/connections/database) provide several emails as part of their flow, including verification emails, welcome emails, change password emails, breached password emails, and blocked account emails. Learn how to customize these emails.
+        Auth0 provide several types of emails including verification emails, welcome emails, change password emails, breached password emails, and blocked account emails. Learn how to customize these emails.
     </p>
   </li>
   <li>
