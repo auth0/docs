@@ -12,7 +12,7 @@ useCase:
 
 # Rules Best Practices
 
-This article covers some best practices when using [rules](/rules). Rules can be used in a [variety of situations](/rules#what-can-i-use-rules-for-) as part of the pipeline where artifacts for authenticity are generated - i.e. an [ID Token](/tokens/id-token) in [OpenID Connect (OIDC)](/protocols/oidc), an [Access Token](/tokens/overview-access-tokens) in [OAuth 2.0](/protocols/oauth2), or an [assertion in SAML](/protocols/saml/saml-configuration/saml-assertions#use-rules). A new pipeline is created for each authentication request, in which rules execute.
+This article covers some best practices when using [rules](/rules). Rules can be used in a [variety of situations](/rules#what-can-i-use-rules-for-) as part of the pipeline where artifacts for authenticity are generated - i.e. an <dfn data-key="id-token">ID Token</dfn> in [OpenID Connect (OIDC)](/protocols/oidc), an <dfn data-key="access-token">Access Token</dfn> in [OAuth 2.0](/protocols/oauth2), or an [assertion in SAML](/protocols/saml/saml-configuration/saml-assertions#use-rules). A new pipeline is created for each authentication request, in which rules execute.
 
 A number of [pre-existing Rules/Rule templates](https://github.com/auth0/rules) are provided out-of-box to help you achieve your goal(s). However there are times when you will want to [build your own Rule(s)](/rules/guides/create) in support of your  specific functionality/requirements. You may choose to extend or modify a pre-existing Rule/Rule template, or you may choose to start from scratch (using one of our [samples](/rules/references/samples) to guide you). Either way, there are a number of best practices that you’ll want to adopt in order to ensure that you achieve the best possible outcome.
 
@@ -562,4 +562,4 @@ As a best practice, we recommend that if you have any MFA-related rule logic sim
 
 #### Context checking when using custom MFA providers
 
-In a similar fashion to that discussed above, we recommend that you **do not** use rules that redirect users to custom multi-factor authentication providers based on any of the conditional logic list items defined. For custom MFA providers, the only safe course of action is do use the `allowRememberBrowser` funtionality as described. 
+In a similar fashion to that discussed above, we recommend that you **do not** use rules that redirect users to custom multi-factor authentication providers based on any of the conditional logic list items defined. For custom MFA providers, the only safe course of action is to use the `allowRememberBrowser` funtionality as described. 
