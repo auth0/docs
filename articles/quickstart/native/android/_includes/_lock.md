@@ -13,7 +13,7 @@ android {
 }
 dependencies {
   //---> Add the next line
-  compile 'com.auth0.android:lock:2.+'
+  implementation 'com.auth0.android:lock:2.+'
   //<---
 }
 ```
@@ -27,13 +27,12 @@ Now add the _Manifest Placeholders_, required by the SDK to define internally an
 
 ```xml
 apply plugin: 'com.android.application'
+compileSdkVersion 28
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "com.auth0.samples"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 28
         //...
 
         //---> Add the next line

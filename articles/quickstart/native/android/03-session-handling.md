@@ -62,6 +62,7 @@ Create a new instance of the Credentials Manager. When you run the application, 
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
+
 protected void onCreate(Bundle savedInstanceState) {
     //Setup CredentialsManager
     auth0 = new Auth0(this);
@@ -69,7 +70,7 @@ protected void onCreate(Bundle savedInstanceState) {
     credentialsManager = new SecureCredentialsManager(this, new AuthenticationAPIClient(auth0), new SharedPreferencesStorage(this));
 
     //Check if the activity was launched to log the user out
-    if (getIntent().getBooleanExtra(KEY_CLEAR_CREDENTIALS, false)) {
+    if (getIntent().getBooleanExtra(EXTRA_CLEAR_CREDENTIALS, false)) {
         doLogout();
         return;
     }
@@ -123,6 +124,7 @@ Retrieving the credentials from the Credentials Manager is an async process as c
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
+
 private void showNextActivity() {
     credentialsManager.getCredentials(new BaseCallback<Credentials, CredentialsManagerException>() {
         @Override
@@ -159,17 +161,18 @@ Check in the LoginActivity if a boolean extra is present in the Intent at the Ac
 
 private void logout() {
     Intent intent = new Intent(this, LoginActivity.class);
-    intent.putExtra(LoginActivity.KEY_CLEAR_CREDENTIALS, true);
+    intent.putExtra(LoginActivity.EXTRA_CLEAR_CREDENTIALS, true);
     startActivity(intent);
     finish();
 }
 
 // app/src/main/java/com/auth0/samples/LoginActivity.java
+
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     //...
 
-    if (getIntent().getBooleanExtra(KEY_CLEAR_CREDENTIALS, false)) {
+    if (getIntent().getBooleanExtra(EXTRA_CLEAR_CREDENTIALS, false)) {
         doLogout();
         return;
     }

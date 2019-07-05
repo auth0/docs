@@ -26,7 +26,7 @@ We recommend that you read the [Linking Accounts](/link-accounts) documentation 
 
 As seen previously in the [User Profile](/quickstart/native/android/04-user-profile) tutorial, you need to request the Management API audience and the corresponding scopes to be able to read the full user profile and edit their identities, since they are not part of the OIDC specification. Each identity in the user profile represents details from the authentication provider used to log in. e.g. the user's Facebook account details.
 
-Find the snippet in which you initialize the `WebAuthProvider` class. To that snippet, add the line `withScope("openid profile email read:current_user update:current_user_identities")` and `withAudience(String.format("https://%s/api/v2/", getString(R.string.com_auth0_domain)))`.
+Find the snippet in which you initialize the `WebAuthProvider` class. To that snippet, add the line `withScope("openid profile email offline_access read:current_user update:current_user_identities")` and `withAudience(String.format("https://%s/api/v2/", getString(R.string.com_auth0_domain)))`.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/LoginActivity.java
@@ -36,7 +36,7 @@ auth0.setOIDCConformant(true);
 WebAuthProvider.login(auth0)
     .withScheme("demo")
     .withAudience(String.format("https://%s/api/v2/", getString(R.string.com_auth0_domain)))
-    .withScope("openid profile email read:current_user update:current_user_identities")
+    .withScope("openid profile email offline_access read:current_user update:current_user_identities")
     .start(this, callback);
 ```
 
@@ -53,11 +53,15 @@ To achieve this, you need to store the user ID for the logged user in the Intent
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
-Intent intent = new Intent(MainActivity.this, LoginActivity.class);        
-intent.putExtras(getIntent().getExtras());
-intent.putExtra(LoginActivity.KEY_LINK_ACCOUNTS, true);
-intent.putExtra(LoginActivity.KEY_PRIMARY_USER_ID, profile.getId());
-startActivity(intent);
+
+private void linkAccount() {
+    Intent linkAccounts = new Intent(this, LoginActivity.class);
+    linkAccounts.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+    linkAccounts.putExtras(getIntent().getExtras());
+    linkAccounts.putExtra(LoginActivity.EXTRA_LINK_ACCOUNTS, true);
+    linkAccounts.putExtra(LoginActivity.EXTRA_PRIMARY_USER_ID, userProfile.getId());
+    startActivity(linkAccounts);
+}
 ```
 
 Obtain the stored values in `LoginActivity`.
@@ -72,55 +76,54 @@ private boolean logginIn;
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
-  super.onCreate(savedInstanceState);
+    super.onCreate(savedInstanceState);
 
-  auth0 = new Auth0(this);
-  auth0.setOIDCConformant(true);
-  credentialsManager = new SecureCredentialsManager(this, new AuthenticationAPIClient(auth0), new SharedPreferencesStorage(this));
-
-  linkSessions = getIntent().getBooleanExtra(KEY_LINK_ACCOUNTS, false);
-  loggingIn = savedInstanceState != null && savedInstanceState.getBoolean(KEY_LOG_IN_IN_PROGRESS, false);
-
-  // Normal log in with existing credentials
-  if (!linkSessions && credentialsManager.hasValidCredentials()) {
-    // Obtain the existing credentials and move to the next activity
-    credentialsManager.getCredentials(new BaseCallback<Credentials, CredentialsManagerException>() {
-        @Override
-        public void onSuccess(Credentials credentials) {
-            showNextActivity(credentials);
-        }
-
-        @Override
-        public void onFailure(CredentialsManagerException error) {
-            //Authentication cancelled by the user. Exit the app
-            finish();
-        }
-    });
-    return;
-  }
-
-  // Show log in layout
-  setContentView(R.layout.activity_login);
-  final Button loginButton = (Button) findViewById(R.id.loginButton); 
-  loginButton.setOnClickListener(new View.OnClickListener() {
+    //Setup the UI
+    setContentView(R.layout.activity_login);
+    Button loginButton = findViewById(R.id.loginButton);
+    loginButton.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             doLogin();
         }
-  });
+    });
 
-  // Account linking was requested
-  if (linkSessions && !loggingIn) {
-    loginButton.setText(R.string.link_account);
-    //Auto log in but allow to retry if authentication is cancelled
-    doLogin();
-  }
+    //Setup CredentialsManager
+    auth0 = new Auth0(this);
+    auth0.setOIDCConformant(true);
+    credentialsManager = new SecureCredentialsManager(this, new AuthenticationAPIClient(auth0), new SharedPreferencesStorage(this));
+
+    //Optional - Uncomment the next line to use:
+    //Require device authentication before obtaining the credentials
+    //credentialsManager.requireAuthentication(this, CODE_DEVICE_AUTHENTICATION, getString(R.string.request_credentials_title), null);
+
+    //Check if the activity was launched to log the user out
+    if (getIntent().getBooleanExtra(EXTRA_CLEAR_CREDENTIALS, false)) {
+        doLogout();
+        return;
+    }
+
+    linkSessions = getIntent().getBooleanExtra(EXTRA_LINK_ACCOUNTS, false);
+    loggingIn = savedInstanceState != null && savedInstanceState.getBoolean(EXTRA_LOG_IN_IN_PROGRESS, false);
+
+    if (!linkSessions && credentialsManager.hasValidCredentials()) {
+        // Obtain the existing credentials and move to the next activity
+        showNextActivity();
+        return;
+    }
+
+    // Check if an account linking was requested
+    if (linkSessions && !loggingIn) {
+        loginButton.setText(R.string.link_account);
+        //Auto log in but allow to retry if authentication is cancelled
+        doLogin();
+    }
 }
 
 @Override
 protected void onSaveInstanceState(Bundle outState) {
-  outState.putBoolean(KEY_LOG_IN_IN_PROGRESS, loggingIn);
-  super.onSaveInstanceState(outState);
+    outState.putBoolean(EXTRA_LOG_IN_IN_PROGRESS, loggingIn);
+    super.onSaveInstanceState(outState);
 }
 ```
 
@@ -129,7 +132,7 @@ In the login response, based on the boolean flag set in the first step, decide i
 ```java
 // app/src/main/java/com/auth0/samples/activities/LoginActivity.java
 
-private final AuthCallback webCallback = new AuthCallback() {
+private final AuthCallback loginCallback = new AuthCallback() {
     @Override
     public void onFailure(@NonNull final Dialog dialog) {
         //show error message 
@@ -170,8 +173,8 @@ Now, you can link the accounts. To do this, you need the logged-in user's ID and
 // app/src/main/java/com/auth0/samples/activities/LoginActivity.java
 
 private void performLink(final String secondaryIdToken) {
-    UsersAPIClient client = new UsersAPIClient(auth0, getIntent().getExtras().getString(KEY_ACCESS_TOKEN));
-    String primaryUserId = getIntent().getExtras().getString(KEY_PRIMARY_USER_ID);
+    UsersAPIClient client = new UsersAPIClient(auth0, getIntent().getExtras().getString(EXTRA_ACCESS_TOKEN));
+    String primaryUserId = getIntent().getExtras().getString(EXTRA_PRIMARY_USER_ID);
     client.link(primaryUserId, secondaryIdToken)
         .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
             @Override
@@ -194,18 +197,21 @@ The updated list of identities is returned in the `link` method response. Altern
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
 
-usersClient.getProfile(userInfo.getId())
-    .start(new BaseCallback<UserProfile, ManagementException>() {
-        @Override
-        public void onSuccess(UserProfile fullProfile) {
-            // Display the updated user profile
-        }
+private void fetchProfile() {
+    //..
+    usersClient.getProfile(userInfo.getId())
+        .start(new BaseCallback<UserProfile, ManagementException>() {
+            @Override
+            public void onSuccess(UserProfile fullProfile) {
+                // Display the updated user profile
+            }
 
-        @Override
-        public void onFailure(ManagementException error) {
-            // Show error
-        }
-    });
+            @Override
+            public void onFailure(ManagementException error) {
+                // Show error
+            }
+        });
+}
 ```
 
 ::: note
@@ -224,16 +230,18 @@ To instantiate the `UsersAPIClient` client, use the Access Token for the main ac
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
 
-usersClient.unlink(userProfile.getId(), secondaryAccountIdentity.getId(), secondaryAccountIdentity.getProvider())
-    .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
-        @Override
-        public void onSuccess(List<UserIdentity> userIdentities) {
-            //Accounts unlinked
-        }
+private void unlink(UserIdentity secondaryAccountIdentity) {
+    usersClient.unlink(userProfile.getId(), secondaryAccountIdentity.getId(), secondaryAccountIdentity.getProvider())
+        .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
+            @Override
+            public void onSuccess(List<UserIdentity> userIdentities) {
+                //Accounts unlinked
+            }
 
-        @Override
-        public void onFailure(ManagementException error) {
-            //Accounts unlink failed
-        }
-    });
+            @Override
+            public void onFailure(ManagementException error) {
+                //Accounts unlink failed
+            }
+        });
+}
 ```
