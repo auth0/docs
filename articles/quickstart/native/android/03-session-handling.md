@@ -31,7 +31,7 @@ Tokens are objects used to prove your identity against the Auth0 APIs. Read more
 Before you continue with this tutorial, make sure that you have completed the [Login](/quickstart/native/android/00-login) tutorial.
 :::
 
-Before you launch the login process, make sure you get a valid Refresh Token in the response. To do that, ask for the `offline_access` scope. Find the snippet in which you are initializing the `WebAuthProvider` class. To that snippet, add the line `withScope("openid offline_access")`.
+You will need a valid Refresh Token in the response. To do that, ask for the `offline_access` scope. Find the snippet in which you are initializing the `WebAuthProvider` class. To that snippet, add the line `withScope("openid offline_access")`.
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
@@ -42,7 +42,7 @@ WebAuthProvider.login(auth0)
     .withScheme("demo")
     .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
     .withScope("openid offline_access")
-    .start(LoginActivity.this, webCallback);
+    .start(LoginActivity.this, loginCallback);
 ```
 
 ## Check for Tokens when the Application Starts
@@ -62,25 +62,27 @@ Create a new instance of the Credentials Manager. When you run the application, 
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
-  Auth0 auth0 = new Auth0(this);
-  auth0.setOIDCConformant(true);
-  AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
-  SecureCredentialsManager credentialsManager = new SecureCredentialsManager(this, client, new SharedPreferencesStorage(this));
+protected void onCreate(Bundle savedInstanceState) {
+    //Setup CredentialsManager
+    auth0 = new Auth0(this);
+    auth0.setOIDCConformant(true);
+    credentialsManager = new SecureCredentialsManager(this, new AuthenticationAPIClient(auth0), new SharedPreferencesStorage(this));
 
-  // Check if the activity was launched after a logout
-  if (getIntent().getBooleanExtra(KEY_CLEAR_CREDENTIALS, false)) {
-      credentialsManager.clearCredentials();
-  }
+    //Check if the activity was launched to log the user out
+    if (getIntent().getBooleanExtra(KEY_CLEAR_CREDENTIALS, false)) {
+        doLogout();
+        return;
+    }
 
-  if (!credentialsManager.hasValidCredentials()) {
-    // Prompt Login screen.
-  } else {
-    // Obtain credentials and move to the next activity
-  }
+    if (credentialsManager.hasValidCredentials()) {
+        // Obtain the existing credentials and move to the next activity
+        showNextActivity();
+    }
+}
 ```
 
 ::: note
-Ideally a single class should manage the handling of credentials. You can share this instance across activities or create a new one every time is required as long as the Storage strategy persists the data in the same location. Check the `LoginActivity` class to understand how to achieve this in a single class.
+As you progress through this article you will notice that the logic for authenticating and logging the user out is kept under the same activity. Ideally a single class should manage the handling of credentials. You can share this instance across activities or create a new one every time is required as long as the Storage strategy persists the data in the same location. Check the `LoginActivity` class to understand how to achieve this in a single class.
 :::
 
 
@@ -91,7 +93,7 @@ After a successful login response, you can store the user's credentials using th
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
 
-private final AuthCallback webCallback = new AuthCallback() {
+private final AuthCallback loginCallback = new AuthCallback() {
     @Override
     public void onFailure(@NonNull final Dialog dialog) {
         //show error dialog
@@ -106,6 +108,7 @@ private final AuthCallback webCallback = new AuthCallback() {
     public void onSuccess(@NonNull Credentials credentials) {
         //user successfully authenticated
         credentialsManager.saveCredentials(credentials);
+        showNextActivity();
     }
 };
 ```
@@ -116,22 +119,29 @@ A Storage defines how data is going to be persisted in the device. The Storage i
 
 ## Recover the User's Credentials
 
-Retrieving the credentials from the Credentials Manager is an async process, as credentials may have expired and require to be refreshed. This renewing process is done automatically by the Credentials Manager as long as a valid Refresh Token is currently stored. A `CredentialsManagerException` exception will be raised if the credentials cannot be renewed.
+Retrieving the credentials from the Credentials Manager is an async process as credentials may have expired and require to be refreshed. This renewing process is done automatically by the Credentials Manager as long as a valid Refresh Token is currently stored. A `CredentialsManagerException` exception will be raised if the credentials cannot be renewed.
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
+private void showNextActivity() {
+    credentialsManager.getCredentials(new BaseCallback<Credentials, CredentialsManagerException>() {
+        @Override
+        public void onSuccess(final Credentials credentials) {
+            // Move to the next activity
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.putExtra(EXTRA_ACCESS_TOKEN, credentials.getAccessToken());
+            intent.putExtra(EXTRA_ID_TOKEN, credentials.getIdToken());
+            startActivity(intent);
+            finish();
+        }
 
-credentialsManager.getCredentials(new BaseCallback<Credentials, CredentialsManagerException>() {
-    @Override
-    public void onSuccess(Credentials credentials) {
-        // Move to the next activity
-    }
-
-    @Override
-    public void onFailure(CredentialsManagerException error) {
-        // Credentials could not be refreshed.
-    }
-});
+        @Override
+        public void onFailure(CredentialsManagerException error) {
+            // Credentials could not be retrieved.
+            finish();
+        }
+    });
+}
 ```
 
 ::: note
@@ -140,9 +150,9 @@ The `SecureCredentialsManager` can prompt the user for local device authenticati
 
 ## Log the User Out
 
-To log the user out, you remove their credentials and navigate them to the login screen. When using a Credentials Manager you do that calling `clearCredentials`.
+To log the user out, it is normally enough to remove their credentials and navigate them back to the login screen. When using a Credentials Manager you do that calling `clearCredentials`. In addition, you could ask the `WebAuthProvider` to remove the cookie set by the Browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate. The sample combines these two strategies.
 
-In the sample, the LoginActivity checks that a boolean extra is present in the Intent at the Activity launch, so that if this flag is true the credentials are first removed from the Credentials Manager.
+Check in the LoginActivity if a boolean extra is present in the Intent at the Activity launch. This scenario triggered by the MainActivity dictates that the user wants to log out.
 
 ```java
 // app/src/main/java/com/auth0/samples/MainActivity.java
@@ -158,12 +168,45 @@ private void logout() {
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     //...
+
     if (getIntent().getBooleanExtra(KEY_CLEAR_CREDENTIALS, false)) {
-        credentialsManager.clearCredentials();
+        doLogout();
+        return;
     }
 }
+
+private void doLogout() {
+    WebAuthProvider.logout(auth0)
+        .withScheme("demo")
+        .start(this, logoutCallback);
+}
+
+private VoidCallback logoutCallback = new VoidCallback() {
+    @Override
+    public void onSuccess(Void payload) {
+        credentialsManager.clearCredentials();
+    }
+
+    @Override
+    public void onFailure(Auth0Exception error) {
+        //Log out canceled, keep the user logged in
+        showNextActivity();
+    }
+};
+
 ```
+
+
+The logout is achieved by using the `WebAuthProvider` class. This call will open the Browser and navigate the user to the logout endpoint. If the log out is cancelled, you might want to take the user back to where they were before attempting to log out. If the call succeeded you will remove the credentials from the manager instance.
+
 
 ::: note
 If you are not using our Credentials Manager classes, you are responsible for ensuring that the user's credentials have been removed.
 :::
+
+
+As you did previously for the login step, you will need to whitelist as well this logout URL in the dashboard.
+
+<%= include('../../../_includes/_logout_url', { returnTo: 'demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback' }) %>
+
+Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
