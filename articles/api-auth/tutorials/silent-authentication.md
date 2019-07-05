@@ -12,8 +12,6 @@ useCase:
 
 # Silent Authentication
 
-<%= include('../../_includes/_pipeline2') %>
-
 The <dfn data-key="openid">OpenID Connect protocol</dfn> supports a `prompt=none` parameter on the authentication request that allows applications to indicate that the authorization server must not display any user interaction (such as authentication, consent or MFA). Auth0 will either return the requested response back to the application or return an error if the user is not already authenticated, or some type of consent or prompt is required before proceeding.
 
 This flow can be used by Single-Page Applications to renew tokens as explained below.
@@ -108,14 +106,15 @@ In the case of the [Implicit Flow](/flows/concepts/implicit), the `expires_in` p
 
 The `expires_in` parameter indicates how many seconds the Access Token will be valid for, and can be used to anticipate expiration of the Access Token.
 
+### Error response
+
+You may receive the following error response:
+
+* `timeout`: Timeout during executing web_message communication
+
+This error is typically associated with fallback to cross-origin authentication. To resolve, make sure to add all of the URLs from which you want to perform silent authentication in the **Allowed Web Origins** field for your Application using the Auth0 Dashboard.
+
+
 ## Polling with checkSession()
 
 <%= include('../../_includes/_checksession_polling') %>
-
-### How to implement
-
-Implementation of token renewal will depend on the type of application and framework being used. Sample implementations for some of the common platforms can be found below:
-
-* [Plain JavaScript](/quickstart/spa/vanillajs/05-token-renewal)
-* [React](/quickstart/spa/react/05-token-renewal)
-* [Angular](/quickstart/spa/angular2/05-token-renewal)

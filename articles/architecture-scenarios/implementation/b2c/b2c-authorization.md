@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: Understand user authorization and related planning considerations for your B2C implementation.
+description: User authorization and related planning considerations for your B2C IAM implementation.
 toc: true
 topics:
     - b2c
@@ -8,7 +8,7 @@ topics:
     - user-authorization
 contentType: concept
 useCase:
-  - profile-management
+  - user-authorization
 ---
 # Authorization
 
@@ -26,9 +26,13 @@ useCase:
 
 <%= include('../../_includes/_authorization/_rbac.md', { platform: 'b2c' }) %>
 
-## Planning
+## Machine-to-Machine (M2M) Authorization
 
-To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
+<%= include('../../_includes/_authorization/_m2m.md', { platform: 'b2c' }) %>
+
+## Project Planning Guide
+
+<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 

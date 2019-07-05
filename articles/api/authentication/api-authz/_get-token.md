@@ -8,6 +8,7 @@ Note that the only OAuth 2.0 flows that can retrieve a Refresh Token are:
 - [Authorization Code Flow (Authorization Code)](/flows/concepts/auth-code)
 - [Authorization Code Flow with PKCE (Authorization Code with PKCE)](/flows/concepts/auth-code-pkce)
 - [Resource Owner Password](/api-auth/grant/password)
+- [Device Authorization Flow](/flows/concepts/device-auth)
 
 ## Authorization Code Flow
 
@@ -389,6 +390,112 @@ This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In th
 - [Calling APIs from Highly-Trusted Applications](/api-auth/grant/password)
 - [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
 - [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password)
+
+## Device Authorization Flow
+
+```http
+POST https://${account.namespace}/oauth/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id=${account.clientId}&device_code=YOUR_DEVICE_CODE&grant_type=urn:ietf:params:oauth:grant-type:device_code
+```
+
+```shell
+curl --request POST \
+  --url 'https://${account.namespace}/oauth/token' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --data 'client_id=${account.clientId}&device_code=YOUR_DEVICE_CODE&grant_type=urn:ietf:params:oauth:grant-type:device_code'
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://${account.namespace}/oauth/token',
+  headers: { 'content-type': 'application/x-www-form-urlencoded' },
+  form:
+   { client_id: '${account.clientId}',
+     device_code: 'YOUR_DEVICE_CODE',
+     grant_type: 'urn:ietf:params:oauth:grant-type:device_code' }
+   };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+
+> RESPONSE SAMPLE:
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+   "access_token": "eyJz93a...k4laUWw",
+   "id_token": "eyJ...0NE",
+   "refresh_token": "eyJ...MoQ",
+   "scope": "...",
+   "expires_in": 86400,
+   "token_type": "Bearer"
+}
+```
+
+```JSON
+HTTP/1.1 400 BAD REQUEST
+Content-Type: application/json
+ { 
+  // Can be retried
+  "error": "authorization_pending",
+  "error_description": "User has yet to authorize device code."
+ }
+```
+
+```JSON
+HTTP/1.1 400 BAD REQUEST
+Content-Type: application/json
+ { 
+  // Can be retried
+  "error": "slow_down",
+  "error_description": "You are polling faster than the specified interval of 5 seconds."
+ }
+```
+
+```JSON
+HTTP/1.1 400 BAD REQUEST
+Content-Type: application/json
+ { 
+    // Cannot be retried; transaction failed
+    "error": "access_denied|invalid_grant|...",
+    "error_description": "Failure: User cancelled the confirmation prompt or consent page; the code expired; there was an error."
+ }
+```
+
+<%= include('../../../_includes/_http-method', {
+  "http_badge": "badge-success",
+  "http_method": "POST",
+  "path": "/oauth/token",
+  "link": "#device-auth"
+}) %>
+
+This is the OAuth 2.0 grant that input-constrained devices use to access an API. Poll this endpoint using the interval returned with your [device code](/api/authentication#get-device-code) to directly request an Access Token using the application's credentials (a Client ID) and a device code.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Device Authorization, use `urn:ietf:params:oauth:grant-type:device_code`. |
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
+| `device_code` <br/><span class="label label-danger">Required</span> | The device code previously returned from the [/oauth/device/code endpoint](/api/authentication#device-authorization-flow). |
+
+### Remarks
+- Because you will be polling this endpoint (using the `interval` from the initial response to determine frequency) while waiting for the user to go to the verification URL and enter their user code, you will likely receive at least one failure before receiving a successful response. See sample responses for possible responses.
+
+### More Information
+
+- [Device Authorization Flow](/flows/concepts/device-auth)
+- [Call API using the Device Authorization Flow](/flows/guides/device-auth/call-api-device-auth)
+- [Setting up a Device Code Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard)
 
 ## Refresh Token
 

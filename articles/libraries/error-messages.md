@@ -23,6 +23,7 @@ In the case of a failed signup, the most common errors are:
 | **Error** | **Description** |
 |-|-|
 | **invalid_password** | If the password used doesn't comply with the password policy for the connection |
+| **invalid_signup** | The user your are attempting to sign up is invalid |
 | **password_dictionary_error** | The chosen password is too common |
 | **password_no_user_info_error** | The chosen password is based on user information |
 | **password_strength_error** | The chosen [password is too weak](/connections/database/password-strength) |

@@ -25,6 +25,8 @@ To get your ADFS server ready, you'll need to:
 
 ### Add a Relying Party Trust
 
+To begin, you'll need to [create a relying party trust](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/create-a-relying-party-trust).
+
 Begin by launching your instance of ADFS. Start the **Add Relying Party Trust** wizard.
 
 ![](/media/articles/protocols/saml-adfs/saml1.png)
@@ -176,6 +178,15 @@ Populate the **Trusted URL** with the **Post-back URL** value.
 
 Click **OK**. Finally, click **Apply** and exit the Properties window.
 
+### Signing Requests
+
+**Optionally**, if you want to sign your SAML requests to the ADFS server:
+
+1. Go to the **Settings** page for your SAMLP Identity Provider in the Dashboard
+2. Enable **Sign Requests**.
+3. Just below the **Sign Requests** toggle is a link to download your certificate.
+4. Return to ADFS and load the downloaded certificate using the **Signatures** tab of the Relying Party properties dialog.
+
 ### Map Your Claims
 
 You can add additional claims mappings if necessary; for assistance on which LDAP attributes map to which Outgoing Claim Type, see [Connect Your App to ADFS](/connections/enterprise/adfs).
@@ -184,7 +195,7 @@ You can add additional claims mappings if necessary; for assistance on which LDA
 
 Before you can test your Auth0-ADFS integration, you'll need to make sure that you've completed the following steps:
 
-1. [Create a user](/users/guides/create-users) for your newly-created Connection.
+1. Create a user on the IdP that you can use to test your newly-created Connection.
 2. [Enable your Connection](/connections) for at least one Application.
 
 To test your connection, navigate to **Connections > Enterprise > ADFS**. Click the ADFS row (or the hamburger icon to the right) to bring up a list of your ADFS connections. Identify the one you're testing, and click the **play** button to test the connection.

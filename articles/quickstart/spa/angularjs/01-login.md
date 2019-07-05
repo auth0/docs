@@ -12,7 +12,7 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
-<%= include('../_includes/_getting_started', { library: 'AngularJS', callback: 'http://localhost:3000/callback', showLogoutInfo: true, showWebOriginInfo: true }) %>
+<%= include('../_includes/_getting_started', { library: 'AngularJS', callback: 'http://localhost:3000/callback', returnTo: 'http://localhost:3000', showLogoutInfo: true, showWebOriginInfo: true }) %>
 
 <%= include('_includes/_install_angular_auth0') %>
 

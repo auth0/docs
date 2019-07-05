@@ -1,1 +1,5 @@
-The `--strip` option removes the identifier fields from the Auth0 objects. This is important because Auth0 generates new IDs when importing objects into Auth0 tenants. If you do not strip identifier fields from the objects you want to import, the import will fail due to the tool not being able to find existing objects using their original IDs.
+When importing objects into Auth0 tenants, Auth0 generates new IDs. To avoid import failure, identifier fields are stripped from the Auth0 objects on export by default. To override this behavior, use:
+
+--export_ids
+or
+AUTH0_EXPORT_IDENTIFIERS: true

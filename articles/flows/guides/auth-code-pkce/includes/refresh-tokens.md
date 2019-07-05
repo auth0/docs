@@ -49,7 +49,7 @@ To refresh your token, make a `POST` request to the `/token` endpoint in the Aut
 
 ### Response
 
-If all goes well, you'll receive an HTTP 200 response with a payload containing a new `access_token`, its lifetime in seconds (`expires_in`), granted `scope` values, and `token_type`. If the scope of the initial token included `openid`, then the response will also include a new `id_token`:
+If all goes well, you'll receive an `HTTP 200` response with a payload containing a new `access_token`, its lifetime in seconds (`expires_in`), granted `scope` values, and `token_type`. If the scope of the initial token included `openid`, then the response will also include a new `id_token`:
 
 ```json
 {

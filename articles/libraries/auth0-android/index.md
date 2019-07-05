@@ -158,7 +158,7 @@ In versions 1.8.0 or lower of Auth0.Android you had to define the **intent-filte
 Now, let's authenticate a user by presenting the universal [login page](hosted-pages/login):
 
 ```java
-WebAuthProvider.init(account)
+WebAuthProvider.login(account)
                 .withAudience("https://${account.namespace}/userinfo")
                 .start(this, authCallback);
 ```

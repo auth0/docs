@@ -7,13 +7,28 @@ You can also embed the login dialog directly in your application using the [Lock
 To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-android-sample/tree/embedded-login/01-Embedded-Login). Make sure you read the [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) article to learn how to choose between the two types of login flows.
 :::
 
-In the `login` method, create a new instance of the `Auth0` class to hold user credentials. 
+In the `onCreate` method, create a new instance of the `Auth0` class to hold user credentials and set it to be OIDC conformant. 
 
 You can use a constructor that receives an Android Context if you have added the following String resources: 
 * `R.string.com_auth0_client_id`
 * `R.string.com_auth0_domain`
 
-If you prefer to hardcode the resources, use the constructor that receives both strings. Then, use the `WebAuthProvider` class to authenticate with any connection you enabled on your application in the [Auth0 dashboard](${manage_url}/#/).
+```java
+// app/src/main/java/com/auth0/samples/MainActivity.java
+
+private Auth0 auth0;
+
+@Override
+protected void onCreate(@Nullable Bundle savedInstanceState) {
+    //...
+    auth0 = new Auth0(this);
+    auth0.setOIDCConformant(true);
+}
+```
+
+If you prefer to hardcode the resources, use the constructor that receives both strings. 
+
+Finally, create a `login` method and use the `WebAuthProvider` class to authenticate with any connection you enabled on your application in the [Auth0 dashboard](${manage_url}/#/). 
 
 After you call the `WebAuthProvider#start` function, the browser launches and shows the **Lock** widget. Once the user authenticates, the callback URL is called. The callback URL contains the final result of the authentication process.
 
@@ -21,7 +36,7 @@ After you call the `WebAuthProvider#start` function, the browser launches and sh
 // app/src/main/java/com/auth0/samples/MainActivity.java
 
 private void login() {
-    WebAuthProvider.init(auth0)
+    WebAuthProvider.login(auth0)
         .withScheme("demo")
         .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
         .start(MainActivity.this, new AuthCallback() {
@@ -56,7 +71,7 @@ demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available in the `app/build.gradle` file as the `applicationId` attribute.
 :::
 
-After authentication, the browser redirects the user to your application with the authentication result. The SDK captures the result and parses it. 
+After authentication, the browser redirects the user to your application with the authentication result. The SDK captures the result and parses it, returning it on the callback instance you defined. 
 
 ::: note
 You do not need to declare a specific `intent-filter` for your activity, because you have defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values and the library will handle the redirection for you.
