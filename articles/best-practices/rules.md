@@ -118,7 +118,7 @@ In pipeline terms, a rule completes when the [`callback`](#callback-function) fu
 Rule execution supports the asynchronous nature of JavaScript, and constructs such as [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) objects and the like can be used. Asynchronous processing effectively results in suspension of a pipeline pending completion of the asynchronous operation. A webtask container typically has a [30 second execution limit](https://webtask.io/docs/limits), after which the container may be recycled. A recycle of a container will prematurely terminate a pipeline (suspended or otherwise), ultimately resulting in an error in authentication being returned - as well as resulting in a reset of the [`global`](#global-object) object. 
 
 ::: note
-Setting `context.redirect` will trigger a [Redirection](#redirection) once all rules have completed (the redirect is not forced at the point it is set). Whilst all rules must complete within the execution limit of the Webtask container for the redirect to occur, the time taken as part of redirect processing *can* extend beyond that limit. Redirection back to Auth0 via the `/continue` endpoint will cause the creation of a new Webtask container, in the context of the current pipeline, in which all rules will again be run.  
+Setting `context.redirect` will trigger a [redirection](#redirection) once all rules have completed (the redirect is not forced at the point it is set). Whilst all rules must complete within the execution limit of the Webtask container for the redirect to occur, the time taken as part of redirect processing *can* extend beyond that limit. Redirection back to Auth0 via the `/continue` endpoint will cause the creation of a new Webtask container, in the context of the current pipeline, in which all rules will again be run.  
 :::
 
 Asynchronous execution will result in a (JavaScript) callback being executed after the asynchronous operation is complete. This callback is typically fired at some point after the main (synchronous) body of a JavaScript function completes. If a rule is making use of asynchronous processing then a call to the (Auth0) supplied [`callback`](#callback-function) function must be deferred to the point where asynchronous processing completes - and must be the final thing called. The (Auth0) supplied `callback` function must be called only once; calling the function more than once within a rule will lead to unpredictable results and/or errors.
@@ -550,33 +550,16 @@ For further explanation see the **Check if user email domain matches configured 
 
 [Multi-Factor Authentication (MFA)](/multifactor-authentication) provides an additional layer of security in order to guard against unautorized access. From a user experience perspecive this typically requires additional user interaction to provide a second authentication factor - typically presenting some additional credential, or authorizing some form of access request. 
 
-There are situations when it may be seen as desirable to bypass an MFA request. For instance, it maybe desirable to bypass MFA if a user has already presented both primary and secondary factors as part of authenticating to the current browser context. Contextual MFA checking can improve the user experience however, if not done properly, can open up serious security loop-holes which could lead to MFA being skipped and subsequent security breaches. We therefore recommend that you **do not** attempt to base use of MFA on any of the following:        
+There are situations when it may be desirable to bypass an MFA request. For instance, it maybe desirable to bypass MFA if a user has already presented both primary and secondary factors as part of authentication in the current browser context. Contextual MFA checking in this way can help improve the user experience. However, if not done properly, it can open up serious security loop-holes which could lead to subsequent security breaches due to MFA being skipped. We therefore recommend that you **do not** attempt to base bypass of MFA on any of the following:        
 
 ::: panel Best Practice
-As a best practice, we recommend that if you have any MFA-related rule logic similar to that described in the the list below, that **you remove said logic** and use `allowRememberBrowser` or the `context.authentication` instead. Setting `allowRememberBrowser` to true lets users check a box so they will only be [prompted for multi-factor authentication periodically](/multifactor-authentication/custom#change-the-frequency-of-authentication-requests).
+As a best practice, we recommend that if you have any MFA-related rule logic similar to that described in the the list below, that **you remove said logic** in favor of using `allowRememberBrowser` or the `context.authentication` instead. Setting `allowRememberBrowser` to `true` lets users check a box so they will only be [prompted for multi-factor authentication periodically](/multifactor-authentication/custom#change-the-frequency-of-authentication-requests), where as [`context.authentication`](/rules/references/context-object) can be used safely and accurately to determine when MFA was last performed in the current browser context. You can see a sample use case of `context.authentication` in the out-of-box supplied rule, [Require MFA once per session](https://github.com/auth0/rules/blob/master/src/rules/require-mfa-once-per-session.js).
 :::
 
 * conditional logic based on use of `context.request.query.prompt === 'none'`
-* conditional logic based on some device fingerprinting, e.g where `user.app_metadata.lastLoginDeviceFingerPrint !==  deviceFingerPrint`
-* conditional logic based on geographic location, e.g. where `user.app_metadata.last_location !== context.request.geoip.country_code`
+* conditional logic based on some device fingerprinting, e.g where `user.app_metadata.lastLoginDeviceFingerPrint ===  deviceFingerPrint`
+* conditional logic based on geographic location, e.g. where `user.app_metadata.last_location === context.request.geoip.country_code`
 
 #### Context checking when using custom MFA providers
 
-In a similar fashion to that described above, prefer to follow our guidance for [implementing contextual MFA](/multifactor-authentication/custom#implementing-contextual-mfa) when using a custom MFA provider. **Do not** use rules that redirect users to custom multi-factor authentication providers based on silent authentication (i.e. `prompt === 'none'`), as doing so can lead to cases where the user can skip the MFA process. For example, we **do not recommend** use of the following for a custom MFA provider implementation:
-
-```js
-function (user, context, callback) {
-  if (context.request.query && context.request.query.prompt === 'none') {
-	// skip MFA for silent token requests
-    return callback(null, user, context);
-  }
-  
-  //redirect to custom MFA
-  context.redirect = {
-    url: "https://example.com/"
-  };
-	  .
-	  .
-}
-```
-
+In a similar fashion to that discussed above, we recommend that you **do not** use rules that redirect users to custom multi-factor authentication providers based on any of the conditional logic list items defined. For custom MFA providers, the only safe course of action is do use the `allowRememberBrowser` funtionality as described. 
