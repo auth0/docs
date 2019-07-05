@@ -556,10 +556,10 @@ There are situations though when it may be desirable to bypass an MFA request. F
 As a best practice, we recommend that if you have any MFA-related rule logic similar to that described in the the list below, that **you remove said logic** in favor of using `allowRememberBrowser` or `context.authentication` instead. Setting `allowRememberBrowser` to `true` lets users check a box so they will only be [prompted for multi-factor authentication periodically](/multifactor-authentication/custom#change-the-frequency-of-authentication-requests), whereas [`context.authentication`](/rules/references/context-object) can be used safely and accurately to determine when MFA was last performed in the current browser context. You can see sample use of `context.authentication` in the out-of-box supplied rule, [Require MFA once per session](https://github.com/auth0/rules/blob/master/src/rules/require-mfa-once-per-session.js).
 :::
 
-* don't base bypas of MFA based on conditional logic based of the form `context.request.query.prompt === 'none'`
-* don't base bypas of MFA based on conditional logic using some form of device fingerprinting, e.g where `user.app_metadata.lastLoginDeviceFingerPrint ===  deviceFingerPrint`
-* don't base bypas of MFA based on conditional logic using geographic location, e.g. where `user.app_metadata.last_location === context.request.geoip.country_code`
+* don't bypass MFA based on conditional logic based of the form `context.request.query.prompt === 'none'`
+* don't bypass MFA based on conditional logic using some form of device fingerprinting, e.g where `user.app_metadata.lastLoginDeviceFingerPrint ===  deviceFingerPrint`
+* don't bypass MFA based on conditional logic using geographic location, e.g. where `user.app_metadata.last_location === context.request.geoip.country_code`
 
 #### Context checking when using custom MFA providers
 
-In a similar fashion to that discussed above, we recommend that you **do not** use rules that redirect users to custom multi-factor authentication providers based on any of the conditional logic items listed. For custom providers, there is no safe way to effectively determine MFA bypass as there is no way to accurately determine the context for a user.
+In a similar fashion to that already discussed, we recommend that you **do not** implement any of the conditional logic items listed above in rules that redirect users to custom multi-factor authentication providers. For custom providers, there is no safe way to effectively determine if/when to bypass MFA as there is no consistently accurately way to perform contextual checking.
