@@ -58,7 +58,7 @@ Webtask containers can make use of a wide range of [`npm`](https://www.npmjs.com
 By default, a large list of publicly available npm modules are [supported out-of-the-box](https://auth0-extensions.github.io/canirequire/). This list has been compiled and vetted for any potential security concerns. If you require an npm module that is not supported out-of-the-box, then a request can be made via the [Auth0 support](https://support.auth0.com/) portal or via your Auth0 representative. Auth0 will evaluate your request to determine suitability. There is currently no support in Auth0 for the use of npm modules from private repositories.
 
 ::: panel Best Practice
-When using `npm` modules to access external services it’s recommended best practice to [keep API requests to a minimum](#minimize-api-requests), [avoid excessive calls to paid services](#limit-calls-to-paid-services), and avoid potential security exposure by [limiting what is sent](don-t-send-entire-context-object-to-external-services). For more information on this see the [performance](#performance) and [security](#security) sections below.
+When using `npm` modules to access external services it’s recommended best practice to [keep API requests to a minimum](#minimize-api-requests), [avoid excessive calls to paid services](#limit-calls-to-paid-services), and avoid potential security exposure by [limiting what is sent](#don-t-send-entire-context-object-to-external-services). For more information on this see the [performance](#performance) and [security](#security) sections below.
 :::
 
 ### Environment variables
@@ -168,7 +168,7 @@ The [`context`](/rules/references/context-object) object provides information ab
 ```
 
 ::: warning
-It’s recommended best practice to [avoid using contextual logic for Multi-Factor Authentication](#context-checking-for-multi-factor-authentication-mfa-). For example, **serious security flaws** can surface if use of MFA is predicated on `context.request.query.prompt === 'none'`. Additionally, the contents of the `context` object is **security sensitive**, so you should [**not** directly pass the object to any external or third-party service](#don-t-send-entire-context-object-to-external-services).
+We highly recommended reviewing best practices when [using contextual logic for Multi-Factor Authentication checking](#context-checking-for-multi-factor-authentication-mfa-) (see below for further details). For example, **serious security flaws** can surface if use of MFA is predicated on `context.request.query.prompt === 'none'`. In addition, the contents of the `context` object is **security sensitive**, so you should [**not** directly pass the object to any external or third-party service](#don-t-send-entire-context-object-to-external-services).
 :::
 
 #### Redirection
@@ -550,67 +550,15 @@ For further explanation see the **Check if user email domain matches configured 
 
 [Multi-Factor Authentication (MFA)](/multifactor-authentication) provides an additional layer of security in order to guard against unautorized access. From a user experience perspecive this typically requires additional user interaction to provide a second authentication factor - typically presenting some additional credential, or authorizing some form of access request. 
 
-There are situations when it may be seen as desirable to bypass an MFA request. For instance, it maybe desirable to bypass MFA if a user is logging in from a particular location, or if a user has already presented both primary and secondary factors as part of authenticating to the current browser context. However, this can open up security loop-holes which could lead to MFA being skipped and serious subsequent security breaches. We therefore recommend that you follow our guidance for [implementing contextual MFA](/multifactor-authentication/custom#implementing-contextual-mfa), and **do not recommend** that you attempt to base use of MFA on any of the following:        
+There are situations when it may be seen as desirable to bypass an MFA request. For instance, it maybe desirable to bypass MFA if a user has already presented both primary and secondary factors as part of authenticating to the current browser context. Contextual MFA checking can improve the user experience however, if not done properly, can open up serious security loop-holes which could lead to MFA being skipped and subsequent security breaches. We therefore recommend that you **do not** attempt to base use of MFA on any of the following:        
 
 ::: panel Best Practice
-As a best practice we recommend that, if you have any MFA-related rules based on the following, you remove the conditional logic and use the `allowRememberBrowser` parameter instead. Setting `allowRememberBrowser` to true lets users check a box so they will only be [prompted for multi-factor authentication periodically](/multifactor-authentication/custom#change-the-frequency-of-authentication-requests).
+As a best practice, we recommend that if you have any MFA-related rule logic similar to that described in the the list below, that **you remove said logic** and use `allowRememberBrowser` or the `context.authentication` instead. Setting `allowRememberBrowser` to true lets users check a box so they will only be [prompted for multi-factor authentication periodically](/multifactor-authentication/custom#change-the-frequency-of-authentication-requests).
 :::
 
-Silent authentication (or `prompt === 'none'`):
-
-```js
-function (user, context, callback) {
-  if (context.request.query && context.request.query.prompt === 'none') {
-    // skip MFA for silent token requests
-    return callback(null, user, context);
-  }
-	  .
-	  .
-}
-```
-
-Device fingerprint:
-
-```js
-function (user, context, callback) {
-  var deviceFingerPrint = getDeviceFingerPrint();
-  user.app_metadata = user.app_metadata || {};
-
-  // Inadequate verification check
-  if (user.app_metadata.lastLoginDeviceFingerPrint !==  deviceFingerPrint) {
-    user.app_metadata.lastLoginDeviceFingerPrint = deviceFingerPrint;
-    context.multi-factor = {
-		  .
-		  .
-    };
-  }
-  function getDeviceFingerPrint() {
-    var shasum = crypto.createHash('sha1');
-    shasum.update(context.request.userAgent);
-    shasum.update(context.request.ip);
-    return shasum.digest('hex');
-  }
-}
-```
-
-Geolocation:
-
-```js
-function (user, context, callback) {
-  user.app_metadata = user.app_metadata || {};
-
-  // Inadequate verification check
-  if (user.app_metadata.last_location !== context.request.geoip.country_code) {
-    user.app_metadata.last_location = context.request.geoip.country_code;
-    context.multi-factor = {
-		  .
-		  .
-    };
-  }
-	  .
-	  .
-}
-```
+* conditional logic based on use of `context.request.query.prompt === 'none'`
+* conditional logic based on some device fingerprinting, e.g where `user.app_metadata.lastLoginDeviceFingerPrint !==  deviceFingerPrint`
+* conditional logic based on geographic location, e.g. where `user.app_metadata.last_location !== context.request.geoip.country_code`
 
 #### Context checking when using custom MFA providers
 
