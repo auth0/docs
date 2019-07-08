@@ -376,9 +376,9 @@ const updateUI = async () => {
 
     document.getElementById(
       "ipt-access-token"
-    ).value = await auth0.getTokenSilently();
+    ).innerHTML = await auth0.getTokenSilently();
 
-    document.getElementById("ipt-user-profile").value = JSON.stringify(
+    document.getElementById("ipt-user-profile").innerHTML = JSON.stringify(
       await auth0.getUser()
     );
 
