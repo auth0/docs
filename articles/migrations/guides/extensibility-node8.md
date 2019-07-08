@@ -153,8 +153,9 @@ The login URL for **Users**:
 
 ### All Extensions
 
-Most of the extensions are using `PUBLIC_WT_URL` hidden secret for authorization cause. This secret depends on the runtime version and does not update automatically.
-To update it, you need to save the extension's settings (no changes are necessary). For doing so, after switching runtime to `Node 8`, you need to open the extension's settings in the extensions dashboard (gear icon) and hit `Save`. After that, the extensions gallery will update the `PUBLIC_WT_URL` secret accordingly to the selected runtime.
+Most extensions use the `PUBLIC_WT_URL` hidden secret for authorization. This secret depends on the runtime version and does not update automatically.
+
+To update it, you need to save the extension's settings (no changes are necessary). To do so, after switching the runtime to `Node 8`, you need to open the extension's settings in the extensions dashboard (gear icon) and hit `Save`. After that, the extensions gallery will update the `PUBLIC_WT_URL` secret accordingly based on the selected runtime.
 
 ## How to ensure a stable migration
 
