@@ -14,6 +14,9 @@ articles:
     url: "/getting-started"
     children:
 
+      - title: "Learn the Basics"
+        url: "/getting-started/the-basics"
+
       - title: "Dashboard Overview"
         url: "/getting-started/dashboard-overview"
 
@@ -42,6 +45,9 @@ articles:
       - title: "Set Up Multiple Environments"
         url: "/dev-lifecycle/setting-up-env"
         hidden: true
+
+      - title: "Deployment Models"
+        url: "/getting-started/deployment-models"
 
 ## ------------------------------------------------------------
 ## LOGIN
