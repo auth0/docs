@@ -80,7 +80,7 @@ articles:
         url: /guides/login/universal-vs-embedded
 
       - title: Embedded Login
-        url: "/login/embedded-login"
+        url: "/login/embedded"
         children:
 
           - title: Lock for Web
