@@ -103,14 +103,14 @@ Learn how to get and validate an ID Token in JSON Web Token (JWT) format.
   </li>
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>3:15</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>4:00</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/07_01-brand-how-it-works">Brand: How It Works</a>
     <p>Why your branding is important for your users and how it works with Auth0. </p>
   </li>
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>3:48</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>2:20</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/07_02-brand-signup-login-pages">Brand: Sign Up and Login Pages</a>
     <p>How to use Universal Login to customize your sign up and login pages. </p>
