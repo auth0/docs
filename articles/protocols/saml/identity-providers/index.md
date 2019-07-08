@@ -12,10 +12,10 @@ useCase: customize-connections
 # SAML Identity Providers
 
 <%= include('../../../_includes/_topic-links', { links: [
-  'protocols/saml/identity-providers/okta',
-  'protocols/saml/identity-providers/onelogin',
-  'protocols/saml/identity-providers/ping7',
-  'protocols/saml/identity-providers/salesforce',
-  'protocols/saml/identity-providers/siteminder',
-  'protocols/saml/identity-providers/ssocircle'
+'protocols/saml/identity-providers/okta',
+'protocols/saml/identity-providers/onelogin',
+'protocols/saml/identity-providers/ping7',
+'protocols/saml/identity-providers/salesforce',
+'protocols/saml/identity-providers/siteminder',
+'protocols/saml/identity-providers/ssocircle'
 ] }) %>

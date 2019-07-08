@@ -14,7 +14,7 @@ To avoid errors due to network latency, you should start counting each interval 
     { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "text": "{\"grant_type\":\"urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Adevice_code\",\"device_code\": \"YOUR_DEVICE_CODE\", \"client_id\": \"${account.clientId}\" }"
+    "text": "{\"grant_type\":\"urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Adevice_code\",\"device_code\": \"YOUR_DEVICE_CODE\", \"client_id\": ${account.clientId} }"
   }
 }
 ```

@@ -193,13 +193,13 @@ articles:
     children:
 
       - title: Social Identity Providers
-        url: "/identityproviders#social"
+        url: "/connections#social"
 
       - title: Enterprise Identity Providers
-        url: "/identityproviders#enterprise"
+        url: "/connections#enterprise"
 
       - title: Legal Identity Providers
-        url: "/identityproviders#legal"
+        url: "/connections#legal-identity"
       
       - title: Database
         url: /connections/database
@@ -248,7 +248,7 @@ articles:
     children:
 
       - title: Authorization Flows
-        url: /authorization/flows
+        url: /flows
         children:
 
           - title: Authorization Code
@@ -265,7 +265,7 @@ articles:
             children:
 
               - title: Mitigate Replay Attacks
-                url: /flows/mitigate-replay-attacks
+                url: /api-auth/tutorials/nonce
 
       - title: "Role-based Access Control (RBAC)"
         url: "/authorization/concepts/rbac"

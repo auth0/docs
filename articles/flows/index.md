@@ -29,7 +29,7 @@ We support scenarios for server-side, mobile, desktop, client-side, machine-to-m
   * [Add Login Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce)
   * [Call API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce)
   
-* [Single-Page App Login Flow](/flows/concepts/implicit)
+* [Implicit Flow](/flows/concepts/implicit)
   * [Add Login Using the Implicit Flow](/flows/guides/implicit/add-login-implicit)
   * [Call API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit)
 

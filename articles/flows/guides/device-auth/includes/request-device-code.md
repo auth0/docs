@@ -14,7 +14,7 @@ To get the device code, your app must request a code from the [device code URL](
     { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": { 
-    "text" : "{\"client_id\":\"${account.clientId}\",\"scope\":\"SCOPE\",\"audience\":\"AUDIENCE\" }"
+    "text" : "{\"client_id\":${account.clientId},\"scope\":\"SCOPE\",\"audience\":\"AUDIENCE\" }"
   }
 }
 ```

@@ -20,11 +20,11 @@ Now that you have an Authorization Code, you must exchange it for tokens. Using 
       },
       {
         "name": "client_id",
-        "value": "${account.clientId}"
+        "value": ${account.clientId}
       },
       {
         "name": "client_secret",
-        "value": "YOUR_CLIENT_SECRET"
+        "value": ${account.clientSecret}
       },
       {
         "name": "code",
@@ -32,7 +32,7 @@ Now that you have an Authorization Code, you must exchange it for tokens. Using 
       },
       {
         "name": "redirect_ui",
-        "value": "https://${account.callback}"
+        "value": "https://" + ${account.callback}
       }
     ]
   }

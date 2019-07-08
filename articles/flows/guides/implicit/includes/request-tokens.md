@@ -24,15 +24,15 @@ Now that you have an authorization code, you can exchange it for tokens. The Acc
       },
       {
         "name": "client_id",
-        "value": "${account.clientId}"
+        "value": ${account.clientId}
       },
       {
         "name": "client_secret",
-        "value": "YOUR_CLIENT_SECRET"
+        "value": ${account.clientSecret}
       },
       {
         "name": "redirect_uri",
-        "value": "${account.callback}"
+        "value": ${account.callback}
       }
     ]
   }

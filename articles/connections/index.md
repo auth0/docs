@@ -40,7 +40,7 @@ Auth0 supports the following social providers out of the box. You can also use a
 <% var enterpriseConnections = cache.find('articles/connections/enterprise', {sort: 'index'}); %>
 <%= include('./_connections', { connections: enterpriseConnections }) %>
 
-## Legal Identities
+## Legal Identity
 
 Through our partner, Criipto, we offer a growing range of government and bank identities tied to legal persons. 
 
