@@ -562,4 +562,4 @@ As a recommended best practice, use of `allowRememberBrowser` or `context.authen
 
 #### Context checking when using custom MFA providers
 
-In a similar fashion to that already discussed, we recommend follwoing the guidance provided in the items listed above for any rules that redirect users to custom multi-factor authentication providers. For example, for custom providers there's no safe way to effectively bypass MFA during silent authentication, as [redirection](#redirection) (required for custom MFA) will always fail in silent authentication situations.
+In a similar fashion to that already discussed, we recommend following guidance provided in the items listed above for any rules that redirect users to custom multi-factor authentication providers. For example, for custom providers there's no safe way to effectively bypass MFA during silent authentication as [redirection](#redirection) (required for custom MFA) will always fail in silent authentication situations.
