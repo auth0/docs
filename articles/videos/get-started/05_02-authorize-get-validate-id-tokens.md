@@ -32,13 +32,13 @@ Learn how to get and validate an ID Token in JSON Web Token (JWT) format.
   
   Where `MY_NAMESPACE` is any domain except `auth0.com`, `webtask.io`, or `webtask.run`.  `CLAIM_NAME` can be anything you want. Some examples: `http://example.com/role` or `https://example.com/claims/locale`.
 
-  The ID Token acts as a cache for user information and by default, the token is valid for 36,000 seconds - or 10 hours. You can shorten this lifetime limit if you have security concerns. Remember, that the ID Token helps ensure optimal performance by reducing the need to contact the Identity Provider every time the user performs an action.
+  The ID Token acts as a *cache* for user information and by default, the token is valid for 36,000 seconds - or 10 hours. You can shorten this lifetime limit if you have security concerns. Remember, that the ID Token helps ensure optimal performance by reducing the need to contact the Identity Provider every time the user performs an action.
 </details>
 
 <details>
   <summary>ID Token format</summary>
 
-  Auth0 generates the ID Token in JSON Web Token, or JWT, format. A JWT is an open, industry standard  RFC 7519 method for representing claims securely between two parties. At Auth0, ID Tokens are always returned in JWT format, and Access Tokens can be either JWT format or opaque strings depending on the context. 
+  Auth0 generates the ID Token in JSON Web Token, or *JWT* format. A JWT is an open, industry standard RFC 7519 method for representing claims securely between two parties. At Auth0, ID Tokens are always returned in JWT format, and Access Tokens can be either JWT format or opaque strings depending on the context. 
 
   A correctly formatted JWT consists of three concatenated base64url-encoded strings, separated by dots.
 
@@ -58,7 +58,7 @@ Learn how to get and validate an ID Token in JSON Web Token (JWT) format.
 
   To check that the JWT format is correct, your application should parse the ID Token to make sure it conforms to the established structure of a JWT.  Your language specific SDK should have a method for validating the JWT.  Make sure this method actually checks the `aud`, `iss`, `exp`, and `nonce` (where applicable) claims, and validates the signature.
 
-  You can decode well-formed JWTs at using the jwt.io debugger to view their claims. 
+  You can decode well-formed JWTs at using the [jwt.io](https://jwt.io) debugger to view the claims. 
 </details>
 
 <details>
@@ -66,21 +66,21 @@ Learn how to get and validate an ID Token in JSON Web Token (JWT) format.
 
   Next, you need to verify that the standard claims and any custom claims you’ve added are in the payload. Remember it should contain some or all of the following items (depending on which openid scopes you requested): `name`, `email`, `picture`, `nonce`, `sub`, `iss`, `aud`, and `exp`.
 
-  Make sure the token expiration, named exp, which is a Unix timestamp, is set to be after the current date and time and matches what you require for token lifetime. 
+  * Make sure the token expiration, named `exp`, which is a Unix timestamp, is set to be after the current date and time and matches what you require for token lifetime. 
 
-  Make sure the token issuer, named `iss`, matches the issuing authority identified in your Auth0 tenant’s discovery document which you can find at `https://YOUR_DOMAIN/.well-known/openid-configuration`. 
+  * Make sure the token issuer, named `iss`, matches the issuing authority identified in your Auth0 tenant’s discovery document which you can find at `https://YOUR_DOMAIN/.well-known/openid-configuration`. 
 
-  Make sure that the token audience, named `aud`, is the correct recipient for which the token is intended. The value must match the client ID of your Auth0 application.
+  * Make sure that the token audience, named `aud`, is the correct recipient for which the token is intended. The value must match the client ID of your Auth0 application.
   
-  The nonce claim is recommended (required for implicit flow) to pass in a single unique identifier when redirecting to Auth0 to authenticate, and helps in the prevention of replay attack scenarios.
+  * The nonce claim is recommended (required for implicit flow) to pass in a single unique identifier when redirecting to Auth0 to authenticate, and helps in the prevention of replay attack scenarios.
 
-  There are also other claims which are used in specific use case scenarios.
+  * There are also other claims which are used in specific use case scenarios.
 </details>
 
 <details>
   <summary>Verify the ID Token signature</summary>
 
-  To verify the ID Token’s signature, you will need to base64url-decode the signature. You can check the signing algorithm and confirm that the token is correctly signed using the proper key.  We recommend you use an SDK to validate the signature, and https://jwt.io provides a list of SDKs that can be used for this purpose.
+  To verify the ID Token’s signature, you will need to base64url-decode the signature. You can check the signing algorithm and confirm that the token is correctly signed using the proper key.  We recommend you use an SDK to validate the signature, and [jwt.io](https://jwt.io) provides a list of SDKs that can be used for this purpose.
 </details>
 
 <details>
