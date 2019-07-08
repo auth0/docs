@@ -4,7 +4,7 @@ classes: video-page
 ---
 # Authenticate: How It Works
 
-Learn about the difference between authentication, authorization, and access control. Understand when and why you might use each type authentication method: First factors, second factors, and multi-factor. Learn about the OpenID Connect authentication protocol.   
+Learn about the difference between authentication, authorization, and access control. Understand when and why you might use each type of authentication method: First factors, second factors, and multi-factor. Learn about the OpenID Connect authentication protocol.   
 
 <div class="video-wrapper" data-video="suw4dsi0g8"></div>
 
@@ -13,9 +13,9 @@ Learn about the difference between authentication, authorization, and access con
 <details>
   <summary>Introduction</summary>
 
-  Before you can provide services to your users through your applications, you need to identify who they are, and that process is called user authentication. 
+  Before you can provide services to your users through your applications, you need to identify who they are, and that process is called *user authentication*. 
 
-  In this video, we will show you a few ways to go about this. For example, you can authenticate users via their social media accounts or with their usernames and passwords. You can add an additional level of certainty about their identities with a second authentication factor - this is called Multi-factor Authentication.
+  In this video, we will show you a few ways to go about this. For example, you can authenticate users via their social media accounts or with their usernames and passwords. You can add an additional level of certainty about their identities with a second authentication factor - this is called *Multi-factor Authentication* (MFA).
 
   Before you start, think about security and user experience, if you want to offer multiple primary authentication methods, and if you want to add multi-factor authentication. Planning how you want the authentication process to work before you do the steps required to implement the actual authentication is critical because it will determine how you configure your application integration.
 
@@ -28,11 +28,11 @@ Learn about the difference between authentication, authorization, and access con
   It’s important to distinguish between Authentication, Authorization, and Access Control. Your Auth0 tenant, the Authorization Server, is responsible for Authentication and some or all of Authorization. Access Control is the responsibility of the API or Application itself because access control is almost always contextual.
 
   So, to summarize:  
-  * Authentication is the process of determining if the user is who they say they are
-  * Authorization is declaring what that user is allowed to do in the system
-  * Access Control is limiting a user to only perform actions they are allowed to do based on a combination of their identity, their authorization information, and their consent.
+  * **Authentication** is the process of determining if the user is who they say they are
+  * **Authorization** is declaring what that user is allowed to do in the system
+  * **Access Control** is limiting a user to only perform actions they are allowed to do based on a combination of their identity, their authorization information, and their consent.
 
-  In this video, we are only going to focus on Authentication, we will address the other options such as MFA in a separate video. There are different types of connections you can make in the Dashboard that will enable authentication. 
+  In this video, we are only going to focus on authentication, we will address the other options such as MFA in a separate video. There are different types of connections you can make in the Dashboard that will enable authentication. 
 </details>
 
 <details>
@@ -64,7 +64,7 @@ Learn about the difference between authentication, authorization, and access con
 
     * A native and/or mobile application is an application that is installed on a mobile device or desktop OS.  It must call an API to perform actions on the server side as well.
 
-  2. Are you going to need an access token to call a separate API? If your application needs to call a separate API, then you will need to do some extra work after the quickstart to enable your SDK to get you an access token.  You can learn more about that in the video that discusses Authorization.
+  2. Are you going to need an access token to call a separate API? If your application needs to call a separate API, then you will need to do some extra work after the quickstart to enable your SDK to get you an access token. You can learn more about that in the video that discusses Authorization.
 
   In the next video, we are going to show you how to use a quickstart guide to integrate a javascript single-page app and a backend. 
 </details>
@@ -74,7 +74,7 @@ Learn about the difference between authentication, authorization, and access con
 <ul class="up-next">
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>6:58</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>7:01</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/04_02-authenticate-spa-example">Authenticate: SPA Example</a>
     <p>An example using the Auth0 Quickstart for a SPA implementation with Auth0 Universal Login. </p>
@@ -143,14 +143,14 @@ Learn about the difference between authentication, authorization, and access con
   </li>
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>2:15</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>2:14</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/02-provision-user-stores">Provision: User Stores</a>
     <p>How user profiles are provisioned within an Auth0 tenant.</p>
   </li>
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>10:03</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>10:00</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/03-provision-import-users">Provision: Import Users</a>
     <p>How to move existing users to an Auth0 user store using automatic migration, bulk migration, or both.</p>

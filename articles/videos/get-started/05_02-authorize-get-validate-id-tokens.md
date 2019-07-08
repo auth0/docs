@@ -24,7 +24,7 @@ Learn how to get and validate an ID Token in JSON Web Token (JWT) format.
 <details>
   <summary>Obtain an ID Token</summary>
 
-  The first step is to obtain the ID token by authenticating the user.  The previous video on authentication demonstrates how to do this.  The best approach is to use your language specific SDK to redirect the user to your Auth0 tenant to authenticate the user.  Then Auth0 will redirect the user back to your callback URL with the ID token (or a code to fetch the ID token).
+  The first step is to obtain the ID token by authenticating the user. The previous video on authentication demonstrates how to do this. The best approach is to use your language specific SDK to redirect the user to your Auth0 tenant to authenticate the user. Then Auth0 will redirect the user back to your callback URL with the ID token (or a code to fetch the ID token).
 
   You can then add custom claims to the token using Auth0 Rules as we mentioned. The claim name must conform to a namespaced format something similar to the following: 
 
@@ -144,28 +144,28 @@ Learn how to get and validate an ID Token in JSON Web Token (JWT) format.
   </li>
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>2:15</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>2:14</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/02-provision-user-stores">Provision: User Stores</a>
     <p>How user profiles are provisioned within an Auth0 tenant.</p>
   </li>
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>10:03</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>10:00</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/03-provision-import-users">Provision: Import Users</a>
     <p>How to move existing users to an Auth0 user store using automatic migration, bulk migration, or both.</p>
   </li>
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>5:53</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>5:57</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/04_01-authenticate-how-it-works">Authenticate: How It Works</a>
     <p>How user authentication works and various ways to accomplish it with Auth0.</p>
   </li>
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>6:58</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>7:01</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/04_02-authenticate-spa-example">Authenticate: SPA Example</a>
     <p>An example using the Auth0 Quickstart for a SPA implementation with Auth0 Universal Login. </p>

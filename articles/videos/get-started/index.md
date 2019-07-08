@@ -17,7 +17,7 @@ topics:
 ---
 # Get Started with Auth0 Video Series
 
-[![Get Started with Auth0](/media/articles/videos/architecture-your-tenant.jpg)](/videos/get-started/01-architecture-your-tenant)
+In this video series, learn how easy it is to get started implementing Auth0 features with your applications. See examples and walk-through basic set up and configuration tasks.
 
 <p>&nbsp;</p>
 
@@ -30,28 +30,28 @@ topics:
   </li>
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>2:15</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>2:14</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/02-provision-user-stores">Provision: User Stores</a>
     <p>How user profiles are provisioned within an Auth0 tenant.</p>
   </li>
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>10:03</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>10:00</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/03-provision-import-users">Provision: Import Users</a>
     <p>How to move existing users to an Auth0 user store using automatic migration, bulk migration, or both.</p>
   </li>
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>5:53</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>5:57</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/04_01-authenticate-how-it-works">Authenticate: How It Works</a>
     <p>How user authentication works and various ways to accomplish it with Auth0.</p>
   </li>
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>6:58</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>7:01</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/04_02-authenticate-spa-example">Authenticate: SPA Example</a>
     <p>An example using the Auth0 Quickstart for a SPA implementation with Auth0 Universal Login. </p>

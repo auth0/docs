@@ -19,7 +19,7 @@ Learn how user profiles are provisioned within an Auth0 tenant. Users can come f
 
   * Database connections solve many traditional username and password based scenarios. By default, Auth0 offers identity storage out of the box that can be leveraged to manage the burden of storing user credentials safely and securely. Auth0 is also capable of providing proxies to existing legacy identity stores.
 
-  * Social connections give users a simplified registration and login experience by using an existing authentication from a social network provider like Facebook, Twitter, or Google. Not only are popular social networks supported but close to 40 business, professional and industry-based connections are available. In fact, any OAuth2 conformant identity provider can be configured as a user store.
+  * Social connections give users a simplified registration and login experience by using an existing authentication from a social network provider like Facebook, Twitter, or Google. Not only are popular social networks supported but close to 40 business, professional and industry-based connections are available. In fact, any OAuth2-conformant identity provider can be configured as a user store.
 
   * Finally, Enterprise connections allow business customers or partners to manage their own users within an Auth0 tenant. This is a very powerful feature that allows any set of businesses to collaborate in a secure way. 
 </details>
@@ -31,21 +31,21 @@ Learn how user profiles are provisioned within an Auth0 tenant. Users can come f
 
   Now let’s dive a little deeper and discover how to establish each type of user store connection directly in the Auth0 Dashboard. This can be accomplished independently of any modifications or implementation within an application.
 
-  First, let’s take a look at how to jump right in and authenticate users via username and password using infrastructure provided by Auth0. Out of the box, each Auth0 tenant is preconfigured with an authentication database connection. This connection provides the best performance for the authentication process since all data is stored in Auth0.
+  First, let’s take a look at how to jump right in and authenticate users via username and password using infrastructure provided by Auth0. Out-of-the-box, each Auth0 tenant is preconfigured with an authentication database connection. This connection provides the best performance for the authentication process since all data is stored in Auth0.
 
   The Auth0-hosted database is highly secure. Passwords are never stored or logged in plain text but are hashed with bcrypt. Varying levels of password security requirements can also be enforced.
 
-  The default database can be found on the Auth0 Dashboard for your tenant. From the Dashboard, click the Connections link in the left-hand navigation menu which will expand a list of the available connection types. Click Database and a list of all database connections will be displayed.
+  The default database can be found on the Auth0 Dashboard for your tenant. From the Dashboard, click the **Connections** link in the left-hand navigation menu which will expand a list of the available connection types. Click **Database** and a list of all database connections will be displayed.
 
   As you can see, a database connection named **Username-Password-Authentication** is already available. By clicking the name of the connection we are taken to the configuration section for this database.
 
-  The database configuration is split into a series of tabs: Settings, Password Policy, Custom Database, Applications and Try Connection.
+  The database configuration is split into a series of tabs: **Settings**, **Password Policy**, **Custom Database**, **Applications**, and **Try Connection**.
 
   By default, database connections authenticate users using their email and password. If you require the use of usernames, it can be enabled on the settings tab as well as setting minimum and maximum lengths for the username.
 
   There is also the ability to disable new user sign ups. This prevents new accounts from being created in the database by user-facing dialogs. Users can still be created using the Management API or directly in the Dashboard. 
 
-  There is also a way to completely delete this database. Be careful though, as is mentioned this is a destructive operation that is not reversible.
+  There is also a way to completely delete this database. Be careful though, as is mentioned, this is a destructive operation that is not reversible.
 </details>
 
 <details>
@@ -67,7 +67,7 @@ Learn how user profiles are provisioned within an Auth0 tenant. Users can come f
 <details>
   <summary>Custom Database</summary>
 
-  The custom database tab allows you to configure this database connection to connect to an external database that is not managed by Auth0. This is useful for organizations who have data retention policies that do not allow external storage of data. For information on configuring a custom database connection, see the documentation linked below.
+  The **Custom Database** tab allows you to configure this database connection to connect to an external database that is not managed by Auth0. This is useful for organizations who have data retention policies that do not allow external storage of data. For information on configuring a custom database connection, see the documentation linked below.
 
   I will talk more about custom database connections in a future video.
 </details>
@@ -75,13 +75,13 @@ Learn how user profiles are provisioned within an Auth0 tenant. Users can come f
 <details>
   <summary>Applications</summary>
 
-  The applications tab show us a list of applications that are currently using this database connection. Enabling or disabling an apps ability to use this connection is as simple a flipping a switch.
+  The **Applications** tab show us a list of applications that are currently using this database connection. Enabling or disabling an apps ability to use this connection is as simple a flipping a switch.
 </details>
 
 <details>
   <summary>Try connection</summary>
 
-  Finally, the try connection tab will allow us to try out the database connection in a special test application configured just for this connection.
+  Finally, the **Try Connection** tab will allow us to try out the database connection in a special test application configured just for this connection.
 
   Using this test application, we can verify all of our settings work as expected. Successfully authenticating will take us to a success page showing the user profile data that will be provided to applications using this database connection.
 
@@ -97,7 +97,7 @@ Learn how user profiles are provisioned within an Auth0 tenant. Users can come f
 
   Social logins bring single sign-on semantics to end users. Using existing login information from a social network provider like Facebook, Twitter, or Google, the user can sign into an application instead of creating a new account specifically for that application. This simplifies registrations and logins for end users.
 
-  Social login connections can be found on the Auth0 Dashboard. From the Dashboard, click the Connections link in the left-hand navigation menu which will expand a list of the available connection types. Click Social and a list of all available social connections will be displayed.
+  Social login connections can be found on the Auth0 Dashboard. From the Dashboard, click the **Connections** link in the left-hand navigation menu which will expand a list of the available connection types. Click **Social** and a list of all available social connections will be displayed.
 </details>
 
 ## Up next
@@ -105,21 +105,21 @@ Learn how user profiles are provisioned within an Auth0 tenant. Users can come f
 <ul class="up-next">
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>10:03</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>10:00</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/03-provision-import-users">Provision: Import Users</a>
     <p>How to move existing users to an Auth0 user store using automatic migration, bulk migration, or both.</p>
   </li>
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>5:53</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>5:57</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/04_01-authenticate-how-it-works">Authenticate: How It Works</a>
     <p>How user authentication works and various ways to accomplish it with Auth0.</p>
   </li>
 
   <li>
-    <span class="video-time"><i class="icon icon-budicon-494"></i>6:58</span>
+    <span class="video-time"><i class="icon icon-budicon-494"></i>7:01</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/04_02-authenticate-spa-example">Authenticate: SPA Example</a>
     <p>An example using the Auth0 Quickstart for a SPA implementation with Auth0 Universal Login. </p>
