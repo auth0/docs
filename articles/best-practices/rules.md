@@ -168,7 +168,7 @@ The [`context`](/rules/references/context-object) object provides information ab
 ```
 
 ::: warning
-We highly recommended reviewing best practices when [using contextual logic for Multi-Factor Authentication checking](#context-checking-for-multi-factor-authentication-mfa-) (see below for further details). For example, **serious security flaws** can surface if use of MFA is predicated on `context.request.query.prompt === 'none'`. In addition, the contents of the `context` object is **security sensitive**, so you should [**not** directly pass the object to any external or third-party service](#don-t-send-entire-context-object-to-external-services).
+We highly recommended reviewing best practices when [utilizing contextual bypass logic for Multi-Factor Authentication checking](#contextual-bypass-for-multi-factor-authentication-mfa-) (see below for further details). For example, **serious security flaws** can surface if use of MFA is predicated on `context.request.query.prompt === 'none'`. In addition, the contents of the `context` object is **security sensitive**, so you should [**not** directly pass the object to any external or third-party service](#don-t-send-entire-context-object-to-external-services).
 :::
 
 #### Redirection
@@ -546,20 +546,20 @@ const userEmailDomain = emailSplit[emailSplit.length - 1].toLowerCase();
 
 For further explanation see the **Check if user email domain matches configured domain rule template** [on GitHub](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or via the [Auth0 dashboard](${manage_url}/#/rules/new).
 
-### Context checking for Multi-Factor Authentication (MFA)
+### Contextual bypass for Multi-Factor Authentication (MFA)
 
 [Multi-Factor Authentication (MFA)](/multifactor-authentication) provides an additional layer of security in order to guard against unauthorized access. From a user experience perspective, this typically requires additional user interaction to provide a second authentication factor - i.e. typically presenting some additional credential(s), or authorizing some form of access request. 
 
-There are situations though when it may be desirable to bypass an MFA request. For instance, it maybe desirable to bypass MFA if a user has already presented both primary and secondary factors as part of authentication in the current browser context. Contextual MFA checking in this way can help improve the user experience. However, if not done properly, it can open up serious security loop-holes which could lead to subsequent security breaches due to MFA being skipped. We therefore recommend that you **do not** attempt to base bypass of MFA on any of the following:        
+There are situations though when it may be desirable to bypass MFA for a user who has been designated as requiring multi-factor authentcation. For instance, it maybe desirable to bypass MFA if a user has already presented both primary and secondary factors as part of authentication in the current browser context. Contextual checking in this way can help improve the user experience. However, if not done properly, it can open up serious security loop-holes which could lead to subsequent security breaches due to MFA being skipped. We therefore recommend that you observe the following guidance when considering whether to employ contextual bypass of MFA or not:        
 
 ::: panel Best Practice
-As a best practice, we recommend that if you have any MFA-related rule logic similar to that described in the the list below, that **you remove said logic** in favor of using `allowRememberBrowser` or `context.authentication` instead. Setting `allowRememberBrowser` to `true` lets users check a box so they will only be [prompted for multi-factor authentication periodically](/multifactor-authentication/custom#change-the-frequency-of-authentication-requests), whereas [`context.authentication`](/rules/references/context-object) can be used safely and accurately to determine when MFA was last performed in the current browser context. You can see sample use of `context.authentication` in the out-of-box supplied rule, [Require MFA once per session](https://github.com/auth0/rules/blob/master/src/rules/require-mfa-once-per-session.js).
+As a recommended best practice, use of `allowRememberBrowser` or `context.authentication` should be the only options considered for contextual bypass when using out-of-box MFA. Setting `allowRememberBrowser` to `true` lets users check a box so they will only be [prompted for multi-factor authentication periodically](/multifactor-authentication/custom#change-the-frequency-of-authentication-requests). Whereas [`context.authentication`](/rules/references/context-object) can be used safely and accurately to determine when MFA was last performed in the current browser context; you can see some sample use of `context.authentication` in the out-of-box supplied rule, [Require MFA once per session](https://github.com/auth0/rules/blob/master/src/rules/require-mfa-once-per-session.js).
 :::
 
-* don't bypass MFA based on conditional logic based of the form `context.request.query.prompt === 'none'`
-* don't bypass MFA based on conditional logic using some form of device fingerprinting, e.g where `user.app_metadata.lastLoginDeviceFingerPrint ===  deviceFingerPrint`
-* don't bypass MFA based on conditional logic using geographic location, e.g. where `user.app_metadata.last_location === context.request.geoip.country_code`
+* **do not perform MFA bypass** based on conditional logic related to [silent authentication](/api-auth/tutorials/silent-authentication), e.g. `context.request.query.prompt === 'none'`
+* **do not perform MFA bypass** based on conditional logic using some form of device fingerprinting, e.g where `user.app_metadata.lastLoginDeviceFingerPrint ===  deviceFingerPrint`
+* **do not perform MFA bypass** based on conditional logic using geographic location, e.g. where `user.app_metadata.last_location === context.request.geoip.country_code`
 
 #### Context checking when using custom MFA providers
 
-In a similar fashion to that already discussed, we recommend that you **do not** implement any of the conditional logic items listed above in rules that redirect users to custom multi-factor authentication providers. For custom providers, there is no safe way to effectively determine if/when to bypass MFA as there is no consistently accurately way to perform contextual checking.
+In a similar fashion to that already discussed, we **recommend against** the use of any of the conditional logic items listed above for any rules that redirect users to custom multi-factor authentication providers. For example, for custom providers there's no safe way to effectively bypass MFA in silent authentication situations as [redirection](#redirection) will always fail.
