@@ -4,7 +4,7 @@ classes: video-page
 ---
 # Brand: How It Works
 
-Learn how branding works with Auth0 and how to add your company name and logo as well as choose colors for your pages.
+Learn how branding works with Auth0. Add your company name and logo, and choose colors for your pages.
 
 <div class="video-wrapper" data-video="e2gdvmgruy"></div>
 
@@ -92,7 +92,7 @@ In the next video, we'll look at how to set up Universal Login.
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>8:33</span>
     <i class="video-icon icon icon-budicon-676"></i>
-    <a href="/videos/get-started/01-architecture-your-tenant">Architecture: Your Tenant</a>
+    <a href="/videos/get-started/01-architecture-your-tenant">Architect: Your Tenant</a>
     <p>What an Auth0 tenant is and how to configure it in the Auth0 Dashboard.</p>
   </li>
 

@@ -4,7 +4,7 @@ classes: video-page
 ---
 # Authenticate: How It Works
 
-Learn about the difference between authentication, authorization, and access control. Understand when and why you might use each type of authentication method: First factors, second factors, and multi-factor. Learn about the OpenID Connect authentication protocol.   
+Learn about the difference between authentication, authorization, and access control. Understand when and why you might use each type of authentication method: first factors, second factors, and multi-factor. Learn about the OpenID Connect (OIDC) authentication protocol.   
 
 <div class="video-wrapper" data-video="suw4dsi0g8"></div>
 
@@ -138,7 +138,7 @@ Learn about the difference between authentication, authorization, and access con
   <li>
     <span class="video-time"><i class="icon icon-budicon-494"></i>8:33</span>
     <i class="video-icon icon icon-budicon-676"></i>
-    <a href="/videos/get-started/01-architecture-your-tenant">Architecture: Your Tenant</a>
+    <a href="/videos/get-started/01-architecture-your-tenant">Architect: Your Tenant</a>
     <p>What an Auth0 tenant is and how to configure it in the Auth0 Dashboard.</p>
   </li>
 

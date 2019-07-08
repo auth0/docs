@@ -1624,7 +1624,7 @@ videos:
     url: "/videos/get-started"
     children:
 
-      - title: "Architecture: Your Tenant"
+      - title: "Architect: Your Tenant"
         url: "/videos/get-started/01-architecture-your-tenant"
 
       - title: "Provision: User Stores"
