@@ -1,0 +1,9 @@
+added:
+  -
+    title: "Penetration Testing Policy"
+    tags:
+      - security
+      - policy
+      - penetration testing
+    description: |
+      Update Restrictions for Auth0 Penetration Testing Policy to include Management Dashboard

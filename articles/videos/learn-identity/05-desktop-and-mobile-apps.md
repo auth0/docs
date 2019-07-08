@@ -1,6 +1,7 @@
 ---
 description: Authentication and delegated authorization for desktop and mobile applications and a public client overview.
 classes: video-page
+image: https://cdn2.auth0.com/docs/media/articles/learn-identity/learn-identity-og-image.jpg
 ---
 # Desktop and Mobile Apps
 

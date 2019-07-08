@@ -48,7 +48,7 @@ Set a name for your Application (we will use `Timesheets Mobile`) and select `Na
 
 Click __Create__.
 
-![Create Application](/media/articles/architecture-scenarios/mobile-api/create-application.png)
+![Create Application](/media/articles/architecture-scenarios/mobile-api/create-client.png)
 
 ## Configure the Authorization Extension
 

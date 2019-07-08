@@ -1,11 +1,11 @@
 ---
 title: Authorization
-description: Understand user authorization and related planning considerations for your B2B implementation.
+description: User authorization and related planning considerations for your B2B IAM implementation.
 toc: true
 topics:
     - b2b
     - b2biam
-    - authorization
+    - user-authorization
 contentType: concept
 useCase:
   - user-authorization
@@ -26,7 +26,7 @@ useCase:
 
 <%= include('../../_includes/_authorization/_m2m.md', { platform: 'b2b' }) %>
 
-## Planning
+## Project Planning Guide
 
 <%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 

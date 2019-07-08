@@ -129,6 +129,19 @@ function isLoggedIn(token) {
 function logout() {
   // Remove the idToken from storage
   localStorage.clear();
+  let logoutUrl = new URL('https://${account.namespace}/v2/logout');
+  const params = {
+    client_id: env.AUTH0_CLIENT_ID,
+    returnTo: chrome.identity.getRedirectURL() + 'auth0'
+  };
+  logoutUrl.search = new URLSearchParams(params);
+  chrome.identity.launchWebAuthFlow({
+      'url': logoutUrl.toString()
+    },
+    function(responseUrl) {
+      console.log(responseUrl);
+    }
+  );
   main();
 }
 
@@ -249,9 +262,15 @@ The `Auth0Chrome` constructor takes the **domain** and **client ID** for your ap
 
 Chrome extensions are packaged as `.crx` files for distribution but may be loaded "unpacked" for development. For more information on how to load an unpacked extension, see the [Chrome extension docs](https://developer.chrome.com/extensions/getstarted#unpacked).
 
-When loading your application as an unpacked extension, a unique ID will be generated for it. In your [application settings](${manage_url}/#/applications/${account.clientId}/settings), you must whitelist your callback URL (the URL that Auth0 will return to once authentication is complete) and the allowed origin URL.
+When loading your application as an unpacked extension, a unique ID will be generated for it. In your [application settings](${manage_url}/#/applications/${account.clientId}/settings), you must whitelist your callback URL (the URL that Auth0 will return to once authentication is complete), logout URL and the allowed origin URL.
 
 In the **Allowed Callback URLs** section, whitelist your callback URL.
+
+```bash
+https://<YOUR_EXTENSION_ID>.chromiumapp.org/auth0
+```
+
+In the **Allowed Logout URLs** section, whitelist your `returnTo` URL.
 
 ```bash
 https://<YOUR_EXTENSION_ID>.chromiumapp.org/auth0

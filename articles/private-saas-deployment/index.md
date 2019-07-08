@@ -37,7 +37,7 @@ Here is how the two Private SaaS deployment options compare to each other, as we
 | Pre-Production Environment | Includes fully-isolated and independently updated instance for development and testing | Additional tenants within the same instance as the production tenant available | Additional tenant within the shared environment |
 | Updates | Choice of update frequency to be coordinated with Auth0. Update cycle begins with the Pre-Production Environment | Automatic Monthly Updates | Automatic Updates |
 | Uptime Guarantee | 99.95% SLA with optional upgrade to 99.99% | 99.95% SLA with optional upgrade to 99.99% | 99.90% (no upgrade option available) |
-| Requests per Second | 500 requests per second with optional upgrade to 1500 requests per second | 500 requests per second with optional upgrade to 1500 requests per second | No guaranteed rates |
+| Requests per Second | 500 requests per second with optional upgrade to 1500 requests per second | 500 requests per second with optional upgrade to 1500 requests per second | See [Rate Limit Policy for Auth0 APIs](/policies/rate-limits) |
 | [Data Residency](#data-residency) | Region of Choice | Region of Choice | Not applicable |
 | PCI Certified | Add-on available | Add-on available | No |
 | Geographic High Availability (GEOHA) | Add-on available | No | No |

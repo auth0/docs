@@ -151,6 +151,12 @@ The login URL for **Users**:
 | Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/login` |
 | Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/login` |
 
+### All Extensions
+
+Most extensions use the `PUBLIC_WT_URL` hidden secret for authorization. This secret depends on the runtime version and does not update automatically.
+
+To update it, you need to save the extension's settings (no changes are necessary). To do so, after switching the runtime to `Node 8`, you need to open the extension's settings in the extensions dashboard (gear icon) and hit `Save`. After that, the extensions gallery will update the `PUBLIC_WT_URL` secret accordingly based on the selected runtime.
+
 ## How to ensure a stable migration
 
 As part of the process of introducing Node 8 in our Webtask runtime, we ran a number of tests to determine which modules are not forward-compatible from Node 4 to 8. Most customers _should_ be able to upgrade to Node 8 without any issues.

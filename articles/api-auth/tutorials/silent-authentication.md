@@ -106,14 +106,15 @@ In the case of the [Implicit Flow](/flows/concepts/implicit), the `expires_in` p
 
 The `expires_in` parameter indicates how many seconds the Access Token will be valid for, and can be used to anticipate expiration of the Access Token.
 
+### Error response
+
+You may receive the following error response:
+
+* `timeout`: Timeout during executing web_message communication
+
+This error is typically associated with fallback to cross-origin authentication. To resolve, make sure to add all of the URLs from which you want to perform silent authentication in the **Allowed Web Origins** field for your Application using the Auth0 Dashboard.
+
+
 ## Polling with checkSession()
 
 <%= include('../../_includes/_checksession_polling') %>
-
-### How to implement
-
-Implementation of token renewal will depend on the type of application and framework being used. Sample implementations for some of the common platforms can be found below:
-
-* [Plain JavaScript](/quickstart/spa/vanillajs/05-token-renewal)
-* [React](/quickstart/spa/react/05-token-renewal)
-* [Angular](/quickstart/spa/angular2/05-token-renewal)

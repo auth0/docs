@@ -19,35 +19,31 @@ useCase:
   </p>
 </div>
 
-Welcome! If you are new to Auth0, you are in the right place.
-
-This introduction to Auth0 covers things like:
-
-* What we do
-* How we can help you
-* The basic terminology we use
-* The process of implementing Auth0
-* The Auth0 ecosystem
-* ... and many more
-
-Let's get started!
-
+Welcome! If you are new to Auth0, you are in the right place. Here we will cover how to get started using Auth0.
 
 <ul class="topic-links">
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/getting-started/overview">Auth0 Overview</a>
-    <p>Learn what Auth0 is and how you can use it.</p>
-  </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/getting-started/the-basics">Learn the Basics</a>
     <p>Learn the basics of Auth0 and familiarize yourself with the basic terminology.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/getting-started/dashboard-overview">Dashboard Overview</a>
-    <p>The Dashboard is where you configure and manage all things Auth0. This article offers a brief overview of the sections it contains and what you can do in each section.</p>
+    <p>Learn the basics of using the Auth0 Dashboard.</p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/getting-started/create-tenant">Create a Tenant</a>
+    <p>Learn how to create an Auth0 tenant.</p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/getting-started/set-up-app">Set Up an App</a>
+    <p>Learn how to configure your application.</p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/getting-started/set-up-api">Set Up an API</a>
+    <p>Learn how to configure an API. </p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/getting-started/deployment-models">Deployment Models</a>
-    <p>Read about the four different deployment models that Auth0 offers.</p>
+    <p>Read about the four deployment models that Auth0 offers.</p>
   </li>
 </ul>
