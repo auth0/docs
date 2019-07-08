@@ -2,7 +2,7 @@
 description: How to get and validate ID Tokens before storing and using them.
 classes: video-page
 ---
-# Authorize: ID Tokens and Access Control
+# Authorize: Get and Validate ID Tokens
 
 Learn how to get and validate an ID Token in JSON Web Token (JWT) format.
 
@@ -32,7 +32,7 @@ Learn how to get and validate an ID Token in JSON Web Token (JWT) format.
   
   Where `MY_NAMESPACE` is any domain except `auth0.com`, `webtask.io`, or `webtask.run`.  `CLAIM_NAME` can be anything you want. Some examples: `http://example.com/role` or `https://example.com/claims/locale`.
 
-  The ID Token acts as a *cache* for user information and by default, the token is valid for 36,000 seconds - or 10 hours. You can shorten this lifetime limit if you have security concerns. Remember, that the ID Token helps ensure optimal performance by reducing the need to contact the Identity Provider every time the user performs an action.
+  The ID Token acts as a *cache* for user information and by default, the token is valid for 36,000 seconds&mdash;or 10 hours. You can shorten this lifetime limit if you have security concerns. Remember, that the ID Token helps ensure optimal performance by reducing the need to contact the Identity Provider every time the user performs an action.
 </details>
 
 <details>

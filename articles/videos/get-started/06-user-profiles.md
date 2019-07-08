@@ -13,11 +13,11 @@ Learn what Auth0 User Profiles are used for and what they contain. Understand ho
 <details>
   <summary>Introduction</summary>
 
-Auth0 creates user profiles to contain information about your users such as name, email address, and last login. A user profile in Auth0 is essentially the cache of information obtained from an identity provider; together with any Auth0 specific information for a user - such as user metadata - the profile is stored in a user account record contained in the user account storage associated with an Auth0 tenant,
+Auth0 creates user profiles to contain information about your users such as name, email address, and last login. A user profile in Auth0 is essentially the cache of information obtained from an identity provider; together with any Auth0 specific information for a user&mdash;such as user metadata&mdash;the profile is stored in a user account record contained in the user account storage associated with an Auth0 tenant,
 
 Depending on which connections you choose, there will most likely be data formatting differences between various identity providers. It is also likely that there will be different information provided too. To compensate for this, Auth0 provides standardized user profile claims in what is referred to as the Normalized User Profile.
 
-Auth0 also provides a variety of tools in the Dashboard to help you manage certain aspects of a users’ profile. You can also use the Auth0 Management API to manage user profiles. You can use these tools to create, search, view,and delete users, and you can also define, manage, and store custom metadata too - unique profile attributes, which can hold information like favorite color, language preference, contact information, location, internal IDs, or access information.
+Auth0 also provides a variety of tools in the Dashboard to help you manage certain aspects of a users’ profile. You can also use the Auth0 Management API to manage user profiles. You can use these tools to create, search, view, and delete users, and you can also define, manage, and store custom metadata too&mdash;unique profile attributes, which can hold information like favorite color, language preference, contact information, location, internal IDs, or access information.
 </details>
 
 <details>
@@ -29,7 +29,7 @@ When a user logs in, Auth0 populates or updates the User Profile with data suppl
 
 As discussed, Auth0 can store associated metadata with a user’s profile, that contains information such as language preferences or accessibility preferences that you can use to enhance your users’ experience with your application. There are two types of metadata available in Auth0: user metadata and app metadata. 
 
-* User Metadata is information that can be stored against a user profile and that a user can read/update as part of any self-service profile management. Metadata of this nature may be something like salutation for a user, or perhaps a user’s preferred language - used to customize the emails sent by Auth0. Any information that will be used to customize Auth0 emails - such as information used to determine the language for an email - should be stored in Metadata, and preferably user_metadata if the user is allowed to change it.
+* User Metadata is information that can be stored against a user profile and that a user can read/update as part of any self-service profile management. Metadata of this nature may be something like salutation for a user, or perhaps a user’s preferred language&mdash;used to customize the emails sent by Auth0. Any information that will be used to customize Auth0 emails&mdash;such as information used to determine the language for an email&mdash;should be stored in Metadata, and preferably user_metadata if the user is allowed to change it.
 
 * App Metadata is information that can be stored against a user profile but which can only be read or updated with appropriate authorization; app_metadata is not directly accessible to a user. Metadata of this nature might be something like a flag to indicate the last set of valid terms and conditions accepted by the user, and perhaps a date to indicate when the user accepted them.
 
@@ -39,7 +39,7 @@ There are also user profile attributes that are updatable called *root attribute
 <details>
   <summary>Use the Dashboard to manage user profile information</summary>
 
-You can use the Auth0 Dashboard to manage aspects of a user’s profile - such as metadata and root attributes - during your development process, but we recommend you don’t use the Dashboard to make changes in a production environment. Instead, you can use the Auth0 Management API to build your own management tool or integrate with any already built UI for Profile Management. Managing a user’s profile using the Dashboard is more of an administrative provision, however, it can be extremely useful during design and development, as it provides a simple way to manipulate user profiles while you make adjustments to how your application uses the data.
+You can use the Auth0 Dashboard to manage aspects of a user’s profile&mdash;such as metadata and root attributes&mdash;during your development process, but we recommend you don’t use the Dashboard to make changes in a production environment. Instead, you can use the Auth0 Management API to build your own management tool or integrate with any already built UI for Profile Management. Managing a user’s profile using the Dashboard is more of an administrative provision, however, it can be extremely useful during design and development, as it provides a simple way to manipulate user profiles while you make adjustments to how your application uses the data.
 
 Now we’ll show you a few of the management actions you can take with the user profile data and in what circumstances you can perform them.
 </details>

@@ -37,9 +37,9 @@ Click the **Login** tab and toggle **Customize Login Page**.
 
 Note that when the customization toggle is flipped on, irrespective of the page you are customizing, you then become responsible for updates and maintenance of that page; it can no longer be automatically updated by Auth0. This includes updating the version numbers for any included Auth0 SDK or widget.
 
-If you have enabled customization to inspect the page code, and then decide not to customize your login page, you should make sure to disable the customize page - in this case the **Customize Login Page** - toggle, so Auth0 will render the default page. You can also use version control software to manage the source code of your pages. To do so, you can use an Auth0-provided extension that works with the version control system you're using, like GitHub for example. 
+If you have enabled customization to inspect the page code, and then decide not to customize your login page, you should make sure to disable the customize page&mdash;in this case the **Customize Login Page**&mdash;toggle, so Auth0 will render the default page. You can also use version control software to manage the source code of your pages. To do so, you can use an Auth0-provided extension that works with the version control system you're using, like GitHub for example. 
 
-You should also exercise caution regarding the use of third-party JavaScript on your pages - particularly the Login Page - since sensitive security-related information often flows through pages and the introduction of cross-site scripting or XSS vulnerabilities can be a concern.
+You should also exercise caution regarding the use of third-party JavaScript on your pages&mdash;particularly the Login Page&mdash;since sensitive security-related information often flows through pages and the introduction of cross-site scripting or XSS vulnerabilities can be a concern.
 </details>
 
 <details>

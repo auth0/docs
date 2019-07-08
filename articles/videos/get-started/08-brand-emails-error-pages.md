@@ -38,7 +38,7 @@ Enter all the information into the fields to determine the reply email address, 
 
 5. Click Save.
 
-At the bottom, you can see the HTML code of message body. You can edit the HTML directly. You can also use common variables in the email message body. You can use liquid syntax in the body of the email to do everything - from just changing some of the text to be user specific, to using if/then statements to provide localization of the text. 
+At the bottom, you can see the HTML code of message body. You can edit the HTML directly. You can also use common variables in the email message body. You can use liquid syntax in the body of the email to do everything&mdash;from just changing some of the text to be user specific, to using if/then statements to provide localization of the text. 
 </details>
 
 <details>

@@ -21,7 +21,7 @@ Auth0 provides tools to help you give users the ability to log out; this include
 <details>
   <summary>Session layers</summary>
 
-There are typically three session layers that can be created when you login and the logout behavior you choose for your applications should make it clear to users which have terminated  - ideally displaying a visual confirmation of this. 
+There are typically three session layers that can be created when you login and the logout behavior you choose for your applications should make it clear to users which have terminated&mdash;ideally displaying a visual confirmation of this. 
 
 The first layer is the session inside your application or the *Application Session Layer*. Though your application uses Auth0 to authenticate users, you'll still need to track that the user has logged in to your application; in a regular web application, for example, you achieve this by storing this information inside a cookie. 
 
@@ -29,9 +29,9 @@ Logging users out of your applications typically results in their application se
 
 Auth0 also maintains a session for the user and stores their information inside a cookie, this is the *Auth0 Session Layer*. This layer is used so that the next time a user is redirected to Auth0 for login the user's information will be remembered. You can log users out of the Auth0 session layer by redirecting them to the Auth0 logout endpoint so Auth0 can clear the (single sign-on; SSO) cookie.
 
-The last session layer is the *Identity Provider Session Layer*, for example, Facebook, Google or an Enterprise SAML provider. When users attempt to sign in using any of these providers, and they already have a valid sign-in (with whichever provider they choose) they will not be prompted again to sign in - though they may be asked to give permission to share their information with Auth0 and, in turn, your application. It is not necessary to log the users out of this session layer, but you can use Auth0 to force the logout if required. 
+The last session layer is the *Identity Provider Session Layer*, for example, Facebook, Google or an Enterprise SAML provider. When users attempt to sign in using any of these providers, and they already have a valid sign-in (with whichever provider they choose) they will not be prompted again to sign in&mdash;though they may be asked to give permission to share their information with Auth0 and, in turn, your application. It is not necessary to log the users out of this session layer, but you can use Auth0 to force the logout if required. 
 
-Logging out of your Auth0 Session Layer will require you to redirect the user to `https://<YOUR_CNAME or YOUR_TENANT.auth0.com>/v2/logout` - typically performed via use of the appropriate method in the Auth0 SDK for your technology stack. This will clear your Auth0 session. You will also want to add a query parameter for that request called `returnTo` - this parameter should contain a URL that has been pre-registered and protects you against open redirect attacks.  
+Logging out of your Auth0 Session Layer will require you to redirect the user to `https://<YOUR_CNAME or YOUR_TENANT.auth0.com>/v2/logout`&mdash;typically performed via use of the appropriate method in the Auth0 SDK for your technology stack. This will clear your Auth0 session. You will also want to add a query parameter for that request called `returnTo`&mdash;this parameter should contain a URL that has been pre-registered and protects you against open redirect attacks.  
 </details>
 
 <details>
@@ -39,7 +39,7 @@ Logging out of your Auth0 Session Layer will require you to redirect the user to
 
 Auth0 only redirects to whitelisted URLs after logout and there are two places you can configure these. 
 
-The first place you can set this is at the tenant level - this is where you can put the set of logout URLs that are common to (that is shared between) all applications. 
+The first place you can set this is at the tenant level&mdash;this is where you can put the set of logout URLs that are common to (that is shared between) all applications. 
 
 The second place would be in the application settings: if you need different redirects for each application, you can whitelist the URLs in your application settings. This allows you to set logout URLs in an application-specific context. 
 </details>
@@ -56,13 +56,13 @@ There are two important things to consider when you use application-specific log
 
 1. You MUST send client_id as a query parameter when calling the /v2/logout endpoint. and the returnTo URL must be in the application’s list of allowed logout URLs.
 
-2. This will end the Auth0 Session for the entire tenant - i.e. for all defined applications, not just the one that matches the client_id supplied!  Passing the client_id just tells the logout endpoint where to look for the logout URL white-list.
+2. This will end the Auth0 Session for the entire tenant, i.e. for all defined applications, not just the one that matches the client_id supplied!  Passing the client_id just tells the logout endpoint where to look for the logout URL white-list.
 
-In either place, under **Allowed LogoutURLs**, specify the logout URLs; you must include the protocol - either `http://` or, as we would recommend, `https://` - otherwise the call will fail. Https should always be used for production environments. The URLs provided in the Allowed Logout URLs list are also case-sensitive, so the URL used for logout must match the case of the logout URLs configured on the dashboard. However, do note that the scheme and host parts are case insensitive. For example, if your URL is `http://www.Example.Com/FooHoo.html`, the `http://www.Example.Com` portion is case insensitive, while the `FooHoo.html` portion is case sensitive.
+In either place, under **Allowed LogoutURLs**, specify the logout URLs; you must include the protocol&mdash;either `http://` or, as we would recommend, `https://`&mdash;otherwise the call will fail. Https should always be used for production environments. The URLs provided in the Allowed Logout URLs list are also case-sensitive, so the URL used for logout must match the case of the logout URLs configured on the dashboard. However, do note that the scheme and host parts are case insensitive. For example, if your URL is `http://www.Example.Com/FooHoo.html`, the `http://www.Example.Com` portion is case insensitive, while the `FooHoo.html` portion is case sensitive.
 
 After the user logout occurs Auth0 will only redirect to a URL that is defined in this list. 
 
-Note that if you redirect the user back to the application after logout and the application redirects to an identity provider that still has an authenticated session for that user, the user will be silently logged back into your application and it may appear that logout didn’t work. In these cases, we recommend that you have a specific logout landing page in your application so you can tell the user that they successfully logged out - and, if desired, you can also warn them that they may still be logged into their identity provider.
+Note that if you redirect the user back to the application after logout and the application redirects to an identity provider that still has an authenticated session for that user, the user will be silently logged back into your application and it may appear that logout didn’t work. In these cases, we recommend that you have a specific logout landing page in your application so you can tell the user that they successfully logged out and, if desired, you can also warn them that they may still be logged into their identity provider.
 </details>
 
 <details>

@@ -15,7 +15,7 @@ See an example using the Auth0 Quickstart for a single-page application (SPA) im
 
   In part 1, we described a few of the ways that you can provide services to your users through your applications using user authentication. You can authenticate users via their social media accounts or with their usernames and passwords. You can add an additional level of certainty about their identities with Multi-factor Authentication (MFA).
 
-  In this video, we will look at how the Quickstart single page application or SPA implementation uses Universal Login - which is the preferred method for authentication workflow in Auth0. 
+  In this video, we will look at how the Quickstart single page application or SPA implementation uses Universal Login&mdash;which is the preferred method for authentication workflow in Auth0. 
 </details>
 
 <details>
@@ -41,11 +41,11 @@ See an example using the Auth0 Quickstart for a single-page application (SPA) im
 
   Now that we have an application connected, let’s take a look at Universal Login. You can choose from Classic or New to create your own login pages that will authenticate your users. Later in another video, we will show you how to provide more extensive branding for these pages and more. 
 
-  The buttons that appear on the login page depend on a number of factors - including the connections that have been enabled and the current state of a session the user may already have. These settings are dynamic and adjustable in real-time - no coding changes are required - since the functionality is driven by the web pages served by the Auth0 Authentication Server.
+  The buttons that appear on the login page depend on a number of factors including the connections that have been enabled and the current state of a session the user may already have. These settings are dynamic and adjustable in real-time&mdash;no coding changes are required&mdash;since the functionality is driven by the web pages served by the Auth0 Authentication Server.
  
   If you have **Enable seamless SSO** enabled or if you have a new tenant, where this option is enabled by default and can’t be turned off, Auth0 will show the login UI only if the user doesn’t have a session. There may or may not be other prompts as well like MFA or consent, but if no user interaction is required then the application will get the results immediately. Therefore, in most cases, applications don’t really check if the user is logged in into the identity provider: they just request an authentication.
 
-  Universal Login works by effectively delegating the authentication of a user; the user is redirected to the Authorization Service, your Auth0 tenant, and that service authenticates the user and then redirects them back to your application. In most cases, when your application needs to authenticate the user, it will request authentication from the OIDC provider, Auth0, via an `/authorize` request. As you can see from the quickstart, the best approach to implementing this is to use one of the language-specific Auth0 SDKs - or some third-party middleware applicable to your technology stack. How to actually do this depends on the SDK and application type used.
+  Universal Login works by effectively delegating the authentication of a user; the user is redirected to the Authorization Service, your Auth0 tenant, and that service authenticates the user and then redirects them back to your application. In most cases, when your application needs to authenticate the user, it will request authentication from the OIDC provider, Auth0, via an `/authorize` request. As you can see from the quickstart, the best approach to implementing this is to use one of the language-specific Auth0 SDKs or some third-party middleware applicable to your technology stack. How to actually do this depends on the SDK and application type used.
 
   Once authenticated, and when using an OIDC authentication workflow, Auth0 will redirect the user back to your callback URL with an ID token or a code to fetch the ID token.
 

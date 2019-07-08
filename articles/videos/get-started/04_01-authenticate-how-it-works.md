@@ -15,7 +15,7 @@ Learn about the difference between authentication, authorization, and access con
 
   Before you can provide services to your users through your applications, you need to identify who they are, and that process is called *user authentication*. 
 
-  In this video, we will show you a few ways to go about this. For example, you can authenticate users via their social media accounts or with their usernames and passwords. You can add an additional level of certainty about their identities with a second authentication factor - this is called *Multi-factor Authentication* (MFA).
+  In this video, we will show you a few ways to go about this. For example, you can authenticate users via their social media accounts or with their usernames and passwords. You can add an additional level of certainty about their identities with a second authentication factor; this is called *Multi-factor Authentication* (MFA).
 
   Before you start, think about security and user experience, if you want to offer multiple primary authentication methods, and if you want to add multi-factor authentication. Planning how you want the authentication process to work before you do the steps required to implement the actual authentication is critical because it will determine how you configure your application integration.
 
@@ -40,9 +40,9 @@ Learn about the difference between authentication, authorization, and access con
 
   You can choose from among many social connections including the most commonly used ones like Google and Facebook. Choose connections that your users will most frequently have accounts with. 
 
-  If you have more than one application, you will almost certainly want to have Single Sign On between those applications. This is one of the easiest ways to give your users a good user experience without compromising on security.
+  If you have more than one application, you will almost certainly want to have Single Sign-On between those applications. This is one of the easiest ways to give your users a good user experience without compromising on security.
 
-  As you may already know, the OpenID Connect specification - or OIDC - is the most widely used industry-standard authentication specification when it comes to customer-facing applications. It is intended as a way to provide SSO between applications. OIDC is based on the OAuth 2.0 family of specifications. It uses simple JSON Web Tokens  - or JWTs - that you obtain using flows conforming to the OAuth 2.0 specifications. When a user signs in using their Google account, then they’ve used OIDC.
+  As you may already know, the OpenID Connect specification&mdash;or OIDC&mdash;is the most widely used industry-standard authentication specification when it comes to customer-facing applications. It is intended as a way to provide SSO between applications. OIDC is based on the OAuth 2.0 family of specifications. It uses simple JSON Web Tokens&mdash;or JWT&mdash;that you obtain using flows conforming to the OAuth 2.0 specifications. When a user signs in using their Google account, then they’ve used OIDC.
 
   We’ve made it easy to enable this type of authentication with Universal Login. The way this works is you delegate the authentication of a user by redirecting them to the Authorization Service, your Auth0 tenant, and that service authenticates the user and then redirects them back to your application.
 

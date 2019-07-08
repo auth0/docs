@@ -31,7 +31,7 @@ You also benefit from all improvements Auth0 does in the login flow without you 
 <details>
   <summary>Use the Dashboard to customize your pages</summary>
 
-The login page appearance and behavior is customizable right from the Dashboard. You can change the logo and colors of the login pages, and in more advanced use cases, you can modify the HTML code of each page. You can also customize the look of the URL used to navigate to the Universal Login page. Creating this *vanity URL* not only aligns with the idea of a consistent user experience, but also offers you complete control over the certificate management process, if you need it - so for example, you can use Extra Validation (EV) SSL certificates or similar to provide the visual, browser-based cues that offer your visitors additional peace of mind.
+The login page appearance and behavior is customizable right from the Dashboard. You can change the logo and colors of the login pages, and in more advanced use cases, you can modify the HTML code of each page. You can also customize the look of the URL used to navigate to the Universal Login page. Creating this *vanity URL* not only aligns with the idea of a consistent user experience, but also offers you complete control over the certificate management process, if you need it&mdash;so for example, you can use Extra Validation (EV) SSL certificates or similar to provide the visual, browser-based cues that offer your visitors additional peace of mind.
 
 Let’s see how this is done.
 
@@ -43,7 +43,7 @@ Next, we'll configure your custom vanity URL, by click on **Custom Domains** tab
 
 Go back to the **Tenant Settings page** and click the **Custom Domains** tab. 
 
-1. Type in your custom domain URL - such as `accounts.acme.com`.
+1. Type in your custom domain URL&mdash;such as `accounts.acme.com`.
 2. Select **Auth0-managed certificates** and click **Add Domain**.
 3. Now you need to verify that you own that domain so you need to add the CNAME verification record listed in the Dashboard to your domain’s DNS record. Then click **Verify**. 
 
