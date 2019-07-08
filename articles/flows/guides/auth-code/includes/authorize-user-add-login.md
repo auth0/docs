@@ -6,7 +6,7 @@ To begin the flow, you'll need to get the user's authorization. This step may in
 * Redirecting the user to an Identity Provider to handle authentication;
 * Obtaining user consent for the requested permission level, unless consent has been previously given.
 
-To authorize the user, your app must send the user to the [authorization URL](/api/authentication#authorization-code-grant).
+To authorize the user, your app must send the user to the [authorization URL](/api/authentication#authorization-code-flow).
 
 ### Example authorization URL
 
