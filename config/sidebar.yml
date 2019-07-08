@@ -200,12 +200,15 @@ articles:
 
       - title: Social Identity Providers
         url: "/connections#social"
+        hidden: true
 
       - title: Enterprise Identity Providers
         url: "/connections#enterprise"
+        hidden: true
 
       - title: Legal Identity Providers
         url: "/connections#legal-identities"
+        hidden: true
       
       - title: Database
         url: /connections/database
@@ -213,6 +216,7 @@ articles:
 
           - title: Auth0 User Store
             url: "/connections/database#using-the-auth0-user-store"
+            hidden: true
 
           - title: Your Database
             url: /connections/database/custom-db
