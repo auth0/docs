@@ -81,7 +81,7 @@ The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section expl
 
 ![](/media/articles/tutorials/tenant-settings/session-timeout.png)
 
-AUsers will be asked to log in again unless they are active within this period in minutes (maximun 100 days). See [Single Sign-On and Single Logout](/sso/current#2-configure-sso) for more information.
+Users will be asked to log in again unless they are active within this period in minutes (maximun 100 days). See [Single Sign-On and Single Logout](/sso/current#2-configure-sso) for more information.
 
 Set the amount of time allowed to expire before a user is required to login again. This value is the login session lifetime, which is how long the session will stay valid, measured in minutes. The default value is 10080 minutes (or 7 days). See [Single Sign-on (SSO)](/sso/current) for more information.
 
