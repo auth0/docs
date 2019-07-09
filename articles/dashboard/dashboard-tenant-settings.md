@@ -119,7 +119,7 @@ You can configure how the Change Password widget will look like at the [Password
 Enabling this feature will help protect against user registration enumeration. Bad actors may attempt to guess registered usernames or email addresses by reading error response codes such as `user_exists` in the public signup API. 
 :::
 
-### Entensibility
+### Extensibility
 
 ![](/media/articles/tutorials/tenant-settings/tenant-advanced-extensibility.png)
 
