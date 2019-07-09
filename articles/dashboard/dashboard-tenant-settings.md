@@ -77,28 +77,56 @@ The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section expl
 
 **Tenant Login URI**: In some scenarios Auth0 will need your tenant to start the OIDC login flow . This URI should point to a route in your application that starts the flow by redirecting to the `/authorize` endpoint. It would usually take the form of 'https://mytenant.org/login'. [Learn more about the tenant default login URI](/universal-login/default-login-url).
 
-### Session Timeout
+### Log In Session Management
 
 ![](/media/articles/tutorials/tenant-settings/session-timeout.png)
 
-Allows you to specify the **SSO Cookie Timeout**. This value is the login session lifetime, which is how long the session will stay valid, measured in minutes. The default value is 10080 minutes (or 7 days).
+AUsers will be asked to log in again unless they are active within this period in minutes (maximun 100 days). See [Single Sign-On and Single Logout](/sso/current#2-configure-sso) for more information.
+
+Set the amount of time allowed to expire before a user is required to login again. This value is the login session lifetime, which is how long the session will stay valid, measured in minutes. The default value is 10080 minutes (or 7 days). See [Single Sign-on (SSO)](/sso/current) for more information.
 
 This is the session timeout for the Auth0 session. You can configure separately the timeouts used with tokens issued by Auth0, such as the <dfn data-key="openid">OpenID Connect (OIDC)</dfn> ID Token expiration claim or the <dfn data-key="security-assertion-markup-language">SAML</dfn> lifetime assertions. These are often used to drive the sessions on the applications (SAML SPs) themselves and are independent of the Auth0 (IdP) session.
 
-Auth0 also sets a value for the session idle timeout, which is the allowed duration of inactivity for a session before a new session is required. Currently, this value is set at 7 days and is not configurable. If the **SSO Cookie Timeout** is set to longer than the idle timeout, then if the session is not used within 7 days, the session will expire and a new session must be created.
+### Device Flow User Code Format
 
-Learn more about [Single Sign-on (SSO)](/sso/current).
+![](/media/articles/tutorials/tenant-settings/device-flow-user-code-format.png)
 
-### Global Application Information
+Allows you to select the user code character set and mask for generating a user code during the [device authorization flow](/flows/concepts/device-auth). The mask is used to define the length of the user code and to format the randomly generated user code to a friendly, readable value with possible spaces or hyphens for readability.
 
-![](/media/articles/tutorials/tenant-settings/global-application-information.png)
+For more information see [Call Your API from an Input-Constrained Device](/microsites/call-api/call-api-device#how-it-works).
+
+### Global Client Information
+
+![](/media/articles/tutorials/tenant-settings/global-client-information.png)
 
 The **Global Client ID** and **Global Client Secret** are used to generate tokens for legacy Auth0 APIs. Typically, you will not need these values. If you need to have the global client secret changed, please [contact support](https://support.auth0.com).
 
 ### Settings
 
+![](/media/articles/tutorials/tenant-settings/tenant-advanced-settings.png)
+
 **Change Password flow v2**: Turning this on enables a new version of the change password flow. The previous alternative has been deprecated and we strongly recommend enabling v2. This flag is presented only for backwards compatibility and once enabled you won't be able to disable it. 
 
 You can configure how the Change Password widget will look like at the [Password Reset](${manage_url}/#/password_reset) tab inside the [Hosted Pages](${manage_url}/#/login_page) section of the dashboard.
 
+**OIDC Dynamic Application Registration**: Turning this on enables third-party developers to dynamically register applications for your APIs. This feature is disabled by default. Alternatively, you can update this flag using the [Update tenant settings endpoint](/api/management/v2#!/Tenants/patch_settings). For more information, see [Dynamic Client Registration](/api-auth/dynamic-client-registration).
+
 **Enable Application Connections**: This flag determines whether all current connections shall be enabled when a new [Application](${manage_url}/#/applications) is created.
+
+**Use a generic response in public signup API error message**: If enabled, this will use a generic response in the public signup API which will prevent users from being able to find out if an e-mail address or username has previously registered. 
+
+::: warning
+Enabling this feature will help protect against user registration enumeration. Bad actors may attempt to guess registered usernames or email addresses by reading error response codes such as `user_exists` in the public signup API. 
+:::
+
+### Extensibility
+
+![](/media/articles/tutorials/tenant-settings/tenant-advanced-extensibility.png)
+
+Use custom scripts to extend parts of Auth0's functionality, such as [Rules](/rules), [Hooks](/hooks) and [Database Connections](/connections#database-and-custom-connections). Choose the `node.js` version environment you will use to execute your custom scripts. If you are migrating from an older version of `node.js` that is no longer supported, see the [migration guide](/migrations/guides/extensibility-node8).
+
+### Migrations
+
+![](/media/articles/tutorials/tenant-settings/tenant-advanced-migrations.png)
+
+If enabled, additional HTTP security headers will not be included in the response to prevent embedding of the Universal Login prompts in an IFRAME.
