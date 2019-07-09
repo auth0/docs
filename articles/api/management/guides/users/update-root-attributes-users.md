@@ -51,6 +51,6 @@ The following sections will cover the steps on updating the root attributes usin
 | `NICKNAME_VALUE` | Nickname of the user to be updated. |
 | `PICTURE_VALUE` | URL of the picture for the user to be updated. |
 
-::: note
-Setting any value to "null” will remove the attribute for the user.
-:::
+## Removing attributes
+
+Setting any value to `null` will remove the attribute for the user.
