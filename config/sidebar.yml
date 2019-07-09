@@ -1629,3 +1629,43 @@ videos:
 
       - title: "Single Page Apps"
         url: "/videos/learn-identity/06-single-page-apps"
+
+  - title: Get Started
+    url: "/videos/get-started"
+    children:
+
+      - title: "Architect: Your Tenant"
+        url: "/videos/get-started/01-architecture-your-tenant"
+
+      - title: "Provision: User Stores"
+        url: "/videos/get-started/02-provision-user-stores"
+
+      - title: "Provision: Import Users"
+        url: "/videos/get-started/03-provision-import-users"
+
+      - title: "Authenticate: How It Works"
+        url: "/videos/get-started/04_01-authenticate-how-it-works"
+
+      - title: "Authenticate: SPA Example"
+        url: "/videos/get-started/04_02-authenticate-spa-example"
+
+      - title: "Authorize: ID Tokens and Access Control"
+        url: "/videos/get-started/05_01-authorize-id-tokens-access-control"
+
+      - title: "Authorize: Get and Validate ID Tokens"
+        url: "/videos/get-started/05_02-authorize-get-validate-id-tokens"
+
+      - title: "User Profiles"
+        url: "/videos/get-started/06-user-profiles"
+
+      - title: "Brand: How It Works"
+        url: "/videos/get-started/07_01-brand-how-it-works"
+
+      - title: "Brand: Sign Up and Login Pages"
+        url: "/videos/get-started/07_02-brand-signup-login-pages"
+
+      - title: "Brand: Emails and Error Pages"
+        url: "/videos/get-started/08-brand-emails-error-pages"
+
+      - title: "Logout"
+        url: "/videos/get-started/10-logout"
