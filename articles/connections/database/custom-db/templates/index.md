@@ -3,12 +3,18 @@ description: Custom DB script templates and checklist and troubleshooting
 topics:
     - connections
     - custom-database
+    - templates
 contentType: index
 useCase:
     - customize-connections
+    - script-templates
 ---
 # Custom Database Script Templates
 Auth0 provides custom database script templates that you can use when implementing functionality for use with a custom database.
+
+::: panel Click Save to Use Scripts
+Script templates, including the default templates, are not used until you click **Save**. This is true even if you only modify one script and haven't made changes to any others. You must click **Save** at least once for all the scripts to be in place.  
+:::
 
 ## Templates
 While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
