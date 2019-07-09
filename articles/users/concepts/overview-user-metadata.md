@@ -9,7 +9,7 @@ useCase: manage-users
 v2: true
 ---
 
-# User Metadata
+# Metadata
 
 Auth0 provides you with **metadata** fields to store individual user information that did not originate with an identity provider. Auth0 distinguishes between two types of metadata:
 
@@ -22,7 +22,7 @@ An authenticated user can modify data in their profile's `user_metadata`, but no
 
 You can read, create, and edit user metadata using Rules, Auth0 APIs, and Lock.
 
-### User Metadata Best Practices
+### Metadata Best Practices
 
 * Both `app_metadata` and `user_metadata` are limited to a size of 16mb each. However, we recommend against using these properties like a database. They should be used for identity related information. Additionally, at some point we may put a more strict size limit on these properties. Please also be aware that using Rules and/or the Management Dashboard may further limit the amount of metadata you can store.
 

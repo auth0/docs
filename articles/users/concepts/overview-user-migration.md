@@ -1,5 +1,4 @@
 ---
-title: User Migration
 description: Overview of importing users from external applications into Auth0.
 topics:
   - users
@@ -11,7 +10,7 @@ useCase:
   - manage-users
   - migrate
 ---
-# User Migration
+# Import and Export Users
 
 Auth0 supports importing users from external applications using custom database connections, the Auth0 Management API, or the User Import/Export Extension.
 
