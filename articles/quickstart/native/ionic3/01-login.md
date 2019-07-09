@@ -221,7 +221,7 @@ export class AuthService {
 
     this.safariViewController.isAvailable()
       .then((available: boolean) => {
-        let url = `https://${AUTH_CONFIG.domain}/v2/logout?client_id=${AUTH_CONFIG.clientId}&returnTo=${AUTH_CONFIG.packageIdentifier}://${AUTH_CONFIG.domain}/cordova/${AUTH_CONFIG.packageIdentifier}/callback`;
+let url = `https://<%= "${AUTH_CONFIG.domain}" %>/v2/logout?client_id=<%= "${AUTH_CONFIG.clientId}" %>&returnTo=<%= "${AUTH_CONFIG.packageIdentifier}" %>://<%= "${AUTH_CONFIG.domain}" %>/cordova/<%= "${AUTH_CONFIG.packageIdentifier}" %>/callback`;
         if (available) {
           this.safariViewController.show({
             url: url
