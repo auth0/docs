@@ -14,11 +14,14 @@ articles:
     url: "/getting-started"
     children:
 
+      - title: "Learn the Basics"
+        url: "/getting-started/the-basics"
+
       - title: "Dashboard Overview"
         url: "/getting-started/dashboard-overview"
 
       - title: "Create a Tenant"
-        url: /getting-started/create-tenant"
+        url: "/getting-started/create-tenant"
       
       - title: "Set Up An App"
         url: "/getting-started/set-up-app"
@@ -42,6 +45,9 @@ articles:
       - title: "Set Up Multiple Environments"
         url: "/dev-lifecycle/setting-up-env"
         hidden: true
+
+      - title: "Deployment Models"
+        url: "/getting-started/deployment-models"
 
 ## ------------------------------------------------------------
 ## LOGIN
@@ -193,13 +199,16 @@ articles:
     children:
 
       - title: Social Identity Providers
-        url: "/identityproviders#social"
+        url: "/connections#social"
+        hidden: true
 
       - title: Enterprise Identity Providers
-        url: "/identityproviders#enterprise"
+        url: "/connections#enterprise"
+        hidden: true
 
       - title: Legal Identity Providers
-        url: "/identityproviders#legal"
+        url: "/connections#legal-identities"
+        hidden: true
       
       - title: Database
         url: /connections/database
@@ -207,6 +216,7 @@ articles:
 
           - title: Auth0 User Store
             url: "/connections/database#using-the-auth0-user-store"
+            hidden: true
 
           - title: Your Database
             url: /connections/database/custom-db
@@ -248,7 +258,7 @@ articles:
     children:
 
       - title: Authorization Flows
-        url: /authorization/flows
+        url: /flows
         children:
 
           - title: Authorization Code
@@ -265,7 +275,7 @@ articles:
             children:
 
               - title: Mitigate Replay Attacks
-                url: /flows/mitigate-replay-attacks
+                url: /api-auth/tutorials/nonce
 
       - title: "Role-based Access Control (RBAC)"
         url: "/authorization/concepts/rbac"
@@ -710,7 +720,7 @@ articles:
         url: /extensions
       
       - title: Analytics Integrations
-        url: /integrations/analytics
+        url: /analytics/integrations
 
       - title: Single Sign-On Integrations
         url: /integrations/sso
