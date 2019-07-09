@@ -15,9 +15,15 @@ useCase:
 ---
 # Update Root Attributes for Users
 
-This guide will show you how to update root attributes for an existing user profile using Auth0's Management API. To see which attributes you can update, visit [Normalized User Profile Structure](/users/references/user-profile-structure).
+Auth0's [Normalized User Profile](/users/references/user-profile-structure)features [root attributes](/users/references/user-profile-structure#user-profile-attributes) that you can update.
 
-1. Make a `PATCH` call to the [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, `GIVEN_NAME_VALUE`, `FAMILY_NAME_VALUE`, `NAME_VALUE`, `NICKNAME_VALUE`, and `PICTURE` placeholder values with your user ID, Management API Access Token, given name, family name, name, nickname, and picture URL, respectively.
+The specific root attributes that you can update depends on the [connection](/identityproviders) type you're using. For information on the specifics relevant to the connection you are using, see [Updating User Profile Root Attributes](/users/normalized/auth0/update-root-attributes).
+
+The following sections will cover the steps on updating the root attributes using the [Management API](/api/management/v2).
+
+1. [Obtain an Access Token](https://auth0.com/docs/api/management/v2/tokens) so that you can make calls to the Management API.
+
+2. Make a `PATCH` call to the [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id). The following is a sample call:
 
 ```har
 {
