@@ -253,7 +253,7 @@ Use of [`console.error`](https://developer.mozilla.org/en-US/docs/Web/API/Consol
 As described in the section entitled [Execution](#execution) (above), there are time constraints regarding how much time a rule has available in which to execute. If recovery from an error condition is not possible (or probable) within this time period, then an error condition should be explicitly returned; this is as simple as completing rule execution by returning an instance of a Node [Error](https://nodejs.org/api/errors.html#errors_class_error) object, as in:
 
 ```js
-  callback(new Error('some description'), user, context);
+  callback(new Error('some description'));
 ```
 
 Alternatively, an instance of the Auth0 specific `UnauthorizedError` can be returned which will cause an `unauthorized` error condition, with the supplied error description, to be returned to the application that initiated authentication - i.e. the application from which redirect to the `/authorize` end-point, say, was initiated. This allows an application to offer (contiional) retry capability, and additionaly provides capability to implement rule(s) which can be used to [deny access based on certain conditions](/rules/references/legacy#deny-access-based-on-a-condition). For a description of other common authentication error conditions in Auth0, see the [Auth0 SDK library documentation](/libraries/error-messages): 
