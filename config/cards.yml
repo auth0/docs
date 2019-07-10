@@ -149,7 +149,7 @@
   icon: "icon-budicon-399"
   color: "green"
   description: "Guides and tutorials on working with Auth0."
-  url: "/integrations"
+  url: "/topics-guides"
   articles:
 
     - title: "Architecture Scenarios"
