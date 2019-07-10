@@ -110,7 +110,7 @@
       forceFullReload: true
 
 
-- id: "learn-identity"
+- id: "guides"
   title: "Learn Identity"
   icon: "icon-budicon-678"
   color: "green"
@@ -144,7 +144,7 @@
     - title: "Internationalization"
       url: "/i18n"
 
-- id: "guides"
+- id: "appliance"
   title: "Guides"
   icon: "icon-budicon-399"
   color: "green"
