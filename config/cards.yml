@@ -110,7 +110,7 @@
       forceFullReload: true
 
 
-- id: "guides"
+- id: "learn-identity"
   title: "Learn Identity"
   icon: "icon-budicon-678"
   color: "green"
@@ -132,7 +132,7 @@
   icon: "icon-budicon-173"
   color: "red"
   description: "Customize Auth0's standard feature set."
-  url: "/topics/extensibility"
+  url: "/extend-integrate"
   articles:
 
     - title: "Rules"
@@ -144,12 +144,12 @@
     - title: "Internationalization"
       url: "/i18n"
 
-- id: "appliance"
+- id: "guides"
   title: "Guides"
   icon: "icon-budicon-399"
   color: "green"
   description: "Guides and tutorials on working with Auth0."
-  url: "/topics/guides"
+  url: "/integrations"
   articles:
 
     - title: "Architecture Scenarios"
