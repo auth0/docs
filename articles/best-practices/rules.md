@@ -173,7 +173,7 @@ We highly recommended reviewing best practices when [utilizing contextual bypass
 
 #### Redirection
 
-[Redirect from rule](/rules/guides/redirect) provides the ability for implementing custom authentication flows that require additional user interaction (i.e. beyond the standard login form) and is triggered via use of [context.redirect](/rules/references/context-object#properties-of-the-context-object). Redirect from rule can only be utilized when using the [`\authorize`](/api/authentication#login) endpoint.
+[Redirect from rule](/rules/guides/redirect) provides the ability for implementing custom authentication flows that require additional user interaction (i.e. beyond the standard login form) and is triggered via use of [context.redirect](/rules/references/context-object#properties-of-the-context-object). Redirect from rule can only be utilized when using the [`/authorize`](/api/authentication#login) endpoint.
 
 Redirection to your own hosted user interface is performed before a pipeline completes, and can be triggered *only once* per `context.clientID` context. Redirection should only [use HTTPS](#use-https) when executed in a production environment, and additional parameters should be kept to a minimum in order to help mitigate [common security threats](/security/common-threats). Preferably the Auth0 supplied `state` is the only parameter supplied.  
 
