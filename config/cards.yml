@@ -132,7 +132,7 @@
   icon: "icon-budicon-173"
   color: "red"
   description: "Customize Auth0's standard feature set."
-  url: "/topics/extensibility"
+  url: "/extend-integrate"
   articles:
 
     - title: "Rules"
