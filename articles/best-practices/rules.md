@@ -49,7 +49,7 @@ The order in which rules are displayed in the [Auth0 Dashboard](/dashboard) (see
 
 ## Environment
 
-Rules execute as a series of called JavaScript functions, in an instance of a [Webtask container](https://www.webtask.io/docs/containers). As part of this, a specific environment is provided together with a number of artefacts supplied by both Webtask, and the Auth0 platform. 
+Rules execute as a series of called JavaScript functions, in an instance of a [Webtask container](https://www.webtask.io/docs/containers). As part of this, a specific environment is provided together with a number of artifacts supplied by both Webtask, and the Auth0 platform. 
 
 ### `npm` modules
 
