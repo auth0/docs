@@ -13,7 +13,7 @@
   articles:
 
     - title: "Create a Tenant"
-      url: /getting-started/create-tenant"
+      url: "/getting-started/create-tenant"
     
     - title: "Set Up An App"
       url: "/getting-started/set-up-app"
