@@ -15,13 +15,11 @@ useCase:
 ---
 # Update Root Attributes for Users
 
-Auth0's [Normalized User Profile](/users/references/user-profile-structure)features [root attributes](/users/references/user-profile-structure#user-profile-attributes) that you can update. This guide will show you how to update root attributes for an existing user profile using Auth0's Management API.
+This guide will show you how to update root attributes for an existing user profile using Auth0's Management API. 
 
-The specific root attributes that you can update depend on the [connection](/identityproviders) type you're using. For information on the specifics relevant to the connection you are using, see [Updating User Profile Root Attributes](/users/normalized/auth0/update-root-attributes).
+Auth0's [Normalized User Profile](/users/references/user-profile-structure)features [root attributes](/users/references/user-profile-structure#user-profile-attributes) that you can update. The specific root attributes that you can update depend on the [connection](/identityproviders) type you're using. For details relevant to the connection you are using, see [Updating User Profile Root Attributes](/users/normalized/auth0/update-root-attributes).
 
-1. [Obtain an Access Token](https://auth0.com/docs/api/management/v2/tokens) so that you can make calls to the Management API.
-
-2. Make a `PATCH` call to the [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, `GIVEN_NAME_VALUE`, `FAMILY_NAME_VALUE`, `NAME_VALUE`, `NICKNAME_VALUE`, and `PICTURE` placeholder values with your user ID, Management API Access Token, given name, family name, name, nickname, and picture URL, respectively.
+1. Make a `PATCH` call to the [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, `GIVEN_NAME_VALUE`, `FAMILY_NAME_VALUE`, `NAME_VALUE`, `NICKNAME_VALUE`, and `PICTURE` placeholder values with your user ID, Management API Access Token, given name, family name, name, nickname, and picture URL, respectively.
 
 ```har
 {
