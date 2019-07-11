@@ -17,7 +17,7 @@
   - [Enterprise](${manage_url}/#/connections/enterprise): Configure Enterprise Connections like Active Directory, <dfn data-key="security-assertion-markup-language">SAML</dfn>, Office 365 and others so that you can let your users login with them. This way your users can use their enterprise credentials to login to your app. [More info on individual enterprise providers](/identityproviders#enterprise).
   - [Passwordless](${manage_url}/#/connections/passwordless): Let your users signup and login using one-time codes (delivered by email or SMS) or one-click links, instead of passwords. [More info on Passwordless](/connections/passwordless).
   <% } else if (screen === "universal-login") { %>
-  This is where you can create a beautiful universal login page where you can redirect to authenticate your users, customize the look and feel o your login page with CSS and HTML, and implement SSO in your applications with the flip of a switch. [More info on Universal Login](/universal-login).
+  This is where you can create a beautiful universal login page where you can redirect to authenticate your users, customize the look and feel of your login page with CSS and HTML, and implement SSO in your applications with the flip of a switch. [More info on Universal Login](/universal-login).
 <% } else if (screen === "users-roles") { %>
   This is where you manage your user's identities and permissions. 
   - [Users](${manage_url}/#/users): View your user's profiles, create new ones, perform password resets, block and delete users, and many more. [More info on Users](/users).
