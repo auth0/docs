@@ -1,6 +1,6 @@
 ---
 title: Learn the Basics
-description: Learn the basics of Auth0 and familiarize yourself with the terminology
+description: Learn the basics of Auth0 and familiarize yourself with the terminology.
 toc: true
 topics:
   - auth0-101
@@ -16,22 +16,20 @@ useCase:
 Often, the biggest barrier to learning new things, especially in the tech industry, is terminology. The words that are used to describe things can cause problems when you try to understand new concepts. This document explains some of the basic terminology we use here at Auth0, and maps these terms to concepts you are already familiar with.
 
 ::: panel TL;DR
-This article uses an example to introduce some core concepts of Auth0: **accounts**, **tenants**, **domains**, **applications**, and **connections**. If you already know what these are (in the context of Auth0) you can safely skip reading it.
+This article uses an example to introduce some core concepts of Auth0: **accounts**, **tenants**, **domains**, **applications**, and **connections**. If you already know what these are in the context of Auth0, you can safely skip reading it.
 
 We will use a very simple example: A company named `Example-Co` wants to use Auth0 for authentication. They have a web app and a mobile app, and they want their users to be able to log in with username/password, Google, or GitHub.
 :::
 
 ## Account and tenants
 
-If you haven't already [signed up](https://auth0.com/signup) for an Auth0 **account**, do so (it's free). You can either use username/password or log in with a social provider (GitHub, Google, or Microsoft).
+If you haven't already [signed up](https://auth0.com/signup) for an Auth0 **account**, do so (it's free). You can either use username and password or log in with a social provider (such as Facebook, Google, or Apple).
 
-Once you create your account you will be asked to create a **Tenant**. This is a **logical isolation unit**.
+Once you create your account you will be asked to create a tenant. In Auth0, a tenant is a **logical isolation unit**. The term is borrowed from *software multitenancy* and it refers to an architecture where a single instance of the software serves multiple tenants. No tenant can access the instance of another tenant, even though the software might be running on the same machine (hence the logical isolation).
 
-The term is borrowed from "software multitenancy". This refers to an architecture where a single instance of the software serves multiple tenants. No tenant can access the instance of another tenant, even though the software might be running on the same machine (hence the logical isolation).
+Tenant characteristics:
 
-Some characteristics:
-
-- The tenant name has to be unique (we will see in the next paragraph that it is used to create your own personal domain).
+- The tenant name has to be unique. (See in the next paragraph that it is used to create your own personal domain).
 - The tenant name must be all lowercase.
 - The tenant name cannot be changed after creation.
 - You can create more than one tenant; in fact, you are encouraged to do so for each environment you have (such as Development, Staging, or Production).
@@ -41,14 +39,14 @@ You can create additional tenants at any time. To do so, go to the upper-right c
 
 ## Domains
 
-As discussed in the previous section, when you create a new account with Auth0, you are asked to pick a name for your **Tenant**. This name, appended with `auth0.com`, will be your Auth0 **Domain** (you can also use [custom domains](#custom-domains)). It's the base URL you will be using to access our API and the URL where users are redirected in order to authenticate.
+As discussed in the previous section, when you create a new account with Auth0, you are asked to pick a name for your tenant. This name, appended with `auth0.com`, will be your Auth0 *domain*. (You can also use [custom domains](#custom-domains).) It's the base URL you will use to access our API and the URL where your users are redirected in order to authenticate.
 
 Auth0 supports three regional subdomains: 
 - `auth0.com` for US
 - `eu.auth0.com` for Europe
 - `au.auth0.com` for Australia
 
-When you create your tenant you are asked for the region you want to use. This choice affects which regional subdomain will be assigned to you and where your data will be hosted. So if you pick US then the name format will be `YOUR-TENANT-NAME.auth0.com`, for Europe it will be `YOUR-TENANT-NAME.eu.auth0.com`, and so forth.
+When you create your tenant, you are asked for the region you want to use. This choice affects which regional subdomain will be assigned to you and where your data will be hosted. So if you pick US then the name format will be `YOUR-TENANT-NAME.auth0.com`, for Europe it will be `YOUR-TENANT-NAME.eu.auth0.com`, and so forth.
 
 In our example, `Example-Co` picked the name `example-co` and Americas as their region. Therefore their domain is `example-co.auth0.com`.
 
@@ -121,9 +119,7 @@ If you wish to learn more about the next steps in setting up Auth0, you can read
 
 ## Keep reading
 
-::: next-steps
-- [Learn how you can configure, secure, and access your own API with Auth0](/apis)
-- [Learn more about Auth0 APIs](/api/info)
-- [Learn about our libraries](/libraries)
-- [Learn about working with users and user profiles in Auth0](/users)
-:::
+- [Auth0 APIs](/api/info) - Learn about Auth0 APIs.
+- [API Authorization](/api-auth/apis) - Learn how to configure, secure, and access your own API with Auth0.
+- [Auth0 Libraries & SDKs](/libraries) - Learn about our libraries and SDKs.
+- [Manage Users](/users) - Learn about working with users and user profiles in Auth0.
