@@ -21,7 +21,7 @@ It consists of several sections which you can navigate using the sidebar menu on
 
 ## Configure your implementation
 
-The matrix that follows offers a brief overview of the different dashboard screens and what you can do on each.
+The following table contains a brief overview of the different dashboard pages and what you can do on each.
 
 <table class="table">
     <thead>
@@ -37,7 +37,7 @@ The matrix that follows offers a brief overview of the different dashboard scree
         </tr>
         <tr>
             <th><i class="icon icon-budicon-375"></i>&nbsp;Applications</th>
-            <td colspan="3"><%= include('./_list-processes', {"screen": "clients"}) %></td>
+            <td colspan="3"><%= include('./_list-processes', {"screen": "applications"}) %></td>
         </tr>
         <tr>
             <th><i class="icon icon-budicon-546"></i>&nbsp;APIs</th>
@@ -52,8 +52,12 @@ The matrix that follows offers a brief overview of the different dashboard scree
             <td colspan="3"><%= include('./_list-processes', {"screen": "connections"}) %></td>
         </tr>
         <tr>
-            <th><i class="icon icon-budicon-292"></i>&nbsp;Users</th>
-            <td colspan="3"><%= include('./_list-processes', {"screen": "users"}) %></td>
+            <th><i class="icon icon-budicon-725"></i>&nbsp;Universal Login</th>
+            <td colspan="3"><%= include('./_list-processes', {"screen": "universal-login"}) %></td>
+        </tr>
+        <tr>
+            <th><i class="icon icon-budicon-292"></i>&nbsp;Users & Roles</th>
+            <td colspan="3"><%= include('./_list-processes', {"screen": "users-roles"}) %></td>
         </tr>
         <tr>
             <th><i class="icon icon-budicon-173"></i>&nbsp;Rules</th>
@@ -66,10 +70,6 @@ The matrix that follows offers a brief overview of the different dashboard scree
         <tr>
             <th><i class="icon icon-budicon-243"></i>&nbsp;Multi-factor Auth</th>
             <td colspan="3"><%= include('./_list-processes', {"screen": "mfa"}) %></td>
-        </tr>
-        <tr>
-            <th><i class="icon icon-budicon-725"></i>&nbsp;Hosted Pages</th>
-            <td colspan="3"><%= include('./_list-processes', {"screen": "hlp"}) %></td>
         </tr>
         <tr>
             <th><i class="icon icon-budicon-778"></i>&nbsp;Emails</th>
