@@ -36,7 +36,7 @@ Finally, modify `package.json` to add two new scripts `dev` and `server` that ca
 ```json
 "scripts": {
   "ng": "ng",
-  "start": "ng serve",
+  "start": "ng serve --port 3000",
   "build": "ng build",
   "test": "ng test",
   "lint": "ng lint",
