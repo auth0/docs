@@ -100,7 +100,7 @@ On the top right you can see your tenant's name and icon, and a little arrow. Th
 
 - **Settings**: Here you can configure several aspects of your tenant. For more info see [Tenant Settings in the Auth0 Dashboard](/dashboard/dashboard-tenant-settings).
 - **Invite an admin**: Use this option to add another person as admin to your tenant configuration. For more info see [Manage Admins in the Dashboard](/dashboard/manage-dashboard-admins). 
-- **Create tenant**: Use this to [create a new tenant](/getting-started/the-basics#account-and-tenants).
+- **Create tenant**: Use this to [create a new tenant](/getting-started/create-tenant).
 - **Switch tenant**: If you have multiple [tenants](/getting-started/the-basics#account-and-tenants) you can use this option to switch between them. All configuration described in the previous section is per tenant. If you create an application for `tenant-A`, you will not see it listed for `tenant-B`. If you have more than one tenant, you will find this switching option handy. 
 - **View profile**: Use this to view information about your [account profile](${manage_url}/#/profile).
 - **Account usage**: This option navigates you to our [Account Center](${env.DOMAIN_URL_SUPPORT}/tenants/public) where you can see information about your subscription and your tenants.
