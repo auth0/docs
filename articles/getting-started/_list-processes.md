@@ -22,8 +22,6 @@
   This is where you manage your user's identities and permissions. 
   - [Users](${manage_url}/#/users): View your user's profiles, create new ones, perform password resets, block and delete users, and many more. [More info on Users](/users).
   - [Roles](${manage_url}/#/roles): Create and manage roles for your applications. Roles contain collection of permissions and can be assigned to users. [More info on Roles](/authorization/guides/manage-roles).
-  
-  - [Roles](${manage_url}/#/roles): Create and manage roles for your applications. Roles contain collections of permissions and can be assigned to users. [More info on Roles](/authorization/guides/manage-roles).
 <% } else if (screen === "rules") { %>
   Here you can configure custom JavaScript snippets that are executed in Auth0 as part of the transaction every time a user authenticates to your application. You can call external APIs, filter which users can login to your application, use a whitelist, geolocated access or anything. [More information on Rules](/rules).
 <% } else if (screen === "hooks") { %>
