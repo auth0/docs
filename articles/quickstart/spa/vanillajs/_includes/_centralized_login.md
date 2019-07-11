@@ -97,7 +97,7 @@ Run the following commend in the same folder as the `index.html` file you create
 $ npm init -y
 ```
 
-This will initilize a new NPM project and get us ready to install dependencies.
+This will initialize a new NPM project and get us ready to install dependencies.
 
 ### Installing dependencies
 
