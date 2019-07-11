@@ -13,7 +13,7 @@ useCase:
 # Authenticate using OpenIDConnect to another Auth0 Tenant (Deprecated)
 
 ::: warning
-This solution has been deprecated as it requires the use of the legacy version of the Auth0 User Profile.
+This solution has been deprecated because it requires the use of a legacy version of the Auth0 User Profile.
 :::
 
 You can use an application on one Auth0 tenant (referred to below as the **OIDC Provider tenant**) as an identity provider in another Auth0 tenant (the **Relying Party tenant**).
