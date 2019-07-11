@@ -22,7 +22,7 @@ useCase: development
   </p>
 </div>
 
-<%= include('../_includes/_topic-links', { links: [
+<%= include('../../_includes/_topic-links', { links: [
   'architecture-scenarios',
   'tokens',
   'users',
