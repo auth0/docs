@@ -381,7 +381,7 @@ const PrivateRoute = ({ component: Component, path, ...rest }) => {
     fn();
   }, [isAuthenticated, loginWithRedirect, path]);
 
-  const render = props => <Component {...props} />;
+  const render = props => isAunhenticated === true ? <Component {...props} /> : null;
 
   return <Route path={path} render={render} {...rest} />;
 };
