@@ -64,7 +64,7 @@ Create a new instance of the Credentials Manager. When you run the application, 
 // app/src/main/java/com/auth0/samples/LoginActivity.java
 
 protected void onCreate(Bundle savedInstanceState) {
-    //Setup CredentialsManager
+    // Setup CredentialsManager
     auth0 = new Auth0(this);
     auth0.setOIDCConformant(true);
     credentialsManager = new SecureCredentialsManager(this, new AuthenticationAPIClient(auth0), new SharedPreferencesStorage(this));
@@ -83,7 +83,7 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
 ::: note
-As you progress through this article you will notice that the logic for authenticating and logging the user out is kept under the same activity. Ideally a single class should manage the handling of credentials. You can share this instance across activities or create a new one every time is required as long as the Storage strategy persists the data in the same location. Check the `LoginActivity` class to understand how to achieve this in a single class.
+The logic for authenticating and logging the user out is kept under the same activity. Ideally a single class should manage the handling of credentials. You can share this instance across activities as long as the Storage strategy persists the data in the same location. Check the `LoginActivity` class to understand how to achieve this in a single class.
 :::
 
 
@@ -97,17 +97,17 @@ After a successful login response, you can store the user's credentials using th
 private final AuthCallback loginCallback = new AuthCallback() {
     @Override
     public void onFailure(@NonNull final Dialog dialog) {
-        //show error dialog
+        // Show error dialog
     }
 
     @Override
     public void onFailure(AuthenticationException exception) {
-        //show error message
+        // Show error message
     }
 
     @Override
     public void onSuccess(@NonNull Credentials credentials) {
-        //user successfully authenticated
+        // User successfully authenticated
         credentialsManager.saveCredentials(credentials);
         showNextActivity();
     }
@@ -170,7 +170,7 @@ private void logout() {
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
-    //...
+    // ...
 
     if (getIntent().getBooleanExtra(EXTRA_CLEAR_CREDENTIALS, false)) {
         doLogout();
@@ -192,7 +192,7 @@ private VoidCallback logoutCallback = new VoidCallback() {
 
     @Override
     public void onFailure(Auth0Exception error) {
-        //Log out canceled, keep the user logged in
+        // Log out canceled, keep the user logged in
         showNextActivity();
     }
 };
@@ -210,6 +210,6 @@ If you are not using our Credentials Manager classes, you are responsible for en
 
 As you did previously for the login step, you will need to whitelist as well this logout URL in the dashboard.
 
-<%= include('../../../_includes/_logout_url', { returnTo: 'demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback' }) %>
+<%= include('../../../_includes/_logout_url', { returnTo: 'demo://' + account.namespace + '/android/YOUR_APP_PACKAGE_NAME/callback' }) %>
 
 Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.

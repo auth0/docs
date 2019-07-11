@@ -57,7 +57,7 @@ Create now an instance of the Authentication API application. This time is used 
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
-    //..
+    // ...
     Auth0 auth0 = new Auth0(this);
     auth0.setOIDCConformant(true);
 
@@ -174,13 +174,12 @@ Update the information with the Users API application created before:
 usersClient.updateMetadata(userInfo.getId(), userMetadata).start(new BaseCallback<UserProfile, ManagementException>() {
     @Override
     public void onSuccess(UserProfile profile) {
-        // As received the updated profile here
         // You can react to this, and show the information to the user.
     }
 
     @Override
     public void onFailure(ManagementException error) {
-        //show error
+        // Show error
     }
 });
 ```

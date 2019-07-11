@@ -78,7 +78,7 @@ private boolean logginIn;
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    //Setup the UI
+    // Setup the UI
     setContentView(R.layout.activity_login);
     Button loginButton = findViewById(R.id.loginButton);
     loginButton.setOnClickListener(new View.OnClickListener() {
@@ -88,14 +88,14 @@ protected void onCreate(Bundle savedInstanceState) {
         }
     });
 
-    //Setup CredentialsManager
+    // Setup CredentialsManager
     auth0 = new Auth0(this);
     auth0.setOIDCConformant(true);
     credentialsManager = new SecureCredentialsManager(this, new AuthenticationAPIClient(auth0), new SharedPreferencesStorage(this));
 
-    //Optional - Uncomment the next line to use:
-    //Require device authentication before obtaining the credentials
-    //credentialsManager.requireAuthentication(this, CODE_DEVICE_AUTHENTICATION, getString(R.string.request_credentials_title), null);
+    // Optional - Uncomment the next line to use:
+    // Require device authentication before obtaining the credentials
+    // credentialsManager.requireAuthentication(this, CODE_DEVICE_AUTHENTICATION, getString(R.string.request_credentials_title), null);
 
     //Check if the activity was launched to log the user out
     if (getIntent().getBooleanExtra(EXTRA_CLEAR_CREDENTIALS, false)) {
@@ -115,7 +115,7 @@ protected void onCreate(Bundle savedInstanceState) {
     // Check if an account linking was requested
     if (linkSessions && !loggingIn) {
         loginButton.setText(R.string.link_account);
-        //Auto log in but allow to retry if authentication is cancelled
+        // Auto log in but allow to retry if authentication is cancelled
         doLogin();
     }
 }
@@ -135,14 +135,14 @@ In the login response, based on the boolean flag set in the first step, decide i
 private final AuthCallback loginCallback = new AuthCallback() {
     @Override
     public void onFailure(@NonNull final Dialog dialog) {
-        //show error message 
-        //If currently linking accounts, finish.
+        // Show error message 
+        // If currently linking accounts, finish.
     }
 
     @Override
     public void onFailure(AuthenticationException exception) {
-        //show error message 
-        //If currently linking accounts, finish.
+        // Show error message 
+        // If currently linking accounts, finish.
     }
 
     @Override
@@ -153,7 +153,7 @@ private final AuthCallback loginCallback = new AuthCallback() {
             return;
         }
 
-        //Store the credentials and move to the next activity
+        // Store the credentials and move to the next activity
         credentialsManager.saveCredentials(credentials);
         showNextActivity(credentials);
     }
@@ -179,12 +179,12 @@ private void performLink(final String secondaryIdToken) {
         .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
             @Override
             public void onSuccess(List<UserIdentity> userIdentities) {
-                //Accounts linked
+                // Accounts linked
             }
 
             @Override
             public void onFailure(ManagementException error) {
-                //Linking failed
+                // Linking failed
             }
         });
 }
@@ -235,12 +235,12 @@ private void unlink(UserIdentity secondaryAccountIdentity) {
         .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
             @Override
             public void onSuccess(List<UserIdentity> userIdentities) {
-                //Accounts unlinked
+                // Accounts unlinked
             }
 
             @Override
             public void onFailure(ManagementException error) {
-                //Accounts unlink failed
+                // Accounts unlink failed
             }
         });
 }
