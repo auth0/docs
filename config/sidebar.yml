@@ -179,7 +179,7 @@ articles:
               url: /logout/guides/logout-applications
 
             - title: Auth0
-              url: /logout/guideslogout-auth0
+              url: /logout/guides/logout-auth0
 
             - title: Identity Providers
               url: /logout/guides/logout-idps
