@@ -35,13 +35,13 @@ A rule is essentially an anonymous JavaScript function that is passed 3 paramete
 **Do not** be tempted to add a trailing semicolon at the end of the function declaration as this will break rule execution. Also, anonymous functions make it hard in [debugging](#debugging) situations to interpret the call-stack generated as a result of any [exceptional error](#exceptions) condition. For convenience, consider providing a function name using some compact and unique naming convention to assist with diagnostic analysis (e.g. `function MyRule1 (user, context, callback) {...}`). 
 :::
 
-As depicted in the image below, rules execute in what is the pipeline associated with the generation of artifacts for authenticity that forms part of the overall [Auth0 engine](https://cdn.auth0.com/blog/auth0-raises-100m-to-fuel-the-growth/inside-the-auth0-engine-high-res.jpg). When a pipeline is executed, all enabled rules are packaged together in the order in which they are listed and sent as one code blob to be executed as a [Webtask](https://webtask.io/).
+As depicted in the image below, rules execute in what is the pipeline associated with the generation of artifacts for authenticity that forms part of the overall [Auth0 engine](https://cdn.auth0.com/blog/auth0-raises-100m-to-fuel-the-growth/inside-the-auth0-engine-high-res.jpg). When a pipeline is executed, all enabled rules are packaged together in the order in which they are listed and sent as one code blob to be executed as an Auth0 serverless web task.
 
 ![Rules Pipeline](/media/articles/rules/rules-best-practice-pipeline.png)
 
 ## Size
 
-Webtasks currently have a [maximum execution limit](https://webtask.io/docs/limits) of 100 kB of code per instance. So the total size of implementation for all enabled rules must not exceed 100 kB. Doing so will have unpredictable results. Note that the 100 kB limit does not include any [`npm`](https://www.npmjs.com/) modules referenced as part of any [`require`](https://nodejs.org/api/modules.html#modules_require_id) statements.  
+As a best practice we recommend that the total size of implementation for all enabled rules should not exceed 100 kB: the larger the size, the more latency is introduced due to the packaging and trasnport process employed by the Auth0 serverless web task platform, and this will have an impact on the the performance of your system. Note that the 100 kB limit does not include any [`npm`](https://www.npmjs.com/) modules that may be referenced as part of any [`require`](https://nodejs.org/api/modules.html#modules_require_id) statements.  
 
 ## Order
 
@@ -49,11 +49,11 @@ The order in which rules are displayed in the [Auth0 Dashboard](/dashboard) (see
 
 ## Environment
 
-Rules execute as a series of called JavaScript functions, in an instance of a [Webtask container](https://www.webtask.io/docs/containers). As part of this, a specific environment is provided together with a number of artifacts supplied by both Webtask, and the Auth0 platform. 
+Rules execute as a series of called JavaScript functions, in an instance of an Auth0 serverless web task __container__. As part of this a specific environment is provided, together with a number of artifacts supplied by both the container and the Auth0 authentication server (a.k.a. your Auth0 tenant) itself. 
 
 ### `npm` modules
 
-Webtask containers can make use of a wide range of [`npm`](https://www.npmjs.com/) modules; npm modules not only reduce the overall size of rule code implementation, but also provide access to a wide range of pre-built functionality.
+Auth0 serverless web task containers can make use of a wide range of [`npm`](https://www.npmjs.com/) modules; npm modules not only reduce the overall size of rule code implementation, but also provide access to a wide range of pre-built functionality.
 
 By default, a large list of publicly available npm modules are [supported out-of-the-box](https://auth0-extensions.github.io/canirequire/). This list has been compiled and vetted for any potential security concerns. If you require an npm module that is not supported out-of-the-box, then a request can be made via the [Auth0 support](https://support.auth0.com/) portal or via your Auth0 representative. Auth0 will evaluate your request to determine suitability. There is currently no support in Auth0 for the use of npm modules from private repositories.
 
@@ -69,9 +69,7 @@ It can also be used to support whatever [Software Development Life Cycle (SDLC)]
 
 ### `global` object
 
-Webtask containers provide the `global` object, which can be accessed across all rules executing within a Webtask container instance. The `global` object acts as a global variable and can be used to cache information, or even define to functions, that can be used across all rules that run.    
-
-Rules can run more than once when a pipeline is executed, and this depends on the [context](#context-object) of operation. For each context in which a rule is run, a new Webtask container *may* be instantiated, and for each instantiation of a new Webtask container the `global` object is reset. Thus any declaration in the `global` object should also include provision for initialization - with that declaration ideally being made as early as possible (i.e. in a rule that runs early in the execution [order](#order)), e.g: 
+Auth0 serverless web task containers are provisioned from a pool that's associated with each Auth0 tenant. Each container instance makes available the `global` object, which can be accessed across all rules that execute within the container instance. The `global` object acts as a global variable and can be used to define information, or to even define functions, that can be used across all rules (that run in the container) irrespective of the pipeline instance, e.g:    
 
 ```js
     global.tokenVerify = global.tokenVerify || function(token, secret) {
@@ -95,6 +93,10 @@ Rules can run more than once when a pipeline is executed, and this depends on th
    };
 ```
 
+The `global` object can also be used to cache expensive resources - such as an Access Token for a third party (e.g. logging) API that provides non user-specific functionality, or an Access Token to your own API defined in Auth0 and obtained by using [Client Credentials](/flows/concepts/client-credentials) flow. 
+
+Rules can run more than once when a pipeline is executed, and this depends on the [context](#context-object) of operation. For each context in which a rule is run an existing container instance is either provisioned from the Auth0 tenant pool, or *may* be instantiated a-new. For each instantiation of a new Webtask container the `global` object is reset. Thus any declaration within the `global` object should also include provision for initialization (as shown above), ideally with that declaration being made as early as possible - i.e. in a rule that runs early in the execution [order](#order). 
+
 ### `auth0` object
 
 The `auth0` object is an instance of the [Management API Client](https://github.com/auth0/node-auth0#management-api-client) (defined in the [node-auth0](https://github.com/auth0/node-auth0) Node.js client library), and provides limited access to the [Auth0 Management API](/api/management/v2). It is primarily used for [updating metadata](/rules/guides/metadata#update-metadata) associated with the [`user`](#user-object) object from within a rule. 
@@ -111,11 +113,11 @@ It’s recommended best practice to make use of the `auth0` object (and any othe
 
 ## Execution
 
-Each rule is executed as a JavaScript function; these functions are called in the [order](#order) that the rules are defined. Rules execute sequentially - that is to say the next rule in order won’t execute until the previous rule has completed.
+Each rule is executed as a JavaScript function; these functions are called in the [order](#order) that the rules are defined. Rules execute sequentially - that is to say the next rule in order won’t execute until the previous rule has completed - and only for workflows that involve _user_ credentials; the rule pipeline **does not** execute during [Client Credentials flow](/api-auth/tutorials/adoption/client-credentials) for example.  
 
 In pipeline terms, a rule completes when the [`callback`](#callback-function) function supplied to the rule is called. Failure to call the function will result in a stall of pipeline execution, and ultimately in an error being returned. Each rule must call the `callback` function at least once.
  
-Rule execution supports the asynchronous nature of JavaScript, and constructs such as [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) objects and the like can be used. Asynchronous processing effectively results in suspension of a pipeline pending completion of the asynchronous operation. A webtask container typically has a [30 second execution limit](https://webtask.io/docs/limits), after which the container may be recycled. A recycle of a container will prematurely terminate a pipeline (suspended or otherwise), ultimately resulting in an error in authentication being returned - as well as resulting in a reset of the [`global`](#global-object) object. 
+Rule execution supports the asynchronous nature of JavaScript, and constructs such as [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) objects and the like can be used. Asynchronous processing effectively results in suspension of a pipeline pending completion of the asynchronous operation. A webtask container typically has a [30 second execution limit](https://webtask.io/docs/limits), after which the container may be recycled. A recycle of a container will prematurely terminate a pipeline (suspended or otherwise), ultimately resulting in an error in authentication being returned - as well as resulting in a potential reset of the [`global`](#global-object) object. 
 
 ::: note
 Setting `context.redirect` will trigger a [redirection](#redirection) once all rules have completed (the redirect is not forced at the point it is set). Whilst all rules must complete within the execution limit of the Webtask container for the redirect to occur, the time taken as part of redirect processing *can* extend beyond that limit. Redirection back to Auth0 via the `/continue` endpoint will cause the creation of a new Webtask container, in the context of the current pipeline, in which all rules will again be run.  
