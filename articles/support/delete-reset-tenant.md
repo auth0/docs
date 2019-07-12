@@ -7,7 +7,6 @@ topics:
     - tenants
 contentType:
   - how-to
-  - reference
 useCase:
   - support
 ---
@@ -15,6 +14,12 @@ useCase:
 # Delete/Reset Your Tenant
 
 Using the [Reset Tenant Extension](https://github.com/auth0-extensions/auth0-reset-tenant), you can programmatically make changes to your Auth0 tenant. Not only is this useful for creating new environments for development or test purposes, you can use the extension to "clean" your tenant and remove unwanted items.
+
+::: note
+- If you are an Enterprise customer, you may have multiple child tenants as part of your Auth0 contract. Rest assured that if you choose to delete such a tenant, this will have no impact on your agreement with Auth0. We recommend that if you have any concerns about your Enterprise agreement, then discuss them with your Customer Success Manager (CSM).
+
+- If you have a paid subscription with one or more child tenants, deleting the child tenant should have no impact on your subscription plan. This is because Activity and usage on Child tenants counts toward the master's tenant activity and usage limitations.
+:::
 
 ## Delete vs. Reset
 
