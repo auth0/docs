@@ -418,7 +418,7 @@ The options object passed on the call to `runInThisContext` provides information
 The first two objects passed to the rule during testing represent the [`user`](#user-object) and [`context`](#context-object), and these can be mocked in a fashion similar to that employed in the Auth0 Dashboard `TRY` functionality. The [`callback`](#callback-function) function, supplied as the third parameter, can be implemented to simulate pipeline continuation, subsequently performing execution of the next rule in [order](#order). 
 
 ::: panel Best Practice
-The `callback` function supplied can be used to ensure execution of callback is performed *at least* once by it (the function) executing test of the next rule in the chain. Implementing test(s) in the supplied function to also ensure that multiple execution of the callback is not performed by a rule is also a recommended best practice.
+The `callback` function supplied can be used to ensure execution of the callback is performed *at least* once, by having the (callback) function complete the test and/or provide an assertion. Providing implementation to also ensure that multiple execution of the callback is not performed by a rule is also a recommended best practice.
 :::
 
 In addition, the (Node.js) `global` object can be used to provide both the [configuration](#environment) object, and also an instance of the [`auth0`](#auth0-object) object if required. In the sample above, a global `configuration` object has been defined that aligns with recommended practices to assist with [debugging](#debugging) (as described in the section above) .
