@@ -27,7 +27,7 @@ A rule is essentially an anonymous JavaScript function that is passed 3 paramete
 ```js
     function (user, context, callback) {
         // TODO: implement your rule
-        callback(null, user, context);
+        return callback(null, user, context);
     }
  ```
 
@@ -115,7 +115,7 @@ It’s recommended best practice to make use of the `auth0` object (and any othe
 
 Each rule is executed as a JavaScript function; these functions are called in the [order](#order) that the rules are defined. Rules execute sequentially - that is to say the next rule in order won’t execute until the previous rule has completed - and only for workflows that involve _user_ credentials; the rule pipeline **does not** execute during [Client Credentials flow](/api-auth/tutorials/adoption/client-credentials) for example.  
 
-In pipeline terms, a rule completes when the [`callback`](#callback-function) function supplied to the rule is called. Failure to call the function will result in a stall of pipeline execution, and ultimately in an error being returned. Each rule must call the `callback` function exactly once.
+In pipeline terms, a rule completes when the [`callback`](#callback-function) function supplied to the rule is called. Failure to call the function will result in a stall of pipeline execution, and ultimately in an error being returned. Each rule must call the `callback` function **exactly** once.
  
 Rule execution supports the asynchronous nature of JavaScript, and constructs such as [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) objects and the like can be used. Asynchronous processing effectively results in suspension of a pipeline pending completion of the asynchronous operation. A webtask container typically has a [30 second execution limit](https://webtask.io/docs/limits), after which the container may be recycled. A recycle of a container will prematurely terminate a pipeline (suspended or otherwise), ultimately resulting in an error in authentication being returned - as well as resulting in a potential reset of the [`global`](#global-object) object. 
 
@@ -132,7 +132,7 @@ The [`context`](/rules/references/context-object) object provides information ab
 ```js
   switch (context.protocol) {
     case 'redirect-callback':
-      callback(null, user, context);
+      return callback(null, user, context);
     	break;
 
     default: {
@@ -158,12 +158,12 @@ The [`context`](/rules/references/context-object) object provides information ab
               .
           })
           .catch(function (error) {
-            callback(new UnauthorizedError(“unauthorized”), user, context);
+            return callback(new UnauthorizedError(“unauthorized”), user, context);
           });
         } break;
           
         default:
-          callback(null, user, context);
+          return callback(null, user, context);
           break;
       
     } break; 
@@ -230,7 +230,7 @@ Failure to call the function will result in a stall of pipeline execution, and u
 
         context.idToken['https://example.com/roles'] = roles;
 
-        callback(null, user, context);
+        return callback(null, user, context);
       });
     }
   }
@@ -255,13 +255,13 @@ Use of [`console.error`](https://developer.mozilla.org/en-US/docs/Web/API/Consol
 As described in the section entitled [Execution](#execution) (above), there are time constraints regarding how much time a rule has available in which to execute. If recovery from an error condition is not possible (or probable) within this time period, then an error condition should be explicitly returned; this is as simple as completing rule execution by returning an instance of a Node [Error](https://nodejs.org/api/errors.html#errors_class_error) object, as in:
 
 ```js
-  callback(new Error('some description'));
+  return callback(new Error('some description'));
 ```
 
 Alternatively, an instance of the Auth0 specific `UnauthorizedError` can be returned which will cause an `unauthorized` error condition, with the supplied error description, to be returned to the application that initiated authentication - i.e. the application from which redirect to the `/authorize` end-point, say, was initiated. This allows an application to offer (contiional) retry capability, and additionaly provides capability to implement rule(s) which can be used to [deny access based on certain conditions](/rules/references/legacy#deny-access-based-on-a-condition). For a description of other common authentication error conditions in Auth0, see the [Auth0 SDK library documentation](/libraries/error-messages): 
 
 ```js
-  callback(new UnauthorizedError('some description'), user, context);
+  return callback(new UnauthorizedError('some description'), user, context);
 ```
 
 ::: panel Best Practice
@@ -344,7 +344,7 @@ Modifying a rule to enable or disable debug logging dependent on the environment
       .
   
     //
-    callback(null, user, context);
+    return callback(null, user, context);
   }
 ```
 
