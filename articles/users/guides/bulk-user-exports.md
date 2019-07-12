@@ -19,7 +19,7 @@ When you create your job, you'll need to provide:
 
 * ID for the connection whose users you want exported
 * Format of the export file (CSV or JSON-compatible)
-* Maximum number of user records to be exported
+* Maximum number of user records to be exported (optional, will export all records if omitted)
 * User-related fields (such as user ID or name) that you want included in the export
 
 <%= include('../search/v3/_valid-access-token') %>
