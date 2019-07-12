@@ -441,7 +441,7 @@ There is no version management when it comes to rules in Auth0: changes made to 
 
 ## Performance
 
-Rules execute as part of a pipeline where artifacts for authenticity are generated, as described in the [Anatomy](#anatomy) section above. As such, an enabled rule will execute for every login operation (interactive or otherwise), every silent authentication, and every time an access token is generated for an API call. This means that even in small scale deployments performance can be a concern, which will only be exacerbated as the scale of deployment increases.
+Rules execute as part of a pipeline where artifacts for authenticity are generated, as described in the [Anatomy](#anatomy) section above. As such, an enabled rule will execute for every login operation (interactive or otherwise), every silent authentication, and every time a user credentials related access token is generated for an API call. This means that even in small scale deployments performance can be a concern, which will only be exacerbated as the scale of deployment increases.
 
 ### Avoid unecessary execution
 
