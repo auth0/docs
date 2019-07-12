@@ -470,7 +470,7 @@ Outside use of the [`auth0`](#auth0-object) object, prefer to avoid calls to the
 
 We've recently expanded [connection related properties](/rules/references/context-object) available to the rules [`context`](#context-object) object. You should now be able to obtain connection info from the `context` object instead of needing to call the Auth0 Management API. 
 
-By way of example, if you are using the **Check if user email domain matches configured domain** rule template, check out the latest version [on Github](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or on the [Auth0 dashboard](${manage_url}/#/rules/new) to see this in action. Note, the changes won't alter functionality but will improving the performance of rules that had once relied on calls to the Management API.
+By way of example, if you are using the **Check if user email domain matches configured domain** rule template, check out the latest version [on Github](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or on the [Auth0 dashboard](${manage_url}/#/rules/new) to see this in action. Note, the changes won't alter functionality but will improve the performance of rules that had once relied on calls to the Management API.
 
 Removing calls to the Management API (as well as the extra call required to get the appropriate <dfn data-key="access-token">Access Token</dfn>) will make your rule code perform better as well as be more reliable. 
 
