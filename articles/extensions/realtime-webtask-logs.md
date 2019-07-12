@@ -28,13 +28,13 @@ Click the _Install_ button.
 
 To clear the logs and start fresh select the red _CLEAR CONSOLE_ button at the bottom right.
 
-## Best practices for secure logging
+## Secure logging
 
 Because the Webtask Logs extension uses the users request, logging sensitive information is a concern of which you should be mindful.
 
 For example, your custom database scripts work with the `user` object extensively. The `user` object may contain sensitive information, and logging the complete object may lead to its disclosure to the Webtask Logs extension.
 
-Obviously, Auth0 strongly discourages such practices. These actions could lead to the disclosure of your users' sensitive information. **We caution you to be aware of the objects that you log and whether your logs include sensitive information that should not be publicly available.**
+Obviously, Auth0 strongly discourages such practices. These actions could lead to the disclosure of your users' sensitive information. **We caution you to be aware of the objects that you log and to ensure sensitive information is not logged**
 
 ## Debugging rules
 
