@@ -47,6 +47,10 @@ As a best practice we recommend that the total size of implementation for all en
 
 The order in which rules are displayed in the [Auth0 Dashboard](/dashboard) (see image above) dictate the order in which the rules will be executed. This is important, as one rule may make one or more definitions within the [environment](#environment) associated with execution that another rule may depend upon. In this case, the rule making the definition(s) should execute before the rule that makes use of them.
 
+::: panel Best Practice
+As a recommended best practice, run expensive rules - i.e. rules that call out to API's, including the Auth0 Management API - as late as possible. If you have other less expensive rules that can early-out the pipeline, then you should have these run first to prevent any `unauthorized` access determination from having to make expensive calls.
+:::
+
 ## Environment
 
 Rules execute as a series of called JavaScript functions, in an instance of an Auth0 serverless web task __container__. As part of this a specific environment is provided, together with a number of artifacts supplied by both the container and the Auth0 authentication server (a.k.a. your Auth0 tenant) itself. 
