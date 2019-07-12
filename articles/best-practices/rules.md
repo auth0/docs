@@ -302,7 +302,7 @@ Use of uninitialized objects is a common cause of exceptions. To guard against t
 
 ## Debugging
 
-Out of the box, [runtime debugging](/rules/guides/debug) of a rule is typically achieved via the use of console logging by using the [console.log](https://developer.mozilla.org/en-US/docs/Web/API/Console/log) facility. These is no interactive debugging of a rule available within the Auth0 platform (though one could employ the testing [automation](#automation) technique described below in conjunction with some external interactive source-debugging facility).
+Out of the box, [runtime debugging](/rules/guides/debug) of a rule is typically achieved via the use of console logging by using the [console.log](https://developer.mozilla.org/en-US/docs/Web/API/Console/log) facility. There is no interactive debugging of a rule available within the Auth0 platform (though one could employ the testing [automation](#automation) technique described below in conjunction with some external interactive source-debugging facility).
 
 ::: panel Best Practice
 Adding sufficient line - i.e. `//` - or block - i.e. `/* */` - comments to a rule, particularly around non-obvious functionality, is invaluable to both code debugging and also code understanding. Particularly as there are many occasions where the initial implementer of a rule may not be the same person responsible for maintaining it going forward.
