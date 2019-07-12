@@ -14,7 +14,7 @@ useCase: extensibility-extensions
 # Authorization Extension: Setup
 
 ::: note
-<%= include('../../_includes/_rbac_methods') %>
+<%= include('../../../../_includes/_rbac_methods') %>
 :::
 
 In this article we'll cover the basics of users, groups, <dfn data-key="role">roles</dfn>, and permissions.

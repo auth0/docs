@@ -24,7 +24,7 @@ Since only the API can know all of the possible actions that it can handle, it s
 
 <%= include('../_includes/_rbac_methods') %>
 
-<%= include('../../_includes/_rbac_vs_extensions') %>
+<%= include('../_includes/_rbac_vs_extensions') %>
 
 ## Keep reading
 

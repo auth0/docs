@@ -14,10 +14,10 @@ useCase: extensibility-extensions
 
 # Authorization Extension
 ::: note
-<%= include('../../_includes/_rbac_methods') %>
+<%= include('../../../_includes/_rbac_methods') %>
 :::
 
-<%= include('../../_includes/_rbac_vs_extensions') %>
+<%= include('../../../_includes/_rbac_vs_extensions') %>
 
 The Authorization Extension provides support for user authorization via Groups, <dfn data-key="role">Roles</dfn>, and Permissions. You can define the expected behavior during the login process, and your configuration settings will be captured in a [rule](/rules) that's executed during runtime.
 

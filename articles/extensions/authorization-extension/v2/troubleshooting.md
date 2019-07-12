@@ -13,7 +13,7 @@ useCase: extensibility-extensions
 # Authorization Extension: Troubleshoot Issues
 
 ::: note
-<%= include('../../_includes/_rbac_methods') %>
+<%= include('../../../_includes/_rbac_methods') %>
 :::
 
 The following are some issues you might see when setting up the Authorization Extension, as well as some tips to help you identify the cause.

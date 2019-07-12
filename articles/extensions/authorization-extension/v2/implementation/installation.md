@@ -13,7 +13,7 @@ useCase: extensibility-extensions
 # Authorization Extension: Installation
 
 ::: note
-<%= include('../../_includes/_rbac_methods') %>
+<%= include('../../../../_includes/_rbac_methods') %>
 :::
 
 This doc walks you through the process of installing the Authorization Extension.

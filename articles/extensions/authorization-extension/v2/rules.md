@@ -14,7 +14,7 @@ useCase: extensibility-extensions
 # Authorization Extension: Rules
 
 ::: note
-<%= include('../../_includes/_rbac_methods') %>
+<%= include('../../../_includes/_rbac_methods') %>
 :::
 
 You can use [rules](/rules) with the Authorization Extension to do things like:
