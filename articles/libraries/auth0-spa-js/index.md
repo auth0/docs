@@ -10,11 +10,15 @@ contentType:
   - index
 ---
 
+<!-- markdownlint-disable MD041 -->
+
 # Auth0 Single Page Application SDK
 
 The Auth0 Single Page Application (SPA) SDK is a new JavaScript library designed to secure SPAs with best practices and less code. It implements [Universal Login](/universal-login) and the [Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce). The Auth0 SPA SDK handles grant and protocol details, manages token expiration and renewal, and it stores and caches tokens for you.
 
 You can find the source code [on Github](https://github.com/auth0/auth0-spa-js) and the full API documentation [here](https://auth0.github.io/auth0-spa-js/).
+
+<%= include('../_includes/_spa_js_faq.md') %>
 
 ## Installation
 
