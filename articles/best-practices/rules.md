@@ -368,7 +368,7 @@ As a best practice, and as part of the recommended [support for the Software Dev
 :::
 
 ### Automation
-With the help of a little boilerplate however, it’s possible to implement so that a rule can be deployed and executed in an Auth0 Tenant *and*, without modification, be consumed in any Continuous Integration/Continuous Deployment (CI/CD) automated (unit) testing environment: 
+With the help of a little boilerplate however, it’s possible to implement in a way that enables a rule to be deployed and executed in an Auth0 Tenant *and*, without modification, be consumed in any Continuous Integration/Continuous Deployment (CI/CD) automated (unit) testing environment: 
 
 ```js
   const vm = require('vm');
