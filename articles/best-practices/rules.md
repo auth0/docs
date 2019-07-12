@@ -476,7 +476,7 @@ Removing calls to the Management API (as well as the extra call required to get 
 
 ### Consider use of explicit timeouts when making API calls
 
-When calling APIs or accessing external services consider specifiying explicit timeout(s). The specific timeout value you choose will typically vary based on your user case, but in general, choosing a one that's as low as possible - whilst bearing in mind the performance charisteristics of the external service - is advised.
+When calling APIs or accessing external services consider specifying explicit timeout(s). The specific timeout value you choose will typically vary based on your user case, but in general, choosing a one that's as low as possible - whilst bearing in mind the performance characteristics of the external service - is advised.
 
 ::: panel Best Practice
 Whether you choose to employ use of explicit timeouts, or you choose to opt for implicit timout processing, always be sure to cater for [error](#error-handling) and/or [exception](#exceptions) conditions that may occur as a rusult of any timeout period expiration.
