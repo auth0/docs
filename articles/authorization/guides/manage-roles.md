@@ -16,6 +16,8 @@ useCase:
 
 This guide will show you how to manage <dfn data-key="role">roles</dfn> using Auth0's Dashboard. Roles are used with the API Authorization Core feature set.
 
+<%= include('../../_includes/_rbac_vs_extensions') %>
+
 <%= include('../_includes/_enable-authz-core') %>
 
 We provide various functions to help you manage your roles, which you can access through either the Auth0 Dashboard or the Auth0 Management API.
