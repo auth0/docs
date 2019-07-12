@@ -109,7 +109,7 @@ The `auth0` object is an instance of the [Management API Client](https://github.
 The [access token](/tokens/overview-access-tokens) associated with the `auth0` object has scopes limited to `read:users` and `update:users` only. Typically, these are sufficient for the majority of operations we recommend being performed from within a rule. However, if you require additional scope(s) then you will need to employ an alternative means of [access to the Management API](/api/management/v2/tokens). 
 :::
 
-Like the [`context`](#context-object) object (described below), the `auth0` object contains security sensitive information, so you should not pass it to any external or 3rd party service. Further, the Auth0 Management API is both [rate limited](/policies/rate-limits#management-api-v2) and subject to latency, so you should be judicious regarding [how often calls are made](#minimize-api-requests). 
+Like the [`context`](#context-object) object (described below), the `auth0` object contains security sensitive information, so you should not pass it to any external or third party service. Further, the Auth0 Management API is both [rate limited](/policies/rate-limits#management-api-v2) and subject to latency, so you should be judicious regarding [how often calls are made](#minimize-api-requests). 
 
 ::: panel Best Practice
 It’s recommended best practice to make use of the `auth0` object (and any other mechanisms for calling the Auth0 Management API) sparingly, and to always make sure that adequate [exception](#exceptions) and [error](#error-handling) handling is employed in order to prevent unexpected interruption of pipeline execution.
@@ -245,7 +245,7 @@ As can be seen in the example provided (above), the `callback` function can be c
 The status parameter should be passed as either `null`, an instance of an `Error` object, or an instance of an `UnauthorizedError` object. Specifying null will permit the continuation of pipeline processing, whilst any of the other values will terminate the pipeline; an `UnauthorizedError` signalling [denial of access, and allowing information to be returned to the originator of the authentication operation](/rules/references/legacy#deny-access-based-on-a-condition) (regarding the reason why access is denied). Passing any other value for any of these parameters will have unpredictable results, and may lead to an exception or error condition.  
 
 ::: note
-The example provided (above) also demonstrates best practice use of both [early exit](#exit-early) as well as [email address verification](#check-if-an-email-is-verified), as described in the [Performance](#performance) and [Security](#security) sections below. Note: the `getRoles` function used is implemented elsewhere within the rule, as a wrapper function to a 3rd party API.
+The example provided (above) also demonstrates best practice use of both [early exit](#exit-early) as well as [email address verification](#check-if-an-email-is-verified), as described in the [Performance](#performance) and [Security](#security) sections below. Note: the `getRoles` function used is implemented elsewhere within the rule, as a wrapper function to a third party API.
 :::
 
 ## Error Handling 
@@ -428,7 +428,7 @@ The sample above also makes use of the file system directory structure provided 
 ## Deployment
 Coding a rule within the Auth0 Dashboard rule editor is a great way to implement and test whilst still in the development stage. However, when it comes time to deploy into automated test and/or production environments, a more automated mechanism is required; copy and pasting code between Auth0 tenants is not a satisfactory method to employ.
 
-Out of the box, Auth0 provides a number of facilities for automated deployment of rule extensibility assets between Auth0 tenant environments. The Auth0 [GitHub](/extensions/github-deploy), [GitLab](/extensions/gitlab-deploy) and [Bitbucket](/extensions/bitbucket-deploy) extensions provide the ability to update rule assets from the respective 3rd party version control system - both manually, and in many instances automatically too (i.e. when a change in the version control system is detected).
+Out of the box, Auth0 provides a number of facilities for automated deployment of rule extensibility assets between Auth0 tenant environments. The Auth0 [GitHub](/extensions/github-deploy), [GitLab](/extensions/gitlab-deploy) and [Bitbucket](/extensions/bitbucket-deploy) extensions provide the ability to update rule assets from the respective third party version control system - both manually, and in many instances automatically too (i.e. when a change in the version control system is detected).
 
 In addition, the Auth0 [Deploy CLI](/extensions/deploy-cli) tool can be used to automate deployment between Auth0 tenants. Deploy CLI works with files stored in the file system together with the Auth0 Management API, and provides capability to allow the export of rule assets from an Auth0 tenant, as well as import of them into an Auth0 tenant. Further the tool provides for programmatic control over rule ordering and rule environment [configuration](#environment-variables), as part of deployment automation. In many ways, the Deploy CLI is like a Swiss Army Knife when it comes to rule extensibility deployment in Auth0.  
 
@@ -455,7 +455,7 @@ Client metadata for an application can be set manually via the dashboard, by goi
 For optimal performance, prefer to write rules that complete as soon as possible. For example, if a rule has three checks to decide if it should run, use the first check to eliminate the majority of cases, followed by the check to eliminate the next largest set of cases, and so on and so forth. At the end of each check remember to execute the [callback](#callback-function) function, ideally combined with a (JavaScript) `return` in order to exit the (rule) function. 
 
 ### Minimize API requests
-Calls to APIs, especially calls to 3rd party APIs, can slow down login response time, and can cause rule timeout failures due to call latency - ultimately leading to authentication error situations. We recommended keep API requests to a minimum wherever possible within a rule, and to [avoid excessive calls to paid services](#limit-calls-to-paid-services). We also recommend you avoid potential security exposure by [limiting what is sent]() to any API - 3rd party or otherwise. 
+Calls to APIs, especially calls to third party APIs, can slow down login response time, and can cause rule timeout failures due to call latency - ultimately leading to authentication error situations. We recommended keep API requests to a minimum wherever possible within a rule, and to [avoid excessive calls to paid services](#limit-calls-to-paid-services). We also recommend you avoid potential security exposure by [limiting what is sent]() to any API - third party or otherwise. 
 
 ::: panel Best Practice
 The [global](#global-object) object can be used to cache information from API calls, which can subsequently be used across all rules that execute in the pipeline. Prefer to use this to store information instead of repeatedly calling an API. 
