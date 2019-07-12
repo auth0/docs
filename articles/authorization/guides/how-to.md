@@ -11,7 +11,9 @@ useCase:
 ---
 # How to Use Auth0's Core Authorization Feature Set
 
-The core Authorization features of Auth0 allow for [role-based access control (RBAC)](/authorization/concepts/rbac) of your APIs. 
+The core Authorization features of Auth0 allow for [role-based access control (RBAC)](/authorization/concepts/rbac) of your APIs.
+
+<%= include('../../_includes/_rbac_vs_extensions') %>
 
 <%= include('../_includes/_enable-authz-core') %>
 
