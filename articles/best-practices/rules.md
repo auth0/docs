@@ -364,7 +364,7 @@ The rule editor in the Auth0 dashboard provides some rudimentary syntax checking
 The Auth0 Dashboard provides the facility to [`TRY`](/rules/guides/debug) a rule for the purpose of testing and debugging. This facility allows a mock [`user`](#user-object) and [`context`](#context-object) object to be defined, which is then passed to the rule as part of its execution. The resulting output from the rule (including any console logging) being displayed upon completion. Whilst this provides an immediate at-a-glance way to unit test a rule, it is very much a manual approach, and one which is unable to leverage the use of automated testing tools such as [Mocha](https://mochajs.org/) or [rewire](https://www.npmjs.com/package/rewire).
 
 ::: panel Best Practice
-As a best practice, and as part of the recommended [support for the Software Development Life Cycle](https://auth0.com/docs/architecture-scenarios/implementation/b2c/b2c-architecture#sdlc-support), the use of a seperate test Tenant in Auth0 should be employed in order to test any rule/rule changes before deploying to production.
+As a best practice, and as part of the recommended [support for the Software Development Life Cycle](https://auth0.com/docs/architecture-scenarios/implementation/b2c/b2c-architecture#sdlc-support), the use of a separate test Tenant in Auth0 should be employed in order to test any rule/rule changes before deploying to production.
 :::
 
 ### Automation
