@@ -36,11 +36,11 @@ First, we'll check for the Application created for your WordPress site.
 
 1. Navigate to the [Applications](${manage_url}/#/applications) page and look for an application that is similar to your site name. If you don't find one, it means that an Application was not created by the Wizard. Restart the Setup Wizard or create a new Application manually by clicking **Create Application**. Enter a name for the application, select **Regular Web Applications**, and click **Create**.
 
-    ![Listing of Auth0 Applications in the Management Dashboard](/media/articles/cms/wordpress/client-listing.png)
+    ![Auth0 Applications in the Management Dashboard](/media/articles/cms/wordpress/application-listing.png)
 
 2. Click on the name to get to the **Settings** tab. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0.
 
-    ![Application Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
+    ![Application Settings](/media/articles/cms/wordpress/auth0-app-settings.png)
 
 3. **Application Type** must be set to **Regular Web Application** and **Token Endpoint Authentication Method** must be set to **Post**
 
@@ -68,7 +68,7 @@ Do **not** cache Callback URLs, or you might see an "Invalid state" error during
 
 9. Turn on **OIDC Conformant**.
 
-    ![Application - Advanced Settings - OAuth](/media/articles/cms/wordpress/client-advanced-settings.png)
+    ![Application - Advanced Settings - OAuth](/media/articles/cms/wordpress/app-advanced-settings.png)
 
 10. Click the **Grant Types** tab and select at least **Implicit,** **Authorization Code,** and **Client Credentials**.
 
@@ -80,17 +80,17 @@ Do **not** cache Callback URLs, or you might see an "Invalid state" error during
 
 In order for your WordPress site to perform certain actions on behalf of your Auth0 tenant, you'll need to authorize the Application created above to access the Management API. This is not required but will enable retrieving complete user data on login (including `user_metadata` and `app_metadata`), email and password changes for users, and email verification re-sending when verified emails are required.
 
-1. Make sure your Application allows the Client Credentials grant (step 10 in the section above)
+1. Make sure your Application allows the Client Credentials grant (step 10 in the section above).
 
-2. Navigate to the [APIs](${manage_url}/#/apis) page
+2. Navigate to the [APIs](${manage_url}/#/apis) page.
 
-3. Click on **Auth0 Management API**, then the **Machine to Machine Applications** tab
+3. Click on **Auth0 Management API**, then the **Machine to Machine Applications** tab.
 
-4. Look for the WordPress Application and click **Unauthorized** to grant access
+4. Look for the WordPress Application and click **Unauthorized** to grant access.
 
-5. In the panel that appears, select only the `read:users` and `update:users` scopes and click **Update** (you can search using the **Filter scopes** field)
+5. In the panel that appears, select only the `read:users` and `update:users` scopes and click **Update** (you can search using the **Filter scopes** field).
 
-![Application Advanced Settings](/media/articles/cms/wordpress/grant-client-access-to-api.png)
+![Application Advanced Settings](/media/articles/cms/wordpress/grant-app-access-to-api.png)
 
 ### Database Connection setup
 
@@ -102,17 +102,15 @@ Database Connections enable the typical username and password login seen on most
 
 1. Click the **Applications** tab and activate the Application created above.
 
-    ![Application Advanced Settings](/media/articles/cms/wordpress/db-connection-clients.png)
+    ![Application Advanced Settings](/media/articles/cms/wordpress/db-connection-apps.png)
 
 ### Social Connection setup
 
-See our [dedicated page on Social Connections](/identityproviders#social) for detailed information on how to activate and configure these login methods.
+See [Social Connections](/identityproviders#social) for detailed information on how to activate and configure these login methods.
 
 ### Update Auth0 settings in WordPress
 
 1. Go to back to the [Applications](${manage_url}/#/applications) page and select the Application created above.
-
-    ![Application Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
 
 1. In a new tab/window, log into wp-admin for your WordPress site and go to **wp-admin > Auth0 > Settings**.
 
