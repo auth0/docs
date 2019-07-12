@@ -29,7 +29,7 @@ Once you create your account you will be asked to create a tenant. In Auth0, a t
 
 Tenant characteristics:
 
-- The tenant name has to be unique. (See in the next paragraph that it is used to create your own personal domain).
+- The tenant name has to be unique. It will be used to create your personal domain.
 - The tenant name must be all lowercase.
 - The tenant name cannot be changed after creation.
 - You can create more than one tenant; in fact, you are encouraged to do so for each environment you have (such as Development, Staging, or Production).
