@@ -512,7 +512,7 @@ In a similar fashion, avoid passing **any** aspect of the [`auth0`](#auth0-objec
 
 ### Check if an email is verified
 
-Whenever granting authorization predicated on email address or email address charisteristics, always start by checking if the email address is verified e.g:
+Whenever granting authorization predicated on email address or email address characteristics, always start by checking if the email address is verified e.g:
 
 ```js
 function (user, context, callback) {
