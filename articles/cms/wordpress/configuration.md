@@ -114,11 +114,7 @@ See [Social Connections](/identityproviders#social) for detailed information on 
 
 1. In a new tab/window, log into wp-admin for your WordPress site and go to **wp-admin > Auth0 > Settings**.
 
-1. Click on the **Basic** tab.
-
 1. Copy **Domain**, **Client ID**, and **Client Secret** from your Auth0 Application page to your WordPress settings using the Copy to Clipboard buttons next to each field.
-
-1. Make sure **Application Signing Algorithm** matches the Application's Advanced > OAuth setting.
 
 1. Scroll down and click **Save Changes**.
 
