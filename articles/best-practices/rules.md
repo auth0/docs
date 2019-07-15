@@ -462,13 +462,13 @@ The [global](#global-object) object can be used to cache information from API ca
 :::
 
 #### Limit calls to paid services
-If you have rules that call paid services - such as sending SMS messages via Twilio - make sure that you only use those servicess when necessary. This not only provides performance enhancement but helps to avoid extra charges too. To help reduce calls to paid services:
+If you have rules that call paid services - such as sending SMS messages via Twilio - make sure that you only use those services when necessary. This not only provides performance enhancement but helps to avoid extra charges too. To help reduce calls to paid services:
 
 * Disallow public sign-ups to reduce the number of users who can sign up and trigger calls to paid services.
 * Ensure that a rule only gets triggered for an authorized subset of users, or other appropriate conditions. For example, you may want to add logic that checks if a user has a particular email domain, role/group, or subscription level before triggering the call to the paid service.
 
 #### Limit calls to the Management API 
-Outside use of the [`auth0`](#auth0-object) object, prefer to avoid calls to the Auth0 Management API. The Auth0 Management API is [rate limited](/policies/rate-limits#management-api-v2) - which will still be a consideration even when using the `auth0` object too (so be sure to use it sparingly). In addition, Management API functions take varying degrees of time to perform, so will incur varying degrees of latency; executing [user search](/api/management/v2#!/Users/get_users) functionality, for example, should be kept to a minimum and performed only where absolutely necessary - even when executed via the `auth0` object.
+Prefer to avoid calls to the Auth0 Management API. The Auth0 Management API is [rate limited](/policies/rate-limits#management-api-v2) - which will still be a consideration even when using the `auth0` object (so be sure to use it sparingly). In addition, Management API functions take varying degrees of time to perform, so will incur varying degrees of latency; executing [user search](/api/management/v2#!/Users/get_users) functionality, for example, should be kept to a minimum and performed only where absolutely necessary - even when executed via the `auth0` object.
 
 #### Avoid calls to the Management API for Connection-related details
 
