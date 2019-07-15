@@ -460,7 +460,7 @@ For optimal performance, prefer to write rules that complete as soon as possible
 Calls to APIs, especially calls to third party APIs, can slow down login response time, and can cause rule timeout failures due to call latency - ultimately leading to authentication error situations. We recommended keeping API requests to a minimum wherever possible within a rule, and to [avoid excessive calls to paid services](#limit-calls-to-paid-services). We also recommend you avoid potential security exposure by [limiting what is sent]() to any API - third party or otherwise. 
 
 ::: panel Best Practice
-The [global](#global-object) object can be used to cache information from API calls, which can subsequently be used across all rules that execute in the pipeline. Prefer to use this to store information instead of repeatedly calling an API. 
+The [`global`](#global-object) object can be used to cache information from API calls, which can subsequently be used across all rules that execute in the pipeline. Prefer to use this to store information instead of repeatedly calling an API. Additionally, the `global` object can also be used to cache other information between rule execution as described in the [section](#global-object) above.
 :::
 
 #### Limit calls to paid services
