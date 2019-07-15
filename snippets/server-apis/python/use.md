@@ -8,7 +8,7 @@ def public():
     response = "Hello from a public endpoint! You don't need to be authenticated to see this."
     return jsonify(message=response)
 
-# This does need authentication
+# This needs authentication
 @APP.route("/api/private")
 @cross_origin(headers=["Content-Type", "Authorization"])
 @requires_auth
@@ -16,7 +16,7 @@ def private():
     response = "Hello from a private endpoint! You need to be authenticated to see this."
     return jsonify(message=response)
 
-# This does need authorization
+# This needs authorization
 @APP.route("/api/private-scoped")
 @cross_origin(headers=["Content-Type", "Authorization"])
 @requires_auth
