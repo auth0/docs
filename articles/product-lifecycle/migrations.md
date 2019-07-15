@@ -35,7 +35,7 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
       </td>
     </tr>
     <tr>
-      <td><a href="/migration/guides/facebook-social-context"><code>context</code> field for Facebook Connection (3rd party deprecation)</a></td>
+      <td><a href="/migrations/guides/facebook-social-context"><code>context</code> field for Facebook Connection (3rd party deprecation)</a></td>
       <td>30 April 2019</td>
       <td>
         30 July 2019
