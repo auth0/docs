@@ -11,7 +11,7 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
-<%= include('../_includes/_getting_started', { library: 'Cordova') %>
+<%= include('../_includes/_getting_started', { library: 'Cordova' }) %>
 
 <%= include('../../../_includes/_callback_url') %>
 
@@ -23,6 +23,12 @@ Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Ap
 # replace YOUR_PACKAGE_ID with your app package ID
 YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
 ```
+
+<%= include('../../../_includes/_logout_url') %>
+
+::: note
+If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to whitelist in the Allowed Logout URLs field is the same as the callback URL.
+:::
 
 Add `file` as an allowed origin to the **Allowed Origins (CORS)** box.
 
@@ -93,5 +99,3 @@ After authentication, users will be redirected to your application where they wi
 #### Cannot read property 'isAvailable' of undefined
 
 This means that you're attempting to test this in a browser. At this time you'll need to run this either in an emulator or on a device.
-
-
