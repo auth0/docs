@@ -67,7 +67,7 @@ Each custom field can only have one `FieldType` associated.
 
 ## Storage
 
-Each custom field can only have one `Storage` associated. You can choose to store it right at the root level or inside the `user_metadata` attribute. To specify this use the 5 parameters constructor and pass the `Storage` parameter of your choice. By default, fields will be stored inside the `user_metadata` attribute.
+Each custom field can only have one `Storage` associated. You can choose to store it right at the root level or inside the `user_metadata` attribute. To specify the storage location, use the five-parameter constructor and pass the `Storage` parameter of your choice (see below). By default, fields will be stored inside the `user_metadata` attribute.
 
 Available choices:
 
