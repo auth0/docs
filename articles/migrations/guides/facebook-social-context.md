@@ -16,7 +16,7 @@ For Facebook connections created before April 30th 2019, Auth0 requests that fie
  
 ![facebook context](/media/articles/migrations/facebook-context.png)
  
-Once you uncheck ‘Social context’, the profile data will not include the context field, which has the following content:
+Once you uncheck ‘Social context’, the profile data will not include the context field. The field has the following content:
  
 ```
 "context": {
@@ -29,9 +29,6 @@ On July 30th 00:00 UTC, Facebook connections that request the field will fail, s
  
 **Do I need to take any action?**
  
-If you are not using the ‘context’ field in the Facebook profile returned by Auth0 in your application, then your application will keep working without changes.
- 
-If you are using it, you’ll need to adjust the code so it does not rely on it.
+If you are not using the ‘context’ field in the Facebook profile returned by Auth0 in your application, then your application will keep working without changes. Otherwise, you will need to adjust the code so it does not rely on it.
  
 If you want to make sure your application is not affected on July 30th we recommend you to uncheck the ‘Social context’ field in the Facebook connection properties.
-
