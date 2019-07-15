@@ -12,7 +12,7 @@ useCase:
 
 On **July 30th 00:00 UTC**, Facebook connections that request the `context` field will fail, so Auth0 will stop requesting it for all connections at that time.
 
-On April 30th [Facebook deprecated]( https://developers.facebook.com/docs/graph-api/changelog/4-30-2019-endpoint-deprecations) the use of the ‘Social Context’ field for new applications. For Facebook connections created before April 30th 2019, Auth0 continued to request that field by default. You can make sure the field is not requested by unchecking the ‘Social context’ field in the User Data connection section:
+On April 30th [Facebook deprecated]( https://developers.facebook.com/docs/graph-api/changelog/4-30-2019-endpoint-deprecations) the use of the ‘Social Context’ field for new applications. Auth0 continued to request that field by default for Facebook connections created before April 30th 2019. You can make sure the field is not requested before July 30th by unchecking the ‘Social context’ field in the User Data connection section:
  
 ![facebook context](/media/articles/migrations/facebook-context.png)
  
