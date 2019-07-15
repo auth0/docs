@@ -40,7 +40,7 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
       <td>
         30 July 2019
       </td>
-      <td>On April 30th 2019, Facebook deprecated the use of the ‘Social Context’ field for new applications. https://developers.facebook.com/docs/graph-api/changelog/4-30-2019-endpoint-deprecations.</td>
+      <td>On April 30th 2019, Facebook deprecated the use of the <a href="https://developers.facebook.com/docs/graph-api/changelog/4-30-2019-endpoint-deprecations">'Social Context’ field</a> for new applications. Learn how to address this issue in Auth0 <a href="/migration/guides/facebook-social-context">here</a>.</td>
     </tr>
     <tr>
       <td><a href="/logs/migrate-logs-v2-v3">Tenant Logs Search v2</a></td>
