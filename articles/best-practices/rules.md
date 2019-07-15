@@ -41,7 +41,7 @@ As depicted in the image below, rules execute in what is the pipeline associated
 
 ## Size
 
-As a best practice we recommend that the total size of implementation for all enabled rules should not exceed 100 kB: the larger the size, the more latency is introduced due to the packaging and trasnport process employed by the Auth0 serverless web task platform, and this will have an impact on the the performance of your system. Note that the 100 kB limit does not include any [`npm`](https://www.npmjs.com/) modules that may be referenced as part of any [`require`](https://nodejs.org/api/modules.html#modules_require_id) statements.  
+As a best practice we recommend that the total size of implementation for all enabled rules should not exceed 100 kB. The larger the size, the more latency is introduced due to the packaging and trasnport process employed by the Auth0 serverless web task platform, and this will have an impact on the the performance of your system. Note that the 100 kB limit does not include any [`npm`](https://www.npmjs.com/) modules that may be referenced as part of any [`require`](https://nodejs.org/api/modules.html#modules_require_id) statements.  
 
 ## Order
 
@@ -103,10 +103,10 @@ Rules can run more than once when a pipeline is executed, and this depends on th
 
 ### `auth0` object
 
-The `auth0` object is an instance of the [Management API Client](https://github.com/auth0/node-auth0#management-api-client) (defined in the [node-auth0](https://github.com/auth0/node-auth0) Node.js client library), and provides limited access to the [Auth0 Management API](/api/management/v2). It is primarily used for [updating metadata](/rules/guides/metadata#update-metadata) associated with the [`user`](#user-object) object from within a rule. 
+The `auth0` object is a specially restricted instance of [`ManagementClient`](https://github.com/auth0/node-auth0#management-api-client) (defined in the [node-auth0](https://github.com/auth0/node-auth0) Node.js client library), and provides limited access to the [Auth0 Management API](/api/management/v2). It is primarily used for [updating metadata](/rules/guides/metadata#update-metadata) associated with the [`user`](#user-object) object from within a rule. 
 
 ::: note
-The [access token](/tokens/overview-access-tokens) associated with the `auth0` object has scopes limited to `read:users` and `update:users` only. Typically, these are sufficient for the majority of operations we recommend being performed from within a rule. However, if you require additional scope(s) then you will need to employ an alternative means of [access to the Management API](/api/management/v2/tokens). 
+As well as being restricted (i.e. supporting a limited number of `ManagementClient` methods for `user` access only), the [access token](/tokens/overview-access-tokens) associated with the `auth0` object has scopes limited to `read:users` and `update:users`. Typically, all of this is sufficient for the majority of operations we recommend being performed from within a rule. However, if you need access to the full range of msupported methods, and/or access to additional scope(s), then you will need to employ an alternative means of accessing the Management API - typically, by instanciating an independant instance of [`ManagementClient`](https://github.com/auth0/node-auth0#management-api-client). This will give you access to all current capabilities, including logic like automatic retries on `429` errors, and if you only require the default scopes then you can even initialize the new instance using the token assocaited with the `auth0` object.  
 :::
 
 Like the [`context`](#context-object) object (described below), the `auth0` object contains security sensitive information, so you should not pass it to any external or third party service. Further, the Auth0 Management API is both [rate limited](/policies/rate-limits#management-api-v2) and subject to latency, so you should be judicious regarding [how often calls are made](#minimize-api-requests). 
