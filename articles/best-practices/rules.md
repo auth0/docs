@@ -498,7 +498,7 @@ Whether you choose to employ use of explicit timeouts, or you choose to opt for 
 
 ## Security
 
-### Use HTTPS
+### Always use HTTPS
 
 Always use HTTPS, not HTTP, when making calls to external services or when executing [redirect](#redirection) as part of your rule implementation.
 
