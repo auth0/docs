@@ -67,7 +67,7 @@ Each custom field can only have one `FieldType` associated.
 
 ## Storage
 
-Each custom field can only have one `Storage` associated. You can choose to store it right at the root level or inside the `user_metadata` attribute. To specify the storage location, use the five-parameter constructor and pass the `Storage` parameter of your choice (see below). By default, fields will be stored inside the `user_metadata` attribute.
+Each custom field can only have one `Storage` associated. You can choose to store it right at the root level in a root attribute or inside the `user_metadata` attribute. To specify the storage location, use the five-parameter constructor and pass the `Storage` parameter of your choice (see below). By default, fields will be stored inside the `user_metadata` attribute.
 
 Available choices:
 
@@ -79,6 +79,6 @@ CustomField fieldName = new CustomField(R.drawable.ic_field_person, FieldType.TY
 ```
 
 ::: note
-For the fields to be saved in the root level of the user's profile, their keys must match the ones listed in the [endpoint documentation](https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id).
+For the fields to be saved at the root level of the user's profile, their keys must match the ones listed in the [endpoint documentation](https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id).
 :::
 
