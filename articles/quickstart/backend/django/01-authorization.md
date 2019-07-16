@@ -134,10 +134,11 @@ Add code to download the JWKS for your Auth0 domain and create a public key vari
 
 ```python
 # apiexample/settings.py
+import textwrap
 
 jsonurl = request.urlopen("https://${account.namespace}/.well-known/jwks.json")
 jwks = json.loads(jsonurl.read())
-cert = '-----BEGIN CERTIFICATE-----\n' + jwks['keys'][0]['x5c'][0] + '\n-----END CERTIFICATE-----'
+cert = '-----BEGIN CERTIFICATE-----\n' + textwrap.fill(jwks['keys'][0]['x5c'][0], 64) + '\n-----END CERTIFICATE-----'
 
 certificate = load_pem_x509_certificate(str.encode(cert), default_backend())
 publickey = certificate.public_key()
