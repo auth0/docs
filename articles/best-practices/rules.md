@@ -12,7 +12,7 @@ useCase:
 
 # Rules Best Practices
 
-This article covers some best practices when using [rules](/rules). Rules can be used in a [variety of situations](/rules#what-can-i-use-rules-for-) as part of the pipeline where artifacts for authenticity are generated &mdash;i.e., an ID Token in [OpenID Connect (OIDC)](/protocols/oidc), an <dfn data-key="access-token">Access Token</dfn> in [OAuth 2.0](/protocols/oauth2), or an [assertion in SAML](/protocols/saml/saml-configuration/saml-assertions#use-rules). A new pipeline is created for each authentication request, in which rules execute.
+This article covers some best practices when using [rules](/rules). Rules can be used in a [variety of situations](/rules#what-can-i-use-rules-for-) as part of the pipeline where artifacts for authenticity are generated &mdash;i.e., an ID Token in [OpenID Connect (OIDC)](/protocols/oidc), an <dfn data-key="access-token">Access Token</dfn> in [OAuth 2.0](/protocols/oauth2), or an [assertion in SAML](/protocols/saml/saml-configuration/saml-assertions#use-rules). A new pipeline, in which rules execute, is created for each authentication request.
 
 A number of [pre-existing Rules/Rule templates](https://github.com/auth0/rules) are provided out-of-box to help you achieve your goal(s). However, there are times when you will want to [build your own Rule(s)](/rules/guides/create) in support of your specific functionality/requirements. You may choose to extend or modify a pre-existing Rule/Rule template, or you may choose to start from scratch (using one of our [samples](/rules/references/samples) to guide you). Either way, there are a number of best practices that you’ll want to adopt to ensure that you achieve the best possible outcome.
 
@@ -35,7 +35,7 @@ A rule is essentially an anonymous JavaScript function that is passed 3 paramete
 **Do not** be tempted to add a trailing semicolon at the end of the function declaration as this will break rule execution. Also, anonymous functions make it hard in [debugging](#debugging) situations to interpret the call-stack generated as a result of any [exceptional error](#exceptions) condition. For convenience, consider providing a function name using some compact and unique naming convention to assist with diagnostic analysis (e.g., `function MyRule1 (user, context, callback) {...}`). 
 :::
 
-As depicted in the image below, rules execute in the pipeline associated with the generation of artifacts for authenticity that forms part of the overall [Auth0 engine](https://cdn.auth0.com/blog/auth0-raises-100m-to-fuel-the-growth/inside-the-auth0-engine-high-res.jpg). When a pipeline is executed, all enabled rules are packaged together in the order in which they are listed and sent as one code blob to be executed as an Auth0 serverless Webtask.
+Rules execute in the pipeline associated with the generation of artifacts for authenticity that forms part of the overall [Auth0 engine](https://cdn.auth0.com/blog/auth0-raises-100m-to-fuel-the-growth/inside-the-auth0-engine-high-res.jpg). When a pipeline is executed, all enabled rules are packaged together in the order in which they are listed and sent as one code blob to be executed as an Auth0 serverless Webtask.
 
 ![Rules Pipeline](/media/articles/rules/rules-best-practice-pipeline.png)
 
@@ -465,7 +465,7 @@ Client metadata for an application can be set manually via the Dashboard, by goi
 For optimal performance, prefer to write rules that complete as soon as possible. For example, if a rule has three checks to decide if it should run, use the first check to eliminate the majority of cases, followed by the check to eliminate the next largest set of cases, and so on and so forth. At the end of each check, remember to execute the [callback](#callback-function) function, ideally combined with a (JavaScript) `return` in order to exit the (rule) function. 
 
 ### Minimize API requests
-Calls to APIs, especially calls to third-party APIs, can slow down login response time and can cause rule timeout failures due to call latency, ultimately leading to authentication error situations. We recommend keeping API requests to a minimum wherever possible within a rule and avoiding excessive calls to paid services](#limit-calls-to-paid-services). We also recommend you avoid potential security exposure by [limiting what is sent]() to any API&mdash;third party or otherwise. 
+Calls to APIs, especially calls to third-party APIs, can slow down login response time and can cause rule timeout failures due to call latency, ultimately leading to authentication error situations. We recommend keeping API requests to a minimum wherever possible within a rule and avoiding excessive calls to paid services](#limit-calls-to-paid-services). We also recommend you avoid potential security exposure by [limiting what is sent](#don-t-send-entire-context-object-to-external-services) to any API&mdash;third party or otherwise. 
 
 ::: panel Best Practice
 The [`global`](#global-object) object can be used to cache information from API calls, which can subsequently be used across all rules that execute in the pipeline. Prefer to use this to store information instead of repeatedly calling an API. Additionally, the `global` object can also be used to cache other information between executing rules as described in the [section](#global-object) above.
