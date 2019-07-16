@@ -12,7 +12,7 @@ useCase:
 
 # Rules Best Practices
 
-This article covers some best practices when using [rules](/rules). Rules can be used in a [variety of situations](/rules#what-can-i-use-rules-for-) as part of the pipeline where artifacts for authenticity are generated &mdash;i.e., an ID Token in [OpenID Connect (OIDC)](/protocols/oidc), an <dfn data-key="access-token">Access Token</dfn> in [OAuth 2.0](/protocols/oauth2), or an [assertion in SAML](/protocols/saml/saml-configuration/saml-assertions#use-rules). A new pipeline, in which rules execute, is created for each authentication request.
+This article covers some best practices when using [rules](/rules). Rules can be used in a [variety of situations](/rules#what-can-i-use-rules-for-) as part of the authentication pipeline where protocol specific artifacts are generated &mdash;i.e., an ID Token in [OpenID Connect (OIDC)](/protocols/oidc), an <dfn data-key="access-token">Access Token</dfn> in [OAuth 2.0](/protocols/oauth2), or an [assertion in SAML](/protocols/saml/saml-configuration/saml-assertions#use-rules). A new pipeline, in which rules execute, is created for each authentication request.
 
 A number of [pre-existing Rules/Rule templates](https://github.com/auth0/rules) are provided out-of-box to help you achieve your goal(s). However, there are times when you will want to [build your own Rule(s)](/rules/guides/create) in support of your specific functionality/requirements. You may choose to extend or modify a pre-existing Rule/Rule template, or you may choose to start from scratch (using one of our [samples](/rules/references/samples) to guide you). Either way, there are a number of best practices that you’ll want to adopt to ensure that you achieve the best possible outcome.
 
