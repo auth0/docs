@@ -14,13 +14,13 @@ v2: true
 
 Auth0's normalized user profile consists of a few different components: 
 
-* **Details**: Core User Profile object, which contains basic info, such as name, email, and timestamp of the user's latest login. This object may also contain info from a user's source [connection](/connections). Most of the user attributes are root attributes (attributes stored at the first, or root, level of the `user` object), and some of these are editable.
+* **Details**: Core User Profile object, which contains basic info, such as name, email, and timestamp of the user's latest login, in pre-defined attributes. This object may also contain info from a user's source [connection](/connections). Most of the user attributes are root attributes (attributes stored at the first, or root, level of the `user` object), and some of these are editable.
 
-* **Metadata**: Two sub-objects that operate as secondary storage to store additional user info.
+* **Metadata**: Two sub-objects that operate as secondary storage to store additional user info in customizable attributes.
 
-  * `user_metadata`: Stores attributes that do not impact what the user can access, such as work address, home address, or user preferences. 
+  * `user_metadata`: Intended to store attributes that do not impact what the user can access, such as work address, home address, or user preferences. 
 
-  * `app_metadata`: Stores attributes that can impact what the user can access or how an application functions, such as support plan, security <dfn data-key="role">roles</dfn> (if not using the Authorization Core feature set), or access control groups.
+  * `app_metadata`: Intended to store attributes that can impact what the user can access or how an application functions, such as support plan, security <dfn data-key="role">roles</dfn> (if not using the Authorization Core feature set), or access control groups.
 
   [Learn more](/users/concepts/overview-user-metadata) about metadata, including when to use `app_metadata` and `user_metadata`, and best practices.
 
