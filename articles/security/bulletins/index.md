@@ -15,15 +15,15 @@ useCase:
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Auth0 Security Bulletins</h1>
   <p>
-    List of bulletins addressing security vulnerabilities in Auth0 software.
+    List of bulletins addressing security vulnerabilities in or related to Auth0 software.
   </p>
 </div>
 
-This page contains a list of all the published security vulnerabilities of Auth0 software.
+# Auth0 Bulletins
+
+This section contains a list of all the published security vulnerabilities of Auth0 software.
 
 Each bulletin contains a description of the vulnerability, how to identify if you are affected, and what to do to fix it.
-
-## Bulletins
 
 | **Date** | **Bulletin number** | **Title** | **Affected software** |
 |-|-|-|-|
@@ -36,3 +36,14 @@ Each bulletin contains a description of the vulnerability, how to identify if yo
 | February 26, 2018 | [CVE 2018-7307](/security/bulletins/cve-2018-7307) | Security vulnerability for auth0.js < 9.3 | [Auth0.js](/libraries/auth0js) |
 | December 22, 2017 | [CVE 2017-16897](/security/bulletins/cve-2017-16897) | Security update for **passport-wsfed-saml2** Passport strategy library | **passport-wsfed-saml2** Passport strategy library |
 | December 4, 2017 | [CVE 2017-17068](/security/bulletins/cve-2017-17068) | Security update for auth0.js popup callback vulnerability | [Auth0.js](/libraries/auth0js) |
+
+
+# Auth0 Advisories
+
+This section contains a list of all the published security vulnerabilities related to Auth0, but is beyond our control. 
+
+Each bulletin contains a description of the vulnerability, how to identify if you are affected, and what to do to fix it.
+
+| **Date** | **Bulletin number** | **Title** | **Affected software** |
+|-|-|-|-|
+| July 15, 2019 | [CVE 2015-9284](/security/bulletins/cve-2015-9284) | Security Advisory for OmniAuth CSRF vulnerability | [OmniAuth](https://github.com/omniauth/omniauth)|
