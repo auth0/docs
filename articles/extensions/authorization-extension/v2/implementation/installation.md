@@ -12,6 +12,10 @@ useCase: extensibility-extensions
 ---
 # Authorization Extension: Installation
 
+::: note
+<%= include('../../../../_includes/_rbac_methods') %>
+:::
+
 This doc walks you through the process of installing the Authorization Extension.
 
 Before you begin, make sure that you have an existing [application](/application) that can be used with the Authorization Extension. Currently, you can use the following types of applications:

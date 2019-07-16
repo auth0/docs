@@ -97,7 +97,7 @@ Run the following commend in the same folder as the `index.html` file you create
 $ npm init -y
 ```
 
-This will initilize a new NPM project and get us ready to install dependencies.
+This will initialize a new NPM project and get us ready to install dependencies.
 
 ### Installing dependencies
 
@@ -376,9 +376,9 @@ const updateUI = async () => {
 
     document.getElementById(
       "ipt-access-token"
-    ).value = await auth0.getTokenSilently();
+    ).innerHTML = await auth0.getTokenSilently();
 
-    document.getElementById("ipt-user-profile").value = JSON.stringify(
+    document.getElementById("ipt-user-profile").innerHTML = JSON.stringify(
       await auth0.getUser()
     );
 

@@ -104,7 +104,7 @@ The following tables describe operational and feature differences between these 
         </tr>
         <tr>
             <th class="info"><strong>Requests per Second</strong></th>
-            <td>No guaranteed rates</td>
+          <td>See <a href="https://auth0.com/docs/policies/rate-limits">Rate Limit Policy for Auth0 APIs</a></td>
             <td>500 requests per second with optional upgrade to 1500 requests per second</td>
             <td>500 requests per second with optional upgrade to 1500 requests per second</td>
         </tr>

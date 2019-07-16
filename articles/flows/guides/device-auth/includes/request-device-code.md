@@ -2,7 +2,7 @@
 
 Once the user has started their device app and wants to authorize the device, you'll need to get a device code. When the user begins their session in their browser-based device, this code will be bound to that session. 
 
-To get the device code, your app must request a code from the [device code URL](/api/authentication#device-code), including the Client ID.
+To get the device code, your app must request a code from the [device code URL](/api/authentication#get-device-code), including the Client ID.
 
 ### Example POST to device code URL
 

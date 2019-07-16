@@ -50,7 +50,7 @@ Configurations options are added to the Lock Builder using the following format:
 - **allowForgotPassword(boolean)**: Shows the Forgot Password form if a Database connection is configured and it's allowed from the Dashboard. Defaults to `true`.
 - **allowShowPassword(boolean)**: Shows a button to toggle the input visibility of a Password field. Defaults to `true`.
 - **setDefaultDatabaseConnection(String)**: Defines which will be the default Database connection. This is useful if your application has many Database connections configured.
-- **withSignUpFields(List<CustomField>)**: Shows a second screen with extra fields for the user to complete after the username/email and password were completed in the sign up screen. Values submitted this way will be attached to the user profile in `user_metadata`. See [this file](/libraries/lock-android/custom-fields) for more information.
+- **withSignUpFields(List<CustomField>)**: Shows a second screen with extra fields for the user to complete after the username/email and password were completed in the sign up screen. Values submitted this way can be stored in the user profile using either a root attribute or the `user_metadata` attribute. For more info, see [Lock Android: Custom Fields at Signup](/libraries/lock-android/custom-fields).
 - **setPrivacyURL(String)**: Allows to customize the Privacy Policy URL. Defaults to `https://auth0.com/privacy`.
 - **setTermsURL(String)**: Allows to customize the Terms of Service URL. Defaults to `https://auth0.com/terms`.
 - **setSupportURL(String)**: Allows to set a Support URL that will be displayed in case that a non-recoverable error raises on Lock.

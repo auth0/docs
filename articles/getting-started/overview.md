@@ -20,8 +20,6 @@ You can connect any application (written in any language or on any stack) to Aut
 
 Based on your app's technology, choose one of our SDKs (or call our API), and hook it up to your app. Now each time a user tries to authenticate, Auth0 will verify their identity and send the required information back to your app.
 
-![Auth0 Overview](/media/articles/getting-started/overview.png)
-
 ## Why use Auth0?
 
 Take a look at just a few of Auth0's use cases:

@@ -32,7 +32,7 @@ useCase:
 
 ## Project Planning Guide
 
-<%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
+<%= include('../../_includes/_planning.md', { platform: 'b2c' }) %>
 
 ## Keep reading
 

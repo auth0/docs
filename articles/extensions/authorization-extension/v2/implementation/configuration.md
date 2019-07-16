@@ -13,6 +13,10 @@ useCase: extensibility-extensions
 
 # Authorization Extension: Configuration
 
+::: note
+<%= include('../../../../_includes/_rbac_methods') %>
+:::
+
 Before the extension can enforce your authorization logic, you'll need to configure how it will behave during the login transaction. Your configuration settings will be captured in a [rule](/rules) that's executed during runtime.
 
 ## Configure the Extension

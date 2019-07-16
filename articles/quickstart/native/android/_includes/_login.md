@@ -59,6 +59,10 @@ private void login() {
 }
 ```
 
+::: note
+Future steps of this quickstart guide move the `AuthCallback` in-line instance into a class field named `loginCallback`.
+:::
+
 ### Capture the Result
 
 Whitelist the callback URL for your app in the **Allowed Callback URLs** section in [Application settings](${manage_url}/#/applications). In that section, enter the following URL: 

@@ -27,5 +27,5 @@
 
 - id: "videos"
   title: "Videos"
-  url: "/videos/learn-identity"
+  url: "/videos"
   folder: "videos"

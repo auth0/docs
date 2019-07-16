@@ -32,9 +32,10 @@ Auth0 makes it easy for your app to implement the Device Authorization flow usin
 * [Register the Application with Auth0](/dashboard/guides/applications/register-app-native). 
   * Select an **Application Type** of **Native**.
   * If necessary, set **Allowed Web Origins**. You can use this to allow localhost as an origin for local development, or to set an allowed origin for specific TV software with architecture subject to CORS (eg: HTML5 + JS). Most applications will not use this setting.
-  * Ensure that the **OIDC Conformant** toggle is enabled.
-  * Make sure the Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include **Device Code**.
+  * Ensure that the **OIDC Conformant** toggle is enabled. This setting is in the [Dashboard](${manage_url}) under **Application Settings > Advanced > OAuth**.
+  * Make sure the Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include **Device Code**. This is also in the [Dashboard](${manage_url}), under **Application Settings > Advanced > Grant Types**.
   * If you want your Application to be able to use [Refresh Tokens](/tokens/refresh-token), make sure the Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include **Refresh Token**.
+  * Make sure to save any changes made to the Application Settings!
 
 * [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
   * If you want your API to receive [Refresh Tokens](/tokens/refresh-token) to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.
