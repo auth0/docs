@@ -13,11 +13,13 @@ useCase:
 
 You can use the [`POST /api/v2/jobs/users-exports`](/api/management/v2#!/Jobs/post_users_exports) endpoint to create a job that exports all users associated with a [connection](/identityproviders).
 
+For a list of user profile fields that can be exported, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes).
+
 When you create your job, you'll need to provide:
 
 * ID for the connection whose users you want exported
 * Format of the export file (CSV or JSON-compatible)
-* Maximum number of user records to be exported
+* Maximum number of user records to be exported (optional, will export all records if omitted)
 * User-related fields (such as user ID or name) that you want included in the export
 
 <%= include('../search/v3/_valid-access-token') %>
@@ -224,6 +226,7 @@ The download link is valid for 60 seconds. If this time period expires, you will
 
 ## Keep reading
 
+* [User Import/Export Extension](/extensions/user-import-export)
 * [User Metadata](/users/concepts/overview-user-metadata)
 * [Sort Search Results](/users/search/v3/sort-search-results)
 * [User Search Query Syntax](/users/search/v3/query-syntax)

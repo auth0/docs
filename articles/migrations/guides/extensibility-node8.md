@@ -33,7 +33,7 @@ As such, Auth0 is migrating from Node 4 to Node 8.
 Customers will be notified two weeks in advance of their automatic migration date, with additional periodic reminders leading up to their automatic migration date.
 
 ::: warning
-Tenant automatic upgrade to Node 8 will be completed by June 30, 2019.
+All tenant automatic upgrades to Node 8 will be completed no later than June 30, 2019. Most tenant upgrades will be completed before this date. Admins for affected tenants will be notified of their exact migration date.
 :::
 
 In this document, we:
@@ -91,9 +91,9 @@ Changing the runtime may break your existing Rules, Hooks, and Custom Database/S
 
 ## Whitelist the new URLs
 
-The [Authorization Extension](/extensions/authorization), the [Delegated Administration Extension](/extensions/delegated-admin) and the [Single Sign-On (SSO) Dashboard Extension](/extensions/sso-dashboard) require whitelisting the URLs used to access extensions and custom webtasks. When you upgrade to Node 8, the URLs you use to access extensions and custom webtasks will change. This is a breaking change for these extensions.
+The [Authorization Extension](/extensions/authorization), the [Delegated Administration Extension](/extensions/delegated-admin) and the [Single Sign-on (SSO) Dashboard Extension](/extensions/sso-dashboard) require whitelisting the URLs used to access extensions and custom webtasks. When you upgrade to Node 8, the URLs you use to access extensions and custom webtasks will change. This is a breaking change for these extensions.
 
-If you use any of these extensions, **you must whitelist the new URLs** both as Allowed Callback and as Allowed Logout URLs.
+If you use any of these extensions, **you must whitelist the new URLs** both as Allowed <dfn data-key="callback">Callback</dfn> and as Allowed Logout URLs.
 
 The change is an `8` that is appended before the `webtask.io` part. So if you accessed an extension using the URL `https://${account.tenant}.us.webtask.io/dummy-extension-url`, when you upgrade to Node 8 the URL will be `https://${account.tenant}.us8.webtask.io/dummy-extension-url`.
 
@@ -101,15 +101,21 @@ To do so, go to [Dashboard > Applications > Settings](${manage_url}/#/applicatio
 
 The execution URLs will also change for custom webtasks in your Auth0 container. You must update any external applications that call those webtasks.
 
-### Authorization Extension URLs
+### Authorization Extension Changes
 
-If you use the Authorization Extension, it generates an `auth0-authorization-extension` rule. When migrating to Node 8, the EXTENSION_URL in that rule needs to be updated as follows:
+If you use the Authorization Extension, it generates an `auth0-authorization-extension` rule. Republishing this rule from within the Authorization Extension will update the URLs automatically.
 
-`var EXTENSION_URL = "https://<tenant>.us.webtask.io/<container_id>";`
+To ensure a clean upgrade:
 
-to
+1. Ensure you have upgraded to the latest version of the Authorization Extension from the "Installed Extensions" tab. If the upgrade button is present, click to upgrade. If the button is not present, you are already on the latest version of the extension.
+2. Open the Authorization Extension configuration page.
+3. To update the URL in the rule, publish the rule again by clicking the "Publish Rule" button. 
+4. Test to make sure everything is still working.
+5. If you see an "Invalid API Key" error after updating, use the "Rotate" button to generate a new API key.
 
-`var EXTENSION_URL = "https://<tenant>.us8.webtask.io/<container_id>";`
+![Authorization Extension Configuration](/media/articles/migrations/node-auth-ext-config.png)
+
+![Authorization Extension Buttons](/media/articles/migrations/node-auth-ext-buttons.png)
 
 ### Delegated Administration URLs
 
@@ -144,6 +150,12 @@ The login URL for **Users**:
 | USA | `https://${account.tenant}.us8.webtask.io/auth0-sso-dashboard/login` |
 | Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/login` |
 | Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/login` |
+
+### All Extensions
+
+Most extensions use the `PUBLIC_WT_URL` hidden secret for authorization. This secret depends on the runtime version and does not update automatically.
+
+To update it, you need to save the extension's settings (no changes are necessary). To do so, after switching the runtime to `Node 8`, you need to open the extension's settings in the extensions dashboard (gear icon) and hit `Save`. After that, the extensions gallery will update the `PUBLIC_WT_URL` secret accordingly based on the selected runtime.
 
 ## How to ensure a stable migration
 
@@ -185,7 +197,7 @@ If you are using the following built-in modules (that is, modules that you did n
 | node-cassandra-cql | ^0.4.4 | ^0.5.0 |
 | request | ~2.27.0 | ~2.81.0 |
 | pg | ^4.3.0^* | ^4.5.7 |
-| bcrypt | ~0.8.5^* | ~0.8.7 |
+| bcrypt | ~0.8.5^* | 1.0.3 |
 | xml2json | ~0.10.0^* | ~0.11.2 |
 
 ^* These versions are no longer supported due to incompatibility with Node 8.

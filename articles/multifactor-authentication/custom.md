@@ -13,7 +13,7 @@ useCase:
 ---
 # Configuring Custom MFA
 
-You may configure a [rule](/rules) from your [Dashboard > Rules](${manage_url}/#/rules) for custom MFA processes, which allow you to define the conditions that will trigger additional authentication challenges. Rules can be used to force MFA for users of certain applications, or for users with particular user metadata or IP ranges, among other triggers.
+You may configure a [rule](/rules) from your [Dashboard > Rules](${manage_url}/#/rules) for custom <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> processes, which allow you to define the conditions that will trigger additional authentication challenges. Rules can be used to force MFA for users of certain applications, or for users with particular user metadata or IP ranges, among other triggers.
 
 ::: note
 The MFA settings defined in rules will always take precedence over the toggles in the Multi-factor Auth section of the Dashboard.
@@ -76,7 +76,7 @@ More specifically, you will uncomment and populate the following line of the rul
 
 `var CLIENTS_WITH_MFA = ['REPLACE_WITH_CLIENT_ID'];`
 
-By setting `allowRememberBrowser: false`, the user will always be prompted for MFA when they login. This prevents the browser cookie from saving the credentials and helps make logins more secure, especially from untrusted machines. See [here](#change-the-frequency-of-authentication-requests) for details.
+By setting `allowRememberBrowser: false`, the user will always be prompted for MFA when they login. This prevents the browser cookie from saving the credentials and helps make logins more secure, especially from untrusted machines. 
 
 ### Change the frequency of authentication requests
 
@@ -137,5 +137,5 @@ function (user, context, callback) {
 ## Additional Notes
 
 * A tutorial is available on using MFA with the [Resource Owner](/api-auth/tutorials/multifactor-resource-owner-password) endpoint.
-* If you are using MFA for database connections that use Popup Mode, and you are using [Lock](/libraries/lock/v11) or [Auth0.js](/libraries/auth0.js/v9), set `sso` to `true` when defining the options object. If you fail to do this, users will be able to log in without MFA.
+* If you are using MFA for database connections that use Popup Mode, and you are using <dfn data-key="lock">Lock</dfn> or [Auth0.js](/libraries/auth0js/v9), set `sso` to `true` when defining the options object. If you fail to do this, users will be able to log in without MFA.
 * If you are using MFA after an authentication with one or more social providers, you need to use your own application `ID` and `Secret` in the connection to the provider's site in place of the default Auth0 development credentials. For instructions on how to get the credentials for each social provider, select your particular from the list at: [Identity Providers](/identityproviders). In production usage, you should always use your own credentials instead of [Auth0 devkeys](/connections/social/devkeys).

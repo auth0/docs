@@ -1,6 +1,6 @@
 ---
 title: Add Permissions to Roles
-description: Learn how to add permissions to roles for Auth0's API Authorization core feature using the Auth0 Management Dashboard.
+description: Learn how to add permissions to roles for Auth0's API Authorization Core feature using the Auth0 Management Dashboard.
 topics:
   - authorization
   - dashboard
@@ -15,7 +15,7 @@ useCase:
 ---
 # Add Permissions to Roles
 
-This guide will show you how to add permissions to [roles](/authorization/concepts/rbac) using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/roles/add-permissions-roles). The roles and their permissions can be used with the API Authorization Core feature set.
+This guide will show you how to add permissions to <dfn data-key="role">[roles](/authorization/concepts/rbac)</dfn> using Auth0's Dashboard. This task can also be performed [using the Management API](/api/management/guides/roles/add-permissions-roles). The roles and their permissions can be used with the API Authorization Core feature set.
 
 <%= include('../../../authorization/_includes/_enable-authz-core') %>
 

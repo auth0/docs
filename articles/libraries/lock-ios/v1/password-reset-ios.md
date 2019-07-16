@@ -19,7 +19,7 @@ useCase:
 
 You can allow the user to reset their password for any database connections.
 
-If you use Lock UI, you can hide or show a **Reset password** button by setting the `disableResetPassword` property, which will default to `false`.
+If you use <dfn data-key="lock">Lock</dfn> UI, you can hide or show a **Reset password** button by setting the `disableResetPassword` property, which will default to `false`.
 
 If you implement a custom UI, you need to send a password reset email to the user using `A0APIClient`.
 

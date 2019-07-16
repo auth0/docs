@@ -45,7 +45,7 @@ Avoid calling the Management API if at all possible, especially in high traffic 
 
 We have recently expanded the connection properties available in rules [context object](/rules/references/context-object). You should now obtain connection info from the context object instead of calling the Auth0 Management API.
 
-Removing calls to the Management API (as well as the extra call required to get the appropriate Access Token) will make your rule code more performant and reliable.
+Removing calls to the Management API (as well as the extra call required to get the appropriate <dfn data-key="access-token">Access Token</dfn>) will make your rule code more performant and reliable.
 
 In particular, if you are using the **Check if user email domain matches configured domain** rule template, check out the latest version [on Github](https://github.com/auth0/rules/blob/master/src/rules/check-domains-against-connection-aliases.js) or on the [Auth0 dashboard](${manage_url}/#/rules/new) to see the new best practices.
 
@@ -57,7 +57,7 @@ Rules have a [global variable you can use to cache information](/rules/guides/ca
 
 ### Limited read or update users scopes
 
-If you use the [Management API in rules](/rules/current/management-api) just to read or update the current user, use the `auth0.accessToken` variable instead. This token will suffice if you only need the `read:users` and `update:users` scopes.
+If you use the [Management API in rules](/rules/current/management-api) just to read or update the current user, use the `auth0.accessToken` variable instead. This token will suffice if you only need the `read:users` and `update:users` <dfn data-key="scope">scopes</dfn>.
 
 ### Rules for specific applications
 
@@ -74,8 +74,8 @@ If you have rules that call a paid service, such as sending SMS messages using T
 * Disallow public sign-ups to reduce the numbers of users who can sign up and trigger calls to paid services.
 * Mitigate the risk of credential theft to avoid account takeover by hackers who might use hijacked accounts to trigger calls to paid services.
 * Ensure your users have [strong passwords when using Database connections](/connections/database/password-strength).
-* Ensure your users utilize multi-factor authentication.
-* Ensure that the rule only gets triggered for an authorized subset of users or under other appropriate conditions. For example, you may want to add logic that checks if a user has a particular email domain, role/group, or subscription level before triggering the call to the paid service.
+* Ensure your users utilize <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
+* Ensure that the rule only gets triggered for an authorized subset of users or under other appropriate conditions. For example, you may want to add logic that checks if a user has a particular email domain, <dfn data-key="role">role</dfn>/group, or subscription level before triggering the call to the paid service.
 
 ## Security recommendations
 
@@ -105,9 +105,13 @@ Instead of sending the context object to an external service to debug your rules
 
 Always use HTTPS, not HTTP, connections when making calls to external services in your rules code.
 
+### Enforce timeouts when making external HTTP calls
+
+When calling APIs or making external HTTP(S) calls from your rules, we recommend enforcing explicit timeouts. The specific value you choose will vary based on your user case, but in general, we recommend keeping the timeout as low as possible while bearing in mind the performance of the external HTTP service.
+
 ### Don’t use conditional logic for MFA based on silent authentication, device fingerprint, or geolocation
 
-Don’t use rules that trigger multi-factor authentication based on silent authentication, a known device, or a known location.
+Don’t use rules that trigger <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> based on silent authentication, a known device, or a known location.
 
 The following code examples are ones we **do not recommend** you use (scroll past these examples for a more secure alternative).
 

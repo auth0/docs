@@ -13,7 +13,7 @@ useCase: enable-mobile-auth
 
 <%= include('../../_includes/_native_passwordless_warning') %>
 
-Passwordless can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification. 
+<dfn data-key="passwordless">Passwordless</dfn> can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification. 
 
 Note that Passwordless authentication **cannot be used** with the [OIDC Conformant Mode](/api-auth/intro) enabled.
 
@@ -58,5 +58,5 @@ authentication
 ```
 
 ::: note
-The default scope used is `openid`.
+The default <dfn data-key="scope">scope</dfn> used is `openid`.
 :::

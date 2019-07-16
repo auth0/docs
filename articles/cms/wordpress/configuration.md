@@ -36,11 +36,11 @@ First, we'll check for the Application created for your WordPress site.
 
 1. Navigate to the [Applications](${manage_url}/#/applications) page and look for an application that is similar to your site name. If you don't find one, it means that an Application was not created by the Wizard. Restart the Setup Wizard or create a new Application manually by clicking **Create Application**. Enter a name for the application, select **Regular Web Applications**, and click **Create**.
 
-    ![Listing of Auth0 Applications in the Management Dashboard](/media/articles/cms/wordpress/client-listing.png)
+    ![Auth0 Applications in the Management Dashboard](/media/articles/cms/wordpress/application-listing.png)
 
 2. Click on the name to get to the **Settings** tab. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0.
 
-    ![Application Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
+    ![Application Settings](/media/articles/cms/wordpress/auth0-app-settings.png)
 
 3. **Application Type** must be set to **Regular Web Application** and **Token Endpoint Authentication Method** must be set to **Post**
 
@@ -50,9 +50,9 @@ First, we'll check for the Application created for your WordPress site.
 https://yourdomain.com/index.php?auth0=1
 ```
 
-    ::: warning
-    Do **not** cache Callback URLs, or you might see an "Invalid state" error during login. Please see our [troubleshooting steps for this error](https://auth0.com/docs/cms/wordpress/invalid-state#cached-callback-urls) for more information.
-    :::
+::: warning
+Do **not** cache Callback URLs, or you might see an "Invalid state" error during login. Please see our [troubleshooting steps for this error](/cms/wordpress/invalid-state#cached-callback-urls) for more information.
+:::
 
 5. Enter your WordPress site's home domain (where the WordPress site appears) and, if different, site domain (where wp-admin is served from) in the **Allowed Web Origins** field
 
@@ -68,7 +68,7 @@ https://yourdomain.com/index.php?auth0=1
 
 9. Turn on **OIDC Conformant**.
 
-    ![Application - Advanced Settings - OAuth](/media/articles/cms/wordpress/client-advanced-settings.png)
+    ![Application - Advanced Settings - OAuth](/media/articles/cms/wordpress/app-advanced-settings.png)
 
 10. Click the **Grant Types** tab and select at least **Implicit,** **Authorization Code,** and **Client Credentials**.
 
@@ -80,21 +80,21 @@ https://yourdomain.com/index.php?auth0=1
 
 In order for your WordPress site to perform certain actions on behalf of your Auth0 tenant, you'll need to authorize the Application created above to access the Management API. This is not required but will enable retrieving complete user data on login (including `user_metadata` and `app_metadata`), email and password changes for users, and email verification re-sending when verified emails are required.
 
-1. Make sure your Application allows the Client Credentials grant (step 10 in the section above)
+1. Make sure your Application allows the Client Credentials grant (step 10 in the section above).
 
-2. Navigate to the [APIs](${manage_url}/#/apis) page
+2. Navigate to the [APIs](${manage_url}/#/apis) page.
 
-3. Click on **Auth0 Management API**, then the **Machine to Machine Applications** tab
+3. Click on **Auth0 Management API**, then the **Machine to Machine Applications** tab.
 
-4. Look for the WordPress Application and click **Unauthorized** to grant access
+4. Look for the WordPress Application and click **Unauthorized** to grant access.
 
-5. In the panel that appears, select only the `read:users` and `update:users` scopes and click **Update** (you can search using the **Filter scopes** field)
+5. In the panel that appears, select only the `read:users` and `update:users` scopes and click **Update** (you can search using the **Filter scopes** field).
 
-![Application Advanced Settings](/media/articles/cms/wordpress/grant-client-access-to-api.png)
+![Application Advanced Settings](/media/articles/cms/wordpress/grant-app-access-to-api.png)
 
 ### Database Connection setup
 
-Database Connections enable the typical username and password login seen on most sites. This type of Connection is not required and can be skipped if you're using passwordless or social logins only.
+Database Connections enable the typical username and password login seen on most sites. This type of Connection is not required and can be skipped if you're using <dfn data-key="passwordless">passwordless</dfn> or social logins only.
 
 1. If you used the wizard during setup, navigate to the [Connections > Database](${manage_url}/#/connections/database) page and look for a Connection that has a similar name to the Application setup above. Otherwise, you can create a new Connection, use an existing Connection, or use the default **Username-Password-Authentication**. Click an existing Connection name to view settings or click **Create DB Connection** and follow the steps.
 
@@ -102,25 +102,19 @@ Database Connections enable the typical username and password login seen on most
 
 1. Click the **Applications** tab and activate the Application created above.
 
-    ![Application Advanced Settings](/media/articles/cms/wordpress/db-connection-clients.png)
+    ![Application Advanced Settings](/media/articles/cms/wordpress/db-connection-apps.png)
 
 ### Social Connection setup
 
-See our [dedicated page on Social Connections](/identityproviders#social) for detailed information on how to activate and configure these login methods.
+See [Social Connections](/identityproviders#social) for detailed information on how to activate and configure these login methods.
 
 ### Update Auth0 settings in WordPress
 
 1. Go to back to the [Applications](${manage_url}/#/applications) page and select the Application created above.
 
-    ![Application Settings](/media/articles/cms/wordpress/auth0-client-settings.png)
-
 1. In a new tab/window, log into wp-admin for your WordPress site and go to **wp-admin > Auth0 > Settings**.
 
-1. Click on the **Basic** tab.
-
 1. Copy **Domain**, **Client ID**, and **Client Secret** from your Auth0 Application page to your WordPress settings using the Copy to Clipboard buttons next to each field.
-
-1. Make sure **Application Signing Algorithm** matches the Application's Advanced > OAuth setting.
 
 1. Scroll down and click **Save Changes**.
 
@@ -178,13 +172,13 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 ### Features
 
-* **Universal Login Page:** Redirects the `wp-login.php` page to the Universal Login Page for SSO authentication using all active Connections for this Application. Option name is `auto_login`.
+* **Universal Login Page:** Redirects the `wp-login.php` page to the Universal Login Page for <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> authentication using all active Connections for this Application. Option name is `auto_login`.
 
 * **Auto Login Method:** A single, active connection to use for authentication when **Universal Login Page** is turned on. Leave this blank to show all active Connections on the Universal Login Page. Option name is `auto_login_method`.
 
 * **Single Logout:** Enable this option to log out of Auth0 when logging out of WordPress. Option name is `singlelogout`.
 
-* **Single Sign On (SSO):** *This option is deprecated and will be removed in the next major. Please use the Universal Login Page option to enable SSO* Enable this option to attempt SSO on the `wp-login.php` page. Option name is `sso`.
+* **Single Sign-On (SSO):** *This option is deprecated and will be removed in the next major. Please use the Universal Login Page option to enable SSO* Enable this option to attempt SSO on the `wp-login.php` page. Option name is `sso`.
 
 * **Override WordPress Avatars:** Forces WordPress to use Auth0 avatars. Option name is `override_wp_avatars`.
 
@@ -197,8 +191,6 @@ This section was changed from "Appearance" to "Embedded" to reflect the fact tha
 * **Icon URL:** Sets the icon above the embedded Auth0 login form. Option name is `icon_url`.
 
 * **Form Title:** Sets the title of the embedded Auth0 login form. Option name is `form_title`.
-
-* **Large Social Buttons:** Toggles the social buttons size between big and small on the embedded Auth0 login form. Option name is `social_big_buttons`.
 
 * **Enable Gravatar Integration:** When user enters their email, their associated Gravatar picture is displayed in the embedded Auth0 login form. Option name is `gravatar`.
 

@@ -24,7 +24,7 @@ Auth0 exposes two APIs for developers to consume in their applications:
 
 ## Authentication API
 
-The Authentication API exposes Auth0 identity functionality, as well as those of supported identity protocols (such as OpenID Connect, OAuth, and SAML). Typically, you consume this API through one of the Auth0 SDKs, such as [Auth0.js](/libraries/auth0js) or a library like [Lock](/libraries/lock). If you are building your authentication UI manually, you will need to interface directly with the Authentication API.
+The Authentication API exposes Auth0 identity functionality, as well as those of supported identity protocols (such as <dfn data-key="openid">OpenID Connect</dfn>, OAuth, and <dfn data-key="security-assertion-markup-language">SAML</dfn>). Typically, you consume this API through one of the Auth0 SDKs, such as [Auth0.js](/libraries/auth0js) or a library like [Lock](/libraries/lock). If you are building your authentication UI manually, you will need to interface directly with the Authentication API.
 
 <div class="api-info-wrapper">
   <div class="block-links">

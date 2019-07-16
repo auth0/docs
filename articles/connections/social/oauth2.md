@@ -104,7 +104,7 @@ function(access_token, ctx, callback) {
 
 ## Log in using the custom connection
 
-You can use any of the Auth0 standard mechanisms (such as direct links, [Auth0 Lock](/libraries/lock), [auth0.js](/libraries/auth0js), and so on.) to login a user with the your custom connection.
+You can use any of the Auth0 standard mechanisms (such as direct links, <dfn data-key="lock">[Auth0 Lock](/libraries/lock)</dfn>, [auth0.js](/libraries/auth0js), and so on.) to login a user with the your custom connection.
 
 A direct link would look like:
 
@@ -206,7 +206,7 @@ Where `[your credentials]` is the actual credentials which you need to send to t
 ## Keep Reading
 
 ::: next-steps
-* [Adding custom connections to lock](/libraries/lock/v9/ui-customization#adding-a-new-ui-element-using-javascript)
+* [Customizing buttons for connections in Lock](/libraries/lock/v11/ui-customization#authbuttons-object-)
 * [Generic OAuth2 or OAuth1 examples](/oauth2-examples)
 * [Identity Providers supported by Auth0](/identityproviders)
 * [Identity Protocols supported by Auth0](/protocols)

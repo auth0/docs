@@ -13,6 +13,10 @@ useCase: extensibility-extensions
 
 # Authorization Extension: Configuration
 
+::: note
+<%= include('../../../../_includes/_rbac_methods') %>
+:::
+
 Before the extension can enforce your authorization logic, you'll need to configure how it will behave during the login transaction. Your configuration settings will be captured in a [rule](/rules) that's executed during runtime.
 
 ## Configure the Extension
@@ -25,7 +29,7 @@ This brings you to the **Rule Configuration** section of the **Configuration** p
 
 ![Configuration page](/media/articles/extensions/authorization/configuration.png)
 
-All of the changes you make in the sections under **Token Contents**, such as those related to groups, roles, and permissions, will be reflected in the rule you export at the completion of this step. 
+All of the changes you make in the sections under **Token Contents**, such as those related to groups, <dfn data-key="role">roles</dfn>, and permissions, will be reflected in the rule you export at the completion of this step. 
 
 ### ApiKey
 

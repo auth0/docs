@@ -5,12 +5,12 @@ toc: true
 topics:
   - wordpress
   - cms
-contentType: 
+contentType:
   - how-to
 useCase:
   - add-login
   - build-an-app
-  - customize-connections 
+  - customize-connections
 ---
 # Extending the Login by Auth0 WordPress Plugin
 
@@ -508,7 +508,7 @@ add_filter( 'auth0_die_on_login_output', 'auth0_docs_hook_die_on_login_output', 
 
 ### auth0_sso_auth0js_url
 
-This filter lets you override the default CDN URL for Auth0.js when doing an SSO check on the `wp-login.php` page.
+This filter lets you override the default CDN URL for Auth0.js when doing a <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> check on the `wp-login.php` page.
 
 ### auth0_coo_auth0js_url
 
@@ -517,6 +517,71 @@ This filter lets you override the default CDN URL for Auth0.js when loading the 
 ### auth0_slo_return_to
 
 This filter lets you override the default `returnTo` URL when logging out of Auth0.
+
+```php
+/**
+ * URL to return to after logging out of Auth0.
+ *
+ * @param string $default_return_url - Return URL, default is home_url().
+ *
+ * @return string
+ */
+function auth0_wp_test_hook_auth0_slo_return_to( $default_return_url ) {
+	if ( ! empty( $_GET['logout_return_url'] ) ) {
+		$default_return_url = esc_url( $_GET['logout_return_url'] );
+	}
+	return $default_return_url;
+}
+add_filter( 'auth0_slo_return_to', 'auth0_docs_hook_auth0_slo_return_to', 10 );
+```
+
+### auth0_use_management_api_for_userinfo
+
+This filter determines whether or not user profile data retrieved from the Management API should when you're *not* using the Implicit Login Flow. Return a boolean `true` (default) to use the API, `false` to use the ID token.
+
+```php
+// Always use the ID token for user profile data.
+add_filter( 'auth0_use_management_api_for_userinfo', '__return_false', 100 );
+```
+
+### auth0_lock_options
+
+This filter can be used to modify the options for the embedded Lock login form used in shortcodes, widgets, and on the wp-login.php page when **Features > Universal Login Page** is turned off.
+
+```php
+/**
+ * Filter the options passed to Lock.
+ *
+ * @param array $options - Existing options built from plugin and additional settings.
+ *
+ * @return array
+ */
+function auth0_docs_hook_lock_options( $options ) {
+	if ( ! empty( $_GET[ 'lock_language' ] ) ) {
+		$options['language'] = sanitize_title( $_GET[ 'lock_language' ] );
+	}
+	return $options;
+}
+add_filter( 'auth0_lock_options', 'auth0_docs_hook_lock_options', 10 );
+```
+
+### auth0_jwt_leeway
+
+This filter lets you adjust the leeway time used to validate ID tokens and should return a number of seconds as an integer.
+
+```php
+/**
+ * Filter the JWT leeway.
+ *
+ * @param integer $leeway - Existing leeway time.
+ *
+ * @return integer
+ */
+function auth0_docs_hook_jwt_leeway( $leeway ) {
+	return 90;
+}
+add_filter( 'auth0_jwt_leeway', 'auth0_docs_hook_jwt_leeway', 10 );
+```
 
 ## Additional Extensions
 

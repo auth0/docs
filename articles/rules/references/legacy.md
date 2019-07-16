@@ -46,7 +46,7 @@ Watch this video learn all about rules in just a few minutes.
 
 A Rule is a function with the following arguments:
 
-* `user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Structure](/users/references/user-profile-structure).
+* `user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes).
 
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/references/context-object).
 
@@ -93,7 +93,7 @@ You can add `console.log` lines for [debugging](#debugging) or use the [Real-tim
 
 ### Add roles to a user
 
-In this example, all authenticated users will get a **guest** role, but `johnfoo@gmail.com` will also be an **admin**:
+In this example, all authenticated users will get a **guest** <dfn data-key="role">role</dfn>, but `johnfoo@gmail.com` will also be an **admin**:
 
 ```js
 function (user, context, callback) {
@@ -167,10 +167,10 @@ function (user, context, callback) {
 }
 ```
 
-This will cause a redirect to your callback url with an `error` querystring parameter containing the message you set. (such as `https://yourapp.com/callback?error=unauthorized&error_description=Only%20admins%20can%20use%20this`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
+This will cause a redirect to your <dfn data-key="callback">callback URL</dfn> with an `error` querystring parameter containing the message you set. (such as `https://yourapp.com/callback?error=unauthorized&error_description=Only%20admins%20can%20use%20this`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
 
 ::: note
-Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a `SAMLResponse`.
+Error reporting to the app depends on the protocol. <dfn data-key="openid">OpenID Connect (OIDC)</dfn> apps will receive the error in the querystring. <dfn data-key="security-assertion-markup-language">SAML</dfn> apps will receive the error in a `SAMLResponse`.
 :::
 
 ## Create Rules with the Management API

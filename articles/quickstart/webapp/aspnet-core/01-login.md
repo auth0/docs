@@ -12,7 +12,7 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
-<%= include('../../../_includes/_new_app') %>
+<%= include('../../../_includes/_new_app', { showClientSecret: true }) %>
 
 <%= include('./_includes/_setup') %>
 

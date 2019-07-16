@@ -160,4 +160,60 @@ public class APIController {
 }
 ```
 
-To build and run the seed project, use the command: `mvn spring-boot:run`.
+## Run and Test Your API
+
+To build and run the project, use the command:
+
+```bash
+./gradlew bootRun
+```
+
+or if you are on Windows:
+
+```bash
+gradlew.cmd bootRun
+```
+
+Using a REST client such as Postman or cURL, issue a `GET` request to `http://localhost:3010/api/public`. You should receive the response:
+
+```json
+{"message":"All good. You DO NOT need to be authenticated to call /api/public."}
+```
+
+Next, issue a `GET` request to `http://localhost:3010/api/private`. You should receive a `401 Unauthorized` response:
+
+```json
+{"timestamp":1559321750022,"status":401,"error":"Unauthorized","message":"Unauthorized","path":"/api/private"}
+```
+
+To test that your API is properly secured, you can obtain a test token in the Auth0 Dashboard:
+
+1. Go to the **Machine to Machine Applications** tab for the API you created above.
+2. Ensure that your API test application is marked as authorized.
+3. Click the **Test** tab, then **COPY TOKEN**.
+
+Issue a `GET` request to the `/api/private` endpoint, this time passing the token you obtained above as an `Authorization` header set to `Bearer YOUR-API-TOKEN-HERE`. You should then see the response:
+
+```json
+{"message":"All good. You can see this because you are Authenticated."}
+```
+
+Finally, to test that our `/api/private-scoped` is properly protected by the `read:messages` scope, make a `GET` request to the `/api/private-scoped` endpoint using the same token as above. You should see a `403 Forbidden` response, as this token does not possess the `read:messages` scope:
+
+```json
+{"timestamp":1559322174584,"status":403,"error":"Forbidden","message":"Access is denied","path":"/api/private-scoped"}
+```
+
+Back in the Auth0 Dashboard:
+
+1. Go to the **Permissions** tab for the API you created above.
+2. Add a permission of `read:messages` and provide a description.
+3. Go to the **Machine to Machine Applications** tab.
+4. Expand your authorized test application, select the `read:messages` scope, then click **UPDATE** and then **CONTINUE**.
+5. Click the **Test** tab, then **COPY TOKEN**.
+
+Issue a GET request to `/api/private-scoped`, this time passing the token you obtained above (with the `read:messages` scope) as an `Authorization` header set to `Bearer YOUR-API-TOKEN-HERE`. You should see the response:
+
+```json
+{"message":"All good. You can see this because you are Authenticated with a Token granted the 'read:messages' scope"}
+```

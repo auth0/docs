@@ -166,7 +166,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
   <tr>
       <td>Jobs</td>
       <td>/jobs/{id} <br /> /jobs/{id}/errors</td>
-      <td>/jobs/verification-email <br />/jobs/users-imports</td>
+      <td>/jobs/verification-email <br />/jobs/users-imports <br />/jobs/users-exports</td>
       <td></td>
       <td></td>
   </tr>
@@ -316,4 +316,8 @@ The following Auth0 Authentication API endpoints return rate limit-related heade
 
 ## Limits on Database Logins
 
-For database connections Auth0 limits certain types of repeat login attempts depending on the user account and IP address. For more information, see [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
+For database connections, Auth0 limits certain types of repeat login attempts depending on the user account and IP address. For more information, see [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
+
+## Limits on SMS Messages for MFA
+
+There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configuring Twilio for Guardian SMS](/multifactor-authentication/twilio-configuration).

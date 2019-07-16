@@ -21,7 +21,7 @@ This tutorial will help you call your own API from a single-page application (SP
 
 Auth0 makes it easy for your app to implement the Implicit Flow using:
 
-* [Auth0.js](/libraries/auth0js): The easiest way to implement the Implicit Flow, which will do most of the heavy-lifting for you. Our [Single-Page App Quickstarts](/quickstart/spa) will walk you through the process.
+* [Auth0.js](/libraries/auth0js): The easiest way to implement the flow, which will do most of the heavy-lifting for you. Our [Single-Page App Quickstarts](/quickstart/spa) will walk you through the process.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
 ## Prerequisites
@@ -39,7 +39,7 @@ Auth0 makes it easy for your app to implement the Implicit Flow using:
 
 1. [Authorize the user](#authorize-the-user): 
 Request the user's authorization and redirect back to your app with the requested credentials.
-2. [Call Your API](#call-api): 
+2. [Call Your API](#call-your-api): 
 Use the retrieved Access Token to call your API.
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
@@ -54,7 +54,7 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 ::: next-steps
 - [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
-- [The OAuth 2.0 protocol](/protocols/oauth2)
-- [The OpenID Connect protocol](/protocols/oidc)
+- [OAuth 2.0 framework](/protocols/oauth2)
+- [OpenID Connect (OIDC) protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
 :::

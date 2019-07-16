@@ -19,7 +19,7 @@ The [Emails](${manage_url}/#/emails) dashboard allows you to customize your emai
 
 
 ::: note
-Only one template can be used for each template type (for example, only one template for change password emails).
+Only one template can be used for each template type (for example, only one template for verify emails).
 :::
 
 ## Configuring email templates
@@ -41,7 +41,7 @@ You can access the following common variables when using Liquid Syntax in the **
   * `user.nickname`
   * `user.given_name`
   * `user.family_name`
-  * `user.app_metadata` - stores information (such as a user's support plan, security roles, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
+  * `user.app_metadata` - stores information (such as a user's support plan, security <dfn data-key="role">roles</dfn>, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
   * `user.user_metadata` - stores user attributes (such as user preferences) that do not impact a user's core functionality.
 * Tenant-related information (defined in the [Tenant Settings](${manage_url}/#/tenant)):
   * `tenant` - the raw tenant name
@@ -123,7 +123,7 @@ If the **Subject** field is empty, Auth0 will auto-populate this text depending 
 
 ### Configuring the URL Lifetime
 
-The **Verification Email**, **Change Password Confirmation Email** and **Blocked Account Email** contain links which allow users to verify their email address when signing up, confirm their password change, or unblock a blocked account respectively.
+The **Verification Email**, **Reset Email** and **Blocked Account Email** contain links which allow users to verify their email address when signing up, confirm their password change, or unblock a blocked account respectively.
 
 You can modify the lifetime of this link for security purposes. By default, the lifetime is 432,000 seconds (five days).
 
@@ -142,7 +142,7 @@ The **Redirect To** URL is an optional destination to redirect the user to after
 * `application.name` (or its synonym `client.name`)
 * `application.callback_domain` (or its synonym `client.callback_domain`)
   
-The `application.callback_domain` variable will contain the domain of the **first** URL listed in the application's **Allowed Callback URL** list. This lets you redirect users to a path of the application that triggered the action by using a syntax like this:
+The `application.callback_domain` variable will contain the domain of the **first** URL listed in the application's **Allowed <dfn data-key="callback">Callback URL</dfn>** list. This lets you redirect users to a path of the application that triggered the action by using a syntax like this:
 
 ```text
 {{ application.callback_domain }}/result_page
@@ -230,17 +230,17 @@ The target URL handler should be prepared to gracefully handle other possible me
 
 Once a user verifies their email address, they will receive a **Welcome Email**. If you turn off the **Verification Email** feature, the **Welcome Email** will be sent to the user when they sign-up (or login for the first time).
 
-### Change Password Email
+### Reset Email
 
-If a user requests a password change, they will receive a **Change Password Email** that contains a URL link. When the user clicks on the link, a change password screen will be presented to enter the new password.
+If a user requests a password change, they will receive a **Reset Email** that contains a URL link. When the user clicks on the link, a [Password Reset screen](/universal-login/password-reset) will be presented to enter the new password.
 
-In addition to the [common variables](#common-variables) available for all email templates, the **Change Password Emaill** has the `url` variable that refers to the URL that the user will have to click. You will use it in the **Message** field to create a link that the user can follow, as in this example:
+In addition to the [common variables](#common-variables) available for all email templates, the **Reset Email** has the `url` variable that refers to the URL that the user will have to click. You will use it in the **Message** field to create a link that the user can follow, as in this example:
 
 ```html
 <a href="{{ url }}">Click here to change your password</a>
 ```
 
-#### Redirect To Results for the Change Password Email Template
+#### Redirect To Results for the Reset Email Template
 
 You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the users to after the password change action was attempted. When redirecting, Auth0 will include the following parameters:
 
@@ -315,7 +315,7 @@ In addition to the [common variables](#common-variables) available, the template
 
 Unlike the previous email templates types, this email template is not configured from the Email Templates section. Instead, it's part of the [settings for the Email Passwordless Connection](${manage_url}/#/connections/passwordless).
 
-The Passwordless Email is sent when a passwordless access is requested, either by code (the user receives a code that types in the application) or by a link (the user clicks on a link and is taken directly to the application).
+The <dfn data-key="passwordless">Passwordless</dfn> Email is sent when a passwordless access is requested, either by code (the user receives a code that types in the application) or by a link (the user clicks on a link and is taken directly to the application).
 
 You can use all the [common variables](#common-variables) available in all templates, plus the following variables defined specifically for the **Passwordless Email** template:
 

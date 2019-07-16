@@ -15,7 +15,7 @@ useCase:
 
 All data in your Auth0 tenant is always under your control and is [available through the management API](/api/v2) at any time.
 The only information which is not available through the API are the password hashes of your [Auth0-hosted database users](/connections/database) and private keys, for security reasons.
-You can still request this information by opening a [support ticket](${env.DOMAIN_URL_SUPPORT}). Please note that in order to make this request you must be signed in to the Developer plan for one month.
+You can still request this information by opening a [support ticket](${env.DOMAIN_URL_SUPPORT}). Please note that this operation is not available for our Free subscription tier.
 
 ## Keeping user credentials on your infrastructure
 
@@ -24,7 +24,7 @@ In this case Auth0 will never store any password hashes, unless you choose to [p
 
 ## I don't want to use proprietary Auth0 components
 
-Auth0 mainly uses [OpenID Connect as its authentication protocol](/protocols), so you should be able to implement an integration to your application using standard libraries.
+Auth0 mainly uses <dfn data-key="openid">OpenID Connect (OIDC)</dfn> as its authentication protocol, so you should be able to implement an integration to your application using standard libraries.
 The same applies when [integrating Auth0 through SAML](/saml-configuration).
 
 All of Auth0's SDKs, libraries and samples [are published on GitHub as free software](https://github.com/auth0/).

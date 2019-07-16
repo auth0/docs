@@ -32,9 +32,11 @@ Create an **Application Name** and select **Web Application** as the **Applicati
 
 ![Enter your app data](/media/articles/connections/social/yahoo/enter-fields.png)
 
-In the **Callback Domain** field enter:
+In the **<dfn data-key="callback">Callback</dfn> Domain** field enter:
 
 `https://${account.namespace}`
+
+<%= include('../_find-auth0-domain-redirects') %>
 
 For the **API Permissions** make sure to select at least one user data API:
 

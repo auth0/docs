@@ -28,7 +28,7 @@ When using your own database for authentication, you can use the [Management API
 * `user_metadata`
 * `blocked`
 
-If you need to update other user fields you will need to do it directly in your database.
+If you need to update other user fields, you will need to do it directly in your database.
 
 ## Update users in your database
 
@@ -43,9 +43,11 @@ See the [User profile cache](#user-profile-cache) section below for a brief over
 
 ## Update users through migration
 
-If you have [enabled user migration](/connections/database/migrating), and a user has already been migrated to the Auth0 database, then Auth0 will not query your database again for the user profile. And therefore all changes made in the custom database for that user will never reflect in Auth0.
+If you have [enabled user migration](/connections/database/migrating), and a user has already been migrated to the Auth0 database, then Auth0 will not query your database again for the user profile. Therefore, all changes made in the custom database for that user will never reflect in Auth0.
 
-Once a user has been migrated, you will also be able to update fields such as `email` and `email_verified` via the Management API. However, normal rules for updating other user fields will still apply as described in the [Normalized User Profile](/users/normalized) (for example, you will still not be able to update fields such as `nickname`, `picture` and so on).
+Once a user has been migrated, you will also be able to update fields, such as `name`, `nickname`, `given_name`, `family_name`, `picture`, `email`, and `email_verified` via the Management API.
+
+However, rules for updating other user fields will still apply as described in the [Normalized User Profile](/users/normalized).
 
 ## User profile cache
 
@@ -53,7 +55,7 @@ Auth0 caches the user profile received from a [database connection](/connections
 
 The cached values for the [Normalized User Profile](/users/normalized/auth0/normalized-user-profile-schema) fields are based on the values returned from the Login Script of your custom database connection.
 
-The User Profile is cached for several reasons. First, caching allows you the option of implementing [Single Sign-On](/sso) at the Auth0 layer to avoid going to the Connection for every request. Additionally, this provides resilience if a Connection is temporarily unavailable.
+The User Profile is cached for several reasons. First, caching allows you the option of implementing <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> at the Auth0 layer to avoid going to the Connection for every request. Additionally, this provides resilience if a Connection is temporarily unavailable.
 
 You can delete a user's cached profile with the Auth0 Dashboard or the Management API. 
 

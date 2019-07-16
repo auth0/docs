@@ -16,7 +16,7 @@ github:
 ---
 <%= include('../_includes/_getting_started', { library: 'Node.js', callback: 'http://localhost:3000/callback' }) %>
 
-<%= include('../../../_includes/_logout_url') %>
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
 ## Configure Node.js to use Auth0
 
@@ -204,7 +204,7 @@ router.get('/logout', (req, res) => {
     returnTo += ':' + port;
   }
   var logoutURL = new URL(
-    util.format('https://%s/logout', process.env.AUTH0_DOMAIN)
+    util.format('https://%s/v2/logout', process.env.AUTH0_DOMAIN)
   );
   var searchString = querystring.stringify({
     client_id: process.env.AUTH0_CLIENT_ID,

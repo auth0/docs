@@ -36,7 +36,7 @@ function login (email, password, callback) {
 
 * [Normalized User Profiles Overview](/users/normalized)
 * [Store User Data](/users/normalized/auth0/store-user-data)
-* [Retrieve User Profiles](/users/normalized/auth0/retrieve-user-profiles)
+* [Retrieve User Profiles](/users/search)
 * [Normalized User Profile Schema](/users/normalized/auth0/normalized-user-profile-schema) 
 * [Sample User Profiles](/users/normalized/auth0/sample-user-profiles)
 * [Claims for User Profile Returned via OIDC-Compliant Authorization Flow](/users/normalized/oidc)

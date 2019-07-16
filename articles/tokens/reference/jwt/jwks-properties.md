@@ -34,7 +34,7 @@ This is an example of the JSON Web Key Set (JWKS) used by a demo tenant, contain
 ```
 
 
-Each property in the key is defined by the JWK specification [RFC 7517 Section 4](https://tools.ietf.org/html/rfc7517#section-4). 
+Each property in the key is defined by the JWK specification [RFC 7517 Section 4](https://tools.ietf.org/html/rfc7517#section-4) or, for algorithm-specific properties, in [RFC 7518 (https://tools.ietf.org/html/rfc7518)].
 
 | Property name | Description                |
 |---------------|----------------------------|
@@ -42,7 +42,7 @@ Each property in the key is defined by the JWK specification [RFC 7517 Section 4
 | `kty`         | The family of cryptographic algorithms used with the key. |
 | `use`         | How the key was meant to be used; `sig` represents the signature. |
 | `x5c`         | The x.509 certificate chain. The first entry in the array is the certificate to use for token verification; the other certificates can be used to verify this first certificate.|
-| `n`           | The modulus for a standard [pem](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail). |
-| `e`           | The exponent for a standard [pem](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail). |
+| `n`           | The modulus for the [RSA public key](https://tools.ietf.org/html/rfc7518#page-30). |
+| `e`           | The exponent for the [RSA public key](https://tools.ietf.org/html/rfc7518#page-30). |
 | `kid`         | The unique identifier for the key. |
 | `x5t`         | The thumbprint of the x.509 cert (SHA-1 thumbprint). |

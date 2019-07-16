@@ -18,7 +18,7 @@ Some time ago we changed the process to get a Management APIv2 Token. This artic
 
 ### The User Experience
 
-Until recently you could generate a Management APIv2 Token directly from the Management API explorer. You selected the scopes, according to the endpoint you wanted to invoke, and got a token from that same page.
+Until recently you could generate a Management APIv2 Token directly from the Management API explorer. You selected the <dfn data-key="scope">scopes</dfn>, according to the endpoint you wanted to invoke, and got a token from that same page.
 
 That way was very easy but it was also __very insecure__. So we changed it.
 
@@ -95,7 +95,7 @@ To generate a token follow the next steps:
 
   - __iss__: Who issued the token. Use your tenant's __Domain__. You can find this value at any [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
-  - __aud__: Who is the intended audience for this token. Use the __Global Client Id__ of your tenant. You can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced).
+  - __aud__: Who is the intended <dfn data-key="audience">audience</dfn> for this token. Use the __Global Client Id__ of your tenant. You can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced).
 
   - __scope__: The (space separated) list of authorized scopes for the token. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all applications](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create an application](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. So if you need to read _and_ create applications, then the token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`. In this case you would set the scope at the editor to the value `read:clients read:client_keys create:clients`.
 

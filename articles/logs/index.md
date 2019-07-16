@@ -32,7 +32,7 @@ Please note that administrative actions will show up in the logs as `API Operati
 
 ### As an administrator
 
-If you are operating your service as an administrator, there are many helpful metrics and bits of information you can gather from the Logs. If a customer has raised a support ticket that they are unable to sign in to your service or application, you can verify in the logs that they have indeed tried, and are attempting in the manner they say they are. They may think it's a password issue, but you may discover they never completed setting up their Multi-Factor Authentication. Additionally, Logs can help expose some business metrics you may not have had available before. These could include:
+If you are operating your service as an administrator, there are many helpful metrics and bits of information you can gather from the Logs. If a customer has raised a support ticket that they are unable to sign in to your service or application, you can verify in the logs that they have indeed tried, and are attempting in the manner they say they are. They may think it's a password issue, but you may discover they never completed setting up their <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>. Additionally, Logs can help expose some business metrics you may not have had available before. These could include:
 
 - Finding prime times of usage for different regions
 - Identifying a target audience
@@ -123,10 +123,10 @@ The following table lists the codes associated with the appropriate log events.
 | --- | --- | --- | --- |
 | `admin_update_launch` | Auth0 Update Launched | |
 | `api_limit` | Rate Limit on the Authentication API | The maximum number of requests to the Authentication API in given time has reached. | [Rate Limit Policy](/policies/rate-limits) |
-| `cls` | Code/Link Sent | Passwordless login code/link has been sent | [Passwordless](/passwordless) |
+| `cls` | Code/Link Sent | <dfn data-key="passwordless">Passwordless</dfn> login code/link has been sent | [Passwordless](/connections/passwordless) |
 | `coff` | Connector Offline | AD/LDAP Connector is offline | [Active Directory/LDAP Connector](/connector) |
 | `con` | Connector Online | AD/LDAP Connector is online and working | [Active Directory/LDAP Connector](/connector) |
-| `cs` | Code Sent | Passwordless login code has been sent | [Passwordless](/passwordless) |
+| `cs` | Code Sent | Passwordless login code has been sent | [Passwordless](/connections/passwordless) |
 | `du` | Deleted User | User has been deleted. | [User Profile](/users/concepts/overview-user-profile) |
 | `f` | Failed Login | | |
 | `fapi` | Failed API Operation | | |
@@ -140,15 +140,19 @@ The following table lists the codes associated with the appropriate log events.
 | `fcpr` | Failed Change Password Request | | [Changing a User's Password](/connections/database/password-change) |
 | `fcpro` | Failed Connector Provisioning | Failed to provision a AD/LDAP connector | [Active Directory/LDAP Connector](/connector) |
 | `fcu` | Failed Change Username | Failed to change username | [User Profile](/users/concepts/overview-user-profile) |
-| `fd` | Failed Delegation | Failed to generate delegation token | [Delegation Tokens](/tokens/delegation) |
+| `fd` | Failed Delegation | Failed to generate delegation token | [Delegation Tokens](/tokens/delegation) |	
+| `fdeac`   | Failed Device Activation | Failed to activate device. | [Device Authorization Flow](/flows/concepts/device-auth) |
+| `fdeaz`    | Failed Device Authorization Request | Device authorization request failed. | [Device Authorization Flow](/flows/concepts/device-auth) |
+| `fdecc`    | User Canceled Device Confirmation | User did not confirm device. | [Device Authorization Flow](/flows/concepts/device-auth) |
 | `fdu` | Failed User Deletion | | [User Profile](/users/concepts/overview-user-profile) |
-| `feacft` | Failed Exchange | Failed to exchange authorization code for Access Token | [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
+| `feacft` | Failed Exchange | Failed to exchange authorization code for <dfn data-key="access-token">Access Token</dfn> | [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
 | `feccft` | Failed Exchange | Failed exchange of Access Token for a Client Credentials Grant | [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens) |
+| `fede`    | Failed Exchange | Failed to exchange Device Code for Access Token | [Device Authorization Flow](/flows/concepts/device-auth) |
 | `feoobft` | Failed Exchange | Failed exchange of Password and OOB Challenge for Access Token | |
 | `feotpft` | Failed Exchange | Failed exchange of Password and OTP Challenge for Access Token | |
 | `fepft` | Failed Exchange | Failed exchange of Password for Access Token | |
 | `fercft` | Failed Exchange | Failed Exchange of Password and MFA Recovery code for Access Token | |
-| `fertft` | Failed Exchange | Failed Exchange of Refresh Token for Access Token | |
+| `fertft` | Failed Exchange | Failed Exchange of <dfn data-key="refresh-token">Refresh Token</dfn> for Access Token | |
 | `flo` | Failed Logout | User logout failed | [Logout](/logout) |
 | `fn` | Failed Sending Notification | Failed to send email notification | [Emails](/email) |
 | `fp` | Failed Login (Incorrect Password) | | |
@@ -177,7 +181,6 @@ The following table lists the codes associated with the appropriate log events.
 | `gd_user_delete` | User delete | Deleted multi-factor user account. | [User Profile](/users/concepts/overview-user-profile) |
 | `limit_delegation` | Too Many Calls to /delegation | Rate limit exceeded to `/delegation` endpoint | [API Rate Limit Policy](/policies/rate-limits) |
 | `limit_mu` | Blocked IP Address | An IP address is blocked with 100 failed login attempts using different usernames, all with incorrect passwords in 24 hours, or 50 sign-up attempts per minute from the same IP address. | [Anomaly Detection](/anomaly-detection) |
-| `limit_ui` | Too Many Calls to /userinfo | Rate limit exceeded to `/limit_ui` endpoint | [API Rate Limit Policy](/policies/rate-limits) |
 | `limit_wc` | Blocked Account | An IP address is blocked with 10 failed login attempts into a single account from the same IP address. | [Anomaly Detection](/anomaly-detection) |
 | `pwd_leak` | Breached password | Someone behind the IP address: `ip` attempted to login with a leaked password. | [Anomaly Detection](/anomaly-detection) |
 | `s` | Success Login | Successful login event. | |
@@ -193,6 +196,7 @@ The following table lists the codes associated with the appropriate log events.
 | `sdu` | Success User Deletion | User successfully deleted | [User Profile](/users/concepts/overview-user-profile) |
 | `seacft` | Success Exchange | Successful exchange of authorization code for Access Token | [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code) |
 | `seccft` | Success Exchange | Successful exchange of Access Token for a Client Credentials Grant | [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens) |
+| `sede`     | Success Exchange | Successful exchange of device code for Access Token | [Device Authorization Flow](/flows/concepts/device-auth) |
 | `seoobft` | Success Exchange | Successful exchange of Password and OOB Challenge for Access Token | |
 | `seotpft` | Success Exchange | Successful exchange of Password and OTP Challenge for Access Token | |
 | `sepft` | Success Exchange | Successful exchange of Password for Access Token | |

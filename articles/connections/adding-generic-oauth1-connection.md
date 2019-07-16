@@ -88,7 +88,7 @@ One advantage of using Rules is that they apply to __any__ connection.
 
 ## Using your new connection
 
-You can use any of the Auth0 standard mechanisms to login a user with the new connection (such as direct links, [Auth0 Lock](lock), [auth0.js](auth0js), and so on). 
+You can use any of the Auth0 standard mechanisms to login a user with the new connection (such as direct links, Auth0 <dfn data-key="lock">Lock</dfn>, [auth0.js](auth0js), and so on). 
 
 A direct link would look like:
 

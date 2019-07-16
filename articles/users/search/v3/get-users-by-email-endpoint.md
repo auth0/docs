@@ -11,7 +11,7 @@ useCase:
 ---
 # Retrieve Users with the Get Users by Email Endpoint 
 
-The [`GET /api/v2/users-by-email` endpoint](/api/management/v2#!/Users_By_Email/get_users_by_email) allows you to search for users using their email addresses. The search looks for an exact match to the provided email address.
+The [`GET /api/v2/users-by-email` endpoint](/api/management/v2#!/Users_By_Email/get_users_by_email) allows you to search for users using their email addresses. The search looks for an exact match to the provided email address and is case-sensitive.
 
 This endpoint is **immediately consistent**, and as such, we recommend that you use this endpoint for:
 

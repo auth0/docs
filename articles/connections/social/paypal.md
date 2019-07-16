@@ -44,9 +44,11 @@ Note that by default you are editing your Sandbox account. Switch to your live a
 
 ## 3. Provide PayPal with information about your app
 
-Scroll down to the **Sandbox App Settings** section and **Show** the **Return URL** box. Enter the following value:
+Scroll down to the **Sandbox App Settings** section and **Show** the **Return URL** box. Enter your <dfn data-key="callback">callback URL</dfn>:
 
 `https://${account.namespace}/login/callback`
+
+<%= include('../_find-auth0-domain-redirects') %>
 
 ![](/media/articles/connections/social/paypal/sandbox-settings.png)
 

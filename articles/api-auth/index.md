@@ -20,13 +20,9 @@ useCase:
   </p>
 </div>
 
-::: note
-**Heads up!** As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. For an overview of these changes, and details on how you adopt them, refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
-:::
-
 At some point, your custom APIs will need to allow limited access to users, servers, or servers on behalf of users. With Auth0 you can manage the authorization requirements for server-to-server and application-to-server applications.
 
-By using the OAuth 2.0 authorization framework, you can give your own applications or third-party applications limited access to your APIs on behalf of the application itself. With Auth0, you can easily support different flows in your own APIs without worrying about the OAuth 2.0/OpenID Connect specification, or the many other technical aspects of API authorization.
+By using the OAuth 2.0 authorization framework, you can give your own applications or third-party applications limited access to your APIs on behalf of the application itself. With Auth0, you can easily support different flows in your own APIs without worrying about the OAuth 2.0/<dfn data-key="openid">OpenID Connect (OIDC)</dfn> specification, or the many other technical aspects of API authorization.
 
 In this page you can find a list of resources that can help you secure your APIs and access them in a secure manner.
 
@@ -47,7 +43,7 @@ In this page you can find a list of resources that can help you secure your APIs
         <i class="icon icon-budicon-695"></i><a href="/flows/concepts/auth-code">Overview of the flow</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href/flows/guides/auth-code/call-api-auth-code">Executing the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/guides/auth-code/call-api-auth-code">Executing the flow</a>
       </li>
     </ul>
   </li>
@@ -110,7 +106,7 @@ In this page you can find a list of resources that can help you secure your APIs
         <i class="icon icon-budicon-695"></i><a href="/api-auth/config/asking-for-access-tokens">How to execute a Client Credentials Grant</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/api-auth/tutorials/client-credentials/customize-with-hooks">Change the scopes and add custom claims to the tokens using Hooks</a>
+        <i class="icon icon-budicon-695"></i><a href="/api-auth/tutorials/client-credentials/customize-with-hooks">Change the <dfn data-key="scope">scopes</dfn> and add custom claims to the tokens using Hooks</a>
       </li>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/architecture-scenarios/application/server-api">Server + API architecture scenario</a>

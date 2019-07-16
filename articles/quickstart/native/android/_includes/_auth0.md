@@ -30,13 +30,12 @@ To add the manifest placeholders, add the next line:
 // app/build.gradle
 
 apply plugin: 'com.android.application'
+compileSdkVersion 28
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "com.auth0.samples"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 28
         //...
 
         //---> Add the next line

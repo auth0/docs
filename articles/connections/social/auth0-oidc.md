@@ -1,9 +1,7 @@
 ---
 connection: Auth0 OpenIDConnect
-seo_alias: auth0-oidc
 image: /media/connections/auth0.png
 description: You can use an Application on another Auth0 tenant as an OIDC identity provider in your current Auth0 tenant.
-toc: true
 topics:
   - connections
   - social
@@ -12,7 +10,11 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Authenticate using OpenIDConnect to another Auth0 Tenant
+# Authenticate using OpenIDConnect to another Auth0 Tenant (Deprecated)
+
+::: warning
+This solution has been deprecated because it requires the use of a legacy version of the Auth0 User Profile.
+:::
 
 You can use an application on one Auth0 tenant (referred to below as the **OIDC Provider tenant**) as an identity provider in another Auth0 tenant (the **Relying Party tenant**).
 
@@ -20,7 +22,9 @@ You can use an application on one Auth0 tenant (referred to below as the **OIDC 
 
 1. Create an Application or edit an existing one. Set the application type to **Regular Web App**.
 2. Take note of your application's **Client ID** and **Client Secret**. You will need these to create the connection in the Relying Party tenant.
-3. Add the Relying Party tenant's login callback to the list of **Allowed Callback URLs**: `https://${account.namespace}/login/callback`
+3. Add the Relying Party tenant's login <dfn data-key="callback">callback</dfn> to the list of **Allowed Callback URLs**: `https://${account.namespace}/login/callback`
+
+<%= include('../_find-auth0-domain-redirects') %>
 
 4. Make sure that the **OIDC-Conformant** toggle in the **OAuth** tab under the application's **Advance Settings** is turned **off**.
 
@@ -28,7 +32,7 @@ You can use an application on one Auth0 tenant (referred to below as the **OIDC 
 
 ## Configure the Relying Party Auth0 Tenant
 
-The Auth0-to-Auth0 connection is not yet supported in the Dashboard. You need to create the connection using the [Create a connection](/api/v2#!/Connections/post_connections) endpoint, which will require an [Management API V2 token](/api/management/v2/tokens) with `create:connections` scope.
+The Auth0-to-Auth0 connection is not yet supported in the Dashboard. You need to create the connection using the [Create a connection](/api/v2#!/Connections/post_connections) endpoint, which will require an [Management API V2 token](/api/management/v2/tokens) with `create:connections` <dfn data-key="scope">scope</dfn>.
 
 Here is a sample request:
 
@@ -66,7 +70,7 @@ The required parameters for this connection are:
 
 ## Use the Auth0 connection
 
-You can use any of the standard Auth0 mechanisms (such as direct links, [Auth0 Lock](/libraries/lock), [auth0.js](/auth0js), and so on) to log in a user with the auth0-oidc connection.
+You can use any of the standard Auth0 mechanisms (such as direct links, <dfn data-key="lock">[Auth0 Lock](/libraries/lock)</dfn>, [auth0.js](/auth0js), and so on) to log in a user with the auth0-oidc connection.
 
 A direct link would look like:
 

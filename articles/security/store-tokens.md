@@ -18,7 +18,7 @@ Not sure where to store [tokens](/tokens)? This guide outlines how to securely s
 
 ## Regular web apps
 
-ID Tokens, Access Tokens, and (optional) Refresh Tokens should be handled server-side in typical web applications. The application server use the tokens to call APIs on behalf of the user.
+ID Tokens, <dfn data-key="access-token">Access Tokens</dfn>, and (optional) <dfn data-key="refresh-token">Refresh Tokens</dfn> should be handled server-side in typical web applications. The application server use the tokens to call APIs on behalf of the user.
 
 * [Authorization Code Flow](/flows/concepts/auth-code)
 * [Regular Web App Quickstarts](/quickstart/webapp)
@@ -48,5 +48,3 @@ If your single-page app has a backend server at all, then tokens should be handl
 ### If no backend is present
 
 If you have a single-page app (SPA) with no corresponding backend server, your SPA should request new tokens on login and store them in memory without any persistence. To make API calls, your SPA would then use the in-memory copy of the token.
-
-For an example of how to handle sessions in SPAs, check out the [Handle Authentication Tokens](/quickstart/spa/vanillajs#handle-authentication-tokens) section of the [JavaScript Single-Page App Quickstart](/quickstart/spa/vanillajs).

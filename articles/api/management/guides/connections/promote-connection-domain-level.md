@@ -36,4 +36,4 @@ This guide will show you how to promote connections to domain level using Auth0'
 | Value | Description |
 | - | - |
 | `CONNECTION_ID` | Τhe ID of the connection to be promoted. |
-| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the scope `update:connections`. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:connections`. |

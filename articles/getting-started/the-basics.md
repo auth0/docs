@@ -32,6 +32,7 @@ The term is borrowed from "software multitenancy". This refers to an architectur
 Some characteristics:
 
 - The tenant name has to be unique (we will see in the next paragraph that it is used to create your own personal domain).
+- The tenant name must be all lowercase.
 - The tenant name cannot be changed after creation.
 - You can create more than one tenant; in fact, you are encouraged to do so for each environment you have (such as Development, Staging, or Production).
 - If you chose to host your data in Europe or Australia, then your tenant will have a suffix (`eu` or `au`). In our example, if `Example-Co` picked the name `example-co`, then depending on where the data is stored, the tenant name would be `example-co-eu` or `example-co-au`.
@@ -92,8 +93,8 @@ Connections are sources of users and they can be of the following types:
 
 - [Database connections](/connections/database): Users log in with username and passwords, stored either in the Auth0 cloud or your own database
 - [Social logins](/identityproviders#social): Google, Facebook, Twitter, and more
-- [Enterprise directories](/identityproviders#enterprise): LDAP, Google Apps, Office 365, ADFS, AD, SAML-P, WS-Federation, and more
-- [Passwordless systems](/connections/passwordless): Users log in with one-time codes, sent via SMS or email
+- [Enterprise directories](/identityproviders#enterprise): LDAP, G Suite, Office 365, ADFS, AD, <dfn data-key="security-assertion-markup-language">SAML-P</dfn>, WS-Federation, and more
+- <dfn data-key="passwordless">[Passwordless systems](/connections/passwordless)</dfn>: Users log in with one-time codes, sent via SMS or email
 
 Each connection can be shared among multiple applications. You can configure any number of connections, and then choose which of them to enable for each application.
 

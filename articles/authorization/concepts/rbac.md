@@ -15,7 +15,7 @@ useCase:
 ---
 # Role-Based Access Control
 
-Role-based access control (RBAC) refers to the idea of assigning permissions to users based on their role within an organization. It provides fine-grained control and offers a simple, manageable approach to access management that is less prone to error than assigning permissions to users individually.
+Role-based access control (RBAC) refers to the idea of assigning permissions to users based on their <dfn data-key="role">role</dfn> within an organization. It provides fine-grained control and offers a simple, manageable approach to access management that is less prone to error than assigning permissions to users individually.
 
 When using RBAC, you analyze the system needs of your users and group them into roles based on common responsibilities and needs. You then assign one or more roles to each user and one or more permissions to each role. The user-role and role-permissions relationships make it simple to perform user assignments since users no longer need to be managed individually, but instead have privileges that conform to the permissions assigned to their role(s). 
 
@@ -50,14 +50,7 @@ For example, let's say you have an API that provides data for an event applicati
 
 ## Role-based access control in Auth0
 
-Currently, we provide two ways of implementing [role-based access control (RBAC)](/authorization/concepts/rbac), which you can use in place of or in combination with your API's own internal access control system:
-
-* [Authorization core feature set](/authorization/guides/how-to)
-* [Authorization Extension](/extensions/authorization-extension)
-
-We are expanding our Authorization core feature set to match the functionality of the Authorization Extension and expect a final release in 2019. Our new core RBAC implementation improves performance and scalability and will eventually provide a more flexible RBAC system than the Authorization Extension.
-
-For now, both implement the key features of RBAC and allow you to restrict the custom scopes defined for an API to those that have been assigned to the user as permissions. For a comparison, see [Authorization Core vs. Authorization Extension](/authorization/concepts/core-vs-extension).
+<%= include('../../_includes/_rbac_methods') %>
 
 ### Extending RBAC 
 

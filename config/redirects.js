@@ -117,6 +117,10 @@ module.exports = [
     to: '/tutorials/aspnet-mvc4-enterprise-providers'
   },
   {
+    from: '/migrations',
+    to: '/product-lifecycle/migrations'
+  },
+  {
     from: '/nodeapi-tutorial',
     to: '/quickstart/backend/nodejs'
   },
@@ -428,7 +432,7 @@ module.exports = [
   },
   {
     from: '/sharepoint-clientid',
-    to: '/connections/enterprise/sharepoint-online'
+    to: '/connections/enterprise/sharepoint-apps'
   },
   {
     from: '/shopify-clientid',
@@ -567,15 +571,15 @@ module.exports = [
   },
   {
     from: '/clients/how-to-rotate-client-secret',
-    to: '/applications/how-to-rotate-client-secret'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/applications/how-to-rotate-client-secret',
-    to: '/applications/guides/rotate-client-secret-dashboard'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/applications/how-to-rotate-application-secret',
-    to: '/applications/how-to-rotate-client-secret'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/clients/client-settings',
@@ -772,6 +776,10 @@ module.exports = [
     to: '/api/management/v2/user-search'
   },
   {
+    from: '/users/normalized/auth0/retrieve-user-profiles',
+    to: `/users/search`
+  },
+  {
     from: [
       '/appliance/checksum',
       '/appliance/proxy-updater',
@@ -870,7 +878,7 @@ module.exports = [
   },
   {
     from: '/update-client-secret',
-    to: '/tutorials/how-to-update-applications-client-secret'
+    to: '/dashboard/guides/applications/rotate-client-secret'
   },
   {
     from: '/test-partner-connection',
@@ -1535,7 +1543,7 @@ module.exports = [
   },
   {
     from: '/tutorials/how-to-update-applications-client-secret',
-    to: '/applications/how-to-update-client-secret',
+    to: '/dashboard/guides/applications/rotate-client-secret',
   },
   {
     from: '/tutorials/using-auth0-to-secure-a-cli',
@@ -1547,7 +1555,7 @@ module.exports = [
   },
   {
     from: '/tutorials/google-cloud-platform',
-    to: '/tutorials/google-cloud-platform',
+    to: '/integrations/google-cloud-platform',
   },
   {
     from: '/tutorials/configuration-to-query-users-from-google-apps',
@@ -1671,7 +1679,7 @@ module.exports = [
   },
   {
     from: '/clients/how-to-update-client-secret',
-    to: '/applications/how-to-rotate-client-secret',
+    to: '/dashboard/guides/applications/rotate-client-secret',
   },
   {
     from: '/i18n/i18n-custom-login-page',
@@ -2135,10 +2143,6 @@ module.exports = [
       to: '/protocols/saml/saml-apps/github-server'
     },
     {
-      from: '/enterprise/private-cloud/overview',
-      to: '/private-cloud'
-    },
-    {
       from: '/tokens/get-access-tokens',
       to: '/tokens/guides/access-token/get-access-tokens'
     },
@@ -2169,5 +2173,17 @@ module.exports = [
     {
       from: '/users/references/user-data-storage-best-practices',
       to: '/best-practices/user-data-storage-best-practices'
+    },
+    {
+      from: '/enterprise/private-cloud/overview',
+      to: '/private-saas-deployment'
+    },
+    {
+      from: '/private-cloud',
+      to: '/private-saas-deployment'
+    },
+    {
+      from: '/topics/identity-glossary',
+      to: '/glossary'
     }
 ];

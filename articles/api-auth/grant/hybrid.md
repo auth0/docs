@@ -11,7 +11,7 @@ useCase:
 ---
 # Call APIs Using the Hybrid Flow
 
-The Hybrid Flow is an OpenID Connect (OIDC) flow that draws from the following:
+The Hybrid Flow is an <dfn data-key="openid">OpenID Connect (OIDC)</dfn> flow that draws from the following:
 
 1. [Authorization Code Flow](/flows/concepts/auth-code)
 2. [Implicit Flow](/flows/concepts/implicit)
@@ -22,7 +22,7 @@ The Hybrid Flow enables use cases where your application can immediately use an 
 
 With the [Authorization Code Flow](/flows/concepts/auth-code), Auth0 sends you an authorization code, which your app then sends in to retrieve tokens. Your application authenticates itself with a Client ID and Client Secret stored securely on your server.
 
-On the other hand, the [Implicit Flow](/flows/concepts/implicit) allows you to request Access Tokens without needing to authenticate your application. Auth0 verifies your app's identity based on the provided redirect URI. Because of this, you shouldn't utilize long-lived Access Tokens, and you cannot use Refresh Tokens.
+On the other hand, the [Implicit Flow](/flows/concepts/implicit) allows you to request Access Tokens without needing to authenticate your application. Auth0 verifies your app's identity based on the provided redirect URI. Because of this, you shouldn't utilize long-lived Access Tokens, and you cannot use <dfn data-key="refresh-token">Refresh Tokens</dfn>.
 
 ## The Hybrid Flow
 

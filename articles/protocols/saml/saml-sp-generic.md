@@ -11,7 +11,7 @@ useCase:
 
 # Auth0 as Service Provider
 
-These instructions explain how to configure Auth0 to serve as a Service Provider in a SAML federation.
+These instructions explain how to configure Auth0 to serve as a Service Provider in a <dfn data-key="security-assertion-markup-language">SAML</dfn> federation.
 
 There are **5 sections**, including a troubleshooting section at the end.
 
@@ -25,7 +25,7 @@ There are **5 sections**, including a troubleshooting section at the end.
 
 You will need to obtain some information from the Identity Provider.  The instructions here will be generic.  You will have to locate this information in your specific Identity Provider.
 
-* **SSO URL** - The URL at the Identity Provider to which SAML authentication requests should be sent. This is often called an SSO URL.
+* **SSO URL** - The URL at the Identity Provider to which SAML authentication requests should be sent. This is often called a <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> URL.
 * **Logout URL** - The URL at the Identity Provider to which SAML logout requests should be sent.  This is often called a logout URL, a global logout URL or single logout URL.
 * **Signing certificate** - The Identity Provider will digitally sign authentication assertions and the signing certificate is needed by the Service Provider to validate the signature of the signed assertions. There should be a place to download the signing certificate from the Identity Provider. If the certificate is not in .pem or .cer format, you should convert it to one of those formats.
 
@@ -98,7 +98,7 @@ If the Identity Provider does not support uploading a metadata file, you can con
 The Identity Provider will need to know where to send the SAML assertions after it has authenticated a user. This is the **Assertion Consumer Service URL** in Auth0. The Identity Provider may call this any of the following:
 
 * Assertion Consumer Service URL
-* Application Callback URL
+* Application <dfn data-key="callback">Callback URL</dfn>
 
 Note that if you have [custom domains](/custom-domains) set up, you should use the custom domain based URL rather than your Auth0 domain. So, it should be in the format of `https://[YOUR CUSTOM DOMAIN]/login/callback?connection=TestSP`.
 
@@ -126,7 +126,7 @@ In this section, you will test to make sure the SAML configuration between Auth0
 
 * Click on the triangular **Try** button for the SAML connection you created earlier.  This button is to the right of the name of the connection.  You can hover your mouse over the button to have the text label appear.
 
-* You will first see a Lock login widget appear that is triggered by the Service Provider.  Enter the username.   If you entered an email domain in the SAMLP connection configuration, the username should belong to that email domain.
+* You will first see a <dfn data-key="lock">Lock</dfn> login widget appear that is triggered by the Service Provider.  Enter the username.   If you entered an email domain in the SAMLP connection configuration, the username should belong to that email domain.
 
 You will then be redirected to the login screen of the Identity Provider.  Login with the credentials for a user that exists in the Identity Provider.
 

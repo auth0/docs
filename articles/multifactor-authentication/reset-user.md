@@ -11,9 +11,9 @@ useCase:
 ---
 # Resetting a user's multi-factor account
 
-If a user has lost their mobile device they can use their recovery code to log in. If they do not have recovery code, they will need their tenant administrator to reset their multi-factor authentication.
+If a user has lost their mobile device they can use their recovery code to log in. If they do not have recovery code, they will need their tenant administrator to reset their <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
-To reset a user's multi-factor authentication:
+To reset a user's MFA:
 
 1. Find and select the user in the [Users](${manage_url}/#/users) section of the dashboard.
 2. Once you have selected the affected user, click on the **Actions** button on the top right of the screen.

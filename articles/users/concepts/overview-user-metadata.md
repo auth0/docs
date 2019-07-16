@@ -9,18 +9,26 @@ useCase: manage-users
 v2: true
 ---
 
-# User Metadata
+# Metadata
 
 Auth0 provides you with **metadata** fields to store individual user information that did not originate with an identity provider. Auth0 distinguishes between two types of metadata:
 
 * **User metadata**: used to store user attributes (e.g., user preferences) that do *not* impact a user's core functionality;
-* **App metadata**: used to store information (e.g., a user's support plan, security roles, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
+* **App metadata**: used to store information (e.g., a user's support plan, security <dfn data-key="role">roles</dfn>, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
 
 ::: note
 An authenticated user can modify data in their profile's `user_metadata`, but not in their `app_metadata`.
 :::
 
 You can read, create, and edit user metadata using Rules, Auth0 APIs, and Lock.
+
+### Metadata Best Practices
+
+* Both `app_metadata` and `user_metadata` are limited to a size of 16mb each. However, we recommend against using these properties like a database. They should be used for identity related information. Additionally, at some point we may put a more strict size limit on these properties. Please also be aware that using Rules and/or the Management Dashboard may further limit the amount of metadata you can store.
+
+* An authenticated user can perform actions that modify data in their profile's **user_metadata**, but they can't do anything that modifies their **app_metadata**.
+
+* Use a consistent datatype each time you create or update a given metadata field. Using `user.user_metadata.age = "23"` for one user and `user.user_metadata.age = 23` for another user will cause issues when retrieving the data.
 
 ## Rules
 

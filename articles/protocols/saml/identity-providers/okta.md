@@ -41,7 +41,7 @@ On the *Create a New Application Integration* pop-up window, select the **Platfo
 
 ![Create New app Integration](/media/articles/saml/identity-providers/okta/new-app-integration.png)
 
-You will now create your SAML integration. On the *General Settings* page, provide the following:
+You will now create your <dfn data-key="security-assertion-markup-language">SAML</dfn> integration. On the *General Settings* page, provide the following:
 
 * **App name**;
 * **App logo** (optional);
@@ -53,7 +53,7 @@ Click **Next** to proceed.
 
 Next, you will see the *SAML Settings* page. Enter the following values into the appropriate fields:
 
-* **Single sign on URL**: `https://${account.namespace}/login/callback`
+* **Single Sign-On URL**: `https://${account.namespace}/login/callback`
 * **Audience URI (SP Entity ID)**: `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME`
 
 ![SAML Integration Configure SAML](/media/articles/saml/identity-providers/okta/saml-settings.png)
@@ -140,7 +140,7 @@ The **Try** button works for users logged in to Auth0 dashboard. You can't send 
 
 ## IdP Initiated SignOn
 
-Okta provides an Application Portal/Launcher for their users. If you would like to support the Okta Application Portal/Launcher, change the **Single sign on URL** in the Okta dashboard to `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`
+Okta provides an Application Portal/Launcher for their users. If you would like to support the Okta Application Portal/Launcher, change the **Single Sign-on URL** in the Okta dashboard to `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`
 
 Be sure to change `YOUR_CONNECTION_NAME` to the name of your Auth0 Connection.
 
@@ -148,7 +148,7 @@ See [IdP-Initiated SSO](/protocols/saml/idp-initiated-sso) for information on co
 
 ## Troubleshooting
 
-The user might see the Okta dashboard after authenticating using a Service Provider-initiated login flow. If you integrated you application with Auth0 using the OpenID Connect protocol, Auth0 takes the value of the `state` parameter and passes it to Okta using the SAML "RelayState" parameter. As such, make sure that you set `state` to a value that Okta can use.
+The user might see the Okta dashboard after authenticating using a Service Provider-initiated login flow. If you integrated you application with Auth0 using the <dfn data-key="openid">OpenID Connect (OIDC)</dfn> protocol, Auth0 takes the value of the `state` parameter and passes it to Okta using the SAML "RelayState" parameter. As such, make sure that you set `state` to a value that Okta can use.
 
 
 <%= include('../../../connections/_quickstart-links.md') %>

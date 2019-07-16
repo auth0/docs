@@ -1,6 +1,6 @@
 # Users
 
-These endpoints enable you to manage all the current users of your applications. You can retrieve their profile and edit or view their groups and their roles.
+These endpoints enable you to manage all the current users of your applications. You can retrieve their profile and edit or view their groups and their <dfn data-key="role">roles</dfn>.
 
 For more information, refer to [Auth0 Authorization Extension](/extensions/authorization-extension/v2#users).
 
@@ -53,7 +53,7 @@ Use this endpoint to retrieve all users.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:users</span>
 
@@ -123,7 +123,7 @@ Use this endpoint to get a single user based on its unique identifier.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:users</span>
 
@@ -173,7 +173,7 @@ Use this endpoint to get the groups of a single user, based on its unique identi
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:users</span>
 
@@ -223,7 +223,7 @@ Use this endpoint to add one or more users in a group.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:groups</span>
 
@@ -274,7 +274,7 @@ Use this endpoint to calculate the group memberships for a user (including neste
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:groups</span>
 
@@ -326,7 +326,7 @@ Use this endpoint to get the roles of a single user, based on its unique identif
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:users</span>
 
@@ -376,7 +376,7 @@ Use this endpoint to assign a role to a user.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:users</span>
 
@@ -427,7 +427,7 @@ Use this endpoint to remove one or more user from a role.
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">update:roles</span>
 
@@ -480,7 +480,7 @@ Use this endpoint to calculate the roles assigned to the user (including through
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:roles</span>
 
@@ -539,7 +539,7 @@ Use this endpoint to execute the authorization policy for a user in the context 
 
 ### Scopes
 
-The [Access Token](#get-an-access-token) should have the following scopes:
+The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> should have the following <dfn data-key="scope">scopes</dfn>:
 
 <span class="badge">read:users</span>
 
