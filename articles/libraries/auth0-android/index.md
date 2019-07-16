@@ -25,7 +25,7 @@ Android API version 15 or newer is required.
 
 ## Installation
 
-<%= include('../quickstart/native/android/_includes/_gradle.md') %>
+<%= include('../../../quickstart/native/android/_includes/_gradle.md') %>
 
 ## Permissions
 
