@@ -1,7 +1,6 @@
 ---
 title: Register a Machine-to-Machine Application
 description: Learn to register and configure a machine-to-machine (M2M) application using the Auth0 Management Dashboard. These may include non-interactive applications, such as command-line tools, daemons, IoT devices, or services running on your back-end.
-toc: true
 topics:
   - applications
   - m2m
