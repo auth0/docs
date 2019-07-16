@@ -37,7 +37,7 @@ Click **SAVE** when finished to submit your changes.
 This setting is equivalent to appending the audience to every authorization request made to the tenant for every application. This will cause new behavior that might result in breaking changes for some of your applications. Please contact support if you require assistance.
 :::
 
-**Default Directory**: Name of the connection to be use for [Password Grant exchanges](/api-auth/tutorials/password-grant). The __Default Directory__ value should be the exact name of an existing [connection](/connections) of one of the following strategies: `auth0-adldap`, `ad`, `auth0`, `email`, `sms`, `waad` or `adfs`.
+**Default Directory**: Name of the connection to be used for [Password Grant exchanges](/api-auth/tutorials/password-grant). The __Default Directory__ value should be the exact name of an existing [connection](/connections) of one of the following strategies: `auth0-adldap`, `ad`, `auth0`, `email`, `sms`, `waad` or `adfs`.
 
 ### Error Pages
 
@@ -81,7 +81,7 @@ The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section expl
 
 ![](/media/articles/tutorials/tenant-settings/session-timeout.png)
 
-Users will be asked to log in again unless they are active within this period in minutes (maximun 100 days). See [Single Sign-On and Single Logout](/sso/current#2-configure-sso) for more information.
+Users will be asked to log in again unless they are active within this period in minutes (maximum 100 days). See [Single Sign-On and Single Logout](/sso/current#2-configure-sso) for more information.
 
 Set the amount of time allowed to expire before a user is required to login again. This value is the login session lifetime, which is how long the session will stay valid, measured in minutes. The default value is 10080 minutes (or 7 days). See [Single Sign-on (SSO)](/sso/current) for more information.
 
