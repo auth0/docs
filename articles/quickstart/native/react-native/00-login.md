@@ -11,7 +11,7 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
-<%= include('../_includes/_getting_started', { library: 'React Native') %>
+<%= include('../_includes/_getting_started', { library: 'React Native'}) %>
 
 <%= include('../../../_includes/_callback_url') %>
 
@@ -207,26 +207,15 @@ For more information on the `accessToken`, refer to [Access Token](/tokens/overv
 To log the user out, you remove the Access Token from state, and then log the user out from Auth0 authorization server.
 
 ```js
-if (Platform.OS === 'android') {
-    this.setState({ accessToken: null });
-    let params = {
-        clientId: credentials.clientId,
-        returnTo: `com.auth0samples://${credentials.domain}/android/com.auth0samples/callback`
-    };
-    let logoutUrl = auth0.auth.logoutUrl(params);
-    CustomTabs.openURL(logoutUrl)
-        .then((launched) => {
-            console.log(`Launched custom tabs: ${launched}`)
-        })
-        .catch(err => {
-            console.error(err)
-        });
-} else {
-    auth0.webAuth
-        .clearSession({})
-        .then(success => {
-            this.setState({ accessToken: null });
-        })
-        .catch(error => console.log(error));
-}
+ auth0.webAuth
+    .clearSession({})
+    .then(success => {
+        Alert.alert(
+            'Logged out!'
+        );
+        this.setState({ accessToken: null });
+    })
+    .catch(error => {
+        console.log("Log out cancelled");
+    });
 ```
