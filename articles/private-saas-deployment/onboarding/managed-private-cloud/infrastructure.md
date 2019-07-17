@@ -5,11 +5,11 @@ topics: private-cloud
 contentType: concept
 useCase: private-saas-deployment
 ---
-# Infrastructure requirements
+# Infrastructure Requirements for the Customer-Hosted Managed Private Cloud
 
-::: warning
-This section applies only to the **customer-hosted** Managed Private Cloud.
-:::
+If you are a Managed Private Cloud customer hosting Auth0 using Amazon Web Services, the following are the requirements you should be aware of when setting up your cloud environment.
+
+## Choosing your AWS regions
 
 The AWS Region(s) in which your deployments are hosted must support:
 
@@ -18,7 +18,7 @@ The AWS Region(s) in which your deployments are hosted must support:
 * M4 or M4 instance types
 * RDS for PostgreSQL
 
-### Instance types
+## AWS instance types
 
 The size of your AWS instance must be, at minimum, **M4.2xlarge**, though the **M5.2xlarge** size is preferred.
 
@@ -27,34 +27,34 @@ We ask that the individual volumes have the following resource allocation:
 <table class="table">
     <tr>
         <td></td>
-        <td>**System / Operating System**</td>
-        <td>**Database**</td>
-        <td>**User Search**</td>
-        <td>**Backup**</td>
+        <td><b>System / Operating System<b></td>
+        <td><b>Database<b></td>
+        <td><b>User Search<b></td>
+        <td><b>Backup<b></td>
     </tr>
     <tr>
-        <td>**a0-1 (PROD)**</td>
+        <td><b>a0-1 (PROD)<b></td>
         <td>60 GB</td>
         <td>100 GB</td>
         <td>100 GB</td>
         <td>--</td>
     </tr>
     <tr>
-        <td>**a0-2 (PROD)**</td>
+        <td><b>a0-2 (PROD)<b></td>
         <td>60 GB</td>
         <td>100 GB</td>
         <td>100 GB</td>
         <td>--</td>
     </tr>
     <tr>
-        <td>**a0-3 (PROD)**</td>
+        <td><b>a0-3 (PROD)<b></td>
         <td>60 GB</td>
         <td>100 GB</td>
         <td>100 GB</td>
         <td>100 GB</td>
     </tr>
     <tr>
-        <td>**DEV (non-PROD)**</td>
+        <td><b>DEV (non-PROD)<b></td>
         <td>60 GB</td>
         <td>50 GB</td>
         <td>50 GB</td>
@@ -64,7 +64,7 @@ We ask that the individual volumes have the following resource allocation:
 
 Please note that you may have a different number of instances based on your specific deployment type.
 
-### Network
+## Network
 
 All servers in the cluster must:
 
@@ -75,7 +75,7 @@ All servers in the cluster must:
 
 For a complete listing of IP addresses and ports used, see the [IP/Domain and Port List](/private-saas-deployment/onboarding/managed-private-cloud/ip-domain-port-list).
 
-### Internet connectivity
+## Internet connectivity
 
 Internet connectivity is required for all servers in the cluster.
 
@@ -84,7 +84,7 @@ All servers in the cluster require outbound access to:
 * **cdn.auth0.com** on port 443.
 * Social providers and third-party APIs (as needed)
 
-### DNS records
+## DNS records
 
 Each environment (e.g., Development, Staging, Production), which are represented by `<env-name>`, requires a separate namespace when it comes to DNS records.
 
@@ -96,18 +96,18 @@ You will need DNS records for the following namespaces:
 | **Auth0 Webtask with Dedicated Domains Namespace** (e.g., `*.wt.<env-name>.customer.com`) | You can choose to use a catch-all CNAME record to represent all of your tenants **or** you can use an individual CNAME record for each tenant pointing to the balanced endpoint |
 | **Custom Domains Namespace** | Requires a catch-all CNAME record redirecting custom domains to the custom domains balanced endpoint **and** an alias record using `edge.<env-name>.customer.com ` that points to the custom domains balanced endpoint |
 
-### Load balancers
+## Load balancers
 
 You must use either an ALB or ELB. For HTTP health check monitoring, you can use the `testall` endpoint provided by Auth0.
 
-#### Software Load Balancers
+### Software Load Balancers
 
 You can use either NGINX or HA Proxy as the software load balancer in front of the Auth0 environment or for IP whitelisting and/or endpoint filtering (only authentication endpoints are publicly available). If you are using NGINX or HA Proxy as the software load balancer, you must:
 
 * Use TCP mode with Proxy Protocol or HTTPS mode (SSL offloading). In HTTPS mode the connector will not work.
 * Forward the incoming hostname to the nodes
 
-### SSL Certificates
+## SSL Certificates
 
 Your SSL certificates must:
 
@@ -116,22 +116,22 @@ Your SSL certificates must:
 * Be in the PFX or PKCS12 formats
 * Contain the full chain
 
-### TLS
+## TLS
 
 Auth0 requires TLS 1.1 or later.
 
-### SMTP
+## SMTP
 
 You must set up and configure a SMTP provider (or a global default email provider) to send emails. Optionally,, you can set up transactional email providers (e.g., SendGrid, Amazon SES, Mandrill) for individual tenants.
 
 STARTTLS is supported by Auth0, but is not required.
 
-### Amazon RDS for PostgreSQL
+## Amazon RDS for PostgreSQL
 
 Amazon RDS for PostgreSQL is currently used to support the Authorization Roles-Based Access Control functionality, but it will be used to support other functionality in the future.
 
 We ask that, at minimum, you use **postgres10, db.r3.xlarge** with 10 GB of storage. You should also allow automated snapshots with seven-day snapshot retention and multi-AZ deployments with automated failover.
 
-### Remote Access
+## Remote Access
 
 Forthcoming.
