@@ -16,7 +16,7 @@ alias:
   - device-flow
   - device-authorization-flow
 seo_alias: device
-default_article: ../../../flows/guides/device-auth/call-api-device-auth
+default_article: 01-login
 articles:
-  - ../../../flows/guides/device-auth/call-api-device-auth
+  - 01-login
 show_steps: false
