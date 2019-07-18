@@ -197,8 +197,8 @@ function (user, context, callback) {
 
 The following algorithms are used:
 
-* AES256 (`http://www.w3.org/2001/04/xmlenc#aes256-cbc`) for assertion encryption.
-* RSA-OAEP (including MGF1 with SHA1, `http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p`) for key transport.
+* AES256 (`http://www.w3.org/2001/04/xmlenc#aes256-cbc`) for assertion encryption
+* RSA-OAEP (including MGF1 with SHA1, `http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p`) for key transport
 
 ## Working with certificates as strings
 
