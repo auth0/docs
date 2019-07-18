@@ -61,7 +61,7 @@ Test Auth0 API endpoints:
 
 Export Auth0 logs to external services:
 
-- [Auth0 Logs to AWS Cloudwatch] (/extensions/cloudwatch)
+- [Auth0 Logs to AWS Cloudwatch](/extensions/cloudwatch)
 - [Auth0 Logs to Application Insights](/extensions/application-insight)
 - [Auth0 Logs to Azure Blob Storage](/extensions/azure-blob-storage)
 - [Auth0 Logs to Logentries](/extensions/logentries)
