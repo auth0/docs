@@ -14,6 +14,12 @@ contentType: tutorial
 useCase: quickstart
 ---
 
+:::note
+This Quickstart demonstrates securing an API using **Spring Boot 1** and **Spring Security 4**.
+
+See the [Spring Security 5 API Quickstart](http://localhost:3000/docs/quickstart/backend/java-spring-security5) to learn how to secure with Auth0 using Spring Boot 2 and Spring Security 5.
+:::
+
 <%= include('../../../_includes/_api_auth_intro') %>
 
 <%= include('../_includes/_api_create_new') %>
