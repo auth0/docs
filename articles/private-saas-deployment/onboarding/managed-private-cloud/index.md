@@ -27,6 +27,10 @@ Implementation begins immediately after the kickoff meeting, and the process tak
 
 At the end of the implementation process, you're ready for the **Environment Handover**. Your Managed Private Cloud deployment is, at this point, ready for Production use.
 
+## Infrastructure
+
+Customers hosting Auth0 using Amazon Web Services should review the [infrastructure requirements](/private-saas-deployment/onboarding/managed-private-cloud/infrastructure), as well as the [IP/Domain and Port List](/private-saas-deployment/onboarding/managed-private-cloud/ip-domain-port-list) required for PSaaS deployments.
+
 ## Updates
 
 Auth0 provides monthly releases to the Managed Private Cloud, of which the four most recent are considered *active*. Updating to an active release is mandatory and ensures that you receive:
