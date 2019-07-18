@@ -38,7 +38,7 @@ While setting up your app, make sure you save the following items for later:
 * The Client ID (the Service ID)
 * The Client Secret Signing Key
 * The Apple Team ID
-* The Client Signin Key ID (optional)
+* The Client Signing Key ID (optional)
 
 Also note that when setting up the app, your **Return URL** should be in the following format: `https://<YOUR CUSTOM DOMAIN>/login/callback`. If you have any trouble, the [Apple Documentation](https://developer.apple.com/sign-in-with-apple/get-started/) may be of some use.
 
@@ -46,7 +46,7 @@ Also note that when setting up the app, your **Return URL** should be in the fol
 
 Once you have the credentials you need from your Apple developer account, navigate to the [Connections > Social page](${manage_url}) in the Auth0 Dashboard, and click on the Apple connection.
 
-Fill in the Client ID, Client Secret Signing Key, and the Team ID here. You can also fill in the Key ID, but this is optional, as Apple will accept the key without it.
+Fill in the Client ID (Services ID), Client Secret Signing Key, the Team ID, and the Client Signing Key ID (if you have it) here. You can also fill in the Key ID, but this is optional, as Apple will accept the key without the ID.
 
 ![Apple Connection Settings](/media/articles/connections/social/apple/apple_connection.png)
 

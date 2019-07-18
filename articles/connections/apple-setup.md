@@ -22,6 +22,8 @@ This guide will show you how to use your Apple Developer account to set up your 
 
 In order to proceed, you will need an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. If you intend to use Sign in with Apple as an Identity Provider for Auth0, you will also need a [Custom Domain](/custom-domains) set up on your Auth0 tenant (this is required because you must be able to do domain verification with Apple).
 
+![Developer Program](/media/articles/connections/social/apple/apple-developerprogram.jpg)
+
 ::: note
 You can test out the Apple connection by simply going to the [Dashboard](${manage_url}) to **Connections > Social** and Try the Apple connection, leaving the settings blank. This will let you test it out with Auth0’s developer credentials. Prior to use in production applications, however, you will need to set up your own, which this guide details.
 :::
@@ -41,23 +43,26 @@ First, we need to create an App Identifier.
 1. If you have not already done so, sign in to your [Apple Developer Account](https://developer.apple.com/account/#/overview/).
 1. Go to **Certificates, IDs, & Profiles > Identifiers** and click the blue plus icon next to **Identifiers** to create a new App ID.
 1. Choose **App IDs** as the identifier type and hit **Continue**
-1. Provide a description and a Bundle ID (reverse-domain name style, i.e., com.mycustomdomain)
+1. Provide a description and a Bundle ID (reverse-domain name style, i.e., com.customdomain)
 1. Scroll down and check **Sign In with Apple**, then **Continue** followed by **Register**
 
 ### Create your Services ID
 
 Now, we need to create the Services ID.
 
+![Register Services ID](/media/articles/connections/social/apple/apple-registerservicesid.jpg)
+
 1. Back at the **Certificates, IDs, & Profiles** section, click the blue plus icon next to **Identifiers**.
-1. Choose **Services IDs** and click **Continue**. Fill in the description and identifier (`com.mycustomdomain.webapp`).
-1. After checking **Sign In with Apple**, click on **Configure** and define your **Web Domain** (`mycustomdomain.com`) and your **Return URL** (`https://mycustomdomain.com/login/callback`). Make sure that you follow this format and just 
+1. Choose **Services IDs** and click **Continue**. Fill in the description and identifier (`com.customdomain.webapp`).
+1. After checking **Sign In with Apple**, click on **Configure** and define your **Web Domain** (`customdomain.com`) and your **Return URL** (`https://customdomain.com/login/callback`). Make sure that you follow this format.
+  ![Configure URLs](/media/articles/connections/social/apple/apple-configureurls.jpg)
 1. Click **Save**, and then **Continue** followed by **Register**.
 
 ### Verify your domain with Apple
 
 1. On the **Certificates, IDs, & Profiles** page, click your newly created Services ID.
 1. Hit the **Configure** button next to the **Sign In with Apple** feature, then click **Download**.
-1. Copy the `apple-developer-domain-association.txt` file to your application server and make it accessible at `https://mycustomdomain.com/.well-known/apple-developer-domain-association.txt`.
+1. Copy the `apple-developer-domain-association.txt` file to your application server and make it accessible at `https://customdomain.com/.well-known/apple-developer-domain-association.txt`.
 1. When this is ready, click **Verify** on your Services ID configuration page. If no error message is shown, all is well.
 
 ### Setup your Signing Key
@@ -80,7 +85,7 @@ const token = jwt.sign({}, privateKey, {
  expiresIn: "60 days",
  audience: "https://appleid.apple.com",
  issuer: "TEAM_ID",
- subject: "com.mycustomdomain.webapp",
+ subject: "com.customdomain.webapp",
  keyid: "KEY_ID"
 });
 
@@ -88,7 +93,7 @@ console.log("The token is:", token);
 ```
 
 ::: note
-You will need to replace `com.mycustomdomain.webapp` with the identifier for your Services ID and replace `TEAM_ID` with your Team ID, which you located above. Lastly, you will also need to replace `KEY_ID` with the Key ID you noted earlier.
+You will need to replace `com.customdomain.webapp` with the identifier for your Services ID and replace `TEAM_ID` with your Team ID, which you located above. Lastly, you will also need to replace `KEY_ID` with the Key ID you noted earlier.
 :::
 
 Once your script is redy, run it to generate your client secret:
@@ -101,3 +106,5 @@ This gives you the last of the items you need to provide when setting up the con
 * The Client ID (the Service ID)
 * The Client Signing Key ID
 * The Client Secret Signing Key
+
+You can take these credentials and return to the [Apple Connection](/connections/social/apple) page to finish setting up your Auth0 connection.
