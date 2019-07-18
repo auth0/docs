@@ -50,3 +50,7 @@ Private Cloud customers can choose the region where their data is stored. All da
 If you are a **Private Cloud** customer with data sovereignty requirements, Auth0 supports Private Cloud deployments in the following regions: USA, Europe, Australia, Canada, and Japan. Otherwise, the Private Cloud can be supported in other regions (except China).
 
 We are currently unable to offer deployments to China.
+
+## Onboarding
+
+You can find information regarding timelines, update cadences, and more in the [onboarding](/private-saas-deployment/onboarding) documentation.
