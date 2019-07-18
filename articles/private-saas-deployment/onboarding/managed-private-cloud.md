@@ -23,7 +23,7 @@ Implementation begins immediately after the kickoff meeting, and the process tak
 
 ### Customer-Hosted Managed Private Cloud
 
-Implementation begins immediately after the kickoff meeting, and the process takes between **three (3) to four (4) weeks**. The specific amount of time required is highly depending on the amount of time you need to provision your infrastructure per Auth0 requirements.
+Implementation begins immediately after the kickoff meeting, and the process takes between **three (3) to four (4) weeks**. The specific amount of time required is highly dependant on the amount of time you need to provision your infrastructure per Auth0 requirements.
 
 At the end of the implementation process, you're ready for the **Environment Handover**. Your Managed Private Cloud deployment is, at this point, ready for Production use.
 
@@ -63,7 +63,7 @@ You can also choose to send the data logged by Auth0 to an external service. To 
 
 ## Rate limits
 
-Auth0 provides [logs](/logs) that are accessible via the Dashboard of the Management API's [`logs` endpoint](/api/v2#!/Logs/get_logs).
+To ensure the quality of Auth0's services, the APIs are subject to rate limiting.
 
 ## Support
 
