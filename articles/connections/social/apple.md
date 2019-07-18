@@ -31,7 +31,7 @@ You can test out the Apple connection by simply going to the [Dashboard](${manag
 
 ## 1. Set up your app in your Apple Developer Account
 
-Once your Developer Account is set up, you can follow the instructions in the [Sign In With Apple Documentation](https://developer.apple.com/sign-in-with-apple/get-started/) to get your app set up.
+Once your Developer Account is set up, you can follow the instructions in the [Apple Setup Guide](/connections/apple-setup) to get your app set up.
 
 While setting up your app, make sure you save the following items for later:
 
@@ -40,11 +40,11 @@ While setting up your app, make sure you save the following items for later:
 * The Apple Team ID
 * The Client Signin Key ID (optional)
 
-Also note that when setting up the app, your **Return URL** should be in the following format: `https://<YOUR CUSTOM DOMAIN>/login/callback`.
+Also note that when setting up the app, your **Return URL** should be in the following format: `https://<YOUR CUSTOM DOMAIN>/login/callback`. If you have any trouble, the [Apple Documentation](https://developer.apple.com/sign-in-with-apple/get-started/) may be of some use.
 
 ## 2. Create and enable a connection in Auth0
 
-Navigate to the [Connections > Social page](${manage_url}) in the Auth0 Dashboard, and click on the Apple connection.
+Once you have the credentials you need from your Apple developer account, navigate to the [Connections > Social page](${manage_url}) in the Auth0 Dashboard, and click on the Apple connection.
 
 Fill in the Client ID, Client Secret Signing Key, and the Team ID here. You can also fill in the Key ID, but this is optional, as Apple will accept the key without it.
 
