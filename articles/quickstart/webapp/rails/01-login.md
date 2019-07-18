@@ -33,7 +33,20 @@ If you are using Windows, uncomment the `tzinfo-data` gem in the Gemfile.
 
 Create a file named `auth0.rb` under `config/initializers` and configure the **OmniAuth** middleware in it.
 
-${snippet(meta.snippets.setup)}
+```ruby
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider(
+    :auth0,
+    '${account.clientId}',
+    'YOUR_CLIENT_SECRET',
+    '${account.namespace}',
+    callback_path: '/auth/auth0/callback',
+    authorize_params: {
+      scope: 'openid email profile'
+    }
+  )
+end
+```
 
 ::: note
 This tutorial uses omniauth-auth0, a custom [OmniAuth strategy](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication).
@@ -75,7 +88,7 @@ Replace the generated routes with the following:
 # config/routes.rb
 
 Rails.application.routes.draw do
-  get 'auth/oauth2/callback' => 'auth0#callback'
+  get 'auth/auth0/callback' => 'auth0#callback'
   get 'auth/failure' => 'auth0#failure'
 end
 ```
