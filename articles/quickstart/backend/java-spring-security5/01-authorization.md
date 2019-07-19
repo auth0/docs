@@ -187,7 +187,7 @@ The routes shown below are available for the following requests:
 * `GET /api/private`: available for authenticated requests containing a valid JWT Access Token
 * `GET /api/private-scoped`: available for authenticated requests containing a valid JWT Access Token with the `read:messages` scope granted
 
-The example below shows how to secure API methods using the `HttpSecurity` provided in the `configure()` method of the `SecurityConfig` class. Route matchers are used to restrict access based on the level of authorization requred:
+The example below shows how to secure API methods using the `HttpSecurity` object provided in the `configure()` method of the `SecurityConfig` class. Route matchers are used to restrict access based on the level of authorization required:
 
 ```java
 // src/main/java/com/auth0/example/security/SecurityConfig.java
