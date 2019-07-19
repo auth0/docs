@@ -4,6 +4,10 @@ topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
+author:
+  name: Luciano Balmaceda
+  email: luciano.balmaceda@auth0.com
+  community: false
 snippets:
   dependencies: server-platforms/django/dependencies
   setup: server-platforms/django/setup

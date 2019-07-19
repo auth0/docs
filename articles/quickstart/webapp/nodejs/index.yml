@@ -1,5 +1,9 @@
 title: Node.js
 image: /media/platforms/node.png
+author:
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
 topics:
   - quickstart
 contentType: tutorial
