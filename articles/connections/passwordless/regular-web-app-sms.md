@@ -107,7 +107,7 @@ function login(){
   var phone = $('input.phone-number').val();
   var code = $('input.code').val();
 
-  webAuth.passwordlessVerify({
+  webAuth.passwordlessLogin({
     connection: 'sms',
     phoneNumber: phone,
     verificationCode: code
