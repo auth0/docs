@@ -107,7 +107,7 @@ If you are using Maven, add the Spring dependencies to your `pom.xml` file:
 </dependencies>
 ```
 
-### Configure Resource Server using JWT
+### Configure the resource server
 
 To configure the application as a Resource Server and validate the JWTs, create a class that extends `WebSecurityConfigurerAdapter`, add the `@EnableWebSecurity` annotation, and override the `configure` method:
 
