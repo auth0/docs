@@ -62,11 +62,13 @@ Test Auth0 API endpoints:
 Export Auth0 logs to external services:
 
 - [Auth0 Logs to Application Insights](/extensions/application-insight)
+- [Auth0 Logs to AWS Cloudwatch](/extensions/cloudwatch)
 - [Auth0 Logs to Azure Blob Storage](/extensions/azure-blob-storage)
 - [Auth0 Logs to Logentries](/extensions/logentries)
 - [Auth0 Logs to Loggly](/extensions/loggly)
+- [Auth0 Logs to Logstash](/extensions/logstash)
 - [Auth0 Logs to Mixpanel](/extensions/mixpanel)
 - [Auth0 Logs to Papertrail](/extensions/papertrail)
 - [Auth0 Logs to Sumo Logic](/extensions/sumologic)
 - [Auth0 Logs to Splunk](/extensions/splunk)
-- [Auth0 Logs to Logstash](/extensions/logstash)
+
