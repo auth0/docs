@@ -212,7 +212,7 @@ By default, Spring Security will create a `GrantedAuthority` for each scope in t
 If your use case requires different claims to make authorization decisions, see the [Spring Security Reference Documentation](https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#oauth2resourceserver-authorization-extraction) for detailed instructions.
 :::
 
-### Create the API Controller
+### Create the API controller
 
 Create a new class named `Message`, which is the domain object the API will return:
 
