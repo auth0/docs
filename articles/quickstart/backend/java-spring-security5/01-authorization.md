@@ -284,7 +284,12 @@ To test that your API is properly secured, you can obtain a test token in the Au
 
 1. Go to the **Machine to Machine Applications** tab for the API you created above.
 2. Ensure that your API test application is marked as authorized.
+
+![Enable Test Application](/media/articles/server-apis/api-enable-test-client.png)
+
 3. Click the **Test** tab, then **COPY TOKEN**.
+
+![Get Test Token](/media/articles/server-apis/api-get-test-token.png)
 
 Issue a `GET` request to the `/api/private` endpoint, this time passing the token you obtained above as an `Authorization` header set to `Bearer YOUR-API-TOKEN-HERE`. You should then see the response:
 
@@ -296,11 +301,14 @@ Finally, to test that the `/api/private-scoped` is properly protected by the `re
 
 Back in the Auth0 Dashboard:
 
-1. Go to the **Permissions** tab for the API you created above.
-2. Add a permission of `read:messages` and provide a description.
-3. Go to the **Machine to Machine Applications** tab.
-4. Expand your authorized test application, select the `read:messages` scope, then click **UPDATE** and then **CONTINUE**.
-5. Click the **Test** tab, then **COPY TOKEN**.
+1. Go to the **Machine to Machine Applications** tab.
+2. Expand your authorized test application, select the `read:messages` scope, then click **UPDATE** and then **CONTINUE**.
+
+![Add Permission](/media/articles/server-apis/api-add-permissions-to-test-client.png)
+
+3. Click the **Test** tab, then **COPY TOKEN**.
+
+![Get Test Token](/media/articles/server-apis/api-get-test-token.png)
 
 Issue a GET request to `/api/private-scoped`, this time passing the token you obtained above (with the `read:messages` scope) as an `Authorization` header set to `Bearer YOUR-API-TOKEN-HERE`. You should see the response:
 
