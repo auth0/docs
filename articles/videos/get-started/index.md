@@ -19,6 +19,8 @@ topics:
 
 In this video series, learn how easy it is to get started implementing Auth0 features with your applications. See examples and walk-through basic set up and configuration tasks.
 
+![Get Started Video Screenshot](/media/articles/videos/get-started/get-started.png)
+
 <p>&nbsp;</p>
 
 <ul class="up-next">
