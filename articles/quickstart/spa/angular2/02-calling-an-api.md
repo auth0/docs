@@ -64,7 +64,11 @@ To do this, add a `proxy.conf.json` file to the root of the project and populate
 {
   "/api": {
     "target": "http://localhost:3001",
-    "secure": false
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+        "^/api": ""
+    }
   }
 }
 ```
