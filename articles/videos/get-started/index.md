@@ -17,9 +17,9 @@ topics:
 ---
 # Get Started with Auth0 Video Series
 
-In this video series, learn how easy it is to get started implementing Auth0 features with your applications. See examples and walk-through basic set up and configuration tasks.
-
 ![Get Started Video Screenshot](/media/articles/videos/get-started/get-started.png)
+
+In this video series, learn how easy it is to get started implementing Auth0 features with your applications. See examples and walk-through basic set up and configuration tasks.
 
 <p>&nbsp;</p>
 
