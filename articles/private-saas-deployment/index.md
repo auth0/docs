@@ -71,12 +71,12 @@ We are currently unable to offer deployments to China.
   </li>
   <li>
     <i class="icon icon-budicon-715"></i>
-    <a href="/private-saas-deployment/custom-domain-migration">Custom Domains</a>
+    <a href="/private-saas-deployment/custom-domain-migration">Custom Domain Migration</a>
     <p>Information on how to migrate custom domains using the PSaaS Custom Domains feature to the Auth0 Custom Domains feature.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i>
-    <a href="/private-saas-deployment/onboarding">Onboarding</a>
+    <a href="/private-saas-deployment/onboarding">Private SaaS Onboarding</a>
     <p>Onboarding information, including timelines and expectations, for Private SaaS Deployments.</p>
     <ul>
       <li>
