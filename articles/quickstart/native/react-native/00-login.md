@@ -204,7 +204,7 @@ For more information on the `accessToken`, refer to [Access Token](/tokens/overv
 
 ### Log the User Out
 
-To log the user out, you remove the Access Token from state, and then log the user out from Auth0 authorization server.
+To log the user out, redirect them to the Auth0 log out endpoint by calling `clearSession`. This will remove their session from the authorization server. After this happens, remove the Access Token from the state. 
 
 ```js
  auth0.webAuth
