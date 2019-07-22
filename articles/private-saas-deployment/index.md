@@ -50,3 +50,43 @@ Private Cloud customers can choose the region where their data is stored. All da
 If you are a **Private Cloud** customer with data sovereignty requirements, Auth0 supports Private Cloud deployments in the following regions: USA, Europe, Australia, Canada, and Japan. Otherwise, the Private Cloud can be supported in other regions (except China).
 
 We are currently unable to offer deployments to China.
+
+## Documentation
+
+<ul class="topic-links">
+  <li>
+    <i class="icon icon-budicon-715"></i>
+    <a href="/private-saas-deployment/private-cloud">Private Cloud</a>
+    <p>Learn about the Private Cloud deployment option.</p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i>
+    <a href="/private-saas-deployment/managed-private-cloud">Managed Private Cloud</a>
+    <p>Learn about the <b>Managed</b> Private Cloud deployment option, which allows you to deploy in either Auth0's Private Cloud <i>or</i> an AWS environment that you own.</p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i>
+    <a href="/private-saas-deployment/add-ons">Add-Ons for Private SaaS Deployments</a>
+    <p>Add-on options available to customers with Private SaaS Deployments.</p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i>
+    <a href="/private-saas-deployment/custom-domain-migration">Custom Domains</a>
+    <p>Information on how to migrate custom domains using the PSaaS Custom Domains feature to the Auth0 Custom Domains feature.</p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i>
+    <a href="/private-saas-deployment/onboarding">Onboarding</a>
+    <p>Onboarding information, including timelines and expectations, for Private SaaS Deployments.</p>
+    <ul>
+      <li>
+        <i class="icon icon-budicon-695"></i>
+        <a href="/private-saas-deployment/onboarding/private-cloud">Private Cloud Onboarding</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i>
+        <a href="/private-saas-deployment/onboarding/managed-private-cloud">Managed Private Cloud Onboarding</a>
+      </li>
+    </ul>
+  </li>
+</ul>
