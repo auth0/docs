@@ -54,9 +54,3 @@ This is perhaps the simplest and most straightforward scenario, in which you sim
 We recommend that you follow this approach only if you need to share access to the Auth0 Dashboard with individual customers. Otherwise, one of the above solutions is a more practical and easy to manage one than attempting to manage many Auth0 tenant dashboards, which is also not a scalable solution as your customer base grows.
 
 This method would require you to use a different set of Auth0 credentials for the users belonging to each customer, as each would be a different application.
-
-## Conclusions
-
-::: note
-If you're planning to build a multi-tenant solution, please [contact our Sales or Professional Services](https://auth0.com/?contact=true) teams.
-:::
