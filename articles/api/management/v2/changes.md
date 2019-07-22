@@ -29,7 +29,7 @@ This document describes the major differences between Auth0's Management API v1 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
 | [GET /api/users](/api/v1#!#get--api-users) | None. | [GET /api/v2/users](/api/v2#!/Users/get_users) |
-| [GET /api/users?search={criteria}](/api/v1#!#get--api-users-search--criteria-) | Changed parameter and syntax. | Implemented using Elastic Search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
+| [GET /api/users?search={criteria}](/api/v1#!#get--api-users-search--criteria-) | Changed parameter and syntax. | See the [get_users](/api/v2#!/Users/get_users) documentation. |
 | [GET /api/users/{user\_id}](/api/v1#!#get--api-users--user_id-) | None. | [GET /api/v2/users/{id}](/api/v2#!/Users/get_users_by_id) also accepts `v2\_id` |
 | [GET /api/connections/{connection}/users](/api/v1#!#get--api-connections--connection--users) | Changed to use search. | Available using `q=identities.connection:"{connection}"` and `search_engine=v3` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
 | [GET /api/connections/{connection}/users?search={criteria}](/api/v1#!#get--api-connections--connection--users-search--criteria-) | Changed to use search. | Available using `q=identities.connection:"{connection}"` and `search_engine=v3` in the query string. Other conditions and criteria may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
