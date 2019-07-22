@@ -63,6 +63,12 @@ You must install the `SafariViewController` plugin from Cordova to be able to us
 
 ```bash
 ionic cordova plugin add cordova-plugin-safariviewcontroller
+
+# installation with npm
+npm install --save @ionic-native/safari-view-controller
+
+# installation with yarn
+yarn add @ionic-native/safari-view-controller
 ```
 
 The `CustomURLScheme` plugin from Cordova is also required to handle redirects properly. The sample project has it already, but if you're adding Auth0 to your own project, install this plugin as well.
