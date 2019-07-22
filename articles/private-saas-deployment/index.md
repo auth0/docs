@@ -51,19 +51,9 @@ If you are a **Private Cloud** customer with data sovereignty requirements, Auth
 
 We are currently unable to offer deployments to China.
 
-## Documentation
+## Additional information
 
 <ul class="topic-links">
-  <li>
-    <i class="icon icon-budicon-715"></i>
-    <a href="/private-saas-deployment/private-cloud">Private Cloud</a>
-    <p>Learn about the Private Cloud deployment option.</p>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i>
-    <a href="/private-saas-deployment/managed-private-cloud">Managed Private Cloud</a>
-    <p>Learn about the <b>Managed</b> Private Cloud deployment option, which allows you to deploy in either Auth0's Private Cloud <i>or</i> an AWS environment that you own.</p>
-  </li>
   <li>
     <i class="icon icon-budicon-715"></i>
     <a href="/private-saas-deployment/add-ons">Add-Ons for Private SaaS Deployments</a>
