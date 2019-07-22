@@ -28,11 +28,8 @@ If you are following along with the sample project you downloaded from the top o
 YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
 ```
 
-Replace `YOUR_PACKAGE_ID` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
-```bash
-# replace YOUR_PACKAGE_ID with your app package ID
-YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
-```
+Replace `YOUR_PACKAGE_ID` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file. 
+
 
 <%= include('../../../_includes/_logout_url') %>
 
@@ -72,8 +69,11 @@ The `CustomURLScheme` plugin from Cordova is also required to handle redirects p
 
 ```bash
 # replace YOUR_PACKAGE_ID with your app identifier
-ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_HOST=${account.namespace} --variable ANDROID_PATHPREFIX=/cordova/{YOUR_PACKAGE_ID}/callback
+ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=YOUR_PACKAGE_ID --variable ANDROID_SCHEME=YOUR_PACKAGE_ID --variable ANDROID_HOST=${account.namespace} --variable ANDROID_PATHPREFIX=/cordova/YOUR_PACKAGE_ID/callback
 ```
+
+Replace `YOUR_PACKAGE_ID` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file. 
+
 
 ## Integrate Auth0 in your Application
 
