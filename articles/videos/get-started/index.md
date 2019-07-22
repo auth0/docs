@@ -1,6 +1,7 @@
 ---
 description: Learn how to get started implementing Auth0 features with your applications.
 classes: video-page
+image: https://cdn2.auth0.com/docs/media/articles/videos/get-started/get-started.png
 topics: 
    - tenant architecture
    - tenants
