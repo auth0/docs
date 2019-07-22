@@ -28,11 +28,8 @@ If you are following along with the sample project you downloaded from the top o
 YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
 ```
 
-Replace `YOUR_PACKAGE_ID` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
-```bash
-# replace YOUR_PACKAGE_ID with your app package ID
-YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
-```
+Replace `YOUR_PACKAGE_ID` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file. 
+
 
 <%= include('../../../_includes/_logout_url') %>
 
@@ -66,14 +63,23 @@ You must install the `SafariViewController` plugin from Cordova to be able to us
 
 ```bash
 ionic cordova plugin add cordova-plugin-safariviewcontroller
+
+# installation with npm
+npm install --save @ionic-native/safari-view-controller
+
+# installation with yarn
+yarn add @ionic-native/safari-view-controller
 ```
 
 The `CustomURLScheme` plugin from Cordova is also required to handle redirects properly. The sample project has it already, but if you're adding Auth0 to your own project, install this plugin as well.
 
 ```bash
 # replace YOUR_PACKAGE_ID with your app identifier
-ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_HOST=${account.namespace} --variable ANDROID_PATHPREFIX=/cordova/{YOUR_PACKAGE_ID}/callback
+ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=YOUR_PACKAGE_ID --variable ANDROID_SCHEME=YOUR_PACKAGE_ID --variable ANDROID_HOST=${account.namespace} --variable ANDROID_PATHPREFIX=/cordova/YOUR_PACKAGE_ID/callback
 ```
+
+Replace `YOUR_PACKAGE_ID` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file. 
+
 
 ## Integrate Auth0 in your Application
 
