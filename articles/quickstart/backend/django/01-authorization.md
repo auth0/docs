@@ -156,7 +156,7 @@ JWT_AUTH = {
     'JWT_PUBLIC_KEY': publickey,
     'JWT_ALGORITHM': 'RS256',
     'JWT_AUDIENCE': '${apiIdentifier}',
-    'JWT_ISSUER': '${account.namespace}',
+    'JWT_ISSUER': 'https://' + '${account.namespace}' + '/',
     'JWT_AUTH_HEADER_PREFIX': 'Bearer',
 }
 ```
