@@ -79,6 +79,6 @@ CustomField fieldName = new CustomField(R.drawable.ic_field_person, FieldType.TY
 ```
 
 ::: note
-For the fields to be saved at the root level of the user's profile, their keys must match the ones listed in the [endpoint documentation](https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id).
+For the fields to be saved at the root level of the user's profile, their keys must match the ones listed in the [endpoint documentation](/api/authentication#signup).
 :::
 
