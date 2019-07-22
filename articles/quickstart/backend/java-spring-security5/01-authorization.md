@@ -26,7 +26,7 @@ useCase: quickstart
 This Quickstart uses Spring MVC. If you are using Spring WebFlux, the steps to secure an API are similar, but some of the implementation details are different. Refer to the [Spring Security WebFlux Sample Code](https://github.com/auth0-samples/auth0-spring-security5-api-sample/tree/master/01-Authorization-WebFlux) to see how integrate Auth0 with your Spring WebFlux API.
 :::
 
-The sample project uses a `/src/main/resources/application.yml` file, which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page it will be automatically configured. If you use the example from GitHub, you will need to fill it in yourself.
+The sample project uses a `/src/main/resources/application.yml` file, which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page it will be automatically configured. If you clone the example from GitHub, you will need to fill it in yourself.
 
 ```yaml
 auth0:
