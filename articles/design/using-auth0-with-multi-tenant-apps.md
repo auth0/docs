@@ -19,10 +19,10 @@ This article provides a high-level overview of how Auth0 can help you to secure 
 
 There are several ways you can handle multi-tenant applications with Auth0. If you intend to use a single Auth0 tenant for all your customers you can handle your multi-tenancy needs with one of the following approaches:
 
-* Use multiple [connections](/connections).
-* Identify different tenants by application (using client IDs).
-* Store tenant details in [app_metadata](/users/concepts/overview-user-metadata).
-* Another approach would be to use separate Auth0 tenants for each of your customers.
+* [Use multiple connections](#use-multiple-connections)
+* [Identify different tenants by application](#identify-tenants-by-application)
+* [Store tenant details in app_metadata](#store-tenant-details-in-app_metadata)
+* [Use separate Auth0 tenants](#create-separate-auth0-tenants-for-each-customer)
 
 ### Use multiple connections
 
@@ -49,7 +49,7 @@ This method would require you to use a different set of Auth0 credentials for th
 
 This is perhaps the simplest and most straightforward scenario, in which you simply add an `app_metadata` field for the tenant to [your metadata](/users/concepts/overview-user-metadata#metadata-usage), whatever identifier makes sense to you (such as `"tenant": "customer_12345"`). This method allows all of your users, despite what customer/tenant they belong to, to log in in one place with one user pool. You'll be able to check for this value in your application to sort users into the correct place after they login and are returned to your application.
 
-### Create separate Auth0 tenants to match each of your customer tenants
+### Create separate Auth0 tenants for each customer
 
 We recommend that you follow this approach only if you need to share access to the Auth0 Dashboard with individual customers. Otherwise, one of the above solutions is a more practical and easy to manage one than attempting to manage many Auth0 tenant dashboards, which is also not a scalable solution as your customer base grows.
 
