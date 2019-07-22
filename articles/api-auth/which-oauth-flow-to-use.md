@@ -66,6 +66,6 @@ While SPAs using the Implicit Grant cannot use [Refresh Tokens](/tokens/refresh-
 
 ## Is the Client a Native/Mobile App?
 
-If the Application is a native app, then the **Authorization Code Flow with PKCE (Authorization Code Grant using Proof Key for Code Exchange)** should be used. This flow adds the concept of a `code_verifier` to the Authorization Code Flow. When at first the application asks for an **Authorization Code** it generates a `code_verifier` and its transformed value called `code_challenge`. The `code_challenge` and a `code_challenge_method` are sent along with the request. Afterwards, when the application wants to exchange the Authorization Code for an Access Token, it also sends along the `code_verifier`. The Authorization Server transforms this and if it matches the originally sent `code_challenge`, it returns an Access Token.
+If the Application is a native app, then the **Authorization Code Flow with PKCE (Authorization Code Grant using Proof Key for Code Exchange)** should be used.
 
 For more information on how this flow works and how to implement it, refer to [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce).
