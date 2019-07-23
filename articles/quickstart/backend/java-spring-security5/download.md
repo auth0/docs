@@ -10,6 +10,8 @@ Windows:
 gradlew.cmd clean bootRun
 ```
 
+The application will be served from `http://localhost:3010/`.
+
 The sample includes a [Docker](https://www.docker.com) image ready to run with the following command:
 
 ```bash
@@ -21,3 +23,5 @@ sh exec.sh
 # Windows
 ./exec.ps1
 ```
+
+The application will be served from `http://localhost:3010/`, just as if running with Gradle.
