@@ -1,4 +1,4 @@
-It’s important to start by distinguishing between Authentication, Authorization, and Access Control. Your Auth0 tenant (your Authorization Server) is typically responsible for Authentication and some or all of Authorization and Access Control. Additionally, ab Application or API itself may need to share Access Control responsibility, especially where contextual access is required: 
+It’s important to start by distinguishing between Authentication, Authorization, and Access Control. Your Auth0 tenant (your Authorization Server) is typically responsible for Authentication and some or all of Authorization and Access Control. Additionally, an Application or API itself may need to share Access Control responsibility, especially where contextual access is required: 
 
 * **Authentication**: the process of determining if a principal (a user or application) is who or what they say they are.
 * **Authorization**: the proceess of determining what is allowed, based on the principal, the consent they provide, what permissions they have been given, and/or the set of contextually specific access criteria.
