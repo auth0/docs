@@ -258,60 +258,34 @@ public class APIController {
 }
 ```
 
-## Run and Test Your API
+## Run the Application
 
-To build and run the sample project, run the `bootRun` Gradle task.
+To build and run the sample project, execute the `bootRun` Gradle task.
 
 Linux or macOS:
+
 ```bash
 ./gradlew bootRun
 ```
 
 Windows:
+
 ```bash
 gradlew.cmd bootRun
 ```
 
-Using a REST client such as Postman or cURL, issue a `GET` request to `http://localhost:3010/api/public`. You should receive the response:
+If you are configuring your own application using Maven and the [Spring Boot Maven Plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html), you can execute the `spring-boot:run` goal.
 
-```json
-{"message":"All good. You DO NOT need to be authenticated to call /api/public."}
+Linux or macOS:
+
+```bash
+mvn spring-boot:run
 ```
 
-Next, issue a `GET` request to `http://localhost:3010/api/private`. You should receive a `401 Unauthorized` response.
+Windows:
 
-To test that your API is properly secured, you can obtain a test token in the Auth0 Dashboard:
-
-1. Go to the **Machine to Machine Applications** tab for the API you created above.
-2. Ensure that your API test application is marked as authorized.
-
-![Enable Test Application](/media/articles/server-apis/api-enable-test-client.png)
-
-3. Click the **Test** tab, then **COPY TOKEN**.
-
-![Get Test Token](/media/articles/server-apis/api-get-test-token.png)
-
-Issue a `GET` request to the `/api/private` endpoint, this time passing the token you obtained above as an `Authorization` header set to `Bearer YOUR-API-TOKEN-HERE`. You should then see the response:
-
-```json
-{"message":"All good. You can see this because you are Authenticated."}
+```bash
+mvn.cmd spring-boot:run
 ```
 
-Finally, to test that the `/api/private-scoped` is properly protected by the `read:messages` scope, make a `GET` request to the `/api/private-scoped` endpoint using the same token as above. You should see a `403 Forbidden` response, as this token does not possess the `read:messages` scope.
-
-Back in the Auth0 Dashboard:
-
-1. Go to the **Machine to Machine Applications** tab.
-2. Expand your authorized test application, select the `read:messages` scope, then click **UPDATE** and then **CONTINUE**.
-
-![Add Permission](/media/articles/server-apis/api-add-permissions-to-test-client.png)
-
-3. Click the **Test** tab, then **COPY TOKEN**.
-
-![Get Test Token](/media/articles/server-apis/api-get-test-token.png)
-
-Issue a GET request to `/api/private-scoped`, this time passing the token you obtained above (with the `read:messages` scope) as an `Authorization` header set to `Bearer YOUR-API-TOKEN-HERE`. You should see the response:
-
-```json
-{"message":"All good. You can see this because you are Authenticated with a Token granted the 'read:messages' scope"}
-```
+The sample application will be available at `http://localhost:3010/`. Read about how to test and use your API in the [Using Your API](/quickstart/backend/java-spring-security5/02-using) article.

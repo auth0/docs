@@ -29,6 +29,16 @@ requirements:
 next_steps:
   - path: 01-authorization
     list:
+    - text: "Part 2: Using Your API"
+      icon: 345
+      href: "/quickstart/backend/java-spring-security5/02-using"
+  - path: 02-using
+    list:
+    - text: "Part 3: Troubleshooting Your API"
+      icon: 345
+      href: "/quickstart/backend/java-spring-security5/03-troubleshooting"
+  - path: 03-troubleshooting
+    list:
     - text: Configure other identity providers
       icon: 345
       href: "/identityproviders"

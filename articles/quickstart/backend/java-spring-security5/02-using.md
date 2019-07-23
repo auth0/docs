@@ -1,5 +1,5 @@
 ---
-title: Using your API
+title: Using Your API
 description: This tutorial will show you how to use your API.
 budicon: 500
 topics:
