@@ -1,11 +1,16 @@
 To run the sample follow these steps:
 
-1) Set the **Callback URL** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) so it works for both Android and iOS apps:
+1) Set the **Allowed Callback URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) so it works for both Android and iOS apps:
 ```text
 auth0.samples.Auth0Samples://${account.namespace}/ios/auth0.samples.Auth0Samples/callback,com.auth0samples://${account.namespace}/android/com.auth0samples/callback
 ```
 
-2) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the sample's directory:
+2) Set the **Allowed Logout URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) so it works for both Android and iOS apps:
+```text
+auth0.samples.Auth0Samples://${account.namespace}/ios/auth0.samples.Auth0Samples/callback,com.auth0samples://${account.namespace}/android/com.auth0samples/callback
+```
+
+3) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the sample's directory:
 
 ```bash
 npm install # Install dependencies
