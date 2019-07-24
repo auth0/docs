@@ -12,7 +12,7 @@ useCase:
 
 The [logout endpoint](/api/authentication?javascript#logout) in Auth0 works in one of two ways:
 
-1. **Clears the Single Sign-on (SSO) cookie in Auth0.** To force a logout, redirect the user to the following URL:
+1. **Clears the <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> cookie in Auth0.** To force a logout, redirect the user to the following URL:
 
 ```text
 https://${account.namespace}/v2/logout
