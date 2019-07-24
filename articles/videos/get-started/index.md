@@ -15,6 +15,7 @@ topics:
    - error pages
    - logout
    - user profiles
+image: https://cdn2.auth0.com/docs/media/articles/videos/get-started/get-started.png
 ---
 # Get Started with Auth0 Video Series
 
