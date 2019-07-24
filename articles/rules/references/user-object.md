@@ -20,7 +20,6 @@ The following properties are available for the `user` object.
 | Property | Data Type        | Description |
 |----------|------------------|-------------|
 | `user.app_metadata` | object | Custom fields that store info about a user that influences the user's access, such as support plan, security <dfn data-key="role">roles</dfn>, or access control groups. For more info, see [Metadata](/metadata). |
-| `user.blocked` | boolean | Indicates whether the user has been blocked. Only exists if `true`. |
 | `user.created_at` | date time | Timestamp indicating when the user profile was first created. |
 | `user.email` | text | (unique) The user's email address. |
 | `user.email_verified` | boolean | Indicates whether the user has verified their email address. |
