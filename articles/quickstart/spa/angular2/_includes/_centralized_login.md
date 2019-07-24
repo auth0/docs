@@ -8,7 +8,7 @@ This tutorial will guide you in modifying an Angular application demonstrating h
 This tutorial assumes that you're able to use the [Angular CLI](https://cli.angular.io/) to generate new components and services on your project. If not, please place the files where appropriate and ensure that any references to them regarding import paths are correct for your scenario.
 :::
 
-## Create an Angular application
+## Create an Angular Application
 
 If you do not already have your own application, a new one can be generated using the [Angular CLI](https://cli.angular.io/).
 
@@ -394,11 +394,9 @@ Finally, the navigation bar should be updated to include navigation links. Open 
 
 > **Checkpoint**: If you log in now, you should be able to click on the **Profile** link to access the `/profile` page component and view your user data. Log out of the application to make sure that the profile link is no longer displayed when unauthenticated.
 
-## Gated Content
+## Add an Authentication Guard
 
 Right now, users could enter the `/profile` path in the browser URL to view profile page, even if they're unauthenticated. They won't see any user data (since they're not logged in), but they can still access the page component itself. Let's fix this using a [route guard](https://angular.io/guide/router#milestone-5-route-guards).
-
-### Add an Authentication Guard
 
 The Angular CLI can be used to generate a guard:
 
