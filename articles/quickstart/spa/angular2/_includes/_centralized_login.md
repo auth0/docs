@@ -359,7 +359,7 @@ Next, open `src/app/profile/profile.component.html` and replace its contents wit
 
 ```html
 <pre *ngIf="auth.userProfile$ | async as profile">
-  <code>{{ profile | json }}</code>
+<code>{{ profile | json }}</code>
 </pre>
 ```
 
