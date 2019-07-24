@@ -14,17 +14,18 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-<%= include('../../../_includes/_api_auth_intro') %>
-
-<%= include('../_includes/_api_create_new') %>
-
 <%= include('../_includes/_api_auth_preamble') %>
 
-## Configure the Sample Project
+<%= include('../../../_includes/_api_auth_intro') %>
 
 ::: note
 This Quickstart uses Spring MVC. If you are using Spring WebFlux, the steps to secure an API are similar, but some of the implementation details are different. Refer to the [Spring Security WebFlux Sample Code](https://github.com/auth0-samples/auth0-spring-security5-api-sample/tree/master/01-Authorization-WebFlux) to see how to integrate Auth0 with your Spring WebFlux API.
 :::
+
+
+<%= include('../_includes/_api_create_new') %>
+
+## Configure the Sample Project
 
 The sample project uses a `/src/main/resources/application.yml` file, which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page it will be automatically configured. If you clone the example from GitHub, you will need to fill it in yourself.
 
