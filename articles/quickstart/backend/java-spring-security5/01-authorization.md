@@ -182,11 +182,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 ## Protect API Endpoints
 
-The routes shown below are available for the following requests:
-
-* `GET /api/public`: available for non-authenticated requests
-* `GET /api/private`: available for authenticated requests containing a valid JWT Access Token
-* `GET /api/private-scoped`: available for authenticated requests containing a valid JWT Access Token with the `read:messages` scope granted
+<%= include('../_includes/_api_endpoints') %>
 
 The example below shows how to secure API methods using the `HttpSecurity` object provided in the `configure()` method of the `SecurityConfig` class. Route matchers are used to restrict access based on the level of authorization required:
 
@@ -210,7 +206,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 ::: note
 By default, Spring Security will create a `GrantedAuthority` for each scope in the `scope` claim of the JWT. This is what enables using the `hasAuthority("SCOPE_read:messages")` method to restrict access to a valid JWT that contains the `read:messages` scope.
 
-If your use case requires different claims to make authorization decisions, see the [Spring Security Reference Documentation](https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#oauth2resourceserver-authorization-extraction) for detailed instructions.
+If your use case requires different claims to make authorization decisions, see the [Spring Security Reference Documentation](https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#oauth2resourceserver-authorization-extraction) to learn how to customize the extracted authorities.
 :::
 
 ### Create the API controller
