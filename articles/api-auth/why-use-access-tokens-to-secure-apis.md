@@ -12,7 +12,7 @@ useCase:
 ---
 # Why you Should Always Use Access Tokens to Secure an API
 
-There's a lot of confusion between <dfn data-key="openid">**OpenID Connect**</dfn> and **OAuth 2.0**, especially when it comes to determining which option is the best for a particular use case. As such, many developers publish insecure applications that compromise their users' data.
+There's a lot of confusion between <dfn data-key="openid">**OpenID Connect**</dfn> and **OAuth 2.0**, especially when it comes to determining which option is the best for a particular use case. As such, many developers publish insecure applications that could potentially compromise the data of their users.
 
 To help you make an informed decision and be aware of any risks, this article includes:
 
@@ -72,7 +72,7 @@ Now that we've seen some ways in which we can use tokens, let's talk about when 
 
 * **Access Tokens must never be used for authentication.** Access Tokens cannot tell us if the user has authenticated. The only user information the Access Token possesses is the user ID, located in the **sub** claim.
 
-* **ID Tokens should not be used to gain access to an API**. Each token contains information for the intended <dfn data-key="audience">audience</dfn> (which is usually the recipient). Per the OpenID Connect specification, the audience of the ID Token (indicated by the **aud** claim) must be the **client ID** of the application making the authentication request. If this is not the case, you should not trust the token. Conversely, an API expects a token with the **aud** value to equal the API's unique identifier. Therefore, unless you maintain control over both the application and the API, sending an ID Token to an API will generally not work. Furthermore, the ID Token is signed with a secret known only to the application itself. If an API were to accept an ID Token, it would have no way of knowing if the application has modified the token (such as adding more scopes) and resigned it.
+* **ID Tokens should not be used to gain access to an API**. Each token contains information for the intended <dfn data-key="audience">audience</dfn> (which is usually the recipient). Per the OpenID Connect specification, the audience of the ID Token (indicated by the **aud** claim) must be the **client ID** of the application making the authentication request. If this is not the case, you should not trust the token. Conversely, an API expects a token with the **aud** value to equal the API's unique identifier. Therefore, unless you maintain control over both the application and the API, sending an ID Token to an API will generally not work. Since the IT Token is not signed by the API, if an API were to accept an ID Token, it would have no way of knowing if the application had modified the token (such as adding more scopes).
 
 ## Compare the tokens
 
