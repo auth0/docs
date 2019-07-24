@@ -464,6 +464,8 @@ const routes: Routes = [
 ...
 ```
 
-::: note: Guards are arrays because multiple guards can be added to the same route. They will run in the order declared in the array. :::
+::: note
+Guards are arrays because multiple guards can be added to the same route. They will run in the order declared in the array.
+:::
 
 > **Checkpoint:** Log out of your app and then navigate to `http://localhost:3000/profile`. You should be automatically redirected to the Auth0 login page. Once you've authenticated successfully, you should be redirected to the `/profile` page.

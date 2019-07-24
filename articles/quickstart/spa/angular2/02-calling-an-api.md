@@ -77,7 +77,9 @@ Now open `angular.json` and add a reference to the proxy config. In the `serve` 
     ...
 ```
 
-::: Note: In order for these changes to take effect, you will need to stop and restart the run script. :::
+::: note
+In order for these changes to take effect, you will need to stop and restart the run script.
+:::
 
 ## Update the Authentication Service
 
@@ -187,7 +189,9 @@ handleAuthCallback() {
 
 In both of the above methods, we're using [`combineLatest` from RxJS](https://rxjs-dev.firebaseapp.com/api/index/function/combineLatest) to create an observable that combines `getUser$` and `getTokenSilently$` to emit results from both streams. We can then subscribe and set those values in the appropriate behavior subjects for easy access in our application.
 
-::: Note: For more details on the implementation, see the comments in the code snippets above. :::
+::: note
+For more details on the implementation, see the comments in the code snippets above.
+:::
 
 ## Create an HTTP Interceptor
 
@@ -263,7 +267,9 @@ import { InterceptorService } from './auth/interceptor.service';
 
 In the `providers` array, we're providing the `HTTP_INTERCEPTORS` injection token and our `InterceptorService` class. We then set `multi: true` because we could potentially use multiple interceptors (which would be called in the order provided).
 
-::: Note: The interceptor will now run on every outgoing HTTP request. If you have public endpoints as well as protected endpoints, you could use conditional logic in the interceptor to only add the token to requests that require it. :::
+::: note
+The interceptor will now run on every outgoing HTTP request. If you have public endpoints as well as protected endpoints, you could use conditional logic in the interceptor to only add the token to requests that require it.
+:::
 
 ## Call the API
 
@@ -400,6 +406,8 @@ Finally, add a link to the navigation bar. Open `src/app/navbar/navbar.component
 </header>
 ```
 
-::: Note: If, at any time, the application isn't working as expected, the Angular CLI server may need to be restarted. Enter `Ctrl+C` in the terminal to stop the application, then run it again using `npm run dev`. :::
+::: note
+If, at any time, the application isn't working as expected, the Angular CLI server may need to be restarted. Enter `Ctrl+C` in the terminal to stop the application, then run it again using `npm run dev`.
+:::
 
 > **Checkpoint:** You should now be able to log in, browse to the External API page, and click the **Ping API** button to make an API request. The response should then display in the browser.
