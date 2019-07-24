@@ -27,10 +27,7 @@ The following properties are available for the `user` object.
 | `user.family_name` | text | The user's family name. |
 | `user.given_name` | text | The user's given name. |
 | `user.identities` | array (object) |  <%= include('../_includes/_user-prop-identities.md') %> |
-| `user.last_ip`       | text | IP address associated with the user's last login. |
-| `user.last_login`    | date time | Timestamp indicating when the user last logged in. If a user is blocked and logs in, the blocked session updates `last_login`. If you are using this property from inside a [Rule](/rules) using the `user` object, its value will be associated with the login that triggered the rule; this is because rules execute after login. |
 | `user.last_password_reset` | date time | Timestamp indicating the last time the user's password was reset/changed. At user creation, this field does not exist. |
-| `user.logins_count` | integer | Number of times the user has logged in. If a user is blocked and logs in, the blocked session is counted in `logins_count`. |
 | `user.multifactor` | array (text) | List of <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> providers with which the user is enrolled. |
 | `user.name` | text | The user's full name. |
 | `user.nickname` | text | The user's nickname. |
