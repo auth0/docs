@@ -75,17 +75,6 @@ The API will return a 401 HTTP (Unauthorized) status code:
 
 ![Response for unauthorized API request](/media/articles/server-apis/using/private-unauthorized.png)
 
-To test that your API is properly secured, you can obtain a test token in the Auth0 Dashboard:
-
-- Go to the **Machine to Machine Applications** tab for your API.
-- Ensure that your API test application is marked as authorized.
-
-![Enable Test Application](/media/articles/server-apis/api-enable-test-client.png)
-
-Click the **Test** tab, then **COPY TOKEN**.
-
-![Get Test Token](/media/articles/server-apis/api-get-test-token.png)
-
 Once again, make the same request but this time pass along the Access Token as a Bearer token in the **Authorization** header of the request:
 
 ```har
@@ -104,18 +93,7 @@ This time the API will return a successful response:
 
 **2. Testing the scoped endpoint**
 
-To test the endpoint that requires a scope, first obtain a test token:
-
-- Go to the **Machine to Machine Applications** tab for your API.
-- Expand your authorized test application, select the `read:messages` scope, then click **UPDATE** and then **CONTINUE**.
-
-![Add Scope](/media/articles/server-apis/api-add-scope-to-test-client.png)
-
-Click the **Test** tab, then **COPY TOKEN**.
-
-![Get Test Token](/media/articles/server-apis/api-get-test-token.png)
-
-Make a request to `/api/private-scoped`, passing the Access Token containing the correct scope as a Bearer token in the Authorization header:
+To test the endpoint that requires a scope, pass the Access Token containing the correct scope as a Bearer token in the Authorization header:
 
 ```har
 {
