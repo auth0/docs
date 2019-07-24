@@ -77,7 +77,7 @@ export class AuthService {
   // Create an observable of Auth0 instance of client
   auth0Client$ = (from(
     createAuth0Client({
-      domain: "${account.namespace}"",
+      domain: "${account.namespace}",
       client_id: "${account.clientId}",
       redirect_uri: `<%= "${window.location.origin}" %>/callback`
     })

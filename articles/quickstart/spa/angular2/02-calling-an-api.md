@@ -247,7 +247,7 @@ The `intercept()` method returns an observable of an HTTP event. In it, we do th
 
 In order to put the interceptor to work in the application, open the `src/app/app-routing.module.ts` routing module and add:
 
-```
+```js
 ...
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './auth/interceptor.service';
