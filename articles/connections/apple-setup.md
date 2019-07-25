@@ -72,7 +72,7 @@ Now, we need to create the Services ID.
 1. Enter a **Key Name** and check the **Sign In with Apple** option.
 1. Click on **Configure** to make sure the **Choose a Primary App ID** field is filled with the correct App ID.
 1. Hit **Save**, **Continue**, and then **Register**.
-1. On this page, make a note of the Key ID, then download the key, move it to its own directory, and rename the key file that you downloaded to `authkey.p8`. 
+1. On the page to which you're redirected after registering, make a note of the Key ID. Then, download the key, move it to its own directory, and rename the key file that you downloaded to `authkey.p8`. 
 1. Use a JWT library with support for the ES256 algorithm to generate the client secret from the key. The example below uses Node.js, but libraries for other languages can be used in a similar fashion. To use this script, create a new file called `generate-secret.js` in the same directory as the downloaded key and add the following code:
 
 ```js
