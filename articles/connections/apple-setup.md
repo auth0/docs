@@ -63,7 +63,7 @@ Next, create the Services ID.
 1. On the **Certificates, IDs, & Profiles** page, click your newly created Services ID.
 1. Click the **Configure** button next to the **Sign In with Apple** feature, then click **Download**.
 1. Copy the `apple-developer-domain-association.txt` file to your application server and make it accessible at `https://customdomain.com/.well-known/apple-developer-domain-association.txt`.
-1. When this is ready, click **Verify** on your Services ID configuration page. If no error message is shown, all is well.
+1. When this is ready, click **Verify** on your Services ID configuration page. If no error message is shown, your domain has been successfully verified.
 
 ### Setup your Signing Key
 
