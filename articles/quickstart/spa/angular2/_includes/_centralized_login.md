@@ -92,9 +92,6 @@ export class AuthService {
   isAuthenticated$ = this.auth0Client$.pipe(
     concatMap((client: Auth0Client) => from(client.isAuthenticated()))
   );
-  getUser$ = this.auth0Client$.pipe(
-    concatMap((client: Auth0Client) => from(client.getUser()))
-  );
   handleRedirectCallback$ = this.auth0Client$.pipe(
     concatMap((client: Auth0Client) => from(client.handleRedirectCallback()))
   );
@@ -105,15 +102,23 @@ export class AuthService {
   loggedIn: boolean = null;
 
   constructor(private router: Router) { }
+  
+  // getUser$() is a method because options can be passed if desired
+  // https://auth0.github.io/auth0-spa-js/classes/auth0client.html#getuser
+  getUser$(options?): Observable<any> {
+    return this.auth0Client$.pipe(
+      concatMap((client: Auth0Client) => from(client.getUser(options)))
+    );
+  }
 
-  checkAuthOnInit() {
+  localAuthSetup() {
     // This should only be called on app initialization
-    // Check if user already has an active session with Auth0
+    // Set up local authentication streams
     const checkAuth$ = this.isAuthenticated$.pipe(
       concatMap((loggedIn: boolean) => {
         if (loggedIn) {
           // If authenticated, get user data
-          return this.getUser$;
+          return this.getUser$();
         }
         // If not authenticated, return stream that emits 'false'
         return of(loggedIn);
@@ -162,7 +167,7 @@ export class AuthService {
         // Redirect callback complete; create stream
         // returning user data and authentication status
         return combineLatest(
-          this.getUser$,
+          this.getUser$(),
           this.isAuthenticated$
         );
       })
@@ -198,10 +203,11 @@ Note that the `redirect_uri` property is configured to indicate where Auth0 shou
 
 The service provides these methods:
 
-* `checkAuthOnInit` - On app initialization, check if the user is already logged in
-* `login` - Log in with Auth0
-* `handleAuthCallback` - Process the response from the authorization server when returning to the app after login
-* `logout` - Log out of Auth0
+* `getUser$(options)` - Returns a stream of user data which accepts an options parameter
+* `localAuthSetup()` - On app initialization, set up streams to manage authentication data in Angular
+* `login()` - Log in with Auth0
+* `handleAuthCallback()` - Process the response from the authorization server when returning to the app after login
+* `logout()` - Log out of Auth0
 
 ## Create a Navigation Bar Component
 
@@ -227,8 +233,8 @@ export class NavbarComponent implements OnInit {
   constructor(public auth: AuthService) { }
 
   ngOnInit() {
-    // On initial load, check if the user is already logged in
-    this.auth.checkAuthOnInit();
+    // On initial load, set up local auth streams
+    this.auth.localAuthSetup();
   }
 
 }
@@ -236,7 +242,7 @@ export class NavbarComponent implements OnInit {
 
 The `AuthService` class you created in the previous section is being injected into the component through the constructor. It is `public` to enable use of its methods in the component _template_ as well as the class.
 
-In `ngOnInit()`, call the `auth.checkAuthOnInit()` method to determine if the user already has an active session with the Auth0 authorization server. If so, they will be logged in automatically without needing to re-enter their credentials.
+In `ngOnInit()`, call the `auth.localAuthSetup()` method to set up the local streams for authentication data in the Angular application so that we can subscribe to login status changes.
 
 Next, configure the UI for the `navbar` component by opening the `src/app/navbar/navbar.component.html` file and replacing its contents with the following:
 

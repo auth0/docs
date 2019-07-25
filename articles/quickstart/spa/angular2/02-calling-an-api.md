@@ -113,10 +113,10 @@ private accessTokenSubject$ = new BehaviorSubject<string>(null);
 accessToken$ = this.accessTokenSubject$.asObservable();
 ```
 
-In the `checkAuthOnInit()` method, we now not only want to retrieve the user's profile data, we also want to request their access token. Update the `checkAuthOnInit()` method to the following code:
+In the `localAuthSetup()` method, we now not only want to retrieve the user's profile data, we also want to request their access token. Update the `localAuthSetup()` method to the following code:
 
 ```ts
-checkAuthOnInit() {
+localAuthSetup() {
   // This should only be called on app initialization
   // Check if user already has an active session with Auth0
   const checkAuth$ = this.isAuthenticated$.pipe(
@@ -124,7 +124,7 @@ checkAuthOnInit() {
       if (loggedIn) {
         // If authenticated, return stream that emits user object and token
         return combineLatest(
-          this.getUser$,
+          this.getUser$(),
           this.getTokenSilently$
         );
       }
@@ -168,7 +168,7 @@ handleAuthCallback() {
       // Redirect callback complete; create stream returning
       // user data, token, and authentication status
       return combineLatest(
-        this.getUser$,
+        this.getUser$(),
         this.getTokenSilently$,
         this.isAuthenticated$
       );
@@ -187,7 +187,7 @@ handleAuthCallback() {
 }
 ```
 
-In both of the above methods, we're using [`combineLatest` from RxJS](https://rxjs-dev.firebaseapp.com/api/index/function/combineLatest) to create an observable that combines `getUser$` and `getTokenSilently$` to emit results from both streams. We can then subscribe and set those values in the appropriate behavior subjects for easy access in our application.
+In both of the above methods, we're using [`combineLatest` from RxJS](https://rxjs-dev.firebaseapp.com/api/index/function/combineLatest) to create an observable that combines `getUser$()` and `getTokenSilently$` to emit results from both streams. We can then subscribe and set those values in the appropriate behavior subjects for easy access in our application.
 
 ::: note
 For more details on the implementation, see the comments in the code snippets above.
