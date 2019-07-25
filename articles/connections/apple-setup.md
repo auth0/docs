@@ -16,7 +16,7 @@ useCase:
 ---
 # Set Up Your Application in Sign in with Apple
 
-This guide will show you how to use your Apple Developer account to set up your application with Apple. Once you have it ready to use, you can take the credentials you acquire during the process and use those to set up your [Apple connection](/connections/social/apple) in the Auth0 Dashboard.
+This guide shows you how to set up an application in your Apple Developer account. Once done, you can use the assigned credentials to set up your Apple connection in the Dashboard.
 
 ## Prerequisites
 
