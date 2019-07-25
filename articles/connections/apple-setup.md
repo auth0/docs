@@ -20,7 +20,7 @@ This guide shows you how to set up an application in your Apple Developer accoun
 
 ## Prerequisites
 
-In order to proceed, you will need an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. If you intend to use Sign in with Apple as an Identity Provider for Auth0, you will also need a [Custom Domain](/custom-domains) set up on your Auth0 tenant (this is required because you must be able to do domain verification with Apple).
+You will need a paid [Apple Developer](https://developer.apple.com/programs/) account. If you want to use Sign in with Apple as an identity provider for Auth0, you'll also need a [Custom Domain](/custom-domains) set up. Custom domains are required for domain verification with Apple.
 
 ![Developer Program](/media/articles/connections/social/apple/apple-developerprogram.jpg)
 
