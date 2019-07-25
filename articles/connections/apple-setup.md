@@ -93,7 +93,11 @@ console.log("The token is:", token);
 ```
 
 ::: note
-You will need to replace `com.customdomain.webapp` with the identifier for your Services ID and replace `TEAM_ID` with your Team ID, which you located above. Lastly, you will also need to replace `KEY_ID` with the Key ID you noted earlier.
+You will need to replace:
+
+* `com.customdomain.webapp` with the identifier for your Services ID
+* `TEAM_ID` with your Team ID
+* `KEY_ID` with your Key ID
 :::
 
 Once your script is ready, run the following on the command line to generate your client secret:
