@@ -20,7 +20,7 @@ This guide will show you how to remove the [permissions](/authorization/concepts
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
-1. Make a `DELETE` call to the [Delete User Permissions endpoint](/api/management/v2#!/users/delete_user_permissions). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, `API_ID`, and `PERMISSION_NAME` placeholder values with your user ID, Management API Access Token, API ID(s), and permission name(s), respectively.
+1. Make a `DELETE` call to the [Delete User Permissions endpoint](/api/management/v2#!/Users/delete_permissions). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, `API_ID`, and `PERMISSION_NAME` placeholder values with your user ID, Management API Access Token, API ID(s), and permission name(s), respectively.
 
 ```har
 {

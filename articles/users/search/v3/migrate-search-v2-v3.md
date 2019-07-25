@@ -84,4 +84,4 @@ Please note that only one log of the same type will be generated within 60 minut
 * [Authorization Extension](/extensions/authorization-extension/v2)
 * [Delegated Administration](/extensions/delegated-admin/v3)
 * [User Import/Export Extension](/extensions/user-import-export)
-* [Management API Explorer](/api/management/v2#!/users/get_users)
+* [Management API Explorer](/api/management/v2#!/Users/get_users)
