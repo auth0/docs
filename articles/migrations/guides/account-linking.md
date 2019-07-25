@@ -84,12 +84,12 @@ There are several ways you can link and unlink accounts. Some change, some remai
       <td><a href="#link-current-user-accounts-with-auth0-js">Link current user accounts with Auth0.js</a></td>
     </tr>
     <tr>
-      <td>You unlink user accounts with the <a href="/api/management/v2#!/Users/delete_provider_by_user_id">Unlink a user identity</a> endpoint of the Management API, and you send the primary account's ID Token in the <code>Authorization</code> header</td>
+      <td>You unlink user accounts with the <a href="/api/management/v2#!/Users/delete_user_identity_by_user_id">Unlink a user identity</a> endpoint of the Management API, and you send the primary account's ID Token in the <code>Authorization</code> header</td>
       <td><div class="label label-warning">Affected</div></td>
       <td><a href="#how-to-unlink-accounts">How to unlink accounts</a></td>
     </tr>
     <tr>
-      <td>You unlink user accounts with the <a href="/api/management/v2#!/Users/delete_provider_by_user_id">Unlink a user identity</a> endpoint of the Management API, and you send an Access Token in the <code>Authorization</code> header</td>
+      <td>You unlink user accounts with the <a href="/api/management/v2#!/Users/delete_user_identity_by_user_id">Unlink a user identity</a> endpoint of the Management API, and you send an Access Token in the <code>Authorization</code> header</td>
       <td><div class="label label-default">No change</div></td>
       <td>N/A</td>
     </tr>
@@ -192,7 +192,7 @@ Use the sample script that follows as a guide. On the **Legacy (ID Token)** pane
 
 <%= include('./_get-token-authorize.md', { scope: 'update:current_user_identities', idPrevious: 'unlink-id-token', idCurrent: 'unlink-access-token' }) %>
 
-Once you have the Access Token, you can call the [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id) endpoint of the Management API, using it in the `Authorization` header.
+Once you have the Access Token, you can call the [Unlink a user identity](/api/management/v2#!/Users/delete_user_identity_by_user_id) endpoint of the Management API, using it in the `Authorization` header.
 
 <div class="code-picker">
   <div class="languages-bar">
