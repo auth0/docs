@@ -40,7 +40,7 @@ While setting up your app, make sure you save the following items for later:
 * The Apple Team ID
 * The Client Signing Key ID (optional)
 
-Also note that when setting up the app, your **Return URL** should be in the following format: `https://<YOUR CUSTOM DOMAIN>/login/callback`. If you have any trouble, the [Apple Documentation](https://developer.apple.com/sign-in-with-apple/get-started/) may be of some use.
+When setting up the app, your **Return URL** should be in the following format: `https://<YOUR CUSTOM DOMAIN>/login/callback`. If you have any issues, refer to the [Apple Documentation](https://developer.apple.com/sign-in-with-apple/get-started/).
 
 ## 2. Create and enable a connection in Auth0
 
