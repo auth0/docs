@@ -48,7 +48,7 @@ First, we need to create an App Identifier.
 
 ### Create your Services ID
 
-Now, we need to create the Services ID.
+Next, create the Services ID.
 
 ![Register Services ID](/media/articles/connections/social/apple/apple-registerservicesid.jpg)
 
