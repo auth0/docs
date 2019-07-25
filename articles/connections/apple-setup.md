@@ -67,7 +67,7 @@ Next, create the Services ID.
 
 ### Setup your Signing Key
 
-1. Head to **Keys** under the **Certificates, Identifiers, & Profiles** section of your Apple developer dashboard.
+1. Go to **Keys** under the **Certificates, Identifiers, & Profiles** section of your Apple developer dashboard.
 1. Click on the round, blue, plus icon to add a new key.
 1. Enter a **Key Name** and check the **Sign In with Apple** option.
 1. Click on **Configure** to make sure the **Choose a Primary App ID** field is filled with the correct App ID.
