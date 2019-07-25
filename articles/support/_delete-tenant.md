@@ -17,9 +17,5 @@ If you have a paid subscription with one or more child tenants, deleting the chi
 1. Log in to the [Dashboard](${manage_url}).
 2. Click on your username in the top right corner to display the dropdown box.
 3. Select **Settings** to open the **Tenant Settings** page.
-
-![](/media/articles/subscriptions/dashboard.png)
-
 4. On the **Tenant Settings** page, select the **Advanced** tab.
-
 5. Scroll down to the **Danger Zone** at the bottom of the page, and click **Delete**.
