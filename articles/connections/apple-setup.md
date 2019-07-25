@@ -25,7 +25,7 @@ You will need a paid [Apple Developer](https://developer.apple.com/programs/) ac
 ![Developer Program](/media/articles/connections/social/apple/apple-developerprogram.jpg)
 
 ::: note
-You can test out the Apple connection by simply going to the [Dashboard](${manage_url}) to **Connections > Social** and Try the Apple connection, leaving the settings blank. This will let you test it out with Auth0’s developer credentials. Prior to use in production applications, however, you will need to set up your own, which this guide details.
+You can test the Apple connection using the [Dashboard](${manage_url}) by going to **Connections > Social**. Click **Try** on the Apple connection (leave the settings blank). This will let you test with Auth0’s developer credentials. Prior to using the connection in Production, you must provide your own credentials (we'll cover how to do this later in this guide).
 :::
 
 ## Set up your app in your Apple Developer Account
