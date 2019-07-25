@@ -54,7 +54,7 @@ Next, create the Services ID.
 
 1. Back in the **Certificates, IDs, & Profiles** section, click the **blue plus icon** next to **Identifiers**.
 1. Choose **Services IDs** and click **Continue**. Fill in the description and identifier (`com.customdomain.webapp`).
-1. After checking **Sign In with Apple**, click on **Configure** and define your **Web Domain** (`customdomain.com`) and your **Return URL** (`https://customdomain.com/login/callback`). Make sure that you follow this format.
+1. After checking **Sign In with Apple**, click on **Configure** and define your **Web Domain** (`customdomain.com`) and your **Return URL**. Make sure that your Return URL follows this format: `https://customdomain.com/login/callback`.
   ![Configure URLs](/media/articles/connections/social/apple/apple-configureurls.jpg)
 1. Click **Save**, and then **Continue** followed by **Register**.
 
