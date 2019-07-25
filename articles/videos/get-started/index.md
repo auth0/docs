@@ -62,7 +62,7 @@ topics:
     <span class="video-time"><i class="icon icon-budicon-494"></i>3:18</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/05_01-authorize-id-tokens-access-control">Authorize: ID Tokens and Access Control</a>
-    <p>What an ID Token is and how you can add custom claims to customize them and make access control decisions for your users. </p>
+    <p>What ID Tokens are and how you can add custom claims to customize them and make access control decisions for your users. </p>
   </li>
 
   <li>
@@ -106,5 +106,4 @@ topics:
     <a href="/videos/get-started/10-logout">Logout</a>
     <p>How to configure different kinds of user logout behavior using callback URLs. </p>
   </li>
-
 </ul>

@@ -11,7 +11,7 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
-<%= include('../_includes/_getting_started', { library: 'React Native') %>
+<%= include('../_includes/_getting_started', { library: 'React Native'}) %>
 
 <%= include('../../../_includes/_callback_url') %>
 
@@ -43,6 +43,12 @@ You can find this at the top of your `AndroidManifest.xml` file located in the `
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.auth0samples"
 ```
+
+<%= include('../../../_includes/_logout_url') %>
+
+::: note
+If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to whitelist in the Allowed Logout URLs field is the same as the callback URL.
+:::
 
 ## Install Dependencies 
 
@@ -195,3 +201,21 @@ Upon successful authentication the user's `credentials` will be returned, contai
 ::: note
 For more information on the `accessToken`, refer to [Access Token](/tokens/overview-access-tokens).
 :::
+
+### Log the User Out
+
+To log the user out, redirect them to the Auth0 log out endpoint by calling `clearSession`. This will remove their session from the authorization server. After this happens, remove the Access Token from the state. 
+
+```js
+ auth0.webAuth
+    .clearSession({})
+    .then(success => {
+        Alert.alert(
+            'Logged out!'
+        );
+        this.setState({ accessToken: null });
+    })
+    .catch(error => {
+        console.log("Log out cancelled");
+    });
+```

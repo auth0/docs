@@ -104,7 +104,7 @@ Auth0's API v1 requires sending an <dfn data-key="access-token">Access Token</df
 
 Auth0's API v2 requires sending an Access Token with specific <dfn data-key="scope">scope(s)</dfn>. To perform requests with API v2, use the `Authorization` header: `Authorization: Bearer YOUR_ACCESS_TOKEN`.
 
-To use an endpoint, at least one of its available scopes (as listed in [Management API v2 explorer](/api/v2)) must be specified for the JWT. The actions available on an endpoint depend on the JWT scope. For example, if a JWT has the `update:users_app_metadata` scope, the [PATCH users `app_metadata`](/api/v2#!/users/patch_users_by_id) action is available, but not other properties.
+To use an endpoint, at least one of its available scopes (as listed in [Management API v2 explorer](/api/v2)) must be specified for the JWT. The actions available on an endpoint depend on the JWT scope. For example, if a JWT has the `update:users_app_metadata` scope, the [PATCH users `app_metadata`](/api/v2#!/Users/patch_users_by_id) action is available, but not other properties.
 
 There is a subset of scopes that your application can use in order to perform a subset of operations on behalf of the currently logged-in user. These are:
 
@@ -209,7 +209,7 @@ In Management API v1, different endpoints are used to update the various user pr
 * [`PUT /api/users/{user_id}/metadata`](/api/v1#!#put--api-users--user_id--metadata)
 * [`PUT /api/users/{user_id}/password`](/api/v1#!#put--api-users--user_id--password)
 
-In API v2, these are simplified into the single endpoint [`PATCH /api/v2/users/{id}`](/api/v2#!/users/patch_users_by_id) which allows you to modify these (and other) user properties.
+In API v2, these are simplified into the single endpoint [`PATCH /api/v2/users/{id}`](/api/v2#!/Users/patch_users_by_id) which allows you to modify these (and other) user properties.
 
 ### All endpoints require ids
 

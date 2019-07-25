@@ -49,4 +49,4 @@ For example, to sort users in ascending order by the `created_at` field you can 
 
 ## Keep reading
 
-For more information on `sort` and other parameters, see the [Management API Explorer](/api/management/v2#!/users/get_users) documentation.
+For more information on `sort` and other parameters, see the [Management API Explorer](/api/management/v2#!/Users/get_users) documentation.

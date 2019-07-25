@@ -1,4 +1,4 @@
-# Custom Domains Migration
+# Custom Domain Migration
 
 Beginning with Private SaaS release 1906, dedicated deployments will include the ability to fully utilize the [Auth0 Custom Domains](/custom-domains) feature.
 
