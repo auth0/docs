@@ -93,7 +93,7 @@ This time the API will return a successful response:
 
 **2. Testing the scoped endpoint**
 
-To test the endpoint that require a scope, pass the Access Token containing the correct scope as a Bearer token in the Authorization header:
+To test the endpoint that requires a scope, pass the Access Token containing the correct scope as a Bearer token in the Authorization header:
 
 ```har
 {
