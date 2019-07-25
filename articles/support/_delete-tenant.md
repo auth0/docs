@@ -1,4 +1,4 @@
-## Delete Auth0 tenants
+## Delete tenants
 
 This process deletes only one tenant. If you have other tenants that need to be removed, you will need to repeat these steps for each tenant.
 

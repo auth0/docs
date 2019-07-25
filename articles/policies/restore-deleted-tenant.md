@@ -18,7 +18,6 @@ useCase:
 
 **Before you delete your tenant, please check out the following resources for alternative options:**
 * [Updating a Tenant Admin](https://auth0.com/docs/dashboard/manage-dashboard-admins#update-admin) **for changing ownership of the tenant**
-* [Resetting/Deleting Tenant](/tutorials/delete-reset-tenant) for reseting tenant configuration.
-
+* [Delete or Reset Tenants](/tutorials/delete-reset-tenant) for reseting tenant configuration.
 
 If you've deleted your tenant, and you require the use of a particular domain name, we recommend configuring a [custom domain name](/custom-domains) for your new tenant.
