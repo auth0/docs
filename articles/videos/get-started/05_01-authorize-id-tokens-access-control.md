@@ -1,5 +1,5 @@
 ---
-description: What an ID Token is and how you can add custom claims to make access control decisions for your users.
+description: What ID Tokens are and how you can add custom claims to customize them and make access control decisions for your users.
 classes: video-page
 ---
 # Authorize: ID Tokens and Access Control
