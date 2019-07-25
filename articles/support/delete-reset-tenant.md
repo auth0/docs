@@ -1,5 +1,5 @@
 ---
-description: How to manage your tenant
+description: How to delete or reset your tenant
 topics:
     - support
     - delete-tenant
@@ -11,18 +11,14 @@ useCase:
   - support
 ---
 
-# Delete/Reset Your Tenant
+# Delete or Reset Tenants
 
-Using the [Reset Tenant Extension](https://github.com/auth0-extensions/auth0-reset-tenant), you can programmatically make changes to your Auth0 tenant. Not only is this useful for creating new environments for development or test purposes, you can use the extension to "clean" your tenant and remove unwanted items.
+If you want to start over completely and remove an unwanted tenant, we recommend deleting it. When you choose this option, you cannot use the deleted tenant's name again because tenant names must be unique. This option is useful if you have created a test or demo tenant and you won't ever be using the tenant name again.
 
-::: note
-- If you are an Enterprise customer, you may have multiple child tenants as part of your Auth0 contract. Rest assured that if you choose to delete such a tenant, this will have no impact on your agreement with Auth0. We recommend that if you have any concerns about your Enterprise agreement, then discuss them with your Customer Success Manager (CSM).
-
-- If you have a paid subscription with one or more child tenants, deleting the child tenant should have no impact on your subscription plan. This is because Activity and usage on Child tenants counts toward the master's tenant activity and usage limitations.
-:::
-
-## Delete vs. Reset
-
-In some cases, users have opted to delete their tenant to begin with a clean slate. Unfortunately, doing so means that you don't keep your tenant name. Because tenant names have to be unique, they can only used once (and you will *not* be able to use it for any newly-created tenants in the future). As such, we recommend using the Reset Tenant Extension to remove the unwanted items and return your tenant to its initial state, since this means that you do *not* have to start over with a new tenant name.
+If you want to be able to keep the tenant name, we recommend using the Reset Tenant Extension to remove any unwanted items and return your tenant to its initial state. This way you do *not* have to create with a new tenant name.
 
 <%= include('./_delete-tenant') %>
+
+## Reset tenants
+
+Use the [Reset Tenant Extension](https://github.com/auth0-extensions/auth0-reset-tenant) to make changes to your Auth0 tenant. You can create a "clean" environment for development or test purposes and remove unwanted items.
