@@ -44,7 +44,7 @@ First, we need to create an App Identifier.
 1. Go to **Certificates, IDs, & Profiles > Identifiers** and click the **blue plus icon** next to **Identifiers** to create a new App ID.
 1. Choose **App IDs** as the identifier type and click **Continue**
 1. Provide a description and a Bundle ID (reverse-domain name style, e.g., `com.customdomain`)
-1. Scroll down and check **Sign In with Apple**, then **Continue** followed by **Register**
+1. Scroll down and check **Sign In with Apple**. Then click **Continue**, followed by **Register**
 
 ### Create your Services ID
 
