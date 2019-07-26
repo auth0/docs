@@ -13,7 +13,13 @@ useCase: strategize
 
 This article provides a high-level overview of how Auth0 can help you your multi-tenant applications.
 
-[Multi-tenancy](https://en.wikipedia.org/wiki/Multitenancy) is when a single instance of software runs on a server that is accessible to multiple groups of users. In fact, Auth0 itself is a multi-tenant application; your collection of applications, settings, and connections is called a "tenant". Note that this document is **not about using multiple Auth0 tenant(s)**, but is about using Auth0 to secure your own multi-tenant application.
+## What is multi-tenancy
+
+[Multi-tenancy](https://en.wikipedia.org/wiki/Multitenancy) is when a single instance of software runs on a server that is accessible to multiple groups of users.
+
+Auth0's Public Cloud is an example of a multi-tenant application. Your applications, settings, and connections are a single tenant, which shares resources with other tenants in the Public Cloud.
+
+Please note that this article is **not about using multiple Auth0 tenant(s)**. It is about using Auth0 to secure your own multi-tenant application.
 
 ## Auth0 and multi-tenancy
 
