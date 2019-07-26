@@ -13,9 +13,9 @@ useCase: extensibility-rules
 
 # Rules
 
-Rules are JavaScript functions that execute when a user authenticates to your application. They run once the authentication process is complete, and you can use them to customize and extend Auth0's capabilities. 
+Rules are JavaScript functions that execute when a user authenticates to your application. They run once the authentication process is complete, and you can use them to customize and extend Auth0's capabilities. For security reasons, your Rules code executes isolated from the code of other Auth0 tenants in a sandbox.
 
-Please note that rules also run during the [token refresh](https://auth0.com/docs/tokens/refresh-token/current) flow.
+Please note that rules also run during the [token refresh](/tokens/refresh-token/current) flow.
 
 ![Rule Flow](/media/articles/rules/flow.png)
 
@@ -37,6 +37,8 @@ Among many possibilities, rules can be used to:
 * Enable counters or persist other information. For information on storing user data, see: [Metadata in Rules](/rules/guides/metadata).
 * Modify tokens: Change the returned <dfn data-key="scope">__scopes__</dfn> of the Access Token and/or add claims to it, and to the ID Token.
 
+There are many uses for Rules. In the Dashboard, under [**Rules > Create Rule**](${manage_url}/#/rules/new), there are dozens of example templates to help you get started with Rules, including examples dealing with MFA, external webhooks, enriching profile information, altering the authentication process, and more. You can use these templates as a starting point and then customize them to suit your specific needs.
+
 ::: warning How to Handle Rate Limits when calling Auth0 APIs
 For rules that call Auth0 APIs, you should always handle rate limiting by checking the X-RateLimit-Remaining header and acting appropriately when the number returned nears 0. You should also add logic to handle cases in which you exceed the provided rate limits and receive the HTTP Status Code 429 (Too Many Requests); in this case, if a re-try is needed, it is best to allow for a back-off to avoid going into an infinite re-try loop. For more information about rate limits, see [Rate Limit Policy For Auth0 APIs](/policies/rate-limits).
 :::
@@ -56,7 +58,5 @@ A Rule is a function with the following arguments:
 Rules execute in the order shown on the Auth0 Dashboard. If a rule depends on the execution of another rule, move the dependent rule lower in the list.
 
 ## Available modules
-
-For security reasons, your Rules code executes isolated from the code of other Auth0 tenants in a sandbox. 
 
 <%= include('./_includes/_supported-modules.md') %> 
