@@ -60,4 +60,35 @@ In addition to configuring Universal Login for your tenant's applications, you w
 1. Set up your application in the [Dashboard](${manage_url}/#/applications). 
 1. Configure your application's code to call Auth0's [`/authorize`](/api/authentication#login) endpoint in order to trigger Universal Login, and then to deal with the response. You can either do this directly, or use one of our SDKs to make the process easier.
 
+### Using the SPA SDK
+
+If you are already using Auth0's [Single-Page App SDK](/libraries/auth0-spa), using the `auth0.loginWithPopup()` or `auth0.loginWithRedirect()` methods will bring you to the authorize endpoint.
+
+```html
+<button id="loginPopup">Login with Popup</button>
+```
+
+```js
+$('#loginPopup').click(async () => {
+  await auth0.loginWithPopup();
+});
+```
+
+### Calling the endpoint manually
+
+You can call the endpoint as you would call any endpoint, manually with any tool that allows you to make requests to URLs.
+
+```text
+GET https://${account.namespace}/authorize?
+  response_type=code|token&
+  client_id=${account.clientId}&
+  connection=CONNECTION&
+  redirect_uri=${account.callback}&
+  state=STATE
+```
+
+You can specify a connection (or remove that parameter), and you should [specify a state](/protocols/oauth2/oauth-state) and choose whether you want a code or token response (depends on your app type and which flow you are using). Make sure to fill in the domain, client ID, and redirect URI if they are not prefilled.
+
+### Further instructions
+
 <%= include('./_implement_universal_login') %>
