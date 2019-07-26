@@ -29,5 +29,5 @@ Auth0 provides out-of-the-box identity storage that can be leveraged to store us
 Alternatively, if you have to maintain your legacy identity store - perhaps because you’ve got applications which you aren’t ready to migrate or which can’t be migrated - then you can use the [identity store proxy](#identity-store-proxy) capability. Allowing your customers to use “bring their own identity” is also an attractive proposition and though we find our customers don’t initially do so, you can use the [Social Sign Up](#social-sign-up) capability to provide it. 
 
 ::: panel Get Started with Auth0 Videos
-Watch these two short videos [Provision: Users Stores](/videos/get-started/02-provision-user-stores) and [Provision: Import Users](//videos/get-started/03-provision-import-users) to learn how user profiles are provisioned within an Auth0 tenant and how Auth0 allows you to move your existing users to an Auth0 user store.
+Watch these two short videos [Provision: Users Stores](/videos/get-started/02-provision-user-stores) and [Provision: Import Users](/videos/get-started/03-provision-import-users) to learn how user profiles are provisioned within an Auth0 tenant and how Auth0 allows you to move your existing users to an Auth0 user store.
 :::
