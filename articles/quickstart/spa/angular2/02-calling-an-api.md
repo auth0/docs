@@ -187,7 +187,7 @@ handleAuthCallback() {
 }
 ```
 
-In both of the above methods, we're using [`combineLatest` from RxJS](https://rxjs-dev.firebaseapp.com/api/index/function/combineLatest) to create an observable that combines `getUser$()` and `getTokenSilently$` to emit results from both streams. We can then subscribe and set those values in the appropriate behavior subjects for easy access in our application.
+In both of the above methods, we're using [`combineLatest` from RxJS](https://rxjs-dev.firebaseapp.com/api/index/function/combineLatest) to create an observable that combines multiple streams (e.g., `getUser$()`, `getTokenSilently$`, and in the latter, `isAuthenticated$`) to emit results from all the combined streams. We can then subscribe and set those values in the appropriate subjects and properties for easy access in our application.
 
 ::: note
 For more details on the implementation, see the comments in the code snippets above.
@@ -242,8 +242,8 @@ The `AuthService` is provided so that we can access the `accessToken$` stream. U
 The `intercept()` method returns an observable of an HTTP event. In it, we do the following:
 
 * `filter` any value from the `accessToken$` stream to make sure the value is a string (as opposed to the `null` default value)
-* `mergeMap` ensures that any new requests coming through don't cancel previous requests that may not have completed; this is useful if you have multiple HTTP requests on the same page
-* `clone` the outgoing request and attach the [`Authorization` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) with access token, then send the cloned, authorized request on
+* `mergeMap` ensures that any new requests coming through don't cancel previous requests that may not have completed yet; this is useful if you have multiple HTTP requests on the same page
+* `clone` the outgoing request and attach the [`Authorization` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) with access token, then send the cloned, authorized request on its way
 
 In order to put the interceptor to work in the application, open the `src/app/app-routing.module.ts` routing module and add:
 
