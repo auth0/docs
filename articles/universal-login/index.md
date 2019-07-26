@@ -76,7 +76,7 @@ $('#loginPopup').click(async () => {
 
 ### Calling the endpoint manually
 
-You can call the endpoint as you would call any endpoint, manually with any tool that allows you to make requests to URLs.
+You can call the endpoint with any tool that allows you to make HTTP requests.
 
 ```text
 GET https://${account.namespace}/authorize?
