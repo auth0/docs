@@ -11,7 +11,7 @@ useCase:
 ---
 # Resetting a user's multi-factor account
 
-If a user has lost their mobile device they can use their recovery code to log in. If they do not have recovery code, they will need their tenant administrator to reset their <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>. This has the affect of removing or deleting their MFA; MFA settings associated with their user will be removed, allowing them to set up MFA again as if they were a new user.
+If a user has lost their mobile device, they can use their recovery code to log in. If they do not have recovery code, they will need their tenant administrator to reset their <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>. This action is equivalent to removing or deleting the user's MFA registration. The MFA settings associated with their user will be removed, which allows them to set up MFA as if they were a new user on their next login attempt.
 
 To reset a user's MFA:
 
