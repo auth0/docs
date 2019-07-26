@@ -220,7 +220,8 @@ You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the 
 * `success` with value `true` or `false` indicating whether the email verification was successful
 * `message` with an additional description of the outcome. Some possible values are:
   * `Your email was verified. You can continue using the application.` (with `success=true`)
-  * `This URL can be used only once` (with `success=false`) * `Access expired.` (with `success=false`)
+  * `This URL can be used only once` (with `success=false`)
+  * `Access expired.` (with `success=false`)
   * `User account does not exist or verification code is invalid.` (with `success=false`)
   * `This account is already verified.` (with `success=false`)
 
@@ -248,7 +249,8 @@ You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the 
 * `success` with value `true` or `false` indicating whether the password change was successful
 * `message` with an additional description of the outcome. Some possible values are:
   * `You can now login to the application with the new password.` (with `success=true`)
-  * `This URL can be used only once` (with `success=false`) * `Access expired.` (with `success=false`)
+  * `This URL can be used only once` (with `success=false`)
+  * `Access expired.` (with `success=false`)
   * `The operation cannot be completed. Please try again.` (with `success=false`)
 
 The target URL handler should be prepared to gracefully handle other possible messages as well. 
@@ -279,7 +281,8 @@ You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the 
 * `success` with value `true` or `false` indicating whether the account unblocking was successful
 * `message` with an additional description of the outcome. Some possible values are:
   * `Your account has been unblocked.` (with `success=true`)
-  * `This URL can be used only once` (with `success=false`) * `Access expired.` (with `success=false`)
+  * `This URL can be used only once` (with `success=false`)
+  * `Access expired.` (with `success=false`)
 
 The target URL handler should be prepared to gracefully handle other possible messages as well. 
 
