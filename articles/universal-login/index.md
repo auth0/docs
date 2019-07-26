@@ -87,7 +87,7 @@ GET https://${account.namespace}/authorize?
   state=STATE
 ```
 
-You can specify a connection (or remove that parameter), and you should [specify a state](/protocols/oauth2/oauth-state) and choose whether you want a code or token response (depends on your app type and which flow you are using). Make sure to fill in the domain, client ID, and redirect URI if they are not prefilled.
+You can (optionally) specify a connection, but you must [specify a state](/protocols/oauth2/oauth-state) and choose whether you want a `code` or `token` response (the choice you make depends on your app type and the flow you are using). Finally, make sure to fill in the domain, client ID, and redirect URI if they haven't been pre-filled.
 
 ### Further instructions
 
