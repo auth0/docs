@@ -106,7 +106,7 @@ We'll also define another observable and another subject to retrieve the access 
 
 ```ts
 getTokenSilently$ = this.auth0Client$.pipe(
-    concatMap((client: Auth0Client) => from(client.getTokenSilently()))
+  concatMap((client: Auth0Client) => from(client.getTokenSilently()))
 );
 // Create subject and public observable of access token
 private accessTokenSubject$ = new BehaviorSubject<string>(null);

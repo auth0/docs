@@ -40,7 +40,7 @@ If you are following this tutorial using your own Angular application that runs 
 
 ## Install the SDK
 
-While in the project folder, install the SDK using `npm` in the terminal:
+While in the project folder, install the SDK using `npm` in the terminal (or use one of the other methods from the section above):
 
 ```bash
 npm install @auth0/auth0-spa-js --save
