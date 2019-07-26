@@ -16,7 +16,7 @@ There are two types of tokens that are often talked about in relation to identit
 
 ## Identity Tokens
 
-The **ID Token** is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>, and it is meant for the application only. For example, in the example of a a to-do app that uses Google to log users in and to integrate their calendars with the app, Google sends an ID Token to the to-do app that tells the app who the user is and various pieces of information about them. The app then parses [the token's contents](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and uses this information (including details like your name and your profile picture) to customize your user experience.
+The **ID Token** is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>, and it is meant for use by the application only. For example, if there's a to-do app that uses Google to log in users and to sync their calendars, Google sends an ID Token to the to-do app that includes information about the user. The app then parses [the token's contents](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and uses the information (including details like your name and your profile picture) to customize the user experience.
 
 ::: warning
 Be sure to [validate an ID Token](/tokens/guides/id-token/validate-id-token) before using the information it contains! You can use a [library](https://jwt.io/#libraries-io) to help with this task.
