@@ -243,12 +243,12 @@ The `continue-from-update-profile-website` rule then picks up the POST request f
 
 4. Configure the webtask with the following secrets:
 
-  Key | Value
-  --- | ---
-  `AUTH0_DOMAIN` | The domain of your Auth0 tenant.
-  `TOKEN_ISSUER` | (Same value as the [Set up the rules](#set-up-the-rules) section above.)
-  `TOKEN_AUDIENCE` | (Same Value as the [Set up the rules](#set-up-the-rules) section above.)
-  `TOKEN_SECRET` | (Same value as the [Set up the rules](#set-up-the-rules) section above.)
+   Key | Value
+   --- | ---
+   `AUTH0_DOMAIN` | The domain of your Auth0 tenant.
+   `TOKEN_ISSUER` | (Same value as the [Set up the rules](#set-up-the-rules) section above.)
+   `TOKEN_AUDIENCE` | (Same Value as the [Set up the rules](#set-up-the-rules) section above.)
+   `TOKEN_SECRET` | (Same value as the [Set up the rules](#set-up-the-rules) section above.)
 
 The completed `user-metadata` in the user profile might look like this:
 
