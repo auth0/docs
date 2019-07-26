@@ -223,37 +223,6 @@ The `continue-from-update-profile-website` rule then picks up the POST request f
     `TOKEN_SECRET` | The secret used to sign the JWT using HS256.
     `UPDATE_PROFILE_WEBSITE_URL` | The URL of the update-profile-website webtask website (e.g., `https://wt-bob-example_com-0.sandbox.auth0-extend.com/update-profile-website`).
 
-Here's the rule example:
-
-```js
-function rule (user, context, callback) {
-  const _ = require('lodash');
-  const RULE_NAME = 'continue-from-update-profile-website';
-    
-  user.user_metadata = user.user_metadata || {};
-
-  // skip if we're not returning from the update profile site
-  if (context.protocol !== "redirect-callback") {
-    return callback(null, user, context);
-  }
-  
-  // build complete user profile
-  user.user_metadata = Object.assign(user.user_metadata, 
-    _.pick(
-      context.request.body,
-      ['given_name', 'family_name', 'birthdate']));
-    
-  // update user profile in Auth0
-  console.log(`${RULE_NAME}: ${user.user_id}: Updating user profile`);
-  auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
-    .then(() => callback(null, user, context))
-    .catch((err) => {
-      console.log(`${RULE_NAME} ERROR:`, err);
-      callback(err);
-    });
-}
-```
-
 ### Set up the Webtask
 
 1. If you don't already have a `webtask.io` account, create one. Then in your webtask tenant, create the following webtasks, either via the Webtask Editor or the CLI.
