@@ -33,7 +33,7 @@ The Access Token's purpose is to inform the API that the bearer of the token has
 
 In the Google/to-do app example above, Google would have sent an Access Token to the to-do app after the user logged in and provided consent for the to-do app to read/write to their Google Calendar.
 
-Whenever the to-do app wants to write to your Google Calendar, it will send a request to the Google Calendar API, making sure to include the Access Token in the HTTP **Authorization** header.
+Whenever the to-do app wants to write to Google Calendar, it will send a request to the Google Calendar API, making sure to include the Access Token in the HTTP **Authorization** header.
 
 ::: note
 Your applications should treat Access Tokens as opaque strings, since they are meant for APIs. Your application should *not* attempt to decode them or expect to receive tokens in a particular format.
