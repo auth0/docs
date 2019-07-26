@@ -194,7 +194,7 @@ After the user's second login, it prompts the user for their birthday:
 The user profile website is hosted using a [Webtask](https://webtask.io/) that you can  modify, provision, and use in your webtask tenant.
 
 ::: note
-Tenants created after July 16, 2018 will not have access to the underlying Auth0 Webtask Sandbox via the Webtask CLI. Please contact Auth0 at sales@auth0.com to request access. Using webtasks is just one way of implementing and deploying the Update Profile Webpage. Any HTTP server that provided the same behavior will suffice.
+Tenants created after July 16, 2018 will not have access to the underlying Auth0 Webtask Sandbox via the Webtask CLI. Please contact Auth0 at sales@auth0.com to request access. Using webtasks is just one way of implementing and deploying the Update Profile Webpage. Any HTTP server that provides the same behavior will suffice.
 :::
 
 The `redirect-to-update-profile-website` rule checks to see if the user profile is missing any required fields. If so, it performs a redirect to the external **Update Profile Website**. In this example the website is hosted as a webtask: `update-profile-website`. However, it could be hosted anywhere, like Heroku. When the redirect is performed, the required field names are passed via a self-signed JWT.

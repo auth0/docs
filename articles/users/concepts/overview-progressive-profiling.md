@@ -11,7 +11,7 @@ v2: true
 ---
 # Progressive Profiling
 
-Progressive profiling is the act of collecting more information about your users over time as they engage with your website or application. This way, you can gather just the right amount of information at just the right time and enhance your users' experience by not asking them too many questions and form fields at signup. For example, you might collect just the user's name, email, and password on initial signup. At the next login, you might ask for the name of their company and their title. When asking users for additional information, avoid asking for information that you may already have. For example, if a user signs up using a social network you may already have demographic information about them. 
+Progressive profiling is the act of collecting more information about your users over time as they engage with your website or application. This way, you can gather just the right amount of information at just the right time and enhance your users' experience by not asking them too many questions at signup. For example, you might collect just the user's name, email, and password on initial signup. At the next login, you might ask for the name of their company and their title or their birth date. When asking users for additional information, avoid asking for information that you may already have. For example, if a user signs up using a social network you may already have some of the information you need. 
 
 Progressive profiling provides the following benefits:
 
@@ -26,7 +26,7 @@ Users logging in with social networks will typically **consent** to disclose the
 
 ## How progressive profiling works with Auth0
 
-You can get information for your progressive profile from Auth0. Every user that authenticates through Auth0 gets a User Profile and the profile's contents can come from different sources:
+Every time a user authenticates through Auth0, Auth0 updates their user profile and with data that can come from different sources:
 
 * Properties supplied by the identity provider (such as LinkedIn, Facebook, or any [connection](/identityproviders)).
 * Attributes that are dynamically created in [Auth0 Rules](/rules) .
