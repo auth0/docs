@@ -26,7 +26,10 @@ Be sure to [validate an ID Token](/tokens/guides/id-token/validate-id-token) bef
 
 On the other hand, the **Access Token** (which isn't necessarily a JWT), is meant for use by an API.
 
-The Access Token's purpose is to inform the API that the bearer of the token has been authorized to access the API and perform a predetermined set of actions (which is specified by the <dfn data-key="scope">**scopes**</dfn> granted).
+The Access Token's purpose is to inform the API that the bearer of the token has been authorized to:
+
+1. Access the API 
+2. Perform a predetermined set of actions (these actions are specified by the <dfn data-key="scope">**scopes**</dfn> granted)
 
 In the Google/to-do app example above, Google would have sent an Access Token to the to-do app after the user logged in and provided consent for the to-do app to read/write to your Google Calendar.
 
