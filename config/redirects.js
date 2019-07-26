@@ -1951,7 +1951,7 @@ module.exports = [
   //  },
    {
      from: '/user-profile/progressive-profiling',
-     to: '/users/guides/implement-progressive-profiling'
+     to: '/users/concepts/overview-progressive-profiling'
    },
    {
      from: '/user-profile/customdb.md',

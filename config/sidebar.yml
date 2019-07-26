@@ -493,6 +493,9 @@ articles:
 
       - title: Metadata
         url: /users/concepts/overview-user-metadata
+
+      - title: Progressive Profiling
+        url: /users/concepts/overview-progressive-profiling
       
       - title: Using the Dashboard
         url: /users/guides/manage-users-using-the-dashboard

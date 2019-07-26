@@ -11,12 +11,13 @@ useCase: extensibility-rules
 
 # Redirect Users from Rules
 
-[Rules](/rules) can be used to redirect users before an authentication transaction is complete. This lets you implement custom authentication flows that require additional user interaction beyond the standard login form. Redirect Rules are commonly used to do [custom MFA (multifactor authentication)](/multifactor-authentication) in Auth0, but they can also be used for things like:
+You can use [Rules](/rules) to redirect users before an authentication transaction is complete. This lets you implement custom authentication flows that require additional user interaction beyond the standard login form. Redirect rules are commonly used to do [custom MFA (multifactor authentication)](/multifactor-authentication) in Auth0, but they can also be used for things like:
 
 * Custom privacy policy acceptance, terms of service, and data disclosure forms.
 * Securely performing a one-time collection of additional required profile data.
 * Allowing remote Active Directory users to change their password.
 * Requiring users to provide additional verification when logging in from unknown locations.
+* Gather more information about your users than they provided at initial signup.
 
 For some examples of redirect Rules, check out our [Rules repo](https://github.com/auth0/rules/tree/master/redirect-rules) on GitHub.
 
@@ -57,7 +58,7 @@ https://example.com/foo?state=abc123
 Your redirect URL will need to extract the `state` parameter and send it back to Auth0 to resume the authentication transaction.
 
 ::: note
-State is an opaque value, used to prevent [CSRF attacks](/security/common-threats#cross-site-request-forgery-xsrf-or-csrf-).
+State is an opaque value, used to prevent [CSRF attacks](/security/common-threats#cross-site-request-forgery).
 :::
 
 ## Resume authentication
@@ -180,26 +181,23 @@ function(user, context, callback) {
 
 ## Progressive profiling example
 
-You can use redirect rules to collect additional information for a user's profile, otherwise known as [progressive profiling]. There are often two types of information you want to collect:
+You can use redirect rules to collect additional information for a user's profile, otherwise known as [progressive profiling](/users/concepts/overview-progressive-profiling). 
 
-* Core information that was missing during the actual sign-up (like first and last name)
-* Additional first-party data that you'd like to collect progressively (like the user's birthday)
-
-This sample shows how to collect both kinds of data. First, it will prompt the user for their first and last name (but only if they didn't sign up using a social provider that already provided it):
+This example prompts the user for their first and last name (but only if they didn't sign up using a social provider that already provided it):
 
 ![Core Fields](/media/articles/rules/core-fields.png)
 
-After the user's third login, it will prompt the user for their birthday:
+After the user's second login, it prompts the user for their birthday:
 
 ![Birthday](/media/articles/rules/birthday.png)
 
-The user profile website is hosted using a [Webtask](https://webtask.io/) that you can easily modify and provision and use in your webtask tenant.
+The user profile website is hosted using a [Webtask](https://webtask.io/) that you can  modify, provision, and use in your webtask tenant.
 
 ::: note
-Tenants created after July 16, 2018 will not have access to the underlying Auth0 Webtask Sandbox via the Webtask CLI. Please contact Auth0 at sales@auth0.com to request access.
+Tenants created after July 16, 2018 will not have access to the underlying Auth0 Webtask Sandbox via the Webtask CLI. Please contact Auth0 at sales@auth0.com to request access. Using webtasks is just one way of implementing and deploying the Update Profile Webpage. Any HTTP server that provided the same behavior will suffice.
 :::
 
-The `redirect-to-update-profile-website` rule checks to see if the user profile is missing any required fields. If so, it will perform a redirect to the external Update Profile Website. In this example the website is hosted as a webtask: `update-profile-website`. However, it could be hosted anywhere, like Heroku. When the redirect is performed, the required field names are passed via a self-signed JWT.
+The `redirect-to-update-profile-website` rule checks to see if the user profile is missing any required fields. If so, it performs a redirect to the external **Update Profile Website**. In this example the website is hosted as a webtask: `update-profile-website`. However, it could be hosted anywhere, like Heroku. When the redirect is performed, the required field names are passed via a self-signed JWT.
 
 ::: note
 If a user signs in with a Database Connection identity, then the `redirect-to-update-profile-website` rule will generate a prompt for first and last name. However, if they use a social connection (e.g., Google) then chances are those fields will aleady exist in the identity provider attributes, so no prompt will be necessary.
@@ -209,16 +207,12 @@ The webtask renders a form that prompts the user for whatever fields were provid
 
 The `continue-from-update-profile-website` rule then picks up the POST request from the webtask and updates the user profile. All fields are stored in `user_metadata`.
 
-::: note
-Using webtasks is just one way of implementing and deploying the Update Profile Webpage. Any HTTP server that provided the same behavior would suffice.
-:::
-
 ### Set up the rules
 
 1. In your tenant, set up the following rules:
 
-  * [`redirect-to-update-profile-website`](https://github.com/auth0/rules/blob/master/redirect-rules/progressive-profiling/redirect-to-update-profile-website.js)
-  * [`continue-from-update-profile-website`](https://github.com/auth0/rules/blob/master/redirect-rules/progressive-profiling/continue-from-update-profile-website.js)
+   * [`redirect-to-update-profile-website`](https://github.com/auth0/rules/blob/master/redirect-rules/progressive-profiling/redirect-to-update-profile-website.js)
+   * [`continue-from-update-profile-website`](https://github.com/auth0/rules/blob/master/redirect-rules/progressive-profiling/continue-from-update-profile-website.js)
 
 2. Configure the following rule settings:
 
@@ -229,6 +223,37 @@ Using webtasks is just one way of implementing and deploying the Update Profile 
     `TOKEN_SECRET` | The secret used to sign the JWT using HS256.
     `UPDATE_PROFILE_WEBSITE_URL` | The URL of the update-profile-website webtask website (e.g., `https://wt-bob-example_com-0.sandbox.auth0-extend.com/update-profile-website`).
 
+Here's the rule example:
+
+```js
+function rule (user, context, callback) {
+  const _ = require('lodash');
+  const RULE_NAME = 'continue-from-update-profile-website';
+    
+  user.user_metadata = user.user_metadata || {};
+
+  // skip if we're not returning from the update profile site
+  if (context.protocol !== "redirect-callback") {
+    return callback(null, user, context);
+  }
+  
+  // build complete user profile
+  user.user_metadata = Object.assign(user.user_metadata, 
+    _.pick(
+      context.request.body,
+      ['given_name', 'family_name', 'birthdate']));
+    
+  // update user profile in Auth0
+  console.log(`${RULE_NAME}: ${user.user_id}: Updating user profile`);
+  auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
+    .then(() => callback(null, user, context))
+    .catch((err) => {
+      console.log(`${RULE_NAME} ERROR:`, err);
+      callback(err);
+    });
+}
+```
+
 ### Set up the Webtask
 
 1. If you don't already have a `webtask.io` account, create one. Then in your webtask tenant, create the following webtasks, either via the Webtask Editor or the CLI.
@@ -237,15 +262,15 @@ Using webtasks is just one way of implementing and deploying the Update Profile 
 
 3. Configure the following NPM modules:
 
-  * `body-parser`
-  * `cookie-session`
-  * `csurf`
-  * `ejs`
-  * `express`
-  * `jsonwebtoken`
-  * `lodash`
-  * `moment`
-  * `webtask-tools`
+   * `body-parser`
+   * `cookie-session`
+   * `csurf`
+   * `ejs`
+   * `express`
+   * `jsonwebtoken`
+   * `lodash`
+   * `moment`
+   * `webtask-tools`
 
 4. Configure the webtask with the following secrets:
 
@@ -270,4 +295,10 @@ The completed `user-metadata` in the user profile might look like this:
 
 The handoff redirect from the `redirect-to-update-profile-website` rule to the `update-profile-website` webtask is made secure via the self-signed JWT. It prevents someone from calling the webtask directly to invoke a new rendering of the update form. However, it's possible that someone could replay the same exact request (URL) before the JWT token has expired. This is prevented by virtue of the redirect protocol's state parameter, which binds the Auth0 session to the website session. To complete the Auth0 authentication transaction, the website must redirect (or POST) back to the Auth0 `/continue` endpoint, passing the same state value and since the state value can only be used once, it's impossible to replay the same transaction.
 
-It should also be noted that in this example a JWT is only required for the redirect from the `redirect-to-update-profile-website` rule to the `update-profile-website` webtask. The return trip is secured by virtue of the state parameter. For added security and flexibility, the field values are returned to Auth0 via a POST versus query parameters in a redirect (GET). There are cases where a JWT should be used on the return to Auth0. See [How to securely process results](#how-to-securely-process-results) for more information.
+In this example a JWT is only required for the redirect from the `redirect-to-update-profile-website` rule to the `update-profile-website` webtask. The return trip is secured by virtue of the state parameter. For added security and flexibility, the field values are returned to Auth0 via a POST versus query parameters in a redirect (GET). There are cases where a JWT should be used on the return to Auth0. 
+
+## Keep reading
+
+* [Progressive Profiling](/users/concepts/overview-progressive-profiling)
+* [How Rules Handle the Data](https://github.com/auth0/rules/blob/master/redirect-rules/progressive-profiling/continue-from-update-profile-website.js)
+* [Resume Authentication](/rules/guides/redirect#resume-authentication)
