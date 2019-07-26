@@ -31,3 +31,7 @@ Other groups within your organization may also be working with Auth0; it’s not
 <% if (platform === "b2b") { %>
 If your customers' organizations support the use of mutliple IdPs, then we recommend that you can create separate Auth0 tenants for that organization; see [Tenant provision for complex organizations](#tenant-provision-for-complex-organizations) for further details. This allows you to keep the rest of your setup much simpler by maintaining a one-to-one connection relationship between your organization and all your customer organizations within your main tenant. 
 <%  } %>
+
+::: panel Get Started with Auth0 Video
+Watch this short video [Architecture: Your Tenant](/videos/get-started/01-architecture-your-tenant) to learn what an Auth0 tenant is and how to configure it in the Auth0 Dashboard. Understand why you may want more than one tenant if you have different user communities, and also how you can use more than one tenant to support your Software Development Life Cycle (SDLC). Understand the importance of tenant naming and custom domain usage best practices. Also learn how to set up additional tenant administrators and how to associate tenants with your Auth0 account.
+:::

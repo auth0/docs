@@ -32,3 +32,7 @@ When deciding what data to include in OIDC tokens, consider token size, especial
 :::
 
 For [API level integration](#api-integration), Auth0 supports both [custom claims](#access-token-claims) as well as [scope](#access-token-scopes) re-configuration, both within the context of an Access Token. Again, you will need to decide what information will be required in order for your API to make access control decisions, and then your API will need to enforce that access control by validating the contents of the Access Token.
+
+::: panel Get Started with Auth0 Videos
+Watch these two short videos [Authorize: ID Tokens and Access Control](/videos/get-started/05_01-authorize-id-tokens-access-control) and [Authorize: Get and Validate ID Tokens](/videos/get-started/05_02-authorize-get-validate-id-tokens) to understand what an ID Token is and learn how to add custom claims to customize tokens and make access control decisions for your users. Learn how to get and validate an ID Token in JSON Web Token (JWT) format.
+:::

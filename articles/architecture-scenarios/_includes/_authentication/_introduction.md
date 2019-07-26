@@ -40,3 +40,7 @@ When calling one API from another API, or from any situation where there is no a
 <% if (platform === "b2b") { %>
 Often companies need to segregate their users by organization and sometimes users can have access to more than one organization.  Knowing which of these scenarios is relevant to your company will help define how to determine in which connection a user exists: whether you need to do it, when you need to do it, and how to accomplish it.  See [Home Realm Discovery](#home-realm-discovery) to determine if this is something relevant to your company.
 <%  } %>
+
+::: panel Get Started with Auth0 Videos
+Watch these two short videos [Authenticate: How It Works](/videos/get-started/04_01-authenticate-how-it-works) and [Authenticate: SPA Example](/videos/get-started/04_01-authenticate-spa-example) to learn about the differences between authentication, authorization, and access control. Understand when and why you might use each type of authentication method: first factors, second factors, and multi-factor. Learn about the OpenID Connect (OIDC) authentication protocol. See an example using the Auth0 Quickstart for a single-page application (SPA) implementation.
+:::
