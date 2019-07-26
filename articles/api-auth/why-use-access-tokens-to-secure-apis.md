@@ -31,7 +31,7 @@ The Access Token's purpose is to inform the API that the bearer of the token has
 1. Access the API 
 2. Perform a predetermined set of actions (these actions are specified by the <dfn data-key="scope">**scopes**</dfn> granted)
 
-In the Google/to-do app example above, Google would have sent an Access Token to the to-do app after the user logged in and provided consent for the to-do app to read/write to your Google Calendar.
+In the Google/to-do app example above, Google would have sent an Access Token to the to-do app after the user logged in and provided consent for the to-do app to read/write to their Google Calendar.
 
 Whenever the to-do app wants to write to your Google Calendar, it will send a request to the Google Calendar API, making sure to include the Access Token in the HTTP **Authorization** header.
 
