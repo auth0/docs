@@ -24,7 +24,7 @@ Be sure to [validate an ID Token](/tokens/guides/id-token/validate-id-token) bef
 
 ## Access Tokens
 
-On the other hand, the **Access Token** (which isn't necessarily a JWT), is meant for use by an API.
+**Access Tokens** (which aren't always a JWT) are meant for use by an API.
 
 The Access Token's purpose is to inform the API that the bearer of the token has been authorized to:
 
