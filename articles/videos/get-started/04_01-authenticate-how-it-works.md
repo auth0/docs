@@ -4,7 +4,7 @@ classes: video-page
 ---
 # Authenticate: How It Works
 
-Learn about the differences between authentication, authorization, and access control. Understand when and why you might use each type of authentication method: first factors, second factors, and multi-factor. Learn about the OpenID Connect (OIDC) authentication protocol.   
+Learn about the difference between authentication, authorization, and access control. Understand when and why you might use each type of authentication method: first factors, second factors, and multi-factor. Learn about the OpenID Connect (OIDC) authentication protocol.   
 
 <div class="video-wrapper" data-video="suw4dsi0g8"></div>
 
