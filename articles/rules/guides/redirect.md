@@ -191,7 +191,7 @@ This sample shows how to collect both kinds of data. First, it will prompt the u
 
 After the user's third login, it will prompt the user for their birthday:
 
-![Core Fields](/media/articles/rules/birthday.png)
+![Birthday](/media/articles/rules/birthday.png)
 
 The user profile website is hosted using a [Webtask](https://webtask.io/) that you can easily modify and provision and use in your webtask tenant.
 
