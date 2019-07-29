@@ -61,4 +61,4 @@ Auth0 limits the total number of users you can retrieve to 1000, so for example,
 
 ## Keep reading
 
-For more information on the `page`, `per_page` and other parameters, see the [Management API Explorer](/api/management/v2#!/users/get_users) documentation.
+For more information on the `page`, `per_page` and other parameters, see the [Management API Explorer](/api/management/v2#!/Users/get_users) documentation.

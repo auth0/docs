@@ -77,7 +77,7 @@ GET https://your_callback_url/
 
 The possible values for `ERROR_CODE` are defined by the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#AuthError):
 
-* `login_required`: The user was not logged in at Auth0, so silent authentication is not possible
+* `login_required`: The user was not logged in at Auth0, so silent authentication is not possible. This error can occur based on the way the tenant-level **Log In Session Management** settings are configured; specifically, it can occur after the time period set in the **Require log in after** setting. [Learn how to configure session lifetime settings](/dashboard/guides/tenants/configure-session-lifetime-settings).
 * `consent_required`: The user was logged in at Auth0, but needs to give consent to authorize the application
 * `interaction_required`: The user was logged in at Auth0 and has authorized the application, but needs to be redirected elsewhere before authentication can be completed; for example, when using a [redirect rule](/rules/redirect).
 

@@ -1,6 +1,7 @@
 ---
 description: Learn how to get started implementing Auth0 features with your applications.
 classes: video-page
+image: https://cdn2.auth0.com/docs/media/articles/videos/get-started/get-started.png
 topics: 
    - tenant architecture
    - tenants
@@ -17,7 +18,7 @@ topics:
 ---
 # Get Started with Auth0 Video Series
 
-In this video series, learn how easy it is to get started implementing Auth0 features with your applications. See examples and walk-through basic set up and configuration tasks.
+[![Get Started Video Screenshot](/media/articles/videos/get-started/get-started.png)](/videos/get-started/01-architecture-your-tenant)
 
 <p>&nbsp;</p>
 
@@ -61,7 +62,7 @@ In this video series, learn how easy it is to get started implementing Auth0 fea
     <span class="video-time"><i class="icon icon-budicon-494"></i>3:18</span>
     <i class="video-icon icon icon-budicon-676"></i>
     <a href="/videos/get-started/05_01-authorize-id-tokens-access-control">Authorize: ID Tokens and Access Control</a>
-    <p>What an ID Token is and how you can add custom claims to customize them and make access control decisions for your users. </p>
+    <p>What ID Tokens are and how you can add custom claims to customize them and make access control decisions for your users. </p>
   </li>
 
   <li>
@@ -105,5 +106,4 @@ In this video series, learn how easy it is to get started implementing Auth0 fea
     <a href="/videos/get-started/10-logout">Logout</a>
     <p>How to configure different kinds of user logout behavior using callback URLs. </p>
   </li>
-
 </ul>

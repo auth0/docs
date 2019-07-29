@@ -12,6 +12,10 @@ useCase: customize-domains
 # Configure AWS CloudFront for Use as Reverse Proxy
 In this article, we will show you how to configure AWS CloudFront for use as the reverse proxy with custom domain names for your Auth0 tenant.
 
+::: warning
+This feature requires a paid subscription to the **Enterprise** plan (see [Pricing](https://auth0.com/pricing)).
+:::
+
 Log in to AWS, and navigate to [CloudFront](https://console.aws.amazon.com/cloudfront).
 
 ![](/media/articles/custom-domains/aws/cloudfront.png)

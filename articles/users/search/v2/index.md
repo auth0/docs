@@ -55,7 +55,7 @@ For general information on making Postman request, please refer to the [Postman 
 
 To sort the list of users returned from the Management API, you can make use of the `sort` parameter.  Use the format `field:order` for the value of the `sort` field, where `field` is the name of the field you want to sort by, and `order` can be `1` for ascending and `-1` for descending. For example, to sort users in ascending order by the `created_at` field you can pass the value of `created_at:1` for the `sort` parameter. Sorting by `app_metadata` or `user_metadata` is not supported.
 
-For more information on the `sort` and other parameters, please refer to the [Management API Explorer documentation](/api/v2#!/users/get_users).
+For more information on the `sort` and other parameters, please refer to the [Management API Explorer documentation](/api/v2#!/Users/get_users).
 
 ::: note
 If there is no default sort field specified, some users that have never logged in, may not appear. No default sort field may also result in duplicate records returned and the order of list of users may appear random.

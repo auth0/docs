@@ -20,6 +20,12 @@ Authorization can be determined through the use of [policies](/authorization/con
 
 Since only the API can know all of the possible actions that it can handle, it should have its own internal access control system in which it defines its own permissions. To determine a calling application's effective permissions, an API should combine incoming scopes with the permissions assigned within its own internal access control system and make access control decisions accordingly.
 
+## Role-based access control in Auth0
+
+<%= include('../_includes/_rbac_methods') %>
+
+<%= include('../_includes/_rbac_vs_extensions') %>
+
 ## Keep reading
 
 - [Role-Based Access Control (RBAC)](/authorization/concepts/rbac)

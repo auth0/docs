@@ -13,11 +13,11 @@ sitemap: false
 
 # PSaaS Appliance: Authenticated Testing Endpoints
 
-Auth0 offers endpoints that allow you to check the system health of a specific resource. In this article, we will cover the authenticated endpoints, which are available onto to those who submit requests whose header contains the appropriate credentials.
+Auth0 offers endpoints that allow you to check the system health of a specific resource. In this article, we will cover the authenticated endpoints, which are available to those who submit requests whose header contains the appropriate credentials.
 
 The authenticated endpoints are similar to the Test All endpoints in that both return positive or negative status information about system resources.
 
-Authenticated endpoints do not provide detailed information about the system's resource utilization. Instead, they return an HTTP status reflecting the status of a given resource.  Using the third-party tools of your choice, you can set up alerts that activate based on the status codes returned by Auth0's endpoints.
+Authenticated endpoints do not provide detailed information about the system's resource utilization. Instead, they return an HTTP status reflecting the status of a given resource. Using the third-party tools of your choice, you can set up alerts that activate based on the status codes returned by Auth0's endpoints.
 
 ## How to generate an API key
 
@@ -35,12 +35,12 @@ Once confirmed, you will see that the key now populates the previously-blank fie
 
 ![](/media/articles/appliance/api-keys/key.png)
 
-Scroll to the bottom of the page and click Save to apply the new API Key value.
+Scroll to the bottom of the page, and click Save to apply the new API Key value.
 
-At this point, Auth0 does a reconfiguration and restarts the health service.  Once this process completes, you will be able to use your new API key.
+At this point, Auth0 does a reconfiguration and restarts the health service. Once this process completes, you will be able to use your new API key.
 
 :::panel-warning Changing Your API Key
-You may only use one API key at a time. If you generate a new key, be sure to provide the new key to your existing applications and services, otherwise they will fail.
+You may only use one API key at a time. If you generate a new key, be sure to provide the new key to your existing applications and services; otherwise, they will fail.
 :::
 
 ## Authenticated API Endpoints
@@ -82,7 +82,7 @@ None of the responses will include a body.
 
 #### GET /status/cpu
 
-This endpoint returns information about the overall available CPU capacity in the last minute on the PSaaS Appliance. Overall CPU capacity means that all CPU time is aggregated and compared with the time that any core was not idle. For example if a four core PSaaS Appliance node had two cores completely utilized and two cores completely idle the CPU capacity calculated will be 50%.
+This endpoint returns information about the overall available CPU capacity in the last minute on the PSaaS Appliance. Overall CPU capacity means that all CPU time is aggregated and compared with the time that any core was not idle. For example, if a four-core PSaaS Appliance node had two cores completely utilized and two cores completely idle, the CPU capacity calculated will be 50%.
 
 | Response Code | Response |
 | ------------- | -------- |
@@ -102,7 +102,7 @@ This endpoint returns information on the amount of memory available on the PSaaS
 
 #### GET /status/disk
 
-This endpoint returns information on disk utilization. Each node has a set number of volumes – if there is at list one volume that's utilizing more than 90% of the allocated disk space, the endpoint returns a warning.
+This endpoint returns information on disk utilization. Each node has a set number of volumes; if there is at least one volume that's utilizing more than 90% of the allocated disk space, the endpoint returns a warning.
 
 | Response Code | Response |
 | ------------- | -------- |

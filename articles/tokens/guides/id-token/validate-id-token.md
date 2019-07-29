@@ -29,9 +29,9 @@ Auth0 will generate the ID Token in <dfn data-key="json-web-token">JSON Web Toke
 
 A correctly formatted, or well-formed, JWT consists of three concatenated base64url-encoded strings, separated by dots (`.`):
 
-* The **Header** contains metadata about the type of token and the cryptographic algorithms used to secure its contents.
-* The **Body**, also called the payload, contains identity claims about a user. Additional custom claims can also be added to the payload, although in cases where the JWT will be returned via a URL, care must be taken to keep the JWT within browser size limitations for URLs.
-* The **Signature** is used to validate that the token is trustworthy and has not been tampered with.
+* The `header` contains metadata about the type of token and the cryptographic algorithms used to secure its contents.
+* The `payload`, which is the body of the JWT, contains identity claims about a user. Additional custom claims can also be added to the payload, although in cases where the JWT will be returned via a URL, care must be taken to keep the JWT within browser size limitations for URLs.
+* The `signature` is used to validate that the token is trustworthy and has not been tampered with.
 
 To see for yourself what is inside a JWT, use the [JWT.io Debugger](https://jwt.io/#debugger). It will allow you to quickly check that a JWT is well formed and manually inspect the values of the various claims.
 
