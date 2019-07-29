@@ -12,20 +12,18 @@ useCase:
   - support
 ---
 
-# How to Reset Your Auth0 Account Password
+# Reset Your Auth0 Account Password
 
 If you need to change your password or you have forgotten the password to your Auth0 account, you can use the password reset flow to set a new password.
 
-## Notes and caveats
+Keep in mind the following considerations:
 
 * If you've enabled <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> and you need your account reset, please [contact Support](${env.DOMAIN_URL_SUPPORT}).
 * If you're using a social or enterprise account to log in to Auth0, you will need to reset your password with the appropriate identity provider.
 * If you are an administrator trying to reset a *user's* password, see [Change Users' Passwords](/connections/database/password-change).
 * If you are an administrator trying to configure the custom Password Reset page, see [Password Reset Page](/hosted-pages/password-reset).
 
-## Reset your password
-
-You can reset the password for your Auth0 account using the following steps:
+Reset the password for your Auth0 account using the following steps:
 
 1. If you are already logged in to your Auth0 account, click on your username in the top right corner. Select **Logout**.
 
