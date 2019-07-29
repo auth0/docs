@@ -14,7 +14,7 @@ useCase:
 # Export Data Out of Auth0
 
 All data in your Auth0 tenant is always under your control and is [available through the management API](/api/v2) at any time.
-The only information which is not available through the API are the password hashes of your [Auth0-hosted database users](/connections/database) and private keys, for security reasons.
+The only information which is not available through the API (for security reasons) are the password hashes of your [Auth0-hosted database users](/connections/database) and private keys.
 You can still request this information by opening a [support ticket](${env.DOMAIN_URL_SUPPORT}). Please note that this operation is not available for our Free subscription tier.
 
 ## Keep user credentials on your infrastructure
