@@ -1,4 +1,4 @@
-Load tests require prior approval from Auth0, as explained in the Auth0 [load test policy](https://auth0.com/docs/policies/load-testing). If your load test request has been approved, the following guidance can help avoid errors and faulty test results.
+Load tests require prior approval from Auth0, as explained in the Auth0 [load test policy](https://auth0.com/docs/policies/load-testing). Be sure to note the lead time for a request to be reviewed and allow enough time for review as well as conducting the tests. If your load test request has been approved, the following guidance can help avoid errors and faulty test results.
 
 * Run an HTTP trace on a test execution of your application to identify all the calls your application or intended test needs to make, and make sure your test includes them so it is representative of what will happen in production.
 * Design your test to be mindful of Auth0 API rate limits.
