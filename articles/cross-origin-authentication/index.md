@@ -1,5 +1,5 @@
 ---
-title: Cross-origin Authentication
+title: Cross-Origin Authentication
 description: An explanation of cross-origin authentication in Auth0 and its compatibility with browsers.
 topics:
   - cors
@@ -13,7 +13,7 @@ useCase:
 
 Auth0 strongly recommends that authentication transactions be handled via [Universal Login](/hosted-pages/login). Doing so offers [the easiest and most secure way to authenticate users](guides/login/universal-vs-embedded). However, some situations may require that authentication forms be directly embedded in an application. Although not recommended, cross-origin authentication provides a way to do this.
 
-## What is Cross-Origin Authentication?
+## What is cross-origin authentication?
 
 When authentication requests are made from your application (via the Lock widget or a custom login form) to Auth0, the user's credentials are sent to a domain which differs from the one that serves your application. Collecting user credentials in an application served from one origin and then sending them to another origin can present certain security vulnerabilities, including the possibility of a phishing attack.
 
@@ -34,7 +34,7 @@ There are two approaches you can follow to remediate the issue:
 
 These issues are another reason why the more practical solution is to use [Universal Login](/hosted-pages/login).
 
-## Configure Your Application for Cross-Origin Authentication
+## Configure your application for cross-origin authentication
 
 Configuring your application for cross-origin authentication is a process that requires a few steps:
 
@@ -42,7 +42,7 @@ Configuring your application for cross-origin authentication is a process that r
 1. Ensure that your application is using [Lock](/libraries/lock) 11 or higher, or [Auth0.js](/libraries/auth0js) version 9 or higher.
 1. If you don't enable [Custom Domains](/custom-domains), you will need to create a page which uses auth0.js to act as a fallback for the cross-origin transaction. More information on setting up this page is provided below.
 
-## Create a Cross-Origin Verification Page
+## Create a cross-origin verification page
 
 There are some cases when third-party cookies will not be available. Certain browser versions do not support third party cookies and, if they do, there will be times that they will be disabled in a user's settings. You can use auth0.js in your application on a dedicated page to properly handle cases when third-party cookies are disabled. **This page must be served over SSL**.
 
