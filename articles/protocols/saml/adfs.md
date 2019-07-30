@@ -1,205 +1,139 @@
 ---
-description: How to Set up an Auth0 SAML Connection Against ADFS
+description: How to Set up an Auth0 SAML Connection Against AD FS
 toc: true
 topics:
   - saml
   - adfs
+  - active-directory-federation-services
 contentType:
   - how-to
 useCase:
   - add-idp
+  - saml-adfs
 ---
 
-# ADFS SAML Connection
+# Set Up an AD FS SAML Connection
 
-Auth0 allows you to create a custom <dfn data-key="security-assertion-markup-language">SAML</dfn> connection to Microsoft's Active Directory Federation Services. In addition to getting a bit more flexibility when configuring your mappings, the SAML Connection allows you identity provider-initiated flows (this is something that you cannot do with WS-Fed).
+Create a custom <dfn data-key="security-assertion-markup-language">SAML</dfn> connection to Microsoft's Active Directory Federation Services (AD FS) to get more flexibility when configuring your mappings. The SAML Connection allows you identity provider-initiated flows which you cannot do with WS-Fed.
 
-## Step 1: Configure ADFS
+To create the custom connection, you will need to:
 
-To get your ADFS server ready, you'll need to:
+1. Configure AD FS.
+2. Create a SAML connection where Auth0 acts as the service provider.
+3. Edit the Relying Party Trust in AD FS.
+4. Enable and test your integration.
 
-1. Add a relying party trust
-2. Edit your claim issuance policy
-3. Obtain your federation metadata
-4. Export the signing certificate to upload to Auth0 
+## Configure AD FS
 
 ### Add a Relying Party Trust
 
-To begin, you'll need to [create a relying party trust](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/create-a-relying-party-trust).
+See [Create a relying party trust](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/create-a-relying-party-trust) for complete details.
 
-Begin by launching your instance of ADFS. Start the **Add Relying Party Trust** wizard.
-
-![](/media/articles/protocols/saml-adfs/saml1.png)
-
-On the **Welcome** page, choose **Claims aware** and click **Start**.
-
-![](/media/articles/protocols/saml-adfs/saml2.png)
-
-You'll see the **Select Data Source** page at this point. Select **Enter data about the relying party manually** and click Next to proceed.
-
-![](/media/articles/protocols/saml-adfs/saml3.png)
-
-On the **Specify Display Name** page, provide a descriptive name for your relying party (the typical format is `urn:auth0:${account.namespace}`) and a brief description under **Notes**. Click **Next**.
-
-![](/media/articles/protocols/saml-adfs/saml4.png)
-
-Next up is the **Configure Certificate** page. For now, we will skip this step, so click **Next** to proceed.
-
-![](/media/articles/protocols/saml-adfs/saml5.png)
-
-On the **Configure URL** page, check the box for **Enable support for the SAML 2.0 WebSSO protocol**. The wizard then asks for a **Relying party SAML 2.0 SSO service URL**. For the time being, provide a placeholder URL; we will return to this step at a later point. Click **Next**.
-
-![](/media/articles/protocols/saml-adfs/saml6.png)
-
-On the **Configure Identifiers** page, indicate that the **Relying party trust identifier** is `urn:auth0:${account.namespace}` (or whatever value you used as the display name when you started using the wizard). Click **Next**.
-
-![](/media/articles/protocols/saml-adfs/saml7.png)
-
-On the **Choose Access Control Policy** page, select **Permit everyone** and click **Next**.
-
-![](/media/articles/protocols/saml-adfs/saml8.png)
-
-Finally, review the settings you provided on the **Ready to Add Trust** page and click **Next** to save your information.
-
-![](/media/articles/protocols/saml-adfs/saml9.png)
-
-If you were successfully, you'll see a message indicating such on the **Finish** page. Make sure that the **Configure claims issuance policy for this application** checkbox is selected, and click **Close**.
-
-![](/media/articles/protocols/saml-adfs/saml10.png)
+1. Launch your instance of AD FS and start the **Add Relying Party Trust** wizard.
+2. On the **Welcome** page, choose **Claims aware** and click **Start**. 
+3. On the **Select Data Source** page, select **Enter data about the relying party manually** and click **Next**.
+4. On the **Specify Display Name** page, provide a descriptive name for your relying party (the typical format is `urn:auth0:${account.namespace}`) and a brief description under **Notes**. Click **Next**.
+5. On the **Configure Certificate** page, click **Next**. (We will come back to configure the certificate later.)
+6. On the **Configure URL** page, check the box for **Enable support for the SAML 2.0 WebSSO protocol**. The wizard then asks for a **Relying party SAML 2.0 SSO service URL**. For the time being, provide a placeholder URL; we will return to this step later. Click **Next**.
+7. On the **Configure Identifiers** page, indicate that the **Relying party trust identifier** is `urn:auth0:${account.namespace}` (or whatever value you used as the display name when you started using the wizard). Click **Next**.
+8. On the **Choose Access Control Policy** page, select **Permit everyone** and click **Next**.
+9. Review the settings you provided on the **Ready to Add Trust** page and click **Next** to save your information. If you were successful, you'll see a message indicating that on the **Finish** page. 
+10. Make sure that the **Configure claims issuance policy for this application** checkbox is selected, and click **Close**.
 
 ### Edit the Claim Issuance Policy
 
-Immediately after you've closed out of the Add Relying Party Trust wizard, you'll see the **Edit Claim Issuance Policy** window pop up.
+Immediately after you've closed out of the Add Relying Party Trust wizard, you'll see the **Edit Claim Issuance Policy** window.
 
-![](/media/articles/protocols/saml-adfs/saml11.png)
+1. Click **Add Rule...** to launch the wizard. 
+2. Select **Send LDAP Attributes as Claims** for your **Claim rule template**, and click **Next** to proceed.
+3. Provide a value for the **Claim rule name**, such as "LDAP Attributes" (it can be anything you want). 
+4. Choose **Active Directory** as your **Attribute Store**. 
+5. Map your LDAP attributes to the following outgoing claim types:
 
-Click **Add Rule...** to launch the wizard. Use **Send LDAP Attributes as Claims** for your **Claim rule template**, and click **Next** to proceed.
+    | LDAP Attribute | Outgoing Claim |
+    | - | - |
+    | E-Mail-Addresses | E-Mail Address |
+    | Display-Name | Name |
+    | User-Principal-Name | Name ID |
+    | Given-Name | Given Name |
+    | Surname | Surname |
 
-![](/media/articles/protocols/saml-adfs/saml12.png)
+    The only mandatory mapping you need is for the email address, but we strongly recommend adding all of the ones listed above, especially **Name ID**, since they are the ones most commonly used.
 
-Provide a value for the **Claim rule name**, such as LDAP Attributes (it can be anything you want). Choose **Active Directory** as your **Attribute Store**. Map your LDAP attributes to outgoing claim types as shown below:
-
-| LDAP Attribute | Outgoing Claim |
-| - | - |
-| E-Mail-Addresses | E-Mail Address |
-| Display-Name | Name |
-| User-Principal-Name | Name ID |
-| Given-Name | Given Name |
-| Surname | Surname |
-
-The only mandatory mapping you need is for the email address, but we strongly recommend adding all of the ones listed above, especially **Name ID**, since they are the ones most commonly used.
-
-Click **Finish**.
-
-![](/media/articles/protocols/saml-adfs/saml13.png)
-
-Back on the **Edit Claim Issuance Policy** window, click **Apply**. 
-
-![](/media/articles/protocols/saml-adfs/saml14.png)
-
-You can now exit out of this window.
+6. Click **Finish**.
+7. Back on the **Edit Claim Issuance Policy** window, click **Apply**. You can now exit out of this window.
 
 ### Obtain the Federation Metadata
 
-To get your Federation Metadata, navigate to the following URL:
+1. To get your Federation Metadata, navigate to the following URL:
 
-`https://your-server/FederationMetadata/2007-06/FederationMetadata.xml`
+    `https://your-server/FederationMetadata/2007-06/FederationMetadata.xml`
 
-Your file will looking something like this:
+    Your file will looking something like this:
 
-![](/media/articles/protocols/saml-adfs/saml21.png)
+    ![Federation Metadata Example](/media/articles/protocols/saml-adfs/saml21.png)
 
-Save the file for later use.
+2. Save the file to use later.
 
 ### Export the Signing Certificate
 
-Finally, you'll need to export the signing certificate from the ADFS console to upload it to Auth0 at a later point.
+Finally, you'll need to export the signing certificate from the AD FS console to upload it to Auth0 at a later point.
 
-Using the left-hand navigation pane, go to **ADFS > Service > Certificates**. Select the **Token-signing** certificate, and right click to select **View Certificate**.
+1. Using the left-hand navigation pane, go to **AD FS > Service > Certificates**. Select the **Token-signing** certificate, and right click to select **View Certificate**.
+2. On the **Details** tab, click **Copy to File...**. This launches the Certificate Export Wizard. Click **Next** to proceed.
+3. Choose **Base-64 encoded X.509 (.CER)** as the format you'd like to use. Click **Next**.
+4. Provide the location to where you want the certificate exported. Click **Next**.
+5. Verify that the settings for your certificate are correct. If they are, click **Finish** to proceed with the export process.
 
-![](/media/articles/protocols/saml-adfs/saml15.png)
+## Create a SAML connection with Auth0 as the service provider
 
-On the **Details** tab, click **Copy to File...**.
+1. Follow the tutorial on creating a SAML connection where [Auth0 acts as the service provider](/protocols/saml/saml-sp-generic). Where prompted, upload the signing certificate you exported from AD FS.
 
-![](/media/articles/protocols/saml-adfs/saml16.png)
+    The sign in and sign out URLs are usually in the form of `https://your.adfs.server/adfs/ls`.
 
-This launches the Certificate Export Wizard. Click **Next** to proceed.
+2. Click **Save**. A page with instructions for creating a new relying party trust in AD FS.
 
-![](/media/articles/protocols/saml-adfs/saml17.png)
+    You'll need the following parameters:
 
-Choose **Base-64 encoded X.509 (.CER)** as the format you'd like to use. Click **Next**.
+    | Parameter | Sample Value |
+    | - | - |
+    | Post-back URL | `https://{yourAuth0accountdomain}/login/callback}/login/callback?connection={your new SAML connection}` |
+    | Entity ID | `urn:auth0:account:connection` |
 
-![](/media/articles/protocols/saml-adfs/saml18.png)
+    The set of instructions will display the exact values required for your Auth0 account/connection.
 
-Provide the location to where you want the certificate exported. Click **Next**.
+## Edit the Relying Party Trust
 
-![](/media/articles/protocols/saml-adfs/saml19.png)
+1. In the AD FS console, go to **AD FS > Relying Party Trusts** using the left-hand navigation pane. Select the relying party trust you created earlier and click **Properties** (located on the right-hand navigation pane). 
+2. Select the **Identifiers** tab, and populate the **Relying Party Identifier** with the **Entity ID** value. Be sure to click **Add** to add the identifier to your list.
+3. Select the **Endpoints** tab, and select the placeholder URL you provided earlier. Click **Edit...**.
+4. Populate the **Trusted URL** with the **Post-back URL** value.
+5. Click **OK**. Finally, click **Apply** and exit the Properties window.
 
-Verify that the settings for your certificate are correct. If they are, click **Finish** to proceed with the export process.
+### Optional: Sign requests
 
-![](/media/articles/protocols/saml-adfs/saml20.png)
+Optionally, you can sign your SAML requests to the AD FS server.
 
-## Step 2: Configure Auth0
-
-Follow the tutorial on creating a SAML connection where [Auth0 acts as the service provider](/protocols/saml/saml-sp-generic). Where prompted, upload the signing certificate you exported from ADFS.
-
-::: note
-The sign in and sign out URLs are usually in the form of `https://your.adfs.server/adfs/ls`.
-:::
-
-Click **Save**.
-
-## Step 3: Edit the Relying Party Trust
-
-Once you have set the required parameters for creating your Auth0 connection and clicked **Save**, you'll see a page with instructions on creating a new relying party trust in ADFS. You'll need the following parameters:
-
-| Parameter | Sample Value |
-| - | - |
-| Post-back URL | `https://{yourAuth0accountdomain}/login/callback}/login/callback?connection={your new SAML connection}` |
-| Entity ID | `urn:auth0:account:connection` |
-
-The set of instructions presented to you after you've created your new connection will also have the exact values required for your Auth0 account/connection.
-
-In the ADFS console, go to **ADFS > Relying Party Trusts** using the left-hand navigation pane. Select the relying party trust you created in step 1 and click **Properties** (located on the right-hand navigation pane). 
-
-![](/media/articles/protocols/saml-adfs/saml22.png)
-
-Switch over to the **Identifiers** tab, and populate the **Relying Party Identifier** with the **Entity ID** value. Be sure to click **Add** to add the identifier to your list.
-
-![](/media/articles/protocols/saml-adfs/saml23.png)
-
-Switch over to the **Endpoints** tab, and select the placeholder URL you provided earlier. Click **Edit...**.
-
-![](/media/articles/protocols/saml-adfs/saml24.png)
-
-Populate the **Trusted URL** with the **Post-back URL** value.
-
-![](/media/articles/protocols/saml-adfs/saml25.png)
-
-Click **OK**. Finally, click **Apply** and exit the Properties window.
-
-### Signing Requests
-
-**Optionally**, if you want to sign your SAML requests to the ADFS server:
-
-1. Go to the **Settings** page for your SAMLP Identity Provider in the Dashboard
+1. Go to the **Settings** page for your SAMLP Identity Provider in the Dashboard.
 2. Enable **Sign Requests**.
 3. Just below the **Sign Requests** toggle is a link to download your certificate.
-4. Return to ADFS and load the downloaded certificate using the **Signatures** tab of the Relying Party properties dialog.
+4. Return to AD FS and load the downloaded certificate using the **Signatures** tab of the Relying Party properties dialog.
 
-### Map Your Claims
+### Map your claims
 
-You can add additional claims mappings if necessary; for assistance on which LDAP attributes map to which Outgoing Claim Type, see [Connect Your App to ADFS](/connections/enterprise/adfs).
+You can add additional claim mappings if necessary. See [Connect Your Application to Microsoft AD FS](/connections/enterprise/adfs) for more information.
 
-## Step 4: Enable and Test Your Integration.
+## Enable and test your integration
 
-Before you can test your Auth0-ADFS integration, you'll need to make sure that you've completed the following steps:
+Before you can test your integration, make sure that you've completed the following steps:
 
-1. Create a user on the IdP that you can use to test your newly-created Connection.
-2. [Enable your Connection](/connections) for at least one Application.
+* Created a user on the IdP that you can use to test your new connection.
+* [Enabled your Connection](/connections) for at least one application.
 
-To test your connection, navigate to **Connections > Enterprise > ADFS**. Click the ADFS row (or the hamburger icon to the right) to bring up a list of your ADFS connections. Identify the one you're testing, and click the **play** button to test the connection.
+1. To test your connection, navigate to **Connections > Enterprise > AD FS**. 
+2. Click the AD FS row (or the hamburger icon to the right) to bring up a list of your AD FS connections. 
+3. Identify the one you want to test and click the **play** button to test the connection.
 
 ## Troubleshooting
 
-If you have any issues with your SAML ADFS configuration, please see our [troubleshooting docs](/protocols/saml/saml-configuration/troubleshoot).
+If you have any issues with your SAML AD FS configuration, see [Troubleshooting SAML Configuration](/protocols/saml/saml-configuration/troubleshoot) for more information.

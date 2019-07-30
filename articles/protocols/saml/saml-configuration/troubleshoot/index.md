@@ -11,7 +11,7 @@ useCase:
   - add-idp
 ---
 
-# Troubleshooting
+# Troubleshooting SAML Configuration
 
 This guide serves to help you troubleshoot any issues that may arise during the <dfn data-key="security-assertion-markup-language">SAML</dfn> configuration process. It is not intended to be an exhaustive guide, but one that covers the most commonly encountered issues during setup.
 
