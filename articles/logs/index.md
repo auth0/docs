@@ -127,6 +127,7 @@ The following table lists the codes associated with the appropriate log events.
 | `coff` | Connector Offline | AD/LDAP Connector is offline | [Active Directory/LDAP Connector](/connector) |
 | `con` | Connector Online | AD/LDAP Connector is online and working | [Active Directory/LDAP Connector](/connector) |
 | `cs` | Code Sent | Passwordless login code has been sent | [Passwordless](/connections/passwordless) |
+| `depnote` | Deprecation Notice | | |
 | `du` | Deleted User | User has been deleted. | [User Profile](/users/concepts/overview-user-profile) |
 | `f` | Failed Login | | |
 | `fapi` | Failed API Operation | | |
