@@ -11,4 +11,4 @@ Auth0's **Private Cloud** option provides you with a dedicated (or single-subscr
 
 With the Private Cloud, Auth0 will handle a majority of the requirements for initial setup and maintenance. Afterward, you'll be on a set update pattern, typically no more frequent than every 30 days.
 
-You'll get the ease of management that comes with using our Public Cloud combined with the power and security of our [Managed Private Cloud](/private-saas-deployment/managed-private-cloud).
+You'll get the ease of management that comes with using our Public Cloud combined with the power and security of our [Managed Private Cloud](/private-cloud/managed-private-cloud).

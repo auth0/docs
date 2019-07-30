@@ -1,9 +1,9 @@
 ---
-section: private-saas-deployment
+section: private-cloud
 description: Infrastructure requirements for the customer-hosted Managed Private Cloud
 topics: private-cloud
 contentType: concept
-useCase: private-saas-deployment
+useCase: private-cloud
 ---
 # Infrastructure Requirements for the Customer-Hosted Managed Private Cloud
 
@@ -73,7 +73,7 @@ All servers in the cluster must:
 * Be able to communicate over ports 7777, 27017, 8721, and 8701
 * Listen for and accept traffic from the load balancer over ports 443 and 4443
 
-For a complete listing of IP addresses and ports used, see the [IP/Domain and Port List](/private-saas-deployment/onboarding/managed-private-cloud/ip-domain-port-list).
+For a complete listing of IP addresses and ports used, see the [IP/Domain and Port List](/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list).
 
 ## Internet connectivity
 

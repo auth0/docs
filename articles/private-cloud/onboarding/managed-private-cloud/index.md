@@ -1,16 +1,16 @@
 ---
-section: private-saas-deployment
+section: private-cloud
 description: Overview of the Private Cloud onboarding process
 topics: private-cloud
 contentType: concept
-useCase: private-saas-deployment
+useCase: private-cloud
 ---
 # Managed Private Cloud Onboarding
 
 This article will cover all facets of the **Managed Private Cloud** (both Auth0-hosted and customer-hosted) onboarding process, including timelines, information about future updates, technical requirements, and implementation instructions for key Managed Private Cloud features.
 
 ::: note
-If you are a Private Cloud customer, please see [Private Cloud Onboarding](/private-saas-deployment/onboarding/private-cloud). 
+If you are a Private Cloud customer, please see [Private Cloud Onboarding](/private-cloud/onboarding/private-cloud). 
 :::
 
 ## Timeline
@@ -29,7 +29,7 @@ At the end of the implementation process, you're ready for the **Environment Han
 
 ## Infrastructure
 
-Customers hosting Auth0 using Amazon Web Services should review the [infrastructure requirements](/private-saas-deployment/onboarding/managed-private-cloud/infrastructure), as well as the [IP/Domain and Port List](/private-saas-deployment/onboarding/managed-private-cloud/ip-domain-port-list) required for PSaaS deployments.
+Customers hosting Auth0 using Amazon Web Services should review the [infrastructure requirements](/private-cloud/onboarding/managed-private-cloud/infrastructure), as well as the [IP/Domain and Port List](/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list) required for Private Cloud deployments.
 
 ## Updates
 

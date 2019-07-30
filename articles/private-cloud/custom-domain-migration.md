@@ -1,8 +1,8 @@
 # Custom Domain Migration
 
-Beginning with Private SaaS release 1906, dedicated deployments will include the ability to fully utilize the [Auth0 Custom Domains](/custom-domains) feature.
+Beginning with Private Cloud release 1906, dedicated deployments will include the ability to fully utilize the [Auth0 Custom Domains](/custom-domains) feature.
 
-Existing Private SaaS customers using Custom Domains must complete a migration of their PSaaS Custom Domains to the Auth0 Custom Domains features. New customers/deployments will automatically use the Auth0 Custom Domains features.
+Existing Private Cloud customers using Custom Domains must complete a migration of their Private Cloud Custom Domains to the Auth0 Custom Domains features. New customers/deployments will automatically use the Auth0 Custom Domains features.
 
 ::: note
 The Auth0 Custom Domains feature will be available in release 1905 for those who wish to opt-in early.
@@ -10,11 +10,11 @@ The Auth0 Custom Domains feature will be available in release 1905 for those who
 
 ## Background
 
-Auth0 added support for custom domains in the PSaaS platform in January 2016. This implementation allowed PSaaS administrators to create one or more custom domains per tenant and invoke the Authentication API endpoints using those domains.
+Auth0 added support for custom domains in the Private Cloud platform in January 2016. This implementation allowed Private Cloud administrators to create one or more custom domains per tenant and invoke the Authentication API endpoints using those domains.
 
-In March 2018, Auth0 added support for custom domains for those deploying on the Public Cloud. However, the feature included additional capabilities not included on the PSaaS implementation. The following table summarizes the differences.
+In March 2018, Auth0 added support for custom domains for those deploying on the Public Cloud. However, the feature included additional capabilities not included on the Private Cloud implementation. The following table summarizes the differences.
 
-| Feature | Public Cloud | Private SaaS |
+| Feature | Public Cloud | Private Cloud |
 | - | - | - |
 | Use of custom domain in emails | Yes | No |
 | Custom domain protection via API keys | Yes | No |
@@ -27,12 +27,12 @@ In March 2018, Auth0 added support for custom domains for those deploying on the
 
 * A new DNS domain dedicated to the Custom Domain's origin server hostname. This could be a subdomain of your existing Auth0 Domain (i.e., if your domain name is `*.auth.mydomain.com`, the new subdomain would be `*.cd.auth.mydomain.com`).
 * A wildcard public SSL certificate for the new DNS domain.
-* A layer 4 network load balancer. This could be the existing one used by your PSaaS deployment. Please note that if you are using a layer 7 load balancer, you **must** add a layer 4 load balancer.
+* A layer 4 network load balancer. This could be the existing one used by your Private Cloud deployment. Please note that if you are using a layer 7 load balancer, you **must** add a layer 4 load balancer.
 * A DNS record pointing to the layer 4 load balancer.
 
 ## Migration
 
-Current Private SaaS customers using the existing PSaaS Custom Domains functionality **must migrate to the Auth0 Custom Domains** feature to fully benefit from the features available.
+Current Private Cloud customers using the existing Private Cloud Custom Domains functionality **must migrate to the Auth0 Custom Domains** feature to fully benefit from the features available.
 
 ## Migration process
 
@@ -57,7 +57,7 @@ Before beginning the migration process, Auth0 will reach out to you to explain t
 ### Infrastructure preparation phase
 
 ::: note
-If your Private SaaS deployment resides in an Auth0-hosted environment, Auth0 will prepare your environment for migration on your behalf.
+If your Private Cloud deployment resides in an Auth0-hosted environment, Auth0 will prepare your environment for migration on your behalf.
 :::
 
 During this stage, you will need to:

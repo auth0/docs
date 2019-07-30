@@ -131,7 +131,7 @@ The following tables describe operational and feature differences between these 
 
 <sup>*</sup>Access to the Managed Private Cloud can be restricted to customer's private subnets.
 
-<sup>**</sup>See the **PSaaS Appliance** section the Auth0 [Service Level Description](https://auth0.com/legal).
+<sup>**</sup>See the **PSaaS Appliance** section the Auth0 [Service Level Description](https://auth0.com/legal) (located under **Support Program and Service Levels**).
 
 <sup>***</sup>Deployments to China are currently unavailable.
 
