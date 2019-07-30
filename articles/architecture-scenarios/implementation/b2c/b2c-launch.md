@@ -15,7 +15,7 @@ useCase:
 
 ## Tenant check
 
-<%= include('../../_includes/_launch/_tenant_check.md', { platform: 'b2c' }) %>
+<%= include('../../_includes/_launch/_tenant-check.md', { platform: 'b2c' }) %>
 
 ## Testing
 
