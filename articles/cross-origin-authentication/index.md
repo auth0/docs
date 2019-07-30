@@ -11,7 +11,7 @@ useCase:
 ---
 # Cross-Origin Authentication
 
-Auth0 strongly recommends that authentication transactions be handled via [Universal Login](/hosted-pages/login). Doing so offers [the easiest and most secure way to authenticate users](guides/login/universal-vs-embedded). However, some situations may require that authentication forms be directly embedded in an application. Cross-origin authentication provides a way to do this however it is not recommended.
+Auth0 strongly recommends that authentication transactions be handled via [Universal Login](/hosted-pages/login). Doing so offers [the easiest and most secure way to authenticate users](guides/login/universal-vs-embedded). However, some situations may require that authentication forms be directly embedded in an application. Although not recommended, cross-origin authentication provides a way to do this.
 
 ## What is Cross-Origin Authentication?
 
