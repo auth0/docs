@@ -21,7 +21,7 @@ Affected customers are those who meet all of the following criteria:
 * With tenants hosted in Auth0's public cloud in the AU or EU regions
 * Who use the [GET /api/v2/logs](/api/v2#!/Logs/get_logs) or the [GET /api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user) endpoint with the parameter `include_totals=true` or the `q` parameter.
 * Who paginate through more than 1000 results
-* Who are using the Delegated Admin Extension
+* Who use the Delegated Admin Extension
   * Older versions of the extension will continue to work after your Tenant is migrated to Logs Search Engine v3, however you might notice pagination totals being incorrect when viewing logs. Updating to v3.7 of the extension will address this.
 
 The following tenants are NOT affected:
