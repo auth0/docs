@@ -17,7 +17,7 @@ You can use [Rules](/rules) to redirect users before an authentication transacti
 * Securely performing a one-time collection of additional required profile data.
 * Allowing remote Active Directory users to change their password.
 * Requiring users to provide additional verification when logging in from unknown locations.
-* Gather more information about your users than they provided at initial signup.
+* Gathering more information about your users than they provided at initial signup.
 
 For some examples of redirect Rules, check out our [Rules repo](https://github.com/auth0/rules/tree/master/redirect-rules) on GitHub.
 
