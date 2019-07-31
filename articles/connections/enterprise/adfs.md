@@ -6,7 +6,7 @@ alias:
   - active-directory-federation-services
   - adfs-2
 seo_alias: adfs
-description: How to connect AD FS with Auth0.
+description: How to connect ADFS with Auth0.
 crews: crew-2
 topics:
     - connections
@@ -22,15 +22,15 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Connect Your Application to Microsoft AD FS
+# Connect Your Application to Microsoft ADFS
 
-You will need to provide the following information to your Active Directory Federation Services (AD FS) administrator:
+You will need to provide the following information to your Active Directory Federation Services (ADFS) administrator:
 
 * Realm Identifier: `urn:auth0:${account.tenant}`
 * Endpoint: `https://${account.namespace}/login/callback` or `https://<YOUR CUSTOM DOMAIN>/login/callback`, if you are usinga  [custom domain](/custom-domains).
 
 ::: panel Federation Metadata
-The Federation Metadata file contains information about the AD FS server's certificates. If the Federation Metadata endpoint (`/FederationMetadata/2007-06/FederationMetadata.xml`) is enabled in AD FS, Auth0 can periodically (once a day) look for changes in the configuration, like a new signing certificate added to prepare for a rollover. Because of this, enabling the Federation Metadata endpoint is preferred to providing a standalone metadata file. If you provide a standalone metadata file, we will notify you via email when the certificates are close to their expiration date.
+The Federation Metadata file contains information about the ADFS server's certificates. If the Federation Metadata endpoint (`/FederationMetadata/2007-06/FederationMetadata.xml`) is enabled in ADFS, Auth0 can periodically (once a day) look for changes in the configuration, like a new signing certificate added to prepare for a rollover. Because of this, enabling the Federation Metadata endpoint is preferred to providing a standalone metadata file. If you provide a standalone metadata file, we will notify you via email when the certificates are close to their expiration date.
 :::
 
 ## Scripted setup
@@ -54,7 +54,7 @@ For automated integration, this script uses the [ADFS PowerShell SnapIn](http://
 If you are using the [custom domains](/custom-domains) feature, you will need to replace the `$webAppEndpoint` value with `https://<YOUR CUSTOM DOMAIN>/login/callback`.
 :::
 
-The script creates the Relying Party Trust on AD FS, as follows:
+The script creates the Relying Party Trust on ADFS, as follows:
 
 ```powershell
 $realm = "urn:auth0:${account.tenant}";
@@ -89,7 +89,7 @@ Set-ADFSRelyingPartyTrust –TargetName $realm –IssuanceAuthorizationRules $rS
 
 You can follow these steps to set up the connection manually.
 
-1. Open the AD FS Management Console.
+1. Open the ADFS Management Console.
 1. Click on **Add Relying Party Trust**.
 1. Click **Start** on the first step.
 1. Select **Enter data about the relying party manually** and click **Next**.
@@ -129,14 +129,14 @@ You can follow these steps to set up the connection manually.
 
 The mappings created in the previous steps are the most commonly used, but if you need additional LDAP attributes with information about the user, you can add more claim mappings.
 
-1. If you closed the window on the previous step, select **Edit Claim Rules** on the context menu for the Relying Party Trust you created, and edit the rule from step **14**).
+1. If you closed the window on the previous step, select **Edit Claim Rules** on the context menu for the Relying Party Trust you created, and edit the rule.
 
-2. Create a row for every additional LDAP attribute you need, choosing the attribute name in the left column and desired claim type in the right column.
+2. Create an additional row for every LDAP attribute you need, choosing the attribute name in the left column and desired claim type in the right column.
 
 3. If the claim type you are looking for doesn't exist, you have two options:
 
     * Type a namespace-qualified name for the new claim (for example `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`).
-    * Register a new claim type (under **AD FS | Services | Claim Descriptions**) on the AD FS admin console), and use the claim name in the mapping.
+    * Register a new claim type (under **ADFS > Services > Claim Descriptions**) on the ADFS admin console), and use the claim name in the mapping.
 
     Auth0 uses the name part of the claim type (for example `department` in `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`) as the attribute name for the user profile.
 

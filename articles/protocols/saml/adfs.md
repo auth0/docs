@@ -1,5 +1,5 @@
 ---
-description: How to Set up an Auth0 SAML Connection Against AD FS
+description: How to Set up an Auth0 SAML Connection Against ADFS
 toc: true
 topics:
   - saml
@@ -12,24 +12,24 @@ useCase:
   - saml-adfs
 ---
 
-# Setup a Microsoft AD FS SAML Connection
+# Setup a Microsoft ADFS SAML Connection
 
-Create a custom <dfn data-key="security-assertion-markup-language">SAML</dfn> connection to Microsoft's Active Directory Federation Services (AD FS) to get more flexibility when configuring your mappings. The SAML Connection allows you identity provider-initiated flows which you cannot do with WS-Fed.
+Create a custom <dfn data-key="security-assertion-markup-language">SAML</dfn> connection to Microsoft's Active Directory Federation Services (ADFS) to get more flexibility when configuring your mappings. The SAML Connection allows you identity provider-initiated flows which you cannot do with WS-Fed.
 
 To create the custom connection, you will need to:
 
-1. Configure AD FS.
+1. Configure ADFS.
 2. Create a SAML connection where Auth0 acts as the service provider.
-3. Edit the Relying Party Trust in AD FS.
+3. Edit the Relying Party Trust in ADFS.
 4. Enable and test your integration.
 
-## Configure AD FS
+## Configure ADFS
 
 ### Add a Relying Party Trust
 
 See [Create a relying party trust](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/create-a-relying-party-trust) for complete details.
 
-1. Launch your instance of AD FS and start the **Add Relying Party Trust** wizard.
+1. Launch your instance of ADFS and start the **Add Relying Party Trust** wizard.
 2. On the **Welcome** page, choose **Claims aware** and click **Start**. 
 3. On the **Select Data Source** page, select **Enter data about the relying party manually** and click **Next**.
 4. On the **Specify Display Name** page, provide a descriptive name for your relying party (the typical format is `urn:auth0:${account.namespace}`) and a brief description under **Notes**. Click **Next**.
@@ -77,9 +77,9 @@ After you close the **Add Relying Party Trust** wizard, the **Edit Claim Issuanc
 
 ### Export the Signing Certificate
 
-Finally, you'll need to export the signing certificate from the AD FS console to upload it to Auth0.
+Finally, you'll need to export the signing certificate from the ADFS console to upload it to Auth0.
 
-1. Using the left-hand navigation pane, go to **AD FS > Service > Certificates**. Select the **Token-signing** certificate, and right click to select **View Certificate**.
+1. Using the left-hand navigation pane, go to **ADFS > Service > Certificates**. Select the **Token-signing** certificate, and right click to select **View Certificate**.
 2. On the **Details** tab, click **Copy to File...**. This launches the **Certificate Export Wizard**. Click **Next**.
 3. Choose **Base-64 encoded X.509 (.CER)** as the format you'd like to use. Click **Next**.
 4. Provide the location to where you want the certificate exported. Click **Next**.
@@ -87,11 +87,11 @@ Finally, you'll need to export the signing certificate from the AD FS console to
 
 ## Create a SAML connection with Auth0 as the service provider
 
-1. Follow the tutorial on creating a SAML connection where [Auth0 acts as the service provider](/protocols/saml/saml-sp-generic). Where prompted, upload the signing certificate you exported from AD FS.
+1. Follow the tutorial on creating a SAML connection where [Auth0 acts as the service provider](/protocols/saml/saml-sp-generic). Where prompted, upload the signing certificate you exported from ADFS.
 
     The sign in and sign out URLs are usually in the form of `https://your.adfs.server/adfs/ls`.
 
-2. Click **Save**. A page with instructions for creating a new Relying Party Trust in AD FS appears displaying the exact values required for your Auth0 account/connection. Make a note of these values. 
+2. Click **Save**. A page with instructions for creating a new Relying Party Trust in ADFS appears displaying the exact values required for your Auth0 account/connection. Make a note of these values. 
 
     Here is an example: 
     
@@ -102,7 +102,7 @@ Finally, you'll need to export the signing certificate from the AD FS console to
 
 ## Edit the Relying Party Trust
 
-1. In the AD FS console, go to **AD FS > Relying Party Trusts** using the left-hand navigation pane. Select the Relying Party Trust you created earlier and click **Properties** (located on the right-hand navigation pane). 
+1. In the ADFS console, go to **ADFS > Relying Party Trusts** using the left-hand navigation pane. Select the Relying Party Trust you created earlier and click **Properties** (located on the right-hand navigation pane). 
 2. Select the **Identifiers** tab, and populate the **Relying Party Identifier** with the **Entity ID** value from the previous screen. Be sure to click **Add** to add the identifier to your list.
 3. Select the **Endpoints** tab, and select the placeholder URL you provided earlier. Click **Edit...**.
 4. Populate the **Trusted URL** with the **Post-back URL** value.
@@ -110,16 +110,16 @@ Finally, you'll need to export the signing certificate from the AD FS console to
 
 ## Optional: Enable sign requests
 
-Optionally, you can sign your SAML requests to the AD FS server.
+Optionally, you can sign your SAML requests to the ADFS server.
 
 1. Go to the **Settings** page for your SAMLP Identity Provider in the Auth0 Dashboard.
 2. Enable **Sign Requests**.
 3. Just below the **Sign Requests** toggle is a link to download your certificate.
-4. Return to AD FS and load the downloaded certificate using the **Signatures** tab of the Relying Party properties dialog.
+4. Return to ADFS and load the downloaded certificate using the **Signatures** tab of the Relying Party properties dialog.
 
 ## Optional: Map additional claims
 
-You can add additional claim mappings if necessary. See [Connect Your Application to Microsoft AD FS](/connections/enterprise/adfs#add-additional-ldap-attributes) for details.
+You can add additional claim mappings if necessary. See [Connect Your Application to Microsoft ADFS](/connections/enterprise/adfs#add-additional-ldap-attributes) for details.
 
 ## Enable and test your integration
 
@@ -128,10 +128,10 @@ Before you test your integration, make sure that you've completed the following 
 * Create a user on the IdP that you can use to test your new connection.
 * [Enable your Connection](/connections) for at least one application.
 
-1. To test your connection, navigate to **Connections > Enterprise > AD FS**. 
-2. Click the AD FS row (or the hamburger icon to the right) to bring up a list of your AD FS connections. 
+1. To test your connection, navigate to **Connections > Enterprise > ADFS**. 
+2. Click the ADFS row (or the hamburger icon to the right) to bring up a list of your ADFS connections. 
 3. Select the one you want to test and click the **play** button to test the connection.
 
 ## Troubleshooting
 
-If you have any issues with your SAML AD FS configuration, see [Troubleshooting SAML Configuration](/protocols/saml/saml-configuration/troubleshoot) for more information.
+If you have any issues with your SAML ADFS configuration, see [Troubleshooting SAML Configuration](/protocols/saml/saml-configuration/troubleshoot) for more information.
