@@ -15,7 +15,14 @@ useCase:
 <%= include('../../_includes/_launch/_introduction.md', { platform: 'b2c' }) %>
 
 
-<%= include('../../../_includes/_topic-links', { links: [ 'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-tenantcheck', 'architecture-scenarios/implementation/b2c/b2c-launch-b2c-launch-testing', 'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-operations', 'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-compliance', 'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-support', 'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-launch' ] }) %>
+<%= include('../../../_includes/_topic-links', { links: [ 
+  'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-tenantcheck',
+  'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-testing',
+  'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-operations',
+  'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-compliance',
+  'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-support',
+  'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-launch'
+ ] }) %>
 
 
 ## Project Planning Guide
