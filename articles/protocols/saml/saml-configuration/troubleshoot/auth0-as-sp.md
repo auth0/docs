@@ -207,7 +207,7 @@ The error may appear as follows:
 
 ### How to Fix
 
-Make sure first that the signature algorithm set on Auth0 connection is correctly align with the configuration on the ADFS side. Try both signature algorithm options: `rsa-sha256` or `rsa-sha1`. Alternatively you can reach out the ADFS administrator to learn the expected signing method or if they have more details in their logs for the reason of this error.
+Make sure that the signature algorithm on your Auth0 connection is the same as the configuration on the ADFS side: either `rsa-sha256` or `rsa-sha1`. Alternatively you can contact your ADFS administrator to learn the expected signing method or to see if their logs contain further information about the reason for the error.
 
 ![ADFS SAML Properties](/media/articles/protocols/saml-adfs/adfs-saml-properties.png)
 
