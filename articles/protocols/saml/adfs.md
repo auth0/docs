@@ -42,10 +42,10 @@ See [Create a relying party trust](https://docs.microsoft.com/en-us/windows-serv
 
 ### Edit the Claim Issuance Policy
 
-Immediately after you've closed out of the Add Relying Party Trust wizard, you'll see the **Edit Claim Issuance Policy** window.
+After you close the **Add Relying Party Trust** wizard, the **Edit Claim Issuance Policy** window appears.
 
 1. Click **Add Rule...** to launch the wizard. 
-2. Select **Send LDAP Attributes as Claims** for your **Claim rule template**, and click **Next** to proceed.
+2. Select **Send LDAP Attributes as Claims** for your **Claim rule template**, and click **Next**.
 3. Provide a value for the **Claim rule name**, such as "LDAP Attributes" (it can be anything you want). 
 4. Choose **Active Directory** as your **Attribute Store**. 
 5. Map your LDAP attributes to the following outgoing claim types:
@@ -61,7 +61,7 @@ Immediately after you've closed out of the Add Relying Party Trust wizard, you'l
     The only mandatory mapping you need is for the email address, but we strongly recommend adding all of the ones listed above, especially **Name ID**, since they are the ones most commonly used.
 
 6. Click **Finish**.
-7. Back on the **Edit Claim Issuance Policy** window, click **Apply**. You can now exit out of this window.
+7. In the **Edit Claim Issuance Policy** window, click **Apply**. You can now exit out of this window.
 
 ### Obtain the Federation Metadata
 
@@ -110,29 +110,29 @@ Finally, you'll need to export the signing certificate from the AD FS console to
 4. Populate the **Trusted URL** with the **Post-back URL** value.
 5. Click **OK**. Finally, click **Apply** and exit the Properties window.
 
-### Optional: Sign requests
+### Optional: Enable sign requests
 
 Optionally, you can sign your SAML requests to the AD FS server.
 
-1. Go to the **Settings** page for your SAMLP Identity Provider in the Dashboard.
+1. Go to the **Settings** page for your SAMLP Identity Provider in the Auth0 Dashboard.
 2. Enable **Sign Requests**.
 3. Just below the **Sign Requests** toggle is a link to download your certificate.
 4. Return to AD FS and load the downloaded certificate using the **Signatures** tab of the Relying Party properties dialog.
 
-### Map your claims
+### Optional: Map additional claims
 
-You can add additional claim mappings if necessary. See [Connect Your Application to Microsoft AD FS](/connections/enterprise/adfs) for more information.
+You can add additional claim mappings if necessary. See [Connect Your Application to Microsoft AD FS](/connections/enterprise/adfs#add-additional-ldap-attributes) for details.
 
 ## Enable and test your integration
 
-Before you can test your integration, make sure that you've completed the following steps:
+Before you test your integration, make sure that you've completed the following steps:
 
-* Created a user on the IdP that you can use to test your new connection.
-* [Enabled your Connection](/connections) for at least one application.
+* Create a user on the IdP that you can use to test your new connection.
+* [Enable your Connection](/connections) for at least one application.
 
 1. To test your connection, navigate to **Connections > Enterprise > AD FS**. 
 2. Click the AD FS row (or the hamburger icon to the right) to bring up a list of your AD FS connections. 
-3. Identify the one you want to test and click the **play** button to test the connection.
+3. Select the one you want to test and click the **play** button to test the connection.
 
 ## Troubleshooting
 

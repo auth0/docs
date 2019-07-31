@@ -27,7 +27,7 @@ useCase:
 You will need to provide the following information to your Active Directory Federation Services (AD FS) administrator:
 
 * Realm Identifier: `urn:auth0:${account.tenant}`
-* Endpoint: `https://${account.namespace}/login/callback` (or, if you are using the [custom domains](/custom-domains) feature, `https://<YOUR CUSTOM DOMAIN>/login/callback`)
+* Endpoint: `https://${account.namespace}/login/callback` or `https://<YOUR CUSTOM DOMAIN>/login/callback`, if you are usinga  [custom domain](/custom-domains).
 
 ::: panel Federation Metadata
 The Federation Metadata file contains information about the AD FS server's certificates. If the Federation Metadata endpoint (`/FederationMetadata/2007-06/FederationMetadata.xml`) is enabled in AD FS, Auth0 can periodically (once a day) look for changes in the configuration, like a new signing certificate added to prepare for a rollover. Because of this, enabling the Federation Metadata endpoint is preferred to providing a standalone metadata file. If you provide a standalone metadata file, we will notify you via email when the certificates are close to their expiration date.
@@ -50,7 +50,10 @@ AddRelyingParty "urn:auth0:${account.tenant}" "https://${account.namespace}/logi
 
 For automated integration, this script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/library/adfs2-powershell-basics.aspx) to create and configure a **Relying Party** that will issue, for the authenticated user, the following claims: **email**, **upn**, **given name** and **surname**.
 
-If you are using the [custom domains](/custom-domains) feature, you will need to replace the last URL in the above script with `https://<YOUR CUSTOM DOMAIN>/login/callback`.
+::: note
+If you are using the [custom domains](/custom-domains) feature, you will need to replace the `$webAppEndpoint` value with `https://<YOUR CUSTOM DOMAIN>/login/callback`.
+:::
+
 The script creates the Relying Party Trust on AD FS, as follows:
 
 ```powershell
@@ -61,8 +64,6 @@ Add-PSSnapin Microsoft.Adfs.Powershell
 Add-ADFSRelyingPartyTrust -Name $realm -Identifier $realm -WSFedEndpoint $webAppEndpoint
 $rp = Get-ADFSRelyingPartyTrust -Name $realm
 ```
-
-If you are using the [custom domains](/custom-domains) feature, you will need to replace the `$webAppEndpoint` value with `https://<YOUR CUSTOM DOMAIN>/login/callback`.
 
 The script also creates rules to output the most common attributes, such as email, UPN, given name, or surname:
 
@@ -106,32 +107,36 @@ You can follow these steps to set up the connection manually.
 1. Add a Relying party trust identifier with the following value and click **Add** and then **Next**.
 
     `urn:auth0:${account.tenant}`
-1. Leave the default option (**Permit all users...**) and click **Next**.
+1. Leave the default option `Permit all users...` and click **Next**.
 1. Click **Next** and then **Close**. The UI will show a new window to edit the **Claim Rules**.
 1. Click on **Add Rule...**.
-1. Leave the default option (**Send LDAP Attributes as Claims**).
+1. Leave the default option `Send LDAP Attributes as Claims`.
 1. Give the rule an arbitrary name that describes what it does. For example:
 
     `Map ActiveDirectory attributes (mail -> Mail, displayName -> Name, userPrincipalName -> NameID, givenName -> GiveName, sn -> Surname)`
 
-1. Select the mappings as shown in this image and click **Finish**.
+1. Select the mappings under `Mapping of LDAP attributes to outgoing claim types` as shown below and click **Finish**.
 
-    ![](/media/articles/connections/enterprise/adfs/adfs-claimrules.png)
+    | LDAP Attribute | Outgoing Claim Type |
+    | --- | --- |
+    | E-Mail-Addresses | E-Mail Address |
+    | Display-Name | Name |
+    | User-Principal-Name | Name ID |
+    | Given-Name | Given Name |
+    | Surname | Surname |
 
-1. (Optional) Add additional LDAP attributes
+### Add additional LDAP attributes
 
-    The mappings created on step **15** are the most commonly used, but if you need additional LDAP attributes with information about the user, you can add more claim mappings.
+The mappings created in the previous steps are the most commonly used, but if you need additional LDAP attributes with information about the user, you can add more claim mappings.
 
-    ::: note
-    If you closed the window on the previous step, select **Edit Claim Rules** on the context menu for the Relying Party Trust you created, and edit the rule from step **14**).
-    :::
+1. If you closed the window on the previous step, select **Edit Claim Rules** on the context menu for the Relying Party Trust you created, and edit the rule from step **14**).
 
-    Create a row for every additional LDAP attribute you need, choosing the attribute name on the left column and desired claim type on the right column.
+2. Create a row for every additional LDAP attribute you need, choosing the attribute name in the left column and desired claim type in the right column.
 
-    If the claim type you are looking for doesn't exist, you have two options:
+3. If the claim type you are looking for doesn't exist, you have two options:
 
     * Type a namespace-qualified name for the new claim (for example `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`).
-    * Register a new claim type (under **AD FS | Services | Claim Descriptions**) on the ADFS admin console), and use the claim name in the mapping.
+    * Register a new claim type (under **AD FS | Services | Claim Descriptions**) on the AD FS admin console), and use the claim name in the mapping.
 
     Auth0 uses the name part of the claim type (for example `department` in `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`) as the attribute name for the user profile.
 
