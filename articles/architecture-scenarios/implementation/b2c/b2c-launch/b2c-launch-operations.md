@@ -13,12 +13,12 @@ useCase:
 
 # Operational Readiness
 
-<%= include('../../_includes/_launch/_operations.md', { platform: 'b2c' }) %>
+<%= include('../../../_includes/_launch/_operations.md', { platform: 'b2c' }) %>
 
 
 ## Project Planning Guide
 
-<%= include('../../_includes/_planning.md', { platform: 'b2c' }) %>
+<%= include('../../../_includes/_planning.md', { platform: 'b2c' }) %>
 
 ## Keep reading
 

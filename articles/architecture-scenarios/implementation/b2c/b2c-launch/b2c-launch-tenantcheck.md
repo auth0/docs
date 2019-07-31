@@ -13,12 +13,12 @@ useCase:
 
 # Tenant configuration check
 
-<%= include('../../_includes/_launch/_tenant-check.md', { platform: 'b2c' }) %>
+<%= include('../../../_includes/_launch/_tenant-check.md', { platform: 'b2c' }) %>
 
 
 ## Project Planning Guide
 
-<%= include('../../_includes/_planning.md', { platform: 'b2c' }) %>
+<%= include('../../../_includes/_planning.md', { platform: 'b2c' }) %>
 
 ## Keep reading
 

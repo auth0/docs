@@ -9,37 +9,14 @@ contentType: concept
 useCase:
     - launch
 ---
-# Launch
 
-<%= include('../../_includes/_launch/_introduction.md', { platform: 'b2c' }) %>
+# Launch Day Readiness
 
-## Tenant check
-
-<%= include('../../_includes/_launch/_tenant-check.md', { platform: 'b2c' }) %>
-
-## Testing
-
-<%= include('../../_includes/_launch/_testing.md', { platform: 'b2c' }) %>
-
-## Operational Readiness
-
-<%= include('../../_includes/_launch/_operations.md', { platform: 'b2c' }) %>
-
-## Compliance
-
-<%= include('../../_includes/_launch/_compliance.md', { platform: 'b2c' }) %>
-
-## Support Readiness
-
-<%= include('../../_includes/_launch/_support.md', { platform: 'b2c' }) %>
-
-## Launch Day Readiness
-
-<%= include('../../_includes/_launch/_launch.md', { platform: 'b2c' }) %>
+<%= include('../../../_includes/_launch/_launch.md', { platform: 'b2c' }) %>
 
 ## Project Planning Guide
 
-<%= include('../../_includes/_planning.md', { platform: 'b2c' }) %>
+<%= include('../../../_includes/_planning.md', { platform: 'b2c' }) %>
 
 ## Keep reading
 
