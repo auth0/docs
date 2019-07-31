@@ -12,7 +12,7 @@ useCase:
   - saml-adfs
 ---
 
-# Set Up an AD FS SAML Connection
+# Setup a Microsoft AD FS SAML Connection
 
 Create a custom <dfn data-key="security-assertion-markup-language">SAML</dfn> connection to Microsoft's Active Directory Federation Services (AD FS) to get more flexibility when configuring your mappings. The SAML Connection allows you identity provider-initiated flows which you cannot do with WS-Fed.
 
@@ -77,13 +77,13 @@ After you close the **Add Relying Party Trust** wizard, the **Edit Claim Issuanc
 
 ### Export the Signing Certificate
 
-Finally, you'll need to export the signing certificate from the AD FS console to upload it to Auth0 at a later point.
+Finally, you'll need to export the signing certificate from the AD FS console to upload it to Auth0.
 
 1. Using the left-hand navigation pane, go to **AD FS > Service > Certificates**. Select the **Token-signing** certificate, and right click to select **View Certificate**.
-2. On the **Details** tab, click **Copy to File...**. This launches the Certificate Export Wizard. Click **Next** to proceed.
+2. On the **Details** tab, click **Copy to File...**. This launches the **Certificate Export Wizard**. Click **Next**.
 3. Choose **Base-64 encoded X.509 (.CER)** as the format you'd like to use. Click **Next**.
 4. Provide the location to where you want the certificate exported. Click **Next**.
-5. Verify that the settings for your certificate are correct. If they are, click **Finish** to proceed with the export process.
+5. Verify that the settings for your certificate are correct and  click **Finish**.
 
 ## Create a SAML connection with Auth0 as the service provider
 
@@ -91,26 +91,24 @@ Finally, you'll need to export the signing certificate from the AD FS console to
 
     The sign in and sign out URLs are usually in the form of `https://your.adfs.server/adfs/ls`.
 
-2. Click **Save**. A page with instructions for creating a new relying party trust in AD FS.
+2. Click **Save**. A page with instructions for creating a new Relying Party Trust in AD FS appears displaying the exact values required for your Auth0 account/connection. Make a note of these values. 
 
-    You'll need the following parameters:
-
-    | Parameter | Sample Value |
+    Here is an example: 
+    
+    | Parameter | Example Value |
     | - | - |
     | Post-back URL | `https://{yourAuth0accountdomain}/login/callback}/login/callback?connection={your new SAML connection}` |
     | Entity ID | `urn:auth0:account:connection` |
 
-    The set of instructions will display the exact values required for your Auth0 account/connection.
-
 ## Edit the Relying Party Trust
 
-1. In the AD FS console, go to **AD FS > Relying Party Trusts** using the left-hand navigation pane. Select the relying party trust you created earlier and click **Properties** (located on the right-hand navigation pane). 
-2. Select the **Identifiers** tab, and populate the **Relying Party Identifier** with the **Entity ID** value. Be sure to click **Add** to add the identifier to your list.
+1. In the AD FS console, go to **AD FS > Relying Party Trusts** using the left-hand navigation pane. Select the Relying Party Trust you created earlier and click **Properties** (located on the right-hand navigation pane). 
+2. Select the **Identifiers** tab, and populate the **Relying Party Identifier** with the **Entity ID** value from the previous screen. Be sure to click **Add** to add the identifier to your list.
 3. Select the **Endpoints** tab, and select the placeholder URL you provided earlier. Click **Edit...**.
 4. Populate the **Trusted URL** with the **Post-back URL** value.
 5. Click **OK**. Finally, click **Apply** and exit the Properties window.
 
-### Optional: Enable sign requests
+## Optional: Enable sign requests
 
 Optionally, you can sign your SAML requests to the AD FS server.
 
@@ -119,7 +117,7 @@ Optionally, you can sign your SAML requests to the AD FS server.
 3. Just below the **Sign Requests** toggle is a link to download your certificate.
 4. Return to AD FS and load the downloaded certificate using the **Signatures** tab of the Relying Party properties dialog.
 
-### Optional: Map additional claims
+## Optional: Map additional claims
 
 You can add additional claim mappings if necessary. See [Connect Your Application to Microsoft AD FS](/connections/enterprise/adfs#add-additional-ldap-attributes) for details.
 
