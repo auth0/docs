@@ -1159,7 +1159,7 @@ articles:
   #       url: "/api-auth/tutorials/verify-access-token"
 
   - title: "Private SaaS Deployment"
-    url: "/private-saas-deployment"
+    url: "/private-cloud"
     children:
       - title: Enterprise Support
         url: /onboarding/enterprise-support
@@ -1170,26 +1170,26 @@ articles:
         forceFullReload: true
 
       - title: Private Cloud
-        url: /private-saas-deployment/private-cloud
+        url: /private-cloud/private-cloud
 
       - title: Managed Private Cloud
-        url: /private-saas-deployment/managed-private-cloud
+        url: /private-cloud/managed-private-cloud
 
       - title: Add-Ons for PSaaS Deployments
-        url: /private-saas-deployment/add-ons
+        url: /private-cloud/add-ons
 
       - title: Custom Domain Migration
-        url: /private-saas-deployment/custom-domain-migration
+        url: /private-cloud/custom-domain-migration
 
       - title: PSaaS Onboarding
-        url: /private-saas-deployment/onboarding
+        url: /private-cloud/onboarding
         children:
 
           - title: Private Cloud Onboarding
-            url: /private-saas-deployment/onboarding/private-cloud
+            url: /private-cloud/onboarding/private-cloud
 
           - title: Managed Private Cloud Onboarding
-            url: /private-saas-deployment/onboarding/managed-private-cloud
+            url: /private-cloud/onboarding/managed-private-cloud
 
   # - title: "Protocols"
   #   url: "/protocols"
