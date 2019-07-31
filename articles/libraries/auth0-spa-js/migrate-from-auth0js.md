@@ -14,7 +14,20 @@ useCase:
 
 # Migrate from Auth0.js to the Auth0 Single Page App SDK
 
-In this article, you’ll see how to migrate your single page app (SPA) from [auth0.js](/libraries/auth0js) to [auth0-spa-js](/libraries/auth0-spa-js). Listed below are scenarios using auth0.js and the equivalent auth0-spa-js code. Note that not all scenarios can be effectivelly migrated.
+In this article, you’ll see how to migrate your single page app (SPA) from [auth0.js](/libraries/auth0js) to [auth0-spa-js](/libraries/auth0-spa-js). Listed below are scenarios using auth0.js and the equivalent auth0-spa-js code.
+
+## Functionality that cannot be migrated
+
+Not all auth0.js functionality can be directly migrated to auth0-spa-js. Scenarios that cannot be directly migrated include:
+
+- embedded login with username/password as well as [passwordless login](https://auth0.github.io/auth0.js/global.html#passwordlessLogin)
+- user [signup](https://auth0.github.io/auth0.js/global.html#signup)
+- [get a user profile from /userinfo endpoint](https://auth0.github.io/auth0.js/global.html#userInfo)
+- [link users with the Management API](https://auth0.github.io/auth0.js/global.html#linkUser)
+- [get user with the Management API](https://auth0.github.io/auth0.js/global.html#getUser)
+- [update user attributes with the Management API](https://auth0.github.io/auth0.js/global.html#patchUserAttributes)
+- [update user metadata with the Management API](https://auth0.github.io/auth0.js/global.html#patchUserMetadata)
+
 
 ## Create the client
 
@@ -28,7 +41,8 @@ import { WebAuth } from 'auth0.js';
 window.addEventListener('load', () => {
   var auth0 = new WebAuth({
     domain: '${account.namespace}',
-    clientID: '${account.clientId}'
+    clientID: '${account.clientId}',
+    redirectUri: '${account.callback}'
   });
 });
 ```
@@ -44,7 +58,8 @@ import createAuth0Client from '@auth0/auth0-spa-js';
 window.addEventListener('load', () => {
   const auth0 = await createAuth0Client({
     domain: '${account.namespace}',
-    client_id: '${account.clientId}'
+    client_id: '${account.clientId}',
+    redirect_uri: '${account.callback}'
   });
 });
 ```
@@ -103,6 +118,8 @@ window.addEventListener('load', async () => {
 
 ### auth0.js
 
+The `userInfo()` function makes a call to the [/userinfo endpoint](https://auth0.com/docs/api/authentication#user-profile) and returns the user profile.
+
 * [userInfo()](https://auth0.github.io/auth0.js/global.html#userInfo)
 
 ```js
@@ -114,6 +131,8 @@ window.addEventListener('load', () => {
 ```
 
 ### auth0-spa-js
+
+Unlike auth0.js, the Auth0 SPA SDK does not call to the [/userinfo endpoint](https://auth0.com/docs/api/authentication#user-profile) for the user profile. Instead `Auth0Client.getUser()` decodes the `id_token` and returns the user information if it's available.
 
 * [Auth0Client.getUser()](https://auth0.github.io/auth0-spa-js/classes/auth0client.html#getuser)
 * [GetUserOptions](https://auth0.github.io/auth0-spa-js/interfaces/getuseroptions.html)
@@ -164,12 +183,9 @@ document.getElementById('login').addEventListener('click', () => {
 
 The Auth0 SPA SDK handles token refresh for you. Every time you call `getTokenSilently`, you'll either get a valid token or an error if there's no session at Auth0.
 
-* [Auth0Client.getTokenSilently()](https://auth0.github.io/auth0-spa-js/classes/auth0client.html#gettokensilently)
-* [GetTokenSilentlyOptions](https://auth0.github.io/auth0-spa-js/interfaces/gettokensilentlyoptions.html)
-
 ```js
 document.getElementById('login').addEventListener('click', async () => {
-  await auth0.getTokenSilently();
+  await auth0.loginWithPopup();
 });
 ```
 
