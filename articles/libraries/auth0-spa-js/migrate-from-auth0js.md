@@ -183,9 +183,11 @@ document.getElementById('login').addEventListener('click', () => {
 
 The Auth0 SPA SDK handles token refresh for you. Every time you call `getTokenSilently`, you'll either get a valid token or an error if there's no session at Auth0.
 
+* [Auth0Client.getTokenSilently()](https://auth0.github.io/auth0-spa-js/classes/auth0client.html#gettokensilently)
+
 ```js
 document.getElementById('login').addEventListener('click', async () => {
-  await auth0.loginWithPopup();
+  await auth0.getTokenSilently();
 });
 ```
 
