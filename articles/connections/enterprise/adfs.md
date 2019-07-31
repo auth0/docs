@@ -24,14 +24,16 @@ useCase:
 ---
 # Connect Your Application to Microsoft ADFS
 
-You will need to provide the following information to your Active Directory Federation Services (ADFS) administrator:
+To connect your application to Microsoft ADFS, you will need to provide the following information to your Active Directory Federation Services (ADFS) administrator:
 
 * Realm Identifier: `urn:auth0:${account.tenant}`
 * Endpoint: `https://${account.namespace}/login/callback` or `https://<YOUR CUSTOM DOMAIN>/login/callback`, if you are usinga  [custom domain](/custom-domains).
 
-::: panel Federation Metadata
+::: panel Federated Metadata
 The Federation Metadata file contains information about the ADFS server's certificates. If the Federation Metadata endpoint (`/FederationMetadata/2007-06/FederationMetadata.xml`) is enabled in ADFS, Auth0 can periodically (once a day) look for changes in the configuration, like a new signing certificate added to prepare for a rollover. Because of this, enabling the Federation Metadata endpoint is preferred to providing a standalone metadata file. If you provide a standalone metadata file, we will notify you via email when the certificates are close to their expiration date.
 :::
+
+You can use a script to to setup the connection or set it up manually. 
 
 ## Scripted setup
 
@@ -87,35 +89,29 @@ Set-ADFSRelyingPartyTrust –TargetName $realm –IssuanceAuthorizationRules $rS
 
 ## Manual setup
 
-You can follow these steps to set up the connection manually.
-
 1. Open the ADFS Management Console.
-1. Click on **Add Relying Party Trust**.
-1. Click **Start** on the first step.
+1. Click **Add Relying Party Trust**.
+1. Click **Start**.
 1. Select **Enter data about the relying party manually** and click **Next**.
-1. Enter an arbitrary name (such as "${account.appName}") and click **Next**.
-1. Leave the default selection (`ADFS 2.0 profile`) and click **Next**.
-1. Leave the default (`no encryption certificate`) and click **Next**.
-1. Check **Enable support for the WS-Federation...**, enter the following value in the textbox and click **Next**.
+1. Enter a name (such as `${account.appName}`) and click **Next**.
+1. Use the default (`ADFS 2.0 profile`) and click **Next**.
+1. Use the default (`no encryption certificate`) and click **Next**.
+1. Check **Enable support for the WS-Federation...** and enter the following value in the textbox:
 
-    `https://${account.namespace}/login/callback`
+    `https://${account.namespace}/login/callback` or if you are using a [custom domain](/custom-domains), use `https://<YOUR CUSTOM DOMAIN>/login/callback`
 
-    ::: note
-    If you are using the [custom domains](/custom-domains) feature, use the following URL format instead: `https://<YOUR CUSTOM DOMAIN>/login/callback`.
-    :::
-
-1. Add a Relying party trust identifier with the following value and click **Add** and then **Next**.
+1. Click **Next**.
+1. Add a Relying Party Trust identifier with the following value:
 
     `urn:auth0:${account.tenant}`
-1. Leave the default option `Permit all users...` and click **Next**.
-1. Click **Next** and then **Close**. The UI will show a new window to edit the **Claim Rules**.
-1. Click on **Add Rule...**.
-1. Leave the default option `Send LDAP Attributes as Claims`.
-1. Give the rule an arbitrary name that describes what it does. For example:
 
-    `Map ActiveDirectory attributes (mail -> Mail, displayName -> Name, userPrincipalName -> NameID, givenName -> GiveName, sn -> Surname)`
-
-1. Select the mappings under `Mapping of LDAP attributes to outgoing claim types` as shown below and click **Finish**.
+1. Click **Add** and then **Next**.
+1. Leave the default `Permit all users...` and click **Next**.
+1. Click **Next** and then **Close**.
+1. In the **Claim Rules** window, click **Add Rule...**.
+1. Leave the default `Send LDAP Attributes as Claims`.
+1. Give the rule a name that describes what it does. 
+1. Select the following mappings under `Mapping of LDAP attributes to outgoing claim types` and click **Finish**.
 
     | LDAP Attribute | Outgoing Claim Type |
     | --- | --- |
@@ -127,7 +123,7 @@ You can follow these steps to set up the connection manually.
 
 ### Add additional LDAP attributes
 
-The mappings created in the previous steps are the most commonly used, but if you need additional LDAP attributes with information about the user, you can add more claim mappings.
+The mappings in the previous steps are the most commonly used, but if you need additional LDAP attributes with information about the user, you can add more claim mappings.
 
 1. If you closed the window on the previous step, select **Edit Claim Rules** on the context menu for the Relying Party Trust you created, and edit the rule.
 
