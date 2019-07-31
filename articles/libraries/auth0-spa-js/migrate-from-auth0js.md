@@ -20,7 +20,7 @@ In this article, you’ll see how to migrate your single page app (SPA) from [au
 
 Not all auth0.js functionality can be directly migrated to auth0-spa-js. Scenarios that cannot be directly migrated include:
 
-- embedded login with username/password as well as [passwordless login](https://auth0.github.io/auth0.js/global.html#passwordlessLogin)
+- embedded [login with username/password](https://auth0.github.io/auth0.js/global.html#login) as well as [passwordless login](https://auth0.github.io/auth0.js/global.html#passwordlessLogin)
 - user [signup](https://auth0.github.io/auth0.js/global.html#signup)
 - [get a user profile from /userinfo endpoint](https://auth0.github.io/auth0.js/global.html#userInfo)
 - [link users with the Management API](https://auth0.github.io/auth0.js/global.html#linkUser)
