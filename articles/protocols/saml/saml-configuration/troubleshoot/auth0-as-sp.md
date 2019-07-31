@@ -194,3 +194,21 @@ If you're using an IdP-initiated flow (for example, the user starts at the ident
 * If you've enabled multi-factor authentication (MFA)</dfn>, disable it temporarily to make sure that it is not interfering with the login process.
 
 * Check that the SAML Connection works in an SP-Initiated flow by [using **Try** to run a Connection test](#issue-the-idp-login-page-doesn-t-display).
+
+## Error: The request could not be performed due to an error on the part of the SAML responder or SAML authority
+
+The error may appear as follows:
+
+```text
+<samlp:Status>
+<samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Responder" />
+</samlp:Status>
+```
+
+### How to Fix
+
+Make sure first that the signature algorithm set on Auth0 connection is correctly align with the configuration on the ADFS side. Try both signature algorithm options: `rsa-sha256` or `rsa-sha1`. Alternatively you can reach out the ADFS administrator to learn the expected signing method or if they have more details in their logs for the reason of this error.
+
+![ADFS SAML Properties](/media/articles/protocols/saml-adfs/adfs-saml-properties.png)
+
+[ADFS Sign Request Algorithm](/media/articles/protocols/saml-adfs/adfs-sign-request-algorithm.png)

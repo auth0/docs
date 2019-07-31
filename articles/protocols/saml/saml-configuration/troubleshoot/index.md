@@ -85,6 +85,7 @@ If the troubleshooting steps listed above don't solve the issue you're seeing, p
 
 ### Keep reading
 
-::: next-steps
 * [Common SAML Errors](/protocols/saml/saml-configuration/troubleshoot/common-saml-errors)
-:::
+* [Troubleshooting SAML when Auth0 is the Service Provider](/protocols/saml/auth0-as-sp)
+* [Troubleshooting SAML when Auth0 is the Identity Provider](/protocols/saml/auth0-as-idp)
+

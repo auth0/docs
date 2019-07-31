@@ -90,3 +90,11 @@ One common error is specifying the incorrect response protocol on the IdP-Initia
 2. Find your Connection, and click on **Settings**.
 3. Switch to the *IdP-Initiated* tab.
 4. Check the value you have set in the **Response Protocol** field.
+
+## Issue: User isn't logged out from the IdP
+
+When ADFS as configured as SAML IdP, if on the ADFS relaying party trust `Name ID` attribute isn't mapped the logout flow fails. For example, with the federated parameter `v2/logout?federated&...` user isn't redirected to the ADFS SAML logout endpoint but redirects back to application callback URL directly. As a consequence, the user isn't logged out from the IdP in that case.
+
+### How to Fix
+
+Add the `Name ID` attribute as a rule on the SAML Relaying Party Trust. 
