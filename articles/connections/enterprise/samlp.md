@@ -108,6 +108,58 @@ Here's how you might include the call within your application's code:
 }
 ```
 
+## Create a Connection Using the Management API using SAML Metadata
+
+Instead of specifying each SAML configuration field, you can directly specify a SAML metadata document.
+
+You can use the `metadataUrl` option for configuring the SAML metadata URL:
+
+```har
+{
+	"method": "POST",
+	"url": "https://${account.namespace}/api/v2/connections",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"strategy\": \"samlp\", \"name\": \"CONNECTION_NAME\", \"options\": { \"metadataUrl\": \"https://saml-idp/samlp/metadata/uarlU13n63e0feZNJxOCNZ1To3a9H7jX\" } }"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
+
+The content of the URL will be downloaded when the API is called. The connection will not be reconfigured automatically if the content of the URL changes in the future.
+
+You can also use the `metadataXml` option instead, if you prefer to provide the content of the document:
+
+```
+{
+	"method": "POST",
+	"url": "https://${account.namespace}/api/v2/connections",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"strategy\": \"samlp\", \"name\": \"CONNECTION_NAME\", \"options\": { \"metadataXml\": \"<EntityDescriptor entityID='urn:saml-idp' xmlns='urn:oasis:names:tc:SAML:2.0:metadata'>...</EntityDescriptor>\" } }"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
+
 ## Enable the Connection for Your Auth0 Application
 
 To use your newly-created Connection, you'll need to enable it for your Auth0 Application(s).
