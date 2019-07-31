@@ -51,12 +51,6 @@ When troubleshooting, we recommend beginning by gathering information that helps
 4. What is the expected behavior? What is the behavior you're seeing?
 5. How far through the login sequence does the user get?
 
-## Troubleshooting Approaches
-
-* [SAML Troubleshooting When Auth0 is the Service Provider](/protocols/saml/saml-configuration/troubleshoot/auth0-as-sp)
-
-* [SAML Troubleshooting When Auth0 is the Identity Provider](/protocols/saml/saml-configuration/troubleshoot/auth0-as-idp)
-
 ## If the Issue Affects Only One (or Just a Few) Users
 
 * Check the user's profile, browser, or device for any issues.
@@ -86,6 +80,6 @@ If the troubleshooting steps listed above don't solve the issue you're seeing, p
 ### Keep reading
 
 * [Common SAML Errors](/protocols/saml/saml-configuration/troubleshoot/common-saml-errors)
-* [Troubleshooting SAML when Auth0 is the Service Provider](/protocols/saml/auth0-as-sp)
-* [Troubleshooting SAML when Auth0 is the Identity Provider](/protocols/saml/auth0-as-idp)
+* [Troubleshooting SAML when Auth0 is the Service Provider](/protocols/saml/saml-configuration/troubleshoot/auth0-as-sp)
+* [Troubleshooting SAML when Auth0 is the Identity Provider](/protocols/saml/saml-configuration/troubleshoot/auth0-as-idp)
 

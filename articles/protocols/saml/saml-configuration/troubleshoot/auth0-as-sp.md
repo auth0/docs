@@ -211,4 +211,4 @@ Make sure first that the signature algorithm set on Auth0 connection is correctl
 
 ![ADFS SAML Properties](/media/articles/protocols/saml-adfs/adfs-saml-properties.png)
 
-[ADFS Sign Request Algorithm](/media/articles/protocols/saml-adfs/adfs-sign-request-algorithm.png)
+![ADFS Sign Request Algorithm](/media/articles/protocols/saml-adfs/adfs-sign-request-algorithm.png)
