@@ -1486,8 +1486,12 @@ libraries:
   - title: "Overview"
     url: "/libraries"
 
-  - title: "Auth0 Single Page Application SDK"
+  - title: "Auth0 Single Page App SDK"
     url: "/libraries/auth0-spa-js"
+    children:
+
+      - title: "Migrate from auth0.js"
+        url: /libraries/auth0-spa-js/migrate-from-auth0js
 
   - title: "Lock for Web"
     url: "/libraries/lock/v11"
