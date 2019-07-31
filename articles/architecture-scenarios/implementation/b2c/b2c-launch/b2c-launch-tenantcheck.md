@@ -1,20 +1,19 @@
 ---
-title: Launch
-description: Launch preparation considerations for your B2C IAM implementation.
+title: Launch Tenant Check
+description: Tenant Checks to perform before launch of your B2C IAM implementation.
 topics:
     - b2c
     - ciam
     - launch
+    - configuration
 contentType: concept
 useCase:
     - launch
 ---
-# Launch Preparation
 
-<%= include('../../_includes/_launch/_introduction.md', { platform: 'b2c' }) %>
+# Tenant configuration check
 
-
-<%= include('../_includes/_topic-links', { links: [ 'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-tenantcheck', 'architecture-scenarios/implementation/b2c/b2c-launch-b2c-launch-testing', 'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-operations', 'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-compliance', 'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-support', 'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-launch' ] }) %>
+<%= include('../../_includes/_launch/_tenant-check.md', { platform: 'b2c' }) %>
 
 
 ## Project Planning Guide

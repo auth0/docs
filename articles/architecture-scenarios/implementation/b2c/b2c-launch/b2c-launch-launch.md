@@ -9,13 +9,33 @@ contentType: concept
 useCase:
     - launch
 ---
-# Launch Preparation
+# Launch
 
 <%= include('../../_includes/_launch/_introduction.md', { platform: 'b2c' }) %>
 
+## Tenant check
 
-<%= include('../_includes/_topic-links', { links: [ 'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-tenantcheck', 'architecture-scenarios/implementation/b2c/b2c-launch-b2c-launch-testing', 'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-operations', 'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-compliance', 'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-support', 'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-launch' ] }) %>
+<%= include('../../_includes/_launch/_tenant-check.md', { platform: 'b2c' }) %>
 
+## Testing
+
+<%= include('../../_includes/_launch/_testing.md', { platform: 'b2c' }) %>
+
+## Operational Readiness
+
+<%= include('../../_includes/_launch/_operations.md', { platform: 'b2c' }) %>
+
+## Compliance
+
+<%= include('../../_includes/_launch/_compliance.md', { platform: 'b2c' }) %>
+
+## Support Readiness
+
+<%= include('../../_includes/_launch/_support.md', { platform: 'b2c' }) %>
+
+## Launch Day Readiness
+
+<%= include('../../_includes/_launch/_launch.md', { platform: 'b2c' }) %>
 
 ## Project Planning Guide
 
