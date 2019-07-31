@@ -1170,18 +1170,18 @@ articles:
         forceFullReload: true
 
       - title: Private Cloud
-        url: /private-cloud/private-cloud
+        url: /private-cloud/standard-private-cloud
 
       - title: Managed Private Cloud
         url: /private-cloud/managed-private-cloud
 
-      - title: Add-Ons for PSaaS Deployments
+      - title: Add-Ons for Private Cloud Deployments
         url: /private-cloud/add-ons
 
       - title: Custom Domain Migration
         url: /private-cloud/custom-domain-migration
 
-      - title: PSaaS Onboarding
+      - title: Onboarding
         url: /private-cloud/onboarding
         children:
 
