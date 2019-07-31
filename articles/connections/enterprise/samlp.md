@@ -139,7 +139,7 @@ The content of the URL will be downloaded when the API is called. The connection
 
 You can also use the `metadataXml` option instead, if you prefer to provide the content of the document:
 
-```
+```har
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/api/v2/connections",
