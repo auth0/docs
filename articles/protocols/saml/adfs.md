@@ -73,7 +73,9 @@ After you close the **Add Relying Party Trust** wizard, the **Edit Claim Issuanc
 
     ![Federation Metadata Example](/media/articles/protocols/saml-adfs/saml21.png)
 
-2. Save the file to use later.
+2. Locate the row that starts with "AssertionConsumerService" and copy the value of the "Location" field. It will be a URL of the form `https://YOUR_AUTH0_DOMAIN.auth0.com/login/callback?connection=YOUR_CONNECTION_NAME`.
+
+    Copy and save this URL. This is the URL that will receive the SAML assertion from the IdP. 
 
 ### Export the Signing Certificate
 
@@ -132,6 +134,7 @@ Before you test your integration, make sure that you've completed the following 
 2. Click the ADFS row (or the hamburger icon to the right) to bring up a list of your ADFS connections. 
 3. Select the one you want to test and click the **play** button to test the connection.
 
-## Troubleshooting
+## Keep reading
 
-If you have any issues with your SAML ADFS configuration, see [Troubleshooting SAML Configuration](/protocols/saml/saml-configuration/troubleshoot) for more information.
+* [Troubleshooting SAML Configuration](/protocols/saml/saml-configuration/troubleshoot)
+* [How SAML Authentication Works](/https://auth0.com/blog/how-saml-authentication-works/)
