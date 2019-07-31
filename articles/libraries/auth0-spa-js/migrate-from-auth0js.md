@@ -132,7 +132,7 @@ window.addEventListener('load', () => {
 
 ### auth0-spa-js
 
-Unlike auth0.js, the Auth0 SPA SDK does not call to the [/userinfo endpoint](https://auth0.com/docs/api/authentication#user-profile) for the user profile. Instead `Auth0Client.getUser()` decodes the `id_token` and returns the user information if it's available.
+Unlike auth0.js, the Auth0 SPA SDK does not call to the [/userinfo endpoint](https://auth0.com/docs/api/authentication#user-profile) for the user profile. Instead `Auth0Client.getUser()` returns user information from the decoded `id_token`.
 
 * [Auth0Client.getUser()](https://auth0.github.io/auth0-spa-js/classes/auth0client.html#getuser)
 * [GetUserOptions](https://auth0.github.io/auth0-spa-js/interfaces/getuseroptions.html)
