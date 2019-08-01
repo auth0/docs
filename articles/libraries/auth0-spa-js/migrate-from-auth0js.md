@@ -29,7 +29,7 @@ Not all auth0.js functionality can be directly migrated to auth0-spa-js. Scenari
 - [update user metadata with the Management API](https://auth0.github.io/auth0.js/global.html#patchUserMetadata)
 
 
-# Create the client
+## Create the client
 
 ### auth0.js
 
@@ -64,7 +64,7 @@ window.addEventListener('load', () => {
 });
 ```
 
-# Redirect to the Universal Login Page
+## Redirect to the Universal Login Page
 
 ### auth0.js
 
@@ -87,7 +87,7 @@ document.getElementById('login').addEventListener('click', async () => {
 });
 ```
 
-# Parse the hash after the redirect
+## Parse the hash after the redirect
 
 ### auth0.js
 
@@ -114,7 +114,7 @@ window.addEventListener('load', async () => {
 });
 ```
 
-# Get the user information
+## Get the user information
 
 ### auth0.js
 
@@ -144,7 +144,7 @@ window.addEventListener('load', async () => {
 });
 ```
 
-# Open the Universal Login Page in a popup
+## Open the Universal Login Page in a popup
 
 ### auth0.js
 
@@ -165,7 +165,7 @@ document.getElementById('login').addEventListener('click', async () => {
 });
 ```
 
-# Refresh tokens
+## Refresh tokens
 
 ### auth0.js
 
@@ -191,7 +191,7 @@ document.getElementById('login').addEventListener('click', async () => {
 });
 ```
 
-# Get a token for a different audience or with more scopes
+## Get a token for a different audience or with more scopes
 
 ### auth0.js
 
