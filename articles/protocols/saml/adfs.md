@@ -91,7 +91,8 @@ Finally, you'll need to export the signing certificate from the ADFS console to 
     
     | Parameter | Example Value |
     | - | - |
-    | Post-back URL | `https://{yourAuth0accountdomain}/login/callback}/login/callback?connection={your new SAML connection}` (for custom domain)|
+    | Post-back URL | `https://{yourAuth0accountdomain}/login/callback}/login/callback?connection={your new SAML connection}` if a custom domain is configured |
+    | --- | `tenant.auth0.com` if not using custom domains |
     | Entity ID | `urn:auth0:account:connection` |
 
 ## Edit the Relying Party Trust
