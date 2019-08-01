@@ -1,7 +1,7 @@
 ---
 title: JSON Web Key Set Properties
 description: Reference the properties available in a JSON Web Key Set (JWKS).
-toc: true
+toc: false
 topics:
   - tokens
   - jwks
@@ -34,7 +34,7 @@ This is an example of the JSON Web Key Set (JWKS) used by a demo tenant, contain
 ```
 
 
-Each property in the key is defined by the JWK specification [RFC 7517 Section 4](https://tools.ietf.org/html/rfc7517#section-4) or, for algorithm-specific properties, in [RFC 7518 (https://tools.ietf.org/html/rfc7518)].
+Each property in the key is defined by the JWK specification [RFC 7517 Section 4](https://tools.ietf.org/html/rfc7517#section-4) or, for algorithm-specific properties, in [RFC 7518](https://tools.ietf.org/html/rfc7518)].
 
 | Property name | Description                |
 |---------------|----------------------------|

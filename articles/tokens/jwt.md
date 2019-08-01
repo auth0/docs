@@ -25,17 +25,8 @@ JSON Web Token (JWT), pronounced "jot", is an open standard ([RFC 7519](https://
 * **Compact**: Because of its relatively small size, a JWT can be sent through a URL, through a POST parameter, or inside an HTTP header, and it is transmitted quickly.
 * **Self-contained**: A JWT contains all the required information about an entity to avoid querying a database more than once. The recipient of a JWT also does not need to call a server to validate the token.
 
-## Security
-
-
-
-
-The information contained within the JSON object can be verified and trusted because it is digitally signed. Although JWTs can also be encrypted to provide secrecy between parties, we will focus on *signed* tokens, which can *verify the integrity* of the claims contained within them, while encrypted tokens *hide* those claims from other parties.
-
-In general, JWTs can be signed using a secret (with the **HMAC** algorithm) or a public/private key pair using **RSA** or **ECDSA** (although Auth0 supports only HMAC and RSA). When tokens are signed using public/private key pairs, the signature also certifies that only the party holding the private key is the one that signed it.
-
 ::: note
-For additional information about why to use JWT over other token formats, including Simple Web Tokens (SWT) and <dfn data-key="security-assertion-markup-language">SAML</dfn> tokens, see [Why Use JSON Web Token](/tokens/concepts/why-use-jwt).
+For info about why to use JWT over other token formats, including Simple Web Tokens (SWT) and <dfn data-key="security-assertion-markup-language">SAML</dfn> tokens, see [Why Use JSON Web Token](/tokens/concepts/why-use-jwt).
 :::
 
 ## Use of JWTs
@@ -51,6 +42,14 @@ JWT is a standard, which means that all JWTs are tokens, but not all tokens are 
 ::: warning
 However you use JWTs, be sure to follow [best practices for tokens](/tokens/concepts/token-best-practices) and make sure you [verify the signature](/tokens/guides/id-token/validate-id-token#verify-the-signature) before storing and using a JWT. For more information on how to implement JWT, see [Programmatically Parse and Validate JSON Web Tokens](/tokens/guides/jwt/parse-validate-jwt-programmatically).
 :::
+
+## Security
+
+The information contained within the JSON object can be verified and trusted because it is digitally signed. Although JWTs can also be encrypted to provide secrecy between parties, we will focus on *signed* tokens, which can *verify the integrity* of the claims contained within them, while encrypted tokens *hide* those claims from other parties.
+
+In general, JWTs can be signed using a secret (with the **HMAC** algorithm) or a public/private key pair using **RSA** or **ECDSA** (although Auth0 supports only HMAC and RSA). When tokens are signed using public/private key pairs, the signature also certifies that only the party holding the private key is the one that signed it.
+
+Before a received JWT is used, it should be [properly validated using its signature](/tokens/guides/id-token/validate-id-token#verify-the-signature). Note that a successfully validated token only means that the information contained within the token has not been modified by anyone else. This doesn't mean that others weren't able to see the content, which is stored in plain text. Because of this, you should never store sensitive information inside a JWT and should take other steps to ensure that JWTs are not intercepted, such as by sending JWTs only over HTTPS, following [best practices](/tokens/concepts/token-best-practices), and using only secure and up-to-date libraries.
 
 ## Read More
 
