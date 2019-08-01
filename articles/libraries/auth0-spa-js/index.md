@@ -20,7 +20,7 @@ The Auth0 SPA SDK handles grant and protocol details, token expiration and renew
 
 The library is [hosted on GitHub](https://github.com/auth0/auth0-spa-js) and you can find the API documentation [here](https://auth0.github.io/auth0-spa-js/).
 
-If you're planning on migrating a SPA that uses [auth0.js] to the Auth0 SPA SDK, check out [Migrate from Auth0.js to the Auth0 Single Page App SDK](/libraries/auth0-spa-js/migrate-from-auth0js) for examples.
+If you're planning on migrating a SPA that uses [auth0.js](/libraries/auth0js) to the Auth0 SPA SDK, check out [Migrate from Auth0.js to the Auth0 Single Page App SDK](/libraries/auth0-spa-js/migrate-from-auth0js) for examples.
 
 <%= include('../_includes/_spa_js_faq.md') %>
 
