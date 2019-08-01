@@ -1,5 +1,5 @@
 ---
-title: Launch
+title: Launch Day Preparation
 description: Launch preparation considerations for your B2C IAM implementation.
 topics:
     - b2c

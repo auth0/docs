@@ -1,5 +1,5 @@
 ---
-title: Launch
+title: Operations Readiness
 description: Operations checks to perform before launch of your B2C IAM implementation.
 topics:
     - b2c

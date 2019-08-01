@@ -1,6 +1,6 @@
 ---
-title: Launch
-description: Support readiness for launch preparation for your B2C IAM implementation.
+title: Support Readiness 
+description: Support readiness for the launch of your B2C IAM implementation.
 topics:
     - b2c
     - ciam

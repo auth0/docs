@@ -1,5 +1,5 @@
 ---
-title: Launch
+title: Compliance Readiness
 description: Compliance checks to perform before launch of your B2C IAM implementation.
 topics:
     - b2c

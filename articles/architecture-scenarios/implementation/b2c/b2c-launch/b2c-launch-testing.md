@@ -1,5 +1,5 @@
 ---
-title: Launch
+title: Testing Completion
 description: Testing preparation for the launch of your B2C IAM implementation.
 topics:
     - b2c
