@@ -565,7 +565,7 @@ auth0Manage.patchUserMetadata(userId, userMetadata, cb);
 
 Linking user accounts will allow a user to authenticate from any of their accounts and no matter which one they use, still pull up the same profile upon login. Auth0 treats all of these accounts as separate profiles by default, so if you wish a user's accounts to be linked, this is the way to go.
 
-The `linkUser` method accepts two parameters, the primary `userId` and the secondary user's ID Token (the token obtained after login with this identity). The user id in question is the unique identifier for this user account. If the id is in the format `facebook|1234567890`, the id required is the portion after the delimiting pipe. Visit the [Linking Accounts](/link-accounts) documentation for more details on linking accounts.
+The `linkUser` method accepts two parameters, the primary `userId` and the secondary user's ID Token (the token obtained after login with this identity). The user ID in question is the unique identifier for the primary user account. The ID should be passed with the provider prefix, e.g., `auth0|1234567890` or `facebook|1234567890`, when using this method. Visit the [Linking Accounts](/link-accounts) documentation for more details on linking accounts.
 
 ```js
 auth0Manage.linkUser(userId, secondaryUserToken, cb);
