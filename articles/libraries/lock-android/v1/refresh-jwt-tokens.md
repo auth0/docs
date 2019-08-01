@@ -18,6 +18,8 @@ useCase:
 
 <%= include('../_includes/_lock-version') %>
 
+<%= include('../../../_includes/_uses-delegation') %>
+
 When an authentication is performed with the `offline_access` <dfn data-key="scope">scope</dfn> included, it will return a <dfn data-key="refresh-token">Refresh Token</dfn> that can be used to request a new JWT token and avoid asking the user for their credentials again.
 
 ::: note
