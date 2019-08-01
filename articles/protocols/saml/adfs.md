@@ -12,9 +12,9 @@ useCase:
   - saml-adfs
 ---
 
-# Setup a Microsoft ADFS SAML Connection
+# Setup an ADFS SAML Connection
 
-Create a custom <dfn data-key="security-assertion-markup-language">SAML</dfn> connection to Microsoft's Active Directory Federation Services (ADFS) to get more flexibility when configuring your mappings. The SAML Connection allows you identity provider-initiated flows which you cannot do with WS-Fed.
+Create a custom <dfn data-key="security-assertion-markup-language">SAML</dfn> connection to Microsoft's Active Directory Federation Services (ADFS) to get more flexibility when configuring your mappings. 
 
 To create the custom connection, you will need to:
 
@@ -22,6 +22,8 @@ To create the custom connection, you will need to:
 2. Create a SAML connection where Auth0 acts as the service provider.
 3. Edit the Relying Party Trust in ADFS.
 4. Enable and test your integration.
+
+The following sections will guide you through this process. 
 
 ## Configure ADFS
 
@@ -58,7 +60,11 @@ After you close the **Add Relying Party Trust** wizard, the **Edit Claim Issuanc
     | Given-Name | Given Name |
     | Surname | Surname |
 
-    The only mandatory mapping you need is for the email address, but we strongly recommend adding all of the ones listed above, especially **Name ID**, since they are the ones most commonly used.
+    ::: note
+    The `Name ID` outgoing claim should always be present to ensure correct session handling. We strongly recommend adding all of the claims listed above, especially `E-Mail Address`, since they are the ones most commonly used.
+    :::
+
+    You can add additional claim mappings if necessary. See [Connect Your Application to Microsoft ADFS](/connections/enterprise/adfs#add-additional-ldap-attributes) for details.
 
 6. Click **Finish**.
 7. In the **Edit Claim Issuance Policy** window, click **Apply**. You can now exit out of this window.
@@ -118,10 +124,6 @@ Optionally, you can sign your SAML requests to the ADFS server.
 2. Enable **Sign Requests**.
 3. Just below the **Sign Requests** toggle is a link to download your certificate.
 4. Return to ADFS and load the downloaded certificate using the **Signatures** tab of the Relying Party properties dialog.
-
-## Optional: Map additional claims
-
-You can add additional claim mappings if necessary. See [Connect Your Application to Microsoft ADFS](/connections/enterprise/adfs#add-additional-ldap-attributes) for details.
 
 ## Enable and test your integration
 

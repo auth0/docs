@@ -22,9 +22,9 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Connect Your Application to Microsoft ADFS
+# Connect Your Application to ADFS
 
-To connect your application to Microsoft ADFS, you will need to provide the following information to your Active Directory Federation Services (ADFS) administrator:
+To connect your application to Microsoft's Active Directory Federation Services (ADFS), you will need to provide the following information to your ADFS administrator:
 
 * Realm Identifier: `urn:auth0:${account.tenant}`
 * Endpoint: `https://${account.namespace}/login/callback` or `https://<YOUR CUSTOM DOMAIN>/login/callback`, if you are using a  [custom domain](/custom-domains).
