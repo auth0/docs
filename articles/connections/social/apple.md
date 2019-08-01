@@ -54,11 +54,11 @@ Fill in the Client ID (Services ID), Client Secret Signing Key, the Team ID, and
 
 You're ready to [test your connection](/dashboard/guides/connections/test-connections-social).
 
-## Notes
-
+::: note
 If you are using the Classic Universal Login flow, or embedding Lock.js in your application, make sure you are using Lock.js version 11.16 or later.
+:::
 
-## Additional Info
+## Keep reading
 
 * [What is Sign in with Apple](https://auth0.com/blog/what-is-sign-in-with-apple-a-new-identity-provider/)
 * [Apple's Sign in with Apple page](https://developer.apple.com/sign-in-with-apple/)
