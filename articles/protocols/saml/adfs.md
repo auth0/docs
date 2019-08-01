@@ -69,20 +69,6 @@ After you close the **Add Relying Party Trust** wizard, the **Edit Claim Issuanc
 6. Click **Finish**.
 7. In the **Edit Claim Issuance Policy** window, click **Apply**. You can now exit out of this window.
 
-### Obtain the Federation Metadata
-
-1. To get your Federation Metadata, navigate to the following URL:
-
-    `https://your-server/FederationMetadata/2007-06/FederationMetadata.xml`
-
-    Your file will looking something like this:
-
-    ![Federation Metadata Example](/media/articles/protocols/saml-adfs/saml21.png)
-
-2. Locate the row that starts with "AssertionConsumerService" and copy the value of the "Location" field. It will be a URL of the form `https://YOUR_AUTH0_DOMAIN.auth0.com/login/callback?connection=YOUR_CONNECTION_NAME`.
-
-    Copy and save this URL. This is the URL that will receive the SAML assertion from the IdP. 
-
 ### Export the Signing Certificate
 
 Finally, you'll need to export the signing certificate from the ADFS console to upload it to Auth0.
@@ -105,7 +91,7 @@ Finally, you'll need to export the signing certificate from the ADFS console to 
     
     | Parameter | Example Value |
     | - | - |
-    | Post-back URL | `https://{yourAuth0accountdomain}/login/callback}/login/callback?connection={your new SAML connection}` |
+    | Post-back URL | `https://{yourAuth0accountdomain}/login/callback}/login/callback?connection={your new SAML connection}` (for custom domain)|
     | Entity ID | `urn:auth0:account:connection` |
 
 ## Edit the Relying Party Trust
