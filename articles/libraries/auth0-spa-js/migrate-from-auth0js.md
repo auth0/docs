@@ -23,6 +23,7 @@ Not all auth0.js functionality can be directly migrated to auth0-spa-js. Scenari
 - embedded [login with username/password](https://auth0.github.io/auth0.js/global.html#login) as well as embedded [passwordless login](https://auth0.github.io/auth0.js/global.html#passwordlessLogin)
 - user [signup](https://auth0.github.io/auth0.js/global.html#signup)
 - [get a user profile from /userinfo endpoint](https://auth0.github.io/auth0.js/global.html#userInfo)
+- [request an email to change the user's password](https://auth0.github.io/auth0.js/global.html#changePassword)
 - [link users with the Management API](https://auth0.github.io/auth0.js/global.html#linkUser)
 - [get user with the Management API](https://auth0.github.io/auth0.js/global.html#getUser)
 - [update user attributes with the Management API](https://auth0.github.io/auth0.js/global.html#patchUserAttributes)
