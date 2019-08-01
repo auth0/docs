@@ -29,7 +29,7 @@ Not all auth0.js functionality can be directly migrated to auth0-spa-js. Scenari
 - [update user metadata with the Management API](https://auth0.github.io/auth0.js/global.html#patchUserMetadata)
 
 
-## Create the client
+# Create the client
 
 ### auth0.js
 
