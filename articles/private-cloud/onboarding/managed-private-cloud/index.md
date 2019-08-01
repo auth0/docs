@@ -73,6 +73,10 @@ To ensure the quality of Auth0's services, the APIs are subject to rate limiting
 
 You can reach out to the Auth0 [Support](${env.DOMAIN_URL_SUPPORT}) team with any questions or concerns you might have. To help expedite your request, please provide as much information as possible in the [Support ticket you open](/support/tickets).
 
+## Remote Access Options
+
+The Managed Private Cloud requires regular access by our Managed Services Engineering team to install patches, updates, and upgrades, troubleshoot and fix issues, and optimize security and performance. See [Remote Access Options](/private-cloud/onboarding/managed-private-cloud/remote-access-options) for information on the options available.
+
 ## Create Dashboard administrators
 
 To create additional Dashboard administrators, an *existing* administrator must reach out to Auth0 [Support](${env.DOMAIN_URL_SUPPORT}) requesting that an additional administrative account be made. Please include in your request:
