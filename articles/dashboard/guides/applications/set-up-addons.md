@@ -12,7 +12,7 @@ useCase:
 ---
 # Set Up Add-ons
 
-<%= include('../_includes/_uses-delegation') %>
+<%= include('../../../_includes/_uses-delegation') %>
 
 This guide will show you how to set up an [add-on](/addons) for an application using Auth0's Dashboard.
 

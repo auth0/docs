@@ -13,7 +13,7 @@ useCase:
 ---
 # Call AWS APIs and Resources Securely with Tokens
 
-<%= include('../_includes/_uses-delegation') %>
+<%= include('../../_includes/_uses-delegation') %>
 
 Auth0 integrates with the AWS Security Token Service (STS) to obtain an limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users). These credentials can then be used to call the AWS API of any Auth0-supported [identity provider](/identityproviders).
 
