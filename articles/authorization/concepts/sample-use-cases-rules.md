@@ -103,6 +103,7 @@ function (user, context, callback) {
   context.accessToken = accessTokenClaims;
   callback(null, user, context);
 }
+```
 
 ## Keep reading
 
