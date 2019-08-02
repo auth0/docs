@@ -104,6 +104,7 @@ function (user, context, callback) {
   context.accessToken = accessTokenClaims;
   callback(null, user, context);
 }
+```
 
 ## Manage Delegated Administration Extension roles using the Authorization Core feature set
 
