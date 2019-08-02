@@ -62,7 +62,6 @@ function (user, context, callback) {
 
 If the user is outside the corporate network, they will be denied access even if they successfully authenticate and have the appropriate privileges.
 
-
 ## Add user roles to tokens
 
 If you [enable RBAC for APIs](/dashboard/guides/apis/enable-rbac) and set the **Token Dialect** appropriately, you will receive user permissions in your Access Tokens. To add user <dfn data-key="role">roles</dfn> to tokens, you would use the `context.authorization` object in the following rule:
@@ -84,6 +83,26 @@ function (user, context, callback) {
 }
 
 ```
+
+## Add user groups to tokens
+
+If you [enable RBAC for APIs](/dashboard/guides/apis/enable-rbac) and set the **Token Dialect** appropriately, you will receive user permissions in your Access Tokens. To add user groups to tokens, you would use the `context.authorization` object in the following rule:
+
+```js
+function (user, context, callback) {
+  const namespace = 'http://demozero.net';
+  const assignedGroups = (context.authorization || {}).groups;
+
+  let idTokenClaims = context.idToken || {};
+  let accessTokenClaims = context.accessToken || {};
+
+  idTokenClaims[`<%= "${namespace}" %>/groups`] = assignedGroups;
+  accessTokenClaims[`<%= "${namespace}" %>/groups`] = assignedGroups;
+
+  context.idToken = idTokenClaims;
+  context.accessToken = accessTokenClaims;
+  callback(null, user, context);
+}
 
 ## Keep reading
 
