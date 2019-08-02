@@ -31,7 +31,7 @@ Now that you have an Authorization Code, you must exchange it for tokens. Using 
         "value": "YOUR_AUTHORIZATION_CODE"
       },
       {
-        "name": "redirect_ui",
+        "name": "redirect_uri",
         "value": "https://${account.callback}"
       }
     ]
