@@ -1,6 +1,6 @@
 ---
 title: Operations
-description: Understand operationalization of your Auth0 tenant environments
+description: How to operationalize your Auth0 tenant environments.
 toc: true
 topics:
     - b2c
@@ -40,7 +40,7 @@ useCase:
 
 <%= include('../../_includes/_operations/_notifications.md', { platform: 'b2c' }) %>
 
-## Planning
+## Project Planning Guide
 
 <%= include('../../_includes/_planning.md', { platform: 'b2c' }) %>
 

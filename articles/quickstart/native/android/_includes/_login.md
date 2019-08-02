@@ -36,7 +36,7 @@ After you call the `WebAuthProvider#start` function, the browser launches and sh
 // app/src/main/java/com/auth0/samples/MainActivity.java
 
 private void login() {
-    WebAuthProvider.init(auth0)
+    WebAuthProvider.login(auth0)
         .withScheme("demo")
         .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
         .start(MainActivity.this, new AuthCallback() {
@@ -58,6 +58,10 @@ private void login() {
     });
 }
 ```
+
+::: note
+Future steps of this quickstart guide move the `AuthCallback` in-line instance into a class field named `loginCallback`.
+:::
 
 ### Capture the Result
 

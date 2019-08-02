@@ -307,7 +307,7 @@ You can follow the [Account Linking Using Server Side Code](/link-accounts/sugge
 
 ## Unlinking accounts
 
-The Auth0 Management API V2 also provides an [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) which can be used with either of these two **scopes**:
+The Auth0 Management API V2 also provides an [Unlink a user account endpoint](/api/v2#!/Users/delete_user_identity_by_user_id) which can be used with either of these two **scopes**:
 
 * `update:current_user_identities`: when you call the endpoint from client-side code where you have an Access Token with this scope
 * `update:users`: when you call the endpoint from server-side code where you have an Access Token with this scope

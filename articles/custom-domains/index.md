@@ -15,10 +15,6 @@ For example, if your Auth0 domain is **northwind.auth0.com**, you can have your 
 
 We recommend that you use custom domains with Universal Login for the most seamless and secure experience for your users. Check the [Universal Login documentation](/hosted-pages/login) to see if your plan and use case support custom domains. 
 
-::: warning
-Private Cloud customers should see [this page](/appliance/custom-domains) for information on using custom domains.
-:::
-
 ## Prerequisites
 
 * This feature is not available for free plans. To configure a custom domain you have to [upgrade your account to any paid plan](${manage_url}/#/tenant/billing/subscription)

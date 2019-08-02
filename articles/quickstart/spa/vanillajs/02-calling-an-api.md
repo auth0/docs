@@ -71,7 +71,7 @@ Next, open the `auth_config.json` file and modify the data so that the `audience
 
 ```json
 {
-  "domain": "${account.tenant}",
+  "domain": "${account.namespace}",
   "clientId": "${account.clientId}",
   "audience": "${apiIdentifier}"
 }
@@ -87,12 +87,12 @@ The values for `domain` and `clientId` should have already been specified as par
 
 The last thing to do on the server side is to add an API endpoint that requires an access token to be provided for the call to succeed. This endpoint will use the middleware that you created earlier in the tutorial to provide that protection in a scalable way.
 
-Open `server.js` and add a new route for `/api/protected` above the other routes that returns some JSON:
+Open `server.js` and add a new route for `/api/external` above the other routes that returns some JSON:
 
 ```js
 // ..
 
-app.get("/api/protected", checkJwt, (req, res) => {
+app.get("/api/external", checkJwt, (req, res) => {
   res.send({
     msg: "Your access token was successfully validated!"
   });
@@ -152,7 +152,7 @@ const checkJwt = jwt({
 
 // Create an endpoint that uses the above middleware to
 // protect this route from unauthorized requests
-app.get("/api/protected", checkJwt, (req, res) => {
+app.get("/api/external", checkJwt, (req, res) => {
   res.send({
     msg: "Your access token was successfully validated!"
   });
@@ -244,7 +244,7 @@ const callApi = async () => {
 
     // Make the call to the API, setting the token
     // in the Authorization header
-    const response = await fetch("/api/protected", {
+    const response = await fetch("/api/external", {
       headers: {
         Authorization: `Bearer <%= "${token}" %>`
       }

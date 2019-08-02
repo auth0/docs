@@ -1,6 +1,5 @@
 ---
 description: Understand the concept of Authorization using Auth0.
-toc: true
 topics:
   - authorization
   - access-control
@@ -14,7 +13,7 @@ useCase:
 ---
 # Authorization
 
-Authorization refers to the process of verifying what a user has access to. While often used interchangeably with [authentication](/authentication-auth/current), authorization represents a fundamentally different function. 
+Authorization refers to the process of verifying what a user has access to. While often used interchangeably with [authentication](/application-auth/current), authorization represents a fundamentally different function. 
 
 In authorization, a user or application is granted access to an API after the API determines the extent of the permissions that it should assign. Usually, authorization occurs after identity is successfully validated through authentication so that the API has some idea of what sort of access it should grant. For a comparison of authorization and authentication, see [Authentication and Authorization](/authorization/concepts/authz-and-authn).
 
@@ -22,16 +21,11 @@ Authorization can be determined through the use of [policies](/authorization/con
 
 Since only the API can know all of the possible actions that it can handle, it should have its own internal access control system in which it defines its own permissions. To determine a calling application's effective permissions, an API should combine incoming scopes with the permissions assigned within its own internal access control system and make access control decisions accordingly.
 
-## Access Control in Auth0
+## Role-based access control in Auth0
 
-Currently, we provide two ways of implementing [role-based access control (RBAC)](/authorization/concepts/rbac), which you can use in place of or in combination with your API's own internal access control system:
+<%= include('../_includes/_rbac_methods') %>
 
-* [Authorization Core feature set](/authorization/guides/how-to)
-* [Authorization Extension](/extensions/authorization-extension)
-
-We are expanding our Authorization core feature set to match the functionality of the Authorization Extension. Our new core RBAC implementation improves performance and scalability and will eventually provide a more flexible RBAC system than the Authorization Extension.
-
-For now, both implement the key features of RBAC and allow you to restrict the custom scopes defined for an API to those that have been assigned to the user as permissions. For a comparison, see [Authorization Core vs. Authorization Extension](/authorization/concepts/core-vs-extension).
+<%= include('../_includes/_rbac_vs_extensions') %>
 
 ## Keep reading
 

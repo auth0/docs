@@ -1,5 +1,5 @@
 ---
-description: Learn how to use rules with roles-based access control (RBAC). For use with our Authorization core feature set.
+description: Learn how to use rules with roles-based access control (RBAC). For use with our Authorization Core feature set.
 toc: true
 topics:
   - authorization

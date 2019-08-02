@@ -13,4 +13,7 @@ Auth0 supports the following factors for implementing MFA. You must enable at le
   <li>
     <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/multifactor-authentication/factors/duo"> Duo</a>
   </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/multifactor-authentication/factors/email"> Email</a>
+  </li>
 </ul>

@@ -13,6 +13,10 @@ useCase: extensibility-extensions
 
 # Authorization Extension: Setup
 
+::: note
+<%= include('../../../../_includes/_rbac_methods') %>
+:::
+
 In this article we'll cover the basics of users, groups, <dfn data-key="role">roles</dfn>, and permissions.
 
 Let's say that you have an application that is accessible to everyone within your corporation. The **users** are the individuals to whom you'd like to grant access to your application.

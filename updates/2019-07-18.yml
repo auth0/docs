@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "API v1 to v2 changes"
+    tags:
+      - guide
+      - api
+    description: |
+      The changes document has been updated to accurately reflect v2 routes that can be used as alternatives to deprecated v1 routes.

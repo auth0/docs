@@ -1,10 +1,10 @@
-In order to provide services to your users, you must be able to identify who those users are. This process is called User  Authentication. There are a number of ways to perform authentication of a user - via social media accounts, username and password, passwordless - and it's often recommended that you go beyond a first factor for authenticating the user by enabling Multi-factor Authentication.
+In order to provide services to your users, you must be able to identify who those users are. This process is called User  Authentication. There are a number of ways to perform authentication of a user - via social media accounts, username and password, <dfn data-key="passwordless">passwordless</dfn> - and it's often recommended that you go beyond a first factor for authenticating the user by enabling multi-factor authentication (MFA).
 
 ::: panel Best Practice
 It's important to consider both security and user experience when designing how you will authenticate your users. Providing for multiple primary factors, and/or enforcing more than one factor during authentication, are ways that you can provide both.
 :::
 
-It’s important to consider both security and user experience when designing how you will authenticate your users, and so there are a number of things you will want to consider when looking at functionality and workflow:
+There are a number of things you will want to consider when looking at functionality and workflow:
 
 * Where will users enter their credentials?
 * How will you keep user credentials safe?
@@ -18,7 +18,7 @@ It’s important to consider both security and user experience when designing ho
 <% if (platform === "b2c") { %>
 * Can users log in using their existing social (e.g., Facebook or Google) accounts?
 <%  } %>
-* Do you need to provide multi-factor authentication (MFA)?
+* Do you need to provide multi-factor authentication?
 * What do you do if you have a service that doesn't have a way for the user to log in ahead of time?
 * Can you pass the same user access token from one API to another?
 <% if (platform === "b2b") { %>
@@ -40,3 +40,7 @@ When calling one API from another API, or from any situation where there is no a
 <% if (platform === "b2b") { %>
 Often companies need to segregate their users by organization and sometimes users can have access to more than one organization.  Knowing which of these scenarios is relevant to your company will help define how to determine in which connection a user exists: whether you need to do it, when you need to do it, and how to accomplish it.  See [Home Realm Discovery](#home-realm-discovery) to determine if this is something relevant to your company.
 <%  } %>
+
+::: panel Get Started with Auth0 Videos
+Watch these two short videos [Authenticate: How It Works](/videos/get-started/04_01-authenticate-how-it-works) and [Authenticate: SPA Example](/videos/get-started/04_01-authenticate-spa-example) to learn about the differences between authentication, authorization, and access control. Understand when and why you might use each type of authentication method: first factors, second factors, and multi-factor. Learn about the OpenID Connect (OIDC) authentication protocol. See an example using the Auth0 Quickstart for a single-page application (SPA) implementation.
+:::

@@ -29,15 +29,15 @@ This document describes the major differences between Auth0's Management API v1 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
 | [GET /api/users](/api/v1#!#get--api-users) | None. | [GET /api/v2/users](/api/v2#!/Users/get_users) |
-| [GET /api/users?search={criteria}](/api/v1#!#get--api-users-search--criteria-) | Changed parameter and syntax. | Implemented using Elastic Search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
+| [GET /api/users?search={criteria}](/api/v1#!#get--api-users-search--criteria-) | Changed parameter and syntax. | See the [get_users](/api/v2#!/Users/get_users) documentation. |
 | [GET /api/users/{user\_id}](/api/v1#!#get--api-users--user_id-) | None. | [GET /api/v2/users/{id}](/api/v2#!/Users/get_users_by_id) also accepts `v2\_id` |
-| [GET /api/connections/{connection}/users](/api/v1#!#get--api-connections--connection--users) | Not available. | TBD. |
-| [GET /api/connections/{connection}/users?search={criteria}](/api/v1#!#get--api-connections--connection--users-search--criteria-) | Not available. | TBD. |
-| [GET /api/enterpriseconnections/users?search={criteria}](/api/v1#!#get--api-enterpriseconnections-users-search--criteria-) | Changed to use search. | Available using `q=identities.isSocial:false AND NOT identities.provider:'auth0'` and `search_engine=v2` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
-| [GET /api/socialconnections/users?search={criteria}](/api/v1#!#get--api-socialconnections-users-search--criteria-) |  Changed to use search. | Available using `q=identities.isSocial:true` and `search_engine=v2` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
+| [GET /api/connections/{connection}/users](/api/v1#!#get--api-connections--connection--users) | Changed to use search. | Available using `q=identities.connection:"{connection}"` and `search_engine=v3` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
+| [GET /api/connections/{connection}/users?search={criteria}](/api/v1#!#get--api-connections--connection--users-search--criteria-) | Changed to use search. | Available using `q=identities.connection:"{connection}"` and `search_engine=v3` in the query string. Other conditions and criteria may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
+| [GET /api/enterpriseconnections/users?search={criteria}](/api/v1#!#get--api-enterpriseconnections-users-search--criteria-) | Changed to use search. | Available using `q=identities.isSocial:false AND NOT identities.provider:auth0` and `search_engine=v3` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
+| [GET /api/socialconnections/users?search={criteria}](/api/v1#!#get--api-socialconnections-users-search--criteria-) |  Changed to use search. | Available using `q=identities.isSocial:true` and `search_engine=v3` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
 | [GET /api/clients/{client-id}/users](/api/v1#!#get--api-socialconnections-users-search--criteria-) | Not available. | Not available. |
 | [POST /api/users](/api/v1#!#post--api-users) | None. | [POST /api/v2/users](/api/v2#!/Users/post_users) |
-| [POST /api/users/{user\_id}/send\_verification\_email](/api/v1#!#post--api-users--user_id--send_verification_email) | Not available. | TBD. |
+| [POST /api/users/{user\_id}/send\_verification\_email](/api/v1#!#post--api-users--user_id--send_verification_email) | Not available. | Verification emails can't be resent once they have been created, but a new one can be generated via [POST /api/v2/tickets/email-verification](/api/v2#!/tickets/post_email_verification)|
 | [POST /api/users/{user\_id}/change\_password\_ticket](/api/v1#!#post--api-users--user_id--change_password_ticket) | None. | [POST /api/v2/tickets/password-change](/api/v2#!/tickets/post_password_change) |
 | [POST /api/users/{user\_id}/verification\_ticket](/api/v1#!#post--api-users--user_id--verification_ticket) | None. | [POST /api/v2/tickets/email-verification](/api/v2#!/tickets/post_email_verification) |
 | [POST /api/users/{user\_id}/publickey](/api/v1#!#post--api-users--user_id--publickey) | Keys are created per device, not per user. | [POST /api/v2/device-credentials](/api/v2#!/Device_Credentials/post_device_credentials) |
@@ -104,7 +104,7 @@ Auth0's API v1 requires sending an <dfn data-key="access-token">Access Token</df
 
 Auth0's API v2 requires sending an Access Token with specific <dfn data-key="scope">scope(s)</dfn>. To perform requests with API v2, use the `Authorization` header: `Authorization: Bearer YOUR_ACCESS_TOKEN`.
 
-To use an endpoint, at least one of its available scopes (as listed in [Management API v2 explorer](/api/v2)) must be specified for the JWT. The actions available on an endpoint depend on the JWT scope. For example, if a JWT has the `update:users_app_metadata` scope, the [PATCH users `app_metadata`](/api/v2#!/users/patch_users_by_id) action is available, but not other properties.
+To use an endpoint, at least one of its available scopes (as listed in [Management API v2 explorer](/api/v2)) must be specified for the JWT. The actions available on an endpoint depend on the JWT scope. For example, if a JWT has the `update:users_app_metadata` scope, the [PATCH users `app_metadata`](/api/v2#!/Users/patch_users_by_id) action is available, but not other properties.
 
 There is a subset of scopes that your application can use in order to perform a subset of operations on behalf of the currently logged-in user. These are:
 
@@ -209,7 +209,7 @@ In Management API v1, different endpoints are used to update the various user pr
 * [`PUT /api/users/{user_id}/metadata`](/api/v1#!#put--api-users--user_id--metadata)
 * [`PUT /api/users/{user_id}/password`](/api/v1#!#put--api-users--user_id--password)
 
-In API v2, these are simplified into the single endpoint [`PATCH /api/v2/users/{id}`](/api/v2#!/users/patch_users_by_id) which allows you to modify these (and other) user properties.
+In API v2, these are simplified into the single endpoint [`PATCH /api/v2/users/{id}`](/api/v2#!/Users/patch_users_by_id) which allows you to modify these (and other) user properties.
 
 ### All endpoints require ids
 

@@ -35,11 +35,11 @@ Enter your app name:
 
 ![](/media/articles/connections/social/exact/exact-register-3.png)
 
-In the `Redirect URI`field, enter your <dfn data-key="callback">callback URL</dfn>:
+In the `Redirect URI` field, enter your <dfn data-key="callback">callback URL</dfn>:
 
     https://${account.namespace}/login/callback
 
-    <%= include('../_find-auth0-domain-redirects') %>
+  <%= include('../_find-auth0-domain-redirects') %>
 
 Click **Save**.
 

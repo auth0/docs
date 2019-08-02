@@ -30,6 +30,8 @@ Resources designed to help you learn the basics of Auth0 include:
 
 * [**Getting Started documentation**](/getting-started): Explore the Auth0 Dashboard and common terms used for components of the Auth0 service. Gain a broad understanding of Auth0 and learn the terminology you might hear when working with Auth0 staff or reading our docs.
 
+* [**Get Started with Auth0 Video Series**](/videos/get-started): In these short videos, we cover how easy it is to complete the basic steps to use Auth0 with your applications. Watch the series before you start your project so you can get the benefit of our knowledge and experience with other customers. We cover tenant configuration, provisioning user stores and importing users, authentication, authorization, and branding and customization of everything shown to your users. 
+
 * [**Architecture scenarios**](/architecture-scenarios): Review common architecture scenarios and learn how to implement them with Auth0. Scenarios include tutorials for common architecture patterns, such as a Single-Page Application (SPA) calling an API. High-level descriptions are useful for architects, while tutorials will help development teams.
 
 * [**Implementation guides**](/topics/guides): Learn how to implement commonly-used features, such as user management and multi-factor authentication (MFA). This information is useful for both architects and developers.

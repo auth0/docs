@@ -36,7 +36,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
             "description": "Indicates whether the user has verified their email address."
         },
         "user_id": {
-            "type": "text",
+            "type": "string",
             "description": "The user's unique identifier."
         },
         "username": {
@@ -68,7 +68,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
             "description": "Indicates whether the user has been blocked."
         },
         "password_hash": {
-            "type": "text",
+            "type": "string",
             "description":"Hashed password for the user. Passwords should be hashed using bcrypt $2a$ or $2b$ and have 10 saltRounds."
         },
         "app_metadata": {

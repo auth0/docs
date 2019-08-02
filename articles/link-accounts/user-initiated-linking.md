@@ -176,7 +176,7 @@ Also, you can select which identity will be used as the primary account and whic
 
 ## 4. Unlinking accounts
 
-For unlinking accounts, invoke the Management API v2 [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using the JWT from the primary account for authorization:
+For unlinking accounts, invoke the Management API v2 [Unlink a user account endpoint](/api/v2#!/Users/delete_user_identity_by_user_id) using the JWT from the primary account for authorization:
 
 ```js
 function unlinkAccount(secondaryProvider, secondaryUserId){

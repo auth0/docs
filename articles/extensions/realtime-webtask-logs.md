@@ -10,9 +10,9 @@ useCase: extensibility-extensions
 
 # Real-time Webtask Logs
 
-_Real-time Webtask Logs_ is an extension that displays all logs in real-time for all custom code in your account. This includes all `console.log` output and exceptions. 
+_Real-time Webtask Logs_ is an extension that displays all logs in real-time for the custom code in your account. This includes all `console.log` output and exceptions. 
 
-## Configuring the Extension
+## Configuring the extension
 
 To install and configure this extension, click on the _Real-time Webtask Logs_ box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}). The _Install Extension_ window pops open.
 
@@ -20,7 +20,7 @@ To install and configure this extension, click on the _Real-time Webtask Logs_ b
 
 Click the _Install_ button.
 
-## Using Your Installed Extension
+## Using your installed extension
 
  To view your installed extension, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}), click on the _Installed Extensions_ link, and select the _Real-time Webtask Logs_ line. You can view the logs in full screen by selecting the _FULL SCREEN MODE_ button. Press `Escape` to exit full screen mode. 
 
@@ -28,7 +28,15 @@ Click the _Install_ button.
 
 To clear the logs and start fresh select the red _CLEAR CONSOLE_ button at the bottom right.
 
-## Debugging Rules
+## Secure logging
+
+Because the Webtask Logs extension uses the users request, logging sensitive information is a concern of which you should be mindful.
+
+For example, your custom database scripts work with the `user` object extensively. The `user` object may contain sensitive information, and logging the complete object may lead to its disclosure to the Webtask Logs extension.
+
+Obviously, Auth0 strongly discourages such practices. These actions could lead to the disclosure of your users' sensitive information. **We caution you to be aware of the objects that you log and to ensure sensitive information is not logged**
+
+## Debugging rules
 
 The _Real-time Webtask Logs_ extension can be used to debug any [Rules](/rules) in your implementation. This includes all `console.log` output and exceptions. Let's follow a simple _hello world_ example.
 
@@ -47,8 +55,6 @@ function (user, context, callback) {
 You are now ready to run this rule. Before you do so, open a new tab and navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}), click on the _Installed Extensions_ link, and select the _Real-time Webtask Logs_ line. You are now viewing logs real-time and are ready to try your rule. Go back to your Rules tab and click _TRY THIS RULE_. Then head back to your _Real-time Webtask Logs_ tab to see the results.
 
 ![](/media/articles/extensions/realtime-webtask-logs/view-rules-example.png)
-
-That's it, you are done! 
 
 ## Additional Information
 - [Rules debugging](/rules#debugging)

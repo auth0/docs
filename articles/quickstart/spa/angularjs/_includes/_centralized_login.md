@@ -1,5 +1,6 @@
+<!-- markdownlint-disable MD002 MD041 -->
 
-<%= include('../../_includes/_login_preamble', { library: 'AngularJS', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-angularjs-samples/tree/embedded-login/01-Embedded-Login' }) %>
+<%= include('../../_includes/_login_preamble', { library: 'AngularJS' }) %>
 
 ### Configure angular-auth0
 
@@ -126,7 +127,6 @@ function authService($state, angularAuth0, $timeout) {
 ::: note
 **Checkpoint:** Try to call the `login` method from somewhere in your application to see the login page.
 :::
-
 
 ![hosted login](/media/articles/web/hosted-login.png)
 

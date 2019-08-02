@@ -1,7 +1,6 @@
 ---
 title: Logout
-description: Understand user logout planning considerations for your B2B implementation.
-toc: true
+description: User logout planning considerations for your B2B IAM implementation.
 topics:
     - b2b
     - b2biam
@@ -15,7 +14,7 @@ useCase:
 
 <%= include('../../_includes/_logout/_introduction.md', { platform: 'b2b' }) %>
 
-## Planning
+## Project Planning Guide
 
 <%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 

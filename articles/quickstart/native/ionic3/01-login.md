@@ -28,11 +28,14 @@ If you are following along with the sample project you downloaded from the top o
 YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
 ```
 
-Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
-```bash
-# replace YOUR_PACKAGE_ID with your app package ID
-YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
-```
+Replace `YOUR_PACKAGE_ID` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file. 
+
+
+<%= include('../../../_includes/_logout_url') %>
+
+::: note
+If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to whitelist in the Allowed Logout URLs field is the same as the callback URL.
+:::
 
 Add `file` as an allowed origin to the **Allowed Origins (CORS)** box.
 
@@ -60,14 +63,23 @@ You must install the `SafariViewController` plugin from Cordova to be able to us
 
 ```bash
 ionic cordova plugin add cordova-plugin-safariviewcontroller
+
+# installation with npm
+npm install --save @ionic-native/safari-view-controller
+
+# installation with yarn
+yarn add @ionic-native/safari-view-controller
 ```
 
 The `CustomURLScheme` plugin from Cordova is also required to handle redirects properly. The sample project has it already, but if you're adding Auth0 to your own project, install this plugin as well.
 
 ```bash
 # replace YOUR_PACKAGE_ID with your app identifier
-ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_HOST=${account.namespace} --variable ANDROID_PATHPREFIX=/cordova/{YOUR_PACKAGE_ID}/callback
+ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=YOUR_PACKAGE_ID --variable ANDROID_SCHEME=YOUR_PACKAGE_ID --variable ANDROID_HOST=${account.namespace} --variable ANDROID_PATHPREFIX=/cordova/YOUR_PACKAGE_ID/callback
 ```
+
+Replace `YOUR_PACKAGE_ID` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file. 
+
 
 ## Integrate Auth0 in your Application
 
@@ -145,6 +157,7 @@ To coordinate authentication tasks, it's best to set up an injectable service th
 // src/services/auth.service.ts
 import { Injectable, NgZone } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { SafariViewController } from '@ionic-native/safari-view-controller';
 
 // Import AUTH_CONFIG, Auth0Cordova, and auth0.js
 import { AUTH_CONFIG } from './auth.config';
@@ -162,7 +175,8 @@ export class AuthService {
 
   constructor(
     public zone: NgZone,
-    private storage: Storage
+    private storage: Storage,
+    private safariViewController: SafariViewController
   ) {
     this.storage.get('profile').then(user => this.user = user);
     this.storage.get('access_token').then(token => this.accessToken = token);
@@ -210,6 +224,27 @@ export class AuthService {
     this.accessToken = null;
     this.user = null;
     this.loggedIn = false;
+
+    this.safariViewController.isAvailable()
+      .then((available: boolean) => {
+let url = `https://<%= "${AUTH_CONFIG.domain}" %>/v2/logout?client_id=<%= "${AUTH_CONFIG.clientId}" %>&returnTo=<%= "${AUTH_CONFIG.packageIdentifier}" %>://<%= "${AUTH_CONFIG.domain}" %>/cordova/<%= "${AUTH_CONFIG.packageIdentifier}" %>/callback`;
+        if (available) {
+          this.safariViewController.show({
+            url: url
+          })
+          .subscribe((result: any) => {
+              if(result.event === 'opened') console.log('Opened');
+              else if(result.event === 'loaded') console.log('Loaded');
+              else if(result.event === 'closed') console.log('Closed');
+            },
+            (error: any) => console.error(error)
+          );
+        } else {
+          // use fallback browser
+          cordova.InAppBrowser.open(url, '_system');
+        }
+      }
+    );
   }
 }
 ```

@@ -37,3 +37,7 @@ Not all users will trigger the logout process manually, so Auth0 also provides *
 <% if (platform === "b2b") { %>
  [Federated User Logout](/logout/guides/logout-idps) may be something that you need to consider for your application.  If you or your customers will be using a third-party IdP (i.e., something other than a [Database Identity Provider](/connections/database)) then the question of whether you need to log the user out of the IdP when they log out of your application is something you will need to answer. The answer depends on what your users would expect. If the applicaiton and/or IdP you use is tied closely to a customer organization and a central part of day-to-day operations, then it may be frustrating for users to get logged out of their IdP when they log out of your application. If not, then being logged out of the IdP may be expected, or in some cases even desired. In most B2B scenarios, our customers find that it is preferable *not* to perform federated logout for a user. 
 <%  } %>
+
+::: panel Get Started with Auth0 Video
+Watch this short video [Logout](/videos/get-started/10-logout) to learn about different kinds of logout behavior and different session layers. Learn how to configure callback URLs in the application and tenant settings in the Dashboard.
+:::

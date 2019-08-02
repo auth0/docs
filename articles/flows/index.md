@@ -37,5 +37,5 @@ We support scenarios for server-side, mobile, desktop, client-side, machine-to-m
   * [Call API Using the Client Credentials Flow](/flows/guides/client-credentials/call-api-client-credentials)
 
 * [Device Authorization Flow](/flows/concepts/device-auth)
-  * [Add Authorization Using the Device Authorization Flow](/flows/guides/device-auth/add-auth-device-auth)
+  * [Add Authorization Using the Device Authorization Flow](/flows/guides/device-auth/call-api-device-auth)
 

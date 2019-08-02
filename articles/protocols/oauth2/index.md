@@ -156,7 +156,7 @@ The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/spe
    <body onload="javascript:document.forms[0].submit()">
     <form method="post" action="https://my-redirect-uri.com/callback">
       <input type="hidden" name="state" value="klsdfY78FVN3sl6DWSjsdhfsd8r67832nb"/>
-      <input type="hidden" name="access_token" value="eyJ...plD"/>
+      <input type="hidden" name="id_token" value="eyJ...plD"/>
     </form>
    </body>
   </html>

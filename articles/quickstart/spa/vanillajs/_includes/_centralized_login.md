@@ -78,7 +78,7 @@ Create an `auth_config.json` in the root of the project. The values from `domain
 
 ```json
 {
-  "domain": "${account.tenant}",
+  "domain": "${account.namespace}",
   "clientId": "${account.clientId}"
 }
 ```
@@ -97,7 +97,7 @@ Run the following commend in the same folder as the `index.html` file you create
 $ npm init -y
 ```
 
-This will initilize a new NPM project and get us ready to install dependencies.
+This will initialize a new NPM project and get us ready to install dependencies.
 
 ### Installing dependencies
 
@@ -133,7 +133,7 @@ Finally, open the `package.json` file and modify the "scripts" entry to look lik
 
 Next, create a new file in the root of the project alongside `index.html` and `package.json`, called `server.js`. This will be our backend server and will be used to serve the SPA pages.
 
-Open `public/js/app.js` and populate it with the following code:
+Populate `server.js` with the following code:
 
 ```js
 const express = require("express");
@@ -376,9 +376,9 @@ const updateUI = async () => {
 
     document.getElementById(
       "ipt-access-token"
-    ).value = await auth0.getTokenSilently();
+    ).innerHTML = await auth0.getTokenSilently();
 
-    document.getElementById("ipt-user-profile").value = JSON.stringify(
+    document.getElementById("ipt-user-profile").innerHTML = JSON.stringify(
       await auth0.getUser()
     );
 
