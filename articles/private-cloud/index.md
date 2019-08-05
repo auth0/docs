@@ -21,7 +21,7 @@ Users with requirements not met by the Auth0 Public Cloud may instead opt for a 
 
 Auth0 currently offers two Private Cloud deployment models:
 
-* [Private Cloud](/private-cloud/standard-private-cloud)
+* [**Standard** Private Cloud](/private-cloud/standard-private-cloud)
 * [**Managed** Private Cloud](/private-cloud/managed-private-cloud), either hosted by Auth0 or hosted by you on an AWS environment and operated by Auth0 as a managed service
 
 Private Cloud deployments are single-subscriber, isolated instances where none of a customer's resources (software and infrastructure) are shared with any other tenants. This offers increased performance, stability, and availability.
