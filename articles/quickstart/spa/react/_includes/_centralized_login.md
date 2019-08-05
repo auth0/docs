@@ -131,7 +131,7 @@ The next few sections will integrate these hooks into the various components tha
 
 Create a new folder inside the `src` folder called `components`. This is where you will house all the components for this application.
 
-Create a new component in the `components` folder called `Navbar.jsx`. This component will be responsible for showing the login and logout buttons:
+Create a new component in the `components` folder called `Navbar.js`. This component will be responsible for showing the login and logout buttons:
 
 ```jsx
 // src/components/NavBar.js
