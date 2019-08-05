@@ -129,7 +129,7 @@ Add the following to the generated `show.html.erb` file:
 <img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg">
 <h1>RoR Auth0 Sample</h1>
 <p>Step 1 - Login.</p>
-${ "<%= link_to 'Login', 'auth/auth0', method: :post %>" }
+${ "<%= button_to 'Login', 'auth/auth0', method: :post %>" }
 ```
 
 Finally, point the `root` path to generated controller:
