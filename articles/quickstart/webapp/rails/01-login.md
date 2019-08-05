@@ -21,15 +21,29 @@ github:
 
 ### Install the Dependencies
 
-To follow along with this guide, add the following dependencies to your `Gemfile` and run `bundle install`.
+To follow along with this guide, add the following dependencies to your `Gemfile`:
 
-${snippet(meta.snippets.dependencies)}
+```ruby
+gem 'omniauth-auth0', '~> 2.2'
+```
+
+To prevent forged authentication requests, we need to also include CSRF protection. If you're using OmniAuth with Rails, include:
+
+```ruby
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
+```
+
+Once your gems are added, install with the following command:
+
+```bash
+bundle install
+```
 
 ::: note
 If you are using Windows, uncomment the `tzinfo-data` gem in the Gemfile.
 :::
 
-### Initialize Omniauth Auth0
+### Initialize OmniAuth Auth0
 
 Create a file named `auth0.rb` under `config/initializers` and configure the **OmniAuth** middleware in it.
 
@@ -97,6 +111,10 @@ end
 
 We need a way for users to trigger authentication. Add a link to `/auth/auth0` anywhere in an existing template or use the steps below to generate a homepage in a new app.
 
+::: note
+To prevent forged authentication requests, make sure that you add a link with a method of `:post` (as described below using the `link_to` function in Rails) or create a form with a CSRF token included.
+:::
+
 Run the following command to generate the homepage controller and views:
 
 ```bash
@@ -105,13 +123,13 @@ rails generate controller home show --skip-assets
 
 Add the following to the generated `show.html.erb` file:
 
-```html
+```
 <!-- app/views/home/show.html.erb -->
 
 <img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg">
 <h1>RoR Auth0 Sample</h1>
 <p>Step 1 - Login.</p>
-<a href="/auth/auth0">Login</a>
+${ "<%= link_to 'Login', 'auth/auth0', method: :post %>" }
 ```
 
 Finally, point the `root` path to generated controller:
