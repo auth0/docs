@@ -15,16 +15,14 @@ contentType:
 <div class="topic-page-header">
 <div data-name="example" class="topic-page-badge"></div>
 <h1>Auth0 Libraries</h1>
-<p>
-  There are several widgets and SDKs available to provide a frictionless simple experience when using Auth0. Take a look below to find documentation for the tools that you need to get started!
+<p>  
+  Auth0 offers widgets and SDKs to provide a simple and frictionless experience for you when using Auth0. Take a look at the options listed to find documentation and links to repositories for the tools you need to get started.
 </p>
 </div>
 
 <%= include('../_includes/_embedded_login_warning') %>
 
 ## Lock
-
-### Lock documentation
 
 <ul class="topic-links">
   <li>
@@ -42,9 +40,7 @@ contentType:
 
 <%= include('../_includes/_libraries_support_lock') %>
 
-## Auth0 SDKs
-
-### SDK documentation
+## SDKs
 
 <ul class="topic-links">
   <li>
@@ -76,5 +72,5 @@ contentType:
 <%= include('../_includes/_libraries_support_frameworks') %>
 
 ::: note
-Auth0 reserves the right to downgrade support for an SDK to community-supported at any time.
+Auth0 reserves the right to downgrade an SDK from **Supported** to **Community-Supported** at any time.
 :::
