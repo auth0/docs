@@ -169,6 +169,8 @@ Add the following methods to the `views.py` file to create a decorator that will
 ```python
 # auth0authorization/views.py
 
+import jwt
+
 def get_token_auth_header(request):
     """Obtains the Access Token from the Authorization Header
     """
@@ -212,7 +214,6 @@ from functools import wraps
 
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
-from jose import jwt
 
 def public(request):
     return JsonResponse({'message': 'Hello from a public endpoint! You don\'t need to be authenticated to see this.'})
