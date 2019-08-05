@@ -250,7 +250,7 @@ In order to put the interceptor to work in the application, open the `src/app/ap
 ```js
 ...
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { InterceptorService } from './auth/interceptor.service';
+import { InterceptorService } from './interceptor.service';
 ...
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
@@ -401,8 +401,8 @@ Finally, add a link to the navigation bar. Open `src/app/navbar/navbar.component
 
 ```html
 <header>
-  ...&nbsp;
-  <a routerLink="external-api" *ngIf="auth.loggedIn">External API</a>
+  ...
+  &nbsp;<a routerLink="external-api" *ngIf="auth.loggedIn">External API</a>
 </header>
 ```
 

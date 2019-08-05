@@ -50,7 +50,7 @@ npm install @auth0/auth0-spa-js --save
 
 To manage authentication with Auth0 throughout the application, create an authentication service. This way, authentication logic is consolidated in one place and can be injected easily.
 
-Use the CLI to generate a new service called `Auth`:
+Use the CLI to generate a new service called `AuthService`:
 
 ```bash
 ng generate service auth
