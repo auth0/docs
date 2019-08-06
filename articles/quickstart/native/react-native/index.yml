@@ -30,7 +30,8 @@ github:
   org: auth0-samples
   repo: auth0-react-native-sample
 requirements:
-  - React Native 2.0.1
+  - React Native 0.60.4
+  - React Native Cli 2.0.1
   - NodeJS 10.16
 next_steps:
   - path: 00-login
