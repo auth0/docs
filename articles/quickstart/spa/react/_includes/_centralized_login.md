@@ -35,6 +35,7 @@ npm install react-router-dom @auth0/auth0-spa-js
 Create a new file in the `src` directory called `react-auth0-wrapper.js` and populate it with the following content:
 
 ```js
+// src/react-auth0-wrapper.js
 import React, { useState, useEffect, useContext } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
 
@@ -229,6 +230,8 @@ The values for `domain` and `clientId` should be replaced with those for your ow
 Next, open the `App.js` file in the `src` folder, populate it with the following content:
 
 ```js
+// src/App.js
+
 import React from "react";
 import NavBar from "./components/Navbar";
 import { useAuth0 } from "./react-auth0-wrapper";
@@ -269,7 +272,7 @@ To display this information to the user, create a new file called `Profile.js` i
 // src/components/Profile.js
 
 import React from "react";
-import { useAuth0 } from "./react-auth0-wrapper";
+import { useAuth0 } from "../react-auth0-wrapper";
 
 const Profile = () => {
   const { loading, user } = useAuth0();
@@ -301,6 +304,8 @@ In the UI for this component, the user's profile picture, name, and email addres
 To access this page, modify the `App.js` file to include a router so that the profile page may be displayed on the screen. The `App.js` file should now look something like this:
 
 ```jsx
+// src/App.js
+
 import React from "react";
 import NavBar from "./components/Navbar";
 
@@ -335,6 +340,7 @@ To complete this step, open the `Navbar.js` file and modify the navigation bar's
 The `NavBar` component should now look something like this:
 
 ```jsx
+// src/components/NavBar.js
 // .. other imports
 
 // NEW - import the Link component
@@ -374,6 +380,8 @@ To fix this, a Higher-Order Component can be created that will wrap any componen
 Start by creating a new component `components/PrivateRoute.js` that can wrap another component. Populate it with the following content:
 
 ```jsx
+// src/components/PrivateRoute.js
+
 import React, { useEffect } from "react";
 import { Route } from "react-router-dom";
 import { useAuth0 } from "../react-auth0-wrapper";
@@ -411,6 +419,8 @@ With `PrivateRoute` component in place, the application router can now be modifi
 Open `App.js` once again, import the `PrivateRoute` component, and update the router so that the `Profile` component is wrapped by the `PrivateRoute` component:
 
 ```jsx
+// src/components/PrivateRoute.js
+
 // .. other imports removed for brevity
 
 // NEW - import the PrivateRoute component
