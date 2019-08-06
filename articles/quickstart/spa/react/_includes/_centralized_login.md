@@ -231,8 +231,17 @@ Next, open the `App.js` file in the `src` folder, populate it with the following
 ```js
 import React from "react";
 import NavBar from "./components/Navbar";
+import { useAuth0 } from "./react-auth0-wrapper";
 
 function App() {
+  const { loading } = useAuth0();
+
+  if (loading) {
+    return (
+      <div>Loading...</div>
+    );
+  }
+
   return (
     <div className="App">
       <header>
@@ -260,13 +269,15 @@ To display this information to the user, create a new file called `Profile.js` i
 // src/components/Profile.js
 
 import React from "react";
-import { useAuth0 } from "../react-auth0-wrapper";
+import { useAuth0 } from "./react-auth0-wrapper";
 
 const Profile = () => {
   const { loading, user } = useAuth0();
 
   if (loading || !user) {
-    return "Loading...";
+    return (
+      <div>Loading...</div>
+    );
   }
 
   return (
