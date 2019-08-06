@@ -111,7 +111,7 @@ end
 
 We need a way for users to trigger authentication. Add a link to `/auth/auth0` anywhere in an existing template or use the steps below to generate a homepage in a new app.
 
-::: note
+::: warning
 To prevent forged authentication requests, make sure that you add a link with a method of `:post` (as described below using the `link_to` function in Rails) or create a form with a CSRF token included.
 :::
 
