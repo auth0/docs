@@ -11,6 +11,33 @@ To refresh your token, make a `POST` request to the `/oauth/token` endpoint in t
 
 ### Example refresh token POST to token URL
 
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+  ],
+  "postData" : {
+    "mimeType": "application/x-www-form-urlencoded",
+    "params" : [
+      {
+        "name": "grant_type",
+        "value": "refresh_token"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "refresh_token",
+        "value": "YOUR_REFRESH_TOKEN"
+      }
+    ]
+  }
+}
+```
+
 ```text
 POST https://${account.namespace}/oauth/token
 Content-Type: application/x-www-form-urlencoded
