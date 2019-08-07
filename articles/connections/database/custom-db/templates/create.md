@@ -19,8 +19,6 @@ While Auth0 has populated default templates in the Dashboard script editor, you 
 When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure to implement both database action scripts if you are creating new users.
 :::
 
-## Notes
-
 When working on your user creation script, keep in mind that:
 
 * This script will create a new entry in your database. 
@@ -28,7 +26,64 @@ When working on your user creation script, keep in mind that:
 
 When the script finishes execution, the Login script runs to verify that the user was created successfully.
 
-## The `user` object
+The create action script implements the function executed in order to create a user in the legacy identity store. We recommend naming this function create. The script is only utilized in a legacy authentication scenario, and must be implemented if support in Auth0 is required for creating users in the legacy identity store - e.g. if user signup via Auth0 is required. If support is not required - e.g. if user signup via Auth0 is not required - then the script need not be implemented; not implementing the script will not preclude the creation of a user by some mechanism external to Auth0. The create function implemented in the script should be defined as follows:
+
+```js
+function create(user, callback) {
+  // TODO: implement your script
+  return callback(null);
+}
+```
+
+::: note
+The `create` action script is only responsible for creating a user identity in the legacy identity store. The call to create will typically be preceded by one or more calls to getUser (in order to determine if the user already exists), and followed by a call to login in order to obtain user profile information.  
+:::
+
+| Attribute | Description |
+| --- | --- |
+| `user` | An object containing attributes associated with the user identity to be created. |
+| `callback` | For `create`, the `callback` function is executed with a single parameter. The parameter is an indication of status: a `null` indicates that the operation executed successfully, while a non-null value indicates that some error condition occurred. |
+
+When indicating an error condition we recommend using an instance of the `Error` object (e.g., `callback(new Error(“an error message”))`) in order to provide Auth0 with clear indication of the error condition. 
+
+## `user` object
+
+```js
+{
+    client_id: "<ID of creating client (application)>",
+    tenant: "<name of creating Auth0 tenant>",
+    email: "<email address for the user>",
+    password: "<password for the user>",
+    username: "<name associated with the user>",
+    user_metadata: {
+        "language": "en"
+    },
+    app_metadata: {
+        "plan": "full"
+    }
+}
+```
+
+The `password` credential for the user is passed to the `create` script in plain text so care must be taken regarding its use. You should refrain from logging, storing, or transporting it anywhere in its vanilla form. Instead, prefer to use something similar to the following example below, which uses the [`bcrypt`](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) algorithm to perform cryptographic hash encryption:
+
+```js
+  bcrypt.hash(user.password, 10, function (err, hash) {
+    if (err) { 
+      return callback(err); 
+    } else {
+	  .
+	  .
+    }
+  });
+```
+
+If a username is supplied then this will typically be due to a custom database connection type having [`Requires Username`](/connections/database/require-username) as an enabled setting. If this is the case then username will need to be provided on any subsequent login or `getUser` execution, so should be stored accordingly in the legacy identity store. If the setting is not enabled then username will typically be optional. 
+
+Whist `user_metadata` and `app_metadata` are optional, if supplied they do not necessarily need to be stored in the legacy identity store; Auth0 will automatically store these values as part of the user profile record created internally. Rather, these values are (optionally) provided as a reference: their contents potentially being influential to legacy identity creation. 
+
+::: note
+Note that unlike with login, `app_metadata` will be specified as-is and will not be renamed as `metadata`.
+:::
 
 The `user` object will always contain the following properties:
 
@@ -39,7 +94,8 @@ The `user` object will always contain the following properties:
 | tenant | the name of the Auth0 account |
 | client_id | the client ID of the application for which the user signed up, or the API key if the user was created through the Dashboard or API |
 | connection | the name of the database connection |
-| user_metadata |  |
+| user_metadata | optional |
+| app_metadata | optional |
 
 Finally, if you [create and use custom fields](/libraries/custom-signup#using-the-api) during the registration process, these properties are included in the `user` object as well.
 
@@ -53,7 +109,7 @@ There are three ways a Create Users script can finish:
 | `callback(new ValidationError("user_exists", "my error message"));` | This user already exists in your database |
 | `callback(new Error("my error message"));` | Something went wrong while trying to reach your database |
 
-## Sample Scripts
+## Language-specific script examples
 
 Auth0 provides sample scripts for use with the following languages/technologies:
 

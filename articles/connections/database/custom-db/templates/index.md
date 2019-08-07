@@ -33,75 +33,23 @@ You can use the following scripts:
 * [Login](/connections/database/custom-db/templates/login)
 * [Verify User](/connections/database/custom-db/templates/verify)
 
-## Obtain original script code
+<%= include('../../../_includes/_ip_whitelist') %>
 
-While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
+## Script execution
 
-* [Change Passwords](/connections/database/custom-db/templates/change-password)
-* [Create User](/connections/database/custom-db/templates/create)
-* [Delete User](/connections/database/custom-db/templates/delete)
-* [Get User](/connections/database/custom-db/templates/get-user)
-* [Login](/connections/database/custom-db/templates/login)
-* [Verify User](/connections/database/custom-db/templates/verify)
+A custom database connection type allows you to configure action scripts: custom code that is used when interfacing with your legacy identity store. Each action script is essentially a named JavaScript function that is passed a number of parameters, with the name of the function and the parameters passed dependent on the script in question. 
 
-### IBM DB2 script template example
+Action script execution supports the asynchronous nature of JavaScript, and constructs such as Promise objects and the like can be used. Asynchronous processing effectively results in suspension pending completion of an operation, and an Auth0 serverless Webtask container typically has a circa 20-second execution limit - after which the container may be recycled. Recycling of a container due to this limit will prematurely terminate operation, ultimately resulting in an error condition being returned (as well as resulting in a potential reset of the global object). 
 
-Users of [IBM's DB2](https://www.ibm.com/analytics/us/en/technology/db2/) product may find [this sample login script](/connections/database/db2-script) to be of interest.
+The callback function supplied to each action script effectively acts as a signal to indicate completion of operation. An action script should complete immediately following a call to the callback function - either implicitly or, preferably, by explicitly executing a (JavaScript) return statement - and should refrain from any other operation. The (Auth0) supplied callback function must be called exactly once; calling the function more than once within an action script will lead to unpredictable results and/or errors.
 
-![Database action script templates](/media/articles/connections/database/mysql/db-connection-login-script.png)
-
-For example, the MySQL Login template is as follows:
-
-```js
-function login(email, password, callback) {
-  var connection = mysql({
-    host: 'localhost',
-    user: 'me',
-    password: 'secret',
-    database: 'mydb'
-  });
-
-  connection.connect();
-
-  var query = "SELECT id, nickname, email, password " +
-    "FROM users WHERE email = ?";
-
-  connection.query(query, [email], function (err, results) {
-    if (err) return callback(err);
-    if (results.length === 0) return callback(new WrongUsernameOrPasswordError(email));
-    var user = results[0];
-
-    bcrypt.compare(password, user.password, function (err, isValid) {
-      if (err) {
-        callback(err);
-      } else if (!isValid) {
-        callback(new WrongUsernameOrPasswordError(email));
-      } else {
-        callback(null, {
-          // This prefix (replace with your own custom DB name)
-          // ensure uniqueness across different custom DBs if there's the
-          // possibility of collisions (e.g. if the user ID is an email address or an integer)
-          id: 'MyConnection1|' + user.id.toString(),
-          nickname: user.nickname,
-          email: user.email
-        });
-      }
-    });
-  });
-}
-```
-
-The above script connects to a MySQL database and executes a query to retrieve the first user with `email == user.email`.
-
-With the **bcrypt.compareSync** method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including **id**, **nickname**, and **email**.
-
-This script assumes that you have a **users** table containing these columns. The **id** returned by Login script is used to construct the **user ID** attribute of the user profile. 
-
-::: warning
-Ensure that the returned user ID is unique across custom databases. See [User IDs](#user-ids) below.
+::: note
+Where `callback` is executed with no parameters, as in `callback()`, the implication is that function has been called as though `callback(null)` had been executed. 
 :::
 
-Be sure to **Save** your changes. Note that clicking **Try** to test your script will also save your script.
+If an action script is making use of asynchronous processing, then a call to the (Auth0) supplied callback function must be deferred to the point where asynchronous processing completes, and must be the final thing called. Asynchronous execution will result in a (JavaScript) callback being executed after the asynchronous operation is complete; this callback is typically fired at some point after the main (synchronous) body of a JavaScript function completes. 
+
+Failure to execute the callback function will result in a stall of execution, and ultimately in an error condition being returned. The action script must call the callback function exactly once: the callback function must be called at least once in order to prevent stall of execution, however it must not be called more than once otherwise unpredictable results and/or errors will occur.
 
 ## Keep reading
 

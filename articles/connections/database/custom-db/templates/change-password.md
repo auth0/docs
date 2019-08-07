@@ -10,17 +10,55 @@ useCase:
 ---
 # Change Password Script Templates
 
-Auth0 provides the following custom database change password script templates that you can use when implementing password changing functionality for your users.
-
-While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
-
 When working on your password change script, keep in mind that:
 
 * This script will be executed whenever the user wishes to change his password; the user will receive the password reset email, which include the link they need to follow to change their password
 * The parameters **email** and **newPassword** are used to confirm the new password
 * The change password script is **optional**
 
-## Sample Scripts
+The change password action script implements the function executed in order to change the password associated with the user identity held in the legacy identity store. We recommend naming this function changePassword. The script is only utilized in a legacy authentication scenario, and must be implemented if support is required for Auth0 password change functionality.
+
+Whilst it’s not mandatory to implement the `changePassword` function, it is a recommended best practice. The `changePassword` function is required to support the password reset workflow recommended for [great customer experience](https://auth0.com/learn/password-reset/). 
+
+The script is executed whenever password reset workflow (e.g. a forgot password from Universal Login) is performed and also during password change workflow - such as is available via the Auth0 Dashboard or the Auth0 Management API. The changePassword function implemented in the change password user action script should be defined as follows:
+
+```js
+function changePassword(email, newPassword, callback) {
+  // TODO: implement your script
+  return callback(null, result);
+}
+```
+
+| Attribute | Description |
+| --- | --- |
+| `email` | The email address for the user as the user identifying credential. |
+| `password` | The new password credential for the user. The password credential for the user is passed to the script in plain text so care must be taken regarding its use. |
+| `callback` | For `changePassword`, the `callback` function is executed with up to two parameters. The first parameter is an indication of status: a null first parameter with a corresponding second parameter of true indicates that the operation executed successfully; a null first parameters with no corresponding second parameter (or one with a value of false) indicates that no password change was performed (e.g. perhaps due to the user not being found). A non null first parameter value indicates that some error condition occurred.  |
+
+::: panel Best practice
+When indicating an error condition we recommend using an instance of the Error object - e.g. callback(new Error(“an error message”)) - in order to provide Auth0 with clear indication of the error condition. 
+:::
+
+### `password` `bcrypt` example
+
+You should refrain from logging, storing, or transporting it anywhere in its vanilla form. Instead, use something similar to the following example, which uses the bcrypt algorithm to perform cryptographic hash encryption:
+
+```js
+bcrypt.hash(password, 10, function (err, hash) {
+  if (err) { 
+    return callback(err); 
+  } else {
+	.
+	.
+  }
+});
+```
+
+::: warning
+The password credential for the user is passed to the login script in plain text so care must be taken regarding its use. Refrain from logging, storing or transporting it anywhere in its vanilla form. Instead prefer to use it only with something like bcrypt as part of cryptographic hash encryption.
+:::
+
+## Language-specific script examples
 
 Auth0 provides sample scripts for use with the following languages/technologies:
 

@@ -9,9 +9,7 @@ useCase: customize-connections
 ---
 # Create Custom Database Database Connections
 
-::: panel Feature availability
-Only **Enterprise** subscription plans include the ability to use a custom database for authentication requests. For more information refer to [Auth0 pricing plans](https://auth0.com/pricing).
-:::
+<%= include('../../_includes/_feature-availability') %>
 
 If you have your own user database, you can use it as an identity provider in Auth0 to authenticate users. In this process, you will create the custom database connection, create database action scripts, and add configuration parameters. 
 
@@ -77,6 +75,8 @@ Change Password | Executes when a user clicks on the confirmation link after a r
 Get User | Retrieves a user profile from your database without authenticating the user. | `email`
 Delete | Executes when a user is deleted from the API or Auth0 dashboard. | `id`
 
+You **must** configure a `login` script; additional scripts for user functionality, such as password resets, are optional.
+
 ::: warning
 Script templates, including the default templates, are not used until you click **Save**. This is true even if you only modify one script and haven't made changes to any others. You must click **Save** at least once for all the scripts to be in place. 
 :::
@@ -87,13 +87,69 @@ Script templates, including the default templates, are not used until you click 
 
 ### Create a Login script
 
-You **must** configure a `login` script; additional scripts for user functionality, such as password resets, are optional.
-
 ::: panel Avoid User ID Collisions with Multiple Databases
 The `id` (or alternatively `user_id`) property in the returned user profile will be used by Auth0 to identify the user. 
 
 If you are using multiple custom database connections, then **id** value **must be unique across all the custom database connections** to avoid **user ID** collisions. Our recommendation is to prefix the value of **id** with the connection name (omitting any whitespace). See [Identify Users](/users/normalized/auth0/identify-users) for more information on user IDs.
 :::
+
+The following steps use an example for a mysql login script.
+
+1. After toggling the **Use my own database** switch, the **Database Action Scripts** area is enabled.  
+2. Make sure you are on the **Login** tab.
+3. Use the **Templates** dropdown to select the myslq script template.
+
+```js
+function login(email, password, callback) {
+  var connection = mysql({
+    host: 'localhost',
+    user: 'me',
+    password: 'secret',
+    database: 'mydb'
+  });
+
+  connection.connect();
+
+  var query = "SELECT id, nickname, email, password " +
+    "FROM users WHERE email = ?";
+
+  connection.query(query, [email], function (err, results) {
+    if (err) return callback(err);
+    if (results.length === 0) return callback(new WrongUsernameOrPasswordError(email));
+    var user = results[0];
+
+    bcrypt.compare(password, user.password, function (err, isValid) {
+      if (err) {
+        callback(err);
+      } else if (!isValid) {
+        callback(new WrongUsernameOrPasswordError(email));
+      } else {
+        callback(null, {
+          // This prefix (replace with your own custom DB name)
+          // ensure uniqueness across different custom DBs if there's the
+          // possibility of collisions (e.g. if the user ID is an email address or an integer)
+          id: 'MyConnection1|' + user.id.toString(),
+          nickname: user.nickname,
+          email: user.email
+        });
+      }
+    });
+  });
+}
+```
+
+The above script connects to a MySQL database and executes a query to retrieve the first user with `email == user.email`.
+
+With the **bcrypt.compareSync** method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including **id**, **nickname**, and **email**.
+
+This script assumes that you have a **users** table containing these columns. The **id** returned by Login script is used to construct the **user ID** attribute of the user profile. 
+
+::: warning
+Ensure that the returned user ID is unique across custom databases. See [User IDs](#user-ids) below.
+:::
+
+4. Click **Save**
+5. Click **Try** to test the script. (Note that clicking **Try** to test your script will also save your script.)
 
 ## Add configuration parameters
 
@@ -116,17 +172,7 @@ function login (username, password, callback) {
 }
 ```
 
-## Summary
-
-In this article, we showed you how to configure your database for use with Auth0 as an identity provider. You: 
-
-1. Created an Auth0 database connection
-2. Created database action scripts
-3. Added configuration parameters
-
-At this point, your database is now ready to act as an Auth0 identity provider.
-
-### Keep reading
+## Keep reading
 
 * [Handle Errors and Troubleshoot Your Custom DB Scripts](/connections/database/custom-db/error-handling)
 * [Migrate Your Users to Auth0](/users/concepts/overview-user-migration)

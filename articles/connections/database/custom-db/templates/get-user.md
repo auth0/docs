@@ -24,7 +24,31 @@ When working on your script, keep in mind that this script will be executed when
 When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure to implement both database action scripts if you are creating new users.
 :::
 
-## Sample Scripts
+The `getUser` action script implements the function executed in order to determine the current state of existence of a user. We recommend naming this function `getUser`. The script is optional for both legacy authentication and for automatic migration, though we recommend its implementation. 
+
+::: panel Best Practice
+While it’s not mandatory to implement the `getUser` function, it is a recommended best practice. The `getUser` function is required to support password the reset workflow recommended for great customer experience. 
+:::
+
+For automatic migration the script is executed whenever executing password reset workflow - e.g. a forgot password from Universal Login - and for legacy authentication it is executed whenever the following out-of-box operations occur: create user, change email, change password and password reset (e.g via forgot password workflow). The `getUser` function implemented in the get user action script should be defined as follows:
+
+```js
+function getUser(email, callback) {
+  // TODO: implement your script
+  return callback(null, profile);
+}
+```
+
+| Attribute | Description |
+| --- | --- |
+| `email` | The email address for the user as the user identifying credential. |
+| `callback` | For `getUser`, the callback function is executed with up to two parameters. The first parameter is an indication of status: a null first parameter with a corresponding second parameter indicates that the operation executed successfully; a null first parameter with no corresponding second parameter indicates that no user was found, whilst a non null first parameter value indicates that some error condition occurred. If the first parameter is null then the second parameter should be the profile for the user in JSON format (if a user was found). If the first parameter is null and no user was found, or if the first parameter is non null, then the second parameter can be omitted. The second parameter provided to the callback function should be the profile for the user. This should be supplied as a JSON object in normalized user profile form. See the [profile](#profile) section in the `login` script above for further details. |
+
+::: warning
+When indicating an error condition we recommend using an instance of the Error object - e.g. `callback(new Error(“an error message”)`) in order to provide Auth0 with clear indication of the error condition. 
+:::
+
+## Language-specific script examples
 
 Auth0 provides sample scripts for use with the following languages/technologies:
 

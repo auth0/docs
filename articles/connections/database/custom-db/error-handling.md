@@ -3,13 +3,15 @@ description: Learn how to handle errors when using your database as an identity 
 topics:
     - connections
     - custom-database
-contentType: how-to
+    - troubleshooting
+contentType: reference
 useCase:
     - customize-connections
+    - troubleshooting
 ---
 # Custom Database Error Handling and Troubleshooting
 
-In this article, we will show you how you can return errors resulting from your custom database connection for troubleshooting purposes. We will also cover some basic troubleshooting steps for your scripts.
+You can use return errors resulting from your custom database connection for troubleshooting purposes. We will also cover some basic troubleshooting steps for your scripts.
 
 ## Types of errors
 

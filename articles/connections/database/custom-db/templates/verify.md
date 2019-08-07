@@ -19,7 +19,45 @@ When working on your user creation script, keep in mind that:
 * This script will be executed when a newly-enrolled user clicks on an email verification link
 * The parameter **user.email** is used to verify the user's account
 
-## Sample Scripts
+The verify action script implements the function executed in order to mark the verification status of a user’s email address in the legacy identity store. Email verification status information is typically returned via email_verified as part of any user profile information returned (see login and get user for further details). The script is executed when a user clicks on the link in the verification email sent by Auth0, and we recommend naming this function verify. The script is only utilized in a legacy authentication scenario, and must be implemented if support is required for Auth0 email verification functionality.
+
+Whilst it’s not mandatory to implement the verify function per-se, it is a recommended best practice. The function is required to support user email address verification, and a verified email address for a user is critical to a number of the workflow scenarios in Auth0. 
+
+Emails play a big part in the functionality supported in Auth0, and having a verified email address is critical in a number of workflow scenarios. Implementing the script will provide support for these workflows out-of-box, and the verify function implemented in the script should be defined as follows:
+
+```js
+function verify(email, callback) {
+  // TODO: implement your script
+  return callback(null, JSON Object);
+}
+```
+
+::: note
+Whilst the verify function is called when a user clicks on the link in the verification email sent by Auth0, change in email verification status influenced by other operations - such as via user profile modification in the Auth0 Dashboard - is performed via the change email script (described below).
+:::
+
+| Attribute | Description |
+| --- | --- |
+| `email` | The email address for the user as the user identifying credential. |
+| `callback` | For verify, the callback function is executed with up to two parameters. The first parameter is an indication of status: a null first parameter with a corresponding second parameter indicates that the operation executed successfully, whilst a non null first parameter value indicates that some error condition occurred. |
+
+## `callback` example
+
+If the first parameter is null then the second parameter should be a JSON object in a format similar to the following:
+
+```js
+{
+    "user_id": "<user identifier>",
+    "email": "jane.doe@example.com",
+    "email_verified": true
+}
+```
+
+::: panel Best Practice
+When indicating an error condition we recommend using an instance of the `Error` object (e.g., `callback(new Error(“an error message”))`) in order to provide Auth0 with clear indication of the error condition. 
+:::
+
+## Language-specific script examples
 
 Auth0 provides sample scripts for use with the following languages/technologies:
 
