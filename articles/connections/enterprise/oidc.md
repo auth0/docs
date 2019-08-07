@@ -19,7 +19,9 @@ useCase:
 
 # Connect to an OpenID Connect Identity Provider
 
-Auth0 provides an OpenID Connect connection that enables you to connect to OIDC compliant identity providers. The Open ID identity provider needs to support [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html).
+Auth0 provides an OpenID Connect connection that enables you to connect to OIDC compliant identity providers. 
+
+The Open ID identity provider needs to support [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html) to be configurable using the Auth0 Dashboard. You can configure it using the [Management API](#configuring_the_connection_using_the_management_api)otherwise.
 
 To create a new OpenID Connect connection, you'll need to complete the following fields:
 
@@ -74,8 +76,9 @@ The OpenID Connect connection is very useful when federating to another Auth0 te
 
 ## Configuring the connection using the Management API
 
-You can configure the connection by either providing a metadata URI or by setting the OIDC URLs explicitly. 
+The examples below show can you can configure the connection by either providing a metadata URI or by setting the OIDC URLs explicitly. 
 
+**Using Front Channel and Issuer metadata**
 
 ```har
 {
@@ -91,6 +94,121 @@ You can configure the connection by either providing a metadata URI or by settin
 	"postData": {
 		"mimeType": "application/json",
 		"text": "{ \"strategy\": \"oidc\", \"name\": \"CONNECTION_NAME\", \"options\": { \"type\": \"front_channel\", \"discovery_url\": \"https://IDP_DOMAIN/.well-known/openid-configuration\", \"client_id\" : \"IDP_CLIENT_ID\",  \"scopes\": \"openid profile\" } }"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
+
+**Using Front Channel and Issuer metadata**
+
+```har
+{
+	"method": "POST",
+	"url": "https://${account.namespace}/api/v2/connections",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"strategy\": \"oidc\", \"name\": \"CONNECTION_NAME\", \"options\": { \"type\": \"front_channel\", \"discovery_url\": \"https://IDP_DOMAIN/.well-known/openid-configuration\", \"client_id\" : \"IDP_CLIENT_ID\",  \"scopes\": \"openid profile\" } }"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
+
+**Using Front Channel with discovery endpoint**
+
+```har
+{
+	"method": "POST",
+	"url": "https://${account.namespace}/api/v2/connections",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"strategy\": \"oidc\", \"name\": \"CONNECTION_NAME\", \"options\": { \"type\": \"front_channel\", \"discovery_url\": \"https://IDP_DOMAIN/.well-known/openid-configuration\", \"client_id\" : \"IDP_CLIENT_ID\",  \"scopes\": \"openid profile\" } }"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
+
+**Using Back Channel with discovery endpoint**
+
+```har
+{
+	"method": "POST",
+	"url": "https://${account.namespace}/api/v2/connections",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"strategy\": \"oidc\", \"name\": \"CONNECTION_NAME\", \"options\": { \"type\": \"back_channel\", \"discovery_url\": \"https://IDP_DOMAIN/.well-known/openid-configuration\", \"client_id\" : \"IDP_CLIENT_ID\", \"client_secret\" : "\IDP_CLIENT_SECRET\", \"scopes\": \"openid profile\" } }"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
+
+**Using Front Channel specifying issuer settings**
+
+```har
+{
+	"method": "POST",
+	"url": "https://${account.namespace}/api/v2/connections",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"strategy\": \"oidc\", \"name\": \"CONNECTION_NAME\", \"options\": { \"type\": \"front_channel\", \"issuer\": \"https://IDP_DOMAIN\", \"authorization_endpoint\": \"https://IDP_DOMAIN/authorize\", \"token_endpoint\": \"https://IDP_DOMAIN/oauth/token\", \"jwks_uri\": \"https://IDP_DOMAIN/.well-known/jwks.json\", \"client_id\" : \"IDP_CLIENT_ID\",  \"client_secret\" : "\IDP_CLIENT_SECRET\", \"scopes\": \"openid profile\" } }"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
+
+**Using Back Channel specifying issuer settings**
+
+```har
+{
+	"method": "POST",
+	"url": "https://${account.namespace}/api/v2/connections",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"strategy\": \"oidc\", \"name\": \"CONNECTION_NAME\", \"options\": { \"type\": \"back_channel\", \"issuer\": \"https://IDP_DOMAIN\", \"authorization_endpoint\": \"https://IDP_DOMAIN/authorize\", \"jwks_uri\": \"https://IDP_DOMAIN/.well-known/jwks.json\", \"client_id\" : \"IDP_CLIENT_ID\",  \"scopes\": \"openid profile\" } }"
 	},
 	"headersSize": -1,
 	"bodySize": -1,
