@@ -6,6 +6,33 @@ To get the device code, your app must request a code from the [device code URL](
 
 ### Example POST to device code URL
 
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/device/code",
+  "headers": [
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+  ],
+  "postData" : {
+    "mimeType": "application/x-www-form-urlencoded",
+    "params" : [
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "scope",
+        "value": "SCOPE"
+      },
+      {
+        "name": "audience",
+        "value": "AUDIENCE"
+      }
+    ]
+  }
+}
+```
+
 ```text
 POST https://${account.namespace}/oauth/device/code
 Content-Type: application/x-www-form-urlencoded
