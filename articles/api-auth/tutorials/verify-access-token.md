@@ -17,22 +17,23 @@ When a custom API receives a request with a bearer <dfn data-key="access-token">
 At Auth0, an Access Token used for a custom API is formatted as a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> which must be validated before use.
 
 :::note
-If the Access Token you got from Auth0 is not a JWT but an opaque string (like `kPoPMRYrCEoYO6s5`), this means that the Access Token was not issued for your custom API as the <dfn data-key="audience">audience</dfn>. When requesting a token for your API, make sure to use the `audience` parameter in the authorization or token request with the API identifier as the value of the parameter.
+If the Access Token you got from Auth0 is not a JWT but an opaque string (like `kPoPMRYrCEoYO6s5`), this means that the Access Token was not issued for your custom API as the <dfn data-key="audience">audience</dfn>. When [requesting a token from Auth0](/tokens/guides/access-token/get-access-tokens) for your API, make sure to use the `audience` parameter in the authorization or token request with the API identifier as the value of the parameter.
 :::
 
 Validating the token consists of a series of steps, and if any of these fails, then the request **must** be rejected. This document lists all the validations that your API should perform:
 
-- Check that the JWT is well formed
-- Check the signature
-- Validate the standard claims
-- Check the Application permissions (<dfn data-key="scope">scopes
+1. Check that the JWT is well formed
+2. Check the signature algorithm
+3. Verify the signature
+4. Validate the standard claims
+5. Check the Application permissions (<dfn data-key="scope">scopes
 </dfn>)
 
 ::: note
 <a href="https://jwt.io/">JWT.io</a> provides a list of libraries that can do most of the work for you: parse the JWT, verify the signature and the claims. All of the [backend API quickstarts](/quickstart/backend) use SDKs that perform the JWT validation and parsing.
 :::
 
-## Parse the JWT
+## 1. Check that the JWT is well formed
 
 First, the API needs to parse the JWT to make sure it's well formed. If this fails the token is considered invalid and the request must be rejected.
 
@@ -54,15 +55,15 @@ We should note here that many web frameworks (such as [ASP.NET Core](/quickstart
 
 ### How can I visually inspect a token?
 
-A quick way to see what is inside a JWT is by using the [JWT.io](https://jwt.io/) website (alternatively, you can use the [JWT Debugger Chrome Extension](https://chrome.google.com/webstore/detail/jwt-debugger/ppmmlchacdbknfphdeafcbmklcghghmd?hl=en)). It has a handy debugger which allows you to quickly check that a JWT is well formed, and also inspect the values of the various claims.
+A quick way to see what is inside a JWT is by using the [JWT.io](https://jwt.io/) website (alternatively, you can use the [JWT Debugger Chrome Extension](https://chrome.google.com/webstore/detail/jwt-debugger/ppmmlchacdbknfphdeafcbmklcghghmd?hl=en)). It has a debugger which allows you to quickly check that a JWT is well formed, and also inspect the values of the various claims.
 
 Just paste your token at the _Encoded_ text area and review the decoded results at the right.
 
 ![Decode JWT with JWT.io](/media/articles/api-auth/decode-jwt.png)
 
-## Check the Signature Algorithm
+## 2. Check the signature
 
-The API needs to check if the algorithm, as specified by the JWT header (property `alg`), matches the one expected by the API. If not, the token is considered invalid and the request must be rejected.
+The API needs to check if the signature algorithm, as specified by the JWT header (property `alg`), matches the one expected by the API. If not, the token is considered invalid and the request must be rejected.
 
 In this case the mismatch might be due to mistake (it is common that the tokens are signed using the `HS256` signing algorithm, but your API is configured for `RS256`, or vice versa), but it could also be due to an attack, hence the request has to be rejected.
 
@@ -74,7 +75,7 @@ Alternatively, you can use one of the libraries listed in the _Libraries for Tok
 
 Following the Node.js example of the previous section, the [jwt.verify()](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback) method of the [node-jsonwebtoken library](https://github.com/auth0/node-jsonwebtoken), supports an `algorithms` argument, that contains a list of strings with the names of the allowed algorithms.
 
-## Verify the signature
+## 3. Verify the signature
 
 The API needs to verify the signature of each token. 
 
@@ -103,7 +104,7 @@ For more info on **RS256** and **JWKS** see [Navigating RS256 and JWKS](https://
 
 If the verification fails you will get a `invalid signature` error.
 
-## Validate the Claims
+## 4. Validate the standard claims
 
 Once the API verifies the token's signature, the next step is to validate the standard claims of the token's payload. The following validations need to be made:
 
@@ -117,7 +118,7 @@ Auth0 issues tokens with the **iss** claim of whichever domain you used with the
 If you get an Access Token for the [Management API](/api/management/v2) using an authorization flow with your custom domain, you **must** call the Management API using the custom domain (your token will be considered invalid otherwise).
 :::
 
-### How can I validate the claims?
+### How can I validate the standard claims?
 
 To validate the claims, you have to decode the JWT, retrieve the claims (`exp`, `iss`, `aud`) and validate their values.
 
@@ -129,13 +130,13 @@ Following the Node.js example, the [jwt.verify()](https://github.com/auth0/node-
 - `issuer`: string or array of strings of valid values for the `iss` field
 - `ignoreExpiration`: set to `false` to validate the expiration of the token
 
-## Check the Permissions
+## 5. Check the Application permissions (scopes)
 
 By now you have verified that the JWT is valid. The last step is to verify that the application has the permissions required to access the protected resources.
 
 To do so, you need to check the [scopes](/scopes) of the decoded JWT. The `scopes` claim is part of the payload and contains a space-separated list of strings.
 
-### How can I check the permissions?
+### How can I check the Application permissions (scopes)?
 
 To check the permissions granted to the application, you need to check the contents of the `scope` claim.
 
@@ -154,7 +155,6 @@ You can see how to do this, for a simple timesheets API in Node.js, in this docu
 You can find a sample API implementation, in Node.js, in [Server Application + API: Node.js Implementation for the API](/architecture-scenarios/application/server-api/api-implementation-nodejs).
 
 This document is part the [Server + API Architecture Scenario](/architecture-scenarios/application/server-api), an implementation of a Client Credentials grant for a hypothetical scenario. For more information on the complete solution refer to [Server + API Architecture Scenario](/architecture-scenarios/application/server-api).
-
 
 ## Read more
 
