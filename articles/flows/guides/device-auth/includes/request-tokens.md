@@ -6,24 +6,18 @@ To avoid errors due to network latency, you should start counting each interval 
 
 ### Example request token POST to token URL
 
-```har
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/oauth/token",
-  "headers": [
-    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
-  ],
-  "postData": {
-    "text": "{\"grant_type\":\"urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Adevice_code\",\"device_code\": \"YOUR_DEVICE_CODE\", \"client_id\": \"${account.clientId}\" }"
-  }
-}
+```text
+POST https://${account.namespace}/oauth/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Adevice_code&device_code=YOUR_DEVICE_CODE&client_id=${account.clientId}
 ```
 
 #### Token Request Parameters
 
 | Parameter Name  | Description |
 |-----------------|-------------|
-| `grant_type`    | Set this to "urn:ietf:params:oauth:grant-type:device_code". This is an extension grant type (as defined by Section 4.5 of [RFC6749](https://tools.ietf.org/html/rfc6749#section-4.5)). |
+| `grant_type`    | Set this to "urn:ietf:params:oauth:grant-type:device_code". This is an extension grant type (as defined by Section 4.5 of [RFC6749](https://tools.ietf.org/html/rfc6749#section-4.5)). Note that this must be URL encoded. |
 | `device_code`   | The `device_code` retrieved in the previous step of this tutorial. |
 | `client_id`     | Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
 

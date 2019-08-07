@@ -4,41 +4,12 @@ Now that you have an Authorization Code, you must exchange it for tokens. Using 
 
 ### Example POST to token URL
 
-```har
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/oauth/token",
-  "headers": [
-    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
-  ],
-  "postData": {
-    "mimeType": "application/x-www-form-urlencoded",
-    "params": [
-      {
-        "name": "grant_type",
-        "value": "authorization_code"
-      },
-      {
-        "name": "client_id",
-        "value": "${account.clientId}"
-      },
-      {
-        "name": "client_secret",
-        "value": "YOUR_CLIENT_SECRET"
-      },
-      {
-        "name": "code",
-        "value": "YOUR_AUTHORIZATION_CODE"
-      },
-      {
-        "name": "redirect_uri",
-        "value": "https://${account.callback}"
-      }
-    ]
-  }
-}
-```
+```text
+POST https://${account.namespace}/oauth/token
+Content-Type: application/x-www-form-urlencoded
 
+grant_type=authorization_code&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&code=YOUR_AUTHORIZATION_CODE&redirect_uri=${account.callback}
+```
 
 #### Parameters
 
@@ -48,7 +19,7 @@ Now that you have an Authorization Code, you must exchange it for tokens. Using 
 | `code`          | The `authorization_code` retrieved in the previous step of this tutorial. |
 | `client_id`     | Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
 | `client_secret` | Your application's Client Secret. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
-| `redirect_uri`  | The valid callback URL set in your Application settings. This must exactly match the `redirect_uri` passed to the authorization URL in the previous step of this tutorial. |
+| `redirect_uri`  | The valid callback URL set in your Application settings. This must exactly match the `redirect_uri` passed to the authorization URL in the previous step of this tutorial. Note that this must be URL encoded. |
 
 
 ### Response
