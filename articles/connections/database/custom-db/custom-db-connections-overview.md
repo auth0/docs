@@ -14,7 +14,7 @@ useCase:
 ---
 # Custom Database Connections
 
-<%= include('_includes/_feature-availability') %>
+<%= include('./_includes/_feature-availability') %>
 
 With [Extensibility](/topics/extensibility) you can add custom logic in Auth0 to build out last mile solutions for Identity and Access Management (IdAM). Auth0 extensibility comes in several forms: Rules, Hooks, and scripts for both [custom database connection](/connections/database/custom-db) and custom database connection migration. Each is implemented using `Node.js` running on the Auth0 platform in an Auth0 Tenant. Auth0 extensibility executes at different points in the IdAM pipeline: 
 
