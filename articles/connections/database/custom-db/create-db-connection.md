@@ -9,8 +9,6 @@ useCase: customize-connections
 ---
 # Create Custom Database Database Connections
 
-<%= include('_includes/_feature-availability') %>
-
 If you have your own user database, you can use it as an identity provider in Auth0 to authenticate users. In this process, you will create the custom database connection, create database action scripts, and add configuration parameters. 
 
 ::: note
