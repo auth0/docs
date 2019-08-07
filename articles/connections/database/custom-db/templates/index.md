@@ -33,7 +33,7 @@ You can use the following scripts:
 * [Login](/connections/database/custom-db/templates/login)
 * [Verify User](/connections/database/custom-db/templates/verify)
 
-<%= include('../../../_includes/_ip_whitelist') %>
+<%= include('../../_includes/_ip_whitelist') %>
 
 ## Script execution
 

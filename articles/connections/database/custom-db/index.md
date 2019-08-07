@@ -12,7 +12,7 @@ useCase:
 ---
 # Custom Database Connections
 
-<%= include('../../_includes/_feature-availability') %>
+<%= include('../_includes/_feature-availability') %>
 
 <%= include('../_includes/_topic-links', { links: [
   'connections/database/custom-db/custom-db-connections-overview',
