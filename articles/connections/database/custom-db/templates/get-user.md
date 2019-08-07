@@ -4,19 +4,25 @@ toc: true
 topics:
     - connections
     - custom-database
-contentType: how-to
+    - get-users
+contentType: reference
 useCase:
     - customize-connections
 ---
-# Custom Database Script Templates: Get Users
+# Get Users Script Templates
 
-Auth0 provides the following custom database script templates that you can use when implementing user search functionality.
+The `get user` script is very important. This script is called in the following user scenarios:
 
-While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
-
-## Notes
+  * Change email: to validate availability
+  * Create user: to validate availability
+  * Forgot password: to validate
+  * Change password: to create
 
 When working on your script, keep in mind that this script will be executed when the user wishes to change his password to test if the user exists.
+
+::: warning
+When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure to implement both database action scripts if you are creating new users.
+:::
 
 ## Sample Scripts
 

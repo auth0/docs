@@ -4,19 +4,37 @@ topics:
     - connections
     - custom-database
     - templates
-contentType: index
+contentType: 
+    - index
 useCase:
     - customize-connections
     - script-templates
 ---
 # Custom Database Script Templates
-Auth0 provides custom database script templates that you can use when implementing functionality for use with a custom database.
 
-::: panel Click Save to Use Scripts
-Script templates, including the default templates, are not used until you click **Save**. This is true even if you only modify one script and haven't made changes to any others. You must click **Save** at least once for all the scripts to be in place.  
+::: panel Feature availability
+Only **Enterprise** subscription plans include the ability to use a custom database for authentication requests. For more information refer to [Auth0 pricing plans](https://auth0.com/pricing).
 :::
 
-## Templates
+If you have your own user database, you can use it as an identity provider in Auth0 to authenticate users. 
+
+There are two different types of custom database scripts:
+
+  * **Trickle Migration**: Whenever a user logs into Auth0, if the user is not yet in Auth0, the script will check the legacy database to see if the user is there. If they are there, it will migrate the user to Auth0. This script runs when the **Import users to Auth0** flag is turned on. 
+
+  * **Legacy DB**: Auth0 will always call out to the underlying database anytime a user tries to log in, is created, changes their password, verifies their email, or is deleted. Users stay in the legacy database and do **not** migrate to Auth0.
+
+You can use the following scripts:
+
+* [Change Passwords](/connections/database/custom-db/templates/change-password)
+* [Create User](/connections/database/custom-db/templates/create)
+* [Delete User](/connections/database/custom-db/templates/delete)
+* [Get User](/connections/database/custom-db/templates/get-user)
+* [Login](/connections/database/custom-db/templates/login)
+* [Verify User](/connections/database/custom-db/templates/verify)
+
+## Obtain original script code
+
 While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
 
 * [Change Passwords](/connections/database/custom-db/templates/change-password)
@@ -26,42 +44,65 @@ While Auth0 has populated default templates in the Dashboard script editor, you 
 * [Login](/connections/database/custom-db/templates/login)
 * [Verify User](/connections/database/custom-db/templates/verify)
 
-## Script Template Checklist
+### IBM DB2 script template example
 
-Use the following checklist to make sure your scripts achieve the results you intend:
+Users of [IBM's DB2](https://www.ibm.com/analytics/us/en/technology/db2/) product may find [this sample login script](/connections/database/db2-script) to be of interest.
 
-1. **Set a `user_id` on the returned user profile that is consistent for the same user every time.**
-   In the migration scenario, this is important because if you set a random `user_id` in the `get_user` script, then call `forgot password` and change the password, the user will get duplicated every time they log in.  In the non-migration scenario, if you set a random `user_id` you can end up with duplicate users for every login.
+![Database action script templates](/media/articles/connections/database/mysql/db-connection-login-script.png)
 
-2. **If using a `username`, ensure that you aren't returning the same email address for two different users in the `get_user` or `login` script.**
-   Auth0 will produce an error if you do this, but it is better to catch it in the script itself. 
+For example, the MySQL Login template is as follows:
 
-3. **If setting `app_metadata`, call it `metadata` in the script.**
-   To support backwards compatibility, `app_metadata` is called `metadata` in custom DB scripts. If you don't use `metadata` in the script, you will get an error where `app_metadata` will work but if you use the API to merge `app_metadata` with a user, it will appear as if all of your metadata was lost. 
+```js
+function login(email, password, callback) {
+  var connection = mysql({
+    host: 'localhost',
+    user: 'me',
+    password: 'secret',
+    database: 'mydb'
+  });
 
-   ::: note
-   `user_metadata` is not affected by this and can simply be called `user_metadata`.
-   :::
+  connection.connect();
 
-4. **If using Auth0 to do machine-to-machine to the legacy database, restrict access to that audience with a rule.**
-   As with any API that you create, if you create it solely for client credentials, then you will want to restrict access to the API in a rule. By default, Auth0 gives you a token for any API if you authenticate successfully and include the <dfn data-key="audience">audience</dfn>. Someone could intercept the redirect to authorize and add the audience to your legacy database API. If you don’t block this in a rule, they will get an access token.
+  var query = "SELECT id, nickname, email, password " +
+    "FROM users WHERE email = ?";
 
-::: note
-You can also update the API to expect the sub of the token to end in `@clients`.
+  connection.query(query, [email], function (err, results) {
+    if (err) return callback(err);
+    if (results.length === 0) return callback(new WrongUsernameOrPasswordError(email));
+    var user = results[0];
+
+    bcrypt.compare(password, user.password, function (err, isValid) {
+      if (err) {
+        callback(err);
+      } else if (!isValid) {
+        callback(new WrongUsernameOrPasswordError(email));
+      } else {
+        callback(null, {
+          // This prefix (replace with your own custom DB name)
+          // ensure uniqueness across different custom DBs if there's the
+          // possibility of collisions (e.g. if the user ID is an email address or an integer)
+          id: 'MyConnection1|' + user.id.toString(),
+          nickname: user.nickname,
+          email: user.email
+        });
+      }
+    });
+  });
+}
+```
+
+The above script connects to a MySQL database and executes a query to retrieve the first user with `email == user.email`.
+
+With the **bcrypt.compareSync** method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including **id**, **nickname**, and **email**.
+
+This script assumes that you have a **users** table containing these columns. The **id** returned by Login script is used to construct the **user ID** attribute of the user profile. 
+
+::: warning
+Ensure that the returned user ID is unique across custom databases. See [User IDs](#user-ids) below.
 :::
 
-5. **Determine if they are accessing their database directly versus through an API.**
-   This item is not a requirement; it is a recommended best practice. A database interface is extremely open. You should add protections between an API endpoint and your database. Most people do not expose their database directly to the internet. Though you can whitelist Auth0 IPs, those IPs are shared in the cloud environment. In general, Auth0 recommends that you protect your database from too many actors directly talking to it. The alternative is to create a simple API endpoint that each script within Auth0 can call. That API can be protected using an access token. You can use the client credentials flow to get the Access Token from within the rules. 
+Be sure to **Save** your changes. Note that clicking **Try** to test your script will also save your script.
 
-6. **If enabling trickle migration, ensure the following:**
+## Keep reading
 
-   * **The `Login` script and the `get_user` script both return the same user profile.**
-      Because of the two different flows (logging in, or using forgot password), if the `get_user` and `login` script return different user profiles, then depending on how a user migrates (either by logging in directly, or using the forgot password flow) they will end up with different profile information in Auth0.
-
-   * **If setting `app_metadata` or `user_metadata`, use a rule to fetch the metadata if it is missing.**
-      The metadata is not migrated until https://YOUR_TENANT.auth0.com/login/callback is called. However, the user credentials are migrated during the post to `usernamepassword/login`. This means that if the browser is killed, or computer dies or something on a user after they have posted to `usernamepassword/login`, but before login/callback, then they will have a user in the Auth0 database, but their app and user metadata are lost. It is really important, therefore, to create a rule that looks a lot like your `get_user` script to fetch the profile if app and user metadata are blank. This should only execute once per user at most (and usually never).
-
-   * **Use a rule to mark users as migrated.**
-      This is not a hard requirement, but it does protect against one scenario in which a user changes their email address, then changes it back to the original email address. A rule should call out to the legacy database to mark the user as being migrated in the original database so that `get_user` can return false. 
-
-
+* [Script template best practices](/best-practices/custom-database-connections#script-template-best-practices)

@@ -4,17 +4,15 @@ toc: true
 topics:
     - connections
     - custom-database
-contentType: how-to
+contentType: reference
 useCase:
     - customize-connections
 ---
-# Custom Database Script Templates: Verify Users
+# Verify Users Script Templates
 
 Auth0 provides the following custom database script templates that you can use when implementing user verification functionality.
 
 While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
-
-## Notes
 
 When working on your user creation script, keep in mind that:
 

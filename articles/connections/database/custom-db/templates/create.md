@@ -4,15 +4,20 @@ toc: true
 topics:
     - connections
     - custom-database
-contentType: how-to
+    - create-users
+contentType: reference
 useCase:
     - customize-connections
 ---
-# Custom Database Script Templates: Create Users
+# Create Users Script Templates
 
 Auth0 provides the following custom database script templates that you can use when implementing user creation functionality.
 
 While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
+
+::: warning
+When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure to implement both database action scripts if you are creating new users.
+:::
 
 ## Notes
 

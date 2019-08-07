@@ -10,6 +10,78 @@ useCase:
   - best-practices
   - custom-database
 ---
+# Custom Database Connection Best Practices
+
+
+
+## Script template best practices
+
+Use the following checklist to make sure your scripts achieve the results you intend:
+
+1. **Set a `user_id` on the returned user profile that is consistent for the same user every time.**
+   In the migration scenario, this is important because if you set a random `user_id` in the `get_user` script, then call `forgot password` and change the password, the user will get duplicated every time they log in.  In the non-migration scenario, if you set a random `user_id` you can end up with duplicate users for every login.
+
+2. **If using a `username`, ensure that you aren't returning the same email address for two different users in the `get_user` or `login` script.**
+   Auth0 will produce an error if you do this, but it is better to catch it in the script itself. 
+
+3. **If setting `app_metadata`, call it `metadata` in the script.**
+   To support backwards compatibility, `app_metadata` is called `metadata` in custom DB scripts. If you don't use `metadata` in the script, you will get an error where `app_metadata` will work but if you use the API to merge `app_metadata` with a user, it will appear as if all of your metadata was lost. 
+
+   ::: note
+   `user_metadata` is not affected by this and can simply be called `user_metadata`.
+   :::
+
+4. **If using Auth0 to do machine-to-machine to the legacy database, restrict access to that audience with a rule.**
+   As with any API that you create, if you create it solely for client credentials, then you will want to restrict access to the API in a rule. By default, Auth0 gives you a token for any API if you authenticate successfully and include the <dfn data-key="audience">audience</dfn>. Someone could intercept the redirect to authorize and add the audience to your legacy database API. If you don’t block this in a rule, they will get an access token.
+
+::: note
+You can also update the API to expect the sub of the token to end in `@clients`.
+:::
+
+5. **Determine if they are accessing their database directly versus through an API.**
+   This item is not a requirement; it is a recommended best practice. A database interface is extremely open. You should add protections between an API endpoint and your database. Most people do not expose their database directly to the internet. Though you can whitelist Auth0 IPs, those IPs are shared in the cloud environment. In general, Auth0 recommends that you protect your database from too many actors directly talking to it. The alternative is to create a simple API endpoint that each script within Auth0 can call. That API can be protected using an access token. You can use the client credentials flow to get the Access Token from within the rules. 
+
+6. **If enabling trickle migration, ensure the following:**
+
+   * **The `Login` script and the `get_user` script both return the same user profile.**
+      Because of the two different flows (logging in, or using forgot password), if the `get_user` and `login` script return different user profiles, then depending on how a user migrates (either by logging in directly, or using the forgot password flow) they will end up with different profile information in Auth0.
+
+   * **If setting `app_metadata` or `user_metadata`, use a rule to fetch the metadata if it is missing.**
+      The metadata is not migrated until https://YOUR_TENANT.auth0.com/login/callback is called. However, the user credentials are migrated during the post to `usernamepassword/login`. This means that if the browser is killed, or computer dies or something on a user after they have posted to `usernamepassword/login`, but before login/callback, then they will have a user in the Auth0 database, but their app and user metadata are lost. It is really important, therefore, to create a rule that looks a lot like your `get_user` script to fetch the profile if app and user metadata are blank. This should only execute once per user at most (and usually never).
+
+   * **Use a rule to mark users as migrated.**
+      This is not a hard requirement, but it does protect against one scenario in which a user changes their email address, then changes it back to the original email address. A rule should call out to the legacy database to mark the user as being migrated in the original database so that `get_user` can return false. 
+
+### User Metadata and Custom Databases
+
+Depending on your custom database script, you may return a user profile to Auth0 apps. This profile includes the user metadata fields. The **app_metadata** field(s) should be [referred to as **metadata** in scripts for custom databases](/users/concepts/overview-user-metadata#metadata-and-custom-databases).
+
+### Identity Provider (IdP) Tokens
+
+If the `user` object returns the `access_token` and `refresh_token` properties, Auth0 handles these slightly differently from other pieces of user information. They will be stored in the `user` object's `identities` property, and retrieving them using the API, therefore, requires an additional <dfn data-key="scope">scope</dfn>: `read:user_idp_tokens`.
+
+```js
+{
+  "email": "you@example.com",
+  "updated_at": "2019-03-15T15:56:44.577Z",
+  "user_id": "auth0|some_unique_id",
+  "nickname": "a_nick_name",
+  "identities": [
+    {
+      "user_id": "some_unique_id",
+      "access_token": "e1b5.................92ba",
+      "refresh_token": "a90c.................620b",
+      "provider": "auth0",
+      "connection": "custom_db_name",
+      "isSocial": false
+    }
+  ],
+  "created_at": "2019-03-15T15:56:44.577Z",
+  "last_ip": "192.168.1.1",
+  "last_login": "2019-03-15T15:56:44.576Z",
+  "logins_count": 3
+}
+```
 
 # Custom Database Connections Best Practices
 
@@ -29,11 +101,11 @@ You create and configure custom database connections with the Auth0 Dashboard. F
 
 ## Anatomy
 
-As depicted in the diagram below, custom database connections are utilized as part of Universal Login workflow in order to obtain user identity information from your own, independent (a.k.a. legacy) identity store. This can be for either (a) authentication - often referred to as legacy authentication - or (b) user import via [automatic migration](/users/guides/configure-automatic-migration) (a.k.a trickle or lazy migration). For the purpose of the remaining guidance we will refer to any authentication against an external identity store as “legacy authentication”.
+As depicted in the diagram below, you use custom database connections as part of Universal Login workflow in order to obtain user identity information from your own, legacy identity store. This can be for either (a) authentication - often referred to as legacy authentication - or (b) user import via [automatic migration](/users/guides/configure-automatic-migration) (a.k.a trickle or lazy migration). For the purpose of the remaining guidance we will refer to any authentication against an external identity store as “legacy authentication”.
 
 ![Custom Database Connections Anatomy](/media/articles/connections/database/custom-database-connections.png)
 
-In addition to artifacts common for all database connection types, a custom database connection allows you to configure action scripts: custom code that’s used when interfacing with an independent (a.k.a. legacy) identity store. For the purpose of the remaining guidance we will refer to any external identity storage as a “legacy identity store”. The scripts available for configuration are described in the Execution section (below), and will depend on whether you are creating a custom database connection for legacy authentication or for automatic migration.
+In addition to artifacts common for all database connection types, a custom database connection allows you to configure action scripts: custom code that’s used when interfacing with your independent (legacy) identity store. For the purpose of this guide, we will refer to any external identity storage as a *legacy identity store*. The scripts available for configuration are described in the [Execution](#execution) section, and will depend on whether you are creating a custom database connection for legacy authentication or for automatic migration.
 
 ::: note
 Action scripts can be implemented as anonymous functions, however anonymous functions make it hard in debugging situations when it comes to interpreting the call-stack generated as a result of any exceptional error condition. For convenience, we recommend providing a function name for each action script, and have supplied some recommended names as part of the Execution section below.
@@ -81,7 +153,7 @@ For each instantiation of a new Webtask container the global object is reset. Th
 
 ## Execution
 
-As described in the Anatomy section (above), a custom database connection type allows you to configure action scripts: custom code that is used when interfacing with your legacy identity store. Each action script is essentially a named JavaScript function that is passed a number of parameters, with the name of the function and the parameters passed dependent on the script in question. 
+As described in the [Anatomy](#anatomy) section, a custom database connection type allows you to configure action scripts: custom code that is used when interfacing with your legacy identity store. Each action script is essentially a named JavaScript function that is passed a number of parameters, with the name of the function and the parameters passed dependent on the script in question. 
 
 Action script execution supports the asynchronous nature of JavaScript, and constructs such as Promise objects and the like can be used. Asynchronous processing effectively results in suspension pending completion of an operation, and an Auth0 serverless Webtask container typically has a circa 20-second execution limit - after which the container may be recycled. Recycling of a container due to this limit will prematurely terminate operation, ultimately resulting in an error condition being returned (as well as resulting in a potential reset of the global object). 
 
@@ -109,12 +181,12 @@ function login(userNameOrEmail, password, callback) {
 | Attribute | Description |
 | --- | --- |
 | `userNameOrEmail` | The identification credential for the user, and is typically either the email address for the user or the name associated with the user. With default out-of-box Universal Login, support for the use of user name during login is available only if the Requires Username setting is enabled for the database connection.  |
-| `password` | The password credential for the user is passed to the login script in plain text so care must be taken regarding its use. You should refrain from storing it or transporting it anywhere in its vanilla form. Instead, prefer to use something similar to the following example below, which uses the `bcrypt` algorithm to perform cryptographic password comparison (and where the user object is the user identity as read from the legacy identity store). |
-| `callback` | For login, the callback function is executed with up to two parameters. The first parameter is an indication of status: a null first parameter with a corresponding second parameter indicates that the operation executed successfully, whilst a non null first parameter value indicates that some error condition occurred. If the first parameter is null then the second parameter is the profile for the user in JSON format. If the first parameter is non null then the second parameter can be omitted. When indicating an error condition we recommend using an instance of either the WrongUsernameOrPasswordError or Error object - e.g. callback(new WrongUsernameOrPasswordError()) - in order to provide Auth0 with clear indication of whichever error condition. Both of these objects also take an option string parameter which can be used to provide additional information. |
+| `password` | The password credential for the user is passed to the login script in plain text so care must be taken regarding its use.  |
+| `callback` | For login, the callback function is executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter indicates that the operation executed successfully, while a non-null first parameter value indicates that some error condition occurred. If the first parameter is null then the second parameter is the profile for the user in JSON format. If the first parameter is non-null then the second parameter can be omitted. When indicating an error condition we recommend using an instance of either the `WrongUsernameOrPasswordError` or `Error` object (e.g., `callback(new WrongUsernameOrPasswordError()`) - in order to provide Auth0 with clear indication of whichever error condition. Both of these objects also take an option string parameter which can be used to provide additional information. |
 
-::: warning
-The password credential for the user is passed to the login script in plain text so care must be taken regarding its use. Refrain from logging, storing or transporting it anywhere in its vanilla form. Instead prefer to use it only with something like bcrypt as part of cryptographic comparison.
-:::
+#### `password` `bcrypt` example
+
+You should refrain from storing it or transporting it anywhere in its vanilla form. Instead, prefer to use something similar to the following example below, which uses the `bcrypt` algorithm to perform cryptographic password comparison (and where the user object is the user identity as read from the legacy identity store).
 
 ```js
 	bcrypt.compare(password, user.password, function (err, isValid) {
@@ -133,7 +205,7 @@ The password credential for the user is passed to the login script in plain text
 	});
 ```
 
-#### `callback` profile 
+#### `callback` `profile` example 
 
 The second parameter provided to the `callback` function should be the profile for the user. This should be supplied as a JSON object in normalized user profile form. 
 
@@ -190,7 +262,7 @@ In order to update name, nickname, given_name, family_name, and/or picture attri
 
 ### Get User
 
-The get user action script implements the function executed in order to determine the current state of existence of a user. We recommend naming this function getUser. The script is optional for both legacy authentication and for automatic migration, though we recommend its implementation. 
+The `getUser` action script implements the function executed in order to determine the current state of existence of a user. We recommend naming this function getUser. The script is optional for both legacy authentication and for automatic migration, though we recommend its implementation. 
 
 ::: panel Best Practice
 While it’s not mandatory to implement the `getUser` function *per se*, it is a recommended best practice. The `getUser` function is required to support password the reset workflow recommended for great customer experience. 
@@ -208,11 +280,110 @@ function getUser(email, callback) {
 | Attribute | Description |
 | --- | --- |
 | `email` | The email address for the user as the user identifying credential. |
-| `callback` | For `getUser`, the callback function is executed with up to two parameters. The first parameter is an indication of status: a null first parameter with a corresponding second parameter indicates that the operation executed successfully; a null first parameters with no corresponding second parameter indicates that no user was found, whilst a non null first parameter value indicates that some error condition occurred. If the first parameter is null then the second parameter should be the profile for the user in JSON format (if a user was found). If the first parameter is null and no user was found, or if the first parameter is non null, then the second parameter can be omitted. The second parameter provided to the callback function should be the profile for the user. This should be supplied as a JSON object in normalized user profile form. See the [profile](#profile) section in the login script above for further details. |
+| `callback` | For `getUser`, the callback function is executed with up to two parameters. The first parameter is an indication of status: a null first parameter with a corresponding second parameter indicates that the operation executed successfully; a null first parameter with no corresponding second parameter indicates that no user was found, whilst a non null first parameter value indicates that some error condition occurred. If the first parameter is null then the second parameter should be the profile for the user in JSON format (if a user was found). If the first parameter is null and no user was found, or if the first parameter is non null, then the second parameter can be omitted. The second parameter provided to the callback function should be the profile for the user. This should be supplied as a JSON object in normalized user profile form. See the [profile](#profile) section in the `login` script above for further details. |
 
 ::: warning
 When indicating an error condition we recommend using an instance of the Error object - e.g. `callback(new Error(“an error message”)`) in order to provide Auth0 with clear indication of the error condition. 
 :::
 
 ### Create
+
+The create action script implements the function executed in order to create a user in the legacy identity store. We recommend naming this function create. The script is only utilized in a legacy authentication scenario, and must be implemented if support in Auth0 is required for creating users in the legacy identity store - e.g. if user signup via Auth0 is required. If support is not required - e.g. if user signup via Auth0 is not required - then the script need not be implemented; not implementing the script will not preclude the creation of a user by some mechanism external to Auth0. The create function implemented in the script should be defined as follows:
+
+```js
+function create(user, callback) {
+  // TODO: implement your script
+  return callback(null);
+}
+```
+
+::: note
+The `create` action script is only responsible for creating a user identity in the legacy identity store. The call to create will typically be preceded by one or more calls to getUser (in order to determine if the user already exists), and followed by a call to login in order to obtain user profile information.  
+:::
+
+| Attribute | Description |
+| --- | --- |
+| `user` | An object containing attributes associated with the user identity to be created. |
+| `callback` | For `create`, the `callback` function is executed with a single parameter. The parameter is an indication of status: a `null` indicates that the operation executed successfully, while a non-null value indicates that some error condition occurred. |
+
+When indicating an error condition we recommend using an instance of the `Error` object (e.g., `callback(new Error(“an error message”))`) in order to provide Auth0 with clear indication of the error condition. 
+
+#### `user` example
+
+```js
+{
+    client_id: "<ID of creating client (application)>",
+    tenant: "<name of creating Auth0 tenant>",
+    email: "<email address for the user>",
+    password: "<password for the user>",
+    username: "<name associated with the user>",
+    user_metadata: {
+        "language": "en"
+    },
+    app_metadata: {
+        "plan": "full"
+    }
+}
+```
+
+The `password` credential for the user is passed to the `create` script in plain text so care must be taken regarding its use. You should refrain from logging, storing, or transporting it anywhere in its vanilla form. Instead, prefer to use something similar to the following example below, which uses the [`bcrypt`](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) algorithm to perform cryptographic hash encryption:
+
+```js
+  bcrypt.hash(user.password, 10, function (err, hash) {
+    if (err) { 
+      return callback(err); 
+    } else {
+	  .
+	  .
+    }
+  });
+```
+
+If a username is supplied then this will typically be due to a custom database connection type having [`Requires Username`](/connections/database/require-username) as an enabled setting. If this is the case then username will need to be provided on any subsequent login or `getUser` execution, so should be stored accordingly in the legacy identity store. If the setting is not enabled then username will typically be optional. 
+
+Whist `user_metadata` and `app_metadata` are optional, if supplied they do not necessarily need to be stored in the legacy identity store; Auth0 will automatically store these values as part of the user profile record created internally. Rather, these values are (optionally) provided as a reference: their contents potentially being influential to legacy identity creation. 
+
+::: note
+Note that unlike with login, `app_metadata` will be specified as-is and will not be renamed as `metadata`.
+:::
+
+### Verify
+
+The verify action script implements the function executed in order to mark the verification status of a user’s email address in the legacy identity store. Email verification status information is typically returned via email_verified as part of any user profile information returned (see login and get user for further details). The script is executed when a user clicks on the link in the verification email sent by Auth0, and we recommend naming this function verify. The script is only utilized in a legacy authentication scenario, and must be implemented if support is required for Auth0 email verification functionality.
+
+Whilst it’s not mandatory to implement the verify function per-se, it is a recommended best practice. The function is required to support user email address verification, and a verified email address for a user is critical to a number of the workflow scenarios in Auth0. 
+
+Emails play a big part in the functionality supported in Auth0, and having a verified email address is critical in a number of workflow scenarios. Implementing the script will provide support for these workflows out-of-box, and the verify function implemented in the script should be defined as follows:
+
+```js
+function verify(email, callback) {
+  // TODO: implement your script
+  return callback(null, JSON Object);
+}
+```
+
+::: note
+Whilst the verify function is called when a user clicks on the link in the verification email sent by Auth0, change in email verification status influenced by other operations - such as via user profile modification in the Auth0 Dashboard - is performed via the change email script (described below).
+:::
+
+| Attribute | Description |
+| --- | --- |
+| `email` | The email address for the user as the user identifying credential. |
+| `callback` | For verify, the callback function is executed with up to two parameters. The first parameter is an indication of status: a null first parameter with a corresponding second parameter indicates that the operation executed successfully, whilst a non null first parameter value indicates that some error condition occurred. |
+
+### `callback` example
+
+If the first parameter is null then the second parameter should be a JSON object in a format similar to the following:
+
+```js
+{
+    "user_id": "<user identifier>",
+    "email": "jane.doe@example.com",
+    "email_verified": true
+}
+```
+
+::: panel Best Practice
+When indicating an error condition we recommend using an instance of the `Error` object (e.g., `callback(new Error(“an error message”))`) in order to provide Auth0 with clear indication of the error condition. 
+:::
 

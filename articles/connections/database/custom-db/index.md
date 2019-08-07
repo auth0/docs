@@ -1,75 +1,32 @@
 ---
-title: Authenticate Users Using Your Database
-image: /media/connections/mysql.svg
-seo_alias: mysql
-description: Learn how to authenticate users using your database as an identity provider.
-toc: true
+title: Custom Database Connections
+description: Learn about authenticating users using your database as an identity provider.
+classes: topic-page
 topics:
     - connections
     - custom-database
     - scripts
-contentType: tutorial
+contentType: index
 useCase:
     - customize-connections
 ---
-# Authenticate Users Using Your Database
-
-If you have your own user database, you can use it as an identity provider in Auth0 to authenticate users.
+# Custom Database Connections
 
 ::: panel Feature availability
-Only **Enterprise** subscription plans include the ability to use a custom database for authentication requests.
-
-For more information refer to [Auth0 pricing plans](https://auth0.com/pricing).
+Only **Enterprise** subscription plans include the ability to use a custom database for authentication requests. For more information refer to [Auth0 pricing plans](https://auth0.com/pricing).
 :::
 
-## Step by step guide
+Use a custom database connection when you want to provide access to your own independent (legacy) identity store for the following purposes:
 
-In this tutorial, you'll learn how to connect your user database to Auth0 and configure it for use as an identity provider. More specifically, you will:
+* **Authentication**: Use your database as an identity provider in Auth0 to authenticate users. (Refered to as *legacy authentication*.)
+* **Import Users**: Use automatic migration (*trickle* or *lazy* migration)
+* **Proxy access to an Auth0 tenant**: Use Auth0 multi-tenant architecture. 
 
-* [Create and configure a custom database connection](/connections/database/custom-db/create-db-connection) using the [Auth0 dashboard](${manage_url}).
-* Make sure that your database has the appropriate fields to store user profiles attributes, such as **id**, **nickname**, **email**, and **password**. See [Normalized User Profile](/users/normalized) for details on Auth0's user profile schema and the expected fields.
-* Provide database action scripts to configure the database for use as an identity provider.
+You typically create and configure custom database connections in the [Auth0 dashboard](${manage_url}). You create a database connection and then toggle **Use my own database** to enable database action script editing. Alternatively, you can create and configure a custom database connection using the Auth0 Management API with the `auth0` strategy. 
 
-## Before you begin
+<%= include('../_includes/_topic-links', { links: [
+  'connections/database/custom-db/create-db-connection',
+  'connections/database/custom-db/templates',
+  'connections/database/custom-db/error-handling'
+] }) %>
 
-Here are some things to know before you begin the process of setting up your database for use as an identity provider.
-
- You'll write your database action scripts in JavaScript. The scripts run in a [Webtask](https://webtask.io/) environment and support JavaScript and [select Node.js libraries](https://auth0-extensions.github.io/canirequire/).
-
-* There are two different types of custom database scripts:
-
-  1. **Trickle Migration**: Whenever a user logs into Auth0, if the user is not yet in Auth0, the script will check the legacy database to see if the user is there. If they are there, it will migrate the user to Auth0. This script runs when the **Import users to Auth0** flag is turned on. 
-
-  2. **Legacy DB**: Auth0 will always call out to the underlying database anytime a user tries to log in, is created, changes their password, verifies their email, or is deleted. Users stay in the legacy database and do **not** migrate to Auth0.
-
-* The `get user` script is very important. Here are all the places where it is called:
-
-  * Change email: to validate availability
-  * Create user: to validate availability
-  * Forgot password: to validate
-  * Change password: to create
-
-* Auth0 provides [custom script templates](/connections/database/custom-db/templates) for most of the commonly-used databases, including:
-
-  * ASP.NET Membership Provider
-  * MongoDB
-  * MySQL
-  * Oracle
-  * PostgreSQL
-  * SQLServer
-  * Windows Azure SQL Database
-  * Web services accessed via Basic Auth
-
-  Essentially, you can connect to any kind of database or web service with a properly-configured custom script.
-
-* [Update User Profiles Using Your Database](/users/guides/update-user-profiles-using-your-database) has information on updating user profile fields.
-
-<%= include('../../../_includes/_ip_whitelist') %>
-
-### Keep reading
-
-* [Create and Configure a Custom Database Connection](/connections/database/custom-db/create-db-connection)
-* [Write Custom Database Action Scripts](/connections/database/custom-db/templates)
-* [Update User Profile Using Your Database](/users/guides/update-user-profiles-using-your-database)
-* [Handle Errors and Troubleshoot Your Custom DB Scripts](/connections/database/custom-db/error-handling)
-* [Migrate Your Users to Auth0](/users/concepts/overview-user-migration)

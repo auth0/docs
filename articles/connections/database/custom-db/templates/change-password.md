@@ -4,17 +4,15 @@ toc: true
 topics:
     - connections
     - custom-database
-contentType: how-to
+contentType: reference
 useCase:
     - customize-connections
 ---
-# Custom Database Script Templates: Change Password
+# Change Password Script Templates
 
 Auth0 provides the following custom database change password script templates that you can use when implementing password changing functionality for your users.
 
 While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
-
-## Notes
 
 When working on your password change script, keep in mind that:
 
