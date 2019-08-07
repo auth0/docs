@@ -10,9 +10,9 @@ useCase:
     - customize-connections
     - script-templates
 ---
-# Custom Database Script Templates
+# Custom Database Action Script Templates
 
-<%= include('_includes/_feature-availability') %>
+<%= include('../_includes/_feature-availability') %>
 
 If you have your own user database, you can use it as an identity provider in Auth0 to authenticate users. 
 

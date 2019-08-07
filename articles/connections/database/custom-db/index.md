@@ -14,7 +14,7 @@ useCase:
 
 <%= include('_includes/_feature-availability') %>
 
-<%= include('../_includes/_topic-links', { links: [
+<%= include('../../_includes/_topic-links', { links: [
   'connections/database/custom-db/custom-db-connections-overview',
   'connections/database/custom-db/create-db-connection',
   'connections/database/custom-db/templates',
