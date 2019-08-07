@@ -64,7 +64,7 @@ If you edit the OIDC Connect Connection, you will see additional configuration o
 
 ## Manually configuring Issuer metadata 
 
-If you click `Show Issuer Details` you can see the data returned by the OIDC metadata endpoint and adjust it in case you need to.
+If you click `Show Issuer Details` you can see the data returned by the Issuer URL endpoint and adjust it in case you need to.
 
 ## Federating with Auth0
 
