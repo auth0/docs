@@ -7,7 +7,7 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Create Custom Database Database Connections
+# Create Custom Database Connections
 
 <%= include('./_includes/_feature-availability') %>
 
@@ -174,5 +174,6 @@ function login (username, password, callback) {
 
 ## Keep reading
 
-* [Handle Errors and Troubleshoot Your Custom DB Scripts](/connections/database/custom-db/error-handling)
-* [Migrate Your Users to Auth0](/users/concepts/overview-user-migration)
+* [Custom Database Connection and Action Script Best Practices](/best-practices/custom-db-connections-scripts)
+* [Custom Database Error Handling and Troubleshooting](/connections/database/custom-db/error-handling)
+* [Migrate Users to Auth0](/users/concepts/overview-user-migration)

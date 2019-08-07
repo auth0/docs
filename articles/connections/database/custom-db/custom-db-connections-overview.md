@@ -16,13 +16,15 @@ useCase:
 
 <%= include('./_includes/_feature-availability') %>
 
-With [Extensibility](/topics/extensibility) you can add custom logic in Auth0 to build out last mile solutions for Identity and Access Management (IdAM). Auth0 extensibility comes in several forms: Rules, Hooks, and scripts for both [custom database connection](/connections/database/custom-db) and custom database connection migration. Each is implemented using `Node.js` running on the Auth0 platform in an Auth0 Tenant. Auth0 extensibility executes at different points in the IdAM pipeline: 
+With [Extensibility](/topics/extensibility) you can add custom logic in Auth0 to build out last mile solutions for Identity and Access Management (IdAM). Auth0 extensibility comes in several forms: [Rules](/rules), [Hooks](/hooks), and scripts for both custom database connections and custom database migration. Each is implemented using [Node.js](https://nodejs.org/en/) running on the Auth0 platform in an Auth0 tenant. 
 
-* **Rules** run when artifacts for user authenticity are generated (i.e., an ID Token in OIDC), an Access Token in OAuth 2.0, or an assertion in SAML. 
-* **Hooks** provide additional extensibility for when there is an exchange of non-user related artifacts, and for when user identities are created (see both pre user registration and post user registration Hooks for further details). 
-* **Custom database scripts** can be used to integrate with an existing user identity store, or can be used where automatic user migration (from an independent legacy identity store) is required. 
+Auth0 extensibility executes at different points in the IdAM pipeline: 
 
-Whatever the use case, Auth0 extensibility provides comprehensive and sophisticated capability to tailor IdAM operations to your exact requirements. However, if not used in the right way, this can open up the potential for improper or unintended use which can lead to problematic situations down the line. In an attempt to address matters ahead of time, this article provides best practice guidance to both designers and implementers, and we recommend reading it in its entirety at least once, even if you've already started your journey with Auth0.    
+* **Rules** run when artifacts for user authenticity are generated (i.e., an ID Token in <dfn data-key="openid">OpenID Connect (OIDC)</dfn>), an Access Token in OAuth 2.0, or an assertion in <dfn data-key="security-assertion-markup-language">Security Assertion Markup Language (SAML)</dfn>. 
+* **Hooks** provide additional extensibility for when there is an exchange of non-user related artifacts, and for when user identities are created. See [pre-user registration](/hooks/concepts/pre-user-registration-extensibility-point) and [post-user registration](/hooks/concepts/post-user-registration-extensibility-point) Hooks for details. 
+* **Custom database scripts** can be used to [integrate with an existing user identity store](/connections/database/custom-db), or can be used where [automatic user migration](https://auth0.com/learn/migrate-user-database-auth0/) (from an independent legacy identity store) is required. 
+
+Whatever the use case, Auth0 extensibility allows you to tailor IdAM operations to your exact requirements. However, if not used in the right way, this can open up the potential for improper or unintended use which can lead to problematic situations down the line. In an attempt to address matters ahead of time, Auth0 provides [best practice guidance](/best-practices/custom-db-connections-scripts) to both designers and implementers, and we recommend reading it in its entirety at least once, even if you've already started your journey with Auth0.    
 
 Use a custom database connection when you want to provide access to your own independent (legacy) identity store for the following purposes:
 
@@ -30,61 +32,78 @@ Use a custom database connection when you want to provide access to your own ind
 * **Import Users**: Use automatic migration (*trickle* or *lazy* migration)
 * **Proxy access to an Auth0 tenant**: Use Auth0 multi-tenant architecture. 
 
-You typically create and configure custom database connections in the [Auth0 dashboard](${manage_url}). You create a database connection and then toggle **Use my own database** to enable database action script editing. Alternatively, you can create and configure a custom database connection using the Auth0 Management API with the `auth0` strategy. 
+You typically create and configure custom database connections in the [Auth0 dashboard](${manage_url}). You create a database connection and then toggle **Use my own database** to enable database action script editing. Alternatively, you can create and configure a custom database connection using the Auth0 [Management API](/api/management/v2#!/Connections/post_connections) with the `auth0` strategy. 
 
 ![Custom Database Connections Dashboard](/media/articles/connections/database/custom-database.png)
 
-## Anatomy
+## How it works
 
-As depicted in the diagram below, you use custom database connections as part of Universal Login workflow in order to obtain user identity information from your own, legacy identity store. This can be for either (a) authentication - often referred to as legacy authentication - or (b) user import via [automatic migration](/users/guides/configure-automatic-migration) (a.k.a trickle or lazy migration). For the purpose of the remaining guidance we will refer to any authentication against an external identity store as “legacy authentication”.
+As shown in the diagram below, you use custom database connections as part of Universal Login workflow in order to obtain user identity information from your own, legacy identity store. 
 
 ![Custom Database Connections Anatomy](/media/articles/connections/database/custom-database-connections.png)
 
-In addition to artifacts common for all database connection types, a custom database connection allows you to configure action scripts: custom code that’s used when interfacing with your independent (legacy) identity store. For the purpose of this guide, we will refer to any external identity storage as a *legacy identity store*. The scripts available for configuration are described in the [Execution](#execution) section, and will depend on whether you are creating a custom database connection for legacy authentication or for automatic migration.
+In addition to artifacts common for all [database connection](/connections/database) types, a custom database connection allows you to configure action scripts: custom code that’s used when interfacing with your legacy identity store. Auth0 provides [custom database action script templates](/connections/database/custom-db/templates) for configuration, and the ones you use will depend on whether you are creating a custom database connection for legacy authentication or for automatic migration.
 
 ::: panel Best practice
-Action scripts can be implemented as anonymous functions, however anonymous functions make it hard in debugging situations when it comes to interpreting the call-stack generated as a result of any exceptional error condition. For convenience, we recommend providing a function name for each action script, and have supplied some recommended names as part of the Execution section below.
+Action scripts can be implemented as anonymous functions, however anonymous functions make it hard in debugging situations when it comes to interpreting the call-stack generated as a result of any exceptional error condition. For convenience, we recommend providing a function name for each action script.
 :::
 
-During automatic - a.k.a. Trickle - migration, Auth0 will create a new user in a (database) identity store which is managed by Auth0. From then on Auth0 will always use identity in the Auth0 managed identity store authenticating the user. For this to occur, Auth0 will first require the user be authenticated against the legacy identity store and only if this succeeds will the new user be created. The new user will be created using the same id and password that was supplied during authentication.
+### Legacy authentication scenario
 
-::: panel Best Practice
-Creation of a user in an automatic migration scenario typically occurs after the login action script completes. We therefore recommend that you do not attempt any deletion of a user from a legacy identity store as an inline operation (i.e. within the login script) but prefer to do this - where required - as an independent process. This will prevent accidental deletion of a user should an error condition occur during the migration process. 
-:::
-
-In a legacy authentication scenario, no new user record is created: Auth0 will always use the identity contained in the legacy identity store when authenticating the user. In either case, the user remains in the legacy identity store and can be deleted or archived if required. 
+In a legacy authentication scenario, no new user record is created: the user remains in the legacy identity store and Auth0 will always use the identity it contains when authenticating the user. 
 
 ::: note
-Custom database connections are also utilized outside of Universal Login workflow. For example, a connections’ changePassword action script will be called whenever a password change operation occurs for a user that resides in a legacy identity store.
+Custom database connections are also used outside of Universal Login workflow. For example, a connections' `changePassword` action script is called when a password change operation occurs for a user that resides in a legacy identity store.
+
+### Automatic migration scenario
+
+During automatic or trickle migration, Auth0 creates a new user in an identity store (database) managed by Auth0. From then on, Auth0 always uses the identity in the Auth0 managed identity store for authenticating the user. For this to occur, first Auth0 requires the user be authenticated against the legacy identity store and only if this succeeds will the new user be created. The new user will be created using the same id and password that was supplied during authentication.
+
+::: panel Best practice
+Creation of a user in an automatic migration scenario typically occurs after the `login` action script completes. We therefore recommend that you do not attempt any deletion of a user from a legacy identity store as an inline operation (i.e., within the `login` script) but perform the deletion as an independent process. This will prevent accidental deletion of a user should an error condition occur during the migration process. 
+:::
+
+In an automatic migration scenario, users remain in the legacy identity store and can be deleted or archived if required. One side effect of this can occur if a user is deleted from Auth0 but still remains present in the legacy identity store. In this case, a login actioned by the deleted user could result in either the `login` and/or `getUser` script being executed and the user being migrated from the legacy identity store once again. To prevent this kind of situation from occurring we recommend marking any legacy user identity as having been migrated, before either `login` or `getUser` completes and prior to any eventual legacy store deletion.
+
+::: panel Best practice
+We recommend marking legacy store user identities as having been migrated (to Auth0) in to prevent situations like the unintentional re-creation of intentionally deleted users.
 :::
 
 ## Size
 
-As a best practice, we recommend that the total size of implementation for any action script should not exceed 100 kB. The larger the size the more latency is introduced due to the packaging and transport process employed by the Auth0 serverless Webtask platform, and this will have an impact on the performance of your system. Note that the 100 kB limit does not include any npm modules that may be referenced as part of any require statements. 
+The total size of implementation for any action script should not exceed 100 kB. The larger the size the more latency is introduced due to the packaging and transport process employed by the Auth0 serverless Webtask platform, and this will have an impact on the performance of your system. 
+
+::: note
+The 100 kB limit does not include any `npm` modules that may be referenced as part of any require statements. 
+:::
 
 ## Environment
 
-Action scripts execute as a series of called JavaScript functions in an instance of a serverless Webtask container. As part of this, a specific environment is provided, together with a number of artefacts supplied by both the Webtask container and the Auth0 authentication server (a.k.a. your Auth0 tenant) itself.  
+Action scripts execute as a series of called JavaScript functions in an instance of a serverless Webtask container. As part of this, a specific environment is provided, together with a number of artefacts supplied by both the Webtask container and the Auth0 authentication server (your Auth0 tenant) itself.  
 
 ### `npm` modules
 
-Auth0 serverless Webtask containers can make use of a wide range of npm modules; npm modules not only reduce the overall size of action script code implementation, but also provide access to a wide range of pre-built functionality.
+Auth0 serverless Webtask containers can make use of a [wide range of `npm` modules](https://auth0-extensions.github.io/canirequire/); `npm` modules not only reduce the overall size of action script code implementation, but also provide access to a wide range of pre-built functionality.
 
-By default, a large list of publicly available npm modules are supported out-of-the-box. This list has been compiled and vetted for any potential security concerns. If you require an `npm` module that is not supported out-of-the-box, then a request can be made via the Auth0 support portal or via your Auth0 representative. Auth0 will evaluate your request to determine suitability. There is currently no support in Auth0 for the user of npm modules from private repositories.
+Many publicly available `npm` modules are supported out-of-the-box. The list has been compiled and vetted for any potential security concerns. If you require an `npm` module that is not supported out-of-the-box, then you can make a request in the [Auth0 support portal](https://support.auth0.com/) or to your Auth0 representative. Auth0 will evaluate your request to determine suitability. There is currently no support in Auth0 for the user of `npm` modules from private repositories.
 
 ### Variables
 
-Auth0 action scripts supports the notion of environment variables, accessed via what is defined as the globally available configuration object. The configuration object should be treated as read-only, and should be used for storing sensitive information - such as credentials or API keys for accessing external identity stores. This mitigates having security sensitive values hard coded in an action script. 
+Auth0 action scripts supports the notion of environment variables, accessed via what is defined as the globally available [`configuration` object](/connections/database/custom-db/create-db-connection#add-configuration-parameters). The `configuration` object should be treated as read-only, and should be used for storing sensitive information such as credentials or API keys for accessing external identity stores. This mitigates having security sensitive values hard coded in an action script. 
 
-The configuration object can also be used to support whatever Software Development Life Cycle (SDLC) best practice strategies you employ by allowing you to define variables that have tenant specific values. This mitigates hard code values in an action script which may change depending upon which tenant is executing it.
+The configuration object can also be used to support whatever [Software Development Life Cycle (SDLC)](/dev-lifecycle/setting-up-env) best practice strategies you employ by allowing you to define variables that have tenant specific values. This mitigates hard code values in an action script which may change depending upon which tenant is executing it.
 
 ### `global` object
 
-Auth0 serverless Webtask containers are provisioned from a pool that's associated with each Auth0 tenant. Each container instance makes available the global object, which can be accessed across all action scripts that execute within the container instance. The global object acts as a global variable and can be used to define information, or to even define functions, that can be used across all action scripts (that run in the container) irrespective of the execution instance.
+Auth0 serverless Webtask containers are provisioned from a pool that's associated with each Auth0 tenant. Each container instance makes available the `global` object, which can be accessed across all action scripts that execute within the container instance. The `global` object acts as a global variable that’s unique to the container, and that can be used to define information or functions used across all action scripts that run in the container instance.
 
-The global object can also be used to cache expensive resources, such as an Access Token for a third-party (e.g., logging) API that provides non user-specific functionality or an Access Token to your own API defined in Auth0 and obtained by using Client Credentials flow.
+This means that the `global` object can be used to cache expensive resources, as long as those resources are not user-specific. For example, an Access Token for a third-party (e.g., logging) API that provides non user-specific functionality could be stored. Or it could be used to store an Access Token to your own non user-specific API defined in Auth0 and obtained via use of [Client Credentials](/flows/concepts/client-credentials) flow.
 
-For each instantiation of a new Webtask container the global object is reset. Thus, any declaration within the global object should also include provision for initialization.
+::: warning
+An action script may execute in any of the container instances already running, or in a newly created container instance (which may subsequently be added to the pool). There is no container affinity for action script execution in Auth0. This means that you should avoid storing any user-specific information in the `global` object, and should always ensure that any declaration made within the `global` object provides for initialization too.
+:::
+
+Each time a Webtask container is recycled, or for each instantiation of a new Webtask container, the `global` object it defines is reset. Thus, any declaration of assignment within the `global` object associated with a container should also include provision for initialization too. To provide performance flexibility, serverless Webtask containers are provisioned in Auth0 on an ad-hoc basis and are also subject to various recycle policies. In general, we recommend that you do not consider the life of a `global` object to be anything more than 20 minutes.
 
 ## Security
 
@@ -114,5 +133,6 @@ The Auth0 IP address whitelist is shared amongst all Auth0 tenants defined to a 
 
 ## Keep reading
 
-* 
-
+* [Create Custom Database Connections](/connections/database/custom-db/create-db-connection)
+* [Handle Errors and Troubleshoot Your Custom DB Scripts](/connections/database/custom-db/error-handling)
+* [Migrate Your Users to Auth0](/users/concepts/overview-user-migration)
