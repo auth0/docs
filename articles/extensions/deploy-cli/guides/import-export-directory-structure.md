@@ -113,6 +113,8 @@ repository =>
   grants
     grant1.json
   pages
+    error_page.html
+    error_page.json
     login.html
     login.json
     password_reset.html
