@@ -18,7 +18,6 @@ useCase:
 
 ## Custom database connection best practices
 
-* Action scripts can be implemented as anonymous functions, however anonymous functions make it hard in debugging situations when it comes to interpreting the call-stack generated as a result of any exceptional error condition. For convenience, we recommend providing a function name for each action script, and have supplied some recommended names as part of the Execution section below.
 * Creation of a user in an automatic migration scenario typically occurs after the login action script completes. We therefore recommend that you do not attempt any deletion of a user from a legacy identity store as an inline operation (i.e. within the login script) but prefer to do this - where required - as an independent process. This will prevent accidental deletion of a user should an error condition occur during the migration process. 
 * Make sure that your database has the appropriate fields to store user profiles attributes, such as **id**, **nickname**, **email**, and **password**. See [Normalized User Profile](/users/normalized) for details on Auth0's user profile schema and the expected fields. Also, see [Update User Profile Using Your Database](/users/guides/update-user-profiles-using-your-database) for more information.
 * You can use return errors resulting from your custom database connection for troubleshooting purposes. See [Custom Database Error Handling and Troubleshooting](/connections/database/custom-db/error-handling) for  basic troubleshooting steps.
@@ -32,9 +31,10 @@ useCase:
 
 ## Database action script best practices
 
-### Script checklist
+* Action scripts can be implemented as anonymous functions, however anonymous functions make it hard in debugging situations when it comes to interpreting the call-stack generated as a result of any exceptional error condition. For convenience, we recommend providing a function name for each action script, and have supplied some recommended names.
+* Script templates, including the default templates, are not used until you click **Save**. This is true even if you only modify one script and haven't made changes to any others. You must click **Save** at least once for all the scripts to be in place. 
 
-Script templates, including the default templates, are not used until you click **Save**. This is true even if you only modify one script and haven't made changes to any others. You must click **Save** at least once for all the scripts to be in place. 
+### Script checklist
 
 Use the following checklist to make sure your scripts achieve the results you intend:
 
