@@ -27,3 +27,12 @@ For a list of widgets and SDKs that can help you implement Auth0, see our [Libra
 Calls to the <dfn data-key="lock">Lock widget</dfn> will return an Access Token as shown in the [Lock documentation](/libraries/lock).
 
 If you need only a client-side library for authorization and authentication, use [auth0.js](/libraries/auth0js).
+
+
+
+
+::: panel Token issuance
+Auth0 issues tokens with the **iss** claim of whichever domain you used with the request. Custom domain users might use either, their custom domain, or their Auth0 domain. For example, if you used **https://northwind.auth0.com/authorize...** to obtain an Access Token, the **iss** claim of the token you receive will be **https://northwind.auth0.com/**. If you used your custom domain **https://login.northwind.com/authorize...**, the **iss** claim value will be **https://login.northwind.com/**. 
+
+If you get an Access Token for the [Management API](/api/management/v2) using an authorization flow with your custom domain, you **must** call the Management API using the custom domain (your token will be considered invalid otherwise).
+:::

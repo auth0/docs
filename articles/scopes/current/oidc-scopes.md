@@ -32,15 +32,15 @@ For example, let's say you have built a regular web application, registered it w
 
 ## Standard claims
 
-Standard claims are intended to provide an application with user details, such as name, email, and picture, and are pre-defined for the OIDC protocol. 
+Standard claims are intended to provide an application with user details, such as name, email, and picture, and are pre-defined for the OIDC protocol. These claims are returned in an ID Token and are also available through the [/userinfo endpoint](/api/authentication#get-user-info).
 
 ::: note 
-You can also create [custom claims](/scopes/current/custom-claims), which are claims that you define, control, and add to a token using a rule. 
+You can also create [custom claims](/tokens/jwt-claims#custom-claims), which are claims that you define, control, and add to a token using a rule. 
 :::
 
 The basic (and required) scope for OIDC is `openid`, which indicates that an application intends to use the OIDC protocol to verify a user's identity. Beyond that, an application can ask for additional scopes by listing the requested scope names in the `scope` parameter, separated by spaces. 
 
-Standard claims included in the most commonly-used scopes are listed below, but for a full list of available standard claims, refer to the [OIDC specification: Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
+Standard claims included in the most commonly-used scopes are listed below, but for a full list of available standard claims, refer to the [OIDC specification: Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). For a full list of Scopes, see [OIDC specification: Requesting Claims Using Scope Values](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims).
 
 
 | Scope     | Claims          |
@@ -55,4 +55,4 @@ For an example showing how to request standard claims for your application, see 
 
 - [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases)
 - [Scopes](/scopes)
-- [Custom Claims](/scopes/current/custom-claims)
+- [Custom Claims](/tokens/jwt-claims#custom-claims)

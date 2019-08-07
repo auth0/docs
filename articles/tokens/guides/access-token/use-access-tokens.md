@@ -124,7 +124,7 @@ Before permitting access to the API using this token, the API must verify the to
 1. Check the Application permissions (<dfn data-key="scope">scopes</dfn>)
 
 ::: note
-For a more detailed description of the process of verifying Access Tokens, please refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+For a more detailed description of the process of verifying Access Tokens, please refer to [Validate an Access Token](/tokens/guides/access-token/validate-access-token).
 :::
 
 If any of these checks fail, the token is invalid and the request should be rejected.

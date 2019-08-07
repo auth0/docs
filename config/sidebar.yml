@@ -1156,7 +1156,7 @@ articles:
   #       url: "/api-auth/dynamic-client-registration"
 
   #     - title: "Verify Access Tokens"
-  #       url: "/api-auth/tutorials/verify-access-token"
+  #       url: "/tokens/guides/access-token/validate-access-token"
 
   - title: "Private SaaS Deployment"
     url: "/private-saas-deployment"

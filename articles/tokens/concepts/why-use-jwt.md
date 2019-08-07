@@ -25,7 +25,7 @@ _Comparison of the length of an encoded JWT and an encoded SAML_
 
 ## More secure
 
-JWT can use a public/private key pair in the form of an X.509 certificate for signing. A JWT can also be symmetrically signed by a shared secret using the HMAC algorithm. And while SAML tokens can use public/private key pairs like JWT, signing XML with XML Digital Signature without introducing obscure security holes is very difficult when compared to the simplicity of signing JSON. Read more about JWT signing algorithms in our [blog](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
+JWT can use a public/private key pair in the form of an X.509 certificate for signing. A JWT can also be symmetrically signed by a shared secret using the HMAC algorithm. And while SAML tokens can use public/private key pairs like JWT, signing XML with XML Digital Signature without introducing obscure security holes is very difficult when compared to the simplicity of signing JSON. Read more about JWT [signing algorithms](/tokens/concepts/signing-algorithms) in our [blog](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
 
 ## More common
 

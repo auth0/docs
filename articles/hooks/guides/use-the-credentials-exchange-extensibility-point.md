@@ -122,7 +122,7 @@ Using the [test runner](https://webtask.io/docs/editor/runner), we see that the 
 
 ## Example: add a claim to the Access Token
 
-This example show you have to add a namespaced claim and its value to the Access Token.
+This example shows you how to add a [namespaced](/tokens/concepts/claims-namespacing) claim and its value to the Access Token.
 
 ```js
 module.exports = function(client, scope, audience, context, cb) {

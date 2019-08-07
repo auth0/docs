@@ -13,7 +13,7 @@ useCase:
 ---
 # Refresh Tokens
 
-A **Refresh Token** contains the information required to obtain a new <dfn data-key="access-token">Access Token</dfn> or [ID Token](/tokens/id-token).
+Refresh Tokens contain the information required to obtain a new <dfn data-key="access-token">Access Token</dfn> or [ID Token](/tokens/id-token).
 
 Typically, a user needs a new Access Token when gaining access to a resource for the first time, or after the previous Access Token granted to them expires.
 
@@ -47,6 +47,20 @@ If you are implementing an SPA using [Implicit Flow](/flows/concepts/implicit) a
 
 If you limit offline access to your API, a safeguard configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis), Auth0 will not return a Refresh Token for the API (even if you include the `offline_access` <dfn data-key="scope">scope</dfn> in your request).
 
+
+This method is not an option for Single-Page Apps (SPAs), since for security reasons you cannot get a Refresh Token from the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) (the OAuth flow typically used for client-side web apps). In this case, you would have to use [silent authentication](/api-auth/tutorials/silent-authentication).
+
+If you are using [auth0.js](/libraries/auth0js) on an SPA, then you can fetch a new token using the `checkSession()` method.
+
+```js
+auth0.checkSession({
+  audience: 'https://mystore.com/api/v2',
+  scope: 'read:order write:order'
+  }, function (err, authResult) {
+    // Renewed tokens or error
+});
+```
+
 ## Get a Refresh Token
 
 To get a Refresh Token, you must include the `offline_access` [scope](/scopes) when you initiate an authentication request through the [authorize](/api/authentication/reference#authorize-application) endpoint.
@@ -62,6 +76,8 @@ https://${account.namespace}/authorize?
     redirect_uri=${account.callback}&
     state={OPAQUE_VALUE}
 ```
+
+The Refresh Token is stored in session. Then, when a session needs to be refreshed (for example, a preconfigured timeframe has passed or the user tries to perform a sensitive operation), the app uses the Refresh Token on the backend to obtain a new ID Token, using the `/oauth/token` endpoint with `grant_type=refresh_token`.
 
 Once the user authenticates successfully, the application will be redirected to the `redirect_uri`, with a `code` as part of the URL: `${account.callback}?code=BPPLN3Z4qCTvSNOy`. You can exchange this code with an Access Token using the `/oauth/token` endpoint.
 
@@ -309,6 +325,10 @@ Rules will run for the [Refresh Token Exchange](#use-a-refresh-token). To execut
 ::: warning
 If you try to do a <a href="/rules/redirect">redirect</a> with <code>context.redirect</code>, the authentication flow will return an error.
 :::
+
+## Custom Claims
+
+If you have added custom claims to your tokens using a rule, the custom claims will appear in new tokens issued when using a Refresh Token for as long as your rule is in place. Although new tokens do not automatically inherit custom claims, rules run during the Refresh Token flow, so the same code will be executed. This allows you to add or change custom claims in newly-issued tokens without forcing previously-authorized applications to obtain a new Refresh Token.
 
 ## SDK Support
 

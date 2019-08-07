@@ -147,7 +147,7 @@ Pragma: no-cache
     "id_token": "eyJ..."
 }</code></pre>
         <ul>
-            <li>The returned Access Token is valid for optionally calling the API specified in the <code>audience</code> parameter and the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API uses <code>RS256</code> as the signing algorithm and <code>openid</code> is used as a <code>scope</code> parameter). If you are not implementing your own Resource Server (API), then you can use <code>https://{$account.namespace}/userinfo</code> as the <code>audience</code> parameter, which will return an opaque Access Token.</li>
+            <li>The returned Access Token is valid for optionally calling the API specified in the <code>audience</code> parameter and the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API uses <code>RS256</code> as the <a href="/tokens/concepts/signing-algorithms">signing algorithm</a> and <code>openid</code> is used as a <code>scope</code> parameter). If you are not implementing your own Resource Server (API), then you can use <code>https://{$account.namespace}/userinfo</code> as the <code>audience</code> parameter, which will return an opaque Access Token.</li>
             <li>A Refresh Token will be returned only if the <code>offline_access</code> scope was granted.</li>
         </ul>
     </div>
@@ -188,7 +188,7 @@ Pragma: no-cache
     "https://app.example.com/favorite_color": "blue"
 }</code></pre>
         <ul>
-            <li>The <code>favorite_color</code> claim must be namespaced and added through a rule.</li>
+            <li>The <code>favorite_color</code> claim must be <a href="/tokens/concepts/claims-namespacing">namespaced</a> and added through a rule.</li>
         </ul>
     </div>
   </div>
@@ -224,7 +224,7 @@ Pragma: no-cache
     "scope": "openid email"
 }</code></pre>
         <ul>
-            <li>The returned Access Token is valid for optionally calling the API specified in the <code>audience</code> parameter and the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API uses <code>RS256</code> as the signing algorithm and <code>openid</code> is used as a <code>scope</code> parameter). If you are not implementing your own Resource Server (API), then you can use <code>https://{$account.namespace}/userinfo</code> as the <code>audience</code> parameter, which will return an opaque Access Token.</li>
+            <li>The returned Access Token is valid for optionally calling the API specified in the <code>audience</code> parameter and the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API uses <code>RS256</code> as the <a href="/tokens/concepts/signing-algorithms">signing algorithm</a> and <code>openid</code> is used as a <code>scope</code> parameter). If you are not implementing your own Resource Server (API), then you can use <code>https://{$account.namespace}/userinfo</code> as the <code>audience</code> parameter, which will return an opaque Access Token.</li>
         </ul>
     </div>
   </div>

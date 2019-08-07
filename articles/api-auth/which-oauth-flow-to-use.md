@@ -1,18 +1,20 @@
 ---
-title: Which OAuth 2.0 Grant should I use?
+title: Which OAuth 2.0 Flow Should I Use?
 toc: true
-description: Helps the user identify the proper OAuth 2.0 grant for each use case.
+description: Learn how to identify the proper OAuth 2.0 grant for your use case.
 topics:
   - api-authentication
   - oidc
   - application-grants
-contentType: discussion
+  - flows
+contentType:
+  - concept
 useCase:
   - secure-api
   - call-api
 ---
 
-# Which OAuth 2.0 flow should I use?
+# Which OAuth 2.0 Flow Should I Use?
 
 OAuth 2.0 supports several different **grants**. Grants are ways of retrieving an <dfn data-key="access-token">Access Token</dfn>. Deciding which one is suited for your case depends mostly on your Client's type, but other parameters weigh in as well, like the level of trust for the Client, or the experience you want your users to have.
 

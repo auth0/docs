@@ -15,11 +15,14 @@ An Access Token is a credential that can be used by an application to access an 
 
 Access Tokens should be used as a **Bearer** credential and transmitted in an HTTP **Authorization** header to the API. 
 
+
+Standard claims are intended to provide an application with user details, such as name, email, and picture, and are pre-defined for the OIDC protocol. These claims are returned in an ID Token and are also available through the [/userinfo endpoint](/api/authentication#get-user-info).
+
 Depending on how your application needs to use the Access Token, you can:
 
 * [Get Access Tokens](/tokens/guides/access-token/get-access-tokens) using any OAuth 2.0-compatible library or you can use one of Auth0's libraries that work with Auth0 endpoints.
 * [Use Access Tokens](/tokens/guides/access-token/use-access-tokens) either in server-to-server or custom API interactions.
-* [Add Custom Claims](/tokens/add-custom-claims) using [Rules](/rules).
+* [Add Custom Claims](/scopes/current/sample-use-cases#add-custom-claims-to-a-token) using [Rules](/rules).
 * [Set Access Token lifetime](/tokens/guides/access-token/set-access-token-lifetime).
 
 Access Tokens come in [two formats](/tokens/reference/access-token/access-token-formats): opaque strings and JWTs.

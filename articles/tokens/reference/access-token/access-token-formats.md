@@ -11,6 +11,23 @@ useCase:
 
 # Access Token Formats
 
+
+
+You will receive an opaque Access Token suitable for use with the `userinfo` endpoint if you sent the following in your initial request to `authorize` (or `/oauth/token` for the Client Credentials and Resource Owner Password [flows](/flows)):
+
+* `openid` as a value in the `scope` parameter
+* No value for the `audience` parameter or no `audience` parameter
+
+
+You will receive a JWT Access Token if you sent the following in your initial request to `authorize` (or `/oauth/token` for the Client Credentials and Resource Owner Password [flows](/flows)):
+
+
+
+:::note
+If the Access Token you got from Auth0 is not a JWT but an opaque string (like `kPoPMRYrCEoYO6s5`), this means that the Access Token was not issued for your custom API as the <dfn data-key="audience">audience</dfn>. When requesting a token for your custom API, make sure to use the `audience` parameter in the authorization or token request with the API identifier as the value of the parameter.
+:::
+
+
 Auth0 generates <dfn data-key="access-token">Access Tokens</dfn> in two formats: 
 
 * Opaque strings: When not using a custom API

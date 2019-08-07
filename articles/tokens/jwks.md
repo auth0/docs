@@ -16,7 +16,7 @@ useCase:
 ---
 # JSON Web Key Set
 
-At the most basic level, the JSON Web Key Set (JWKS) is a set of keys containing the public keys that should be used to verify any <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> issued by the authorization server and signed using the RS256 signing algorithm. 
+At the most basic level, the JSON Web Key Set (JWKS) is a set of keys containing the public keys that should be used to verify any <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> issued by the authorization server and signed using the RS256 [signing algorithm](/tokens/concepts/signing-algorithms). 
 
 When creating applications and APIs in Auth0, two algorithms are supported for signing JWTs: **RS256** and **HS256**. RS256 generates an asymmetric signature, which means a private key must be used to sign the JWT and a different public key must be used to verify the signature.
 
@@ -36,8 +36,8 @@ Currently, Auth0 only supports a single JWK for signing; however, it is importan
 ## Keep reading
 
 * [JSON Web Key Set Properties](/tokens/reference/jwt/jwks-properties)
-* [Verify a JSON Web Token's Signature using the JSON Web Key Set Endpoint](/tokens/guides/jwt/verify-jwt-signature-using-jwks)
-* [Programmatically Parse and Validate a JSON Web Token](/tokens/guides/jwt/parse-validate-jwt-programmatically)
+* [Verify a JSON Web Token's Signature using the JSON Web Key Set Endpoint](/tokens/guides/jwt/use-jwks)
+* [Validate a JSON Web Token](/tokens/guides/jwt/validate-jwt)
 
 Sample implementations:
 * [Backend/API Quickstarts](/quickstart/backend)

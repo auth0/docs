@@ -48,7 +48,7 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 <%= include('./includes/sample-use-cases') %>
 
 
-Once your API receives a request with an Access Token, it will need to validate the token. For details, see [Validate Access Tokens](/api-auth/tutorials/verify-access-token).
+Once your API receives a request with an Access Token, it will need to validate the token. For details, see [Validate an Access Token](/tokens/guides/access-token/validate-access-token).
 
 
 ## Keep reading

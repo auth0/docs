@@ -2,6 +2,6 @@ By default, your API uses RS256 as the algorithm for signing tokens. Since RS256
 
 <% if (typeof sampleLink == 'string') { %>
 ::: note
-We recommend using the default RS256 signing algorithm for your API. If you need to use the HS256 algorithm, see the [HS256 integration sample](${sampleLink}).
+We recommend using the default RS256 [signing algorithm](/tokens/concepts/signing-algorithms) for your API. If you need to use the HS256 algorithm, see the [HS256 integration sample](${sampleLink}).
 :::
 <% } %>

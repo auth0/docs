@@ -74,7 +74,7 @@ For more information, refer to [Calling your APIs with Auth0 tokens](/api-auth/t
 
 Historically, you were able to define and request arbitrary application-specific claims. From now on, your application can request any of the [standard OpenID Connect (OIDC) scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), as [defined by the OIDC Specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims), or any <dfn data-key="scope">scopes</dfn> supported by your [API](/apis).
 
-In order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims.
+In order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/tokens/concepts/claims-namespacing) to avoid possible collisions with standard OIDC claims.
 
 To customize the tokens, use Hooks for the Client Credentials Flow, and Rules for the rest of the flows:
 - __Client Credentials Flow__: [Customize Tokens using Hooks](/flows/guides/client-credentials/call-api-client-credentials#customize-tokens)
@@ -251,7 +251,7 @@ To use the `audience` parameter instead, configure your app to send it when init
     <tr>
       <th><strong>Add arbitrary claims in Tokens</strong></th>
       <td>Supported</td>
-      <td>Supported. The namespaced format has to be used.</td>
+      <td>Supported. The <a href="/tokens/concepts/claims-namespacing">namespaced format</a> has to be used.</td>
     </tr>
     <tr>
       <th><strong>SSO</strong></th>

@@ -37,7 +37,7 @@ Get the IdP Refresh Tokens in the same way as Access Tokens, using [the /api/v2/
 
 ## Validate tokens
 
-In general, IdP Access Tokens are passed to the issuing provider and the issuing provider is responsible for validation of the token.
+If you have received an Access Token from an [Identity Provider (IdP)](/identityproviders), in general, you don't need to validate it. You can pass it to the issuing IdP, and the IdP takes care of the rest.
 
 ## Keep reading
 
