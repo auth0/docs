@@ -78,52 +78,6 @@ The OpenID Connect connection is very useful when federating to another Auth0 te
 
 The examples below show can you can configure the connection by either providing a metadata URI or by setting the OIDC URLs explicitly. 
 
-**Using Front Channel and Issuer metadata**
-
-```har
-{
-	"method": "POST",
-	"url": "https://${account.namespace}/api/v2/connections",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer MGMT_API_ACCESS_TOKEN"
-	}],
-	"queryString": [],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{ \"strategy\": \"oidc\", \"name\": \"CONNECTION_NAME\", \"options\": { \"type\": \"front_channel\", \"discovery_url\": \"https://IDP_DOMAIN/.well-known/openid-configuration\", \"client_id\" : \"IDP_CLIENT_ID\",  \"scopes\": \"openid profile\" } }"
-	},
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
-}
-```
-
-**Using Front Channel and Issuer metadata**
-
-```har
-{
-	"method": "POST",
-	"url": "https://${account.namespace}/api/v2/connections",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer MGMT_API_ACCESS_TOKEN"
-	}],
-	"queryString": [],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{ \"strategy\": \"oidc\", \"name\": \"CONNECTION_NAME\", \"options\": { \"type\": \"front_channel\", \"discovery_url\": \"https://IDP_DOMAIN/.well-known/openid-configuration\", \"client_id\" : \"IDP_CLIENT_ID\",  \"scopes\": \"openid profile\" } }"
-	},
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
-}
-```
-
 **Using Front Channel with discovery endpoint**
 
 ```har
@@ -162,7 +116,8 @@ The examples below show can you can configure the connection by either providing
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"strategy\": \"oidc\", \"name\": \"CONNECTION_NAME\", \"options\": { \"type\": \"back_channel\", \"discovery_url\": \"https://IDP_DOMAIN/.well-known/openid-configuration\", \"client_id\" : \"IDP_CLIENT_ID\", \"client_secret\" : "\IDP_CLIENT_SECRET\", \"scopes\": \"openid profile\" } }"
+		"text": "{ \"strategy\": \"oidc\", \"name\": \"CONNECTION_NAME\", \"options\": { \"type\": \"back_channel\", \"discovery_url\": \"https://IDP_DOMAIN/.well-known/openid-configuration\", \"client_id\" : \"IDP_CLIENT_ID\", \"client_secret\" : \"IDP_CLIENT_SECRET\", \"scopes\": \"openid profile\" } }"
+
 	},
 	"headersSize": -1,
 	"bodySize": -1,
@@ -185,7 +140,7 @@ The examples below show can you can configure the connection by either providing
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"strategy\": \"oidc\", \"name\": \"CONNECTION_NAME\", \"options\": { \"type\": \"front_channel\", \"issuer\": \"https://IDP_DOMAIN\", \"authorization_endpoint\": \"https://IDP_DOMAIN/authorize\", \"token_endpoint\": \"https://IDP_DOMAIN/oauth/token\", \"jwks_uri\": \"https://IDP_DOMAIN/.well-known/jwks.json\", \"client_id\" : \"IDP_CLIENT_ID\",  \"client_secret\" : "\IDP_CLIENT_SECRET\", \"scopes\": \"openid profile\" } }"
+		"text": "{ \"strategy\": \"oidc\", \"name\": \"CONNECTION_NAME\", \"options\": { \"type\": \"front_channel\", \"issuer\": \"https://IDP_DOMAIN\", \"authorization_endpoint\": \"https://IDP_DOMAIN/authorize\", \"token_endpoint\": \"https://IDP_DOMAIN/oauth/token\", \"jwks_uri\": \"https://IDP_DOMAIN/.well-known/jwks.json\", \"client_id\" : \"IDP_CLIENT_ID\",  \"client_secret\" : \"IDP_CLIENT_SECRET\", \"scopes\": \"openid profile\" } }"
 	},
 	"headersSize": -1,
 	"bodySize": -1,
