@@ -90,7 +90,7 @@ You can configure the connection by either providing a metadata URI or by settin
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"strategy\": \"oidc\", \"name\": \"CONNECTION_NAME\", \"options\": { \"type\": \"front_channel\", \"discovery_url\": \"https://IDP_DOMAIN/.well-known/openid-configuration\", \"client_id\" : \"IDP_CLIENT_ID",  \"scopes\": \"openid profile\", } }"
+		"text": "{ \"strategy\": \"oidc\", \"name\": \"CONNECTION_NAME\", \"options\": { \"type\": \"front_channel\", \"discovery_url\": \"https://IDP_DOMAIN/.well-known/openid-configuration\", \"client_id\" : \"IDP_CLIENT_ID\",  \"scopes\": \"openid profile\" } }"
 	},
 	"headersSize": -1,
 	"bodySize": -1,
