@@ -9,8 +9,7 @@ topics:
 contentType: concept
 useCase:
     - custom-db-connections
-    - authentication
-    - database-action-scripts
+    - legacy-authentication
 ---
 # Custom Database Connections Overview
 
@@ -38,10 +37,10 @@ Action scripts can be implemented as anonymous functions, however anonymous func
 
 ### Legacy authentication scenario
 
-In a legacy authentication scenario, no new user record is created: the user remains in the legacy identity store and Auth0 will always use the identity it contains when authenticating the user. 
+In a legacy authentication scenario, no new user record is created; the user remains in the legacy identity store and Auth0 will always use the identity it contains when authenticating the user. 
 
 ::: note
-Custom database connections are also used outside of Universal Login workflow. For example, a connections' `changePassword` action script is called when a password change operation occurs for a user that resides in a legacy identity store.
+Custom database connections are also used outside of Universal Login workflow. For example, a connection's `changePassword` action script is called when a password change operation occurs for a user that resides in a legacy identity store.
 :::
 
 ### Automatic migration scenario
@@ -52,10 +51,10 @@ During automatic or trickle migration, Auth0 creates a new user in an identity s
 Creation of a user in an automatic migration scenario typically occurs after the `login` action script completes. We therefore recommend that you do not attempt any deletion of a user from a legacy identity store as an inline operation (i.e., within the `login` script) but perform the deletion as an independent process. This will prevent accidental deletion of a user should an error condition occur during the migration process. 
 :::
 
-In an automatic migration scenario, users remain in the legacy identity store and can be deleted or archived if required. One side effect of this can occur if a user is deleted from Auth0 but still remains present in the legacy identity store. In this case, a login actioned by the deleted user could result in either the `login` and/or `getUser` script being executed and the user being migrated from the legacy identity store once again. To prevent this kind of situation from occurring we recommend marking any legacy user identity as having been migrated, before either `login` or `getUser` completes and prior to any eventual legacy store deletion.
+In an automatic migration scenario, users remain in the legacy identity store and can be deleted or archived if required. One side effect of this can occur if a user is deleted from Auth0 but still remains present in the legacy identity store. In this case, a login actioned by the deleted user could result in either the `login` and/or `getUser` script being executed and the user being migrated from the legacy identity store once again. 
 
 ::: panel Best practice
-We recommend marking legacy store user identities as having been migrated (to Auth0) in to prevent situations like the unintentional re-creation of intentionally deleted users.
+We recommend marking any legacy user identity as having been migrated before either `login` or `getUser` completes and prior to any eventual legacy store deletion.
 :::
 
 ## Size
@@ -78,43 +77,49 @@ Many publicly available `npm` modules are supported out-of-the-box. The list has
 
 ### Variables
 
-Auth0 action scripts supports the notion of environment variables, accessed via what is defined as the globally available [`configuration` object](/connections/database/custom-db/create-db-connection#add-configuration-parameters). The `configuration` object should be treated as read-only, and should be used for storing sensitive information such as credentials or API keys for accessing external identity stores. This mitigates having security sensitive values hard coded in an action script. 
+Auth0 action scripts support environment variables, accessed via what is known as the globally available [`configuration` object](/connections/database/custom-db/create-db-connection#add-configuration-parameters). 
 
-The configuration object can also be used to support whatever [Software Development Life Cycle (SDLC)](/dev-lifecycle/setting-up-env) best practice strategies you employ by allowing you to define variables that have tenant specific values. This mitigates hard code values in an action script which may change depending upon which tenant is executing it.
+::: panel Best practice
+The `configuration` object should be treated as read-only, and should be used for storing sensitive information such as credentials or API keys for accessing external identity stores. This mitigates having security sensitive values hard coded in an action script. 
+:::
+
+The configuration object can also be used to support whatever [Software Development Life Cycle (SDLC)](/dev-lifecycle/setting-up-env) strategies you employ by allowing you to define variables that have tenant specific values. This mitigates hard coded values in an action script which may change depending upon which tenant is executing it.
 
 ### `global` object
 
 Auth0 serverless Webtask containers are provisioned from a pool that's associated with each Auth0 tenant. Each container instance makes available the `global` object, which can be accessed across all action scripts that execute within the container instance. The `global` object acts as a global variable that’s unique to the container, and that can be used to define information or functions used across all action scripts that run in the container instance.
 
-This means that the `global` object can be used to cache expensive resources, as long as those resources are not user-specific. For example, an Access Token for a third-party (e.g., logging) API that provides non user-specific functionality could be stored. Or it could be used to store an Access Token to your own non user-specific API defined in Auth0 and obtained via use of [Client Credentials](/flows/concepts/client-credentials) flow.
+This means that the `global` object can be used to cache expensive resources as long as those resources are not user-specific. For example, you could use it to store an Access Token for a third-party (e.g., logging) API that provides non-user-specific functionality. Or, you can store an Access Token to your own non-user-specific API defined in Auth0 and obtained via the [Client Credentials](/flows/concepts/client-credentials) flow.
 
 ::: warning
 An action script may execute in any of the container instances already running, or in a newly created container instance (which may subsequently be added to the pool). There is no container affinity for action script execution in Auth0. This means that you should avoid storing any user-specific information in the `global` object, and should always ensure that any declaration made within the `global` object provides for initialization too.
 :::
 
-Each time a Webtask container is recycled, or for each instantiation of a new Webtask container, the `global` object it defines is reset. Thus, any declaration of assignment within the `global` object associated with a container should also include provision for initialization too. To provide performance flexibility, serverless Webtask containers are provisioned in Auth0 on an ad-hoc basis and are also subject to various recycle policies. In general, we recommend that you do not consider the life of a `global` object to be anything more than 20 minutes.
+Each time a Webtask container is recycled, or for each instantiation of a new Webtask container, the `global` object it defines is reset. Thus, any declaration of assignment within the `global` object associated with a container should also include provision for initialization too. 
+
+::: panel Best practice
+To provide performance flexibility, serverless Webtask containers are provisioned in Auth0 on an ad-hoc basis and are also subject to various recycle policies. In general, we recommend that you do not consider the life of a `global` object to be anything more than 20 minutes.
+:::
 
 ## Security
 
 ### Access legacy identity storage via custom API
 
-Protecting legacy identity storage from general access is a recommended best practice. Exposing a (legacy identity) database directly to the internet, for example, can be extremely problematic: database interfaces for SQL and the like are extremely open in terms of functionality, which violates the principle of least privilege when it comes to security.
+Protecting legacy identity storage from general access is a recommended best practice. Exposing a database directly to the internet, for example, can be extremely problematic: database interfaces for SQL and the like are extremely open in terms of functionality, which violates the principle of least privilege when it comes to security.
 
 ::: panel Best practice
-We recommend that you implement an API to provide least privilege to your legacy identity storage, rather than simply opening up general access via the internet. 
+We recommend that you implement an API to provide least privilege to your legacy identity store (database), rather than simply opening up general access via the internet. 
 :::
 
-The alternative is to create a simple (custom) API - protected via use of an Access Token - that each action script can call. This would act as the interface to the legacy identity store. Client credentials grant flow can then be used to obtain an access token from within a script, and this can be subsequently cached for re-use within the global object in order to improve performance. The API can then provide a discrete number of protected endpoints that perform only the legacy (identity) management functionality required - e.g. read user, change password, etc. 
-
-By default, Auth0 will give you a token for any API if you authenticate successfully and include the appropriate audience. Restricting access to the legacy identity store API by restricting access token allocation via use of a Rule, will prevent unauthorized usage and will mitigate a number of attack vector scenarios, such as where redirect to /authorize is intercepted and the audience to the API is added.
+The alternative is to create a simple (custom) API, protected via use of an access token, that each action script can call. This would act as the interface to the legacy identity store. Client credentials grant flow can then be used to obtain an access token from within a script, and this can subsequently be cached for reuse in the `global` object in order to improve performance. The API can then provide a discrete number of protected endpoints that perform only the legacy management functionality required (e.g., `read user`, `change password`, etc.) 
 
 ::: panel Best practice
-Restricting access to the API via a Rule will mitigate attack vector scenarios - such as where redirect to `/authorize` is intercepted and the audience to the API is added - and will ensure that only access using specific client credentials is granted.
+By default, Auth0 will give you a token for any API if you authenticate successfully and include the appropriate audience. Restricting access to the legacy identity store API by restricting access token allocation via use of a Rule, will prevent unauthorized usage and mitigate a number of attack vector scenarios, such as where redirect to `/authorize` is intercepted and the audience to the API is added.
 :::
 
 ### Whitelist access to legacy identity storage
 
-Whether managing access to legacy identity storage via custom API, or using the native interface provided, restricting access to the list of IP addresses associated with with your Auth0 tenant. Whitelisting in this manner constrains access to the legacy identity store, ensuring that only custom database actions scripts defined in Auth0 are permitted. 
+Whether managing access to a legacy identity store via custom API, or using the native interface provided, restricting access to the list of IP addresses associated with your Auth0 tenant. Whitelisting constrains access to the legacy identity store ensuring that only custom database action scripts defined in Auth0 are permitted. 
 
 ::: warning
 The Auth0 IP address whitelist is shared amongst all Auth0 tenants defined to a region. Never use the whitelist as the sole method of securing access to your legacy identity store; doing so could open up potential security vulnerabilities allowing unauthorized access to your users. 

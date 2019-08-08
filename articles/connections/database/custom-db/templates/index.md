@@ -6,6 +6,7 @@ topics:
     - templates
 contentType: 
     - index
+    - concept
 useCase:
     - customize-connections
     - script-templates
@@ -14,13 +15,14 @@ useCase:
 
 <%= include('../_includes/_feature-availability') %>
 
-If you have your own user database, you can use it as an identity provider in Auth0 to authenticate users. 
+If you have your own database (known as a legacy data store in Auth0) containing user identity data, you can use it as an identity provider to authenticate users.
+You create and configure the connection to your legacy data store as a custom database in Auth0. You can choose to migrate data to Auth0's data store from your legacy database incrementally over time, or you can continue to use it without migrating data. We provide script templates to perform functions on the custom database that you can use and customize. 
 
 There are two different types of custom database scripts:
 
-* **Trickle Migration**: Whenever a user logs into Auth0, if the user is not yet in Auth0, the script will check the legacy database to see if the user is there. If they are there, it will migrate the user to Auth0. This script runs when the **Import users to Auth0** flag is turned on. 
+* **Trickle Migration**: Whenever a user logs into Auth0, if the user is not yet in Auth0, the script will check the legacy database to see if the user exists there. If found and the **Import users to Auth0** flag is turned on, user data migrates the user to Auth0 data store. 
 
-* **Legacy Database**: Auth0 will always call out to the underlying database anytime a user tries to log in, is created, changes their password, verifies their email, or is deleted. Users stay in the legacy database and do **not** migrate to Auth0.
+* **Legacy Database**: Auth0 will always query the underlying database when a user tries to log in, is created, changes their password, verifies their email, or is deleted. If found and the **Import users to Auth0** flag is **not** turned on, user data stays in the legacy database and does **not** migrate to Auth0.
 
 Auth0 provides the following script templates:
 
@@ -35,7 +37,7 @@ Auth0 provides the following script templates:
 
 ## Script execution
 
-As described in the [Overview](/connections/database/custom-db/custom-db-connection-overview#how-it-works), a custom database connection type allows you to configure action scripts: custom code that is used when interfacing with your legacy identity store. Each action script is essentially a named JavaScript function that is passed a number of parameters, with the name of the function and the parameters passed dependent on the script in question. 
+As described in the [Custom Database Connections Overview](/connections/database/custom-db/custom-db-connection-overview#how-it-works), a custom database connection type allows you to configure action scripts: custom code that is used when interfacing with your legacy identity store. Each action script is essentially a named JavaScript function that is passed a number of parameters, with the name of the function and the parameters passed depending on the script. 
 
 ### Limits
 
