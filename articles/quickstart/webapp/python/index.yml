@@ -1,5 +1,9 @@
 title: Python
 image: /media/platforms/python.png
+author:
+  name: Luciano Balmaceda
+  email: luciano.balmaceda@auth0.com
+  community: false
 topics:
   - quickstart
 contentType: tutorial

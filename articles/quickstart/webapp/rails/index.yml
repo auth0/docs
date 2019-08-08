@@ -1,5 +1,9 @@
 title: Ruby On Rails
 image: /media/platforms/rails.png
+author:
+  name: Josh Cunningham
+  email: josh.cunningham@auth0.com
+  community: false
 topics:
   - quickstart
   - ruby
