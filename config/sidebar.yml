@@ -216,20 +216,22 @@ articles:
 
           - title: Auth0 User Store
             url: "/connections/database#using-the-auth0-user-store"
-            hidden: true
 
-          - title: Custom Databases Connections
+          - title: Your User Store
             url: "/connections/database/custom-db"
             children: 
 
               - title: Overview
                 url: "/connections/database/custom-db/custom-db-connections-overview"
+                hidden: true
 
               - title: Create Custom Database Connections
                 url: /connections/database/custom-db/create-db-connections
+                hidden: true 
 
               - title: Create Database Action Script Templates
                 url: /connections/database/custom-db/templates
+                hidden: true
 
           - title: Password Policies
             url: /connections/database/password-options

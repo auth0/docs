@@ -54,6 +54,7 @@ In a legacy authentication scenario, no new user record is created: the user rem
 
 ::: note
 Custom database connections are also used outside of Universal Login workflow. For example, a connections' `changePassword` action script is called when a password change operation occurs for a user that resides in a legacy identity store.
+:::
 
 ### Automatic migration scenario
 
