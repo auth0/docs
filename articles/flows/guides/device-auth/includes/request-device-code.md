@@ -33,13 +33,6 @@ To get the device code, your app must request a code from the [device code URL](
 }
 ```
 
-```text
-POST https://${account.namespace}/oauth/device/code
-Content-Type: application/x-www-form-urlencoded
-
-client_id=${account.clientId}&scope=SCOPE&audience=AUDIENCE
-```
-
 #### Device Code Parameters
 
 Note that when requesting a device code to call a custom API, you:
