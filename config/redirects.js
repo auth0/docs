@@ -328,7 +328,6 @@ module.exports = [
 
   {
     from: [
-      '/quickstart/spa/angularjs',
       '/quickstart/spa/aurelia',
       '/quickstart/spa/ember',
       '/quickstart/spa/jquery'
