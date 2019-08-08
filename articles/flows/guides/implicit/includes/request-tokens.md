@@ -4,11 +4,39 @@ Now that you have an authorization code, you can exchange it for tokens. The Acc
 
 ### Example POST to token URL
 
-```text
-POST https://${account.namespace}/oauth/token
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=authorization_code&code=YOUR_AUTHORIZATION_CODE&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&redirect_uri=${account.callback}
+```har
+{
+    "method": "POST",
+    "url": "https://${account.namespace}/oauth/token",
+    "headers": [
+      { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+    ],
+    "postData" : {
+      "mimeType": "application/x-www-form-urlencoded",
+      "params": [
+        {
+          "name": "grant_type",
+          "value": "authorization_code"
+        },
+        {
+          "name": "code",
+          "value": "YOUR_AUTHORIZATION_CODE"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "client_secret",
+          "value": "YOUR_CLIENT_SECRET"
+        },
+        {
+          "name": "redirect_uri",
+          "value": "${account.callback}"
+        }
+      ]
+    }
+}
 ```
 
 #### Parameters

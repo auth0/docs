@@ -6,11 +6,31 @@ To avoid errors due to network latency, you should start counting each interval 
 
 ### Example request token POST to token URL
 
-```text
-POST https://${account.namespace}/oauth/token
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Adevice_code&device_code=YOUR_DEVICE_CODE&client_id=${account.clientId}
+```har
+{
+    "method": "POST",
+    "url": "https://${account.namespace}/oauth/token",
+    "headers": [
+      { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+    ],
+    "postData" : {
+      "mimeType": "application/x-www-form-urlencoded",
+      "params": [
+        {
+          "name": "grant_type",
+          "value": "urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Adevice_code"
+        },
+        {
+          "name": "device_code",
+          "value": "YOUR_DEVICE_CODE"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        }
+      ]
+    }
+}
 ```
 
 #### Token Request Parameters

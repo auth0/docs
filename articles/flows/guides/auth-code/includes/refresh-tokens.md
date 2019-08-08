@@ -11,11 +11,31 @@ To refresh your token, make a `POST` request to the `/oauth/token` endpoint in t
 
 ### Example POST to token URL
 
-```text
-POST https://${account.namespace}/oauth/token
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=refresh_token&client_id=${account.clientId}&refresh_token=YOUR_REFRESH_TOKEN
+```har
+{
+    "method": "POST",
+    "url": "https://${account.namespace}/oauth/token",
+    "headers": [
+      { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+    ],
+    "postData" : {
+      "mimeType": "application/x-www-form-urlencoded",
+      "params": [
+        {
+          "name": "grant_type",
+          "value": "refresh_token"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "refresh_token",
+          "value": "YOUR_REFRESH_TOKEN"
+        }
+      ]
+    }
+}
 ```
 
 #### Parameters

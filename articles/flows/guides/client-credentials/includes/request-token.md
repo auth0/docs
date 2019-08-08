@@ -4,11 +4,35 @@
  
 ### Example POST to token URL
 
-```text
-POST https://${account.namespace}/oauth/token
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=client_credentials&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET&audience=YOUR_API_IDENTIFIER
+```har
+{
+    "method": "POST",
+    "url": "https://${account.namespace}/oauth/token",
+    "headers": [
+      { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+    ],
+    "postData" : {
+      "mimeType": "application/x-www-form-urlencoded",
+      "params": [
+        {
+          "name": "grant_type",
+          "value": "client_credentials"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "client_secret",
+          "value": "YOUR_CLIENT_SECRET"
+        },
+        {
+          "name": "audience",
+          "value": "YOUR_API_IDENTIFIER"
+        }
+      ]
+    }
+}
 ```
 
 #### Parameters

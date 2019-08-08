@@ -38,13 +38,6 @@ To refresh your token, make a `POST` request to the `/oauth/token` endpoint in t
 }
 ```
 
-```text
-POST https://${account.namespace}/oauth/token
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=refresh_token&client_id=${account.clientId}&refresh_token=YOUR_REFRESH_TOKEN
-```
-
 #### Refresh Token Request Parameters
 
 | Parameter Name  | Description |
