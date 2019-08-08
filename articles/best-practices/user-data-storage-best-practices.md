@@ -42,7 +42,7 @@ You can store data points that are read-only to the user in `app_metadata`. Thre
 * **Plan information**: settings that cannot be changed by the user without confirmation from someone with the appropriate authority;
 * **External IDs**: identifying information used to associate users with external accounts.
 
-For a list of fields that *cannot* be stored within `app_metadata`, see [Metadata Field Name Rules](/users/references/metadata-field-name-rules).
+For a list of fields that *cannot* be stored within `app_metadata`, see [Metadata Field Name Rules](/users/references/metadata-field-name-rules). In addition, user credentials such as access tokens, refresh tokens, and additional passwords should not be stored in app_metadata, as these will be visible to any Auth0 dashboard administrator.
 
 When determining where you should store specific pieces of data about your user, here are the general rules of thumb:
 

@@ -1,8 +1,8 @@
 ---
 section: libraries
 toc: true
-title: Auth0 Single Page Application SDK
-description: Auth0 SDK for Single Page Applications using Authorization Code Grant Flow with PKCE.
+title: Auth0 Single Page App SDK
+description: Auth0 SDK for single page applications using Authorization Code Grant Flow with PKCE.
 topics:
   - libraries
   - auth0-spa-js
@@ -10,11 +10,19 @@ contentType:
   - index
 ---
 
-# Auth0 Single Page Application SDK
+<!-- markdownlint-disable MD041 -->
 
-The Auth0 Single Page Application (SPA) SDK is a new JavaScript library designed to secure SPAs with best practices and less code. It implements [Universal Login](/universal-login) and the [Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce). The Auth0 SPA SDK handles grant and protocol details, manages token expiration and renewal, and it stores and caches tokens for you.
+# Auth0 Single Page App SDK
 
-You can find the source code [on Github](https://github.com/auth0/auth0-spa-js) and the full API documentation [here](https://auth0.github.io/auth0-spa-js/).
+The Auth0 Single Page App SDK is a new JavaScript library for implementing authentication & authorization in single page apps (SPA) with Auth0. It provides a high-level API and handles a lot of the details so you can secure SPAs using best practices while writing less code.
+
+The Auth0 SPA SDK handles grant and protocol details, token expiration and renewal, as well as token storage and cacheing. Under the hood, it implements [Universal Login](/universal-login) and the [Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce).
+
+The library is [hosted on GitHub](https://github.com/auth0/auth0-spa-js) and you can find the API documentation [here](https://auth0.github.io/auth0-spa-js/).
+
+If you're planning on migrating a SPA that uses [auth0.js](/libraries/auth0js) to the Auth0 SPA SDK, check out [Migrate from Auth0.js to the Auth0 Single Page App SDK](/libraries/auth0-spa-js/migrate-from-auth0js) for examples.
+
+<%= include('../_includes/_spa_js_faq.md') %>
 
 ## Installation
 
@@ -68,7 +76,7 @@ Next, create a button users can click to start logging in.
 <button id="login">Click to Login</button>
 ```
 
-Listen for click events on the button you created. When the event occurs, use the desired login method to authenticate the user (`loginWithPopup()` in this example. After the user is authenticated, you can retrieve the user profile with the `getUser()` method.
+Listen for click events on the button you created. When the event occurs, use the desired login method to authenticate the user (`loginWithPopup()` in this example). After the user is authenticated, you can retrieve the user profile with the `getUser()` method.
 
 ```js
 //with async/await
@@ -117,7 +125,7 @@ document.getElementById('callApi').addEventListener('click', () => {
   auth0
     .getTokenSilently()
     .then(accessToken =>
-      fetch('https://myapi.com', {
+      fetch('https://exampleco.com/api', {
         method: 'GET',
         headers: {
           Authorization: 'Bearer ' + accessToken
@@ -151,10 +159,6 @@ jQuery is used in the following examples.
 
 ### Login with Popup
 
-```html
-<button id="loginPopup">Login with Popup</button>
-```
-
 ```js
 $('#loginPopup').click(async () => {
   await auth0.loginWithPopup();
@@ -162,10 +166,6 @@ $('#loginPopup').click(async () => {
 ```
 
 ### Login with Redirect
-
-```html
-<button id="loginRedirect">Login with Redirect</button>
-```
 
 ```js
 $('#loginRedirect').click(async () => {
@@ -177,10 +177,6 @@ $('#loginRedirect').click(async () => {
 
 ### Login with Redirect Callback
 
-```html
-<button id="loginRedirectCallback">Login with Redirect Callback</button>
-```
-
 ```js
 $('#loginRedirectCallback').click(async () => {
   await auth0.handleRedirectCallback();
@@ -188,10 +184,6 @@ $('#loginRedirectCallback').click(async () => {
 ```
 
 ### Get Access Token with no interaction
-
-```html
-<button id="getToken">Get Access Token with no interaction</button>
-```
 
 ```js
 $('#getToken').click(async () => {
@@ -201,14 +193,10 @@ $('#getToken').click(async () => {
 
 ### Get Access Token with Popup
 
-```html
-<button id="getTokenPopup">Get Access Token with a Popup</button>
-```
-
 ```js
 $('#getTokenPopup').click(async () => {
   const token = await auth0.getTokenWithPopup({
-    audience: 'https://brucke.auth0.com/api/v2/',
+    audience: 'https://mydomain/api/',
     scope: 'read:rules'
   });
 });
@@ -216,14 +204,10 @@ $('#getTokenPopup').click(async () => {
 
 ### Get Access Token for a different audience
 
-```html
-<button id="getTokenAudience">Get Access Token for a different audience</button>
-```
-
 ```js
 $('#getToken_audience').click(async () => {
   const differentAudienceOptions = {
-    audience: 'https://brucke.auth0.com/api/v2/',
+    audience: 'https://mydomain/another-api/',
     scope: 'read:rules',
     redirect_uri: 'http://localhost:3000/callback.html'
   };
@@ -233,10 +217,6 @@ $('#getToken_audience').click(async () => {
 
 ### Get User
 
-```html
-<button id="getUser">Get User</button>
-```
-
 ```js
 $('#getUser').click(async () => {
   const user = await auth0.getUser();
@@ -245,10 +225,6 @@ $('#getUser').click(async () => {
 
 ### Get ID Token Claims
 
-```html
-<button id="getIdTokenClaims">Get decoded ID Token</button>
-```
-
 ```js
 $('#getIdTokenClaims').click(async () => {
   const claims = await auth0.getIdTokenClaims();
@@ -256,10 +232,6 @@ $('#getIdTokenClaims').click(async () => {
 ```
 
 ### Logout (default)
-
-```html
-<button id="logout">Logout</button>
-```
 
 ```js
 $('#logout').click(async () => {
@@ -270,10 +242,6 @@ $('#logout').click(async () => {
 ```
 
 ### Logout with no Client ID
-
-```html
-<button id="logoutNoClientId">Logout with no Client ID</button>
-```
 
 ```js
 $('#logoutNoClientId').click(async () => {

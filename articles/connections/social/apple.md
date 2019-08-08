@@ -31,22 +31,22 @@ You can test out the Apple connection by simply going to the [Dashboard](${manag
 
 ## 1. Set up your app in your Apple Developer Account
 
-Once your Developer Account is set up, you can follow the instructions in the [Sign In With Apple Documentation](https://developer.apple.com/sign-in-with-apple/get-started/) to get your app set up.
+Once your Developer Account is set up, you can follow the instructions in the [Apple Setup Guide](/connections/apple-setup) to get your app set up.
 
 While setting up your app, make sure you save the following items for later:
 
 * The Client ID (the Service ID)
 * The Client Secret Signing Key
 * The Apple Team ID
-* The Client Signin Key ID (optional)
+* The Client Signing Key ID (optional)
 
-Also note that when setting up the app, your **Return URL** should be in the following format: `https://<YOUR CUSTOM DOMAIN>/login/callback`.
+When setting up the app, your **Return URL** should be in the following format: `https://<YOUR CUSTOM DOMAIN>/login/callback`. If you have any issues, refer to the [Apple Documentation](https://developer.apple.com/sign-in-with-apple/get-started/).
 
 ## 2. Create and enable a connection in Auth0
 
-Navigate to the [Connections > Social page](${manage_url}) in the Auth0 Dashboard, and click on the Apple connection.
+Once you have the credentials you need from your Apple developer account, go to [**Connections** > **Social**](${manage_url}) in the Dashboard, and click on the **Apple** connection.
 
-Fill in the Client ID, Client Secret Signing Key, and the Team ID here. You can also fill in the Key ID, but this is optional, as Apple will accept the key without it.
+Fill in the Client ID (Services ID), Client Secret Signing Key, the Team ID, and the Client Signing Key ID (if you have it) here. You can also fill in the Key ID, but this is optional, as Apple will accept the key without the ID.
 
 ![Apple Connection Settings](/media/articles/connections/social/apple/apple_connection.png)
 
@@ -54,7 +54,11 @@ Fill in the Client ID, Client Secret Signing Key, and the Team ID here. You can 
 
 You're ready to [test your connection](/dashboard/guides/connections/test-connections-social).
 
-## Additional Info
+::: note
+If you are using the Classic Universal Login flow, or embedding Lock.js in your application, make sure you are using Lock.js version 11.16 or later.
+:::
+
+## Keep reading
 
 * [What is Sign in with Apple](https://auth0.com/blog/what-is-sign-in-with-apple-a-new-identity-provider/)
 * [Apple's Sign in with Apple page](https://developer.apple.com/sign-in-with-apple/)

@@ -14,11 +14,14 @@ articles:
     url: "/getting-started"
     children:
 
+      - title: "Learn the Basics"
+        url: "/getting-started/the-basics"
+
       - title: "Dashboard Overview"
         url: "/getting-started/dashboard-overview"
 
       - title: "Create a Tenant"
-        url: /getting-started/create-tenant"
+        url: "/getting-started/create-tenant"
       
       - title: "Set Up An App"
         url: "/getting-started/set-up-app"
@@ -42,6 +45,9 @@ articles:
       - title: "Set Up Multiple Environments"
         url: "/dev-lifecycle/setting-up-env"
         hidden: true
+
+      - title: "Deployment Models"
+        url: "/getting-started/deployment-models"
 
 ## ------------------------------------------------------------
 ## LOGIN
@@ -87,7 +93,7 @@ articles:
             url: /libraries/lock
 
           - title: Auth0.js
-            url: /libraries/auth0.js
+            url: /libraries/auth0js
           
           - title: Cross-Origin Authentication
             url: /cross-origin-authentication
@@ -170,19 +176,19 @@ articles:
         children: 
 
             - title: Apps
-              url: /logout/logout-applications
+              url: /logout/guides/logout-applications
 
             - title: Auth0
-              url: /logout/logout-auth0
+              url: /logout/guides/logout-auth0
 
             - title: Identity Providers
-              url: /logout/logout-idps
+              url: /logout/guides/logout-idps
 
             - title: SAML Identity Providers
-              url: /logout/logout-saml-idps
+              url: /logout/guides/logout-saml-idps
 
             - title: Redirect After Logout
-              url: /logout/redirect-users-after-logout
+              url: /logout/guides/redirect-users-after-logout
 
 ## ------------------------------------------------------------
 ## Identity Providers / Connections
@@ -194,12 +200,15 @@ articles:
 
       - title: Social Identity Providers
         url: "/connections#social"
+        hidden: true
 
       - title: Enterprise Identity Providers
         url: "/connections#enterprise"
+        hidden: true
 
       - title: Legal Identity Providers
-        url: "/connections#legal-identity"
+        url: "/connections#legal-identities"
+        hidden: true
       
       - title: Database
         url: /connections/database
@@ -207,6 +216,7 @@ articles:
 
           - title: Auth0 User Store
             url: "/connections/database#using-the-auth0-user-store"
+            hidden: true
 
           - title: Your Database
             url: /connections/database/custom-db
@@ -323,7 +333,7 @@ articles:
             url: /dashboard/guides/tenants/enable-sso-tenant
 
           - title: Configure Device User Code Settings
-            url: /dashboard/guides/tenants/device-user-code-settings
+            url: /dashboard/guides/tenants/configure-device-user-code-settings
 
           - title: Recommended Settings
             url: /best-practices/tenant-settings
@@ -375,7 +385,7 @@ articles:
         children:
 
           - title: Signing Algorithms
-            url: /configure/apis/signing-algorithms
+            url: /applications/concepts/signing-algorithms
 
           - title: Represent Multiple APIs with a Single API
             url: /api-auth/tutorials/represent-multiple-apis
@@ -710,7 +720,7 @@ articles:
         url: /extensions
       
       - title: Analytics Integrations
-        url: /integrations/analytics
+        url: /analytics/integrations
 
       - title: Single Sign-On Integrations
         url: /integrations/sso
@@ -1148,8 +1158,8 @@ articles:
   #     - title: "Verify Access Tokens"
   #       url: "/api-auth/tutorials/verify-access-token"
 
-  - title: "Private Cloud"
-    url: "/private-cloud"
+  - title: "Private SaaS Deployment"
+    url: "/private-saas-deployment"
     children:
       - title: Enterprise Support
         url: /onboarding/enterprise-support
@@ -1158,6 +1168,28 @@ articles:
         url: https://auth0.com/releases/
         external: true
         forceFullReload: true
+
+      - title: Private Cloud
+        url: /private-saas-deployment/private-cloud
+
+      - title: Managed Private Cloud
+        url: /private-saas-deployment/managed-private-cloud
+
+      - title: Add-Ons for PSaaS Deployments
+        url: /private-saas-deployment/add-ons
+
+      - title: Custom Domain Migration
+        url: /private-saas-deployment/custom-domain-migration
+
+      - title: PSaaS Onboarding
+        url: /private-saas-deployment/onboarding
+        children:
+
+          - title: Private Cloud Onboarding
+            url: /private-saas-deployment/onboarding/private-cloud
+
+          - title: Managed Private Cloud Onboarding
+            url: /private-saas-deployment/onboarding/managed-private-cloud
 
   # - title: "Protocols"
   #   url: "/protocols"
@@ -1454,8 +1486,12 @@ libraries:
   - title: "Overview"
     url: "/libraries"
 
-  - title: "Auth0 Single Page Application SDK"
+  - title: "Auth0 Single Page App SDK"
     url: "/libraries/auth0-spa-js"
+    children:
+
+      - title: "Migrate from auth0.js"
+        url: /libraries/auth0-spa-js/migrate-from-auth0js
 
   - title: "Lock for Web"
     url: "/libraries/lock/v11"
@@ -1619,3 +1655,43 @@ videos:
 
       - title: "Single Page Apps"
         url: "/videos/learn-identity/06-single-page-apps"
+
+  - title: Get Started
+    url: "/videos/get-started"
+    children:
+
+      - title: "Architect: Your Tenant"
+        url: "/videos/get-started/01-architecture-your-tenant"
+
+      - title: "Provision: User Stores"
+        url: "/videos/get-started/02-provision-user-stores"
+
+      - title: "Provision: Import Users"
+        url: "/videos/get-started/03-provision-import-users"
+
+      - title: "Authenticate: How It Works"
+        url: "/videos/get-started/04_01-authenticate-how-it-works"
+
+      - title: "Authenticate: SPA Example"
+        url: "/videos/get-started/04_02-authenticate-spa-example"
+
+      - title: "Authorize: ID Tokens and Access Control"
+        url: "/videos/get-started/05_01-authorize-id-tokens-access-control"
+
+      - title: "Authorize: Get and Validate ID Tokens"
+        url: "/videos/get-started/05_02-authorize-get-validate-id-tokens"
+
+      - title: "User Profiles"
+        url: "/videos/get-started/06-user-profiles"
+
+      - title: "Brand: How It Works"
+        url: "/videos/get-started/07_01-brand-how-it-works"
+
+      - title: "Brand: Sign Up and Login Pages"
+        url: "/videos/get-started/07_02-brand-signup-login-pages"
+
+      - title: "Brand: Emails and Error Pages"
+        url: "/videos/get-started/08-brand-emails-error-pages"
+
+      - title: "Logout"
+        url: "/videos/get-started/10-logout"

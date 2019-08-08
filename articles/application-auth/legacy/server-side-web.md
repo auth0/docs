@@ -114,7 +114,7 @@ You application will need to handle the request to this callback URL, extract th
         "value": "YOUR_AUTHORIZATION_CODE"
       },
       {
-        "name": "redirect_ui",
+        "name": "redirect_uri",
         "value": "https://${account.callback}"
       }
     ]

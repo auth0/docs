@@ -45,7 +45,7 @@ To select a new plan, click **Checkout** in the associated box to upgrade. If yo
 
 Click **Subscribe Now** to confirm your information and activate your new subscription.
 
-## Downgrade a paid subscription to a free subscription
+## Downgrade to a free subscription
 
 On the **Subscription** tab, scroll down to the box associated with the **Free** plan and click **Checkout**.
 

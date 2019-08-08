@@ -136,7 +136,7 @@ Also, you can select which identity will be used as the primary account and whic
 
 If you need to unlink two or more user accounts, you can do so.
 
-Call the Management API v2 [Unlink a User Account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using an [Management API Access Token](/api/v2/tokens) with the `update:users` scope.
+Call the Management API v2 [Unlink a User Account endpoint](/api/v2#!/Users/delete_user_identity_by_user_id) using an [Management API Access Token](/api/v2/tokens) with the `update:users` scope.
 
 ```js
 function unlinkAccount(secondaryProvider, secondaryUserId) {

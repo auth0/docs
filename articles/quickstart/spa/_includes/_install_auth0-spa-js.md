@@ -32,3 +32,5 @@ If you do not want to use a package manager, you can retrieve `auth0-spa-js` fro
 ```html
 <script src="${auth0spajs_url}"></script>
 ```
+
+<%= include('../../../libraries/_includes/_spa_js_faq') %>

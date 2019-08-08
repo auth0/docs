@@ -19,6 +19,8 @@ useCase:
 
 This guide will show you how to manage users in a [role-based access control (RBAC)](/authorization/concepts/rbac) system using Auth0's Dashboard.
 
+<%= include('../../_includes/_rbac_vs_extensions') %>
+
 <%= include('../_includes/_enable-authz-core') %>
 
 We provide various functions to help you manage your users, which you can access through either the Auth0 Dashboard or the Auth0 Management API.

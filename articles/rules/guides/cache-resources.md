@@ -27,8 +27,9 @@ mongo('mongodb://user:pass@mymongoserver.com/my-db',  function (db){
 });
 
 //Do the actual work
-function query(db, cb)({
-  //Do something with db
+function query(db, cb){
+  // Do something with db
   ...
-});
+  return cb(null, user, context);
+}
 ```

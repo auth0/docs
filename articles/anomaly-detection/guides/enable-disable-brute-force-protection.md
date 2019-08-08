@@ -13,13 +13,15 @@ v2: true
 
 Brute-force protection is enabled by default for all connections.
 
+![Brute-Force Protection Shield](/media/articles/anomaly-detection/anomaly-detection-overview.png)
+
 ::: warning
 Auth0 strongly recommends that you **do not** set the `brute_force_protection` flag to `false` (effectively disabling brute-force protection for the connection), however if you do, you can change it back in the [Dashboard](${manage_url}/#/anomaly).
 ::: 
 
-![Brute-Force Protection Shield](/media/articles/anomaly-detection/brute-force-shield.png)
+Once enabled, you can [customize](/anomaly-detection/guides/set-anomaly-detection-preferences#brute-force-protection-preferences) your brute-force protection settings.
 
-1. Use the **Improve brute force protection** toggle under **Connection Settings** to change the flag from `false` to `true`.
+![Brute-Force Protection Shield](/media/articles/anomaly-detection/brute-force-shield.png)
 
 2. Click **Save** when you are finished.
 

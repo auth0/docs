@@ -20,7 +20,7 @@ This guide will show you how to view the users assigned to a <dfn data-key="role
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
-1. Make a `GET` call to the [Get Role Users endpoint](/api/management/v2#!/roles/get_role_users). Be sure to replace `ROLE_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your role ID and Management API Access Token, respectively.
+1. Make a `GET` call to the [Get Role Users endpoint](/api/management/v2#!/Roles/get_role_user). Be sure to replace `ROLE_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your role ID and Management API Access Token, respectively.
 
 ```har
 {

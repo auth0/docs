@@ -43,6 +43,7 @@ These are the signals that the PSaaS Appliance makes available to DataDog via t
 * [NGINX](https://github.com/influxdata/telegraf/blob/34b7a4c3611d1ede908ef275401544c34a4a3ba3/plugins/inputs/nginx/README.md)
 * [RabbitMQ](https://github.com/influxdata/telegraf/tree/34b7a4c3611d1ede908ef275401544c34a4a3ba3/plugins/inputs/rabbitmq)
 * [Procstat](https://github.com/influxdata/telegraf/blob/34b7a4c3611d1ede908ef275401544c34a4a3ba3/plugins/inputs/procstat/README.md)
+* [X509](https://github.com/influxdata/telegraf/blob/release-1.11/plugins/inputs/x509_cert/README.md)
 
 ### Auth0 Signals to Monitor
 

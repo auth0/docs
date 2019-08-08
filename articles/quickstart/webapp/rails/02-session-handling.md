@@ -14,10 +14,10 @@ github:
 ---
 ## Store Session Data on Login
 
-Upon successful authentication, **OmniAuth** sets the authentication hash of a request to `/auth/oauth2/callback`. To handle this request, add a new route in your routes file.
+Upon successful authentication, **OmniAuth** sets the authentication hash of a request to `/auth/auth0/callback`. To handle this request, add a new route in your routes file.
 
 ```ruby
-get "/auth/oauth2/callback" => "auth0#callback"
+get "/auth/auth0/callback" => "auth0#callback"
 ```
 
 Store the user information in the session in `auth0_controller/callback`.

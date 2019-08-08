@@ -71,8 +71,8 @@ The goal of these scenarios is to walk you through the implementation process fr
 
 Auth0 provides many [resources](/architecture-scenarios/implementation-resources) to help you learn about Auth0, get started quickly, test sample code, and try out APIs.
 
-The Auth0 Community forum and Blog connect you with the world of Auth0, while our Support Center helps you report issues and manage your subscription. Additionally, you can submit suggested product enhancements through our feedback portal.
+The Auth0 [Community](https://community.auth0.com) forum and [Blog](https://auth0.com/blog) connect you with the world of Auth0, while our [Support Center](https://support.auth0.com) helps you report issues and manage your subscription. Additionally, you can submit suggested product enhancements through our feedback portal.
 
-We've also made it easy to use our Status Dashboard, monitor endpoints, and log data. Notifications keep you up-to-date with Auth0 announcements, and we provide a variety of methods to stay informed about privacy, security, and compliance.
+We've also made it easy to use our [Status Dashboard](https://status.auth0.com), monitor endpoints, and log data. Notifications keep you up-to-date with Auth0 announcements, and we provide a variety of methods to stay informed about privacy, security, and compliance.
 
 In addition, our [Professional Services](/services) team is available to help you with any architecture needs, including pre-launch advice, production checklists, and operational policies.

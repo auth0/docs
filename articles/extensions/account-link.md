@@ -1,5 +1,4 @@
 ---
-toc: true
 description: The Account Link extension allows users with two accounts with the same email to be prompted to link them.
 topics:
   - extensions
@@ -9,7 +8,7 @@ contentType:
   - concept
 useCase: extensibility-extensions
 ---
-# Account Link
+# Link User Accounts
 
 The **Account Link** extension prompts users that may have created a second account by mistake to link the new account with their old one on their first login. The user may choose to either link the two accounts or keep them separate if it was intentional.
 

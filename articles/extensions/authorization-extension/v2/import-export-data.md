@@ -12,6 +12,10 @@ useCase: extensibility-extensions
 
 # Authorization Extension: Import/Export Data
 
+::: note
+<%= include('../../../_includes/_rbac_methods') %>
+:::
+
 You can import new data from or export existing authorization data to a JSON file. This can be useful when moving environments. 
 
 ::: warning

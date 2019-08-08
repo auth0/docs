@@ -40,6 +40,10 @@ The Auth0 developer keys are to be used for testing purposes so there are a few 
 
     This results in the SSO cookie not being set on your own tenant domain, so the next time a user authenticates no SSO cookie will be detected, even if you configured your application to **Use Auth0 instead of the Identity Provider to do Single Sign-on**.
 
+    ::: warning
+    If you are using the [New Universal Login Experience](/universal-login), the remaining items on this list are not limitations that apply to you. If you are not using Universal Login, or are using the Classic Experience, read on.
+    :::
+
 3. [Redirecting users from Rules](/rules/redirect) will not function properly. This is because redirect rules are resumed on the endpoint `https://${account.namespace}/continue`. When using Auth0's developer keys, the session is established on a special endpoint that is generic and tenant agnostic, and calling `/continue` will not find your previous session, resulting in an error.
 
 4. [Federated Logout](/logout#log-out-a-user) does not work. When using the Auth0 developer keys, calling `/v2/logout?federated` will sign the user out of Auth0, but not out of the Social Identity Provider.

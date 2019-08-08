@@ -144,7 +144,7 @@ Using the Authorization Code (`code`) from the first step, you will need to `POS
         "value": "YOUR_AUTHORIZATION_CODE"
       },
       {
-        "name": "redirect_ui",
+        "name": "redirect_uri",
         "value": "${account.callback}"
       }
     ]
