@@ -43,9 +43,7 @@ If you use <dfn data-key="lock">Lock</dfn>, you can [customize the error message
 
 ## Troubleshooting Errors
 
-Test the script using the **TRY** button. If your settings are correct you should see the resulting profile:
-
-![Try the login script](/media/articles/connections/database/mysql/db-connection-try-ok.png)
+Test the script using the **TRY** button. 
 
 If you do not get the expected result, or you receive an error, use `console.log`statements in your script and try the connection again. The output of `console.log` prints in the try the script window.
 

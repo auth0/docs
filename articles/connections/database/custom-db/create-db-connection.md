@@ -155,7 +155,7 @@ You can store parameters, like the credentials required to connect to your datab
 
 You can access parameter values using the `configuration` object in your database action scripts (i.e., `configuration.MYSQL_PASSWORD`).
 
-![Custom database settings](/media/articles/connections/database/mysql/db-connection-configurate.png)
+![Custom database settings](/media/articles/connections/database/mysql/db-connection-parameters.png)
 
 Use the added parameters in your scripts to configure the connection. For example, you might add the following to the MySQL Login script:
 
