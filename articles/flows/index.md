@@ -86,7 +86,7 @@ We support scenarios for server-side, mobile, desktop, client-side, machine-to-m
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/flows/guides/device-auth/call-api-device-auth">Add Authorization Using the Device Authorization Flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/guides/device-auth/call-api-device-auth">Call API Using the Device Authorization Flow</a>
       </li>
     </ul>
   </li>
