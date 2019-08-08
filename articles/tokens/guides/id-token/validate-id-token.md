@@ -30,7 +30,7 @@ Because the ID Token is a JWT, you will first need to perform the standard JWT v
 
 ## Check additional standard claims
 
-If you've performed the standard JWT validation, you have already decoded the [JWT's Payload](/tokens/reference/jwt/jwt-structure#payload) and looked at its standard claims. Sdditional claims to verify for ID Tokens include:
+If you've performed the standard JWT validation, you have already decoded the [JWT's Payload](/tokens/reference/jwt/jwt-structure#payload) and looked at its standard claims. Additional claims to verify for ID Tokens include:
 
 * **Token audience** (`aud`, string): The audience value for the token must match the client ID of the application as defined in your [Application's Settings](${manage_url}/#/applications) in the **Client ID** field.
 * **Nonce** (`nonce`, string): Passing a nonce in the token request is recommended (required for the [Implicit Flow](/flows/concepts/implicit)) to help prevent replay attacks. The nonce value in the token must exactly match the original nonce sent in the request. To learn more how to use nonces in token requests, see [Mitigate Replay Attacks](/api-auth/tutorials/nonce).
