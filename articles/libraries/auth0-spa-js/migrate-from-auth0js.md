@@ -29,6 +29,11 @@ Not all auth0.js functionality can be directly migrated to auth0-spa-js. Scenari
 - [update user attributes with the Management API](https://auth0.github.io/auth0.js/global.html#patchUserAttributes)
 - [update user metadata with the Management API](https://auth0.github.io/auth0.js/global.html#patchUserMetadata)
 
+## Authentication Parameters are not modified anymore
+
+Auth0.js converts custom parameters you set from `camelCase` to `snake_case` internally. For example, if you set `deviceType: 'offline'`, auth0.js actually sends `device_type: 'offline'` to the server.
+
+When using auth0-spa-js, custom parameters **are not converted** from `camelCase` to `snake_case`. It will relay whatever parameter you send to the authorization server.
 
 ## Create the client
 
