@@ -1,5 +1,5 @@
 ---
-title: Custom Database Connections
+title: Custom Database Connections Overview
 description: Learn about authenticating users using your database as an identity provider.
 toc: true
 topics:
@@ -12,19 +12,7 @@ useCase:
     - authentication
     - database-action-scripts
 ---
-# Custom Database Connections
-
-<%= include('./_includes/_feature-availability') %>
-
-With [Extensibility](/topics/extensibility) you can add custom logic in Auth0 to build out last mile solutions for Identity and Access Management (IdAM). Auth0 extensibility comes in several forms: [Rules](/rules), [Hooks](/hooks), and scripts for both custom database connections and custom database migration. Each is implemented using [Node.js](https://nodejs.org/en/) running on the Auth0 platform in an Auth0 tenant. 
-
-Auth0 extensibility executes at different points in the IdAM pipeline: 
-
-* **Rules** run when artifacts for user authenticity are generated (i.e., an ID Token in <dfn data-key="openid">OpenID Connect (OIDC)</dfn>), an Access Token in OAuth 2.0, or an assertion in <dfn data-key="security-assertion-markup-language">Security Assertion Markup Language (SAML)</dfn>. 
-* **Hooks** provide additional extensibility for when there is an exchange of non-user related artifacts, and for when user identities are created. See [pre-user registration](/hooks/concepts/pre-user-registration-extensibility-point) and [post-user registration](/hooks/concepts/post-user-registration-extensibility-point) Hooks for details. 
-* **Custom database scripts** can be used to [integrate with an existing user identity store](/connections/database/custom-db), or can be used where [automatic user migration](https://auth0.com/learn/migrate-user-database-auth0/) (from an independent legacy identity store) is required. 
-
-Whatever the use case, Auth0 extensibility allows you to tailor IdAM operations to your exact requirements. However, if not used in the right way, this can open up the potential for improper or unintended use which can lead to problematic situations down the line. In an attempt to address matters ahead of time, Auth0 provides [best practice guidance](/best-practices/custom-db-connections-scripts) to both designers and implementers, and we recommend reading it in its entirety at least once, even if you've already started your journey with Auth0.    
+# Custom Database Connections Overview
 
 Use a custom database connection when you want to provide access to your own independent (legacy) identity store for the following purposes:
 
@@ -121,7 +109,7 @@ The alternative is to create a simple (custom) API - protected via use of an Acc
 By default, Auth0 will give you a token for any API if you authenticate successfully and include the appropriate audience. Restricting access to the legacy identity store API by restricting access token allocation via use of a Rule, will prevent unauthorized usage and will mitigate a number of attack vector scenarios, such as where redirect to /authorize is intercepted and the audience to the API is added.
 
 ::: panel Best practice
-Restricting access to the API via Rule will mitigate attack vector scenarios - such as where redirect to /authorize is intercepted and the audience to the API is added - and will ensure that only access using specific client credentials is granted.
+Restricting access to the API via a Rule will mitigate attack vector scenarios - such as where redirect to `/authorize` is intercepted and the audience to the API is added - and will ensure that only access using specific client credentials is granted.
 :::
 
 ### Whitelist access to legacy identity storage

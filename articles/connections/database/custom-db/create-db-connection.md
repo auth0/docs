@@ -36,6 +36,9 @@ You can connect to any kind of database or web service with a properly-configure
 
 1. Log in to the Dashboard and navigate to [Connections > Database](${manage_url}/#/connections/database).
 2. Click **+ Create DB Connection**.
+
+    ![Database connections](/media/articles/connections/database/database-connections.png)
+
 3. Configure the connection's **settings** as requested.
 
     | **Parameter** | **Definition** |
@@ -46,8 +49,6 @@ You can connect to any kind of database or web service with a properly-configure
     | **Disable Sign Ups** | Prevents sign-ups to your application. You will still be able to create users with your API credentials or via the Dashboard, however. |
 
 4. Click **Create**.
-
-    ![Database connections](/media/articles/connections/database/database-connections.png)
 
     Once Auth0 creates your connection, you'll have the following tabs (in addition to the **Settings** tab):
 
@@ -64,20 +65,22 @@ You can connect to any kind of database or web service with a properly-configure
 
 ## Create database action scripts
 
-Toggling the **Use my own database** switch enables the **Database Action Scripts** area. This area is where you will create scripts to configure how authentication works when using your database. You can write your database action scripts, or you can begin by selecting a template from the **Templates** dropdown and modifying it as necessary. The available database action scripts are as follows:
+Toggling the **Use my own database** switch enables the **Database Action Scripts** area where you will create scripts to configure how authentication works when using your database. You can write your database action scripts, or you can select a template from the **Templates** dropdown and modifying it as necessary. 
 
-Name | Description | Parameters
+You **must** configure a `login` script; additional scripts for user functionality are optional.
+
+The available database action scripts are as follows:
+
+**Name** | **Description** | **Parameters**
 -------|-------------|-----------
-Login <br/><span class="label label-danger">Required</span> | Executes each time a user attempts to log in. | `email`, `password`
-Create | Executes when a user signs up. | `user.email`, `user.password`
-Verify | Executes after a user follows the verification link. | `email`
-Change Password | Executes when a user clicks on the confirmation link after a reset password request. | `email`, `newPassword`
-Get User | Retrieves a user profile from your database without authenticating the user. | `email`
-Delete | Executes when a user is deleted from the API or Auth0 dashboard. | `id`
+**Login** <br/><span class="label label-danger">Required</span> | Executes each time a user attempts to log in. | `email`, `password`
+**Create** | Executes when a user signs up. | `user.email`, `user.password`
+**Verify** | Executes after a user follows the verification link. | `email`
+**Change Password** | Executes when a user clicks on the confirmation link after a reset password request. | `email`, `newPassword`
+**Get User** | Retrieves a user profile from your database without authenticating the user. | `email`
+**Delete** | Executes when a user is deleted from the API or Auth0 dashboard. | `id`
 
-You **must** configure a `login` script; additional scripts for user functionality, such as password resets, are optional.
-
-::: warning
+::: note
 Script templates, including the default templates, are not used until you click **Save**. This is true even if you only modify one script and haven't made changes to any others. You must click **Save** at least once for all the scripts to be in place. 
 :::
 
@@ -93,11 +96,10 @@ The `id` (or alternatively `user_id`) property in the returned user profile will
 If you are using multiple custom database connections, then **id** value **must be unique across all the custom database connections** to avoid **user ID** collisions. Our recommendation is to prefix the value of **id** with the connection name (omitting any whitespace). See [Identify Users](/users/normalized/auth0/identify-users) for more information on user IDs.
 :::
 
-The following steps use an example for a mysql login script.
+The following steps use an example for a MySQL database login script.
 
-1. After toggling the **Use my own database** switch, the **Database Action Scripts** area is enabled.  
-2. Make sure you are on the **Login** tab.
-3. Use the **Templates** dropdown to select the myslq script template.
+1. After toggling the **Use my own database** switch, the **Database Action Scripts** area is enabled. Make sure you are on the **Login** tab.
+3. Use the **Templates** dropdown to select the MySQL database script template.
 
 ```js
 function login(email, password, callback) {
@@ -144,22 +146,18 @@ With the **bcrypt.compareSync** method, it then validates that the passwords mat
 
 This script assumes that you have a **users** table containing these columns. The **id** returned by Login script is used to construct the **user ID** attribute of the user profile. 
 
-::: warning
-Ensure that the returned user ID is unique across custom databases. See [User IDs](#user-ids) below.
-:::
-
 4. Click **Save**
 5. Click **Try** to test the script. (Note that clicking **Try** to test your script will also save your script.)
 
 ## Add configuration parameters
 
-You can store parameters, like the credentials required to connect to your database, in the **Settings** section below the script editor. These will be available to all of your scripts, and you can access them using the global configuration object.
+You can store parameters, like the credentials required to connect to your database, in the **Settings** section below the script editor. These will be available for all of your scripts, and you can access them using the global configuration object.
 
-You can access parameter values using the `configuration` object in your database action scripts (i.e. `configuration.MYSQL_PASSWORD`).
+You can access parameter values using the `configuration` object in your database action scripts (i.e., `configuration.MYSQL_PASSWORD`).
 
 ![Custom database settings](/media/articles/connections/database/mysql/db-connection-configurate.png)
 
-Use the added parameters in your scripts to configure the connection. For example, you might add the following the MySQL Login template:
+Use the added parameters in your scripts to configure the connection. For example, you might add the following to the MySQL Login script:
 
 ```js
 function login (username, password, callback) {

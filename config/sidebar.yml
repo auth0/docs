@@ -211,25 +211,25 @@ articles:
         hidden: true
       
       - title: Database
-        url: "/connections/database"
+        url: /connections/database
         children:
 
           - title: Auth0 User Store
-            url: "/connections/database#using-the-auth0-user-store"
+            url: /connections/database#using-the-auth0-user-store
 
           - title: Your User Store
-            url: "/connections/database/custom-db"
+            url: /connections/database/custom-db
             children: 
 
               - title: Overview
-                url: "/connections/database/custom-db/custom-db-connections-overview"
+                url: /connections/database/custom-db/custom-db-connections-overview
                 hidden: true
 
-              - title: Create Custom Database Connections
+              - title: Create Connections
                 url: /connections/database/custom-db/create-db-connections
                 hidden: true 
 
-              - title: Create Database Action Script Templates
+              - title: Scripts
                 url: /connections/database/custom-db/templates
                 hidden: true
 
