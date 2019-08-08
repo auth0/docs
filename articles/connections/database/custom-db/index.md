@@ -12,9 +12,16 @@ contentType:
 useCase:
     - customize-connections
 ---
-# Custom Database Connections
+<!-- markdownlint-disable MD041 MD002 -->
+<div class="topic-page-header">
+  <div data-name="example" class="topic-page-badge"></div>
+  <h1>Custom Database Connections</h1>
+  <p>
+  Use a custom database connection when you want to provide Auth0 with access to your own independent (legacy) identity data store primarily for authenticaton (filling the role of an identity provider) and for migrating user data to Auth0's data store. 
+  </p>
+</div>
 
-With [Extensibility](/topics/extensibility) you can add custom logic in Auth0 to build out last mile solutions for Identity and Access Management (IdAM). Auth0 extensibility comes in several forms: [Rules](/rules), [Hooks](/hooks), and [scripts](/connections/database/custom-db/templates) for both custom database connections and custom database migration. Each is implemented using [Node.js](https://nodejs.org/en/) running on the Auth0 platform in an Auth0 tenant. 
+Auth0 [Extensibility](/topics/extensibility) allows you to add custom logic to build out last mile solutions for Identity and Access Management (IdAM). Auth0 extensibility comes in several forms: [Rules](/rules), [Hooks](/hooks), and [scripts](/connections/database/custom-db/templates) for both custom database connections and custom database migration. Each is implemented using [Node.js](https://nodejs.org/en/) running on the Auth0 platform in an Auth0 tenant. 
 
 Auth0 extensibility executes at different points in the IdAM pipeline: 
 

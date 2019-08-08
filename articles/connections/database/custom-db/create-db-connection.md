@@ -80,10 +80,6 @@ The available database action scripts are as follows:
 **Get User** | Retrieves a user profile from your database without authenticating the user. | `email`
 **Delete** | Executes when a user is deleted from the API or Auth0 dashboard. | `id`
 
-::: note
-Script templates, including the default templates, are not used until you click **Save**. This is true even if you only modify one script and haven't made changes to any others. You must click **Save** at least once for all the scripts to be in place. 
-:::
-
 ### Before you begin
 
 * Review the [Script template best practices](/best-practices/custom-database-connections#script-template-best-practices).
@@ -146,12 +142,14 @@ With the **bcrypt.compareSync** method, it then validates that the passwords mat
 
 This script assumes that you have a **users** table containing these columns. The **id** returned by Login script is used to construct the **user ID** attribute of the user profile. 
 
-4. Click **Save**
-5. Click **Try** to test the script. (Note that clicking **Try** to test your script will also save your script.)
+4. Click **Save**.
+5. Click **Try** to test the script. (This step will also save your script.)
+
+  Script templates are not used by Auth0 until you click **Save** or **Try**. This is true even if you only modify one script and haven't made changes to any others. You must click **Save** at least once for all the scripts to be in place.
 
 ## Add configuration parameters
 
-You can store parameters, like the credentials required to connect to your database, in the **Settings** section below the script editor. These will be available for all of your scripts, and you can access them using the global configuration object.
+You can store parameters, like the credentials required to connect to your database, in the **Settings** section below the script editor. These will be available for all of your scripts, and you can access them using the `global` configuration object.
 
 You can access parameter values using the `configuration` object in your database action scripts (i.e., `configuration.MYSQL_PASSWORD`).
 

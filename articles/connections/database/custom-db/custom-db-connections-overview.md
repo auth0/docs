@@ -13,7 +13,7 @@ useCase:
 ---
 # Custom Database Connections Overview
 
-Use a custom database connection when you want to provide access to your own independent (legacy) identity store for the following purposes:
+Use a custom database connection when you want to provide access to your own independent (legacy) identity data store for the following purposes:
 
 * **Authentication**: Use your database as an identity provider in Auth0 to authenticate users. (Refered to as *legacy authentication*.)
 * **Import Users**: Use automatic migration (*trickle* or *lazy* migration)
