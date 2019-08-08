@@ -233,7 +233,7 @@ Next, open the `App.js` file in the `src` folder, populate it with the following
 // src/App.js
 
 import React from "react";
-import NavBar from "./components/Navbar";
+import NavBar from "./components/NavBar";
 import { useAuth0 } from "./react-auth0-wrapper";
 
 function App() {
@@ -307,7 +307,7 @@ To access this page, modify the `App.js` file to include a router so that the pr
 // src/App.js
 
 import React from "react";
-import NavBar from "./components/Navbar";
+import NavBar from "./components/NavBar";
 
 // New - import the React Router components, and the Profile page component
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -387,18 +387,19 @@ import { Route } from "react-router-dom";
 import { useAuth0 } from "../react-auth0-wrapper";
 
 const PrivateRoute = ({ component: Component, path, ...rest }) => {
-  const { isAuthenticated, loginWithRedirect } = useAuth0();
+  const { loading, isAuthenticated, loginWithRedirect } = useAuth0();
 
   useEffect(() => {
+    if (loading || isAuthenticated) {
+      return;
+    }
     const fn = async () => {
-      if (!isAuthenticated) {
-        await loginWithRedirect({
-          appState: { targetUrl: path }
-        });
-      }
+      await loginWithRedirect({
+        appState: { targetUrl: path }
+      });
     };
     fn();
-  }, [isAuthenticated, loginWithRedirect, path]);
+  }, [loading, isAuthenticated, loginWithRedirect, path]);
 
   const render = props => isAuthenticated === true ? <Component {...props} /> : null;
 
@@ -419,7 +420,7 @@ With `PrivateRoute` component in place, the application router can now be modifi
 Open `App.js` once again, import the `PrivateRoute` component, and update the router so that the `Profile` component is wrapped by the `PrivateRoute` component:
 
 ```jsx
-// src/components/PrivateRoute.js
+// src/App.js
 
 // .. other imports removed for brevity
 
