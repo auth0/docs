@@ -1,7 +1,7 @@
 ---
 title: Custom Database Connections
 description: Learn about authenticating users using your database as an identity provider.
-classes: topic-page
+toc: true
 topics:
     - connections
     - custom-database
@@ -135,5 +135,6 @@ The Auth0 IP address whitelist is shared amongst all Auth0 tenants defined to a 
 ## Keep reading
 
 * [Create Custom Database Connections](/connections/database/custom-db/create-db-connection)
+* [Custom Database Action Script Templates](/connections/database/custom-db/templates)
 * [Handle Errors and Troubleshoot Your Custom DB Scripts](/connections/database/custom-db/error-handling)
 * [Migrate Your Users to Auth0](/users/concepts/overview-user-migration)
