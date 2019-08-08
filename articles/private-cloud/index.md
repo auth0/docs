@@ -30,7 +30,7 @@ Private Cloud deployments are single-subscriber, isolated instances where none o
 
 Here is how the two Private Cloud deployment options compare to each other, as well as how they compare to the Enterprise (Public Cloud) option.
 
-| | Managed Private Cloud | Private Cloud | Public Cloud (Enterprise Subscription Plan) |
+| | Managed | Standard | Public Cloud (Enterprise Subscription Plan) |
 | - | - | - | - |
 | Instance Type | **Dedicated** Cloud Instance | **Dedicated** Cloud Instance | **Shared** Cloud Instance |
 | Deployment Location | Auth0 Private Cloud *or* Customer-Owned AWS Cloud | Auth0 Private Cloud | Auth0 Public Cloud |
