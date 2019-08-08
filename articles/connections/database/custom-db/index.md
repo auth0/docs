@@ -31,10 +31,10 @@ Auth0 extensibility executes at different points in the IdAM pipeline:
 
 Whatever the use case, Auth0 extensibility allows you to tailor IdAM operations to your exact requirements. However, if not used in the right way, this can open up the potential for improper or unintended use which can lead to problematic situations down the line. In an attempt to address matters ahead of time, Auth0 provides [best practice guidance](/best-practices/custom-db-connections-scripts) to both designers and implementers, and we recommend reading it in its entirety at least once, even if you've already started your journey with Auth0.    
 
-<%= include('./_includes/_feature-availability') %>
+<%= include('./_includes/_panel-feature-availability') %>
 
 <%= include('../../../_includes/_topic-links', { links: [
-  'connections/database/custom-db/custom-db-connections-overview',
+  'connections/database/custom-db/overview-custom-db-connections',
   'connections/database/custom-db/create-db-connection',
   'connections/database/custom-db/templates',
   'best-practices/custom-db-connections-scripts',

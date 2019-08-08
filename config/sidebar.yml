@@ -222,7 +222,7 @@ articles:
             children: 
 
               - title: Overview
-                url: /connections/database/custom-db/custom-db-connections-overview
+                url: /connections/database/custom-db/overview-custom-db-connections
                 hidden: true
 
               - title: Create Connections

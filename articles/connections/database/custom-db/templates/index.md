@@ -13,7 +13,7 @@ useCase:
 ---
 # Custom Database Action Script Templates
 
-<%= include('../_includes/_feature-availability') %>
+<%= include('../_includes/_panel-feature-availability') %>
 
 If you have your own database (known as a legacy data store in Auth0) containing user identity data, you can use it as an identity provider to authenticate users.
 You create and configure the connection to your legacy data store as a custom database in Auth0. You can choose to migrate data to Auth0's data store from your legacy database incrementally over time, or you can continue to use it without migrating data. We provide script templates to perform functions on the custom database that you can use and customize. 

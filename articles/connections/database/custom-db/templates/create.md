@@ -9,24 +9,15 @@ contentType: reference
 useCase:
     - customize-connections
 ---
-# Create Users Script Templates
+# Create Script Templates
 
-Auth0 provides the following custom database script templates that you can use when implementing user creation functionality.
+The **Create** script implements the function executed to create a user in your database. We recommend naming this function `create`. The script is only used in a legacy authentication scenario. 
 
-While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
+This script executes when a user signs up or when an administrator creates the user via the Dashboard or API. When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure to implement both database action scripts if you are creating new users. When the script finishes execution, the **Login** script runs to verify that the user was created successfully. 
 
-::: warning
-When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure to implement both database action scripts if you are creating new users.
-:::
+Use this script if you want new users to signup via Auth0 so that Auth0 creates the users in your legacy data store. Not using the script doesn't prevent the creation of users by a mechanism external to Auth0. 
 
-When working on your user creation script, keep in mind that:
-
-* This script will create a new entry in your database. 
-* This script executes when a user signs up or when an administrator creates the user via the Dashboard or API.
-
-When the script finishes execution, the Login script runs to verify that the user was created successfully.
-
-The create action script implements the function executed in order to create a user in the legacy identity store. We recommend naming this function create. The script is only utilized in a legacy authentication scenario, and must be implemented if support in Auth0 is required for creating users in the legacy identity store - e.g. if user signup via Auth0 is required. If support is not required - e.g. if user signup via Auth0 is not required - then the script need not be implemented; not implementing the script will not preclude the creation of a user by some mechanism external to Auth0. The create function implemented in the script should be defined as follows:
+The `create` function implemented in the script should be defined as follows:
 
 ```js
 function create(user, callback) {
@@ -35,18 +26,16 @@ function create(user, callback) {
 }
 ```
 
-::: note
-The `create` action script is only responsible for creating a user identity in the legacy identity store. The call to create will typically be preceded by one or more calls to getUser (in order to determine if the user already exists), and followed by a call to login in order to obtain user profile information.  
-:::
-
-| Attribute | Description |
+| **Parameter** | **Description** |
 | --- | --- |
 | `user` | An object containing attributes associated with the user identity to be created. |
 | `callback` | For `create`, the `callback` function is executed with a single parameter. The parameter is an indication of status: a `null` indicates that the operation executed successfully, while a non-null value indicates that some error condition occurred. |
 
-When indicating an error condition we recommend using an instance of the `Error` object (e.g., `callback(new Error(“an error message”))`) in order to provide Auth0 with clear indication of the error condition. 
+<%= include('../_includes/_bp-error-object') %>
 
-## `user` object
+<%= include('../_includes/_panel-bcrypt-hash-encryption') %>
+
+## `user` object example
 
 ```js
 {
@@ -64,46 +53,36 @@ When indicating an error condition we recommend using an instance of the `Error`
 }
 ```
 
-The `password` credential for the user is passed to the `create` script in plain text so care must be taken regarding its use. You should refrain from logging, storing, or transporting it anywhere in its vanilla form. Instead, prefer to use something similar to the following example below, which uses the [`bcrypt`](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) algorithm to perform cryptographic hash encryption:
+The `user` object can contain the following properties:
 
-```js
-  bcrypt.hash(user.password, 10, function (err, hash) {
-    if (err) { 
-      return callback(err); 
-    } else {
-	  .
-	  .
-    }
-  });
-```
+| **Property** | **Description** |
+| - | - |
+| `client_id` | the client ID of the application for which the user signed up, or the API key if the user was created through the Dashboard or API |
+| `tenant` | the name of the Auth0 account |
+| `email` | the user's email |
+| `password` | the password entered by the user (in plain text) |
+| `username` | required only if the custom database connection has [`Requires Username`](/connections/database/require-username) enabled
+| `connection` | the name of the database connection |
+| `user_metadata` | optional |
+| `app_metadata` | optional |
 
-If a username is supplied then this will typically be due to a custom database connection type having [`Requires Username`](/connections/database/require-username) as an enabled setting. If this is the case then username will need to be provided on any subsequent login or `getUser` execution, so should be stored accordingly in the legacy identity store. If the setting is not enabled then username will typically be optional. 
-
-Whist `user_metadata` and `app_metadata` are optional, if supplied they do not necessarily need to be stored in the legacy identity store; Auth0 will automatically store these values as part of the user profile record created internally. Rather, these values are (optionally) provided as a reference: their contents potentially being influential to legacy identity creation. 
-
-::: note
-Note that unlike with login, `app_metadata` will be specified as-is and will not be renamed as `metadata`.
+::: panel Best practice
+If the custom database connection has [`Requires Username`](/connections/database/require-username) enabled, then `username` also needs to be used by any subsequent `login` or `getUser` execution, so you should store it in the legacy identity store.
 :::
 
-The `user` object will always contain the following properties:
+While `user_metadata` and `app_metadata` are optional, if supplied, they do not need to be stored in the legacy identity store; Auth0 automatically stores these values as part of the [user profile](/users/concepts/overview-user-profile) record created internally. These values are (optionally) provided as a reference: their contents potentially being influential to legacy identity creation. 
 
-| Property | Description |
-| - | - |
-| email | the user's email |
-| password | the password entered by the user (in plain text) |
-| tenant | the name of the Auth0 account |
-| client_id | the client ID of the application for which the user signed up, or the API key if the user was created through the Dashboard or API |
-| connection | the name of the database connection |
-| user_metadata | optional |
-| app_metadata | optional |
+::: note
+Unlike with `login`, `app_metadata` is specified as-is and will not be renamed as `metadata`.
+:::
 
 Finally, if you [create and use custom fields](/libraries/custom-signup#using-the-api) during the registration process, these properties are included in the `user` object as well.
 
 ## Script execution results
 
-There are three ways a Create Users script can finish:
+There are three ways a **Create** script can finish:
 
-| Result | Description |
+| **Result** | **Description** |
 | - | - |
 | `callback(null);` | A user was successfully created  |
 | `callback(new ValidationError("user_exists", "my error message"));` | This user already exists in your database |
@@ -672,3 +651,11 @@ function create (user, callback) {
 
 }
 ```
+
+## Keep reading
+
+* [Change Password](/connections/database/custom-db/templates/change-password)
+* [Delete User](/connections/database/custom-db/templates/delete)
+* [Get User](/connections/database/custom-db/templates/get-user)
+* [Login](/connections/database/custom-db/templates/login)
+* [Verify User](/connections/database/custom-db/templates/verify)
