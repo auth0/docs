@@ -2,7 +2,7 @@ Let's start by taking a step back and talking about Access Control.  There isn't
 
 * **Authentication**: the process of determining if a principal (a user or application) is who or what they say they are.
 * **Authorization**: the process of determining what is allowed, based on the principal, what permissions they have been given, and/or the set of contextually specific access criteria.
-* **Consent**: what permissions the user (Resource Owner) has given permission to an application to do on its behalf. This is generally a requirement of delegated authorization.  The user has to give permission to the Client (Relying Party) to access the user's data in a different system.
+* **Consent**: what permissions the user (Resource Owner) has given permission to an application to do on its behalf. This is generally a requirement of delegated authorization.  The user has to give permission to the Client to access the user's data in a different system.
 * **Policy Enforcement**: The act of enforcing the policies of the application or API, rejecting or allowing access based on a user's authentication and/or authorization information.
 
 In general we typically group different types of access control into three distinct categories so that it's easier to understand a) which actor is responsible for storing the information, b) which actor is responsible for making decisions, and c) which is responsible for enforcing the restrictions. 
