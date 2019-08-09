@@ -1,5 +1,5 @@
 ---
-description: Custom DB script templates for user creation
+description: Custom DB script templates for user creation.
 toc: true
 topics:
     - connections
@@ -654,8 +654,9 @@ function create (user, callback) {
 
 ## Keep reading
 
-* [Change Password](/connections/database/custom-db/templates/change-password)
-* [Delete User](/connections/database/custom-db/templates/delete)
+* [Change Passwords](/connections/database/custom-db/templates/change-password)
+* [Delete](/connections/database/custom-db/templates/delete)
 * [Get User](/connections/database/custom-db/templates/get-user)
 * [Login](/connections/database/custom-db/templates/login)
-* [Verify User](/connections/database/custom-db/templates/verify)
+* [Verify](/connections/database/custom-db/templates/verify)
+* [Change Email](/connections/database/custom-db/templates/change-email)

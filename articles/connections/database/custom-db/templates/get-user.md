@@ -1,5 +1,5 @@
 ---
-description: Custom DB script templates for user search
+description: Custom database action script templates for user search.
 toc: true
 topics:
     - connections
@@ -9,28 +9,13 @@ contentType: reference
 useCase:
     - customize-connections
 ---
-# Get Users Script Templates
+# Get User Script Templates
 
-The `get user` script is very important. This script is called in the following user scenarios:
+The **Get User** script implements the function executed to determine the current state of existence of a user. We recommend naming this function `getUser`. The script is optional for both legacy authentication and for automatic migration, though we recommend its implementation. 
 
-  * Change email: to validate availability
-  * Create user: to validate availability
-  * Forgot password: to validate
-  * Change password: to create
+For automatic migration the script is executed during the password reset workflow, for example, with a forgotten password in Universal Login. For legacy authentication, it is executed whenever the following out-of-box operations occur: create user, change email, change password and password reset (e.g via forgot password workflow). 
 
-When working on your script, keep in mind that this script will be executed when the user wishes to change his password to test if the user exists.
-
-::: warning
-When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure to implement both database action scripts if you are creating new users.
-:::
-
-The `getUser` action script implements the function executed in order to determine the current state of existence of a user. We recommend naming this function `getUser`. The script is optional for both legacy authentication and for automatic migration, though we recommend its implementation. 
-
-::: panel Best Practice
-While it’s not mandatory to implement the `getUser` function, it is a recommended best practice. The `getUser` function is required to support password the reset workflow recommended for great customer experience. 
-:::
-
-For automatic migration the script is executed whenever executing password reset workflow - e.g. a forgot password from Universal Login - and for legacy authentication it is executed whenever the following out-of-box operations occur: create user, change email, change password and password reset (e.g via forgot password workflow). The `getUser` function implemented in the get user action script should be defined as follows:
+The `getUser` function should be defined as follows:
 
 ```js
 function getUser(email, callback) {
@@ -39,13 +24,15 @@ function getUser(email, callback) {
 }
 ```
 
-| Attribute | Description |
+| **Parameter** | **Description** |
 | --- | --- |
-| `email` | The email address for the user as the user identifying credential. |
-| `callback` | For `getUser`, the callback function is executed with up to two parameters. The first parameter is an indication of status: a null first parameter with a corresponding second parameter indicates that the operation executed successfully; a null first parameter with no corresponding second parameter indicates that no user was found, whilst a non null first parameter value indicates that some error condition occurred. If the first parameter is null then the second parameter should be the profile for the user in JSON format (if a user was found). If the first parameter is null and no user was found, or if the first parameter is non null, then the second parameter can be omitted. The second parameter provided to the callback function should be the profile for the user. This should be supplied as a JSON object in normalized user profile form. See the [profile](#profile) section in the `login` script above for further details. |
+| `email` | The email address for the user as the user identifying credential.  |
+| `callback` | For `getUser`, the callback function is executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter indicates that the operation executed successfully; a `null` first parameter with no corresponding second parameter indicates that no user was found, while a non `null` first parameter value indicates that some error condition occurred. If the first parameter is `null` then the second parameter should be the profile for the user in JSON format (if a user was found). If the first parameter is `null` and no user was found, or if the first parameter is non `null`, then the second parameter can be omitted. The second parameter provided to the `callback` function should be the profile for the user. This should be supplied as a JSON object in normalized user profile form. See the [**Login**](/connections/database/custom-db/templates/login) script for details. |
+
+<%= include('../_includes/_bp-error-object') %>
 
 ::: warning
-When indicating an error condition we recommend using an instance of the Error object - e.g. `callback(new Error(“an error message”)`) in order to provide Auth0 with clear indication of the error condition. 
+When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure to implement both database action scripts if you are creating new users.
 :::
 
 ## Language-specific script examples
@@ -315,3 +302,12 @@ function getByEmail(email, callback) {
   });
 }
 ```
+
+## Keep reading
+
+* [Change Passwords](/connections/database/custom-db/templates/change-password)
+* [Create](/connections/database/custom-db/templates/create)
+* [Delete](/connections/database/custom-db/templates/delete)
+* [Login](/connections/database/custom-db/templates/login)
+* [Verify](/connections/database/custom-db/templates/verify)
+* [Change Email](/connections/database/custom-db/templates/change-email)

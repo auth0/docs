@@ -1,5 +1,5 @@
 ---
-description: Custom DB script templates for user login
+description: Custom database action script templates for user login.
 toc: true
 topics:
     - connections
@@ -10,7 +10,9 @@ useCase:
 ---
 # Login Script Templates
 
-The login action script implements the function executed each time a user is required to authenticate. We recommend naming this function `login`. The `login` function is typically used during the Universal Login workflow, but is also applicable in other authentication flow scenarios (such as Resource Owner Password Grant). The script is mandatory for both legacy authentication and for automatic migration, and the login function implemented should be defined as follows:
+The **Login** script implements the function executed each time a user is required to authenticate. We recommend naming this function `login`. The `login` function is typically used during the Universal Login workflow, but is also applicable in other authentication flow scenarios (such as Resource Owner Password Grant). The script is mandatory for both legacy authentication and for automatic migration. The login script is **required**.
+
+The `login` function should be defined as follows:
 
 ```js
 function login(userNameOrEmail, password, callback) {
@@ -19,38 +21,15 @@ function login(userNameOrEmail, password, callback) {
 }
 ```
 
-| Attribute | Description |
+| **Parameter** | **Description** |
 | --- | --- |
 | `userNameOrEmail` | The identification credential for the user, and is typically either the email address for the user or the name associated with the user. With default out-of-box Universal Login, support for the use of user name during login is available only if the Requires Username setting is enabled for the database connection.  |
 | `password` | The password credential for the user is passed to the login script in plain text so care must be taken regarding its use.  |
-| `callback` | For login, the callback function is executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter indicates that the operation executed successfully, while a non-null first parameter value indicates that some error condition occurred. If the first parameter is null then the second parameter is the profile for the user in JSON format. If the first parameter is non-null then the second parameter can be omitted. When indicating an error condition we recommend using an instance of either the `WrongUsernameOrPasswordError` or `Error` object (e.g., `callback(new WrongUsernameOrPasswordError()`) - in order to provide Auth0 with clear indication of whichever error condition. Both of these objects also take an option string parameter which can be used to provide additional information. |
+| `callback` | For login, the callback function is executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter indicates that the operation executed successfully, while a non-null first parameter value indicates that some error condition occurred. If the first parameter is null then the second parameter is the profile for the user in JSON format. If the first parameter is non-null then the second parameter can be omitted. |
 
-When working on your login script, keep in mind that:
+<%= include('../_includes/_bp-error-object') %>
 
-* The script will be executed each time a user attempts to login
-* The two parameters, **email** and **password**, are used to validate the authenticity of the user 
-* The login script is **mandatory**
-
-## `password` `bcrypt` example
-
-You should refrain from storing it or transporting it anywhere in its vanilla form. Instead, prefer to use something similar to the following example below, which uses the `bcrypt` algorithm to perform cryptographic password comparison (and where the user object is the user identity as read from the legacy identity store).
-
-```js
-	bcrypt.compare(password, user.password, function (err, isValid) {
-	  if (err) {
-	    return callback(err);
-	  } else 
-	  if (!isValid) {
-	    return callback(new WrongUsernameOrPasswordError());
-	  } else {
-	    return callback(null, {
-		user_id: user.identifier.toString(),
-		email_verified: (user.verified) ? true : false,
-		email: user.email
-	    });
-	  }
-	});
-```
+<%= include('../_includes/_panel-bcrypt-hash-encryption') %>
 
 ## `callback` `profile` example 
 
@@ -814,3 +793,12 @@ function login(username, password, callback) {
   });
 }
 ```
+
+## Keep reading
+
+* [Change Passwords](/connections/database/custom-db/templates/change-password)
+* [Create](/connections/database/custom-db/templates/create)
+* [Delete](/connections/database/custom-db/templates/delete)
+* [Get User](/connections/database/custom-db/templates/get-user)
+* [Verify](/connections/database/custom-db/templates/verify)
+* [Change Email](/connections/database/custom-db/templates/change-email)

@@ -1,5 +1,5 @@
 ---
-description: Custom DB script templates for user verification
+description: Custom database action script templates for user verification.
 toc: true
 topics:
     - connections
@@ -493,3 +493,12 @@ function verify (email, callback) {
 
 }
 ```
+
+## Keep reading
+
+* [Change Passwords](/connections/database/custom-db/templates/change-password)
+* [Create](/connections/database/custom-db/templates/create)
+* [Delete](/connections/database/custom-db/templates/delete)
+* [Get User](/connections/database/custom-db/templates/get-user)
+* [Login](/connections/database/custom-db/templates/login)
+* [Change Email](/connections/database/custom-db/templates/change-email)

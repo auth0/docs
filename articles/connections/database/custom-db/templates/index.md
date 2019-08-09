@@ -1,5 +1,5 @@
 ---
-description: Custom DB script templates and checklist and troubleshooting
+description: Learn about custom database action script templates.
 topics:
     - connections
     - custom-database
@@ -24,14 +24,15 @@ There are two different types of custom database scripts:
 
 * **Legacy Database**: Auth0 will always query the underlying database when a user tries to log in, is created, changes their password, verifies their email, or is deleted. If found and the **Import users to Auth0** flag is **not** turned on, user data stays in the legacy database and does **not** migrate to Auth0.
 
-Auth0 provides the following script templates:
+Auth0 provides the following custom database action scripts:
 
 * [Change Passwords](/connections/database/custom-db/templates/change-password)
-* [Create User](/connections/database/custom-db/templates/create)
-* [Delete User](/connections/database/custom-db/templates/delete)
+* [Create](/connections/database/custom-db/templates/create)
+* [Delete](/connections/database/custom-db/templates/delete)
 * [Get User](/connections/database/custom-db/templates/get-user)
 * [Login](/connections/database/custom-db/templates/login)
-* [Verify User](/connections/database/custom-db/templates/verify)
+* [Verify](/connections/database/custom-db/templates/verify)
+* [Change Email](/connections/database/custom-db/templates/change-email)
 
 <%= include('../../../../_includes/_ip_whitelist') %>
 

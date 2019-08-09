@@ -69,7 +69,7 @@ Toggling the **Use my own database** switch enables the **Database Action Script
 
 You **must** configure a `login` script; additional scripts for user functionality are optional.
 
-The available database action scripts are as follows:
+The available database action scripts are:
 
 **Name** | **Description** | **Parameters**
 -------|-------------|-----------
@@ -79,10 +79,9 @@ The available database action scripts are as follows:
 **Change Password** | Executes when a user clicks on the confirmation link after a reset password request. | `email`, `newPassword`
 **Get User** | Retrieves a user profile from your database without authenticating the user. | `email`
 **Delete** | Executes when a user is deleted from the API or Auth0 dashboard. | `id`
+**Change Email** | Executes when a change in the email address, or the email address status, for a user occurs. | `email`, `newEmail`, `verified`, `callback`
 
-### Before you begin
-
-* Review the [Script template best practices](/best-practices/custom-database-connections#script-template-best-practices).
+See [Custom Database Action Script Templates](/connections/database/custom-db/templates) and [Script template best practices](/best-practices/custom-database-connections#script-template-best-practices) for details on all the scripts.
 
 ### Create a Login script
 

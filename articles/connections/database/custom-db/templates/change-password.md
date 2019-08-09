@@ -1,5 +1,5 @@
 ---
-description: Custom DB script templates for changing a user's password
+description: Custom database action script templates for changing a user's password.
 toc: true
 topics:
     - connections
@@ -552,8 +552,9 @@ function changePassword (email, newPassword, callback) {
 
 ## Keep reading
 
-* [Create User](/connections/database/custom-db/templates/create)
-* [Delete User](/connections/database/custom-db/templates/delete)
+* [Create](/connections/database/custom-db/templates/create)
+* [Delete](/connections/database/custom-db/templates/delete)
 * [Get User](/connections/database/custom-db/templates/get-user)
 * [Login](/connections/database/custom-db/templates/login)
-* [Verify User](/connections/database/custom-db/templates/verify)
+* [Verify](/connections/database/custom-db/templates/verify)
+* [Change Email](/connections/database/custom-db/templates/change-email)
