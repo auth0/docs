@@ -1,5 +1,5 @@
 ---
-description: Custom DB script templates for user creation.
+description: Custom database action script templates for user creation.
 toc: true
 topics:
     - connections
