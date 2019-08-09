@@ -123,7 +123,7 @@ Enabling this feature will help protect against user registration enumeration. B
 
 ![](/media/articles/tutorials/tenant-settings/tenant-advanced-extensibility.png)
 
-Use custom scripts to extend parts of Auth0's functionality, such as [Rules](/rules), [Hooks](/hooks) and [Database Connections](/connections#database-and-custom-connections). Choose the `node.js` version environment you will use to execute your custom scripts. If you are migrating from an older version of `node.js` that is no longer supported, see the [migration guide](/migrations/guides/extensibility-node8).
+Use custom scripts to extend parts of Auth0's functionality, such as [Rules](/rules), [Hooks](/hooks) and [Database Connections](/connections#database-and-custom-connections).
 
 ### Migrations
 
