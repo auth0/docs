@@ -1,17 +1,17 @@
 ---
-section: private-saas-deployment
+section: private-cloud
 description: Infrastructure requirements for the customer-hosted Managed Private Cloud
 topics: private-cloud
 contentType: concept
-useCase: private-saas-deployment
+useCase: private-cloud
 ---
-# PSaaS IP/Domain and Port List
+# Private Cloud IP/Domain and Port List
 
-PSaaS deployments require certain ports within the cluster to be open and able to communicate with one another, as well as selected external sites.
+Private Cloud deployments require certain ports within the cluster to be open and able to communicate with one another, as well as selected external sites.
 
 ## Between Cluster Nodes
 
-When possible, instances within a cluster should have full connectivity to each other so that you do not need to introduce new firewall rules if Auth0 adds new features. However, since this isn't possible in every environment, the following table lists the ports that are required to be open and accessible to other PSaaS instances in the same cluster:
+When possible, instances within a cluster should have full connectivity to each other so that you do not need to introduce new firewall rules if Auth0 adds new features. However, since this isn't possible in every environment, the following table lists the ports that are required to be open and accessible to other Private Cloud instances in the same cluster:
 
 <table class="table">
   <thead>
@@ -82,7 +82,7 @@ When possible, instances within a cluster should have full connectivity to each 
 
 ## External Connectivity
 
-Auth0 strives to keep these IP addresses stable, though this is not a given. From time to time, Auth0 may add IP addresses or additional servers. During updates and metrics, you must allow your PSaaS instances to connect to these addresses.
+Auth0 strives to keep these IP addresses stable, though this is not a given. From time to time, Auth0 may add IP addresses or additional servers. During updates and metrics, you must allow your Private Cloud instances to connect to these addresses.
 
 <table class="table">
   <thead>
@@ -117,7 +117,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Inbound <b>and</b> Outbound</td>
     <td>CLI Applications (often on the internal network)</td>
     <td>10121</td>
-    <td>Allows use of the PSaaS Command Line Interface</td>
+    <td>Allows use of the Private Cloud Command Line Interface</td>
     <td>No</td>
   </tr>
   <tr>
@@ -125,7 +125,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Outbound</td>
     <td>apt-mirror.it.auth0.com (52.8.153.197)</td>
     <td>443</td>
-    <td>Provides update packages for PSaaS deployments</td>
+    <td>Provides update packages for Private Cloud deployments</td>
     <td>Yes</td>
   </tr>
   <tr>
@@ -133,7 +133,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Outbound</td>
     <td>docker.it.auth0.com (52.9.124.234)</td>
     <td>443</td>
-    <td>Provides updates for PSaaS Docker Packages</td>
+    <td>Provides updates for Private Cloud Docker Packages</td>
     <td>Yes</td>
   </tr>
   <tr>
@@ -165,7 +165,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Inbound</td>
     <td>Jump Host</td>
     <td>22</td>
-    <td>Allows access to PSaaS instances for support purposes</td>
+    <td>Allows access to Private Cloud instances for support purposes</td>
     <td>No</td>
   </tr>
   <tr>
@@ -181,7 +181,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Inbound <b>and</b> Outbound</td>
     <td>Local domain servers</td>
     <td>53</td>
-    <td>Required by the PSaaS deployment to resolve host names internal and external to your environment</td>
+    <td>Required by the Private Cloud deployment to resolve host names internal and external to your environment</td>
     <td>Yes</td>
   </tr>
   <tr>
@@ -189,7 +189,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Outbound</td>
     <td>SMTP Server(s)</td>
     <td>25/587</td>
-    <td>Allows sending of emails from the PSaaS deployment</td>
+    <td>Allows sending of emails from the Private Cloud deployment</td>
     <td>No</td>
   </tr>
   </tbody>

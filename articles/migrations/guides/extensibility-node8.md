@@ -56,7 +56,7 @@ If you do not use any of the extensibility features mentioned above, you are not
 As part of this migration, the Auth0 development team has performed extensive testing to detect any breaking changes proactively. However, there may be behavioral changes as a result of this migration. As such, we have provided a migration switch that allows you to control the migration of your environment to the new Webtask runtime using Node 8.
 
 ::: note
-Private Cloud and Managed Private Cloud (PSaaS) customers have had their tenants migrated already. No further action is necessary.
+Private Cloud and Managed Private Cloud customers have had their tenants migrated already. No further action is necessary.
 :::
 
 ### Important Dates
