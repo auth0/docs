@@ -127,7 +127,7 @@ Yes, you will be able to use either the default `${account.namespace}` or your c
 
 2. **How many custom domains can I use per tenant?**
 
-Currently, each tenant on the Auth0 public cloud supports **one** custom domain.
+Currently, each tenant supports one custom domain.
 
 3. **Can you provide me a static list of IP addresses for my custom domain so I can whitelist them?**
 
