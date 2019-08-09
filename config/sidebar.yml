@@ -270,6 +270,9 @@ articles:
           - title: Client Credentials
             url: /flows/guides/client-credentials/call-api-client-credentials
 
+          - title: Device Authorization
+            url: /flows/guides/device-auth/call-api-device-auth
+
           - title: Implicit
             url: /flows/guides/implicit/call-api-implicit
             children:
