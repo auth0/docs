@@ -79,7 +79,7 @@ This works both for database connections and social logins.
         //code reducted for simplicity
       },
       languageDictionary: {
-        signUpTerms: "I agree to the <a href='https://my-app-url.com/terms' target='_new'>terms of service</a> and <a href='https://my-app-url.com/privacy' target='_new'>privacy policy</a>."
+        signUpTerms: "I agree to the <a href='https://my-app-url.com/terms' target='_blank'>terms of service</a> and <a href='https://my-app-url.com/privacy' target='_blank'>privacy policy</a>."
       },
       mustAcceptTerms: true,
       //code reducted for simplicity
