@@ -10,7 +10,7 @@ useCase:
 ---
 # Login Script Templates
 
-The **Login** script implements the function executed each time a user is required to authenticate. We recommend naming this function `login`. The `login` function is typically used during the Universal Login workflow, but is also applicable in other authentication flow scenarios (such as Resource Owner Password Grant). The script is mandatory for both legacy authentication and for automatic migration. The login script is **required**.
+The **Login** script implements the function executed each time a user is required to authenticate. We recommend naming this function `login`. The `login` function is typically used during the Universal Login workflow, but is also applicable in other authentication flow scenarios (such as Resource Owner Password Grant). The script is required for both legacy authentication and for automatic migration. 
 
 The `login` function should be defined as follows:
 
@@ -23,9 +23,9 @@ function login(userNameOrEmail, password, callback) {
 
 | **Parameter** | **Description** |
 | --- | --- |
-| `userNameOrEmail` | The identification credential for the user, and is typically either the email address for the user or the name associated with the user. With default out-of-box Universal Login, support for the use of user name during login is available only if the Requires Username setting is enabled for the database connection.  |
-| `password` | The password credential for the user is passed to the login script in plain text so care must be taken regarding its use.  |
-| `callback` | For login, the callback function is executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter indicates that the operation executed successfully, while a non-null first parameter value indicates that some error condition occurred. If the first parameter is null then the second parameter is the profile for the user in JSON format. If the first parameter is non-null then the second parameter can be omitted. |
+| `userNameOrEmail` | The identification credential for the user, and is typically either the email address for the user or the name associated with the user. With default out-of-box Universal Login, support for the use of `username` during login is available only if the **Requires Username** setting is enabled for the database connection.  |
+| `password` | The password credential for the user is passed to the `login` script in plain text so care must be taken regarding its use.  |
+| `callback` | For `login`, the `callback` function is executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter indicates that the operation executed successfully, while a non `null` first parameter value indicates that some error condition occurred. If the first parameter is `null` then the second parameter is the profile for the user in JSON format. If the first parameter is non `null` then the second parameter can be omitted. |
 
 <%= include('../_includes/_bp-error-object') %>
 
@@ -36,7 +36,7 @@ function login(userNameOrEmail, password, callback) {
 The second parameter provided to the `callback` function should be the profile for the user. This should be supplied as a JSON object in normalized user profile form. 
 
 ::: warning
-The profile returned by the login script for a user should be consistent with the profile returned in the get user script, and vice-versa.
+The profile returned by the `login` script for a user should be consistent with the profile returned in the `getUser` script, and vice-versa.
 :::
 
 Additionally, you can also provide metadata for a user as part of the user profile returned. The following is an example of the profile object that can be returned for a user.
@@ -56,34 +56,24 @@ Additionally, you can also provide metadata for a user as part of the user profi
 }
 ```
 
-::: warning
-If you are providing app_metadata as part of the user profile then you should refer to this as metadata in the profile object returned. Failure to do this will result in a loss of the metadata if any modifications are made to the users’ `app_metadata` in the future. 
-:::
-
-If a custom database connection type has Requires Username as an enabled setting then the profile returned for the user must include a username. If the setting is not enabled then username is optional and can be omitted. 
-
-The user_id value must be specified and provides the unique identifier for a user. For the auth0 strategy - the strategy used to define a custom database connection - Auth0 will automatically decorate whatever user_id value is supplied by prefixing the text auth0| in order to create the user_id in the root of the normalized user profile. The user_id value supplied will appear in it’s undecorated form in the identities array associated with the user profile in Auth0. 
+| **Parameter** | Description |
+| --- | --- |
+| `username` | If a custom database connection type has **Requires Username** as an enabled setting then the profile returned for the user must include a `username`. If the setting is not enabled then `username` is optional and can be omitted. |
+| `user_id` | The `user_id` value must be specified and provides the unique identifier for a user. For the `auth0` strategy, the strategy used to define a custom database connection, Auth0 automatically decorates whatever `user_id` value is supplied by prefixing the text `auth0|` in order to create the `user_id` in the root of the normalized user profile. The `user_id` value supplied will appear in it’s undecorated form in the identities array associated with the user profile in Auth0. The `user_id` value specified must be unique across all database connections defined in an Auth0 tenant. Failure to observe this will result in user identifier collision which will lead to unpredictable operation. One way to avoid this is to explicitly prefix the supplied `user_id` with the name of, or pseudonym for, the connection (omitting any whitespace). The `user_id` value must also be consistent for any given user; the value returned by the **Login** script  must also be consistent with the value returned by the **Get User** script, and vice-versa. Failure to observe this requirement can lead to duplicate Auth0 user profiles for a user, duplicate identities for any user migrated via automatic migration, and/or unpredictable results when it comes to user operations. |
+| `email` | An `email` value should also be specified. While an email address is not mandatory for a user, much of Auth0 out-of-box functionality such as password reset, requires that a user has a valid and verified email address. Email addresses should be returned consistently for all scripts and should also be unique within the context of a single custom database connection (for automatic migration scenarios). Failure to observe either of these requirements will typically lead to unpredictable results when it comes to user operation. |
 
 ::: warning
-The user_id value specified must be unique across all database connections defined to an Auth0 tenant. Failure to observe this will result in user identifier collision which will lead to unpredictable operation. One way to avoid this is to explicitly prefix the supplied user_id with the name of, or pseudonym for, the connection (omitting any whitespace).
+If you are providing `app_metadata` as part of the user profile then you should refer to this as `metadata` in the profile object returned. Failure to do this will result in a loss of the metadata if any modifications are made to the users’ `app_metadata` in the future. 
 :::
-
-The user_id must also be consistent for any given user; the value returned by the login script  must also be consistent with the value returned by the get user script, and vice-versa. Failure to observe this requirement can lead to duplicate Auth0 user profiles for a user, duplicate identities for any user migrated via automatic migration, and/or unpredictable results when it comes to user operations. 
-
-::: warning
-The user_id returned by the login script must be consistent for any given user and must also be consistent with the value returned by the get user script, and vice-versa. Failure to observe this requirement can lead to duplication in Auth0 and/or unpredictable results when it comes to user operation.
-:::
-
-An email value should also be specified. Whilst an email address is not mandatory for a user per-se, much of Auth0 out-of-box functionality - such as password reset - requires that a user has a valid email address. And one that has been verified too. Email addresses should be returned consistently - i.e. both the login script and the get user script should return the same value for any given user - and should also be unique within the context of a single custom database connection; the latter being particularly pertinent in automatic migration scenarios. Failure to observe either of these requirements will typically lead to unpredictable results when it comes to user operation.   
 
 ::: panel Best Practice
-Whilst a user does not need to use an email address to login, it’s recommended best practice that they have an email address defined against their user profile. This ensures that Auth0 out-of-box functionality works as designed. Including password reset workflow, critical to good user experience. Where an email is specified it should be returned consistently between the login and the get user scripts, and should also be unique within the context of a single custom database connection. 
+While a user does not need to use an email address to login, it’s recommended best practice that they have an email address defined against their user profile. This ensures that Auth0 out-of-box functionality works as designed.  
 :::
 
-For a legacy authentication scenario, you can also enable the `Sync user profile at each login` option for a custom database connection. This will allow update of attributes in the Auth0 user profile, each time a login for the user occurs, for attributes that would otherwise not be available for update via the Auth0 Management API. For legacy authentication scenarios there are a number of root profile attributes which cannot be updated directly via the Management API.
+For a legacy authentication scenario, you can also enable the `Sync user profile at each login` option in the settings for a custom database connection. This allows attribute updatess in the Auth0 user profile each time a login for the user occurs for attributes that would otherwise not be available for update via the Auth0 Management API. For legacy authentication scenarios there are a number of root profile attributes which cannot be updated directly via the Management API.
 
 ::: note
-In order to update name, nickname, given_name, family_name, and/or picture attributes associated with the root of the normalized user profile, you must configure user profile sync so that user attributes will be updated from the identity provider. Auth0 does not support update of these attributes for a custom database  connection used for legacy authentication.   
+In order to update `name`, `nickname`, `given_name`, `family_name`, and/or `picture` attributes associated with the root of the normalized user profile, you must configure user profile sync so that user attributes will be updated from the identity provider. Auth0 does not support update of these attributes for a custom database connection used for legacy authentication.   
 :::
 
 ## Language-specific script examples
