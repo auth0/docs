@@ -26,7 +26,7 @@ These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 
 
 3. On the **Settings** page for your database, enable the **Import Users to Auth0** option:
 
-![Dashboard Import Users Option](/media/articles/connections/database/import-users.png)
+![Dashboard Import Users Option](/media/articles/users/migrations/import-users.png)
 
 ## Configure the scripts 
 
