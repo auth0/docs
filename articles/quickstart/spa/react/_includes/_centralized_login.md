@@ -124,7 +124,7 @@ export const Auth0Provider = ({
 };
 ```
 
-This is a set of custom [React hooks](https://reactjs.org/docs/hooks-intro.html) that enables you to work with the Auth0 SDK in a more idiomatic way, providing functions that allow the user to log in, log out, and information such as whether the user is logged in.
+This is a set of custom [React hooks](https://reactjs.org/docs/hooks-intro.html) that enable you to work with the Auth0 SDK in a more idiomatic way, providing functions that allow the user to log in, log out, and information such as whether the user is logged in.
 
 The next few sections will integrate these hooks into the various components that make up the app.
 
