@@ -28,7 +28,7 @@ function deleteUser(id, callback) {
 | **Parameter** | **Description** |
 | --- | --- |
 | `id` | The identifier of the user. This is the connection specific identifier returned as the user_id value from either the `login` or `getUser` function. |
-| `callback` | For `deleteUser`, the `callback` function is executed with a single parameter. The one and only parameter is an indication of status: a `null` value indicates successful operation, whereas a non `null` value indicates that some error condition occurred.  |
+| `callback` | Executed with a single parameter. The one and only parameter is an indication of status: a `null` value indicates successful operation, whereas a non `null` value indicates that some error condition occurred.  |
 
 <%= include('../_includes/_bp-error-object') %>
 

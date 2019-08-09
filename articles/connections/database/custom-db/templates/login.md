@@ -10,7 +10,7 @@ useCase:
 ---
 # Login Script Templates
 
-The **Login** script implements the function executed each time a user is required to authenticate. We recommend naming this function `login`. The `login` function is typically used during the Universal Login workflow, but is also applicable in other authentication flow scenarios (such as Resource Owner Password Grant). The script is required for both legacy authentication and for automatic migration. 
+The **Login** script implements the function executed each time a user is required to authenticate. We recommend naming this function `login`. The `login` function is typically used during the Universal Login workflow, but is also applicable in other authentication flow scenarios (such as [Resource Owner Password Grant](/api-auth/tutorials/password-grant)). The script is required for both legacy authentication and for automatic migration. 
 
 The `login` function should be defined as follows:
 
@@ -23,15 +23,15 @@ function login(userNameOrEmail, password, callback) {
 
 | **Parameter** | **Description** |
 | --- | --- |
-| `userNameOrEmail` | The identification credential for the user, and is typically either the email address for the user or the name associated with the user. With default out-of-box Universal Login, support for the use of `username` during login is available only if the **Requires Username** setting is enabled for the database connection.  |
-| `password` | The password credential for the user is passed to the `login` script in plain text so care must be taken regarding its use.  |
-| `callback` | For `login`, the `callback` function is executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter indicates that the operation executed successfully, while a non `null` first parameter value indicates that some error condition occurred. If the first parameter is `null` then the second parameter is the profile for the user in JSON format. If the first parameter is non `null` then the second parameter can be omitted. |
+| `userNameOrEmail` | The identification credential for the user typically either the email address for the user or the name associated with the user. With default out-of-box Universal Login, support for the use of `username` during login is available only if the **Requires Username** setting is enabled for the database connection.  |
+| `password` | Passed to the `login` script in plain text. Do not store it or transport it anywhere in its vanilla form. Use `bcrypt` as described below. |
+| `callback` | Executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter indicates that the operation executed successfully, while a non `null` first parameter value indicates that some error condition occurred. If the first parameter is `null` then the second parameter is the profile for the user in JSON format. If the first parameter is non `null` then the second parameter can be omitted. The second parameter is the `profile` for the user. This should be supplied as a JSON object in normalized user profile form. See the example below. |
 
 <%= include('../_includes/_bp-error-object') %>
 
 <%= include('../_includes/_panel-bcrypt-hash-encryption') %>
 
-## `callback` `profile` example 
+## `callback` `profile` parameter example 
 
 The second parameter provided to the `callback` function should be the profile for the user. This should be supplied as a JSON object in normalized user profile form. 
 

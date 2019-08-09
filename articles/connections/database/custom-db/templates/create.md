@@ -29,7 +29,7 @@ function create(user, callback) {
 | **Parameter** | **Description** |
 | --- | --- |
 | `user` | An object containing attributes associated with the user identity to be created. |
-| `callback` | For `create`, the `callback` function is executed with a single parameter. The parameter is an indication of status: a `null` indicates that the operation executed successfully, while a non-null value indicates that some error condition occurred. |
+| `callback` | Executed with a single parameter. The parameter is an indication of status: a `null` indicates that the operation executed successfully, while a non `null` value indicates that some error condition occurred. |
 
 <%= include('../_includes/_bp-error-object') %>
 

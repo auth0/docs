@@ -32,7 +32,7 @@ If you change any aspect of a connection via the Dashboard in Auth0, and that co
 | `email` | The email address for the user as the user identifying credential. |
 | `newEmail` | The new email address for the user. |
 | `verified` | The verified state of the new email address, passed as either a true or false value. Email verification status information is typically returned via `email_verified` as part of any user profile information returned (see `login` and `get user` for further details), so email verification state should be preserved in the legacy data store for future reference. |
-| `callback` | For `changeEmail`, the `callback` function is executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter of `true` indicates that the operation executed successfully; a `null` first parameter with no corresponding second parameter (or one with a value of `false`) indicates that no password change was performed (possibly due to the user not being found). A non `null` first parameter value indicates that some error condition occurred.  |
+| `callback` | Executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter of `true` indicates that the operation executed successfully; a `null` first parameter with no corresponding second parameter (or one with a value of `false`) indicates that no password change was performed (possibly due to the user not being found). A non `null` first parameter value indicates that some error condition occurred.  |
 
 <%= include('../_includes/_bp-error-object') %>
 

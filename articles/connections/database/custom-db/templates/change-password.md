@@ -33,7 +33,7 @@ function changePassword(email, newPassword, callback) {
 | --- | --- |
 | `email` | The email address for the user as the user identifying credential. |
 | `password` | The new password credential for the user. The password credential for the user is passed to the script in plain text so care must be taken regarding its use. |
-| `callback` | For `changePassword`, the `callback` function is executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter of `true` indicates that the operation executed successfully; a `null` first parameter with no corresponding second parameter (or one with a value of `false`) indicates that no password change was performed (possibly due to the user not being found). A non `null` first parameter value indicates that some error condition occurred.  |
+| `callback` | Executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter of `true` indicates that the operation executed successfully; a `null` first parameter with no corresponding second parameter (or one with a value of `false`) indicates that no password change was performed (possibly due to the user not being found). A non `null` first parameter value indicates that some error condition occurred.  |
 
 <%= include('../_includes/_bp-error-object') %>
 
