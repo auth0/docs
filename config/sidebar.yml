@@ -90,10 +90,10 @@ articles:
         children:
 
           - title: Lock for Web
-            url: /libraries/lock
+            url: /libraries/lock/v11
 
           - title: Auth0.js
-            url: /libraries/auth0js
+            url: /libraries/auth0js/v9
           
           - title: Cross-Origin Authentication
             url: /cross-origin-authentication
