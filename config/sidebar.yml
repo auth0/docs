@@ -215,11 +215,23 @@ articles:
         children:
 
           - title: Auth0 User Store
-            url: "/connections/database#using-the-auth0-user-store"
-            hidden: true
+            url: /connections/database#using-the-auth0-user-store
 
-          - title: Your Database
+          - title: Your User Store
             url: /connections/database/custom-db
+            children: 
+
+              - title: Overview
+                url: /connections/database/custom-db/overview-custom-db-connections
+                hidden: true
+
+              - title: Create Connections
+                url: /connections/database/custom-db/create-db-connections
+                hidden: true 
+
+              - title: Scripts
+                url: /connections/database/custom-db/templates
+                hidden: true
 
           - title: Password Policies
             url: /connections/database/password-options
@@ -1339,6 +1351,9 @@ articles:
 
       - title: "Connection Settings"
         url: "/best-practices/connection-settings"
+
+      - title: "Custom Databases and Scripts"
+        url: "/best-practices/custom-db-connections-scripts"
 
       - title: "Rules"
         url: "/best-practices/rules"
