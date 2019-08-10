@@ -224,7 +224,22 @@ OmniAuth.config.on_failure = Proc.new { |env|
 }
 ```
 
-### Troubleshooting
+## Troubleshooting
+
+### Using a reverse proxy
+
+The `redirect_uri` parameter that OmniAuth generates when redirecting to login is based on the `Host` header that is passed to Rails. This can cause incorrect callback URLs to be passed when using this strategy (and OmniAuth in general) with a reverse proxy. You can adjust the host used by OmniAuth with the following snippet:
+
+```ruby
+OmniAuth.config.full_host = lambda do |env|
+    scheme         = env['rack.url_scheme']
+    local_host     = env['HTTP_HOST']
+    forwarded_host = env['HTTP_X_FORWARDED_HOST']
+    forwarded_host.blank? ? "#{scheme}://#{local_host}" : "#{scheme}://#{forwarded_host}"
+end
+```
+
+[See this StackOverflow thread for more information](https://stackoverflow.com/a/7135029/728480). 
 
 ### ActionDispatch::Cookies::CookieOverflow
 
