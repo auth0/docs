@@ -210,7 +210,7 @@ The service provides these methods:
 * `logout()` - Log out of Auth0
 
 :::note
-**Why is there so much RxJS in the authentication service?** `auth0-spa.js` is a promise-based library built using async/await, providing an agnostic approach for the highest volume of JavaScript apps. The Angular framework, on the other hand, [uses reactive programming and observable streams](https://angular.io/guide/rx-library). In order for the async/await library to work seamlessly with Angular’s stream-based approach, we are converting the async/await functionality to observables for you in the service.
+**Why is there so much RxJS in the authentication service?** `auth0-spa-js` is a promise-based library built using async/await, providing an agnostic approach for the highest volume of JavaScript apps. The Angular framework, on the other hand, [uses reactive programming and observable streams](https://angular.io/guide/rx-library). In order for the async/await library to work seamlessly with Angular’s stream-based approach, we are converting the async/await functionality to observables for you in the service.
 Auth0 is currently building an Angular module that will abstract this reactive functionality into an importable piece of code. This will get you up and running even faster while using the most idiomatic approach for the Angular framework, and will greatly simplify the authentication service.
 :::
 
