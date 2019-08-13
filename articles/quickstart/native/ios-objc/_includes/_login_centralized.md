@@ -114,6 +114,26 @@ To learn more about the `credentials` object, read the [Credentials](https://git
 
 <%= include('../../../../_includes/_logout_url') %>
 
+To clear on server side the session add the following snipped to the HybridAuth.swift file:
+
+```swift
+// HybridAuth.swift
+
+    @objc
+    func logOutUser(callback: @escaping(Bool, String) -> Void){
+        Auth0
+            .webAuth()
+            .clearSession(federated: true){
+                switch $0 {
+                case true:
+                    callback($0, "Logged out successfully")
+                case false:
+                    callback($0, "An error occurred")
+                }
+            }
+    }
+```
+
 ::: note
 If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to whitelist in the Allowed Logout URLs field is the same as the callback URL.
 :::
