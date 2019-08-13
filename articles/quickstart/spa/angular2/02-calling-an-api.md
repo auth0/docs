@@ -192,7 +192,7 @@ In both of the above methods, we're using [`combineLatest` from RxJS](https://rx
 _For more details on the implementation, see the comments in the code snippets above._
 
 :::note
-**Why is the token stored in app memory and not in browser storage?** Historically, it was common to store tokens in local or session storage. However, browser storage is [not a secure place to store sensitive data](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#local-storage). The [`auth0-spa.js` SDK](https://auth0.com/docs/libraries/auth0-spa-js) manages session retrieval for you so that you no longer need to store sensitive data in browser storage in order to restore sessions after refreshing a Single Page Application.
+**Why is the token stored in app memory and not in browser storage?** Historically, it was common to store tokens in local or session storage. However, browser storage is [not a secure place to store sensitive data](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#local-storage). The [`auth0-spa-js` SDK](https://auth0.com/docs/libraries/auth0-spa-js) manages session retrieval for you so that you no longer need to store sensitive data in browser storage in order to restore sessions after refreshing a Single Page Application.
 :::
 
 ## Create an HTTP Interceptor
