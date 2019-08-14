@@ -1,0 +1,15 @@
+# Universal Login Prompts
+
+- [common](common.md)
+- [consent](consent.md)
+- [device-flow](device-flow.md)
+- [email-verification](email-verification.md)
+- [login](login.md)
+- [mfa](mfa.md)
+- [mfa-email](mfa-email.md)
+- [mfa-otp](mfa-otp.md)
+- [mfa-push](mfa-push.md)
+- [mfa-recovery-code](mfa-recovery-code.md)
+- [mfa-sms](mfa-sms.md)
+- [reset-password](reset-password.md)
+- [signup](signup.md)
