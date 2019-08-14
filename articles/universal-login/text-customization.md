@@ -31,22 +31,22 @@ We are calling **prompt** to a specific step in the login flow. The available on
 
 |  |  |
 | ------------- |-------------| 
-| [login](text-customization/login) | [mfa-otp](text-customization/mfa-otp) |   
-| [signup](text-customization/signup) | [mfa-email](text-customization/mfa-email) |   
-| [email-verification](text-customization/email-verification) | [mfa-recovery-code](text-customization/mfa-recovery-code) |   
-| [reset-password](text-customization/reset-password) |  [mfa-sms](text-customization/mfa-sms) |  
-| [consent](text-customization/consent) | [mfa-push](text-customization/login) |   
-| [mfa-push](text-customization/mfa-push) | [device-flow](text-customization/device-flow) |
+| [login](text-customization-prompts/login) | [mfa-otp](text-customization-prompts/mfa-otp) |   
+| [signup](text-customization-prompts/signup) | [mfa-email](text-customization-prompts/mfa-email) |   
+| [email-verification](text-customization-prompts/email-verification) | [mfa-recovery-code](text-customization-prompts/mfa-recovery-code) |   
+| [reset-password](text-customization-prompts/reset-password) |  [mfa-sms](text-customization-prompts/mfa-sms) |  
+| [consent](text-customization-prompts/consent) | [mfa-push](text-customization-prompts/login) |   
+| [mfa-push](text-customization-prompts/mfa-push) | [device-flow](text-customization-prompts/device-flow) |
 
 
-Each prompt can have more than one screen. For example, Login, has a single one, but [Reset Password](text-customization/reset-password) has one for [reset-password](text-customization/reset-password), 
-[reset-password](text-customization/reset-password),
-[reset-password-success](text-customization/reset-password-success),
-[reset-password-request](text-customization/reset-password-request),
-[reset-password-email](text-customization/reset-password-email),
-[reset-password-error](text-customization/reset-password-error).
+Each prompt can have more than one screen. For example, Login, has a single one, but [Reset Password](text-customization-prompts/reset-password) has one for [reset-password](text-customization-prompts/reset-password), 
+[reset-password](text-customization-prompts/reset-password),
+[reset-password-success](text-customization-prompts/reset-password-success),
+[reset-password-request](text-customization-prompts/reset-password-request),
+[reset-password-email](text-customization-prompts/reset-password-email),
+[reset-password-error](text-customization-prompts/reset-password-error).
 
-Each screen has a set of **text ids**. The list of prompts is available [here](text-customization/index). It links to a page per prompt that has the screens, the text ids, and the English texts for each.
+Each screen has a set of **text ids**. The list of prompts is available [here](text-customization-prompts/index). It links to a page per prompt that has the screens, the text ids, and the English texts for each.
 
 You can find the list of available languages [here](/universal-login/i18n).
 
@@ -54,7 +54,7 @@ You can use the GET and PUT HTTP verbs when calling the API. Note that PUT will 
 
 ## Available Variables 
 
-Some texts have variables that are replaced in runtime based on context information. The available variables are different per-screen, so it’s not guaranteed that they will work in any text. You can see the variables available for each screen in the [documentation pages](text-customization/index) that describe the available keys (e.g. [this one](text-customization/consent) for Consent).
+Some texts have variables that are replaced in runtime based on context information. The available variables are different per-screen, so it’s not guaranteed that they will work in any text. You can see the variables available for each screen in the [documentation pages](text-customization-prompts/index) that describe the available keys (e.g. [this one](text-customization-prompts/consent) for Consent).
 
 
 | Variable | Description |
