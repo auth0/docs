@@ -186,4 +186,38 @@ Signing keys are used by the identity provider to sign the authentication token 
 
 For security purposes, Azure AD’s signing key [rolls on a periodic basis](https://azure.microsoft.com/en-us/documentation/articles/active-directory-signing-key-rollover/). If this happens, **you do not need to take any action**. Auth0 will use the new key automatically.
 
+## Using Microsoft Identity Platform (v2.0) endpoints
+
+Microsoft provides two ways to interact with Azure AD endpoints:
+
+- Azure Active Directory (v1.0) 
+- Microsoft identity platform (v2.0) 
+
+You can learn about the differences in behavior [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/azure-ad-endpoint-comparison).
+
+To change which endpoint Auth0 uses, you can set the 'identity-api' connection option using the Management API. The possible values are `azure-active-directory-v1.0` and `microsoft-identity-platform-v2.0`.
+
+The example below sets it to Identity Platform v2.0, requesting the 'email' scope:
+
+```har
+{
+	"method": "PATCH",
+	"url": "https://${account.namespace}/api/v2/connections/CONNECTION_ID",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{  \"options\": { \"identity-api\": \"microsoft-identity-platform-v2.0\", \"scopes\": \"email\" } }"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
+
 <%= include('../../../_quickstart-links.md') %>
