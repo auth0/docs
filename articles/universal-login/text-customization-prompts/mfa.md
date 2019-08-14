@@ -3,7 +3,7 @@
 ## Screen: mfa-enroll-result
 
 <p style="text-align: center;">
-  <img alt="mfa-enroll-result reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-enroll-result" src="images/mfa-enroll-result.png" />
+  <img alt="mfa-enroll-result reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-enroll-result" src="/universal-login/text-customization-prompts/images/mfa-enroll-result.png" />
 </p>
 
 |Key|Value|
@@ -23,7 +23,7 @@
 ## Screen: mfa-login-options
 
 <p style="text-align: center;">
-  <img alt="mfa-login-options reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-login-options" src="images/mfa-login-options.png" />
+  <img alt="mfa-login-options reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-login-options" src="/universal-login/text-customization-prompts/images/mfa-login-options.png" />
 </p>
 
 |Key|Value|

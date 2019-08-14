@@ -3,7 +3,7 @@
 ## Screen: signup
 
 <p style="text-align: center;">
-  <img alt="signup reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="signup" src="images/signup.png" />
+  <img alt="signup reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="signup" src="/universal-login/text-customization-prompts/images/signup.png" />
 </p>
 
 |Key|Value|

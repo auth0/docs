@@ -3,7 +3,7 @@
 ## Screen: consent
 
 <p style="text-align: center;">
-  <img alt="consent reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="consent" src="images/consent.png" />
+  <img alt="consent reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="consent" src="/universal-login/text-customization-prompts/images/consent.png" />
 </p>
 
 |Key|Value|

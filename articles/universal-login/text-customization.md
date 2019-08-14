@@ -31,20 +31,20 @@ We are calling **prompt** to a specific step in the login flow. The available on
 
 |  |  |
 | ------------- |-------------| 
-| [login](text-customization-prompts/login) | [mfa-otp](text-customization-prompts/mfa-otp) |   
-| [signup](text-customization-prompts/signup) | [mfa-email](text-customization-prompts/mfa-email) |   
-| [email-verification](text-customization-prompts/email-verification) | [mfa-recovery-code](text-customization-prompts/mfa-recovery-code) |   
-| [reset-password](text-customization-prompts/reset-password) |  [mfa-sms](text-customization-prompts/mfa-sms) |  
-| [consent](text-customization-prompts/consent) | [mfa-push](text-customization-prompts/login) |   
-| [mfa-push](text-customization-prompts/mfa-push) | [device-flow](text-customization-prompts/device-flow) |
+| [login](/universal-login/text-customization-prompts/login) | [mfa-otp](/universal-login/text-customization-prompts/mfa-otp) |   
+| [signup](/universal-login/text-customization-prompts/signup) | [mfa-email](text-customization-prompts/mfa-email) |   
+| [email-verification](/universal-login/text-customization-prompts/email-verification) | [mfa-recovery-code](/universal-login/text-customization-prompts/mfa-recovery-code) |   
+| [reset-password](/universal-login/text-customization-prompts/reset-password) |  [mfa-sms](/universal-login/text-customization-prompts/mfa-sms) |  
+| [consent](/universal-login/text-customization-prompts/consent) | [mfa-push](text-customization-prompts/login) |   
+| [mfa-push](/universal-login/text-customization-prompts/mfa-push) | [device-flow](/universal-login/text-customization-prompts/device-flow) |
 
 
-Each prompt can have more than one screen. For example, Login, has a single one, but [Reset Password](text-customization-prompts/reset-password) has one for [reset-password](text-customization-prompts/reset-password), 
-[reset-password](text-customization-prompts/reset-password),
-[reset-password-success](text-customization-prompts/reset-password-success),
-[reset-password-request](text-customization-prompts/reset-password-request),
-[reset-password-email](text-customization-prompts/reset-password-email),
-[reset-password-error](text-customization-prompts/reset-password-error).
+Each prompt can have more than one screen. For example, Login, has a single one, but [Reset Password](/universal-login/text-customization-prompts/reset-password) has one for [reset-password](/universal-login/text-customization-prompts/reset-password), 
+[reset-password](/universal-login/text-customization-prompts/reset-password),
+[reset-password-success](/universal-login/text-customization-prompts/reset-password-success),
+[reset-password-request](/universal-login/text-customization-prompts/reset-password-request),
+[reset-password-email](/universal-login/text-customization-prompts/reset-password-email),
+[reset-password-error](/universal-login/text-customization-prompts/reset-password-error).
 
 Each screen has a set of **text ids**. The list of prompts is available [here](text-customization-prompts/index). It links to a page per prompt that has the screens, the text ids, and the English texts for each.
 

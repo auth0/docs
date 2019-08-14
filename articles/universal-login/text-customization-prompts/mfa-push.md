@@ -3,7 +3,7 @@
 ## Screen: mfa-push-welcome
 
 <p style="text-align: center;">
-  <img alt="mfa-push-welcome reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-welcome" src="images/mfa-push-welcome.png" />
+  <img alt="mfa-push-welcome reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-welcome" src="/universal-login/text-customization-prompts/images/mfa-push-welcome.png" />
 </p>
 
 |Key|Value|
@@ -19,7 +19,7 @@
 ## Screen: mfa-push-enrollment-qr
 
 <p style="text-align: center;">
-  <img alt="mfa-push-enrollment-qr reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-enrollment-qr" src="images/mfa-push-enrollment-qr.png" />
+  <img alt="mfa-push-enrollment-qr reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-enrollment-qr" src="/universal-login/text-customization-prompts/images/mfa-push-enrollment-qr.png" />
 </p>
 
 |Key|Value|
@@ -33,7 +33,7 @@
 ## Screen: mfa-push-challenge-push
 
 <p style="text-align: center;">
-  <img alt="mfa-push-challenge-push reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-challenge-push" src="images/mfa-push-challenge-push.png" />
+  <img alt="mfa-push-challenge-push reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-challenge-push" src="/universal-login/text-customization-prompts/images/mfa-push-challenge-push.png" />
 </p>
 
 |Key|Value|
@@ -53,7 +53,7 @@
 ## Screen: mfa-push-challenge-code
 
 <p style="text-align: center;">
-  <img alt="mfa-push-challenge-code reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-challenge-code" src="images/mfa-push-challenge-code.png" />
+  <img alt="mfa-push-challenge-code reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-challenge-code" src="/universal-login/text-customization-prompts/images/mfa-push-challenge-code.png" />
 </p>
 
 |Key|Value|
@@ -70,7 +70,7 @@
 ## Screen: mfa-push-list
 
 <p style="text-align: center;">
-  <img alt="mfa-push-list reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-list" src="images/mfa-push-list.png" />
+  <img alt="mfa-push-list reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-list" src="/universal-login/text-customization-prompts/images/mfa-push-list.png" />
 </p>
 
 |Key|Value|

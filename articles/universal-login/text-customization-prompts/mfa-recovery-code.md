@@ -3,7 +3,7 @@
 ## Screen: mfa-recovery-code-enrollment
 
 <p style="text-align: center;">
-  <img alt="mfa-recovery-code-enrollment reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-recovery-code-enrollment" src="images/mfa-recovery-code-enrollment.png" />
+  <img alt="mfa-recovery-code-enrollment reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-recovery-code-enrollment" src="/universal-login/text-customization-prompts/images/mfa-recovery-code-enrollment.png" />
 </p>
 
 |Key|Value|
@@ -18,7 +18,7 @@
 ## Screen: mfa-recovery-code-challenge
 
 <p style="text-align: center;">
-  <img alt="mfa-recovery-code-challenge reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-recovery-code-challenge" src="images/mfa-recovery-code-challenge.png" />
+  <img alt="mfa-recovery-code-challenge reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-recovery-code-challenge" src="/universal-login/text-customization-prompts/images/mfa-recovery-code-challenge.png" />
 </p>
 
 |Key|Value|
