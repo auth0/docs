@@ -249,6 +249,8 @@ We've imported the [`OnInit` lifecycle hook](https://angular.io/api/core/OnInit)
 
 The `localAuthSetup()` method uses the `auth0-spa-js` SDK to check if the user is still logged in with the authorization server. If they are, their authentication state is restored in the front end when they return to the app after refreshing or leaving, without having to log in again.
 
+<%= include('../../_includes/_silent-auth-social-idp') %>
+
 ## Create a Navigation Bar Component
 
 If you do not already have a logical place to house login and logout buttons within your application, create a new component to represent a navigation bar that can also hold some UI to log in and log out:
