@@ -75,7 +75,7 @@ The [OAuth 2.0 Authorization Framework specification](https://tools.ietf.org/htm
 
 - [Authorization Code](/flows/concepts/auth-code): used by Web Apps executing on a server. This is also used by mobile apps, using the [Proof Key for Code Exchange (PKCE) technique](/flows/concepts/auth-code-pkce).
 
-- [Implicit](/flows/concepts/auth-code): used by JavaScript-centric apps (Single-Page Applications) executing on the user's browser.
+- [Implicit](/flows/concepts/implicit): used by JavaScript-centric apps (Single-Page Applications) executing on the user's browser.
 
 - [Resource Owner Password Credentials](/api-auth/grant/password): used by trusted apps.
 

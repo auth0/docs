@@ -1,16 +1,16 @@
 ---
-section: private-saas-deployment
+section: private-cloud
 description: Overview of the Private Cloud onboarding process
 topics: private-cloud
 contentType: concept
-useCase: private-saas-deployment
+useCase: private-cloud
 ---
 # Private Cloud Onboarding
 
 This article will cover all facets of the **Private Cloud** onboarding process, including timelines, information about future updates, technical requirements, and implementation instructions for key Private Cloud features.
 
 ::: note
-If you are a **Managed** Private Cloud customer, please see [Managed Private Cloud Onboarding](/private-saas-deployment/onboarding/managed-private-cloud). 
+If you are a **Managed** Private Cloud customer, please see [Managed Private Cloud Onboarding](/private-cloud/onboarding/managed-private-cloud). 
 :::
 
 ## Timeline
@@ -24,7 +24,7 @@ Implementation begins immediately after the kickoff meeting, and the process tak
 Auth0 will issue monthly updates to the Private Cloud automatically. The [Private Cloud Release Notes](https://auth0.com/releases/) will contain full details on the changes made to your deployment.
 
 ::: note
-The four most recent PSaaS releases are considered to be the **Active Releases**.
+The four most recent Private Cloud releases are considered to be the **Active Releases**.
 :::
 
 ## Custom domains

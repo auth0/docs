@@ -26,7 +26,7 @@ Affected customers are those who meet all of the following criteria:
 
 The following tenants are NOT affected:
 * Cloud customers in the US region. The US region has been fully migrated and is already using Search Engine v3.
-* PSaaS customers (Migration for PSaaS customers will begin at a later date).
+* Private Cloud customers (Migration for Private Cloud customers will begin at a later date).
 * Cloud tenants in the EU and AU regions that:
   * are not using the `GET /api/v2/logs` or `GET /api/v2/users/{user_id}/logs` endpoints of Management API at all.
   * are consuming the logs from the Dashboard Logs section only.

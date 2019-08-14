@@ -1,37 +1,36 @@
 ---
-section: private-saas
-description: Overview of the Private SaaS deployment options
+section: private-cloud
+description: Overview of the Private Cloud deployment options
 classes: topic-page
 topics:
-    - private-saas
     - private-cloud
     - managed-private-cloud
 contentType: concept
-useCase: private-saas
-title: Private Saas Deployment
+useCase: private-cloud
+title: Private Cloud Deployment
 ---
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
-  <h1>Private Saas Deployment</h1>
+  <h1>Private Cloud Deployment</h1>
   <p>
-    A low-friction, dedicated Auth0 deployment that exists in Auth0's Private Cloud.
+    A low-friction, dedicated Auth0 deployment that exists in Auth0's Private Cloud or a Customer-Hosted Cloud.
   </p>
 </div>
 
-Users with requirements not met by the Auth0 Public Cloud may instead opt for a Private SaaS deployment option.
+Users with requirements not met by the Auth0 Public Cloud may instead opt for a Private Cloud deployment option.
 
-Auth0 currently offers two Private SaaS deployment models:
+Auth0 currently offers two Private Cloud deployment models:
 
-* [Private Cloud](/private-saas-deployment/private-cloud)
-* [**Managed** Private Cloud](/private-saas-deployment/managed-private-cloud), either hosted by Auth0 or hosted by you on an AWS environment and operated by Auth0 as a managed service
+* [**Standard** Private Cloud](/private-cloud/standard-private-cloud)
+* [**Managed** Private Cloud](/private-cloud/managed-private-cloud), either hosted by Auth0 or hosted by you on an AWS environment and operated by Auth0 as a managed service
 
-Private SaaS deployments are single-subscriber, isolated instances where none of a customer's resources (software and infrastructure) are shared with any other tenants. This offers increased performance, stability, and availability.
+Private Cloud deployments are single-subscriber, isolated instances where none of a customer's resources (software and infrastructure) are shared with any other tenants. This offers increased performance, stability, and availability.
 
 ## Private Cloud options and comparison
 
-Here is how the two Private SaaS deployment options compare to each other, as well as how they compare to the Enterprise (Public Cloud) option.
+Here is how the two Private Cloud deployment options compare to each other, as well as how they compare to the Enterprise (Public Cloud) option.
 
-| | Managed Private Cloud | Private Cloud | Public Cloud (Enterprise Subscription Plan) |
+| | Managed | Standard | Public Cloud (Enterprise Subscription Plan) |
 | - | - | - | - |
 | Instance Type | **Dedicated** Cloud Instance | **Dedicated** Cloud Instance | **Shared** Cloud Instance |
 | Deployment Location | Auth0 Private Cloud *or* Customer-Owned AWS Cloud | Auth0 Private Cloud | Auth0 Public Cloud |
@@ -56,26 +55,26 @@ We are currently unable to offer deployments to China.
 <ul class="topic-links">
   <li>
     <i class="icon icon-budicon-715"></i>
-    <a href="/private-saas-deployment/add-ons">Add-Ons for Private SaaS Deployments</a>
-    <p>Add-on options available to customers with Private SaaS Deployments.</p>
+    <a href="/private-cloud/add-ons">Add-Ons for Private Cloud Deployments</a>
+    <p>Add-on options available to customers with Private Cloud Deployments.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i>
-    <a href="/private-saas-deployment/custom-domain-migration">Custom Domain Migration</a>
-    <p>Information on how to migrate custom domains using the PSaaS Custom Domains feature to the Auth0 Custom Domains feature.</p>
+    <a href="/private-cloud/custom-domain-migration">Custom Domain Migration</a>
+    <p>Information on how to migrate custom domains using the Private Cloud Custom Domains feature to the Auth0 Custom Domains feature.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i>
-    <a href="/private-saas-deployment/onboarding">Private SaaS Onboarding</a>
-    <p>Onboarding information, including timelines and expectations, for Private SaaS Deployments.</p>
+    <a href="/private-cloud/onboarding">Private Cloud Onboarding</a>
+    <p>Onboarding information, including timelines and expectations, for Private Cloud Deployments.</p>
     <ul>
       <li>
         <i class="icon icon-budicon-695"></i>
-        <a href="/private-saas-deployment/onboarding/private-cloud">Private Cloud Onboarding</a>
+        <a href="/private-cloud/onboarding/private-cloud">Private Cloud Onboarding</a>
       </li>
       <li>
         <i class="icon icon-budicon-695"></i>
-        <a href="/private-saas-deployment/onboarding/managed-private-cloud">Managed Private Cloud Onboarding</a>
+        <a href="/private-cloud/onboarding/managed-private-cloud">Managed Private Cloud Onboarding</a>
       </li>
     </ul>
   </li>

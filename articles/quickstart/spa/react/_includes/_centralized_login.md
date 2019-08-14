@@ -8,7 +8,7 @@
 The following tutorial creates a new React application using `create-react-app`, and presents some common ways to build React applications, in terms of its structure and naming conventions. If you are using this guide to integrate the Auth0 SDK into your own React application, you may need to adjust some of the steps to suit your scenario.
 :::
 
-If you don't already have an application to hand, you can create one using the [Create React App](https://facebook.github.io/create-react-app/) CLI tool. Using the terminal, find a location on your drive where you want to create the project and run the following commands:
+If you don't already have an existing application, you can create one using the [Create React App](https://facebook.github.io/create-react-app/) CLI tool. Using the terminal, find a location on your drive where you want to create the project and run the following commands:
 
 ```bash
 # Create the application using create-react-app
@@ -127,6 +127,8 @@ export const Auth0Provider = ({
 This is a set of custom [React hooks](https://reactjs.org/docs/hooks-intro.html) that enable you to work with the Auth0 SDK in a more idiomatic way, providing functions that allow the user to log in, log out, and information such as whether the user is logged in.
 
 The next few sections will integrate these hooks into the various components that make up the app.
+
+<%= include('../../_includes/_silent-auth-social-idp') %>
 
 ### Create the Navbar component
 
@@ -259,7 +261,7 @@ export default App;
 
 This replaces the default content created by `create-react-app` and simply shows the `NavBar` component you created earlier.
 
-> **Checkpoint**: At this point, you should be able to go through a complete authentication cycle, logging in and loggin out. Start the application from the terminal using `yarn start` and browse to http://localhost:3000 (if the application does not open automatially). From there, clicking the **Log in** button should redirect you to the Auth0 Login Page where you will be given the opportunity to log in.
+> **Checkpoint**: At this point, you should be able to go through a complete authentication cycle, logging in and loggin out. Start the application from the terminal using `yarn start` and browse to http://localhost:3000 (if the application does not open automatically). From there, clicking the **Log in** button should redirect you to the Auth0 Login Page where you will be given the opportunity to log in.
 > Once you are logged in, control returns to your application and you should see that the **Log out** button is now visible. Clicking this should log you out of the application and return you to an unauthenticated state.
 
 ## Read the User Profile
@@ -415,7 +417,7 @@ If the user is authenticated, the redirect will not take place and the component
 
 ### Protect application routes
 
-With `PrivateRoute` component in place, the application router can now be modified to secure the `/profile` route, ensuring that users must log into the application in order to see it.
+With the `PrivateRoute` component in place, the application router can now be modified to secure the `/profile` route, ensuring that users must log into the application in order to see it.
 
 Open `App.js` once again, import the `PrivateRoute` component, and update the router so that the `Profile` component is wrapped by the `PrivateRoute` component:
 

@@ -11,8 +11,6 @@ topics:
   - ruby on rails
 contentType: tutorial
 useCase: quickstart
-snippets:
-  dependencies: server-platforms/rails/dependencies
 alias:
   - ruby-rails
   - sinatra

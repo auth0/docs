@@ -56,7 +56,7 @@ One option is to offer users several popular social logins, and offer passwordle
 
 ### Q: What are the advantages of using codes delivered through SMS?
 
-**A:** Since users often have their phone nearby, SMS messages are likely to be delivered to the user’s hand or pocket. Typically, it’s impossible to steal SMS service without being in possession of the phone or SIM that is hard-coded with the wireless number. This eliminates the potential for malicious access through stolen email credentials, making SMS logins more secure.
+**A:** Since users often have their phone nearby, SMS messages are likely to be delivered to the user’s hand or pocket.
 
 An SMS login, like an emailed code, requires slightly more effort for end-users than a *magic link*. Depending on the user’s mobile subscription plan, there may be a fee for them to receive SMS messages or these messages may count against a pool of available free messages. For such users, the added cost of using the SMS side-channel may not be considered worthwhile.
 

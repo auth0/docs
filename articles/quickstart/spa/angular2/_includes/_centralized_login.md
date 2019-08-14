@@ -204,10 +204,52 @@ Note that the `redirect_uri` property is configured to indicate where Auth0 shou
 The service provides these methods:
 
 * `getUser$(options)` - Returns a stream of user data which accepts an options parameter
-* `localAuthSetup()` - On app initialization, set up streams to manage authentication data in Angular
+* `localAuthSetup()` - On app initialization, set up streams to manage authentication data in Angular; the session with Auth0 is checked to see if the user has logged in previously, and if so, they are re-authenticated on refresh without being prompted to log in again
 * `login()` - Log in with Auth0
 * `handleAuthCallback()` - Process the response from the authorization server when returning to the app after login
 * `logout()` - Log out of Auth0
+
+:::note
+**Why is there so much RxJS in the authentication service?** `auth0-spa-js` is a promise-based library built using async/await, providing an agnostic approach for the highest volume of JavaScript apps. The Angular framework, on the other hand, [uses reactive programming and observable streams](https://angular.io/guide/rx-library). In order for the async/await library to work seamlessly with Angular’s stream-based approach, we are converting the async/await functionality to observables for you in the service.
+
+Auth0 is currently building an Angular module that will abstract this reactive functionality into an importable piece of code. This will get you up and running even faster while using the most idiomatic approach for the Angular framework, and will greatly simplify the authentication service.
+:::
+
+## Restore Login State When App Reloads
+
+In a Single Page Application, when the user reloads the page anything stored in app memory is cleared. We don't want the application to force the user to log in again if they did not log out, and still have an active session with the authorization server.
+
+We also [should not store sensitive session data in browser storage due to lack of security](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#local-storage).
+
+In order to restore local authentication status after a refresh, we'll call the `localAuthSetup()` method when the app initializes. 
+
+Open the `src/app/app.component.ts` file and add the following:
+
+```ts
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth/auth.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+
+  constructor(private auth: AuthService) {}
+
+  ngOnInit() {
+    this.auth.localAuthSetup();
+  }
+
+}
+```
+
+We've imported the [`OnInit` lifecycle hook](https://angular.io/api/core/OnInit), implemented the interface in our `AppComponent` class, provided the `AuthService` in the constructor, and called `localAuthSetup()` when the app component initializes.
+
+The `localAuthSetup()` method uses the `auth0-spa-js` SDK to check if the user is still logged in with the authorization server. If they are, their authentication state is restored in the front end when they return to the app after refreshing or leaving, without having to log in again.
+
+<%= include('../../_includes/_silent-auth-social-idp') %>
 
 ## Create a Navigation Bar Component
 
@@ -233,16 +275,12 @@ export class NavbarComponent implements OnInit {
   constructor(public auth: AuthService) { }
 
   ngOnInit() {
-    // On initial load, set up local auth streams
-    this.auth.localAuthSetup();
   }
 
 }
 ```
 
-The `AuthService` class you created in the previous section is being injected into the component through the constructor. It is `public` to enable use of its methods in the component _template_ as well as the class.
-
-In `ngOnInit()`, call the `auth.localAuthSetup()` method to set up the local streams for authentication data in the Angular application so that we can subscribe to login status changes.
+The `AuthService` class you created in the previous section is being provided in the component in the constructor. It is `public` to enable use of its methods in the component _template_.
 
 Next, configure the UI for the `navbar` component by opening the `src/app/navbar/navbar.component.html` file and replacing its contents with the following:
 

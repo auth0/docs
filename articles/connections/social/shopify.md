@@ -32,8 +32,8 @@ While setting up your app, make sure you use the following settings:
 
 | Field | Value to Provide |
 | - | - |
-| App URL | `https://${manage_url}.auth0.com` |
-| Whitelisted redirection URL(s) | `https://${manage_url}.auth0.com/login/callback` |
+| App URL | `${manage_url}.auth0.com` |
+| Whitelisted redirection URL(s) | `${manage_url}.auth0.com/login/callback` |
 
 <%= include('../_find-auth0-domain-redirects') %>
 
