@@ -82,10 +82,10 @@ articles:
           - title: "Error Pages"
             url: "/universal-login/error-pages"
 
-         - title: "Text Customization"
+          - title: "Text Customization"
             url: "/universal-login/text-customization"
 
-         - title: "Internationalization"
+          - title: "Internationalization"
             url: "/universal-login/i18n"
 
           - title: "Default Login URL"
