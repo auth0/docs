@@ -3,7 +3,7 @@
 ## Screen: login
 
 <p style="text-align: center;">
-  <img alt="login reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="login" src="/universal-login/text-customization-prompts/images/login.png" />
+  <img alt="login reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="login" src="/media/articles/universal-login/text-customization/login.png" />
 </p>
 
 |Key|Value|
