@@ -92,8 +92,8 @@ If you want to change the description field for the `login` prompt, so it does n
 		"mimeType": "application/json",
 		"text": "{ \"reset-password-success\": {
         \"description\": {
-          \"en\": \"Log in to ${companyName}\",
-          \"es\": \"Iniciar sesión en ${companyName}\"
+          \"en\": \"Log in to $\{companyName\}\",
+          \"es\": \"Iniciar sesión en $\{companyName\}\"
           }}} "
 	},
 	"headersSize": -1,
