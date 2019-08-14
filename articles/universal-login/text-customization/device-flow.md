@@ -46,8 +46,8 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Connect to ${clientName}|
-|description|Please confirm this is the code displayed on your ${clientName}:|
+|pageTitle|Connect to <%= "${clientName}" %>|
+|description|Please confirm this is the code displayed on your <%= "${clientName}" %>:|
 |title|Device Confirmation|
 |confirmButtonText|Confirm|
 |cancelButtonText|Cancel|

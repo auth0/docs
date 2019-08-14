@@ -28,11 +28,11 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Log in to ${clientName}|
+|pageTitle|Log in to <%= "${clientName}" %>|
 |backText|Go back|
 |title|Other Methods|
 |`authenticatorNames.sms`|SMS|
-|`authenticatorNames.push-notification`|Notification via ${appName} app|
+|`authenticatorNames.push-notification`|Notification via <%= "${appName}" %> app|
 |`authenticatorNames.otp`|Google Authenticator or similar|
 |`authenticatorNames.email`|Email|
 |`authenticatorNames.recovery-code`|Recovery code|

@@ -8,12 +8,12 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Log in to ${clientName}|
+|pageTitle|Log in to <%= "${clientName}" %>|
 |title|Welcome|
-|description|Log in to ${companyName} to continue to ${clientName}.|
+|description|Log in to <%= "${companyName}" %> to continue to <%= "${clientName}" %>.|
 |separatorText|Or|
 |buttonText|Continue|
-|federatedConnectionButtonText|Continue with ${connectionName}|
+|federatedConnectionButtonText|Continue with <%= "${connectionName}" %>|
 |footerLinkText|Sign up|
 |footerText|Don't have an account?|
 |forgotPasswordText|Forgot password?|

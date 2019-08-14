@@ -8,7 +8,7 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Sign up to ${clientName}|
+|pageTitle|Sign up to <%= "${clientName}" %>|
 |title|Secure Your Account|
 |description|Scan the QR Code below using your preferred authenticator app and then enter the provided one-time code below.|
 |buttonText|Continue|
@@ -24,7 +24,7 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Sign up to ${clientName}|
+|pageTitle|Sign up to <%= "${clientName}" %>|
 |backText|Go back|
 |buttonText|Continue|
 |copyCodeButtonText|Copy code|
@@ -41,7 +41,7 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Log in to ${clientName}|
+|pageTitle|Log in to <%= "${clientName}" %>|
 |title|Verify Your Identity|
 |description|Check your preferred one-time password application for a code.|
 |buttonText|Continue|

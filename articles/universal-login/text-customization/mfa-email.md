@@ -8,7 +8,7 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Log in to ${clientName}|
+|pageTitle|Log in to <%= "${clientName}" %>|
 |backText|Go Back|
 |buttonText|Continue|
 |description|We've sent an email with your code to|
@@ -27,6 +27,6 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Log in to ${clientName}|
+|pageTitle|Log in to <%= "${clientName}" %>|
 |backText|Go back|
 |title|Enrolled Email Addresses|

@@ -8,7 +8,7 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Sign up to ${clientName}|
+|pageTitle|Sign up to <%= "${clientName}" %>|
 |title|Almost There!|
 |description|Copy this recovery code and keep it somewhere safe. You’ll need it if you ever need to log in without your device.|
 |buttonText|Continue|
@@ -23,7 +23,7 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Log in to ${clientName}|
+|pageTitle|Log in to <%= "${clientName}" %>|
 |title|Verify Your Identity|
 |description|Enter the recovery code you were provided during your initial enrollment.|
 |buttonText|Continue|

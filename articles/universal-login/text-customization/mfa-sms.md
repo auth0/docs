@@ -8,7 +8,7 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Sign up to ${clientName}|
+|pageTitle|Sign up to <%= "${clientName}" %>|
 |backText|Go back|
 |title|Select a Country Code|
 
@@ -20,7 +20,7 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Sign up to ${clientName}|
+|pageTitle|Sign up to <%= "${clientName}" %>|
 |title|Secure Your Account|
 |description|Enter your phone number below. An SMS will be sent to that number with a code to enter on the next screen.|
 |buttonText|Continue|
@@ -35,7 +35,7 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Log in to ${clientName}|
+|pageTitle|Log in to <%= "${clientName}" %>|
 |title|Verify Your Identity|
 |description|We've sent a text message to:|
 |buttonText|Continue|
@@ -54,6 +54,6 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Log in to ${clientName}|
+|pageTitle|Log in to <%= "${clientName}" %>|
 |backText|Go back|
 |title|Enrolled Phone Numbers|

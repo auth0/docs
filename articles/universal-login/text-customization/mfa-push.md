@@ -8,9 +8,9 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Sign up to ${clientName}|
+|pageTitle|Sign up to <%= "${clientName}" %>|
 |title|Secure Your Account|
-|description|In order to continue, install the ${appName} app via the app store from your mobile device.|
+|description|In order to continue, install the <%= "${appName}" %> app via the app store from your mobile device.|
 |androidButtonText|Google Play|
 |buttonText|Continue|
 |iosButtonText|App Store|
@@ -24,9 +24,9 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Sign up to ${clientName}|
+|pageTitle|Sign up to <%= "${clientName}" %>|
 |title|Secure Your Account|
-|description|Scan the QR Code below using the ${appName} app on your mobile device.|
+|description|Scan the QR Code below using the <%= "${appName}" %> app on your mobile device.|
 |pickAuthenticatorText|Try another method|
 |buttonText|Continue|
 
@@ -38,9 +38,9 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Log in to ${clientName}|
+|pageTitle|Log in to <%= "${clientName}" %>|
 |title|Verify Your Identity|
-|description|We’ve sent a notification to the following device via the ${appName} app:|
+|description|We’ve sent a notification to the following device via the <%= "${appName}" %> app:|
 |awaitingConfirmation|Awaiting confirmation|
 |buttonText|I've responded on my device|
 |pickAuthenticatorText|Try another method|
@@ -58,10 +58,10 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Log in to ${clientName}|
+|pageTitle|Log in to <%= "${clientName}" %>|
 |backText|Back|
 |buttonText|Continue|
-|description|Enter the one-time code found at the bottom of the ${appName} app.|
+|description|Enter the one-time code found at the bottom of the <%= "${appName}" %> app.|
 |pickAuthenticatorText|Try another method|
 |placeholder|Enter the one-time code|
 |rememberMeText|Remember this device for 30 days|
@@ -75,6 +75,6 @@
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Log in to ${clientName}|
+|pageTitle|Log in to <%= "${clientName}" %>|
 |backText|Go back|
 |title|Enrolled Devices|
