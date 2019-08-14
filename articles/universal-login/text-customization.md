@@ -59,9 +59,9 @@ Some texts have variables that are replaced in runtime based on context informat
 
 | Variable | Description |
 | ------------- |-------------| 
-| ${clientName} |  Auth0 Application Name | 
-| ${connectionName} | Connection Name (e.g. ‘Google’)
-| ${companyName}| Auth0 Tenant name| 
-| ${userName}| Name of the logged user| 
-| ${email} | Email of the logged user| 
-| ${appName}| Name of the custom Guardian Push application | 
+| {clientName} |  Auth0 Application Name | 
+| {connectionName} | Connection Name (e.g. ‘Google’)
+| {companyName}| Auth0 Tenant name| 
+| {userName}| Name of the logged user| 
+| {email} | Email of the logged user| 
+| {appName}| Name of the custom Guardian Push application | 
