@@ -1,8 +1,8 @@
 ---
 section: exercises
 classes: topic-page
-title: Lab 1: Web Sign-In
-description: Auth0 digital identity Lab 1: Web Sign-In
+title: Lab 2: Calling an API
+description: Auth0 digital identity Lab 2: Calling an API
 topics:
   - digital identity
   - OIDC
@@ -12,20 +12,18 @@ contentType:
     - index
     - concept
 ---
-# Lab 1: Web Sign-In
+# Lab 2: Calling an API
 
-This lab covers the process for adding sign-in to a basic Node.js application. This lab is the same exercise we provide for new employees in a technical role here at Auth0.
+This lab covers the process for adding sign-in to a basic Node.js application and calling an API. This lab is the same exercise we provide for new employees in a technical role here at Auth0.
 
 ::: warning
-The Node OIDC npm package that this lab uses has not been tested, licensed, or officially released and should not be used in production.
+The Node OIDC and bearer token npm packages that this lab uses has not been tested, licensed, or officially released and should not be used in production.
 :::
 
 ## Prerequisites
 
 - Read the introduction on the [main Identity Labs page](/labs/)
-- Watch the [Introduction to Identity video](/videos/learn-identity/01-introduction-to-identity)
-- Watch the [OIDC and OAuth video](/videos/learn-identity/02-oidc-and-oauth)
-- Watch the [Web Sign-In video](/videos/learn-identity/03-web-sign-in)
+- Watch the [Calling an API video](/videos/learn-identity/04-calling-an-api)
 - Read [Using Express Middleware](https://expressjs.com/en/guide/using-middleware.html) (optional)
 - Read [Beginner's Guide to Using npm](https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/) (optional)
 
@@ -39,4 +37,4 @@ The Node OIDC npm package that this lab uses has not been tested, licensed, or o
 
 ---
 
-#### [Next: Exercise 1, Add Web Sign In to an App →](/identity-labs/01-web-sign-in/exercise-01)
+#### [Next: Exercise 1, Add Web Sign In to an App →](/identity-labs/02-calling-an-api/exercise-01)

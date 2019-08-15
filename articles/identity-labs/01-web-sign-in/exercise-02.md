@@ -103,4 +103,4 @@ Note the following:
 
 ---
 
-**[← Back to Identity Labs home](/identity-labs/)**
+#### [← Back to Identity Labs home](/identity-labs/)

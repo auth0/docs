@@ -174,4 +174,4 @@ listening on http://localhost:3000
 
 ---
 
-**[Next: Exercise 2, Using Network Traces →](/identity-labs/01-web-sign-in/exercise-02)**
+#### [Next: Exercise 2, Using Network Traces →](/identity-labs/01-web-sign-in/exercise-02)
