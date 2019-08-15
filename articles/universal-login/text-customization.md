@@ -90,7 +90,7 @@ If you want to change the description field for the `login` prompt, so it does n
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"reset-password-success\": { \"description\": {   \"en\": \"Log in to companyName\"}}}"
+		"text": "{ \"reset-password-success\": { \"description\": {   \"en\": \"Log in to \{companyName\"}}}"
 	},
 	"headersSize": -1,
 	"bodySize": -1,
@@ -99,3 +99,24 @@ If you want to change the description field for the `login` prompt, so it does n
 ```
 
 Sending an empty Javascript object will delete all custom texts for the `login` prompt to the default ones:
+
+```har
+{
+	"method": "POST",
+	"url": "https://${account.namespace}/api/v2/prompts/login/custom-texts",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ }"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
