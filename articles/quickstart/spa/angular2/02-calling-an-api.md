@@ -102,97 +102,22 @@ This setting tells the authorization server that your application would like to 
 
 ### Manage Access Token
 
-We'll also define another observable and another subject to retrieve the access token and make it available for use in our application. Add the following properties to the `AuthService` class:
+We'll define an observable method to retrieve the access token and make it available for use in our application. Add the following to the `AuthService` class:
 
 ```ts
-getTokenSilently$ = this.auth0Client$.pipe(
-  concatMap((client: Auth0Client) => from(client.getTokenSilently()))
-);
-// Create subject and public observable of access token
-private accessTokenSubject$ = new BehaviorSubject<string>(null);
-accessToken$ = this.accessTokenSubject$.asObservable();
-```
-
-In the `localAuthSetup()` method, we now not only want to retrieve the user's profile data, we also want to request their access token. Update the `localAuthSetup()` method to the following code:
-
-```ts
-localAuthSetup() {
-  // This should only be called on app initialization
-  // Check if user already has an active session with Auth0
-  const checkAuth$ = this.isAuthenticated$.pipe(
-    concatMap((loggedIn: boolean) => {
-      if (loggedIn) {
-        // If authenticated, return stream that emits user object and token
-        return combineLatest(
-          this.getUser$(),
-          this.getTokenSilently$
-        );
-      }
-      // If not authenticated, return stream that emits 'false'
-      return of(loggedIn);
-    })
+getTokenSilently$(options?): Observable<string> {
+  return this.auth0Client$.pipe(
+    concatMap((client: Auth0Client) => from(client.getTokenSilently(options)))
   );
-  const checkAuthSub = checkAuth$.subscribe((response: any[] | boolean) => {
-    // If authenticated, response will be array of user object and token
-    // If not authenticated, response will be 'false'
-    // Set subjects appropriately
-    if (response) {
-      const user = response[0];
-      const token = response[1];
-      this.userProfileSubject$.next(user);
-      this.accessTokenSubject$.next(token);
-    }
-    this.loggedIn = !!response;
-    // Clean up subscription
-    checkAuthSub.unsubscribe();
-  });
 }
 ```
 
-Similarly, our `handleAuthCallback()` method should also request an access token in addition to user data now. Update the `handleAuthCallback()` method to the following:
-
-```ts
-handleAuthCallback() {
-  // Only the callback component should call this method
-  // Call when app reloads after user logs in with Auth0
-  let targetRoute: string; // Path to redirect to after login processsed
-  // Ensure Auth0 client instance exists
-  const authComplete$ = this.auth0Client$.pipe(
-    // Have client, now call method to handle auth callback redirect
-    concatMap(() => this.handleRedirectCallback$),
-    tap(cbRes => {
-      // Get and set target redirect route from callback results
-      targetRoute = cbRes.appState && cbRes.appState.target ? cbRes.appState.target : '/';
-    }),
-    concatMap(() => {
-      // Redirect callback complete; create stream returning
-      // user data, token, and authentication status
-      return combineLatest(
-        this.getUser$(),
-        this.getTokenSilently$,
-        this.isAuthenticated$
-      );
-    })
-  );
-  // Subscribe to authentication completion observable
-  // Response will be an array of user, token, and login status
-  authComplete$.subscribe(([user, token, loggedIn]) => {
-    // Update subjects and loggedIn property
-    this.userProfileSubject$.next(user);
-    this.accessTokenSubject$.next(token);
-    this.loggedIn = loggedIn;
-    // Redirect to target route after callback processing
-    this.router.navigate([targetRoute]);
-  });
-}
-```
-
-In both of the above methods, we're using [`combineLatest` from RxJS](https://rxjs-dev.firebaseapp.com/api/index/function/combineLatest) to create an observable that combines multiple streams (e.g., `getUser$()`, `getTokenSilently$`, and in the latter, `isAuthenticated$`) to emit results from all the combined streams. We can then subscribe and set those values in the appropriate subjects and properties for easy access in our application.
-
-_For more details on the implementation, see the comments in the code snippets above._
+If you'd like to [pass options to `getTokenSilently`](https://auth0.github.io/auth0-spa-js/classes/auth0client.html#gettokensilently) when calling the method, you can do so.
 
 :::note
-**Why is the token stored in app memory and not in browser storage?** Historically, it was common to store tokens in local or session storage. However, browser storage is [not a secure place to store sensitive data](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#local-storage). The [`auth0-spa-js` SDK](https://auth0.com/docs/libraries/auth0-spa-js) manages session retrieval for you so that you no longer need to store sensitive data in browser storage in order to restore sessions after refreshing a Single Page Application.
+**Why isn't the token stored in browser storage?** Historically, it was common to store tokens in local or session storage. However, browser storage is [not a secure place to store sensitive data](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#local-storage). The [`auth0-spa-js` SDK](https://auth0.com/docs/libraries/auth0-spa-js) manages session retrieval for you so that you no longer need to store sensitive data in browser storage in order to restore sessions after refreshing a Single Page Application.
+
+With `auth0-spa-js`, we can simply request the token from the SDK when we need it (e.g., in an HTTP interceptor) rather than storing it locally in the Angular app or browser. The SDK manages token freshness as well, so we don't need to worry about renewing tokens when they expire.
 :::
 
 ## Create an HTTP Interceptor
@@ -209,10 +134,15 @@ Open the generated `src/app/interceptor.service.ts` file and add the following c
 
 ```ts
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor
+} from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { Observable, throwError } from 'rxjs';
-import { filter, mergeMap, catchError } from 'rxjs/operators';
+import { mergeMap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -225,11 +155,10 @@ export class InterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    return this.auth.accessToken$.pipe(
-      filter(token => typeof token === 'string'),
+    return this.auth.getTokenSilently$().pipe(
       mergeMap(token => {
         const tokenReq = req.clone({
-          setHeaders: { Authorization: `Bearer <%= "${token}" %>` }
+          setHeaders: { Authorization: `Bearer ${token}` }
         });
         return next.handle(tokenReq);
       }),
@@ -239,11 +168,10 @@ export class InterceptorService implements HttpInterceptor {
 }
 ```
 
-The `AuthService` is provided so that we can access the `accessToken$` stream. Using this stream in the interceptor ensures that requests wait for the access token to be available before firing.
+The `AuthService` is provided so that we can access the `getTokenSilently$()` stream. Using this stream in the interceptor ensures that requests wait for the access token to be available before firing.
 
 The `intercept()` method returns an observable of an HTTP event. In it, we do the following:
 
-* `filter` any value from the `accessToken$` stream to make sure the value is a string (as opposed to the `null` default value)
 * `mergeMap` ensures that any new requests coming through don't cancel previous requests that may not have completed yet; this is useful if you have multiple HTTP requests on the same page
 * `clone` the outgoing request and attach the [`Authorization` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) with access token, then send the cloned, authorized request on its way
 
