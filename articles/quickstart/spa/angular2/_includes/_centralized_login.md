@@ -66,6 +66,7 @@ Make sure that the domain and client ID values are correct for the application t
 import { Injectable } from '@angular/core';
 import createAuth0Client from '@auth0/auth0-spa-js';
 import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
+import * as config from '../../../auth_config.json';
 import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from 'rxjs';
 import { tap, catchError, concatMap, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -90,7 +91,8 @@ export class AuthService {
   // concatMap: Using the client instance, call SDK method; SDK returns a promise
   // from: Convert that resulting promise into an observable
   isAuthenticated$ = this.auth0Client$.pipe(
-    concatMap((client: Auth0Client) => from(client.isAuthenticated()))
+    concatMap((client: Auth0Client) => from(client.isAuthenticated())),
+    tap(res => this.loggedIn = res)
   );
   handleRedirectCallback$ = this.auth0Client$.pipe(
     concatMap((client: Auth0Client) => from(client.handleRedirectCallback()))
@@ -102,12 +104,13 @@ export class AuthService {
   loggedIn: boolean = null;
 
   constructor(private router: Router) { }
-  
-  // getUser$() is a method because options can be passed if desired
+
+  // When calling, options can be passed if desired
   // https://auth0.github.io/auth0-spa-js/classes/auth0client.html#getuser
   getUser$(options?): Observable<any> {
     return this.auth0Client$.pipe(
-      concatMap((client: Auth0Client) => from(client.getUser(options)))
+      concatMap((client: Auth0Client) => from(client.getUser(options))),
+      tap(user => this.userProfileSubject$.next(user))
     );
   }
 
@@ -117,7 +120,8 @@ export class AuthService {
     const checkAuth$ = this.isAuthenticated$.pipe(
       concatMap((loggedIn: boolean) => {
         if (loggedIn) {
-          // If authenticated, get user data
+          // If authenticated, get user and set in app
+          // NOTE: you could pass options here if needed
           return this.getUser$();
         }
         // If not authenticated, return stream that emits 'false'
@@ -127,11 +131,6 @@ export class AuthService {
     const checkAuthSub = checkAuth$.subscribe((response: { [key: string]: any } | boolean) => {
       // If authenticated, response will be user object
       // If not authenticated, response will be 'false'
-      // Set subjects appropriately
-      if (response) {
-        const user = response;
-        this.userProfileSubject$.next(user);
-      }
       this.loggedIn = !!response;
       // Clean up subscription
       checkAuthSub.unsubscribe();
@@ -155,17 +154,14 @@ export class AuthService {
     // Only the callback component should call this method
     // Call when app reloads after user logs in with Auth0
     let targetRoute: string; // Path to redirect to after login processsed
-    // Ensure Auth0 client instance exists
-    const authComplete$ = this.auth0Client$.pipe(
+    const authComplete$ = this.handleRedirectCallback$.pipe(
       // Have client, now call method to handle auth callback redirect
-      concatMap(() => this.handleRedirectCallback$),
       tap(cbRes => {
         // Get and set target redirect route from callback results
         targetRoute = cbRes.appState && cbRes.appState.target ? cbRes.appState.target : '/';
       }),
       concatMap(() => {
-        // Redirect callback complete; create stream
-        // returning user data and authentication status
+        // Redirect callback complete; get user and login status
         return combineLatest(
           this.getUser$(),
           this.isAuthenticated$
@@ -174,12 +170,11 @@ export class AuthService {
     );
     // Subscribe to authentication completion observable
     // Response will be an array of user and login status
-    authComplete$.subscribe(([user, loggedIn]) => {
-      // Update subjects and loggedIn property
-      this.userProfileSubject$.next(user);
-      this.loggedIn = loggedIn;
+    const authCompleteSub = authComplete$.subscribe(([user, loggedIn]) => {
       // Redirect to target route after callback processing
       this.router.navigate([targetRoute]);
+      // Clean up subscription
+      authCompleteSub.unsubscribe();
     });
   }
 
@@ -203,8 +198,8 @@ Note that the `redirect_uri` property is configured to indicate where Auth0 shou
 
 The service provides these methods:
 
-* `getUser$(options)` - Returns a stream of user data which accepts an options parameter
-* `localAuthSetup()` - On app initialization, set up streams to manage authentication data in Angular; the session with Auth0 is checked to see if the user has logged in previously, and if so, they are re-authenticated on refresh without being prompted to log in again
+* `getUser$(options)` - Requests user data from the SDK and accepts an options parameter, then makes the user profile data available in a local RxJS stream
+* `localAuthSetup()` - On app initialization, manage authentication data in Angular; the session with Auth0 is checked to see if the user has logged in previously, and if so, they are re-authenticated on refresh without being prompted to log in again
 * `login()` - Log in with Auth0
 * `handleAuthCallback()` - Process the response from the authorization server when returning to the app after login
 * `logout()` - Log out of Auth0
@@ -212,7 +207,7 @@ The service provides these methods:
 :::note
 **Why is there so much RxJS in the authentication service?** `auth0-spa-js` is a promise-based library built using async/await, providing an agnostic approach for the highest volume of JavaScript apps. The Angular framework, on the other hand, [uses reactive programming and observable streams](https://angular.io/guide/rx-library). In order for the async/await library to work seamlessly with Angular’s stream-based approach, we are converting the async/await functionality to observables for you in the service.
 
-Auth0 is currently building an Angular module that will abstract this reactive functionality into an importable piece of code. This will get you up and running even faster while using the most idiomatic approach for the Angular framework, and will greatly simplify the authentication service.
+Auth0 is currently building an Angular module that will abstract this reactive functionality into an importable wrapper. This will get you up and running even faster while using the most idiomatic approach for the Angular framework, and will greatly simplify the authentication service.
 :::
 
 ## Restore Login State When App Reloads
@@ -297,7 +292,6 @@ To display this component, open the `src/app/app.component.html` file and replac
 
 ```html
 <app-navbar></app-navbar>
-
 <router-outlet></router-outlet>
 ```
 
