@@ -75,7 +75,7 @@ To call the API you need an access token that has the ‘read:prompts’ and ‘
 
 ### Examples
 
-If you want to change the description field for the `login` prompt, so it does not say 'Log in to ${companyName} to continue to ${clientName}.' you can do it with the following  API call:
+If you want to change the description field for the `login` prompt, so it does not say 'Log in to <%= "${companyName}" %> to continue to <%= "${clientName}" %>.' you can do it with the following  API call:
 
 ```har
 {
