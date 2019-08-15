@@ -3,12 +3,12 @@
 ## Screen: mfa-otp-enrollment-qr
 
 <p style="text-align: center;">
-  <img alt="mfa-otp-enrollment-qr reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-otp-enrollment-qr" src="/universal-login/text-customization-prompts/images/mfa-otp-enrollment-qr.png" />
+  <img alt="mfa-otp-enrollment-qr reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-otp-enrollment-qr" src="images/mfa-otp-enrollment-qr.png" />
 </p>
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Sign up to <%= "${clientName}" %>|
+|pageTitle|Secure your Account|
 |title|Secure Your Account|
 |description|Scan the QR Code below using your preferred authenticator app and then enter the provided one-time code below.|
 |buttonText|Continue|
@@ -19,12 +19,12 @@
 ## Screen: mfa-otp-enrollment-code
 
 <p style="text-align: center;">
-  <img alt="mfa-otp-enrollment-code reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-otp-enrollment-code" src="/universal-login/text-customization-prompts/images/mfa-otp-enrollment-code.png" />
+  <img alt="mfa-otp-enrollment-code reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-otp-enrollment-code" src="images/mfa-otp-enrollment-code.png" />
 </p>
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Sign up to <%= "${clientName}" %>|
+|pageTitle|Secure your Account|
 |backText|Go back|
 |buttonText|Continue|
 |copyCodeButtonText|Copy code|
@@ -36,12 +36,12 @@
 ## Screen: mfa-otp-challenge
 
 <p style="text-align: center;">
-  <img alt="mfa-otp-challenge reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-otp-challenge" src="/universal-login/text-customization-prompts/images/mfa-otp-challenge.png" />
+  <img alt="mfa-otp-challenge reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-otp-challenge" src="images/mfa-otp-challenge.png" />
 </p>
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Log in to <%= "${clientName}" %>|
+|pageTitle|Log in to ${clientName}|
 |title|Verify Your Identity|
 |description|Check your preferred one-time password application for a code.|
 |buttonText|Continue|
