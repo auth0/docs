@@ -90,7 +90,7 @@ If you want to change the description field for the `login` prompt, so it does n
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{}"
+		"text": "{ \"reset-password-success\": {} "
 	},
 	"headersSize": -1,
 	"bodySize": -1,
