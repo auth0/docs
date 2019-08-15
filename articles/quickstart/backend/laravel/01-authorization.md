@@ -201,7 +201,7 @@ Now send a `GET` request to the private route  - `http://localhost:3010/api/priv
 { "message": "Bearer token missing" }
 ```
 
-Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the token generated above. Send the `GET` request to the prviate route again and you should see:
+Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the token generated above. Send the `GET` request to the private route again and you should see:
 
 ```json
 { "message": "Hello from a private endpoint!" }
@@ -276,7 +276,7 @@ To test this route, first send a `GET` request with no token to the private, sco
 { "message": "Bearer token missing" }
 ```
 
-Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the same token from the previous section. Send the `GET` request to the prviate, scoped route again and you should get a 403 status and the following message:
+Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the same token from the previous section. Send the `GET` request to the private, scoped route again and you should get a 403 status and the following message:
 
 ```json
 { "message": "Insufficient scope" }
