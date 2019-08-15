@@ -56,14 +56,6 @@ Once you've created your application, you'll need to make the following applicat
 | Europe | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin` |
 | Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin` |
 
-Users who have not [migrated to Node.js v8](/migrations/guides/extensibility-node8) will use URLs that are slightly different:
-
-| Location | Allowed Callback URL |
-| --- | --- |
-| USA | `https://${account.tenant}.us.webtask.io/auth0-delegated-admin/login` |
-| Europe | `https://${account.tenant}.eu.webtask.io/auth0-delegated-admin/login` |
-| Australia | `https://${account.tenant}.au.webtask.io/auth0-delegated-admin/login` |
-
 4. You will also need to configure the **Allowed Logout URLs**:
  
 | Location | Allowed Logout URL |
