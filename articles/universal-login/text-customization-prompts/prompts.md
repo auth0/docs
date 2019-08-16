@@ -1,4 +1,3 @@
-# Title
 
 - [consent](/universal-login/text-customization-prompts/consent)
 - [device-flow](/universal-login/text-customization-prompts/device-flow)
