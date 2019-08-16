@@ -11,11 +11,11 @@ useCase: customize-hosted-pages
 
 The New Universal Login Experience consists of a set of pages that perform several account-related actions, like logging in, enrolling multi-factor authentication factors or changing their password. The text displayed on those pages is provided by Auth0 in several languages. 
 
-In some cases, you could want to adjust the text that Auth0 uses. For example, sometimes the wording can be improved for your specific use case or customer base. In other cases your UX team could have defined a specific tone to communicate with the end-user and you want your login pages to be consistent with the rest of the application’s language.
+In some cases, you could want to adjust the rendered text. Sometimes the wording can be improved for your specific use case or customer base, or your application could use a specific tone to communicate with the end-user and you also use it in the login pages.
 
-Auth0 provides an API that you can use to customize all the text, for every supported language, in the pages rendered by the new Universal Login Experience. 
+Auth0 provides an API that you can use to customize all the text displayed in the [New Universal Login experience](/universal-login/new), for every [supported language](/universal-login/i18n).
 
-The API has this format:
+The API is defined with the following structure:
 
 ```
 PUT '/api/v2/prompts/PROMPT/custom-texts',
@@ -27,17 +27,17 @@ PUT '/api/v2/prompts/PROMPT/custom-texts',
  }
  ```
  
-To be able to use it, you need to provide the proper values to the `prompt`, `screen`, `text id`, and `language id` fields. We’ll be introducing these concepts below.
+You need to provide the proper values to the `prompt`, `screen`, `text id`, and `language id` fields. We’ll be introducing these concepts below.
 
-We using the term `prompt` to refer to a specific step in the login flow. The available ones are:
+- We using the term `prompt` to refer to a specific step in the login flow. The available ones are:
 
 <%= include('text-customization-prompts/_prompts') %>
 
-Each `prompt` can have one or more screens. For example, the [Login](/universal-login/text-customization-prompts/login) prompt, has a single one, but [Reset Password](/universal-login/text-customization-prompts/reset-password) has many.
+- Each `prompt` can have one or more screens. For example, the [Login](/universal-login/text-customization-prompts/login) prompt, has a single one, but [Reset Password](/universal-login/text-customization-prompts/reset-password) has many.
 
-Each screen has a set of `text id`s. 
+- Each screen has a set of `text id`s. 
 
-You can find the list of available languages [here](/universal-login/i18n).
+- You can find the list of available languages [here](/universal-login/i18n).
 
 ## Available Variables 
 
@@ -54,13 +54,13 @@ Some texts have variables that are replaced in runtime based on context informat
 
 ## Calling the API
 
-You can use the GET and PUT HTTP verbs when calling the API. Note that PUT will replace all customizations for specific prompt with the new ones.  If you customized one screen and then want to customize another one, you’ll need to send both when updating the texts.
+You can use the GET and PUT HTTP verbs when calling the API. Note that PUT will replace all customizations for specific prompts with the new ones. If you customized one screen and then want to customize another one, you’ll need to send both when updating the prompt's texts.
 
-To call the API you need an access token that has the ‘read:prompts’ and ‘update:prompts’ scopes. If you are using the API Explorer Machine to Machine application, make sure the scopes are selected:
+To call the API you need an access token that has the ‘read:prompts’ and ‘update:prompts’ scopes. If you are using the API Explorer Machine to Machine application, make sure the scopes are selected.
 
 ### Examples
 
-If you want to change the description field for the `login` prompt, so it does not say 'Log in to <%= "${companyName}" %> to continue to <%= "${clientName}" %>.' you can do it with the following  API call:
+If you want to change the description field for the `login` prompt so it does not say 'Log in to <%= "${companyName}" %> to continue to <%= "${clientName}" %>.' you can do it with the following  API call:
 
 ```har
 {
@@ -83,7 +83,7 @@ If you want to change the description field for the `login` prompt, so it does n
 }
 ```
 
-Sending an empty Javascript object will delete all custom texts for the `login` prompt to the default ones:
+If you want to delete all custom texts for the `login` prompt you can send an empty array:
 
 ```har
 {
