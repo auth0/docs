@@ -1,3 +1,3 @@
 # Universal Login Prompts
 
-<%= include('prompts') %>
+<%= include('_prompts') %>

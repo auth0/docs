@@ -1,4 +1,3 @@
-#
 - [consent](/universal-login/text-customization-prompts/consent)
 - [device-flow](/universal-login/text-customization-prompts/device-flow)
 - [email-verification](/universal-login/text-customization-prompts/email-verification)
