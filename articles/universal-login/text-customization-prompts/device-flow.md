@@ -3,7 +3,7 @@
 ## Screen: device-code-activation
 
 <p style="text-align: center;">
-  <img alt="device-code-activation reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="device-code-activation" src="images/device-code-activation.png" />
+  <img alt="device-code-activation reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="device-code-activation" src="/media/articles/universal-login/text-customization/device-code-activation.png" />
 </p>
 
 |Key|Value|
@@ -17,7 +17,7 @@
 ## Screen: device-code-activation-allowed
 
 <p style="text-align: center;">
-  <img alt="device-code-activation-allowed reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="device-code-activation-allowed" src="images/device-code-activation-allowed.png" />
+  <img alt="device-code-activation-allowed reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="device-code-activation-allowed" src="/media/articles/universal-login/text-customization/device-code-activation-allowed.png" />
 </p>
 
 |Key|Value|
@@ -29,7 +29,7 @@
 ## Screen: device-code-activation-denied
 
 <p style="text-align: center;">
-  <img alt="device-code-activation-denied reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="device-code-activation-denied" src="images/device-code-activation-denied.png" />
+  <img alt="device-code-activation-denied reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="device-code-activation-denied" src="/media/articles/universal-login/text-customization/device-code-activation-denied.png" />
 </p>
 
 |Key|Value|
@@ -41,13 +41,13 @@
 ## Screen: device-code-confirmation
 
 <p style="text-align: center;">
-  <img alt="device-code-confirmation reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="device-code-confirmation" src="images/device-code-confirmation.png" />
+  <img alt="device-code-confirmation reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="device-code-confirmation" src="/media/articles/universal-login/text-customization/device-code-confirmation.png" />
 </p>
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Connect to ${clientName}|
-|description|Please confirm this is the code displayed on your ${clientName}:|
+|pageTitle|Connect to <$= "${clientName}" %>|
+|description|Please confirm this is the code displayed on your <$= "${clientName}" %>:|
 |title|Device Confirmation|
 |confirmButtonText|Confirm|
 |cancelButtonText|Cancel|

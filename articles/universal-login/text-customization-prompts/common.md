@@ -3,7 +3,7 @@
 ## Screen: redeem-ticket
 
 <p style="text-align: center;">
-  <img alt="redeem-ticket reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="redeem-ticket" src="images/redeem-ticket.png" />
+  <img alt="redeem-ticket reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="redeem-ticket" src="/media/articles/universal-login/text-customization/redeem-ticket.png" />
 </p>
 
 |Key|Value|
