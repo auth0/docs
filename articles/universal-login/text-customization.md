@@ -29,34 +29,19 @@ PUT '/api/v2/prompts/PROMPT/custom-texts',
  
 To be able to use it, you need to provide the proper values to the `prompt`, `screen`, `text id`, and `language id` fields. We’ll be introducing these concepts below.
 
-We using the term `prompt` to refer to a specific step in the login flow. The available ones are: 
+We using the term `prompt` to refer to a specific step in the login flow. The available ones are:
 
-|  |  |
-| ------------- |-------------| 
-| [login](/universal-login/text-customization-prompts/login) | [mfa-otp](/universal-login/text-customization-prompts/mfa-otp) |   
-| [signup](/universal-login/text-customization-prompts/signup) | [mfa-email](/universal-login/text-customization-prompts/mfa-email) |   
-| [email-verification](/universal-login/text-customization-prompts/email-verification) | [mfa-recovery-code](/universal-login/text-customization-prompts/mfa-recovery-code) |   
-| [reset-password](/universal-login/text-customization-prompts/reset-password) |  [mfa-sms](/universal-login/text-customization-prompts/mfa-sms) |  
-| [consent](/universal-login/text-customization-prompts/consent) | [mfa-push](/universal-login/text-customization-prompts/login) |   
-| [mfa-push](/universal-login/text-customization-prompts/mfa-push) | [device-flow](/universal-login/text-customization-prompts/device-flow) |
+<%= include('text-customization-prompts/_prompts') %>
 
-
-Each `prompt` can have one or more screens. For example, the [Login](/universal-login/text-customization-prompts/login) prompt, has a single one, but [Reset Password](/universal-login/text-customization-prompts/reset-password) has one for [reset-password](/universal-login/text-customization-prompts/reset-password), 
-[reset-password](/universal-login/text-customization-prompts/reset-password),
-[reset-password-success](/universal-login/text-customization-prompts/reset-password-success),
-[reset-password-request](/universal-login/text-customization-prompts/reset-password-request),
-[reset-password-email](/universal-login/text-customization-prompts/reset-password-email),
-[reset-password-error](/universal-login/text-customization-prompts/reset-password-error).
+Each `prompt` can have one or more screens. For example, the [Login](/universal-login/text-customization-prompts/login) prompt, has a single one, but [Reset Password](/universal-login/text-customization-prompts/reset-password) has many.
 
 Each screen has a set of `text id`s. 
-
-The list of prompts is available [here](/universal-login/text-customization-prompts). It links to a page per prompt that has the screens, the text ids, and the English texts for each.
 
 You can find the list of available languages [here](/universal-login/i18n).
 
 ## Available Variables 
 
-Some texts have variables that are replaced in runtime based on context information. The available variables are different per-screen, so it’s not guaranteed that they will work in any text. You can see the variables available for each screen in the [documentation pages](/universal-login/text-customization-prompts/index) that describe the available keys (e.g. [this one](/universal-login/text-customization-prompts/consent) for Consent).
+Some texts have variables that are replaced in runtime based on context information. The available variables are different per-screen, so it’s not guaranteed that they will work in any text. 
 
 | Variable | Description |
 | ------------- |-------------| 
