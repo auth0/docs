@@ -3,12 +3,12 @@
 ## Screen: mfa-email-challenge
 
 <p style="text-align: center;">
-  <img alt="mfa-email-challenge reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-email-challenge" src="/media/articles/universal-login/text-customization/mfa-email-challenge.png" />
+  <img alt="mfa-email-challenge reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-email-challenge" src="/media/articles/universal-login/text-customization/mfa-email-challenge.png" style="width: 400px;"/>
 </p>
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Log in to <$= "${clientName}" %>|
+|pageTitle|Log in to <%= "${clientName}" %>|
 |backText|Go Back|
 |buttonText|Continue|
 |description|We've sent an email with your code to|
@@ -22,11 +22,11 @@
 ## Screen: mfa-email-list
 
 <p style="text-align: center;">
-  <img alt="mfa-email-list reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-email-list" src="/media/articles/universal-login/text-customization/mfa-email-list.png" />
+  <img alt="mfa-email-list reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-email-list" src="/media/articles/universal-login/text-customization/mfa-email-list.png" style="width: 400px;"/>
 </p>
 
 |Key|Value|
 |----------|----------|
-|pageTitle|Log in to <$= "${clientName}" %>|
+|pageTitle|Log in to <%= "${clientName}" %>|
 |backText|Go back|
 |title|Enrolled Email Addresses|
