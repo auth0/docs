@@ -6,13 +6,13 @@
   <img alt="device-code-activation reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="device-code-activation" src="/media/articles/universal-login/text-customization/device-code-activation.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Device Activation|
-|buttonText|Continue|
-|description|Enter the code displayed on your device|
-|placeholder|Enter your one-time code|
-|title|Device Activation|
+|Device Activation|`pageTitle`|
+|Continue|`buttonText`|
+|Enter the code displayed on your device|`description`|
+|Enter your one-time code|`placeholder`|
+|Device Activation|`title`|
 
 ## Screen: device-code-activation-allowed
 
@@ -20,11 +20,11 @@
   <img alt="device-code-activation-allowed reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="device-code-activation-allowed" src="/media/articles/universal-login/text-customization/device-code-activation-allowed.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Device Activation|
-|description|Your device is now connected.|
-|eventTitle|Congratulations, you're all set!|
+|Device Activation|`pageTitle`|
+|Your device is now connected.|`description`|
+|Congratulations, you're all set!|`eventTitle`|
 
 ## Screen: device-code-activation-denied
 
@@ -32,11 +32,11 @@
   <img alt="device-code-activation-denied reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="device-code-activation-denied" src="/media/articles/universal-login/text-customization/device-code-activation-denied.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Device Activation|
-|description|We are not able to activate your device.|
-|eventTitle|Activation Denied|
+|Device Activation|`pageTitle`|
+|We are not able to activate your device.|`description`|
+|Activation Denied|`eventTitle`|
 
 ## Screen: device-code-confirmation
 
@@ -44,11 +44,11 @@
   <img alt="device-code-confirmation reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="device-code-confirmation" src="/media/articles/universal-login/text-customization/device-code-confirmation.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Connect to <%= "${clientName}" %>|
-|description|Please confirm this is the code displayed on your <%= "${clientName}" %>:|
-|title|Device Confirmation|
-|confirmButtonText|Confirm|
-|cancelButtonText|Cancel|
-|confirmationText|If you did not initiate this action or you do not recognize this device select cancel.|
+|Connect to <%= "${clientName}" %>|`pageTitle`|
+|Please confirm this is the code displayed on your <%= "${clientName}" %>:|`description`|
+|Device Confirmation|`title`|
+|Confirm|`confirmButtonText`|
+|Cancel|`cancelButtonText`|
+|If you did not initiate this action or you do not recognize this device select cancel.|`confirmationText`|

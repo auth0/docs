@@ -6,15 +6,15 @@
   <img alt="mfa-push-welcome reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-welcome" src="/media/articles/universal-login/text-customization/mfa-push-welcome.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Secure your Account|
-|title|Secure Your Account|
-|description|In order to continue, install the <%= "${appName}" %> app via the app store from your mobile device.|
-|androidButtonText|Google Play|
-|buttonText|Continue|
-|iosButtonText|App Store|
-|pickAuthenticatorText|Try another method|
+|Secure your Account|`pageTitle`|
+|Secure Your Account|`title`|
+|In order to continue, install the <%= "${appName}" %> app via the app store from your mobile device.|`description`|
+|Google Play|`androidButtonText`|
+|Continue|`buttonText`|
+|App Store|`iosButtonText`|
+|Try another method|`pickAuthenticatorText`|
 
 ## Screen: mfa-push-enrollment-qr
 
@@ -22,13 +22,13 @@
   <img alt="mfa-push-enrollment-qr reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-enrollment-qr" src="/media/articles/universal-login/text-customization/mfa-push-enrollment-qr.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Secure your Account|
-|title|Secure Your Account|
-|description|Scan the QR Code below using the <%= "${appName}" %> app on your mobile device.|
-|pickAuthenticatorText|Try another method|
-|buttonText|Continue|
+|Secure your Account|`pageTitle`|
+|Secure Your Account|`title`|
+|Scan the QR Code below using the <%= "${appName}" %> app on your mobile device.|`description`|
+|Try another method|`pickAuthenticatorText`|
+|Continue|`buttonText`|
 
 ## Screen: mfa-push-challenge-push
 
@@ -36,19 +36,19 @@
   <img alt="mfa-push-challenge-push reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-challenge-push" src="/media/articles/universal-login/text-customization/mfa-push-challenge-push.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Log in to <%= "${clientName}" %>|
-|title|Verify Your Identity|
-|description|We’ve sent a notification to the following device via the <%= "${appName}" %> app:|
-|awaitingConfirmation|Awaiting confirmation|
-|buttonText|I've responded on my device|
-|pickAuthenticatorText|Try another method|
-|rememberMeText|Remember this device for 30 days|
-|resendActionText|Resend|
-|resendText|Didn't receive a notification?|
-|enterOtpCode|Manually Enter Code|
-|separatorText|OR|
+|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Verify Your Identity|`title`|
+|We’ve sent a notification to the following device via the <%= "${appName}" %> app:|`description`|
+|Awaiting confirmation|`awaitingConfirmation`|
+|I've responded on my device|`buttonText`|
+|Try another method|`pickAuthenticatorText`|
+|Remember this device for 30 days|`rememberMeText`|
+|Resend|`resendActionText`|
+|Didn't receive a notification?|`resendText`|
+|Manually Enter Code|`enterOtpCode`|
+|OR|`separatorText`|
 
 ## Screen: mfa-push-challenge-code
 
@@ -56,16 +56,16 @@
   <img alt="mfa-push-challenge-code reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-challenge-code" src="/media/articles/universal-login/text-customization/mfa-push-challenge-code.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Log in to <%= "${clientName}" %>|
-|backText|Back|
-|buttonText|Continue|
-|description|Enter the one-time code found at the bottom of the <%= "${appName}" %> app.|
-|pickAuthenticatorText|Try another method|
-|placeholder|Enter the one-time code|
-|rememberMeText|Remember this device for 30 days|
-|title|Verify Your Identity|
+|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Back|`backText`|
+|Continue|`buttonText`|
+|Enter the one-time code found at the bottom of the <%= "${appName}" %> app.|`description`|
+|Try another method|`pickAuthenticatorText`|
+|Enter the one-time code|`placeholder`|
+|Remember this device for 30 days|`rememberMeText`|
+|Verify Your Identity|`title`|
 
 ## Screen: mfa-push-list
 
@@ -73,8 +73,8 @@
   <img alt="mfa-push-list reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-list" src="/media/articles/universal-login/text-customization/mfa-push-list.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Log in to <%= "${clientName}" %>|
-|backText|Go back|
-|title|Enrolled Devices|
+|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Go back|`backText`|
+|Enrolled Devices|`title`|

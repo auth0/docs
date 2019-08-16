@@ -6,16 +6,16 @@
   <img alt="reset-password-request reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="reset-password-request" src="/media/articles/universal-login/text-customization/reset-password-request.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Reset Password|
-|title|Forgot Your Password?|
-|backToLoginLinkText|Back to <%= "${clientName}" %>|
-|buttonText|Continue|
-|descriptionEmail|Enter your email address and we will send you instructions to reset your password.|
-|descriptionUsername|Enter your username and we will send you instructions to reset your password.|
-|placeholderEmail|Email address|
-|placeholderUsername|Username|
+|Reset Password|`pageTitle`|
+|Forgot Your Password?|`title`|
+|Back to <%= "${clientName}" %>|`backToLoginLinkText`|
+|Continue|`buttonText`|
+|Enter your email address and we will send you instructions to reset your password.|`descriptionEmail`|
+|Enter your username and we will send you instructions to reset your password.|`descriptionUsername`|
+|Email address|`placeholderEmail`|
+|Username|`placeholderUsername`|
 
 ## Screen: reset-password-email
 
@@ -23,14 +23,14 @@
   <img alt="reset-password-email reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="reset-password-email" src="/media/articles/universal-login/text-customization/reset-password-email.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Reset Password|
-|title|Check Your Email|
-|emailDescription|Please check the email address <%= "${email}" %> for instructions to reset your password.|
-|resendLinkText|Resend email|
-|resendText|Didn't receive an email?|
-|usernameDescription|Please check the email address associated with the username <%= "${email}" %> for instructions to reset your password.|
+|Reset Password|`pageTitle`|
+|Check Your Email|`title`|
+|Please check the email address <%= "${email}" %> for instructions to reset your password.|`emailDescription`|
+|Resend email|`resendLinkText`|
+|Didn't receive an email?|`resendText`|
+|Please check the email address associated with the username <%= "${email}" %> for instructions to reset your password.|`usernameDescription`|
 
 ## Screen: reset-password
 
@@ -38,15 +38,15 @@
   <img alt="reset-password reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="reset-password" src="/media/articles/universal-login/text-customization/reset-password.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Reset Password|
-|title|Change Your Password|
-|description|Enter a new password below to change your password.|
-|buttonText|Reset password|
-|passwordPlaceholder|New password|
-|reEnterpasswordPlaceholder|Re-enter new password|
-|passwordSecurityText|Your password must contain:|
+|Reset Password|`pageTitle`|
+|Change Your Password|`title`|
+|Enter a new password below to change your password.|`description`|
+|Reset password|`buttonText`|
+|New password|`passwordPlaceholder`|
+|Re-enter new password|`reEnterpasswordPlaceholder`|
+|Your password must contain:|`passwordSecurityText`|
 
 ## Screen: reset-password-success
 
@@ -54,12 +54,12 @@
   <img alt="reset-password-success reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="reset-password-success" src="/media/articles/universal-login/text-customization/reset-password-success.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Reset Password|
-|eventTitle|Password Changed!|
-|description|Your password has been changed successfully.|
-|buttonText|Back to <%= "${clientName}" %>|
+|Reset Password|`pageTitle`|
+|Password Changed!|`eventTitle`|
+|Your password has been changed successfully.|`description`|
+|Back to <%= "${clientName}" %>|`buttonText`|
 
 ## Screen: reset-password-error
 
@@ -67,13 +67,13 @@
   <img alt="reset-password-error reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="reset-password-error" src="/media/articles/universal-login/text-customization/reset-password-error.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Reset Password|
-|backToLoginLinkText|Back to <%= "${clientName}" %>|
-|descriptionExpired|To reset your password, return to the login page and select "Forgot Your Password" to send a new email.|
-|descriptionGeneric|To reset your password, return to the login page and select "Forgot Your Password" to send a new email.|
-|descriptionUsed|This link has already been used. To reset your password, return to the login page and select "Forgot Your Password" to send a new email.|
-|eventTitleExpired|Link Expired|
-|eventTitleGeneric|Invalid Link|
-|eventTitleUsed|Invalid Link|
+|Reset Password|`pageTitle`|
+|Back to <%= "${clientName}" %>|`backToLoginLinkText`|
+|To reset your password, return to the login page and select "Forgot Your Password" to send a new email.|`descriptionExpired`|
+|To reset your password, return to the login page and select "Forgot Your Password" to send a new email.|`descriptionGeneric`|
+|This link has already been used. To reset your password, return to the login page and select "Forgot Your Password" to send a new email.|`descriptionUsed`|
+|Link Expired|`eventTitleExpired`|
+|Invalid Link|`eventTitleGeneric`|
+|Invalid Link|`eventTitleUsed`|

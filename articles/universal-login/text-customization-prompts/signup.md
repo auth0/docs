@@ -6,17 +6,17 @@
   <img alt="signup reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="signup" src="/media/articles/universal-login/text-customization/signup.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Sign up to <%= "${clientName}" %>|
-|title|Welcome|
-|description|Sign Up to <%= "${companyName}" %> to continue to <%= "${clientName}" %>.|
-|separatorText|Or|
-|buttonText|Continue|
-|emailPlaceholder|Email address|
-|federatedConnectionButtonText|Continue with <%= "${connectionName}" %>|
-|footerLinkText|Log in|
-|footerText|Already have an account?|
-|passwordPlaceholder|Password|
-|passwordSecurityText|Your password must contain:|
-|usernamePlaceholder|Username|
+|Sign up to <%= "${clientName}" %>|`pageTitle`|
+|Welcome|`title`|
+|Sign Up to <%= "${companyName}" %> to continue to <%= "${clientName}" %>.|`description`|
+|Or|`separatorText`|
+|Continue|`buttonText`|
+|Email address|`emailPlaceholder`|
+|Continue with <%= "${connectionName}" %>|`federatedConnectionButtonText`|
+|Log in|`footerLinkText`|
+|Already have an account?|`footerText`|
+|Password|`passwordPlaceholder`|
+|Your password must contain:|`passwordSecurityText`|
+|Username|`usernamePlaceholder`|

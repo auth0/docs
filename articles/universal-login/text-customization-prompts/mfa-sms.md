@@ -6,11 +6,11 @@
   <img alt="mfa-country-codes reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-country-codes" src="/media/articles/universal-login/text-customization/mfa-country-codes.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Sign up to <%= "${clientName}" %>|
-|backText|Go back|
-|title|Select a Country Code|
+|Sign up to <%= "${clientName}" %>|`pageTitle`|
+|Go back|`backText`|
+|Select a Country Code|`title`|
 
 ## Screen: mfa-sms-enrollment
 
@@ -18,14 +18,14 @@
   <img alt="mfa-sms-enrollment reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-sms-enrollment" src="/media/articles/universal-login/text-customization/mfa-sms-enrollment.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Secure your Account|
-|title|Secure Your Account|
-|description|Enter your phone number below. An SMS will be sent to that number with a code to enter on the next screen.|
-|buttonText|Continue|
-|pickAuthenticatorText|Try another method|
-|placeholder|Enter your phone number|
+|Secure your Account|`pageTitle`|
+|Secure Your Account|`title`|
+|Enter your phone number below. An SMS will be sent to that number with a code to enter on the next screen.|`description`|
+|Continue|`buttonText`|
+|Try another method|`pickAuthenticatorText`|
+|Enter your phone number|`placeholder`|
 
 ## Screen: mfa-sms-challenge
 
@@ -33,18 +33,18 @@
   <img alt="mfa-sms-challenge reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-sms-challenge" src="/media/articles/universal-login/text-customization/mfa-sms-challenge.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Log in to <%= "${clientName}" %>|
-|title|Verify Your Identity|
-|description|We've sent a text message to:|
-|buttonText|Continue|
-|editText|Edit|
-|pickAuthenticatorText|Try another method|
-|placeholder|Enter the 6-digit code|
-|rememberMeText|Remember this device for 30 days|
-|resendActionText|Resend|
-|resendText|Didn't receive a code?|
+|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Verify Your Identity|`title`|
+|We've sent a text message to:|`description`|
+|Continue|`buttonText`|
+|Edit|`editText`|
+|Try another method|`pickAuthenticatorText`|
+|Enter the 6-digit code|`placeholder`|
+|Remember this device for 30 days|`rememberMeText`|
+|Resend|`resendActionText`|
+|Didn't receive a code?|`resendText`|
 
 ## Screen: mfa-sms-list
 
@@ -52,8 +52,8 @@
   <img alt="mfa-sms-list reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-sms-list" src="/media/articles/universal-login/text-customization/mfa-sms-list.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Log in to <%= "${clientName}" %>|
-|backText|Go back|
-|title|Enrolled Phone Numbers|
+|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Go back|`backText`|
+|Enrolled Phone Numbers|`title`|

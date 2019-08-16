@@ -6,15 +6,15 @@
   <img alt="mfa-otp-enrollment-qr reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-otp-enrollment-qr" src="/media/articles/universal-login/text-customization/mfa-otp-enrollment-qr.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Secure your Account|
-|title|Secure Your Account|
-|description|Scan the QR Code below using your preferred authenticator app and then enter the provided one-time code below.|
-|buttonText|Continue|
-|codeEnrollmentText|Trouble Scanning?|
-|pickAuthenticatorText|Try another method|
-|placeholder|Enter your one-time code|
+|Secure your Account|`pageTitle`|
+|Secure Your Account|`title`|
+|Scan the QR Code below using your preferred authenticator app and then enter the provided one-time code below.|`description`|
+|Continue|`buttonText`|
+|Trouble Scanning?|`codeEnrollmentText`|
+|Try another method|`pickAuthenticatorText`|
+|Enter your one-time code|`placeholder`|
 
 ## Screen: mfa-otp-enrollment-code
 
@@ -22,16 +22,16 @@
   <img alt="mfa-otp-enrollment-code reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-otp-enrollment-code" src="/media/articles/universal-login/text-customization/mfa-otp-enrollment-code.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Secure your Account|
-|backText|Go back|
-|buttonText|Continue|
-|copyCodeButtonText|Copy code|
-|description|Manually enter the following code into your preferred authenticator app and then enter the provided one-time code below.|
-|pickAuthenticatorText|Try another method|
-|placeholder|Enter your one-time code|
-|title|Secure Your Account|
+|Secure your Account|`pageTitle`|
+|Go back|`backText`|
+|Continue|`buttonText`|
+|Copy code|`copyCodeButtonText`|
+|Manually enter the following code into your preferred authenticator app and then enter the provided one-time code below.|`description`|
+|Try another method|`pickAuthenticatorText`|
+|Enter your one-time code|`placeholder`|
+|Secure Your Account|`title`|
 
 ## Screen: mfa-otp-challenge
 
@@ -39,12 +39,12 @@
   <img alt="mfa-otp-challenge reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-otp-challenge" src="/media/articles/universal-login/text-customization/mfa-otp-challenge.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Log in to <%= "${clientName}" %>|
-|title|Verify Your Identity|
-|description|Check your preferred one-time password application for a code.|
-|buttonText|Continue|
-|pickAuthenticatorText|Try another method|
-|placeholder|Enter your one-time code|
-|rememberMeText|Remember this device for 30 days|
+|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Verify Your Identity|`title`|
+|Check your preferred one-time password application for a code.|`description`|
+|Continue|`buttonText`|
+|Try another method|`pickAuthenticatorText`|
+|Enter your one-time code|`placeholder`|
+|Remember this device for 30 days|`rememberMeText`|

@@ -6,14 +6,14 @@
   <img alt="mfa-recovery-code-enrollment reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-recovery-code-enrollment" src="/media/articles/universal-login/text-customization/mfa-recovery-code-enrollment.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Sign up to <%= "${clientName}" %>|
-|title|Almost There!|
-|description|Copy this recovery code and keep it somewhere safe. You’ll need it if you ever need to log in without your device.|
-|buttonText|Continue|
-|checkboxText|I have safely recorded this number|
-|copyCodeButtonText|Copy code|
+|Sign up to <%= "${clientName}" %>|`pageTitle`|
+|Almost There!|`title`|
+|Copy this recovery code and keep it somewhere safe. You’ll need it if you ever need to log in without your device.|`description`|
+|Continue|`buttonText`|
+|I have safely recorded this number|`checkboxText`|
+|Copy code|`copyCodeButtonText`|
 
 ## Screen: mfa-recovery-code-challenge
 
@@ -21,11 +21,11 @@
   <img alt="mfa-recovery-code-challenge reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-recovery-code-challenge" src="/media/articles/universal-login/text-customization/mfa-recovery-code-challenge.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Log in to <%= "${clientName}" %>|
-|title|Verify Your Identity|
-|description|Enter the recovery code you were provided during your initial enrollment.|
-|buttonText|Continue|
-|pickAuthenticatorText|Try another method|
-|placeholder|Enter your recovery code|
+|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Verify Your Identity|`title`|
+|Enter the recovery code you were provided during your initial enrollment.|`description`|
+|Continue|`buttonText`|
+|Try another method|`pickAuthenticatorText`|
+|Enter your recovery code|`placeholder`|

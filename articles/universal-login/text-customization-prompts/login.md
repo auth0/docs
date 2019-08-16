@@ -6,20 +6,20 @@
   <img alt="login reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="login" src="/media/articles/universal-login/text-customization/login.png" style="width: 400px;"/>
 </p>
 
-|Key|Value|
+|Text|Key|
 |----------|----------|
-|pageTitle|Log in to <%= "${clientName}" %>|
-|title|Welcome|
-|description|Log in to <%= "${companyName}" %> to continue to <%= "${clientName}" %>.|
-|separatorText|Or|
-|buttonText|Continue|
-|federatedConnectionButtonText|Continue with <%= "${connectionName}" %>|
-|footerLinkText|Sign up|
-|footerText|Don't have an account?|
-|forgotPasswordText|Forgot password?|
-|passwordPlaceholder|Password|
-|usernamePlaceholder|Username or email address|
-|captchaCodePlaceholder|Enter the code shown above|
-|captchaMatchExprPlaceholder|Solve the challenge shown above|
-|emailPlaceholder|Email address|
-|alertListTitle|Alerts|
+|Log in to <%= "${clientName}" %>|`pageTitle`|
+|Welcome|`title`|
+|Log in to <%= "${companyName}" %> to continue to <%= "${clientName}" %>.|`description`|
+|Or|`separatorText`|
+|Continue|`buttonText`|
+|Continue with <%= "${connectionName}" %>|`federatedConnectionButtonText`|
+|Sign up|`footerLinkText`|
+|Don't have an account?|`footerText`|
+|Forgot password?|`forgotPasswordText`|
+|Password|`passwordPlaceholder`|
+|Username or email address|`usernamePlaceholder`|
+|Enter the code shown above|`captchaCodePlaceholder`|
+|Solve the challenge shown above|`captchaMatchExprPlaceholder`|
+|Email address|`emailPlaceholder`|
+|Alerts|`alertListTitle`|
