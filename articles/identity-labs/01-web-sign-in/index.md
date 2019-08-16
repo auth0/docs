@@ -39,4 +39,4 @@ The Node OIDC npm package that this lab uses has not been tested, licensed, or o
 
 ---
 
-#### [Next: Exercise 1, Add Web Sign In to an App →](/identity-labs/01-web-sign-in/exercise-01)
+<a href="/identity-labs/01-web-sign-in/exercise-01" class="btn btn-transparent">Start →</a>

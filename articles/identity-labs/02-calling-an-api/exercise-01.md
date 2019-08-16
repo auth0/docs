@@ -14,7 +14,7 @@ contentType:
 ---
 # Lab 2, Exercise 1: Consuming APIs
 
-After learning how to secure your web apps with Auth0, you will learn how to make these apps consume APIs on behalf of your users. However, before that, you will start by running an API (on its unsecured version) and a web application to see both working together.
+After learning how to secure your web application with Auth0 in [lab 1](/identity-labs/01-web-sign-in), you will now learn how to make this application consume APIs on behalf of your users. You will start by running an unsecured API and a web application to see both working together, then you will secure your API with Auth0.
 
 1. Open a new terminal and browse to `/lab-02/begin/api` in your locally-cloned copy of the [`auth0/identity-102-exercises` repo](https://github.com/auth0/identity-102-exercises/) . This is where the code for your API resides. The API is an Express backend that contains a single endpoint. This endpoint (served under the root path) returns expenses. Think about these expenses as data that belong to each user in particular (although they are actually static and the same for all).
 
@@ -28,21 +28,20 @@ After learning how to secure your web apps with Auth0, you will learn how to mak
 ❯ npm install
 # Ignore any warnings
 
-added 51 packages in 2.895s
+added 49 packages in 1.47s
 ```
 
 3. Next, copy the `.env-example` to `.env` and start the API:
 
 ```bash
 ❯ cp .env-sample .env
-
 ❯ npm start
 
 listening on http://localhost:3001
 ```
 
 ::: note
-If you see a message like "Error: listen EADDRINUSE :::3001" in your terminal after starting the application, this means that port 3001 is in use somewhere. Change the `PORT` value in your `.env` file to "3010" and try again.
+If you see a message like *Error: listen EADDRINUSE :::3001* in your terminal after starting the application, this means that port 3001 is in use somewhere. Change the `PORT` value in your `.env` file to "3002" and try again.
 :::
 
 4. In a new terminal window or tab, navigate to the `/lab-02/begin/webapp` directory and install the dependencies using npm:
@@ -58,7 +57,7 @@ If you see a message like "Error: listen EADDRINUSE :::3001" in your terminal af
 ❯ npm install
 # Ignore any warnings
 
-added 186 packages in 6.88s
+added 193 packages in 3.047s
 ```
 
 5. Once again, copy the `.env-example` to `.env` for the web application:
@@ -85,7 +84,7 @@ listening on http://localhost:3000
 
 ![](/media/articles/identity-labs/lab-02-starter-app-rendered.png)
 
-Right now, even though the application requires authentication, the API does not. That is, you are calling the API from the Web app, without any authentication information. In fact, if you browse to the API's URL (http://localhost:3001) without logging in, you will see the expenses. In the following steps, you will update your application to be call the API with a token.
+Right now, even though the application requires authentication, the API does not. That is, you are calling the API from the Web app, without any authentication information. In fact, if you browse to the API's URL (http://localhost:3001) without logging in, you will see the expenses. In the following steps, you will update your application to call the API with a token.
 
 9. Open `webapp/server.js` in your code editor and replace this code:
 
@@ -112,14 +111,14 @@ app.use(auth({
 }));
 ```
 
-This change updates the configuration object passed to `auth()` and defines how you want the `express-openid-connect` library to behave. In this case, you configured the library with a new property called authorizationParams and passed it an object with three properties:
+This change updates the configuration object passed to `auth()` and defines how you want the `express-openid-connect` library to behave. In this case, you configured the library with a new property called `authorizationParams` and passed in an object with three properties:
 
-- `response_type` - by configuring this field with `id_token code`, you are indicating that you no longer want the library to fetch just an ID token (which is the default behavior of the library). Instead, you are specifying that you want an ID token *and* an authorization code. When you configure the `express-openid-connect` library to fetch an authorization code, the library automatically exchanges this code for an access token (this process is known as the Authorization Code Grant flow). Later, you will use the access token to call the API.
-- `audience` - this tells the library that you want access tokens valid for a specific resource server (your API, in this case). As you will see soon, you will configure an `API_AUDIENCE` environment variable to point to the identifier of an API that you will register with Auth0.
-- `scope` - By using OAuth 2.0 to secure your APIs, you are using a delegated authorization mechanism where an application (your web app) requests access to resources controlled by the user (the resource owner) and hosted by an API (the resource server). Scopes, in this case, are the permissions that the access token grants to the application on behalf of the user. In your case, you are defining four scopes: the first three (`openid`, `profile`, and `email`) are scopes related to the user profile (part of OpenID Connect specification). The last one, `read:reports`, is a custom scope that will be used to determine whether the caller is authorized to retrieve the expenses report from the API on behalf of a user.
+- `response_type` - setting this field to `id_token code` indicates that you no longer want the middleware to fetch just an ID token (which is the default behavior for this package). Instead, you are specifying that you want an ID token *and* an authorization code. When you configure the `express-openid-connect` library to fetch an authorization code, the middleware automatically exchanges this code for an access token (this process is known as the Authorization Code Grant flow). Later, you will use the access token to call the API.
+- `audience` - this tells the middleware that you want access tokens valid for a specific resource server (your API, in this case). As you will see soon, you will configure an `API_AUDIENCE` environment variable to point to the identifier of an API that you will register with Auth0.
+- `scope` - securing your API uses a delegated authorization mechanism where an application (your web app) requests access to resources controlled by the user (the resource owner) and hosted by an API (the resource server). Scopes, in this case, are the permissions that the access token grants to the application on behalf of the user. In your case, you are defining four scopes: the first three (`openid`, `profile`, and `email`) are scopes related to the user profile (part of OpenID Connect specification). The last one, `read:reports`, is a custom scope that will be used to determine whether the caller is authorized to retrieve the expenses report from the API on behalf of a user.
 
 ::: note
-Note: to exchange the authorization code for an access token, the web application needs to authenticate with the authorization server. You will configure your web app to send the `CLIENT_SECRET` along with `CLIENT_ID` for this purpose later in this lab.
+To exchange the authorization code for an access token, the web application needs to authenticate with the token endpoint of the authorization server. You will configure your web app to send the `CLIENT_SECRET` along with `CLIENT_ID` for this purpose later in the lab.
 :::
 
 10. Back in the `webapp/server.js` file, find the following code in the `/expenses` endpoint definition:
@@ -179,14 +178,12 @@ API_AUDIENCE=https://expenses-api
 CLIENT_SECRET=[Application Client Secret from Auth0]
 ```
 
-The `API_AUDIENCE` value of "https://expenses-api" is the identifier we will for the API that will be created in the following exercise. To get your Client Secret, go to your Application settings page in the Auth0 Dashboard:
+The `API_AUDIENCE` value is the identifier for the API that will be created in the following exercise. To get your Client Secret, go to your Application settings page in the Auth0 Dashboard:
 
 ![](/media/articles/identity-labs/lab-02-client-secret-config.png)
 
 **And that's it!** You have just configured your web application to consume the API on behalf of the logged in user.
 
-If you run the application and try to log in, the authorization server will return an error because no resource server with the identifier `https://expenses-api` has been registered yet. In the next exercise, you will learn how to create and secure APIs with Auth0 and this request will begin to work.
+If you restart the application in your terminal, logout, and try to log back in, you will see an error because no resource server with the identifier `https://expenses-api` has been registered yet. In the next exercise, you will learn how to create and secure APIs with Auth0 and this request will begin to work.
 
----
-
-#### [Next: Exercise 2, Securing APIs with Auth0 →](/identity-labs/02-calling-an-api/exercise-02)
+<a href="/identity-labs/02-calling-an-api/exercise-02" class="btn btn-transparent">Next →</a>

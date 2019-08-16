@@ -101,6 +101,4 @@ Note the following:
 - The claim `iat` shows when the token was issued (seconds since Unix epoch) and can be used to determine the token’s age.
 - The claim `exp` shows when the token expires (seconds since Unix epoch).
 
----
-
-#### [← Back to Identity Labs home](/identity-labs/)
+<a href="/identity-labs/" class="btn btn-transparent">← All Identity Labs</a>

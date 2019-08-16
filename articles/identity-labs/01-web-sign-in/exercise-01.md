@@ -172,6 +172,4 @@ listening on http://localhost:3000
 listening on http://localhost:3000
 ```
 
----
-
-#### [Next: Exercise 2, Using Network Traces →](/identity-labs/01-web-sign-in/exercise-02)
+<a href="/identity-labs/01-web-sign-in/exercise-02" class="btn btn-transparent">Next →</a>

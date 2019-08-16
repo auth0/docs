@@ -35,6 +35,4 @@ The Node OIDC and bearer token npm packages that this lab uses has not been test
 
 <%= include('../_includes/what-you-need') %>
 
----
-
-#### [Next: Exercise 1, Add Web Sign In to an App →](/identity-labs/02-calling-an-api/exercise-01)
+<a href="/identity-labs/02-calling-an-api/exercise-01" class="btn btn-transparent">Start →</a>
