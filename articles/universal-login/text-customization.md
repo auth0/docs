@@ -30,13 +30,9 @@ PUT '/api/v2/prompts/PROMPT/custom-texts',
 You need to provide the proper values to the `prompt`, `screen`, `text id`, and `language id` fields.
 
 * The term `prompt` is used to refer to a specific step in the login flow. The available `prompt` values are:
-
-<%= include('text-customization-prompts/_prompts') %>
-
+	<%= include('text-customization-prompts/_prompts') %>
 * Each `prompt` can have one or more screens. For example, the [Login](/universal-login/text-customization-prompts/login) prompt has a single screen, but the [Reset Password](/universal-login/text-customization-prompts/reset-password) prompt has many screens.
-
 * Each screen has a set of `text id`s. 
-
 * You can find the list of available languages on the [Universal Login Internationalization page](/universal-login/i18n).
 
 ## Available variables 
