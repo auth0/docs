@@ -118,7 +118,7 @@ The following tables describe operational and feature differences between these 
             <th class="info"><strong>PCI Compliance</strong></th>
             <td>No</td>
             <td>Add-on available</td>
-            <td>Add-on available for Auth0-Hosted Private Clouds</td>
+            <td>Add-on available for Auth0-Hosted Private Cloud</td>
         </tr>
         <tr>
             <th class="info"><strong>Support Channels & Levels</strong></th>
