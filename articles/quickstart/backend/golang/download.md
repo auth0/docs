@@ -2,7 +2,7 @@ To run it from the command line:
 
 ```bash
 go get -d
-go run main.go server.go
+go run main.go
 ```
 
 The sample includes a [Docker](https://www.docker.com) image ready to run with the following command:
