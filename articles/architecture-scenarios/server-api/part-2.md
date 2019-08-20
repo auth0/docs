@@ -70,17 +70,17 @@ In the settings for your API, go to the *Scopes* tab. In this section you can ad
 
 When creating an API in the Auth0 Dashboard, a test application for the API will automatically be generated. In the Auth0 Dashboard, navigate to the [Application Section](${manage_url}/#/applications) and you will see the test application for the Timesheets API.
 
-![Machine to Machine Application](/media/articles/architecture-scenarios/server-api/non-interactive-client.png)
+![Non interactive Client](/media/articles/architecture-scenarios/server-api/non-interactive-client.png)
 
 Go to the settings for the application by clicking on the gear icon, and rename the application to `Timesheets import Job`.
 
-For the cron job you will need a Machine to Machine Application. This test application which was generated when the API was created was automatically configured as a Machine to Machine Application as can be seen in the screenshot below.
+For the cron job you will need a Non interactive Client. This test application which was generated when the API was created was automatically configured as a Non interactive Client as can be seen in the screenshot below.
 
-![Machine to Machine Application Settings](/media/articles/architecture-scenarios/server-api/non-interactive-client-settings.png)
+![Non interactive Client Settings](/media/articles/architecture-scenarios/server-api/non-interactive-client-settings.png)
 
 ## Configure Application's access to the API
 
-The final part of the Auth0 configuration is to allow the application access to the Timesheets API. Go back to the configuration of the API, and select the *Machine to Machine Application* tab.
+The final part of the Auth0 configuration is to allow the application access to the Timesheets API. Go back to the configuration of the API, and select the *Non interactive CLients* tab.
 
 You will see the **Timesheets Import Job** application listed, and it should have access to API as can be seen from the switch to the right of the application name which indicates a value of `Authorized`. If it does not indicate that the application is authorized, simply toggle the value of the switch from `Unauthorized` to `Authorized`.
 
