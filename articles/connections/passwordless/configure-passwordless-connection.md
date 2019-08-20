@@ -1,3 +1,13 @@
+---
+title: Configure Passwordless Connections
+topics:
+    - connections
+    - passwordless
+    - sms
+    - email
+contentType: how-to
+useCase: customize-connections
+---
 # Configure Passwordless Connections
 
 This guide will show you how to configure Passwordless connections using Auth0's Dashboard. This task can also be performed using the Management API.
