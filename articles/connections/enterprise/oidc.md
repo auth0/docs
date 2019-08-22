@@ -58,7 +58,7 @@ If you edit the OIDC Connect Connection, you will see additional configuration o
     * Front Channel: Auth0 will use `response_mode=form_post` and `response_type=id_token`. It's the preferred one as it does not require a client secret. 
     * Back Channel: Auth0 will use the authorization code flow with `response_type=code`.
 
-* **IdP Domains**: The list of email domains that can be authenticated in the Identity Provider. This is only applicable when using [Identifier First](/universal-login/identifier-first) authentication in the Classic Universal Login Experience.
+* **IdP Domains**: The list of email domains that can be authenticated in the Identity Provider. This is only applicable when using Identifier First authentication in the Classic Universal Login Experience.
 
 * **Scopes**: The list of OAuth scopes that will be requested when connecting to the identity provider. This will affect the data stored in the user profile. You are required to include at least the 'openid' scope. Note that the connection does not call `/userinfo` endpoint and expects the user claims to be present in the `id_token`.
 
