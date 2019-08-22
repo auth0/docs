@@ -768,7 +768,8 @@ Allows to set the initial value for the email and/or username inputs. When omitt
 var options = {
   prefill: {
     email: "someone@auth0.com",
-    username: "someone"
+    username: "someone",
+    phoneNumber: "+1234567890"
   }
 };
 ```
