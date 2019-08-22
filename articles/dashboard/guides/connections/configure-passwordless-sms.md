@@ -9,7 +9,7 @@ useCase: customize-connections
 ---
 # Configure Passwordless SMS Connections
 
-This guide will show you how to configure Passwordless SMS connections using Auth0's Dashboard. This task can also be performed using the Management API.
+This guide will show you how to configure Passwordless SMS connections using Auth0's Dashboard.
 
 ::: panel Twilio Account
 Before proceeding, you will need a valid Twilio account. Auth0 will use your [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and [ Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it) to send SMS messages tousers.

@@ -9,7 +9,7 @@ useCase: customize-connections
 ---
 # Configure Passwordless Email Connections
 
-This guide will show you how to configure Passwordless SMS connections using Auth0's Dashboard. This task can also be performed using the Management API.
+This guide will show you how to configure Passwordless SMS connections using Auth0's Dashboard.
 
 1. Navigate to the [Connections > Passwordless](${manage_url}/#/connections/passwordless) page in the [Auth0 Dashboard](${manage_url}/), and enable the Email toggle.
 
