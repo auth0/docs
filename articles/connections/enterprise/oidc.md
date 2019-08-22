@@ -17,13 +17,17 @@ useCase:
     - add-idp
 ---
 
+::: warning
+If you are using Lock with an OpenID Connect (OIDC) connection, you must use Lock version 11.16 or higher.
+:::
+
 # Connect to an OpenID Connect Identity Provider
 
-Auth0 provides an OpenID Connect connection that enables you to connect to OIDC compliant identity providers. 
+Auth0 provides an OpenID Connect (OIDC) connection that enables you to connect to OIDC-compliant identity providers. 
 
-The Open ID identity provider needs to support [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html) to be configurable using the Auth0 Dashboard. You can configure it using the [Management API](#configuring_the_connection_using_the_management_api) otherwise.
+To be configurable through the Auth0 Dashboard, the Open ID identity provider needs to support [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html). Otherwise, you can configure it using the [Management API](#configuring_the_connection_using_the_management_api).
 
-To create a new OpenID Connect connection, you'll need to complete the following fields:
+To create a new OIDC connection, you'll need to complete the following fields:
 
 ![](/media/articles/connections/enterprise/oidc/oidc-small.png)
 
