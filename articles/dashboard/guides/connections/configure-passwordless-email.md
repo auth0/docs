@@ -44,7 +44,7 @@ You can also use multiple languages in your emails. To set the language used, ca
 
 The template editor accepts [Liquid](/email/liquid-syntax) syntax embedded within the HTML. This allows you to construct parts of your message programmatically.
 
-4. Enter any **Authentication Parameters** you would like to include in the generated sign-in link. These will be included as query string parameters.
+1. Enter any **Authentication Parameters** you would like to include in the generated sign-in link. These will be included as query string parameters. You can use these parameters to alter the authentication process, e.g., requesting permissions to access things like user profile information. 
 
 <%= include('./_includes/_otp-settings') %>
 
