@@ -10,7 +10,9 @@ useCase: customize-connections
 
 There are many scenarios in which rules can be used with authentication. In this particular scenario, you may be using [passwordless connection(s)](/connections/passwordless) in your application, but wish to add extra precautions or security to the process. 
 
-These added steps can be done with [rules](/rules), which can be created in the [Dashboard > Rules](${manage_url}/#/rules). The below is an example of such a rule.
+These added steps can be done with [rules](/rules), which can be created in the [Dashboard > Rules](${manage_url}/#/rules). The below is an example of such a rule. 
+
+This rule can be used to prompt a user for multifactor authentication if they use a passwordless (`sms` or `email`) authentication method when their session IP falls outside of the designated corporate network. This is particularly useful when trying to limit the use of passwordless connections to more secure locations.
 
 ```js
 function (user, context, callback) {
@@ -37,8 +39,6 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
-
-This rule can be used to prompt a user for multifactor authentication if they use a passwordless (`sms` or `email`) authentication method when their session IP falls outside of the designated corporate network. This is particularly useful when trying to limit the use of passwordless connections to more secure locations. 
 
 This rule can also be easily adapted to trigger on other criteria, such as if the current IP does not match any in the user's IP whitelist, or if geolocating the user reveals that they are not in the same country as the country listed in their profile (if the user profile has that information). 
 
