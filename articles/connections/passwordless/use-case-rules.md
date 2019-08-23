@@ -42,4 +42,4 @@ function (user, context, callback) {
 
 This rule can also be easily adapted to trigger on other criteria, such as if the current IP does not match any in the user's IP whitelist, or if geolocating the user reveals that they are not in the same country as the country listed in their profile (if the user profile has that information). 
 
-The ability to add these extra precautions to the process of authenticating via passwordless connections help to alleviate security concerns about posession of devices and other obstacles, but allow users to use passwordless to easily authenticate under the right circumstances.
+The ability to add these extra precautions to the process of authenticating via passwordless connections can help to alleviate security concerns about factors such as the possession of devices. At the same time, those rules can allow users to use Passwordless to more easily authenticate under the right circumstances.
