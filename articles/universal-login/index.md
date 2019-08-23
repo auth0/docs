@@ -62,7 +62,7 @@ In addition to configuring Universal Login for your tenant's applications, you w
 
 ### Using the SPA SDK
 
-If you are already using Auth0's [Single-Page App SDK](/libraries/auth0-spa), using the `auth0.loginWithPopup()` or `auth0.loginWithRedirect()` methods will bring you to the authorize endpoint.
+If you are already using Auth0's [Single-Page App SDK](/libraries/auth0-spa-js), using the `auth0.loginWithPopup()` or `auth0.loginWithRedirect()` methods will bring you to the authorize endpoint.
 
 ```html
 <button id="loginPopup">Login with Popup</button>

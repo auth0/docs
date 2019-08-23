@@ -429,7 +429,7 @@ Then add the `/profile` route to your navigation bar by inserting a new `<li>` e
 </li>
 <!-- /profile -->
 
-<li cv-if="isAuthenticated">
+<li v-if="isAuthenticated">
   <a href="#" @click.prevent="logout">Log out</a>
 </li>
 ```

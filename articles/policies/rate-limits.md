@@ -258,7 +258,7 @@ For all endpoints, Enterprise subscribers are limited to 100 requests per second
   <tr>
     <td>Change Password</td>
     <td>/dbconnections/change_password</td>
-    <td>User ID and IP</td>
+    <td>User Email and IP</td>
     <td>All</td>
     <td>1 request per minute with bursts of up to 10 requests</td>
   </tr>

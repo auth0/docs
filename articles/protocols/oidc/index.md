@@ -1,19 +1,22 @@
 ---
 url: /protocols/oidc
 title: OpenID Connect
-description: Learn about the OpenID Connect (OIDC) protocol and how it works
+description: Learn about the OpenID Connect (OIDC) protocol and how it works.
 topics:
     - protocols
+    - connections
     - oidc
+    - open-id-connect
 contentType:
   - index
   - concept
 useCase:
   - development
+  - oidc
 ---
 # OpenID Connect
 
-**OpenID Connect (OIDC)** is an authentication protocol, based on the OAuth 2.0 family of specifications. It uses simple <dfn data-key="json-web-token">JSON Web Tokens (JWT)</dfn>, which you can obtain using flows conforming to the OAuth 2.0 specifications.
+OpenID Connect (OIDC) is an authentication protocol, based on the OAuth 2.0 family of specifications. It uses simple <dfn data-key="json-web-token">JSON Web Tokens (JWT)</dfn>, which you can obtain using flows conforming to the OAuth 2.0 specifications.
 
 While OAuth 2.0 is about resource access and sharing, OIDC is all about user authentication. Its purpose is to give you one login for multiple sites. Each time you need to log in to a website using OIDC, you are redirected to your OpenID site where you login, and then taken back to the website.
 
