@@ -261,18 +261,16 @@ ng generate component external-api
 Open `src/app/external-api/external-api.component.ts` and add this code:
 
 ```ts
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-external-api',
   templateUrl: './external-api.component.html',
   styleUrls: ['./external-api.component.css']
 })
-export class ExternalApiComponent implements OnInit, OnDestroy {
+export class ExternalApiComponent implements OnInit {
   responseJson: string;
-  pingSub: Subscription;
 
   constructor(private api: ApiService) { }
 
@@ -280,21 +278,19 @@ export class ExternalApiComponent implements OnInit, OnDestroy {
   }
 
   pingApi() {
-    this.pingSub = this.api.ping$().subscribe(
+    this.api.ping$().subscribe(
       res => this.responseJson = res
     );
-  }
-
-  ngOnDestroy() {
-    if (this.pingSub) {
-      this.pingSub.unsubscribe();
-    }
   }
 
 }
 ```
 
-The API service is provided and a named subscription to `api.ping$()` is created. The act of subscribing fires off the HTTP call, which we'll do on a button click in the UI. When data comes back from the API, the results are set in a local property (`responseJson`). When the component is destroyed, we unsubscribe from the subscription.
+The API service is provided and a named subscription to `api.ping$()` is created. The act of subscribing fires off the HTTP call, which we'll do on a button click in the UI. When data comes back from the API, the results are set in a local property (`responseJson`).
+
+:::note
+We do _not_ need to unsubscribe from the `api.ping$()` observable because it completes once the HTTP request is finished.
+:::
 
 Open `src/app/external-api/external-api.component.html` and replace its contents with the following:
 
