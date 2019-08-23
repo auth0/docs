@@ -340,7 +340,7 @@ To fill in the missing info in primary identities with information from secondar
 ```js
 function(user, context, callback) {
   
-  const propertiesToComplete = ["given_name", "family_name", "name", "maroon"];
+  const propertiesToComplete = ["given_name", "family_name", "name"];
 
   // go over each property and try to get missing
   // information from secondary identities
