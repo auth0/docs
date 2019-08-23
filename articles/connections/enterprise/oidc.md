@@ -5,7 +5,6 @@ image: /media/connections/open-id.png
 seo_alias: oidc
 description: Connecting to OpenID Connect Identity Providers
 crews: crew-2
-beta: true
 toc: true
 topics:
     - connections
