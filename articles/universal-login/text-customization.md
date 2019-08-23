@@ -18,7 +18,7 @@ Auth0 provides an API that you can use to customize all the text displayed in th
 The API is defined with the following structure:
 
 ```
-PUT '/api/v2/prompts/PROMPT/custom-texts',
+PUT '/api/v2/prompts/PROMPT/custom-text',
 {
  "SCREEN": {
    "TEXT1_ID": {
@@ -61,7 +61,7 @@ If you want to change the **description** field for the `login` prompt so that i
 ```har
 {
 	"method": "POST",
-	"url": "https://${account.namespace}/api/v2/prompts/login/custom-texts",
+	"url": "https://${account.namespace}/api/v2/prompts/login/custom-text",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
@@ -84,7 +84,7 @@ If you want to delete all custom text for the `login` prompt you can send an emp
 ```har
 {
 	"method": "POST",
-	"url": "https://${account.namespace}/api/v2/prompts/login/custom-texts",
+	"url": "https://${account.namespace}/api/v2/prompts/login/custom-text",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
