@@ -333,9 +333,9 @@ If your goal is to delete the secondary identity entirely, you must first unlink
 
 ## Properties from secondary identities
 
-When a user logs in applications get the user information coming from the **primary identity**. Auth0 will not attempt to automatically complete any missing profile field from information coming from the secondaries identities. E.g. if the primary identity is a database connection identity with no `given_name` and `family_name` properties, and the secondary identity is from a Google social connection that has the first and last name of the user, the application will not get that data by default.
+When a user logs in, applications receive user information from the **primary identity**. Auth0 will not attempt to automatically complete any missing profile field with information from the secondary identities. For example, if the primary identity comes from a database connection and is missing the `given_name` and `family_name` properties, and the secondary identity comes from a Google social connection that includes the first and last name of the user, then by default, the application will **not** receive data contained in the second identity.
 
-You can write a [rule](/rules) that tries to fill in missing information from secondary identities like this:
+To fill in the missing info in primary identities with information from secondary identities, you can write a [rule](/rules):
 
 ```js
 function(user, context, callback) {
