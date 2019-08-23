@@ -1,0 +1,237 @@
+---
+section: exercises
+classes: topic-page
+title: Exercise 1: Adding Authentication
+description: Auth0 digital identity Lab 3, Exercise 1: Adding Authentication
+topics:
+  - digital identity
+  - OIDC
+  - OpenId Connect
+  - OAuth2
+contentType:
+  - index
+  - concept
+---
+# Lab 3, Exercise 1: Adding Authentication
+
+In this exercise, you will add authentication to an existing iOS application. A simple iOS application has been provided to get you started. This is a single-view application with a button to launch the Auth0 authentication process.
+
+1. Launch XCode, go to **File > Open**, and open `/lab-03/exercise-01/begin/exercise-01.xcworkspace` in your locally-cloned copy of the [`auth0/identity-102-exercises` repo](https://github.com/auth0/identity-102-exercises/).
+
+::: note
+If the project complains about a missing dependency, you might have opened `exercise-01.xcodeproj` instead of `exercise-01.xcworkspace` (note the extension).
+:::
+
+This project is a bare-bones application that imports the [Auth0.swift](https://github.com/auth0/auth0.swift) dependency to provide the OpenID Connect implementation. There is also a stub method called `actionLogin` for processing the touch of the button.
+
+2. In the bar at the top of the project window, click the device selector and pick a late-model iPhone, then click the Play button (or **Product > Run** from the XCode menu) to run the app.
+
+![](/media/articles/identity-labs/lab-03-choose-device-and-run.png)
+
+The simulator may take a few moments to load the first time, and then you should see the following:
+
+![](/media/articles/identity-labs/lab-03-first-run.png)
+
+3. Touch the **Log In** button. This will output a "Log In" message to the Debug area in Xcode. If you don’t see the Debug view, you can enable it with **View > Debug Area > Show Debug Area**.
+
+![](/media/articles/identity-labs/lab-03-first-debug-area.png)
+
+4. Before any calls are made to the Auth0 authorization server, you need to set up a new Auth0 Application for handling Native Applications. Log into the Auth0 Dashboard, go to the [Applications page](${manage_url}/#/applications), and click the **Create Application** button.
+
+5. Enter a descriptive name, select "Native" as the application type, and click **Create**.
+
+6. Click on the **Settings** tab and scroll down to the **Allowed Callback URLs** field. Enter the value below (modified with your tenant domain), then scroll down and click **Save Changes**:
+
+```text
+com.auth0.identity102://YOUR_TENANT_DOMAIN/ios/com.auth0.identity102/callback
+```
+
+You might be wondering why the callback URL is in this format. There are two parts to this: the first element is the scheme of the application, which for the purposes of this exercise, is defined as `com.auth0.identity102`. Whenever Safari needs to handle a request with this scheme, it will route it to our application (you will set up this custom URL scheme URL later in the lab). The rest of the URL is in a format that the Auth0.swift SDK specifies for callbacks.
+
+7. Now the sample iOS application needs to be configured with the **Client ID** and **Domain** values from the Auth0 Application. Return to XCode and open the `exercise-01/Auth0.plist` file. You should see value placeholders for **ClientId** and **Domain**. Replace these with the values from the Auth0 Application created above.
+
+![](/media/articles/identity-labs/lab-03-plist.png)
+
+::: note
+The domain must not have any prefix like in the previous labs. Enter it exactly as it is provided in the Auth0 dashboard.
+:::
+
+To be able to use the callback that was configured in the Auth0 dashboard, a URL scheme handler needs to be registered in our iOS application so that it can respond to requests made to the callback URL.
+
+8. In the file navigator on the left, click on `exercise-01` to open the project settings, then click on the **Info** tab.
+
+![](/media/articles/identity-labs/lab-03-project-settings-info-tab.png)
+
+9. Scroll down to **URL Types**, expand the section, click the **+** button, and fill out the following details:
+
+- **Identifier**: `auth0`
+- **URL Schemes**: `$(PRODUCT_BUNDLE_IDENTIFIER)`
+- **Role**: `None`
+
+Just as `http` is a URL Scheme that will launch a browser, the bundle identifier of the app as a URL Scheme (which will resolve to `com.auth0.identity102`) will tell iOS that any time this scheme is used in a URL, it must be routed to our application. That will be the case of the callback used by Auth0 after you log in.
+
+10. Now, the application needs to have the Auth0.swift SDK handle the callback in order to proceed with the authentication flow. In the Project Navigator on the left, open `exercise-01/AppDelegate.swift` and add the following import statement just below the other one:
+
+```swift
+// exercise-01/AppDelegate.swift
+
+import UIKit
+
+// Add the code below 👇
+import Auth0
+```
+
+11. In the same file, add the following method inside the `AppDelegate` class:
+
+```swift
+// exercise-01/AppDelegate.swift
+// ...
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+    // Add the code below 👇
+    func application(_
+        app: UIApplication,
+        open url: URL,
+        options: [UIApplication.OpenURLOptionsKey : Any]
+        ) -> Bool {
+        return Auth0.resumeAuth(url, options: options)
+    }
+
+    // ... other existing methods
+}
+```
+
+When another app requests a URL containing the custom scheme, the system will launch your app if necessary, bring it to the foreground, and call the method above. The iOS Framework provides the delegate method above for you to implement, so that you can parse the contents of the URL and take appropriate action. In this case, you need this information to continue the authentication flow process. You will see later in this exercise why this step is needed.
+
+Now that the iOS application is configured with your Auth0 application credentials and is able to receive and process callbacks, complete the following steps to see how to construct the OpenID Connect request to the authorization server.
+
+12. Open `exercise-01/ViewController.swift` and add the following code inside the `actionLogin` method, after the line that prints the "Log In" message to the console:
+
+```swift
+// exercise-01/ViewController.swift
+// ...
+  @IBAction func actionLogin(_ sender: Any) {
+      print("Log In")
+
+      // Add the code below 👇
+      Auth0
+        .webAuth()
+        .scope("openid profile email")
+        .logging(enabled: true)
+        .start { response in
+            switch(response) {
+                case .success(let result):
+                    print("Authentication Success")
+                    print("Access Token: \(result.accessToken ?? "No Access Token Found")")
+                    print("ID Token: \(result.idToken ?? "No ID Token Found")")
+                case .failure(let error):
+                    print("Authentication Failed: \(error)")
+                }
+           }
+  }
+// ...
+```
+
+13. Run the app again by clicking the Play button (or **Product > Run** from the XCode menu).
+
+14. Once the app has launched, touch the **Log In** button. You should see a permission prompt from iOS. Touch **Continue** to proceed to the Auth0 login page, which is rendered within a browser.
+
+![](/media/articles/identity-labs/lab-03-login-confirmation.png)
+
+15. Log in using your database user and you will be taken back to the app. Nothing will have changed visually but if you take a look at the Debug Area in Xcode there will be some logs information like this:
+
+```text
+Authentication Success
+Access Token: vxPp0Xtg3wkZJudFZWzqMQByYF98Qyer
+ID Token:      eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5VWkZOa0ZETlVWRE56SXhNakF5UVRVNVJVRXpRMFV5TUVRMk1qYzVPVVpGUkVGQ1EwRTJNQSJ9.eyJodHRwczovL2V4YW1wbGUuY29tL3JvbGVzIjpbImFkbWluIl0sIm5pY2tuYW1lIjoibWFydGluLndhbHNoIiwibmFtZSI6Im1hcnRpbi53YWxzaEBnbWFpbC5jb20iLCJwaWN0dXJlIjoiaHR0cHM6Ly9zLmdyYXZhdGFyLmNvbS9hdmF0YXIvYTViYjU5NWZiNmYxM2JmYjZiYWIwZjFlNzM2MGZkZTE_cz00ODAmcj1wZyZkPWh0dHBzJTNBJTJGJTJGY2RuLmF1dGgwLmNvbSUyRmF2YXRhcnMlMkZtYS5wbmciLCJ1cGRhdGVkX2F0IjoiMjAxOC0xMS0yNlQxMDo1ODo1Ni41OTRaIiwiaXNzIjoiaHR0cHM6Ly9mY2F1dGguZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDU5MjAyYjdkMWRiZGI2M2JiODc4YzYzMyIsImF1ZCI6IlFtbjEwdFJHYmRubUcyam1YSnhqTEdpNmFRZm5xN0wwIiwiaWF0IjoxNTQzMjI5OTM3LCJleHAiOjE1NDMyNjU5Mzd9.kLtZDgG5ddE-rsEqzgjMBc516QpQ0qQi0wuyKTs95oIwLZo6mpH6KVXkdV0ORWAwCr91UkH6WfCzeyBoupoDDRvUeNbdui2IBkrlYVc2iVV-Ol3jxo-5L0dmgxR94YllO-4CpsnvN1t0Qwa3haTXE44stEJUw8I4tVIdXrVyL0c34cb1uR0yzArcSf4Qe2hH2nqqT1g-YokmSKp-YeaGfiDC7GYV4u3N8ixKdshl4MLkph_tLQmb4dicWQhdiIFvz8iT1DO4x1hmtmBeb4CHpFPiNKIbZd9GxAgKrb4bRc7SD0w12BcfVYepMbQ3ap071DY0Ul1yl7Oe5uhNZQ0Khg
+```
+
+To view the contents of your ID Token, you can copy and paste it into https://jwt.io/ to view the claims.
+
+Now that you have an ID token, it's important to validate it to ensure that it can be trusted. A helper method `isTokenValid` is already included in the project, you can review its code in `Extras/Utils.swift` to learn how the validation is performed. It should be called after obtaining the token, to illustrate how it is used.
+
+16. In the `actionLogin` method in `exercise-01/ViewController.swift` modified above, add the line below:
+
+```swift
+// exercise-01/ViewController.swift
+// ...
+
+  @IBAction func actionLogin(_ sender: Any) {
+      print("Log In")
+
+      Auth0
+        // ...
+              case .success(let result):
+                  // ... other print statements
+
+                  // Add the line below 👇
+                  print("ID Token Valid: \(isTokenValid(result.idToken!))")
+
+              // ... failure case
+      }
+  }
+// ...
+```
+
+17. Run the app again, log in, and take a look at the logs in XCode. You should see an entry "ID Token Valid:" with the status of the validation (true or false).
+
+Congratulations! You have successfully added Auth0 authentication to your native iOS app using an authorization code grant!
+
+The authorization code grant by itself has some security issues when implemented on native applications. For instance, a malicious attacker can intercept the authorization code returned by Auth0 and exchange it for an access token. The Proof Key for Code Exchange (PKCE) is a technique used to mitigate this authorization code interception attack.
+
+With PKCE, for every authorization request, the application creates a cryptographically random key called the "code verifier", hashes its value into a `code_challenge`, and sends it to the authorization server to get the authorization code. When the application receives the code after successful login, it will send the code and the `code_verifier` to the token endpoint to exchange them for the requested tokens.
+
+Since you previously enabled logging in our `WebAuth` call - `.logging(enabled: true))` - it is easy to see the process flow in the Debug Area.
+
+18. Run the iOS Application, touch the Log In button, and then take a look at the Debug Area. The iOS application initiates the flow and redirects the user to the `/authorize` endpoint, sending the `code_challenge` and `code_challenge_method` parameters. It also sends a `response_type` of `code` (line breaks added below for readability):
+
+```text
+SafariAuthenticationSession:
+https://tenant.auth0.com/authorize
+?code_challenge=VsPaQ0gJjnluA2vwV0piY-D-DTCltGI9GbYkBNHvPHQ
+&response_type=code
+&redirect_uri=com.auth0.identity102://tenant.auth0.com/ios/com.auth0.identity102/callback
+&state=RFnNyPj4NOZMUW8IpDBr-j3UgO4gCbhBZtLpWB_vmDo
+&client_id=Qmn10tRGbdnmG2jmXJxjLGi6aQfnq7L0
+&scope=openid%20profile
+&code_challenge_method=S256
+&auth0Client=eyJzd2lmdC12ZXJzaW9uIjoiMy4wIiwibmFtZSI6IkF1dGgwLnN3aWZ0IiwidmVyc2lvbiI6IjEuMTMuMCJ9
+```
+
+19. Once again, enter your credentials and log in. Auth0 redirects the user back to the iOS application by calling the callback with the authorization code in the query string:
+
+```text
+iOS Safari:
+com.auth0.identity102://tenant.auth0.com/ios/com.auth0.identity102/callback
+?code=6SiMHrJHbG2aAPrj
+&state=RFnNyPj4NOZMUW8IpDBr-j3UgO4gCbhBZtLpWB_vmDo
+```
+
+20. The Auth0.swift SDK will process the query string and send the authorization `code` and `code_verifier` together with the `redirect_uri` and the `client_id` to the token endpoint of the authorization server:
+
+```text
+POST /oauth/token
+
+{"grant_type":"authorization_code",
+"redirect_uri":"com.auth0.identity102:\/\/tenant.auth0.com\/ios\/com.auth0.identity102\/callback",
+"code":"6SiMHrJHbG2aAPrj",
+"code_verifier":"qiV8gYUrPco3qBlejLeZzgC9DMtXZY1GddzZpmVxyxw",
+"client_id":"Qmn10tRGbdnmG2jmXJxjLGi6aQfnq7L0"}
+```
+
+21. The authorization server validates this information and returns the requested access and ID tokens. If successful, you will see the following response containing your tokens:
+
+```text
+Content-Type: application/json
+
+{"access_token":"ekhGPSE7xdhOTJuTo2dV-TYyJV-OTYrO",
+"id_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5VWkZOa0ZETlVWRE56SXhNakF5UVRVNVJVRXpRMFV5TUVRMk1qYzVPVVpGUkVGQ1EwRTJNQSJ9.eyJodHRwczovL2V4YW1wbGUuY29tL3JvbGVzIjpbImFkbWluIl0sIm5pY2tuYW1lIjoibWFydGluLndhbHNoIiwibmFtZSI6Im1hcnRpbi53YWxzaEBnbWFpbC5jb20iLCJwaWN0dXJlIjoiaHR0cHM6Ly9zLmdyYXZhdGFyLmNvbS9hdmF0YXIvYTViYjU5NWZiNmYxM2JmYjZiYWIwZjFlNzM2MGZkZTE_cz00ODAmcj1wZyZkPWh0dHBzJTNBJTJGJTJGY2RuLmF1dGgwLmNvbSUyRmF2YXRhcnMlMkZtYS5wbmciLCJ1cGRhdGVkX2F0IjoiMjAxOC0xMS0yOVQxMToxNzo1MC43NzBaIiwiaXNzIjoiaHR0cHM6Ly9mY2F1dGguZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDU5MjAyYjdkMWRiZGI2M2JiODc4YzYzMyIsImF1ZCI6IlFtbjEwdFJHYmRubUcyam1YSnhqTEdpNmFRZm5xN0wwIiwiaWF0IjoxNTQzNDkwMjcxLCJleHAiOjE1NDM1MjYyNzF9.1kZccnCppokxDEx87Fv16iZjs5aiREQC20hcTJaPdYilv248CtMUPrxNk4RlMdOccxdJNreGCV7sMBYe2R-DFNtpTzKCbfWGhjSe4jy80CtU80nKevcq_nrhPrjP23jZBgN2qZegxa2JiDQpZ2Y7SMEFALMrP7lAeLgXBbpyKAP1eOqN-bfQNqC4Q1CyS1QdJNfpy5AoNKaXmtwz7mgKdMtvwMA0yHLiZ5OivTXXpqEnncXHygniRA_I9rvnRevGe2bZuJIiOg4n_CB1l87DQFfsPllQ9GRaht8xDU1L4i71s4tIlDrtJGePC8N4OOmbqVbkXujDVOEuZ-x_cCOVPw",
+"expires_in":86400,
+"token_type":"Bearer"}
+```
+
+In the next exercise, you will use a token to validate and authorize the user and authorize against a protected API.
+
+<a href="/identity-labs/03-mobile-native-app/exercise-02" class="btn btn-transparent">Next →</a>

@@ -9,8 +9,8 @@ topics:
   - OpenId Connect
   - OAuth2
 contentType:
-    - index
-    - concept
+  - index
+  - concept
 ---
 # Lab 2: Calling an API
 
@@ -34,5 +34,9 @@ The Node OIDC and bearer token npm packages that this lab uses has not been test
 ---
 
 <%= include('../_includes/what-you-need') %>
+
+---
+
+**For Windows users** - We recommend that you use the Windows PowerShell terminal (instead of the Windows command line) so that the terminal commands provided in the lab instructions work as they are. This is because the syntax of the commands used in the labs is the same for the Mac and PowerShell terminals.
 
 <a href="/identity-labs/02-calling-an-api/exercise-01" class="btn btn-transparent">Start →</a>
