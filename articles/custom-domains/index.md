@@ -36,6 +36,7 @@ Currently, the following Auth0 features and flows support the use of custom doma
 * Azure AD connections
 * ADFS connections
 * AD/LDAP connections
+* All multi-factor authentication factors
 
 :::warning
 Features not in the list are **not supported** by Auth0 with custom domains.
