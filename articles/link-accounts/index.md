@@ -330,3 +330,31 @@ The result of the unlinking process is the following:
 * The secondary account will have no metadata
 
 If your goal is to delete the secondary identity entirely, you must first unlink the accounts, and then delete the newly created secondary account.
+
+## Properties from secondary identities
+
+When a user logs in applications get the user information coming from the **primary identity**. Auth0 will not attempt to automatically complete any missing profile field from information coming from the secondaries identities. E.g. if the primary identity is a database connection identity with no `given_name` and `family_name` properties, and the secondary identity is from a Google social connection that has the first and last name of the user, the application will not get that data by default.
+
+You can write a [rule](/rules) that tries to fill in missing information from secondary identities like this:
+
+```js
+function(user, context, callback) {
+  
+  const propertiesToComplete = ["given_name", "family_name", "name", "maroon"];
+
+  // go over each property and try to get missing
+  // information from secondary identities
+  for(var property of propertiesToComplete) {
+    if (!user[property]) {
+      for(var identity of user.identities) {
+        if (identity.profileData && identity.profileData[property]) {
+          user[property] = identity.profileData[property];
+          break;
+        }
+      }
+    }
+  }
+  
+  callback(null, user, context);
+}
+```
