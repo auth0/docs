@@ -22,7 +22,7 @@ The library is [hosted on GitHub](https://github.com/auth0/auth0-spa-js) and you
 
 If you're planning on migrating a SPA that uses [auth0.js](/libraries/auth0js) to the Auth0 SPA SDK, check out [Migrate from Auth0.js to the Auth0 Single Page App SDK](/libraries/auth0-spa-js/migrate-from-auth0js) for examples.
 
-<%= include('../_includes/_spa_js_faq.md') %>
+<%= include('../\_includes/\_spa_js_faq.md') %>
 
 ## Installation
 
@@ -55,14 +55,14 @@ First, you'll need to create a new instance of `Auth0Client` client object. Crea
 ```js
 // with async/await
 const auth0 = await createAuth0Client({
-  domain: '${account.namespace}',
-  client_id: '${account.clientId}'
+  domain: "${account.namespace}",
+  client_id: "${account.clientId}"
 });
 
 // with promises
 createAuth0Client({
-  domain: '${account.namespace}',
-  client_id: '${account.clientId}'
+  domain: "${account.namespace}",
+  client_id: "${account.clientId}"
 }).then(auth0 => {
   //...
 });
@@ -80,7 +80,7 @@ Listen for click events on the button you created. When the event occurs, use th
 
 ```js
 //with async/await
-document.getElementById('login').addEventListener('click', async () => {
+document.getElementById("login").addEventListener("click", async () => {
   await auth0.loginWithPopup();
   //logged in. you can get the user profile like this:
   const user = await auth0.getUser();
@@ -88,7 +88,7 @@ document.getElementById('login').addEventListener('click', async () => {
 });
 
 //with promises
-document.getElementById('login').addEventListener('click', () => {
+document.getElementById("login").addEventListener("click", () => {
   auth0.loginWithPopup().then(token => {
     //logged in. you can get the user profile like this:
     auth0.getUser().then(user => {
@@ -108,12 +108,12 @@ To call your API, start by getting the user's Access Token. Then use the Access 
 
 ```js
 //with async/await
-document.getElementById('callApi').addEventListener('click', async () => {
+document.getElementById("callApi").addEventListener("click", async () => {
   const accessToken = await auth0.getTokenSilently();
-  const result = await fetch('https://exampleco.com/api', {
-    method: 'GET',
+  const result = await fetch("https://exampleco.com/api", {
+    method: "GET",
     headers: {
-      Authorization: 'Bearer ' + accessToken
+      Authorization: "Bearer " + accessToken
     }
   });
   const data = await result.json();
@@ -121,14 +121,14 @@ document.getElementById('callApi').addEventListener('click', async () => {
 });
 
 //with promises
-document.getElementById('callApi').addEventListener('click', () => {
+document.getElementById("callApi").addEventListener("click", () => {
   auth0
     .getTokenSilently()
     .then(accessToken =>
-      fetch('https://exampleco.com/api', {
-        method: 'GET',
+      fetch("https://exampleco.com/api", {
+        method: "GET",
         headers: {
-          Authorization: 'Bearer ' + accessToken
+          Authorization: "Bearer " + accessToken
         }
       })
     )
@@ -148,7 +148,7 @@ Finally, add a button users can click to logout.
 ```
 
 ```js
-document.getElementById('logout').addEventListener('click', () => {
+document.getElementById("logout").addEventListener("click", () => {
   auth0.logout();
 });
 ```
@@ -160,7 +160,7 @@ jQuery is used in the following examples.
 ### Login with Popup
 
 ```js
-$('#loginPopup').click(async () => {
+$("#loginPopup").click(async () => {
   await auth0.loginWithPopup();
 });
 ```
@@ -168,9 +168,9 @@ $('#loginPopup').click(async () => {
 ### Login with Redirect
 
 ```js
-$('#loginRedirect').click(async () => {
+$("#loginRedirect").click(async () => {
   await auth0.loginWithRedirect({
-    redirect_uri: 'http://localhost:3000/'
+    redirect_uri: "http://localhost:3000/"
   });
 });
 ```
@@ -178,7 +178,7 @@ $('#loginRedirect').click(async () => {
 ### Login with Redirect Callback
 
 ```js
-$('#loginRedirectCallback').click(async () => {
+$("#loginRedirectCallback").click(async () => {
   await auth0.handleRedirectCallback();
 });
 ```
@@ -186,7 +186,7 @@ $('#loginRedirectCallback').click(async () => {
 ### Get Access Token with no interaction
 
 ```js
-$('#getToken').click(async () => {
+$("#getToken").click(async () => {
   const token = await auth0.getTokenSilently();
 });
 ```
@@ -194,10 +194,10 @@ $('#getToken').click(async () => {
 ### Get Access Token with Popup
 
 ```js
-$('#getTokenPopup').click(async () => {
+$("#getTokenPopup").click(async () => {
   const token = await auth0.getTokenWithPopup({
-    audience: 'https://mydomain/api/',
-    scope: 'read:rules'
+    audience: "https://mydomain/api/",
+    scope: "read:rules"
   });
 });
 ```
@@ -205,11 +205,11 @@ $('#getTokenPopup').click(async () => {
 ### Get Access Token for a different audience
 
 ```js
-$('#getToken_audience').click(async () => {
+$("#getToken_audience").click(async () => {
   const differentAudienceOptions = {
-    audience: 'https://mydomain/another-api/',
-    scope: 'read:rules',
-    redirect_uri: 'http://localhost:3000/callback.html'
+    audience: "https://mydomain/another-api/",
+    scope: "read:rules",
+    redirect_uri: "http://localhost:3000/callback.html"
   };
   const token = await auth0.getTokenSilently(differentAudienceOptions);
 });
@@ -218,7 +218,7 @@ $('#getToken_audience').click(async () => {
 ### Get User
 
 ```js
-$('#getUser').click(async () => {
+$("#getUser").click(async () => {
   const user = await auth0.getUser();
 });
 ```
@@ -226,17 +226,20 @@ $('#getUser').click(async () => {
 ### Get ID Token Claims
 
 ```js
-$('#getIdTokenClaims').click(async () => {
+$("#getIdTokenClaims").click(async () => {
   const claims = await auth0.getIdTokenClaims();
+  // if you need the raw id_token, you can access it
+  // using the __raw property
+  const id_token = claims.__raw;
 });
 ```
 
 ### Logout (default)
 
 ```js
-$('#logout').click(async () => {
+$("#logout").click(async () => {
   auth0.logout({
-    returnTo: 'http://localhost:3000/'
+    returnTo: "http://localhost:3000/"
   });
 });
 ```
@@ -244,10 +247,10 @@ $('#logout').click(async () => {
 ### Logout with no Client ID
 
 ```js
-$('#logoutNoClientId').click(async () => {
+$("#logoutNoClientId").click(async () => {
   auth0.logout({
     client_id: null,
-    returnTo: 'http://localhost:3000/'
+    returnTo: "http://localhost:3000/"
   });
 });
 ```
