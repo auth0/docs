@@ -304,7 +304,7 @@ You can then use that profile information in your view to display information ab
 
 To log a user out, you should clear the application session and log the user out of Auth0. This is handled in the `LogoutServlet`.
 
-First, clear the session by calling `request.getSession().invalidate()`. Then construct the logout URL, being sure to include the `returnTo` query parameter, which is where the user will be redirected to after logging out. Finally, redirect the response to our logout URL:
+First, clear the session by calling `request.getSession().invalidate()`. Then construct the logout URL, being sure to include the `returnTo` query parameter, which is where the user will be redirected to after logging out. Finally, redirect the response to the application's logout URL:
 
 ```java
 // src/main/java/com/auth0/example/web/LogoutServlet.java
