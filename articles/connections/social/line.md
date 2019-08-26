@@ -25,7 +25,7 @@ This guide will show you how to add functionality to your web app that allows yo
 You can test out the LINE connection by simply going to the [Dashboard](${manage_url}) to **Connections > Social** and Try the LINE connection, leaving the settings blank. This will let you test it out with Auth0’s developer credentials. Prior to use in production applications, however, you will need to set up your own, which this guide details.
 :::
 
-## 1. Set up your app with Line
+## 1. Set up your app with LINE
 
 You can follow the instructions in the [LINE Documentation](https://developers.line.biz/en/docs/line-login/getting-started/) to get a channel set up for your app in LINE.
 
