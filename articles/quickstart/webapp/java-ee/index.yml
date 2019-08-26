@@ -6,7 +6,7 @@ author:
   community: false
 alias:
   - java
-  - java ee
+  - java-ee
 languages:
   - Java
 framework:

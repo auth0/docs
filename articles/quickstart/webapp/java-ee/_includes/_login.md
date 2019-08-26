@@ -170,7 +170,7 @@ public class Auth0AuthenticationMechanism implements HttpAuthenticationMechanism
     }
 
     private boolean isCallbackRequest(HttpServletRequest request) {
-        return (request.getRequestURI().equals("/callback") && request.getParameter("code") != null);
+        return request.getRequestURI().equals("/callback") && request.getParameter("code") != null;
     }
 }
 ```
@@ -321,7 +321,7 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
         clearSession(request);
-        response.sendRedirect(getReturnUrl(request));
+        response.sendRedirect(getLogoutUrl(request));
     }
 
     private void clearSession(HttpServletRequest request) {
@@ -330,7 +330,7 @@ public class LogoutServlet extends HttpServlet {
         }
     }
 
-    private String getReturnUrl(HttpServletRequest request) {
+    private String getLogoutUrl(HttpServletRequest request) {
         String returnUrl = String.format("%s://%s", request.getScheme(), request.getServerName());
         int port = request.getServerPort();
         String scheme = request.getScheme();
