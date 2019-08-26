@@ -179,7 +179,7 @@ The class overrides the `validateRequest` method, which is called on every reque
 
 This sample uses the [Authorization Code Flow](https://auth0.com/docs/flows/concepts/auth-code) to exchange an Authorization Code for a token during the authentication flow. If this request is to the `/callback` endpoint and contains the `code` request parameter, it does a few important things:
 
-- Calls the `handle` method of the `AuthenticationController` to exchange the Authorization Code for an ID and access token.
+- Calls the `handle` method of the `AuthenticationController` to exchange the Authorization Code for an ID token and an access token.
 - Uses the ID token to create a new `Auth0Credential`.
 - Calls the `validate` method of the custom `IdentityStore` implementation to obtain the validation result.
 - Notifies the application container of the login status.
