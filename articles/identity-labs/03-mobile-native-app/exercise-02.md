@@ -14,9 +14,13 @@ contentType:
 ---
 # Lab 3, Exercise 2: Calling a Secured API
 
+::: warning
+If you came to this page directly, go to the [first page of this lab](/identity-labs/03-mobile-native-app) and read through the instructions before getting started.
+:::
+
 In this exercise, you are going to enable the native application to authorize against the protected API backend that was built in Lab 2, Exercise 2. In that lab, you set up an Auth0 API server for your Expenses API with an audience value of `https://expenses-api`.
 
-If you have already completed lab 2, you can use the same Auth0 configuration and local files to run the API needed for this lab. Just go to `/lab-02/begin/api` in your locally-cloned copy of the [`auth0/identity-102-exercises` repo](https://github.com/auth0/identity-102-exercises/) and run `npm start` in your terminal before beginning this exercise. Make sure your token expiration times in Auth0 are back to normal (at least an hour for both).
+If you have already completed lab 2, you can use the same Auth0 configuration and local files to run the API needed for this lab. Just go to `/lab-02/begin/api` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/) and run `npm start` in your terminal before beginning this exercise. Make sure your token expiration times in Auth0 are back to normal (at least an hour for both).
 
 ::: note
 If you did not complete Lab 2, you can use the completed exercise sample code:
@@ -54,11 +58,11 @@ listening on http://localhost:3001
 
 Regardless of which API codebase you're using, you should now be able to load [localhost:3001](http://localhost:3001/) in your browser and see an error saying `UnauthorizedError: bearer token is missing`.
 
-5. For this exercise, we're going to open a different project in XCode than the one we used in exercise 1. Go to **File > Open** in XCode and select `lab-03/exercise-02/begin/exercise-02.xcworkspace` (make sure you pick the right file extension), then open `exercise-02/ViewController.swift`. This code picks up where the previous exercise left off and adds a new button to call the API.
+5. For this exercise, we're going to open a different project in Xcode than the one we used in exercise 1. Go to **File > Open** in Xcode and select `lab-03/exercise-02/begin/exercise-02.xcworkspace` (make sure you pick the right file extension), then open `exercise-02/ViewController.swift`. This code picks up where the previous exercise left off and adds a new button to call the API.
 
 6. Open the `exercise-02/Auth0.plist` file and replace the placeholder values for **ClientId** and **Domain** with the ones from the Auth0 Application created before.
 
-7. Click the Play button (or **Product > Run** from the XCode menu) to run the app.
+7. Click the Play button (or **Product > Run** from the Xcode menu) to run the app.
 
 ![](/media/articles/identity-labs/lab-03-call-api-button.png)
 
@@ -88,7 +92,7 @@ You will now add code to make the API call from the mobile app. However, before 
 // ...
 ```
 
-10. Run the app from XCode again, click **Log In**, and check the debug logs. You should see a block of output like below:
+10. Run the app from Xcode again, click **Log In**, and check the debug logs. You should see a block of output like below:
 
 ```text
 Authentication Success
@@ -131,7 +135,7 @@ Token Valid: true
           // Replace this line ❌
           // .scope("openid profile")
 
-          // With the line below 👇
+          // ... with the line below 👇
           .scope("openid profile read:reports")
 
           // ...
@@ -300,7 +304,7 @@ The `Status Code: 200` (OK) lets us know the request was executed successfully. 
 // ...
 ```
 
-22. Re-run the app, login, and call the API once more. You should now see the expenses in the debug area in XCode:
+22. Re-run the app, login, and call the API once more. You should now see the expenses in the debug area in Xcode:
 
 ```js
 [{"date":"2019-08-27T15:02:04.838Z","description":"Pizza for a Coding Dojo session.","value":102},

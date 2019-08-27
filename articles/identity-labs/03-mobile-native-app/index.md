@@ -18,19 +18,19 @@ contentType:
 
 - Read the introduction on the [main Identity Labs page](/labs/)
 - Watch the [Desktop and Mobile Apps video](/videos/learn-identity/05-desktop-and-mobile-apps)
-- Apple's [Developing iOS Apps: Build a Basic UI](https://developer.apple.com/library/archive/referencelibrary/GettingStarted/DevelopiOSAppsSwift/BuildABasicUI.html) tutorial to get a feeling of the XCode's UI (optional)
+- Apple's [Developing iOS Apps: Build a Basic UI](https://developer.apple.com/library/archive/referencelibrary/GettingStarted/DevelopiOSAppsSwift/BuildABasicUI.html) tutorial to get a feeling of the Xcode's UI (optional)
 
 ## What You'll Need
 
-**A Mac computer** - A Mac is required to install XCode.
+**A Mac computer** - A Mac is required to install Xcode.
 
 ---
 
-**An Apple account** - Required to download XCode and install XCode.
+**An Apple account** - Required to download Xcode and install Xcode.
 
 ---
 
-**XCode 10.X** - Download and install from the App Store. After installation is complete, open it so that you go through the first-time setup, which can take up to 10 minutes. This will require around 6GB of hard drive space and up to 30 minutes total to complete.
+**Xcode 10.X** - Download and install from the App Store. After installation is complete, open it so that you go through the first-time setup, which can take up to 10 minutes. This will require around 6GB of hard drive space and up to 30 minutes total to complete.
 
 ---
 

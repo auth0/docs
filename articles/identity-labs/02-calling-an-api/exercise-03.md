@@ -14,6 +14,10 @@ contentType:
 ---
 # Lab 2, Exercise 3: Working with Refresh Tokens
 
+::: warning
+If you came to this page directly, go to the [first page of this lab](/identity-labs/02-calling-an-api) and read through the instructions before getting started.
+:::
+
 Right now, if your users stay logged in for too long and try to refresh the `/expenses` page, they will face a problem. Access tokens were conceived to be exchanged by different services through the network (which makes them more prone to leakage) so they should expire quickly. When an access token is expired, your API won't accept it anymore and your web application won't be able to fetch the data needed. A token expired error will be returned instead.
 
 To change this behavior, you can make your web app take advantage of yet another token: the refresh token. A refresh token is used to obtain new access tokens and/or ID tokens from the authorization server. In this exercise, we're going to modify the application to obtain a refresh token and use it to get a new access token when it expires.
@@ -139,6 +143,6 @@ If you don't see changes in the "Issued At" claim in the console, make sure you 
 If you are using PowerShell in Windows and you see blank lines instead of the timestamp logging in the terminal, it could be the font color of the logs is the same than the background. As an alternative, you can run the API server from the Windows command line, or change the background color in PowerShell.
 :::
 
-You now have a web application calling an API with refresh capability!
+🎉 **You have completed Lab 2 by building a web application that calls an API with refresh capability!** 🎉
 
 <a href="/identity-labs/" class="btn btn-transparent">← All Identity Labs</a>

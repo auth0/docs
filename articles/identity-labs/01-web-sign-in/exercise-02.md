@@ -14,6 +14,10 @@ contentType:
 ---
 # Lab 1, Exercise 2: Using Network Traces
 
+::: warning
+If you came to this page directly, go to the [first page of this lab](/identity-labs/01-web-sign-in) and read through the instructions before getting started.
+:::
+
 In this exercise, you will sign up to your application (which will also log you in) while exploring some of the most relevant network traces of the authentication process.
 
 1. Open a new tab in Chrome, open **Developer Tools**, click the **Network** tab, and navigate to your localhost application.
@@ -100,5 +104,7 @@ Note the following:
 - The claim `aud` is the audience of the token. It denotes for which app the token is intended. In our case, this matches the Client ID of the application that made the authentication request.
 - The claim `iat` shows when the token was issued (seconds since Unix epoch) and can be used to determine the token’s age.
 - The claim `exp` shows when the token expires (seconds since Unix epoch).
+
+🎉 **You have completed Lab 1 by building a web application with sign-on using OpenID Connect!** 🎉
 
 <a href="/identity-labs/" class="btn btn-transparent">← All Identity Labs</a>

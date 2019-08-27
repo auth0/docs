@@ -14,6 +14,10 @@ contentType:
 ---
 # Lab 2, Exercise 2: Securing APIs with Auth0
 
+::: warning
+If you came to this page directly, go to the [first page of this lab](/identity-labs/02-calling-an-api) and read through the instructions before getting started.
+:::
+
 In this exercise, you will register the API with Auth0 so that tokens can be issued for it. You will also learn how to secure your API with Auth0. You will refactor the API that your web application is consuming by installing and configuring some libraries needed to secure it with Auth0.
 
 1. To register the API with Auth0, open the Auth0 Dashboard and go to the [APIs screen](${manage_url}/#/apis).

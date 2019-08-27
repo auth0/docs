@@ -14,6 +14,10 @@ contentType:
 ---
 # Lab 1, Exercise 1: Adding Web Sign-In
 
+::: warning
+If you came to this page directly, go to the [first page of this lab](/identity-labs/01-web-sign-in) and read through the instructions before getting started.
+:::
+
 In this exercise, you will see in practice how to add sign on to an app. You will use the following:
 
 - Node.js + Express
@@ -26,7 +30,7 @@ A simple Node.js Express application has been created to get you started. This i
 
 Now that you know the web application you will be securing, complete the following steps to set it up and get it running:
 
-1. Go to the `/lab-01/begin` folder in your locally-cloned copy of the [`auth0/identity-102-exercises` repo](https://github.com/auth0/identity-102-exercises/).
+1. Go to the `/lab-01/begin` folder in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/).
 2. Review the `server.js` code. This is a generic Node.js HTTP server that uses `body-parser` to parse the JSON, buffer, string, and URL-encoded data received as well as `morgan` to log HTTP requests.
 3. The `.env-sample` file will be used for the environment variables you need for this lab. It’s already populated with the PORT (port number where the app will run). You will set the rest of the values later on in the lab. For now, create a copy of the file in the same folder and name it `.env`. Run the following commands in your terminal:
 

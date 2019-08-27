@@ -14,9 +14,13 @@ contentType:
 ---
 # Lab 2, Exercise 1: Consuming APIs
 
+::: warning
+If you came to this page directly, go to the [first page of this lab](/identity-labs/02-calling-an-api) and read through the instructions before getting started.
+:::
+
 After learning how to secure your web application with Auth0 in [lab 1](/identity-labs/01-web-sign-in), you will now learn how to make this application consume APIs on behalf of your users. You will start by running an unsecured API and a web application to see both working together, then you will secure your API with Auth0.
 
-1. Open a new terminal and browse to `/lab-02/begin/api` in your locally-cloned copy of the [`auth0/identity-102-exercises` repo](https://github.com/auth0/identity-102-exercises/). This is where the code for your API resides. The API is an Express backend that contains a single endpoint. This endpoint (served under the root path) returns expenses. Think about these expenses as data that belong to each user in particular (although they are actually static and the same for all).
+1. Open a new terminal and browse to `/lab-02/begin/api` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/). This is where the code for your API resides. The API is an Express backend that contains a single endpoint. This endpoint (served under the root path) returns expenses. Think about these expenses as data that belong to each user in particular (although they are actually static and the same for all).
 
 2. Install the dependencies using npm:
 
