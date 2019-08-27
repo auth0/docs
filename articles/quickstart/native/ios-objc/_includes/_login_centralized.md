@@ -118,19 +118,19 @@ To clear the session on the server side you need to invoke the `clearSession` me
 
 ```swift
 // HybridAuth.swift
-    @objc
-    func logOutUser(callback: @escaping(Bool, String) -> Void){
-        Auth0
-            .webAuth()
-            .clearSession(federated: true){
-                switch $0 {
-                case true:
-                    callback($0, "Logged out successfully")
-                case false:
-                    callback($0, "An error occurred")
-                }
+@objc
+func logOutUser(callback: @escaping(Bool, String) -> Void){
+    Auth0
+        .webAuth()
+        .clearSession(federated: true){
+            switch $0 {
+            case true:
+                callback($0, "Logged out successfully")
+            case false:
+                callback($0, "An error occurred")
             }
-    }
+        }
+}
 ```
 After the logout, the callback will return a BOOL with the logout status.
 
