@@ -14,6 +14,10 @@ contentType:
 ---
 # Lab 4, Exercise 2: Calling a Protected API
 
+::: warning
+If you came to this page directly, go to the [first page of this lab](/identity-labs/04-single-page-app) and read through the instructions before getting started.
+:::
+
 In this exercise, your will learn how to make your SPA consume, on behalf of the user, the private endpoint exposed by the API.
 
 ::: note
@@ -75,13 +79,11 @@ The `expensesAPIOptions` constant is a configuration object that will tell the S
 })();
 ```
 
-The lines above are nested inside a `try/catch` block and are executed when the expenses view is requested. First, the application calls the `getTokenSilently()` method (provided by the SPA SDK) to see if your application is able to fetch a token without involving your user. If your app fetches the access token successfully, the application calls the `loadExpenses` function with this token to load and display expenses (you will define this function in the next step).
+The lines above are nested inside a `try/catch` block and are executed when the expenses view is requested. First, the application calls the `getTokenSilently()` method (provided by the SPA SDK) to see if your application is able to fetch a token without involving your user. If your app fetches the access token successfully, the application calls the `loadExpenses()` function with this token to load and display expenses (you will define this function in the next step).
 
 If your application is not able to fetch an access token (an error occurs or the user is not logged in), the application checks if the problem is `consent_required`, which means that the user has not given consent to access the API yet. If that is not the case, it means an unknown error has been raised and your application will alert the user and log the error to the browser’s console.
 
-If `consent_required` is indeed the problem, then you define the behavior of the `loadExpensesButton` and show the `consentNeeded` and `loadExpensesButton` DOM elements.
-
-The `loadExpensesButton` and the `consentNeeded` DOM elements are responsible for letting the user know that they will need to give your application explicit consent to consume the API on their behalf. More specifically, after reading the message, if your users click the `loadExpensesButton`, your application will trigger the SDK-provided `getTokenWithPopup()` method to open a popup where your users will be able to give consent.
+If `consent_required` is indeed the problem, then you define the behavior of the `loadExpensesButton` and show the `consentNeeded` and `loadExpensesButton` DOM elements. These DOM elements are responsible for letting the user know that they will need to give your application explicit consent to consume the API on their behalf. More specifically, after reading the message, if your users click the `loadExpensesButton`, your application will trigger the SDK-provided `getTokenWithPopup()` method to open a popup where your users will be able to give consent.
 
 3. Call the API using the access token with the code below.
 
@@ -118,7 +120,7 @@ After fetching an access token (silently or explicitly through the popup), your 
 
 After executing the request to the API, if successful, the `displayExpenses()` function is called. This function creates the DOM elements in the page to represent the expenses and is already defined in the `spa/scripts/expenses.js` file at the bottom.
 
-4. Open `spa/scripts/navbar.js` and search for the block that gets executed when the user `isAuthenticated`. Inside this block, right after changing the display property of the `logOutButton` to `inline-block`, add the code below. This will display a link to the expenses view in the navigation bar when the user is authenticated.
+4. Open `spa/scripts/navbar.js` and search for the block that gets executed when the user `isAuthenticated`. Inside this block, right after changing the display property of the `logOutButton`, add the code below. This will display a link to the expenses view in the navigation bar when the user is authenticated.
 
 ```js
 // spa/scripts/navbar.js
@@ -144,7 +146,7 @@ After executing the request to the API, if successful, the `displayExpenses()` f
 
 ![](/media/articles/identity-labs/lab-04-consent-link-showing.png)
 
-7. Because you have not provided consent yet, you will see an **Allow App to Load Expenses** button. Clicking it will open the consent popup; note that this time the Reports scope is included.
+7. Because you have not provided consent yet, you will see an **Allow App to Load Expenses** button. Clicking it will open the consent popup; note that the **Reports** scope is now included.
 
 ![](/media/articles/identity-labs/lab-04-consent-prompt.png)
 

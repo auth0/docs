@@ -22,7 +22,7 @@ In this lab, you will learn how to add sign on capabilities to a Single-Page App
 
 The SPA in question is a vanilla JavaScript application that consumes an API similar to the one you have used in previous labs (this API also exposes a secured endpoint that returns a list of expenses). The difference is that the API in this lab does two additional things:
 
-- The API supports CORS to enable the SPA to consume it from a different domain (or a different port, on a local environment).
+- The API supports CORS to enable the SPA to consume it from a different domain (or a different port in a local environment).
 - The API exposes a public endpoint that returns a summary of its database. The SPA consumes this endpoint on its homepage to share the summary publicly.
 
 In this exercise, you will focus on integrating the SPA with Auth0 and getting the profile of the logged-in user. Exercise 2 will show how to consume the private endpoint exposed by the API.
@@ -114,7 +114,7 @@ Now that you have registered your SPA with Auth0, you can update your code to in
 
 The [auth0-spa-js](https://github.com/auth0/auth0-spa-js) SDK is a simple, lightweight, and opinionated client developed by Auth0 that executes the OAuth 2.0 Authorization Code Grant Flow with PKCE. This client allows developers to quickly and securely implement authentication in their browser-based applications.
 
-14. Open the `spa/index.html` file and search for the `<script>` tag that imports app.js. *Right before that tag*, add the auth0-spa-js library to your SPA using the CDN-hosted link.
+14. Open the `spa/index.html` file and search for the `<script>` tag that imports app.js. Right before that tag, add the auth0-spa-js library to your SPA using the CDN-hosted link.
 
 ```html
 <!-- spa/index.html -->
@@ -204,7 +204,7 @@ async function allowAccess() {
 
 The goal of this function is to allow or deny access to whatever route calls it. This function is called from the `#expenses` route to ensure the user is logged in. Although you won't use that route on this exercise (only on the next one), you can check the code in the `spa/scripts/expenses.js` file. The previous version of this function was hardcoded to always deny access and redirect to the #home route because no authentication mechanism was in place yet.
 
-You are now making use of the `isAuthenticated` method provided by the SPA SDK to block unauthenticated users from accessing the route calling this function. If an anonymous user tries to access it, the app will detect that they are not authenticated and will redirect them back to the homepage.
+You are now making use of the `isAuthenticated()` method provided by the SPA SDK to block unauthenticated users from accessing the route calling this function. If an anonymous user tries to access it, the app will detect that they are not authenticated and will redirect them back to the homepage.
 
 19. To give users a way to log in and view restricted content, open the `spa/scripts/navbar.js` file. There, you will see the definition of a few constants within the `async function()` [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE). Below that, we'll add code to handle a click event on the log in button.
 
@@ -224,9 +224,9 @@ You are now making use of the `isAuthenticated` method provided by the SPA SDK t
 })();
 ```
 
-The logInButton button will now, when clicked, invoke the `loginWithRedirect` method provided by the SPA SDK to start the authentication process. When users click the login button, they will be redirected to the authorization server.
+The logInButton button will now, when clicked, invoke the `loginWithRedirect()` method provided by the SPA SDK to start the authentication process. When users click the login button, they will be redirected to the authorization server.
 
-The `redirect_uri` property passed to the `loginWithRedirect` method defines the URL that Auth0 must call after the authentication phase is concluded. This is the same URL listed in the **Allowed Callback URLs** field in the Auth0 Dashboard. If you use another URL without whitelisting it first, Auth0 will show an error page.
+The `redirect_uri` property passed to the `loginWithRedirect()` method defines the URL that Auth0 must call after the authentication phase is concluded. This is the same URL listed in the **Allowed Callback URLs** field in the Auth0 Dashboard. If you use another URL without whitelisting it first, Auth0 will show an error page.
 
 20. To define what happens when users click the logout button, add the code below right after the code from the previous step in the same function.
 
@@ -269,7 +269,7 @@ In this case, you are making the `logOutButton` button invoke the `logout()` met
 })();
 ```
 
-You defined a flag called `isAuthenticated` that defines if the user is authenticated or not. If they are authenticated, you use the `getUser` method provided by the SPA SDK to extract their profile details. These details populate the screen with the name of the user and their picture.
+You defined a flag called `isAuthenticated` that defines if the user is authenticated or not. If they are authenticated, you use the `getUser()` method provided by the SPA SDK to extract their profile details. These details populate the screen with the name of the user and their picture.
 
 The `isAuthenticated` flag also defines what button the app will show based on their authentication status: the `logInButton` or the `logOutButton`. If the user has a session with this application, the app will show the `logOutButton` button. Otherwise, it will show the `logInButton`.
 
@@ -301,10 +301,10 @@ This request is created and triggered by the SPA SDK when a user clicks on the l
 
 - `client_id` - the unique identifier of your application for the authorization server.
 - `response_type` - the artifacts needed to authenticate the user in your application. In this case, the SPA SDK is requesting an authorization code. This indicates to Auth0 that you will be using the [Authorization Code Grant Flow](https://auth0.com/docs/api-auth/tutorials/authorization-code-grant) (as defined by the OAuth 2.0 specification).
-- `scope` - a space-delimited list of permissions that the application requires. In this case, your app is requesting `openid`, `profile`, and `email`. These are scopes defined by the OpenID Connect specification and give your app access to specific data in the user profile.
+- `scope` - a space-delimited list of permissions that the application requires. In this case, your app is requesting `openid profile email`. These are scopes defined by the [OpenID Connect specification](/scopes/current/oidc-scopes) and give your app access to specific data in the user profile.
 - `code_challenge` - this is a code that the authorization server will store and associate with the authorization request. In a future step, before issuing tokens to your application, the authorization server will use this code to verify (against another code called `code_verifier` that is handled internally by the SPA SDK) if it is secure to issue tokens. By using the code challenge and verifier, the SPA SDK is making the authorization process use a variant of the Authorization Code Grant Flow called PKCE.
 
-26. Log in again by clicking **Log In**. After Auth0 redirects back to your application, check the **Network** tab in  **Developer Tools** and you will see a list of requests, starting with callback. Filter the requests and show only the XHR ones (those generated by an XMLHttpRequest JavaScript object).
+26. Log in again by clicking **Log In**. After Auth0 redirects back to your application, check the **Network** tab in  **Developer Tools** and you will see a list of requests, starting with the callback. Filter the requests and show only the XHR ones (those generated by an XMLHttpRequest JavaScript object).
 
 27. Click on the "token" request (if there are two, click the second one). You will see that it is a `POST` request to the token endpoint of the authorization server. This request exchanges the code retrieved on the authentication process for the tokens needed in your application.
 

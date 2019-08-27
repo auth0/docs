@@ -32,11 +32,11 @@ For native applications such as our iOS application, refresh tokens improve the 
 
 You are now going to add the `offline_access` scope, which gives the iOS application access to resources on behalf of the user for an extended period of time. Before you can use this scope, you need to make sure that Auth0 will allow applications to ask for refresh tokens for your API.
 
-4. Navigate to the [APIs screen in your Auth0 Dashboard](${manage_url}/#/apis)). Open the API that you created to represent your expenses API and ensure the **Allow Offline Access** option is on.
+4. Navigate to the [APIs screen in your Auth0 Dashboard](${manage_url}/#/apis). Open the API that you created to represent your expenses API and ensure the **Allow Offline Access** option is on.
 
 ![](/media/articles/identity-labs/lab-03-allow-offline-access.png)
 
-5. Next, we're going to add the `offline_access` scope to the authentication request. Open `exercise-03/ViewController.swift` and, in the `actionLogin` method, add offline_access to the `.scope()` method.
+5. Next, we're going to add the `offline_access` scope to the authentication request. Open `exercise-03/ViewController.swift` and, in the `actionLogin` method, add `offline_access` to the `.scope()` method.
 
 ```swift
 // exercise-03/ViewController.swift
@@ -72,7 +72,7 @@ You are now going to add the `offline_access` scope, which gives the iOS applica
 }
 ```
 
-7. We're going to send the refresh token to the authorization server using a `refresh_token` grant to get a new access token. Open `exercise-03/ViewController.swift` and create a private variable in the `ViewController` class to create a way for `actionRefresh` method to access the refresh token.
+7. We're going to send the refresh token to the authorization server using a `refresh_token` grant to get a new access token. In `ViewController.swift` and create a private variable in the `ViewController` class to create a way for `actionRefresh` method to access the refresh token.
 
 ```swift
 // exercise-03/ViewController.swift
@@ -184,7 +184,7 @@ Notice that you don’t receive a new `refresh_token` in the response from the a
 
 Now that you are able to obtain a fresh access token by using the refresh token, it’s time to see what happens when a token expires.
 
-13. Navigate to the [APIs screen in your Auth0 Dashboard](${manage_url}/#/apis)) and open the expenses API. Set both the **Token Expiration** and the **Token Expiration For Browser Flows** fields to 10 seconds and save the changes.
+13. Navigate to the [APIs screen in your Auth0 Dashboard](${manage_url}/#/apis) and open the expenses API. Set both the **Token Expiration** and the **Token Expiration For Browser Flows** fields to 10 seconds and save the changes.
 
 14. In your app simulator, tap **Log In** to walk through the authentication process again and get a new access token with the shorter expiration. Immediately tap the **Call API** button to see the API call succeed.
 

@@ -18,7 +18,7 @@ contentType:
 If you came to this page directly, go to the [first page of this lab](/identity-labs/03-mobile-native-app) and read through the instructions before getting started.
 :::
 
-In this exercise, you are going to enable the native application to authorize against the protected API backend that was built in Lab 2, Exercise 2. In that lab, you set up an Auth0 API server for your Expenses API with an audience value of `https://expenses-api`.
+In this exercise, you are going to enable the native application to authorize against the protected API backend that was built in [Lab 2, Exercise 2](/identity-labs/02-calling-an-api/exercise-02). In that lab, you set up an Auth0 API server for your Expenses API with an audience value of `https://expenses-api`.
 
 If you have already completed lab 2, you can use the same Auth0 configuration and local files to run the API needed for this lab. Just go to `/lab-02/begin/api` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/) and run `npm start` in your terminal before beginning this exercise. Make sure your token expiration times in Auth0 are back to normal (at least an hour for both).
 
@@ -29,7 +29,7 @@ If you did not complete Lab 2, you can use the completed exercise sample code:
 
 2. Follow steps 1-3 on [this page](/identity-labs/02-calling-an-api/exercise-02) to create an API in Auth0.
 
-3. Create a copy of the `.env` file in the same directory as above with `cp .env-sample .env`, change the `ISSUER_BASE_URL` value to include your tenant name, and save the file.
+3. Create a copy of the `.env` file in the same directory as above, change the `ISSUER_BASE_URL` value to include your tenant name, and save the file.
 
 4. Back in the terminal, run `npm start`.
 
@@ -72,7 +72,7 @@ Regardless of which API codebase you're using, you should now be able to load [l
 
 You will now add code to make the API call from the mobile app. However, before doing so, you need to modify the authentication code to include the API's audience for authorization and the necessary scopes so that the required permissions are requested.
 
-9. In the `actionLogin` method which contains our authentication call, modify the authentication call to include the audience we need. With this in place, there will be an additional audience inside the access token after successfuly authentication.
+9. In the `actionLogin` method which contains our authentication call, include the audience for the API we want to access. With this in place, there will be an additional audience inside the access token after successful authentication.
 
 ```swift
 // exercise-02/ViewController.swift
@@ -101,7 +101,7 @@ ID Token: eyJ0eXA[..].eyJodH[..].Lv1TY8[..]
 Token Valid: true
 ```
 
-11. Copy and paste the value after **Access Token** into [jwt.io](https://jwt.io). Notice the `scope` value of `openid profile`. In Lab 2, the additional scope `read:reports` was added, which is not present in the token yet:
+11. Copy and paste the value of the **Access Token** into [jwt.io](https://jwt.io). Notice the `scope` value of `openid profile`. In Lab 2, the additional scope `read:reports` was added, which is not present in the token yet:
 
 ```js
 {
@@ -145,7 +145,7 @@ Token Valid: true
 
 13. Run the app again, log in, and check the access token in [jwt.io](https://jwt.io) once more. You should now see the `read:reports` scope in the payload. It’s time to make a call to the API!
 
-14. To use the access token we obtained during login in the `actionAPI` method, you need a way to access this variable. Create a private variable in the `ViewController` class and add the private variable below the `ViewController` class declaration:
+14. To use the access token we obtained during login in the `actionAPI` method, you need a way to access this variable. Create a private variable in the `ViewController` class:
 
 ```swift
 // exercise-02/ViewController.swift
@@ -180,7 +180,7 @@ class ViewController: UIViewController {
 // ...   
 ```
 
-16. In the `actionAPI` method, check that the user has authenticated and that you have an access token before making any call to the API:
+16. In the `actionAPI` method in the same class, check that the user has authenticated and that you have an access token before making a call to the API:
 
 ```swift
 // exercise-02/ViewController.swift
@@ -197,7 +197,7 @@ class ViewController: UIViewController {
 // ...
 ```
 
-In this code, you are assigning the class-scoped property `accessToken` to a local `accessToken` variable. If the class-scoped property is empty, an error will be returned.
+Here, you are assigning the class-scoped property `accessToken` to a local `accessToken` variable. If the class-scoped property is empty, an error will be returned.
 
 17. Again in the `actionAPI` method, add the code below to start an API request:
 
@@ -233,7 +233,7 @@ If your API is running on a different port or URL, make sure to change that abov
 // ...
 ```
 
-19. Finally, the request needs to be executed. You will use the functionality built into the iOS framework - `URLSession` - to perform network operation:
+19. Finally, the request needs to be executed. You will use the functionality built into the iOS framework - `URLSession` - to perform the network operation:
 
 ```swift
 // exercise-02/ViewController.swift
@@ -282,7 +282,7 @@ Headers:
 
 The `Status Code: 200` (OK) lets us know the request was executed successfully. If you want to see it fail, simply comment out the line that adds the Authorization Bearer header, re-rerun the app, and try logging in again. You will see a `Status Code: 401` (Unauthorized).
 
-21. You can see from the `Content-Length` header that there is a body in the response; output the raw data from the API by updating the dataTask closure with the following code:
+21. You can see from the `Content-Length` header that there is a body in the response; output the raw data from the API by updating the `dataTask` closure with the following code:
 
 ```swift
 // exercise-02/ViewController.swift
