@@ -114,7 +114,7 @@ To learn more about the `credentials` object, read the [Credentials](https://git
 
 <%= include('../../../../_includes/_logout_url') %>
 
-To clear on server side the session add the following snipped to the HybridAuth.swift file:
+To clear the session on the server side you need to invoke the `clearSession` method. Add the following snippet:
 
 ```swift
 // HybridAuth.swift
