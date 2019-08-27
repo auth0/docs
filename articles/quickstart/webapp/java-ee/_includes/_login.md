@@ -300,7 +300,7 @@ You can then use that profile information in your view to display information ab
 </c:choose>
 ```
 
-## Handle Logout
+## Handle logout
 
 To log a user out, you should clear the application session and log the user out of Auth0. This is handled in the `LogoutServlet`.
 
