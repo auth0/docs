@@ -32,7 +32,7 @@ Before you can update the applications to the SSO Dashboard, you need to
   
   ![Change Application Settings](/media/articles/extensions/sso-dashboard/change-settings.png)
 
-  Delete an application with the **X** button. A confirmation box will popup to confirm the deletion.
+5. Delete an application with the **X** button. A confirmation box will popup to confirm the deletion.
 
 ## Keep reading
 

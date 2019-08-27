@@ -54,8 +54,6 @@ Before you [add the SSO Dashboard extension](/extensions/sso-dashboard-install-e
 
 9. Set the **JsonWebToken Signature Algorithm** to *RS256*.
 
-  ![](/media/articles/extensions/delegated-admin/set-rs256.png)
-
 10. Click **Save Changes**. 
 
   Next, you will need to [install the SSO Dashboard Extension](/extensions/sso-dashboard-install-extension) and [add applications](/extensions/sso-dashboard-add-apps) to the dashboard.
