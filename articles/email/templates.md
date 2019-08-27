@@ -57,7 +57,7 @@ Hello {{ user.name }}. Welcome to {{ application.name }} from {{ friendly_name }
 Note that the attributes available for the `user` object will depend on the type of connection being used.
 
 ::: note
-Individual email templates define addtional variables that are appropriate for the specific template. Be sure to check out the [individual templates descriptions](#individual-templates-descriptions) below.
+Individual email templates define additional variables that are appropriate for the specific template. Be sure to check out the [individual templates descriptions](#individual-templates-descriptions) below.
 :::
 
 For those emails where the user needs to follow a link to take action, you can also configure the **URL Lifetime** and **Redirect To** URL destination after the action is completed. Liquid Syntax is also supported in the **Redirect To** URL field, but only two variables are supported:
