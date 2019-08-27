@@ -2,7 +2,7 @@
 
 The Java EE 8 Security API introduced the `HttpAuthenticationMechanism` interface to enable applications to obtain a user's credentials. Default implementations exist for Basic and form-based authentication, and it provides an easy way to configure a custom authentication strategy.
 
-To authenticate users with Auth0, you can provide custom implementations of the following interfaces:
+To authenticate with Auth0, provide custom implementations of the following interfaces:
 
 - `HttpAuthenticationMechanism`: Responsible for obtaining an user's credentials and notifying the container of successful (or not) login status ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/authentication/mechanism/http/HttpAuthenticationMechanism.html)).
 - `IdentityStore`: Responsible for validating the user's credentials ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/identitystore/IdentityStore.html)).
