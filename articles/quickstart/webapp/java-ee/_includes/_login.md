@@ -356,7 +356,7 @@ public class LogoutServlet extends HttpServlet {
 }
 ```
 
-## Run the Sample
+## Run the sample
 
 To build and run the sample, execute the `wildfly:run` Maven goal to start an embedded WildFly application server with this application deployed to it. See the [WildFly Maven Plugin](https://docs.jboss.org/wildfly/plugins/maven/latest/) documentation for more information.
 
