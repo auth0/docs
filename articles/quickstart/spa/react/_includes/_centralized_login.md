@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD002 MD041 MD034 -->
 
-<%= include('../../\_includes/\_login_preamble', { library: 'React' }) %>
+<%= include('../../_includes/_login_preamble', { library: 'React' }) %>
 
 ## Create a Sample Application
 
@@ -141,7 +141,7 @@ This is a set of custom [React hooks](https://reactjs.org/docs/hooks-intro.html)
 
 The next few sections will integrate these hooks into the various components that make up the app.
 
-<%= include('../../\_includes/\_silent-auth-social-idp') %>
+<%= include('../../_includes/_silent-auth-social-idp') %>
 
 ### Create the Navbar component
 
