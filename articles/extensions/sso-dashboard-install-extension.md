@@ -66,6 +66,8 @@ Setting the `AUTH0_CUSTOM_DOMAIN` variable does not affect the extension URL, it
 
 ## Keep reading
 
+- [Add Applications to the SSO Dashboard](/extensions/sso-dashboard-add-apps)
+- [Update Applications on the SSO Dashboard](/extensons/sso-dashboard-update-apps)
 - [View this Extension on GitHub](https://github.com/auth0-extensions/auth0-sso-dashboard-extension)
 - [Understand how Single Sign-On works with Auth0](/sso/current/sso-auth0)
 - Learn how to [enable SSO in Auth0](/dashboard/guides/tenants/enable-sso-tenant)

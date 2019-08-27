@@ -12,11 +12,11 @@ useCase:
   - create-sso-dashboard-application
 ---
 
-# Create a Single Sign-On Dashboard Application
+# Create a SSO Dashboard Application
 
 Use the [SSO Dashboard Extension](/extensions/sso-dashboard) to manage SSO login for your users on multiple enterprise applications. 
 
-Before you add the the SSO Dashboard extension, you need to create the SSO Dashboard application in Auth0. 
+Before you [add the SSO Dashboard extension](/extensions/sso-dashboard-install-extension), you need to create the SSO Dashboard application in Auth0. 
 
 1. Navigate to [Applications](${manage_url}/#/applications).
 
@@ -56,7 +56,9 @@ Before you add the the SSO Dashboard extension, you need to create the SSO Dashb
 
   ![](/media/articles/extensions/delegated-admin/set-rs256.png)
 
-10. Click **Save Changes**. Next, you will need to [install the SSO Dashboard Extension](/extensions/sso-dashboard-install-extension) and [add applications](/extensions/sso-dashboard-add-apps) to the dashboard.
+10. Click **Save Changes**. 
+
+  Next, you will need to [install the SSO Dashboard Extension](/extensions/sso-dashboard-install-extension) and [add applications](/extensions/sso-dashboard-add-apps) to the dashboard.
 
 ::: note
 By default all the connection types are enabled for users to be able to login into the SSO Dashboard. If you would like to change this, navigate to the **Connections** tab for the Application.

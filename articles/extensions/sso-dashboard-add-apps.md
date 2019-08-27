@@ -12,21 +12,24 @@ useCase:
   - setup-sso-dashboard
 ---
 
-# Add Applications to the Auth0 Single Sign-On Dashboard
+# Add Applications to the SSO Dashboard
 
 Use the [SSO Dashboard Extension](/extensions/sso-dashboard) to manage SSO login for your users on multiple enterprise applications. 
 
-Before you add the applications to the SSO Dashboard, you need to [create the SSO Dashboard application](/extensions/sso-dashboard-create-app) in Auth0 and [install the SSO Dashboard Extension](/extensions/sso-dashboard-install-extension). 
+Before you add the applications to the SSO Dashboard, you need to:
+
+* [Create the SSO Dashboard application](/extensions/sso-dashboard-create-app)
+* [Install the SSO Dashboard Extension](/extensions/sso-dashboard-install-extension). 
 
 1. Login to the SSO Dashboard. Use `https://${account.tenant}.<REGION>8.webtask.io/auth0-sso-dashboard/admins/login` or through the Dashboard.
 
-2. Go to the **Settings** page by clicking on the link on the upper right corner of the page and click **Settings** from the dropdown.
+2. In the upper right corner, select **Settings** from the dropdown.
 
 3. Click **CREATE APP** to add a new application.
 
     ![Dashboard Settings](/media/articles/extensions/sso-dashboard/settings.png)
 
-    You will then need to enter the following fields for the new application:
+4. Enter the following fields for the new application:
 
     | Field | Description |
     | --- | --- |
@@ -40,16 +43,17 @@ Before you add the applications to the SSO Dashboard, you need to [create the SS
 
     ![Create a new application](/media/articles/extensions/sso-dashboard/new-app.png)
 
-4. Click **CREATE**.
+5. Click **CREATE**.
 
     Your new application will then appear on the **Applications** page of the SSO dashboard with any other applications that have been created.
 
     ![SSO Dashboard Applications](/media/articles/extensions/sso-dashboard/dashboard-apps.png)
 
-5. You can click on an application to test the connection.
+6. Click on an application to test the connection.
 
 ## Keep reading
 
+- [Update Applications on the SSO Dashboard](/extensions/sso-dashboard-update-apps)
 - [View this Extension on GitHub](https://github.com/auth0-extensions/auth0-sso-dashboard-extension)
 - [Understand how Single Sign-On works with Auth0](/sso/current/sso-auth0)
 - Learn how to [enable SSO in Auth0](/dashboard/guides/tenants/enable-sso-tenant)

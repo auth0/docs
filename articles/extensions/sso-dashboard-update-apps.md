@@ -1,5 +1,5 @@
 ---
-description: Learn how to add applications to the SSO Dashboard Extension to enable SSO login for your applications. 
+description: Learn how to update applications on the SSO Dashboard Extension to enable SSO login for your applications. 
 topics:
   - extensions
   - sso-dashboard
@@ -9,26 +9,30 @@ contentType:
 useCase: 
   - extensibility-extensions
   - setup-multiple-applications
-  - setup-sso-dashboard
+  - update-sso-dashboard-applications
 ---
 
-# Update Applications to the Auth0 Single Sign-On Dashboard
+# Update Applications on the SSO Dashboard
 
 Use the [SSO Dashboard Extension](/extensions/sso-dashboard) to manage SSO login for your users on multiple enterprise applications. 
 
-You can update applications that you have already [added to the SSO Dashboard](/extensions/sso-dashboard-add-apps).  
+Before you can update the applications to the SSO Dashboard, you need to 
 
-To edit an existing application go to the **Settings** page of the dashboard by clicking on the link on the upper right corner of the page and click **Settings** from the dropdown.
+* [Create the SSO Dashboard application](/extensions/sso-dashboard-create-app) in Auth0
+* [Install the SSO Dashboard Extension](/extensions/sso-dashboard-install-extension)
+* [Add applications to the SSO Dashboard](/extensions/sso-dashboard-add-apps) 
 
-You can change whether users can see the application (if it is enabled) with the **Publish** or **Unpublish** buttons. 
+1. Login to the SSO Dashboard. Use `https://${account.tenant}.<REGION>8.webtask.io/auth0-sso-dashboard/admins/login` or through the Dashboard.
 
-You can delete an application with the **X** button, a confirmation box will popup to confirm the deletion.
+2. In the upper right corner, select **Settings** from the dropdown.
 
-To update an application's settings, click the gear icon.
+3. Change whether users can see the application (if it is enabled) with the **Publish** or **Unpublish** buttons. 
 
-![Change Application Settings](/media/articles/extensions/sso-dashboard/change-settings.png)
+4. Click the gear icon to update an application's settings.
+  
+  ![Change Application Settings](/media/articles/extensions/sso-dashboard/change-settings.png)
 
-Here you can change any of your application settings, or delete an application.
+  Delete an application with the **X** button. A confirmation box will popup to confirm the deletion.
 
 ## Keep reading
 
