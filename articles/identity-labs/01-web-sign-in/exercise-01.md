@@ -59,7 +59,7 @@ listening on http://localhost:3000
 If you see a message like "Error: listen EADDRINUSE :::3000" in your terminal after starting the application, this means that port 3000 is in use somewhere. Change the `PORT` value in your `.env` file to "3001" and try again.
 :::
 
-5. Open a Web browser and go to http://localhost:3000 (or http://localhost:PORT where PORT is the value of the environment variable, in case you changed its value). You should see a page with a “Hello World” message. Click the Expenses link to view the expenses page shown above.
+5. Open a Web browser and go to [localhost:3000](http://localhost:3000) (or `http://localhost:PORT` where PORT is the value of the environment variable, in case you changed its value). You should see a page with a “Hello World” message. Click the Expenses link to view the expenses page shown above.
 
 6. Now, we're ready to start adding authentication! Switch to your terminal window and press `[CTRL]` + `[c]` to stop the server, then use `npm` to install the packages you'll use to secure the app. The `cookie-session` package stores session data for the user in a browser cookie. The `express-openid-connect` package is a simple Express middleware that provides OpenID Connect and JWT implementation.
 
@@ -125,7 +125,7 @@ The `auth0Logout: true` property passed to the auth middleware in step 9 tells t
 
 The middleware needs to be given some information in order to build a proper OpenID request and send it to the authorization server. This information includes:
 
-- **The URL of the authorization server.** This URL will be used to download the OpenID Connect configuration from the discovery document, available at the URL https://{your-auth0-domain}/.well-known/openid-configuration ([here is the configuration](https://auth0.auth0.com/.well-known/openid-configuration) for the main Auth0 tenant). The discovery document is a standard OpenID Connect mechanism used to publish relevant discovery metadata of the OpenID Connect provider, including a link to what keys should be used for validating the tokens it issues.
+- **The URL of the authorization server.** This URL will be used to download the OpenID Connect configuration from the discovery document, available at the URL `https://{your-auth0-domain}/.well-known/openid-configuration` ([here is the configuration](https://auth0.auth0.com/.well-known/openid-configuration) for the main Auth0 tenant). The discovery document is a standard OpenID Connect mechanism used to publish relevant discovery metadata of the OpenID Connect provider, including a link to what keys should be used for validating the tokens it issues.
 - **The unique identifier for your application.** This is created on the authorization server and is a unique string that identifies your application. This identifier must be provided in each request, so the authorization server knows what application the authentication request is for.
 
 You will use the Auth0 Dashboard to register your application with Auth0. Afterwards you’ll be able to retrieve the two values above and configure them as environment variables for your app. The middleware will read these environment variables and use them to build the request when a user tries to authenticate.
@@ -136,11 +136,11 @@ You will use the Auth0 Dashboard to register your application with Auth0. Afterw
 
 11. You should now see the Quickstart section that describes how to integrate Auth0 with a production application. Click the **Settings** tab at the top to see the Application settings.
 
-12. Add your application’s callback URL - http://localhost:3000/callback (adjust the port number if needed) - to the **Allowed Callback URLs** field. Auth0 will allow redirects **only** to the URLs in this field after authentication. If the one provided in the authorization URL does not match any in this field, an error page will be displayed.
+12. Add your application’s callback URL - `http://localhost:3000/callback` (adjust the port number if needed) - to the **Allowed Callback URLs** field. Auth0 will allow redirects **only** to the URLs in this field after authentication. If the one provided in the authorization URL does not match any in this field, an error page will be displayed.
 
 ![](/media/articles/identity-labs/lab-01-callback-url-config.png)
 
-13. Next, add http://localhost:3000 (adjust the port number if needed) to the **Allowed Logout URLs field**. Auth0 will allow redirects **only** to the URLs in this field after logging out of the authorization server.
+13. Next, add `http://localhost:3000` (adjust the port number if needed) to the **Allowed Logout URLs field**. Auth0 will allow redirects **only** to the URLs in this field after logging out of the authorization server.
 
 ![](/media/articles/identity-labs/lab-01-logout-url-config.png)
 

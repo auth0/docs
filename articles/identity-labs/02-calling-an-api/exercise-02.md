@@ -24,11 +24,11 @@ In this exercise, you will register the API with Auth0 so that tokens can be iss
 
 4. In your terminal, restart your web application with `[CTRL]` + `[c]`, then `npm start`.
 
-5. Log out of the web application by going to [http://localhost:3000/logout](http://localhost:3000/logout), then login again. When logging in, you will see a consent screen where Auth0 mentions that the web application is requesting access to the read:reports scope:
+5. Log out of the web application by going to [localhost:3000/logout](http://localhost:3000/logout), then login again. When logging in, you will see a consent screen where Auth0 mentions that the web application is requesting access to the read:reports scope:
 
 ![](/media/articles/identity-labs/lab-02-api-consent-initial.png)
 
-6. Agree to this delegation by clicking the **Accept** button and Auth0 will redirect you back to the application. Now, you should still be able to see your expenses on the expenses page, [http://localhost:3000/expenses](http://localhost:3000/expenses):
+6. Agree to this delegation by clicking the **Accept** button and Auth0 will redirect you back to the application. Now, you should still be able to see your expenses on the expenses page, [localhost:3000/expenses](http://localhost:3000/expenses):
 
 ![](/media/articles/identity-labs/lab-02-starter-app-rendered.png)
 
@@ -107,6 +107,6 @@ ALLOWED_AUDIENCES=https://expenses-api
 listening on http://localhost:3001
 ```
 
-To test your secured API, refresh the expenses page in your application - [http://localhost:3000/expenses](http://localhost:3000/expenses). If everything works as expected, you will still be able to access this view (which means that the web app is consuming the API on your behalf). If you browse directly to the API at [http://localhost:3001](http://localhost:3001), however, you will get a error saying the the token is missing.
+To test your secured API, refresh the expenses page in your application - [localhost:3000/expenses](http://localhost:3000/expenses). If everything works as expected, you will still be able to access this view (which means that the web app is consuming the API on your behalf). If you browse directly to the API at [localhost:3001](http://localhost:3001), however, you will get a error saying the the token is missing.
 
 <a href="/identity-labs/02-calling-an-api/exercise-03" class="btn btn-transparent">Next →</a>
