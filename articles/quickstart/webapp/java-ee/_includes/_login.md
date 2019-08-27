@@ -188,7 +188,7 @@ If the requested resource is not `/callback`, return `httpMessageContext.doNothi
 
 Finally, note that the `@AutoApplySession` annotation has been added to allow the container to create a session for the authenticated user.
 
-## Trigger Authentication
+## Trigger authentication
 
 To enable a user to login, create a Servlet that will handle requests to the `/login` path:
 
