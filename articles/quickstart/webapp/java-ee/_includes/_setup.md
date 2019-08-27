@@ -1,6 +1,6 @@
 ## Configure Java EE to use Auth0
 
-### Setup dependencies
+### Set up dependencies
 
 To integrate your Java EE application with Auth0, add the following dependencies:
 
