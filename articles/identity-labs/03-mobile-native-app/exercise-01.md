@@ -81,7 +81,7 @@ Just as `http` is a URL Scheme that will launch a browser, the bundle identifier
 
 import UIKit
 
-// Add the code below 👇
+// Add the line below 👇
 import Auth0
 ```
 
@@ -149,7 +149,7 @@ Now that the iOS application is configured with your Auth0 application credentia
 ```text
 Authentication Success
 Access Token: vxPp0Xtg3wkZJudFZWzqMQByYF98Qyer
-ID Token:      eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5VWkZOa0ZETlVWRE56SXhNakF5UVRVNVJVRXpRMFV5TUVRMk1qYzVPVVpGUkVGQ1EwRTJNQSJ9.eyJodHRwczovL2V4YW1wbGUuY29tL3JvbGVzIjpbImFkbWluIl0sIm5pY2tuYW1lIjoibWFydGluLndhbHNoIiwibmFtZSI6Im1hcnRpbi53YWxzaEBnbWFpbC5jb20iLCJwaWN0dXJlIjoiaHR0cHM6Ly9zLmdyYXZhdGFyLmNvbS9hdmF0YXIvYTViYjU5NWZiNmYxM2JmYjZiYWIwZjFlNzM2MGZkZTE_cz00ODAmcj1wZyZkPWh0dHBzJTNBJTJGJTJGY2RuLmF1dGgwLmNvbSUyRmF2YXRhcnMlMkZtYS5wbmciLCJ1cGRhdGVkX2F0IjoiMjAxOC0xMS0yNlQxMDo1ODo1Ni41OTRaIiwiaXNzIjoiaHR0cHM6Ly9mY2F1dGguZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDU5MjAyYjdkMWRiZGI2M2JiODc4YzYzMyIsImF1ZCI6IlFtbjEwdFJHYmRubUcyam1YSnhqTEdpNmFRZm5xN0wwIiwiaWF0IjoxNTQzMjI5OTM3LCJleHAiOjE1NDMyNjU5Mzd9.kLtZDgG5ddE-rsEqzgjMBc516QpQ0qQi0wuyKTs95oIwLZo6mpH6KVXkdV0ORWAwCr91UkH6WfCzeyBoupoDDRvUeNbdui2IBkrlYVc2iVV-Ol3jxo-5L0dmgxR94YllO-4CpsnvN1t0Qwa3haTXE44stEJUw8I4tVIdXrVyL0c34cb1uR0yzArcSf4Qe2hH2nqqT1g-YokmSKp-YeaGfiDC7GYV4u3N8ixKdshl4MLkph_tLQmb4dicWQhdiIFvz8iT1DO4x1hmtmBeb4CHpFPiNKIbZd9GxAgKrb4bRc7SD0w12BcfVYepMbQ3ap071DY0Ul1yl7Oe5uhNZQ0Khg
+ID Token: eyJ0eX[..].eyJodH[..].kLtZDg[..]
 ```
 
 To view the contents of your ID Token, you can copy and paste it into [jwt.io](https://jwt.io/) to view the claims.
@@ -193,12 +193,12 @@ Since you previously enabled logging in our `WebAuth` call - `.logging(enabled: 
 
 ```text
 SafariAuthenticationSession:
-https://tenant.auth0.com/authorize
+https://${account.namespace}/authorize
 ?code_challenge=VsPaQ0gJjnluA2vwV0piY-D-DTCltGI9GbYkBNHvPHQ
 &response_type=code
-&redirect_uri=com.auth0.identity102://tenant.auth0.com/ios/com.auth0.identity102/callback
+&redirect_uri=com.auth0.identity102://${account.namespace}/ios/com.auth0.identity102/callback
 &state=RFnNyPj4NOZMUW8IpDBr-j3UgO4gCbhBZtLpWB_vmDo
-&client_id=Qmn10tRGbdnmG2jmXJxjLGi6aQfnq7L0
+&client_id=${account.clientId}
 &scope=openid%20profile
 &code_challenge_method=S256
 &auth0Client=eyJzd2lmdC12ZXJzaW9uIjoiMy4wIiwibmFtZSI6IkF1dGgwLnN3aWZ0IiwidmVyc2lvbiI6IjEuMTMuMCJ9
@@ -208,7 +208,7 @@ https://tenant.auth0.com/authorize
 
 ```text
 iOS Safari:
-com.auth0.identity102://tenant.auth0.com/ios/com.auth0.identity102/callback
+com.auth0.identity102://${account.namespace}/ios/com.auth0.identity102/callback
 ?code=6SiMHrJHbG2aAPrj
 &state=RFnNyPj4NOZMUW8IpDBr-j3UgO4gCbhBZtLpWB_vmDo
 ```
@@ -219,10 +219,10 @@ com.auth0.identity102://tenant.auth0.com/ios/com.auth0.identity102/callback
 POST /oauth/token
 
 {"grant_type":"authorization_code",
-"redirect_uri":"com.auth0.identity102:\/\/tenant.auth0.com\/ios\/com.auth0.identity102\/callback",
+"redirect_uri":"com.auth0.identity102:\/\/${account.namespace}\/ios\/com.auth0.identity102\/callback",
 "code":"6SiMHrJHbG2aAPrj",
 "code_verifier":"qiV8gYUrPco3qBlejLeZzgC9DMtXZY1GddzZpmVxyxw",
-"client_id":"Qmn10tRGbdnmG2jmXJxjLGi6aQfnq7L0"}
+"client_id":"${account.clientId}"}
 ```
 
 21. The authorization server validates this information and returns the requested access and ID tokens. If successful, you will see the following response containing your tokens:
@@ -231,7 +231,7 @@ POST /oauth/token
 Content-Type: application/json
 
 {"access_token":"ekhGPSE7xdhOTJuTo2dV-TYyJV-OTYrO",
-"id_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5VWkZOa0ZETlVWRE56SXhNakF5UVRVNVJVRXpRMFV5TUVRMk1qYzVPVVpGUkVGQ1EwRTJNQSJ9.eyJodHRwczovL2V4YW1wbGUuY29tL3JvbGVzIjpbImFkbWluIl0sIm5pY2tuYW1lIjoibWFydGluLndhbHNoIiwibmFtZSI6Im1hcnRpbi53YWxzaEBnbWFpbC5jb20iLCJwaWN0dXJlIjoiaHR0cHM6Ly9zLmdyYXZhdGFyLmNvbS9hdmF0YXIvYTViYjU5NWZiNmYxM2JmYjZiYWIwZjFlNzM2MGZkZTE_cz00ODAmcj1wZyZkPWh0dHBzJTNBJTJGJTJGY2RuLmF1dGgwLmNvbSUyRmF2YXRhcnMlMkZtYS5wbmciLCJ1cGRhdGVkX2F0IjoiMjAxOC0xMS0yOVQxMToxNzo1MC43NzBaIiwiaXNzIjoiaHR0cHM6Ly9mY2F1dGguZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDU5MjAyYjdkMWRiZGI2M2JiODc4YzYzMyIsImF1ZCI6IlFtbjEwdFJHYmRubUcyam1YSnhqTEdpNmFRZm5xN0wwIiwiaWF0IjoxNTQzNDkwMjcxLCJleHAiOjE1NDM1MjYyNzF9.1kZccnCppokxDEx87Fv16iZjs5aiREQC20hcTJaPdYilv248CtMUPrxNk4RlMdOccxdJNreGCV7sMBYe2R-DFNtpTzKCbfWGhjSe4jy80CtU80nKevcq_nrhPrjP23jZBgN2qZegxa2JiDQpZ2Y7SMEFALMrP7lAeLgXBbpyKAP1eOqN-bfQNqC4Q1CyS1QdJNfpy5AoNKaXmtwz7mgKdMtvwMA0yHLiZ5OivTXXpqEnncXHygniRA_I9rvnRevGe2bZuJIiOg4n_CB1l87DQFfsPllQ9GRaht8xDU1L4i71s4tIlDrtJGePC8N4OOmbqVbkXujDVOEuZ-x_cCOVPw",
+"id_token":"eyJ0eX[..].eyJodH[..].1kZccn[..]",
 "expires_in":86400,
 "token_type":"Bearer"}
 ```

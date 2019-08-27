@@ -179,7 +179,7 @@ Note the use of the `req.openid.tokens` property in the first line. This is one 
 
 ```text
 API_AUDIENCE=https://expenses-api
-CLIENT_SECRET=[Application Client Secret from Auth0]
+CLIENT_SECRET=YOUR_APPLICATION_CLIENT_SECRET
 ```
 
 The `API_AUDIENCE` value is the identifier for the API that will be created in the following exercise. To get your Client Secret, go to your Application settings page in the Auth0 Dashboard:

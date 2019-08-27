@@ -22,7 +22,7 @@ In this exercise, you will register the API with Auth0 so that tokens can be iss
 
 1. To register the API with Auth0, open the Auth0 Dashboard and go to the [APIs screen](${manage_url}/#/apis).
 
-2. Click the **Create API** button. Add a descriptive Name, paste `https://expenses-api` into the Identifier field, and click **Create**.
+2. Click the **Create API** button. Add a descriptive Name, paste `https://expenses-api` into the **Identifier** field, and click **Create**.
 
 3. Click the **Permissions** tab and add a new permission called `read:reports` with a suitable description. This custom permission is the one you will use to determine whether the client is authorized to retrieve expenses.
 
@@ -99,7 +99,7 @@ The next time you run your API, all requests that do not include a valid access 
 
 ```text
 PORT=3001
-ISSUER_BASE_URL=https://yourdomain.auth0.com
+ISSUER_BASE_URL=https://${account.namespace}
 ALLOWED_AUDIENCES=https://expenses-api
 ```
 

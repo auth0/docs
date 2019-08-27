@@ -136,7 +136,7 @@ You will use the Auth0 Dashboard to register your application with Auth0. Afterw
 
 9. Log into the Auth0 Dashboard, go to the [Applications page](${manage_url}/#/applications), and click the **Create Application** button.
 
-10. Set a descriptive name (e.g., "Identity Lab 1 - Web Sign In"), choose **Regular Web Application** for the type, and click **Create**.
+10. Set a descriptive name (e.g., "Identity Lab 1 - Web Sign In"), choose **Regular Web Applications** for the type, and click **Create**.
 
 11. You should now see the Quickstart section that describes how to integrate Auth0 with a production application. Click the **Settings** tab at the top to see the Application settings.
 
@@ -153,9 +153,9 @@ You will use the Auth0 Dashboard to register your application with Auth0. Afterw
 14. Open your `.env` file. Add `https://` plus the **Domain** from Auth0 as the value for the `ISSUER_BASE_URL` key. Add the **Client ID** from Auth0 as the value for the `CLIENT_ID` key. Add a long, random string and the value for the `COOKIE_SECRET` key. Your `.env` file should look similar to the example below:
 
 ```
-ISSUER_BASE_URL=https://your-tenant-name.auth0.com
-CLIENT_ID=m7YBmCrUXPWZ58Ki0b0XviVSTnNj0Rbk
-COOKIE_SECRET=bMXzdb7RbqOfZEkYINGaUmgI+paVIpj6eXdnQZX5cd0=
+ISSUER_BASE_URL=https://${account.namespace}
+CLIENT_ID=${account.clientId}
+COOKIE_SECRET=LONG_RANDOM_STRING
 PORT=3000
 ```
 

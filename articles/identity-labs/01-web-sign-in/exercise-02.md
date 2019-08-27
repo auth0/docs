@@ -29,13 +29,13 @@ In this exercise, you will sign up to your application (which will also log you 
 3. After that, you should see a GET request to `https://your-tenant-name.auth0.com/authorize`. This is the middleware added in exercise 1 taking over. The middleware checks if the user is logged in and, because they are not, it builds the OpenID Connect request to the authorization server URL and forwards the user to it. In this case, the complete GET request URL will look something like this (line breaks added for clarity):
 
 ```text
-https://your-tenant-name.auth0.com/authorize
-?client_id=YwDj4NOP0qtc9INU4shuRVa69TXBa5MJj7t
+https://${account.namespace}/authorize
+?client_id=${account.clientId}
 &scope=openid%20profile%20email
 &response_type=id_token
 &nonce=71890cc63567e17b
 &state=85d5152581b310e3389b
-&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fcallback
+&redirect_uri=${account.callback}
 &response_mode=form_post
 ```
 

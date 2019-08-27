@@ -17,11 +17,9 @@ contentType:
 ## Prerequisites
 
 - Read the introduction on the [main Identity Labs page](/labs/)
-- Watch the [Calling an API video](/videos/learn-identity/04-calling-an-api)
+- Watch the [Single Page Apps video](/videos/learn-identity/06-single-page-apps)
 
 ## What You'll Need
-
----
 
 <%= include('../_includes/what-you-need') %>
 

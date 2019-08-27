@@ -105,17 +105,17 @@ Token Valid: true
 
 ```js
 {
-  "iss": "https://tenant-name.auth0.com/",
+  "iss": "https://${account.namespace}/",
   "sub": "auth0|1234567890",
   "aud": [
 
     // New audience 👇
     "https://expenses-api",
-    "https://tenant-name.auth0.com/userinfo"
+    "https://${account.namespace}/userinfo"
   ],
   "iat": 1566840738,
   "exp": 1566840746,
-  "azp": "Gr9dDZA4kHE4uN2VPmBiiNo6BM2FfdSp",
+  "azp": "${account.clientId}",
 
   // Existing scopes 👇
   "scope": "openid profile"

@@ -156,11 +156,11 @@ class ViewController: UIViewController {
 11. Click the Play button (or **Product > Run** from the Xcode menu) to re-run the app. Tap **Log In** and, after successful authentication, touch the **Refresh Token** button. Look in the Xcode the debug area for the request. You should see a `POST` to the token endpoint, showing the refresh token grant in action.
 
 ```text
-POST https://joshc-test.auth0.com/oauth/token HTTP/1.1
+POST https://${account.namespace}/oauth/token HTTP/1.1
 Auth0-Client: eyJuYW1lIjoiQXV0aDAuc3dpZnQiLCJ2ZXJzaW9uIjoiMS4xMy4wIiwic3dpZnQtdmVyc2lvbiI6IjMuMCJ9
 Content-Type: application/json
 
-{"grant_type":"refresh_token","client_id":"Gr9dDZA4kHE4uN2VPmBiiNo6BM2FfdSp","refresh_token":"2CNxaPe0UIkX_PZkLEkKuoAuRsP6Ycg81XR1jQlTyn1dt"}
+{"grant_type":"refresh_token","client_id":"${account.clientId}","refresh_token":"2CNxaPe0UIkX_PZkLEkKuoAuRsP6Ycg81XR1jQlTyn1dt"}
 ```
 
 12. Look for the response after the request above. You should see a response including a new `access_token`, new `id_token`, and a new `expires_in` time (some of the trace was omitted for brevity).
@@ -176,7 +176,8 @@ Content-Length: 1923
 
 {"access_token":"eyJ0eX[..].eyJpc3[..].Smqrd7[..]",
 "id_token":"eyJ0eX[..].eyJua[..].Ff5Q5[..]",
-"scope":"openid profile read:reports offline_access","expires_in":3600,"token_type":"Bearer"}
+"scope":"openid profile read:reports offline_access",
+"expires_in":3600,"token_type":"Bearer"}
 ```
 
 Notice that you don’t receive a new `refresh_token` in the response from the authorization server. The `refresh_token` from the initial authentication must be retained. Also note that in the code added to the `actionRefresh` method the `access_token` received is stored in the `self.accessToken` class property. This is so the new access token can be used in other methods. If you try calling the API again, the request will be made with your new access_token.
