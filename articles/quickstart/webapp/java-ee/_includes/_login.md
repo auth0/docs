@@ -59,7 +59,7 @@ public class Auth0AuthenticationConfig {
 }
 ```
 
-Next, create a custom `CallerPrincipal` that represents the caller of the current request.
+Next, create a custom `CallerPrincipal` that represents the caller of the current request:
 
 ```java
 // src/main/java/com/auth0/example/security/Auth0JwtPrincipal.java
