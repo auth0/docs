@@ -9,7 +9,7 @@ To authenticate users with Auth0, you can provide custom implementations of the 
 - `CallerPrincipal`: Represents the caller principal of the current HTTP request ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/CallerPrincipal.html)).
 - `Credential`: Represents the credential the caller will use to authenticate ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/credential/Credential.html)).
 
-First, make your Auth0 settings available to the application. Create an `@ApplicationScoped` bean to retrieve the values from the web context and make them available via getters:
+First, make your Auth0 settings available to the application by creating an `@ApplicationScoped` bean to retrieve the values from the web context and make them available via getters:
 
 ```java
 // src/main/java/com/auth0/example/security/Auth0AuthenticationConfig.java
