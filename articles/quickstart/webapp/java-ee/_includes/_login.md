@@ -247,7 +247,7 @@ public class CallbackServlet extends HttpServlet {
 }
 ```
 
-## Display User Information
+## Display user information
 
 You can use the `Auth0JwtPrincipal` to get profile information for the authenticated user. The following code sample demonstrates how to use the claims on the [ID token](https://auth0.com/docs/tokens/id-token) to set profile data as a request attribute:
 
