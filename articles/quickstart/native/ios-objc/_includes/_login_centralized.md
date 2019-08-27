@@ -132,7 +132,7 @@ func logOutUser(callback: @escaping(Bool, String) -> Void){
         }
 }
 ```
-After the logout, the callback will return a BOOL with the logout status.
+After the call, the callback will receive a BOOL with the logout status.
 
 ::: note
 If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to whitelist in the Allowed Logout URLs field is the same as the callback URL.
