@@ -122,7 +122,7 @@ To clear the session on the server side you need to invoke the `clearSession` me
 func logOutUser(callback: @escaping(Bool, String) -> Void){
     Auth0
         .webAuth()
-        .clearSession(federated: true){
+        .clearSession(federated: false){
             switch $0 {
             case true:
                 callback($0, "Logged out successfully")
