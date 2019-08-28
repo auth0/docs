@@ -35,11 +35,12 @@ Make sure you have copied the **Client ID** value from your SSO Dashboard applic
     | --- | --- |
     | **EXTENSION_CLIENT_ID** | The **Client ID** of the application you have created in the [Applications](${manage_url}/#/applications) that you wish to use this extension with. |
     | **TITLE** | The custom title that will appear at the top of the SSO Dashboard page. |
-    | **CUSTOM_CSS** | *Optional* A link to a custom CSS you can use to style the look of your SSO Dashboard page. |
-    | **AUTH0_CUSTOM_DOMAIN** | *Optional* If you have a custom domain name configured, enter it here (for example: `login.example.com`). This will change the authorization endpoint to `https://login.example.com/login`. |
+    | **CUSTOM_CSS** | (*Optional*) A link to a custom CSS you can use to style the look of your SSO Dashboard page. |
+    | **FAVICON_PATH** | (*Optional*) Path to custom favicon. |
+    | **AUTH0_CUSTOM_DOMAIN** | (*Optional*) If you have a custom domain name configured, enter it here (for example: `login.example.com`). This will change the authorization endpoint to `https://login.example.com/login`. |
 
 ::: note
-Setting the `AUTH0_CUSTOM_DOMAIN` variable does not affect the extension URL, it only changes the "authorization endpoint". When a custom domain is used, users that are logging into the extension will be navigated to `https://AUTH0_CUSTOM_DOMAIN/login` instead of the default `https://tenant-name.us.auth0.com/login`.
+Setting the `AUTH0_CUSTOM_DOMAIN` variable does not affect the extension URL, it only changes the authorization endpoint. When a custom domain is used, users that are logging into the extension will be navigated to `https://AUTH0_CUSTOM_DOMAIN/login` instead of the default `https://tenant-name.us.auth0.com/login`. 
 :::
 
 4. Click **INSTALL**.

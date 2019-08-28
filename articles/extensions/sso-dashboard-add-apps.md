@@ -38,7 +38,7 @@ Before you add the applications to the SSO Dashboard, you need to:
     | **Name** | The name of the new application you are adding. |
     | **Logo** | The url of the logo you wish to user as an icon for the application. |
     | **Callback** | One of the **Allowed Callback URLs** under your [Application Settings](${manage_url}/#/applications) of the application. |
-    | **Connection** | *Optional* The connection type. You can add or edit your available connection types in the [Connections section of the Auth0 Management dashboard](${manage_url}/#/connections/database).  If a connection is not set and the user is not logged, the user will see the Auth0 Login page. |
+    | **Connection** | (*Optional*) The connection type. You can add or edit your available connection types in the [Connections section of the Auth0 Management dashboard](${manage_url}/#/connections/database).  If a connection is not set and the user is not logged, the user will see the Auth0 Login page. |
     | **Enabled** | Checkbox for this application to be visible (published) to your users. |
 
     ![Create a new application](/media/articles/extensions/sso-dashboard/new-app.png)

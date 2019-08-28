@@ -1,5 +1,6 @@
 ---
 description: Understand how the SSO Dashboard Extension enables you to manage SSO login for your users on multiple enterprise applications. 
+classes: topic-page
 topics:
   - extensions
   - sso-dashboard
@@ -14,7 +15,11 @@ useCase:
 
 # Auth0 Single Sign-On Dashboard Extension
 
-With the **<dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> Dashboard** extension, you can enable SSO login for your users on multiple enterprise applications.
+The **<dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> Dashboard** is a web application designed to solve a problem familiar to many people. Organizations of all sizes maintain a variety of different applications to handle various business functions like accounting, HR, development, support, etc. Remembering usernames and passwords and login URLs for all of your applications can be cumbersome. With this extension, you can simplify the authentication experience by enabling SSO login for your users on multiple enterprise applications. It allows you to create a list of all the cloud services for which a user can authenticate with SSO logins. 
+
+::: note
+A user should not be able to access, from the dashboard or otherwise, the service provider without having appropriate permissions (groups/roles) to do so.  Ideally, these users would not see any service provider they are not granted access to on the dashboard.
+:::
 
 The SSO Dashboard supports two types of users: 
 - **Users** who can login to the dashboard to select an application to sign into with SSO. 
@@ -22,10 +27,12 @@ The SSO Dashboard supports two types of users:
 
 Before you install and use the SSO Dashboard extension, you need to:
 
-1. [Create an SSO Dashboard application](/extensions/sso-dashboard-create-app). 
-2. [Install the extension](/extensions/sso-dashboard-install-extension).
-3. [Add applications](/extensions/sso-dashboard-add-apps).
-4. If necessary, [update applications](/extensions/sso-dashboard-update-apps). 
+<%= include('../_includes/_topic-links', { links: [
+  'extensions/sso-dashboard-create-app',
+  'extensions/sso-dashboard-install-extension',
+  'extensions/sso-dashboard-add-apps',
+  'extensions/sso-dashboard-update-apps',
+] }) %>
 
 ## Keep reading
 
