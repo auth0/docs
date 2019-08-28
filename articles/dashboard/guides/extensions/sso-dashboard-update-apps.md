@@ -22,11 +22,15 @@ Before you can update the applications to the SSO Dashboard, you need to
 * [Install the SSO Dashboard Extension](/dashboard/guides/extensions/sso-dashboard-install-extension)
 * [Add applications to the SSO Dashboard](/dashboard/guides/extensions/sso-dashboard-add-apps) 
 
-1. Login to the SSO Dashboard. Use `https://${account.tenant}.<REGION>8.webtask.io/auth0-sso-dashboard/admins/login` or through the Dashboard.
+1. Go to [Dashboard > Extensions](${manage_url}/#/extensions) and click on your new SSO Dashboard extension. 
 
-2. In the upper right corner, select **Settings** from the dropdown.
+::: note
+If you are an administrator, you can also login to the SSO Dashboard using `https://${account.tenant}.<REGION>8.webtask.io/auth0-sso-dashboard/admins/login`.
+:::
 
-3. Change whether users can see the application (if it is enabled) with the **Publish** or **Unpublish** buttons. 
+2. In the upper right corner, select **Settings** from the dropdown below your tenant name.
+
+3. Click **Publish** or **Unpublish** to change whether users can see the application (if it is enabled). 
 
 4. Click the gear icon to update an application's settings.
   

@@ -23,7 +23,7 @@ Before you install and configure the SSO Dashboard extension, you need to [creat
 Make sure you have copied the **Client ID** value from your SSO Dashboard application. 
 :::
 
-1. Navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}).
+1. Go to [Dashboard > Extensions](${manage_url}/#/extensions) and click on your new SSO Dashboard extension.
 
 2. Click on the **SSO Dashboard** box in the list of provided extensions. The **Install Extension** window will open.
 

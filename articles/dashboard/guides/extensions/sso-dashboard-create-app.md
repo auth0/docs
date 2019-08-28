@@ -18,13 +18,13 @@ Use the [SSO Dashboard Extension](/extensions/sso-dashboard) to manage SSO login
 
 Before you [add the SSO Dashboard extension](/dashboard/guides/extensions/sso-dashboard-install-extension), you need to create the SSO Dashboard application in Auth0. 
 
-1. Navigate to [Applications](${manage_url}/#/applications).
+1. Go to [Dashboard > Applications](${manage_url}/#/applications).
 
 2. Click **+Create Application**. 
 
 3. Enter a name for the application (for example *SSO Dashboard*).
 
-4. Select **Single-Page Web Applications** application type. 
+4. Select the **Single-Page Web Applications** application type. 
 
 5. Click **Create**.
 
@@ -50,7 +50,7 @@ Before you [add the SSO Dashboard extension](/dashboard/guides/extensions/sso-da
 
 7. Select and copy the **Client ID** value.
 
-8. Click **Show Advanced Settings**. 
+8. At the bottom of the page, click **Show Advanced Settings**. 
 
 9. Select the **OAuth** tab and paste the **Client ID** value that you copied previously into the **Allowed APPs / APIs** field.
 

@@ -1,6 +1,5 @@
 ---
 description: General troubleshooting steps for extensions.
-toc: true
 topics:
   - extensions
   - troubleshooting

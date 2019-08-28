@@ -19,11 +19,15 @@ Use the [SSO Dashboard Extension](/extensions/sso-dashboard) to manage SSO login
 Before you add the applications to the SSO Dashboard, you need to:
 
 * [Create the SSO Dashboard application](/dashboard/guides/extensions/sso-dashboard-create-app)
-* [Install the SSO Dashboard Extension](/dashboard/guides/extensions/sso-dashboard-install-extension). 
+* [Install the SSO Dashboard Extension](/dashboard/guides/extensions/sso-dashboard-install-extension)
 
-1. Login to the SSO Dashboard. Use `https://${account.tenant}.<REGION>8.webtask.io/auth0-sso-dashboard/admins/login` or through the Dashboard.
+1. Go to [Dashboard > Extensions](${manage_url}/#/extensions) and click on your new SSO Dashboard extension. 
 
-2. In the upper right corner, select **Settings** from the dropdown.
+::: note
+If you are an administrator, you can also login to the SSO Dashboard using `https://${account.tenant}.<REGION>8.webtask.io/auth0-sso-dashboard/admins/login`.
+:::
+
+2. In the upper right corner, select **Settings** from the dropdown below your tenant name.
 
 3. Click **CREATE APP** to add a new application.
 
@@ -41,7 +45,7 @@ Before you add the applications to the SSO Dashboard, you need to:
     | **Application** | A dropdown where you select the application that you wish to add.  |
     | **Name** | The name is automatically populated based on the application you selected. You can change the name or use the default. |
     | **Logo** | The url of the logo you wish to user as an icon for the application. |
-    | **Callback** | One of the **Allowed Callback URLs** under your [Application Settings](${manage_url}/#/applications) of the application. |
+    | **Callback** | One of the **Allowed Callback URLs** under your [Application Settings](${manage_url}/#/applications) for the application. |
     | **Connection** | (*Optional*) The connection type. You can add or edit your available connection types in the [Connections section of the Auth0 Management dashboard](${manage_url}/#/connections/database).  If a connection is not set and the user is not logged, the user will see the Auth0 Login page. |
     | **Custom URL** | (*Optional*) Checkbox to use a custom URL rather than the Auth0 URL. If you check the box, a field appears where you can enter your custom URL. |
     | **Enabled** | Checkbox for this application to be visible (published) to your users. |
