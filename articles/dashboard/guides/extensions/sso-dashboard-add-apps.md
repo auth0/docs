@@ -29,19 +29,22 @@ Before you add the applications to the SSO Dashboard, you need to:
 
     ![Dashboard Settings](/media/articles/extensions/sso-dashboard/settings.png)
 
-4. Enter the following fields for the new application:
+    The **New Application** form appears. 
+
+    ![Create a new application](/media/articles/extensions/sso-dashboard/new-app.png)
+
+4. Complete the following fields for the new application:
 
     | Field | Description |
     | --- | --- |
     | **Type** | A dropdown where you select <dfn data-key="security-assertion-markup-language">SAML</dfn>, <dfn data-key="openid">OpenID-Connect</dfn>, or WS-Federation depending on the type of application. |
-    | **Application** | The application name of the application you have created that you wish to associate the login of users. |
-    | **Name** | The name of the new application you are adding. |
+    | **Application** | A dropdown where you select the application that you wish to add.  |
+    | **Name** | The name is automatically populated based on the application you selected. You can change the name or use the default. |
     | **Logo** | The url of the logo you wish to user as an icon for the application. |
     | **Callback** | One of the **Allowed Callback URLs** under your [Application Settings](${manage_url}/#/applications) of the application. |
     | **Connection** | (*Optional*) The connection type. You can add or edit your available connection types in the [Connections section of the Auth0 Management dashboard](${manage_url}/#/connections/database).  If a connection is not set and the user is not logged, the user will see the Auth0 Login page. |
+    | **Custom URL** | (*Optional*) Checkbox to use a custom URL rather than the Auth0 URL. If you check the box, a field appears where you can enter your custom URL. |
     | **Enabled** | Checkbox for this application to be visible (published) to your users. |
-
-    ![Create a new application](/media/articles/extensions/sso-dashboard/new-app.png)
 
 5. Click **CREATE**.
 
