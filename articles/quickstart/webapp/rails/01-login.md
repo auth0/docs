@@ -243,7 +243,7 @@ end
 
 ### ActionController::InvalidAuthenticityToken
 
-This is likely caused by a missing CSRF token in the form needed to POST the login request. If you inspect the login button in your browser, you should see something like this:
+This is likely caused by a missing CSRF token needed to POST the login request. If you inspect the login button in your browser, you should see something like this:
 
 ```html
 <a data-method="post" href="auth/auth0">Login</a>
