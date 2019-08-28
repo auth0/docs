@@ -47,7 +47,7 @@ github "auth0/Guardian.swift"
 
 To enable Guardian Push Notifications for your users, go to the [Multi-factor Auth](${manage_url}/#/guardian) section of the dashboard. Then toggle the **Push Notification** slider to enable it.
 
-![](/media/articles/mfa/guardian-dashboard.png)
+![](/media/articles/multifactor-authentication/mfa-dashboard-1.png)
 
 ## SNS configuration
 
