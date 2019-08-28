@@ -34,4 +34,7 @@ You can monitor the service status using System Center as you would do with any 
 We also recommend setting up a _synthetic transaction_ to monitor end-to-end authentication. See [Monitor Auth0 Using SCOM](/monitoring/guides/monitor-using-SCOM) for more information.
 
 ## AD/LDAP Connector Health Webtask
-[Here](https://github.com/sandrinodimattia/auth0-ldap-connector-health-webtask) is a way to monitor health of AD/LDAP connector from Auth0 perspective.  This can be done in addition to monitoring from an infrastructure perspective.
+
+<%= include('../_includes/_webtask') %>
+
+To learn how to monitor the health of the AD/LDAP Connector from an Auth0 perspective, see our [Github example](https://github.com/sandrinodimattia/auth0-ldap-connector-health-webtask). This can be done in addition to monitoring from an infrastructure perspective.

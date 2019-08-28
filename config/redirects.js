@@ -2186,6 +2186,10 @@ module.exports = [
       to: '/glossary'
     },
     {
+      from: '/topics/extensibility',
+      to: '/extend-integrate'
+    },
+    {
       from: '/private-saas-deployment/managed-private-cloud', 
       to: '/private-cloud/managed-private-cloud'
     },
