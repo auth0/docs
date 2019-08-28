@@ -17,7 +17,7 @@ useCase:
 
 Use the [SSO Dashboard Extension](/extensions/sso-dashboard) to manage SSO login for your users on multiple enterprise applications. 
 
-Before you install and configure the SSO Dashboard extension, you need to [create a SSO Dashboard application](/extensions/sso-dashboard-create-app) in Auth0. 
+Before you install and configure the SSO Dashboard extension, you need to [create a SSO Dashboard application](/dashboard/guides/extensions/sso-dashboard-create-app) in Auth0. 
 
 ::: note
 Make sure you have copied the **Client ID** value from your SSO Dashboard application. 
@@ -49,7 +49,9 @@ Setting the `AUTH0_CUSTOM_DOMAIN` variable does not affect the extension URL, it
 
     ![New created Application](/media/articles/extensions/sso-dashboard/new-client.png)
 
-    The `auth0-sso-dashboard` application is created automatically when you install the extension. It's an application authorized to access the [Management API](/api/management/v2) and you shouldn't modify it.
+::: note
+The `auth0-sso-dashboard` application is created automatically when you install the extension. It's an application authorized to access the [Management API](/api/management/v2) and you shouldn't modify it.
+:::
 
 5. To use the extension, navigate to the [Extensions](${manage_url}/#/extensions) page and click on the **Installed Extensions** tab.
 
@@ -67,9 +69,10 @@ Setting the `AUTH0_CUSTOM_DOMAIN` variable does not affect the extension URL, it
 
 ## Keep reading
 
-- [Add Applications to the SSO Dashboard](/extensions/sso-dashboard-add-apps)
-- [Update Applications on the SSO Dashboard](/extensons/sso-dashboard-update-apps)
+- [Add Applications to the SSO Dashboard](/dashboard/guides/extensions/sso-dashboard-add-apps)
+- [Update Applications on the SSO Dashboard](/dashboard/guides/extensions/sso-dashboard-update-apps)
 - [View this Extension on GitHub](https://github.com/auth0-extensions/auth0-sso-dashboard-extension)
+- [Troubleshoot Extensions](/extensions/troubleshoot)
 - [Understand how Single Sign-On works with Auth0](/sso/current/sso-auth0)
 - Learn how to [enable SSO in Auth0](/dashboard/guides/tenants/enable-sso-tenant)
 - [Understand session lifetime](/sessions/concepts/session-lifetime)

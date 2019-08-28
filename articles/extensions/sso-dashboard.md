@@ -25,18 +25,19 @@ The SSO Dashboard supports two types of users:
 - **Users** who can login to the dashboard to select an application to sign into with SSO. 
 - **Admins** who can configure applications visible to the users. 
 
-Before you install and use the SSO Dashboard extension, you need to:
+To setup and configure this extension, do the following steps:
 
 <%= include('../_includes/_topic-links', { links: [
-  'extensions/sso-dashboard-create-app',
-  'extensions/sso-dashboard-install-extension',
-  'extensions/sso-dashboard-add-apps',
-  'extensions/sso-dashboard-update-apps',
+  'dashboard/guides/extensions/sso-dashboard-create-app',
+  'dashboard/guides/extensions/sso-dashboard-install-extension',
+  'dashboard/guides/extensions/sso-dashboard-add-apps',
+  'dashboard/guides/extensions/sso-dashboard-update-apps',
 ] }) %>
 
 ## Keep reading
 
 - [View this Extension on GitHub](https://github.com/auth0-extensions/auth0-sso-dashboard-extension)
+- [Troubleshoot Extensions](/extensions/troubleshoot)
 - [Understand how Single Sign-On works with Auth0](/sso/current/sso-auth0)
 - Learn how to [enable SSO in Auth0](/dashboard/guides/tenants/enable-sso-tenant)
 - [Understand session lifetime](/sessions/concepts/session-lifetime)

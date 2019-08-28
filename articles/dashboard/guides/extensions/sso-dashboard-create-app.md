@@ -16,7 +16,7 @@ useCase:
 
 Use the [SSO Dashboard Extension](/extensions/sso-dashboard) to manage SSO login for your users on multiple enterprise applications. 
 
-Before you [add the SSO Dashboard extension](/extensions/sso-dashboard-install-extension), you need to create the SSO Dashboard application in Auth0. 
+Before you [add the SSO Dashboard extension](/dashboard/guides/extensions/sso-dashboard-install-extension), you need to create the SSO Dashboard application in Auth0. 
 
 1. Navigate to [Applications](${manage_url}/#/applications).
 
@@ -58,7 +58,7 @@ Before you [add the SSO Dashboard extension](/extensions/sso-dashboard-install-e
 
 11. Click **Save Changes**. 
 
-  Next, you will need to [install the SSO Dashboard Extension](/extensions/sso-dashboard-install-extension) and [add applications](/extensions/sso-dashboard-add-apps) to the dashboard.
+  Next, you will need to [install the SSO Dashboard Extension](/dashboard/guides/extensions/sso-dashboard-install-extension) and [add applications](/dashboard/guides/extensions/sso-dashboard-add-apps) to the dashboard.
 
 ::: note
 By default all the connection types are enabled for users to be able to login into the SSO Dashboard. If you would like to change this, navigate to the **Connections** tab for the Application.
@@ -67,6 +67,7 @@ By default all the connection types are enabled for users to be able to login in
 ## Keep reading
 
 - [View this Extension on GitHub](https://github.com/auth0-extensions/auth0-sso-dashboard-extension)
+- [Troubleshoot Extensions](/extensions/troubleshoot)
 - [Understand how Single Sign-On works with Auth0](/sso/current/sso-auth0)
 - Learn how to [enable SSO in Auth0](/dashboard/guides/tenants/enable-sso-tenant)
 - [Understand session lifetime](/sessions/concepts/session-lifetime)

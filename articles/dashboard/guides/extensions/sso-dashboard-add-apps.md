@@ -18,8 +18,8 @@ Use the [SSO Dashboard Extension](/extensions/sso-dashboard) to manage SSO login
 
 Before you add the applications to the SSO Dashboard, you need to:
 
-* [Create the SSO Dashboard application](/extensions/sso-dashboard-create-app)
-* [Install the SSO Dashboard Extension](/extensions/sso-dashboard-install-extension). 
+* [Create the SSO Dashboard application](/dashboard/guides/extensions/sso-dashboard-create-app)
+* [Install the SSO Dashboard Extension](/dashboard/guides/extensions/sso-dashboard-install-extension). 
 
 1. Login to the SSO Dashboard. Use `https://${account.tenant}.<REGION>8.webtask.io/auth0-sso-dashboard/admins/login` or through the Dashboard.
 
@@ -53,8 +53,9 @@ Before you add the applications to the SSO Dashboard, you need to:
 
 ## Keep reading
 
-- [Update Applications on the SSO Dashboard](/extensions/sso-dashboard-update-apps)
+- [Update Applications on the SSO Dashboard](/dashboard/guides/extensions/sso-dashboard-update-apps)
 - [View this Extension on GitHub](https://github.com/auth0-extensions/auth0-sso-dashboard-extension)
+- [Troubleshoot Extensions](/extensions/troubleshoot)
 - [Understand how Single Sign-On works with Auth0](/sso/current/sso-auth0)
 - Learn how to [enable SSO in Auth0](/dashboard/guides/tenants/enable-sso-tenant)
 - [Understand session lifetime](/sessions/concepts/session-lifetime)
