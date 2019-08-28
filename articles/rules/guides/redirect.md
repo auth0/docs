@@ -191,7 +191,7 @@ After the user's second login, it prompts the user for their birthday:
 
 ![Birthday](/media/articles/rules/birthday.png)
 
-The user profile website is hosted using a [Webtask](https://webtask.io/) that you can  modify, provision, and use in your webtask tenant.
+The user profile website is hosted using a [Webtask](https://webtask.io/) that you can modify, provision, and use in your webtask tenant.
 
 ::: note
 Tenants created after July 16, 2018 will not have access to the underlying Auth0 Webtask Sandbox via the Webtask CLI. Please contact Auth0 at sales@auth0.com to request access. Using webtasks is just one way of implementing and deploying the Update Profile Webpage. Any HTTP server that provides the same behavior will suffice.
