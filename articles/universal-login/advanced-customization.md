@@ -50,7 +50,7 @@ If you are using the default login page and just wish to modify it a bit further
 
 To learn more about how to do these, and many other customizations, take a look at the [Lock Configuration Guide](/libraries/lock/v11/configuration) for help configuring the Lock widget which is used in the page.
 
-If you intend to significantly change the page's appearance, you may wish to use the Custom Login Form template instead of the Lock template. You can use the example in the Custom Login Form template as a guideline for how to get the values and information you need into the login page, and how to use the Auth0.js SDK to do so, and do the styling and layout in whatever manner you wish. You may perform whatever CSS customizations that you like, as long as they are included in this one file, as there is no option to host a separate CSS file on your Auth0 tenant.
+If you intend to significantly change the page's appearance, you may wish to use the Custom Login Form template instead of the Lock template. You can use the example in the Custom Login Form template as a guideline that shows you how to get the values and information you need into the login page and how to use the Auth0.js SDK to do so, then do the styling and layout in whatever manner you wish. You may perform whatever CSS customizations that you like, as long as they are included in this one file, as there is no option to host a separate CSS file on your Auth0 tenant.
 
 ## Other facets of Universal Login
 
