@@ -50,11 +50,13 @@ Before you [add the SSO Dashboard extension](/extensions/sso-dashboard-install-e
 
 7. Select and copy the **Client ID** value.
 
-8. Navigate to **Settings > Show Advanced Settings > OAuth** and paste the **Client ID** value into  the **Allowed APPs / APIs** field.
+8. Click **Show Advanced Settings**. 
 
-9. Set the **JsonWebToken Signature Algorithm** to *RS256*.
+9. Select the **OAuth** tab and paste the **Client ID** value that you copied previously into the **Allowed APPs / APIs** field.
 
-10. Click **Save Changes**. 
+10. Make sure that the **JsonWebToken Signature Algorithm** is set to **RS256**.
+
+11. Click **Save Changes**. 
 
   Next, you will need to [install the SSO Dashboard Extension](/extensions/sso-dashboard-install-extension) and [add applications](/extensions/sso-dashboard-add-apps) to the dashboard.
 
