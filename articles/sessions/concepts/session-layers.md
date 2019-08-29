@@ -16,7 +16,7 @@ useCase:
   - using-cookies
 ---
 
-# Session layers
+# Session Layers
 
 There are typically three session layers that can be created when your users log in: 
 
@@ -36,7 +36,7 @@ Auth0 provides tools to help you give users the ability to log out; this include
 
 * **Application Session Layer Logout**: Logging users out of your applications typically results in their application session being cleared, and this should be handled by your application: for the Application Session Layer, there is nothing within your Auth0 tenant that you need to use to facilitate session termination. This will require you to utilize whatever application session stack you are using to clear out any session related information. Note that some of the Auth0 SDKs do provide some support for application sessions; please check the documentation to see if there is any local SDK session removal that needs to be done.
 
-* **Auth0 Session Layer Logout**: You can log users out of the Auth0 session layer by redirecting them to the Auth0 logout endpoint so Auth0 can clear the SSO cookie.
+* **Auth0 Session Layer Logout**: You can log users out of the Auth0 session layer by redirecting them to the Auth0 logout endpoint so Auth0 can clear the <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> cookie.
 
 * **Identity Provider Session Layer Logout**: It is not necessary to log the users out of this session layer, but you can use Auth0 to force the logout if required. 
 

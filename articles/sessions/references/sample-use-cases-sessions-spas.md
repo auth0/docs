@@ -48,3 +48,13 @@ Since we have no local session to keep the user logged in, we can use the sessio
 We create a hidden iframe that redirects to the Authorization Server adding the `prompt=none` parameter, which tells the server not to prompt the user for any input. If the session on the Authorization Server has not expired, the transaction continues seamlessly, and the client gets a new Access Token through WMRM (Web Message Response Mode), which leverages postMessage.
 
 If the session on the Authorization Server has expired or the user logs out, the redirect in the iframe will return an error, indicating that the application needs to redirect the user to the Authorization Server to reauthenticate.
+
+## Keep reading
+
+* [Sessions](/sessions)
+* [Session Layers](/sessions/concepts/session-layers)
+* [Cookies](/sessions/concepts/cookies)
+* [Session Lifetime](/sessions/concepts/session-lifetime)
+* [Logout](/logout)
+* [Use Cases: Sessions](/sessions/references/sample-use-cases-sessions)
+* [Example: Application Sessions and SSO Sessions Workflow](/sessions/references/example-short-lived-session-mgmt)
