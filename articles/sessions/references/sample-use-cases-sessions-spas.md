@@ -1,5 +1,4 @@
 ---
-title: Sample Use Cases: Sessions and Single-Page Apps
 description: Explore sample use cases to understand how sessions work with single-page applications (SPAs) that have no backend and authentication in Auth0.
 toc: true
 topics:
@@ -10,12 +9,12 @@ contentType: concept
 useCase:
   - build-an-app
 ---
-# Sample Use Cases: Sessions and Single-Page Apps
+# Use Cases: Sessions and Single-Page Apps
 
 When you build an application that requires authentication, you can use [sessions](/sessions) to determine if a user is authenticated each time a request is made. Let's look at an example. 
 
 ::: note
-This example is accurate for single-page apps (SPAs) that have no backend and are using the Implicit grant. For SPAs that have a lightweight backend and are using the Authorization Code grant (also, native apps and regular web apps), see [Sample Use Cases: Sessions](/sessions/concepts/sample-use-cases-sessions).
+This example is accurate for single-page apps (SPAs) that have no backend and are using the Implicit grant. For SPAs that have a lightweight backend and are using the Authorization Code grant (also, native apps and regular web apps), see [Sample Use Cases: Sessions](/sessions/references/sample-use-cases-sessions).
 :::
 
 Let's say you've built an OIDC-compliant e-commerce website called Storezero.io. 

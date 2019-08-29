@@ -18,6 +18,36 @@ Session lifetime limits determine how long the system should retain a login sess
 
 These settings are configured on the [tenant](/getting-started/the-basics#account-and-tenants); you can [configure them](/dashboard/guides/tenants/configure-session-lifetime-settings) using either the Auth0 Dashboard or the Management API.
 
+## Application-specific logout URLs
+
+There are two important things to consider when you use application-specific logout URLs:
+
+* You **must** send `client_id` as a query parameter when calling the `/v2/logout` endpoint and the `returnTo` URL must be in the application’s list of allowed logout URLs.
+
+* This will end the Auth0 Session for the entire tenant - i.e. for all defined applications, not just the one that matches the `client_id` supplied. Passing the `client_id` tells the `logout` endpoint where to look for the logout URL white-list.
+
+After the user logout occurs Auth0 will only redirect to a URL that is defined in this list. 
+
+::: warning
+If you redirect the user back to the application after logout and the application redirects to an identity provider that still has an authenticated session for that user, the user will be silently logged back into your application and it may appear that logout didn’t work. In these cases, we recommend that you have a specific logout landing page in your application so you can tell the user that they successfully logged out - and, if desired, you can also warn them that they may still be logged into their identity provider.
+:::
+
+In the case a user has not taken any actions that would cause the Auth0 session to be updated it is recommended that warning be raised to the user to choose to explicitly continue their session.
+
+The intent of this approach allows the session to go inactive if the user is no longer present, but otherwise provides a means to trigger the silent token refresh so that the can continue their session without the need to be prompted again for credentials.
+
+* **Inactivity Timer**: A rolling timer should be added to the React SDK wrapper that aligns with the maximum idle lifetime of the Auth0 session.  Each time a token is returned to the application the timer should be reset.
+
+* **Timeout Modal**: When the timer hits 60 seconds from expiration a timeout modal should render requesting the user to logout or continue their session. 
+
+    * **Continue the session**: In the case the user chooses to continue their session the getTokenSilently() method can be used to request a new token without needing to redirect the user from the page they are currently interacting with.
+
+    * **Logging out**: In the case the user chooses to logout the logout() method should be called to assure the Auth0 session is ended as well.
+
+    * **Idle Timeout**: In the case that the idle timeout is reached no immediate action is necessary.  To handle the fact that the user may still be active in another tab, the behavior **should not** be to log the user out. 
+
+    Other options might include updating the modal with a login button, using the window.onfocus event to trigger `getTokenSilently()`, or redirecting the user to landing page.
+
 ## Examples: Session lifetime limits
 
 Auth0 maintains a login session for any user who authenticates via an application. When a user performs a new standard login, it resets the login session. Let's look at an example.

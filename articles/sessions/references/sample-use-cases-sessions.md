@@ -1,5 +1,4 @@
 ---
-title: Sample Use Cases: Sessions
 description: Explore sample use cases to understand how sessions work with authentication in Auth0.
 topics:
   - sessions
@@ -8,14 +7,14 @@ contentType: concept
 useCase:
   - build-an-app
 ---
-# Sample Use Cases: Sessions
+# Use Cases: Sessions
 
 Auth0 maintains a login session for any user who authenticates via an application. When a user performs a new standard login, it resets the login session.
 
 When you build an application that requires authentication, you can use [sessions](/sessions) to determine if a user is authenticated each time a request is made. Let's look at an example. 
 
 ::: note
-This example is accurate for native apps, regular web apps, and single-page apps (SPAs) with a lightweight backend that are using the Authorization Code grant. For SPAs with no backend, see [Sample Use Cases: Sessions and Single-Page Apps](/sessions/concepts/sample-use-cases-sessions-spas).
+This example is accurate for native apps, regular web apps, and single-page apps (SPAs) with a lightweight backend that are using the Authorization Code grant. For SPAs with no backend, see [Sample Use Cases: Sessions and Single-Page Apps](/sessions/references/sample-use-cases-sessions-spas).
 :::
 
 Let's say you've built an OIDC-compliant e-commerce website called Storezero.io. 
