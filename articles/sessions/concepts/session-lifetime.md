@@ -1,7 +1,6 @@
 ---
 title: Session Lifetime
 description: Understand what session lifetimes are and learn about the relevant settings.
-toc: true
 topics:
   - sessions
 contentType: concept
@@ -58,3 +57,14 @@ Auth0 maintains a login session for any user who authenticates via an applicatio
   * If the user is inactive for three days, they will automatically be logged out. 
 3. While the user is logged in, you extend the existing session lifetime limits. The new settings will not take effect until the existing session ends, and the user logs in again.
 4. While the user is logged in, you reduce the existing lifetime limits. The new settings will take effect immediately upon the user's next activity. This allows you to shorten session lifetimes for security purposes.
+
+## Keep reading
+
+* [Sessions](/sessions)
+* [Session Layers](/sessions/concepts/session-layers)
+* [Logout](/logout)
+* [Use Cases: Sessions](/sessions/references/sample-use-cases-sessions)
+* [Use Cases: Sessions and Single-Page Apps](/sessions/references/sample-use-cases-sessions-spas)
+* [Example: Short-lived session management workflow](/sessions/references/example-short-lived-session-mgmt)
+* [Auth0 Ruby on Rails SDK Quickstarts: Session Handling](/quickstart/webapp/rails/02-session-handling)
+* [Auth0 Android SDK Quickstarts: Session Handling](/quickstart/native/android/03-session-handling)

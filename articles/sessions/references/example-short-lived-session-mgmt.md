@@ -16,7 +16,7 @@ useCase:
 This workflow shows how the `auth0-spa-js` SDK should be implemented to support multi-site session management.  In this scenario, it is assumed that the tenant SSO Inactivity Timeout is set to 300 seconds, and the JWT Expiration of each SPA application is set to 150 seconds.
 
 ::: note
-Details would change in the case of a long-lived session where the application session would most likely be shorter than the SSO session.
+Details would change in the case of a long-lived session where the application session would most likely be shorter than the <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> session.
 :::
 
 ## SDK features
@@ -27,13 +27,13 @@ For all methods of retrieving an ID Token or Access Token () the SDK manages all
 
 ### Deep linking
 
-To improve the user experience the SDK includes an appState parameter for the loginWithRedirect() method. Details about the current app are packaged as part of the request to the Auth server that will be returned upon successful authentication.  Allowing a seamless continuation of the user journey. 
+To improve the user experience the SDK includes an `appState` parameter for the `loginWithRedirect()` method. Details about the current app are packaged as part of the request to the Auth server that will be returned upon successful authentication. Allowing a seamless continuation of the user journey. 
 
-In the Quickstart the PrivateRoute component sets a state parameter of targetUrl and the onRedirectCallback function of index.js unpacks this value to redirect the user when authentication is complete.
+In the Quickstart, the `PrivateRoute` component sets a state parameter of `targetUrl` and the `onRedirectCallback` function of `index.js` unpacks this value to redirect the user when authentication is complete.
 
 ### Token storage
 
-To keep the returned tokens stored in the safest manner possible all tokens are placed into a local cache.  The ID and Access Tokens are stored as pairs with the audience and scope values being used to retrieve the tokens as needed.
+To keep the returned tokens stored in the safest manner possible all tokens are placed into a local cache. The ID and Access Tokens are stored as pairs with the audience and scope values being used to retrieve the tokens as needed.
 
 Additionally the cache tokens are removed once either the ID Token or Access Token expires so that if a token is in the cache it can be assumed to stil be valid.
 
@@ -41,7 +41,15 @@ Additionally the cache tokens are removed once either the ID Token or Access Tok
 
 The `getTokenSilently()` method is used to leverage the token cache first, and if none exists, will launch an invisible iframe to retrieve a new token.  For this purpose all requests to APIs can use this method to construct the bearer token header without the need for additional logic to handle for expired tokens.
 
-In the Quickstart the ExternalService view makes a request to the express API using this feature.
+In the Quickstart, the `ExternalService` view makes a request to the express API using this feature.
+
+### Additional functionality
+
+In the case a user has not taken any actions that would cause the Auth0 session to be updated it is recommended that warning be raised to the user to choose to explicitly continue their session.
+
+The intent of this approach allows the session to go inactive if the user is no longer present, but otherwise provides a means to trigger the silent token refresh so that the can continue their session without the need to be prompted again for credentials. 
+
+See [Application-specific logout URLs](/sessions/concepts/session-lifetime#application-specific-logout-urls) for more information about inactivity timers and timeout modals. 
 
 ## Example workflow
 
@@ -52,26 +60,36 @@ In the Quickstart the ExternalService view makes a request to the express API us
 5. [User explicitly logs out of application](#user-explicitly-logs-out-of-application)
 6. [User returns to initial app after logging out](#user-returns-to-initial-app-after-logging-out)
 
-## Initial authentication
+### Initial authentication
 
 ![Initial Authentication](/media/articles/sessions/initial-authentication.png)
 
-## Maintaining Auth0 session
+### Maintaining Auth0 session
 
 ![Maintain Auth0 Session](/media/articles/sessions/maintain-auth0-session.png)
 
-## Seamless SSO
+### Seamless SSO
 
 ![Seamless SSO](/media/articles/sessions/seamless-sso.png)
 
-## Prompting user to extend session
+### Prompting user to extend session
 
-![Seamless SSO](/media/articles/sessions/seamless-sso.png)
+![Prompting User to Extend Session](/media/articles/sessions/prompt-user-extend-session.png)
 
-## User explicitly logs out of application
+### User explicitly logs out of application
 
-## User returns to initial app after logging out
+![User Explicitly Logs Out of Application](/media/articles/sessions/user-explicitly-logs-out-of-app.png)
+
+### User returns to initial application after logging out
+
+![User Returns to Initial Application After Logging Out](/media/articles/sessions/user-returns-to-initial-app.png)
 
 ## Keep reading
 
-
+* [Sessions](/sessions)
+* [Session Layers](/sessions/concepts/session-layers)
+* [Cookies](/sessions/concepts/cookies)
+* [Session Lifetime](/sessions/concepts/session-lifetime)
+* [Logout](/logout)
+* [Use Cases: Sessions](/sessions/references/sample-use-cases-sessions)
+* [Use Cases: Sessions and Single Page Apps](/sessions/references/sample-use-cases-sessions-spas)
