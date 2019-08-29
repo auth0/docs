@@ -113,7 +113,7 @@ You will need to add at least one user to your connection. You can do this via t
 
 ### Assign roles to users
 
-<%= include('../_includes/_rbac_vs_extensions') %>
+<%= include('../../../_includes/_rbac_vs_extensions') %>
 
 Auth0 grants the user(s) in your connection access to the Delegated Administration extension based on their <dfn data-key="role">roles</dfn>:
 
