@@ -39,7 +39,7 @@ function (user, context, callback) {
 }
 ```
 
-If it is weekend, a user will be denied access to the specified application even if they successfully authenticate and have the appropriate privileges.
+If a user attempts to access the application during the weekend, access will be denied, even if they authenticate and have the appropriate privileges.
 
 ## Allow access only to users who are inside the corporate network
 
@@ -60,7 +60,6 @@ function (user, context, callback) {
 ```
 
 If the user is outside the corporate network, they will be denied access even if they successfully authenticate and have the appropriate privileges.
-
 
 ## Add user roles to tokens
 
