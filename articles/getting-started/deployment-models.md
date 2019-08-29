@@ -199,8 +199,8 @@ The following tables describe operational and feature differences between these 
         <tr>
           <th class="info"><strong>MFA</strong></th>
           <td>Yes</td>
-          <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK</td>
-          <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK</td>
+          <td>Available using SMS, Google Authenticator or similar apps, Duo over TOTP/HOTP, Email, and Push Notification with Guardian </td>
+          <td>Available using SMS, Google Authenticator or similar apps, Duo over TOTP/HOTP, Email, and Push Notification with Guardian</td>
         </tr>
     </tbody>
 </table>

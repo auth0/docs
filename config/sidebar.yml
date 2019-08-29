@@ -70,8 +70,8 @@ articles:
           - title: "Password Reset"
             url: "/universal-login/password-reset"
 
-          - title: "Guardian"
-            url: "/universal-login/guardian"
+          - title: "Multi-factor Authentication"
+            url: "/universal-login/multifactor-authentication"
 
           - title: "Error Pages"
             url: "/universal-login/error-pages"

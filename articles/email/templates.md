@@ -33,7 +33,7 @@ You can access the following common variables when using Liquid Syntax in the **
 * The `application` object, with access to the standard client properties like
   * `application.name`
   * `application.clientID`
-* `connection.name` (except in the **Guardian Enrollment Email**)
+* `connection.name` (except in the **Multi-factor Enrollment Email**)
 * The `user` object, with access to the following properties:
   * `user.email`
   * `user.email_verified`
@@ -292,9 +292,9 @@ This email type is sent whenever Auth0 detects that the user is trying to access
 
 Learn more about [Breached Password Detection](/anomaly-detection#breached-password-detection)
 
-### Guardian Enrollment Email
+### Multi-factor Authentication Enrollment Email
 
-This email will be generated when an Guardian MFA enrollment invitation is sent. The message will contain a link that, when visited, will show the MFA enrollment experience.
+This email will be generated when an multi-factor authentication enrollment invitation is sent. The message will contain a link that, when visited, will show the MFA enrollment experience.
 
 Besides the [common variables](#common-variables) available for all email templates, the `link` variable is available in this email type, containing the URL that you will use to construct the link for this action, as in this example:
 

@@ -127,7 +127,7 @@ In this scenario, the challenge will be sent using a side channel, however, ther
 ## Using Recovery Codes
 
 ::: note
-This flow is currently only available for the Guardian Provider.
+This flow is not available when the user uses provider = `google-authenticator` or provider = `duo`.
 :::
 
 ![Resource Owner MFA Recovery](/media/articles/api-auth/recovery-code.png)
