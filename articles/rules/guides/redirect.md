@@ -181,26 +181,28 @@ function(user, context, callback) {
 
 ## Progressive profiling example
 
+::: warning
+This example hosts a User Profile webpage using a [Webtask](https://webtask.io) that you can modify, provision, and use in your webtask tenant. However, using webtasks is just one way of implementing and deploying the webpage; any HTTP server that provides the same behavior will suffice.
+:::
+
+<%= include('../../_includes/_webtask') %>
+
 You can use redirect rules to collect additional information for a user's profile, otherwise known as [progressive profiling](/users/concepts/overview-progressive-profiling). 
 
 This example prompts the user for their first and last name (but only if they didn't sign up using a social provider that already provided it):
 
 ![Core Fields](/media/articles/rules/core-fields.png)
 
-After the user's second login, it prompts the user for their birthday:
+Then, after the user's second login, it prompts the user for their birthday:
 
 ![Birthday](/media/articles/rules/birthday.png)
 
-The user profile website is hosted using a [Webtask](https://webtask.io/) that you can  modify, provision, and use in your webtask tenant.
+The `redirect-to-update-profile-website` rule checks to see if the user profile is missing any required fields. If so, it performs a redirect to the external **Update Profile Website**. When the redirect is performed, the required field names are passed via a self-signed JWT.
+
+In this example. the website is hosted as a webtask: `update-profile-website`. However, it could be hosted anywhere, such as on Heroku.
 
 ::: note
-Tenants created after July 16, 2018 will not have access to the underlying Auth0 Webtask Sandbox via the Webtask CLI. Please contact Auth0 at sales@auth0.com to request access. Using webtasks is just one way of implementing and deploying the Update Profile Webpage. Any HTTP server that provides the same behavior will suffice.
-:::
-
-The `redirect-to-update-profile-website` rule checks to see if the user profile is missing any required fields. If so, it performs a redirect to the external **Update Profile Website**. In this example the website is hosted as a webtask: `update-profile-website`. However, it could be hosted anywhere, like Heroku. When the redirect is performed, the required field names are passed via a self-signed JWT.
-
-::: note
-If a user signs in with a Database Connection identity, then the `redirect-to-update-profile-website` rule will generate a prompt for first and last name. However, if they use a social connection (e.g., Google) then chances are those fields will aleady exist in the identity provider attributes, so no prompt will be necessary.
+If a user signs in with a Database Connection identity, then the `redirect-to-update-profile-website` rule will generate a prompt for first and last name. However, if they use a social connection (e.g., Google) then chances are those fields will already exist in the identity provider attributes, so no prompt will be necessary.
 :::
 
 The webtask renders a form that prompts the user for whatever fields were provided in the JWT. If the user provides the field values and they pass validation, the webtask renders a self-posting form with hidden fields, designed to POST the values back to the Auth0 `/continue` endpoint.
@@ -225,7 +227,9 @@ The `continue-from-update-profile-website` rule then picks up the POST request f
 
 ### Set up the Webtask
 
-1. If you don't already have a `webtask.io` account, create one. Then in your webtask tenant, create the following webtasks, either via the Webtask Editor or the CLI.
+<%= include('../../_includes/_webtask') %>
+
+1. In your webtask tenant, create the following webtasks, either via the Webtask Editor or the CLI.
 
 2. Create a webtask called `update-profile-website` using this [source code](https://github.com/auth0/rules/blob/master/redirect-rules/progressive-profiling/update-profile-website.js).
 

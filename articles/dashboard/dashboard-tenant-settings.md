@@ -63,9 +63,9 @@ Allows you to add or remove administrators for your Auth0 tenant, as well as rev
 
 ## Webtasks
 
-The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section explains about how to build apps and extensions on top of webtask.
+<%= include('../_includes/_webtask') %>
 
-[Learn more about Webtasks](https://webtask.io/).
+The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section explains about how to build apps and extensions on top of webtask.
 
 ## Advanced
 
