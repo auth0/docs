@@ -108,7 +108,7 @@ For example, if an error occurs at a remote Identity Provider, where authenticat
 
 ### Check the real-time webtask logs error console
 
-You can put `console.log()` statements into Rules, Hooks, Custom DB scripts and Webtasks. The output from those statements is viewable in the Realtime Web Log. If you install the Real-time Webtask Logs extension, you can initiate a view of this log console from the **Debug** buttons underneath the Rules, Hooks, and custom DB script editor windows, or from the webtask console for webtasks.
+You can put `console.log()` statements into Rules, Hooks, Custom DB scripts, and Webtasks. The output from those statements is viewable in the Realtime Web Log. If you install the Real-time Webtask Logs extension, you can initiate a view of this log console from the **Debug** buttons underneath the Rules, Hooks, and custom DB script editor windows, or from the webtask console for webtasks.
 
 ## Check for common errors
 
