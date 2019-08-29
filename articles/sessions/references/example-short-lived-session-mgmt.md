@@ -18,9 +18,9 @@ This workflow shows how the `auth0-spa-js` SDK should be implemented to support 
 ::: panel Support for Long-Lived Sessions
 Details would change in the case of a long-lived session where the application session would most likely be shorter than the <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> session.
 
-Auth0 also supports long-lived sessions for enterprise Auth0 customes. With long-lived sessions, you can configure session limits with up to 100 days of inactivity (idle timeout) and up to one year in total duration (absolute timeout). This allows companies with quarterly, monthly, or other timelines to reduce friction for end-users and provide access to low-risk content and capabilities. Further, consumer-facing companies such as media can leverage long-lived sessions for improving user experiences through seamless access to content. The customer can also make the choices between long-lived sessions and password validation based on their expectations around user experience and security.
+Auth0 also supports long-lived sessions for enterprise Auth0 customers. With long-lived sessions, you can configure session limits with up to 100 days of inactivity (idle timeout) and up to one year in total duration (absolute timeout). This allows companies with quarterly, monthly, or other timelines to reduce friction for end-users and provide access to low-risk content and capabilities. Further, consumer-facing companies such as media can leverage long-lived sessions for improving user experiences through seamless access to content. The customer can also make the choices between long-lived sessions and password validation based on their expectations around user experience and security.
 
-Learn about this feataure in the [When UX Equals Keeping or Losing the Customer](https://auth0.com/blog/when-ux-equals-keeping-or-losing-the-customer/) launch announcement blog post.
+Learn about this feature in the [When UX Equals Keeping or Losing the Customer](https://auth0.com/blog/when-ux-equals-keeping-or-losing-the-customer/) launch announcement blog post.
 
 You can also see [Configure Session Lifetime Limits](/sso/current/configure-session-lifetime-limits) and [Set Access Token Lifetime](/tokens/guides/access-token/set-access-token-lifetime) for more information.
 :::
@@ -49,9 +49,9 @@ The `getTokenSilently()` method is used to leverage the token cache first, and i
 
 In the Quickstart, the `ExternalService` view makes a request to the express API using this feature.
 
-### Additional functionality
+### Warn users to continue their sessions
 
-In the case a user has not taken any actions that would cause the Auth0 session to be updated it is recommended that warning be raised to the user to choose to explicitly continue their session.
+In the case where a user has not taken any actions that would cause the Auth0 session to be update, Auth0 recommendeds that you raise a warning to the user to choose to explicitly continue their session.
 
 The intent of this approach allows the session to go inactive if the user is no longer present, but otherwise provides a means to trigger the silent token refresh so that the can continue their session without the need to be prompted again for credentials. 
 
