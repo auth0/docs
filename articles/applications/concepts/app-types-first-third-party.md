@@ -49,7 +49,7 @@ Third-party applications can use only tenant-level connections (domain connectio
   
 Third-party applications cannot use [ID Tokens](/tokens/id-token) to invoke [Management API](/api/management/v2) endpoints. Instead, they should get a [Management API Access Token](/api/management/v2/tokens) with the `current_user_*` scopes required by each endpoint:
 
-- `read:current_user`: [List or search users](/api/management/v2#!/Users/get_users), [Get a user](/api/management/v2#!/Users/get_users_by_id), [Get user Guardian enrollments](/api/management/v2#!/Users/get_enrollments)
+- `read:current_user`: [List or search users](/api/management/v2#!/Users/get_users), [Get a user](/api/management/v2#!/Users/get_users_by_id), [Get user MFA enrollments](/api/management/v2#!/Users/get_enrollments)
 - `update:current_user_metadata`: [Update a user](/api/management/v2#!/Users/patch_users_by_id), [Delete a user's multi-factor provider](/api/management/v2#!/Users/delete_multifactor_by_provider)
 - `create:current_user_device_credentials`: [Create a device public key](/api/management/v2#!/Device_Credentials/post_device_credentials)
 - `delete:current_user_device_credentials`: [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id)

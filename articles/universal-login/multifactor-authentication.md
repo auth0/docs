@@ -1,21 +1,29 @@
 ---
-description: Guide on how to use the hosted Guardian MFA page
+description: Guide on how to customize the MFA page
 topics:
   - mfa
-  - guardian
   - hosted-pages
 contentType: how-to
 useCase: customize-hosted-pages
 ---
-# Guardian Multi-factor Login Page
+# Multi-factor Authentication Page
 
-In the [Auth0 Dashboard](${manage_url}/#/guardian_mfa_page), you can enable 2nd-factor authentication, using Guardian Multi-factor. You can customize the page that Auth0 displays to your users, allowing you to require <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> on logins which meet certain criteria, or just across the board. For more information on the MFA page, refer to [Universal Login > MFA](/universal-login/guardian).
+In the [Auth0 Dashboard](${manage_url}/#/mfa), you can [Multi-factor authentication](/multifactor-authentication) with Auth0.
 
-![Universal Login Guardian MFA Page](/media/articles/hosted-pages/guardian.png)
+![Universal Login MFA Page](/media/articles/multifactor-authentication/mfa-dashboard-1.png)
 
-## Guardian Login Page HTML Editor
+## Customizing the MFA Pages
 
-To customize the Guardian Login page, go to [Dashboard > Universal Login > Guardian Multi-factor](${manage_url}/#/guardian_mfa_page) and enable the __Customize Guardian Page__ switch.
+You can customize the MFA pages using the Universal Login's [basic customization features](universal-login#simple-customization). 
+
+If you need further customizations, you can provide your own HTML for the MFA page. Note that this will use the Auth0 MFA Widget, which has the following limitations:
+- it does not support MFA with Email.
+- if users enrolled more than one factor, they cannot select which one to use, the MFA widget will show the last one they enrolled.
+- it does not use Universal Login's internationalization features
+
+## Customizing the HTML for the MFA page
+
+To customize the MFA page, go to [Dashboard > Universal Login > Guardian Multi-factor](${manage_url}/#/guardian_mfa_page) and enable the __Customize Guardian Page__ switch.
 
 Once you do that, you'll be able to use the text editor built into the Auth0 Dashboard to change your HTML, style your page using CSS, and alter the JavaScript used to retrieve custom variables. Once you've made your changes, and make sure to click __Save__.
 
@@ -24,8 +32,7 @@ If you'd like to revert to an earlier design, you have two options:
 * Reverting to the last saved template by clicking **Reset to Last**;
 * Reverting to the default template provided by Auth0 by clicking **Reset to Default**.
 
-Please note that Hosted Pages work without customization (Auth0 will also update the included scripts as required). However, once you toggle the customization to **on**, you are responsible for the updating and maintaining the script (including changing version numbers, such as that for the MFA widget), since Auth0 can no longer update it automatically.
-
+Please note that MFA page works without customization (Auth0 will also update the included scripts as required). However, once you toggle the customization to **on**, you are responsible for the updating and maintaining the script (including changing version numbers, such as that for the MFA widget), since Auth0 can no longer update it automatically.
 
 ## Configuration Options
 

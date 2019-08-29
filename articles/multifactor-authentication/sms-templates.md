@@ -13,7 +13,7 @@ useCase:
 
 To customize the SMS messages sent by Auth0 during enrollment (when associating a device to Guardian) or verification (when an authentication message is sent to the device), do the following:
 
-First, go to ([Multi-factor Auth With Guardian](${manage_url}/#/guardian), then click on the **SMS** box to configure your SMS settings.
+First, go to the [Multi-factor Auth page](${manage_url}/#/mfa), then click on the **SMS** box to configure your SMS settings.
 
 ![](/media/articles/mfa/sms-config.png)
 

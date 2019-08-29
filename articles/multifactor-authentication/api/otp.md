@@ -57,7 +57,7 @@ If successful, you'll receive a response like this:
 }
 ```
 
-In the next step, you'll need the one-time password (`otp`), which can be obtained by using the `barcode_uri` to generate a QR code that can be scanned by the OTP generator of your choice (such as Guardian). Once the user scans that QR code, they will be able to obtain the OTP code.
+In the next step, you'll need the one-time password (`otp`), which can be obtained by using the `barcode_uri` to generate a QR code that can be scanned by the OTP generator of your choice (such as Google Authenticator). Once the user scans that QR code, they will be able to obtain the OTP code.
 
 You might also consider displaying the `secret` in plain text so that your users can copy and paste it directly into the OTP generator (this is especially helpful for users on desktop applications).
 

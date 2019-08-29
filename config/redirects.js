@@ -1410,7 +1410,11 @@ module.exports = [
   },
   {
     from: '/hosted-pages/guardian',
-    to: '/universal-login/guardian'
+    to: '/universal-login/multifactor-authentication'
+  },
+  {
+    from: '/universal-login/guardian',
+    to: '/universal-login/multifactor-authentication'
   },
   {
     from: '/hosted-pages/password-reset',

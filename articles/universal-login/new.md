@@ -36,7 +36,7 @@ From a functional perspective, it has much better support for [Localization](/un
 
 - You can use [Email as an MFA factor](/multifactor-authentication/factors/email).
 
-- If you are using the Guardian SDK to create your own native application to handle Push Notifications, you can now configure the name of the application and the URLs to download them in the "Push via Auth0 Guardian" option in the MFA [Dashboard > MFA](${manage_url}/#/mfa) section.
+- If you are using the Guardian SDK to create your own native application to handle Push Notifications, you can configure the name of the application and the URLs to download them in the "Push via Auth0 Guardian" option in the MFA [Dashboard > MFA](${manage_url}/#/mfa) section.
 
 - If you have a rule that sets the MFA provider to `google-authenticator` you need to enable the OTP factor in the [Dashboard > MFA](${manage_url}/#/mfa) section.
 
