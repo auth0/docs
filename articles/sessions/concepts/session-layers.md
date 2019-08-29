@@ -56,8 +56,7 @@ Alternatively you may desire to also [log the users out of the Identity Provider
 
 ## Keep reading
 
-* [Use Cases: Sessions](/sessions/references/sample-use-cases-sessions)
-* [Use Cases: Sessions and Single-Page Apps](/sessions/references/sample-use-cases-sessions-spas)
+* [Session Use Cases](/sessions/references/sample-use-cases-sessions)
 * [Example: Short-lived session management workflow](/sessions/references/example-short-lived-session-mgmt)
 * [Auth0 Ruby on Rails SDK Quickstarts: Session Handling](/quickstart/webapp/rails/02-session-handling)
 * [Auth0 Android SDK Quickstarts: Session Handling](/quickstart/native/android/03-session-handling)

@@ -97,5 +97,4 @@ See [Application-specific logout URLs](/sessions/concepts/session-lifetime#appli
 * [Cookies](/sessions/concepts/cookies)
 * [Session Lifetime](/sessions/concepts/session-lifetime)
 * [Logout](/logout)
-* [Use Cases: Sessions](/sessions/references/sample-use-cases-sessions)
-* [Use Cases: Sessions and Single Page Apps](/sessions/references/sample-use-cases-sessions-spas)
+* [Session Use Cases](/sessions/references/sample-use-cases-sessions)

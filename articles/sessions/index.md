@@ -20,6 +20,5 @@ By default, when a user leaves a website or closes their browser, their session 
   'sessions/concepts/cookies',
   'logout',
   'sessions/references/sample-use-cases-sessions',
-  'sessions/references/sample-use-cases-sessions-spas',
   'sessions/references/example-short-lived-session-mgmt'
  ] }) %>
