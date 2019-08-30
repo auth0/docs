@@ -15,7 +15,7 @@ useCase:
 
 With [Support Center](${env.DOMAIN_URL_SUPPORT}), you can create tickets for questions or issues you are experiencing. You can access Support Center if you are a full administrator of an Auth0 account, or have received an invitation to Support Center from an administrator. 
 
-If you are an existing Private Cloud customer, you will need to create an Auth0 cloud-based account to log in to the Support Center. This account can also be used for Dev/Test purposes at no additional cost. Please contact your Customer Success Manager or Sales Executive to associate your cloud-based account to your existing Private Cloud subscription.
+If you are an existing Private Cloud customer, you will need to create an Auth0 cloud-based account to log in to the Support Center. This account can also be used for Dev/Test purposes at no additional cost. Please contact your Technical Account Manager or Sales Executive to associate your cloud-based account to your existing Private Cloud subscription.
 
 ## Open a new ticket
 

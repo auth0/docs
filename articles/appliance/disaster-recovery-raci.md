@@ -55,7 +55,7 @@ The following table details the task division for configuring, creating, and mon
             <td>Download PSaaS Appliance CLI tool</td>
             <td>C</td>
             <td>R, A</td>
-            <td>The subscriber will need to contact their Auth0 Customer Success Manager for the <a href="/appliance/cli/configure-cli#downloading-the-cli-setup-files">custom download link</a>.</td>
+            <td>The subscriber will need to contact their Auth0 Technical Account Manager for the <a href="/appliance/cli/configure-cli#downloading-the-cli-setup-files">custom download link</a>.</td>
         </tr>
         <tr>
             <td>Install PSaaS Appliance CLI Tool</td>
@@ -169,6 +169,6 @@ The following table details the task division for configuring, creating, and mon
 
 ## Backup Cadence Recommendations
 
-Auth0 recommends backing up your data on a daily basis (usually overnight to lessen impact on performance). However, if you need greater assurance of up-to-date data or have concerns about a logical data corruption, you might choose to backup more frequently. If this is the case, please contact your Auth0 Customer Success Manager to schedule a discussion, since the backup process puts a substantial load on the backup node and may impact your Production environment.
+Auth0 recommends backing up your data on a daily basis (usually overnight to lessen impact on performance). However, if you need greater assurance of up-to-date data or have concerns about a logical data corruption, you might choose to backup more frequently. If this is the case, please contact your Auth0 Technical Account Manager to schedule a discussion, since the backup process puts a substantial load on the backup node and may impact your Production environment.
 
 Auth0 recommends taking **weekly** Virtual Machine Snapshots.

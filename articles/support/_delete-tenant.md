@@ -7,7 +7,7 @@ You **cannot** restore a deleted tenant and you cannot reuse a tenant name when 
 :::
 
 ::: panel Enterprise customers
-If you are an Enterprise customer, you may have multiple child tenants as part of your Auth0 contract. Rest assured that if you choose to delete such a tenant, this will have no impact on your agreement with Auth0. We recommend speaking with your Customer Success Manager (CSM) if you have any concerns about your Enterprise agreement.
+If you are an Enterprise customer, you may have multiple child tenants as part of your Auth0 contract. Rest assured that if you choose to delete such a tenant, this will have no impact on your agreement with Auth0. We recommend speaking with your Technical Account Manager if you have any concerns about your Enterprise agreement.
 :::
 
 ::: panel Paid subscription customers
