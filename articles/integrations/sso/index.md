@@ -11,7 +11,7 @@ useCase: integrate-saas-sso
 
 # Single Sign-On Integrations
 
-<dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> Integrations enable the use of external services for SSO.
+<dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> Integrations are client applications that enable the use of external services (e.g., Dropbox, Slack, or Zoom) for SSO. The integration allows your users to log in using Auth0's [identity providers](/identityproviders).
 
 Auth0 provides SSO Integrations for the following services:
 
