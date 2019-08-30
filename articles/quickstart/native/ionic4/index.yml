@@ -6,7 +6,7 @@ language:
   - Typescript
 framework:
   - Ionic4
-  - Angular7
+  - Angular8
   - Cordova
 hybrid: true
 image: /media/platforms/ionic.jpeg
@@ -24,7 +24,7 @@ github:
   repo: auth0-ionic4-samples
 requirements:
   - Ionic 4.x
-  - Angular 7+
+  - Angular 8+
 next_steps:
   - path: 01-login
     list:

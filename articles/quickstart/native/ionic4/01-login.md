@@ -15,49 +15,69 @@ useCase: quickstart
 
 <%= include('../_includes/_getting_started', { library: 'Ionic' }) %>
 
+### Add Platform
+
+You will now need to allow Ionic / Cordova to install the necessary plugins and create file `config.xml` for the platform you wish to run on.
+
+Use the following commands to add your desired platform(s) (e.g., `ios` or `android`):
+
+```bash
+# Add platform (e.g., ios or android)
+$ ionic cordova platform add {platform}
+```
+
 <%= include('../../../_includes/_callback_url') %>
 
 The **Callback URL** to be used for your application includes your app's package ID which is found in the `config.xml` file for your app.
 
-Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in your Auth0 dashboard and set your **Callback URL** in the **Allowed Callback URLs** box.
+Go to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section in your Auth0 dashboard and set your **Callback URL** in the **Allowed Callback URLs** box.
 
-If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URL** to
+You should set the **Allowed Callback URL** to
 
 ```bash
 # replace YOUR_PACKAGE_ID with your app package ID
 YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
 ```
 
-Replace `YOUR_PACKAGE_ID` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
+Replace `YOUR_PACKAGE_ID` with your application's package name.
 
 
 <%= include('../../../_includes/_logout_url') %>
 
-::: note
-If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to whitelist in the Allowed Logout URLs field is the same as the callback URL.
-:::
-
-Add `file` as an allowed origin to the **Allowed Origins (CORS)** box.
+You should set the **Allowed Callback URL** to
 
 ```bash
-file://*
+# replace YOUR_PACKAGE_ID with your app package ID
+YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
 ```
 
-Lastly, be sure that the **Application Type** for your application is set to **Native** in the application settings.
+Replace `YOUR_PACKAGE_ID` with your application's package name.
+
+Add `file` as an allowed origin to the **Allowed Origins (CORS)** in your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+
+To be able to make requests from your application to Auth0. Set the following origins in your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+
+```bash
+http://localhost, ionic://localhost, http://localhost:8100
+```
+
+the origins `http://localhost` and `ionic://localhost` are needed for Android and iOS respectively, and `http://localhost:8100` is needed you're running your application with `livereaload` option.
+
+Lastly, be sure that the **Application Type** for your application is set to **Native** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 ## Install the Dependencies
 
-The required dependencies for using Auth0 in an Ionic application are **auth0.js** and **auth0-cordova**. Install them with npm or yarn.
+The required dependencies for using Auth0 in an Ionic application are **auth0.js**, **auth0-cordova** and **ionic-storage**. Install them with npm or yarn.
 
 ```bash
 # installation with npm
-npm install auth0-js @auth0/cordova --save
+npm install auth0-js @auth0/cordova @ionic/storage --save
 
 # installation with yarn
-yarn add auth0-js @auth0/cordova
+yarn add auth0-js @auth0/cordova @ionic/storage
 ```
 
-Since `angular-cli` 6 and up pollyfills for node core libraries are disabled by default. As auth0-cordova uses `crypto` you'll need to provide a pollyfill for this library.
+Auth0-Cordova requires the node library `crypto`, however since Angular CLI version 6+ you are now required to use a polyfill for this library. You can accomplish this using a custom webpack configuration.
 
 To customize the webpack configuration you need to install the custom webpack builders for angular.
 
@@ -81,7 +101,7 @@ module.exports = {
 };
 ```
 
-In `angular.json` replace the `@angular-devkit/build-angular:browser` builder to `@angular-builders/custom-webpack:browser` and add customWebpackConfig to the build target options with the path to the webpack config file created prevoisly.
+In `angular.json` replace the `@angular-devkit/build-angular:dev-server` bulder with `@angular-builders/custom-webpack:dev-server`, `@angular-devkit/build-angular:browser` builder with `@angular-builders/custom-webpack:browser` and add customWebpackConfig to the build target options with the path to the webpack config file created prevoisly.
 
 ```js
 // angular.json
@@ -89,13 +109,19 @@ In `angular.json` replace the `@angular-devkit/build-angular:browser` builder to
 "architect": {
   // ...
   "build": {
-    "builder": "@angular-builders/custom-webpack:browser"
+    "builder": "@angular-builders/custom-webpack:browser",
     "options": {
       "customWebpackConfig": {
         "path": "webpack.config.js"
       },
       // ...
     }
+  },
+  // ...
+  "serve": {
+    "builder": "@angular-builders/custom-webpack:dev-server",
+    // ...
+  }
   // ...
 }
 ```
@@ -105,6 +131,7 @@ In `angular.json` replace the `@angular-devkit/build-angular:browser` builder to
 You must install the `SafariViewController` plugin from Cordova to be able to use universal login. The downloadable sample project already has this plugin added, but if you are embedding Auth0 in your own application, install the plugin via the command line.
 
 ```bash
+# installation with cordova
 ionic cordova plugin add cordova-plugin-safariviewcontroller
 
 # installation with npm
@@ -121,8 +148,7 @@ The `CustomURLScheme` plugin from Cordova is also required to handle redirects p
 ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=YOUR_PACKAGE_ID --variable ANDROID_SCHEME=YOUR_PACKAGE_ID --variable ANDROID_HOST=${account.namespace} --variable ANDROID_PATHPREFIX=/cordova/YOUR_PACKAGE_ID/callback
 ```
 
-Replace `YOUR_PACKAGE_ID` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
-
+Replace `YOUR_PACKAGE_ID` with your application's package name.
 
 ## Integrate Auth0 in your Application
 
@@ -173,9 +199,40 @@ export class AppComponent {
 }
 ```
 
+### Configure Provides
+
+Set up the providers for the authentication service and ionic storage.
+
+```js
+// src/app/app.module.ts
+
+import { NgModule } from '@angular/core';
+
+import { IonicStorageModule } from '@ionic/storage';
+import { SafariViewController } from '@ionic-native/safari-view-controller/ngx';
+
+import { AuthService } from './services/auth.service';
+
+// ...
+
+@NgModule({
+  // ...
+  imports: [
+    // ...
+    IonicStorageModule.forRoot()
+  ],
+  providers: [
+    AuthService,
+    SafariViewController,
+    // ...
+  ],
+  // ...
+})
+```
+
 ### Configure Auth0
 
-Create a new file called `auth.config.ts` in your `src/services` folder to provide the necessary Auth0 configuration for your Ionic app:
+Create a new file called `auth.config.ts` to provide the necessary Auth0 configuration for your Ionic app. Be sure to replace `YOUR_PACKAGE_ID` with the identifier for your app.
 
 ```js
 // src/app/services/auth.config.ts
@@ -189,8 +246,6 @@ export const AUTH_CONFIG = {
   packageIdentifier: 'YOUR_PACKAGE_ID' // config.xml widget ID, e.g., com.auth0.ionic
 };
 ```
-
-Be sure to replace `YOUR_PACKAGE_ID` with the identifier for your app.
 
 ### Create an Authentication Service
 
@@ -304,7 +359,7 @@ Add a control to your app to allow users to log in. The control should call the 
 ```js
 // src/app/home/home.page.ts
 import { Component } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -361,23 +416,6 @@ The `AuthService` is now accessible in the view and its `login` method can be ca
   </ng-template>
 </ion-content>
 ```
-
-#### Add Platform and Run the App
-
-You will now need to allow Ionic / Cordova to install the necessary plugins and update your `config.xml` appropriately for the platform you wish to run on.
-
-Use the following commands to add your desired platform(s) (e.g., `ios` or `android`) and run the app:
-
-```bash
-# Add platform (e.g., ios or android)
-$ ionic cordova platform add {platform}
-# Run on desired platform (e.g., ios or android)
-$ ionic cordova run {platform} --livereload
-```
-
-This will then launch your app in the local emulation environment for the platform you chose (Xcode Simulator for iOS or the Android emulator of your choice).
-
-Don't be alarmed if you _cannot authenticate_ successfully yet at this stage! There was some configuration generated by running the app that you still need to add to your Auth0 settings.
 
 ### Update Auth0 Dashboard Configuration
 
