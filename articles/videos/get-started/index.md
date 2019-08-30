@@ -18,7 +18,9 @@ topics:
 ---
 # Get Started with Auth0 Video Series
 
-[![Get Started Video Screenshot](/media/articles/videos/get-started/get-started.png)](/videos/get-started/01-architecture-your-tenant)
+## Introduction
+
+<div class="video-wrapper" data-video="npau8fvzxk"></div>
 
 <p>&nbsp;</p>
 
