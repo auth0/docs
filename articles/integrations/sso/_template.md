@@ -93,6 +93,16 @@ On the **Settings** page, configure the following values:
             <td>The connection to use with this integration, typically an Active Directory connection.</td>
         </tr>
         <% } %>
+        <% if (service === "Sentry") { %>
+        <tr>
+            <td>Organization Slug</td>
+            <td>The generated slug for your Sentry organization found in your URL (i.e., the slug for `https://sentry.acme.com/acme-org/` would `acme-org`.</td>
+        </tr>
+        <tr>
+            <td>Sentry URL Prefix</td>
+            <td>Your URL prefix if you're using Sentry Community Edition; otherwise, leave blank.</td>
+        </tr>
+        <% } %>
         <% if (service === "Slack") { %>
         <tr>
             <td>Team Name</td>
