@@ -8,7 +8,8 @@ useCase: customize-hosted-pages
 ---
 # Multi-factor Authentication Page
 
-In the [Auth0 Dashboard](${manage_url}/#/mfa), you can [Multi-factor authentication](/multifactor-authentication) with Auth0.
+You can enable [Multi-factor authentication](/multifactor-authentication) from the [Dashboard > Multifactor Auth](${manage_url}/#/mfa) section.
+
 
 ![Universal Login MFA Page](/media/articles/multifactor-authentication/mfa-dashboard-1.png)
 
@@ -17,9 +18,9 @@ In the [Auth0 Dashboard](${manage_url}/#/mfa), you can [Multi-factor authenticat
 You can customize the MFA pages using the Universal Login's [basic customization features](universal-login#simple-customization). 
 
 If you need further customizations, you can provide your own HTML for the MFA page. Note that this will use the Auth0 MFA Widget, which has the following limitations:
-- it does not support MFA with Email.
-- if users enrolled more than one factor, they cannot select which one to use, the MFA widget will show the last one they enrolled.
-- it does not use Universal Login's internationalization features
+- It does not support MFA with Email.
+- If users enrolled more than one factor, they cannot select which one to use, the MFA widget will ask them to login with the most secure factor.
+- It does not use Universal Login's [internationalization](/universal-login/i18n) features
 
 ## Customizing the HTML for the MFA page
 
@@ -90,10 +91,6 @@ return new Auth0MFAWidget({
   
 })
 ```
-
-::: note
-When customizing the login page with the MFA Widget, users will **not** be able to select from a list of enrolled factors. Auth0 will ask them to perform MFA with the most secure one.
-:::
 
 ## Rendering "Invited Enrollments" vs. Standard Scenarios
 

@@ -45,5 +45,5 @@ If you are using the MFA API in conjunction with the [Token endpoint](/api/authe
 
 * The MFA API is designed to work with SMS, Push via Guardian, Email, and OTP factors. It does not currently support enrolling with Duo or with the legacy 'google-authenticator' factor (which can be enrolled using the OTP factor).
 
--  Support for factor selection is currently limited to the Token Endpoint and the [New Universal Login Experience](/universal-login/new). If users have more than one factor enrolled, the [Classic Universal Login Experience](/universal-login/new) will display the most-recently enrolled factor.
+-  Support for factor selection is currently limited to the Token Endpoint and the [New Universal Login Experience](/universal-login/new). If users have more than one factor enrolled, the [Classic Universal Login Experience](/universal-login/new) will display the most secure factor.
 
