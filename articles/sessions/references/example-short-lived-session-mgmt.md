@@ -16,13 +16,11 @@ useCase:
 This workflow shows how the `auth0-spa-js` SDK should be implemented to support multi-site session management.  In this scenario, it is assumed that the tenant SSO Inactivity Timeout is set to 300 seconds, and the JWT Expiration of each SPA application is set to 150 seconds. This is considered a "short-lived" session. 
 
 ::: panel Support for Long-Lived Sessions
-Details would change in the case of a long-lived session where the application session would most likely be shorter than the <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> session.
+Auth0 supports long-lived sessions for enterprise Auth0 customers. With long-lived sessions, you can configure session limits with up to 100 days of inactivity (idle timeout) and up to one year in total duration (absolute timeout). If you have quarterly, monthly, or other timelines, this allows you to reduce friction for end-users and provide access to low-risk content and capabilities. In addition, media companies can leverage long-lived sessions for improving user experiences through seamless access to content. You can also make the choices between long-lived sessions and password validation based on your requirements around user experience and security. 
 
-Auth0 also supports long-lived sessions for enterprise Auth0 customers. With long-lived sessions, you can configure session limits with up to 100 days of inactivity (idle timeout) and up to one year in total duration (absolute timeout). This allows companies with quarterly, monthly, or other timelines to reduce friction for end-users and provide access to low-risk content and capabilities. Further, consumer-facing companies such as media can leverage long-lived sessions for improving user experiences through seamless access to content. The customer can also make the choices between long-lived sessions and password validation based on their expectations around user experience and security.
+Workflow details would change in the case of a long-lived session where the application session would most likely be shorter than the <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> session.
 
-Learn about this feature in the [When UX Equals Keeping or Losing the Customer](https://auth0.com/blog/when-ux-equals-keeping-or-losing-the-customer/) launch announcement blog post.
-
-You can also see [Configure Session Lifetime Limits](/sso/current/configure-session-lifetime-limits) and [Set Access Token Lifetime](/tokens/guides/access-token/set-access-token-lifetime) for more information.
+Learn more about this feature in the [When UX Equals Keeping or Losing the Customer](https://auth0.com/blog/when-ux-equals-keeping-or-losing-the-customer/) launch announcement blog post. You can also see [Configure Session Lifetime Limits](/sso/current/configure-session-lifetime-limits) and [Set Access Token Lifetime](/tokens/guides/access-token/set-access-token-lifetime) for more information.
 :::
 
 ## SDK features
