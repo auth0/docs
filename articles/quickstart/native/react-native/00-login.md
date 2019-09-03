@@ -21,7 +21,7 @@ useCase: quickstart
 {PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
 ```
 
-Remember to replace `PRODUCT_BUNDLE_IDENTIFIER` with your actual application's bundle identifier name.
+Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
 
 Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`. In the sample project the value is:
 
@@ -36,7 +36,7 @@ Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundle
 {YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
 ```
 
-Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
+Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
 
 You can find this at the top of your `AndroidManifest.xml` file located in the `android/app/src/main/` folder. In the sample project the value is:
 ```xml
@@ -52,7 +52,7 @@ You can find this at the top of your `AndroidManifest.xml` file located in the `
 {PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
 ```
 
-Remember to replace `PRODUCT_BUNDLE_IDENTIFIER` with your actual application's bundle identifier name.
+Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
 
 #### Android logout URL
 
@@ -60,7 +60,7 @@ Remember to replace `PRODUCT_BUNDLE_IDENTIFIER` with your actual application's b
 {YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
 ```
 
-Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
+Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
 
 ## Install Dependencies 
 
