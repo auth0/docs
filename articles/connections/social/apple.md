@@ -19,7 +19,7 @@ useCase:
 ---
 # Add Sign in with Apple to Your App
 
-To add support for Sign in with Apple, you'll need to have an Auth0 Tenant set up with a custom domain, as well as a web application configured to use Auth0 for authentication at that domain. You can get an application up and running in a few simple steps by using any of our quick starts. Note that for the purpose of this post, your application can use any development stack: Node.js, ASP.NET, Java, and so on.
+To add support for Sign in with Apple, you'll need to have an Auth0 tenant set up with a custom domain, as well as a web application configured to use Auth0 for authentication at that domain. You can get an application up and running in a few simple steps by using any of our quick starts. Note that for the following instructions, your application can use any development stack: Node.js, ASP.NET, Java, and so on.
 
 Using the Apple connection will require the following:
 
@@ -47,33 +47,33 @@ When setting up your application, make sure you save the following items for lat
 
 3. Choose **App IDs** as the identifier type, and click **Continue**. 
 
-4. Enter a description for your new App ID (something like "Sign In with Apple Test") and a Bundle ID. For the latter, Apple recommends using a reverse-domain name style string (e.g., `com.<YOUR CUSTOM DOMAIN>.appid`). 
+4. Enter a description for your new App ID and a Bundle ID. For the latter, Apple recommends using a reverse-domain name style string (e.g., `com.<YOUR CUSTOM DOMAIN>.appid`). 
 
-5. Scroll down and check the **Sign In with Apple** feature. You won't have to use the **Edit** button that Apple presents. You will configure this feature later.
+5. Scroll down and check the **Sign In with Apple** feature. You won't have to use the **Edit** here. You will configure this feature later.
 
-6. Leave the other options with their default values and click **Continue**. When you click on this button, Apple will present a summary of the options you just filled. If everything is in place, click **Register**. Apple will redirect you to the **Certificates, Identifiers & Profiles** subsection again, this time listing your new App ID. 
+6. Leave the other options with their default values and click **Continue**. When you click on this button, Apple  displays a summary of the options you just configured. If everything is correct, click **Register**. Apple redirects you to the **Certificates, Identifiers & Profiles** subsection again, this time listing your new App ID. 
 
-7. Create a Service ID that represents your application. This might look like a redundant effort, but Apple organizes things like that so you can nest multiple Services IDs under the same App ID. This makes sense when you have distinct versions of your app to support different devices.
+7. Create a Service ID that represents your application. This might look like a redundant effort, but Apple organizes it so you can nest multiple Services IDs under the same App ID. This makes sense when you have distinct versions of your application to support different devices.
 
 8. Click the round, blue icon next to the **Identifiers** header, then choose **Services IDs** and click  **Continue**. 
 
-9. Fill in the same fields as in step 4 above (i.e., description and identifier), and enable the **Sign In with Apple** feature. 
+9. Fill in the same fields as in step 4 above (description and identifier), and enable the **Sign In with Apple** feature. 
 
-10. Click **Configure**. Apple displays a dialog where you define the web domain you will use (e.g., `<YOUR CUSTOM DOMAIN>.com`) and add a **Return URL** (e.g., `https://<YOUR CUSTOM DOMAIN>/login/callback`). Click **Save**.  
+10. Click **Configure**. Apple displays a dialog where you define the web domain you will use (`<YOUR CUSTOM DOMAIN>.com`) and add a **Return URL** (`https://<YOUR CUSTOM DOMAIN>/login/callback`). Click **Save**.  
 
 11. On the **Register a Services ID** page, click **Continue** and, on the next screen, click **Register**.
 
-  After registering your Service ID, Apple redirects you to the **Certificates, Identifiers & Profiles** page. There, you will see your newly-created Service ID.
+    After registering your Service ID, Apple redirects you to the **Certificates, Identifiers & Profiles** page. There, you will see your newly-created Service ID.
   
 12. Click the Service ID and view the details of the service. Click **Configure** next to the **Sign In with Apple** feature. 
 
-  This time you will see that Apple shows two new buttons next to your domain: **Download** and **Verify**.
+    This time, Apple displays two new buttons next to your domain: **Download** and **Verify**.
 
-  If you click **Download**, Apple sends you a file called `apple-developer-domain-association.txt`. You will have to use the contents of this file soon. Also, keep the page open because you will have to use the **Verify** button.
+13. Click **Download** for Apple to send you a file called `apple-developer-domain-association.txt`. You will have to use the contents of this file soon. Also, keep the page open because you will have to use the **Verify** button.
 
 ## Create your web application
 
-1. After configuring the Apple developer account, you can start working on the web application code. Create an `npm` project and install a few dependencies:
+1. After configuring the Apple developer account, complete the web application code. Create an `npm` project and install a few dependencies:
 
     ``` text
     # start the npm project
@@ -182,7 +182,7 @@ When setting up your application, make sure you save the following items for lat
     });
     ```
 
-3. In the code above, you will notice that there is a reference to the `apple-developer-domain-association.txt` file. Make this file available to the app while running it in your server so Apple can check you are the owner of the domain you used in the previous section. Move the file you downloaded from Apple to the project root.
+3. In the code above, you will notice that there is a reference to the `apple-developer-domain-association.txt` file. Make this file available to the app while running it in your server so Apple can check that you are the owner of the domain you used in the previous section. Move the file you downloaded from Apple to the project root.
 
 4. To confirm that the code is working, execute the following commands locally.
 
@@ -238,8 +238,8 @@ Now that you have verified your domain with Apple, define the environment variab
 
     | Variable | Description
     | --- | --- |
-    | **CLIENT_ID** | Gets the value that you used as the identifier of the Service ID you created at Apple (e.g., `com.<YOUR CUSTOM DOMAIN>.webapp`). |
-    | **CALLBACK** | The URL to which the user will be redirected after the authentication process takes place. You will have to use the value you passed to the **Return URL** field (e.g., `<YOUR CUSTOM DOMAIN>.com/callback`) on the same Service ID. |
+    | **CLIENT_ID** | Gets the value that you used as the identifier of the Service ID you created at Apple  (`com.<YOUR CUSTOM DOMAIN>.webapp`). |
+    | **CALLBACK** | The URL to which the user will be redirected after the authentication process takes place. You will have to use the value you passed to the **Return URL** field (`<YOUR CUSTOM DOMAIN>.com/callback`) on the same Service ID. |
 
 2. For most OAuth-compliant identity providers, the `CLIENT_SECRET` variable is static. However, Apple rotates this secret by using signed JSON Web Tokens (JWTs) that carry the `exp` claim. To generate this key, go to **Keys** in **Certificates, Identifiers, & Profiles** section in your Apple developer dashboard. 
 
@@ -280,7 +280,7 @@ Now that you have verified your domain with Apple, define the environment variab
 
 10. Run this script to generate a new token:
 
-    ``` js
+    ``` text
     node generate-secret.js
     ```
 
@@ -291,61 +291,15 @@ Now that you have verified your domain with Apple, define the environment variab
     | Field | Value |
     | --- | --- |
     | Name | Apple, or any name you choose |
-    | Client ID | Your Services ID identifier, (e.g., `com.<YOUR CUSTOM DOMAIN>.webapp`)
-    | Client Secret | The string generated in the previous step
-    
-    The Fetch User Profile Script should look like this: 
-
-    ``` txt
-    function (accessToken, ctx, cb) {
-    const jwt = require('jsonwebtoken@7.1.9');
-    const jwksClient = require('jwks-rsa@1.1.1');
-
-    const client = jwksClient({
-      jwksUri: 'https://appleid.apple.com/auth/keys',
-      cache: true
-    });
-
-    const idToken = ctx.id_token;
-    const decoded = jwt.decode(idToken, {complete: true});
-    const {kid, alg} = decoded.header;
-
-    client.getSigningKey(kid, (err, key) => {
-      if (err) {
-        console.log(err);
-        return callback(err);
-      }
-      const signingKey = key.publicKey || key.rsaPublicKey;
-
-      jwt.verify(idToken, signingKey, {
-        issuer: 'https://appleid.apple.com',
-        audience: 'com.<YOUR CUSTOM DOMAIN>.webapp',
-        algorithms: [alg]
-      }, (err, profile) => {
-        if (err) return cb(err);
-        profile.id = profile.sub;
-        cb(null, profile);
-      });
-    });
-    }
-    ```
-
-    | Field | Value |
-    | --- | --- |
+    | Client ID | Your Services ID identifier, (e.g., `com.<YOUR CUSTOM DOMAIN>.webapp`) |
+    | Client Secret | The string generated in the previous step |
+    | Fetch User Profile Script | Check the variables in the script to make sure they are correct |
     | Authorization URL | `https://appleid.apple.com/auth/authorize` |
     | Token URL | `https://appleid.apple.com/auth/token` |
     | Scope | email name |
+    | Custom Headers | `"UserAgent": "Auth0", "Accepts": "application/json"`|
 
-    The Custom Headers should look like this:
-
-    ``` text
-    {
-    "UserAgent": "Auth0",
-    "Accepts": "application/json"
-    }
-    ```
-
-12. Once you have everything filled out correctly, click **Save** and enable this connection for your application.
+12. Click **Save** and enable this connection for your application.
 
 13. On your server, stop the web app instance that is running, and issue the following commands:
 
@@ -358,7 +312,7 @@ Now that you have verified your domain with Apple, define the environment variab
     npm start
     ```
 
-    This time you will have to set the environment variables with the final values. If things work as expected, you will be able to see the app running under your domain again. Then, if you request for the `/auth/.apple` route under this domain, your app will redirect you to the **Sign In with Apple** page so you can log into your application. On this page, if you use valid credentials, Apple will sign you into the app (after the multifactor authentication process).
+    This time, set the environment variables with the final values. If things work as expected, you will see the application running under your domain again. Then, if you request for the `/auth/.apple` route under this domain, your application will redirect you to the **Sign In with Apple** page so you can log into your application. On this page, if you use valid credentials, Apple will sign you into the application (after the multifactor authentication process).
 
 ## Test the connection
 
