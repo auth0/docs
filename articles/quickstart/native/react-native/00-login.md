@@ -46,9 +46,21 @@ You can find this at the top of your `AndroidManifest.xml` file located in the `
 
 <%= include('../../../_includes/_logout_url') %>
 
-::: note
-If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to whitelist in the Allowed Logout URLs field is the same as the callback URL.
-:::
+#### iOS logout URL
+
+```text
+{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
+```
+
+Remember to replace `PRODUCT_BUNDLE_IDENTIFIER` with your actual application's bundle identifier name.
+
+#### Android logout URL
+
+```text
+{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
+```
+
+Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
 
 ## Install Dependencies 
 
