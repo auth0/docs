@@ -338,7 +338,7 @@ The default template uses the above variables to do something like this:
   <!-- Signup email content -->
   {% if send == 'link' or send == 'link_ios' or send == 'link_android' %}
     <p>Click and confirm that you want to sign in to {{ application.name }}. This link will expire in five minutes.</p>
-    <a href="{{ link }}">Sign in to {{ application.name }</a>
+    <a href="{{ link }}">Sign in to {{ application.name }}</a>
     {% elsif send == 'code' %}
     <p>Your verification code is: <b>{{ code }}</b></p>
   {% endif %}
