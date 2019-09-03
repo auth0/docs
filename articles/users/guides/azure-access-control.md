@@ -37,7 +37,7 @@ Start by [signing up for Auth0](https://auth0.com/signup). After creating your a
 
 In order for an application to use Auth0 it must be registered as a [application](/applications). Create a new application on the [Dashboard](https://manage.auth0.com/#/applications).
 
-![Create Application window](/media/articles/applications/create-application-popup.png)
+![Create Application window](/media/articles/applications/create-client-popup.png)
 
 ## Add Auth0 to your identity provider
 
