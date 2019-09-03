@@ -37,13 +37,7 @@
   "openid": {
     "title": "OpenID",
     "definition": "An open standard for authentication that allows applications to verify users are who they say they are without needing to collect, store, and therefore become liable for a user’s login information. See <a href='/docs/protocols/oidc'>OpenID Connect (OIDC)</a>.",
-    "subitems": {
-      "1": "Application sends an authentication request to an OpenID server (e.g., Auth0)",
-      "2": "The authorization server verifies the identity of the user, sending proof to user if successful",
-      "3": "User sends proof of authentication to the application",
-      "4": "Application approves or denies access",
     "short": "An open standard for authentication that allows applications to verify users' identities without collecting and storing login information." 
-    }
   },
   "passwordless": {
     "title": "Passwordless",
@@ -79,5 +73,5 @@
    "title": "Universal Login",
    "definition": "Auth0’s implementation of the authentication flow, which is the key feature of an Authorization Server. Each time a user needs to prove their identity, your applications redirect to Universal Login, and Auth0 will do what’s needed to guarantee the user’s identity. See <a href='/docs/universal-login'>Auth0 Universal Login</a>.",
    "short": "Your application redirects to Universal Login, hosted on Auth0's Authorization Server, to verify a user's identity."
- } 
+ }
 }
