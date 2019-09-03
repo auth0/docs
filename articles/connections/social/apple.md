@@ -75,130 +75,130 @@ When setting up your application, make sure you save the following items for lat
 
 1. After configuring the Apple developer account, you can start working on the web application code. Create an `npm` project and install a few dependencies:
 
-  ``` text
-  # start the npm project
-  npm init -y
+    ``` text
+    # start the npm project
+    npm init -y
 
-  # install its dependencies
-  npm i dotenv \
-    express \
-    express-session \
-    jsonwebtoken \
-    passport \
-    passport-oauth
-  ``` 
+    # install its dependencies
+    npm i dotenv \
+      express \
+      express-session \
+      jsonwebtoken \
+      passport \
+      passport-oauth
+    ``` 
 
-  | Package | Description |
-  | --- | --- |
-  | **dotenv** | Environment variables that are better kept out of the code itself. |
-  | **express** | Make your project an Express web app. |
-  | **express-session** | Passport will need this package to manage users' sessions. |
-  | **jsonwebtoken** | Generate a JWT to work as the client secret while configuring passport. |
-  | **passport** | Use this package to handle user authentication in your app. |
-  | **passport-oauth** | Use this passport strategy to integrate with Apple's identity provider. |
+    | Package | Description |
+    | --- | --- |
+    | **dotenv** | Environment variables that are better kept out of the code itself. |
+    | **express** | Make your project an Express web app. |
+    | **express-session** | Passport will need this package to manage users' sessions. |
+    | **jsonwebtoken** | Generate a JWT to work as the client secret while configuring passport. |
+    | **passport** | Use this package to handle user authentication in your app. |
+    | **passport-oauth** | Use this passport strategy to integrate with Apple's identity provider. |
 
 2. After installing these packages, create a new file called `app.js` and insert the following code into it:
 
-``` text
-const express = require("express");
-const session = require("express-session");
-const port = process.env.PORT || 3000;
-const passport = require("passport");
-const OAuth2Strategy = require("passport-oauth").OAuth2Strategy;
-const fs = require("fs");
-const jwt = require("jsonwebtoken");
+    ``` text
+    const express = require("express");
+    const session = require("express-session");
+    const port = process.env.PORT || 3000;
+    const passport = require("passport");
+    const OAuth2Strategy = require("passport-oauth").OAuth2Strategy;
+    const fs = require("fs");
+    const jwt = require("jsonwebtoken");
 
-const domainAssociation = fs.readFileSync(
-  "./apple-developer-domain-association.txt",
-  "utf8"
-);
-const appleStrategy = "apple";
+    const domainAssociation = fs.readFileSync(
+      "./apple-developer-domain-association.txt",
+      "utf8"
+    );
+    const appleStrategy = "apple";
 
-const app = express();
+    const app = express();
 
-app.use(
-  session({
-    secret: "secret",
-    saveUninitialized: false,
-    resave: false
-  })
-);
+    app.use(
+      session({
+        secret: "secret",
+        saveUninitialized: false,
+        resave: false
+      })
+    );
 
-app.use(passport.initialize());
-app.use(passport.session());
+    app.use(passport.initialize());
+    app.use(passport.session());
 
-passport.use(
-  "apple",
-  new OAuth2Strategy(
-    {
-      authorizationURL: "https://appleid.apple.com/auth/authorize",
-      tokenURL: "https://appleid.apple.com/auth/token",
-      clientID: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: process.env.CALLBACK,
-      state: Date.now() // bleh
-    },
-    (accessToken, refreshToken, payload, profile, done) => {
+    passport.use(
+      "apple",
+      new OAuth2Strategy(
+        {
+          authorizationURL: "https://appleid.apple.com/auth/authorize",
+          tokenURL: "https://appleid.apple.com/auth/token",
+          clientID: process.env.CLIENT_ID,
+          clientSecret: process.env.CLIENT_SECRET,
+          callbackURL: process.env.CALLBACK,
+          state: Date.now() // bleh
+        },
+        (accessToken, refreshToken, payload, profile, done) => {
       done(null, { profile, payload });
-    }
-  )
-);
+        }
+      )
+    );
 
-passport.serializeUser((user, done) => {
-  done(null, user);
-});
+    passport.serializeUser((user, done) => {
+      done(null, user);
+    });
 
-passport.deserializeUser((user, done) => {
-  done(null, user);
-});
+    passport.deserializeUser((user, done) => {
+      done(null, user);
+    });
 
-app.get("/.well-known/apple-developer-domain-association.txt", (req, res) => {
-  res.send(domainAssociation);
-});
+    app.get("/.well-known/apple-developer-domain-association.txt", (req, res) => {
+      res.send(domainAssociation);
+    });
 
-app.get("/auth/apple", passport.authenticate(appleStrategy));
+    app.get("/auth/apple", passport.authenticate(appleStrategy));
 
-app.get(
-  "/callback",
-  passport.authenticate(appleStrategy, {
-    successRedirect: "/",
-    failureRedirect: "/login"
-  })
-);
+    app.get(
+      "/callback",
+      passport.authenticate(appleStrategy, {
+        successRedirect: "/",
+        failureRedirect: "/login"
+      })
+    );
 
-app.get("/profile", (req, res) => {
-  res.send(
-    jwt.decode(req.session.passport.user.payload.id_token, { complete: true })
-  );
-});
+    app.get("/profile", (req, res) => {
+      res.send(
+        jwt.decode(req.session.passport.user.payload.id_token, { complete: true })
+      );
+    });
 
-app.get("/", (req, res) => {
-  console.log("User", req.user);
-  res.send(JSON.stringify({ Hello: "World" }));
-});
+    app.get("/", (req, res) => {
+      console.log("User", req.user);
+      res.send(JSON.stringify({ Hello: "World" }));
+    });
 
-app.listen(port, () => {
-  console.log(`Apple Login POC listening on port ${port}!`);
-});
-```
+    app.listen(port, () => {
+      console.log(`Apple Login POC listening on port ${port}!`);
+    });
+    ```
 
 3. In the code above, you will notice that there is a reference to the `apple-developer-domain-association.txt` file. Make this file available to the app while running it in your server so Apple can check you are the owner of the domain you used in the previous section. Move the file you downloaded from Apple to the project root.
 
-4. to confirm that the code is working, execute the following commands locally.
+4. To confirm that the code is working, execute the following commands locally.
 
-``` js
-export CLIENT_ID=test
-export CLIENT_SECRET=test
-export CALLBACK=test
+    ``` text
+    export CLIENT_ID=test
+    export CLIENT_SECRET=test
+    export CALLBACK=test
 
-npm start
-```
+    npm start
+    ```
 
 ::: note
 You can leave the test values on the environment variables for the moment. You will configure these variables later.
 :::
 
-  If everything works as expected, you will be able to see the contents of the domain association file at the following link: `http://localhost:3000/.well-known/apple-developer-domain-association.txt`. If that is the case, you are ready to make your app run on the real server.
+If everything works as expected, you will be able to see the contents of the domain association file at the following link: `http://localhost:3000/.well-known/apple-developer-domain-association.txt`. If that is the case, you are ready to make your application run on the real server.
 
 ### Verify the domain ownership on Apple
 
@@ -206,15 +206,13 @@ You can leave the test values on the environment variables for the moment. You w
 
 2. After running this project on a real server (which must respond on behalf of the domain you configured in the Apple developer account), you can head back to the page you left open (**Register a Services ID**), and click **Verify**. If you got everything right, Apple would be able to confirm that you own the informed domain.
 
-### Set up Apple Email Relay Service
+### Configure email relay service
 
 ::: note
 Even if you do configure this properly, you won't be able to use the relay service. The documentation doesn't say how to get unique, randomly-created emails for the users that sign in. Also, using OpenID Connect scopes like email doesn't work.
-
-Apple explains: "In order to contact users that use Apple’s private email relay service, you need to register domains and email addresses that your organization will use for communication. Domains and domains associated with email addresses must comply with Sender Policy Framework standards and be verified by Apple before they are successfully registered."
 :::
 
-1. To use the Email Relay Service that Apple provides, click **More** under the **Certificates, Identifiers, & Profiles** section and click **Configure**. 
+1. To use the email relay service that Apple provides, click **More** under the **Certificates, Identifiers, & Profiles** section and click **Configure**. 
 
 2. Add your domain (`<YOUR CUSTOM DOMAIN>.com`) in the field available on **Domains and Associated Email Addresses** 
 
@@ -224,13 +222,13 @@ Apple explains: "In order to contact users that use Apple’s private email rela
 
 ## Create and enable a connection in Auth0
 
-In the next step, you’ll add Apple to the collection of identity providers you can integrate with via Auth0.
+Next, you’ll add Apple to the collection of identity providers you can integrate with via Auth0.
 
 1. Once you have the credentials you need from your Apple developer account, go to [**Connections** > **Social**](${manage_url}) in the Dashboard, and click on the **Apple** connection.
 
 2. Fill in the Client ID (Services ID), Client Secret Signing Key, the Team ID, and the Client Signing Key ID (if you have it) here. You can also fill in the Key ID, but this is optional, as Apple will accept the key without the ID.
 
-  ![Apple Connection Settings](/media/articles/connections/social/apple/apple_connection.png)
+    ![Apple Connection Settings](/media/articles/connections/social/apple/apple_connection.png)
 
 ## Generate client secret
 
@@ -238,12 +236,12 @@ Now that you have verified your domain with Apple, define the environment variab
 
 1. Configure the following variables:
 
-  | Variable | Description
-  | --- | --- |
-  | **CLIENT_ID** | Gets the value that you used as the identifier of the Service ID you created at Apple (e.g., `com.<YOUR CUSTOM DOMAIN>.webapp`). |
-  | **CALLBACK** | The URL to which the user will be redirected after the authentication process takes place. You will have to use the value you passed to the **Return URL** field (e.g., `<YOUR CUSTOM DOMAIN>.com/callback`) on the same Service ID.
+    | Variable | Description
+    | --- | --- |
+    | **CLIENT_ID** | Gets the value that you used as the identifier of the Service ID you created at Apple (e.g., `com.<YOUR CUSTOM DOMAIN>.webapp`). |
+    | **CALLBACK** | The URL to which the user will be redirected after the authentication process takes place. You will have to use the value you passed to the **Return URL** field (e.g., `<YOUR CUSTOM DOMAIN>.com/callback`) on the same Service ID. |
 
-2. On most OAuth-compliant identity providers out there, the `CLIENT_SECRET` variable is static. However, Apple decided to make this secret rotate by using signed JSON Web Tokens (JWTs) that carry the `exp` claim. To generate this key, go to **Keys** in **Certificates, Identifiers, & Profiles** section in your Apple developer dashboard. 
+2. For most OAuth-compliant identity providers, the `CLIENT_SECRET` variable is static. However, Apple rotates this secret by using signed JSON Web Tokens (JWTs) that carry the `exp` claim. To generate this key, go to **Keys** in **Certificates, Identifiers, & Profiles** section in your Apple developer dashboard. 
 
 3. Click the round, blue icon to add a new key. 
 
@@ -261,32 +259,32 @@ Now that you have verified your domain with Apple, define the environment variab
 
 9. Create a new file called `generate-secret.js` inside the project root, and add the following code to it:
 
-``` js
-const jwt = require("jsonwebtoken");
-const fs = require("fs");
+    ``` js
+    const jwt = require("jsonwebtoken");
+    const fs = require("fs");
 
-const privateKey = fs.readFileSync("./authkey.p8");
-const token = jwt.sign({}, privateKey, {
-  algorithm: "ES256",
-  expiresIn: "2 days",
-  audience: "https://appleid.apple.com",
-  issuer: "TEAM_ID",
-  subject: "com.<YOUR CUSTOM DOMAIN>.webapp",
-  keyid: "KEY_ID"
-});
+    const privateKey = fs.readFileSync("./authkey.p8");
+    const token = jwt.sign({}, privateKey, {
+      algorithm: "ES256",
+      expiresIn: "2 days",
+      audience: "https://appleid.apple.com",
+      issuer: "TEAM_ID",
+      subject: "com.<YOUR CUSTOM DOMAIN>.webapp",
+      keyid: "KEY_ID"
+    });
 
-console.log("The token is:", token);
-```
+    console.log("The token is:", token);
+    ```
 
-  Replace `com.<YOUR CUSTOM DOMAIN>.webapp` with the identifier for your Service ID and `TEAM_ID` with your Team ID. To find this value, visit this [page](https://developer.apple.com/account/#/membership). You'll also need to replace `KEY_ID` with the Key ID you noted earlier.
+    Replace `com.<YOUR CUSTOM DOMAIN>.webapp` with the identifier for your Service ID and `TEAM_ID` with your Team ID. To find this value, visit this [page](https://developer.apple.com/account/#/membership). You'll also need to replace `KEY_ID` with the Key ID you noted earlier.
 
 10. Run this script to generate a new token:
 
-  ``` js
-  node generate-secret.js
-  ```
+    ``` js
+    node generate-secret.js
+    ```
 
-  The value that the script outputs is the value that you will use on the `CLIENT_SECRET` environment variable. 
+    The value that the script outputs is the value that you will use on the `CLIENT_SECRET` environment variable. 
 
 11. Return to your Auth0 dashboard and make sure your custom social connection fields look like this:
 
@@ -298,7 +296,7 @@ console.log("The token is:", token);
     
     The Fetch User Profile Script should look like this: 
 
-    ``` js
+    ``` txt
     function (accessToken, ctx, cb) {
     const jwt = require('jsonwebtoken@7.1.9');
     const jwksClient = require('jwks-rsa@1.1.1');
@@ -351,16 +349,16 @@ console.log("The token is:", token);
 
 13. On your server, stop the web app instance that is running, and issue the following commands:
 
-``` text
-# now you need to use the real values
-export CLIENT_ID=com.<YOUR CUSTOM DOMAIN>.webapp
-export CLIENT_SECRET=eyJ...KsA
-export CALLBACK=https://<YOUR CUSTOM DOMAIN>.com/callback
+    ``` text
+    # now you need to use the real values
+    export CLIENT_ID=com.<YOUR CUSTOM DOMAIN>.webapp
+    export CLIENT_SECRET=eyJ...KsA
+    export CALLBACK=https://<YOUR CUSTOM DOMAIN>.com/callback
 
-npm start
-```
+    npm start
+    ```
 
-  This time you will have to set the environment variables with the final values. If things work as expected, you will be able to see the app running under your domain again. Then, if you request for the `/auth/.apple` route under this domain, your app will redirect you to the **Sign In with Apple** page so you can log into your application. On this page, if you use valid credentials, Apple will sign you into the app (after the multifactor authentication process).
+    This time you will have to set the environment variables with the final values. If things work as expected, you will be able to see the app running under your domain again. Then, if you request for the `/auth/.apple` route under this domain, your app will redirect you to the **Sign In with Apple** page so you can log into your application. On this page, if you use valid credentials, Apple will sign you into the app (after the multifactor authentication process).
 
 ## Test the connection
 
@@ -372,7 +370,7 @@ If you are using the Classic Universal Login flow, or embedding `Lock.js` in you
 
 1. Visit your login page and you should now see an option for Sign In with Apple:
 
-  ![Apple Login](/media/articles/connections/social/apple/apple_login.png)
+    ![Apple Login](/media/articles/connections/social/apple/apple-login-page.png)
 
 2. Click **Continue with Apple**, then enter your Apple ID and password.
 
@@ -382,7 +380,7 @@ If you are using the Classic Universal Login flow, or embedding `Lock.js` in you
 
 5. When this is done, you'll have the option to edit your name and choose whether you'd like to share or hide your email. Make your choice, then click **Continue**.
 
-  You are now signed in with Apple!
+    You are now signed in with Apple!
 
 ## Keep reading
 
