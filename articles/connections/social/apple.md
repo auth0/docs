@@ -36,10 +36,10 @@ Once your Developer Account is set up, you can follow the instructions in the [A
 
 When setting up your application, make sure you save the following items for later:
 
-* The Client ID (the Service ID)
-* The Client Secret Signing Key
-* The Apple Team ID
-* The Client Signing Key ID (optional)
+* Client ID (the Service ID)
+* Client Secret Signing Key
+* Apple Team ID
+* Client Signing Key ID (optional)
 
 1. When you sign into the developer account, go to the [Certificates, IDs, & Profiles](https://developer.apple.com/account/resources/certificates/list) section, and choose the [Identifiers](https://developer.apple.com/account/resources/identifiers/list/serviceId) subsection on the left menu.
 
@@ -99,7 +99,7 @@ When setting up your application, make sure you save the following items for lat
 
 2. After installing these packages, create a new file called `app.js` and insert the following code into it:
 
-    ``` text
+    ``` js
     const express = require("express");
     const session = require("express-session");
     const port = process.env.PORT || 3000;
