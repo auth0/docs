@@ -69,7 +69,7 @@ When setting up your application, make sure you save the following items for lat
 
     This time, Apple displays two new buttons next to your domain: **Download** and **Verify**.
 
-13. Click **Download** for Apple to send you a file called `apple-developer-domain-association.txt`. You will have to use the contents of this file soon. Also, keep the page open because you will have to use the **Verify** button.
+13. Click **Download** for Apple to send you a file called `apple-developer-domain-association.txt`. You will have to use the contents of this file soon. Also, keep the page open because you will have to use the **Verify** button later.
 
 ## Create your web application
 
@@ -324,7 +324,7 @@ If you are using the Classic Universal Login flow, or embedding `Lock.js` in you
 
 1. Visit your login page and you should now see an option for Sign In with Apple:
 
-    ![Apple Login](/media/articles/connections/social/apple/apple-login-page.png)
+    ![Apple Login Page](/media/articles/connections/social/apple/apple-login-page.png)
 
 2. Click **Continue with Apple**, then enter your Apple ID and password.
 
