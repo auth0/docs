@@ -99,7 +99,7 @@ When setting up your application, make sure you save the following items for lat
 
 2. After installing these packages, create a new file called `app.js` and insert the following code into it:
 
-``` js
+``` text
 const express = require("express");
 const session = require("express-session");
 const port = process.env.PORT || 3000;
