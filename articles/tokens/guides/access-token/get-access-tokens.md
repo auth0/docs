@@ -15,7 +15,7 @@ To get an [Access Token](/tokens/access-token), you need to request one when [au
 
 Auth0 makes it easy for your app to authenticate users using:
 
-* [Quickstarts](/quickstarts): The easiest way to implement authentication, which can show you how to use dfn data-key="universal-login">[Universal Login](/universal-login)</dfn>, the <dfn data-key="lock">[Lock widget](/lock)</dfn>, and Auth0's language and framework-specific [SDKs](/libraries#sdks). Our [Lock documentation](/libraries/lock) and [Auth0.js documentation](/libraries/auth0js) both provide specifics about retrieving an Access Token after authentication.
+* [Quickstarts](/quickstarts): The easiest way to implement authentication, which can show you how to use <dfn data-key="universal-login">[Universal Login](/universal-login)</dfn>, the <dfn data-key="lock">[Lock widget](/lock)</dfn>, and Auth0's language and framework-specific [SDKs](/libraries#sdks). Our [Lock documentation](/libraries/lock) and [Auth0.js documentation](/libraries/auth0js) both provide specifics about retrieving an Access Token after authentication.
 * [Authentication API](/api/authentication): If you prefer to roll your own, you can call our API directly. First, you need to know [which flow to use](/api-auth/which-oauth-flow-to-use) before following the appropriate [flow tutorial](/flows).
 
 ## Control Access Token Audience 
@@ -26,7 +26,7 @@ You may configure your tenant to always include a [default audience](/dashboard/
 
 | Token Use | Format | Requested Audience | Requested Scope |
 |-----------|--------|--------------------|-------|
-| [/userinfo endpoint](/api/authentication#get-user-info) | [Opaque](/tokens/access-tokens/opaque-access-tokens) | tenant name (`${account.namespace}`), no value for `audience` parameter, no `audience` parameter passed | `openid` |
+| [/userinfo endpoint](/api/authentication#get-user-info) | [Opaque](/tokens/access-tokens#opaque-access-tokens) | tenant name (`${account.namespace}`), no value for `audience` parameter, no `audience` parameter passed | `openid` |
 | Auth0 Management API | [JWT](/jwt) | Management API v2 identifier (`https://{tenant}.auth0.com/api/v2/`) |  |
 | Your own custom API | [JWT](/jwt) | The API Identifier for your custom API registered in the Auth0 Dashboard |  |
 
@@ -36,7 +36,7 @@ Access Tokens can have multiple target audiences as long as your custom API's [s
 For example, if you specify an `audience` of your custom API identifier and a `scope` of `openid`, then the resulting Access Token's `aud` claim will be an array rather than a string, and the Access Token will be valid for both your custom API and for the `/userinfo` endpoint.
 :::
 
-::: Panel Custom Domains and the Management API
+::: panel Custom Domains and the Management API
 Auth0 issues tokens with an issuer (`iss` claim) of whichever domain you used when requesting the token. [Custom domain](/custom-domains) users may use either their custom domain or their Auth0 domain. For example, say you have a custom domain of **https://login.northwind.com**. If you request an Access Token from **https://login.northwind.com/authorize**, your token's `iss` claim will be **https://login.northwind.com/**. However, if you request an Access Token from **https://northwind.auth0.com/authorize**, your token's `iss` claim will be **https://northwind.auth0.com/**. 
 
 For an Access Token with the target audience of the [Auth0 Management API](/api/management/v2), if you have requested an Access Token from your custom domain, then you **must** call the Management API from your custom domain or else your Access Token will be considered invalid.

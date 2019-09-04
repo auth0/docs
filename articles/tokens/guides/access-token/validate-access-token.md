@@ -45,7 +45,7 @@ To learn more about getting an Access Token for the Auth0 Management API, see [A
 ### Custom API Access Tokens
 
 ::: warning
-If validation of your Custom API Access Token fails, make sure it was issued with your custom API as the `audience`. To learn more about getting an Access Token for your Custom API, see [Get an Access Token: Custom API Access Tokens](/tokens/guides/access-token/get-access-tokens#custom-api-access-tokens).
+If validation of your Custom API Access Token fails, make sure it was issued with your custom API as the `audience`. To learn more about getting an Access Token for your Custom API, see [Get an Access Token: Control Access Token Audience](/tokens/guides/access-token/get-access-tokens#control-access-token-audience).
 :::
 
 To validate a JWT issued for a custom API that you have registered with Auth0, you will need to:
