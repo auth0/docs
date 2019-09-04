@@ -49,7 +49,7 @@ Support for native Sign In with Apple is built on top of the [OAuth 2.0 Token Ex
 Before you add support for native SIWA, you'll need:
 
 * An [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/)).
-* A domain (i.e., `<YOUR CUSTOM DOMAIN>.com`) that you can use and point to your web app and an internet-accessible server where you will run the app, and that responds on behalf of this domain. You will also need to configure this server with a TLS certificate (Apple won't accept unsecured HTTP connections) and [`npm` and `Node.js`](https://nodejs.org/en/download/) (so you can run the web application). Lastly, to use the Email Relay Service, you will need to configure your domain with Sender Policy Framework (SPF) DNS TXT records. 
+* A domain (such as `<YOUR CUSTOM DOMAIN>.com`) that you can use and point to your web app and an internet-accessible server where you will run the app, and that responds on behalf of this domain. You will also need to configure this server with a TLS certificate (Apple won't accept unsecured HTTP connections) and [`npm` and `Node.js`](https://nodejs.org/en/download/) (so you can run the web application). Lastly, to use the Email Relay Service, you will need to configure your domain with Sender Policy Framework (SPF) DNS TXT records. 
 * A [Custom Domain](/custom-domains) set up on your Auth0 tenant for domain verification with Apple.
 
 ::: note
@@ -92,7 +92,7 @@ When setting up your application, make sure you save the following IDs and keys 
 
 3. Choose **App IDs** as the identifier type, and click **Continue**. 
 
-4. Enter a description for your new App ID and a Bundle ID. For the latter, Apple recommends using a reverse-domain name style string (e.g., `com.<YOUR CUSTOM DOMAIN>.appid`). 
+4. Enter a description for your new App ID and a Bundle ID. For the latter, Apple recommends using a reverse-domain name style string (for example, `com.<YOUR CUSTOM DOMAIN>.appid`). 
 
 5. Scroll down and check the **Sign In with Apple** feature. You won't have to use the **Edit** here. You will configure this feature later.
 
@@ -247,7 +247,7 @@ If everything works as expected, you will see the contents of the domain associa
 
 ### Verify domain ownership on Apple
 
-1. Move your project code to your server and make it run like you did locally (i.e., you still don't need to provide the final environment variables). To achieve that, you can use whatever means you prefer. For example, you can use Git, or you can move the files manually (with the help of `scp` or similar). 
+1. Move your project code to your server and make it run like you did locally. You still don't need to provide the final environment variables. To achieve that, you can use whatever means you prefer. For example, you can use Git, or you can move the files manually (with the help of `scp` or similar). 
 
 2. After running this project on an internet-accessible server (which must respond on behalf of the domain you configured in the Apple developer account), go back to the page you left open (**Register a Services ID**), and click **Verify**. If you got everything right, Apple will confirm that you own the informed domain.
 
@@ -282,7 +282,7 @@ Now that you have verified your domain with Apple, define the environment variab
 
 6. Click **Save**, then **Continue**, then **Register** (3 buttons on 3 pages).
 
-  Apple redirects you to a page where you will be able to download the new key. 
+    Apple redirects you to a page where you will be able to download the new key. 
   
 7. Click the download button and then move the file to your project root. Rename it to `authkey.p8`. 
 
@@ -322,7 +322,7 @@ Now that you have verified your domain with Apple, define the environment variab
     | Field | Value |
     | --- | --- |
     | Name | Apple, or any name you choose |
-    | Client ID | Your Services ID identifier, (e.g., `com.<YOUR CUSTOM DOMAIN>.webapp`) |
+    | Client ID | Your Services ID identifier, (for example, `com.<YOUR CUSTOM DOMAIN>.webapp`) |
     | Client Secret | The string generated in the previous step |
     | Fetch User Profile Script | Check the variables in the script to make sure they are correct |
     | Authorization URL | `https://appleid.apple.com/auth/authorize` |
@@ -350,6 +350,8 @@ Now that you have verified your domain with Apple, define the environment variab
 1. Once you have the credentials you need from your Apple developer account, Go to [**Connections** > **Social**](${manage_url}), and click on the **Apple** connection.
 
 2. On the **Settings** tab, complete the fields **Client ID** (Services ID), **Client Secret Signing Key**, and **Apple Team ID**. You can also fill in the **Key ID** but it is optional, as Apple will accept the key without the ID.
+
+    ![Application Connection Settings: Advanced Mobile Settings](/media/articles/connections/social/apple/apple-app-mobile-settings.png)
 
 3. Click **Save**.
 
