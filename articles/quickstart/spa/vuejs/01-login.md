@@ -13,6 +13,8 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-<%= include('../_includes/_getting_started', { library: 'Vue.js', callback: 'http://localhost:3000/callback', returnTo: 'http://localhost:3000', showLogoutInfo: true, showWebOriginInfo: true }) %>
+<!-- markdownlint-disable MD034 MD041 -->
+
+<%= include('../_includes/_getting_started', { library: 'Vue.js', callback: 'http://localhost:3000/callback', returnTo: 'http://localhost:3000', webOriginUrl: 'http://localhost:3000', showLogoutInfo: true, showWebOriginInfo: true }) %>
 
 <%= include('_includes/_centralized_login') %>

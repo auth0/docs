@@ -15,7 +15,14 @@ If you are following along with the sample project you downloaded from the top o
 <% } %>
 
 <% if (typeof showWebOriginInfo !== 'undefined' && showWebOriginInfo === true) { %>
-<%= include('../../../_includes/_web_origins') %>
+  <%= include('../../../_includes/_web_origins') %>
+
+  <% if (typeof webOriginUrl !== 'undefined') { %>
+  ::: note
+  If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Web Origins** to `${webOriginUrl}`.
+  :::
+  <% } %>
+
 <% } %>
 
 <% if (typeof new_js_sdk !== 'undefined' && new_js_sdk === true) { %>
