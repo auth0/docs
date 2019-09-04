@@ -1,5 +1,5 @@
 ---
-title: Add Native Sign in With Apple to Your App
+title: Add Native Sign In with Apple to Your App
 connection: Apple
 index: 3
 image: /media/connections/apple.svg
@@ -21,6 +21,15 @@ useCase:
 
 Apple requires the adoption of native Sign In with Apple (SIWA) capabilities if you have an app published on the App Store and you support different third-party sign-in options (such as Facebook, Google, or Twitter). 
 
+To set up and configure native Sign In with Apple, you will do the following:
+
+* [Complete the prerequisites](#before-you-begin): Have an Apple Developer account (paid), an Auth0 tenant set up with a custom domain, and a web application configured to use Auth0 for authentication at that domain.  
+* [Register your app in your Apple Developer account](#register-your-app-in-your-apple-developer-account): Obtain Apple IDs and keys for the application connection settings in the Dashboard.
+* [Create your web app](#create-your-web-application): Including verifying your domain ownership with Apple and configuring Apple's email relay service, if necessary.
+* [Generate client secret](#generate-client-secret): Define the environment variables needed to use with Apple.
+* [Configure the application connection in Auth0](#configure-the-connection-in-auth0): Complete the social connection settings configuration information with the IDs and keys you obtained for your application from Apple. 
+* [Test the connection](#test-the-connection): Log in to set the connection.
+
 ## How it works
 
 Support for native Sign In with Apple is built on top of the [OAuth 2.0 Token Exchange specification](https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16). Auth0 created a profile for native SIWA to handle the following flow:
@@ -35,18 +44,25 @@ Support for native Sign In with Apple is built on top of the [OAuth 2.0 Token Ex
 3. Auth0 exchanges the `code` with Apple for a set of ID, access, and refresh tokens.
 4. Auth0 saves the user profile. Executes rules and authorization, then issues access tokens (refresh tokens and ID tokens) as requested. These tokens can now be used to protect your APIs and users are managed in Auth0.
 
-To add support for native SIWA, you'll need to have an Apple Developer account, an Auth0 tenant set up with a custom domain, and a web application configured to use Auth0 for authentication at that domain. Make sure you have those properly configured before proceeding.
+## Before you begin
+
+Before you add support for native SIWA, you'll need:
 
 * An [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/)).
-* A domain (i.e., `<YOUR CUSTOM DOMAIN>.com`) that you can use and point to your web app and an internet-accessible server where you will run the app, and that responds on behalf of this domain. You will also need to configure this server with a TLS certificate (Apple won't accept unsecured HTTP connections) and [`npm` and `Node.js`](https://nodejs.org/en/download/) (so you can run the web application). Lastly, to use the Email Relay Service, you will need to configure your domain with Sender Policy Framework (SPF) DNS TXT records. See [Sign In with Apple Get Started](https://developer.apple.com/sign-in-with-apple/get-started/) for more information.
+* A domain (i.e., `<YOUR CUSTOM DOMAIN>.com`) that you can use and point to your web app and an internet-accessible server where you will run the app, and that responds on behalf of this domain. You will also need to configure this server with a TLS certificate (Apple won't accept unsecured HTTP connections) and [`npm` and `Node.js`](https://nodejs.org/en/download/) (so you can run the web application). Lastly, to use the Email Relay Service, you will need to configure your domain with Sender Policy Framework (SPF) DNS TXT records. 
 * A [Custom Domain](/custom-domains) set up on your Auth0 tenant for domain verification with Apple.
 
 ::: note
 You can set this up using [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04), [Freenom](https://freenom.com/), or [Let's Encrypt](https://letsencrypt.org/).
 :::
 
-::: panel Before you Begin: Test the Connection with Auth0 Developer Credentials 
-You can test the Apple connection:
+## Test the Apple connection with Auth0 Developer credentials
+
+Test the connection using Auth0’s developer credentials with Apple. 
+
+::: warning
+**Prior to using it in production applications**, you need to set up your own Apple Developer credentials and register your application.
+:::
 
 1. On the [Dashboard](${manage_url}), go to **Connections > Social**.
 2. Click on the Apple connection.
@@ -57,14 +73,13 @@ You can test the Apple connection:
 4. On the **Applications** tab, select the applications you want to test the connection with and click **Save**.
 5. Back on the **Settings** tab, click **Try**.
 
-    This displays the Apple sign in page. This tests the connection using Auth0’s developer credentials. **Prior to using it in production applications**, you need to set up your own developer credentials following the instructions below.
-:::
+    You should see the Apple sign in page. 
 
-## Configure your app in your Apple Developer Account
+## Register your app in your Apple Developer account
 
-Once your Developer Account is set up, you can follow the instructions in the [Apple Setup Guide](/connections/apple-setup) to get your app set up. If you have any issues, refer to the [Apple Documentation](https://developer.apple.com/sign-in-with-apple/get-started/).
+Once your Apple Developer account is set up, follow the instructions in the [Apple Setup Guide](/connections/apple-setup) to set up your application. 
 
-When setting up your application, make sure you save the following items for the Apple connection settings in the Dashboard:
+When setting up your application, make sure you save the following IDs and keys for the application connection settings in the Auth0 Dashboard:
 
 * Client ID (the Service ID)
 * Client Secret Signing Key
@@ -364,7 +379,7 @@ If you are using the Classic Universal Login flow, or embedding `Lock.js` in you
 
 ## Keep reading
 
-* [What is Sign In with Apple](https://auth0.com/blog/what-is-sign-in-with-apple-a-new-identity-provider/)
-* [Apple's Sign In with Apple page](https://developer.apple.com/sign-in-with-apple/)
+* [Auth0 Blog: What is Sign In with Apple](https://auth0.com/blog/what-is-sign-in-with-apple-a-new-identity-provider/)
+* See [Sign In with Apple](https://developer.apple.com/sign-in-with-apple/) for information about Apple's Sign In with Apple capabilities.
 
 <%= include('../_quickstart-links.md') %>
