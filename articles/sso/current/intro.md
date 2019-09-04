@@ -71,17 +71,18 @@ Identity federation deals with managing user identities and granting them the ri
 
 ...
 
-### Built-in and custom SAML identity providers
+### Built-in and custom SAML Identity Providers
 
-...
+* [SAML Identity Providers](/protocols/saml/identity-providers)
 
-### Social identity providers
+### Social Identity Providers
 
-...
+* [Social Identity Providers](/connections#social)
 
 ### Custom OAuth and OIDC providers
 
-...
+* [Add a generic OAuth2 Authorization Server to Auth0](/connections/social/oauth2)
+* [Custom Social Connections Extension](/extensions/custom-social-extensions)
 
 ## Outbound from
 
