@@ -529,6 +529,7 @@ module.exports = [
     from: '/applications/concepts/signing-algorithms',
     to: '/tokens/concepts/signing-algorithms'
   },
+  {
     from: '/clients/client-types',
     to: '/applications/application-types'
   },
@@ -1937,9 +1938,13 @@ module.exports = [
      to: '/troubleshoot/har'
    },
    {
-     from: ['/tokens/access-token','/tokens/access_token'],
-     to: '/tokens/overview-access-tokens'
+     from: ['/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token'],
+     to: '/tokens/access-tokens'
    },
+   {
+    from: ['/tokens/overview-id-tokens','/tokens/id-token'],
+    to: '/tokens/id-tokens'
+  },
    {
      from: '/api-auth/tutorials/verify-access-token',
      to: '/tokens/guides/access-token/validate-access-token'
@@ -2162,20 +2167,12 @@ module.exports = [
      to: '/rules/guides/redirect'
     },
     {
-     from: ['/tokens/set-access-token-format','/tokens/access-token-formats'],
-     to: '/tokens/reference/access-token/access-token-formats'
-    },
-    {
       from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
       to: '/protocols/saml/saml-apps/github-server'
     },
     {
       from: '/tokens/get-access-tokens',
       to: '/tokens/guides/access-token/get-access-tokens'
-    },
-    {
-      from: '/tokens/set-access-token-lifetime',
-      to: '/tokens/guides/access-token/set-access-token-lifetime'
     },
     {
       from: '/tokens/use-access-tokens',
