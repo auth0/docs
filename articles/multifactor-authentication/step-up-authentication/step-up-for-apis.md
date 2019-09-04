@@ -60,7 +60,7 @@ This tutorial assumes that you have already done the following:
 
 First we will create a rule that will challenge the user to authenticate with MFA when the `transfer:funds` scope is requested.
 
-Go to [Dashboard > Multi-factor Auth](${manage_url}/#/guardian) and modify the script as follows.
+Go to [Dashboard > Multi-factor Auth](${manage_url}/#/rules) and create a rule with the content below.
 
 ```js
 function (user, context, callback) {

@@ -54,6 +54,55 @@ func Init() error {
 }
 ```
 
+### Configure OAuth2 and OpenID connect packages
+
+Create a file called `auth.go` in the `auth` folder. In this package you'll create a method to configure and return [OAuth2](https://godoc.org/golang.org/x/oauth2) and [oidc](https://godoc.org/github.com/coreos/go-oidc) clients.
+
+```go
+// auth/auth.go
+
+package auth
+
+import (
+	"context"
+	"log"
+
+	"golang.org/x/oauth2"
+
+	oidc "github.com/coreos/go-oidc"
+)
+
+type Authenticator struct {
+	Provider *oidc.Provider
+	Config   oauth2.Config
+	Ctx      context.Context
+}
+
+func NewAuthenticator() (*Authenticator, error) {
+	ctx := context.Background()
+
+	provider, err := oidc.NewProvider(ctx, "https://${account.namespace}/")
+	if err != nil {
+		log.Printf("failed to get provider: %v", err)
+		return nil, err
+	}
+
+	conf := oauth2.Config{
+		ClientID:     "${account.clientId}",
+		ClientSecret: "YOUR_CLIENT_SECRET",
+		RedirectURL:  "http://localhost:3000/callback",
+		Endpoint: 	  provider.Endpoint(),
+		Scopes:       []string{oidc.ScopeOpenID, "profile"},
+	}
+
+	return &Authenticator{
+		Provider: provider,
+		Config:   conf,
+		Ctx:      ctx,
+	}, nil
+}
+```
+
 ### Add the Auth0 Callback Handler
 
 You'll need to create a callback handler that Auth0 will call once it redirects to your app. For that, you can do the following:
@@ -65,71 +114,65 @@ package callback
 
 import (
 	"context"
-	_ "crypto/sha512"
-	"encoding/json"
-	"../../app"
-	"golang.org/x/oauth2"
+	"log"
 	"net/http"
-	"os"
+
+	oidc "github.com/coreos/go-oidc"
+
+	"../../app"
+	"../../auth"
 )
 
 func CallbackHandler(w http.ResponseWriter, r *http.Request) {
-
-	domain := "${account.namespace}"
-
-	conf := &oauth2.Config{
-		ClientID:     "${account.clientId}",
-		ClientSecret: "YOUR_CLIENT_SECRET",
-		RedirectURL:  "http://localhost:3000/callback",
-		Scopes:       []string{"openid", "profile"},
-		Endpoint: oauth2.Endpoint{
-			AuthURL:  "https://" + domain + "/authorize",
-			TokenURL: "https://" + domain + "/oauth/token",
-		},
-	}
-	state := r.URL.Query().Get("state")
-	session, err := app.Store.Get(r, "state")
+	session, err := app.Store.Get(r, "auth-session")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	if state != session.Values["state"] {
-		http.Error(w, "Invalid state parameter", http.StatusInternalServerError)
+	if r.URL.Query().Get("state") != session.Values["state"] {
+		http.Error(w, "Invalid state parameter", http.StatusBadRequest)
 		return
 	}
 
-	code := r.URL.Query().Get("code")
-
-	token, err := conf.Exchange(context.TODO(), code)
+	authenticator, err := auth.NewAuthenticator()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	token, err := authenticator.Config.Exchange(context.TODO(), r.URL.Query().Get("code"))
+	if err != nil {
+		log.Printf("no token found: %v", err)
+		w.WriteHeader(http.StatusUnauthorized)
+		return
+	}
+
+	rawIDToken, ok := token.Extra("id_token").(string)
+	if !ok {
+		http.Error(w, "No id_token field in oauth2 token.", http.StatusInternalServerError)
+		return
+	}
+
+	oidcConfig := &oidc.Config{
+		ClientID: "${account.clientId}",
+	}
+
+	idToken, err := authenticator.Provider.Verifier(oidcConfig).Verify(context.TODO(), rawIDToken)
+
+	if err != nil {
+		http.Error(w, "Failed to verify ID Token: " + err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	// Getting now the userInfo
-	client := conf.Client(context.TODO(), token)
-	resp, err := client.Get("https://" + domain + "/userinfo")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	defer resp.Body.Close()
-
 	var profile map[string]interface{}
-	if err = json.NewDecoder(resp.Body).Decode(&profile); err != nil {
+	if err := idToken.Claims(&profile); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	session, err = app.Store.Get(r, "auth-session")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	session.Values["id_token"] = token.Extra("id_token")
+	session.Values["id_token"] = rawIDToken
 	session.Values["access_token"] = token.AccessToken
 	session.Values["profile"] = profile
 	err = session.Save(r, w)
@@ -140,7 +183,6 @@ func CallbackHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Redirect to logged in page
 	http.Redirect(w, r, "/user", http.StatusSeeOther)
-
 }
 ```
 
@@ -152,48 +194,31 @@ ${snippet(meta.snippets.setup)}
 
 Create a file called `login.go` in the `routes/login` folder, and add `LoginHandler` function to handle `/login` route.
 
-This function sets the configuration for [OAuth2 Go](https://godoc.org/golang.org/x/oauth2) to get the authorization url, and redirects the user to the [login page](/hosted-pages/login).
-
 ```go
 // routes/login/login.go
 
 package login
 
 import (
-	"golang.org/x/oauth2"
-	"net/http"
-	"os"
 	"crypto/rand"
 	"encoding/base64"
+	"net/http"
+
 	"../../app"
+	"../../auth"
 )
 
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
-
-	domain := "${account.namespace}"
-	aud := "YOUR_API_AUDIENCE"
-
-	conf := &oauth2.Config{
-		ClientID:     "${account.clientId}",
-		ClientSecret: "YOUR_CLIENT_SECRET",
-		RedirectURL:  "http://localhost:3000/callback",
-		Scopes:       []string{"openid", "profile"},
-		Endpoint: oauth2.Endpoint{
-			AuthURL:  "https://" + domain + "/authorize",
-			TokenURL: "https://" + domain + "/oauth/token",
-		},
-	}
-
-	if aud == "" {
-		aud = "https://" + domain + "/userinfo"
-	}
-
 	// Generate random state
 	b := make([]byte, 32)
-	rand.Read(b)
+	_, err := rand.Read(b)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 	state := base64.StdEncoding.EncodeToString(b)
 
-	session, err := app.Store.Get(r, "state")
+	session, err := app.Store.Get(r, "auth-session")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -205,10 +230,13 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	audience := oauth2.SetAuthURLParam("audience", aud)
-	url := conf.AuthCodeURL(state, audience)
+	authenticator, err := auth.NewAuthenticator()
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 
-	http.Redirect(w, r, url, http.StatusTemporaryRedirect)
+	http.Redirect(w, r, authenticator.Config.AuthCodeURL(state), http.StatusTemporaryRedirect)
 }
 ```
 
@@ -221,16 +249,15 @@ r := mux.NewRouter()
 r.HandleFunc("/login", login.LoginHandler)
 ```
 
-Add a link to `/login` route in the `index.html` template.
+Add a link to `/login` route in the `home.html` template.
 
 ```html
 <!-- routes/home/home.html -->
 
-<div class="login-box auth0-box before">
-    <img src="https://i.cloudup.com/StzWWrY34s.png" />
+<div>
     <h3>Auth0 Example</h3>
     <p>Zero friction identity infrastructure, built for developers</p>
-    <a class="btn btn-primary btn-lg btn-block" href="/login">SignIn</a>
+    <a href="/login">SignIn</a>
 </div>
 ```
 
@@ -251,15 +278,14 @@ func UserHandler(w http.ResponseWriter, r *http.Request) {
 
 	templates.RenderTemplate(w, "user", session.Values["profile"])
 }
-
 ```
 
 ```html
 <!-- routes/user/user.html -->
 
 <div>
-  <img class="avatar" src="{{.picture}}"/>
-  <h2>Welcome {{.nickname}}</h2>
+	<img class="avatar" src="{{.picture}}"/>
+	<h2>Welcome {{.nickname}}</h2>
 </div>
 ```
 
@@ -278,7 +304,6 @@ package logout
 
 import (
 	"net/http"
-	"os"
 	"net/url"
 )
 
@@ -290,7 +315,7 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 	Url, err := url.Parse("https://" + domain)
 
 	if err != nil {
-		panic("boom")
+		panic(err.Error())
 	}
 
 	Url.Path += "/v2/logout"
@@ -319,9 +344,9 @@ Create a file called `user.js` in the folder `public`, and add the code to remov
 
 ```js
 $(document).ready(function() {
-    $('.btn-logout').click(function(e) {
-      Cookies.remove('auth-session');
-    });
+	$('.btn-logout').click(function(e) {
+		Cookies.remove('auth-session');
+	});
 });
 ```
 
@@ -349,7 +374,9 @@ Then, we should create a middleware that will check if the `profile` is in the s
 package middlewares
 
 import (
-  "net/http"
+	"net/http"
+
+	"../../app"
 )
 
 func IsAuthenticated(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
@@ -374,7 +401,7 @@ Finally, we can use Negroni to set up this middleware for any route that needs a
 // server.go
 
 r.Handle("/user", negroni.New(
-  negroni.HandlerFunc(middlewares.IsAuthenticated),
-  negroni.Wrap(http.HandlerFunc(user.UserHandler)),
+	negroni.HandlerFunc(middlewares.IsAuthenticated),
+	negroni.Wrap(http.HandlerFunc(user.UserHandler)),
 ))
 ```

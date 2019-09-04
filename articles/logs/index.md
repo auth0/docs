@@ -127,6 +127,7 @@ The following table lists the codes associated with the appropriate log events.
 | `coff` | Connector Offline | AD/LDAP Connector is offline | [Active Directory/LDAP Connector](/connector) |
 | `con` | Connector Online | AD/LDAP Connector is online and working | [Active Directory/LDAP Connector](/connector) |
 | `cs` | Code Sent | Passwordless login code has been sent | [Passwordless](/connections/passwordless) |
+| `depnote` | Deprecation Notice | | |
 | `du` | Deleted User | User has been deleted. | [User Profile](/users/concepts/overview-user-profile) |
 | `f` | Failed Login | | |
 | `fapi` | Failed API Operation | | |
@@ -175,7 +176,7 @@ The following table lists the codes associated with the appropriate log events.
 | `gd_send_sms` | SMS Sent | SMS for MFA sent successfully sent. | [Using SMS for MFA](/multifactor-authentication/factors/sms) |
 | `gd_start_auth` | Second factor started | Second factor authentication event started for MFA. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_start_enroll` | Enroll started | Multi-factor authentication enroll has started. | [Multi-factor Authentication](/multifactor-authentication) |
-| `gd_tenant_update` | Guardian tenant update | | [Hosted MFA Page](/hosted-pages/guardian) |
+| `gd_tenant_update` | Guardian tenant update | | [Hosted MFA Page](/universal-login/multifactor-authentication) |
 | `gd_unenroll` | Unenroll device account | Device used for second factor authentication has been unenrolled. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_update_device_account` | Update device account | Device used for second factor authentication has been updated. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_user_delete` | User delete | Deleted multi-factor user account. | [User Profile](/users/concepts/overview-user-profile) |

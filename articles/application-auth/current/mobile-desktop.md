@@ -155,7 +155,7 @@ Using the authorization code obtained in step 2, you can obtain the ID Token by 
         "value": "YOUR_AUTHORIZATION_CODE"
       },
       {
-        "name": "redirect_ui",
+        "name": "redirect_uri",
         "value": "https://${account.namespace}/mobile"
       }
     ]
@@ -257,7 +257,7 @@ Using the authorization code, you can obtain the ID Token by making a `POST` cal
         "value": "YOUR_AUTHORIZATION_CODE"
       },
       {
-        "name": "redirect_ui",
+        "name": "redirect_uri",
         "value": "https://${account.namespace}/mobile"
       }
     ]
@@ -348,7 +348,7 @@ Using the authorization code, you can obtain the ID Token by making a `POST` cal
         "value": "YOUR_AUTHORIZATION_CODE"
       },
       {
-        "name": "redirect_ui",
+        "name": "redirect_uri",
         "value": "https://${account.namespace}/mobile"
       }
     ]

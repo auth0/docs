@@ -21,10 +21,12 @@ Affected customers are those who meet all of the following criteria:
 * With tenants hosted in Auth0's public cloud in the AU or EU regions
 * Who use the [GET /api/v2/logs](/api/v2#!/Logs/get_logs) or the [GET /api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user) endpoint with the parameter `include_totals=true` or the `q` parameter.
 * Who paginate through more than 1000 results
+* Who use the Delegated Admin Extension
+  * Older versions of the extension will continue to work after your Tenant is migrated to Logs Search Engine v3, however you might notice pagination totals being incorrect when viewing logs. Updating to v3.7 of the extension will address this.
 
 The following tenants are NOT affected:
 * Cloud customers in the US region. The US region has been fully migrated and is already using Search Engine v3.
-* PSaaS customers (Migration for PSaaS customers will begin at a later date).
+* Private Cloud customers (Migration for Private Cloud customers will begin at a later date).
 * Cloud tenants in the EU and AU regions that:
   * are not using the `GET /api/v2/logs` or `GET /api/v2/users/{user_id}/logs` endpoints of Management API at all.
   * are consuming the logs from the Dashboard Logs section only.
@@ -39,7 +41,7 @@ You can search your tenant logs with the following to look for queries that woul
 type:depnote AND description:*logs migration*
 ```
 
-These log entries include a `description` field that specifies the deprecated behavior you're using. You can also check the `details.request.path` field to see if the warning was triggered from `GET /api/v2/logs` or `GET /api/v2/users/{user_id}/logs`. 
+These log entries include a `description` field that specifies the deprecated behavior you're using. You can also check the `details.request.path` and `client_name` fields to see what application is calling either `GET /api/v2/logs` or `GET /api/v2/users/{user_id}/logs`.
 
 ::: note
 Auth0 generates only one log of the same **type** and **description** every 60 minutes. No matter how many calls you make using deprecated features to the impacted endpoints, you will still see a single log for *each* deprecated feature each hour.

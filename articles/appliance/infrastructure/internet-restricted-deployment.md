@@ -55,8 +55,7 @@ When using multi-factor authentication (MFA), you will need internet access for 
 
 For limited connectivity options, you may choose from:
 
-* Guardian MFA TOTP
-* Google Authenticator
+* One-time password with Google Authenticator, Authy or similar apps
 * A custom MFA implementation using redirect rules
 * Duo (on-premise versions only)
 

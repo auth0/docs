@@ -3,6 +3,10 @@ alias:
   - python
 languages:
   - Python
+author:
+  name: Luciano Balmaceda
+  email: luciano.balmaceda@auth0.com
+  community: false
 thirdParty: false
 image: /media/platforms/python.png
 topics:

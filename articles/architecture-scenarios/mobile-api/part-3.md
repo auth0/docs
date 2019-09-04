@@ -96,7 +96,7 @@ Next you can exchange the `authorization_code` from the response for an Access T
         "value": "YOUR_AUTHORIZATION_CODE"
       },
       {
-        "name": "redirect_ui",
+        "name": "redirect_uri",
         "value": "https://${account.callback}"
       }
     ]

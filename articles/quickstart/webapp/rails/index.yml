@@ -1,5 +1,9 @@
 title: Ruby On Rails
 image: /media/platforms/rails.png
+author:
+  name: Josh Cunningham
+  email: josh.cunningham@auth0.com
+  community: false
 topics:
   - quickstart
   - ruby
@@ -7,10 +11,6 @@ topics:
   - ruby on rails
 contentType: tutorial
 useCase: quickstart
-snippets:
-  dependencies: server-platforms/rails/dependencies
-  setup: server-platforms/rails/setup
-  use: server-platforms/rails/use
 alias:
   - ruby-rails
   - sinatra

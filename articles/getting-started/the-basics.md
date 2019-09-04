@@ -119,6 +119,6 @@ If you wish to learn more about the next steps in setting up Auth0, you can read
 ## Keep reading
 
 - [Auth0 APIs](/api/info) - Learn about Auth0 APIs.
-- [API Authorization](/api-auth/apis) - Learn how to configure, secure, and access your own API with Auth0.
+- [Set Up an API](/getting-started/set-up-api) - Learn how to configure your own API with Auth0.
 - [Auth0 Libraries & SDKs](/libraries) - Learn about our libraries and SDKs.
 - [Manage Users](/users) - Learn about working with users and user profiles in Auth0.

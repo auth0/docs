@@ -56,3 +56,4 @@ For an example showing how to request standard claims for your application, see 
 - [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases)
 - [Scopes](/scopes)
 - [Custom Claims](/tokens/jwt-claims#custom-claims)
+- [OIDC Handbook](https://auth0.com/resources/ebooks/the-openid-connect-handbook)

@@ -25,7 +25,7 @@ Auth0 is offered in the following deployment models:
     <td>A multi-tenant cloud service running on Auth0's cloud</td>
 </tr>
 <tr>
-    <td>Private Cloud</td>
+    <td>Standard Private Cloud</td>
     <td>A dedicated cloud service running on Auth0's cloud</td>
 </tr>
 <tr>
@@ -34,7 +34,7 @@ Auth0 is offered in the following deployment models:
 </tr>
 </table>
 
-The [Private Cloud and the Managed Private Cloud](/private-cloud) options are managed services that you can use if:
+The [Standard and the Managed Private Cloud](/private-cloud) options are managed services that you can use if:
 
 * Your organization's requirements prevent you from using the multi-tenant public cloud service
 * You require an SLA guaranteeing higher uptimes
@@ -55,7 +55,7 @@ The following tables describe operational and feature differences between these 
         <tr>
             <th class="info"><strong>How It Runs</strong></th>
             <th class="info">Public Cloud (Multi-Tenant)</th>
-            <th class="info">Private Cloud</th>
+            <th class="info">Standard Private Cloud</th>
             <th class="info">Managed Private Cloud</th>
         </tr>
     </thead>
@@ -118,7 +118,7 @@ The following tables describe operational and feature differences between these 
             <th class="info"><strong>PCI Compliance</strong></th>
             <td>No</td>
             <td>Add-on available</td>
-            <td>Add-on available</td>
+            <td>Add-on available for Auth0-Hosted Private Cloud</td>
         </tr>
         <tr>
             <th class="info"><strong>Support Channels & Levels</strong></th>
@@ -131,7 +131,7 @@ The following tables describe operational and feature differences between these 
 
 <sup>*</sup>Access to the Managed Private Cloud can be restricted to customer's private subnets.
 
-<sup>**</sup>See the **PSaaS Appliance** section the Auth0 [Service Level Description](https://auth0.com/legal).
+<sup>**</sup>See the **PSaaS Appliance** section the Auth0 [Service Level Description](https://auth0.com/legal) (located under **Support Program and Service Levels**).
 
 <sup>***</sup>Deployments to China are currently unavailable.
 
@@ -144,7 +144,7 @@ The following tables describe operational and feature differences between these 
         <tr>
             <th class="info"><strong>Where It Runs</strong></th>
             <th class="info"><strong>Public Cloud (Multi-Tenant)</strong></th>
-            <th class="info"><strong>Private Cloud</strong></th>
+            <th class="info"><strong>Standard Private Cloud</strong></th>
             <th class="info"><strong>Managed Private Cloud</strong></th>
         </tr>
     </thead>
@@ -176,8 +176,8 @@ The following tables describe operational and feature differences between these 
         <tr>
             <th class="info"><strong>Anomaly Detection</strong></th>
             <td>Brute Force and Breached Passwords</td>
-            <td>Brute Force</td>
-            <td>Brute Force</td>
+            <td>Brute Force and Breached Passwords</td>
+            <td>Brute Force and Breached Passwords</td>
         </tr>
         <tr>
             <th class="info"><strong>Connecting IP Address Filtering Restrictions</strong></th>
@@ -199,8 +199,8 @@ The following tables describe operational and feature differences between these 
         <tr>
           <th class="info"><strong>MFA</strong></th>
           <td>Yes</td>
-          <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK</td>
-          <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK</td>
+          <td>Available using SMS, Google Authenticator or similar apps, Duo over TOTP/HOTP, Email, and Push Notification with Guardian </td>
+          <td>Available using SMS, Google Authenticator or similar apps, Duo over TOTP/HOTP, Email, and Push Notification with Guardian</td>
         </tr>
     </tbody>
 </table>

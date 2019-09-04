@@ -24,6 +24,7 @@ If you have enabled customization to inspect the page code, and then decide **no
 :::
 
 ## Login
+
 ### Choose a template to begin
 
 If you intend to perform advanced customization to the content of the login page, you'll first want to choose the template that you would like to start from. You will find these templates in a dropdown just above the code editor for the login page, if you have toggled customization on. 
@@ -41,16 +42,22 @@ These libraries can be used within the Universal Login page, but they can also b
 
 ### Modify the code of the login page
 
-If you are using the default login page and just wish to modify it a bit further than the simple customization options allow, you may want to take a look at the [Lock Configuration Guide](/libraries/lock/v11/configuration) for help configuring the Lock widget which is used in the page.
+If you are using the default login page and just wish to modify it a bit further than the Simple Customization options allow, you may want to modify the behavior of the Lock widget used on the Universal Login page. The Lock widget can be configured to behave or appear in many ways, including the following:
 
-If you intend to significantly change the page, you may wish to use the Auth0.js template instead. You can use the example in the template as a guideline for how to get the values and information you need into the login page, and how to use the SDK, and do the styling and layout in whatever manner you wish. You may perform whatever CSS customizations that you like, as long as they are included in this one file, as there is no option to host a separate CSS file on your Auth0 tenant.
+- Show the user the signup page by default instead of the login page
+- Have different colors, text, or languages shown by default on the login widget
+- Show specific connections only
+
+To learn more about how to do these, and many other customizations, take a look at the [Lock Configuration Guide](/libraries/lock/v11/configuration) for help configuring the Lock widget which is used in the page.
+
+If you intend to significantly change the page's appearance, you may wish to use the Custom Login Form template instead of the Lock template. You can use the example in the Custom Login Form template as a guideline that shows you how to get the values and information you need into the login page and how to use the Auth0.js SDK to do so, then do the styling and layout in whatever manner you wish. You may perform whatever CSS customizations that you like, as long as they are included in this one file, as there is no option to host a separate CSS file on your Auth0 tenant.
 
 ## Other facets of Universal Login
 
 Auth0 offers you the ability to customize and display several other pages containing Auth0-related functionality and to which Auth0 redirects your users during the authorization process, beyond just the login page described above. You can modify the following types of pages from your [Dashboard](${manage_url}):
 
 * [Password Reset Page](/universal-login/password-reset)
-* [Guardian Multi-factor Page](/universal-login/guardian)
+* [Multi-factor Authentication Page](/universal-login/multifactor-authentication)
 * [Error Pages](/universal-login/error-pages)
 
 While Auth0 hosts these custom pages, you can still [manage your pages using the version control system of your choice](/universal-login/version-control).

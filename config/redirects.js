@@ -328,7 +328,6 @@ module.exports = [
 
   {
     from: [
-      '/quickstart/spa/angularjs',
       '/quickstart/spa/aurelia',
       '/quickstart/spa/ember',
       '/quickstart/spa/jquery'
@@ -790,7 +789,7 @@ module.exports = [
       '/appliance/update',
       '/updating-appliance'
     ],
-    to: '/appliance'
+    to: '/private-cloud'
   },
   {
     from: '/enterprise-support',
@@ -1135,7 +1134,7 @@ module.exports = [
   },
   {
     from: '/onboarding/appliance-outage',
-    to: '/appliance/critical-issue'
+    to: '/onboarding/enterprise-support'
   },
   {
     from: '/appliance/dashboard/instrumentation',
@@ -1435,7 +1434,11 @@ module.exports = [
   },
   {
     from: '/hosted-pages/guardian',
-    to: '/universal-login/guardian'
+    to: '/universal-login/multifactor-authentication'
+  },
+  {
+    from: '/universal-login/guardian',
+    to: '/universal-login/multifactor-authentication'
   },
   {
     from: '/hosted-pages/password-reset',
@@ -1983,7 +1986,7 @@ module.exports = [
   //  },
    {
      from: '/user-profile/progressive-profiling',
-     to: '/users/guides/implement-progressive-profiling'
+     to: '/users/concepts/overview-progressive-profiling'
    },
    {
      from: '/user-profile/customdb.md',
@@ -2200,14 +2203,54 @@ module.exports = [
     },
     {
       from: '/enterprise/private-cloud/overview',
-      to: '/private-saas-deployment'
+      to: '/private-cloud'
     },
     {
-      from: '/private-cloud',
-      to: '/private-saas-deployment'
+      from: '/private-saas-deployment',
+      to: '/private-cloud'
     },
     {
       from: '/topics/identity-glossary',
       to: '/glossary'
+    },
+    {
+      from: '/topics/extensibility',
+      to: '/extend-integrate'
+    },
+    {
+      from: '/private-saas-deployment/managed-private-cloud', 
+      to: '/private-cloud/managed-private-cloud'
+    },
+    {
+      from: '/private-saas-deployment/onboarding/managed-private-cloud', 
+      to: '/private-cloud/onboarding/managed-private-cloud'
+    },
+    {
+      from: '/private-saas-deployment/onboarding/managed-private-cloud/infrastructure', 
+      to: '/private-cloud/onboarding/managed-private-cloud/infrastructure'
+    },
+    {
+      from: '/private-saas-deployment/onboarding/managed-private-cloud/ip-domain-port-list', 
+      to: '/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list'
+    },
+    {
+      from: '/private-saas-deployment/onboarding', 
+      to: '/private-cloud/onboarding'
+    },
+    {
+      from: '/private-saas-deployment/onboarding/private-cloud', 
+      to: '/private-cloud/onboarding/private-cloud'
+    },
+    {
+      from: '/private-saas-deployment/private-cloud', 
+      to: '/private-cloud/standard-private-cloud'
+    },
+    {
+      from: '/private-saas-deployment/add-ons', 
+      to: '/private-cloud/add-ons'
+    },
+    {
+      from: '/private-saas-deployment/custom-domain-migration', 
+      to: '/private-cloud/custom-domain-migration'
     }
 ];

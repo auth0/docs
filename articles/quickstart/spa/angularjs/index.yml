@@ -7,6 +7,10 @@ language:
   - Javascript
 framework:
   - AngularJS
+author:
+  name: Luis Rudge
+  email: luis.rudge@auth0.com
+  community: false
 image: /media/platforms/angular.png
 topics:
   - quickstart

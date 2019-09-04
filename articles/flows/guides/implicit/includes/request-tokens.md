@@ -6,36 +6,36 @@ Now that you have an authorization code, you can exchange it for tokens. The Acc
 
 ```har
 {
-  "method": "POST",
-  "url": "https://${account.namespace}/oauth/token",
-  "headers": [
-    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
-  ],
-  "postData": {
-    "mimeType": "application/x-www-form-urlencoded",
-    "params": [
-      {
-        "name": "grant_type",
-        "value": "authorization_code"
-      },
-      {
-        "name": "code",
-        "value": "YOUR_AUTHORIZATION_CODE"
-      },
-      {
-        "name": "client_id",
-        "value": "${account.clientId}"
-      },
-      {
-        "name": "client_secret",
-        "value": "YOUR_CLIENT_SECRET"
-      },
-      {
-        "name": "redirect_uri",
-        "value": "${account.callback}"
-      }
-    ]
-  }
+    "method": "POST",
+    "url": "https://${account.namespace}/oauth/token",
+    "headers": [
+      { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+    ],
+    "postData" : {
+      "mimeType": "application/x-www-form-urlencoded",
+      "params": [
+        {
+          "name": "grant_type",
+          "value": "authorization_code"
+        },
+        {
+          "name": "code",
+          "value": "YOUR_AUTHORIZATION_CODE"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "client_secret",
+          "value": "YOUR_CLIENT_SECRET"
+        },
+        {
+          "name": "redirect_uri",
+          "value": "${account.callback}"
+        }
+      ]
+    }
 }
 ```
 
@@ -47,7 +47,7 @@ Now that you have an authorization code, you can exchange it for tokens. The Acc
 | `code`          | The `authorization_code` retrieved in the previous step of this tutorial. |
 | `client_id`     | Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
 | `client_secret` | Your application's Client Secret. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
-| `redirect_uri`  | The valid callback URL set in your Application settings. This must exactly match the `redirect_uri` passed to the authorization URL in the previous step of this tutorial. |
+| `redirect_uri`  | The valid callback URL set in your Application settings. This must exactly match the `redirect_uri` passed to the authorization URL in the previous step of this tutorial. Note that this must be URL encoded. |
 
 
 ### Response

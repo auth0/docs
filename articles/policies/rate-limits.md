@@ -198,6 +198,10 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 The following Auth0 Authentication API endpoints return rate limit-related headers.
 
+::: note
+For all endpoints, Enterprise subscribers are limited to 100 requests per second.
+:::
+
 <table class="table">
   <thead>
     <tr>
@@ -209,12 +213,6 @@ The following Auth0 Authentication API endpoints return rate limit-related heade
     </tr>
   </thead>
   <tbody>
-  <tr>
-    <td colspan="2">All endpoints</td>
-    <td>(any request)</td>
-    <td>Enterprise</td>
-    <td>100 requests per second</td>
-  </tr>
   <tr>
     <td rowspan="3">Authentication and authorization</td>
     <td rowspan="3">/authorize</td>
@@ -260,7 +258,7 @@ The following Auth0 Authentication API endpoints return rate limit-related heade
   <tr>
     <td>Change Password</td>
     <td>/dbconnections/change_password</td>
-    <td>User ID and IP</td>
+    <td>User Email and IP</td>
     <td>All</td>
     <td>1 request per minute with bursts of up to 10 requests</td>
   </tr>
@@ -320,4 +318,4 @@ For database connections, Auth0 limits certain types of repeat login attempts de
 
 ## Limits on SMS Messages for MFA
 
-There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configuring Twilio for Guardian SMS](/multifactor-authentication/twilio-configuration).
+There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configuring Twilio for SMS](/multifactor-authentication/twilio-configuration).

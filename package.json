@@ -12,7 +12,7 @@
     "*.md": "markdownlint"
   },
   "engines": {
-    "node": "8.11.3",
+    "node": "12.9.1",
     "yarn": "^1.4.0"
   },
   "devDependencies": {

@@ -70,8 +70,8 @@ articles:
           - title: "Password Reset"
             url: "/universal-login/password-reset"
 
-          - title: "Guardian"
-            url: "/universal-login/guardian"
+          - title: "Multi-factor Authentication"
+            url: "/universal-login/multifactor-authentication"
 
           - title: "Error Pages"
             url: "/universal-login/error-pages"
@@ -90,10 +90,10 @@ articles:
         children:
 
           - title: Lock for Web
-            url: /libraries/lock
+            url: /libraries/lock/v11
 
           - title: Auth0.js
-            url: /libraries/auth0js
+            url: /libraries/auth0js/v9
           
           - title: Cross-Origin Authentication
             url: /cross-origin-authentication
@@ -215,11 +215,23 @@ articles:
         children:
 
           - title: Auth0 User Store
-            url: "/connections/database#using-the-auth0-user-store"
-            hidden: true
+            url: /connections/database#using-the-auth0-user-store
 
-          - title: Your Database
+          - title: Your User Store
             url: /connections/database/custom-db
+            children: 
+
+              - title: Overview
+                url: /connections/database/custom-db/overview-custom-db-connections
+                hidden: true
+
+              - title: Create Connections
+                url: /connections/database/custom-db/create-db-connections
+                hidden: true 
+
+              - title: Scripts
+                url: /connections/database/custom-db/templates
+                hidden: true
 
           - title: Password Policies
             url: /connections/database/password-options
@@ -269,6 +281,9 @@ articles:
 
           - title: Client Credentials
             url: /flows/guides/client-credentials/call-api-client-credentials
+
+          - title: Device Authorization
+            url: /flows/guides/device-auth/call-api-device-auth
 
           - title: Implicit
             url: /flows/guides/implicit/call-api-implicit
@@ -493,6 +508,9 @@ articles:
 
       - title: Metadata
         url: /users/concepts/overview-user-metadata
+
+      - title: Progressive Profiling
+        url: /users/concepts/overview-progressive-profiling
       
       - title: Using the Dashboard
         url: /users/guides/manage-users-using-the-dashboard
@@ -1158,8 +1176,8 @@ articles:
   #     - title: "Verify Access Tokens"
   #       url: "/tokens/guides/access-token/validate-access-token"
 
-  - title: "Private SaaS Deployment"
-    url: "/private-saas-deployment"
+  - title: "Private Cloud Deployments"
+    url: "/private-cloud"
     children:
       - title: Enterprise Support
         url: /onboarding/enterprise-support
@@ -1170,26 +1188,26 @@ articles:
         forceFullReload: true
 
       - title: Private Cloud
-        url: /private-saas-deployment/private-cloud
+        url: /private-cloud/standard-private-cloud
 
       - title: Managed Private Cloud
-        url: /private-saas-deployment/managed-private-cloud
+        url: /private-cloud/managed-private-cloud
 
-      - title: Add-Ons for PSaaS Deployments
-        url: /private-saas-deployment/add-ons
+      - title: Add-Ons for Private Cloud Deployments
+        url: /private-cloud/add-ons
 
       - title: Custom Domain Migration
-        url: /private-saas-deployment/custom-domain-migration
+        url: /private-cloud/custom-domain-migration
 
-      - title: PSaaS Onboarding
-        url: /private-saas-deployment/onboarding
+      - title: Onboarding
+        url: /private-cloud/onboarding
         children:
 
           - title: Private Cloud Onboarding
-            url: /private-saas-deployment/onboarding/private-cloud
+            url: /private-cloud/onboarding/private-cloud
 
           - title: Managed Private Cloud Onboarding
-            url: /private-saas-deployment/onboarding/managed-private-cloud
+            url: /private-cloud/onboarding/managed-private-cloud
 
   # - title: "Protocols"
   #   url: "/protocols"
@@ -1336,6 +1354,9 @@ articles:
 
       - title: "Connection Settings"
         url: "/best-practices/connection-settings"
+
+      - title: "Custom Databases and Scripts"
+        url: "/best-practices/custom-db-connections-scripts"
 
       - title: "Rules"
         url: "/best-practices/rules"
@@ -1486,8 +1507,12 @@ libraries:
   - title: "Overview"
     url: "/libraries"
 
-  - title: "Auth0 Single Page Application SDK"
+  - title: "Auth0 Single Page App SDK"
     url: "/libraries/auth0-spa-js"
+    children:
+
+      - title: "Migrate from auth0.js"
+        url: /libraries/auth0-spa-js/migrate-from-auth0js
 
   - title: "Lock for Web"
     url: "/libraries/lock/v11"

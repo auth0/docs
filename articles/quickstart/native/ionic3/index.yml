@@ -9,6 +9,10 @@ framework:
   - Angular5
   - Cordova
 hybrid: true
+author:
+  name: David Patrick
+  email: david.patrick@auth0.com
+  community: false
 image: /media/platforms/ionic.jpeg
 topics:
   - quickstart

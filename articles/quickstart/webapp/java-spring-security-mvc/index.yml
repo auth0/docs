@@ -1,9 +1,9 @@
 title: Java Spring Security
 image: /media/platforms/spring.png
-logo_name: java
+logo_name: spring
 author:
-  name: Luciano Balmaceda
-  email: luciano.balmaceda@auth0.com
+  name: Jim Anderson
+  email: jim.anderson@auth0.com
   community: false
 topics:
   - quickstart

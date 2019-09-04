@@ -29,3 +29,7 @@ While Auth0 provides for default information when it comes to error situations, 
 ::: panel Best Practice
 To provide users with helpful resources if they experience problems you should also configure a friendly name and a suitable logo, as well as the support email and support URL for your organization. See [Dashboard Tenant Settings](/dashboard/dashboard-tenant-settings#settings) for further details.
 :::
+
+::: panel Get Started with Auth0 Videos
+Watch these three short videos [Brand: How It Works](/videos/get-started/07_01-brand-how-it-works), [Brand: Signup and Login Pages](/videos/get-started/07_02-brand-signup-login-pages), and [Brand: Emails and Error Pages](/videos/get-started/08-brand-emails-error-pages) to learn how branding works with Auth0, how to use Auth0’s Universal Login feature to customize your sign up and login pages, and how to use Auth0 email templates and make changes to the reply email address, subject, redirect URL, and URL lifetime.
+:::

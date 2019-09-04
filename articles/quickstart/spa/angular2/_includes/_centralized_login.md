@@ -2,15 +2,15 @@
 
 <%= include('../../_includes/_login_preamble', { library: 'Angular 7+' }) %>
 
-This tutorial will guide you in modifying an Angular application to support login using Auth0, that demonstrates how users can log in, log out, and how to view their profile information. It will also show you how to protect routes from unauthenticated users.
+This tutorial will guide you in modifying an Angular application demonstrating how users can log in and log out with Auth0 and view profile information. It will also show you how to protect routes from unauthenticated users.
 
 ::: note
 This tutorial assumes that you're able to use the [Angular CLI](https://cli.angular.io/) to generate new components and services on your project. If not, please place the files where appropriate and ensure that any references to them regarding import paths are correct for your scenario.
 :::
 
-## Create an Angular application
+## Create an Angular Application
 
-If you do not already have an application in which to implement the SDK, a new one can be generated using the [Angular CLI](https://cli.angular.io/).
+If you do not already have your own application, a new one can be generated using the [Angular CLI](https://cli.angular.io/).
 
 Install the CLI:
 
@@ -18,15 +18,17 @@ Install the CLI:
 npm install -g @angular/cli
 ```
 
-Then use it to generate a new Angular application. When asked _"Would you like to use Angular routing?"_, select **yes**:
+Then generate a new Angular application by running the following command from your filesystem wherever you'd like your application to be created:
 
 ```bash
 ng new auth0-angular-demo
 ```
 
+When asked _"Would you like to use Angular routing?"_, select **y** (yes).
+
 Once the project has been created, open the `auth0-angular-demo` folder in your favorite code editor.
 
-Finally, by default the application runs on port `4200`. This should run on port `3000` so that it matches the Auth0 URLs configured above. This can be done inside the `package.json` file by modifying NPM's `start` command as follows:
+By default, the Angular CLI serves your app on port `4200`. This should run on port `3000` so that it matches the Auth0 URLs configured above. Open the `package.json` file and modify the `start` script to:
 
 ```json
 "start": "ng serve --port 3000"
@@ -38,17 +40,17 @@ If you are following this tutorial using your own Angular application that runs 
 
 ## Install the SDK
 
-While in the project folder, install the SDK using `npm` in the terminal:
+While in the project folder, install the SDK using `npm` in the terminal (or use one of the other methods from the section above):
 
 ```bash
-npm install @auth0/auth0-spa-js
+npm install @auth0/auth0-spa-js --save
 ```
 
 ## Add an Authentication Service
 
-To make it easier to use the Auth0 SDK within an Angular application, create an Angular service that can be injected into other components and services. This service can be used to set up and retrieve an instance of `Auth0Client`.
+To manage authentication with Auth0 throughout the application, create an authentication service. This way, authentication logic is consolidated in one place and can be injected easily.
 
-To start, generate a new service called `Auth`:
+Use the CLI to generate a new service called `AuthService`:
 
 ```bash
 ng generate service auth
@@ -64,56 +66,181 @@ Make sure that the domain and client ID values are correct for the application t
 import { Injectable } from '@angular/core';
 import createAuth0Client from '@auth0/auth0-spa-js';
 import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
-import { BehaviorSubject } from 'rxjs';
+import * as config from '../../../auth_config.json';
+import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from 'rxjs';
+import { tap, catchError, concatMap, shareReplay } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  isAuthenticated = new BehaviorSubject(false);
-  profile = new BehaviorSubject<any>(null);
+  // Create an observable of Auth0 instance of client
+  auth0Client$ = (from(
+    createAuth0Client({
+      domain: "${account.namespace}",
+      client_id: "${account.clientId}",
+      redirect_uri: `<%= "${window.location.origin}" %>/callback`
+    })
+  ) as Observable<Auth0Client>).pipe(
+    shareReplay(1), // Every subscription receives the same shared value
+    catchError(err => throwError(err))
+  );
+  // Define observables for SDK methods that return promises by default
+  // For each Auth0 SDK method, first ensure the client instance is ready
+  // concatMap: Using the client instance, call SDK method; SDK returns a promise
+  // from: Convert that resulting promise into an observable
+  isAuthenticated$ = this.auth0Client$.pipe(
+    concatMap((client: Auth0Client) => from(client.isAuthenticated())),
+    tap(res => this.loggedIn = res)
+  );
+  handleRedirectCallback$ = this.auth0Client$.pipe(
+    concatMap((client: Auth0Client) => from(client.handleRedirectCallback()))
+  );
+  // Create subject and public observable of user profile data
+  private userProfileSubject$ = new BehaviorSubject<any>(null);
+  userProfile$ = this.userProfileSubject$.asObservable();
+  // Create a local property for login status
+  loggedIn: boolean = null;
 
-  private auth0Client: Auth0Client;
+  constructor(private router: Router) { }
 
-  // Auth0 application configuration
-  config = {
-    domain: "${account.namespace}",
-    client_id: "${account.clientId}",
-    redirect_uri: `<%= "${window.location.origin}" %>/callback`
-  };
-
-  /**
-   * Gets the Auth0Client instance.
-   */
-  async getAuth0Client(): Promise<Auth0Client> {
-    if (!this.auth0Client) {
-      this.auth0Client = await createAuth0Client(this.config);
-
-      // Provide the current value of isAuthenticated
-      this.isAuthenticated.next(await this.auth0Client.isAuthenticated());
-
-      // Whenever isAuthenticated changes, provide the current value of `getUser`
-      this.isAuthenticated.subscribe(async isAuthenticated => {
-        if (isAuthenticated) {
-          this.profile.next(await this.auth0Client.getUser());
-
-          return;
-        }
-
-        this.profile.next(null);
-      });
-    }
-
-    return this.auth0Client;
+  // When calling, options can be passed if desired
+  // https://auth0.github.io/auth0-spa-js/classes/auth0client.html#getuser
+  getUser$(options?): Observable<any> {
+    return this.auth0Client$.pipe(
+      concatMap((client: Auth0Client) => from(client.getUser(options))),
+      tap(user => this.userProfileSubject$.next(user))
+    );
   }
+
+  localAuthSetup() {
+    // This should only be called on app initialization
+    // Set up local authentication streams
+    const checkAuth$ = this.isAuthenticated$.pipe(
+      concatMap((loggedIn: boolean) => {
+        if (loggedIn) {
+          // If authenticated, get user and set in app
+          // NOTE: you could pass options here if needed
+          return this.getUser$();
+        }
+        // If not authenticated, return stream that emits 'false'
+        return of(loggedIn);
+      })
+    );
+    checkAuth$.subscribe((response: { [key: string]: any } | boolean) => {
+      // If authenticated, response will be user object
+      // If not authenticated, response will be 'false'
+      this.loggedIn = !!response;
+    });
+  }
+
+  login(redirectPath: string = '/') {
+    // A desired redirect path can be passed to login method
+    // (e.g., from a route guard)
+    // Ensure Auth0 client instance exists
+    this.auth0Client$.subscribe((client: Auth0Client) => {
+      // Call method to log in
+      client.loginWithRedirect({
+        redirect_uri: `<%= "${window.location.origin}" %>/callback`,
+        appState: { target: redirectPath }
+      });
+    });
+  }
+
+  handleAuthCallback() {
+    // Only the callback component should call this method
+    // Call when app reloads after user logs in with Auth0
+    let targetRoute: string; // Path to redirect to after login processsed
+    const authComplete$ = this.handleRedirectCallback$.pipe(
+      // Have client, now call method to handle auth callback redirect
+      tap(cbRes => {
+        // Get and set target redirect route from callback results
+        targetRoute = cbRes.appState && cbRes.appState.target ? cbRes.appState.target : '/';
+      }),
+      concatMap(() => {
+        // Redirect callback complete; get user and login status
+        return combineLatest(
+          this.getUser$(),
+          this.isAuthenticated$
+        );
+      })
+    );
+    // Subscribe to authentication completion observable
+    // Response will be an array of user and login status
+    authComplete$.subscribe(([user, loggedIn]) => {
+      // Redirect to target route after callback processing
+      this.router.navigate([targetRoute]);
+    });
+  }
+
+  logout() {
+    // Ensure Auth0 client instance exists
+    this.auth0Client$.subscribe((client: Auth0Client) => {
+      // Call method to log out
+      client.logout({
+        client_id: "${account.clientId}",
+        returnTo: `<%= "${window.location.origin}" %>`
+      });
+    });
+  }
+
 }
 ```
 
-This service provides a single method `getAuth0Client`. When called, it will in turn call `createAuth0Client` from the Auth0 JS SDK and save it in a class-level variable. Subsequent calls to `getAuth0Client` will return the same instance.
+This service provides the properties and methods necessary to manage authentication across the application. An `auth0Client$` observable is defined that returns the same instance whenever a new subscription is created. The [Auth0 SDK for Single Page Applications](https://auth0.com/docs/libraries/auth0-spa-js) returns promises by default, so observables are then created for each SDK method so we can use [reactive programming (RxJS)](https://rxjs.dev/) with authentication in our Angular app.
 
 Note that the `redirect_uri` property is configured to indicate where Auth0 should redirect to once authentication is complete. For login to work, this URL must be specified as an **Allowed Callback URL** in your [application settings](${manage_url}/#/applications/${account.clientId}/settings).
 
-The service uses [RxJS](https://www.learnrxjs.io/) to emit changes in values to the `isAuthenticated` state and the user's profile. These will be used in a moment to listen for changes and update the UI accordingly.
+The service provides these methods:
+
+* `getUser$(options)` - Requests user data from the SDK and accepts an options parameter, then makes the user profile data available in a local RxJS stream
+* `localAuthSetup()` - On app initialization, manage authentication data in Angular; the session with Auth0 is checked to see if the user has logged in previously, and if so, they are re-authenticated on refresh without being prompted to log in again
+* `login()` - Log in with Auth0
+* `handleAuthCallback()` - Process the response from the authorization server when returning to the app after login
+* `logout()` - Log out of Auth0
+
+:::note
+**Why is there so much RxJS in the authentication service?** `auth0-spa-js` is a promise-based library built using async/await, providing an agnostic approach for the highest volume of JavaScript apps. The Angular framework, on the other hand, [uses reactive programming and observable streams](https://angular.io/guide/rx-library). In order for the async/await library to work seamlessly with Angular’s stream-based approach, we are converting the async/await functionality to observables for you in the service.
+
+Auth0 is currently building an Angular module that will abstract this reactive functionality into an importable wrapper. This will get you up and running even faster while using the most idiomatic approach for the Angular framework, and will greatly simplify the authentication service.
+:::
+
+## Restore Login State When App Reloads
+
+In a Single Page Application, when the user reloads the page anything stored in app memory is cleared. We don't want the application to force the user to log in again if they did not log out, and still have an active session with the authorization server.
+
+We also [should not store sensitive session data in browser storage due to lack of security](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#local-storage).
+
+In order to restore local authentication status after a refresh, we'll call the `localAuthSetup()` method when the app initializes. 
+
+Open the `src/app/app.component.ts` file and add the following:
+
+```ts
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth/auth.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+
+  constructor(private auth: AuthService) {}
+
+  ngOnInit() {
+    this.auth.localAuthSetup();
+  }
+
+}
+```
+
+We've imported the [`OnInit` lifecycle hook](https://angular.io/api/core/OnInit), implemented the interface in our `AppComponent` class, provided the `AuthService` in the constructor, and called `localAuthSetup()` when the app component initializes.
+
+The `localAuthSetup()` method uses the `auth0-spa-js` SDK to check if the user is still logged in with the authorization server. If they are, their authentication state is restored in the front end when they return to the app after refreshing or leaving, without having to log in again.
+
+<%= include('../../_includes/_silent-auth-social-idp') %>
 
 ## Create a Navigation Bar Component
 
@@ -127,8 +254,7 @@ Open the `src/app/navbar/navbar.component.ts` file and replace its contents with
 
 ```js
 import { Component, OnInit } from '@angular/core';
-import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
-import { AuthService } from 'src/app/auth.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -136,81 +262,40 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  isAuthenticated = false;
-  profile: any;
 
-  private auth0Client: Auth0Client;
+  constructor(public auth: AuthService) { }
 
-  /**
-   * Constructor - inject the AuthService class
-   */
-  constructor(private authService: AuthService) {}
-
-  /**
-   * Handle component initialization
-   */
-  async ngOnInit() {
-    // Get an instance of the Auth0 client
-    this.auth0Client = await this.authService.getAuth0Client();
-
-    // Watch for changes to the isAuthenticated state
-    this.authService.isAuthenticated.subscribe(value => {
-      this.isAuthenticated = value;
-    });
-
-    // Watch for changes to the profile data
-    this.authService.profile.subscribe(profile => {
-      this.profile = profile;
-    });
+  ngOnInit() {
   }
 
-  /**
-   * Logs in the user by redirecting to Auth0 for authentication
-   */
-  async login() {
-    await this.auth0Client.loginWithRedirect({});
-  }
-
-  /**
-   * Logs the user out of the applicaion, as well as on Auth0
-   */
-  logout() {
-    this.auth0Client.logout({
-      client_id: this.authService.config.client_id,
-      returnTo: window.location.origin
-    });
-  }
 }
 ```
 
-Notice that the `AuthService` class you created in the previous section is being injected into the component through the constructor. This allows you to get an instance of the client, as well as react to changes in authentication state.
-
-The main setup work is being carried out inside `ngOnInit`, where the RxJS `BehaviorSubject` instances are being used. Whenever the values of these change, the Navbar component will react to those changes and provide an updated UI. Functions are provided to log in and log out the user using `loginWithRedirect` and `logout` directly on the Auth0 client.
+The `AuthService` class you created in the previous section is being provided in the component in the constructor. It is `public` to enable use of its methods in the component _template_.
 
 Next, configure the UI for the `navbar` component by opening the `src/app/navbar/navbar.component.html` file and replacing its contents with the following:
 
 ```html
 <header>
-  <button (click)="login()" *ngIf="!isAuthenticated">Log In</button>
-  <button (click)="logout()" *ngIf="isAuthenticated">Log Out</button>
+  <button (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
+  <button (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
 </header>
 ```
 
-Angular bindings are used here to show each button at the right time; the Login button when the user is unauthenticated, and the Log Out button when the user has been authenticated. Their `click` events are wired up to call the `login` and `logout` functions on the component respectively.
+Methods and properties from the authentication service are used to log in and log out, as well as show the appropriate button based on the user's current authentication state.
 
-Finally, to show this component on the screen, open the `src/app/app.component.html` file and replace the default UI with the following:
+To display this component, open the `src/app/app.component.html` file and replace the default UI with the following:
 
 ```html
 <app-navbar></app-navbar>
-
 <router-outlet></router-outlet>
 ```
 
-> **Checkpoint**: Run the application now using `npm start`. The login button should be visible, and you should be able to click it to be redirected to Auth0 for login. If you log in and are redirected back to the app, you'll see an error in the console about a missing route. The callback route used when redirected back to the app is setup in the next section.
+> **Checkpoint**: Run the application now using `npm start`. The login button should be visible, and you should be able to click it to be redirected to Auth0 to authenticate. If you log in and are redirected back to the app, you'll see an error in the console about a missing route. We'll set up the callback redirection route next.
 
 ## Handle Login Redirects
 
-To log the user into your application, the redirect from Auth0 should be handled so that a proper login state can be achieved. To do this, the `handleLoginRedirect` SDK method must be called when Auth0 redirects back to your application. This can be done by using a separate component to handle the redirect callback.
+To authenticate the user, the redirect from Auth0 should be handled so that a proper login state can be achieved. To do this, the `handleAuthCallback()` auth service method must be called when Auth0 redirects back to your application. This can be done in a component dedicated to this purpose.
 
 Use the Angular CLI to create a new component called `Callback`:
 
@@ -218,12 +303,11 @@ Use the Angular CLI to create a new component called `Callback`:
 ng generate component callback
 ```
 
-Open the newly-generated `src/app/callback/callback.component.ts` file and replace its contents with the following:
+Open the `src/app/callback/callback.component.ts` file and replace its contents with the following:
 
 ```js
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/auth.service';
-import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-callback',
@@ -231,35 +315,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./callback.component.css']
 })
 export class CallbackComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) {}
 
-  async ngOnInit() {
-    const client = await this.authService.getAuth0Client();
+  constructor(private auth: AuthService) { }
 
-    // Handle the redirect from Auth0
-    const result = await client.handleRedirectCallback();
-    
-    // Get the URL the user was originally trying to reach
-    const targetRoute =
-      result.appState && result.appState.target ? result.appState.target : '';
-
-    // Update observables
-    this.authService.isAuthenticated.next(await client.isAuthenticated());
-    this.authService.profile.next(await client.getUser())
-
-    // Redirect away
-    this.router.navigate([targetRoute]);
+  ngOnInit() {
+    this.auth.handleAuthCallback();
   }
+
 }
 ```
 
-Once again the `AuthService` class is injected so that the component can gain access to the Auth0 SDK client. The key line is `await client.handleRedirectCallback`, which processes the callback data from Auth0 and retrieves the tokens. It also sets some internal state that can be used to determine whether the user is authenticated or not.
+The `AuthService` class is injected so that the `handleAuthCallback()` method can be called on initialization of the component.
 
-Notice that the component updates the observable properties inside the `AuthService` instance. This means that other components that are watching these observables can update their UI at the right time: when the user logs in.
+In the authentication service, `handleAuthCallback()` does several things:
 
-This component also recovers the URL the user was trying to reach before redirecting to Auth0 for authentication. They are then redirected to that URL to continue their journey through the site.
+* Stores the application route to redirect back to after login processing is complete
+* Calls the JS SDK's `handleRedirectCallback` method
+* Gets and sets the user's profile data
+* Updates application login state
+* After the callback has been processed, redirects the user to their intended route
 
-In order for this component to work, the Angular router must be adjusted so that this component is used when the `/callback` route is hit. Open `src/app/app-routing.module.ts` and replace its content with the following:
+Next, add the `/callback` route to the app's routing module `src/app/app-routing.module.ts`:
 
 ```js
 import { NgModule } from '@angular/core';
@@ -277,14 +353,12 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
 ```
 
-The primary change here is to add in the `callback` route which points to the `CallbackComponent`.
+> **Checkpoint**: You should now be able to log in and have the application handle the callback appropriately, sending you back to the default route. The logout button should now be visible. Click the logout button to verify that it works.
 
-> **Checkpoint**: Run the app again using `npm start` in the terminal. This time you should be able to log in and have the application handle the callback appropriately, sending you back to the default route. The "log out" button should now be visible. Check that the "log out" button works and that the user is unauthenticated when clicked.
-
-## Showing Profile Information
+## Show Profile Information
 
 Create a new component called "Profile" using the Angular CLI:
 
@@ -304,78 +378,59 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  profile: any;
 
-  constructor(private authService: AuthService) {}
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
-    this.authService.profile.subscribe(profile => (this.profile = profile));
   }
+
 }
 ```
 
-In order to retrieve the profile data, the component subscribes to changes on the `profile` property of `AuthService` and sets a class-level property to its value. This property can be used to drive the UI and show the profile information on the screen.
+All we need to do here is publicly inject the `AuthService` so that it can be used in the template.
 
-To do this, open `src/app/profile/profile.component.html` and replace its contents with the following:
+Next, open `src/app/profile/profile.component.html` and replace its contents with the following:
 
 ```html
-<pre *ngIf="profile">
-  <code>{{profile | json}}</code>
+<pre *ngIf="auth.userProfile$ | async as profile">
+<code>{{ profile | json }}</code>
 </pre>
 ```
 
-This simple UI displays a JSON representation of the profile object, only if the `profile` property on the component has a value. This means that the UI will be present if the user is logged in, and invisible if they are not.
+The `AuthService`'s `userProfile$` observable emits the user profile object when it becomes available in the application. By using the [`async` pipe](https://angular.io/api/common/AsyncPipe), we can display the profile object as JSON once it's been emitted. 
 
-To view the profile page, the router must be updated to show the profile component at the right time. Open `src/app/app-routing.module.ts` and ensure that the `routes` map includes a route to the your profile component:
+Next we need a route for the profile page. Open `src/app/app-routing.module.ts`, import the `ProfileComponent`, and add it to the `routes` array to create a `/profile` route:
 
 ```js
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CallbackComponent } from './callback/callback.component';
-
-// NEW - import the Profile component
+...
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
-  {
-    path: 'callback',
-    component: CallbackComponent
-  },
-
-  // NEW - add a route to the profile component
+  ...,
   {
     path: 'profile',
     component: ProfileComponent
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}
+...
 ```
 
-Finally, update the navigation bar to include some router links so that we can navigate between the different pages. Open `src/app/navbar/navbar.component.html` and update it to look like the following:
+Finally, the navigation bar should be updated to include navigation links. Open `src/app/navbar/navbar.component.html` and add route links below the login/logout buttons:
 
 ```html
 <header>
-  <button (click)="login()" *ngIf="!isAuthenticated">Log in</button>
-  <button (click)="logout()" *ngIf="isAuthenticated">Log out</button>
+  ...
 
-  <!-- NEW - add a couple of router links to the home page, and to profile -->
-  <a [routerLink]="['']">Home</a>&nbsp;
-  <a [routerLink]="['profile']" *ngIf="isAuthenticated">Profile</a>
+  <a routerLink="/">Home</a>&nbsp;
+  <a routerLink="profile" *ngIf="auth.loggedIn">Profile</a>
 </header>
 ```
 
-Run the application and log in. Click on the **Profile** link to browse to the `/profile` URL. Your profile information should now be present on the screen in JSON format. Try logging out of the application again to make sure that the profile information disappears as you would expect.
+> **Checkpoint**: If you log in now, you should be able to click on the **Profile** link to access the `/profile` page component and view your user data. Log out of the application to make sure that the profile link is no longer displayed when unauthenticated.
 
-## Gated Content
+## Add an Authentication Guard
 
-Right now, your users could simply enter the `/profile` path into their URL bar and reach the profile page, even if they're unauthenticated. You're going to use a [Guard](https://angular.io/guide/router#milestone-5-route-guards) to help prevent that from happening.
-
-### Add an authentication guard
+Right now, users could enter the `/profile` path in the browser URL to view profile page, even if they're unauthenticated. They won't see any user data (since they're not logged in), but they can still access the page component itself. Let's fix this using a [route guard](https://angular.io/guide/router#milestone-5-route-guards).
 
 The Angular CLI can be used to generate a guard:
 
@@ -383,73 +438,66 @@ The Angular CLI can be used to generate a guard:
 ng generate guard auth
 ```
 
-When asked the question "Which interfaces would you like to implement?", select "CanActivate".
+You will receive this prompt: "Which interfaces would you like to implement?" Select **CanActivate**.
 
 Open the `src/app/auth.guard.ts` file and replace its contents with the following:
 
-```js
+```ts
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanActivate } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
 
-  async canActivate(
+  constructor(private auth: AuthService) {}
+
+  canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Promise<boolean | UrlTree> {
-    const client = await this.authService.getAuth0Client();
-    const isAuthenticated = await client.isAuthenticated();
-
-    if (isAuthenticated) {
-      return true;
-    }
-
-    client.loginWithRedirect({
-      appState: { target: state.url }
-    });
-
-    return false;
+  ): Observable<boolean> | Promise<boolean|UrlTree> | boolean {
+    return this.auth.isAuthenticated$.pipe(
+      tap(loggedIn => {
+        if (!loggedIn) {
+          this.auth.login(state.url);
+        }
+      })
+    );
   }
+
 }
+
 ```
 
-The key part here is the implementation of the `canActivate` method. First, the Auth0 client is retrieved. Then, the `isAuthenticated` value is interrogated. If the user is already authenticated, then `true` is returned to indicate that the current route can continue.
+The `canActivate()` method can return an `observable<boolean>`, `promise<boolean>`, or `boolean`. This tells the application whether or not navigation to the guarded route should be allowed to proceed depending on whether the returned value is `true` or `false`.
 
-If the user is not authenticated, then the `loginWithRedirect` method is invoked, causing the user to be logged in. Also notice that the `appState` property in the options for `loginWithRedirect` is set to an object containing a `target` property. This value is set to the route that the user was trying to access when this guard was activated. We can use this to helpfully redirect the user to where they were trying to reach once they have successfully authenticated with Auth0.
+The `AuthService` provides an observable that does exactly this, returning a boolean indicating if the user is authenticated: `isAuthenticated$`.
 
-In order for this guard to work, it must be applied to the router so that the `/profile` route cannot be accessed unless the user is logged in. Open the `src/app/app-routing.module.ts` file and update it so that the guard is used. It should look something like the following:
+We can return `isAuthenticated$` and implement a side effect with the `tap` operator to check if the value is `false`. If so, the user is not logged in, so we can call the `login()` method to prompt the user to authenticate. Passing the `state.url` as a parameter tells our authentication service's `login()` function that we want the application to redirect back to this guarded URL after the user is logged in.
+
+Now we need to apply the `AuthGuard` to the `/profile` route. Open the `src/app/app-routing.module.ts` file and import the guard, then add it to the profile:
 
 ```js
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CallbackComponent } from './callback/callback.component'
-import { ProfileComponent } from './profile/profile.component';
-
-// NEW - import the guard
+...
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  {
-    path: 'callback',
-    component: CallbackComponent
-  },
+  ...
   {
     path: 'profile',
     component: ProfileComponent,
-    canActivate: [AuthGuard]    // NEW - apply the guard to the `profile` route
+    canActivate: [AuthGuard]
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}
+...
 ```
 
-Check that the application works as intended, by logging out of the application, then trying to access `http://localhost:3000/profile` route directly in the URL bar. You should be automatically redirected to the Auth0 Login page before being able to access your profile information in the app. Note that the application should automatically route you to the `/profile` page after authentication.
+::: note
+Guards are arrays because multiple guards can be added to the same route. They will run in the order declared in the array.
+:::
+
+> **Checkpoint:** Log out of your app and then navigate to `http://localhost:3000/profile`. You should be automatically redirected to the Auth0 login page. Once you've authenticated successfully, you should be redirected to the `/profile` page.

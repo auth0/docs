@@ -10,7 +10,7 @@ useCase:
 ---
 # Set Up an API
 
-1. Click on the [APIs menu option](${manage_url}/#/apis) on the left.
+1. In the Dashboard, click on the [APIs menu option](${manage_url}/#/apis) on the left.
 
     ::: note
     The API tab will already have one API created automatically, the **Auth0 Management API**. For more details on the features of the Management API and its available endpoints, refer to: [Management API](/api/management/v2).

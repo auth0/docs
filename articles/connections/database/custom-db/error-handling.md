@@ -3,13 +3,15 @@ description: Learn how to handle errors when using your database as an identity 
 topics:
     - connections
     - custom-database
-contentType: how-to
+    - troubleshooting
+contentType: reference
 useCase:
     - customize-connections
+    - troubleshooting
 ---
 # Custom Database Error Handling and Troubleshooting
 
-In this article, we will show you how you can return errors resulting from your custom database connection for troubleshooting purposes. We will also cover some basic troubleshooting steps for your scripts.
+You can use return errors resulting from your custom database connection for troubleshooting purposes. We will also cover some basic troubleshooting steps for your scripts.
 
 ## Types of errors
 
@@ -41,9 +43,7 @@ If you use <dfn data-key="lock">Lock</dfn>, you can [customize the error message
 
 ## Troubleshooting Errors
 
-Test the script using the **TRY** button. If your settings are correct you should see the resulting profile:
-
-![Try the login script](/media/articles/connections/database/mysql/db-connection-try-ok.png)
+Test the script using the **TRY** button. 
 
 If you do not get the expected result, or you receive an error, use `console.log`statements in your script and try the connection again. The output of `console.log` prints in the try the script window.
 

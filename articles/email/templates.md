@@ -33,7 +33,7 @@ You can access the following common variables when using Liquid Syntax in the **
 * The `application` object, with access to the standard client properties like
   * `application.name`
   * `application.clientID`
-* `connection.name` (except in the **Guardian Enrollment Email**)
+* `connection.name` (except in the **Multi-factor Enrollment Email**)
 * The `user` object, with access to the following properties:
   * `user.email`
   * `user.email_verified`
@@ -57,7 +57,7 @@ Hello {{ user.name }}. Welcome to {{ application.name }} from {{ friendly_name }
 Note that the attributes available for the `user` object will depend on the type of connection being used.
 
 ::: note
-Individual email templates define addtional variables that are appropriate for the specific template. Be sure to check out the [individual templates descriptions](#individual-templates-descriptions) below.
+Individual email templates define additional variables that are appropriate for the specific template. Be sure to check out the [individual templates descriptions](#individual-templates-descriptions) below.
 :::
 
 For those emails where the user needs to follow a link to take action, you can also configure the **URL Lifetime** and **Redirect To** URL destination after the action is completed. Liquid Syntax is also supported in the **Redirect To** URL field, but only two variables are supported:
@@ -220,7 +220,8 @@ You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the 
 * `success` with value `true` or `false` indicating whether the email verification was successful
 * `message` with an additional description of the outcome. Some possible values are:
   * `Your email was verified. You can continue using the application.` (with `success=true`)
-  * `This URL can be used only once` (with `success=false`) * `Access expired.` (with `success=false`)
+  * `This URL can be used only once` (with `success=false`)
+  * `Access expired.` (with `success=false`)
   * `User account does not exist or verification code is invalid.` (with `success=false`)
   * `This account is already verified.` (with `success=false`)
 
@@ -248,7 +249,8 @@ You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the 
 * `success` with value `true` or `false` indicating whether the password change was successful
 * `message` with an additional description of the outcome. Some possible values are:
   * `You can now login to the application with the new password.` (with `success=true`)
-  * `This URL can be used only once` (with `success=false`) * `Access expired.` (with `success=false`)
+  * `This URL can be used only once` (with `success=false`)
+  * `Access expired.` (with `success=false`)
   * `The operation cannot be completed. Please try again.` (with `success=false`)
 
 The target URL handler should be prepared to gracefully handle other possible messages as well. 
@@ -279,7 +281,8 @@ You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the 
 * `success` with value `true` or `false` indicating whether the account unblocking was successful
 * `message` with an additional description of the outcome. Some possible values are:
   * `Your account has been unblocked.` (with `success=true`)
-  * `This URL can be used only once` (with `success=false`) * `Access expired.` (with `success=false`)
+  * `This URL can be used only once` (with `success=false`)
+  * `Access expired.` (with `success=false`)
 
 The target URL handler should be prepared to gracefully handle other possible messages as well. 
 
@@ -289,9 +292,9 @@ This email type is sent whenever Auth0 detects that the user is trying to access
 
 Learn more about [Breached Password Detection](/anomaly-detection#breached-password-detection)
 
-### Guardian Enrollment Email
+### Multi-factor Authentication Enrollment Email
 
-This email will be generated when an Guardian MFA enrollment invitation is sent. The message will contain a link that, when visited, will show the MFA enrollment experience.
+This email will be generated when an multi-factor authentication enrollment invitation is sent. The message will contain a link that, when visited, will show the MFA enrollment experience.
 
 Besides the [common variables](#common-variables) available for all email templates, the `link` variable is available in this email type, containing the URL that you will use to construct the link for this action, as in this example:
 
@@ -335,7 +338,7 @@ The default template uses the above variables to do something like this:
   <!-- Signup email content -->
   {% if send == 'link' or send == 'link_ios' or send == 'link_android' %}
     <p>Click and confirm that you want to sign in to {{ application.name }}. This link will expire in five minutes.</p>
-    <a href="{{ link }}">Sign in to {{ application.name }</a>
+    <a href="{{ link }}">Sign in to {{ application.name }}</a>
     {% elsif send == 'code' %}
     <p>Your verification code is: <b>{{ code }}</b></p>
   {% endif %}

@@ -43,3 +43,7 @@ Alternatively, you can use the Auth0 Dashboard to [manage aspects of a user’s 
 <% if (platform === "b2b") { %>
 If you need to provide a way for your customers to have an administrator manage their own users when they are storing those credentials in your system, you can either build something yourself or use an Auth0 Extension. See [Admin Portal](#admin-portal) for more information. 
 <%  } %>
+
+::: panel Get Started with Auth0 Video
+Watch this video [User Profiles](/videos/get-started/06-user-profiles) to learn what Auth0 User Profiles are used for and what they contain. Understand how Auth0 normalizes user profile data from various identity providers and uses metadata and root attributes. You can manage user profiles with the Auth0 Dashboard.
+:::

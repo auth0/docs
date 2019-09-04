@@ -26,7 +26,7 @@ Auth0's normalized user profile consists of a few different components:
 
 ## User profile attributes
 
-The following attributes are available on the user profile. Many these are root attributes (attributes stored at the first, or root, level of the `user` object), and some may be updated, imported, and exported, as noted below.
+The following attributes are available on the user profile. Many are root attributes (attributes stored at the first, or root, level of the `user` object), and some may be updated, imported, and exported, as noted below.
 
 ::: panel Blacklist user attributes
 If there are user fields that should not be stored by Auth0 due to privacy reasons, you can blacklist the attributes you do not want persisting in Auth0 databases. For details, see [Blacklist User Attributes](/security/blacklisting-attributes).

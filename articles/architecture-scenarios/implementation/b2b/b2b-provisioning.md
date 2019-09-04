@@ -83,7 +83,7 @@ Since users are shared, you won’t be able to determine who has access by isola
 
 In most B2B scenarios, only particular individuals are allowed access to the application. As a result, it is often simpler to have an administrator provision user accounts instead of having users signup and then have an administrator approve them. This provisioning can often be done in an automated fashion when users are added to a centralized system as well.
 
-There are three different personas who might be [inviting users](/docs/design/creating-invite-only-applications):
+There are three different personas who might be [inviting users](/design/creating-invite-only-applications):
 
 * An administrator at your company may create the users for each organization.
 * An administrator from each organization may be assigned to creating users.

@@ -15,6 +15,8 @@ useCase:
 
 <%= include('./_delegation-version-warning') %>
 
+<%= include('../../../_includes/_webtask') %>
+
 With AWS, you can create powerful, serverless, highly scalable APIs and applications through AWS Lambda, Amazon API Gateway, and a JavaScript application.
 
 A serverless application runs custom code as a compute service without the need to maintain an operating environment to host your service. Instead, a service like [AWS Lambda](https://aws.amazon.com/lambda/) or [webtask.io](https://webtask.io) executes your code on your behalf.

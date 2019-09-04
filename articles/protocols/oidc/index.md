@@ -1,25 +1,28 @@
 ---
 url: /protocols/oidc
 title: OpenID Connect
-description: Learn about the OpenID Connect (OIDC) protocol and how it works
+description: Learn about the OpenID Connect (OIDC) protocol and how it works.
 topics:
     - protocols
+    - connections
     - oidc
+    - open-id-connect
 contentType:
   - index
   - concept
 useCase:
   - development
+  - oidc
 ---
 # OpenID Connect
 
-**OpenID Connect (OIDC)** is an authentication protocol, based on the OAuth 2.0 family of specifications. It uses simple <dfn data-key="json-web-token">JSON Web Tokens (JWT)</dfn>, which you can obtain using flows conforming to the OAuth 2.0 specifications.
+OpenID Connect (OIDC) is an authentication protocol, based on the OAuth 2.0 family of specifications. It uses simple <dfn data-key="json-web-token">JSON Web Tokens (JWT)</dfn>, which you can obtain using flows conforming to the OAuth 2.0 specifications.
 
 While OAuth 2.0 is about resource access and sharing, OIDC is all about user authentication. Its purpose is to give you one login for multiple sites. Each time you need to log in to a website using OIDC, you are redirected to your OpenID site where you login, and then taken back to the website.
 
 For example, if you chose to sign in to Auth0 using your Google account then you used OIDC. Once you successfully authenticate with Google and authorize Auth0 to access your information, Google will send back to Auth0 information about the user and the authentication performed. This information is returned in a JWT. You'll receive an <dfn data-key="access-token">Access Token</dfn> and, if requested, an ID Token.
 
-## How the Protocol Works
+## How it works
 
 Let's use the example we mentioned earlier, signing into Auth0 using your Google account, for a high level overview on how the flow works:
 
@@ -45,3 +48,8 @@ The [OpenID Connect specification](https://openid.net/specs/openid-connect-core-
 :::note
 Watch our 30 minute webinar tutorial [Intro to OpenID Connect](https://auth0.com/resources/webinars/intro-openid-connect) to better understand this protocol, its benefits, and how to integrate it in your app.
 :::
+
+## Keep reading
+
+* [Configure Applications with OpenID Connect Discovery](/protocols/oidc/openid-connect-discovery)
+* [OIDC Handbook](https://auth0.com/resources/ebooks/the-openid-connect-handbook)

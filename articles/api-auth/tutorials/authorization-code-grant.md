@@ -94,7 +94,7 @@ Now that you have an Authorization Code, you must exchange it for an <dfn data-k
         "value": "YOUR_AUTHORIZATION_CODE"
       },
       {
-        "name": "redirect_ui",
+        "name": "redirect_uri",
         "value": "${account.callback}"
       }
     ]

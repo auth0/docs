@@ -16,11 +16,11 @@ In this tutorial we will see how you can use auth0.js or the Auth0 APIs to ask f
 
 ## Overview
 
-We will capture consent information, under various scenarios, and save this at the user's metadata.
+We will capture consent information, under various scenarios, and save this in the user's metadata.
 
-All scenarios will save the following properties at the user's metadata:
-- a `consentGiven` property, with true/false values, shows if the user has provided consent (true) or not (false)
-- a `consentTimestamp` property, holding the Unix timestamp of when the user provided consent
+All scenarios will save the following properties in the user's metadata:
+- `consentGiven` (true/false) shows if the user has provided consent (true) or not (false)
+- `consentTimestamp` (Unix timestamp) indicates when the user provided consent
 
 For example:
 

@@ -1,6 +1,6 @@
 ---
 title: Architecture
-description: How your configure your Auth0 tenant architecture affects your B2C IAM implementation.
+description: How you configure your Auth0 tenant architecture affects your B2C IAM implementation.
 toc: true
 topics:
     - b2c
