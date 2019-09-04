@@ -17,33 +17,34 @@ useCase:
   - customize-connections
   - add-idp
 ---
-# Add Sign in with Apple to Your App
+# Add Sign in With Apple to Your App
 
-Apple requires the adoption of the Sign in with Apple feature for if you have an app published on the App Store and you support different third-party sign-in options (such as Facebook, Google, or Twitter). In the following instructions, the app will use the OIDC Authorization Code Grant flow to authenticate users. As such, when your users try to sign into your app, the following process will take place:
+Apple requires the adoption of the Sign in with Apple feature for if you have an app published on the App Store and you support different third-party sign-in options (such as Facebook, Google, or Twitter). 
 
-* Your app will redirect users to Apple so they can authenticate.
-* After a successful authentication, Apple will redirect users back to your app with an authorization code.
-* Your app will exchange this code for a token.
+Support for Native Sign in with Apple is built on top of the [OAuth 2.0 Token Exchange specification](https://oauth.net/2/). Auth0 created a profile for Native Sign in With Apple (SIWA) to handle the following flow:
 
-When the last step is done, your app obtain an ID token that carries some information about the user.
+1. User authenticates via the Apple SDK on their iPhone/iPad. They receive an authorization code.
+2. The application calls Auth0's `/oauth/token` endpoint with the following parameters:
+    - `subject_token`: the authorization code they received above
+    - `subject_token_type`: `http://auth0.com/oauth/token-type/apple-authz-code`
+    - `grant_type`: `urn:ietf:params:oath:grant-type:token-exchange`
+    - `client_id`: their Auth0 Client ID
+    - `audience` and `scope` as needed (optional)
+3. Auth0 exchanges the `code` with Apple for a set of ID, access, and refresh tokens.
+4. Auth0 saves the user profile. Executes rules and authorization, then issues access tokens (refresh tokens and ID tokens) as requested. These tokens can now be used to protect your APIs and users are managed in Auth0.
 
-To add support for Sign in with Apple, you'll need to have an Auth0 tenant set up with a custom domain, as well as a web application configured to use Auth0 for authentication at that domain. 
-
-Before you add the Apple connection to your application, you will need the following:
+To add support for Native Sign in With Apple, you'll need to have an Apple Developer account, an Auth0 tenant set up with a custom domain, and a web application configured to use Auth0 for authentication at that domain. Make sure you have those properly configured before proceeding.
 
 * An [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/)).
-* A domain (i.e., `<YOUR CUSTOM DOMAIN>.com`) that you can use and point to the web app you are about to create and an internet-accessible server where you will run the app, and that responds on behalf of this domain. You will also need to configure this server with a TLS certificate (Apple won't accept unsecured HTTP connections) and [`npm` and `Node.js`](https://nodejs.org/en/download/) (so you can run the web application). Lastly, to use the Email Relay Service, you will need to configure your domain with Sender Policy Framework (SPF) DNS TXT records. The official Sign In with Apple documentation explains how you can achieve that.
+* A domain (i.e., `<YOUR CUSTOM DOMAIN>.com`) that you can use and point to your web app and an internet-accessible server where you will run the app, and that responds on behalf of this domain. You will also need to configure this server with a TLS certificate (Apple won't accept unsecured HTTP connections) and [`npm` and `Node.js`](https://nodejs.org/en/download/) (so you can run the web application). Lastly, to use the Email Relay Service, you will need to configure your domain with Sender Policy Framework (SPF) DNS TXT records. The official Sign In With Apple documentation explains how you can achieve that.
 * A [Custom Domain](/custom-domains) set up on your Auth0 tenant for domain verification with Apple.
-* Your Application. You can get an application up and running using any of our quick starts. To use the following instructions, your application can use any development stack: Node.js, ASP.NET, Java, etc..
 
 ::: note
-An easy way to set this up is to use [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04), [Freenom](https://freenom.com/), or [Let's Encrypt](https://letsencrypt.org/).
+You can set this up using [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04), [Freenom](https://freenom.com/), or [Let's Encrypt](https://letsencrypt.org/).
 :::
 
-Make sure you have those properly configured before proceeding.
-
-::: panel Test the Connection with Auth0 Developer Credentials First
-Before you begin, you can test the Apple connection:
+::: panel Before you Begin: Test the Connection with Auth0 Developer Credentials 
+You can test the Apple connection:
 
 1. On the [Dashboard](${manage_url}), go to **Connections > Social**.
 2. Click on the Apple connection.
@@ -209,9 +210,9 @@ When setting up your application, make sure you save the following items for the
     });
     ```
 
-3. In the code above, you will notice that there is a reference to the `apple-developer-domain-association.txt` file. Make this file available to the app while running it in your server so Apple can check that you are the owner of the domain you used in the previous section. Move the file you downloaded from Apple to the project root.
+    In the code above, you will notice that there is a reference to the `apple-developer-domain-association.txt` file. Make this file available to the app while running it in your server so Apple can check that you are the owner of the domain you used in the previous section. Move the file you downloaded from Apple to the project root.
 
-4. To confirm that the code is working, execute the following commands locally.
+3. To confirm that the code is working, execute the following commands locally.
 
     ``` text
     export CLIENT_ID=test
@@ -225,7 +226,7 @@ When setting up your application, make sure you save the following items for the
 You can leave the test values on the environment variables for the moment. You will configure these variables later.
 :::
 
-If everything works as expected, you will be able to see the contents of the domain association file at the following link: `http://localhost:3000/.well-known/apple-developer-domain-association.txt`. If that is the case, you are ready to make your application run on the real server.
+If everything works as expected, you will see the contents of the domain association file at the following link: `http://localhost:3000/.well-known/apple-developer-domain-association.txt`. If that is the case, you are ready to make your application run on the internet-accessible server.
 
 ### Verify domain ownership on Apple
 
@@ -234,10 +235,6 @@ If everything works as expected, you will be able to see the contents of the dom
 2. After running this project on an internet-accessible server (which must respond on behalf of the domain you configured in the Apple developer account), go back to the page you left open (**Register a Services ID**), and click **Verify**. If you got everything right, Apple will confirm that you own the informed domain.
 
 ### Configure email relay service
-
-::: note
-Even if you do configure this properly, you won't be able to use the relay service. The documentation doesn't say how to get unique, randomly-created emails for the users that sign in. Also, using OpenID Connect scopes like email doesn't work.
-:::
 
 1. To use the email relay service that Apple provides, click **More** under the **Certificates, Identifiers, & Profiles** section and click **Configure**. 
 
