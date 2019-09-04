@@ -178,7 +178,7 @@ When setting up your application, make sure you save the following items for lat
     });
 
     app.listen(port, () => {
-      console.log(`Apple Login POC listening on port ${port}!`);
+      console.log("Apple Login POC listening on port " + port + "!");
     });
     ```
 
