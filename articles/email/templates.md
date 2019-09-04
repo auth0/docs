@@ -13,7 +13,7 @@ toc: true
 You must setup your own email provider using a [third-party service](/email/providers) ([Amazon SES](https://aws.amazon.com/ses/), [Mandrill](https://www.mandrill.com/signup/) or [SendGrid](https://sendgrid.com/pricing)) or a [custom provider](/email/custom) to be able to customize your emails.
 :::
 
-The [Emails](${manage_url}/#/emails) dashboard allows you to customize your emails, including templating with some contextual attributes [using Liquid syntax](/email/liquid-syntax). This can include references to the context of the current application or user.
+Auth0 provides an [Emails](${manage_url}/#/emails) dashboard that allows you to customize your HTML-based emails, including templating with some contextual attributes [using Liquid syntax](/email/liquid-syntax). This can include references to the context of the current application or user.
 
 ![](/media/articles/email/index/emails-fields.png)
 
@@ -21,6 +21,8 @@ The [Emails](${manage_url}/#/emails) dashboard allows you to customize your emai
 ::: note
 Only one template can be used for each template type (for example, only one template for verify emails).
 :::
+
+At this time, Auth0 does not support plaintext/text-based email.s
 
 ## Configuring email templates
 
