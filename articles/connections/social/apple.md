@@ -19,22 +19,49 @@ useCase:
 ---
 # Add Sign in with Apple to Your App
 
-To add support for Sign in with Apple, you'll need to have an Auth0 tenant set up with a custom domain, as well as a web application configured to use Auth0 for authentication at that domain. You can get an application up and running in a few simple steps by using any of our quick starts. Note that for the following instructions, your application can use any development stack: Node.js, ASP.NET, Java, and so on.
+Apple requires the adoption of the Sign in with Apple feature for if you have an app published on the App Store and you support different third-party sign-in options (such as Facebook, Google, or Twitter). In the following instructions, the app will use the OIDC Authorization Code Grant flow to authenticate users. As such, when your users try to sign into your app, the following process will take place:
 
-Using the Apple connection will require the following:
+* Your app will redirect users to Apple so they can authenticate.
+* After a successful authentication, Apple will redirect users back to your app with an authorization code.
+* Your app will exchange this code for a token.
 
-* An [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available (unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/)).
-* A [Custom Domain](/custom-domains) set up on your Auth0 tenant (this is required because you must be able to do domain verification with Apple).
+When the last step is done, your app obtain an ID token that carries some information about the user.
 
-::: panel Test the Connection with Auth0 Developer Credentials First
-You can test out the Apple connection before you begin by going to the [Dashboard](${manage_url}) to **Connections > Social** and **Try** the Apple connection, leaving the settings blank. This will let you test it with Auth0’s developer credentials. Prior to using it in production applications however, you will need to set up your own developer credentials.
+To add support for Sign in with Apple, you'll need to have an Auth0 tenant set up with a custom domain, as well as a web application configured to use Auth0 for authentication at that domain. 
+
+Before you add the Apple connection to your application, you will need the following:
+
+* An [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/)).
+* A domain (i.e., `<YOUR CUSTOM DOMAIN>.com`) that you can use and point to the web app you are about to create and an internet-accessible server where you will run the app, and that responds on behalf of this domain. You will also need to configure this server with a TLS certificate (Apple won't accept unsecured HTTP connections) and [`npm` and `Node.js`](https://nodejs.org/en/download/) (so you can run the web application). Lastly, to use the Email Relay Service, you will need to configure your domain with Sender Policy Framework (SPF) DNS TXT records. The official Sign In with Apple documentation explains how you can achieve that.
+* A [Custom Domain](/custom-domains) set up on your Auth0 tenant for domain verification with Apple.
+* Your Application. You can get an application up and running using any of our quick starts. To use the following instructions, your application can use any development stack: Node.js, ASP.NET, Java, etc..
+
+::: note
+An easy way to set this up is to use [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04), [Freenom](https://freenom.com/), or [Let's Encrypt](https://letsencrypt.org/).
 :::
 
-## Set up your app in your Apple Developer Account
+Make sure you have those properly configured before proceeding.
+
+::: panel Test the Connection with Auth0 Developer Credentials First
+Before you begin, you can test the Apple connection:
+
+1. On the [Dashboard](${manage_url}), go to **Connections > Social**.
+2. Click on the Apple connection.
+3. Leave the **Settings** tab fields blank. 
+
+    ![Apple Settings](/media/articles/connections/social/apple/apple-connection.png)
+
+4. On the **Applications** tab, select the applications you want to test the connection with and click **Save**.
+5. Back on the **Settings** tab, click **Try**.
+
+    This displays the Apple sign in page. This tests the connection using Auth0’s developer credentials. **Prior to using it in production applications**, you need to set up your own developer credentials following the instructions below.
+:::
+
+## Configure your app in your Apple Developer Account
 
 Once your Developer Account is set up, you can follow the instructions in the [Apple Setup Guide](/connections/apple-setup) to get your app set up. If you have any issues, refer to the [Apple Documentation](https://developer.apple.com/sign-in-with-apple/get-started/).
 
-When setting up your application, make sure you save the following items for later:
+When setting up your application, make sure you save the following items for the Apple connection settings in the Dashboard:
 
 * Client ID (the Service ID)
 * Client Secret Signing Key
@@ -200,11 +227,11 @@ You can leave the test values on the environment variables for the moment. You w
 
 If everything works as expected, you will be able to see the contents of the domain association file at the following link: `http://localhost:3000/.well-known/apple-developer-domain-association.txt`. If that is the case, you are ready to make your application run on the real server.
 
-### Verify the domain ownership on Apple
+### Verify domain ownership on Apple
 
 1. Move your project code to your server and make it run like you did locally (i.e., you still don't need to provide the final environment variables). To achieve that, you can use whatever means you prefer. For example, you can use Git, or you can move the files manually (with the help of `scp` or similar). 
 
-2. After running this project on a real server (which must respond on behalf of the domain you configured in the Apple developer account), you can head back to the page you left open (**Register a Services ID**), and click **Verify**. If you got everything right, Apple would be able to confirm that you own the informed domain.
+2. After running this project on an internet-accessible server (which must respond on behalf of the domain you configured in the Apple developer account), go back to the page you left open (**Register a Services ID**), and click **Verify**. If you got everything right, Apple will confirm that you own the informed domain.
 
 ### Configure email relay service
 
@@ -219,16 +246,6 @@ Even if you do configure this properly, you won't be able to use the relay servi
 3. Click **Register**. 
 
 4. Add an email address (for example, `me@<YOUR CUSTOM DOMAIN>.com`) in **Individual Email Addresses** and click  **Register**.
-
-## Create and enable a connection in Auth0
-
-Next, you’ll add Apple to the collection of identity providers you can integrate with via Auth0.
-
-1. Once you have the credentials you need from your Apple developer account, go to [**Connections** > **Social**](${manage_url}) in the Dashboard, and click on the **Apple** connection.
-
-2. Fill in the Client ID (Services ID), Client Secret Signing Key, the Team ID, and the Client Signing Key ID (if you have it) here. You can also fill in the Key ID, but this is optional, as Apple will accept the key without the ID.
-
-    ![Apple Connection Settings](/media/articles/connections/social/apple/apple_connection.png)
 
 ## Generate client secret
 
@@ -314,15 +331,21 @@ Now that you have verified your domain with Apple, define the environment variab
 
     This time, set the environment variables with the final values. If things work as expected, you will see the application running under your domain again. Then, if you request for the `/auth/.apple` route under this domain, your application will redirect you to the **Sign In with Apple** page so you can log into your application. On this page, if you use valid credentials, Apple will sign you into the application (after the multifactor authentication process).
 
-## Test the connection
+## Configure the connection in Auth0
 
-You're ready to [test your connection](/dashboard/guides/connections/test-connections-social).
+1. Once you have the credentials you need from your Apple developer account, Go to [**Connections** > **Social**](${manage_url}), and click on the **Apple** connection.
+
+2. On the **Settings** tab, complete the fields **Client ID** (Services ID), **Client Secret Signing Key**, and **Apple Team ID**. You can also fill in the **Key ID** but it is optional, as Apple will accept the key without the ID.
+
+3. Click **Save**.
+
+## Test the connection
 
 ::: note
 If you are using the Classic Universal Login flow, or embedding `Lock.js` in your application, make sure you are using `Lock.js` version 11.16 or later.
 :::
 
-1. Visit your login page and you should now see an option for Sign In with Apple:
+1. Visit your application login page and you should see an option for Sign In with Apple:
 
     ![Apple Login Page](/media/articles/connections/social/apple/apple-login-page.png)
 
@@ -332,9 +355,13 @@ If you are using the Classic Universal Login flow, or embedding `Lock.js` in you
 
 4. Next you'll be given a verication code. Make a note of this code, click **Done**, and then enter the code on the **Two-Factor Authentication** screen.
 
+    ![Apple Two-Factor Authentication](/media/articles/connections/social/apple/apple-2FA.png)
+
 5. When this is done, you'll have the option to edit your name and choose whether you'd like to share or hide your email. Make your choice, then click **Continue**.
 
-    You are now signed in with Apple!
+    ![Apple Email Preferences](/media/articles/connections/social/apple/apple-email-preferences.png)
+
+    You are now signed in to your application with Apple!
 
 ## Keep reading
 
