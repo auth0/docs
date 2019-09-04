@@ -42,7 +42,7 @@ Support for native Sign In with Apple is built on top of the [OAuth 2.0 Token Ex
     - `client_id`: their Auth0 Client ID
     - `audience` and `scope` as needed (optional)
 3. Auth0 exchanges the `code` with Apple for a set of ID, access, and refresh tokens.
-4. Auth0 saves the user profile. Executes rules and authorization, then issues access tokens (refresh tokens and ID tokens) as requested. These tokens can now be used to protect your APIs and users are managed in Auth0.
+4. Auth0 saves the user profile, executes rules and authorization, then issues access tokens (refresh tokens and ID tokens) as requested. These tokens are used to protect your APIs and users managed by Auth0.
 
 ## Before you begin
 
