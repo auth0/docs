@@ -67,15 +67,15 @@ Identity federation deals with managing user identities and granting them the ri
 
 ...
 
-## Inbound SSO to an Auth0 tenant - connection
+## Inbound SSO to an Auth0 tenant with connections
 
 ...
 
-### Built-in and custom SAML providers
+### Built-in and custom SAML identity providers
 
 ...
 
-### Social Providers
+### Social identity providers
 
 ...
 
@@ -87,25 +87,43 @@ Identity federation deals with managing user identities and granting them the ri
 
 ...
 
-### Saml
+### SAML
 
 ...
 
-### Ws-fed
+### WS-Fed
 
 ...
 
-### Oidc
+### OIDC
 
 ...
 
 ## SSO Integrations (outbound sso)
 
-...
+Auth0 provides [SSO Integrations](/integrations/sso) for the following services:
+
+- [Active Directory RMS](/integrations/sso/ad-rms)
+- [Box](/integrations/sso/box)
+- [CloudBees](/integrations/sso/cloudbees)
+- [Concur](/integrations/sso/concur)
+- [Disqus](/integrations/sso/disqus)
+- [Dropbox](/integrations/sso/dropbox)
+- [Microsoft Dynamics CRM](/integrations/sso/dynamics-crm)
+- [Adobe Echosign](/integrations/sso/echosign)
+- [Egnyte](/integrations/sso/egnyte)
+- [New Relic](/integrations/sso/new-relic)
+- [Office 365](/integrations/sso/office-365)
+- [SalesForce](/integrations/sso/salesforce)
+- [SharePoint](/integrations/sso/sharepoint)
+- [Slack](/integrations/sso/slack)
+- [SpringCM](/integrations/sso/springcm)
+- [Zendesk](/integrations/sso/zendesk)
+- [Zoom](/integrations/sso/zoom)
 
 ## Extension: SSO Dashboard
 
-...
+The [Single Sign-On (SSO) Dashboard Extension](/extensions/sso-dashboard) allows you to create a dashboard with multiple enterprise applications that can be enabled for SSO for your users for login.
 
 ## Use Cases
 
