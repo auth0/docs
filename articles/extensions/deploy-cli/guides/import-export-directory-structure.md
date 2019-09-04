@@ -87,7 +87,7 @@ For more information, see [Environment Variables and Keyword Mappings](/extensio
 
 ### Directory structure example
 
-Here is an example of what the export directory structure looks like:
+Here is a sample of what the export directory structure looks like (for full details on everything that can be included, please refer to the [extension's repository](https://github.com/auth0/auth0-deploy-cli/tree/master/examples/directory):
 
 ```
 repository =>
