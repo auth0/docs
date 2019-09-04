@@ -26,7 +26,7 @@ Set the following configuration variables:
 * **USER**: The username used to access the Bitbucket account. Make sure you use the username, and not the email
 * **PASSWORD**: The user password or an app password you create through the Bitbucket settings to grant permissions to certain apps (`Repositories: Read` permission is required)
 * **BASE_DIR**: The base directory, where all your tenant settings are stored
-* **AUTO_REDEPLOY**: If enabled, the extension will try to re-deploy last successful configuration in case of failed deployment. Manual deployments and validation errors does not trigger auto-redeployment
+* **AUTO_REDEPLOY**: If enabled, the extension redeploys the last successful configuration in the event of a deployment failure. Manual deployments and validation errors does not trigger auto-redeployment
 * **SLACK_INCOMING_WEBHOOK**: The Webhook URL for Slack used to notify you of successful and failed deployments
 
 ::: note
@@ -296,7 +296,7 @@ __blocked_account.json__
 
 ## Excluded records
 
-You can exclude `rules`, `clients`, `databases`, `connections` and `resourceServers` records from the deployment process. Excluded records won't be affected by deployment in any way.
+You can exclude the following records from the deployment process: `rules`, `clients`, `databases`, `connections` and `resourceServers`. If excluded, the records will not be modified by deployments.
 
 ![](/media/articles/extensions/deploy-extensions/excluded-rules.png)
 
@@ -304,15 +304,15 @@ You can exclude `rules`, `clients`, `databases`, `connections` and `resourceServ
 
 Beginning with version **3.0.0**, you can use keywords mapping to manage your secrets and tenant-based environment variables.
 
-There are two ways to use the keyword mappings: You can either wrap the key in `@@key@@` or `##key##`. 
+There are two ways to use the keyword mappings. You can either wrap the key using `@` symbols (e.g., `@@key@@`), or you can wrap the key using `#` symbols (e.g., `##key##`). 
 
-  - If you use the `@` symbols, it will do a `JSON.stringify` on your value before replacing it.  So if it is a string, it will add quotes. and if it is an array or object, it will add braces.  
+  - If you use `@` symbols, your value will be converted from a JavaScript object or value to a JSON string.
 
-  - If you use the `#` symbol instead, it will just do a literal replacement; it will not add quotes or brackets.
+  - If you use `#` symbols, Auth0 will perform a literal replacement.
 
-For example, you could specify a different JWT timeout in your dev environment, and then use prod for testing and a different environment URL. 
+This is useful for something like specifying different variables across your environments. For example, you could specify different JWT timeouts for your Development, QA/Testing, and Production environments.
 
-See the examples below.
+Refer to the snippets below for sample implementations:
 
 __Client.json__
 ```json
