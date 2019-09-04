@@ -57,8 +57,8 @@ Access Tokens issued strictly for the purpose of accessing the <dfn data-key="op
 
 ::: next-steps
 * [Get an Access Token](/tokens/guides/access-token/get-access-tokens)
-* [Add Custom Claims](/scopes/current/sample-use-cases#add-custom-claims-to-a-token) using [Rules](/rules)
-* [Use an Access Token](/tokens/guides/access-token/use-access-tokens) either in server-to-server or custom API interactions
+* [Add Custom Claims to a Token](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)
+* [Use an Access Token](/tokens/guides/access-token/use-access-tokens)
 * [Validate an Access Token](/tokens/guides/access-token/validate-access-token)
 * [JSON Web Token](/jwt)
 :::
