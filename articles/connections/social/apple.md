@@ -1,10 +1,10 @@
 ---
-title: Add Sign in with Apple to Your App
+title: Add Native Sign in With Apple to Your App
 connection: Apple
 index: 3
 image: /media/connections/apple.svg
 seo_alias: apple
-description: Learn how to add login functionality to your app with Apple. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
+description: Learn how to add native login functionality to your app with Apple. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
 topics:
   - authentication
@@ -17,11 +17,13 @@ useCase:
   - customize-connections
   - add-idp
 ---
-# Add Sign in With Apple to Your App
+# Add Native Sign In with Apple to Your App
 
-Apple requires the adoption of the Sign in with Apple feature for if you have an app published on the App Store and you support different third-party sign-in options (such as Facebook, Google, or Twitter). 
+Apple requires the adoption of native Sign In with Apple (SIWA) capabilities if you have an app published on the App Store and you support different third-party sign-in options (such as Facebook, Google, or Twitter). 
 
-Support for Native Sign in with Apple is built on top of the [OAuth 2.0 Token Exchange specification](https://oauth.net/2/). Auth0 created a profile for Native Sign in With Apple (SIWA) to handle the following flow:
+## How it works
+
+Support for native Sign In with Apple is built on top of the [OAuth 2.0 Token Exchange specification](https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16). Auth0 created a profile for native SIWA to handle the following flow:
 
 1. User authenticates via the Apple SDK on their iPhone/iPad. They receive an authorization code.
 2. The application calls Auth0's `/oauth/token` endpoint with the following parameters:
@@ -33,10 +35,10 @@ Support for Native Sign in with Apple is built on top of the [OAuth 2.0 Token Ex
 3. Auth0 exchanges the `code` with Apple for a set of ID, access, and refresh tokens.
 4. Auth0 saves the user profile. Executes rules and authorization, then issues access tokens (refresh tokens and ID tokens) as requested. These tokens can now be used to protect your APIs and users are managed in Auth0.
 
-To add support for Native Sign in With Apple, you'll need to have an Apple Developer account, an Auth0 tenant set up with a custom domain, and a web application configured to use Auth0 for authentication at that domain. Make sure you have those properly configured before proceeding.
+To add support for native SIWA, you'll need to have an Apple Developer account, an Auth0 tenant set up with a custom domain, and a web application configured to use Auth0 for authentication at that domain. Make sure you have those properly configured before proceeding.
 
 * An [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/)).
-* A domain (i.e., `<YOUR CUSTOM DOMAIN>.com`) that you can use and point to your web app and an internet-accessible server where you will run the app, and that responds on behalf of this domain. You will also need to configure this server with a TLS certificate (Apple won't accept unsecured HTTP connections) and [`npm` and `Node.js`](https://nodejs.org/en/download/) (so you can run the web application). Lastly, to use the Email Relay Service, you will need to configure your domain with Sender Policy Framework (SPF) DNS TXT records. The official Sign In With Apple documentation explains how you can achieve that.
+* A domain (i.e., `<YOUR CUSTOM DOMAIN>.com`) that you can use and point to your web app and an internet-accessible server where you will run the app, and that responds on behalf of this domain. You will also need to configure this server with a TLS certificate (Apple won't accept unsecured HTTP connections) and [`npm` and `Node.js`](https://nodejs.org/en/download/) (so you can run the web application). Lastly, to use the Email Relay Service, you will need to configure your domain with Sender Policy Framework (SPF) DNS TXT records. See [Sign In with Apple Get Started](https://developer.apple.com/sign-in-with-apple/get-started/) for more information.
 * A [Custom Domain](/custom-domains) set up on your Auth0 tenant for domain verification with Apple.
 
 ::: note
@@ -362,7 +364,7 @@ If you are using the Classic Universal Login flow, or embedding `Lock.js` in you
 
 ## Keep reading
 
-* [What is Sign in with Apple](https://auth0.com/blog/what-is-sign-in-with-apple-a-new-identity-provider/)
-* [Apple's Sign in with Apple page](https://developer.apple.com/sign-in-with-apple/)
+* [What is Sign In with Apple](https://auth0.com/blog/what-is-sign-in-with-apple-a-new-identity-provider/)
+* [Apple's Sign In with Apple page](https://developer.apple.com/sign-in-with-apple/)
 
 <%= include('../_quickstart-links.md') %>
