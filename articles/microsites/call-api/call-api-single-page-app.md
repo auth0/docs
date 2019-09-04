@@ -62,7 +62,7 @@ Finally, to use our API endpoints, you can follow our tutorial: [Call Your API U
 :::
 
 ::: concepts  
-  * [Access Tokens](/tokens/overview-access-tokens)
+  * [Access Tokens](/tokens/access-tokens)
   * [Where to store tokens](/security/store-tokens)
 :::
 

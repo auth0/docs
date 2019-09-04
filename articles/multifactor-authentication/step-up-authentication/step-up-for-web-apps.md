@@ -18,7 +18,7 @@ With Step-up Authentication, applications that allow access to different types o
 
 For instance, a user may be allowed to access views with sensitive data or reset their password only after confirming their identity using <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
-When a user logs in you can get an [ID Token](/tokens/id-token) which is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> that contains information relevant to the user's session, in the form of claims.
+When a user logs in you can get an [ID Token](/tokens/id-tokens) which is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> that contains information relevant to the user's session, in the form of claims.
 
 The claim that is relevant to this scenario is `amr`. If it contains the value `mfa` then you know that the user has authenticated using MFA. Note the following:
 - `amr` **must** be present in the ID Token's payload (if you log in with username/password the claim will not be included in the payload)
@@ -37,7 +37,7 @@ In order to check if a user logged in with MFA follow these steps:
   - If `amr` **is not** in the payload or it does not contain the value `mfa`, the user did not log in with MFA
   - If `amr` **is** in the payload and it contains the value `mfa`, then the user logged in with MFA
 
-For more information on the signature verification and claims validation, see [ID Token](/tokens/id-token).
+For more information on the signature verification and claims validation, see [ID Token](/tokens/id-tokens).
 
 ## Sample payloads
 
@@ -180,7 +180,7 @@ That's it, you are done!
 ## Keep reading
 
 ::: next-steps
-* [Overview of ID Tokens](/tokens/id-token)
+* [Overview of ID Tokens](/tokens/id-tokens)
 * [Overview of JSON Web Tokens](/jwt)
 * [OpenID Connect (OIDC) specification](http://openid.net/specs/openid-connect-core-1_0.html)
 * [Step-up Authentication for APIs](/multifactor-authentication/developer/step-up-authentication/step-up-for-apis)

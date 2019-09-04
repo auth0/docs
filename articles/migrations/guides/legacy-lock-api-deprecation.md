@@ -124,7 +124,7 @@ Once a user has been authenticated, an application may wish to retrieve informat
 
 For customers who are using the [/tokeninfo](/api/authentication#get-token-info) endpoint, this endpoint is being replaced with the /userinfo endpoint. Customers should migrate to use the /userinfo endpoint instead of /tokeninfo. The /userinfo endpoint is the only one that will be maintained going forward and is the only endpoint for user information that is supported with the [custom domains](/custom-domains) feature.
 
-As explained in the /userinfo endpoint docs entry, /userinfo obtains information using the Management API and therefore requires an <dfn data-key="access-token">Access Token</dfn> (obtained during login) instead of the [ID Token](/tokens/id-token) used by /tokeninfo.
+As explained in the /userinfo endpoint docs entry, /userinfo obtains information using the Management API and therefore requires an <dfn data-key="access-token">Access Token</dfn> (obtained during login) instead of the [ID Token](/tokens/id-tokens) used by /tokeninfo.
 
 Note also that the [/userinfo response](/api-auth/tutorials/adoption/scope-custom-claims) may vary based on <dfn data-key="scope">scopes</dfn> requested and the value of the [OIDC Conformant](/api-auth/tutorials/adoption/oidc-conformant) setting in the [Dashboard](${manage_url}) under **Applications > (Your Application) > Settings > Advanced Settings**. In that case, application code might need adjusted to handle the slightly altered response format.
 

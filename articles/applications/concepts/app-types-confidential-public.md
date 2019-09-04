@@ -52,7 +52,7 @@ The following are public applications:
 
 ### ID Tokens
 
-Because public applications are unable to hold secrets, [ID Tokens](/tokens/id-token) issued to them must be:
+Because public applications are unable to hold secrets, [ID Tokens](/tokens/id-tokens) issued to them must be:
 
 * Signed asymmetrically using a private key (`RS256`)
 * Verified using the public key corresponding to the private key used to sign the token

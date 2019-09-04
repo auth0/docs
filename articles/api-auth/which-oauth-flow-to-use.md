@@ -63,7 +63,7 @@ In this case, instead of getting an authorization code that needs to be exchange
 For more information on how this flow works and how to implement it, refer to [Implicit Flow](/flows/concepts/implicit).
 
 ::: panel SPAs and Refresh Tokens
-While SPAs using the Implicit Grant cannot use [Refresh Tokens](/tokens/refresh-token), they can take advantage of other mechanics that provide the same function. A workaround to improve user experience is to use `prompt=none` when you invoke [the /authorize endpoint](/api/authentication#implicit-grant). This will not display the login dialog or the consent dialog. For more information on this, refer to [Silent Authentication](/api-auth/tutorials/silent-authentication). In addition, if you call `/authorize` from a hidden iframe and extract the new [Access Token](/tokens/overview-access-tokens) from the parent frame, then the user will not see the redirects happening.
+While SPAs using the Implicit Grant cannot use [Refresh Tokens](/tokens/refresh-token), they can take advantage of other mechanics that provide the same function. A workaround to improve user experience is to use `prompt=none` when you invoke [the /authorize endpoint](/api/authentication#implicit-grant). This will not display the login dialog or the consent dialog. For more information on this, refer to [Silent Authentication](/api-auth/tutorials/silent-authentication). In addition, if you call `/authorize` from a hidden iframe and extract the new [Access Token](/tokens/access-tokens) from the parent frame, then the user will not see the redirects happening.
 :::
 
 ## Is the Client a Native/Mobile App?

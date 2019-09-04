@@ -20,7 +20,7 @@ To help you make an informed decision and be aware of any risks, this article in
 * Information about the tokens issued by each protocol
 * Suggestions on when you should use which protocol
 
-We'll wrap things up with a discussion of why you should always secure an API with an <dfn data-key="access-token">Access Token</dfn>, *not* an [ID Token](/tokens/id-token).
+We'll wrap things up with a discussion of why you should always secure an API with an <dfn data-key="access-token">Access Token</dfn>, *not* an [ID Token](/tokens/id-tokens).
 
 ## Two complementary specifications
 
@@ -126,5 +126,5 @@ In many cases, you might find it useful to retrieve additional user information 
 * [OAuth 2.0 Overview](/protocols/oauth2)
 * [The problem with OAuth for Authentication](http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html)
 * [OpenID Connect Overview](/protocols/oidc)
-* [Obtaining and Using Access Tokens](/tokens/overview-access-tokens)
-* [Obtaining and Using ID Tokens](/tokens/id-token)
+* [Obtaining and Using Access Tokens](/tokens/access-tokens)
+* [Obtaining and Using ID Tokens](/tokens/id-tokens)

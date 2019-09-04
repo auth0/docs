@@ -41,7 +41,7 @@ Notice that in this example:
 
 2. After the user consents (if necessary) and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens).)
 
-3. Extract the ID Token from the response and [decode it](/tokens/id-token#id-token-payload).
+3. Extract the ID Token from the response and [decode it](/tokens/id-tokens#id-token-payload).
 
 You should see the following claims:
 
@@ -134,7 +134,7 @@ Notice that in this example:
 
 2. As in the previous examples, after the user consents (if necessary) and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens).)
 
-3. Extract the ID Token from the response, [decode it](/tokens/id-token#id-token-payload), and retrieve the user attributes and use them to personalize your UI.
+3. Extract the ID Token from the response, [decode it](/tokens/id-tokens#id-token-payload), and retrieve the user attributes and use them to personalize your UI.
 
 4. Extract the Access Token from the response, and call the API using the Access Token as credentials.
 

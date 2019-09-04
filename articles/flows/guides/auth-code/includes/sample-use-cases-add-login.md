@@ -12,7 +12,7 @@ https://${account.namespace}/authorize?
     scope=openid
 ```
 
-Now, when you [request tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens), your ID Token will contain the most basic claims. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
+Now, when you [request tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens), your ID Token will contain the most basic claims. When you [decode the ID Token](/tokens/id-tokens#id-token-payload), it will look similar to:
 
 ```json
 {
@@ -39,7 +39,7 @@ https://${account.namespace}/authorize?
     state=STATE
 ```
 
-Now, when you [request tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens), your ID Token will contain the requested name and picture claims. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
+Now, when you [request tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens), your ID Token will contain the requested name and picture claims. When you [decode the ID Token](/tokens/id-tokens#id-token-payload), it will look similar to:
 
 ```json
 {
@@ -69,7 +69,7 @@ https://${account.namespace}/authorize?
     connection=github
 ```
 
-Now, when you [request tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens), your ID Token will contain a `sub` claim with the user's unique ID returned from GitHub. When you [decode the ID Token](/tokens/id-token#id-token-payload), it will look similar to:
+Now, when you [request tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens), your ID Token will contain a `sub` claim with the user's unique ID returned from GitHub. When you [decode the ID Token](/tokens/id-tokens#id-token-payload), it will look similar to:
 
 ```json
 {

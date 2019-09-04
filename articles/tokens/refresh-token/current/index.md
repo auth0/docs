@@ -13,7 +13,7 @@ useCase:
 ---
 # Refresh Tokens
 
-Refresh Tokens contain the information required to obtain a new <dfn data-key="access-token">Access Token</dfn> or [ID Token](/tokens/id-token).
+Refresh Tokens contain the information required to obtain a new <dfn data-key="access-token">Access Token</dfn> or [ID Token](/tokens/id-tokens).
 
 Typically, a user needs a new Access Token when gaining access to a resource for the first time, or after the previous Access Token granted to them expires.
 
@@ -46,20 +46,6 @@ A Single-Page Application (normally implementing [Implicit Flow](/flows/concepts
 If you are implementing an SPA using [Implicit Flow](/flows/concepts/implicit) and you need to renew a token, the only secure option for doing so is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
 
 If you limit offline access to your API, a safeguard configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis), Auth0 will not return a Refresh Token for the API (even if you include the `offline_access` <dfn data-key="scope">scope</dfn> in your request).
-
-
-This method is not an option for Single-Page Apps (SPAs), since for security reasons you cannot get a Refresh Token from the [Single-Page Login Flow](/flows/concepts/single-page-login-flow) (the OAuth flow typically used for client-side web apps). In this case, you would have to use [silent authentication](/api-auth/tutorials/silent-authentication).
-
-If you are using [auth0.js](/libraries/auth0js) on an SPA, then you can fetch a new token using the `checkSession()` method.
-
-```js
-auth0.checkSession({
-  audience: 'https://mystore.com/api/v2',
-  scope: 'read:order write:order'
-  }, function (err, authResult) {
-    // Renewed tokens or error
-});
-```
 
 ## Get a Refresh Token
 
@@ -342,7 +328,16 @@ All our main SDKs support Refresh Tokens out of the box. Some are [Node.js](/qui
 
 - The `authorize` method, redirects the user to the `/authorize` endpoint, to log in and provide consent.
 - The `parseHash` method, parses a URL hash fragment to extract the result of an Auth0 authentication response.
-- The `checkSession` method, attempts to get a new token from Auth0, using [silent authentication](/api-auth/tutorials/silent-authentication). For more details refer to [Using checkSession to Acquire New Tokens](/libraries/auth0js#using-checksession-to-acquire-new-tokens).
+- The `checkSession` method, attempts to get a new token from Auth0, using [silent authentication](/api-auth/tutorials/silent-authentication). For more details refer to [Using checkSession to Acquire New Tokens](/libraries/auth0js#using-checksession-to-acquire-new-tokens). An example is as follows:
+
+```js
+auth0.checkSession({
+  audience: 'https://mystore.com/api/v2',
+  scope: 'read:order write:order'
+  }, function (err, authResult) {
+    // Renewed tokens or error
+});
+```
 
 ### Mobile / Native Apps
 
@@ -357,4 +352,3 @@ For information on using Refresh Tokens with our mobile SDKs, see:
 ## Next steps
 
 * [Refresh Tokens: When to use them and how they interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
-* [Using a Refresh Token with an Access Token](/tokens/guides/access-token/set-access-token-lifetime)

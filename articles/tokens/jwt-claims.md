@@ -39,7 +39,7 @@ The JWT specification defines seven reserved claims that are not required, but a
 
 You can see a full list of reserved claims at the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims). 
 
-Note that [OpenID Connect (OIDC) standard claims](/docs/scopes/current/oidc-scopes#standard-claims) returned in [ID Tokens](/tokens/id-token) are reserved claims. For an example showing how to add OIDC standard claims to a token, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#authenticate-a-user-and-request-standard-claims).
+Note that [OpenID Connect (OIDC) standard claims](/docs/scopes/current/oidc-scopes#standard-claims) returned in [ID Tokens](/tokens/id-tokens) are reserved claims. For an example showing how to add OIDC standard claims to a token, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#authenticate-a-user-and-request-standard-claims).
 
 ## Custom claims
 

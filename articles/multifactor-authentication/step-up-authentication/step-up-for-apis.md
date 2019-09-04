@@ -210,7 +210,7 @@ That's it, you're done! Now your application allows access to different types of
 
 ## Keep reading
 
-* [Access Tokens](/tokens/overview-access-tokens)
+* [Access Tokens](/tokens/access-tokens)
 * [Rules](/rules)
 * [Scopes](/scopes)
 * [Validate an Access Token](/tokens/guides/access-token/validate-access-token)
