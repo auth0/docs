@@ -4,7 +4,6 @@ description: Overview of the add-on options available to Private Cloud customers
 topics: private-cloud
 contentType: concept
 useCase: private-cloud
-sitemap: false
 ---
 # Private Cloud Add-On Options
 
@@ -74,6 +73,8 @@ Auth0 guarantees that the Private Cloud can handle up to 500 requests per second
 ## PCI Certified
 
 Auth0's dedicated deployments are ISO27001, SOC 2 Type II, ISO27018 and HIPAA BAA compliant, but the PCI Certified add-on ensures that your deployment is compliant with PCI-DSS requirements as well.
+
+Typically, any company that wants to process, store or transmit credit card data is required to be PCI compliant. Though Auth0 does not process, store or transmit credit card data as part of our service, any prospect that wants to provide access to their PCI-compliant environment or systems would need to use a PCI Certified IAM system. The Private Cloud qualifies, so long as you also opt for the PCI Certified add-on.
 
 ## GEO-HA
 
