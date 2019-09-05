@@ -14,7 +14,7 @@ Auth0 added support for custom domains in the Private Cloud platform in January 
 
 In March 2018, Auth0 added support for custom domains for those deploying on the Public Cloud. However, the feature included additional capabilities not included on the Private Cloud implementation. The following table summarizes the differences.
 
-| Feature | Public Cloud | Private Cloud |
+| Feature | New Custom Domains | Legacy Custom Domains |
 | - | - | - |
 | Use of custom domain in emails | Yes | No |
 | Custom domain protection via API keys | Yes | No |
