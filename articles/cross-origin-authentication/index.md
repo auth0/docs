@@ -25,7 +25,7 @@ Cross-origin authentication is not recommended and is only necessary when authen
 
 ## Limitations
 
-Because cross-origin authentication is achieved using third-party cookies, disabling third-party cookies will make cross-origin authentication fail. Some browsers, such as the newest version of Firefox, disable third-party cookies by default, meaning that unless the application is using a custom domain, cross-origin authentication will not work for users on Firefox.
+Because cross-origin authentication is achieved using third-party cookies, disabling third-party cookies will make cross-origin authentication fail. Some browsers, such as the newest version of Firefox, disable third-party cookies by default, meaning that cross-origin authentication will not work for users on Firefox. The only way to make embedded login work for Firefox users is to use a custom domain, as described below.
 
 There are two approaches you can follow to remediate the issue:
 
