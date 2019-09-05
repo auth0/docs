@@ -22,7 +22,7 @@ Auth0 provides an [Emails](${manage_url}/#/emails) dashboard that allows you to 
 Only one template can be used for each template type (for example, only one template for verify emails).
 :::
 
-At this time, Auth0 does not support plaintext/text-based email.s
+At this time, Auth0 does not support plaintext/text-based emails.
 
 ## Configuring email templates
 
