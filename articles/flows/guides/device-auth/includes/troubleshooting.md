@@ -21,9 +21,12 @@ To use the Device Authorization Flow, Applications must:
 * Be [OIDC-conformant](/dashboard/reference/settings-application#oauth)
 * Not be created through [Dynamic Client Registration](/api-auth/dynamic-client-registration)
 
+To use the Device Authorization Flow, devices must:
+
+* Support Server Name Indication (SNI) when Custom Domains are used
+
 In addition, the Device Authorization Flow does not allow:
-* [Social Connections](/connections) using [Auth0 developer keys](/connections/social/devkeys) unless you are using Universal Login without custom domains
+* [Social Connections](/connections) using [Auth0 developer keys](/connections/social/devkeys) unless you are using Universal Login without Custom Domains
 * Query string parameters to be accessed from hosted login page or rules
-* Custom domains with Arduino, because Arduino firmware does not support Server Name Indication (SNI)
 
 We support the full [Draft 15](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-15), except for confidential Clients.
