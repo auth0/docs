@@ -1,10 +1,10 @@
 ---
-title: Add Native Sign In with Apple to Your App
+title: Add Sign In with Apple to Your Web App
 connection: Apple
 index: 3
 image: /media/connections/apple.svg
 seo_alias: apple
-description: Learn how to add native login functionality to your app with Apple. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
+description: Learn how to add native login functionality to your web app with Apple. 
 toc: true
 topics:
   - authentication
@@ -17,9 +17,7 @@ useCase:
   - customize-connections
   - add-idp
 ---
-# Add Native Sign In with Apple to Your App
-
-Apple requires the adoption of native Sign In with Apple (SIWA) capabilities if you have an app published on the App Store and you support different third-party sign-in options (such as Facebook, Google, or Twitter). 
+# Add Sign In with Apple to Your Web App
 
 To set up and configure native Sign In with Apple, you will do the following:
 
@@ -30,52 +28,11 @@ To set up and configure native Sign In with Apple, you will do the following:
 * [Configure the application connection in Auth0](#configure-the-connection-in-auth0): Complete the social connection settings configuration information with the IDs and keys you obtained for your application from Apple. 
 * [Test the connection](#test-the-connection): Log in to set the connection.
 
-## How it works
+## Prerequisites
 
-Support for native Sign In with Apple is built on top of the [OAuth 2.0 Token Exchange specification](https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16). Auth0 created a profile for native SIWA to handle the following flow:
+<%= include('../_includes/_siwa-prerequisites') %>
 
-1. User authenticates via the Apple SDK on their iPhone/iPad. They receive an authorization code.
-2. The application calls Auth0's `/oauth/token` endpoint with the following parameters:
-    - `subject_token`: the authorization code they received above
-    - `subject_token_type`: `http://auth0.com/oauth/token-type/apple-authz-code`
-    - `grant_type`: `urn:ietf:params:oath:grant-type:token-exchange`
-    - `client_id`: their Auth0 Client ID
-    - `audience` and `scope` as needed (optional)
-3. Auth0 exchanges the `code` with Apple for a set of ID, access, and refresh tokens.
-4. Auth0 saves the user profile, executes rules and authorization, then issues access tokens (refresh tokens and ID tokens) as requested. These tokens are used to protect your APIs and users managed by Auth0.
-
-## Before you begin
-
-Before you add support for native SIWA, you'll need:
-
-* An [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/)).
-* A domain (such as `<YOUR CUSTOM DOMAIN>.com`) that you can use and point to your web app and an internet-accessible server where you will run the app, and that responds on behalf of this domain. You will also need to configure this server with a TLS certificate (Apple won't accept unsecured HTTP connections) and [`npm` and `Node.js`](https://nodejs.org/en/download/) (so you can run the web application). Lastly, to use the Email Relay Service, you will need to configure your domain with Sender Policy Framework (SPF) DNS TXT records. 
-* A [Custom Domain](/custom-domains) set up on your Auth0 tenant for domain verification with Apple.
-
-::: note
-You can set this up using [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04), [Freenom](https://freenom.com/), or [Let's Encrypt](https://letsencrypt.org/).
-:::
-
-## Test the Apple connection with Auth0 Developer credentials
-
-Test the connection using Auth0’s developer credentials with Apple. 
-
-::: warning
-**Prior to using it in production applications**, you need to set up your own Apple Developer credentials and register your application.
-:::
-
-1. On the [Dashboard](${manage_url}), go to **Connections > Social**.
-2. Click on the Apple connection.
-3. Leave the **Settings** tab fields blank. 
-
-    ![Apple Settings](/media/articles/connections/social/apple/apple-connection.png)
-
-4. On the **Applications** tab, select the applications you want to test the connection with and click **Save**.
-5. Back on the **Settings** tab, click **Try**.
-
-    You should see the Apple sign in page. 
-
-## Register your app in your Apple Developer account
+## Register your web app in your Apple Developer account
 
 Once your Apple Developer account is set up, follow the instructions in the [Apple Setup Guide](/connections/apple-setup) to set up your application. 
 
@@ -355,29 +312,7 @@ Now that you have verified your domain with Apple, define the environment variab
 
 3. Click **Save**.
 
-## Test the connection
-
-::: note
-If you are using the Classic Universal Login flow, or embedding `Lock.js` in your application, make sure you are using `Lock.js` version 11.16 or later.
-:::
-
-1. Visit your application login page and you should see an option for Sign In with Apple:
-
-    ![Apple Login Page](/media/articles/connections/social/apple/apple-login-page.png)
-
-2. Click **Continue with Apple**, then enter your Apple ID and password.
-
-3. You will be asked to verify a new device. Click **Allow**.
-
-4. Next you'll be given a verication code. Make a note of this code, click **Done**, and then enter the code on the **Two-Factor Authentication** screen.
-
-    ![Apple Two-Factor Authentication](/media/articles/connections/social/apple/apple-2FA.png)
-
-5. When this is done, you'll have the option to edit your name and choose whether you'd like to share or hide your email. Make your choice, then click **Continue**.
-
-    ![Apple Email Preferences](/media/articles/connections/social/apple/apple-email-preferences.png)
-
-    You are now signed in to your application with Apple!
+4. [Test the connection](/connections/social/apple/guides/test-siwa-connection).
 
 ## Keep reading
 
