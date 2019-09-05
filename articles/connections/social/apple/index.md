@@ -22,7 +22,7 @@ useCase:
 
 Apple requires the adoption of Sign In with Apple (SIWA) capabilities if you have a native app published on the App Store and you support different third-party sign-in options (such as Facebook, Google, or Twitter). 
 
-<%= include('../../_includes/_topic-links', { links: [
+<%= include('../../../_includes/_topic-links', { links: [
   'connections/social/apple/concepts/sign-in-with-apple-overview',
   'connections/social/apple/guides/add-siwa-to-native-app',
   'connections/social/apple/guides/add-siwa-to-web-app',

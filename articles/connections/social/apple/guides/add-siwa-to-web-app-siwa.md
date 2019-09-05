@@ -318,5 +318,3 @@ Now that you have verified your domain with Apple, define the environment variab
 
 * [Auth0 Blog: What is Sign In with Apple](https://auth0.com/blog/what-is-sign-in-with-apple-a-new-identity-provider/)
 * See [Sign In with Apple](https://developer.apple.com/sign-in-with-apple/) for information about Apple's Sign In with Apple capabilities.
-
-<%= include('../../_quickstart-links.md') %>
