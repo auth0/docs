@@ -2,213 +2,230 @@
 
 <%= include('../../_includes/_login_preamble', { library: 'Vue.js' }) %>
 
-### Create an Authentication Service
+## Create a Sample Application
 
-The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you will be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `AuthService` and the filename will be `authService.js`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
-
-Create a service and instantiate `auth0.WebAuth`. Provide a method called `login` which calls the `authorize` method from auth0.js.
-
-```js
-// src/auth/authService.js
-
-import auth0 from 'auth0-js';
-import EventEmitter from 'events';
-import authConfig from '../../auth_config.json';
-
-const webAuth = new auth0.WebAuth({
-  domain: authConfig.domain,
-  redirectUri: `<%= "${window.location.origin}" %>/callback`,
-  clientID: authConfig.clientId,
-  responseType: 'id_token',
-  scope: 'openid profile email'
-});
-
-class AuthService extends EventEmitter {
-
-  // Starts the user login flow
-  login(customState) {
-    webAuth.authorize({
-      appState: customState
-    });
-  }
-
-}
-
-export default new AuthService();
-```
-
-:::note
-The `login` method has been setup to support specifing custom state that will be returned to the application after authentication. This will come into play later when you start adding protected routes.
+::: note
+The following tutorial creates a new Vue application using the [Vue CLI](https://cli.vuejs.org/guide/), and presents some common ways to build Vue applications, in terms of its structure and naming conventions. If you are using this guide to integrate the Auth0 SDK into your own Vue application, you may need to adjust some of the steps to suit your scenario.
 :::
 
-To provide the values for `clientID`, `callbackUrl`, and `domain`, create a new file `auth_config.json` in the root directory of the application alongside your `package.json` file, and populate it with your tenant values:
+If you don't already have an existing application, you can create one using the [Vue CLI](https://cli.vuejs.org/guide/) tool. Using the terminal, find a location on your drive where you want to create the project and run the following commands:
+
+```bash
+# Install the CLI
+npm install -g @vue/cli
+
+# Create the application using the Vue CLI.
+# When asked to pick a preset, accept the defaults
+vue create my-app
+
+# Move into the project directory
+cd my-app
+
+# Add the router, as we will be using it later
+vue add router
+```
+
+Adding the router to this project conveniently adds a couple of views and a basic router to the project. We will make use of those later in the tutorial!
+
+### Install initial dependencies
+
+After creating a new Vue app using the CLI, install the [Auth0 Client SDK](https://github.com/auth0/auth0-spa-js):
+
+```bash
+npm install @auth0/auth0-spa-js
+```
+
+### Create an authentication service
+
+The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you will be able to call its methods throughout your application. In this sample, this service is implemented as a Vue object. Doing this makes it much easier to work with the asynchronous methods of the Auth0 SDK, thanks to the reactive nature of the Vue object.
+
+Later you will implement a Vue plugin that uses this object to expose the SDK to the rest of the application.
+
+To implement this object, create a new folder called `auth` inside the `src` folder, and then create a new file called `authService.js` inside. Populate this file with the following content:
+
+:::note
+The intention is for the following code snippet and the associated Vue plugin to be refactored into its own library, to be installed as a dependency of your project. For now add the code in-line into your project.
+:::
+
+```js
+import Vue from "vue";
+import createAuth0Client from "@auth0/auth0-spa-js";
+
+/** Define a default action to perform after authentication */
+const DEFAULT_REDIRECT_CALLBACK = () =>
+  window.history.replaceState({}, document.title, window.location.pathname);
+
+let instance;
+
+/** Returns the current instance of the SDK */
+export const getInstance = () => instance;
+
+/** Creates an instance of the Auth0 SDK. If one has already been created, it returns that instance */
+export const createAuthService = ({
+  onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
+  redirectUri = window.location.origin,
+  ...options
+}) => {
+  if (instance) return instance;
+
+  // The 'instance' is simply a Vue object
+  instance = new Vue({
+    data() {
+      return {
+        loading: true,
+        isAuthenticated: false,
+        user: {},
+        auth0Client: null,
+        popupOpen: false,
+        error: null
+      };
+    },
+    methods: {
+      /** Authenticates the user using a popup window */
+      async loginWithPopup(o) {
+        this.popupOpen = true;
+
+        try {
+          await this.auth0Client.loginWithPopup(o);
+        } catch (e) {
+          console.error(e);
+        } finally {
+          this.popupOpen = false;
+        }
+
+        this.user = await this.auth0Client.getUser();
+        this.isAuthenticated = true;
+      },
+      /** Handles the callback when logging in using a redirect */
+      async handleRedirectCallback() {
+        this.loading = true;
+        try {
+          await this.auth0Client.handleRedirectCallback();
+          this.user = await this.auth0Client.getUser();
+          this.isAuthenticated = true;
+        } catch (e) {
+          this.error = e;
+        } finally {
+          this.loading = false;
+        }
+      },
+      /** Authenticates the user using the redirect method */
+      loginWithRedirect(o) {
+        return this.auth0Client.loginWithRedirect(o);
+      },
+      /** Returns all the claims present in the ID token */
+      getIdTokenClaims(o) {
+        return this.auth0Client.getIdTokenClaims(o);
+      },
+      /** Returns the access token. If the token is invalid or missing, a new one is retrieved */
+      getTokenSilently(o) {
+        return this.auth0Client.getTokenSilently(o);
+      },
+      /** Gets the access token using a popup window */ 
+      getTokenWithPopup(o) {
+        return this.auth0Client.getTokenWithPopup(o);
+      },
+      /** Logs the user out and removes their session on the authorization server */
+      logout(o) {
+        return this.auth0Client.logout(o);
+      }
+    },
+    /** Use this lifecycle method to instantiate the SDK client */
+    async created() {
+
+      // Create a new instance of the SDK client using members of the given options object
+      this.auth0Client = await createAuth0Client({
+        domain: options.domain,
+        client_id: options.clientId,
+        audience: options.audience,
+        redirect_uri: redirectUri
+      });
+
+      try {
+        // If the user is returning to the app after authentication..
+        if (
+          window.location.search.includes("code=") &&
+          window.location.search.includes("state=")
+        ) {
+          // handle the redirect and retrieve tokens
+          const { appState } = await this.auth0Client.handleRedirectCallback();
+
+          // Notify subscribers that the redirect callback has happened, passing the appState
+          // (useful for retrieving any pre-authentication state)
+          onRedirectCallback(appState);
+        }
+      } catch (e) {
+        this.error = e;
+      } finally {
+        // Initialize our internal authentication state
+        this.isAuthenticated = await this.auth0Client.isAuthenticated();
+        this.user = await this.auth0Client.getUser();
+        this.loading = false;
+      }
+    }
+  });
+
+  return instance;
+};
+```
+
+The `options` object that is passed to `createAuthService` is used to provide the values for `clientId`, `audience`, and `domain`. For this example, create a new file `auth_config.json` in the root directory of the application alongside your `package.json` file, and populate it with your tenant values:
 
 ```json
 {
   "domain": "${account.namespace}",
-  "clientId": "${account.clientId}"
+  "clientId": "${account.clientId}",
+  "audience": "${apiIdentifier}"
 }
 ```
 
-::: note
-**Checkpoint:** Try calling the `login` method from somewhere in your application. This could be from a button click or in some lifecycle event; just something that will trigger the method so you can see the login page.
+:::note
+The `audience` value is not used here, but will come into play in the next tutorial when calling APIs
 :::
 
-![hosted login](/media/articles/web/hosted-login.png)
+<!-- ![hosted login](/media/articles/web/hosted-login.png) -->
 
-## Handle Authentication Tokens
+### Create a Vue plugin
 
-Add some additional methods to `AuthService` to fully handle authentication in the app.
+Create a [Vue plugin](https://vuejs.org/v2/guide/plugins.html) that provides access to the auth object to each component, through the `this.$auth` property.
 
-```js
-// src/auth/authService.js
-
-// Other imports and WebAuth declaration..
-
-const localStorageKey = 'loggedIn';
-const loginEvent = 'loginEvent';
-
-class AuthService extends EventEmitter {
-  idToken = null;
-  profile = null;
-  tokenExpiry = null;
-
-  // Starts the user login flow
-  login(customState) {
-    webAuth.authorize({
-      appState: customState
-    });
-  }
-
-  // Handles the callback request from Auth0
-  handleAuthentication() {
-    return new Promise((resolve, reject) => {
-      webAuth.parseHash((err, authResult) => {
-        if (err) {
-          reject(err);
-        } else {
-          this.localLogin(authResult);
-          resolve(authResult.idToken);
-        }
-      });
-    });
-  }
-
-  localLogin(authResult) {
-    this.idToken = authResult.idToken;
-    this.profile = authResult.idTokenPayload;
-
-    // Convert the JWT expiry time from seconds to milliseconds
-    this.tokenExpiry = new Date(this.profile.exp * 1000);
-
-    localStorage.setItem(localStorageKey, 'true');
-
-    this.emit(loginEvent, {
-      loggedIn: true,
-      profile: authResult.idTokenPayload,
-      state: authResult.appState || {}
-    });
-  }
-
-  renewTokens() {
-    return new Promise((resolve, reject) => {
-      if (localStorage.getItem(localStorageKey) !== "true") {
-        return reject("Not logged in");
-      }
-      
-      webAuth.checkSession({}, (err, authResult) => {
-        if (err) {
-          reject(err);
-        } else {
-          this.localLogin(authResult);
-          resolve(authResult);
-        }
-      });
-    });
-  }
-
-  logOut() {
-    localStorage.removeItem(localStorageKey);
-
-    this.idToken = null;
-    this.tokenExpiry = null;
-    this.profile = null;
-
-    webAuth.logout({
-      returnTo: window.location.origin
-    });
-
-    this.emit(loginEvent, { loggedIn: false });
-  }
-
-  isAuthenticated() {
-    return (
-      Date.now() < this.tokenExpiry &&
-      localStorage.getItem(localStorageKey) === 'true'
-    );
-  }
-}
-
-export default new AuthService();
-```
-
-The service now includes several other methods for handling authentication.
-
-- `handleCallback` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
-- `localLogin` - sets the user's ID Token, and a time at which the ID Token will expire. The expiry time is converted to milliseconds so that the native JavaScript `Date` object can be used
-- `renewTokens` - uses the `checkSession` method from auth0.js to renew the user's authentication status, and calls `localLogin` if the login session is still valid
-- `logout` - removes the user's tokens from memory. It also calls `webAuth.logout` to log the user out at the authorization server
-- `isAuthenticated` - checks whether the local storage flag is present and equals "true", and that the expiry time for the ID Token has passed
-
-### About the Authentication Service
-
-<%= include('_auth_service_method_description') %>
-
-### Create a Vue Plugin
-
-So that the authentication service may be passed around easily to each component, create a Vue.js plugin that will inject the service into everywhere that needs it:
+To start, create a new folder in the `src` folder called `plugins`, and a new file in there called `authPlugin.js`. Populate it with the following content:
 
 ```js
-// src/plugins/auth.js
-
-import authService from '../auth/authService';
+import { createAuthService } from "../auth/authService";
 
 export default {
-  install(Vue) {
-    Vue.prototype.$auth = authService;
-
-    Vue.mixin({
-      created() {
-        if (this.handleLoginEvent) {
-          authService.addListener('loginEvent', this.handleLoginEvent);
-        }
-      },
-
-      destroyed() {
-        if (this.handleLoginEvent) {
-          authService.removeListener('loginEvent', this.handleLoginEvent);
-        }
-      }
-    });
+  install(Vue, options) {
+    Vue.prototype.$auth = createAuthService(options);
   }
 };
 ```
 
-This plugin provides access to the `AuthService` class from each component, through the `this.$auth` property. It also provides a mechanism for when the login state changes, for components that implement a `handleLoginEvent` method.
+Note that the `createAuthService` method is imported from the file you created earlier, and that the result of that call is assigned to the `$auth` property. Every component will now have access to the authentication state and can alter their behavior accordingly.
 
-Open `main.js` and install the plugin:
+Finally, open `src/main.js` and install the plugin:
 
 ```js
-// src/main.js
-
 import Vue from "vue";
 import App from "./App.vue";
+import router from './router'
+import config from "../auth_config.json";
 
 // Import the plugin here
 import AuthPlugin from "./plugins/auth";
 
 // Install the authentication plugin here
-Vue.use(AuthPlugin);
+Vue.use(AuthPlugin, {
+  domain: config.domain,
+  clientId: config.clientId,
+  onRedirectCallback: appState => {
+    router.push(
+      appState && appState.targetUrl
+        ? appState.targetUrl
+        : window.location.pathname
+    );
+  }
+});
 
 Vue.config.productionTip = false;
 
@@ -216,168 +233,99 @@ new Vue({
   router,
   render: h => h(App)
 }).$mount("#app");
-
 ```
 
-### Provide a Login Control
+Notice that the configuration file created earlier has been imported and used to initialize the plugin. A custom redirect callback has also been supplied, which redirects the user to a protected route after they have authenticated (this is covered a bit later).
 
-Provide a component with controls for the user to log in and log out.
+## Log in to the App
 
-::: note
-This example was created from a [Vue CLI](https://cli.vuejs.org/) template and uses Single-File Components.
+In this section, you will provide a way for the user to log in or log out, depending on their authentication status.
+
+Open the `views/Home.vue` file and modify the template to include two buttons that enable the user to log in and log out:
+
+```html
+<template>
+  <div class="home">
+    <img alt="Vue logo" src="../assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+
+    <!-- Check that the SDK client is not currently loading before accessing is methods -->
+    <div v-if="!$auth.loading">
+      <!-- show login when not authenticated -->
+      <button v-if="!$auth.isAuthenticated" @click="login">Log in</button>
+      <!-- show logout when authenticated -->
+      <button v-if="$auth.isAuthenticated" @click="logout">Log out</button>
+    </div>
+  </div>
+</template>
+```
+
+Notice that the buttons are wrapped in a directive that makes sure `$auth.loading` is false. This is because most methods on the SDK client are asynchronous, and you must wait until the client has finished loading before trying to access things like the user's authentication state.
+
+Further down the `Home.vue` file, modify the components script and implement the `login` and `logout` methods as follows:
+
+```js
+<script>
+// .. imports removed for brevity
+
+export default {
+  name: "home",
+  components: {
+    HelloWorld
+  },
+  methods: {
+    // Log the user in
+    login() {
+      this.$auth.loginWithRedirect();
+    },
+    // Log the user out
+    logout() {
+      this.$auth.logout({
+        returnTo: window.location.origin
+      });
+    }
+  }
+};
+</script>
+```
+
+:::panel Checkpoint
+Try running the application at this point. Provided you have configured your Auth0 credentials correctly, you should be redirected to the Auth0 Universal Login page, and back to your app against once you have logged in.
+
+Then, you should be able to click **Log out** and have the application log you out of the system.
 :::
-
-${snippet(meta.snippets.use)}
-
-The `@click` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `AuthService` to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
-
-Also notice the use of `this.$auth` to access the `AuthService` instance. Login events can be handled by providing a `handleLoginEvent` method on any component.
-
-When the **Log In** button is clicked, the user will be redirected to login page.
 
 <%= include('../../_includes/_hosted_login_customization') %>
 
-When the application first starts up, a call to `renewTokens` is made that tries to reinitialize the user's login session, if it is detected that they should already be logged in. This would be the case, for example, if the user logged in and then refreshed the browser window.
-
-### Add a Callback Component
-
-Using Universal Login means that users are taken away from your application to a login page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
-
-<%= include('../../_includes/_callback_component') %>
-
-When a user authenticates at the login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsible for processing the hash.
-
-Install `vue-router` to allow callbacks to be routed properly to the `Callback` component:
-
-```bash
-npm install vue-router
-```
-
-Create a component named `Callback` and populate it with a loading indicator. The component should also call `handleAuthentication` from the `AuthService`.
-
-```js
-<!-- src/components/Callback.vue -->
-
-<template>
-  <div>
-    <p>Loading...</p>
-  </div>
-</template>
-
-<script>
-export default {
-  methods: {
-    handleLoginEvent(data) {
-      this.$router.push(data.state.target || "/");
-    }
-  },
-  created() {
-    this.$auth.handleAuthentication();
-  }
-};
-</script>
-```
-
-Add a new file `router.js` inside the `src` folder with the following content:
-
-```js
-// src/router.js
-
-import Vue from 'vue';
-import Router from 'vue-router';
-import Callback from './components/Callback';
-
-Vue.use(Router);
-
-const routes = [
-  {
-    path: '/callback',
-    name: 'callback',
-    component: Callback
-  }
-];
-
-const router = new Router({
-  mode: 'history',
-  routes
-});
-
-export default router;
-```
-
-::: note
-This example relies on using path-based routing with `mode: 'history'`. If you are using hash-based routing, you won't be able to specify a dedicated callback route because the URL hash will be used to hold the user's authentication information.
-:::
-
-Updated `main.js` to register the router:
-
-```js
-// src/main.js
-
-import Vue from 'vue';
-import App from './App.vue';
-import AuthPlugin from './plugins/auth';
-
-// NEW - import the router
-import router from './router';
-
-Vue.use(AuthPlugin);
-
-Vue.config.productionTip = false;
-
-new Vue({
-  router,   // NEW - register the routes with the application
-  render: h => h(App)
-}).$mount('#app');
-
-```
-
-After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. Their client-side session will be set during this time, after which they will be redirected to the `/` route.
-
 ## Display the User's Profile
 
-The `AuthService` has already extracted the user's profile information and stored it in memory, and can be accessed using `this.$auth.profile` from inside a Vue component.
+In this section, you will display the user's profile information on a new page, as an example of how to retrieve the user's profile data.
 
-To display the profile information, create a new component `Profile` in the `views` folder:
+Once the user authenticates, the SDK extracts the user's profile information and stores it in memory. It can be accessed using `this.$auth.user` from inside a Vue component.
+
+To display the profile information, create a new file called `Profile.vue` in the `views` folder. Use the `this.$auth.user` property to access the user's profile data and display it on the page, as in the following example:
 
 ```js
-<!-- src/views/Profile.vue -->
-
 <template>
-  <div v-if="profile">
+  <div>
     <div>
-      <div>
-        <img :src="profile.picture">
-      </div>
-      <div>
-        <h2>{{ profile.name }}</h2>
-        <p>{{ profile.email }}</p>
-      </div>
+      <img :src="$auth.user.picture">
+      <h2>{{ $auth.user.name }}</h2>
+      <p>{{ $auth.user.email }}</p>
     </div>
 
     <div>
-      <pre>{{ JSON.stringify(profile, null, 2) }}</pre>
+      <pre>{{ JSON.stringify($auth.user, null, 2) }}</pre>
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      profile: this.$auth.profile
-    };
-  },
-  methods: {
-    handleLoginEvent(data) {
-      this.profile = data.profile;
-    }
-  }
-};
-</script>
 ```
 
-Import the `Profile` component into `router.js` and then modify the routes list so that the `Profile` component is mapped to `/profile`:
+### Add a route to the Profile component
+
+You will add a route to this Profile component so that the user may access it via the UI and the navigation bar. In the next section, you will protect this route from unauthenticated users.
+
+To access the profile page, import the `Profile` component into `router.js` and then modify the routes list so that the `Profile` component is mapped to `/profile`:
 
 ```js
 // src/router.js
@@ -385,92 +333,110 @@ Import the `Profile` component into `router.js` and then modify the routes list 
 //.. other imports
 import Profile from "./views/Profile.vue";
 
-const routes = [
-  {
-    path: '/callback',
-    name: 'callback',
-    component: Callback
-  },
-
-  // NEW - add the route to the /profile component
-  {
-    path: "/profile",
-    name: "profile",
-    component: Profile
-  }
-];
-
-// Unchanged code
 const router = new VueRouter({
   mode: 'history',
-  routes
+  routes: [
+    // .. other routes and pages ..
+
+    // NEW - add the route to the /profile component
+    {
+      path: "/profile",
+      name: "profile",
+      component: Profile
+    }
+  ]
 });
 
 export default router;
 ```
 
-Then add the `/profile` route to your navigation bar by inserting a new `<li>` element into the navigation bar structure:
+Next, modify the navigation bar in `App.vue` to include a route to the profile page, making sure that it is only available when the user is authenticated:
 
 ```html
-// src/App.vue
+<template>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link>|
+      <router-link to="/about">About</router-link>|
 
-//... other navigation code
-
-<li>
-  <router-link to="/">Home</router-link>
-</li>
-<li v-if="!isAuthenticated">
-  <a href="#" @click.prevent="login">Login</a>
-</li>
-
-<!-- new link to /profile - only show if authenticated -->
-<li v-if="isAuthenticated">
-  <router-link to="/profile">Profile</router-link>
-</li>
-<!-- /profile -->
-
-<li v-if="isAuthenticated">
-  <a href="#" @click.prevent="logout">Log out</a>
-</li>
+      <!-- NEW - add a route to the profile page -->
+      <router-link v-if="$auth.isAuthenticated" to="/profile">Profile</router-link>
+    </div>
+    <router-view />
+  </div>
+</template>
 ```
 
-### Securing the profile route
+:::panel Checkpoint
+Now when you run the application, you should be able to log in and see the link to the profile page in the navigation bar. When you navigate to the profile page, the user's information will be visible on the screen.
+:::
+
+## Secure the Profile Page
 
 Even though the `/profile` route is only shown if the user is authenticated, the user could still manually type the URL into the browser and access the page if they have not logged in — although there will be nothing to see.
 
 A catch-all rule can be added to the router so that access is only permitted if the user is logged in. If they are not logged in, they will be prompted to log in before being redirected to the location they tried to access in the first place.
 
-Open `router.js` and add a rule that exhibits this behavior:
+Create a new file in the `src/auth` folder called `authGuard.js`, and use the `getInstance` method of the authentication service to implement a function that will prevent a route from being accessed by an unauthenticated user:
 
 ```js
-// src/router.js
+import { getInstance } from "./authService";
 
-// .. other imports
-import auth from "./auth/authService";
+export const authGuard = (to, from, next) => {
+  const authService = getInstance();
 
-// .. routes list
+  const fn = () => {
+    // If the user is authenticated, continue with the route
+    if (authService.isAuthenticated) {
+      return next();
+    }
 
-// Existing router declaration
-const router = new Router({
-  mode: 'history',
-  routes
-});
+    // Otherwise, log in
+    authService.loginWithRedirect({ appState: { targetUrl: to.fullPath } });
+  };
 
-// NEW - add a `beforeEach` handler to each route
-router.beforeEach((to, from, next) => {
-  if (to.path === "/" || to.path === "/callback" || auth.isAuthenticated()) {
-    return next();
+  // If loading has already finished, check our auth state using `fn()`
+  if (!authService.loading) {
+    return fn();
   }
 
-  // Specify the current path as the customState parameter, meaning it
-  // will be returned to the application after auth
-  auth.login({ target: to.path });
-});
-
-// Existing export
-export default router;
+  // Watch for the loading property to change before we check isAuthenticated
+  authService.$watch("loading", loading => {
+    if (loading === false) {
+      return fn();
+    }
+  });
+};
 ```
 
-Given this, any page that is not either the home page or the callback URL will cause the application to show the login prompt if the user is not authenticated.
+Notice that in the call to `loginWithRedirect`, the URL that the user was trying to access (`to.fullPath`) is supplied. This URL will be returned to the app after authentication, and is used to redirect the user to the place they were trying to reach before they logged in.
 
-<%= include('../../_includes/_see_it_in_action.md') %>
+:::note
+To see how the `targetUrl` property is used to navigate the user once they have authenticated, revisit the <a href="#create-a-vue-plugin">Create a Vue Plugin</a> section again and inspect how the plugin is installed into your Vue app.
+:::
+
+Finally, open up `src/router.js` and use the guard to protect the `/profile` route, as in the following example:
+
+```js
+// .. other imports ..
+
+import { authGuard } from "./auth/authGuard";
+
+export default new Router({
+  mode: "history",
+  base: process.env.BASE_URL,
+  routes: [
+    // .. other routes ..
+    {
+      path: "/profile",
+      name: "profile",
+      component: Profile,
+      beforeEnter: authGuard
+    }
+  ]
+});
+```
+
+:::panel Checkpoint
+Start the application and make sure you are logged out. Now, modify the URL in your browser's navigation bar to include the `/profile` path on the end. This should cause the application to ask you to authentication. Once you have logged in, the profile page should be visible without you having to navigate there manually.
+:::
