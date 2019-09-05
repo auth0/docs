@@ -28,8 +28,7 @@ Set the following configuration variables:
 * **USERNAME**: Your Visual Studio Team Services username
 * **TOKEN**: Your personal Access Token for Visual Studio Team Services, for details on how to configure one refer to [Configure a Personal Access Token](#configure-a-personal-access-token) below.
 * **BASE_DIR**: The base directory, where all your tenant settings are stored
-* **ENABLE_CIPHER**: Enables secrets encryption/decryption support
-* **CIPHER_PASSWORD**: The password for encryption/decryption of secrets
+* **AUTO_REDEPLOY**: If enabled, the extension redeploys the last successful configuration in the event of a deployment failure. Manual deployments and validation errors does not trigger auto-redeployment
 * **SLACK_INCOMING_WEBHOOK**: Webhook URL for Slack used to notify you of successful and failed deployments.
 
 ::: note
@@ -194,10 +193,6 @@ For example, if you create the file `rules/set-country.js`, the extension will c
 If you plan to use source control integration for an existing account, first rename your Rules in Auth0 to match the name of the files you will be deploying to this directory.
 :::
 
-You can mark rules as manual. In that case, the source control extension will not delete or update them. To mark a rule navigate to the **Rules Configuration** tab of the **Visual Studio Team Services Integration** page. Toggle the **Manual Rule** switch for the rules you want to mark as manual. Click **Update Manual Rules** to save your changes.
-
-![Mark rules as manual](/media/articles/extensions/visual-studio-ts/manual-rule.png)
-
 You can also control the Rule order and status (`enabled`/`disabled`) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
 
 __set-country.js__
@@ -345,25 +340,42 @@ __blocked_account.json__
 }
 ```
 
-## Encrypt Secrets
+## Excluded records
 
-Beginning with version **2.6.0**, you can encrypt sensitive data (e.g., Rules configurations) so that you can store your files in public repositorieis.
+You can exclude the following records from the deployment process: `rules`, `clients`, `databases`, `connections` and `resourceServers`. If excluded, the records will not be modified by deployments.
 
-To encrypt your data, log in to your extension and go to the **Secrets Encryption Tool** (you should have enabled the cipher in the extension's configuration settings).
+![](/media/articles/extensions/deploy-extensions/excluded-rules.png)
 
-![](/media/articles/extensions/visual-studio-ts/encryption.png)
+## Keywords Mapping
 
-Copy `Encrypted Secret` to any string field that should remain private as shown:
+Beginning with version **3.0.0**, you can use keywords mapping to manage your secrets and tenant-based environment variables.
 
-__rules-configs/biggest_secret.json__
+There are two ways to use the keyword mappings. You can either wrap the key using `@` symbols (e.g., `@@key@@`), or you can wrap the key using `#` symbols (e.g., `##key##`). 
+
+  - If you use `@` symbols, your value will be converted from a JavaScript object or value to a JSON string.
+
+  - If you use `#` symbols, Auth0 will perform a literal replacement.
+
+This is useful for something like specifying different variables across your environments. For example, you could specify different JWT timeouts for your Development, QA/Testing, and Production environments.
+
+Refer to the snippets below for sample implementations:
+
+__Client.json__
 ```json
 {
-  "key": "biggest_secret",
-  "value": "nobody should know that [!cipher]0dcd9c0696b1feb7878bd4d8360db09e8885319046955d4a6ae1cd6135e5f58cce654f15b136eacc06981c0c7a4bb32f3a5c19-2c84a546cb503666382f87d87af82cb1657dab51d1583b40[rehpic!]"
+  ...
+  "callbacks": [
+    "##ENVIRONMENT_URL##/auth/callback"
+  ],
+  "jwt_configuration": {
+    "lifetime_in_seconds": ##JWT_TIMEOUT##,
+    "secret_encoded": true
+  }
+  ...
 }
 ```
 
-The extension will decrypt all encrypted secrets automatically.
+![](/media/articles/extensions/deploy-extensions/mappings.png)
 
 ## Track Deployments
 

@@ -25,16 +25,15 @@ To install and configure this extension, click on the __GitHub Deployments__ box
 
 Set the following configuration variables:
 
-- **REPOSITORY**: The repository from which you want to deploy rules and database scripts. This can be either a public or private repository.
-- **BRANCH**: The branch that the extension will monitor for commits.
-- **HOST**: The public accessible GitHub Enterprise _(version 2.11.3 and later)_ hostname, no value is required when using github.com (optional).
-- **API_PATH**: GitHub Enterprise API path prefix, no value is required when using github.com (optional).
-- **TOKEN**: Your GitHub Personal Access Token. Follow the instructions at [Creating an Access Token]
+* **REPOSITORY**: The repository from which you want to deploy rules and database scripts. This can be either a public or private repository.
+* **BRANCH**: The branch that the extension will monitor for commits.
+* **HOST**: The public accessible GitHub Enterprise _(version 2.11.3 and later)_ hostname, no value is required when using github.com (optional).
+* **API_PATH**: GitHub Enterprise API path prefix, no value is required when using github.com (optional).
+* **TOKEN**: Your GitHub Personal Access Token. Follow the instructions at [Creating an Access Token]
 (https://help.github.com/articles/creating-an-access-token-for-command-line-use/#creating-a-token) to create a token with `repo` scope.
 * **BASE_DIR**: The base directory, where all your tenant settings are stored
-* **ENABLE_CIPHER**: Enables secrets encryption/decryption support
-* **CIPHER_PASSWORD**: The password for encryption/decryption of secrets
-- **SLACK_INCOMING_WEBHOOK_URL**: The Webhook URL for Slack, used to receive Slack notifications for successful and failed deployments (optional).
+* **AUTO_REDEPLOY**: If enabled, the extension redeploys the last successful configuration in the event of a deployment failure. Manual deployments and validation errors does not trigger auto-redeployment
+* **SLACK_INCOMING_WEBHOOK_URL**: The Webhook URL for Slack, used to receive Slack notifications for successful and failed deployments (optional).
 
 ::: note
 Some of the configuration variables were changed in version **2.6.0** of this extension. If you are updating the extension from a prior version, make sure that you update your configuration accordingly.
@@ -142,8 +141,8 @@ The supported pages are:
 To deploy a page, you must create an HTML file under the `pages` directory of your GitHub repository. For each HTML page, you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, to deploy a `password_reset`, you would create two files:
 
 ```text
-your-bitbucket-repo/pages/password_reset.html
-your-bitbucket-repo/pages/password_reset.json
+your-github-repo/pages/password_reset.html
+your-github-repo/pages/password_reset.json
 ```
 
 To enable the page, the `password_reset.json` would contain the following:
@@ -165,10 +164,6 @@ For example, if you create the file `rules/set-country.js`, then the extension w
 ::: note
 If you plan to use Source Control integration for an existing account, first rename your rules in Auth0 to the same name of the files you will be deploying to this directory.
 :::
-
-You can mark rules as manual. In that case, the source control extension will not delete or update them. To mark a rule, navigate to the **Rules Configuration** tab of the GitHub Integration page. Toggle the **Manual Rule** switch for the rules you want to mark as manual. Click **Update Manual Rules** to save your changes.
-
-![Manual Rules](/media/articles/extensions/github-deploy/manual-rules.png)
 
 You can control the rule order and status (`enabled`/`disabled`) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
 
@@ -309,25 +304,42 @@ __blocked_account.json__
 }
 ```
 
-## Encrypt Secrets
+## Excluded records
 
-Beginning with version **2.7.0**, you can encrypt sensitive data (e.g., Rules configurations) so that you can store your files in public repositories.
+You can exclude the following records from the deployment process: `rules`, `clients`, `databases`, `connections` and `resourceServers`. If excluded, the records will not be modified by deployments.
 
-To encrypt your data, log in to your extension and go to the **Secrets Encryption Tool** (you should have enabled the cipher in the extension's configuration settings).
+![](/media/articles/extensions/deploy-extensions/excluded-rules.png)
 
-![](/media/articles/extensions/github-deploy/encryption.png)
+## Keywords Mapping
 
-Copy `Encrypted Secret` to any string field that should remain private as shown:
+Beginning with version **3.0.0**, you can use keywords mapping to manage your secrets and tenant-based environment variables.
 
-__rules-configs/biggest_secret.json__
+There are two ways to use the keyword mappings. You can either wrap the key using `@` symbols (e.g., `@@key@@`), or you can wrap the key using `#` symbols (e.g., `##key##`). 
+
+  - If you use `@` symbols, your value will be converted from a JavaScript object or value to a JSON string.
+
+  - If you use `#` symbols, Auth0 will perform a literal replacement.
+
+This is useful for something like specifying different variables across your environments. For example, you could specify different JWT timeouts for your Development, QA/Testing, and Production environments.
+
+Refer to the snippets below for sample implementations:
+
+__Client.json__
 ```json
 {
-  "key": "biggest_secret",
-  "value": "nobody should know that [!cipher]0dcd9c0696b1feb7878bd4d8360db09e8885319046955d4a6ae1cd6135e5f58cce654f15b136eacc06981c0c7a4bb32f3a5c19-2c84a546cb503666382f87d87af82cb1657dab51d1583b40[rehpic!]"
+  ...
+  "callbacks": [
+    "##ENVIRONMENT_URL##/auth/callback"
+  ],
+  "jwt_configuration": {
+    "lifetime_in_seconds": ##JWT_TIMEOUT##,
+    "secret_encoded": true
+  }
+  ...
 }
 ```
 
-The extension will decrypt all encrypted secrets automatically.
+![](/media/articles/extensions/deploy-extensions/mappings.png)
 
 ## Track deployments
 
