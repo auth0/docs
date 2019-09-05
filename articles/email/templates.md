@@ -299,7 +299,7 @@ This email will be generated when an multi-factor authentication enrollment invi
 Besides the [common variables](#common-variables) available for all email templates, the `link` variable is available in this email type, containing the URL that you will use to construct the link for this action, as in this example:
 
 ```html
-<a href="{{ url }}">Enroll your MFA device</a>
+<a href="{{ link }}">Enroll your MFA device</a>
 ```
 
 Do note that, unlike other email templates, the correct variable name is `link` and not `url`. Also, the `connection.name` variable is not available on this email template type.
