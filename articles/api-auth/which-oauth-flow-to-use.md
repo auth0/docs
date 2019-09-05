@@ -23,7 +23,7 @@ OAuth 2.0 supports several different **grants**. Grants are ways of retrieving a
 - **Resource Owner**: the entity that can grant access to a protected resource. Typically this is the end-user.
 - **Client**: an application requesting access to a protected resource on behalf of the Resource Owner.
 - **Resource Server**: the server hosting the protected resources. This is the API you want to access.
-- **Authorization Server**: the server that authenticates the Resource Owner, and issues Access Tokens after getting proper authorization. In this case, Auth0.
+- **Authorization Server**: the server that authenticates the Resource Owner and issues Access Tokens after getting proper authorization. In this case, Auth0.
 - **User Agent**: the agent used by the Resource Owner to interact with the Client, for example a browser or a native application.
 
 ## Is the Client the Resource Owner?
