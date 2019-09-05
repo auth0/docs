@@ -65,7 +65,7 @@ While we strongly recommend that you use our hosted universal login page, if you
 
 ::: concepts  
   * [Universal vs. Embedded Login](/guides/login/universal-vs-embedded)
-  * [ID Tokens](/tokens/id-token)
+  * [ID Tokens](/tokens/id-tokens)
   * [Access Tokens](/tokens/access-token)
   * [Where to store tokens](/security/store-tokens)
 :::

@@ -134,11 +134,7 @@ You can set these fields manually or via [rules](/rules).
 
 #### Set user roles via rules
 
-As an example, the following rule gives users from the `IT Department` the `Delegated Admin - Administrator` role and users from `Department Managers` are the `Delegated Admin - User` role.
-
-::: warning
-`auth0.com`, `webtask.io` and `webtask.run` are Auth0 domains and cannot be used as namespace identifiers for custom claims.
-:::
+As an example, the following rule gives users from the `IT Department` the `Delegated Admin - Administrator` role and users from `Department Managers` are the `Delegated Admin - User` role. Your custom claim should be [namespaced](/tokens/concepts/claims-namespacing).
 
 ```js
 function (user, context, callback) {

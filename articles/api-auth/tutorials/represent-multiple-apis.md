@@ -26,7 +26,7 @@ The sample application uses a microservices architecture and contains:
 * 1 Single-Page Application (SPA)
 * 2 APIs (services), called `contacts` and `calendar`
 
-We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two namespaced scopes to demonstrate how you can use the [Implicit Flow](/flows/concepts/implicit) to access the `calendar` and `contacts` APIs from the SPA.
+We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two scopes to demonstrate how you can use the [Implicit Flow](/flows/concepts/implicit) to access the `calendar` and `contacts` APIs from the SPA.
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ Register a single logical [API](/apis) that you will use to represent the multip
 
 2. When prompted, provide a **name** and **identifier** for the new API, and choose the **signing algorithm** for the tokens obtained for this API.
 
-For the purpose of this sample, we'll call our API `Organizer Service` and set its unique identifier to `organize`. By default, the signing algorithm for the tokens obtained for this API is **RS256**, which we will leave as is.
+For the purpose of this sample, we'll call our API `Organizer Service` and set its unique identifier to `organize`. By default, the [signing algorithm](/tokens/concepts/signing-algorithms) for the tokens obtained for this API is **RS256**, which we will leave as is.
 
 When finished, click **Create**.
 

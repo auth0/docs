@@ -20,7 +20,7 @@ If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth
 
 ## Overview
 
-The **Implicit Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) is similar to the [Authorization Code Grant](/api-auth/grant/authorization-code), but the main difference is that the application receives an [Access Token](/tokens/overview-access-tokens) directly, without the need for an `authorization_code`. This happens because the application, which is typically a JavaScript app running within a browser, is less trusted than a web app running on the server, hence cannot be trusted with the `client_secret` (which is required in the [Authorization Code Grant](/api-auth/grant/authorization-code)). Also, in the Implicit Grant, no <dfn data-key="refresh-token">Refresh Tokens</dfn> are returned for the same reason (for an alternative refer to [Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)).
+The **Implicit Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) is similar to the [Authorization Code Grant](/api-auth/grant/authorization-code), but the main difference is that the application receives an [Access Token](/tokens/access-tokens) directly, without the need for an `authorization_code`. This happens because the application, which is typically a JavaScript app running within a browser, is less trusted than a web app running on the server, hence cannot be trusted with the `client_secret` (which is required in the [Authorization Code Grant](/api-auth/grant/authorization-code)). Also, in the Implicit Grant, no <dfn data-key="refresh-token">Refresh Tokens</dfn> are returned for the same reason (for an alternative refer to [Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)).
 
 Once the user authenticates, the application receives the Access Token in the hash fragment of the URI. The application can now use this Access Token to call the API on behalf of the user.
 
@@ -30,7 +30,7 @@ Once the user authenticates, the application receives the Access Token in the ha
 
  1. Auth0 authenticates the user. The first time the user goes through this flow a consent page will be shown where the permissions, that will be given to the Application, are listed (for example: post messages, list contacts, and so forth).
 
- 1. Auth0 redirects the user to the app with an [Access Token](/tokens/overview-access-tokens) (and optionally an [ID Token](/tokens/id-token)) in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single-Page Application (SPA) this would be done using Javascript and in a Mobile Application this is typically handled by interacting with a Web View.
+ 1. Auth0 redirects the user to the app with an [Access Token](/tokens/access-tokens) (and optionally an [ID Token](/tokens/id-tokens)) in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single-Page Application (SPA) this would be done using Javascript and in a Mobile Application this is typically handled by interacting with a Web View.
 
  1. The app can use the Access Token to call the API on behalf of the user.
 

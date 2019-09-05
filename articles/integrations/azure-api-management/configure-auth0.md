@@ -32,8 +32,8 @@ Set the following parameters to create your new API:
 | Parameter | Description |
 | --------- | ----------- |
 | Name | A descriptive name for your API. In this example, we'll use `Basic Calculator` |
-| Identifier | A logical and unique identifier for your API. We recommend using a URL, but it doesn't have to be a publicly-available URL since Auth0 doesn't call your API. You cannot modify this value at a later point. We'll use `basic-calculator` |
-| Signing Algorithm | The method used to sign the tokens issued by Auth0. Choose from `HS256` and `RS256` (we'll use the latter for this example). If you choose `RS256`, Auth0 signs your tokens with your private key. See [Signing Algorithms](/apis#signing-algorithms) for additional information |
+| Identifier | A logical and unique identifier for your API. We recommend using a URL, but it doesn't have to be a publicly-available URL since Auth0 doesn't call your API. You cannot modify this value at a later point. We'll use `basic-calculator`. |
+| Signing Algorithm | The method used to sign the tokens issued by Auth0. Choose from `HS256` and `RS256` (we'll use the latter for this example). If you choose `RS256`, Auth0 signs your tokens with your private key. To learn more, see [Signing Algorithms](/tokens/concepts/signing-algorithms). |
 
 When complete, click **Create**.
 

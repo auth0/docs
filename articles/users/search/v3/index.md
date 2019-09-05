@@ -19,7 +19,7 @@ useCase:
 User search allows you to retrieve user profile details using Auth0's [Management API](/api/management/v2). Search results can be [viewed](/users/search/v3/view-search-results-by-page), [sorted](/users/search/v3/sort-search-results), and [exported](/users/guides/bulk-user-exports).
 
 ::: note
-Most user profile fields are not returned as part of an [ID Token](/tokens/id-token), nor are they included in the response from the [/userinfo endpoint](/api/authentication#get-user-info) of the Authentication API. 
+Most user profile fields are not returned as part of an [ID Token](/tokens/id-tokens), nor are they included in the response from the [/userinfo endpoint](/api/authentication#get-user-info) of the Authentication API. 
 :::
 
 When searching for users in Auth0, you can use multiple endpoints to search for ID, email, or other criteria:

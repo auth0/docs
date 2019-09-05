@@ -26,7 +26,7 @@ You will be required to supply the following details for your API:
 
 - **Name**: a friendly name for the API. Does not affect any functionality.
 - **Identifier**: a unique identifier for the API. We recommend using a URL but note that this doesn't have to be a publicly available URL, Auth0 will not call your API at all. This value cannot be modified afterwards.
-- **Signing Algorithm**: the algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting RS256 the token will be signed with the tenant's private key. For more details on the signing algorithms see the [Signing Algorithms paragraph](#signing-algorithms) below.
+- **Signing Algorithm**: the algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting RS256 the token will be signed with the tenant's private key. To learn more about signing algorithms, see [Signing Algorithms](/tokens/concepts/signing-algorithms).
 
 ![Create API](/media/articles/architecture-scenarios/server-api/create-api.png)
 

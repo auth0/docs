@@ -525,6 +525,10 @@ module.exports = [
     to: '/applications/concepts/application-grant-types'
   },
   {
+    from: '/applications/concepts/signing-algorithms',
+    to: '/tokens/concepts/signing-algorithms'
+  },
+  {
     from: '/clients/client-types',
     to: '/applications/application-types'
   },
@@ -1147,6 +1151,26 @@ module.exports = [
   {
     from: '/tokens/id_token',
     to: '/tokens/id-token'
+  },
+  {
+    from: '/tokens/add-custom-claims',
+    to: '/scopes/current/sample-use-cases#add-custom-claims-to-a-token'
+  },
+  {
+    from: '/tokens/guides/update-signing-algorithm-application',
+    to: '/dashboard/guides/applications/update-signing-algorithm'
+  },
+  {
+    from: '/scopes/current/custom-claims',
+    to: '/tokens/jwt-claims#custom-claims'
+  },
+  {
+    from: '/tokens/guides/jwt/verify-jwt-signature-using-jwks',
+    to: '/tokens/guides/jwt/use-jwks'
+  },
+  {
+    from: '/tokens/guides/jwt/parse-validate-jwt-programmatically',
+    to: '/tokens/guides/jwt/validate-jwt'
   },
   {
     from: '/connections',
@@ -1917,8 +1941,16 @@ module.exports = [
      to: '/troubleshoot/har'
    },
    {
-     from: ['/tokens/access-token','/tokens/access_token'],
-     to: '/tokens/overview-access-tokens'
+     from: ['/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token'],
+     to: '/tokens/access-tokens'
+   },
+   {
+    from: ['/tokens/overview-id-tokens','/tokens/id-token'],
+    to: '/tokens/id-tokens'
+  },
+   {
+     from: '/api-auth/tutorials/verify-access-token',
+     to: '/tokens/guides/access-token/validate-access-token'
    },
    {
      from: '/user-profile',
@@ -2138,20 +2170,12 @@ module.exports = [
      to: '/rules/guides/redirect'
     },
     {
-     from: ['/tokens/set-access-token-format','/tokens/access-token-formats'],
-     to: '/tokens/reference/access-token/access-token-formats'
-    },
-    {
       from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
       to: '/protocols/saml/saml-apps/github-server'
     },
     {
       from: '/tokens/get-access-tokens',
       to: '/tokens/guides/access-token/get-access-tokens'
-    },
-    {
-      from: '/tokens/set-access-token-lifetime',
-      to: '/tokens/guides/access-token/set-access-token-lifetime'
     },
     {
       from: '/tokens/use-access-tokens',

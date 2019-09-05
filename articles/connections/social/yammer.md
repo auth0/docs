@@ -17,7 +17,7 @@ useCase:
 
 # Connect your app to Yammer
 
-To configure Yammer for OAuth connections, you will need to register your Auth0 namespace on the Yammer Developer Center.
+To configure Yammer for OAuth connections, you will need to register your app in the Yammer Developer Center.
 
 ## 1. Login to Yammer Developer Center
 

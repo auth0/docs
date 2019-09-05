@@ -13,7 +13,7 @@ useCase:
 ---
 # Refresh Tokens
 
-A **Refresh Token** contains the information required to obtain a new <dfn data-key="access-token">Access Token</dfn> or [ID Token](/tokens/id-token).
+Refresh Tokens contain the information required to obtain a new <dfn data-key="access-token">Access Token</dfn> or [ID Token](/tokens/id-tokens).
 
 Typically, a user needs a new Access Token when gaining access to a resource for the first time, or after the previous Access Token granted to them expires.
 
@@ -62,6 +62,8 @@ https://${account.namespace}/authorize?
     redirect_uri=${account.callback}&
     state={OPAQUE_VALUE}
 ```
+
+The Refresh Token is stored in session. Then, when a session needs to be refreshed (for example, a preconfigured timeframe has passed or the user tries to perform a sensitive operation), the app uses the Refresh Token on the backend to obtain a new ID Token, using the `/oauth/token` endpoint with `grant_type=refresh_token`.
 
 Once the user authenticates successfully, the application will be redirected to the `redirect_uri`, with a `code` as part of the URL: `${account.callback}?code=BPPLN3Z4qCTvSNOy`. You can exchange this code with an Access Token using the `/oauth/token` endpoint.
 
@@ -310,6 +312,10 @@ Rules will run for the [Refresh Token Exchange](#use-a-refresh-token). To execut
 If you try to do a <a href="/rules/redirect">redirect</a> with <code>context.redirect</code>, the authentication flow will return an error.
 :::
 
+## Custom Claims
+
+If you have added custom claims to your tokens using a rule, the custom claims will appear in new tokens issued when using a Refresh Token for as long as your rule is in place. Although new tokens do not automatically inherit custom claims, rules run during the Refresh Token flow, so the same code will be executed. This allows you to add or change custom claims in newly-issued tokens without forcing previously-authorized applications to obtain a new Refresh Token.
+
 ## SDK Support
 
 ### Web Apps
@@ -322,7 +328,16 @@ All our main SDKs support Refresh Tokens out of the box. Some are [Node.js](/qui
 
 - The `authorize` method, redirects the user to the `/authorize` endpoint, to log in and provide consent.
 - The `parseHash` method, parses a URL hash fragment to extract the result of an Auth0 authentication response.
-- The `checkSession` method, attempts to get a new token from Auth0, using [silent authentication](/api-auth/tutorials/silent-authentication). For more details refer to [Using checkSession to Acquire New Tokens](/libraries/auth0js#using-checksession-to-acquire-new-tokens).
+- The `checkSession` method, attempts to get a new token from Auth0, using [silent authentication](/api-auth/tutorials/silent-authentication). For more details refer to [Using checkSession to Acquire New Tokens](/libraries/auth0js#using-checksession-to-acquire-new-tokens). An example is as follows:
+
+```js
+auth0.checkSession({
+  audience: 'https://mystore.com/api/v2',
+  scope: 'read:order write:order'
+  }, function (err, authResult) {
+    // Renewed tokens or error
+});
+```
 
 ### Mobile / Native Apps
 
@@ -337,4 +352,3 @@ For information on using Refresh Tokens with our mobile SDKs, see:
 ## Next steps
 
 * [Refresh Tokens: When to use them and how they interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
-* [Using a Refresh Token with an Access Token](/tokens/guides/access-token/set-access-token-lifetime)

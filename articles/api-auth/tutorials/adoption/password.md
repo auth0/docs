@@ -100,7 +100,7 @@ Pragma: no-cache
     "id_token": "eyJ..."
 }</code></pre>
     <ul>
-        <li>The returned Access Token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API specified by the <code>audience</code> param uses <code>RS256</code> as signing algorithm) and optionally the resource server specified by the <code>audience</code> parameter.</li>
+        <li>The returned Access Token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API specified by the <code>audience</code> param uses <code>RS256</code> as <a href="/tokens/concepts/signing-algorithms">signing algorithm</a>) and optionally the resource server specified by the <code>audience</code> parameter.</li>
         <li>The ID Token will be forcibly signed using RS256 if requested by a <a href="/applications/concepts/app-types-confidential-public#public-applications">public application</a>.</li>
         <li>A Refresh Token will be returned only if the <code>offline_access</code> scope was granted.</li>
     </ul>
@@ -144,7 +144,7 @@ Pragma: no-cache
 }</code></pre>
         <ul>
             <li>The ID Token will be forcibly signed using RS256 if requested by a <a href="/api-auth/application-types">public application</a>.</li>
-            <li>The <code>favorite_color</code> claim must be namespaced and added through a rule.</li>
+            <li>The <code>favorite_color</code> claim must be <a href="/tokens/concepts/claims-namespacing">namespaced</a> and added through a rule.</li>
         </ul>
     </div>
   </div>
@@ -180,7 +180,7 @@ Pragma: no-cache
     "scope": "openid email"
 }</code></pre>
         <ul>
-            <li>The returned Access Token is a JWT valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API specified by the <code>audience</code> param uses <code>RS256</code> as signing algorithm) as well as the resource server specified by the <code>audience</code> parameter.</li>
+            <li>The returned Access Token is a JWT valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API specified by the <code>audience</code> param uses <code>RS256</code> as <a href="/tokens/concepts/signing-algorithms">signing algorithm</a>) as well as the resource server specified by the <code>audience</code> parameter.</li>
             <li>Note that an opaque Access Token could still be returned if /userinfo is the only specified audience.</li>
         </ul>
     </div>

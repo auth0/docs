@@ -18,7 +18,7 @@ If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth
 
 ## Overview of the flow
 
-The **Authorization Code Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)) is a flow where the browser receives an Authorization Code from Auth0 and sends this to the web app. The web app will then interact with Auth0 and exchange the Authorization Code for an [Access Token](/tokens/overview-access-tokens), and optionally an [ID Token](/tokens/id-token) and a <dfn data-key="refresh-token">Refresh Token</dfn>. The web app can now use this Access Token to call the API on behalf of the user.
+The **Authorization Code Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)) is a flow where the browser receives an Authorization Code from Auth0 and sends this to the web app. The web app will then interact with Auth0 and exchange the Authorization Code for an [Access Token](/tokens/access-tokens), and optionally an [ID Token](/tokens/id-tokens) and a <dfn data-key="refresh-token">Refresh Token</dfn>. The web app can now use this Access Token to call the API on behalf of the user.
 
 ![Authorization Code Grant](/media/articles/api-auth/authorization-code-grant.png)
 

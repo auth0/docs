@@ -19,7 +19,7 @@ useCase:
 This tutorial will help you call your API from a machine-to-machine (M2M) application using the Client Credentials Flow. If you want to learn how the flow works and why you should use it, see [Client Credentials Flow](/flows/concepts/client-credentials).
 :::
 
-Auth0 makes it easy for your app to implement the Client Credentials Flow. Following successful authentication, the calling application will have access to an [Access Token](/tokens/overview-access-tokens), which can be used to call your protected APIs.
+Auth0 makes it easy for your app to implement the Client Credentials Flow. Following successful authentication, the calling application will have access to an [Access Token](/tokens/access-tokens), which can be used to call your protected APIs.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 <%= include('./includes/sample-use-cases') %>
 
 
-Once your API receives a request with an Access Token, it will need to validate the token. For details, see [Validate Access Tokens](/api-auth/tutorials/verify-access-token).
+Once your API receives a request with an Access Token, it will need to validate the token. For details, see [Validate an Access Token](/tokens/guides/access-token/validate-access-token).
 
 
 ## Keep reading

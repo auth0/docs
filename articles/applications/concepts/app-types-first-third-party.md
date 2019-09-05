@@ -39,7 +39,7 @@ Third-party applications cannot skip user consent when consuming APIs. Because a
 
 #### ID Tokens
 
-[ID Tokens](/tokens/id-token) generated for third-party applications hold minimum user profile information.
+[ID Tokens](/tokens/id-tokens) generated for third-party applications hold minimum user profile information.
 
 #### Connections
 
@@ -47,7 +47,7 @@ Third-party applications can use only tenant-level connections (domain connectio
 
 #### When used with the Management APIv2
   
-Third-party applications cannot use [ID Tokens](/tokens/id-token) to invoke [Management API](/api/management/v2) endpoints. Instead, they should get a [Management API Access Token](/api/management/v2/tokens) with the `current_user_*` scopes required by each endpoint:
+Third-party applications cannot use [ID Tokens](/tokens/id-tokens) to invoke [Management API](/api/management/v2) endpoints. Instead, they should get a [Management API Access Token](/api/management/v2/tokens) with the `current_user_*` scopes required by each endpoint:
 
 - `read:current_user`: [List or search users](/api/management/v2#!/Users/get_users), [Get a user](/api/management/v2#!/Users/get_users_by_id), [Get user MFA enrollments](/api/management/v2#!/Users/get_enrollments)
 - `update:current_user_metadata`: [Update a user](/api/management/v2#!/Users/patch_users_by_id), [Delete a user's multi-factor provider](/api/management/v2#!/Users/delete_multifactor_by_provider)

@@ -38,7 +38,7 @@ If you would like to implement this functionality using either Lock or one of th
 
 Auth0 exposes endpoints that you can use to authenticate users and get their authorization. 
 
-You can call these endpoints through an embedded browser in your **native** application. After authentication completes, you can return an [ID Token](/tokens/id-token) (which contains information about the identity of the user) and an [Access Token](/tokens/overview-access-tokens).
+You can call these endpoints through an embedded browser in your **native** application. After authentication completes, you can return an [ID Token](/tokens/id-tokens) (which contains information about the identity of the user) and an [Access Token](/tokens/access-tokens).
 
 ::: note
 Instead of following this tutorial, you can use any of Auth0's client libraries. They encapsulate all the logic required and make it easier for your to implement authentication. Please refer to our [Native Quickstarts](/quickstart/native) to get started.
@@ -198,7 +198,7 @@ Once you've decoded the ID Token, you can extract user information from it. The 
 }
 ```
 
-For additional details, please see our docs [on the ID Token and its claims](/tokens/id-token#id-token-payload).
+For additional details, please see our docs [on the ID Token and its claims](/tokens/id-tokens#id-token-payload).
 
 ::: note
 For a list of libraries you can use to verify and decode tokens refer to [JWT.io](https://jwt.io/#libraries-io).

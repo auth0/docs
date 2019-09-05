@@ -1,7 +1,7 @@
 ---
 title: JSON Web Key Set Properties
 description: Reference the properties available in a JSON Web Key Set (JWKS).
-toc: true
+toc: false
 topics:
   - tokens
   - jwks
@@ -34,7 +34,7 @@ This is an example of the JSON Web Key Set (JWKS) used by a demo tenant, contain
 ```
 
 
-Each property in the key is defined by the JWK specification [RFC 7517 Section 4](https://tools.ietf.org/html/rfc7517#section-4) or, for algorithm-specific properties, in [RFC 7518 (https://tools.ietf.org/html/rfc7518)].
+Each property in the key is defined by the JWK specification [RFC 7517 Section 4](https://tools.ietf.org/html/rfc7517#section-4) or, for algorithm-specific properties, in [RFC 7518](https://tools.ietf.org/html/rfc7518)].
 
 | Property name | Description                |
 |---------------|----------------------------|
@@ -46,3 +46,19 @@ Each property in the key is defined by the JWK specification [RFC 7517 Section 4
 | `e`           | The exponent for the [RSA public key](https://tools.ietf.org/html/rfc7518#page-30). |
 | `kid`         | The unique identifier for the key. |
 | `x5t`         | The thumbprint of the x.509 cert (SHA-1 thumbprint). |
+
+::: note
+We don't currently support Elliptic Curve (EC) encryption.
+:::
+
+For an example that uses JWKS to verify a JWT's signature, see [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) (uses Node.js), or check out our [Backend/API Quickstarts](/quickstart/backend).
+
+## Read more
+
+* [JSON Web Key Set](/tokens/jwks)
+* [Verify a JSON Web Token's Signature using the JSON Web Key Set Endpoint](/tokens/guides/jwt/use-jwks)
+* [Validate a JSON Web Token](/tokens/guides/jwt/validate-jwt)
+
+Sample implementations:
+* [Backend/API Quickstarts](/quickstart/backend)
+* [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) (uses Node.js)

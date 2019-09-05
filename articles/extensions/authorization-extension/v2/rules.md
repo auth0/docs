@@ -19,7 +19,7 @@ useCase: extensibility-extensions
 
 You can use [rules](/rules) with the Authorization Extension to do things like:
 
-* Add [custom claims](/scopes/current/custom-claims) to the issued token
+* Add [custom claims](/tokens/jwt-claims#custom-claims) to the issued token
 * Determining the user's group membership, <dfn data-key="role">roles</dfn> and permissions
 * Storing the user's groups, roles and permissions info as [part of the `app_metadata`](/extensions/authorization-extension/v2/configuration#persistence)
 * Adding the user's groups, roles and permissions to the [outgoing token](/extensions/authorization-extension/v2/configuration#token-contents) (which can be requested via the `openid groups permissions roles` scope)
@@ -28,7 +28,7 @@ Because the above logic is part of a rule, it will only be executed in the conte
 
 ## Add Custom Claims to the Issued Token
 
-If you'd like to add custom claims to your tokens, you can do so by creating additional [rule](/rules) that allows the Authorization Extension to do so.
+If you'd like to add custom claims to your tokens, you can do so by creating additional [rule](/rules) that allows the Authorization Extension to do so. Custom claims should be [namespaced](/tokens/concepts/claims-namespacing).
 
 ::: note
 You should [limit the number of claims](/extensions/authorization-extension/v2/configuration#data-limitations) you add to the token.
