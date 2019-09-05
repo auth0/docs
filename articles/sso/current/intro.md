@@ -43,105 +43,42 @@ Whenever users go to a domain that requires authentication, they are redirected 
 
 Single Sign-On provides a seamless experience for users when using your applications and services. Instead of having to remember separate sets of credentials for each application or service, users can simply login once and access your full suite of applications.
 
-### Identity federation
-
-Identity federation deals with managing user identities and granting them the rights and privileges to log into the different applications and services.
-
 ## Protocols
 
-...
+### Security Assertion Markup Language
 
-### SAML
+Security Assertion Markup Language (SAML) is a widely used protocol in Single Sign-On implementations. The SAML protocol exchanges authorization and authentication data in XML format. The main parts of this exchange are the user, identity provider, and service provider.
 
-...
+With SAML, a user requests a resource from the service provider. The service provider checks with the identity provider if the user should have access to the resource. The identity provider verifies the user's identity and if it's valid asserts back to the service provider that the user should have access. 
 
-### WS-Fed
+### Web Services Federation
 
-...
+Web Services Federation (WS-Fed) is a commonly used protocol in Single Sign-On implementations. The WS-Fed protocol exchanges authorization and authentication data in XML format. Like SAML, the main parts of this exchange are the user, identity provider, and service provider.
 
-### OIDC
+With WS-Fed, a user requests a resource from the service provider. The service provider checks with the identity provider if the user should have access to the resource. The identity provider verifies the user's identity and if it's valid asserts back to the service provider that the user should have access.
 
-...
+### OpenID Connect
 
-### LDAP/AD - intranets
+OpenID Connect (OIDC) is an authentication protocol, commonly used in consumer facing Single Sign-On implementations. The OIDC protocol handles authentication through [JSON Web Tokens (JWTs)](/tokens/jwt) and a central identity provider.
 
-...
+With OIDC, a user requests access to an application. The application redirects the user to the identity provider for authentication. The identity provider verifies the user and if successful prompts the user to grant data access to the application. The identity provider generates a token, the `id_token`, containing user identity information the application can consume. Then the identity provider returns the user to the application.
 
-## Inbound SSO to an Auth0 tenant with connections
+### Lightweight Directory Access Protocol & Active Directory
 
-...
+Lightweight Directory Access Protocol (LDAP) is an application protocol for accessing a directory of credentials that can be shared by multiple applications. LDAP when paired with Active Directory (AD) provides a centralized location for user identity. The LDAP protocol exchanges information in LDAP Data Interchange Format (LDIF)
 
-### Built-in and custom SAML Identity Providers
+With LDAP/AD, an application makes an authentication request to the LDAP/AD server.
 
-* [SAML Identity Providers](/protocols/saml/identity-providers)
+## Inbound SSO
 
-### Social Identity Providers
+For [inbound SSO](/sso/current/inbound), Auth0 is the SSO provider. The application presents a user with one or more external identity providers. The user selects an identity provider to authenticate with. Upon successful authentication, the user is returned to the application.
 
-* [Social Identity Providers](/connections#social)
+Inbound SSO in Auth0 is handled by [connections](/connections).
 
-### Custom OAuth and OIDC providers
+## Outbound SSO
 
-* [Add a generic OAuth2 Authorization Server to Auth0](/connections/social/oauth2)
-* [Custom Social Connections Extension](/extensions/custom-social-extensions)
-
-## Outbound from
-
-...
-
-### SAML
-
-...
-
-### WS-Fed
-
-...
-
-### OIDC
-
-...
-
-## SSO Integrations (outbound sso)
-
-Auth0 provides [SSO Integrations](/integrations/sso) for the following services:
-
-- [Active Directory RMS](/integrations/sso/ad-rms)
-- [Box](/integrations/sso/box)
-- [CloudBees](/integrations/sso/cloudbees)
-- [Concur](/integrations/sso/concur)
-- [Disqus](/integrations/sso/disqus)
-- [Dropbox](/integrations/sso/dropbox)
-- [Microsoft Dynamics CRM](/integrations/sso/dynamics-crm)
-- [Adobe Echosign](/integrations/sso/echosign)
-- [Egnyte](/integrations/sso/egnyte)
-- [New Relic](/integrations/sso/new-relic)
-- [Office 365](/integrations/sso/office-365)
-- [SalesForce](/integrations/sso/salesforce)
-- [SharePoint](/integrations/sso/sharepoint)
-- [Slack](/integrations/sso/slack)
-- [SpringCM](/integrations/sso/springcm)
-- [Zendesk](/integrations/sso/zendesk)
-- [Zoom](/integrations/sso/zoom)
+For [outbound SSO](/sso/current/outbound), a third-party identity provider is the SSO provider. The application redirects a user to an identity provider for authentication and authorization. Upon successful authentication, the user is returned to the application.
 
 ## Extension: SSO Dashboard
 
 The [Single Sign-On (SSO) Dashboard Extension](/extensions/sso-dashboard) allows you to create a dashboard with multiple enterprise applications that can be enabled for SSO for your users for login.
-
-## Use Cases
-
-...
-
-### B2C - nav between multiple in-house or third-party apps, outbound; inbound social providers
-
-...
-
-### B2B - same outbound, inbound support three customers idp
-
-...
-
-### B2E - outbound federated between third-party apps used by business, inbound their internal ids
-
-...
-
-#### IdP-initiated SSO
-
-...

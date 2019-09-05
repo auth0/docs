@@ -13,52 +13,27 @@ useCase:
 
 # Inbound Single Sign-On
 
-...
+For inbound <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn>, Auth0 is the SSO provider. When a user tries to access an application, the application presents the user with one or more external identity providers. The user selects one of the identity providers to authenticate with. Upon successful authentication, the user is returned to the application with an active session.
+
+Inbound SSO in Auth0 is handled by [connections](/connections).
 
 ## Application sessions vs Auth0 SSO sessions
 
-[LINK](LINK)
+... [LINK](/LINK) ...
 
-## Use cases
+## OIDC/OAuth
 
-* B2C
-* B2B
-* B2E
+* [Social Identity Providers](/connections#social)
+* [Add a generic OAuth2 Authorization Server to Auth0](/connections/social/oauth2)
+* [Custom Social Connections Extension](/extensions/custom-social-extensions)
 
-Guides (coming, or link to current content under SAML)
+## SAML
 
-## SSO integrations
-
-Auth0 provides [SSO Integrations](/integrations/sso) for the following services:
-
-- [Active Directory RMS](/integrations/sso/ad-rms)
-- [Box](/integrations/sso/box)
-- [CloudBees](/integrations/sso/cloudbees)
-- [Concur](/integrations/sso/concur)
-- [Disqus](/integrations/sso/disqus)
-- [Dropbox](/integrations/sso/dropbox)
-- [Microsoft Dynamics CRM](/integrations/sso/dynamics-crm)
-- [Adobe Echosign](/integrations/sso/echosign)
-- [Egnyte](/integrations/sso/egnyte)
-- [New Relic](/integrations/sso/new-relic)
-- [Office 365](/integrations/sso/office-365)
-- [SalesForce](/integrations/sso/salesforce)
-- [SharePoint](/integrations/sso/sharepoint)
-- [Slack](/integrations/sso/slack)
-- [SpringCM](/integrations/sso/springcm)
-- [Zendesk](/integrations/sso/zendesk)
-- [Zoom](/integrations/sso/zoom)
-
-## SSO extensions
-
-...
+* [SAML Identity Providers](/protocols/saml/identity-providers)
+* [Auth0 as Service Provider](/protocols/saml/saml-sp-generic)
+* [IdP-Initiated Single Sign-On](/protocols/saml/idp-initiated-sso)
 
 ## Limitations
 
-* Native can only use UL
-
-* OIDC doesn’t support IdP-initiated SSO
-
-## Best practices
-
-...
+* Native applications can only use [Universal Login](/universal-login).
+* OpenID Connect does not support identity provider-initiated SSO.

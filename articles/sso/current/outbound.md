@@ -13,32 +13,34 @@ useCase:
 
 # Outbound Single Sign-On
 
-Third-party identity provider as the SSO provider
+For outbound <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn>, a third-party identity provider is the SSO provider. The application redirects a user to an identity provider for authentication and authorization. Upon successful authentication, the user is returned to the application.
 
-## Use cases
+## SAML
 
-...
+* [SAML Identity Provider Configuration](/protocols/saml/samlp)
 
-### B2B
+## OIDC
 
-...
+* [Configure Okta as an OpenID Connect Identity Provider](/protocols/oidc/identity-providers/okta)
 
-### B2C
+## Integrations
 
-...
+Auth0 provides outbound [SSO Integrations](/integrations/sso) for the following services:
 
-### B2E
-
-...
-
-## Guides
-
-...
-
-## Limitations
-
-...
-
-## Best practices
-
-...
+- [Active Directory RMS](/integrations/sso/ad-rms)
+- [Box](/integrations/sso/box)
+- [CloudBees](/integrations/sso/cloudbees)
+- [Concur](/integrations/sso/concur)
+- [Disqus](/integrations/sso/disqus)
+- [Dropbox](/integrations/sso/dropbox)
+- [Microsoft Dynamics CRM](/integrations/sso/dynamics-crm)
+- [Adobe Echosign](/integrations/sso/echosign)
+- [Egnyte](/integrations/sso/egnyte)
+- [New Relic](/integrations/sso/new-relic)
+- [Office 365](/integrations/sso/office-365)
+- [SalesForce](/integrations/sso/salesforce)
+- [SharePoint](/integrations/sso/sharepoint)
+- [Slack](/integrations/sso/slack)
+- [SpringCM](/integrations/sso/springcm)
+- [Zendesk](/integrations/sso/zendesk)
+- [Zoom](/integrations/sso/zoom)
