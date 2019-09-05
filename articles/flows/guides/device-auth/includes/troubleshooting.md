@@ -16,7 +16,7 @@
 
 To use the Device Authorization Flow, devices must:
 
-* Support Server Name Indication (SNI) when Custom Domains are used
+* Support Server Name Indication (SNI) when [Custom Domains](/custom-domains) are used
 
 To use the Device Authorization Flow, Applications must:
 
@@ -26,7 +26,7 @@ To use the Device Authorization Flow, Applications must:
 * Not be created through [Dynamic Client Registration](/api-auth/dynamic-client-registration)
 
 In addition, the Device Authorization Flow does not allow:
-* [Social Connections](/connections) using [Auth0 developer keys](/connections/social/devkeys) unless you are using Universal Login without Custom Domains
+* [Social Connections](/connections) using [Auth0 developer keys](/connections/social/devkeys) unless you are using Universal Login without [Custom Domains](/custom-domains)
 * Query string parameters to be accessed from hosted login page or rules
 
 We support the full [Draft 15](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-15), except for confidential Clients.
