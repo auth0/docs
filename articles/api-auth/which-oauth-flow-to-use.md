@@ -1,18 +1,20 @@
 ---
-title: Which OAuth 2.0 Grant should I use?
+title: Which OAuth 2.0 Flow Should I Use?
 toc: true
-description: Helps the user identify the proper OAuth 2.0 grant for each use case.
+description: Learn how to identify the proper OAuth 2.0 grant for your use case.
 topics:
   - api-authentication
   - oidc
   - application-grants
-contentType: discussion
+  - flows
+contentType:
+  - concept
 useCase:
   - secure-api
   - call-api
 ---
 
-# Which OAuth 2.0 flow should I use?
+# Which OAuth 2.0 Flow Should I Use?
 
 OAuth 2.0 supports several different **grants**. Grants are ways of retrieving an <dfn data-key="access-token">Access Token</dfn>. Deciding which one is suited for your case depends mostly on your Client's type, but other parameters weigh in as well, like the level of trust for the Client, or the experience you want your users to have.
 
@@ -21,7 +23,7 @@ OAuth 2.0 supports several different **grants**. Grants are ways of retrieving a
 - **Resource Owner**: the entity that can grant access to a protected resource. Typically this is the end-user.
 - **Client**: an application requesting access to a protected resource on behalf of the Resource Owner.
 - **Resource Server**: the server hosting the protected resources. This is the API you want to access.
-- **Authorization Server**: the server that authenticates the Resource Owner, and issues Access Tokens after getting proper authorization. In this case, Auth0.
+- **Authorization Server**: the server that authenticates the Resource Owner and issues Access Tokens after getting proper authorization. In this case, Auth0.
 - **User Agent**: the agent used by the Resource Owner to interact with the Client, for example a browser or a native application.
 
 ## Is the Client the Resource Owner?
@@ -61,7 +63,7 @@ In this case, instead of getting an authorization code that needs to be exchange
 For more information on how this flow works and how to implement it, refer to [Implicit Flow](/flows/concepts/implicit).
 
 ::: panel SPAs and Refresh Tokens
-While SPAs using the Implicit Grant cannot use [Refresh Tokens](/tokens/refresh-token), they can take advantage of other mechanics that provide the same function. A workaround to improve user experience is to use `prompt=none` when you invoke [the /authorize endpoint](/api/authentication#implicit-grant). This will not display the login dialog or the consent dialog. For more information on this, refer to [Silent Authentication](/api-auth/tutorials/silent-authentication). In addition, if you call `/authorize` from a hidden iframe and extract the new [Access Token](/tokens/overview-access-tokens) from the parent frame, then the user will not see the redirects happening.
+While SPAs using the Implicit Grant cannot use [Refresh Tokens](/tokens/refresh-token), they can take advantage of other mechanics that provide the same function. A workaround to improve user experience is to use `prompt=none` when you invoke [the /authorize endpoint](/api/authentication#implicit-grant). This will not display the login dialog or the consent dialog. For more information on this, refer to [Silent Authentication](/api-auth/tutorials/silent-authentication). In addition, if you call `/authorize` from a hidden iframe and extract the new [Access Token](/tokens/access-tokens) from the parent frame, then the user will not see the redirects happening.
 :::
 
 ## Is the Client a Native/Mobile App?

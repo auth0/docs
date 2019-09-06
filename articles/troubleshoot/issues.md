@@ -117,7 +117,7 @@ Here's some things to check if the user logged in to one application, but cannot
 
 * Check in the [HAR file](/troubleshoot/har) if the Access Token contains correct scopes to call the API.
 * Check if the response to the `/authorize` endpoint call contains a scopes object. If so, check if the returned scopes are different from the requested scopes.
-* Make sure your [API can validate the Access Token](/api-auth/tutorials/verify-access-token).  It should validate the audience, issuer, client (if any), signature algorithm, signature, claims and permissions.
+* Make sure your [API can validate the Access Token](/tokens/guides/access-token/validate-access-token).  It should validate the audience, issuer, client (if any), signature algorithm, signature, claims and permissions.
 * If you experience errors with Access Token expiration, they could be caused by [clock skew differences manifested across different systems](/connector/troubleshooting#clock-skew) or even different language libraries, such as Java and Node.js.  This can be handled by running NTP on servers and configuring a clock skew tolerance in libraries used to validate tokens such as [jwt.verify](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback).
 
 ## Issues that affect only one or a few users

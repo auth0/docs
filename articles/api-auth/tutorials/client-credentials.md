@@ -100,7 +100,7 @@ For more information and details on how to do that refer to [Using Hooks with Cl
 
 Once your API receives a request with a Bearer Access Token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
-For details on the validations that should be performed by the API, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token). You can find examples on how to do it in different platforms in the [Quickstarts for backend applications](/quickstart/backend).
+For details on the validations that should be performed by the API, refer to [Validate an Access Token](/tokens/guides/access-token/validate-access-token). You can find examples on how to do it in different platforms in the [Quickstarts for backend applications](/quickstart/backend).
 
 ## Sample application
 

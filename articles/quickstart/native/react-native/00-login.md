@@ -21,7 +21,7 @@ useCase: quickstart
 {PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
 ```
 
-Remember to replace `PRODUCT_BUNDLE_IDENTIFIER` with your actual application's bundle identifier name.
+Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
 
 Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`. In the sample project the value is:
 
@@ -36,7 +36,7 @@ Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundle
 {YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
 ```
 
-Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
+Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
 
 You can find this at the top of your `AndroidManifest.xml` file located in the `android/app/src/main/` folder. In the sample project the value is:
 ```xml
@@ -46,9 +46,21 @@ You can find this at the top of your `AndroidManifest.xml` file located in the `
 
 <%= include('../../../_includes/_logout_url') %>
 
-::: note
-If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to whitelist in the Allowed Logout URLs field is the same as the callback URL.
-:::
+#### iOS logout URL
+
+```text
+{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
+```
+
+Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
+
+#### Android logout URL
+
+```text
+{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
+```
+
+Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
 
 ## Install Dependencies 
 
@@ -199,7 +211,7 @@ ${snippet(meta.snippets.use)}
 Upon successful authentication the user's `credentials` will be returned, containing an `access_token`, an `id_token` and an `expires_in` value.
 
 ::: note
-For more information on the `accessToken`, refer to [Access Token](/tokens/overview-access-tokens).
+For more information on the `accessToken`, refer to [Access Token](/tokens/access-tokens).
 :::
 
 ### Log the User Out

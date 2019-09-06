@@ -109,7 +109,7 @@ Replace these values:
 
 ::: panel Where do I find the User ID?
 - For testing purposes, you can find a user ID at [Dashboard > Users](${manage_url}/#/users/). Select a user and copy the value of the **user_id** field.
-- For your implementation, you can either extract this information from the [ID Token](/tokens/id-token) (get the value of the claim **sub**), or call the [/userinfo endpoint of the Authentication API](/api/authentication#get-user-info) (get the value of the response property **user_id**).
+- For your implementation, you can either extract this information from the [ID Token](/tokens/id-tokens) (get the value of the claim **sub**), or call the [/userinfo endpoint of the Authentication API](/api/authentication#get-user-info) (get the value of the response property **user_id**).
 :::
 
 

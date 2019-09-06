@@ -64,7 +64,7 @@ To implement the Device Authorization Flow, you can follow our tutorial: [Call Y
 :::
 
 ::: concepts  
-  * [Access Tokens](/tokens/overview-access-tokens)
+  * [Access Tokens](/tokens/access-tokens)
   * [Where to store tokens](/security/store-tokens)
 :::
 

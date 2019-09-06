@@ -28,4 +28,4 @@ In the [API](${manage_url}/#/apis) section, locate your API and click on its *Se
 
 - **Allow Offline Access**: When this is enabled, Auth0 will allow applications to ask for <dfn data-key="refresh-token">Refresh Tokens</dfn> for your API.
 
-- **Signing Algorithm**: The algorithm with which to sign the tokens. The available values are `HS256` and `RS256`. When selecting `RS256` (recommended), the token will be signed with your tenant's private key. This value is set when your API is created and cannot be modified afterwards. For more details, visit [Signing Algorithms](/applications/concepts/signing-algorithms).
+- **Signing Algorithm**: The algorithm with which to sign the tokens. The available values are `HS256` and `RS256`. When selecting `RS256` (recommended), the token will be signed with your tenant's private key. This value is set when your API is created and cannot be modified afterwards. To learn more about signing algorithms, see [Signing Algorithms](/tokens/concepts/signing-algorithms).

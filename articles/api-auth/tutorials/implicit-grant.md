@@ -45,7 +45,7 @@ Where:
 
 * `audience`: The unique identifier of the API the app wants to access. Use the **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial.
 
-* `scope`: The <dfn data-key="scope">scopes</dfn> which you want to request authorization for. These must be separated by a space. You can request any of the [standard OpenID Connect (OIDC) scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). Note that user's consent will be requested, every time the `scope` value changes. The custom scopes must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). For more information on this, refer to the [Namespacing Custom Claims](#optional-customize-the-tokens) panel.
+* `scope`: The <dfn data-key="scope">scopes</dfn> which you want to request authorization for. These must be separated by a space. You can request any of the [standard OpenID Connect (OIDC) scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/tokens/concepts/claims-namespacing), or any scopes supported by the target API (for example, `read:contacts`). Note that user's consent will be requested, every time the `scope` value changes.
 
 * `response_type`: Indicates the type of credentials returned in the response. For this flow you can either use `token` to get only an Access Token, `id_token` to get only an ID Token (if you don't plan on accessing an API), or `id_token token` to get both an ID Token and an Access Token.
 
@@ -72,10 +72,10 @@ For example:
 ## 2. Extract the Access Token
 
 After Auth0 has redirected back to the app, the hash fragment of the URL contains the following parameters:
-- `id_token`: contains an [ID Token](/tokens/id-token) and is present if the request parameter `response_type` included the value `id_token`, or the `scope` request parameter the value `openid`
-- `access_token`: contains an [Access Token](/tokens/overview-access-tokens) and is present if the request parameter `response_type` included the value `token`
-- `token_type`: denotes the type of the [Access Token](/tokens/overview-access-tokens)
-- `expires_in`: the lifetime in seconds of the Access Token. For example, the value `3600` denotes that the [Access Token](/tokens/overview-access-tokens) will expire in one hour from the time the response was generated
+- `id_token`: contains an [ID Token](/tokens/id-tokens) and is present if the request parameter `response_type` included the value `id_token`, or the `scope` request parameter the value `openid`
+- `access_token`: contains an [Access Token](/tokens/access-tokens) and is present if the request parameter `response_type` included the value `token`
+- `token_type`: denotes the type of the [Access Token](/tokens/access-tokens)
+- `expires_in`: the lifetime in seconds of the Access Token. For example, the value `3600` denotes that the [Access Token](/tokens/access-tokens) will expire in one hour from the time the response was generated
 - `state`: present in the response if the `state` parameter was present in the request. Holds the exact value received from the client in the request.
 
 You can extract the `access_token`, and other parameters, from the hash fragment of the URL:
@@ -127,7 +127,7 @@ $('#get-appointments').click(function(e) {
 
 Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
-For details on the validations that should be performed by the API, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+For details on the validations that should be performed by the API, refer to [Validate an Access Token](/tokens/guides/access-token/validate-access-token).
 
 ## Optional: Customize the Tokens
 

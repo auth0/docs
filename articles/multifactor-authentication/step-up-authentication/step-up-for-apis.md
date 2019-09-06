@@ -40,7 +40,7 @@ Note that the API needs to do more validations than just check the scope. These 
 - Verify the token's signature. The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
 - Validate the standard claims: `exp` (when the token expires), `iss` (who issued the token), `aud` (who is the intended recipient of the token)
 
-For details on how to do these validations, see the [Verify Access Tokens for Custom APIs](/api-auth/tutorials/verify-access-token) article.
+For details on how to do these validations, see the [Validate an Access Token for Custom APIs](/tokens/guides/access-token/validate-access-token) article.
 
 ## Example
 
@@ -210,8 +210,8 @@ That's it, you're done! Now your application allows access to different types of
 
 ## Keep reading
 
-* [Access Tokens](/tokens/overview-access-tokens)
+* [Access Tokens](/tokens/access-tokens)
 * [Rules](/rules)
 * [Scopes](/scopes)
-* [How to verify Access Tokens](/api-auth/tutorials/verify-access-token)
+* [Validate an Access Token](/tokens/guides/access-token/validate-access-token)
 * [Step-up Authentication for Web Apps](/multifactor-authentication/step-up-authentication/step-up-for-web-apps)

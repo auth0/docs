@@ -25,12 +25,12 @@ Cross-origin authentication is not recommended and is only necessary when authen
 
 ## Limitations
 
-Because cross-origin authentication is achieved using third-party cookies, disabling third-party cookies will make cross-origin authentication fail.
+Because cross-origin authentication is achieved using third-party cookies, disabling third-party cookies will make cross-origin authentication fail. Some browsers, such as the newest version of Firefox, disable third-party cookies by default, meaning that cross-origin authentication will not work for users on Firefox. The only way to make embedded login work for Firefox users is to use a custom domain, as described below.
 
 There are two approaches you can follow to remediate the issue:
 
 - Enable a [Custom Domain](/custom-domains) on your tenant and host your web application in a domain that has the same top-level domain as your Auth0 custom domain. For example, you host an application at `https://northwind.com` and set your Auth0 custom domain as `https://login.northwind.com`. This way the cookies are no longer third-party (because both your Auth0 tenant and your application are using the same top-level domain), and thus, are not blocked by browsers.
-- Provide a [cross-origin verification page](#create-a-cross-origin-verification-page) that will make cross-origin authentication work **in some browsers** even with third-party cookies disabled (see the [browser testing information](#browser-testing-support) below).
+- Provide a [cross-origin verification page](#create-a-cross-origin-verification-page) that will make cross-origin authentication work in a **limited number of browsers** even with third-party cookies disabled (see the [browser testing information](#browser-testing-support) below).
 
 These issues are another reason why the more practical solution is to use [Universal Login](/hosted-pages/login).
 
