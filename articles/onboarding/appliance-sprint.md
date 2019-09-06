@@ -55,4 +55,4 @@ The following sections describe what happens during each step of the PSaaS Appli
 
 ## What's next?
 
-Once the PSaaS Appliance is deployed, an Auth0 Customer Success Manager will work with you to build a joint success plan to drive value throughout the subscription lifecycle.
+Once the PSaaS Appliance is deployed, an Auth0 Technical Account Manager will work with you to build a joint success plan to drive value throughout the subscription lifecycle.

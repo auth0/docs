@@ -63,7 +63,7 @@ The following outlines the basic steps required for restoring PSaaS Appliance in
 3. Contact a Managed Services Engineer via support ticket to complete the recovery of your environment
 
 ::: panel VMWare's Site Recovery Manager
-Site Recovery Manager is not supported on current versions of Auth0 PSaaS Appliance. If you rely on this VMWare feature, please contact your Customer Success Manager for guidance.
+Site Recovery Manager is not supported on current versions of Auth0 PSaaS Appliance. If you rely on this VMWare feature, please contact your Technical Account Manager for guidance.
 :::
 
 ## Database Backups

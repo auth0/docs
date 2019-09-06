@@ -117,7 +117,7 @@ As a customer, it is your responsibility to perform regular backups on your Geog
 
 Typically, Auth0 recommends performing a daily backup. However, if you have concerns about a logical data corruption, or you need greater assurance of up-to-date data, you might choose to backup more frequently.
 
-Because the backup process puts a substantial load on the backup node, please contact your Auth0 Customer Success Manager to schedule a discussion about performance impact if backups are performed more frequently/during peak usage times.
+Because the backup process puts a substantial load on the backup node, please contact your Auth0 Technical Account Manager to schedule a discussion about performance impact if backups are performed more frequently/during peak usage times.
 
 ## Further Reading
 
