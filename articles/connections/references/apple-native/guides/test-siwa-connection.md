@@ -37,11 +37,12 @@ If you are using the Classic Universal Login flow, or embedding `Lock.js` in you
 
     You are now signed in to your application with Apple!
 
-    ## Keep reading
+## Keep reading
 
+* [Auth0 Blog: What is Sign In with Apple](https://auth0.com/blog/what-is-sign-in-with-apple-a-new-identity-provider/)
+* See [Sign In with Apple](https://developer.apple.com/sign-in-with-apple/) for information about Apple's Sign In with Apple capabilities.
 * [Auth0 and Sign In with Apple Overview](/connections/social/apple)
-* [Add Sign In with Apple to Your Native App](/connections/social/apple/guides/add-siwa-to-native-app)
-* [Add Sign In with Apple to Your Web App](/connections/social/apple/guides/add-siwa-to-web-app)
-* [Sign In with Apple and Auth0 Logging](/connections/social/apple/references/siwa-logging)
-* [Sign In with Apple and Auth0 Rate Limits](/connections/social/apple/references/siwa-rate-limits)
-* [Sign In with Apple and Auth0 Troubleshooting](/connections/social/apple/references/siwa-troubleshooting)
+* [Sign In with Apple and Auth0 Connection Use Cases](/connections/references/apple-native/references/siwa-use-cases)
+* [Sign In with Apple and Auth0 Logging](/connections/references/apple-native/references/siwa-logging)
+* [Sign In with Apple and Auth0 Rate Limits](/connections/references/apple-native/references/siwa-rate-limits)
+* [Sign In with Apple and Auth0 Troubleshooting](/connections/references/apple-native/references/siwa-troubleshooting)

@@ -78,14 +78,14 @@ When setting up your application, make sure you save the following IDs and keys 
 
 3. Click **Save**.
 
-4. [Test the connection](/connections/social/apple/guides/test-siwa-connection).
+4. [Test the connection](/connections/references/apple-native/guides/test-siwa-connection).
 
 ## Keep reading
 
 * [Auth0 Blog: What is Sign In with Apple](https://auth0.com/blog/what-is-sign-in-with-apple-a-new-identity-provider/)
 * See [Sign In with Apple](https://developer.apple.com/sign-in-with-apple/) for information about Apple's Sign In with Apple capabilities.
 * [Auth0 and Sign In with Apple Overview](/connections/social/apple)
-* [Sign In with Apple and Auth0 Connection Use Cases](/connections/social/apple/references/siwa-use-cases)
-* [Sign In with Apple and Auth0 Logging](/connections/social/apple/references/siwa-logging)
-* [Sign In with Apple and Auth0 Rate Limits](/connections/social/apple/references/siwa-rate-limits)
-* [Sign In with Apple and Auth0 Troubleshooting](/connections/social/apple/references/siwa-troubleshooting)
+* [Sign In with Apple and Auth0 Connection Use Cases](/connections/references/apple-native/references/siwa-use-cases)
+* [Sign In with Apple and Auth0 Logging](/connections/references/apple-native/references/siwa-logging)
+* [Sign In with Apple and Auth0 Rate Limits](/connections/references/apple-native/references/siwa-rate-limits)
+* [Sign In with Apple and Auth0 Troubleshooting](/connections/references/apple-native/references/siwa-troubleshooting)

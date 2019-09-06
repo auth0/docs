@@ -19,5 +19,5 @@ TBD
 ## Keep reading
 
 * [Auth0 and Sign In with Apple Overview](/connections/social/apple)
-* [Sign In with Apple and Auth0 Logging](/connections/social/apple/references/siwa-logging)
-* [Sign In with Apple and Auth0 Rate Limits](/connections/social/apple/references/siwa-rate-limits)
+* [Sign In with Apple and Auth0 Logging](/connections/references/apple-native/references/siwa-logging)
+* [Sign In with Apple and Auth0 Rate Limits](/connections/references/apple-native/references/siwa-rate-limits)
