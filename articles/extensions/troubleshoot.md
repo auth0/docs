@@ -12,7 +12,7 @@ useCase:
 ---
 # Troubleshoot Extensions
 
-If you see issues with your [extensions](/extensions), we recommend that you begin the troubleshooting process with deleting and reinstalling the extension:
+If you see issues with your [extensions](/extensions), we recommend that you begin the troubleshooting process by deleting and reinstalling the extension:
 
 1. Go to [Dashboard > Extensions](${manage_url}/#/extensions).
 2. On the **Installed Extensions** tab, delete the extension.
