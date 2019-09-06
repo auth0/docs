@@ -19,7 +19,12 @@ The proposed limits are the following:
 | Endpoint | Path | Limited by | Affected Tenants | Rate Limits |
 | --- | --- | --- | --- | --- |
 | Get Token	| `/oauth/token` | Native Social Login (Apple, Facebook, etc.) | Free |	100 requests per minute |
-| --- | --- | Native Social Login and IP | Paid |	500 requests per minute with burst of up to a 1000 requests |
+|  |  | Native Social Login and IP | Paid |	500 requests per minute with burst of up to a 1000 requests |
+
+This limits are applied only to requests related to the Native Social Login flows which are identified based on the body of the requests with the following initial criteria:
+
+* `grant_type`: `urn:ietf:params:oauth:grant-type:token-exchange` 
+* `subject_token_type`: `http://auth0.com/oauth/token-type/apple-authz-code`
 
 ## Keep reading
 
