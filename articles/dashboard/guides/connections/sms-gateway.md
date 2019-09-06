@@ -19,13 +19,12 @@ By default, [Passwordless SMS connection](/dashboard/guides/connections/configur
 
     Be sure to replace `ACCESS_TOKEN` with the token you obtained in step 1 before making the following call to the Management API:
     
- ```har
+```har
 {
   "method": "GET",
-  "url": "your-auth0-tenant.com/api/v2/connections",
+  "url": "http://your-auth0-tenant.com/api/v2/connections",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" },
-    { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" }
+    { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN_HERE" }
   ]
 }
 ```
