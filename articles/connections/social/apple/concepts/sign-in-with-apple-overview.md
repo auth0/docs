@@ -23,7 +23,7 @@ Auth0 integration with Sign In with Apple is built on the [OAuth 2.0 Token Excha
 
 The flow works as follows:
 
-![Sign In with Apple Flow](/media/articles/connections/social/apple/siwa-concepts.png)
+*placeholder for new flow diagram from Sonny*
 
 1. User authenticates via the identity provider's SDK on their iPhone/iPad. They receive an authorization code. The user does not have to leave the app and use a browser to log in.
 2. The application calls Auth0's `/oauth/token` endpoint with the following parameters:
