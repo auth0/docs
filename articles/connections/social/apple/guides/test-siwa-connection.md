@@ -36,3 +36,12 @@ If you are using the Classic Universal Login flow, or embedding `Lock.js` in you
     ![Apple Email Preferences](/media/articles/connections/social/apple/apple-email-preferences.png)
 
     You are now signed in to your application with Apple!
+
+    ## Keep reading
+
+* [Auth0 and Sign In with Apple Overview](/connections/social/apple)
+* [Add Sign In with Apple to Your Native App](/connections/social/apple/guides/add-siwa-to-native-app)
+* [Add Sign In with Apple to Your Web App](/connections/social/apple/guides/add-siwa-to-web-app)
+* [Sign In with Apple and Auth0 Logging](/connections/social/apple/references/siwa-logging)
+* [Sign In with Apple and Auth0 Rate Limits](/connections/social/apple/references/siwa-rate-limits)
+* [Sign In with Apple and Auth0 Troubleshooting](/connections/social/apple/references/siwa-troubleshooting)

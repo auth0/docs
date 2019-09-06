@@ -23,6 +23,6 @@ The proposed limits are the following:
 
 ## Keep reading
 
-* [Auth0 and Sign In with Apple Overview](/connections/social/apple/concepts/sign-in-with-apple-overview)
+* [Auth0 and Sign In with Apple Overview](/connections/social/apple)
 * [Sign In with Apple and Auth0 Logging](/connections/social/apple/references/siwa-logging)
 * [Sign In with Apple and Auth0 Troubleshooting](/connections/social/apple/references/siwa-troubleshooting)

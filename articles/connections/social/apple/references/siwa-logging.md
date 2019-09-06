@@ -26,6 +26,6 @@ Apple IdP interactions (failed exchange, error conditions, etc.)
 
 ## Keep reading
 
-* [Auth0 and Sign In with Apple Overview](/connections/social/apple/concepts/sign-in-with-apple-overview)
+* [Auth0 and Sign In with Apple Overview](/connections/social/apple)
 * [Sign In with Apple and Auth0 Rate Limits](/connections/social/apple/references/siwa-rate-limits)
 * [Sign In with Apple and Auth0 Troubleshooting](/connections/social/apple/references/siwa-troubleshooting)

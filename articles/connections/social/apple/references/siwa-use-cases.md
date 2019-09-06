@@ -18,7 +18,7 @@ TBD
 
 ## Keep reading
 
-* [Auth0 and Sign In with Apple Overview](/connections/social/apple/concepts/sign-in-with-apple-overview)
+* [Auth0 and Sign In with Apple Overview](/connections/social/apple)
 * [Add Sign In with Apple to Your Native App](/connections/social/apple/guides/add-siwa-to-native-app)
 * [Add Sign In with Apple to Your Web App](/connections/social/apple/guides/add-siwa-to-web-app)
 * [Sign In with Apple and Auth0 Logging](/connections/social/apple/references/siwa-logging)
