@@ -22,7 +22,9 @@ useCase:
 To set up and configure Sign In with Apple for your native app, you will do the following:
 
 1. [Complete the prerequisites](#before-you-begin): Have an Apple Developer account (paid), an Auth0 tenant set up with a custom domain, and a web application configured to use Auth0 for authentication at that domain.  
-2. [Register your app in your Apple Developer account](#register-your-app-in-your-apple-developer-account): Obtain Apple IDs and keys for the application connection settings in the Dashboard.
+2. [Register your app in your Apple Developer account](#register-your-app-in-your-apple-developer-account): Obtain the following Apple IDs and keys for the application connection settings in the Dashboard. 
+    - For web apps: An Apple `ServiceID`
+    - For native apps: An Apple `AppID` ("Bundle Identifier")
 3. [Configure and test the application connection in Auth0](#configure-the-connection-in-auth0): Complete the social connection settings configuration information with the IDs and keys you obtained for your application from Apple. 
 
 ## Prerequisites

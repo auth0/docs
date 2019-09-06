@@ -24,7 +24,7 @@ To set up and configure native Sign In with Apple, you will do the following:
 * [Complete the prerequisites](#prerequisites): Have an Apple Developer account (paid), an Auth0 tenant set up with a custom domain, and a web application configured to use Auth0 for authentication at that domain.  
 * [Register your app in your Apple Developer account](#register-your-app-in-your-apple-developer-account): Obtain Apple IDs and keys for the application connection settings in the Dashboard.
 * [Create your web app](#create-your-web-application): Including verifying your domain ownership with Apple and configuring Apple's email relay service, if necessary.
-* [Configure the application connection in Auth0](#configure-and test-the-connection-in-auth0): Complete the social connection settings configuration information with the IDs and keys you obtained for your application from Apple. 
+* [Configure the application connection in Auth0](#configure-and-test-the-connection-in-Auth0): Complete the social connection settings configuration information with the IDs and keys you obtained for your application from Apple. 
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Once your Apple Developer account is set up, follow the instructions in the [App
 
 When setting up your application, make sure you save the following IDs and keys for the application connection settings in the Auth0 Dashboard:
 
-* Client ID (the Service ID)
+* Client ID (the Service ID) and AppID
 * Client Secret Signing Key
 * Apple Team ID
 * Client Signing Key ID (optional)
@@ -51,25 +51,9 @@ When setting up your application, make sure you save the following IDs and keys 
 
 5. Scroll down and check the **Sign In with Apple** feature. You won't have to use the **Edit** here. You will configure this feature later.
 
-6. Leave the other options with their default values and click **Continue**. When you click on this button, Apple  displays a summary of the options you just configured. If everything is correct, click **Register**. Apple redirects you to the **Certificates, Identifiers & Profiles** subsection again, this time listing your new App ID. 
+6. Leave the other options with their default values and click **Continue**. When you click on this button, Apple displays a summary of the options you just configured. If everything is correct, click **Register**. Apple redirects you to the **Certificates, Identifiers & Profiles** subsection again, this time listing your new App ID. 
 
-7. Create a Service ID that represents your application. This might look like a redundant effort, but Apple organizes it so you can nest multiple Services IDs under the same App ID. This makes sense when you have distinct versions of your application to support different devices.
-
-8. Click the round, blue icon next to the **Identifiers** header, then choose **Services IDs** and click  **Continue**. 
-
-9. Fill in the same fields as in step 4 above (description and identifier), and enable the **Sign In with Apple** feature. 
-
-10. Click **Configure**. Apple displays a dialog where you define the web domain you will use (`<YOUR CUSTOM DOMAIN>.com`) and add a **Return URL** (`https://<YOUR CUSTOM DOMAIN>/login/callback`). Click **Save**.  
-
-11. On the **Register a Services ID** page, click **Continue** and, on the next screen, click **Register**.
-
-    After registering your Service ID, Apple redirects you to the **Certificates, Identifiers & Profiles** page. There, you will see your newly-created Service ID.
-  
-12. Click the Service ID and view the details of the service. Click **Configure** next to the **Sign In with Apple** feature. 
-
-    This time, Apple displays two new buttons next to your domain: **Download** and **Verify**.
-
-13. Click **Download** for Apple to send you a file called `apple-developer-domain-association.txt`. You will have to use the contents of this file soon. Also, keep the page open because you will have to use the **Verify** button later.
+7. Click **Download** for Apple to send you a file called `apple-developer-domain-association.txt`. You will have to use the contents of this file soon. Also, keep the page open because you will have to use the **Verify** button later.
 
 ## Create your web application
 
