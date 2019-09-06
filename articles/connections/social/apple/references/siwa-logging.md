@@ -18,7 +18,18 @@ useCase:
 ---
 # Sign In with Apple and Auth0 Logging
 
-TBD
+Intro TBD
+
+## Auth0 token exchange occurrences in native apps
+
+Apple code -> Auth0 token exchange occurrences
+
+## Failed exchanges and error conditions
+
+Apple IdP interactions (failed exchange, error conditions, etc.)
 
 ## Keep reading
 
+* [Auth0 and Sign In with Apple Overview](/connections/social/apple/concepts/sign-in-with-apple-overview)
+* [Sign In with Apple and Auth0 Rate Limits](/connections/social/apple/references/siwa-rate-limits)
+* [Sign In with Apple and Auth0 Troubleshooting](/connections/social/apple/references/siwa-troubleshooting)
