@@ -1,23 +1,20 @@
 ---
-classes: topic-page
-url: /connections/social/apple
-title: Auth0 and Sign In with Apple
-description: Understand how native login functionality works with Auth0 and your applications. 
+title: Add Sign in with Apple to Your App
 connection: Apple
 index: 3
 image: /media/connections/apple.svg
 seo_alias: apple
+description: Learn how to add login functionality to your app with Apple. 
 topics:
   - authentication
   - connections
   - social
-  - native-social
-contentType: concept
+  - apple
+contentType: how-to
 useCase:
   - add-login
   - customize-connections
   - add-idp
-  - add-native-social
 ---
 # Auth0 and Sign In with Apple
 
@@ -39,6 +36,8 @@ The flow works as follows:
 3. Auth0 exchanges the `code` with the identity provider for a set of Auth0 ID, access, and refresh tokens.
 4. Auth0 saves the user profile, executes rules and authorization, then issues Apple access tokens (refresh tokens and ID tokens) as requested. These tokens are used to protect your APIs and users managed by Auth0.
 
+For information about specific use cases, see [Sign In with Apple and Auth0 Connection Use Cases](/connections/references/apple-native/references/siwa-use-cases).
+
 ## Grant types
 
 *Intro text*
@@ -55,21 +54,14 @@ The flow works as follows:
 
 *Intro text*
 
-<%= include('../../_includes/_topic-links', { links: [
-  'connections/social/apple/references/siwa-use-cases'
-  'connections/social/apple/guides/add-siwa-to-native-app',
-  'connections/social/apple/guides/add-siwa-to-web-app',
-  'connections/social/apple/guides/test-siwa-connection',
-  'connections/social/apple/guides/generate-client-secret-siwa'
-] }) %>
+* [Add Sign In with Apple to Your Native App](/connections/references/apple-native/guides/add-siwa-to-native-app)
+* [Add Sign In with Apple to Your Web App](/connections/references/apple-native/guides/add-siwa-to-web-app)
 
 ## References and resources
 
-<%= include('../../_includes/_topic-links', { links: [
-  'connections/social/apple/references/siwa-logging',
-  'connections/social/apple/references/siwa-rate-limits',
-  'connections/social/apple/references/siwa-troubleshooting'
-] }) %>
+* [Logging](/connections/references/apple-native/references/siwa-logging)
+* [Rate Limits](/connections/references/apple-native/references/siwa-rate-limits)
+* [Troubleshooting](/connections/references/apple-native/references/siwa-troubleshooting)
 
 ## Keep reading
 
