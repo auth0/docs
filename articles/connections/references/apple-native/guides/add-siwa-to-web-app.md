@@ -32,24 +32,24 @@ Once your Apple Developer account is set up, follow the instructions in the [App
 
 When setting up your application, make sure you save the following IDs and keys for the application connection settings in the Auth0 Dashboard:
 
-* Client ID (the Service ID) and AppID
-* Client Secret Signing Key
-* Apple Team ID
-* Client Signing Key ID (optional)
+* Client ID (the Services ID) 
+* AppID
 
-1. When you sign into the developer account, go to the [Certificates, IDs, & Profiles](https://developer.apple.com/account/resources/certificates/list) section, and choose the [Identifiers](https://developer.apple.com/account/resources/identifiers/list/serviceId) subsection on the left menu.
+1. If you haven't already done so, crate an [Apple Developer Account](https://developer.apple.com/)
 
-2. Click **Register an App ID** button.
+2. When you sign into the developer account, go to the [Certificates, IDs, & Profiles](https://developer.apple.com/account/resources/certificates/list) section, and choose the [Identifiers](https://developer.apple.com/account/resources/identifiers/list/serviceId) subsection on the left menu.
 
-3. Choose **App IDs** as the identifier type, and click **Continue**. 
+3. Click **Register an App ID** button.
 
-4. Enter a description for your new App ID and a Bundle ID. For the latter, Apple recommends using a reverse-domain name style string (for example, `com.<YOUR CUSTOM DOMAIN>.appid`). 
+4. Choose **App IDs** as the identifier type, and click **Continue**. 
 
-5. Scroll down and check the **Sign In with Apple** feature. You won't have to use the **Edit** here. You will configure this feature later.
+5. Enter a description for your new App ID and a Bundle ID. For the latter, Apple recommends using a reverse-domain name style string (for example, `com.<YOUR CUSTOM DOMAIN>.appid`). 
 
-6. Leave the other options with their default values and click **Continue**. When you click on this button, Apple displays a summary of the options you just configured. If everything is correct, click **Register**. Apple redirects you to the **Certificates, Identifiers & Profiles** subsection again, this time listing your new App ID. 
+6. Scroll down and check the **Sign In with Apple** feature. You won't have to use the **Edit** here. You will configure this feature later.
 
-7. Click **Download** for Apple to send you a file called `apple-developer-domain-association.txt`. You will have to use the contents of this file soon. Also, keep the page open because you will have to use the **Verify** button later.
+7. Leave the other options with their default values and click **Continue**. When you click on this button, Apple displays a summary of the options you just configured. If everything is correct, click **Register**. Apple redirects you to the **Certificates, Identifiers & Profiles** subsection again, this time listing your new App ID. 
+
+8. Click **Download** for Apple to send you a file called `apple-developer-domain-association.txt`. You will have to use the contents of this file soon. Also, keep the page open because you will have to use the **Verify** button later.
 
 ## Create your web application
 
