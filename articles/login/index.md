@@ -4,7 +4,6 @@ topics:
   - login
   - universal-login
   - password-reset
-  - guardian
   - mfa
   - error-pages
   - hosted-pages

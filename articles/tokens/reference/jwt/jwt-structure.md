@@ -15,6 +15,10 @@ useCase:
 
 # JSON Web Token Structure
 
+::: note
+All Auth0-issued JSON Web Tokens (JWTs) are JSON Web Signatures (JWS), meaning they are signed rather than encrypted. As such, this document describes the JWS structure of a JWT.
+:::
+
 A well-formed <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> consists of three concatenated Base64url-encoded strings, separated by dots (`.`): 
 
 - **Header**: contains metadata about the type of token and the cryptographic algorithms used to secure its contents.
@@ -28,6 +32,15 @@ To see for yourself what is inside a JWT, use the [JWT.io Debugger](http://jwt.i
 
 ![JWT.IO Debugger](/media/articles/jwt/legacy-app-auth-5.png)
 
+::: panel Where can I find my secret or public key?
+
+For RS256:
+1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the Application to view.
+2. Scroll to the bottom of the page, click **Advanced Settings**, and click the **Certificates** tab. You will find the Public Key in the **Signing Certificate** field.
+
+For HS256:
+1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the Application to view. You will find your Secret in the **Client Secret** field.
+:::
 
 ## Header
 
@@ -43,7 +56,7 @@ The header *typically* consists of two parts: the hashing algorithm being used (
 
 ## Payload
 
-The payload contains statements about the entity (typically, the user) and additional entity attributes, which are called claims. In this example, our entity is a user.
+The payload contains statements about the entity (typically, the user) and additional entity attributes, which are called [claims](/tokens/jwt-claims). In this example, our entity is a user.
 
 ```
 {
@@ -74,5 +87,5 @@ HMACSHA256(
 ```
 
 ::: warning
-However you use a JWT, you must [verify its signature](/tokens/guides/id-token/validate-id-token#verify-the-signature) before storing and using it.
+However you use a JWT, you must [check its signature](/tokens/guides/jwt/validate-jwt#check-the-signature) before storing and using it.
 :::

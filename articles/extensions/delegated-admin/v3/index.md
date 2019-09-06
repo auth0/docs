@@ -1,5 +1,6 @@
 ---
-description: The Delegated Administration extension allows you to expose the Users dashboard to a group of users, without allowing them access to the dashboard.
+title: Delegated Administration Extension
+description: Learn about Auth0's Delegated Administration Extension, which allows you to expose the Users section of the Auth0 Dashboard to a select group of users without allowing them access to the rest of the Dashboard.
 toc: true
 topics:
   - extensions
@@ -11,11 +12,15 @@ contentType:
 useCase: extensibility-extensions
 ---
 
-# Delegated Administration
+# Delegated Administration Extension
 
-The **Delegated Administration** extension allows you to grant a select group of people administrative permissions to the [Users page](${manage_url}/#/users) without providing access to any other area. This is done by exposing the [Users Dashboard](${manage_url}/#/users) as an Auth0 application.
+::: warning
+This extension requires you to disable the **OIDC Conformant** flag (and for some older tenants, enable the **Legacy User Profile** flag) for your application. Once disabled, you must ensure your application's authentication code is updated as well.
+:::
 
-Follow this tutorial to learn how to expose the Users dashboard to a group of users without allowing them access to the rest of the management dashboard. 
+The **Delegated Administration Extension (DAE)** allows you to grant a select group of people administrative permissions to the [Users page](${manage_url}/#/users) of the Auth0 Dashboard without providing access to any other area. This is done by exposing the [Users area](${manage_url}/#/users) as an Auth0 application.
+
+This tutorial will show you how to expose the Users dashboard to a group of users without allowing them access to the rest of the management dashboard. 
 
 Prior to configuring the extension, you will need to:
 
@@ -69,12 +74,6 @@ Once you've created your application, you'll need to make the following applicat
 6. Navigate to **Settings > Show Advanced Settings > OAuth** and paste the **Client ID** value to the **Allowed APPs / APIs** field.
 
 7. Next, set the **JsonWebToken Signature Algorithm** to `RS256`, and make sure the **OIDC Conformant** toggle is disabled.
-
-::: note
-The **Delegated Administration** extension requires applications to disable the **OIDC Conformant** flag. After turning off **OIDC Conformant** on the dashboard, ensure your application's authentication code is updated as well. 
-
-In some older tenants, you will also need to make sure that the **Legacy User Profile** flag is turned on. 
-:::
 
 ![Change Advanced OAuth Settings](/media/articles/extensions/delegated-admin/oauth-settings.png)
 
@@ -135,11 +134,7 @@ You can set these fields manually or via [rules](/rules).
 
 #### Set user roles via rules
 
-As an example, the following rule gives users from the `IT Department` the `Delegated Admin - Administrator` role and users from `Department Managers` are the `Delegated Admin - User` role.
-
-::: warning
-`auth0.com`, `webtask.io` and `webtask.run` are Auth0 domains and cannot be used as namespace identifiers for custom claims.
-:::
+As an example, the following rule gives users from the `IT Department` the `Delegated Admin - Administrator` role and users from `Department Managers` are the `Delegated Admin - User` role. Your custom claim should be [namespaced](/tokens/concepts/claims-namespacing).
 
 ```js
 function (user, context, callback) {

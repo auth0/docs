@@ -18,7 +18,7 @@ useCase:
 ---
 # Sample Use Cases: Rules with Authorization
 
-With rules, you can modify or complement the outcome of the decision made by the pre-configured [authorization policy](/authorization/concepts/policies) to handle more complicated cases than is possible with [role-based access control (RBAC)](/authorization/concepts/rbac) alone. Based on the order in which they run, rules can change the outcome of the authorization decision prior to the permissions being added to the <dfn data-key="access-token">Access Token</dfn>. They can also allow you to customize the content of your tokens.
+With [rules](/rules), you can modify or complement the outcome of the decision made by the pre-configured [authorization policy](/authorization/concepts/policies) to handle more complicated cases than is possible with [role-based access control (RBAC)](/authorization/concepts/rbac) alone. Based on the order in which they run, rules can change the outcome of the authorization decision prior to the permissions being added to the <dfn data-key="access-token">Access Token</dfn>. They can also allow you to customize the content of your tokens.
 
 ## Allow access only on weekdays for a specific application
 
@@ -39,7 +39,7 @@ function (user, context, callback) {
 }
 ```
 
-If it is weekend, a user will be denied access to the specified application even if they successfully authenticate and have the appropriate privileges.
+If a user attempts to access the application during the weekend, access will be denied, even if they authenticate and have the appropriate privileges.
 
 ## Allow access only to users who are inside the corporate network
 
@@ -61,7 +61,6 @@ function (user, context, callback) {
 
 If the user is outside the corporate network, they will be denied access even if they successfully authenticate and have the appropriate privileges.
 
-
 ## Add user roles to tokens
 
 If you [enable RBAC for APIs](/dashboard/guides/apis/enable-rbac) and set the **Token Dialect** appropriately, you will receive user permissions in your Access Tokens. To add user <dfn data-key="role">roles</dfn> to tokens, you would use the `context.authorization` object in the following rule:
@@ -79,9 +78,34 @@ function (user, context, callback) {
 
   context.idToken = idTokenClaims;
   context.accessToken = accessTokenClaims;
+
   callback(null, user, context);
 }
 
+```
+
+## Manage Delegated Administration Extension roles using the Authorization Core feature set
+
+Although the [Delegated Administration Extension (DAE)](/extensions/delegated-admin) and the Authorization Core feature set are completely separate features, you can use the Authorization Core feature set to create and manage roles for the DAE if you use a rule.
+
+1. [Create DAE roles](/dashboard/guides/roles/create-roles) using the Authorization Core feature set. 
+
+The names of the roles you create must match the names of the [pre-defined DAE roles](/extensions/delegated-admin#assign-roles-to-users).
+
+2. [Assign the DAE roles you created to the appropriate users](/dashboard/guides/users/assign-roles-users) using the Authorization core feature set.
+
+3. Add user roles to the DAE namespace in the ID Token. To do so, add the following rule:
+
+```js
+function (user, context, callback) {
+  const IDTOKEN_ROLES_PROPERTY = 'https://demozero.net/auth0-delegated-admin';
+
+  context.idToken[IDTOKEN_ROLES_PROPERTY] = {
+    roles: (context.authorization || {}).roles
+  };
+
+  callback(null, user, context);
+}
 ```
 
 ## Keep reading

@@ -22,7 +22,7 @@ Please note that rules also run during the [token refresh](/tokens/refresh-token
 1. An app initiates an authentication request to Auth0.
 1. Auth0 routes the request to an Identity Provider through a configured connection.
 1. The user authenticates successfully.
-1. The [ID Token](/tokens/id-token) and/or <dfn data-key="access-token">Access Token</dfn> is passed through the Rules pipeline, then sent to the app.
+1. The [ID Token](/tokens/id-tokens) and/or <dfn data-key="access-token">Access Token</dfn> is passed through the Rules pipeline, then sent to the app.
 
 ## What can I use Rules for?
 

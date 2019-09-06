@@ -64,12 +64,12 @@ If all goes well, you'll receive an HTTP 200 response with a payload containing 
 }
 ```
 ::: warning
-You should validate your tokens before saving them. To learn how, see [Validate an ID Token](/tokens/guides/id-token/validate-id-token) and [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+You should validate your tokens before saving them. To learn how, see [Validate an ID Token](/tokens/guides/id-token/validate-id-token) and [Validate an Access Token](/tokens/guides/access-token/validate-access-token).
 :::
 
-[ID Tokens](/tokens/id-token) contain user information that must be [decoded and extracted](/tokens/id-token#id-token-payload). 
+[ID Tokens](/tokens/id-tokens) contain user information that must be [decoded and extracted](/tokens/id-tokens#id-token-payload). 
 
-[Access Tokens](/tokens/access-token) are used to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or another API. If you are calling your own API, the first thing your API will need to do is [verify the Access Token](/api-auth/tutorials/verify-access-token).
+[Access Tokens](/tokens/access-token) are used to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or another API. If you are calling your own API, the first thing your API will need to do is [verify the Access Token](/tokens/guides/access-token/validate-access-token).
 
 <dfn data-key="refresh-token">[Refresh Tokens](/tokens/refresh-token)</dfn> are used to obtain a new Access Token or ID Token after the previous one has expired. The `refresh_token` will only be present in the response if you included the `offline_access` scope and enabled __Allow Offline Access__ for your API in the Dashboard.
 

@@ -241,6 +241,23 @@ end
 
 [See this StackOverflow thread for more information](https://stackoverflow.com/a/7135029/728480). 
 
+### ActionController::InvalidAuthenticityToken
+
+This is likely caused by a missing CSRF token needed to POST the login request. If you inspect the login button in your browser, you should see something like this:
+
+```html
+<a data-method="post" href="auth/auth0">Login</a>
+```
+
+... and in the `<head>` element for the page, you should have CSRF meta tags like these:
+
+```html
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="UY2XpKwxzwBWalxFVJ8yKsao/33it7If09BnZewpHifVPSpFJd2LrA7xgQn6VQrhZNGjgZoLI3kV+bkQHtr+Rw==">
+```
+
+With those elements in place, Rails will convert the login link to POST the CSRF token to the backend to verify it before redirecting to login.
+
 ### ActionDispatch::Cookies::CookieOverflow
 
 This error means that a cookie session is being used and because the whole profile is being stored, it overflows the max-size of 4 kb. If you are unable to access the user profile and you get an error similar to `NoMethodError`, `undefined method '[]' for nil:NilClass`, try using In-Memory store for development.

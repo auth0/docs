@@ -229,6 +229,8 @@ You can add `console.log` lines in the rule's code for debugging. The [Rule Edit
 
 3. **DEBUG RULE**: similar to the above, displays instructions for installing, configuring and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
 
+<%= include('../../_includes/_webtask') %>
+
   For example:
 
   ```sh

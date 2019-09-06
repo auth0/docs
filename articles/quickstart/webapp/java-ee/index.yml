@@ -1,0 +1,44 @@
+title: Java EE
+logo_name: java
+author:
+  name: Jim Anderson
+  email: jim.anderson@auth0.com
+  community: false
+alias:
+  - java
+  - java-ee
+languages:
+  - Java
+framework:
+  - Java EE
+image: /media/platforms/java.png
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+seo_alias: java ee
+articles:
+  - 01-login
+default_article: 01-login
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-java-ee-sample
+  branch: master
+requirements:
+  - Java 8
+next_steps:
+  - path: 01-login
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

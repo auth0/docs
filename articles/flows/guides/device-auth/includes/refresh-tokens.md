@@ -62,5 +62,5 @@ If all goes well, you'll receive an `HTTP 200` response with a payload containin
 ```
 
 ::: warning
-You should validate your tokens before saving them. To learn how, see [Verify Access Tokens](/api-auth/tutorials/verify-access-token) and [Validate an ID Token](/tokens/guides/id-token/validate-id-token).
+You should validate your tokens before saving them. To learn how, see [Validate an Access Token](/tokens/guides/access-token/validate-access-token) and [Validate an ID Token](/tokens/guides/id-token/validate-id-token).
 :::

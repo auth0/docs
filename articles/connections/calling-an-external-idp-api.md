@@ -109,7 +109,7 @@ Replace these values:
 
 ::: panel Where do I find the User ID?
 - For testing purposes, you can find a user ID at [Dashboard > Users](${manage_url}/#/users/). Select a user and copy the value of the **user_id** field.
-- For your implementation, you can either extract this information from the [ID Token](/tokens/id-token) (get the value of the claim **sub**), or call the [/userinfo endpoint of the Authentication API](/api/authentication#get-user-info) (get the value of the response property **user_id**).
+- For your implementation, you can either extract this information from the [ID Token](/tokens/id-tokens) (get the value of the claim **sub**), or call the [/userinfo endpoint of the Authentication API](/api/authentication#get-user-info) (get the value of the response property **user_id**).
 :::
 
 
@@ -197,9 +197,11 @@ If you haven't implemented this before, you might find our [SPA + API](/architec
 
 ### Option 2: Use webtasks
 
+<%= include('../_includes/_webtask') %>
+
 If you don't have a backend server, and you don't want to set up one, then you can leverage serverless technology, using webtasks.
 
-Webtasks are the Auth0 way to create HTTP endpoints with Node.js and access them from anywhere. It's a way to safely execute server-side logic, when you do not have a backend. They come with a command line tool and an editor. For more information refer to [the webtask.io documentation](https://webtask.io/).
+Webtasks are the Auth0 way to create HTTP endpoints with Node.js and access them from anywhere. It's a way to safely execute server-side logic, when you do not have a backend. They come with a command line tool and an editor. For more info, see [the webtask.io documentation](https://webtask.io/).
 
 In this scenario, you will create a webtask and implement the steps of [the backend section](#from-the-backend). Then the webtask will call the IdP's API so the Access Token is never exposed to your public application.
 

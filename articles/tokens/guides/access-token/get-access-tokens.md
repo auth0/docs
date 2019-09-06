@@ -1,5 +1,6 @@
 ---
-description: How to get Access Tokens
+title: Get an Access Token
+description: Learn how to get an Access Token.
 topics:
   - tokens
   - access-tokens
@@ -8,22 +9,52 @@ contentType:
 useCase:
   - invoke-api
 ---
-# Get Access Tokens
+# Get an Access Token
 
-<dfn data-key="access-token">Access Tokens</dfn> are issued through Auth0's OAuth 2.0 endpoints:
+To get an [Access Token](/tokens/access-token), you need to request one when [authenticating](/application-auth) a user.
 
-* [/authorize](/api/authentication#authorize-application)
-* [/oauth/token](/api/authentication#get-token)
+Auth0 makes it easy for your app to authenticate users using:
 
-You can get Access Tokens from the following Auth0 endpoints:
-  * **Server-side web app**: See [Authorization Code Flow](/flows/concepts/auth-code)
-  * **Mobile app**: See [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce)
-  * **Client-side app**: See [Implicit Flow](/flows/concepts/implicit)
-  * **Command line interface**: See [Client Credentials Flow](/flows/concepts/client-credentials)
-  * **Trusted application**: See [Resource Owner Password Grant](/api-auth/grant/password)
+* [Quickstarts](/quickstarts): The easiest way to implement authentication, which can show you how to use <dfn data-key="universal-login">[Universal Login](/universal-login)</dfn>, the <dfn data-key="lock">[Lock widget](/lock)</dfn>, and Auth0's language and framework-specific [SDKs](/libraries#sdks). Our [Lock documentation](/libraries/lock) and [Auth0.js documentation](/libraries/auth0js) both provide specifics about retrieving an Access Token after authentication.
+* [Authentication API](/api/authentication): If you prefer to roll your own, you can call our API directly. First, you need to know [which flow to use](/api-auth/which-oauth-flow-to-use) before following the appropriate [flow tutorial](/flows).
 
-For a list of widgets and SDKs that can help you implement Auth0, see our [Libraries](/libraries).
+## Control Access Token Audience 
 
-Calls to the <dfn data-key="lock">Lock widget</dfn> will return an Access Token as shown in the [Lock documentation](/libraries/lock).
+When a user authenticates, you request an Access Token and include the target audience and scope of access in your request. This access is both requested by the application and granted by the user during authentication using the [Authorize endpoint](/api/authentication#authorize-application).
 
-If you need only a client-side library for authorization and authentication, use [auth0.js](/libraries/auth0js).
+You may configure your tenant to always include a [default audience](/dashboard/dashboard-tenant-settings#api-authorization-settings).
+
+| Token Use | Format | Requested Audience | Requested Scope |
+|-----------|--------|--------------------|-------|
+| [/userinfo endpoint](/api/authentication#get-user-info) | [Opaque](/tokens/access-tokens#opaque-access-tokens) | tenant name (`${account.namespace}`), no value for `audience` parameter, no `audience` parameter passed | `openid` |
+| Auth0 Management API | [JWT](/jwt) | Management API v2 identifier (`https://{tenant}.auth0.com/api/v2/`) |  |
+| Your own custom API | [JWT](/jwt) | The API Identifier for your custom API registered in the Auth0 Dashboard |  |
+
+::: panel Multiple Audiences
+Access Tokens can have multiple target audiences as long as your custom API's [signing algorithm](/tokens/concepts/signing-algorithms) is set to **RS256**. 
+
+For example, if you specify an `audience` of your custom API identifier and a `scope` of `openid`, then the resulting Access Token's `aud` claim will be an array rather than a string, and the Access Token will be valid for both your custom API and for the `/userinfo` endpoint.
+:::
+
+::: panel Custom Domains and the Management API
+Auth0 issues tokens with an issuer (`iss` claim) of whichever domain you used when requesting the token. [Custom domain](/custom-domains) users may use either their custom domain or their Auth0 domain. For example, say you have a custom domain of **https://login.northwind.com**. If you request an Access Token from **https://login.northwind.com/authorize**, your token's `iss` claim will be **https://login.northwind.com/**. However, if you request an Access Token from **https://northwind.auth0.com/authorize**, your token's `iss` claim will be **https://northwind.auth0.com/**. 
+
+For an Access Token with the target audience of the [Auth0 Management API](/api/management/v2), if you have requested an Access Token from your custom domain, then you **must** call the Management API from your custom domain or else your Access Token will be considered invalid.
+:::
+
+## Renew an Access Token
+
+By default, an Access Token for a Custom API is valid for 86400 seconds (24 hours). If there are security concerns, you can [shorten the time period before the token expires](/dashboard/guides/apis/update-token-lifetime). 
+
+After an Access Token has expired, you may want to renew your Access Token. To renew the Access Token, you can either reauthenticate the user using Auth0, or use a <dfn data-key="refresh-token">[Refresh Token](/tokens/refresh-token)</dfn>.
+
+## Read more
+
+* [Access Tokens](/tokens/access-token)
+* [Use an Access Token](/tokens/guides/access-token/use-access-tokens)
+* [Validate an Access Token](/tokens/guides/access-token/validate-access-token)
+* [JSON Web Token](/jwt)
+* [JSON Web Token Claims](/tokens/jwt-claims)
+* [Token Best Practices](/tokens/concepts/token-best-practices)
+* [Quickstarts](/quickstarts)
+* [Authentication and Authorization Flows](/flows)

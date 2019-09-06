@@ -56,12 +56,9 @@ The **Always require Multi-factor Authentication** setting, when enabled, will f
 These customizations do not apply to Duo, which has its own UI.
 :::
 
-The hosted page for MFA can also be customized. You may change the logo and the name that is displayed to your users. To do so, make the appropriate changes to the Guardian page's settings on the **General** tab in [Dashboard > Tenant Settings](${manage_url}/#/tenant). You can also reach the Tenant Settings page by clicking on your tenant name on the top right of the page and then selecting **Settings** from the dropdown menu.
+The Multi-factor Authentication pages can be customized by adjusting the Universal Login branding options in the [Universal Login Settings](${manage_url}/#/login_settings) section.
 
-* **Friendly Name**: the name of the app that you want displayed to users
-* **Logo URL**: the URL that points to the logo image you want displayed to users
-
-Additionally, you can [customize the MFA hosted page](/hosted-pages/guardian) as well.
+If you need further customization, you can also customize [the full HTML content](/universal-login/multifactor-authentication#customizing-the-html-for-the-mfa-page) to reflect your organization's particular UX requirements. 
 
 ### Customizing via Rules
 

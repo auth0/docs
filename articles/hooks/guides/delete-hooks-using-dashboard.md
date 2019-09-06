@@ -15,7 +15,7 @@ The Auth0 Management Dashboard provides a visual interface for working with Hook
 ![Management Dashboard Hooks Page](/media/articles/hooks/hooks-dashboard.png)
 
 ::: note
-Hooks utilize the Webtask Editor. For additional information on how to work with the Webtask Editor, you can review its docs [here](https://webtask.io/docs/editor/).
+Hooks utilize the Webtask Editor. To learn how to use the Webtask Editor, see [webtask.io: Webtask Editor](https://webtask.io/docs/editor/).
 :::
 
 

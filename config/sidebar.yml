@@ -70,8 +70,8 @@ articles:
           - title: "Password Reset"
             url: "/universal-login/password-reset"
 
-          - title: "Guardian"
-            url: "/universal-login/guardian"
+          - title: "Multi-factor Authentication"
+            url: "/universal-login/multifactor-authentication"
 
           - title: "Error Pages"
             url: "/universal-login/error-pages"
@@ -1174,7 +1174,7 @@ articles:
   #       url: "/api-auth/dynamic-client-registration"
 
   #     - title: "Verify Access Tokens"
-  #       url: "/api-auth/tutorials/verify-access-token"
+  #       url: "/tokens/guides/access-token/validate-access-token"
 
   - title: "Private Cloud Deployments"
     url: "/private-cloud"
