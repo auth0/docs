@@ -19,32 +19,34 @@ useCase:
 
 # Generate Client Secret for Web Apps Using Sign In with Apple
 
-After you have verified your domain with Apple, define the environment variables needed to use this identity provider. 
+After you have [verified your domain with Apple](/connections/social/apple/guides/add-siwa-to-web-app#verify-domain-ownership-on-apple), define the environment variables you need to use this identity provider. For most OAuth-compliant identity providers, the `CLIENT_SECRET` variable is static. However, Apple rotates this secret by using signed JSON Web Tokens (JWTs) that carry the `exp` claim. 
 
-1. Configure the following variables:
+Configure the following variables:
 
-    | Variable | Description
-    | --- | --- |
-    | **CLIENT_ID** | Gets the value that you used as the identifier of the Service ID you created at Apple  (`com.<YOUR CUSTOM DOMAIN>.webapp`). |
-    | **CALLBACK** | The URL to which the user will be redirected after the authentication process takes place. You will have to use the value you passed to the **Return URL** field (`<YOUR CUSTOM DOMAIN>.com/callback`) on the same Service ID. |
+| Variable | Description
+| --- | --- |
+| **CLIENT_ID** | Gets the value that you used as the identifier of the Service ID you created at Apple  (`com.<YOUR CUSTOM DOMAIN>.webapp`). |
+| **CALLBACK** | The URL to which the user will be redirected after the authentication process takes place. You will have to use the value you passed to the **Return URL** field (`<YOUR CUSTOM DOMAIN>.com/callback`) on the same Service ID. |
 
-2. For most OAuth-compliant identity providers, the `CLIENT_SECRET` variable is static. However, Apple rotates this secret by using signed JSON Web Tokens (JWTs) that carry the `exp` claim. To generate this key, go to **Keys** in **Certificates, Identifiers, & Profiles** section in your Apple developer dashboard. 
+## Generate and download an Apple key
 
-3. Click the round, blue icon to add a new key. 
+1. To generate the client secret key, on your Apple Developer dashboard, go to the **Keys** in **Certificates, Identifiers, & Profiles** section. 
 
-4. Use **Sign In with Apple Key** to fill the **Key Name** field, and check the **Sign In with Apple** option. 
+2. Click the round, blue icon to add a new key. 
 
-5. Click **Configure** to confirm that the **Choose a Primary App ID** field is filled with your App ID. 
+3. Use **Sign In with Apple Key** to fill the **Key Name** field, and check the **Sign In with Apple** option. 
 
-6. Click **Save**, then **Continue**, then **Register** (3 buttons on 3 pages).
+4. Click **Configure** to confirm that the **Choose a Primary App ID** field is filled with your App ID. 
+
+5. Click **Save**, then **Continue**, then **Register** (3 buttons on 3 pages).
 
     Apple redirects you to a page where you will be able to download the new key. 
   
-7. Click the download button and then move the file to your project root. Rename it to `authkey.p8`. 
+6. Click the download button and then move the file to your project root. Rename it to `authkey.p8`. 
 
-8. Back in the Apple Developer Portal, make a note of the Key ID click **Done**.
+7. Back in the Apple Developer Portal, make a note of the Key ID click **Done**.
 
-9. Create a new file called `generate-secret.js` inside the project root, and add the following code to it:
+8. Create a new file called `generate-secret.js` inside the project root, and add the following code to it:
 
     ``` js
     const jwt = require("jsonwebtoken");
@@ -65,7 +67,7 @@ After you have verified your domain with Apple, define the environment variables
 
     Replace `com.<YOUR CUSTOM DOMAIN>.webapp` with the identifier for your Service ID and `TEAM_ID` with your Team ID. To find this value, visit this [page](https://developer.apple.com/account/#/membership). You'll also need to replace `KEY_ID` with the Key ID you noted earlier.
 
-10. Run this script to generate a new token:
+9. Run this script to generate a new token:
 
     ``` text
     node generate-secret.js
@@ -73,7 +75,9 @@ After you have verified your domain with Apple, define the environment variables
 
     The value that the script outputs is the value that you will use on the `CLIENT_SECRET` environment variable. 
 
-11. Return to your Auth0 dashboard and make sure your custom social connection fields look like this:
+## Update Auth0 custom social connection fields
+
+1. Return to your Auth0 dashboard and make sure your custom social connection fields look like this:
 
     | Field | Value |
     | --- | --- |
@@ -86,9 +90,9 @@ After you have verified your domain with Apple, define the environment variables
     | Scope | email name |
     | Custom Headers | `"UserAgent": "Auth0", "Accepts": "application/json"`|
 
-12. Click **Save** and enable this connection for your application.
+2. Click **Save** and enable this connection for your application.
 
-13. On your server, stop the web app instance that is running, and issue the following commands:
+3. On your server, stop the web app instance that is running, and issue the following commands:
 
     ``` text
     # now you need to use the real values
@@ -99,4 +103,12 @@ After you have verified your domain with Apple, define the environment variables
     npm start
     ```
 
-    This time, set the environment variables with the final values. If things work as expected, you will see the application running under your domain again. Then, if you request for the `/auth/.apple` route under this domain, your application will redirect you to the **Sign In with Apple** page so you can log into your application. On this page, if you use valid credentials, Apple will sign you into the application (after the multifactor authentication process).
+4. Set the environment variables with the final values. If things work as expected, you will see the application running under your domain again. Then, if you request for the `/auth/.apple` route under this domain, your application will redirect you to the **Sign In with Apple** page so you can log into your application. On this page, if you use valid credentials, Apple will sign you into the application (after the multifactor authentication process).
+
+## Keep reading
+
+* [Auth0 and Sign In with Apple Overview](/connections/social/apple/concepts/sign-in-with-apple-overview)
+* [Sign In with Apple and Auth0 Connection Use Cases](/connections/social/apple/references/siwa-use-cases)
+* [Sign In with Apple and Auth0 Logging](/connections/social/apple/references/siwa-logging)
+* [Sign In with Apple and Auth0 Rate Limits](/connections/social/apple/references/siwa-rate-limits)
+* [Sign In with Apple and Auth0 Troubleshooting](/connections/social/apple/references/siwa-troubleshooting)

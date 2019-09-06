@@ -26,7 +26,10 @@ Apple requires the adoption of Sign In with Apple (SIWA) capabilities if you hav
   'connections/social/apple/concepts/sign-in-with-apple-overview',
   'connections/social/apple/guides/add-siwa-to-native-app',
   'connections/social/apple/guides/add-siwa-to-web-app',
-  'connections/social/apple/guides/verify-apple-connection-with-auth0-credentials',
   'connections/social/apple/guides/test-siwa-connection',
-  'connections/social/apple/guides/generate-client-secret-siwa'
+  'connections/social/apple/guides/generate-client-secret-siwa',
+  'connections/social/apple/references/siwa-logging',
+  'connections/social/apple/references/siwa-rate-limits',
+  'connections/social/apple/references/siwa-troubleshooting',
+  'connections/social/apple/references/siwa-use-cases'
 ] }) %>
