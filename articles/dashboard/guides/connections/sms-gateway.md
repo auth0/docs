@@ -22,7 +22,7 @@ By default, [Passwordless SMS connection](/dashboard/guides/connections/configur
  ```har
 {
   "method": "GET",
-  "url": "${manage_url}/api/v2/connections",
+  "url": "your-auth0-tenant.com/api/v2/connections",
   "headers": [
     { "name": "Content-Type", "value": "application/json" },
     { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" }
@@ -32,7 +32,7 @@ By default, [Passwordless SMS connection](/dashboard/guides/connections/configur
     
     The response from the endpoint will be an array of objects. Each object represents one connection affiliated with your tenant.
     
-3. Identify your connection ID. You can find the ID associated with your Passwordless connection by reviewing the array of objects you returned from the [GET Connections](/api/management/v2#!/Connections/get_connections) endpoint in step 2.
+1. Identify your connection ID. You can find the ID associated with your Passwordless connection by reviewing the array of objects you returned from the [GET Connections](/api/management/v2#!/Connections/get_connections) endpoint in step 2.
 
     To find the specific object for your Passwordless connection, you can search for the `"name": "sms"` property. Notice that the connection currently displays the Twilio information you provided during the setup process.
 
