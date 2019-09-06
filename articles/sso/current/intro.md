@@ -82,3 +82,25 @@ For [outbound SSO](/sso/current/outbound), a third-party identity provider is th
 ## Extension: SSO Dashboard
 
 The [Single Sign-On (SSO) Dashboard Extension](/extensions/sso-dashboard) allows you to create a dashboard with multiple enterprise applications that can be enabled for SSO for your users for login.
+
+## Use Cases
+
+For examples and implementation guides, check out our [Architecture Scenarios](/architecture-scenarios).
+
+### Business to Business
+
+For Business to Business (B2B) scenarios, SSO can simplify packaging your application for enterprise consumption. With Auth0 your applications can support common enterprise federation scenarios such as Active Directory, Lightweight Directory Access Protocol (LDAP), Ping, or Security Assertion Markup Language (SAML). This allows your partners and enterprise customers to login with their preferred enterprise identity technologies.
+
+* [Case Study: Safari](https://auth0.com/learn/safari-case-study/)
+
+### Business to Consumer / Customer Identity Access Management
+
+For Business to Consumer (B2C) or Customer Identity Access Management (CIAM) scenarios, SSO can provide frictionless access to your applications or services. You can let customers authenticate through popular social identity providers such as Google, Facebook, LinkedIn, Twitter, and Microsoft instead of requiring them to make another account.
+
+* [Case Study: Giving Compass](https://auth0.com/learn/giving-compass-case-study/)
+
+### Business to Employees
+
+For Business to Employees (B2E) scenarios, SSO can simplify the provisioning and management of employee credentials. Instead of keeping track of credentials for each and every service, employees can login once and gain access to everything they need. And if an employee leaves, deprovisioning a single account is much easier.
+
+* [Case Study: Schneider Electric](https://auth0.com/learn/schneider-electric-case-study/)
