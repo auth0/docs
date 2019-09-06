@@ -1,10 +1,6 @@
 ---
 title: Auth0 and Sign In with Apple Overview
 description: Understand how native login functionality works with Auth0 and your applications. 
-connection: Apple
-index: 3
-image: /media/connections/apple.svg
-seo_alias: apple
 topics:
   - authentication
   - connections

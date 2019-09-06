@@ -1,5 +1,6 @@
 ---
 classes: topic-page
+url: /connections/social/apple
 title: Auth0 and Sign In with Apple
 description: Understand how native login functionality works with Auth0 and your applications. 
 connection: Apple

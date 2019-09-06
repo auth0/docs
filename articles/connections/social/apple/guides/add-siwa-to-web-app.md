@@ -1,9 +1,5 @@
 ---
 title: Add Sign In with Apple to Your Web App
-connection: Apple
-index: 3
-image: /media/connections/apple.svg
-seo_alias: apple
 description: Learn how to add native login functionality to your web app with Apple. 
 toc: true
 topics:

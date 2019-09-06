@@ -1,9 +1,5 @@
 ---
 title: Test Sign In with Apple Configuration
-connection: Apple
-index: 3
-image: /media/connections/apple.svg
-seo_alias: apple
 description: Learn how to test the Auth0 Sign In with Apple app configuration. 
 topics:
   - authentication

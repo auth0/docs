@@ -1,9 +1,5 @@
 ---
 title: Generate Client Secret for Web Apps Using Sign In with Apple
-connection: Apple
-index: 3
-image: /media/connections/apple.svg
-seo_alias: apple
 description: Learn how to generate a client secret for web apps that use Sign In with Apple. 
 topics:
   - authentication
