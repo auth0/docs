@@ -178,7 +178,7 @@ LOGIN_REDIRECT_URL = '/dashboard'
 
 ## Trigger Authentication
 
-Add a handler for the `index` view in your `views.py` to render the `index.html` if the user needs to log in. If the user is already logged in, the `dashboard` view will be shown instead.
+Add a handler for the "index" view in your `views.py` to render the `index.html` if the user needs to log in. If the user is already logged in, the "dashboard" view will be shown instead.
 
 ```python
 # auth0login/views.py
@@ -207,7 +207,7 @@ Add a link to `/login/auth0` in the `index.html` template.
 
 ## Display User Information
 
-After the user is logged in, you can access the user information from the `request.user` property. Add a handler for the `/dashboard` endpoint in the `views.py` file. This same view will be displayed when a user that is already logged in tries to visit the `index` view. 
+After the user is logged in, you can access the user information from the `request.user` property. Add a handler for the `/dashboard` endpoint in the `views.py` file. This same "dashboard" view will be displayed when a user that is already logged in tries to visit the "index" view. 
 
 ```python
 # auth0login/views.py
