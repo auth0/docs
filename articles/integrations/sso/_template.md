@@ -1,20 +1,22 @@
-# ${service} Single Sign-On Integration
+# Configure SSO Integration for ${service}
+
+This guide will show you how to configure an SSO integration.
 
 <% if (service === "Active Directory RMS") { %>
 ::: warning
-The steps in this tutorial are valid for Active Directory Rights Management Services 2008 and earlier.
+The steps in this guide are valid for Active Directory Rights Management Services 2008 and earlier.
 :::
 <% } %>
 
-The ${service} <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> Integration lets your users log in to ${service} with Auth0 [identity providers](/identityproviders), and provides SSO to configured applications.
+The ${service} <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> Integration lets you create a client application that Auth0 for authentication and provides SSO capabilities. Your users log in to ${service} with Auth0 [identity providers](/identityproviders), which means they perform the identity credentials verification.
 
-## Create a New SSO Integration
+## Create an SSO Integration
 
-Navigate to [Dashboard > SSO Integrations](${manage_url}/#/externalapps) and click **+ Create New SSO Integration**.
+To create a new SSO Integration, navigate to [Dashboard > SSO Integrations](https://manage.auth0.com/#/externalapps) and click **+ Create SSO Integration**.
 
 ![](/media/articles/sso/integrations/new.png)
 
-Select the **${service}** option.
+Next, select a provider.
 
 ![](/media/articles/sso/integrations/options.png)
 
@@ -22,13 +24,16 @@ Set the name for your SSO Integration. Click **Create**.
 
 ![](/media/articles/sso/integrations/name.png)
 
-You will be brought to the **${service} Configuration Instructions** page. We'll perform these steps in a later section.
+You will be brought to the **Tutorial** page for the provider, which contains instructions on how you can complete the integration with the external services provider so that it works with Auth0 for authentication. 
 
 ![](/media/articles/sso/integrations/${img}.png)
 
-Next, click on the **Settings** tab to configure the integration's settings.
+Once you're done configuring your integration, note that there are two additional tabs with additional options for you to manage:
 
-## Configure Settings
+1. **Settings**, which will allow you to change the integration's settings
+2. **Connections**, which will allow you to enable/disable the integration for the connections associated with your tenant
+
+### Settings
 
 On the **Settings** page, configure the following values:
 
@@ -88,6 +93,16 @@ On the **Settings** page, configure the following values:
             <td>The connection to use with this integration, typically an Active Directory connection.</td>
         </tr>
         <% } %>
+        <% if (service === "Sentry") { %>
+        <tr>
+            <td>Organization Slug</td>
+            <td>The generated slug for your Sentry organization found in your URL (i.e., the slug for `https://sentry.acme.com/acme-org/` would `acme-org`.</td>
+        </tr>
+        <tr>
+            <td>Sentry URL Prefix</td>
+            <td>Your URL prefix if you're using Sentry Community Edition; otherwise, leave blank.</td>
+        </tr>
+        <% } %>
         <% if (service === "Slack") { %>
         <tr>
             <td>Team Name</td>
@@ -141,16 +156,12 @@ On the **Settings** page, configure the following values:
 
 Click **Save**.
 
-## Configure ${service}
+### Enable Connections
 
-When you configure ${service}, refer to the **${service} Configuration Instructions** page on [Dashboard > SSO Integrations > ${service}](${manage_url}/#/externalapps/) and follow each of the steps as shown.
+The **Connections** tab features a list of user sources available to your tenant. Your connections are organized by type (e.g., Database, Social, Enterprise, Passwordless).
 
-![](/media/articles/sso/integrations/${img}.png)
+You can choose the connections that you want used with your newly-created SSO integration; this allows the users in those connections to log in to ${service}.
 
-## Enable Connections
+## Complete Set Up
 
-Click the **Connections** tab for the integration to select which connections you want to enable for this integration.
-
-## Setup Complete
-
-That's it! You've set up a SSO integration with ${service} and Auth0. Your users can now choose this as a way to authenticate.
+Once you've followed the configuration instructions in the tutorial, modified your settings (if necessary), and enabled your connection(s), you're done with setting up an SSO integration between ${service} and Auth0.
