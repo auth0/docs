@@ -89,7 +89,7 @@ OkHttpClient client = new OkHttpClient();
 Request request = new Request.Builder()
     .get()
     .url(API_URL)
-    .addHeader("Authorization", "Bearer " + accessToken);
+    .addHeader("Authorization", "Bearer " + accessToken)
     .build();
 ```
 
