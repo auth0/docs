@@ -1,144 +1,45 @@
 ---
-title: "Auth0 Extension: Single Sign-On (SSO) Dashboard"
-description: This page explains how to configure and utilize the SSO Dashboard Extension.
-toc: true
+description: Understand how the SSO Dashboard Extension enables you to manage SSO login for your users on multiple enterprise applications. 
+classes: topic-page
 topics:
   - extensions
   - sso-dashboard
+  - sso
 contentType:
-  - how-to
-useCase: extensibility-extensions
+  - concept
+useCase: 
+  - extensibility-extensions
+  - setup-multiple-applications
+  - setup-sso-dashboard
 ---
 
-# Auth0 Extension: Single Sign-On (SSO) Dashboard
+# Auth0 Single Sign-On Dashboard Extension
 
-The **<dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> Dashboard** extension allows you to create a dashboard with multiple enterprise applications that can be enabled for SSO for your users for login.
+The **<dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> Dashboard** is a web application designed to solve a problem familiar to many people. Organizations of all sizes maintain a variety of different applications to handle various business functions like accounting, HR, development, support, etc. Remembering usernames and passwords and login URLs for all of your applications can be cumbersome. With this extension, you can simplify the authentication experience by enabling SSO login for your users on multiple enterprise applications. It allows you to create a list of all the cloud services for which a user can authenticate with SSO logins. 
 
-The SSO dashboard supports two types of users: 
-**Users**- who will login to the dashboard to then select an application to sign into with SSO. 
-**Admins**- can login to configure the applications that are visible to the users. This guide is intended for Dashboard Admins.
+::: note
+A user should not be able to access, from the dashboard or otherwise, the service provider without having appropriate permissions (groups/roles) to do so.  Ideally, these users would not see any service provider they are not granted access to on the dashboard.
+:::
 
-[View this Extension on GitHub](https://github.com/auth0-extensions/auth0-sso-dashboard-extension)
+The SSO Dashboard supports two types of users: 
+- **Users** who can login to the dashboard to select an application to sign into with SSO. 
+- **Admins** who can configure applications visible to the users. 
 
-## Create an application
+To setup and configure this extension, do the following steps:
 
-Let's start with creating a new application. Navigate to [Applications](${manage_url}/#/applications) and click on the **+Create Application** button. Set a name and choose **Single-Page Web Applications** application type. Click on **Create**.
+<%= include('../_includes/_topic-links', { links: [
+  'dashboard/guides/extensions/sso-dashboard-create-app',
+  'dashboard/guides/extensions/sso-dashboard-install-extension',
+  'dashboard/guides/extensions/sso-dashboard-add-apps',
+  'dashboard/guides/extensions/sso-dashboard-update-apps',
+] }) %>
 
-![](/media/articles/extensions/sso-dashboard/create-client.png)
+## Keep reading
 
-Click on the *Settings* tab and set the **Allowed Callback URLs**. This varies based on your location.
-
-The login URL for **Admins**:
-
-| Location | Allowed Callback URL |
-| --- | --- |
-| USA | `https://${account.tenant}.us8.webtask.io/auth0-sso-dashboard/admins/login` |
-| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/admins/login` |
-| Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/admins/login` |
-
-The login URL for **Users**:
-
-| Location | Allowed Callback URL |
-| --- | --- |
-| USA | `https://${account.tenant}.us8.webtask.io/auth0-sso-dashboard/login` |
-| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/login` |
-| Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/login` |
-
-Copy the **Client ID** value.
-
-Navigate to *Settings > Show Advanced Settings > OAuth* and paste the **Client ID** value to the **Allowed APPs / APIs** field.
-
-Set the **JsonWebToken Signature Algorithm** to *RS256*.
-
-![](/media/articles/extensions/delegated-admin/set-rs256.png)
-
-Save your changes.
-
-### Application connections
-
-By default all the connection types are enabled for users to be able to login into the SSO Dashboard. If you would like to change this, navigate to the *Connections* tab for the Application.
-
-## Install the extension
-
-We are now ready to setup our new extension. But first, head back to your newly created Application and copy the **Client ID** value.
-
-To install and configure this extension, click on the **SSO Dashboard** box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the dashboard. The **Install Extension** window will open.
-
-![Install SSO Dashboard Extension](/media/articles/extensions/sso-dashboard/install-extension.png)
-
-Set the following configuration variables:
-
-- **EXTENSION_CLIENT_ID**: This is the **Client ID** of the application you have created in the [Applications](${manage_url}/#/applications) that you wish to use this extension with.
-- **TITLE**: This the custom title that will appear at the top of the SSO Dashboard page.
-- **CUSTOM_CSS** *Optional*: This field that can contain a link to custom CSS you can use to style the look of your SSO Dashboard page.
-- **AUTH0_CUSTOM_DOMAIN** *Optional*: If you have a custom domain name configured, enter it here (for example: login.example.com). This will change the authorization endpoint to https://login.example.com/login.
-
-  **NOTE**: Setting the `AUTH0_CUSTOM_DOMAIN` variable does not affect the extension URL, it only changes the "authorization endpoint". When a custom domain is used, users that are logging into the extension will be navigated to `https://AUTH0_CUSTOM_DOMAIN/login` instead of the default `https://tenant-name.us.auth0.com/login`.
-
-Once you have provided this information, click **INSTALL**.
-
-If you navigate back to the [Applications](${manage_url}/#/applications) view, you will see that there has been an additional application created.
-
-![New created Application](/media/articles/extensions/sso-dashboard/new-client.png)
-
-The `auth0-sso-dashboard` application is created automatically when you install the extension. It's an application authorized to access the [Management API](/api/management/v2) and you shouldn't modify it.
-
-## Use the extension
-
-Navigate to the [Extensions](${manage_url}/#/extensions) page and click on the **Installed Extensions** tab.
-
-Click on the row for the **SSO Dashboard** extension. The first time you click on your installed extension, you will be asked to grant it the required permissions.
-
-Once you agree, you will be directed to your custom **SSO Dashboard** page, which will have the **TITLE** you provided at the top of the page, and if you provided a custom CSS file that styling will be applied.
-
-![Your Custom SSO Dashboard](/media/articles/extensions/sso-dashboard/dashboard.png)
-
-To login into the dashboard:
-
-For **Admins** use `https://${account.tenant}.<REGION>8.webtask.io/auth0-sso-dashboard/admins/login` or through the Dashboard.
-
-For **Users** use `https://${account.tenant}.<REGION>8.webtask.io/auth0-sso-dashboard/login`.
-
-### Add a new application
-
-To add a new application to your dashboard to be used for SSO, go to the **Settings** page of the dashboard by clicking on the link on the upper right corner of the page and click **Settings** from the dropdown.
-
-Then click on the **CREATE APP** button to add a new application.
-
-![Dashboard Settings](/media/articles/extensions/sso-dashboard/settings.png)
-
-You will then need to enter the following fields for the new application:
-
-* **Type**: This field is a dropdown where you select the either <dfn data-key="security-assertion-markup-language">SAML</dfn>, <dfn data-key="openid">OpenID-Connect</dfn>, or WS-Federation depending on the type of application.
-* **Application**: This is the application name of the application you have created that you wish to associate the login of users.
-* **Name**: The name of the new application you are adding.
-* **Logo**: Enter the url of the logo you wish to user as an icon for the application.
-* **Callback**: This is one of the **Allowed Callback URLs** under your [Application Settings](${manage_url}/#/applications) of the application.
-* **Connection** *Optional*: Select the connection type from the dropdown. You can add/edit your available connection types in the [Connections section of the Auth0 Management dashboard](${manage_url}/#/connections/database).  If a connection is not set and the user is not logged, the user will see the Auth0 Login page.
-* **Enabled**: Select this checkbox for this application to be visible (published) to your users.
-
-![Create a new application](/media/articles/extensions/sso-dashboard/new-app.png)
-
-Once completed click the **CREATE** button.
-
-Your new application will then appear on the **Applications** page of the SSO dashboard with any other applications that have been created.
-
-![SSO Dashboard Applications](/media/articles/extensions/sso-dashboard/dashboard-apps.png)
-
-You can click on an application here to test the connection.
-
-### Update an existing application
-
-To edit an existing application go to the **Settings** page of the dashboard by clicking on the link on the upper right corner of the page and click **Settings** from the dropdown.
-
-You can change whether users can see the application (if it is enabled) with the **Publish** or **Unpublish** buttons. 
-
-You can delete an application with the **X** button, a confirmation box will popup to confirm the deletion.
-
-To update an application's settings, click the gear icon.
-
-![Change Application Settings](/media/articles/extensions/sso-dashboard/change-settings.png)
-
-Here you can change any of your application settings, or delete an application.
-
-
+- [View this Extension on GitHub](https://github.com/auth0-extensions/auth0-sso-dashboard-extension)
+- [Troubleshoot Extensions](/extensions/troubleshoot)
+- [Understand how Single Sign-On works with Auth0](/sso/current/sso-auth0)
+- Learn how to [enable SSO in Auth0](/dashboard/guides/tenants/enable-sso-tenant)
+- [Understand session lifetime](/sessions/concepts/session-lifetime)
+- Learn how to [configure session lifetime settings](/dashboard/guides/tenants/configure-session-lifetime-settings)
+- Learn how to [log users out](/logout)
