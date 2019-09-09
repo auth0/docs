@@ -20,7 +20,7 @@ useCase: quickstart
 
 Most single-page apps use resources from data APIs. You may want to restrict access to those resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
 
-This tutorial shows you how to create a simple API using [Express](https://expressjs.com) that validates incoming JSON Web Tokens. You will then see how to call this API using an Access Token granted by the Auth0 authorization server.
+This tutorial shows you how to create a simple API using [Express](https://expressjs.com) that validates incoming JSON Web Tokens. You will then see how to call this API using an access token granted by the Auth0 authorization server.
 
 <%= include('../_includes/_calling_api_create_api') %>
 
@@ -71,11 +71,19 @@ This assumes that your project was created using [Vue CLI 3](https://cli.vuejs.o
 
 With this in place, the frontend application can make a request to `/api/external` and it will be correctly proxied through to the backend API at `http://localhost:3001/api/external`.
 
-## Modify the AuthService Class
+### Restart the application
 
-To start, open `authService.js` and make the necessary changes to the class to support retrieving an Access Token from the authorization server and exposing that token from a method.
+If you are already running the application using `npm run serve`, then stop that process for now. Restart the app using the following command, which will run both the frontend app and the backend API together:
 
-First of all, open `auth_config.json` in the root of the project and make sure that a value for `audience` is exported along with the other settings:
+```bash
+PORT=3000 npm run dev
+```
+
+## Add the Audience
+
+The API backend that you created above expects API calls to have a JSON Web Token attached so that it can authorize the call. To do this, you must instruct Auth0 to emit an access token in JWT format. This is done by supplying the API identifier when your users authenticate, telling Auth0 which API you want an access token for.
+
+Open `auth_config.json` in the root of the project and make sure that a value for `audience` is exported along with the other settings. The value for `audience` should be the "API identifier" for the API you created above:
 
 ```json
 {
@@ -85,162 +93,87 @@ First of all, open `auth_config.json` in the root of the project and make sure t
 }
 ```
 
-Then, modify the `webAuth` creation to include `token` in the response type and add in the API identifier as the `audience` value:
+Finally, open `main.js` and configure the Auth0 plugin with this audience value:
 
 ```js
-// src/auth/authService.js
 
-const webAuth = new auth0.WebAuth({
-  domain: authConfig.domain,
-  redirectUri: `<%= "${window.location.origin}" %>/callback`,
-  clientID: authConfig.clientId,
-  audience: authConfig.audience,   // add the audience
-  responseType: "token id_token",   // request 'token' as well as 'id_token'
-  scope: "openid profile email"
-});
-```
+// .. other imports
 
-::: note
-Setting the `responseType` field to "token id_token" will cause the authorization server to return both the Access Token and the ID Token in a URL fragment.
-:::
+// NEW - import the audience
+import { domain, clientId, audience } from "../auth_config.json";
 
-Next, modify the `AuthService` class to include fields to store the Access Token and the time that the Access Token will expire:
+// ..
 
-```js
-// src/auth/authService.js
-
-class AuthService extends EventEmitter {
-  idToken = null;
-  profile = null;
-  tokenExpiry = null;
-
-  // Add fields here to store the Access Token and the expiry time
-  accessToken = null;
-  accessTokenExpiry = null;
-
-  // .. other fields and methods
-}
-```
-
-Modify the `localLogin` function to record the Access Token and Access Token expiry:
-
-```js
-localLogin(authResult) {
-    this.idToken = authResult.idToken;
-    this.profile = authResult.idTokenPayload;
-    this.tokenExpiry = new Date(this.profile.exp * 1000);
-
-    // NEW - Save the Access Token and expiry time in memory
-    this.accessToken = authResult.accessToken;
-
-    // Convert expiresIn to milliseconds and add the current time
-    // (expiresIn is a relative timestamp, but an absolute time is desired)
-    this.accessTokenExpiry = new Date(Date.now() + authResult.expiresIn * 1000);
-
-    localStorage.setItem(localStorageKey, 'true');
-
-    this.emit(loginEvent, {
-      loggedIn: true,
-      profile: authResult.idTokenPayload,
-      state: authResult.appState
-    });
-  }
-```
-
-Finally, add two methods to the class that validate the Access Token and provide access to the token itself:
-
-```js
-// src/auth/authService.js
-
-class AuthService extends EventEmitter {
-
-  // ... other methods
-
-  isAccessTokenValid() {
-    return (
-      this.accessToken &&
-      this.accessTokenExpiry &&
-      Date.now() < this.accessTokenExpiry
+Vue.use(Auth0Plugin, {
+  domain,
+  clientId,
+  audience,   // NEW - configure the plugin with the audience value
+  onRedirectCallback: appState => {
+    router.push(
+      appState && appState.targetUrl
+        ? appState.targetUrl
+        : window.location.pathname
     );
   }
+});
 
-  getAccessToken() {
-    return new Promise((resolve, reject) => {
-      if (this.isAccessTokenValid()) {
-        resolve(this.accessToken);
-      } else {
-        this.renewTokens().then(authResult => {
-          resolve(authResult.accessToken);
-        }, reject);
-      }
-    });
-  }
-}
+// .. more Vue configuration ..
+
 ```
-
-::: note
-If `getAccessToken` is called and the Access Token is no longer valid, a new token will be retrieved automatically by calling `renewTokens`.
-:::
 
 ## Call the API Using an Access Token
 
-The frontend Vue.js application should be modified to include a page that calls the API using an Access Token. Similar to the previous tutorial, this includes modifying the Vue router and adding a new view with a button that calls the API.
+The frontend Vue.js application should be modified to include a page that calls the API using an access token. Similar to the previous tutorial, this includes modifying the Vue router and adding a new view with a button that calls the API.
+
+### Install the Axios package
+
+Install the [`axios`](https://www.npmjs.com/package/axios) HTTP library, which will allow us to make HTTP calls out to the backend API:
+
+```bash
+npm install axios
+```
+
+:::note
+Axios is just used as an example; you can use any JavaScript HTTP client that allows you to specify the `Authorization` header to perform this task
+:::
 
 ### Add a new page
 
-First, install the [`axios`](https://www.npmjs.com/package/axios) HTTP library, which will allow us to make HTTP calls out to the backend API:
+Next, create a new file `ExternalApi.vue` inside the `views` folder. Add a button to call the API, and an HTML element that can display the result of the API call.
 
-```bash
-npm install --save-dev axios
-```
+Use the `getTokenSilently` method of the Auth0 wrapper to get an access token, and then use Axios to make the API call. Attach the access token to the call by setting it as the value for the `Authorization` header, as in the following example:
 
-Next, create a new file `ExternalApi.vue` inside the `views` folder, with the following content:
-
-```js
-<!-- src/views/ExternalApi.vue -->
+```html
 <template>
- <div>
-    <div>
-      <h1>External API</h1>
-      <p>Ping an external API by clicking the button below. This will call the external API using an access token, and the API will validate it using
-        the API's audience value.
-      </p>
-
-      <button @click="callApi">Ping</button>
-    </div>
-
-    <div v-if="apiMessage">
-      <h2>Result</h2>
-      <p>{{ apiMessage }}</p>
-    </div>
-
- </div>
+  <div>
+    <button @click="callApi">Ping</button>
+    <p>{{ apiMessage }}</p>
+  </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
-  name: "Api",
+  name: "external-api",
   data() {
     return {
-      apiMessage: null
+      apiMessage: ""
     };
   },
   methods: {
     async callApi() {
-      const accessToken = await this.$auth.getAccessToken();
+      // Get the access token from the auth wrapper
+      const token = await this.$auth.getTokenSilently();
 
-      try {
-        const { data } = await axios.get("/api/external", {
-          headers: {
-            Authorization: `Bearer <%= "${accessToken}" %>`
-          }
-        });
+      // Use Axios to make a call to the API
+      const { data } = await axios.get("/api/external", {
+        headers: {
+          Authorization: `Bearer <%= "${token}" %>`    // send the access token through the 'Authorization' header
+        }
+      });
 
-        this.apiMessage = data.msg;
-      } catch (e) {
-        this.apiMessage = `Error: the server responded with '<%= "${ e.response.status }" %>: <%= "${e.response.statusText}" %>'`; }
+      this.apiMessage = data;
     }
   }
 };
@@ -267,38 +200,35 @@ const router = new Router({
     {
       path: "/external-api",
       name: "external-api",
-      component: ExternalApiView
+      component: ExternalApiView,
+      beforeEnter: authGuard
     }
   ]
 });
 ```
 
+Note that this new route also uses `authGuard` from the previous tutorial, which prevents access to the page unless the user is authenticated.
+
 Finally, modify the navigation bar to include a link to the new page:
 
 ```html
-<!-- src/App.vue -->
+<template>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link>|
+      <router-link to="/about">About</router-link>|
 
-<ul>
-  <li>
-    <router-link to="/">Home</router-link>
-  </li>
-  <li v-if="!isAuthenticated">
-    <a href="#" @click.prevent="login">Login</a>
-  </li>
-  <li v-if="isAuthenticated">
-    <router-link to="/profile">Profile</router-link>
-  </li>
+      <!-- NEW - add a link to the new page -->
+      <router-link to="/external-api">External Api</router-link>
 
-  <!-- new link to /external-api - only show if authenticated -->
-  <li v-if="isAuthenticated">
-    <router-link to="/external-api">External API</router-link>
-  </li>
-  <!-- /external-api -->
+      <!-- .. other HTML elements -->
 
-  <li v-if="isAuthenticated">
-    <a href="#" @click.prevent="logout">Log out</a>
-  </li>
-</ul>
+    </div>
+    <router-view />
+  </div>
+</template>
 ```
 
+:::panel Checkpoint
 Now you will be able to run the application, browse to the "External API" page and press the "Ping" button. The application will make a call to the external API endpoint and produce a message on the screen that says "Your Access Token was successfully validated!".
+:::

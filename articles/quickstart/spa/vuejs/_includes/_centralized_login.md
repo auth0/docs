@@ -49,9 +49,9 @@ At this point you can leave the application running in the background, as it wil
 
 The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable wrapper object around the Auth0 SDK. In this sample, this wrapper is implemented as a Vue object. Doing this makes it much easier to work with the asynchronous methods of the Auth0 SDK, thanks to the reactive nature of Vue.
 
-Later you will implement a simple Vue plugin that exposes this wrapper object to the rest of the application.
+This code also implements a simple Vue plugin that exposes this wrapper object to the rest of the application.
 
-To implement the wrapper, create a new folder called `auth` inside the `src` folder, and then create a new file called `authService.js` inside. Populate this file with the following content:
+To implement the wrapper, create a new folder called `auth` inside the `src` folder, and then create a new file called `index.js` inside. Populate this file with the following content:
 
 :::note
 The intention is for the following code snippet and the associated Vue plugin to be refactored into its own library, to be installed as a dependency of your project. For now, add the code inline into your project.
@@ -71,7 +71,7 @@ let instance;
 export const getInstance = () => instance;
 
 /** Creates an instance of the Auth0 SDK. If one has already been created, it returns that instance */
-export const createAuthService = ({
+export const useAuth0 = ({
   onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
   redirectUri = window.location.origin,
   ...options
@@ -98,6 +98,7 @@ export const createAuthService = ({
         try {
           await this.auth0Client.loginWithPopup(o);
         } catch (e) {
+          // eslint-disable-next-line
           console.error(e);
         } finally {
           this.popupOpen = false;
@@ -131,7 +132,8 @@ export const createAuthService = ({
       getTokenSilently(o) {
         return this.auth0Client.getTokenSilently(o);
       },
-      /** Gets the access token using a popup window */ 
+      /** Gets the access token using a popup window */
+
       getTokenWithPopup(o) {
         return this.auth0Client.getTokenWithPopup(o);
       },
@@ -142,7 +144,6 @@ export const createAuthService = ({
     },
     /** Use this lifecycle method to instantiate the SDK client */
     async created() {
-
       // Create a new instance of the SDK client using members of the given options object
       this.auth0Client = await createAuth0Client({
         domain: options.domain,
@@ -177,9 +178,17 @@ export const createAuthService = ({
 
   return instance;
 };
+
+// Create a simple Vue plugin to expose the wrapper object throughout the application
+export const Auth0Plugin = {
+  install(Vue, options) {
+    Vue.prototype.$auth = useAuth0(options);
+  }
+};
+
 ```
 
-The `options` object passed to `createAuthService` is used to provide the values for `clientId` and `domain`. For this example, create a new file `auth_config.json` in the root directory of the application alongside your `package.json` file, and populate it with your tenant values:
+The `options` object passed to the plugin is used to provide the values for `clientId` and `domain`. For this example, create a new file `auth_config.json` in the root directory of the application alongside your `package.json` file, and populate it with your tenant values:
 
 ```json
 {
@@ -194,39 +203,21 @@ This configuration file contains values relating to your Auth0 app, and should n
 
 <!-- ![hosted login](/media/articles/web/hosted-login.png) -->
 
-### Create a Vue plugin
-
-Create a [Vue plugin](https://vuejs.org/v2/guide/plugins.html) that provides access to the auth object to each component, through the `this.$auth` property.
-
-To start, create a new folder in the `src` folder called `plugins`, and a new file in there called `authPlugin.js`. Populate it with the following content:
-
-```js
-import { createAuthService } from "../auth/authService";
-
-export default {
-  install(Vue, options) {
-    Vue.prototype.$auth = createAuthService(options);
-  }
-};
-```
-
-Note that the `createAuthService` method is imported from the file you created earlier, and that the result of that call is assigned to the `$auth` property. Every component will now have access to the authentication state and can alter their behavior accordingly.
-
-Finally, open `src/main.js` and install the plugin:
+Finally, open `src/main.js` and use `Vue.use` to install the plugin. Notice that the configuration for your Auth0 app is imported from `auth_config.json` and supplied to the plugin:
 
 ```js
 import Vue from "vue";
 import App from "./App.vue";
 import router from './router'
-import config from "../auth_config.json";
+import { domain, clientId } from "../auth_config.json";
 
 // Import the plugin here
-import AuthPlugin from "./plugins/auth";
+import { Auth0Plugin } from "./auth";
 
 // Install the authentication plugin here
-Vue.use(AuthPlugin, {
-  domain: config.domain,
-  clientId: config.clientId,
+Vue.use(Auth0Plugin, {
+  domain,
+  clientId,
   onRedirectCallback: appState => {
     router.push(
       appState && appState.targetUrl
