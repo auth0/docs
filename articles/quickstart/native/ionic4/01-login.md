@@ -330,7 +330,7 @@ export class AuthService {
         const domain = AUTH_CONFIG.domain;
         const clientId = AUTH_CONFIG.clientId;
         const pkgId = AUTH_CONFIG.packageIdentifier;
-        let url = `https://${domain}/v2/logout?client_id=${clientId}&returnTo=${pkgId}://${domain}/cordova/${pkgId}/callback`;
+        let url = `https://<%= "${domain}" %>/v2/logout?client_id=<%= "${clientId}" %>&returnTo=<%= "${pkgId}" %>://<%= "${domain}" %>/cordova/<%= "${pkgId}" %>/callback`;
         if (available) {
           this.safariViewController.show({
             url: url
