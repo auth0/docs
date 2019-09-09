@@ -27,13 +27,23 @@ vue add router
 
 Adding the router to this project conveniently adds a couple of views and a basic router to the project. We will make use of those later in the tutorial!
 
-### Install initial dependencies
+### Install the SDK
 
 After creating a new Vue app using the CLI, install the [Auth0 Client SDK](https://github.com/auth0/auth0-spa-js):
 
 ```bash
 npm install @auth0/auth0-spa-js
 ```
+
+### Start the application
+
+Now start the application from the command line:
+
+```bash
+PORT=3000 npm run serve
+```
+
+At this point you can leave the application running in the background, as it will reload whenever you make changes. Note the port number — if you intent your app to run on a different port, remember to adjust this number to suit.
 
 ### Create an authentication service
 
@@ -169,18 +179,17 @@ export const createAuthService = ({
 };
 ```
 
-The `options` object that is passed to `createAuthService` is used to provide the values for `clientId`, `audience`, and `domain`. For this example, create a new file `auth_config.json` in the root directory of the application alongside your `package.json` file, and populate it with your tenant values:
+The `options` object that is passed to `createAuthService` is used to provide the values for `clientId` and `domain`. For this example, create a new file `auth_config.json` in the root directory of the application alongside your `package.json` file, and populate it with your tenant values:
 
 ```json
 {
   "domain": "${account.namespace}",
-  "clientId": "${account.clientId}",
-  "audience": "${apiIdentifier}"
+  "clientId": "${account.clientId}"
 }
 ```
 
 :::note
-The `audience` value is not used here, but will come into play in the next tutorial when calling APIs
+This configuration file contains values relating to your Auth0 app, and should not be committed into source control.
 :::
 
 <!-- ![hosted login](/media/articles/web/hosted-login.png) -->
