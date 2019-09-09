@@ -45,16 +45,16 @@ PORT=3000 npm run serve
 
 At this point you can leave the application running in the background, as it will reload whenever you make changes. Note the port number — if you intent your app to run on a different port, remember to adjust this number to suit.
 
-### Create an authentication service
+## Create an Authentication Wrapper
 
-The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you will be able to call its methods throughout your application. In this sample, this service is implemented as a Vue object. Doing this makes it much easier to work with the asynchronous methods of the Auth0 SDK, thanks to the reactive nature of the Vue object.
+The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable wrapper object around the Auth0 SDK. In this sample, this wrapper is implemented as a Vue object. Doing this makes it much easier to work with the asynchronous methods of the Auth0 SDK, thanks to the reactive nature of Vue.
 
-Later you will implement a Vue plugin that uses this object to expose the SDK to the rest of the application.
+Later you will implement a simple Vue plugin that exposes this wrapper object to the rest of the application.
 
-To implement this object, create a new folder called `auth` inside the `src` folder, and then create a new file called `authService.js` inside. Populate this file with the following content:
+To implement the wrapper, create a new folder called `auth` inside the `src` folder, and then create a new file called `authService.js` inside. Populate this file with the following content:
 
 :::note
-The intention is for the following code snippet and the associated Vue plugin to be refactored into its own library, to be installed as a dependency of your project. For now add the code in-line into your project.
+The intention is for the following code snippet and the associated Vue plugin to be refactored into its own library, to be installed as a dependency of your project. For now, add the code inline into your project.
 :::
 
 ```js
@@ -179,7 +179,7 @@ export const createAuthService = ({
 };
 ```
 
-The `options` object that is passed to `createAuthService` is used to provide the values for `clientId` and `domain`. For this example, create a new file `auth_config.json` in the root directory of the application alongside your `package.json` file, and populate it with your tenant values:
+The `options` object passed to `createAuthService` is used to provide the values for `clientId` and `domain`. For this example, create a new file `auth_config.json` in the root directory of the application alongside your `package.json` file, and populate it with your tenant values:
 
 ```json
 {
