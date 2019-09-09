@@ -16,7 +16,7 @@ Click the links below to download a checklist that corresponds to a phase in the
 
 ## Analyze Checklist
 
-<span data-trackOutbound>![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Download Analyze Checklist](/media/articles/architecture-scenarios/checklists/Analyze-Checklist.xlsx)</span>
+<span data-trackOutbound>![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) <a href="/media/articles/architecture-scenarios/checklists/Analyze-Checklist.xlsx">Download Analyze Checklist</a></span>
 
 In the Analyze phase, analyze end-user business requirements and determine project goals as part of the high-level plan for the project. Convert the requirements and goals into system functions that the organization intends to develop. Activities include:
 
