@@ -72,6 +72,15 @@ added 193 packages in 3.047s
 
 6. Update the `.env` file you just created with the same values as you used in lab 1. If you did not do lab 1 first, follow steps 9 through 15 [on this page](/identity-labs/01-web-sign-in/exercise-01) to create and configure an application with Auth0 and update the `.env` file.
 
+```text
+ISSUER_BASE_URL=https://YOUR_DOMAIN
+CLIENT_ID=YOUR_CLIENT_ID
+API_URL=http://localhost:3001
+BASE_URL=http://localhost:3000
+PORT=3000
+COOKIE_SECRET=LONG_RANDOM_STRING
+```
+
 ::: note
 If you changed the port for the API above, make sure to update the `API_URL` with this new value.
 :::
