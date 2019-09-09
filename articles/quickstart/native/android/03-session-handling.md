@@ -206,10 +206,3 @@ The logout is achieved by using the `WebAuthProvider` class. This call will open
 ::: note
 If you are not using our Credentials Manager classes, you are responsible for ensuring that the user's credentials have been removed.
 :::
-
-
-As you did previously for the login step, you will need to whitelist as well this logout URL in the dashboard.
-
-<%= include('../../../_includes/_logout_url', { returnTo: 'demo://' + account.namespace + '/android/YOUR_APP_PACKAGE_NAME/callback' }) %>
-
-Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.

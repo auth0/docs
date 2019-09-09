@@ -13,7 +13,7 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-<%= include('../_includes/_getting_started', { library: 'Android') %>
+<%= include('../_includes/_getting_started', { library: 'Android' }) %>
 
 We suggest you do not hardcode these values as you may need to change them in the future. Instead, use [String Resources](https://developer.android.com/guide/topics/resources/string-resource.html), such as `@string/com_auth0_domain`, to define the values. 
 
@@ -31,6 +31,10 @@ Edit your `res/values/strings.xml` file as follows:
 ::: note
 If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URL** to  `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`.
 :::
+
+Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
+
+<%= include('../../../_includes/_logout_url', { returnTo: 'demo://' + account.namespace + '/android/YOUR_APP_PACKAGE_NAME/callback' }) %>
 
 Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
 
