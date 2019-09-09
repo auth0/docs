@@ -30,7 +30,7 @@ The flow works as follows:
 2. The application calls Auth0's `/oauth/token` endpoint with the following parameters:
     - `subject_token`: the authorization code they received above
     - `subject_token_type`: `http://auth0.com/oauth/token-type/apple-authz-code`
-    - `grant_type`: `urn:ietf:params:oath:grant-type:token-exchange`
+    - `grant_type`: `urn:ietf:params:oauth:grant-type:token-exchange`
     - `client_id`: their Auth0 Client ID
     - `audience` and `scope` as needed (optional)
 3. Auth0 exchanges the `code` with the identity provider for a set of Auth0 ID, access, and refresh tokens.
