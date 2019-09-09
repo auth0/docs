@@ -14,7 +14,9 @@ useCase:
 
 Click the links below to download a checklist that corresponds to a phase in the SDLC (Software Development Lifecycle). You can open the checklist in any spreadsheet application and customize them to suit your needs. 
 
-<h2><span data-trackOutbound>![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Analyze Checklist](/media/articles/architecture-scenarios/checklists/Analyze-Checklist.xlsx)</span></h2>
+## Analyze Checklist
+
+<span data-trackOutbound>![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Download Analyze Checklist](/media/articles/architecture-scenarios/checklists/Analyze-Checklist.xlsx)</span>
 
 In the Analyze phase, analyze end-user business requirements and determine project goals as part of the high-level plan for the project. Convert the requirements and goals into system functions that the organization intends to develop. Activities include:
 
