@@ -67,13 +67,15 @@ Once you have the credentials you need from your Apple Developer account, you ne
 
     ![Application Client Settings: Advanced Mobile Settings](/media/articles/connections/social/apple/apple-app-mobile-settings.png)
 
-2. On the **Settings** tab, complete the fields **Client ID** (Services ID), **Client Secret Signing Key**, and **Apple Team ID**. You can also fill in the **Key ID** but it is optional, as Apple will accept the key without the ID.
+3. Go to **Connections** > **Social**, and click on the **Apple** connection.
+
+4. On the **Settings** tab, complete the fields **Client ID** (Services ID), **Client Secret Signing Key**, and **Apple Team ID**. You can also fill in the **Key ID** but it is optional, as Apple will accept the key without the ID.
 
     ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)
 
-3. Click **Save**.
+5. Click **Save**.
 
-4. [Test the connection](/connections/social/apple/guides/test-siwa-connection).
+6. [Test the connection](/connections/social/apple/guides/test-siwa-connection).
 
 ## Web application configuration example
 
