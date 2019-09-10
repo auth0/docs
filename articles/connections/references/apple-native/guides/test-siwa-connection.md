@@ -19,7 +19,7 @@ useCase:
 If you are using the Classic Universal Login flow, or embedding `Lock.js` in your application, make sure you are using `Lock.js` version 11.16 or later.
 :::
 
-1. Visit your application login page and you should see an option for Sign In with Apple:
+1. Go to your application login page and you should see an option for Sign In with Apple:
 
     ![Apple Login Page](/media/articles/connections/social/apple/apple-login-page.png)
 
@@ -44,5 +44,5 @@ If you are using the Classic Universal Login flow, or embedding `Lock.js` in you
 * [Auth0 and Sign In with Apple Overview](/connections/social/apple)
 * [Sign In with Apple and Auth0 Connection Use Cases](/connections/references/apple-native/references/siwa-use-cases)
 * [Sign In with Apple and Auth0 Logging](/connections/references/apple-native/references/siwa-logging)
-* [Sign In with Apple and Auth0 Rate Limits](/connections/references/apple-native/references/siwa-rate-limits)
+* [Rate Limits for Sign In with Apple](/policies/rate-limits/#limits-on-sign-in-with-apple)
 * [Sign In with Apple and Auth0 Troubleshooting](/connections/references/apple-native/references/siwa-troubleshooting)

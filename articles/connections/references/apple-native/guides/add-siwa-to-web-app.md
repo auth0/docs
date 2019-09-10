@@ -229,8 +229,6 @@ For most OAuth-compliant identity providers, the `CLIENT_SECRET` variable is sta
 * **CLIENT_ID**: Gets the value that you used as the identifier of the Service ID you created at Apple  (`com.<YOUR CUSTOM DOMAIN>.webapp`). 
 * **CALLBACK**: The URL to which the user will be redirected after the authentication process takes place. You will have to use the value you passed to the **Return URL** field (`<YOUR CUSTOM DOMAIN>.com/callback`) on the same Service ID. 
 
-For details, see [Generate Client Secret for Web Apps Using Sign In with Apple](/connections/social/apple/guides/generate-client-secret-siwa)
-
 ## Keep reading
 
 * [Auth0 Blog: What is Sign In with Apple](https://auth0.com/blog/what-is-sign-in-with-apple-a-new-identity-provider/)
@@ -239,5 +237,5 @@ For details, see [Generate Client Secret for Web Apps Using Sign In with Apple](
 * [Auth0 and Sign In with Apple Overview](/connections/social/apple)
 * [Sign In with Apple and Auth0 Connection Use Cases](/connections/references/apple-native/references/siwa-use-cases)
 * [Sign In with Apple and Auth0 Logging](/connections/references/apple-native/references/siwa-logging)
-* [Sign In with Apple and Auth0 Rate Limits](/connections/references/apple-native/references/siwa-rate-limits)
+* [Rate Limits for Sign In with Apple](/policies/rate-limits/#limits-on-sign-in-with-apple)
 * [Sign In with Apple and Auth0 Troubleshooting](/connections/references/apple-native/references/siwa-troubleshooting)

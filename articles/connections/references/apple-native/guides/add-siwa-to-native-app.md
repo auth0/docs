@@ -78,6 +78,8 @@ Once you have the credentials you need from your Apple Developer account, you ne
 
 3. Click **Save**.
 
+4. [Test the connection](/dashboard/guides/connections/test-connections-social).
+
 ## Keep reading
 
 * [Auth0 Blog: What is Sign In with Apple](https://auth0.com/blog/what-is-sign-in-with-apple-a-new-identity-provider/)
@@ -85,5 +87,5 @@ Once you have the credentials you need from your Apple Developer account, you ne
 * [Auth0 and Sign In with Apple Overview](/connections/social/apple)
 * [Sign In with Apple and Auth0 Connection Use Cases](/connections/references/apple-native/references/siwa-use-cases)
 * [Sign In with Apple and Auth0 Logging](/connections/references/apple-native/references/siwa-logging)
-* [Sign In with Apple and Auth0 Rate Limits](/connections/references/apple-native/references/siwa-rate-limits)
+* [Rate Limits for Sign In with Apple](/policies/rate-limits/#limits-on-sign-in-with-apple))
 * [Sign In with Apple and Auth0 Troubleshooting](/connections/references/apple-native/references/siwa-troubleshooting)

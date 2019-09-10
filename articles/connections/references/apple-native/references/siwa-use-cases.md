@@ -22,5 +22,5 @@ TBD
 * [Add Sign In with Apple to Your Native App](/connections/references/apple-native/guides/add-siwa-to-native-app)
 * [Add Sign In with Apple to Your Web App](/connections/references/apple-native/guides/add-siwa-to-web-app)
 * [Sign In with Apple and Auth0 Logging](/connections/references/apple-native/references/siwa-logging)
-* [Sign In with Apple and Auth0 Rate Limits](/connections/references/apple-native/references/siwa-rate-limits)
+* [Rate Limits for Sign In with Apple](/policies/rate-limits/#limits-on-sign-in-with-apple)
 * [Sign In with Apple and Auth0 Troubleshooting](/connections/references/apple-native/references/siwa-troubleshooting)

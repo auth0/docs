@@ -18,11 +18,19 @@ useCase:
 ---
 # Auth0 and Sign In with Apple
 
-Apple requires the adoption of Sign In with Apple (SIWA) capabilities if you have a native app published on the App Store and you support different third-party sign-in options (such as Facebook, Google, or Twitter). 
+Sign In with Apple is one of the identity providers that you can add to your application with the flip of a switch in the Auth0 Dashboard. 
 
-Auth0 integration with Sign In with Apple is built on the [OAuth 2.0 Token Exchange specification](https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16). Auth0 created a profile and performs a token exchange to provide a way to hook into the Auth0 context.
+Apple provides the Sign In with Apple capability to help you authenticate your users' identities. You can enable Sign In with Apple with the apps that you use with Auth0 using [custom social connections](/connections/social/oauth2). 
 
-The flow works as follows:
+As with other identify providers support by Auth0, when your users login, they will be provided the option to click the “Sign In with Apple” button, and they'll be taken to the Apple sign-in screen. They will see the name of your app and a placeholder icon. They enter their Apple ID and password. If their Apple ID has two-factor auth enabled, they'll be prompted for that as well.
+
+Apple requires (with apps that run on iOS 13+) the adoption of Sign In with Apple (SIWA) for all apps published on the App Store and that support  third-party sign-in options (such as Facebook, Google, or Twitter). 
+
+Auth0 integration with Sign In with Apple is built on the [OAuth 2.0 Token Exchange specification](https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16) and OIDC. 
+
+Auth0 creates a profile and performs a token exchange to provide a way to hook into the Auth0 context. You will register your app in the Apple Developer Portal and create an App ID which you'll use to create a `client_id` (that Apple calls a **Service ID**) which is a private key that you download as a file. This may seem redundant, but it makes sense if you have a native app and a web app that you want to link together using a single Auth0 login experience. 
+
+The login flow works as follows:
 
 *placeholder for new flow diagram from Sonny*
 
@@ -33,8 +41,8 @@ The flow works as follows:
     - `grant_type`: `urn:ietf:params:oauth:grant-type:token-exchange`
     - `client_id`: their Auth0 Client ID
     - `audience` and `scope` as needed (optional)
-3. Auth0 exchanges the `code` with the identity provider for a set of Auth0 ID, access, and refresh tokens.
-4. Auth0 saves the user profile, executes rules and authorization, then issues Apple access tokens (refresh tokens and ID tokens) as requested. These tokens are used to protect your APIs and users managed by Auth0.
+3. Auth0 exchanges the `subject_token` (authorization code) with Apple for an ID token, access token, and refresh token from Apple.
+4. Auth0 saves the user profile, executes rules and authorization, then issues Auth0 access tokens (refresh tokens and ID tokens) as requested. These tokens are used to protect your APIs and users managed by Auth0.
 
 For information about specific use cases, see [Sign In with Apple and Auth0 Connection Use Cases](/connections/references/apple-native/references/siwa-use-cases).
 
@@ -52,15 +60,17 @@ For information about specific use cases, see [Sign In with Apple and Auth0 Conn
 
 ## Using Sign In with Apple with Auth0
 
-*Intro text*
+There are two methods for configuring Sign In with Apple that vary slightly depending on they type of app your are using:
 
 * [Add Sign In with Apple to Your Native App](/connections/references/apple-native/guides/add-siwa-to-native-app)
 * [Add Sign In with Apple to Your Web App](/connections/references/apple-native/guides/add-siwa-to-web-app)
 
 ## References and resources
 
+Refer to the following information about limitations and troubleshooting:
+
 * [Logging](/connections/references/apple-native/references/siwa-logging)
-* [Rate Limits](/connections/references/apple-native/references/siwa-rate-limits)
+* [Rate Limits](/policies/rate-limits/#limits-on-sign-in-with-apple)
 * [Troubleshooting](/connections/references/apple-native/references/siwa-troubleshooting)
 
 ## Keep reading
