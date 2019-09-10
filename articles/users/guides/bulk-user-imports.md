@@ -73,9 +73,16 @@ You can query a job's status using the [Get a Job endpoint](/api/management/v2#!
 
 Additionally, the job status is added to [Tenant Logs](${manage_url}/#/logs), which allows for a custom WebHook to be triggered using the [WebHook Logs Extension](/extensions/management-api-webhooks).
 
+## Job timeouts
+
+All user import jobs timeout after **two (2) hours**. If your job does not complete within this time frame, it is marked as failed.
+
+Furthermore, all of your job-related data is automatically deleted after 24 hours and cannot be accessed afterward. As such, **we strongly recommend storing the job results using the storage mechanism of your choice**.
+
 ## Retrieve failed entries
 
 You can query and retrieve details on failed entries via the API using the [Get Failed Job Error Details endpoint](/api/management/v2#!/Jobs/get_errors).
+
 
 ## Keep reading
 
