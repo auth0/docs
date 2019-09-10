@@ -18,23 +18,21 @@ useCase:
 ---
 # Auth0 and Sign In with Apple
 
-Sign In with Apple is one of the identity providers that you can add to your application with the flip of a switch in the Auth0 Dashboard. 
-
 Apple provides the Sign In with Apple capability to help you authenticate your users' identities. You can enable Sign In with Apple with the apps that you use with Auth0 using [custom social connections](/connections/social/oauth2). 
 
-As with other identify providers support by Auth0, when your users login, they will be provided the option to click the “Sign In with Apple” button, and they'll be taken to the Apple sign-in screen. They will see the name of your app and a placeholder icon. They enter their Apple ID and password. If their Apple ID has two-factor auth enabled, they'll be prompted for that as well.
+Apple requires (with apps that run on iOS 13+) that you adopt Sign In with Apple (SIWA) for all apps published on the App Store that support  third-party sign-in options (such as Facebook, Google, or Twitter). 
 
-Apple requires (with apps that run on iOS 13+) the adoption of Sign In with Apple (SIWA) for all apps published on the App Store and that support  third-party sign-in options (such as Facebook, Google, or Twitter). 
+As with other identify providers supported by Auth0, when your users login, they can click the “Sign In with Apple” button, and they'll be taken to the Apple sign-in screen. They will see the name of your app and a placeholder icon. They will enter their Apple ID and password. If their Apple ID has two-factor auth enabled, they'll be prompted for that as well.
 
 Auth0 integration with Sign In with Apple is built on the [OAuth 2.0 Token Exchange specification](https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16) and OIDC. 
 
 Auth0 creates a profile and performs a token exchange to provide a way to hook into the Auth0 context. You will register your app in the Apple Developer Portal and create an App ID which you'll use to create a `client_id` (that Apple calls a **Service ID**) which is a private key that you download as a file. This may seem redundant, but it makes sense if you have a native app and a web app that you want to link together using a single Auth0 login experience. 
 
-The login flow works as follows:
+For a native app, the Sign in with Apple login flow works as follows:
 
-*placeholder for new flow diagram from Sonny*
+![Sign In with Apple Flow](/media/connections/social/apple/sign-in-with-apple-flow.png)
 
-1. User authenticates via the identity provider's SDK on their iPhone/iPad. They receive an authorization code. The user does not have to leave the app and use a browser to log in.
+1. User authenticates via Apple's SDK on their iPhone or iPad. They receive an authorization code. The user does not have to leave the app and use a browser to log in.
 2. The application calls Auth0's `/oauth/token` endpoint with the following parameters:
     - `subject_token`: the authorization code they received above
     - `subject_token_type`: `http://auth0.com/oauth/token-type/apple-authz-code`
