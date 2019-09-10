@@ -18,7 +18,7 @@ useCase: quickstart
 
 <!-- markdownlint-disable MD002 MD041 -->
 
-Most single-page apps use resources from data APIs. You may want to restrict access to those resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
+Most single-page apps use resources from data APIs. You may want to restrict access to those resources so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
 
 This tutorial shows you how to create a simple API using [Express](https://expressjs.com) that validates incoming JSON Web Tokens. You will then see how to call this API using an access token granted by the Auth0 authorization server.
 
@@ -49,7 +49,7 @@ You can now start the project using `npm run dev` in the terminal, and the front
 
 ### Set up a proxy to the backend API
 
-In order to call the API from the frontend application, the development server must be configured to proxy requests through to the backend API. To do this, add a `vue.config.js` file to the root of the project and populate it with the following code:
+To call the API from the frontend application, the development server must be configured to proxy requests through to the backend API. To do this, add a `vue.config.js` file to the root of the project and populate it with the following code:
 
 ```js
 // vue.config.js
@@ -139,7 +139,7 @@ Axios is just used as an example; you can use any JavaScript HTTP client that al
 
 ### Add a new page
 
-Next, create a new file `ExternalApi.vue` inside the `views` folder. Add a button to call the API, and an HTML element that can display the result of the API call.
+Next, create a new file `ExternalApi.vue` inside the `views` folder. Add a button to call the API and an HTML element that can display the result of the API call.
 
 Use the `getTokenSilently` method of the Auth0 wrapper to get an access token, and then use Axios to make the API call. Attach the access token to the call by setting it as the value for the `Authorization` header, as in the following example:
 

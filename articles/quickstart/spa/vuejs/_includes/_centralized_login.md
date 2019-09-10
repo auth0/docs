@@ -5,7 +5,7 @@
 ## Create a Sample Application
 
 ::: note
-The following tutorial creates a new Vue application using the [Vue CLI](https://cli.vuejs.org/guide/), and presents some common ways to build Vue applications, in terms of its structure and naming conventions. If you are using this guide to integrate the Auth0 SDK into your own Vue application, you may need to adjust some of the steps to suit your scenario.
+The following tutorial creates a new Vue application using the [Vue CLI](https://cli.vuejs.org/guide/), and presents some common ways to build Vue applications, in terms of its structure and naming conventions. If you are using this guide to integrate the Auth0 SDK into your Vue application, you may need to adjust some of the steps to suit your scenario.
 :::
 
 If you don't already have an existing application, you can create one using the [Vue CLI](https://cli.vuejs.org/guide/) tool. Using the terminal, find a location on your drive where you want to create the project and run the following commands:
@@ -43,7 +43,7 @@ Now start the application from the command line:
 PORT=3000 npm run serve
 ```
 
-At this point you can leave the application running in the background, as it will reload whenever you make changes. Note the port number — if you intent your app to run on a different port, remember to adjust this number to suit.
+At this point, you can leave the application running in the background, as it will reload whenever you make changes. Note the port number — if you intend your app to run on a different port, remember to adjust this number to suit.
 
 ## Create an Authentication Wrapper
 
@@ -54,7 +54,7 @@ This code also implements a simple Vue plugin that exposes this wrapper object t
 To implement the wrapper, create a new folder called `auth` inside the `src` folder, and then create a new file called `index.js` inside. Populate this file with the following content:
 
 :::note
-The intention is for the following code snippet and the associated Vue plugin to be refactored into its own library, to be installed as a dependency of your project. For now, add the code inline into your project.
+The intention is for the following code snippet and the associated Vue plugin to be refactored into a separate dependency, to be installed as a dependency of your project. For now, add the code inline into your project.
 :::
 
 ```js
@@ -409,7 +409,7 @@ export const authGuard = (to, from, next) => {
 };
 ```
 
-Notice that in the call to `loginWithRedirect`, the URL that the user was trying to access (`to.fullPath`) is supplied. This URL will be returned to the app after authentication, and is used to redirect the user to the place they were trying to reach before they logged in.
+Notice that in the call to `loginWithRedirect`, the URL that the user was trying to access (`to.fullPath`) is supplied. This URL will be returned to the app after authentication and is used to redirect the user to the place they were trying to reach before they logged in.
 
 :::note
 To see how the `targetUrl` property is used to navigate the user once they have authenticated, revisit the <a href="#create-a-vue-plugin">Create a Vue Plugin</a> section again and inspect how the plugin is installed into your Vue app.
