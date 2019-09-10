@@ -39,8 +39,9 @@ For a native app, the Sign in with Apple login flow works as follows:
     - `grant_type`: `urn:ietf:params:oauth:grant-type:token-exchange`
     - `client_id`: their Auth0 Client ID
     - `audience` and `scope` as needed (optional)
-3. Auth0 exchanges the `subject_token` (authorization code) with Apple for an ID token, access token, and refresh token from Apple.
-4. Auth0 saves the user profile, executes rules and authorization, then issues Auth0 access tokens (refresh tokens and ID tokens) as requested. These tokens are used to protect your APIs and users managed by Auth0.
+
+    Auth0 exchanges the `subject_token` (authorization code) with Apple for an ID token, access token, and refresh token from Apple.
+3. Auth0 saves the user profile, executes rules and authorization, then issues Auth0 access tokens (refresh tokens and ID tokens) as requested. These tokens are used to protect your APIs and users managed by Auth0.
 
 For information about specific use cases, see [Sign In with Apple and Auth0 Connection Use Cases](/connections/references/apple-native/references/siwa-use-cases).
 
