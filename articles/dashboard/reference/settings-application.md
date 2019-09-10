@@ -87,7 +87,7 @@ Set the OAuth-related settings on this tab:
 
 * By default, all apps/APIs can make a delegation request, but if you want to explicitly grant permissions to selected apps/APIs, you can do so in **Allowed Apps/APIs**.
 
-* Set the algorithm used (**HS256** or **RS256**) for signing your JSON Web Tokens. For more info, see [Signing Algorithms](/applications/concepts/signing-algorithms).
+* Set the algorithm used (**HS256** or **RS256**) for signing your JSON Web Tokens. For more info, see [Signing Algorithms](/tokens/concepts/signing-algorithms).
 
 * Toggle the **Trust Token Endpoint IP Header** setting; if this is enabled, the `auth0-forwarded-for` is set as trusted and used as a source of end user IP information for protection against brute-force attacks on the token endpoint. This setting is only available for Regular Web Apps and M2M Apps.
 

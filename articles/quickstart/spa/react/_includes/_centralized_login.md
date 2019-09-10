@@ -128,6 +128,8 @@ This is a set of custom [React hooks](https://reactjs.org/docs/hooks-intro.html)
 
 The next few sections will integrate these hooks into the various components that make up the app.
 
+<%= include('../../_includes/_silent-auth-social-idp') %>
+
 ### Create the Navbar component
 
 Create a new folder inside the `src` folder called `components`. This is where you will house all the components for this application.

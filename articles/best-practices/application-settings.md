@@ -31,7 +31,7 @@ You should flag [first-party and third-party applications](/applications/concept
 
 ## Set JWT token expiration
 
-Set the [ID Token expiration time](/tokens/id-token#token-lifetime) in your Application Settings. By default ID Tokens expire after 10 hours.
+Set the [ID Token expiration time](/tokens/id-tokens#token-lifetime) in your Application Settings. By default ID Tokens expire after 10 hours.
 
 Once issued, [an ID Token cannot be revoked](/tokens/guides/revoke-tokens). So use a short expiration time and renew the session, if the user remains active.
 

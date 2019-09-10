@@ -69,12 +69,6 @@ You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to s
 
 ### Use your own UI
 
-<%= include('../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-node-passwordless-sample',
-  path: ''
-}) %>
-
 You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript application library](/libraries/auth0js).
 
 <%= include('./_includes/_init-auth0js_v9', {redirectUri:true} ) %>

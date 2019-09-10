@@ -46,7 +46,7 @@ For details and sample code, see [Step-up Authentication for APIs](/multifactor-
 
 ## Step-up Authentication for Web Apps
 
-If it is a web app that verifies the authentication level, and not an API, then you do not have an Access Token. In this case you can check if a user has logged in with MFA by reviewing the contents of their [ID Token](/tokens/id-token). You can then configure your application to deny access to pages with sensitive information if the ID Token indicates that the user did not log in with MFA, and use a rule to trigger the step-up authentication mechanism (for example, prompt MFA).
+If it is a web app that verifies the authentication level, and not an API, then you do not have an Access Token. In this case you can check if a user has logged in with MFA by reviewing the contents of their [ID Token](/tokens/id-tokens). You can then configure your application to deny access to pages with sensitive information if the ID Token indicates that the user did not log in with MFA, and use a rule to trigger the step-up authentication mechanism (for example, prompt MFA).
 
 For example, you might have an employee app that authenticates users with username and password, but if a user wants to access salary information, they have to provide a second factor, using for example a mobile push notification.
 

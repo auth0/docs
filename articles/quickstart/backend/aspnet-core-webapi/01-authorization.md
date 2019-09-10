@@ -146,9 +146,6 @@ In your `ConfigureServices` method, add a call to the `AddAuthorization` method.
 
 public void ConfigureServices(IServiceCollection services)
 {
-    // Add framework services.
-    services.AddMvc();
-
     string domain = $"https://{Configuration["Auth0:Domain"]}/";
     services.AddAuthentication(options =>
     {
@@ -168,6 +165,9 @@ public void ConfigureServices(IServiceCollection services)
 
     // register the scope authorization handler
     services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
+    
+    // Add framework services.
+    services.AddMvc();
 }
 ```
 

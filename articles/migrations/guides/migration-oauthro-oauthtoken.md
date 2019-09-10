@@ -73,7 +73,7 @@ Responses from `oauth/ro` were similar in format to the following:
 }
 ```
 
-* The returned <dfn data-key="access-token">Access Token</dfn> is valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) (provided that the API specified by the `audience` param uses RS256 as signing algorithm) and optionally the [custom API](/api-auth/apis) if one was specified.
+* The returned <dfn data-key="access-token">Access Token</dfn> is valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) (provided that the API specified by the `audience` param uses RS256 as [signing algorithm](/tokens/concepts/signing-algorithms)) and optionally the [custom API](/api-auth/apis) if one was specified.
 * The ID Token will be forcibly signed using RS256 if requested by a [public client](/clients/client-types#public-clients).
 * A <dfn data-key="refresh-token">Refresh Token</dfn> will be returned only if the `offline_access` scope was granted and the API has **Allow offline access** set.
 

@@ -20,7 +20,7 @@ This API will return an _enrollment ticket_ containing a `ticket_id` and a `tick
 
 The `ticket_url` can be delivered to the user (for instance, via email) and used to kick off the enrollment process.
 
-Alternatively, the ticket can be leveraged inside the Guardian [Hosted Page](${manage_url}/#/guardian_mfa_page) to customize the Guardian widget's appearance:
+Alternatively, the ticket can be leveraged inside the [MFA Page](${manage_url}/#/guardian_mfa_page) to customize the Auth0 MFA widget's appearance:
 
 ```html
 <!DOCTYPE html>
@@ -114,7 +114,7 @@ Alternatively, the ticket can be leveraged inside the Guardian [Hosted Page](${m
 </html>
 ```
 
-This hosted page displays the Guardian widget in both enrollment and standard <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> login scenarios. You can use the ticket variable to check which scenario is in use and control the content accordingly.
+This custom page displays the Auth0 MFA widget in both enrollment and standard <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> login scenarios. You can use the ticket variable to check which scenario is in use and control the content accordingly.
 
 For example, the following code displays a different message depending on whether the user is enrolling or authenticating:
 

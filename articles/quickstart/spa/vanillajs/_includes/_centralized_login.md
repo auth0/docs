@@ -213,6 +213,8 @@ window.onload = async () => {
 
 Now go and access it at [http://localhost:3000](http://localhost:3000). You should see the welcome message and both authentication buttons disabled. Note however that some browsers cache the page sources. When checking each step results you should perform a full page refresh ignoring the cache. This can be achieved by using the `CMD+SHIFT+R` keys on OSX and `CTRL+SHIFT+R` keys on Windows.
 
+<%= include('../../_includes/_silent-auth-social-idp') %>
+
 ## Evaluate the authentication state
 
 As a first approach, you want to make sure anyone is able to visit the public page but not the page that is meant for authenticated users only, such as a settings panel or the user profile details. You can decide which content is available by hiding, disabling, or removing it if no user is currently logged in. You do so by checking the result of calling the `auth0.isAuthenticated()` method. Use this to enable or disable the **Log in** and **Log out** buttons, which are disabled by default. This can be part of a new `updateUI()` function called from the `window.onload` method right after the initialization.

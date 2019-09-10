@@ -53,7 +53,7 @@ function (user, context, callback) {
   user.app_metadata.roles = roles;
   auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
     .then(function() {
-      context.idToken['https://example.com/roles'] = user.app_metadata.roles;
+      context.idToken['https://schemas.quickstarts.com/roles'] = user.app_metadata.roles;
       callback(null, user, context);
     })
     .catch(function (err) {
@@ -68,7 +68,7 @@ Update the code to check for your own email domain, or match your custom conditi
 You can define more roles other than `admin` and `user`, or customize the whole rule, depending on your product requirements.
 :::
 
-This quickstart guide uses `https://schemas.quickstarts.com` for the claim namespace. We recommend that you use a namespace related to your own Auth0 tenant for your claims, for example, `https://schemas.YOUR_TENANT_NAME.com`.
+This quickstart guide uses `https://schemas.quickstarts.com/roles` for the claim [namespace](/tokens/concepts/claims-namespacing). We recommend that you use a namespace related to your own Auth0 tenant for your claims, for example, `https://schemas.YOUR_TENANT_NAME.com`.
 
 ::: note
 For more information on custom claims, read [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).

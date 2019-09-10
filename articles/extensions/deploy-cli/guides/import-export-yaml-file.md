@@ -70,7 +70,7 @@ Here is the example of a `config.json` file:
 
 ### Import configuration example
 
-Here is an example of an import config file `tenant.yaml`:
+The following is an example of an import config file called `tenant.yaml` (for full details on everything that can be included, please refer to the [extension's repository](https://github.com/auth0/auth0-deploy-cli/tree/master/examples/directory):
 
 ```yaml
 tenant:

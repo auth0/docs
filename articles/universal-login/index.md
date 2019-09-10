@@ -4,7 +4,6 @@ topics:
   - login
   - universal-login
   - password-reset
-  - guardian
   - mfa
   - error-pages
   - hosted-pages
@@ -24,15 +23,15 @@ For information on the differences between Universal Login and traditional embed
 
 ## Choosing an experience
 
-There are two available experiences in Universal Login. The Classic Universal Login Experience uses JavaScript controls for each page. The New Universal Login experience does not _require_ JavaScript to work, and it offers a simpler and faster experience for end-users. 
+There are two available experiences in Universal Login. The Classic Universal Login Experience uses JavaScript controls for each page. The New Universal Login experience does not _require_ JavaScript to work, and it offers a simpler and faster experience for end-users.
 
 In the Dashboard, the dialog shown below lets you select which Experience will be used for default, non-customized pages:
 
 ![Login Page](/media/articles/universal-login/experience-picker.png)
 
-Choose an experience to learn more about:
+**Choose an experience to learn more about:**
 
-* [Classic Universal Login Experience](/universal-login/classic) 
+* [Classic Universal Login Experience](/universal-login/classic)
 * [New Universal Login Experience](/universal-login/new) (and its [current limitations](/universal-login/new-experience-limitations))
 
 
@@ -62,7 +61,7 @@ In addition to configuring Universal Login for your tenant's applications, you w
 
 ### Using the SPA SDK
 
-If you are already using Auth0's [Single-Page App SDK](/libraries/auth0-spa), using the `auth0.loginWithPopup()` or `auth0.loginWithRedirect()` methods will bring you to the authorize endpoint.
+If you are already using Auth0's [Single-Page App SDK](/libraries/auth0-spa-js), using the `auth0.loginWithPopup()` or `auth0.loginWithRedirect()` methods will bring you to the authorize endpoint.
 
 ```html
 <button id="loginPopup">Login with Popup</button>

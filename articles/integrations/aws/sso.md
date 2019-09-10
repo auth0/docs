@@ -46,7 +46,7 @@ On the **Settings** tab, populate **Application <dfn data-key="callback">Callbac
 
 ![](/media/articles/integrations/aws/configure.png)
 
-Scroll to the bottom and click **Save**.
+Scroll to the bottom and click **Enable**.
 
 Click over to the **Usage** tab. You'll need to configure Auth0 as the identity provider (IdP) for AWS, which requires you to provide the appropriate metadata to AWS. You can obtain a file containing this information by clicking **Identity Provider Metadata**.
 

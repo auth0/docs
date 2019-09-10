@@ -19,7 +19,3 @@ useCase: customize-connections
  - [Authenticate users with a one-time code via SMS](/connections/passwordless/spa-sms)
  - [Authenticate users with a one-time code via email](/connections/passwordless/spa-email-code)
  - [Authenticate users with a magic link via email](/connections/passwordless/spa-email-link)
-
-::: note
-Sample applications are available in the [jQuery Passwordless Authentication repo](https://github.com/auth0/auth0-jquery-passwordless-sample) on GitHub.
-:::

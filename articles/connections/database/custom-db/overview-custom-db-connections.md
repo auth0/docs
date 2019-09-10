@@ -15,6 +15,8 @@ useCase:
 
 <%= include('./_includes/_panel-feature-availability') %>
 
+<%= include('../../../_includes/_webtask') %>
+
 Use a custom database connection when you want to provide access to your own independent (legacy) identity data store for the following purposes:
 
 * **Authentication**: Use your database as an identity provider in Auth0 to authenticate users. (Refered to as *legacy authentication*.)

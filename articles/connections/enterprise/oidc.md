@@ -5,7 +5,6 @@ image: /media/connections/open-id.png
 seo_alias: oidc
 description: Connecting to OpenID Connect Identity Providers
 crews: crew-2
-beta: true
 toc: true
 topics:
     - connections
@@ -17,13 +16,17 @@ useCase:
     - add-idp
 ---
 
+::: warning
+If you are using Lock with an OpenID Connect (OIDC) connection, you must use Lock version 11.16 or higher.
+:::
+
 # Connect to an OpenID Connect Identity Provider
 
-Auth0 provides an OpenID Connect connection that enables you to connect to OIDC compliant identity providers. 
+Auth0 provides an OpenID Connect (OIDC) connection that enables you to connect to OIDC-compliant identity providers. 
 
-The Open ID identity provider needs to support [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html) to be configurable using the Auth0 Dashboard. You can configure it using the [Management API](#configuring_the_connection_using_the_management_api) otherwise.
+To be configurable through the Auth0 Dashboard, the Open ID identity provider needs to support [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html). Otherwise, you can configure it using the [Management API](#configuring_the_connection_using_the_management_api).
 
-To create a new OpenID Connect connection, you'll need to complete the following fields:
+To create a new OIDC connection, you'll need to complete the following fields:
 
 ![](/media/articles/connections/enterprise/oidc/oidc-small.png)
 
@@ -58,7 +61,7 @@ If you edit the OIDC Connect Connection, you will see additional configuration o
     * Front Channel: Auth0 will use `response_mode=form_post` and `response_type=id_token`. It's the preferred one as it does not require a client secret. 
     * Back Channel: Auth0 will use the authorization code flow with `response_type=code`.
 
-* **IdP Domains**: The list of email domains that can be authenticated in the Identity Provider. This is only applicable when using [Identifier First](/universal-login/identifier-first) authentication in the Classic Universal Login Experience.
+* **IdP Domains**: The list of email domains that can be authenticated in the Identity Provider. This is only applicable when using Identifier First authentication in the Classic Universal Login Experience.
 
 * **Scopes**: The list of OAuth scopes that will be requested when connecting to the identity provider. This will affect the data stored in the user profile. You are required to include at least the 'openid' scope. Note that the connection does not call `/userinfo` endpoint and expects the user claims to be present in the `id_token`.
 

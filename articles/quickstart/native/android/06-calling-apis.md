@@ -75,7 +75,7 @@ To give the authenticated user access to secured resources in your API, include 
 In this example, we use the [OkHttp](https://github.com/square/okhttp) library.
 :::
 
-Create an instance of the `OkHttpClient` client and a new `Request`. Use the provided builder to customize the Http method, the URL and the headers in the request. Set the **Authorization** header with the token type and the user's Access Token.
+Create an instance of the `OkHttpClient` client and a new `Request`. Use the provided builder to customize the Http method, the URL and the headers in the request. Set the **Authorization** header with the token type and the user's Access Token. In the sample project an `accessToken` field is set upon authentication success with the `credentials.getAccessToken()` value.
 
 ::: note
 Depending on the standards in your API, you configure the authorization header differently. The code below is just an example.
@@ -89,7 +89,7 @@ OkHttpClient client = new OkHttpClient();
 Request request = new Request.Builder()
     .get()
     .url(API_URL)
-    .addHeader("Authorization", "Bearer " + accessToken);
+    .addHeader("Authorization", "Bearer " + accessToken)
     .build();
 ```
 

@@ -146,7 +146,7 @@ In this page you can find a list of resources that can help you secure your APIs
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/tutorials/verify-access-token">Verify Access Tokens</a>
+    <i class="icon icon-budicon-715"></i><a href="/tokens/guides/access-token/validate-access-token">Validate an Access Token</a>
     <p>
       Learn what an API has to do in order to verify a Bearer Access Token.
     </p>

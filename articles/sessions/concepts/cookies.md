@@ -52,3 +52,12 @@ Stateless cookies are self-contained; they include all session information that 
 * Must restrict stored session information because cookies are limited in size (max 4KB in most browsers). Although session information may be split between multiple cookies, we don't recommend it.
 * Makes it difficult to revoke a session, because there is no record in a database you can delete; you’ll need to find other methods to forcefully clear a session.
 * If using multiple web servers, must make sure all servers have the key to encrypt/decrypt or sign the cookie.
+
+## Keep reading
+
+* [Sessions](/sessions)
+* [Session Layers](/sessions/concepts/session-layers)
+* [Session Lifetime](/sessions/concepts/session-lifetime)
+* [Logout](/logout)
+* [Session Use Cases](/sessions/references/sample-use-cases-sessions)
+* [Example: Short-lived session management workflow](/sessions/references/example-short-lived-session-mgmt)

@@ -63,9 +63,9 @@ Allows you to add or remove administrators for your Auth0 tenant, as well as rev
 
 ## Webtasks
 
-The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section explains about how to build apps and extensions on top of webtask.
+<%= include('../_includes/_webtask') %>
 
-[Learn more about Webtasks](https://webtask.io/).
+The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section explains about how to build apps and extensions on top of webtask.
 
 ## Advanced
 
@@ -123,7 +123,7 @@ Enabling this feature will help protect against user registration enumeration. B
 
 ![](/media/articles/tutorials/tenant-settings/tenant-advanced-extensibility.png)
 
-Use custom scripts to extend parts of Auth0's functionality, such as [Rules](/rules), [Hooks](/hooks) and [Database Connections](/connections#database-and-custom-connections). Choose the `node.js` version environment you will use to execute your custom scripts. If you are migrating from an older version of `node.js` that is no longer supported, see the [migration guide](/migrations/guides/extensibility-node8).
+Use custom scripts to extend parts of Auth0's functionality, such as [Rules](/rules), [Hooks](/hooks) and [Database Connections](/connections#database-and-custom-connections).
 
 ### Migrations
 

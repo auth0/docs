@@ -1,7 +1,7 @@
 ---
-title: Developer Documentation for Guardian
+title: Developer Documentation for Multi-factor Authentication
 url: /multifactor-authentication/developer
-description: Developer Documentation for Guardian
+description: Developer Documentation for Multi-factor Authentication
 topics:
   - mfa
   - guardian
@@ -10,20 +10,16 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Developer Resources for Guardian
+# Developer Resources for Multi-factor Authentication
 
-With Guardian, you can customize your users' <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> experience and even build applications on top of our multi-factor capabilities.
+Using Auth0 SDKs, you can customize your users' <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> experience and even build applications on top of our multi-factor capabilities.
 
-## Getting started with Guardian within your application
+## Customize the Multi-factor Authentication Page
 
-Manage multi-factor configuration for applications from the Dashboard or the Auth0 Management API. 
+Use the following client libraries to customize the look-and-feel of the MFA page so it matches your organization.
 
-## Customize the Guardian widget
-
-Use the Guardian client libraries to customize the look-and-feel of the Guardian widget so it matches your organization.
-
-* [Client library for Auth0 Guardian](https://github.com/auth0/auth0-guardian.js)
-* [Creating a Custom Guardian Widget](https://github.com/auth0/auth0-guardian.js/tree/master/example)
+* [Client library for Auth0 MFA](https://github.com/auth0/auth0-guardian.js)
+* [Creating a Custom MFA Widget](https://github.com/auth0/auth0-guardian.js/tree/master/example)
 
 ## Manage enrollments
 

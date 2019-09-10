@@ -62,7 +62,7 @@ The default rules for assigning access roles are:
 * If the email contains anything else, the user gets the regular user role.
 
 ::: note
-The rule can be customized to grant the user different roles other than the ones explained here, depending on the conditions required in a project. There is a restriction on the name of the claims added to the ID Token which must be name-spaced (look like a URL). Read [this article](/rules/current#hello-world) for more context about Rules.
+The rule can be customized to grant the user different roles other than the ones explained here, depending on the conditions required in a project. There is a restriction on the name of the claims added to the ID Token which must be [namespaced](/tokens/concepts/claims-namespacing). Read [this article](/rules/current#hello-world) for more context about Rules.
 :::
 
 

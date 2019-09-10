@@ -201,7 +201,7 @@ Now send a `GET` request to the private route  - `http://localhost:3010/api/priv
 { "message": "Bearer token missing" }
 ```
 
-Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the token generated above. Send the `GET` request to the prviate route again and you should see:
+Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the token generated above. Send the `GET` request to the private route again and you should see:
 
 ```json
 { "message": "Hello from a private endpoint!" }
@@ -276,7 +276,7 @@ To test this route, first send a `GET` request with no token to the private, sco
 { "message": "Bearer token missing" }
 ```
 
-Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the same token from the previous section. Send the `GET` request to the prviate, scoped route again and you should get a 403 status and the following message:
+Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the same token from the previous section. Send the `GET` request to the private, scoped route again and you should get a 403 status and the following message:
 
 ```json
 { "message": "Insufficient scope" }
@@ -285,9 +285,12 @@ Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the same toke
 Back in the Auth0 Dashboard:
 
 1. Go to the **Machine to Machine Applications** tab for the API created above.
-2. Scroll to the test Application for this API and click the down arrow icon.
-3. Add the `read:messages` permission and click **Update** (then **Continue** if needed).
-4. Click the **Test** tab, select the test Application, and click the **COPY TOKEN** link.
+2. Scroll to the test Application for this API, make sure it's authorized, and click the down arrow icon.
+3. Add the `read:messages` scope and click **Update** (then **Continue** if needed).
+
+![](/media/articles/server-apis/authorize-m2m-for-api.png)
+
+4. Click the **Test** tab, select the test Application, and click the **COPY TOKEN** link above the second code block.
 
 Change the `Authorization` header to use the new token and send the `GET` request again. You should get a 200 status and the following message:
 
@@ -299,9 +302,9 @@ Change the `Authorization` header to use the new token and send the `GET` reques
 
 The example above uses manually-generated tokens which are not long-lived. Once your API is live on the web and ready to accept requests, the applications making the requests will need to get an access token for this API using one of a few ways:
 
-- Web applications will use the [Authorization Code Flow](https://auth0.com/docs/flows/concepts/auth-code)
-- Mobile, desktop, and other native applications will use a [Mobile/Native Login Flow](https://auth0.com/docs/flows/concepts/auth-code-pkce)
-- CLIs, daemons, or services running on your back-end will use an [Machine-to-Machine Flow](https://auth0.com/docs/flows/concepts/client-credentials)
+- Web applications will use the [Authorization Code Flow](/flows/concepts/auth-code)
+- Mobile, desktop, and other native applications will use a [Mobile/Native Login Flow](/flows/concepts/auth-code-pkce)
+- CLIs, daemons, or services running on your back-end will use an [Machine-to-Machine Flow](/flows/concepts/client-credentials)
 
 Regardless of the type, the application will need to request the audience of this API during the login flow to receive a correctly-formed access token.
 

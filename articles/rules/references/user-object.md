@@ -27,7 +27,7 @@ The following properties are available for the `user` object.
 | `user.given_name` | text | The user's given name. |
 | `user.identities` | array (object) |  <%= include('../_includes/_user-prop-identities.md') %> |
 | `user.last_password_reset` | date time | Timestamp indicating the last time the user's password was reset/changed. At user creation, this field does not exist. |
-| `user.multifactor` | array (text) | List of <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> providers with which the user is enrolled. |
+| `user.multifactor` | array (text) | List of <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> providers with which the user is enrolled. This array is updated when the user logs in with MFA successfully for the first time, and is not updated when enrollment is completed or when an administrator resets a user's MFA. |
 | `user.name` | text | The user's full name. |
 | `user.nickname` | text | The user's nickname. |
 | `user.phone_number` | text  | The user's phone number. Only valid for users with SMS connections. |

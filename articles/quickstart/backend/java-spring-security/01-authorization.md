@@ -53,7 +53,7 @@ ${snippet(meta.snippets.dependenciesGradle)}
 
 ### Configure JSON Web Token signature algorithm
 
-Configure your API to use the RS256 signing algorithm. 
+Configure your API to use the RS256 [signing algorithm](/tokens/concepts/signing-algorithms). 
 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java

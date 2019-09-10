@@ -22,7 +22,7 @@ github:
   repo: auth0-golang-web-app
   branch: master
 requirements:
-	- Go 1.5.3 and up
+	- Go 1.12+
 next_steps:
   - path: 01-login
     list:

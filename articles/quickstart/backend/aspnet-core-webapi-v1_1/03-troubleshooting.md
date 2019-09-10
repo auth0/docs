@@ -98,7 +98,7 @@ To resolve this issue, ensure that your send the JWT as a bearer token in the Au
 
 ## 2. Did you configure the JWT middleware for the correct signing algorithm?
 
-Another common mistake is that your tokens are signed using the HS256 signing algorithm, but your middleware is configured for RS256 - or vice versa.
+Another common mistake is that your tokens are signed using the HS256 [signing algorithm](/tokens/concepts/signing-algorithms), but your middleware is configured for RS256 - or vice versa.
 
 In the following screenshot you can see that I still get the "Authorization failed..." warning message, but you will also notice that there is an informational message above that with more information:
 

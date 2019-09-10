@@ -118,7 +118,7 @@ The following tables describe operational and feature differences between these 
             <th class="info"><strong>PCI Compliance</strong></th>
             <td>No</td>
             <td>Add-on available</td>
-            <td>Add-on available</td>
+            <td>Add-on available for Auth0-Hosted Private Cloud</td>
         </tr>
         <tr>
             <th class="info"><strong>Support Channels & Levels</strong></th>
@@ -176,8 +176,8 @@ The following tables describe operational and feature differences between these 
         <tr>
             <th class="info"><strong>Anomaly Detection</strong></th>
             <td>Brute Force and Breached Passwords</td>
-            <td>Brute Force</td>
-            <td>Brute Force</td>
+            <td>Brute Force and Breached Passwords</td>
+            <td>Brute Force and Breached Passwords</td>
         </tr>
         <tr>
             <th class="info"><strong>Connecting IP Address Filtering Restrictions</strong></th>
@@ -199,8 +199,8 @@ The following tables describe operational and feature differences between these 
         <tr>
           <th class="info"><strong>MFA</strong></th>
           <td>Yes</td>
-          <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK</td>
-          <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK</td>
+          <td>Available using SMS, Google Authenticator or similar apps, Duo over TOTP/HOTP, Email, and Push Notification with Guardian </td>
+          <td>Available using SMS, Google Authenticator or similar apps, Duo over TOTP/HOTP, Email, and Push Notification with Guardian</td>
         </tr>
     </tbody>
 </table>

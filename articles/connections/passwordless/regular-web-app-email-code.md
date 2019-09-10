@@ -67,16 +67,10 @@ Then Auth0 will send an email to the user containing the one-time code:
 Once the user enters the code received by email, Lock will authenticate the user and redirect to the specified `callbackURL`.
 
 ::: note
-You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the server-side authentication callback. A sample application is available in the [Node.js Passwordless Authentication repository](https://github.com/auth0/auth0-node-passwordless-sample) on GitHub.
+You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the server-side authentication callback.
 :::
 
 ### Use your own UI
-
-<%= include('../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-node-passwordless-sample',
-  path: ''
-}) %>
 
 You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript application library](/libraries/auth0js).
 

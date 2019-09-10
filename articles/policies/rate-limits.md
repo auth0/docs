@@ -258,7 +258,7 @@ For all endpoints, Enterprise subscribers are limited to 100 requests per second
   <tr>
     <td>Change Password</td>
     <td>/dbconnections/change_password</td>
-    <td>User ID and IP</td>
+    <td>User Email and IP</td>
     <td>All</td>
     <td>1 request per minute with bursts of up to 10 requests</td>
   </tr>
@@ -318,4 +318,4 @@ For database connections, Auth0 limits certain types of repeat login attempts de
 
 ## Limits on SMS Messages for MFA
 
-There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configuring Twilio for Guardian SMS](/multifactor-authentication/twilio-configuration).
+There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configuring Twilio for SMS](/multifactor-authentication/twilio-configuration).
