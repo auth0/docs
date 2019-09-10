@@ -8,13 +8,13 @@ description: Learn how to add login functionality to your app with Apple.
 topics:
   - authentication
   - connections
-  - social
+  - native-social
   - apple
-contentType: how-to
+contentType: concept
 useCase:
   - add-login
-  - customize-connections
-  - add-idp
+  - connections
+  - add-siwa
 ---
 # Auth0 and Sign In with Apple
 

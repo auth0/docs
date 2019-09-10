@@ -17,25 +17,17 @@ useCase:
 
 To set up and configure Sign In with Apple for your native app, you will do the following:
 
-1. [Complete the prerequisites](#before-you-begin): Have an Apple Developer account (paid), an Auth0 tenant set up with a custom domain, and a web application configured to use Auth0 for authentication at that domain.  
-2. [Register your app in your Apple Developer account](#register-your-app-in-your-apple-developer-account): Obtain the following Apple IDs and keys for the application connection settings in the Dashboard. 
-    - For web apps: An Apple `ServiceID`
-    - For native apps: An Apple `AppID` ("Bundle Identifier")
-3. [Configure and test the application connection in Auth0](#configure-the-connection-in-auth0): Complete the social connection settings configuration information with the IDs and keys you obtained for your application from Apple. 
-
-## Prerequisites
-
-<%= include('../_includes/_siwa-prerequisites') %>
+1. Have an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/)).
+2. [Register your app in your Apple Developer account](#register-your-app-in-your-apple-developer-account)
+3. [Configure the application connection in Auth0](#configure-the-connection-in-auth0)
 
 ## Register your native app on your Apple Developer account
 
-Once your Apple Developer account is set up, follow the instructions in the [Apple Setup Guide](/connections/apple-setup) to set up your application. 
-
-When setting up your application, make sure you save the following IDs and keys for the application connection settings in the Auth0 Dashboard:
+When setting up your application with your Apple Developer account, make sure you save the following IDs and keys for the application connection settings in the Auth0 Dashboard:
 
 * Client ID (the Service ID)
 * Client Secret Signing Key
-* Apple Team ID
+* Apple Team ID (App ID)
 * Client Signing Key ID (optional)
 
 1. When you sign into the developer account, go to the [Certificates, IDs, & Profiles](https://developer.apple.com/account/resources/certificates/list) section, and choose the [Identifiers](https://developer.apple.com/account/resources/identifiers/list/serviceId) subsection on the left menu.
@@ -68,17 +60,23 @@ When setting up your application, make sure you save the following IDs and keys 
 
 13. Click **Download** for Apple to send you a file called `apple-developer-domain-association.txt`. You will have to use the contents of this file soon. Also, keep the page open because you will have to use the **Verify** button later.
 
-## Configure and test the connection in Auth0
+## Configure the client and the connection in Auth0
 
-1. Once you have the credentials you need from your Apple developer account, Go to [**Connections** > **Social**](${manage_url}), and click on the **Apple** connection.
+Once you have the credentials you need from your Apple Developer account, you need to configure the application client and the connection settings in Auth0.
+
+1. On the Auth0 Dashboard, go to **Applications**. Click the gear to open the settings for your app. 
+
+2. At the bottom of the page, click **Show Advanced Settings** and go to the **Mobile Settings** tab. Under **Native Social Login**. enable the **Enable Sign In with Apple** toggle. 
+
+    ![Application Client Settings: Advanced Mobile Settings](/media/articles/connections/social/apple/apple-app-mobile-settings.png)
+
+2. Go to **Connections** > **Social**, and click on the **Apple** connection.
 
 2. On the **Settings** tab, complete the fields **Client ID** (Services ID), **Client Secret Signing Key**, and **Apple Team ID**. You can also fill in the **Key ID** but it is optional, as Apple will accept the key without the ID.
 
-    ![Application Connection Settings: Advanced Mobile Settings](/media/articles/connections/social/apple/apple-app-mobile-settings.png)
+    ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)
 
 3. Click **Save**.
-
-4. [Test the connection](/connections/references/apple-native/guides/test-siwa-connection).
 
 ## Keep reading
 
