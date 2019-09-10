@@ -128,9 +128,6 @@ The export request (for all three fields) will looks like this:
 }
 ```
 
-A few customers complained that it is not clear that they can export the entire user_metadata in one field. They requested this to be stated explicitly in the docs.
-For example if the full metadata field should be exported, the mapping should state "app_metadata: app_metadata". Customers were thinking that they cannot do it and have to specify each subfield separately.
-
 ::: note
 Auth0 allows you to export the entirety of the `app_metadata` or `user_metadata` in one field. For example, if you want the full `app_metadata` field exported, your mapping should be `"app_metadata": "app_metadata"`. You do not need to specify each parameter individually to return the entire metadata field.
 :::
