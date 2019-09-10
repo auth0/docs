@@ -27,6 +27,8 @@ At this point you should set the following configuration variables:
 
 Once you have provided this information, click the *Install* button to finish installing the extension.
 
+<%= include('./_includes/_batch-size') %>
+
 ## Retrieve the required information from Logentries
 
 In order to acquire the *LOGENTRIES_TOKEN* information, navigate to [Logentries](https://logentries.com) and login to your account or register for a new one. From the menu on the left select *Logs > Add New Log*.
