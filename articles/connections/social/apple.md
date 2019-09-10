@@ -30,7 +30,7 @@ Auth0 creates a profile and performs a token exchange to provide a way to hook i
 
 For a native app, the Sign in with Apple login flow works as follows:
 
-![Sign In with Apple Flow](/media/connections/social/apple/sign-in-with-apple-flow.png)
+![Native Sign In with Apple Flow](/media/articles/connections/social/apple/sign-in-with-apple-flow.png)
 
 1. User authenticates via Apple's SDK on their iPhone or iPad. They receive an authorization code. The user does not have to leave the app and use a browser to log in.
 2. The application calls Auth0's `/oauth/token` endpoint with the following parameters:
