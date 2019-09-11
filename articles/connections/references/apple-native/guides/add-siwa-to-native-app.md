@@ -87,5 +87,5 @@ Once you have the credentials you need from your Apple Developer account, you ne
 * [Auth0 and Sign In with Apple Overview](/connections/social/apple)
 * [Sign In with Apple and Auth0 Connection Use Cases](/connections/references/apple-native/references/siwa-use-cases)
 * [Sign In with Apple and Auth0 Logging](/connections/references/apple-native/references/siwa-logging)
-* [Rate Limits for Sign In with Apple](/policies/rate-limits/#limits-on-sign-in-with-apple))
+* [Rate Limits for Sign In with Apple](/policies/rate-limits/#limits-on-sign-in-with-apple)
 * [Sign In with Apple and Auth0 Troubleshooting](/connections/references/apple-native/references/siwa-troubleshooting)
