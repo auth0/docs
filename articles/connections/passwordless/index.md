@@ -38,7 +38,7 @@ When using passwordless authentication, users:
 1. Provide an email address or mobile phone number instead of a login/password combination.
 
 | SMS | Email |
-| ![Provide Mobile Phone Number](/media/articles/connections/passwordless/passwordless-email-request-web.png) | ![Provide Email Address](/media/articles/connections/passwordless/passwordless-sms-enter-phone-web.png) |
+| ![Provide Mobile Phone Number](/media/articles/connections/passwordless/passwordless-email-request-web.png =50) | ![Provide Email Address](/media/articles/connections/passwordless/passwordless-sms-enter-phone-web.png =50) |
 
 2. Depending on which piece of information they provide and how you have configured your passwordless connection, receive either a one-time-use code or magic link via either SMS or email.
 
