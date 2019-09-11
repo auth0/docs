@@ -246,39 +246,17 @@ articles:
         url: /connections/passwordless
         children:
 
-          - title: Benefits
-            url: "/connections/passswordless#benefits"
-      
-          - title: Implement - Universal Login + Lock
-            url: /connections/passwordless/guides/implement-universal-login-lock-passwordless
-
-          - title: Implement - Embedded + Lock
-            url: /connections/passwordless/guides/configure-login-page
-
-          - title: Troubleshooting
-            url: /connections/passwordless/troubleshoot
-
-          - title: Sample Use Case - Rules with Passwordless
-            url: /connections/passwordless/use-case-rules
-
-          - title: Relevant API Endpoints
-            url: /connections/passwordless/relevant-api-endpoints
-
           - title: Native Passwordless
             url: /connections/passwordless/native-passwordless-universal
-            hidden: true
 
           - title: Using Email
             url: /connections/passwordless/email
-            hidden: true
 
           - title: Using SMS
             url: /connections/passwordless/sms
-            hidden: true
 
           - title: FAQ
             url: /connections/passwordless/faq
-            hidden: true
 
       - title: Pass Parameters to Identity Providers
         url: /connections/pass-parameters-to-idps
@@ -663,7 +641,7 @@ articles:
         children:
 
           - title: Create a New Rule
-            url: /dashboard/guides/rules/create-rules
+            url: /rules/guides/create
 
           - title: Store Configuration for Rules
             url: /rules/guides/configuration
