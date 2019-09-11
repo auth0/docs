@@ -29,7 +29,7 @@ This guide will show you how to create [rules](/rules) using Auth0's Management 
 	],
 	"postData": {
     "mimeType": "application/json",
-    "text" : "{ \"name\": \"ROLE_NAME\", \"description\": \"ROLE_DESC\", \"order\": \"RULE_ORDER\", \"enabled\": \"RULE_ENABLED\" }"
+    "text" : "{ \"name\": \"ROLE_NAME\", \"description\": \"ROLE_DESC\" }"
     }
 	}
 }
