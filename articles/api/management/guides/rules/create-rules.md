@@ -21,7 +21,7 @@ This guide will show you how to create [rules](/rules) using Auth0's Management 
 ```har
 {
 	"method": "POST",
-	"url": "https://${account.namespace}/api/v2/rules",
+	"url": "https://${account.namespace}/api/v2/roles",
   "headers": [
   	{ "name": "Content-Type", "value": "application/json" },
   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
@@ -29,8 +29,7 @@ This guide will show you how to create [rules](/rules) using Auth0's Management 
 	],
 	"postData": {
     "mimeType": "application/json",
-    "text" : "{ \"name\": \"ROLE_NAME\", \"description\": \"ROLE_DESC\" }"
-    }
+    "text" : "{ \"name\": \"RULE_NAME\", \"script\": \"RULE_SCRIPT\" }"
 	}
 }
 ```
