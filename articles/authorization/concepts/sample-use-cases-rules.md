@@ -22,7 +22,7 @@ With [rules](/rules), you can modify or complement the outcome of the decision m
 
 ## Allow access only on weekdays for a specific application
 
-Let's say you have an application that you want to make sure is only accessible during weekdays. To do this, you would create the following rule:
+Let's say you have an application that you want to make sure is only accessible during weekdays. To do this, you would [create the following rule](/dashboard/guides/rules/create-rules):
 
 ```js
 function (user, context, callback) {
@@ -43,7 +43,7 @@ If a user attempts to access the application during the weekend, access will be 
 
 ## Allow access only to users who are inside the corporate network
 
-Let's say you want to allow access to an application, but only for users who are accessing the application from inside your corporate network. To do this, you would create the following rule:
+Let's say you want to allow access to an application, but only for users who are accessing the application from inside your corporate network. To do this, you would [create the following rule](/dashboard/guides/rules/create-rules):
 
 ```js
 function (user, context, callback) {
@@ -63,7 +63,7 @@ If the user is outside the corporate network, they will be denied access even if
 
 ## Add user roles to tokens
 
-If you [enable RBAC for APIs](/dashboard/guides/apis/enable-rbac) and set the **Token Dialect** appropriately, you will receive user permissions in your Access Tokens. To add user <dfn data-key="role">roles</dfn> to tokens, you would use the `context.authorization` object in the following rule:
+If you [enable RBAC for APIs](/dashboard/guides/apis/enable-rbac) and set the **Token Dialect** appropriately, you will receive user permissions in your Access Tokens. To add user <dfn data-key="role">roles</dfn> to tokens, you would use the `context.authorization` object when you [create the following rule](/dashboard/guides/rules/create-rules):
 
 ```js
 function (user, context, callback) {
@@ -94,7 +94,7 @@ The names of the roles you create must match the names of the [pre-defined DAE r
 
 2. [Assign the DAE roles you created to the appropriate users](/dashboard/guides/users/assign-roles-users) using the Authorization core feature set.
 
-3. Add user roles to the DAE namespace in the ID Token. To do so, add the following rule:
+3. Add user roles to the DAE namespace in the ID Token. To do so, [create the following rule](/dashboard/guides/rules/create-rules):
 
 ```js
 function (user, context, callback) {

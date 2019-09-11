@@ -19,7 +19,7 @@ In this guide, you'll get an overview of how to set up an embedded login page us
 
 With Lock's Passwordless Mode, users receive one-time use authetication codes or links for authentication. This means a user can login with just an email or mobile phone number without having to remembering a password.
 
-<%= include('../../_includes/_embedded_login_warning') %>
+<%= include('../../../_includes/_embedded_login_warning') %>
 
 ## Initialization
 
