@@ -12,7 +12,7 @@ useCase: customize-connections
 # Change Users' Passwords
 
 ::: note
-This article will help you learn how to reset a user's password. If you are trying to configure the custom Password Reset page for your tenant, see [Password Reset Page](/universal-login/password-reset). If you are a user of Auth0 and are trying to reset the password to your Auth0 account, see [Reset Your Auth0 Account Password](/support/reset-account-password).
+This article covers how to reset a user's password. If you are trying to configure the custom Password Reset page for your tenant, see [Password Reset Page](/universal-login/password-reset). If you are a user of Auth0 and are trying to reset the password to your Auth0 account, see [Reset Your Auth0 Account Password](/support/reset-account-password).
 :::
 
 There are two basic methods of changing a password:
