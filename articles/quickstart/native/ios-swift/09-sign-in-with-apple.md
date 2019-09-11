@@ -69,7 +69,7 @@ override func viewDidLoad() {
 
 ## Handle Authorization
 
-The following code shows the implemention of a button handler that initializes an authorization request and launches
+The following code shows the implementation of a button handler that initializes an authorization request and launches
 the native SIWA flow:
 
 ```swift
@@ -97,7 +97,7 @@ func handleAuthorizationAppleIDButtonPress() {
 At this time the only supported scopes are `email` and `fullname`. For more information, see [ASAuthorization.scope](https://developer.apple.com/documentation/authenticationservices/asauthorization/scope).
 :::
 
-At this point you will have a few compile errors to deal with. Before moving forward with all the code, let's remove those errors by providing some basic delegates.
+At this point, you will have a few compile errors to deal with. Before moving forward with all the code, let's remove those errors by providing some basic delegates.
 
 ### Add authorization extensions
 
@@ -125,7 +125,9 @@ To enable Sign In With Apple in your application, you need to enable this capabi
 ![Add capabilities](/media/articles/ios/swift/add-capability.png)
 
 :::panel Checkpoint
-Start the application and click the **Sign In With Apple** button. You should see the default sign-in dialog appear.
+Start the application and click the **Sign In With Apple** button. You should see the default sign-in dialog appear:
+
+![Default sign-in dialog](/media/articles/ios/swift/authz-dialog.png)
 :::
 
 ## Processing the Authorization Response
@@ -159,7 +161,7 @@ Upon successful authorization, you will be able to access the following informat
   - ID Token, Authorization Code
 - Account Information
   - Name, Verified Email Address (Original or relay address)
-- Real user indiciator
+- Real user indicator
   - High confidence indicator that the user is who they say they are
 
 :::note
