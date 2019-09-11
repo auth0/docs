@@ -98,7 +98,7 @@ For emails, you can customize the following properties:
 
 We strongly recommend implementing passwordless with <dfn data-key="universal-login">[Universal Login](/universal-login</dfn>, which redirects users to a central domain, through which authentication is performed before redirecting users back to your application. In fact, if you are building a Native application, which uses device-specific hardware and software, Universal Login is the only way to go.
 
-* [Universal Login + Lock (with Passwordless)](/connections/passwordless/guides/implement-universal-login-lock-passwordless): Learn how to set up a passwordless connection and configure your login page using the Classic Universal Login experience with the Lock (with Passwordless) template.
+* [Universal Login + Lock (with Passwordless)](articles/connections/passwordless/guides/implement-universal-login-lock-passwordless): Learn how to set up a passwordless connection and configure your login page using the Classic Universal Login experience with the Lock (with Passwordless) template.
 
 ## Alternative
 
@@ -106,7 +106,19 @@ We strongly recommend implementing passwordless with <dfn data-key="universal-lo
 If building a Native application, no alternatives exist.
 :::
 
-* [Embedded Login + Lock (with Passwordless)](/connections/passwordless/guides/configure-login-page): Learn how to set up a passwordless connection and configure your login page using an Embedded Login form with the Lock (with Passwordless) widget.
+* [Universal Login + Custom UI + Auth0.js](): Learn how to set up a passwordless connection and configure your login page using the Classic Universal Login experience with the Custom Login Form template and the Auth0.js SDK.
+
+Alternatively, you may implement passwordless use embedded login, in which the login widget is served from the same page without redirecting the user to another domain, after which the credentials are sent to Auth0 for authentication.
+
+::: warning
+This represents a [cross-origin request](/cross-origin-authentication), which leaves your application vulnerable to cross-origin resource sharing (CORS) attacks, and requires that you use [Auth0 Custom Domains](/custom-domains), which is a paid feature.
+:::
+
+* [Embedded Login + Lock (with Passwordless)](): Learn how to set up a passwordless connection and configure your login page using an Embedded Login form with the Lock (with Passwordless) widget.
+
+To learn about Auth0 API endpoints that are related to passwordless, see [Relevant API Endpoints](/connections/passwordless/reference/relevant-api-endpoints).
+
+Troubleshoot your implementation using our [Passwordless Troubleshooting Guide](/connections/passwordless/reference/troubleshoot).
 
 ## Limitations
 
