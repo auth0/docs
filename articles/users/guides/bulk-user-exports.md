@@ -127,6 +127,11 @@ The export request (for all three fields) will looks like this:
   "comment": ""
 }
 ```
+
+::: note
+Auth0 allows you to export the entirety of the `app_metadata` or `user_metadata` in one field. For example, if you want the full `app_metadata` field exported, your mapping should be `"app_metadata": "app_metadata"`. You do not need to specify each parameter individually to return the entire metadata field.
+:::
+
 ### JSON-compatible format
 
 If you export the data in JSON-compatible format, you only need to provide the root property; you do not need to name each individual inner property since they will be included automatically.
