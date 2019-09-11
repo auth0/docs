@@ -94,7 +94,7 @@ The Management API v2 provides an additional endpoint, [Generate a password rese
 
 :::
 
-In the Classic Experience you can [configure a url](/email/templates#configuring-the-redirect-to-url) to redirect users after completing the password reset. The URL will receive a success indicator and a message. The New Experience will redirect the users to the [default login route](/universal-login/default-login-url) when it succeeds, and will handle the error cases as part of the Universal Login flow. The Redirect URL in the email template will be ignored.  
+In the [Classic Universal Login Experience](/universal-login/classic) you can [configure a url](/email/templates#configuring-the-redirect-to-url) to redirect users after completing the password reset. The URL will receive a success indicator and a message. The [New Experience](/universal-login/new) will redirect the users to the [default login route](/universal-login/default-login-url) when it succeeds, and will handle the error cases as part of the Universal Login flow. The Redirect URL in the email template will be ignored.  
 
 ## Directly set the new password
 
