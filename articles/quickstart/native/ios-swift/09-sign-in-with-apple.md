@@ -130,7 +130,7 @@ Start the application and click the **Sign In With Apple** button. You should se
 ![Default sign-in dialog](/media/articles/ios/swift/authz-dialog.png)
 :::
 
-## Processing the Authorization Response
+## Process the Authorization Response
 
 Add the following to the end of your `ViewController.swift` file.
 
@@ -152,7 +152,7 @@ extension ViewController: ASAuthorizationControllerDelegate {
 }
 ```
 
-### Inspecting the response
+### Inspect the response
 
 Upon successful authorization, you will be able to access the following information:
 
