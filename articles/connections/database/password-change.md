@@ -30,21 +30,16 @@ An interactive password reset flow can be triggered in three ways, depending on 
 
 - [**Universal Login Page**](#use-universal-login): If your app uses Universal Login, the user uses the Lock widget on the Login screen to trigger a password reset email.
 - [**Authentication API**](#use-the-authentication-api): Send a `POST` call to the Authentication API to send a password reset email to the user.
-- [**Embedded Lock**](#use-lock): The user uses the Lock login screen embedded in their app to trigger a password reset email.
 
 ### Use Universal Login
 
 If your application is using Universal Login, the user will be able to trigger a password reset from the login page. With the New Universal Login Experience, the user will click the **Don't remember your password?** link and then enter their email address.
 
-::: note
-If your application uses the Classic Universal Login Experience, it by default uses the Lock Widget, which also has a forgot password link, which brings up a screen that will allow the user to enter their email address much in the same way.
-:::
-
 This will fire off a POST request to Auth0 that will trigger the password reset process. Once the password reset has been triggered, the user will now [receive a password reset email](#password-reset-emails).
 
 ### Use the Authentication API
 
-If your application uses start an interactive password reset flow using the Authentication API, make a `POST` call specifying the email address of the user account whose password you would like to reset in the `email` field. If the call is successful, the user will receive an email prompting them to change their password.
+If your application uses an interactive password reset flow using the Authentication API, make a `POST` call specifying the email address of the user account whose password you would like to reset in the `email` field. If the call is successful, the user will receive an email prompting them to change their password.
 
 ::: note
 If you're calling this from the browser, don't forget to add your URL to the `Allowed Web Origins` list in the [Dashboard](${manage_url}/#/applications/${account.clientId}/settings).
@@ -70,21 +65,13 @@ If your Connection is a custom database and the user exists in the database, inv
 
 Once the password reset has been triggered, the user will now [receive a password reset email](#password-reset-emails).
 
-### Use Lock
-
-If your application has Lock embedded in it, the process is similar to the above. The user can start the password reset process by using the Lock widget.
-
-The user clicks on the **Don't remember your password?** link on the Lock screen, and then enters their email address.
-
-Once the password reset has been triggered, the user will now receive a password reset email.
-
 ## Password reset emails
 
-Regardless of how it was triggered, if the `POST` call is successful, the user receives an email containing a link to reset their password.
+Regardless of how the password reset process was triggered, the user receives an email containing a link to reset their password.
 
 ![](/media/articles/connections/database/password-reset-email.png)
 
-Clicking the link will send the user to the customizable [password reset page](/universal-login/password-reset).
+Clicking the link will send the user to the [password reset page](/universal-login/password-reset).
 
 After submitting the new password, confirmation that the user will be able to login with their new credentials appears:
 
@@ -151,12 +138,3 @@ Anyone with administrative privileges to your Auth0 tenant can manually change a
 1. Scroll down to the bottom of the user page, then click on the red **CHANGE** button in the red **Change Password** box. 
   ![](/media/articles/connections/database/manual-password-reset.png)
 1. Enter the new password, and click **Save**.
-
-## Change password expiration settings using Rules
-
-You can use a [rule](/rules) to check for a password expiration period.
-
-1. Go to [Dashboard > Rules](${manage_url}/#/rules).
-2. Click **+ Create Rule**.
-3. Click the template **Check Last Password Reset**.
-4. Modify the script according to your requirements, and click **Save**.
