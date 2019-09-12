@@ -1,6 +1,6 @@
 ---
 title: Sign In With Apple
-description: This tutorial will show you how to add a Sign In With Apple button and receive tokens from Auth0
+description: This tutorial will show you how to add the Sign In With Apple native authentication flow to your iOS Swift apps
 budicon: 345
 topics:
   - quickstarts
