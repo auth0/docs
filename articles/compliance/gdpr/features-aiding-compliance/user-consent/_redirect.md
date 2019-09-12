@@ -39,9 +39,7 @@ For simplicity, we will use the following sample consent form:
 
 You will need to host this form, and the URL for the form must be publicly-accessible. You'll need to provide the URL where the form can be access to Auth0 at a later step of this tutorial.
 
-::: note
-Please see the [Redirect Users to Consent Form Hosted Using Webtask](/compliance/gdpr/features-aiding-compliance/user-consent/webtask-redirect.md) if you want to host your consent form using Webtask.
-:::
+*Please see the [Redirect Users to Consent Form Hosted Using Webtask](/compliance/gdpr/features-aiding-compliance/user-consent/webtask-redirect.md) if you want to host your consent form using Webtask.*
 
 1. Add the [redirect rule](/rules/redirect). Go to [Dashboard > Rules](${manage_url}/#/rules) and click **Create Rule**. At the **Rules Templates** select **empty rule**. Change the default rule's name from `empty rule` to something descriptive (i.e., `Redirect to consent form`).
 
@@ -96,6 +94,6 @@ Please see the [Redirect Users to Consent Form Hosted Using Webtask](/compliance
 
     Be sure to provide the publicly-accessible URL where your consent form can be found.
 
-::: warning
+### Security
+
 When setting up redirection to your consent form for use in a Production environment, be sure to review [Trusted Callback URLs](https://github.com/auth0/rules/tree/master/redirect-rules/simple#trusted-callback-urls) and [Data Integrity](https://github.com/auth0/rules/tree/master/redirect-rules/simple#data-integrity) regarding security concerns.
-:::
