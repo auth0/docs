@@ -19,7 +19,7 @@ useCase:
 ---
 # Authorization Core vs. Authorization Extension
 
-Auth0 currently provides two way of implementing [role-based access control (RBAC)](/authorization/concepts/rbac): our Core implementation, which is currently being released, and our Authorization Extension, which will eventually be deprecated. Our Core implementation improves performance and scalability and will eventually provide a more flexible RBAC system than the Authorization Extension.
+Auth0 currently provides two ways of implementing [role-based access control (RBAC)](/authorization/concepts/rbac): our Core implementation, which is currently being released, and our Authorization Extension, which will eventually be deprecated. Our Core implementation improves performance and scalability and will eventually provide a more flexible RBAC system than the Authorization Extension.
 
 While we recommend using the RBAC features present in the Authorization Core, we recognize that some implementations may require use of the Authorization Extension until Authorization Core features match its full functionality. To help you decide which feature is right for your implementation, we present the differences between the two:
 
