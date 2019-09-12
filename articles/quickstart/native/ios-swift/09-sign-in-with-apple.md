@@ -22,9 +22,8 @@ requirements:
 
 ## Before You Start
 
-Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:
-* You have integrated [Auth0.swift](https://github.com/auth0/Auth0.swift/) as a dependency in your project. 
-* You are familiar with presenting the login screen. To learn more, see the [Login](/quickstart/native/ios-swift/00-login) tutorial.
+Before you continue with this tutorial, it is assumed that:
+* You have integrated [Auth0.swift](https://github.com/auth0/Auth0.swift/) as a dependency in your project.
 * You have an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/)).
 * You have configured your Auth0 tenant and application client to enable **Sign In With Apple** to work. See [Add Sign In with Apple to Your Native App](/articles/connections/references/apple-native/guides/add-siwa-to-native-app) for details on how to do this.
 
@@ -94,7 +93,7 @@ func handleAuthorizationAppleIDButtonPress() {
 ```
 
 :::note
-At this time the only supported scopes are `email` and `fullname`. For more information, see [ASAuthorization.scope](https://developer.apple.com/documentation/authenticationservices/asauthorization/scope).
+At this time the only scopes that Apple support are `email` and `fullName`. For more information, see [ASAuthorization.scope](https://developer.apple.com/documentation/authenticationservices/asauthorization/scope).
 :::
 
 At this point, you will have a few compile errors to deal with. Before moving forward with all the code, let's remove those errors by providing some basic delegates.
@@ -136,7 +135,6 @@ Add the following to the end of your `ViewController.swift` file.
 
 ```swift
 extension ViewController: ASAuthorizationControllerDelegate {
-
     // Handle authorization success
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
 
