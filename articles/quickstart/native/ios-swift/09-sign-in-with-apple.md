@@ -69,7 +69,7 @@ override func viewDidLoad() {
 ## Handle Authorization
 
 The following code shows the implementation of a button handler that initializes an authorization request and launches
-the native SIWA flow:
+the native Sign In With Apple flow:
 
 ```swift
 @objc
@@ -145,7 +145,7 @@ extension ViewController: ASAuthorizationControllerDelegate {
 
     // Handle authorization failure
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        print("SIWA Authorization Failed: \(error)")
+        print("Authorization Failed: \(error)")
     }
 }
 ```
@@ -168,7 +168,7 @@ The Account Information is ONLY sent on the first successful authorization
 
 ## Auth0 Token Exchange
 
-Now that you have a successful SIWA authorization response, you can use the `authorizationCode` information to perform a token exchange for Auth0 tokens, as in the following example:
+Now that you have a successful authorization response, you can use the `authorizationCode` information to perform a token exchange for Auth0 tokens, as in the following example:
 
 ```swift
 if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
