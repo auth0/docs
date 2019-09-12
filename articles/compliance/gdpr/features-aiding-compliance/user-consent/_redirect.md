@@ -19,9 +19,9 @@ For simplicity, we will use the following sample consent form:
     <body>
       <div class="container">
         <div class="jumbotron">
-          <h1><%-title %></h1>
+          <h1>Your Consent Page</h1>
           <p>To continue, please accept this consent form.</p>
-          <form action="<%-action %>" method="post">
+          <form action="POST" method="post">
             <div class="checkbox">
               <label>
                 <input type="checkbox" name="confirm" value="yes"> I agree
