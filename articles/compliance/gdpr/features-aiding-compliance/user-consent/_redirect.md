@@ -97,8 +97,5 @@ Please see the [Redirect Users to Consent Form Hosted Using Webtask](/compliance
     Be sure to provide the publicly-accessible URL where your consent form can be found.
 
 ::: warning
-When setting up redirection to your consent form for use in a Production environment, be sure to review the following information regarding security concerns:
-
-* [Trusted Callback URLs](https://github.com/auth0/rules/tree/master/redirect-rules/simple#trusted-callback-urls) and
-* [Data Integrity](https://github.com/auth0/rules/tree/master/redirect-rules/simple#data-integrity) 
+When setting up redirection to your consent form for use in a Production environment, be sure to review [Trusted Callback URLs](https://github.com/auth0/rules/tree/master/redirect-rules/simple#trusted-callback-urls) and [Data Integrity](https://github.com/auth0/rules/tree/master/redirect-rules/simple#data-integrity) regarding security concerns.
 :::
