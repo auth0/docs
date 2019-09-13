@@ -83,7 +83,7 @@ On the command above, `-p 5000` makes the server listen on port 5000 and `-c-1` 
 
 6. Open [localhost:5000](http://localhost:5000) in a web browser and you should see the page below. If you do not see the App Summary section, make sure your API is properly running at port 3001.
 
-![](/media/articles/identity-labs/lab-04-initial-load.png)
+![Initial load for single-page application](/media/articles/identity-labs/lab-04-initial-load.png)
 
 This is the homepage of your SPA. Right now, this SPA has no integration with Auth0. Also, the app is only consuming the public endpoint provided by the API. This endpoint returns two pieces of information: the total number of expenses recorded in the database (two, in this case), and the sum of their amount ($144.00). The SPA is using this information to feed the "App Summary" section of the page you are seeing.
 
@@ -274,11 +274,11 @@ The `isAuthenticated` flag also defines what button the app will show based on t
 
 23. Save all your changes and refresh the browser. You will see a screen that is slightly different from the previous one.
 
-![](/media/articles/identity-labs/lab-04-login-button-showing.png)
+![Login button for single-page application](/media/articles/identity-labs/lab-04-login-button-showing.png)
 
 24. In this new screen, click the **Log In** button to start the authentication process. Login with your database user  and accept the consent request. After successful authentication, Auth0 will redirect you back to your app and your profile details (username and picture) will be shown near the upper-right corner:
 
-![](/media/articles/identity-labs/lab-04-login-complete.png)
+![Login complete on single-page application](/media/articles/identity-labs/lab-04-login-complete.png)
 
 ::: note
 If you log in using a social identity provider (Google, Facebook, etc), you will need to log in every time you refresh the SPA. This happens because you are using Auth0’s test development keys for the identity provider. To prevent this from happening, you would need to register your application with the relevant Identity Provider and replace the test development keys on the Auth0 dashboard with your own. However, for the purposes of this lab, you should log in with a username and password to avoid the aforementioned behavior.
@@ -309,11 +309,11 @@ This request is created and triggered by the SPA SDK when a user clicks on the l
 
 29. To see the data sent to the token endpoint, scroll to the bottom of the **Headers** tab. There, you will see that the request payload includes the following fields: `client_id`, `code`, `code_verifier`, `grant_type`, and `redirect_uri`.
 
-![](/media/articles/identity-labs/lab-04-token-ep-post.png)
+![Network request for token endpoint POST](/media/articles/identity-labs/lab-04-token-ep-post.png)
 
 30. Switch to the **Preview** tab to see the tokens returned by the authorization server.
 
-![](/media/articles/identity-labs/lab-04-token-ep-response.png)
+![Network response from token endpoint POST](/media/articles/identity-labs/lab-04-token-ep-response.png)
 
 ::: note
 If you are using a content blocker or browser setting that blocks third-party cookies, you will notice that in the step below, when authenticated, after refreshing the page you need to log in again. In that case, try changing your content blocker settings to allow your Auth0 domain (or turning it off altogether for localhost). Blocking all third-party cookies is not generally recommended as it is known to cause issues in some Web sites. This problem does not occur when [Custom Domains](/custom-domains) are used.
@@ -324,7 +324,7 @@ If you are using a content blocker or browser setting that blocks third-party co
 - The request uses a different `response_mode`, in this case `web_message`. This is part of a strategy used to [renew tokens silently](/api-auth/tutorials/silent-authentication#renew-expired-tokens).
 - The request defines a new query parameter called `prompt` set to `none`. As defined on the OpenID Connect protocol, this parameter is used on [authentication requests that must not display user interaction](https://auth0.com/docs/api-auth/tutorials/silent-authentication). This parameter is also part of the silent authentication process.
 
-![](/media/articles/identity-labs/lab-04-silent-auth-request.png)
+![Silent authentication network request from single-page application](/media/articles/identity-labs/lab-04-silent-auth-request.png)
 
 For this to work properly, the silent authentication process requires the referrer URL to be whitelisted. This is why you added `http://localhost:5000` to the **Allowed Web Origins** field for your Auth0 Application. Otherwise, the silent authentication process would fail and your users would need to interactively log in again.
 

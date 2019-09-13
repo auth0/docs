@@ -94,7 +94,7 @@ listening on http://localhost:3000
 
 8. Open [localhost:3000](http://localhost:3000) in your browser. There, you will see the homepage of the web application and, if you log in, you will be able to access the expenses report. The page might look similar to the Lab 1 solution, however the difference is that the Expenses information is provided by an external API instead of being hard-coded in the Web app.
 
-![](/media/articles/identity-labs/lab-02-starter-app-rendered.png)
+![First page of the starter application](/media/articles/identity-labs/lab-02-starter-app-rendered.png)
 
 Right now, even though the application requires authentication, the API does not. That is, you are calling the API from the Web app, without any authentication information. In fact, if you browse to the API's URL at [localhost:3001](http://localhost:3001) without logging in, you will see the expenses. In the following steps, you will update your application to call the API with a token.
 
@@ -192,7 +192,7 @@ CLIENT_SECRET=YOUR_APPLICATION_CLIENT_SECRET
 
 The `API_AUDIENCE` value is the identifier for the API that will be created in the following exercise. To get your Client Secret, go to your Application settings page in the Auth0 Dashboard:
 
-![](/media/articles/identity-labs/lab-02-client-secret-config.png)
+![Application client secret field](/media/articles/identity-labs/lab-02-client-secret-config.png)
 
 **And that's it!** You have just configured your web application to consume the API on behalf of the logged in user.
 

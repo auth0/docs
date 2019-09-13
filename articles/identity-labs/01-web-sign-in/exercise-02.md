@@ -21,7 +21,7 @@ In this exercise, you will sign up to your application (which will also log you 
 
 2. The first request you should see is a GET request to your application homepage:
 
-![](/media/articles/identity-labs/lab-01-network-trace-01.png)
+![Network request for application homepage](/media/articles/identity-labs/lab-01-network-trace-01.png)
 
 3. After that, you should see a GET request to `https://your-tenant-name.auth0.com/authorize`. This is the middleware added in exercise 1 taking over. The middleware checks if the user is logged in and, because they are not, it builds the OpenID Connect request to the authorization server URL and forwards the user to it. In this case, the complete GET request URL will look something like this (line breaks added for clarity):
 
@@ -46,7 +46,7 @@ The middleware sends several parameters. The important ones for this lab are:
 - `redirect_uri`: where the results are to be sent after the login operation, i.e. the callback URL.
 - `response_mode`: how the response from the server is to be sent to the app; in this case, the response we want is a POST request.
 
-![](/media/articles/identity-labs/lab-01-network-trace-02.png)
+![Network request for authorization server](/media/articles/identity-labs/lab-01-network-trace-02.png)
 
 ::: note
 If you scroll down while on the **Headers** tab in Chrome Developer Tools to the **Query String Parameters** section, you can see the different URL parameters in a more-readable table format.
@@ -58,7 +58,7 @@ If you scroll down while on the **Headers** tab in Chrome Developer Tools to the
 
 6. The authorization server will log you in and POST the response - an error if something went wrong or the ID token if not - back to the callback URL for your application. Once you’ve successfully logged in, you should see your user name in the page. This means authentication has been configured properly!
 
-![](/media/articles/identity-labs/lab-01-network-trace-03.png)
+![Network request for application callback](/media/articles/identity-labs/lab-01-network-trace-03.png)
 
 The complete trace of the callback request is:
 
@@ -87,11 +87,11 @@ If you see an error in your console about an ID token used too early, this is li
 
 7. Click on the callback request, then search for the Form Data section of the Headers tab of the Developer Console. Copy the complete `id_token` value.
 
-![](/media/articles/identity-labs/lab-01-network-trace-04.png)
+![Network request for ID token form post](/media/articles/identity-labs/lab-01-network-trace-04.png)
 
 8. Go to [jwt.io](https://jwt.io) and paste the ID token copied from the last step into the text area on the left. Notice that as soon as you paste it, the contents of the text area on the right are updated. This is because the site decodes your ID token and displays its contents (claims) in that panel.
 
-![](/media/articles/identity-labs/lab-01-id-token-in-jwt-io.png)
+![Decoded ID token](/media/articles/identity-labs/lab-01-id-token-in-jwt-io.png)
 
 Note the following:
 

@@ -29,15 +29,15 @@ This project is a bare-bones application that imports the [Auth0.swift](https://
 
 2. In the bar at the top of the project window, click the device selector and pick a late-model iPhone, then click the Play button (or **Product > Run** from the Xcode menu) to run the app.
 
-![](/media/articles/identity-labs/lab-03-choose-device-and-run.png)
+![Device simulator selection](/media/articles/identity-labs/lab-03-choose-device-and-run.png)
 
 The simulator may take a few moments to load the first time, and then you should see the following:
 
-![](/media/articles/identity-labs/lab-03-first-run.png)
+![First time running iOS application](/media/articles/identity-labs/lab-03-first-run.png)
 
 3. Touch the **Log In** button. This will output a "Log In" message to the Debug area in Xcode. If you don’t see the Debug view, you can enable it with **View > Debug Area > Show Debug Area**.
 
-![](/media/articles/identity-labs/lab-03-first-debug-area.png)
+![iOS application debug console in Xcode](/media/articles/identity-labs/lab-03-first-debug-area.png)
 
 4. Before any calls are made to the Auth0 authorization server, you need to set up a new Auth0 Application for handling Native Applications. Log into the Auth0 Dashboard, go to the [Applications page](${manage_url}/#/applications), and click the **Create Application** button.
 
@@ -60,7 +60,7 @@ You might be wondering why the callback URL is in this format. There are two par
 
 9. Now the sample iOS application needs to be configured with the **Client ID** and **Domain** values from the Auth0 Application. Return to Xcode and open the `exercise-01/Auth0.plist` file. You should see value placeholders for **ClientId** and **Domain**. Replace these with the values from the Auth0 Application created above.
 
-![](/media/articles/identity-labs/lab-03-plist.png)
+![iOS application plist values](/media/articles/identity-labs/lab-03-plist.png)
 
 ::: note
 The domain must not have any prefix like in the previous labs. Enter it exactly as it is provided in the Auth0 dashboard.
@@ -70,7 +70,7 @@ To be able to use the callback that was configured in the Auth0 dashboard, a URL
 
 10. In the file navigator on the left, click on `exercise-01` to open the project settings, then click on the **Info** tab.
 
-![](/media/articles/identity-labs/lab-03-project-settings-info-tab.png)
+![Project settings for iOS application](/media/articles/identity-labs/lab-03-project-settings-info-tab.png)
 
 11. Scroll down to **URL Types**, expand the section, click the **+** button, and enter or select the following details:
 
@@ -146,7 +146,7 @@ Now that the iOS application is configured with your Auth0 application credentia
 
 15. Run the app again by clicking the Play button (or **Product > Run** from the Xcode menu). Once the app has launched, touch the **Log In** button. You should see a permission prompt from iOS. Touch **Continue** to proceed to the Auth0 login page, which is rendered within a browser.
 
-![](/media/articles/identity-labs/lab-03-login-confirmation.png)
+![Universal login page loaded](/media/articles/identity-labs/lab-03-login-confirmation.png)
 
 16. Log in using your database user and you will be taken back to the app. Nothing will have changed visually but if you take a look at the Debug Area in Xcode you will see something like this:
 

@@ -137,24 +137,24 @@ After executing the request to the API, if successful, the `displayExpenses()` f
 
 5. You are now ready to test the new version of the application. Save all the changes and reload the application in your browser. You should see the **Expenses** link in the navigation bar at the top.
 
-![](/media/articles/identity-labs/lab-04-expenses-link-showing.png)
+![Expenses link on single-page application](/media/articles/identity-labs/lab-04-expenses-link-showing.png)
 
 6. Click **Expenses** link and you should see the consent prompt.
 
-![](/media/articles/identity-labs/lab-04-consent-link-showing.png)
+![Consent link on single-page application](/media/articles/identity-labs/lab-04-consent-link-showing.png)
 
 7. Because you have not provided consent yet, you will see an **Allow App to Load Expenses** button. Clicking it will open the consent popup; note that the **Reports** scope is now included.
 
-![](/media/articles/identity-labs/lab-04-consent-prompt.png)
+![Consent prompt on single-page application](/media/articles/identity-labs/lab-04-consent-prompt.png)
 
 In the popup, click the **Accept** button to give consent. The popup will close and your application will get the access token it needs. With this token, the SPA will call the `loadExpenses()` function and show the data retrieved from the API.
 
-![](/media/articles/identity-labs/lab-04-expenses-data-showing.png)
+![Expenses API data loading in single-page application](/media/articles/identity-labs/lab-04-expenses-data-showing.png)
 
 ::: note
 If you want to recreate the scenario where consent is needed, go to the [Users screen of the Auth0 Dashboard](${manage_url}/#/users), view your test user, click the **Authorized Applications** tab, and click **Revoke** for the single-page application with the Expenses API audience.
 
-![](/media/articles/identity-labs/lab-04-revoke-app.png)
+![Revoke application permission for an API](/media/articles/identity-labs/lab-04-revoke-app.png)
 :::
 
 🎉 **You have completed Lab 4 by building a single-page application calling a secure API!** 🎉

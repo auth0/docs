@@ -21,7 +21,7 @@ To change this behavior, you can make your web app take advantage of yet another
 
 1. Navigate to the [APIs screen](${manage_url}/#/apis) in your Auth0 Dashboard and open the API created in the last exercise. Scroll down, turn on the **Allow Offline Access** option, and click **Save**:
 
-![](/media/articles/identity-labs/lab-02-api-allow-offline.png)
+![Allow API to grant offline access](/media/articles/identity-labs/lab-02-api-allow-offline.png)
 
 2. Open the terminal where you are running the web application and stop with `[CTRL]` + `[c]`. Install version 2 of the `openid-client` library using npm as well. This library is an OpenID client implementation for Node.js:
 
@@ -106,7 +106,7 @@ This change will update your endpoint to check if the `tokenSet` is expired. If 
 
 6. Navigate to the [APIs screen](${manage_url}/#/apis) in your Auth0 Dashboard and open the API created in the last exercise. Set both the **Token Expiration (Seconds)** and **Token Expiration For Browser Flows (Seconds)** values to 10 seconds or less and click **Save**:
 
-![](/media/articles/identity-labs/lab-02-api-token-expiration.png)
+![Access token expiration time](/media/articles/identity-labs/lab-02-api-token-expiration.png)
 
 7. Back in your editor, add a log statement to `api/api-server.js` to show when the new access token was issued:
 

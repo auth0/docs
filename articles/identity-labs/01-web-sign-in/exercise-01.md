@@ -25,7 +25,7 @@ In this exercise, you will see in practice how to add sign on to an app. You wil
 
 A simple Node.js Express application has been created to get you started. This is a web application with two pages. The first page, served under the root path `/`, simply shows “Hello World” and a link (“Expenses”) to the second page. The second page, served at `/expenses`, shows a table with expenses. For now, these expenses are hard-coded. However, in the next lab, you will learn how to consume them from an API secured with Auth0.
 
-![](/media/articles/identity-labs/lab-01-starter-app-rendered.png)
+![First page of the starter app](/media/articles/identity-labs/lab-01-starter-app-rendered.png)
 
 Now that you know the web application you will be securing, complete the following steps to set it up and get it running:
 
@@ -146,11 +146,11 @@ You will use the Auth0 Dashboard to register your application with Auth0. Afterw
 
 12. Add your application’s callback URL - `http://localhost:3000/callback` (adjust the port number if needed) - to the **Allowed Callback URLs** field. Auth0 will allow redirects **only** to the URLs in this field after authentication. If the one provided in the authorization URL does not match any in this field, an error page will be displayed.
 
-![](/media/articles/identity-labs/lab-01-callback-url-config.png)
+![Application callback URL field](/media/articles/identity-labs/lab-01-callback-url-config.png)
 
 13. Next, add `http://localhost:3000` (adjust the port number if needed) to the **Allowed Logout URLs field**. Auth0 will allow redirects **only** to the URLs in this field after logging out of the authorization server.
 
-![](/media/articles/identity-labs/lab-01-logout-url-config.png)
+![Application logout URL field](/media/articles/identity-labs/lab-01-logout-url-config.png)
 
 14. Scroll down and click **Show Advanced Settings**, then **OAuth**. Make sure **JsonWebToken Signature Algorithm** is set to `RS256`.
 

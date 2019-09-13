@@ -25,13 +25,13 @@ For native applications such as our iOS application, refresh tokens improve the 
 
 3. Click the Play button (or **Product > Run** from the Xcode menu) to run the app. Touch the **Refresh Token** button and look for a “Refresh Token” message to the Debug area in Xcode.
 
-![](/media/articles/identity-labs/lab-03-refresh-token-button.png)
+![Refresh token button in iOS application](/media/articles/identity-labs/lab-03-refresh-token-button.png)
 
 You are now going to add the `offline_access` scope, which gives the iOS application access to resources on behalf of the user for an extended period of time. Before you can use this scope, you need to make sure that Auth0 will allow applications to ask for refresh tokens for your API.
 
 4. Navigate to the [APIs screen in your Auth0 Dashboard](${manage_url}/#/apis). Open the API that you created to represent your expenses API and ensure the **Allow Offline Access** option is on.
 
-![](/media/articles/identity-labs/lab-03-allow-offline-access.png)
+![Allow offline access for API](/media/articles/identity-labs/lab-03-allow-offline-access.png)
 
 5. Next, we're going to add the `offline_access` scope to the authentication request. Open `exercise-03/ViewController.swift` and, in the `actionLogin` method, add `offline_access` to the `.scope()` method.
 

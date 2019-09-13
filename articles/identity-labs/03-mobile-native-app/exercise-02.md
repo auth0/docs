@@ -61,11 +61,11 @@ Regardless of which API codebase you're using, you should now be able to load [l
 
 7. Click the Play button (or **Product > Run** from the Xcode menu) to run the app.
 
-![](/media/articles/identity-labs/lab-03-call-api-button.png)
+![iOS application Call API button](/media/articles/identity-labs/lab-03-call-api-button.png)
 
 8. Touch the **Call API** button and you should see a "Call API" message in the Debug area in Xcode.
 
-![](/media/articles/identity-labs/lab-03-call-api-debug-area.png)
+![Call API debug message in Xcode console](/media/articles/identity-labs/lab-03-call-api-debug-area.png)
 
 You will now add code to make the API call from the mobile app. However, before doing so, you need to modify the authentication code to include the API's audience for authorization and the necessary scopes so that the required permissions are requested.
 
