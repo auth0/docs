@@ -46,11 +46,6 @@ If, however, you execute the rule in the context of call made to the delegation 
 {
   "name": "FirstName LastName",
   "email": "FirstNameLastName@example.com",
-  "email_verified": true,
-  "app_metadata": { 
-    "roles": [ "admin", "user" ],
-    "type": "admin"
-  },
   "iss": "https://example.auth0.com/",
   "sub": "auth0|user_id",
   "aud": "<audience id for my auth0 app>",
