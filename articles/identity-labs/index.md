@@ -1,7 +1,6 @@
 ---
 section: exercises
 classes: topic-page
-title: Auth0 Identity Labs
 description: Auth0 digital identity labs
 topics:
   - digital identity

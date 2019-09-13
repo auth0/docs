@@ -1,7 +1,6 @@
 ---
 section: exercises
 classes: topic-page
-title: Exercise 3: Working with Refresh Tokens
 description: Auth0 digital identity Lab 2, Exercise 3: Working with Refresh Tokens
 topics:
   - digital identity

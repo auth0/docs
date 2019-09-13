@@ -1,7 +1,6 @@
 ---
 section: exercises
 classes: topic-page
-title: Exercise 1: Adding Sign On
 description: Auth0 digital identity Lab 4, Exercise 1: Adding Sign On
 topics:
   - digital identity

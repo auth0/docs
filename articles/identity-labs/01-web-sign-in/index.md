@@ -1,7 +1,6 @@
 ---
 section: exercises
 classes: topic-page
-title: Lab 1: Web Sign-In
 description: Auth0 digital identity Lab 1: Web Sign-In
 topics:
   - digital identity

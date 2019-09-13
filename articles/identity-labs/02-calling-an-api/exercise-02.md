@@ -1,7 +1,6 @@
 ---
 section: exercises
 classes: topic-page
-title: Exercise 2: Securing APIs with Auth0
 description: Auth0 digital identity Lab 2, Exercise 2: Securing APIs with Auth0
 topics:
   - digital identity

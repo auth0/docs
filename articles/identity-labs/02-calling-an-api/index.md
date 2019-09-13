@@ -1,7 +1,6 @@
 ---
 section: exercises
 classes: topic-page
-title: Lab 2: Calling an API
 description: Auth0 digital identity Lab 2: Calling an API
 topics:
   - digital identity

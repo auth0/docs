@@ -1,7 +1,6 @@
 ---
 section: exercises
 classes: topic-page
-title: Exercise 2: Calling a Calling a Protected API
 description: Auth0 digital identity Lab 4, Exercise 2: Calling a Protected API
 topics:
   - digital identity

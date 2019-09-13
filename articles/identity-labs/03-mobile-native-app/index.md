@@ -1,7 +1,6 @@
 ---
 section: exercises
 classes: topic-page
-title: Lab 3: Mobile Native App
 description: Auth0 digital identity Lab 3: Mobile Native App
 topics:
   - digital identity

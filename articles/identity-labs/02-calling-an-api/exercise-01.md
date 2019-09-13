@@ -1,7 +1,6 @@
 ---
 section: exercises
 classes: topic-page
-title: Exercise 1: Consuming APIs
 description: Auth0 digital identity Lab 2, Exercise 1: Consuming APIs
 topics:
   - digital identity

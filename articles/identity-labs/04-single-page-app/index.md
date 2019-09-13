@@ -1,7 +1,6 @@
 ---
 section: exercises
 classes: topic-page
-title: Lab 4: Single-Page App
 description: Auth0 digital identity Lab 4: Single Page App
 topics:
   - digital identity

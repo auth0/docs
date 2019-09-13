@@ -1,7 +1,6 @@
 ---
 section: exercises
 classes: topic-page
-title: Exercise 1: Adding Authentication
 description: Auth0 digital identity Lab 3, Exercise 1: Adding Authentication
 topics:
   - digital identity
