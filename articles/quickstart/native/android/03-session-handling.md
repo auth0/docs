@@ -152,31 +152,10 @@ The `SecureCredentialsManager` can prompt the user for local device authenticati
 
 ## Log the User Out
 
-To log the user out, it is normally enough to remove their credentials and navigate them back to the login screen. When using a Credentials Manager you do that calling `clearCredentials`. In addition, you could ask the `WebAuthProvider` to remove the cookie set by the Browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate. The sample combines these two strategies.
-
-Check in the LoginActivity if a boolean extra is present in the Intent at the Activity launch. This scenario triggered by the MainActivity dictates that the user wants to log out.
+To log the user out, it is normally enough to remove their credentials and navigate them back to the login screen. When using a Credentials Manager you do that calling `clearCredentials`. In addition, as you did previously for the login step, use the `WebAuthProvider` to remove the cookie set by the Browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate. The sample combines these two strategies.
 
 ```java
-// app/src/main/java/com/auth0/samples/MainActivity.java
-
-private void logout() {
-    Intent intent = new Intent(this, LoginActivity.class);
-    intent.putExtra(LoginActivity.EXTRA_CLEAR_CREDENTIALS, true);
-    startActivity(intent);
-    finish();
-}
-
 // app/src/main/java/com/auth0/samples/LoginActivity.java
-
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    // ...
-
-    if (getIntent().getBooleanExtra(EXTRA_CLEAR_CREDENTIALS, false)) {
-        doLogout();
-        return;
-    }
-}
 
 private void doLogout() {
     WebAuthProvider.logout(auth0)
