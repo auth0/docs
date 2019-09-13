@@ -14,9 +14,7 @@ contentType:
 ---
 # Lab 2, Exercise 2: Securing APIs with Auth0
 
-::: warning
-If you came to this page directly, go to the [first page of this lab](/identity-labs/02-calling-an-api) and read through the instructions before getting started.
-:::
+<%= include('../_includes/first-page-of-lab-note') %>
 
 In this exercise, you will register the API with Auth0 so that tokens can be issued for it. You will also learn how to secure your API with Auth0. You will refactor the API that your web application is consuming by installing and configuring some libraries needed to secure it with Auth0.
 
@@ -55,7 +53,7 @@ As mentioned earlier, the expenses API is still not secure. The next steps will 
 # Ignore any warnings
 
 + express-oauth2-bearer@0.3.0
-added 128 packages in 7.625s
+added XX packages in X.XXs
 ```
 
 6. Open the `api/api-server.js` file and add a statement to import the library. Make sure this is added after the dotenv require statement:

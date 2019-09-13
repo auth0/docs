@@ -14,16 +14,14 @@ contentType:
 ---
 # Lab 3, Exercise 2: Calling a Secured API
 
-::: warning
-If you came to this page directly, go to the [first page of this lab](/identity-labs/03-mobile-native-app) and read through the instructions before getting started.
-:::
+<%= include('../_includes/first-page-of-lab-note') %>
 
 In this exercise, you are going to enable the native application to authorize against the protected API backend that was built in [Lab 2, Exercise 2](/identity-labs/02-calling-an-api/exercise-02). In that lab, you set up an Auth0 API server for your Expenses API with an audience value of `https://expenses-api`.
 
 If you have already completed lab 2, you can use the same Auth0 configuration and local files to run the API needed for this lab. Just go to `/lab-02/begin/api` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/) and run `npm start` in your terminal before beginning this exercise. Make sure your token expiration times in Auth0 are back to normal (at least an hour for both).
 
-::: note
-If you did not complete Lab 2, you can use the completed exercise sample code:
+::: panel If you did not complete Lab 2 ...
+If you are doing this lab by itself, you can use the completed exercise sample code:
 
 1. Go to `/lab-02/end/api` and run `npm install` in your terminal.
 
@@ -47,7 +45,7 @@ If you did not complete Lab 2, you can use the completed exercise sample code:
 
 ❯ npm install
 
-added 182 packages in 3.13s
+added XX packages in X.XXs
 
 ❯ npm start
 

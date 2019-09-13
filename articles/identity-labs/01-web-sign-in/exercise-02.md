@@ -14,9 +14,7 @@ contentType:
 ---
 # Lab 1, Exercise 2: Using Network Traces
 
-::: warning
-If you came to this page directly, go to the [first page of this lab](/identity-labs/01-web-sign-in) and read through the instructions before getting started.
-:::
+<%= include('../_includes/first-page-of-lab-note') %>
 
 In this exercise, you will sign up to your application (which will also log you in) while exploring some of the most relevant network traces of the authentication process.
 

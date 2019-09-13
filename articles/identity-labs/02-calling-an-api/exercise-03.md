@@ -14,9 +14,7 @@ contentType:
 ---
 # Lab 2, Exercise 3: Working with Refresh Tokens
 
-::: warning
-If you came to this page directly, go to the [first page of this lab](/identity-labs/02-calling-an-api) and read through the instructions before getting started.
-:::
+<%= include('../_includes/first-page-of-lab-note') %>
 
 Right now, if your users stay logged in for too long and try to refresh the `/expenses` page, they will face a problem. Access tokens were conceived to be exchanged by different services through the network (which makes them more prone to leakage) so they should expire quickly. When an access token is expired, your API won't accept it anymore and your web application won't be able to fetch the data needed. A token expired error will be returned instead.
 
@@ -40,7 +38,7 @@ listening on http://localhost:3000
 # Ignore any warnings
 
 + openid-client@2.5.0 # Version number should start with 2
-added 1 package in 3.761s
+added 1 package in X.XXs
 ```
 
 3. Now, Open the `webapp/server.js` file and add a statement to import the `Issuer` class provided by the `openid-client library`:

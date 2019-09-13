@@ -14,13 +14,13 @@ contentType:
 ---
 # Lab 2, Exercise 1: Consuming APIs
 
-::: warning
-If you came to this page directly, go to the [first page of this lab](/identity-labs/02-calling-an-api) and read through the instructions before getting started.
-:::
+<%= include('../_includes/first-page-of-lab-note') %>
 
 After learning how to secure your web application with Auth0 in [lab 1](/identity-labs/01-web-sign-in), you will now learn how to make this application consume APIs on behalf of your users. You will start by running an unsecured API and a web application to see both working together, then you will secure your API with Auth0.
 
 1. Open a new terminal and browse to `/lab-02/begin/api` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/). This is where the code for your API resides. The API is an Express backend that contains a single endpoint. This endpoint (served under the root path) returns expenses. Think about these expenses as data that belong to each user in particular (although they are actually static and the same for all).
+
+<%= include('../_includes/git-clone-note') %>
 
 2. Install the dependencies using npm:
 
@@ -32,7 +32,7 @@ After learning how to secure your web application with Auth0 in [lab 1](/identit
 ❯ npm install
 # Ignore any warnings
 
-added 49 packages in 1.47s
+added XX packages in X.XXs
 ```
 
 3. Next, copy the `.env-example` to `.env` and start the API:
@@ -61,10 +61,10 @@ If you see a message like *Error: listen EADDRINUSE :::3001* in your terminal af
 ❯ npm install
 # Ignore any warnings
 
-added 193 packages in 3.047s
+added XX packages in X.XXs
 ```
 
-5. Once again, copy the `.env-example` to `.env` for the web application:
+5. Once again, copy the `.env-sample` to `.env` for the web application:
 
 ```bash
 ❯ cp .env-sample .env

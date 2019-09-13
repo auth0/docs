@@ -14,9 +14,7 @@ contentType:
 ---
 # Lab 3, Exercise 3: Working with Refresh Tokens
 
-::: warning
-If you came to this page directly, go to the [first page of this lab](/identity-labs/03-mobile-native-app) and read through the instructions before getting started.
-:::
+<%= include('../_includes/first-page-of-lab-note') %>
 
 In this exercise, you will explore the use of refresh tokens. A refresh token is a special kind of token that can be used to obtain a renewed access token. You are able to request new access tokens until the refresh token is blacklisted. It’s important that refresh tokens are stored securely by the application because they essentially allow a user to remain authenticated forever.
 

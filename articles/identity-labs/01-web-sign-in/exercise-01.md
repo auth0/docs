@@ -31,6 +31,11 @@ A simple Node.js Express application has been created to get you started. This i
 Now that you know the web application you will be securing, complete the following steps to set it up and get it running:
 
 1. Go to the `/lab-01/begin` folder in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/).
+
+::: note
+If you've never cloned a repo in a terminal before, [GitHub has instructions here](https://help.github.com/en/articles/cloning-a-repository).
+:::
+
 2. Review the `server.js` code. This is a generic Node.js HTTP server that uses `body-parser` to parse the JSON, buffer, string, and URL-encoded data received as well as `morgan` to log HTTP requests.
 3. The `.env-sample` file will be used for the environment variables you need for this lab. It’s already populated with the PORT (port number where the app will run). You will set the rest of the values later on in the lab. For now, create a copy of the file in the same folder and name it `.env`. Run the following commands in your terminal:
 
@@ -53,7 +58,7 @@ If you don’t see the `.env-sample` file, you need to enable the display of hid
 ❯ npm install
 # Ignore any warnings
 
-added 55 packages in 3.18s
+added XX packages in X.XXs
 ❯ npm start
 
 listening on http://localhost:3000
@@ -76,7 +81,7 @@ listening on http://localhost:3000
 
 + express-openid-connect@0.3.0
 + cookie-session@1.3.3
-added 122 packages in 9.213s
+added XX packages in X.XXs
 ```
 
 7. Next, update your application code to require `cookie-session` and `express-openid-client` in the `server.js` file:
@@ -148,9 +153,11 @@ You will use the Auth0 Dashboard to register your application with Auth0. Afterw
 
 ![](/media/articles/identity-labs/lab-01-logout-url-config.png)
 
-14. Scroll down and click **Save Changes**
+14. Scroll down and click **Show Advanced Settings**, then **OAuth**. Make sure **JsonWebToken Signature Algorithm** is set to `RS256`.
 
-14. Open your `.env` file. Add `https://` plus the **Domain** from Auth0 as the value for the `ISSUER_BASE_URL` key. Add the **Client ID** from Auth0 as the value for the `CLIENT_ID` key. Add a long, random string and the value for the `COOKIE_SECRET` key. Your `.env` file should look similar to the example below:
+15. Scroll down and click **Save Changes**
+
+16. Open your `.env` file. Add `https://` plus the **Domain** from Auth0 as the value for the `ISSUER_BASE_URL` key. Add the **Client ID** from Auth0 as the value for the `CLIENT_ID` key. Add a long, random string and the value for the `COOKIE_SECRET` key. Your `.env` file should look similar to the example below:
 
 ```
 ISSUER_BASE_URL=https://${account.namespace}
@@ -160,10 +167,10 @@ PORT=3000
 ```
 
 ::: note
-In the Terminal app in Mac, you can enter `openssl rand -base64 16` to get a suitable random string.
+In the Terminal app in Mac, you can enter `openssl rand -base64 16` to get a suitable random string for `COOKIE_SECRET`. This value is used by the session handler in Express to generate opaque session cookies.
 :::
 
-15. Now save the changes to `.env` and restart the server as before, but do not open it in a browser yet.
+17. Now save the changes to `.env` and restart the server as before, but do not open it in a browser yet.
 
 Your app is now ready to authenticate with Auth0 using OpenID Connect! Before testing it, continue to the next exercise, where you will review the interactions that happen under the hood between your app and Auth0 while you sign up and log in.
 
