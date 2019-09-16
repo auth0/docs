@@ -26,7 +26,7 @@ To use the Device Authorization Flow, Applications must:
 * Not be created through [Dynamic Client Registration](/api-auth/dynamic-client-registration)
 
 In addition, the Device Authorization Flow does not allow:
-* [Social Connections](/connections) using [Auth0 developer keys](/connections/social/devkeys) unless you are using Universal Login without [Custom Domains](/custom-domains)
+* [Social Connections](/connections) using [Auth0 developer keys](/connections/social/devkeys) unless you are using new [New Universal Login Experience](/universal-login/new).
 * Query string parameters to be accessed from hosted login page or rules
 
 We support the full [Draft 15](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-15), except for confidential Clients.
