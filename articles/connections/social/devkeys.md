@@ -16,7 +16,7 @@ When using any of the available [Social Identity Providers](/identityproviders#s
 
 Auth0 allows you to test a Social Identity Provider without specifying your own Client ID and Client Secret by using Auth0 developer keys. This allows you to quickly enable and test a specific Social Identity Provider, but it should **not be used in production**. 
 
-Auth0 developer keys are not available in [Private Cloud deployments](https://auth0.com/docs/private-cloud).
+Auth0 developer keys are not available in [Private Cloud deployments](/private-cloud).
 
 For production environments, make sure to [follow the steps for your chosen provider](/identityproviders) to obtain the Client ID and Client secret from the provider, this will avoid the [limitations](#limitations-of-developer-keys) of using developer keys.
 
