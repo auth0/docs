@@ -32,7 +32,7 @@ The exact terminology of a Client ID / Client Secret may differ between various 
 
 The Auth0 developer keys are to be used for testing purposes so there are a few caveats you need to be aware of when using them. These may cause your application to behave differently - or some functionality to not work at all - depending on whether you use your own Client ID and Client Secret, or whether you use the Auth0 developer keys.
 
-When using the Auth0 developer keys, the authentication flow for the various Identity Providers could display Auth0's name, logo and information to your users. When you register your own application you have the opportunity to use your own logo and other application information.
+When using the Auth0 developer keys, the authentication flow for the various Identity Providers will at times display Auth0's name, logo and information to your users. When you register your own application, you have the opportunity to use your own logo and other application information instead.
 
 ![Consent Screen](/media/articles/connections/social/devkeys/login-screen.png)
 
