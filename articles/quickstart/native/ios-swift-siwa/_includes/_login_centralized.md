@@ -1,31 +1,25 @@
----
-title: Sign In With Apple
-description: This tutorial will show you how to add the Sign In With Apple native authentication flow to your iOS Swift apps
-budicon: 345
-topics:
-  - quickstarts
-  - native
-  - ios
-  - swift
-  - sign-in-with-apple
-github:
-  path: 09-Sign-In-With-Apple
-contentType: tutorial
-useCase: quickstart
-requirements:
-  - CocoaPods
-  - Xcode 11 Beta 6
-  - iOS 13 Beta 8 Device
----
-
 <!-- markdownlint-disable MD002 MD041 -->
 
-## Before You Start
+<%= include('../../_includes/_getting_started', { library: 'Swift' }) %>
 
-Before you continue with this tutorial, it is assumed that:
-* You have integrated [Auth0.swift](https://github.com/auth0/Auth0.swift/) as a dependency in your project.
-* You have an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/)).
-* You have configured your Auth0 tenant and application client to enable **Sign In With Apple** to work. See [Add Sign In with Apple to Your Native App](/articles/connections/references/apple-native/guides/add-siwa-to-native-app) for details on how to do this.
+Add your credentials in the `Auth0.plist` file. If the file does not exist in your project yet, create it:
+
+```xml
+<!-- Auth0.plist -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>ClientId</key>
+  <string>${account.clientId}</string>
+  <key>Domain</key>
+  <string>${account.namespace}</string>
+</dict>
+</plist>
+```
+
+<%= include('../../_includes/_ios_dependency_centralized') %>
 
 ## Add the "Sign In With Apple" Button
 
