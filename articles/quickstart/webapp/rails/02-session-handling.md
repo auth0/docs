@@ -37,12 +37,6 @@ end
 
 ## Clear Session on Logout
 
-Use the following command to create the controller that will handle user logout:
-
-```bash
-rails generate controller logout
-```
-
 To clear out all the objects stored within the session, call the `reset_session` method within the `logout_controller/logout` method. [Learn more about `reset_session` here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
 
 ```ruby
@@ -56,32 +50,3 @@ class LogoutController < ApplicationController
   end
 end
 ```
-
-In `logout_helper.rb` file add the methods to generate the logout URL.
-
-```ruby
-# app/helpers/logout_helper.rb
-
-module LogoutHelper
-  def logout_url
-    domain = Rails.application.secrets.auth0_domain
-    client_id = Rails.application.secrets.auth0_client_id
-    request_params = {
-      returnTo: root_url,
-      client_id: client_id
-    }
-
-    URI::HTTPS.build(host: domain, path: '/v2/logout', query: to_query(request_params))
-  end
-
-  private
-
-  def to_query(hash)
-    hash.map { |k, v| "#{k}=#{URI.escape(v)}" unless v.nil? }.reject(&:nil?).join('&')
-  end
-end
-```
-
-::: note
-The final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. See the [logout documentation](/logout/guides/redirect-users-after-logout) for more.
-:::
