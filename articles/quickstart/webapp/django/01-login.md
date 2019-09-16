@@ -90,7 +90,7 @@ Set the `SOCIAL_AUTH_AUTH0_SCOPE` variable with the scopes the application will 
 SOCIAL_AUTH_AUTH0_SCOPE = [
     'openid',
     'profile',
-    'email
+    'email'
 ]
 ```
 
