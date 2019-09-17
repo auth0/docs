@@ -103,3 +103,29 @@ After the user authenticates, their information is returned in a `credentials` o
 ::: note
 To learn more about the `credentials` object, read the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) article.
 :::
+
+<%= include('../../../../_includes/_logout_url') %>
+
+## Implement logout
+To clear the session on the server side you need to invoke the `clearSession` method. Add the following snippet:
+
+```swift
+// HomeViewController.swift
+@swift
+Auth0
+    .webAuth()
+    .clearSession(federated:false){
+        switch $0{
+        case true:
+            ...
+        case false:
+            ...
+        }
+    }
+```
+Go to your [Dashboard Settings](${manage_url}/#/applications/${account.clientId}/settings) and make sure that the **Allowed Logout URL** field contains the following logout callback URL:
+
+```text
+{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
+```
+After the call, the callback will receive a BOOL with the logout status.
