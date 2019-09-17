@@ -299,24 +299,3 @@ NSString* firstName = [metaData objectForKey:@"first_name"];
 NSString* lastName = [metaData objectForKey:@"last_name"];
 NSString* country = [metaData objectForKey:@"country"];
 ```
-
-## Implement logout
-To clear the session on the server side you need to invoke the `clearSession` method. Add the following snippet:
-
-```swift
-// HybridAuth.swift
-@objc
-func logOutUser(callback: @escaping(Bool) -> Void){
-    Auth0
-        .webAuth()
-        .clearSession(federated: true){
-            callback($0)
-        }
-}
-```
-Go to your [Dashboard Settings](${manage_url}/#/applications/${account.clientId}/settings) and make sure that the **Allowed Logout URL** field contains the following logout callback URL:
-
-```text
-{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
-```
-After the call, the callback will receive a BOOL with the logout status.
