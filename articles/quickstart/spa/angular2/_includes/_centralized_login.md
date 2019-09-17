@@ -56,7 +56,7 @@ Use the CLI to generate a new service called `AuthService`:
 ng generate service auth
 ```
 
-Open the `src/app/auth.service.ts` file inside your code editor and add the following content:
+Open the `src/app/auth/auth.service.ts` file inside your code editor and add the following content:
 
 :::note
 Make sure that the domain and client ID values are correct for the application that you want to connect with. 
