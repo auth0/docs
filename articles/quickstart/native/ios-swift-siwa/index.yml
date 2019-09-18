@@ -40,7 +40,7 @@ next_steps:
 show_steps: true
 github:
   org: auth0-samples
-  repo: auth0-ios-swift-siwa-sample
+  repo: auth0-ios-swift-siwa-samples
 requirements:
   - CocoaPods
   - Xcode 11 Beta 6
