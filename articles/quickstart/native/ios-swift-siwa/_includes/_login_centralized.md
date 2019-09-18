@@ -162,7 +162,7 @@ The Account Information is ONLY sent on the first successful authorization
 
 ## Auth0 Token Exchange
 
-Now that you have a successful authorization response, you can use the `authorizationCode` information to perform a token exchange for Auth0 tokens, as in the following example:
+Now that you have a successful authorization response, you can use the `authorizationCode` information to perform a token exchange to gain access to Auth0 credentials, such as the ID and Access Tokens, as in the following example:
 
 ```swift
 if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
@@ -180,6 +180,7 @@ if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCr
             switch(result) {
             case .success(let credentials):
                 print("Auth0 Success: \(credentials)")
+
             case .failure(let error):
                 print("Exchange Failed: \(error)")
             }
@@ -187,3 +188,119 @@ if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCr
     }
 }
 ```
+
+## Renew Authentication
+
+When users return to your app, it would be beneficial to log them in automatically provided their login session is still valid. This involves:
+
+* Calling `ASAuthorizationAppleIDProvider.getCredentialState` to make sure the user is still authorized
+* Retrieving Auth0 credentials
+
+To do this, you're going to:
+
+* Use `CredentialsManager` to store the Auth0 credentials
+* Use `SimpleKeychain` to store the Apple user ID
+* Check the credential state using Apple's APIs before retrieving Auth0 credentials
+
+### Store credentials
+
+The credentials manager retrieves stored credentials from the keychain and checks if the Access Token is still valid:
+
+* If the current credentials are still valid, the credentials manager returns them
+* If the Access Token has expired, the credentials manager renews them using the Refresh Token and returns them
+
+At the top of `ViewController.swift`, add a `CredentialsManager` and `SimpleKeychain` as follows:
+
+```swift
+let credentialsManager = CredentialsManager(authentication: Auth0.authentication())
+let keychain = A0SimpleKeychain(service: "Auth0")
+
+// Add a place to store credentials locally once they're renewed
+var credentials: Credentials?
+```
+
+Next, modify the token exchange call you added earlier to store credentials when the user logs in:
+
+```swift
+Auth0
+    .authentication()
+    .tokenExchange(withAppleAuthorizationCode: authCode).start { result in
+        switch(result) {
+        case .success(let credentials):
+            print("Auth0 Success: \(credentials)")
+
+            self.credentialsManager.store(credentials: credentials)
+
+        case .failure(let error):
+            print("Exchange Failed: \(error)")
+        }
+}
+```
+
+### Renew authentication state
+
+Add a function that tries to renew the user's login session.
+
+```swift
+func tryRenewAuth(_ callback: @escaping (Credentials?, Error?) -> ()) {
+    let provider = ASAuthorizationAppleIDProvider()
+        
+    // Try to fetch the user ID
+    guard let userID = keychain.string(forKey: "userId") else {
+        return callback(nil, nil)
+    }
+
+    // Check the Apple credential state
+    provider.getCredentialState(forUserID: userID) { state, error in
+        switch state {
+        case .authorized:
+            // Try to get credentials from the creds manager (ID token, Access Token, etc)
+            self.credentialsManager.credentials { error, credentials in
+                guard error == nil, let credentials = credentials else {
+                    return callback(nil, error)
+                }
+                
+                callback(credentials, error)
+            }
+            
+        default:
+            // User is not authorized - clear credentials
+            
+            self.keychain.deleteEntry(forKey: "userId")
+            self.credentialsManager.clear()
+            
+            callback(nil, error)
+        }
+    }
+}
+```
+
+:::note
+Calling `credentialsManager.credentials` _automatically renews_ the Access Token if it has expired, using the refresh token. It is important to ensure this call only executes if `getCredentialState` returns `authorized`, so that you can be sure the refresh token is being used by an authorized user. Otherwise, the credentials must be cleared and the login session thrown away.
+:::
+
+Finally, call this function from `viewDidLoad`. If no credentials are found, the user should be shown the login screen once more. Otherwise, they should continue on into the app:
+
+```swift
+tryRenewAuth { credentials, error in
+    guard error == nil, credentials == nil else {
+        print("Unable to renew auth: \(String(describing: error))")
+
+        // The user should be asked to log in again
+
+        return
+    }
+    
+    self.credentials = credentials
+
+    // Set up any post-login UI or segue here
+}
+```
+
+## Next Steps
+
+Now that you're able to use Sign In With Apple and exchange the authorization code for Auth0 credentials, you can use these credentials to perform various tasks:
+
+* Use the Access Token to [call APIs](/quickstart/native/ios-swift/04-calling-apis)
+* [Assign Roles to Users](/quickstart/native/ios-swift/05-authorization)
+* Use the ID token to [link accounts](/quickstart/native/ios-swift/07-linking-accounts)
