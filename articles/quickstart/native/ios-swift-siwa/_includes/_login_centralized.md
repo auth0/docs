@@ -227,8 +227,8 @@ Auth0
     .tokenExchange(withAppleAuthorizationCode: authCode).start { result in
         switch(result) {
         case .success(let credentials):
-            print("Auth0 Success: \(credentials)")
 
+            // NEW - store the credentials in the credentials manager
             self.credentialsManager.store(credentials: credentials)
 
         case .failure(let error):
