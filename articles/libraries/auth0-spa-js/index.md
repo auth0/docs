@@ -31,7 +31,7 @@ You have a few options for using auth0-spa-js in your project:
 From the CDN:
 
 ```html
-<script src="https://cdn.auth0.com/js/auth0-spa-js/1.0/auth0-spa-js.production.js"></script>
+<script src="${auth0spajs_url}"></script>
 ```
 
 Using [npm](https://npmjs.org):
