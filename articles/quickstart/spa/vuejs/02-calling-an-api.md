@@ -18,9 +18,9 @@ useCase: quickstart
 
 <!-- markdownlint-disable MD002 MD041 -->
 
-Most single-page apps use resources from data APIs. You may want to restrict access to those resources so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
+Most single-page apps use resources from data APIs. You may want to restrict these resources so only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
 
-This tutorial shows you how to create a simple API using [Express](https://expressjs.com) that validates incoming JSON Web Tokens. You will then see how to call this API using an access token granted by the Auth0 authorization server.
+In this tutorial, you'll create a simple API using [Express](https://expressjs.com) to validate incoming JSON Web Tokens. You will then see how to call this API using an access token granted by the Auth0 authorization server.
 
 <%= include('../_includes/_calling_api_create_api') %>
 
@@ -81,7 +81,7 @@ PORT=3000 npm run dev
 
 ## Add the Audience
 
-The API backend that you created above expects API calls to have a JSON Web Token attached so that it can authorize the call. To do this, you must instruct Auth0 to emit an access token in JWT format. This is done by supplying the API identifier when your users authenticate, telling Auth0 which API you want an access token for.
+The API backend you created above expects API calls to have a JSON Web Token for authorization. To do this, you must instruct Auth0 to emit an access token in JWT format. This is done by supplying the API identifier when your users authenticate, telling Auth0 which API you want an access token for.
 
 Open `auth_config.json` in the root of the project and make sure that a value for `audience` is exported along with the other settings. The value for `audience` should be the "API identifier" for the API you created above:
 
@@ -123,7 +123,7 @@ Vue.use(Auth0Plugin, {
 
 ## Call the API Using an Access Token
 
-The frontend Vue.js application should be modified to include a page that calls the API using an access token. Similar to the previous tutorial, this includes modifying the Vue router and adding a new view with a button that calls the API.
+Modify the frontend Vue.js application to include a page that calls the API using an access token. Like the previous tutorial, you'll need to change the Vue router and add a new view with a button that calls the API.
 
 ### Install the Axios package
 
