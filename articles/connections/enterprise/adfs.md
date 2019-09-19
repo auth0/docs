@@ -37,7 +37,7 @@ You can use a script to to setup the connection or set it up manually.
 
 ## Scripted setup
 
-Copy and paste the script below into the Windows PowerShell window.
+Run the following two commands in the Windows PowerShell window.
 
 ::: note
 You must run this script as an administrator of your system.
@@ -45,10 +45,11 @@ You must run this script as an administrator of your system.
 
 ```powershell
 (new-object Net.WebClient -property @{Encoding = [Text.Encoding]::UTF8}).DownloadString("https://raw.github.com/auth0/adfs-auth0/master/adfs.ps1") | iex
-AddRelyingParty "urn:auth0:${account.tenant}" "https://${account.namespace}/login/callback"
 ```
 
-![ADFS Script](/media/articles/connections/enterprise/adfs/adfs-script.png)
+```powershell
+AddRelyingParty "urn:auth0:${account.tenant}" "https://${account.namespace}/login/callback"
+```
 
 For automated integration, this script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/library/adfs2-powershell-basics.aspx) to create and configure a **Relying Party** that will issue, for the authenticated user, the following claims: **email**, **upn**, **given name** and **surname**.
 
