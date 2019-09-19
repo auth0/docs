@@ -108,7 +108,7 @@ Suppose you would like to force users to change their passwords under specific c
 1. The user attempts to log in and needs to change their password.
 2. The user is redirected to an application-specific page with a JWT in the query string. This JWT ensures that only this user's password can be changed and **must be validated** by the application.
 3. The user changes their password in the application-specific page by having the application call the [Auth0 Management API](/api/v2#!/Users/patch_users_by_id)
-4. Once the user has successfully changed their password, the application extracts the `authorize_again` claim from the verified and decoded JWT then proceeds to redirects the user to that URL allowing them to sign in with their new password.
+4. Once the user has successfully changed their password, the application extracts the `authorize_again` claim from the verified and decoded JWT, then proceeds to redirect the user to that URL allowing them to sign in with their new password.
 
 ```js
 function (user, context, callback) {
