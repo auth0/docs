@@ -16,7 +16,7 @@ useCase:
 ---
 # Set Up Your Application in Sign in with Apple
 
-This guide shows you how to set up an application in your Apple Developer account. Once done, you can use the assigned credentials to set up your Apple connection in the Dashboard.
+This guide shows you how to set up an application in your pple Developer account. Once done, you can use the assigned credentials to set up your Apple connection in the Dashboard.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ First, we need to create an App Identifier.
 1. If you have not already done so, sign in to your [Apple Developer Account](https://developer.apple.com/account/#/overview/).
 1. Go to **Certificates, IDs, & Profiles > Identifiers** and click the **blue plus icon** next to **Identifiers** to create a new App ID.
 1. Choose **App IDs** as the identifier type and click **Continue**
-1. Provide a description and a Bundle ID (reverse-domain name style, e.g., `com.customdomain`)
+1. Provide a description and a Bundle ID (reverse-domain name style, e.g., `com.acme`)
 1. Scroll down and check **Sign In with Apple**. Then click **Continue**, followed by **Register**
 
 ### Create your Services ID
@@ -53,8 +53,8 @@ Next, create the Services ID.
 ![Register Services ID](/media/articles/connections/social/apple/apple-registerservicesid.jpg)
 
 1. Back in the **Certificates, IDs, & Profiles** section, click the **blue plus icon** next to **Identifiers**.
-1. Choose **Services IDs** and click **Continue**. Fill in the description and identifier (`com.customdomain.webapp`).
-1. After checking **Sign In with Apple**, click on **Configure** and define your **Web Domain** (`customdomain.com`) and your **Return URL**. Make sure that your Return URL follows this format: `https://customdomain.com/login/callback`.
+1. Choose **Services IDs** and click **Continue**. Fill in the description and identifier (`com.acme.webapp`).
+1. After checking **Sign In with Apple**, click on **Configure** and define your **Web Domain** (`acme.com`) and your **Return URL**. Make sure that your Return URL follows this format: `https://accounts.acme.com/login/callback` (where `accounts.acme.com` is the custom domain you configured in Auth0).
   ![Configure URLs](/media/articles/connections/social/apple/apple-configureurls.jpg)
 1. Click **Save**, and then **Continue** followed by **Register**.
 
@@ -62,7 +62,7 @@ Next, create the Services ID.
 
 1. On the **Certificates, IDs, & Profiles** page, click your newly created Services ID.
 1. Click the **Configure** button next to the **Sign In with Apple** feature, then click **Download**.
-1. Copy the `apple-developer-domain-association.txt` file to your application server and make it accessible at `https://customdomain.com/.well-known/apple-developer-domain-association.txt`.
+1. Copy the `apple-developer-domain-association.txt` file to your application server and make it accessible at `https://acme.com/.well-known/apple-developer-domain-association.txt`.
 1. When this is ready, click **Verify** on your Services ID configuration page. If no error message is shown, your domain has been successfully verified.
 
 ### Setup your Signing Key
@@ -85,7 +85,7 @@ const token = jwt.sign({}, privateKey, {
  expiresIn: "60 days",
  audience: "https://appleid.apple.com",
  issuer: "TEAM_ID",
- subject: "com.customdomain.webapp",
+ subject: "com.acme.webapp",
  keyid: "KEY_ID"
 });
 
@@ -95,7 +95,7 @@ console.log("The token is:", token);
 ::: note
 You will need to replace:
 
-* `com.customdomain.webapp` with the identifier for your Services ID
+* `com.acme.webapp` with the identifier for your Services ID
 * `TEAM_ID` with your Team ID
 * `KEY_ID` with your Key ID
 :::
