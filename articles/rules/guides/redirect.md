@@ -111,7 +111,7 @@ Suppose you would like to force users to change their passwords under specific c
 4. Once the user has successfully changed their password, the application extracts the `authorize_again` claim from the verified and decoded JWT, then proceeds to redirect the user to that URL allowing them to sign in with their new password.
 
 ```js
-function (user, context, callback) {
+function(user, context, callback) {
   /*
    * Prerequisites:
    * 1. Implement a `mustChangePassword` function
