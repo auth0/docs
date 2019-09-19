@@ -14,7 +14,7 @@ The New <dfn data-key="universal-login">Universal Login</dfn> Experience current
 
 - [Home Realm Discovery](/libraries/lock/v11/selecting-the-connection-for-multiple-logins) is not available. This would allow users to login with their corporate email addresses and be redirected to their enterprise's login pages. The current implementation will add a button for each enterprise connection. This makes it not suitable for this scenario which is very common for B2B customers.
 
-- [Kerberos(/connector/kerberos]) for AD/LDAP connections is not supported. Users will still be able to type their credentials to log in using an AD/LDAP connection, but only if:
+- [Kerberos](/connector/kerberos) for AD/LDAP connections is not supported. Users will still be able to type their credentials to log in using an AD/LDAP connection, but only if:
   - the username is in email format.
   - there are no other database connections enabled.
 
