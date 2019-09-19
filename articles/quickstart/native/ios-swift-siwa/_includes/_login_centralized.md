@@ -35,7 +35,7 @@ Next, add the `AuthenticationServices` Framework to your `ViewController.swift`:
 import AuthenticationServices
 ```
 
-Add a function that attaches a `ASAuthorizationAppleIDButton` button to the stack view:
+Add a function that attaches an `ASAuthorizationAppleIDButton` button to the stack view:
 
 ```swift
 func setupProviderLoginView() {
@@ -94,7 +94,7 @@ At this point, you will have a few compile errors to deal with. Before moving fo
 
 ### Add authorization extensions
 
-Add the following to the end of the `ViewController.swift` file. This enables the authorization flow UI to be displayed from our controller:
+Add the following to the end of the `ViewController.swift` file. This enables the authorization flow UI to be displayed from the controller:
 
 ```swift
 extension ViewController: ASAuthorizationControllerPresentationContextProviding {
@@ -157,12 +157,12 @@ Upon successful authorization, you will be able to access the following informat
   - High confidence indicator that the user is who they say they are
 
 :::note
-The Account Information is ONLY sent on the first successful authorization
+The Account Information is ONLY sent on the first successful authorization. This information should be saved by your app if you wish to use it when a user leaves and reloads your application.
 :::
 
 ## Auth0 Token Exchange
 
-Now that you have a successful authorization response, you can use the `authorizationCode` information to perform a token exchange to gain access to Auth0 credentials, such as the ID and Access Tokens, as in the following example:
+Now that you have a successful authorization response, you can use the `authorizationCode` to perform a token exchange. The token exchange will give you access to Auth0 credentials, such as the ID and Access Tokens. For example:
 
 ```swift
 if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
@@ -191,7 +191,7 @@ if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCr
 
 ## Renew Authentication
 
-When users return to your app, it would be beneficial to log them in automatically provided their login session is still valid. This involves:
+When users return to your app, you can log them in automatically if their login session is still valid. This involves:
 
 * Calling `ASAuthorizationAppleIDProvider.getCredentialState` to make sure the user is still authorized
 * Retrieving Auth0 credentials
@@ -276,7 +276,7 @@ func tryRenewAuth(_ callback: @escaping (Credentials?, Error?) -> ()) {
 ```
 
 :::note
-Calling `credentialsManager.credentials` _automatically renews_ the Access Token if it has expired, using the refresh token. It is important to ensure this call only executes if `getCredentialState` returns `authorized`, so that you can be sure the refresh token is being used by an authorized user. Otherwise, the credentials must be cleared and the login session thrown away.
+Calling `credentialsManager.credentials` _automatically renews_ the Access Token if it has expired, using the refresh token. This call should only execute if `getCredentialState` returns `authorized`, so the refresh token is only used by an authorized user. Otherwise, the credentials must be cleared and the login session thrown away.
 :::
 
 Finally, call this function from `viewDidLoad`. If no credentials are found, the user should be shown the login screen once more. Otherwise, they should continue on into the app:

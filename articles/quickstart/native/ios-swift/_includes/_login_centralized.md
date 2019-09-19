@@ -2,7 +2,7 @@
 
 ## Before you Start
 
-This tutorial demonstrates how to add user login to a Swift application using Web Authentication with Auth0. If instead you're looking to implement [Sign In With Apple](https://developer.apple.com/sign-in-with-apple/) natively into your app, check out the [iOS Swift - Sign In With Apple tutorial](/quickstart/native/ios-swift-siwa).
+This tutorial demonstrates how to add user login to a Swift application using Web Authentication with Auth0. Alternatively, check out the [iOS Swift - Sign In With Apple tutorial](/quickstart/native/ios-swift-siwa).
 
 <%= include('../../_includes/_getting_started', { library: 'Swift' }) %>
 
