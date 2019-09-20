@@ -47,7 +47,7 @@ For rules that call Auth0 APIs, you should always handle rate limiting by checki
 
 A Rule is a function with the following arguments:
 
-* `user`: the user object as it comes from the identity provider. See [User Object in Rules](/rules/references/user-object) for a list of the available user properties. (If, however, you execute the rule in the context of call made to the delegation endpoint,the `user` object will also include the original JSON Web Token (JWT) claims.)
+* `user`: the user object as it comes from the identity provider. See [User Object in Rules](/rules/references/user-object) for a list of the available user properties. (However, if you execute the rule in the context of a call made to the delegation endpoint, the `user` object will also include the original JSON Web Token (JWT) claims.)
 
 * `context`: an object containing contextual information of the current authentication transaction, such as the user's IP address, application, or location. Check out the [Context Object in Rules](/rules/references/context-object) page for a list of the available context properties.
 
