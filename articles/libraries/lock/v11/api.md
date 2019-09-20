@@ -224,7 +224,7 @@ Lock will emit events during its lifecycle. The `on` method can be used to liste
 - `socialOrEmail ready`: emitted when the Passwordless screen with Social + Email is shown
 - `socialOrEmail submit`: emmited when the Passwordless screen with Social + Email is submitted
 - `vcode ready`: emitted when the Passwordless screen with the one-time-password is shown
-- `vcode submit`: emmited when the Passwordless screen with the one-time-password is submitted
+- `vcode submit`: emitted when the Passwordless screen with the one-time-password is submitted
 
 The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `accessToken`, `idToken`, `state`, `refreshToken` and `idTokenPayload`.
 
