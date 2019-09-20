@@ -108,74 +108,61 @@ Suppose you would like to force users to change their passwords under specific c
 1. The user attempts to log in and needs to change their password.
 2. The user is redirected to an application-specific page with a JWT in the query string. This JWT ensures that only this user's password can be changed and **must be validated** by the application.
 3. The user changes their password in the application-specific page by having the application call the [Auth0 Management API](/api/v2#!/Users/patch_users_by_id)
-4. The application redirects back to `/continue`, with a JWT in the query string. This token must be issued for the same user that is attempting to log in, and must contain a `passwordChanged: true` claim.
+4. Once the user has successfully changed their password, the application extracts the `authorize_again` claim from the verified and decoded JWT, then proceeds to redirect the user to that URL allowing them to sign in with their new password.
 
 ```js
 function(user, context, callback) {
-  // Prerequisites:
-  // 1. Implement a `mustChangePassword` function
-  // 2. Set configuration variables for the following:
-  // * CLIENT_ID
-  // * CLIENT_SECRET
-  // * ISSUER
-  if (context.protocol !== "redirect-callback") {
-    if (mustChangePassword(user)) {
-      // User has initiated a login and is forced to change their password
-      // Send user's information in a JWT to avoid tampering
-      function createToken(clientId, clientSecret, issuer, user) {
-        var options = {
-          expiresInMinutes: 5,
-          audience: clientId,
-          issuer: issuer
-        };
-        return jwt.sign(user, clientSecret, options);
-      }
-      var token = createToken(
-        configuration.CLIENT_ID,
-        configuration.CLIENT_SECRET,
-        configuration.ISSUER, {
-          sub: user.user_id,
-          email: user.email
-        }
-      );
-      context.redirect = {
-        url: "https://example.com/change-pw?token=" + token
+  /*
+   * Prerequisites:
+   * 1. Implement a `mustChangePassword` function
+   * 2. Set configuration variables for the following:
+   *    - CLIENT_ID
+   *    - CLIENT_SECRET
+   *    - ISSUER
+   */
+
+  const url = require('url@0.10.3');
+  const req = context.request;
+
+  function mustChangePassword() {
+    // TODO: implement function
+    return true;
+  }
+
+  if (mustChangePassword()) {
+    // User has initiated a login and is forced to change their password
+    // Send user's information and query params in a JWT to avoid tampering
+    function createToken(clientId, clientSecret, issuer, user) {
+      const options = {
+        expiresInMinutes: 5,
+        audience: clientId,
+        issuer: issuer
       };
-      return callback(null, user, context);
+      return jwt.sign(user, clientSecret, options);
     }
-  } else {
-    // User has been redirected to /continue?token=..., password change must be validated
-    // The generated token must include a `passwordChanged` claim to confirm the password change
-    function verifyToken(clientId, clientSecret, issuer, token, cb) {
-      jwt.verify(
-        token,
-        clientSecret, {
-          audience: clientId,
-          issuer: issuer
-        },
-        cb
-      );
-    }
-    function postVerify(err, decoded) {
-      if (err) {
-        return callback(new UnauthorizedError("Password change failed"));
-      } else if (decoded.sub !== user.user_id) {
-        return callback(new UnauthorizedError("Token does not match the current user"));
-      } else if (!decoded.passwordChanged) {
-        return callback(new UnauthorizedError("Password change was not confirmed"));
-      } else {
-        // User's password has been changed successfully
-        return callback(null, user, context);
-      }
-    }
-    verifyToken(
+
+    const token = createToken(
       configuration.CLIENT_ID,
       configuration.CLIENT_SECRET,
       configuration.ISSUER,
-      context.request.query.token,
-      postVerify
+      {
+        sub: user.user_id,
+        email: user.email,
+        authorize_again: url.format({
+          protocol: 'https',
+          hostname: auth0.domain,
+          pathname: '/authorize',
+          query: req.query
+        })
+      }
     );
+
+    context.redirect = {
+      url: `https://example.com/change-pw?token=${token}`
+    };
   }
+
+  return callback(null, user, context);
 }
 ```
 
