@@ -220,7 +220,7 @@ Lock will emit events during its lifecycle. The `on` method can be used to liste
 - `signup submit`: emitted when the user clicks on the submit button of the "Sign Up" screen. (Only in Version >`10.18`)
 - `federated login`: emitted when the user clicks on a social connection button. Has the connection name and the strategy as arguments. (Only in Version >`10.18`)
 - `socialOrPhoneNumber ready`: emitted when the Passwordless screen with Social + Phone Number is shown
-- `socialOrPhoneNumber submit`: emmited when the Passwordless screen with Social + Phone Number is submitted
+- `socialOrPhoneNumber submit`: emitted when the Passwordless screen with Social + Phone Number is submitted
 - `socialOrEmail ready`: emmited when the Passwordless screen with Social + Email is shown
 - `socialOrEmail submit`: emmited when the Passwordless screen with Social + Email is submitted
 - `vcode ready`: emitted when the Passwordless screen with the one-time-password is shown
