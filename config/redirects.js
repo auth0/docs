@@ -2256,5 +2256,9 @@ module.exports = [
     {
       from: '/connections/passwordless/sms-gateway',
       to: '/dashboard/guides/connections/sms-gateway'
+    },
+    {
+      from: '/policies/requests',
+      to: '/policies/unsupported-requests'
     }
 ];
