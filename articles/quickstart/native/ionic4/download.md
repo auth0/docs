@@ -16,7 +16,7 @@ http://localhost, http://localhost:8100
 ```
 iOS
 ```text
-http://localhost, http://localhost:8100
+ionic://localhost, http://localhost:8100
 ```
 4) Ensure that [Ionic 4](https://ionicframework.com/docs/intro/installation/), [Cordova](https://cordova.apache.org/#getstarted) and make sure [native-run](https://github.com/ionic-team/native-run) are installed.
 5) Check that mobile development environments for [Android](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html) and [iOS](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html) are setup correctly.

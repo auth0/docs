@@ -95,9 +95,9 @@ Then, create `webpack.config.js` file and add the configuration to enable the cr
 // webpack.config.js
 
 module.exports = {
-	node: {
-		crypto: true
-	}
+  node: {
+    crypto: true
+  }
 };
 ```
 
@@ -154,7 +154,11 @@ Replace `YOUR_PACKAGE_ID` with your application's package name.
 
 ### Modify config.xml
 
-Add `<preference name="AndroidLaunchMode" value="singleTask" />` to your config.xml. This will allow the Auth0 dialog to properly redirect back to your app.
+Update your `config.xml` to allow the Auth0 dialog to properly redirect back to your app.
+
+```xml
+<preference name="AndroidLaunchMode" value="singleTask" />
+```
 
 ### Set Up URL Redirects
 
@@ -359,7 +363,7 @@ Add a control to your app to allow users to log in. The control should call the 
 ```js
 // src/app/home/home.page.ts
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
