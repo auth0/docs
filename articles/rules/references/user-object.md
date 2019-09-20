@@ -40,7 +40,7 @@ The following properties are available for the `user` object.
 
 ## The `user` object with Delegation flows
 
-If, however, you execute the rule in the context of call made to the delegation endpoint,the `user` object will also include the original JSON Web Token (JWT) claims:
+However, if you execute the rule in the context of a call made to the delegation endpoint, the `user` object will also include the original JSON Web Token (JWT) claims:
 
 ```json
 {
