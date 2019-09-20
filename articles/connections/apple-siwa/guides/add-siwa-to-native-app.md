@@ -1,5 +1,5 @@
 ---
-title: Add Sign In with Apple to Your Native App
+title: Add Sign In with Apple to Native iOS Apps
 description: Learn how to add native login functionality to your native app with Apple. 
 toc: true
 topics:
@@ -13,7 +13,7 @@ useCase:
   - customize-connections
   - add-idp
 ---
-# Add Sign In with Apple to Your Native App
+# Add Sign In with Apple to Native iOS Apps
 
 To set up and configure Sign In with Apple for your native app, you will do the following:
 
