@@ -158,7 +158,7 @@ function(user, context, callback) {
     );
 
     context.redirect = {
-      url: `https://example.com/change-pw?token=${token}`
+      url: `<%= "https://example.com/change-pw?token=${token}"%>`
     };
   }
 
