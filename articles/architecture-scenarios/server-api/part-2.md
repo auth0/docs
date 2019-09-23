@@ -58,7 +58,7 @@ For a more detailed overview of the JWT signing algorithms refer to: [JSON Web T
 
 Once the application has been created you will need to configure the Scopes which applications can request during authorization.
 
-In the settings for your API, go to the *Scopes* tab. In this section you can add all four of the scopes which was discussed before, namely `batch:upload`, `read:timesheets`, `create:timesheets`, `delete:timesheets`, `approve:timesheets`.
+In the settings for your API, go to the *Scopes* tab. In this section you can add all four of the scopes which was discussed before, namely `read:timesheets`, `create:timesheets`, `delete:timesheets`, `approve:timesheets`, and an additional `batch:upload` scope.
 
 ::: note
   For the purposes of this document we will only be ever concerned with the `batch:upload` scope, as that is all that is required by the Cron job. For completeness sake we are however adding the necessary scopes which will be required by future applications as well.
