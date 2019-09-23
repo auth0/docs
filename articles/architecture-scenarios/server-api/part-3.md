@@ -27,7 +27,7 @@ In this section of the tutorial, we will take an in-depth look into our API and 
 First we need to define the endpoints of our API.
 
 ::: panel What is an API endpoint?
-An **API endpoint** is a unique URL that represents an object. In order to interact with this object you need to point your application towards that URL. For example, if you had an API that could return either order or customers, you might configure two endpoints: `/orders` and `/customers`. Your application would interact with these endpoints using different HTTP methods, for example `POST /orders` to create a new order, or `GET /orders` to retrieve the dataset of one or more orders.
+An **API endpoint** is a unique URL that represents an object. In order to interact with this object you need to point your application towards that URL. For example, if you had an API that could return either orders or customers, you might configure two endpoints: `/orders` and `/customers`. Your application would interact with these endpoints using different HTTP methods, for example `POST /orders` to create a new order, or `GET /orders` to retrieve the dataset of one or more orders.
 :::
 
 We will configure one single endpoint that will be used for creating timesheet entries. The endpoint will be `/timesheets/upload` and the HTTP method `POST`.
