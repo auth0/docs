@@ -41,7 +41,3 @@ If you are using the Classic Universal Login flow, or embedding `Lock.js` in you
 
 * [iOS Swift - Sign In with Apple Quickstart](/quickstart/native/ios-swift-siwa)
 * [Rate Limits for Sign In with Apple](/policies/rate-limits#limits-on-sign-in-with-apple)
-* [Set Up Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple)
-* [Configure Email Relay Service for Sign In with Apple](/connections/apple-siwa/configure-email-relay-service)
-* [Add Sign In with Apple to Native iOS Apps](/connections/apple-siwa/add-siwa-to-native-app)
-* [Add Sign In with Apple to Web or Other Apps](/connections/apple-siwa/add-siwa-to-web-app)
