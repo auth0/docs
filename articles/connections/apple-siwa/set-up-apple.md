@@ -69,8 +69,10 @@ After you register your application, you will be given the following IDs and key
 ### Verify domain with Apple
 
 1. On the **Certificates, IDs, & Profiles** page, click your newly created Services ID.
-1. Click the **Configure** button next to the **Sign In with Apple** feature, then click **Download**.
-1. Copy the `apple-developer-domain-association.txt` file to your application server and make it accessible at `https://customdomain.com/.well-known/apple-developer-domain-association.txt`.
+2. Click the **Configure** button next to the **Sign In with Apple** feature.
+
+3. On the **Redirect URI/Domain Validation** page click **Download**.
+4. Copy or move the `apple-developer-domain-association.txt` file to your application server and make it accessible at `https://customdomain.com/.well-known/apple-developer-domain-association.txt`.
 1. When this is ready, click **Verify** on your Services ID configuration page. If no error message is shown, your domain has been successfully verified.
 
 ## Set up Signing Key

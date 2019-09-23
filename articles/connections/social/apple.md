@@ -31,10 +31,6 @@ Before you add support for SIWA to your app, you'll need:
 * An [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).).
 * A domain (such as `<YOUR CUSTOM DOMAIN>.com`) to point to and an internet-accessible server where you will run the app that responds on behalf of this domain. You will also need to configure this server with a TLS certificate. Apple won't accept unsecured HTTP connections. 
 
-::: note
-You can use [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04), [Freenom](https://freenom.com/), or [Let's Encrypt](https://letsencrypt.org/).
-:::
-
 * A [Custom Domain](/custom-domains) set up on your Auth0 tenant for domain verification with Apple. Custom domains are not strictly required to use SIWA authorization. Domain validation is required for sending emails to private Apple addresses in native and web apps. To use the [Email Relay Service](/connections/apple-siwa/configure-email-relay-service), you will also need to configure your domain with Sender Policy Framework (SPF) DNS TXT records.
 
 ## How it works
