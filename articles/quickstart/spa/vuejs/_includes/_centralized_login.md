@@ -202,12 +202,14 @@ This configuration file contains non-sensitive values relating to your Auth0 app
 
 <!-- ![hosted login](/media/articles/web/hosted-login.png) -->
 
-Finally, open `src/main.js` and use `Vue.use` to install the plugin. Notice that the configuration for your Auth0 app is imported from `auth_config.json` and supplied to the plugin:
+Finally, open `src/main.js` and use `Vue.use` to install the plugin, as in the following example:
 
 ```js
 import Vue from "vue";
 import App from "./App.vue";
 import router from './router'
+
+// Import the Auth0 configuration
 import { domain, clientId } from "../auth_config.json";
 
 // Import the plugin here
@@ -324,12 +326,12 @@ To display the profile information, create a new file called `Profile.vue` in th
 
 You will add a route to this Profile component so that the user may access it via the UI and the navigation bar. In the next section, you will protect this route from unauthenticated users.
 
-To access the profile page, import the `Profile` component into `router.js` and then modify the routes list so that the `Profile` component is mapped to `/profile`:
+To access the profile page, open the `router.js` file and import the `Profile` component. Then, modify the routes list so that the `Profile` component is mapped to `/profile`, as in the following example:
 
 ```js
-// src/router.js
-
 //.. other imports
+
+// NEW - Import the profile component
 import Profile from "./views/Profile.vue";
 
 const router = new VueRouter({
@@ -379,7 +381,7 @@ A catch-all rule can be added to the router so that access is only permitted if 
 Create a new file in the `src/auth` folder called `authGuard.js`, and use the `getInstance` method of the authentication service to implement a function that will prevent a route from being accessed by an unauthenticated user:
 
 ```js
-import { getInstance } from "./authService";
+import { getInstance } from "./auth";
 
 export const authGuard = (to, from, next) => {
   const authService = getInstance();
