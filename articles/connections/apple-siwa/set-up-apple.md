@@ -16,6 +16,13 @@ useCase:
 
 Before you configure a Apple social connection in the Auth0 Dashboard, you need to set up your app in your Apple Developer account. Once that is complete, you can use the assigned credentials you receive from Apple to set up your Apple connection in the Dashboard. 
 
+When setting up your application with your Apple Developer account, make sure you save the following IDs and keys for the application connection settings in the Auth0 Dashboard:
+
+* Client ID (the Service ID)
+* Client Secret Signing Key
+* Apple Team ID (App ID)
+* Client Signing Key ID (optional)
+
 ## Prerequisites
 
 You will need a paid [Apple Developer](https://developer.apple.com/programs/) account. If you want to use Sign in with Apple as an identity provider for Auth0, you'll also need a [Custom Domain](/custom-domains) set up. Custom domains are required for domain verification with Apple.
@@ -26,7 +33,7 @@ You will need a paid [Apple Developer](https://developer.apple.com/programs/) ac
 You can test the Apple connection using the [Dashboard](${manage_url}) by going to **Connections > Social**. Click **Try** on the Apple connection (leave the settings blank). This will allow you test with Auth0’s developer credentials. Prior to using the connection in production, you must provide your own credentials as shown below.
 :::
 
-## Get your Team ID
+## Obtain Team ID
 
 1. Sign in to your [Apple Developer Account](https://developer.apple.com/account/#/overview/).
 
@@ -36,7 +43,7 @@ You can test the Apple connection using the [Dashboard](${manage_url}) by going 
 
 3. Make note of your Team ID.
 
-## Create your App ID
+## Create App ID
 
 1. On the Apple Developer portal, go to **Certificates, IDs, & Profiles > Identifiers** and click the **blue plus icon** next to **Identifiers** to create a new App ID.
 2. Choose **App IDs** as the identifier type and click **Continue**
@@ -44,7 +51,7 @@ You can test the Apple connection using the [Dashboard](${manage_url}) by going 
 4. Scroll down and check **Sign In with Apple**. 
 5. Click **Continue** and then click **Register**
 
-## Create your Services ID
+## Create Services ID
 
 1. Back in the **Certificates, IDs, & Profiles** section, click the **blue plus icon** next to **Identifiers**.
 
@@ -57,14 +64,14 @@ You can test the Apple connection using the [Dashboard](${manage_url}) by going 
 
 4. Click **Save**, **Continue**, and then click **Register**.
 
-## Verify your domain with Apple
+## Verify domain with Apple
 
 1. On the **Certificates, IDs, & Profiles** page, click your newly created Services ID.
 1. Click the **Configure** button next to the **Sign In with Apple** feature, then click **Download**.
 1. Copy the `apple-developer-domain-association.txt` file to your application server and make it accessible at `https://customdomain.com/.well-known/apple-developer-domain-association.txt`.
 1. When this is ready, click **Verify** on your Services ID configuration page. If no error message is shown, your domain has been successfully verified.
 
-## Set up your Signing Key
+## Set up Signing Key
 
 1. Go to **Keys** under the **Certificates, Identifiers, & Profiles** section of your Apple developer dashboard.
 2. Click on the **blue plus icon** to add a new key.
@@ -106,14 +113,15 @@ You can test the Apple connection using the [Dashboard](${manage_url}) by going 
     * The Apple Team ID
     * The Client ID (the Service ID)
     * The Client Signing Key ID
-    * The Client Secret Signing Key
+    * The Client Secret Signing Key (optional)
 
-9. Note these credentials and return to the [Apple Connection](/connections/social/apple) page to finish setting up your Auth0 connection.
+9. Note these credentials.
 
 ## Keep reading
 
 * [iOS Swift - Sign In with Apple Quickstart](/quickstart/native/ios-swift-siwa)
-* [Configure Email Relay Service for Sign In with Apple](/connections/apple-siwa/guides/configure-email-relay-service)
-* [Add Sign In with Apple to Native iOS Apps](/connections/apple-siwa/guides/add-siwa-to-native-app)
-* [Add Sign In with Apple to Web or Other Apps](articles/connections/apple-siwa/guides/add-siwa-to-web-app)
 * [Rate Limits for Sign In with Apple](/policies/rate-limits#limits-on-sign-in-with-apple)
+* [Configure Email Relay Service for Sign In with Apple](/connections/apple-siwa/configure-email-relay-service)
+* [Add Sign In with Apple to Native iOS Apps](/connections/apple-siwa/add-siwa-to-native-app)
+* [Add Sign In with Apple to Web or Other Apps](articles/connections/apple-siwa/add-siwa-to-web-app)
+* [Test Sign In with Apple Configuration](/connections/apple-siwa/test-siwa-connection)

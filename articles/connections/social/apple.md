@@ -37,11 +37,13 @@ You can set this up using [DigitalOcean](https://www.digitalocean.com/community/
 
 * A [Custom Domain](/custom-domains) set up on your Auth0 tenant for domain verification with Apple. Custom domains are not strictly required to use SIWA authorization. Domain validation is required for sending emails to private Apple addresses in native and web apps. 
 
+![Apple Sign In with Apple Setup Flow](/media/articles/connections/social/apple/apple-siwa-setup-flow.png)
+
 ## How it works
 
 For a native app, the Sign in with Apple login flow works as follows:
 
-![Native Sign In with Apple Flow](/media/articles/connections/social/apple/sign-in-with-apple-flow.png)
+![Sign In with Apple Authentication Flow](/media/articles/connections/social/apple/apple-siwa-authn-flow.png)
 
 1. User authenticates via Apple's SDK on their iPhone or iPad. They receive an authorization code. The user does not have to leave the app and use a browser to log in.
 2. The application calls Auth0's `/oauth/token` endpoint with the following parameters:
@@ -58,7 +60,8 @@ For a native app, the Sign in with Apple login flow works as follows:
 
 * [iOS Swift - Sign In with Apple Quickstart](/quickstart/native/ios-swift-siwa)
 * [Rate Limits for Sign In with Apple](/policies/rate-limits#limits-on-sign-in-with-apple)
-* [Set Up Apps in the Apple Developer Portal](/connections/apple-siwa/guides/set-up-apple)
-* [Configure Email Relay Service for Sign In with Apple](/connections/apple-siwa/guides/configure-email-relay-service)
-* [Add Sign In with Apple to Native iOS Apps](/connections/apple-siwa/guides/add-siwa-to-native-app)
-* [Add Sign In with Apple to Web or Other Apps](articles/connections/apple-siwa/guides/add-siwa-to-web-app)
+* [Set Up Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple)
+* [Configure Email Relay Service for Sign In with Apple](/connections/apple-siwa/configure-email-relay-service)
+* [Add Sign In with Apple to Native iOS Apps](/connections/apple-siwa/add-siwa-to-native-app)
+* [Add Sign In with Apple to Web or Other Apps](/connections/apple-siwa/add-siwa-to-web-app)
+* [Test Sign In with Apple Configuration](/connections/apple-siwa/test-siwa-connection)
