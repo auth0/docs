@@ -39,23 +39,6 @@ You can set this up using [DigitalOcean](https://www.digitalocean.com/community/
 
 ![Apple Sign In with Apple Setup Flow](/media/articles/connections/social/apple/apple-siwa-setup-flow.png)
 
-## How it works
-
-For a native app, the Sign in with Apple login flow works as follows:
-
-![Sign In with Apple Authentication Flow](/media/articles/connections/social/apple/apple-siwa-authn-flow.png)
-
-1. User authenticates via Apple's SDK on their iPhone or iPad. They receive an authorization code. The user does not have to leave the app and use a browser to log in.
-2. The application calls Auth0's `/oauth/token` endpoint with the following parameters:
-    - `subject_token`: the authorization code they received above
-    - `subject_token_type`: `http://auth0.com/oauth/token-type/apple-authz-code`
-    - `grant_type`: `urn:ietf:params:oauth:grant-type:token-exchange`
-    - `client_id`: their Auth0 Client ID
-    - `audience` and `scope` as needed (optional)
-
-    Auth0 exchanges the `subject_token` (authorization code) with Apple for an ID token, access token, and refresh token from Apple.
-3. Auth0 saves the user profile, executes rules and authorization, then issues Auth0 access tokens (refresh tokens and ID tokens) as requested. These tokens are used to protect your APIs and users managed by Auth0.
-
 ## Keep reading
 
 * [iOS Swift - Sign In with Apple Quickstart](/quickstart/native/ios-swift-siwa)
