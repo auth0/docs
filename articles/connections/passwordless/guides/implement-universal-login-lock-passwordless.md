@@ -40,10 +40,9 @@ Optional: [Explore Sample Use Cases](/connections/passwordless/concepts/sample-u
 
 ## Configure the passwordless connection
 
-Set up the passwordless connection. This includes choosing the authentication method (SMS or email), and customizing message and code options.
+Set up the passwordless connection. This includes choosing the authentication method (SMS or email), customizing message text, and selecting code options.
 
-* [Configure a passwordless connection using SMS](/dashboard/guides/connections/configure-passwordless-sms)
-* [Configure a passwordless connection using Email](/dashboard/guides/connections/configure-passwordless-email)
+To learn how, see [Configure a passwordless connection](/dashboard/guides/connections/set-up-connections-passwordless).
 
 ## Configure the login screen
 

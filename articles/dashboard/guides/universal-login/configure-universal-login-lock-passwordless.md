@@ -19,7 +19,7 @@ This guide will show you how to set up a login page for use with [passwordless a
 When setting up a login page for passwordless, you have a few options. This guide uses the [Classic](/universal-login/classic) [Universal Login](/universal-login) experience with the [Lock (with Passwordless)](/libraries/lock/v11#passwordless) template. To authenticate users, this template uses the Auth0 Lock widget and can be customized accordingly.
 
 ::: warning
-For passwordless authentication to work properly when previewing your login page, you must first have [configured a passwordless connection](/dashboard/guides/connections/configure-passwordless) for your application.
+For passwordless authentication to work properly when previewing your login page, you must first have [configured a passwordless connection](/dashboard/guides/connections/set-up-connections-passwordless) for your application.
 :::
 
 1. Navigate to the [Universal Login](${manage_url}/#/login_settings) page in the [Auth0 Dashboard](${manage_url}/), and click the **Login** tab.
