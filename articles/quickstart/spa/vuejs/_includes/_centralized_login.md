@@ -41,7 +41,7 @@ Now start the application from the command line:
 PORT=3000 npm run serve
 ```
 
-At this point, you can leave the application running in the background, as it will reload whenever you make changes. Note the port number — if you intend your app to run on a different port, remember to adjust this number to suit.
+At this point, you can leave the application running in the background, as it will reload whenever you make changes. Note the port number — if you intend your app to run on a different port, remember to adjust this number throughout the quickstart.
 
 ## Create an Authentication Wrapper
 
