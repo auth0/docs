@@ -20,6 +20,7 @@ vue create my-app
 cd my-app
 
 # Add the router, as we will be using it later
+# Select 'yes' when asked if you want to use history mode
 vue add router
 ```
 
