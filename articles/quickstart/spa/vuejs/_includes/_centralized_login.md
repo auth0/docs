@@ -187,7 +187,7 @@ export const Auth0Plugin = {
 
 ```
 
-The `options` object passed to the plugin is used to provide the values for `clientId` and `domain`. For this example, create a new file `auth_config.json` in the root directory of the application alongside your `package.json` file, and populate it with your tenant values:
+The `options` object passed to the plugin is used to provide the values for `clientId` and `domain`. For this example, create a new file `auth_config.json` in the root directory of the application alongside your `package.json` file, and populate it with the values from your application created above:
 
 ```json
 {
@@ -196,8 +196,8 @@ The `options` object passed to the plugin is used to provide the values for `cli
 }
 ```
 
-:::note
-This configuration file contains values relating to your Auth0 app, and should not be committed into source control.
+:::warning
+This configuration file contains non-sensitive values relating to your Auth0 app. However, we recommend not committing this file into source control.
 :::
 
 <!-- ![hosted login](/media/articles/web/hosted-login.png) -->
