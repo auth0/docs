@@ -79,7 +79,7 @@ PORT=3000 npm run dev
 
 ## Add the Audience
 
-The API backend you created above expects API calls to have a JSON Web Token for authorization. To do this, you must instruct Auth0 to emit an access token in JWT format. This is done by supplying the API identifier when your users authenticate, telling Auth0 which API you want an access token for.
+The API backend you created above expects API calls to have a JSON Web Token for authorization. To do this, you must instruct Auth0 to issue an access token in JWT format. This is done by supplying the API identifier in an `audience` parameter when users authenticate, telling Auth0 which API you want an access token for.
 
 Open `auth_config.json` in the root of the project and make sure that a value for `audience` is exported along with the other settings. The value for `audience` should be the "API identifier" for the API you created above:
 
@@ -144,7 +144,7 @@ Use the `getTokenSilently` method of the Auth0 wrapper to get an access token, a
 ```html
 <template>
   <div>
-    <button @click="callApi">Ping</button>
+    <button @click="callApi">Call</button>
     <p>{{ apiMessage }}</p>
   </div>
 </template>
@@ -228,5 +228,5 @@ Finally, modify the navigation bar to include a link to the new page:
 ```
 
 :::panel Checkpoint
-Now you will be able to run the application, browse to the "External API" page and press the "Ping" button. The application will make a call to the external API endpoint and produce a message on the screen that says "Your Access Token was successfully validated!".
+Now you will be able to run the application, browse to the "External API" page and press the "Call" button. The application will make a call to the external API endpoint and produce a message on the screen that says "Your Access Token was successfully validated!".
 :::
