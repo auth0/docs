@@ -1,7 +1,5 @@
 <!-- markdownlint-disable MD041 MD002 -->
 
-<%= include('../../_includes/_login_preamble', { library: 'Vue.js' }) %>
-
 ## Create a Sample Application
 
 ::: note

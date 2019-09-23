@@ -20,7 +20,7 @@ useCase: quickstart
 
 Most single-page apps use resources from data APIs. You may want to restrict these resources so only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
 
-In this tutorial, you'll create a simple API using [Express](https://expressjs.com) to validate incoming JSON Web Tokens. You will then see how to call this API using an access token granted by the Auth0 authorization server.
+In this tutorial, you'll create a simple API using [Express](https://expressjs.com) to validate incoming JWT-formatter access tokens. You will then see how to call this API using an access token granted by the Auth0 authorization server.
 
 <%= include('../_includes/_calling_api_create_api') %>
 
@@ -52,8 +52,6 @@ You can now start the project using `npm run dev` in the terminal, and the front
 To call the API from the frontend application, the development server must be configured to proxy requests through to the backend API. To do this, add a `vue.config.js` file to the root of the project and populate it with the following code:
 
 ```js
-// vue.config.js
-
 module.exports = {
   devServer: {
     proxy: {
