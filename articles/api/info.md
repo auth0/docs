@@ -92,4 +92,4 @@ Some example tasks include:
 
 ### Management API v1 - DEPRECATED
 
-The Management API v1 is deprecated and should not be used for new projects. If your existing application uses Management API v1, please see [Management API v1 documentation](/api/management/v1).
+The Management API v1 is deprecated and should not be used for new projects. If your existing application uses Management API v1, please see the [Management API v1 documentation](/api/management/v1).
