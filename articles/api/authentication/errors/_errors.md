@@ -6,15 +6,21 @@ The Authentication API may return the following HTTP Status Codes:
     <thead>
       <tr>
         <th width="20%">Status</th>
-        <th width="60%">Description</th>
-        <th width="20%">Messages</th>
+        <th width="20%">Description</th>
+        <th width="60%">Messages</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><span class="badge badge-danger">400</span></td>
         <td>Bad Request</td>
-        <td>invalid_request<br />invalid_scope<br />Scope must be an array or a string</td>
+        <td>
+            <ul>
+                <li>invalid_request</li>
+                <li>invalid_scope</li>
+                <li>Scope must be an array or a string</li>
+            </ul>
+        </td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">401</span></td>
@@ -24,7 +30,13 @@ The Authentication API may return the following HTTP Status Codes:
       <tr>
         <td><span class="badge badge-danger">403</span></td>
         <td>Forbidden</td>
-        <td>unauthorized_client<br / >access_denied<br />Unknown or invalid refresh token<br /></td>
+        <td>
+            <ul>
+                <li>unauthorized_client</li>
+                <li>access_denied</li>
+                <li>Unknown or invalid refresh token</li>
+            </ul>
+        </td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">404</span></td>
@@ -34,14 +46,17 @@ The Authentication API may return the following HTTP Status Codes:
       <tr>
         <td><span class="badge badge-danger">405</span></td>
         <td>Method Not Allowed</td>
+        <td>&nbsp;</td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">429</span></td>
         <td>Too Many Requests</td>
+        <td>&nbsp;</td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">500</span></td>
         <td>Internal Server Error</td>
+        <td>&nbsp;</td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">501</span></td>
