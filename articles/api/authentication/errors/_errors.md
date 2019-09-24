@@ -25,7 +25,11 @@ The Authentication API may return the following HTTP Status Codes:
       <tr>
         <td><span class="badge badge-danger">401</span></td>
         <td>Unauthorized</td>
-        <td>invalid_client</td>
+        <td>
+            <ul>
+                <li>invalid_client</li>
+            </ul>
+        </td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">403</span></td>
@@ -41,7 +45,11 @@ The Authentication API may return the following HTTP Status Codes:
       <tr>
         <td><span class="badge badge-danger">404</span></td>
         <td>Not Found</td>
-        <td>endpoint_disabled</td>
+        <td>
+            <ul>
+                <li>endpoint_disabled</li>
+            </ul>
+        </td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">405</span></td>
@@ -61,12 +69,20 @@ The Authentication API may return the following HTTP Status Codes:
       <tr>
         <td><span class="badge badge-danger">501</span></td>
         <td>Not Implemented</td>
-        <td>unsupported_response_type</td>
+        <td>
+            <ul>
+                <li>unsupported_response_type</li>
+            </ul>
+        </td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">503</span></td>
         <td>Service Unavailable</td>
-        <td>temporarily_unavailable</td>
+        <td>
+            <ul>
+                <li>temporarily_unavailable</li>
+            </ul>
+        </td>
       </tr>
     </tbody>
   </table>
