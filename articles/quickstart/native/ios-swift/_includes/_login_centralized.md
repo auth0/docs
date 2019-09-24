@@ -116,10 +116,10 @@ Auth0
     .webAuth()
     .clearSession(federated:false){
         switch $0{
-        case true:
-            ...
-        case false:
-            ...
+            case true:
+                ...
+            case false:
+                ...
         }
     }
 ```
@@ -129,3 +129,5 @@ Go to your [Dashboard Settings](${manage_url}/#/applications/${account.clientId}
 {PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
 ```
 After the call, the callback will receive a BOOL with the logout status.
+
+Replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your application's Bundle Identifier , available as the `Bundle Identifier` attribute inside the `identity`, on your `app project` properties.
