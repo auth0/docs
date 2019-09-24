@@ -114,7 +114,7 @@ After you register your application, you will be given the following IDs and key
 
     This gives you the last of the items you need to provide when setting up the connection in Auth0's dashboard.
 
-Next, you will use these credentials on the [Auth0 Dashboard > Connections > Settings](${manage_url}/#/connections/social) page in the dashboard to continue to configure your application. Depending on which type of application you want to configure, choose one of the following methods:
+Next, you will use these credentials on the [Auth0 Dashboard > Connections > Social](${manage_url}/#/connections/social) page in the dashboard to continue to configure your application. Depending on which type of application you want to configure, choose one of the following methods:
 
 * [Add Sign In with Apple to Native iOS Apps](/connections/apple-siwa/add-siwa-to-native-app)
 * [Add Sign In with Apple to Web or Other Apps](articles/connections/apple-siwa/add-siwa-to-web-app)
