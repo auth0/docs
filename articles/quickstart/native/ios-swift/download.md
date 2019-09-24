@@ -12,4 +12,4 @@ To run the sample follow these steps:
 
 4) Click the `Run` button or select the menu option `Product | Run ` or keyboard shortcut `CMD + R`.
 
-<%= include('../_includes/_product_bundle_note.md') %>
+<%= include('./_includes/_product_bundle_note.md') %>
