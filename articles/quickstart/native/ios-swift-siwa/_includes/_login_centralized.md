@@ -213,7 +213,7 @@ At the top of `ViewController.swift`, add a `CredentialsManager` and `SimpleKeyc
 
 ```swift
 let credentialsManager = CredentialsManager(authentication: Auth0.authentication())
-let keychain = A0SimpleKeychain(service: "Auth0")
+let keychain = A0SimpleKeychain()
 
 // Add a place to store credentials locally once they're renewed
 var credentials: Credentials?
@@ -227,6 +227,9 @@ Auth0
     .tokenExchange(withAppleAuthorizationCode: authCode).start { result in
         switch(result) {
         case .success(let credentials):
+
+            // NEW - store the user ID in the keychain
+            self.keychain.setString(appleIDCredential.user, forKey: "userId")
 
             // NEW - store the credentials in the credentials manager
             self.credentialsManager.store(credentials: credentials)
