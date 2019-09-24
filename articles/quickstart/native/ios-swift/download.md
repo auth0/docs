@@ -12,4 +12,6 @@ To run the sample follow these steps:
 
 4) Click the `Run` button or select the menu option `Product | Run ` or keyboard shortcut `CMD + R`.
 
+```text
 Replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your application's Bundle Identifier , available as the `Bundle Identifier` attribute inside the `identity`, on your `app project` properties.
+```

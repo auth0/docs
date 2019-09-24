@@ -130,4 +130,6 @@ Go to your [Dashboard Settings](${manage_url}/#/applications/${account.clientId}
 ```
 After the call, the callback will receive a BOOL with the logout status.
 
+```text
 Replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your application's Bundle Identifier , available as the `Bundle Identifier` attribute inside the `identity`, on your `app project` properties.
+```
