@@ -236,7 +236,7 @@ new Vue({
 }).$mount("#app");
 ```
 
-Notice that the configuration file created earlier has been imported and used to initialize the plugin. A custom redirect callback has also been supplied, which redirects the user to a protected route after they have authenticated (this is covered a bit later).
+Notice that the configuration file created earlier has been imported and used to initialize the plugin. A custom redirect handler has also been supplied, which redirects the user to a protected route after they have authenticated (this is covered a bit later).
 
 ## Log in to the App
 
@@ -381,7 +381,7 @@ A catch-all rule can be added to the router so that access is only permitted if 
 Create a new file in the `src/auth` folder called `authGuard.js`, and use the `getInstance` method of the authentication service to implement a function that will prevent a route from being accessed by an unauthenticated user:
 
 ```js
-import { getInstance } from "./auth";
+import { getInstance } from "./index";
 
 export const authGuard = (to, from, next) => {
   const authService = getInstance();
