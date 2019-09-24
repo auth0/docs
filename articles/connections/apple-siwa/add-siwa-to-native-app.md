@@ -1,7 +1,6 @@
 ---
 title: Add Sign In with Apple to Native iOS Apps
 description: Learn how to add native login functionality to your native app with Apple. 
-toc: true
 topics:
   - authentication
   - connections
