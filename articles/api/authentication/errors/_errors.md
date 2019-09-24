@@ -14,42 +14,22 @@ The Authentication API may return the following HTTP Status Codes:
       <tr>
         <td><span class="badge badge-danger">400</span></td>
         <td>Bad Request</td>
-        <td>
-            <ul>
-                <li>invalid_request</li>
-                <li>invalid_scope</li>
-                <li>Scope must be an array or a string</li>
-            </ul>
-        </td>
+        <td>invalid_request; invalid_scope; Scope must be an array or a string</td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">401</span></td>
         <td>Unauthorized</td>
-        <td>
-            <ul>
-                <li>invalid_client</li>
-            </ul>
-        </td>
+        <td>invalid_client</td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">403</span></td>
         <td>Forbidden</td>
-        <td>
-            <ul>
-                <li>unauthorized_client</li>
-                <li>access_denied</li>
-                <li>Unknown or invalid refresh token</li>
-            </ul>
-        </td>
+        <td>unauthorized_client; access_denied; Unknown or invalid refresh token</td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">404</span></td>
         <td>Not Found</td>
-        <td>
-            <ul>
-                <li>endpoint_disabled</li>
-            </ul>
-        </td>
+        <td>endpoint_disabled</td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">405</span></td>
@@ -69,20 +49,12 @@ The Authentication API may return the following HTTP Status Codes:
       <tr>
         <td><span class="badge badge-danger">501</span></td>
         <td>Not Implemented</td>
-        <td>
-            <ul>
-                <li>unsupported_response_type</li>
-            </ul>
-        </td>
+        <td>unsupported_response_type</td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">503</span></td>
         <td>Service Unavailable</td>
-        <td>
-            <ul>
-                <li>temporarily_unavailable</li>
-            </ul>
-        </td>
+        <td>temporarily_unavailable</td>
       </tr>
     </tbody>
   </table>
