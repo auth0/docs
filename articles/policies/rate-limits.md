@@ -77,7 +77,7 @@ The rate limits for this API differ depending on whether your tenant is free or 
 
 The following rate limits apply:
 
-- For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
+- For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This category also includes __trial tenants__.
 - For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
 - For __paid__ tenants, usage of the Management API is restricted to 15 requests per second (and bursts up to 50 requests).
 
@@ -309,7 +309,7 @@ For all endpoints, Enterprise subscribers are limited to 100 requests per second
 </table>
 
 :::note
-(*) In all instances above, **Free** includes tenants on the Free plan, as well as the non-production tenants of enterprise customers.
+(*) In all instances above, **Free** includes tenants on the Free plan, including those with an ongoing trial. It also includes non-production tenants of enterprise customers.
 :::
 
 ## Limits on Database Logins
