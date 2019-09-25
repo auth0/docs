@@ -17,6 +17,10 @@ Let's say you want to require [multi-factor authentication (MFA)](/multifactor-a
 
 Using a rule, you can check whether a user is authenticating using a passwordless method (`sms`, `email`) and if their session IP falls outside of the designated corporate network, prompt them for a second authentication factor.
 
+::: note
+You could also trigger this rule based on other criteria, such as whether the current IP matches the user's IP whitelist or whether geolocating the user reveals they are in a different country from the one listed in their user profile. 
+:::
+
 To do this, you would [create the following rule](/dashboard/guides/rules/create-rules):
 
 ```js
@@ -45,7 +49,3 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
-
-::: note
-You could also trigger this rule based on other criteria, such as whether the current IP matches the user's IP whitelist or whether geolocating the user reveals they are in a different country from the one listed in their user profile. 
-:::

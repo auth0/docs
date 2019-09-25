@@ -7,15 +7,17 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Set Up SMS Gateway for Passwordless Connections
+# Configure SMS Gateway for Passwordless Connections
 
 This guide will show you how to use a custom SMS gateway to send out your one-time use codes.
 
-By default, [Passwordless SMS connections](/dashboard/guides/connections/set-up-connections-passwordless) use Twilio to send out one-time use codes, but if you have a custom SMS gateway, you can use that instead.
+By default, [Passwordless SMS connections](/dashboard/guides/connections/set-up-connections-passwordless) use Twilio to send out one-time use codes. However, if you have a custom SMS gateway, you can modify your connection to use that instead.
 
-1. Get an [Access Token for Management API](/api/management/v2/tokens). You will need this to make calls to the Management API to update your Passwordless connection.
+1. Set up a SMS passwordless connection. To learn how, see [Set Up Passwordless Connections](/dashboard/guides/connections/set-up-connections-passwordless).
 
-2. Use the [GET Connections](/api/management/v2#!/Connections/get_connections) endpoint to retrieve information about the connections associated with your tenant. More specifically, you need to get the ID for your Passwordless SMS connection so that you can use it in a later API call that updates the connection itself.
+2. Get an [Access Token for Management API](/api/management/v2/tokens). You will need this to make calls to the Management API to update your Passwordless connection.
+
+3. Use the [GET Connections](/api/management/v2#!/Connections/get_connections) endpoint to retrieve information about the connections associated with your tenant. More specifically, you need to get the ID for your Passwordless SMS connection so that you can use it in a later API call that updates the connection itself.
 
     Be sure to replace `ACCESS_TOKEN` with the token you obtained in step 1 before making the following call to the Management API:
     
@@ -31,7 +33,7 @@ By default, [Passwordless SMS connections](/dashboard/guides/connections/set-up-
     
     The response from the endpoint will be an array of objects. Each object represents one connection affiliated with your tenant.
     
-1. Identify your connection ID. You can find the ID associated with your Passwordless connection by reviewing the array of objects you returned from the [GET Connections](/api/management/v2#!/Connections/get_connections) endpoint in step 2.
+4. Identify your connection ID. You can find the ID associated with your Passwordless connection by reviewing the array of objects you returned from the [GET Connections](/api/management/v2#!/Connections/get_connections) endpoint in step 2.
 
     To find the specific object for your Passwordless connection, you can search for the `"name": "sms"` property. Notice that the connection currently displays the Twilio information you provided during the setup process.
 
@@ -65,7 +67,7 @@ By default, [Passwordless SMS connections](/dashboard/guides/connections/set-up-
 ]
 ```
 
-4. Update the connection. You can do this by making a PATCH call to the [Update a Connection](/api/management/v2#!/Connections/patch_connections_by_id) endpoint. More specifically, you'll be updating the connections `options` object to provide information about the SMS Gateway.
+5. Update the connection. You can do this by making a PATCH call to the [Update a Connection](/api/management/v2#!/Connections/patch_connections_by_id) endpoint. More specifically, you'll be updating the connections `options` object to provide information about the SMS Gateway.
 
     **You must send the entire `options` object with each call; otherwise, you will overwrite the existing data that is not included in subsequent calls.**
 
@@ -118,7 +120,7 @@ When you include `gateway_authentication` in your **options** object, Auth0 adds
 
 If your secret is base64-url-encoded, set `secret_base64_encoded` to `true`.
 
-4. Once you have updated your connection, Auth0 will send the following to your SMS Gateway every time a user signs up or logs in with your Passwordless connection.
+6. Once you have updated your connection, Auth0 will send the following to your SMS Gateway every time a user signs up or logs in with your Passwordless connection.
 
 ```json
 {

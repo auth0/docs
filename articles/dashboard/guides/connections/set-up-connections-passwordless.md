@@ -29,6 +29,8 @@ Before you begin, determine which method of passwordless authentication you woul
 
 ::: panel Twilio Account
 Before proceeding, you will need a valid Twilio account. Auth0 will use your [Twilio Application SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and [Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it) to send SMS messages to users.
+
+If you would like to use your own SMS gateway, you will first need to set up your passwordless connection to use Twilio and then modify the connection using our Management API. To learn how to modify the connection to use your own SMS gateway, see [Configure SMS Gateway for Passwordless Connections](/connections/passwordless/guides/use-sms-gateway-passwordless).
 :::
 
 <ol>

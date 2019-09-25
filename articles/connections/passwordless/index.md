@@ -18,7 +18,7 @@ useCase: customize-connections
 
 When a user authenticates via Passwordless, the user is attached to the connection using Auth0 as the Identity Provider (IdP). Since you can't force users to use the same mobile phone number or email address every time they authenticate, users may end up with multiple user profiles in the Auth0 datastore; you can link multiple user profiles through [account linking](/extensions/account-link).
 
-Passwordless differs from [Multi-factor Authentication (MFA)](/multifactor-authentication) in that only one factor is used to authenticate a user&mdash;the one-time code or link received by the user. If you want to require that users log in with a one-time code or link **in addition** to another factor (e.g., username/password or a social Identity Provider, such as Google), see [Multi-factor Authentication (MFA)](/multifactor-authentication).
+Passwordless differs from Multi-factor Authentication (MFA) in that only one factor is used to authenticate a user&mdash;the one-time code or link received by the user. If you want to require that users log in with a one-time code or link **in addition** to another factor (e.g., username/password or a social Identity Provider, such as Google), see [Multi-factor Authentication (MFA)](/multifactor-authentication).
 
 ## Benefits
 
@@ -45,114 +45,111 @@ Auth0 Passwordless connections support one-time-use codes sent via SMS or email,
   </div>
   <div class="tab-content">
     <div id="sms" class="tab-pane active">
-      <h3>SMS</h3>
-      Send one-time-use codes to users' entered mobile phone number using:
-      <ul>
-        <li><a href="/dashboard/guides/connections/configure-passwordess-sms">Twilio</a></li>
-        <li><a href="/dashboard/guides/connections/sms-gateway">your own SMS gateway</a></li>
-      </ul>
-      <h4>Customization</h4>
-      For SMS, you can customize the following properties:
-      <ul>
-        <li>Message text and syntax (Markdown or <a href="/email/liquid-syntax">Liquid</a>)</li>
-        <li>Message language</li>
-        <li>One-time-use code length</li>
-        <li>One-time-use code expiration period</li>
-        <li>Whether to allow user sign-up via passwordless</li>
-      </ul>
-      <h4>User experience</h4>
-      When using passwordless authentication with SMS, users:
-      <ol>
-        <li>
-          Provide a mobile phone number instead of a username/password combination.
-          <br />
-          <img src="/media/articles/connections/passwordless/passwordless-sms-enter-phone-web.png" alt="Provide Mobile Phone Number" />
-        </li>
-        <li>
-          Receive a one-time-use code via SMS.
-          <br />
-          <div class="phone-mockup">
-            <img src="/media/articles/connections/passwordless/passwordless-sms-receive-code-web.png" alt="Receive Code via SMS"/>
-          </div>
-        </li>
-        <li>
-          Enter the one-time-use code on the login screen to access the application.
-          <br />
-          <img src="/media/articles/connections/passwordless/passwordless-sms-enter-code-web.png" alt="Enter Code for SMS" />
-        </li>
-      </ol>
-    </div>
+
+### SMS
+
+Send one-time-use codes to users' entered mobile phone number using:
+
+* <a href="/dashboard/guides/connections/configure-passwordess-sms">Twilio</a>
+* <a href="/connections/passwordless/guides/use-sms-gateway-passwordless">your own SMS gateway</a>
+
+#### Customization
+
+For SMS, you can customize the following properties:
+
+* Message text and syntax (Markdown or [Liquid](/email/liquid-syntax))
+* Message language
+* One-time-use code length
+* One-time-use code expiration period
+* Whether to allow user sign-up via passwordless
+
+#### User experience
+
+When using passwordless authentication with SMS, users:
+
+1. Provide a mobile phone number instead of a username/password combination.
+
+ ![Provide Mobile Phone Number](/media/articles/connections/passwordless/passwordless-sms-enter-phone-web.png)
+
+2. Receive a one-time-use code via SMS.
+
+<div class="phone-mockup">
+  <img src="/media/articles/connections/passwordless/passwordless-sms-receive-code-web.png" alt="Receive Code via SMS"/>
+</div>
+
+3. Enter the one-time-use code on the login screen to access the application.
+
+![Enter Code for SMS](/media/articles/connections/passwordless/passwordless-sms-enter-code-web.png)
+
+</div>
     <div id="email" class="tab-pane">
-      <h3>Email</h3>
-      Send users one-time-use codes or magic links using:
-      <ul>
-        <li><a href="/email/providers#configure-mandrill">Mandrill</a></li>
-        <li><a href="/email/providers#configure-amazon-ses">AWS</a></li>
-        <li><a href="/email/providers#configure-sendgrid">Twilio SendGrid</a></li>
-        <li><a href="/email/providers#configure-sparkpost">SparkPost</a></li>
-        <li><a href="/email/providers#configure-a-custom-smtp-server">your own custom SMTP email provider</a></li>
-      </ul>
-      <h4>Customization</h4>
-      For emails, you can customize the following properties:
-      <ul>
-        <li>Email template and syntax (HTML or <a ref="/email/liquid-syntax">Liquid</a>)</li>
-        <li>Message language</li>
-        <li><a href="/email/templates">Email variables</a></li>
-        <li>One-time-use code length</li>
-        <li>One-time-use code expiration period</li>
-        <li>Whether to allow user sign-up via passwordless</li>
-      </ul>
-      <h4>User experience</h4>
-      When using passwordless authentication with email, users:
-      <ol>
-        <li>
-          Provide an email address instead of a username/password combination.
-          <br />
-          <img src="/media/articles/connections/passwordless/passwordless-email-request-web.png" alt="Provide Email Address" />
-        </li>
-        <li>
-          Depending on how you have configured your passwordless connection, receive either a one-time-use code or magic link via email.
-          <br />
-          <div class="code-picker">
-            <div class="languages-bar">
-              <ul>
-                <li><a href="#code" data-toggle="tab">Code</a></li>
-                <li><a href="#link" data-toggle="tab">Magic link</a></li>
-              </ul>
-            </div>
-            <div class="tab-content">
-              <div id="code" class="tab-pane active">
-                <img src="/media/articles/connections/passwordless/passwordless-email-receive-code-web.png" alt="Receive Code via Email">
-              </div>
-              <div id="link" class="tab-pane">
-                <img src="/media/articles/connections/passwordless/passwordless-email-receive-link.png" alt="Receive Magic Link via Email">
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-        Enter the one-time-use code on the login screen (or click the magic link in the email) to access the application.
-        </li>
-      </ol>
+
+### Email
+
+Send users one-time-use codes or magic links using:
+
+* [Mandrill](/email/providers#configure-mandrill)
+* [AWS](/email/providers#configure-amazon-ses)
+* [Twilio SendGrid](/email/providers#configure-sendgrid)
+* [SparkPost](/email/providers#configure-sparkpost)
+* [your own custom SMTP email provider](/email/providers#configure-a-custom-smtp-server)
+
+#### Customization
+
+For emails, you can customize the following properties:
+
+* Email template and syntax (HTML or [Liquid](/email/liquid-syntax)
+* Message language
+* [Email variables](/email/templates)
+* One-time-use code length
+* One-time-use code expiration period
+* Whether to allow user sign-up via passwordless
+
+#### User experience
+
+When using passwordless authentication with email, users:
+
+1. Provide an email address instead of a username/password combination.
+
+![Provide Email Address](/media/articles/connections/passwordless/passwordless-email-request-web.png)
+
+2. Depending on how you have configured your passwordless connection, receive either a one-time-use code or magic link via email.
+
+<div class="code-picker">
+  <div class="languages-bar">
+    <ul>
+      <li><a href="#code" data-toggle="tab">Code</a></li>
+      <li><a href="#link" data-toggle="tab">Magic link</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="code" class="tab-pane active">
+
+![Receive Code via Email](/media/articles/connections/passwordless/passwordless-email-receive-code-web.png)
+    </div>
+    <div id="link" class="tab-pane">
+      ![Receive Magic Link via Email](/media/articles/connections/passwordless/passwordless-email-receive-link.png)
+    </div>
+  </div>
+</div>
+
+3. Enter the one-time-use code on the login screen (or click the magic link in the email) to access the application.
+
     </div>
   </div>
 </div>
 
 ## Implement Passwordless
 
-### Recommended: Universal Login + Lock (with Passwordless)
-
-We strongly recommend implementing passwordless with <dfn data-key="universal-login">[Universal Login](/universal-login</dfn>, which redirects users to a central domain, through which authentication is performed before redirecting users back to your application. In fact, if you are building a Native application, which uses device-specific hardware and software, Universal Login is the only way to go.
-
-* [Universal Login + Lock (with Passwordless)](/connections/passwordless/guides/implement-universal-login-lock-passwordless): Learn how to set up a passwordless connection and configure your login page using the Classic Universal Login experience with the Lock (with Passwordless) template.
-
-### Alternative
-
 ::: warning
-If building a Native application, no alternatives exist.
+We strongly recommend implementing passwordless with <dfn data-key="universal-login">[Universal Login](/universal-login</dfn>, which redirects users to a central domain, through which authentication is performed, before redirecting users back to your application.
+
+If you are building a Native application, which uses device-specific hardware and software, Universal Login is the only way to go.
 :::
 
-* [Embedded Login + Lock (with Passwordless)](/connections/passwordless/guides/configure-login-page): Learn how to set up a passwordless connection and configure your login page using an Embedded Login form with the Lock (with Passwordless) widget.
+Alternatively, you can use an embedded login form with the Lock (with Passwordless) widget. Using [Embedded Login](/login/embedded) with any application type leaves your application vulnerable to cross-origin resource sharing (CORS) attacks and requires the use of [Auth0 Custom Domains](/custom-domains), which is a paid feature.
+
+To learn how to set up a passwordless connection and configure your login page, see [Implement Passwordless Authentication](/connections/passwordless/guides/implement-passwordless).
 
 ## Limitations
 
@@ -170,15 +167,11 @@ Passwordless connections have several limitations:
 
 ## Best practices
 
-* Use the [Universal Login](/universal-login) [Classic Experience](/universal-login/classic) with the Lock (with passwordless) template for your login page.
+* Use the [Universal Login](/universal-login) [Classic Experience](/universal-login/classic) with the Lock (passwordless) template for your login page.
 
 ## Keep reading
 
-* [Use Cases: Rules with Passwordless](/connections/passwordless/concepts/sample-use-cases-rules)
+* [Sample Use Cases: Rules with Passwordless](/connections/passwordless/concepts/sample-use-cases-rules)
 * [Relevant API Endpoints](/connections/passwordless/reference/relevant-api-endpoints)
-* [Set Up a Passwordless Connection: SMS](/dashboard/guides/connections/configure-passwordess-sms)
-* [Set Up a Passwordless Connection: Email](/dashboard/guides/connections/configure-passwordess-email)
-* [Set Up Login Page: Universal Login + Lock (with passwordless)]()
-* [Set Up Login Page: Universal Login + Custom UI + Auth0.js]()
-* [Set Up Login Page: Embedded Login + Lock (with passwordless)](/connections/passwordless/configure-login-page)
+* [Implement Passwordless Authentication](/connections/passwordless/guides/implement-passwordless)
 * [Troubleshooting](/connections/passwordless/reference/troubleshoot)

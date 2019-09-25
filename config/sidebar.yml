@@ -242,27 +242,21 @@ articles:
       - title: SAML Identity Providers
         url: /protocols/saml/identity-providers/
 
-      - title: Passwordless Authentication
+      - title: Passwordless
         url: /connections/passwordless
         children:
-
-          - title: Benefits
-            url: "/connections/passswordless#benefits"
       
-          - title: Implement - Universal Login + Lock
-            url: /connections/passwordless/guides/implement-universal-login-lock-passwordless
-
-          - title: Implement - Embedded + Lock
-            url: /connections/passwordless/guides/configure-login-page
-
-          - title: Troubleshooting
-            url: /connections/passwordless/troubleshoot
+          - title: Implement Passwordless Authentication
+            url: /connections/passwordless/guides/implement-passwordless
 
           - title: Sample Use Case - Rules with Passwordless
-            url: /connections/passwordless/use-case-rules
+            url: /connections/passwordless/concepts/sample-use-cases-rules
 
           - title: Relevant API Endpoints
-            url: /connections/passwordless/relevant-api-endpoints
+            url: /connections/passwordless/reference/relevant-api-endpoints
+
+          - title: Troubleshooting
+            url: /connections/passwordless/reference/troubleshoot
 
           - title: Native Passwordless
             url: /connections/passwordless/native-passwordless-universal
@@ -1583,9 +1577,6 @@ libraries:
       - title: "Internationalization"
         url: "/libraries/lock-ios/v2/internationalization"
 
-      - title: "Passwordless"
-        url: "/libraries/lock-ios/v2/passwordless"
-
       - title: "Migration Guide"
         url: "/libraries/lock-ios/v2/migration"
 
@@ -1613,9 +1604,6 @@ libraries:
 
       - title: "Migration v1 to v2"
         url: "/libraries/lock-android/v2/migration-guide"
-
-      - title: "Passwordless Auth"
-        url: "/libraries/lock-android/v2/passwordless"
 
       - title: "Internationalization"
         url: "/libraries/lock-android/v2/internationalization"
@@ -1646,9 +1634,6 @@ libraries:
       - title: "User Management"
         url: "/libraries/auth0-swift/user-management"
 
-      - title: "Passwordless Authentication"
-        url: "/libraries/auth0-swift/passwordless"
-
       - title: "Refresh Tokens"
         url: "/libraries/auth0-swift/save-and-refresh-jwt-tokens"
 
@@ -1670,9 +1655,6 @@ libraries:
 
       - title: "User Management"
         url: "/libraries/auth0-android/user-management"
-
-      - title: "Passwordless"
-        url: "/libraries/auth0-android/passwordless"
 
       - title: "Refresh Tokens"
         url: "/libraries/auth0-android/save-and-refresh-tokens"
