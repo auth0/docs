@@ -187,7 +187,7 @@ Notice that in this example:
 To receive the custom data, create a rule to customize the token with [namespaced](/tokens/concepts/claims-namespacing) [custom claims](/tokens/jwt-claims#custom-claims) that represent these properties from the user profile:
 
 ```js
-function (user, context, callback) {
+function(user, context, callback) {
   const namespace = 'https://myapp.example.com/';
   context.idToken[namespace + 'favorite_color'] = user.favorite_color;
   context.idToken[namespace + 'preferred_contact'] = user.user_metadata.preferred_contact;

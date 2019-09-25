@@ -428,8 +428,18 @@ articles:
         url: /sso/current
         children:
 
+          - title: Inbound SSO
+            url: /sso/current/inbound
+
+          - title: Outbound SSO
+            url: /sso/current/outbound
+
+          - title: Relevant API Endpoints
+            url: /sso/current/relevant-api-endpoints
+
           - title: Single Sign-On with Auth0
             url: /sso/current/sso-auth0
+            hidden: true
 
       - title: "Anomaly Detection"
         url: "/anomaly-detection"
