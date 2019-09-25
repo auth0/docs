@@ -17,14 +17,18 @@ useCase: quickstart
 
 The **Callback URL** to be used for your application includes your app's package ID which is found in the `config.xml` file for your app.
 
-Go to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section in your Auth0 dashboard and set your **Callback URL** in the **Allowed Callback URLs** box.
+Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in your Auth0 dashboard and set your **Callback URL** in the **Allowed Callback URLs** box.
 
 ```bash
 # replace YOUR_PACKAGE_ID with your app package ID
 YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
 ```
 
-<%= include('../../../_includes/_logout_url', { returnTo: 'YOUR_PACKAGE_ID://' + account.namespace + '/cordova/YOUR_PACKAGE_ID/callback' }) %>
+<%= include('../../../_includes/_logout_url') %>
+
+::: note
+If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to whitelist in the Allowed Logout URLs field is the same as the callback URL.
+:::
 
 Add `file` as an allowed origin to the **Allowed Origins (CORS)** box.
 

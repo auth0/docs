@@ -66,6 +66,7 @@ Make sure that the domain and client ID values are correct for the application t
 import { Injectable } from '@angular/core';
 import createAuth0Client from '@auth0/auth0-spa-js';
 import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
+import * as config from '../../../auth_config.json';
 import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from 'rxjs';
 import { tap, catchError, concatMap, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -217,7 +218,7 @@ Open the `src/app/app.component.ts` file and add the following:
 
 ```ts
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './auth.service';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',

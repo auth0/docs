@@ -70,7 +70,7 @@ auth0 = oauth.register(
     access_token_url='https://${account.namespace}/oauth/token',
     authorize_url='https://${account.namespace}/authorize',
     client_kwargs={
-        'scope': 'openid profile email',
+        'scope': 'openid profile',
     },
 )
 ```

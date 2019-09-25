@@ -22,4 +22,4 @@ Auth0 has established the following operational policies.
 -  [Migrations](/migrations)
 -  [Rate Limits](/policies/rate-limits)
 -  [Restoration of a Deleted Tenant](/policies/restore-deleted-tenant)
--  [Unsupported Requests](/policies/unsupported-requests)
+-  [Support Requests](/policies/requests)

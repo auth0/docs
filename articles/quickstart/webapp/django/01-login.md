@@ -89,8 +89,7 @@ Set the `SOCIAL_AUTH_AUTH0_SCOPE` variable with the scopes the application will 
 
 SOCIAL_AUTH_AUTH0_SCOPE = [
     'openid',
-    'profile',
-    'email'
+    'profile'
 ]
 ```
 
@@ -121,10 +120,8 @@ class Auth0(BaseOAuth2):
     name = 'auth0'
     SCOPE_SEPARATOR = ' '
     ACCESS_TOKEN_METHOD = 'POST'
-    REDIRECT_STATE = False
     EXTRA_DATA = [
-        ('picture', 'picture'),
-        ('email', 'email')
+        ('picture', 'picture')
     ]
 
     def authorization_url(self):
@@ -148,8 +145,7 @@ class Auth0(BaseOAuth2):
         return {'username': payload['nickname'],
                 'first_name': payload['name'],
                 'picture': payload['picture'],
-                'user_id': payload['sub'],
-                'email': payload['email']}
+                'user_id': payload['sub']}
 ```
 
 ::: note
@@ -178,18 +174,13 @@ LOGIN_REDIRECT_URL = '/dashboard'
 
 ## Trigger Authentication
 
-Add a handler for the "index" view in your `views.py` to render the `index.html` if the user needs to log in. If the user is already logged in, the "dashboard" view will be shown instead.
+Add a handler for the `index` view in your `views.py` to render the `index.html`
 
 ```python
 # auth0login/views.py
-from django.shortcuts import render, redirect
 
 def index(request):
-    user = request.user
-    if user.is_authenticated:
-        return redirect(dashboard)
-    else:
-        return render(request, 'index.html')
+    return render(request, 'index.html')
 ```
 
 Add a link to `/login/auth0` in the `index.html` template.
@@ -207,12 +198,12 @@ Add a link to `/login/auth0` in the `index.html` template.
 
 ## Display User Information
 
-After the user is logged in, you can access the user information from the `request.user` property. Add a handler for the `/dashboard` endpoint in the `views.py` file. This same "dashboard" view will be displayed when a user that is already logged in tries to visit the "index" view. 
+After the user is logged in, you can access the user information from the `request.user` property. Add a handler for the `/dashboard` endpoint in the `views.py` file.
 
 ```python
 # auth0login/views.py
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 import json
 
@@ -223,8 +214,7 @@ def dashboard(request):
     userdata = {
         'user_id': auth0user.uid,
         'name': user.first_name,
-        'picture': auth0user.extra_data['picture'],
-        'email': auth0user.extra_data['email'],
+        'picture': auth0user.extra_data['picture']
     }
 
     return render(request, 'dashboard.html', {

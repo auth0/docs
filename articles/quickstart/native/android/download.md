@@ -3,11 +3,6 @@ To run the sample first set the **Callback URL** in the [Application Settings]($
 demo://${account.namespace}/android/com.auth0.samples/callback
 ```
 
-To run the sample first set the **Logout URL** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to
-```text
-demo://${account.namespace}/android/com.auth0.samples/callback
-```
-
 Then, to run it from the **command line**:
 
 1) Make sure the target device is available and install the App running the next command:
