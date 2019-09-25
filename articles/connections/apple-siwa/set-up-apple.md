@@ -24,10 +24,11 @@ You can test the Apple connection with Auth0's developer credentials first by us
 
 After you register your application, you will be given the following IDs and keys to use in the application connection settings in the Dashboard:
 
-* Apple Team ID (App ID)
-* Services ID (Client ID)
-* Client Secret Signing Key
-* Client Signing Key ID (optional)
+  * **App ID**
+  * **Services ID** (Client ID)
+  * **Apple Team ID**
+  * **Client Secret Signing Key**
+  * **Client Signing Key ID** (optional)
 
 ## Prerequisite
 
