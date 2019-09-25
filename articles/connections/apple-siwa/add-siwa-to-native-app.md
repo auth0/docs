@@ -22,16 +22,10 @@ For a native app, the Sign in with Apple login flow works as follows:
 
 ![Sign In with Apple Authentication Flow](/media/articles/connections/social/apple/apple-siwa-authn-flow.png)
 
-* User authenticates via Apple's SDK on their iPhone or iPad. They receive an authorization code. The user does not have to leave the app and use a browser to log in.
-* The application calls Auth0's `/oauth/token` endpoint with the following parameters:
-    - `subject_token`: the authorization code they received above
-    - `subject_token_type`: `http://auth0.com/oauth/token-type/apple-authz-code`
-    - `grant_type`: `urn:ietf:params:oauth:grant-type:token-exchange`
-    - `client_id`: their Auth0 Client ID
-    - `audience` and `scope` as needed (optional)
-
-    Auth0 exchanges the `subject_token` (authorization code) with Apple for an ID token, access token, and refresh token from Apple.
-* Auth0 saves the user profile, executes rules and authorization, then issues Auth0 access tokens (refresh tokens and ID tokens) as requested. These tokens are used to protect your APIs and users managed by Auth0.
+* **Steps 1 & 2**: User authenticates via Apple's SDK on their iOS device, and receive an authorization code in the response. The user does not have to leave the app and use a browser to log in.
+* **Step 3**: The application calls Auth0's `/oauth/token` endpoint to exchange the Apple authorization code for Auth0 tokens.
+* **Step 4 & 5**: The Auth0 platform exchanges the Authorization code with Apple for tokens.  Auth0 validates the tokens, and uses the claims in the tokens to construct the identity of the user.
+* **Step 6**: Auth0 saves the user profile, executes rules and authorization, then issues Auth0 access tokens (refresh tokens and ID tokens) as requested. These tokens are used to protect your APIs and users managed by Auth0.
 
 ## Prerequisites
 
@@ -41,7 +35,6 @@ Before you configure Sign In with Apple for your native app in Auth0, do the fol
 
 * [Set Up Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple). Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
  
-
   * **App ID**
   * **Apple Team ID**
   * **Client Secret Signing Key**
