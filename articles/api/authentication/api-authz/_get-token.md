@@ -648,7 +648,9 @@ Content-Type: application/json
 This flow is intended for use with native social interactions **only**.  Use of this flow outside of a native social setting is highly discouraged.
 :::
 
-When a non-browser-based solution (such as a mobile platform's SDK) authenticates the user, the authentication will commonly result in artifacts being returned to application code.  In such situations, this grant type allows for the Auth0 platform to accept authentication artifacts from trusted sources, and issue tokens in response.  In this way, apps making use of non-browser-based authentication mechanisms (as are common in native apps) can still retrieve Auth0 tokens without asking for further user interaction.  Artifacts returned, and the contents thereof will be determined by the `subject_token_type` and configuration settings of the tenant.
+When a non-browser-based solution (such as a mobile platform's SDK) authenticates the user, the authentication will commonly result in artifacts being returned to application code.  In such situations, this grant type allows for the Auth0 platform to accept artifacts from trusted sources, and issue tokens in response.  In this way, apps making use of non-browser-based authentication mechanisms (as are common in native apps) can still retrieve Auth0 tokens without asking for further user interaction.
+
+Artifacts returned by this flow, and the contents thereof will be determined by the `subject_token_type` and configuration settings of the tenant.
 
 
 ### Request Parameters
