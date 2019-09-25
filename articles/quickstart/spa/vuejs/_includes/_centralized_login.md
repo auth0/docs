@@ -154,7 +154,7 @@ export default new AuthService();
 
 The service now includes several other methods for handling authentication.
 
-- `handleCallback` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
+- `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
 - `localLogin` - sets the user's ID Token, and a time at which the ID Token will expire. The expiry time is converted to milliseconds so that the native JavaScript `Date` object can be used
 - `renewTokens` - uses the `checkSession` method from auth0.js to renew the user's authentication status, and calls `localLogin` if the login session is still valid
 - `logout` - removes the user's tokens from memory. It also calls `webAuth.logout` to log the user out at the authorization server
