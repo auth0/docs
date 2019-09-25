@@ -320,16 +320,35 @@ For database connections, Auth0 limits certain types of repeat login attempts de
 
 There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configuring Twilio for SMS](/multifactor-authentication/twilio-configuration).
 
-## Limits on Sign In with Apple 
+## Limits on Native Social Login flows 
 
-The limits are the following:
-
-| Endpoint | Path | Limited by | Affected Tenants | Rate Limits |
-| --- | --- | --- | --- | --- |
-| Get Token	| `/oauth/token` | Native Social Login (Apple, Facebook, etc.) | Free |	30 requests per minute |
-|  |  | Tenant + IP | Paid |	50 requests per minute with burst of up to a 500 requests |
-
-This limits are applied only to requests related to the Native Social Login flows which are identified based on the body of the requests with the following initial criteria:
+Limits are only applied to requests related to the Native Social Login flows which are identified based on the body of the requests with the following initial criteria:
 
 * `grant_type`: `urn:ietf:params:oauth:grant-type:token-exchange` 
 * `subject_token_type`: `http://auth0.com/oauth/token-type/apple-authz-code`
+
+<table class="table">
+  <thead>
+    <tr>
+        <th><strong>Endpoint</strong></th>
+        <th><strong>Path</strong></th>
+        <th><strong>Limited By</strong></th>
+        <th><strong>Affected Tenants</strong></th>
+        <th><strong>Rate Limit</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td rowspan="3">Get Token</td>
+    <td rowspan="3">/oauth/token</td>
+    <td>Native Social Login (Apple, Facebook, etc.)</td>
+    <td>Free</td>
+    <td>30 requests per minute</td>
+  </tr>
+  <tr>
+    <td>Tenant + IP</td>
+    <td>Paid</td>
+    <td>50 requests per minute with bursts of up to 500 requests</td>
+  </tr>
+  </tbody>
+</table>

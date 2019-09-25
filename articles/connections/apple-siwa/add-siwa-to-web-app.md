@@ -29,7 +29,7 @@ Before you configure Sign In with Apple (SIWA) for your native app in Auth0, do 
 
   * Service ID (Client ID)
   * Client Secret Signing Key
-  * App ID (Apple Team ID)
+  * Apple Team ID (App ID)
   * Client Signing Key ID (optional)
 
 ::: note
@@ -38,13 +38,15 @@ If you are using the Classic Universal Login flow or embedding `Lock.js` in your
 
 ## Configure and enable the connection in Auth0
 
-1. Go to the [Auth0 Dashboard > Connections > Social](${manage_url}/#/connections/social) and click on the **Apple** connection.
+Once you have the credentials you need from your Apple Developer account, you need to configure the application client and the connection settings in Auth0.
+
+1. On the Dashboard, go to [Connections > Social](${manage_url}/#/connections/social) and click on the **Apple** connection.
 
 2. On the **Settings** tab, fill in the following fields:
 
     * **Client ID** (Services ID)
     * **Client Secret Signing Key**
-    * **Apple Team ID**
+    * **Apple Team ID** (App ID)
     * (optional) **Key ID** (Apple will accept the key without the ID)
 
     ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)
@@ -52,21 +54,6 @@ If you are using the Classic Universal Login flow or embedding `Lock.js` in your
 3. Click **Save**.
 
 4. [Test the connection](/connections/social/apple/test-siwa-connection). 
-
-## Verify domain ownership on the Apple Developer portal
-
-1. Move your project code to your server and make it run like you did locally. You still don't need to provide the final environment variables. To achieve that, you can use whatever means you prefer. For example, you can use Git, or you can move the files manually (with the help of `scp` or similar). 
-
-2. After running this project on an internet-accessible server (which must respond on behalf of the domain you configured in the Apple developer account), go back to the page you left open on the Apple Developer portal (**Register a Services ID**), and click **Verify**. If you got everything right, Apple will confirm that you own the informed domain.
-
-## Configure client variables
-
-Now that you have verified your domain with Apple, define the environment variables needed to use this identity provider. 
-
-For most OAuth-compliant identity providers, the `CLIENT_SECRET` variable is static. However, Apple rotates this secret by using signed JSON Web Tokens (JWTs) that carry the `exp` claim. To generate this key, go to **Keys** in **Certificates, Identifiers, & Profiles** section in your Apple Developer portal and configure the following variables: 
-
-* **CLIENT_ID**: Gets the value that you used as the identifier of the Service ID you created at Apple  (`com.<YOUR CUSTOM DOMAIN>.webapp`). 
-* **CALLBACK**: The URL to which the user will be redirected after the authentication process takes place. You will have to use the value you passed to the **Return URL** field (`https://<YOUR CUSTOM DOMAIN>/login/callback`) on the same Service ID. 
 
 ## Keep reading
 

@@ -39,35 +39,47 @@ Before you configure Sign In with Apple for your native app in Auth0, do the fol
 
 * Have an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/)).
 
-* [Set Up Apps in the Apple Developer Portal](/connections/apple-siwa/guides/set-up-apple).
+* A [custom domain](/custom-domains) set up on your Auth0 tenant (because you must be able to do domain verification with Apple).
 
-* Save the following IDs and key for the application connection settings in the Auth0 Dashboard:
+* [Set Up Apps in the Apple Developer Portal](/connections/apple-siwa/guides/set-up-apple). Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
 
-  * Client ID (Service ID)
+  * Client ID (Services ID) (optional)
   * Client Secret Signing Key
+  * App ID (Apple Taem ID)
   * Client Signing Key ID (optional)
 
-## Configure the application client connection in Auth0
+::: note
+If you are using the Classic Universal Login flow or embedding `Lock.js` in your application, make sure you are using `Lock.js` version 11.16 or later. 
+:::
+
+## Configure and enable the connection in Auth0
 
 Once you have the credentials you need from your Apple Developer account, you need to configure the application client and the connection settings in Auth0.
 
-1. Go to [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings).  
+1. On the Dashboard, go to [application settings](${manage_url}/#/applications/${account.clientId}/settings).  
 
 2. At the bottom of the page, click **Show Advanced Settings** and go to the **Mobile Settings** tab. Under **Native Social Login**. enable the **Enable Sign In with Apple** toggle. 
 
     ![Application Client Settings: Advanced Mobile Settings](/media/articles/connections/social/apple/apple-app-mobile-settings.png)
 
-3. Go to [Dashboard > Connections > Social](${manage_url}/#/connections/social) and click on the **Apple** connection. 
+3. Under **iOS**, fill in the **App ID** field with the native app's App ID/Bundle Identifier.
 
-4. On the **Settings** tab, fill in the following fields:
+4. Go to [Connections > Social](${manage_url}/#/connections/social) and click on the **Apple** connection. 
 
-    * **Client ID** (Services ID)
+5. On the **Settings** tab, fill in the following fields:
+
+    * **Client ID** (Services ID) (optional)
+    * **App ID** (Apple Team ID)
     * **Client Secret Signing Key**
     * (optional) **Key ID** (Apple will accept the key without the ID)
 
     ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)
 
-5. Click **Save**.
+6. Click **Save**.
+
+::: note
+Native apps cannot be tested with browser-based flows
+:::
 
 ## Keep reading
 

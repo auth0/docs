@@ -39,21 +39,7 @@ Once you have registered your application with Apple and configured your applica
 
 ![Apple Sign In with Apple Setup Flow](/media/articles/connections/social/apple/apple-siwa-setup-flow.png)
 
-When your users return to your app, you can log them in automatically if their login session is still valid. To do this you will:
-
-* Call `ASAuthorizationAppleIDProvider.getCredentialState` to make sure the user is still authorized.
-* Retrieve Auth0 credentials.
-
-Use `CredentialsManager` to store the Auth0 credentials. It retrieves stored credentials from the keychain and checks if the access token is still valid.
-
-- If the current credentials are still valid, the `CredentialsManager` returns them.
-- If the access token has expired, the `CredentialsManager` renews them using the refresh token and returns them. 
-
-Use `SimpleKeychain` to store the Apple user ID. Check the credential state using Apple's APIs before retrieving Auth0 credentials, then store the credentials. 
-
-::: note
-Calling `credentialsManager.credentials` automatically renews the access token if it has expired, using the refresh token. This call should only execute if `getCredentialState` returns `authorized`, so the refresh token is only used by an authorized user. Otherwise, the credentials must be cleared and the login session thrown away.
-:::
+When your users return to your app, you can log them in automatically if their login session is still valid. You can retrieve their credentials from the keychain and check if the access token is still valid. If the access token has expired, you can renew it using a refresh token. 
 
 After you setup and configure SIWA and exchange the authorization code for Auth0 credentials, you can use the access tokens to [call APIs](/flows/guides/auth-code-pkce/call-api-auth-code-pkce), [assign roles to users](/dashboard/guides/users/assign-roles-users), and use the access tokens to [link accounts](/link-accounts). 
 
