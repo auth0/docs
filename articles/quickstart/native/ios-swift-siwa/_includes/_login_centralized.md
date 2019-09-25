@@ -304,6 +304,6 @@ tryRenewAuth { credentials, error in
 
 Now that you're able to use Sign In With Apple and exchange the authorization code for Auth0 credentials, you can use these credentials to perform various tasks:
 
-* Use the Access Token to [call APIs](/quickstart/native/ios-swift/04-calling-apis)
-* [Assign Roles to Users](/quickstart/native/ios-swift/05-authorization)
-* Use the ID token to [link accounts](/quickstart/native/ios-swift/07-linking-accounts)
+* Use the Access Token to [Call APIs](/quickstart/native/ios-swift/04-calling-apis)
+* [Assign roles to users](/quickstart/native/ios-swift/05-authorization)
+* Use the Access Token to [link accounts](/quickstart/native/ios-swift/07-linking-accounts)
