@@ -246,10 +246,10 @@ articles:
         url: /connections/passwordless
         children:
       
-          - title: Implement Passwordless Authentication
+          - title: Implement Passwordless
             url: /connections/passwordless/guides/implement-passwordless
 
-          - title: Sample Use Case - Rules with Passwordless
+          - title: Sample Use Case - Rules
             url: /connections/passwordless/concepts/sample-use-cases-rules
 
           - title: Relevant API Endpoints
