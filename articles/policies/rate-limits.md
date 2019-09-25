@@ -341,12 +341,12 @@ Limits are only applied to requests related to the Native Social Login flows whi
   <tr>
     <td rowspan="3">Get Token</td>
     <td rowspan="3">/oauth/token</td>
-    <td>Native Social Login (Apple, Facebook, etc.)</td>
+    <td>Any Native Social Login request</td>
     <td>Free</td>
     <td>30 requests per minute</td>
   </tr>
   <tr>
-    <td>Tenant + IP</td>
+    <td>Native Social Login request and IP</td>
     <td>Paid</td>
     <td>50 requests per minute with bursts of up to 500 requests</td>
   </tr>
