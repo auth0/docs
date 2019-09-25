@@ -22,16 +22,10 @@ For a native app, the Sign in with Apple login flow works as follows:
 
 ![Sign In with Apple Authentication Flow](/media/articles/connections/social/apple/apple-siwa-authn-flow.png)
 
-* User authenticates via Apple's SDK on their iPhone or iPad. They receive an authorization code. The user does not have to leave the app and use a browser to log in.
-* The application calls Auth0's `/oauth/token` endpoint with the following parameters:
-    - `subject_token`: the authorization code they received above
-    - `subject_token_type`: `http://auth0.com/oauth/token-type/apple-authz-code`
-    - `grant_type`: `urn:ietf:params:oauth:grant-type:token-exchange`
-    - `client_id`: their Auth0 Client ID
-    - `audience` and `scope` as needed (optional)
-
-    Auth0 exchanges the `subject_token` (authorization code) with Apple for an ID token, access token, and refresh token from Apple.
-* Auth0 saves the user profile, executes rules and authorization, then issues Auth0 access tokens (refresh tokens and ID tokens) as requested. These tokens are used to protect your APIs and users managed by Auth0.
+* **Steps 1 & 2**: User authenticates via Apple's SDK on their iOS device, and receive an authorization code in the response. The user does not have to leave the app and use a browser to log in.
+* **Step 3**: The application calls Auth0's `/oauth/token` endpoint to exchange the Apple authorization code for Auth0 tokens.
+* **Step 4 & 5**: The Auth0 platform exchanges the Authorization code with Apple for tokens.  Auth0 validates the tokens, and uses the claims in the tokens to construct the identity of the user.
+* **Step 6**: Auth0 saves the user profile, executes rules and authorization, then issues Auth0 access tokens (refresh tokens and ID tokens) as requested. These tokens are used to protect your APIs and users managed by Auth0.
 
 ## Prerequisites
 
@@ -43,9 +37,9 @@ Before you configure Sign In with Apple for your native app in Auth0, do the fol
 
 * [Register Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple). Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
 
-  * Services ID (Client ID) (optional)
+  * App ID
+  * Apple Taem ID
   * Client Secret Signing Key
-  * App ID (Apple Taem ID)
   * Client Signing Key ID (optional)
 
 ::: note
@@ -68,17 +62,29 @@ Once you have the credentials you need from your Apple Developer account, you ne
 
 5. On the **Settings** tab, fill in the following fields:
 
-    * **Client ID** (Services ID) (optional)
-    * **App ID** (Apple Team ID)
+    * **Apple Team ID**
     * **Client Secret Signing Key**
-    * (optional) **Key ID** (Apple will accept the key without the ID)
+    * **Key ID** (Apple will accept the key without the ID)(optional)
 
     ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)
 
 6. Click **Save**.
 
 ::: note
-Native apps cannot be tested with browser-based flows
+Native apps cannot be tested from the browser.  This means that the **TRY** button on the Apple connection is used exclusively for testing web-based flows.
+:::
+
+## Logout
+Since the Native iOS login implementation does not make use of standard browser based flows, application owners must also take care to perform logout appropriately.  When an application needs to perform a logout, it must take the following actions:
+
+ * [Revoke the Auth0 Refresh Token](/api/authentication#revoke-refresh-token)
+ * Delete the Auth0 refresh token stored in the iCloud Keychain
+ * Delete the Apple user identifier stored in the iCloud keychain
+
+Also, keep in mind that logout can be a result of user actions (I.E. clicking a "logout" button), or as a result of a user revoking access to the given app.  The latter will be indicated through the native [ASAuthorizationAppleIDProvider.getCredentialState](https://developer.apple.com/documentation/authenticationservices/asauthorizationappleidprovider/3175423-getcredentialstate) method.
+
+:::note
+One nuance of Apple's IdP is that it only returns requested scopes (such as email, first and last name) in the ID token on the **first** response.  More destructive approaches to logout (such as deleting the user) could result in loss of profile information which would require end users to unauthorize and reauthorize an app.
 :::
 
 ## Keep reading

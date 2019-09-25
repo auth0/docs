@@ -25,10 +25,10 @@ Before you configure Sign In with Apple (SIWA) for your native app in Auth0, do 
 
 * [Register Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple). Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
 
-  * Services ID (Client ID)
-  * Client Secret Signing Key
-  * App ID (Apple Team ID)
-  * Client Signing Key ID (optional)
+  * **Services ID** (Client ID)
+  * **Apple Team ID**
+  * **Client Secret Signing Key**
+  * **Client Signing Key ID** (optional)
 
 ::: note
 If you are using the Classic Universal Login flow or embedding `Lock.js` in your application, make sure you are using `Lock.js` version 11.16 or later. 
@@ -36,7 +36,7 @@ If you are using the Classic Universal Login flow or embedding `Lock.js` in your
 
 ## Configure and enable the connection in Auth0
 
-Once you have the credentials you need from your Apple Developer account, you need to configure the application client and the connection settings in Auth0.
+Once you have the credentials you need from your Apple Developer account, you need to configure the connection settings and enable the connection for your application in Auth0.
 
 1. On the Dashboard, go to [Connections > Social](${manage_url}/#/connections/social) and click on the **Apple** connection.
 
@@ -45,7 +45,7 @@ Once you have the credentials you need from your Apple Developer account, you ne
     * **Client ID** (Services ID)
     * **Client Secret Signing Key**
     * **Apple Team ID** (App ID)
-    * (optional) **Key ID** (Apple will accept the key without the ID)
+    * **Key ID** (Apple will accept the key without the ID)(optional) 
 
     ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)
 
