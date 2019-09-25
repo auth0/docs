@@ -23,7 +23,7 @@ Before you configure Sign In with Apple (SIWA) for your native app in Auth0, do 
 
 * Have an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/)).
 
-* [Set Up Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple). Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
+* [Register Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple). Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
 
   * Services ID (Client ID)
   * Client Secret Signing Key

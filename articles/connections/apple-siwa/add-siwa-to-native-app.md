@@ -41,9 +41,9 @@ Before you configure Sign In with Apple for your native app in Auth0, do the fol
 
 * A [custom domain](/custom-domains) set up on your Auth0 tenant (because you must be able to do domain verification with Apple).
 
-* [Set Up Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple). Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
+* [Register Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple). Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
 
-  * Client ID (Services ID) (optional)
+  * Services ID (Client ID) (optional)
   * Client Secret Signing Key
   * App ID (Apple Taem ID)
   * Client Signing Key ID (optional)
