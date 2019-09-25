@@ -1,5 +1,5 @@
 ---
-title: Passwordless Authentication
+title: Passwordless Connections
 description: Learn about passwordless connections, Auth0-supported passwordless methods of authentication, and how to implement passwordless authentication with Auth0.
 toc: true
 url: /connections/passwordless
@@ -12,7 +12,7 @@ contentType:
     - concept
 useCase: customize-connections
 ---
-# Passwordless Authentication
+# Passwordless Connections
 
 <dfn data-key="passwordless">Passwordless</dfn> connections allow users to log in without the need to remember a password. Instead, users enter their mobile phone number or email address and receive a one-time code or link, which they can then use to log in.
 
@@ -142,7 +142,7 @@ When using passwordless authentication with email, users:
 ## Implement Passwordless
 
 ::: warning
-We strongly recommend implementing passwordless with <dfn data-key="universal-login">[Universal Login](/universal-login</dfn>, which redirects users to a central domain, through which authentication is performed, before redirecting users back to your application.
+We strongly recommend implementing passwordless with <dfn data-key="universal-login">[Universal Login](/universal-login)</dfn>, which redirects users to a central domain, through which authentication is performed, before redirecting users back to your application.
 
 If you are building a Native application, which uses device-specific hardware and software, Universal Login is the only way to go.
 :::

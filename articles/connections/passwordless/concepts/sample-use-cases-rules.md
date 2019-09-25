@@ -24,7 +24,7 @@ You could also trigger this rule based on other criteria, such as whether the cu
 To do this, you would [create the following rule](/dashboard/guides/rules/create-rules):
 
 ```js
-function (user, context, callback) {
+function(user, context, callback) {
 
   const ipaddr = require('ipaddr.js');
   const corp_network = "192.168.1.134/26";

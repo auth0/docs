@@ -1,5 +1,5 @@
 ---
-title: Configure Login Page -  Universal Login + Lock with Passwordless
+title: Configure Universal Login with Passwordless
 description: Learn how to configure your login page for use with passwordless authentication using the Auth0 Management Dashboard.
 topics:
   - universal-login
