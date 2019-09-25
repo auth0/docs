@@ -72,6 +72,19 @@ Once you have the credentials you need from your Apple Developer account, you ne
 Native apps cannot be tested from the browser.  This means that the **TRY** button on the Apple connection is used exclusively for testing web-based flows.
 :::
 
+## Logout
+Since the Native iOS login implementation does not make use of standard browser based flows, application owners must also take care to perform logout appropriately.  When an application needs to perform a logout, it must take the following actions:
+
+ * [Revoke the Auth0 Refresh Token](/api/authentication#revoke-refresh-token)
+ * Delete the Auth0 refresh token stored in the iCloud Keychain
+ * Delete the Apple user identifier stored in the iCloud keychain
+
+Also, keep in mind that logout can be a result of user actions (I.E. clicking a "logout" button), or as a result of a user revoking access to the given app.  The latter will be indicated through the native [ASAuthorizationAppleIDProvider.getCredentialState](https://developer.apple.com/documentation/authenticationservices/asauthorizationappleidprovider/3175423-getcredentialstate) method.
+
+:::note
+One nuance of Apple's IdP is that it only returns requested scopes (such as email, first and last name) in the ID token on the **first** response.  More destructive approaches to logout (such as deleting the user) could result in loss of profile information which would require end users to unauthorize and reauthorize an app.
+:::
+
 ## Keep reading
 
 * [Rate Limits on Native Social Logins](/policies/rate-limits#limits-on-native-social-logins)
