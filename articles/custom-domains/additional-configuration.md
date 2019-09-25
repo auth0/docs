@@ -114,7 +114,7 @@ Go to [Dashboard > Tenant Settings > Custom Domains](${manage_url}/#/tenant/cust
 If you want to use social identity providers with your custom domain, you must update the [Allowed Callback URLs](${manage_url}/#/applications/${account.clientId}/settings) to include your custom domain (such as `https://login.northwind.com/login/callback`).
 
 ::: warning
-You cannot use [Auth0 developer keys](/connections/social/devkeys) with custom domains unless you are using the [New Universal Login Experience](/universal-login/new).
+You cannot use [Auth0 developer keys](/connections/social/devkeys) with custom domains.
 :::
   
 ## Configure G Suite connections

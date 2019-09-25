@@ -32,8 +32,6 @@ At this point you should set the following configuration variables:
 
 Once you have provided this information, click the *Install* button to finish installing the extension.
 
-<%= include('./_includes/_batch-size') %>
-
 ## Retrieve the required information from Splunk
 
 The HTTP Event Collector (HEC) is an endpoint that lets you send application events into Splunk Enterprise using the HTTP or Secure HTTP (HTTPS) protocols. In order to configure a new HTTP Event Collector for Auth0 logs and acquire the URL, Token and Port information, follow the next steps:

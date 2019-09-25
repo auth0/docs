@@ -130,11 +130,11 @@ The next few sections will integrate these hooks into the various components tha
 
 <%= include('../../_includes/_silent-auth-social-idp') %>
 
-### Create the NavBar component
+### Create the Navbar component
 
 Create a new folder inside the `src` folder called `components`. This is where you will house all the components for this application.
 
-Create a new component in the `components` folder called `NavBar.js`. This component will be responsible for showing the login and logout buttons:
+Create a new component in the `components` folder called `Navbar.js`. This component will be responsible for showing the login and logout buttons:
 
 ```jsx
 // src/components/NavBar.js
@@ -337,7 +337,7 @@ export default App;
 
 Notice that a `BrowserRouter` component has been included, and that two routes have been defined — one for the home page, and another for the profile page.
 
-To complete this step, open the `NavBar.js` file and modify the navigation bar's UI to include a link to the profile page. In addition, import the `Link` component at the top of the file.
+To complete this step, open the `Navbar.js` file and modify the navigation bar's UI to include a link to the profile page. In addition, import the `Link` component at the top of the file.
 
 The `NavBar` component should now look something like this:
 

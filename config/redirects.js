@@ -2252,13 +2252,5 @@ module.exports = [
     {
       from: '/private-saas-deployment/custom-domain-migration', 
       to: '/private-cloud/custom-domain-migration'
-    },
-    {
-      from: '/connections/passwordless/sms-gateway',
-      to: '/dashboard/guides/connections/sms-gateway'
-    },
-    {
-      from: '/policies/requests',
-      to: '/policies/unsupported-requests'
     }
 ];

@@ -17,12 +17,12 @@ useCase:
 # JSON Web Token Claims
 
 ::: note
-This page describes the standard types of claims available when using the JSON Web Token (JWT) standard. To learn about OpenID Connect (OIDC) standard claims, see [OpenID Connect Scopes: Standard Claims](/scopes/current/oidc-scopes#standard-claims).
+This page describes the standard types of claims available when using the JSON Web Token (JWT) standard. To learn about OpenID Connect (OIDC) standard claims, see [OpenID Connect Scopes: Standard Claims](/docs/scopes/current/oidc-scopes#standard-claims).
 :::
 
 There are two types of <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> claims:
 
-* **[Reserved](#reserved-claims)**: Claims defined by the [JWT specification](https://tools.ietf.org/html/rfc7519) to ensure interoperability with third-party, or external, applications. [OpenID Connect (OIDC) standard claims](/scopes/current/oidc-scopes#standard-claims) are reserved claims.
+* **[Reserved](#reserved-claims)**: Claims defined by the [JWT specification](https://tools.ietf.org/html/rfc7519) to ensure interoperability with third-party, or external, applications. [OpenID Connect (OIDC) standard claims](/docs/scopes/current/oidc-scopes#standard-claims) are reserved claims.
 * **[Custom](#custom-claims)**: Claims that you define yourself. Name these claims carefully, such as through [namespacing](/tokens/concepts/claims-namespacing) (which Auth0 requires), to avoid collision with reserved claims or other custom claims. It can be challenging to deal with two claims of the same name that contain differing information.
 
 ## Reserved claims
@@ -39,7 +39,7 @@ The JWT specification defines seven reserved claims that are not required, but a
 
 You can see a full list of reserved claims at the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims). 
 
-Note that [OpenID Connect (OIDC) standard claims](/scopes/current/oidc-scopes#standard-claims) returned in [ID Tokens](/tokens/id-tokens) are reserved claims. For an example showing how to add OIDC standard claims to a token, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#authenticate-a-user-and-request-standard-claims).
+Note that [OpenID Connect (OIDC) standard claims](/docs/scopes/current/oidc-scopes#standard-claims) returned in [ID Tokens](/tokens/id-tokens) are reserved claims. For an example showing how to add OIDC standard claims to a token, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#authenticate-a-user-and-request-standard-claims).
 
 ## Custom claims
 
