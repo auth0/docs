@@ -36,7 +36,7 @@ If you are using the Classic Universal Login flow or embedding `Lock.js` in your
 
 ## Configure and enable the connection in Auth0
 
-Once you have the credentials you need from your Apple Developer account, you need to configure the application client and the connection settings in Auth0.
+Once you have the credentials you need from your Apple Developer account, you need to configure the connection settings and enable the connection for your application in Auth0.
 
 1. On the Dashboard, go to [Connections > Social](${manage_url}/#/connections/social) and click on the **Apple** connection.
 
