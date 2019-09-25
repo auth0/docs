@@ -24,3 +24,17 @@ Our support team strives to assist you to the best of our ability. However, we a
 * Migrating a tenant from one region to another (for example, from US to EU)
 
 * Ad hoc usage data reports.
+
+* Restore any deleted or modified data or settings in tenants, including:
+  
+  * Database connections and their users and passwords
+  * Users, their profile information, metadata, roles membership
+  * Roles and permissions
+  * Applications
+  * SSO Integrations
+  * APIs
+  * Connections
+  * Rules
+  * Hooks
+  * Extensions
+  * Email templates

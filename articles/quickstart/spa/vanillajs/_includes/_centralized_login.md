@@ -67,7 +67,7 @@ This article is based on the new SPA SDK available [here](https://github.com/aut
   <!-- other HTML -->
   
   <!-- add the lines below existing code -->
-  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.0.0/auth0-spa-js.production.js"></script>
+  <script src="${auth0spajs_url}"></script>
   <script src="js/app.js"></script>
 </body>
 ```

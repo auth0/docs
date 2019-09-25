@@ -37,3 +37,20 @@ The following properties are available for the `user` object.
 | `user.user_id` | text | (unique) The user's unique identifier. |
 | `user.user_metadata` | object | Custom fields that store info about a user that does not impact what they can or cannot access, such as work address, home address, or user preferences. For more info, see [Metadata](/metadata). |
 | `user.username` | text | (unique) The user's username. |
+
+## The `user` object with Delegation flows
+
+However, if you execute the rule in the context of a call made to the delegation endpoint, the `user` object will also include the original JSON Web Token (JWT) claims:
+
+```json
+{
+  "name": "FirstName LastName",
+  "email": "FirstNameLastName@example.com",
+  "iss": "https://example.auth0.com/",
+  "sub": "auth0|user_id",
+  "aud": "<audience id for my auth0 app>",
+  "iat": 1566405149,
+  "exp": 1566441149,
+  "persistent": {}
+}
+```

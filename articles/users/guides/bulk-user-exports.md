@@ -127,6 +127,11 @@ The export request (for all three fields) will looks like this:
   "comment": ""
 }
 ```
+
+::: note
+Auth0 allows you to export the entirety of the `app_metadata` or `user_metadata` in one field. For example, if you want the full `app_metadata` field exported, your mapping should be `"app_metadata": "app_metadata"`. You do not need to specify each parameter individually to return the entire metadata field.
+:::
+
 ### JSON-compatible format
 
 If you export the data in JSON-compatible format, you only need to provide the root property; you do not need to name each individual inner property since they will be included automatically.
@@ -223,6 +228,12 @@ The download link is valid for 60 seconds. If this time period expires, you will
 :::
 
 ![Exported user data](/media/articles/users/data.png)
+
+## Job timeouts
+
+All user export jobs timeout after **eight (8) hours**. If your job does not complete within this time frame, it is marked as failed.
+
+Furthermore, all of your job-related data is automatically deleted after 24 hours and cannot be accessed afterward. As such, **we strongly recommend storing the job results using the storage mechanism of your choice**.
 
 ## Keep reading
 
