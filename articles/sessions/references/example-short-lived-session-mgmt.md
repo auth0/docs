@@ -49,7 +49,7 @@ In the Quickstart, the `ExternalService` view makes a request to the express API
 
 ### Warn users to continue their sessions
 
-In the case where a user has not taken any actions that would cause the Auth0 session to be update, Auth0 recommendeds that you raise a warning to the user to choose to explicitly continue their session.
+In the case where a user has not taken any actions that would cause the Auth0 session to be updated, Auth0 recommends that you raise a warning to the user to choose to explicitly continue their session.
 
 The intent of this approach allows the session to go inactive if the user is no longer present, but otherwise provides a means to trigger the silent token refresh so that the can continue their session without the need to be prompted again for credentials. 
 
