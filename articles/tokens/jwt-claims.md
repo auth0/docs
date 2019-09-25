@@ -20,6 +20,18 @@ useCase:
 This page describes the standard types of claims available when using the JSON Web Token (JWT) standard. To learn about OpenID Connect (OIDC) standard claims, see [OpenID Connect Scopes: Standard Claims](/scopes/current/oidc-scopes#standard-claims).
 :::
 
+JSON Web Token (JWT) claims are pieces of information asserted about a subject. For example, an [ID Token](/tokens/id-tokens) (which is always a JWT) may contain a claim called `name` that asserts that the name of the user authenticating is "John Doe".
+
+In a JWT, a claim appears as a name/value pair where the name is always a string and the value can be any JSON value. Generally, when we talk about a claim in the context of a JWT, we are referring to the name (or *key*). For example, the following JSON object contains three claims (`sub`, `name`, `admin`):
+
+```
+{
+    "sub": "1234567890",
+    "name": "John Doe",
+    "admin": true
+}
+```
+
 There are two types of <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> claims:
 
 * **[Reserved](#reserved-claims)**: Claims defined by the [JWT specification](https://tools.ietf.org/html/rfc7519) to ensure interoperability with third-party, or external, applications. [OpenID Connect (OIDC) standard claims](/scopes/current/oidc-scopes#standard-claims) are reserved claims.
