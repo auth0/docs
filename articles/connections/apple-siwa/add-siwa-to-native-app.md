@@ -41,7 +41,7 @@ Before you configure Sign In with Apple for your native app in Auth0, do the fol
 
 * A [custom domain](/custom-domains) set up on your Auth0 tenant (because you must be able to do domain verification with Apple).
 
-* [Set Up Apps in the Apple Developer Portal](/connections/apple-siwa/guides/set-up-apple). Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
+* [Set Up Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple). Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
 
   * Client ID (Services ID) (optional)
   * Client Secret Signing Key
@@ -83,5 +83,5 @@ Native apps cannot be tested with browser-based flows
 
 ## Keep reading
 
-* [Rate Limits for Sign In with Apple](/policies/rate-limits#limits-on-sign-in-with-apple)
+* [Rate Limits on Native Social Logins](/policies/rate-limits#limits-on-native-social-logins)
 * [Test Sign In with Apple Configuration](/connections/apple-siwa/test-siwa-connection)

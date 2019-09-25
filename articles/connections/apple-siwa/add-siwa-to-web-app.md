@@ -53,12 +53,10 @@ Once you have the credentials you need from your Apple Developer account, you ne
 
 3. Click **Save**.
 
-4. [Test the connection](/connections/social/apple/test-siwa-connection). 
+4. [Test the connection](/connections/apple-siwa/test-siwa-connection). 
 
 ## Keep reading
 
 * [iOS Swift - Sign In with Apple Quickstart](/quickstart/native/ios-swift-siwa)
-* [Rate Limits for Sign In with Apple](/policies/rate-limits#limits-on-sign-in-with-apple)
-* [Configure Email Relay Service for Sign In with Apple](/connections/apple-siwa/configure-email-relay-service)
-add-siwa-to-native-app)
+* [Rate Limits on Native Social Logins](/policies/rate-limits#limits-on-native-social-logins)
 * [Test Sign In with Apple Configuration](/connections/apple-siwa/test-siwa-connection)

@@ -31,7 +31,7 @@ Before you add support for SIWA to your app, you'll need:
 * An [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).).
 * A domain to point to and an internet-accessible server where you will run the app that responds on behalf of this domain. You will also need to configure this server with a TLS certificate. Apple won't accept unsecured HTTP connections. 
 
-* A [Custom Domain](/custom-domains) set up on your Auth0 tenant for domain verification with Apple. Custom domains are not strictly required to use SIWA authorization. Domain validation is required for sending emails to private Apple addresses in native and web apps. To use the [Email Relay Service](/connections/apple-siwa/configure-email-relay-service), you will also need to configure your domain with Sender Policy Framework (SPF) DNS TXT records.
+* A [Custom Domain](/custom-domains) set up on your Auth0 tenant for domain verification with Apple. Custom domains are not strictly required to use SIWA authorization. Domain validation is required for sending emails to private Apple addresses in native and web apps. To use the Apple Email Relay Service, configure your domain with Sender Policy Framework (SPF) DNS TXT records.
 
 ## How it works
 
@@ -46,9 +46,8 @@ After you setup and configure SIWA and exchange the authorization code for Auth0
 ## Keep reading
 
 * [Register Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple)
-* [Configure Email Relay Service for Sign In with Apple](/connections/apple-siwa/configure-email-relay-service)
 * [Add Sign In with Apple to Native iOS Apps](/connections/apple-siwa/add-siwa-to-native-app)
 * [Add Sign In with Apple to Web or Other Apps](/connections/apple-siwa/add-siwa-to-web-app)
 * [Test Sign In with Apple Configuration](/connections/apple-siwa/test-siwa-connection)
 * [iOS Swift - Sign In with Apple Quickstart](/quickstart/native/ios-swift-siwa)
-* [Rate Limits for Sign In with Apple](/policies/rate-limits#limits-on-sign-in-with-apple)
+* [Rate Limits on Native Social Logins](/policies/rate-limits#limits-on-native-social-logins)

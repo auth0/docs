@@ -320,7 +320,7 @@ For database connections, Auth0 limits certain types of repeat login attempts de
 
 There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configuring Twilio for SMS](/multifactor-authentication/twilio-configuration).
 
-## Limits on Native Social Login flows 
+## Limits on Native Social Logins 
 
 Limits are only applied to requests related to the Native Social Login flows which are identified based on the body of the requests with the following initial criteria:
 
