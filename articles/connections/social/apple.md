@@ -21,7 +21,7 @@ useCase:
 Auth0 enables you to use the Sign In with Apple (SIWA) capability to provide Apple-based authentication to your applications. You can include SIWA for your native Apple applications, web applications, or applcationss that run on other platforms (such as Android).
 
 ::: warning
-The [Apple App Store Developer Guidelines](https://developer.apple.com/app-store/review/guidelines/#sign-in-with-apple) require that SIWA must be available in all applications that use third-party sign-in options such as Facebook or Google.
+The [Apple App Store Developer Guidelines](https://developer.apple.com/app-store/review/guidelines/#sign-in-with-apple) require that SIWA must be available in all applications that exclusively use third-party sign-in options such as Facebook or Google.
 :::
 
 ## Prerequisites
