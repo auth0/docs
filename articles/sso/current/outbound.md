@@ -13,7 +13,7 @@ useCase:
 
 # Outbound Single Sign-On
 
-For outbound <dfn data-key="single-sign-on">Single Sign-On (SSO)</dfn>, a third-party identity provider is the SSO provider. 
+For outbound <dfn data-key="single-sign-on">[Single Sign-On (SSO)](/sso)</dfn>, a third-party [Identity Provider (IdP)](/identityproviders) is the SSO provider. 
 
 When a user logs in to an application:
 

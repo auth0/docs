@@ -46,4 +46,4 @@ For an example of session usage with SSO, see [Example: Application Sessions and
 ## Limitations
 
 * Native applications can only use [Universal Login](/universal-login).
-* OpenID Connect (OIDC) does not support identity provider-initiated SSO.
+* [OpenID Connect (OIDC)](/protocols/oidc) does not support identity provider-initiated SSO.

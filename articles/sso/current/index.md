@@ -20,7 +20,7 @@ For example, if you login to a Google service such as Gmail, you are automatical
 
 ## Benefits
 
-Single Sign-On provides a seamless experience for users when using your applications and services. Instead of having to remember separate sets of credentials for each application or service, users can simply login once and access your full suite of applications.
+SSO provides a seamless experience for users when using your applications and services. Instead of having to remember separate sets of credentials for each application or service, users can simply login once and access your full suite of applications.
 
 ## User experience
 
@@ -42,7 +42,7 @@ For example, the authentication domain may generate a signed [JSON Web Token (JW
 
 ### Security Assertion Markup Language & Web Services Federation
 
-Security Assertion Markup Language (SAML) and Web Services Federation (WS-Fed) are both protocols that are widely used in SSO implementations. Both SAML and WS-Fed exchange authorization and authentication data in XML format; the main parts of this exchange are the user, the identity provider, and the service provider.
+[Security Assertion Markup Language (SAML)](/protocols/saml) and [Web Services Federation (WS-Fed)](/protocols/ws-fed) are both protocols that are widely used in SSO implementations. Both SAML and WS-Fed exchange authorization and authentication data in XML format; the main parts of this exchange are the user, the identity provider, and the service provider.
 
 With SAML or WS-Fed:
 
@@ -52,7 +52,7 @@ With SAML or WS-Fed:
 
 ### OpenID Connect
 
-OpenID Connect (OIDC) is an authentication protocol commonly used in consumer-facing SSO implementations. The OIDC protocol handles authentication through [JSON Web Tokens (JWTs)](/tokens/jwt) and a central identity provider.
+[OpenID Connect (OIDC)](/protocols/oidc) is an authentication protocol commonly used in consumer-facing SSO implementations. The OIDC protocol handles authentication through [JSON Web Tokens (JWTs)](/tokens/jwt) and a central identity provider.
 
 With OIDC:
 
@@ -64,7 +64,7 @@ With OIDC:
 
 ### Lightweight Directory Access Protocol + Active Directory
 
-Lightweight Directory Access Protocol (LDAP) is an application protocol used to access a directory of credentials that can be shared by multiple applications; it is commonly used by intranets. When paired with Active Directory (AD), LDAP provides a centralized location for user identity, so the application makes an authentication request to the LDAP/AD server. The LDAP protocol exchanges information in LDAP Data Interchange Format (LDIF).
+[Lightweight Directory Access Protocol (LDAP)](/protocols/ldap) is an application protocol used to access a directory of credentials that can be shared by multiple applications; it is commonly used by intranets. When paired with Active Directory (AD), LDAP provides a centralized location for user identity, so the application makes an authentication request to the LDAP/AD server. The LDAP protocol exchanges information in LDAP Data Interchange Format (LDIF).
 
 ## Inbound SSO
 
