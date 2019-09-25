@@ -22,7 +22,7 @@ There are typically three session layers that can be created when your users log
 
 * **Application Session Layer**: This layer is the session inside your application. Though your application uses Auth0 to authenticate users, your application also tracks that the user has logged in to your application; in a regular web application, for example, you achieve this by storing this information inside a [cookie](/sessions/concepts/cookies). 
 
-* **Auth0 Session Layer**: Auth0 also maintains a session for the user and stores their information inside a cookie. This layer is used so that the next time a user is redirected to Auth0 for login the user's information will be remembered. 
+* **Auth0 Session Layer**: Auth0 also maintains a session on the Authorization Server for the user and stores their user information inside a cookie. This layer is used so that the next time a user is redirected to Auth0 for login the user's information will be remembered. This session layer makes the [Single Sign-On (SSO)](/sso) experience possible for [inbound SSO implementations](/sso/current/inbound).
 
 * **Identity Provider Session Layer**: When users attempt to sign in using an identity providers such as Facebook or Google, and they already have a valid sign-in (with whichever provider they choose) they will not be prompted again to sign in though they may be asked to give permission to share their information with Auth0 and, in turn, your application. See [How to set up IdP-initiated SSO](/protocols/saml/idp-initiated-sso#how-to-set-up-idp-initiated-sso) for more information. 
 
