@@ -29,11 +29,9 @@ After you register your application, you will be given the following IDs and key
 * Client Secret Signing Key
 * Client Signing Key ID (optional)
 
-## Prerequisites
+## Prerequisite
 
-* A paid [Apple Developer](https://developer.apple.com/programs/) account. 
-
-* A [Custom Domain](/custom-domains) set up. Custom domains are required for domain verification with Apple.
+A paid [Apple Developer](https://developer.apple.com/programs/) account. 
 
 ## Obtain Team ID
 
