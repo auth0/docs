@@ -6,13 +6,20 @@ classes: video-page
 
 ## Learn Identity Series
 
-[Learn about digital identity](/videos/learn-identity) including OAuth2, OpenID Connect, calling APIs, and more! 
+[Learn about digital identity](/videos/learn-identity) including OAuth2, OpenID Connect, calling APIs, and more! In this video series, we cover:
+
+* The history of modern identity and some of the foundational concepts and terminology
+* Protocols, open standards, SSO, JWTs, OAuth2, and OpenID Connect
+* Web application authentication
+* Calling an API with a web application
+* Native applications, including mobile, desktop, and command line
+* Single-page applications
 
 ## Get Started Series
 
-Check out the [Get Started](/videos/get-started) series of videos to learn the basics of implementing Auth0 features with your applications. In this video series, you can learn the following: 
+Check out the [Get Started](/videos/get-started) series of videos to learn the basics of implementing Auth0 features with your applications. In this video series, you can learn the following:
 
-* What an Auth0 tenant is 
+* What an Auth0 tenant is
 * How Auth0 manages user information
 * How to move your existing users to an Auth0 user store  
 * The difference between authentication, authorization, and access control and when and why you use each one

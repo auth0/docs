@@ -29,7 +29,7 @@ contentType:
 
 ---
 
-**Xcode 10.X** - Download and install from the App Store. After installation is complete, open it so that you go through the first-time setup, which can take up to 10 minutes. This will require around 6GB of hard drive space and up to 30 minutes total to complete.
+**Xcode** - Download and install Xcode from the App Store. After installation is complete, open it so that you go through the first-time setup, which can take up to 10 minutes. This will require around 6GB of hard drive space and up to 30 minutes total to complete.
 
 ---
 

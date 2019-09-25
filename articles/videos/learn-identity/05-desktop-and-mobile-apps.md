@@ -9,6 +9,10 @@ Authentication and delegated authorization for desktop and mobile applications a
 
 <div class="video-wrapper" data-video="dq3c4pz9lb"></div>
 
+## Related Identity Lab
+
+[<i class="icon icon-budicon-529"></i> Lab 3: Mobile Applications](/identity-labs/03-mobile-native-app)
+
 ## Jump to Section
 
 Jump to a section in the video for explanation on a specific topic.
