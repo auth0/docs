@@ -26,7 +26,7 @@ The [Apple App Store Developer Guidelines](https://developer.apple.com/app-store
 
 ## Prerequisite
 
-Before you add support for SIWA to your app, you'll need an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).).
+Before you add support for SIWA to your app, you'll need an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).)
 
 ## How it works
 

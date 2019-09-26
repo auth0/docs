@@ -38,7 +38,7 @@ Before you configure Sign In with Apple for your native app in Auth0, do the fol
 * [Register Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple). Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
 
   * App ID
-  * Apple Taem ID
+  * Apple Team ID
   * Client Secret Signing Key
   * Client Signing Key ID (optional)
 
@@ -50,11 +50,11 @@ If you are using the Classic Universal Login flow or embedding `Lock.js` in your
 
 Once you have the credentials you need from your Apple Developer account, you need to configure the application client and the connection settings in Auth0.
 
-1. On the Dashboard, go to [application settings](${manage_url}/#/applications/${account.clientId}/settings).  
+1. On the Dashboard, go to [Applications](${manage_url}/#/applications), choose your application, click the gear icon to view the settings page.  
 
-2. At the bottom of the page, click **Show Advanced Settings** and go to the **Mobile Settings** tab. Under **Native Social Login**. enable the **Enable Sign In with Apple** toggle. 
+2. At the bottom of the page, click **Show Advanced Settings** and go to the **Device Settings** tab. Under **Native Social Login**. enable the **Enable Sign In with Apple** toggle. 
 
-    ![Application Client Settings: Advanced Mobile Settings](/media/articles/connections/social/apple/apple-app-mobile-settings.png)
+    ![Application Client Settings: Advanced Device Settings](/media/articles/connections/social/apple/apple-app-mobile-settings.png)
 
 3. Under **iOS**, fill in the **App ID** field with the native app's App ID/Bundle Identifier.
 
