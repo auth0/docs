@@ -242,7 +242,7 @@ Auth0
 
 ### Renew authentication state
 
-Add a function that tries to renew the user's login session.
+Add a function that tries to renew the user's login session. Here, `getCredentialState` is called to find out whether the user is still authorized for Sign In With Apple. If they are **unauthorized**, you should consider their access revoked, their access and refresh tokens should be removed, and the user should log into the application again. Otherwise, the credentials that were previously stored inside `CredentialsManager` can be returned, as in the following example:
 
 ```swift
 func tryRenewAuth(_ callback: @escaping (Credentials?, Error?) -> ()) {
