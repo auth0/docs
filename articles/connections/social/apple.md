@@ -21,7 +21,7 @@ useCase:
 Auth0 enables you to use the Sign In with Apple (SIWA) capability to provide Apple-based authentication to your applications. You can include SIWA for your native Apple applications, web applications, or applications that run on other platforms (such as Android).
 
 ::: warning
-The [Apple App Store Developer Guidelines](https://developer.apple.com/app-store/review/guidelines/#sign-in-with-apple) require that SIWA must be available in all applications that exclusively use third-party sign-in options such as Facebook or Google.
+The [Apple App Store Developer Guidelines](https://developer.apple.com/app-store/review/guidelines/#sign-in-with-apple) require that SIWA must be available in all applications that exclusively use third-party sign-in options, such as Facebook or Google.
 :::
 
 ## Prerequisite
@@ -36,7 +36,7 @@ Once you have registered your application with Apple and configured your applica
 
 When a user returns to your app, you can log them in automatically if their login session is still valid. You can retrieve their credentials from the keychain and check if the access token is still valid. If the access token has expired, you can renew it using a refresh token. 
 
-After you setup and configure SIWA and exchange the authorization code for Auth0 credentials, you can use the access tokens to [call APIs](/flows/guides/auth-code-pkce/call-api-auth-code-pkce), [assign roles to users](/dashboard/guides/users/assign-roles-users), and use the access tokens to [link accounts](/link-accounts). 
+After you set up and configure SIWA and exchange the authorization code for Auth0 credentials, you can [assign roles to users](/dashboard/guides/users/assign-roles-users), and use the access tokens to [call APIs](/flows/guides/auth-code-pkce/call-api-auth-code-pkce) and [link user accounts](/link-accounts).
 
 ## Keep reading
 

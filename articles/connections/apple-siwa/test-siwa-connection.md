@@ -27,7 +27,7 @@ If you are using the Classic Universal Login flow, or embedding `Lock.js` in you
 
 3. You will be asked to verify a new device. Click **Allow**.
 
-4. Next you'll be given a verication code. Make a note of this code, click **Done**, and then enter the code on the **Two-Factor Authentication** screen.
+4. Next, you'll be given a verication code. Make a note of this code, click **Done**, and then enter the code on the **Two-Factor Authentication** screen.
 
     ![Apple Two-Factor Authentication](/media/articles/connections/social/apple/apple-2FA.png)
 
