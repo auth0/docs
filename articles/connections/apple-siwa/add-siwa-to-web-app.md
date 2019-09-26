@@ -15,7 +15,7 @@ useCase:
 ---
 # Add Sign In with Apple to Web or Other Apps
 
-You can add functionality to your web application that allows your users to use their Apple login credentials to authenticate. As with other identity providers supported by Auth0, when your users log in, they can click the **Sign In with Apple** button, and they'll be taken to the Apple sign-in screen. They will see the name of your app and a placeholder icon. They will enter their Apple ID and password. If their Apple ID has two-factor authentication enabled, they'll be prompted for that as well.
+You can add functionality to your web application that allows your users to authenticate using their Apple login credentials. As with other identity providers supported by Auth0, when your users log in, they can click the **Sign In with Apple** button, and they'll be taken to the Apple sign-in screen. They will see the name of your app and a placeholder icon. They will enter their Apple ID and password. If their Apple ID has two-factor authentication enabled, they'll be prompted for that as well.
 
 ## Prerequisites
 
