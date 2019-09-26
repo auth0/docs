@@ -27,31 +27,31 @@ After you register your application, you will be given the following IDs and key
   * Client Secret Signing Key
   * Client Signing Key ID (optional)
 
-## Prerequisite
+## Prerequisites
 
-A paid [Apple Developer](https://developer.apple.com/programs/) account. 
+Before you can register your app in the Apple Developer Portal, you'll need:
+
+* an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).)
 
 ## Obtain Team ID
 
-1. Sign in to your [Apple Developer Account](https://developer.apple.com/account/#/overview/).
-
-2. Go to the [Membership page](https://developer.apple.com/account/#/membership/) of your Apple Developer account.
+1. Sign in to your [Apple Developer Account](https://developer.apple.com/account/#/overview/), and go to the [Membership page](https://developer.apple.com/account/#/membership/) of your Apple Developer account.
 
     ![Membership Page](/media/articles/connections/social/apple/apple-membership.jpg)
 
-3. Make note of your Team ID.
+2. Make note of your Team ID.
 
 ## Create App ID
 
 1. On the Apple Developer Portal, go to **Certificates, IDs, & Profiles > Identifiers** and click the **blue plus icon** next to **Identifiers** to create a new App ID.
-2. Choose **App IDs** as the identifier type and click **Continue**
-3. Provide a description and a Bundle ID (reverse-domain name style, e.g., `com.customdomain`)
-4. Scroll down and check **Sign In with Apple**. 
-5. Click **Continue** and then click **Register**
+2. Choose **App IDs** as the identifier type and click **Continue**.
+3. Provide a description and a Bundle ID (reverse-domain name style, e.g., `com.customdomain`).
+4. Scroll down and check **Sign In with Apple**.
+5. Click **Continue**, and then click **Register**.
 
 ## Create Services ID
 
-1. Back in the **Certificates, IDs, & Profiles** section, click the **blue plus icon** next to **Identifiers**.
+1. Return to the **Certificates, IDs, & Profiles** section and click the **blue plus icon** next to **Identifiers**.
 
     ![Register Services ID](/media/articles/connections/social/apple/apple-registerservicesid.jpg)
 
@@ -62,7 +62,7 @@ A paid [Apple Developer](https://developer.apple.com/programs/) account.
 
 4. Click **Save**, **Continue**, and then click **Register**.
 
-Next, you will use these credentials on the [Auth0 Dashboard > Connections > Social](${manage_url}/#/connections/social) page in the dashboard to continue to configure your application. Depending on which type of application you want to configure, choose one of the following methods:
+Next, you will use these credentials on the [Auth0 Dashboard > Connections > Social](${manage_url}/#/connections/social) page to continue to configure your application. Depending on which type of application you want to configure, choose one of the following methods:
 
 * [Add Sign In with Apple to Native iOS Apps](/connections/apple-siwa/add-siwa-to-native-app)
 * [Add Sign In with Apple to Web or Other Apps](/connections/apple-siwa/add-siwa-to-web-app)
