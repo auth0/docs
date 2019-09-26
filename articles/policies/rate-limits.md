@@ -319,3 +319,36 @@ For database connections, Auth0 limits certain types of repeat login attempts de
 ## Limits on SMS Messages for MFA
 
 There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configuring Twilio for SMS](/multifactor-authentication/twilio-configuration).
+
+## Limits on Native Social Logins 
+
+Limits are only applied to requests related to the Native Social Login flows, which are identified based on the body of the requests with the following initial criteria:
+
+* `grant_type`: `urn:ietf:params:oauth:grant-type:token-exchange` 
+* `subject_token_type`: `http://auth0.com/oauth/token-type/apple-authz-code`
+
+<table class="table">
+  <thead>
+    <tr>
+        <th><strong>Endpoint</strong></th>
+        <th><strong>Path</strong></th>
+        <th><strong>Limited By</strong></th>
+        <th><strong>Affected Tenants</strong></th>
+        <th><strong>Rate Limit</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td rowspan="3">Get Token</td>
+    <td rowspan="3">/oauth/token</td>
+    <td>Any Native Social Login request</td>
+    <td>Free</td>
+    <td>30 requests per minute</td>
+  </tr>
+  <tr>
+    <td>Native Social Login request and IP</td>
+    <td>Paid</td>
+    <td>50 requests per minute with bursts of up to 500 requests</td>
+  </tr>
+  </tbody>
+</table>
