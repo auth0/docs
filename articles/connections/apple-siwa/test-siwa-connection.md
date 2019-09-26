@@ -19,7 +19,7 @@ useCase:
 If you are using the Classic Universal Login flow, or embedding `Lock.js` in your application, make sure you are using `Lock.js` version 11.16 or later.
 :::
 
-1. Go to your application login page and you should see an option for Sign In with Apple:
+1. Go to your application login page, and you should see an option for Sign In with Apple:
 
     ![Apple Login Page](/media/articles/connections/social/apple/apple-login-page.png)
 
@@ -27,7 +27,7 @@ If you are using the Classic Universal Login flow, or embedding `Lock.js` in you
 
 3. You will be asked to verify a new device. Click **Allow**.
 
-4. Next, you'll be given a verication code. Make a note of this code, click **Done**, and then enter the code on the **Two-Factor Authentication** screen.
+4. Next, you'll be given a verification code. Make a note of this code, click **Done**, and then enter the code on the **Two-Factor Authentication** screen.
 
     ![Apple Two-Factor Authentication](/media/articles/connections/social/apple/apple-2FA.png)
 
