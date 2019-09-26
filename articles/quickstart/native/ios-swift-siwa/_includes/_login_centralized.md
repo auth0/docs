@@ -231,6 +231,9 @@ Auth0
             // NEW - store the user ID in the keychain
             self.keychain.setString(appleIDCredential.user, forKey: "userId")
 
+            // NEW - store the credentials locally
+            self.credentials = credentials
+
             // NEW - store the credentials in the credentials manager
             self.credentialsManager.store(credentials: credentials)
 
@@ -262,14 +265,17 @@ func tryRenewAuth(_ callback: @escaping (Credentials?, Error?) -> ()) {
                 guard error == nil, let credentials = credentials else {
                     return callback(nil, error)
                 }
+
+                self.credentials = credentials
                 
-                callback(credentials, error)
+                callback(credentials, nil)
             }
             
         default:
-            // User is not authorized - clear credentials
-            
+            // User is not authorized
             self.keychain.deleteEntry(forKey: "userId")
+
+            // Remove their credentials from the store
             self.credentialsManager.clear()
             
             callback(nil, error)
@@ -279,22 +285,20 @@ func tryRenewAuth(_ callback: @escaping (Credentials?, Error?) -> ()) {
 ```
 
 :::note
-Calling `credentialsManager.credentials` _automatically renews_ the Access Token if it has expired, using the refresh token. This call should only execute if `getCredentialState` returns `authorized`, so the refresh token is only used by an authorized user. Otherwise, the credentials must be cleared and the login session thrown away.
+Calling `credentialsManager.credentials` _automatically renews_ the Access Token if it has expired, using the refresh token. This call should only be executed if `getCredentialState` returns `authorized`, so that the refresh token is only used by an authorized user. Otherwise, the credentials must be cleared and the login session thrown away.
 :::
 
 Finally, call this function from `viewDidLoad`. If no credentials are found, the user should be shown the login screen once more. Otherwise, they should continue on into the app:
 
 ```swift
 tryRenewAuth { credentials, error in
-    guard error == nil, credentials == nil else {
+    guard error == nil, credentials != nil else {
         print("Unable to renew auth: \(String(describing: error))")
 
         // The user should be asked to log in again
 
         return
     }
-    
-    self.credentials = credentials
 
     // Set up any post-login UI or segue here
 }
