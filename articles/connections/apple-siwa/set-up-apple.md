@@ -29,9 +29,9 @@ After you register your application, you will be given the following IDs and key
 
 ## Prerequisites
 
-Before you can register your app in the Apple Developer Portal, you'll need:
+Before you can register your app in the Apple Developer Portal, you must:
 
-* an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).)
+* Have an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).)
 
 ## Obtain Team ID
 
