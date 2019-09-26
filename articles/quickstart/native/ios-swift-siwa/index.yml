@@ -1,4 +1,4 @@
-title: iOS Swift
+title: iOS Swift - Sign In With Apple
 alias:
   - ios
   - swift
@@ -15,20 +15,15 @@ topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
-seo_alias: swift
+seo_alias: swift-siwa
 snippets:
-  setup: native-platforms/ios-swift/setup
-  use: native-platforms/ios-swift/use
+  setup: native-platforms/ios-swift-siwa/setup
+  use: native-platforms/ios-swift-siwa/use
 default_article: 00-login
 articles:
   - 00-login
-  - 03-user-sessions
-  - 04-calling-apis
-  - 05-authorization
-  - 07-linking-accounts
-  - 08-touch-id-authentication
 next_steps:
-  - path: 09-sign-in-with-apple
+  - path: 00-login
     list:
     - text: Configure other identity providers
       icon: 345
@@ -45,8 +40,8 @@ next_steps:
 show_steps: true
 github:
   org: auth0-samples
-  repo: auth0-ios-swift-sample
+  repo: auth0-ios-swift-siwa-samples
 requirements:
-  - CocoaPods 1.6 (Beta)
-  - Xcode 10.1
-  - iOS 9+
+  - CocoaPods
+  - Xcode 11 Beta 6
+  - iOS 13 Beta 8 Device

@@ -1,4 +1,10 @@
-<%= include('../../_includes/_getting_started', { library: 'Swift') %>
+<!-- markdownlint-disable MD002 MD041 -->
+
+## Before you Start
+
+This tutorial demonstrates how to add user login to a Swift application using Web Authentication with Auth0. Alternatively, check out the [iOS Swift - Sign In With Apple tutorial](/quickstart/native/ios-swift-siwa).
+
+<%= include('../../_includes/_getting_started', { library: 'Swift' }) %>
 
 Add your credentials in the `Auth0.plist` file. If the file does not exist in your project yet, create it:
 
