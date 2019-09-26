@@ -1,8 +1,8 @@
 # Get Token
 
 Use this endpoint to:
-- Get an <dfn data-key="access-token">Access Token</dfn> in order to call an API. You can, optionally, retrieve an ID Token and a <dfn data-key="refresh-token">Refresh Token</dfn> as well.
-- Refresh your Access Token, using a Refresh Token you got during authorization.
+- Get an <dfn data-key="access-token">Access Token</dfn> in order to call an API. Optionally, you can also retrieve an ID Token and a <dfn data-key="refresh-token">Refresh Token</dfn>.
+- Refresh your Access Token using a Refresh Token you got during authorization.
 
 Note that the only OAuth 2.0 flows that can retrieve a Refresh Token are:
 - [Authorization Code Flow (Authorization Code)](/flows/concepts/auth-code)
@@ -78,7 +78,7 @@ This is the flow that regular web apps use to access an API. Use this endpoint t
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Authorization Code use  `authorization_code`. |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Authorization Code, use `authorization_code`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` <br/><span class="label label-danger">Required</span> | Your application's Client Secret. |
 | `code` <br/><span class="label label-danger">Required</span> | The Authorization Code received from the initial `/authorize` call. |
@@ -94,13 +94,13 @@ This is the flow that regular web apps use to access an API. Use this endpoint t
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
-If you have just executed the [Authorization Code Grant](#authorization-code-grant) you should already have a code set at the **Authorization Code** field of the *OAuth2 / OIDC* tab. If so, click **OAuth2 Code Exchange**, otherwise follow the instructions.
+If you have just executed the [Authorization Code Grant](#authorization-code-grant), you should already have a code set at the **Authorization Code** field of the *OAuth2 / OIDC* tab. If so, click **OAuth2 Code Exchange**; otherwise, follow the instructions.
 
 1. At the *Configuration* tab, set the **Application** field to the application you want to use for the test.
 
 1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
-1. At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](#authorization-code-grant). Click **OAuth2 Code Exchange**.
+1. At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from the [Authorization Code Grant](#authorization-code-grant). Click **OAuth2 Code Exchange**.
 
 
 ### More Information
@@ -167,7 +167,6 @@ Content-Type: application/json
 }) %>
 
 This is the flow that mobile apps use to access an API. Use this endpoint to exchange an Authorization Code for a Token.
-
 
 
 ### Request Parameters
@@ -645,24 +644,23 @@ Content-Type: application/json
 }) %>
 
 :::warning
-This flow is intended for use with native social interactions **only**.  Use of this flow outside of a native social setting is highly discouraged.
+This flow is intended for use with native social interactions **only**. Use of this flow outside of a native social setting is highly discouraged.
 :::
 
-When a non-browser-based solution (such as a mobile platform's SDK) authenticates the user, the authentication will commonly result in artifacts being returned to application code.  In such situations, this grant type allows for the Auth0 platform to accept artifacts from trusted sources, and issue tokens in response.  In this way, apps making use of non-browser-based authentication mechanisms (as are common in native apps) can still retrieve Auth0 tokens without asking for further user interaction.
+When a non-browser-based solution (such as a mobile platform's SDK) authenticates the user, the authentication will commonly result in artifacts being returned to application code. In such situations, this grant type allows for the Auth0 platform to accept artifacts from trusted sources and issue tokens in response. In this way, apps making use of non-browser-based authentication mechanisms (as are common in native apps) can still retrieve Auth0 tokens without asking for further user interaction.
 
-Artifacts returned by this flow, and the contents thereof will be determined by the `subject_token_type` and configuration settings of the tenant.
-
+Artifacts returned by this flow (and the contents thereof) will be determined by the `subject_token_type` and configuration settings of the tenant.
 
 ### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Token Exchange for Native Social use `urn:ietf:params:oauth:grant-type:token-exchange`. |
-| `subject_token` <br/><span class="label label-danger">Required</span> | Externally issued identity artifact, representing the user |
-| `subject_token_type` <br/><span class="label label-danger">Required</span> | Identifier that indicates the type of `subject_token`.  Currently supported native social values are: `http://auth0.com/oauth/token-type/apple-authz-code` |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Token Exchange for Native Social, use `urn:ietf:params:oauth:grant-type:token-exchange`. |
+| `subject_token` <br/><span class="label label-danger">Required</span> | Externally-issued identity artifact, representing the user. |
+| `subject_token_type` <br/><span class="label label-danger">Required</span> | Identifier that indicates the type of `subject_token`. Currently supported native social values are: `http://auth0.com/oauth/token-type/apple-authz-code`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `audience` | The unique identifier of the target API you want to access. |
-| `scope` | String value of the different <dfn data-key="scope">scopes</dfn> the application is asking for. Multiple scopes are separated with whitespace. |
+| `scope` | String value of the different <dfn data-key="scope">scopes</dfn> the application is requesting. Multiple scopes are separated with whitespace. |
 
 ### Request headers
 
