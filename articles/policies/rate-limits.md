@@ -322,7 +322,7 @@ There's a limit of 10 SMS messages/hour per user for multi-factor authentication
 
 ## Limits on Native Social Logins 
 
-Limits are only applied to requests related to the Native Social Login flows which are identified based on the body of the requests with the following initial criteria:
+Limits are only applied to requests related to the Native Social Login flows, which are identified based on the body of the requests with the following initial criteria:
 
 * `grant_type`: `urn:ietf:params:oauth:grant-type:token-exchange` 
 * `subject_token_type`: `http://auth0.com/oauth/token-type/apple-authz-code`
