@@ -1,7 +1,6 @@
 ---
 title: Add Sign In with Apple to Web or Other Apps
 description: Learn how to add native login functionality to your web or other app with Apple. 
-toc: true
 topics:
   - authentication
   - connections
@@ -21,14 +20,14 @@ You can add functionality to your web application that allows your users to use 
 
 Before you configure Sign In with Apple (SIWA) for your native app in Auth0, do the following:
 
-* Have an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/)).
+* Have an [Apple Developer](https://developer.apple.com/programs/) account.
 
 * [Register Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple). Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
 
-  * **Services ID** (Client ID)
-  * **Apple Team ID**
-  * **Client Secret Signing Key**
-  * **Client Signing Key ID** (optional)
+  * Services ID (Client ID)
+  * Client Secret Signing Key
+  * Apple Team ID (App ID)
+  * Client Signing Key ID (optional)
 
 ::: note
 If you are using the Classic Universal Login flow or embedding `Lock.js` in your application, make sure you are using `Lock.js` version 11.16 or later. 
@@ -45,7 +44,7 @@ Once you have the credentials you need from your Apple Developer account, you ne
     * **Client ID** (Services ID)
     * **Client Secret Signing Key**
     * **Apple Team ID** (App ID)
-    * **Key ID** (Apple will accept the key without the ID)(optional) 
+    * (optional) **Key ID** (Apple will accept the key without the ID.)
 
     ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)
 
@@ -57,4 +56,3 @@ Once you have the credentials you need from your Apple Developer account, you ne
 
 * [iOS Swift - Sign In with Apple Quickstart](/quickstart/native/ios-swift-siwa)
 * [Rate Limits on Native Social Logins](/policies/rate-limits#limits-on-native-social-logins)
-* [Test Sign In with Apple Configuration](/connections/apple-siwa/test-siwa-connection)

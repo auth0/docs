@@ -18,17 +18,14 @@ Before you configure an Apple social connection in the Auth0 Dashboard, you need
 
 ::: note
 You can test the Apple connection with Auth0's developer credentials first by using the [Dashboard](${manage_url}) and going to **Connections > Social**. Click **Try** on the Apple connection, leaving the settings blank. Prior to using the connection in production, you must provide your own credentials as shown below.
-
-![Developer Program](/media/articles/connections/social/apple/apple-developerprogram.jpg)
 :::
 
 After you register your application, you will be given the following IDs and keys to use in the application connection settings in the Dashboard:
 
-  * **App ID**
-  * **Services ID** (Client ID)
-  * **Apple Team ID**
-  * **Client Secret Signing Key**
-  * **Client Signing Key ID** (optional)
+  * Services ID (Client ID)
+  * Apple Team ID (App ID)
+  * Client Secret Signing Key
+  * Client Signing Key ID (optional)
 
 ## Prerequisite
 

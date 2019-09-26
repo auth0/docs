@@ -18,17 +18,15 @@ useCase:
 ---
 # Add Sign In with Apple to Your App
 
-Auth0 enables you to use the Sign In with Apple (SIWA) capability to provide Apple-based authentication to your applications. You can include SIWA for your native Apple applications, web applications, or applcations that run on other platforms (such as Android).
+Auth0 enables you to use the Sign In with Apple (SIWA) capability to provide Apple-based authentication to your applications. You can include SIWA for your native Apple applications, web applications, or applications that run on other platforms (such as Android).
 
 ::: warning
 The [Apple App Store Developer Guidelines](https://developer.apple.com/app-store/review/guidelines/#sign-in-with-apple) require that SIWA must be available in all applications that exclusively use third-party sign-in options such as Facebook or Google.
 :::
 
-## Prerequisites
+## Prerequisite
 
-Before you add support for SIWA to your app, you'll need:
-
-* An [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).).
+Before you add support for SIWA to your app, you'll need an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).).
 
 ## How it works
 
@@ -36,7 +34,7 @@ Once you have registered your application with Apple and configured your applica
 
 ![Apple Sign In with Apple Setup Flow](/media/articles/connections/social/apple/apple-siwa-setup-flow.png)
 
-When your users return to your app, you can log them in automatically if their login session is still valid. You can retrieve their credentials from the keychain and check if the access token is still valid. If the access token has expired, you can renew it using a refresh token. 
+When a user returns to your app, you can log them in automatically if their login session is still valid. You can retrieve their credentials from the keychain and check if the access token is still valid. If the access token has expired, you can renew it using a refresh token. 
 
 After you setup and configure SIWA and exchange the authorization code for Auth0 credentials, you can use the access tokens to [call APIs](/flows/guides/auth-code-pkce/call-api-auth-code-pkce), [assign roles to users](/dashboard/guides/users/assign-roles-users), and use the access tokens to [link accounts](/link-accounts). 
 
