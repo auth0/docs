@@ -22,7 +22,7 @@ Auth0 makes it easy for your app to authenticate users using:
 
 When a user authenticates, you request an Access Token and include the target audience and scope of access in your request. This access is both requested by the application and granted by the user during authentication using the [Authorize endpoint](/api/authentication#authorize-application).
 
-You may configure your tenant to always include a [default audience](/dashboard/dashboard-tenant-settings#api-authorization-settings).
+You may configure your tenant to always include a [default audience](/dashboard/reference/settings-tenant#api-authorization-settings).
 
 | Token Use | Format | Requested Audience | Requested Scope |
 |-----------|--------|--------------------|-------|

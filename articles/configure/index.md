@@ -11,7 +11,7 @@ contentType: index
 Learn how to configure tenants, applications, APIs, and other settings in Auth0. 
 
 <%= include('../_includes/_topic-links', { links: [
-  'dashboard/dashboard-tenant-settings',
+  'dashboard/reference/settings-tenant',
   'dashboard/reference/settings-application',
   'dashboard/reference/settings-api',
   'sso/current',
