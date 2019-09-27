@@ -19,3 +19,7 @@ This allows you to implement scenarios including (but not limited to):
 
 * Sending notifications to Slack or via email about the user's new account;
 * Creating a new user record in a CRM system.
+
+## Next steps
+
+Learn more about [using the post-user registration extensibility point](/hooks/guides/use-the-post-user-registration-extensibility-point).
