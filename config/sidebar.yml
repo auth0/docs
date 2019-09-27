@@ -14,6 +14,9 @@ articles:
     url: "/getting-started"
     children:
 
+      - title: "Auth0 Overview"
+        url: "/getting-started/overview"
+
       - title: "Learn the Basics"
         url: "/getting-started/the-basics"
 

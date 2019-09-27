@@ -23,6 +23,10 @@ Welcome! If you are new to Auth0, you are in the right place. Here we will cover
 
 <ul class="topic-links">
   <li>
+    <i class="icon icon-budicon-715"></i><a href="/getting-started/overview">Auth0 Overview</a>
+    <p>Learn what Auth0 is and how you can use it.</p>
+  </li>
+  <li>
     <i class="icon icon-budicon-715"></i><a href="/getting-started/the-basics">Learn the Basics</a>
     <p>Learn the basics of Auth0 and familiarize yourself with the basic terminology.</p>
   </li>
