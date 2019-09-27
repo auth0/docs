@@ -124,18 +124,23 @@ articles:
 
               - title: Push
                 url: /multifactor-authentication/factors/push
+                hidden: true
 
               - title: OTP
                 url: /multifactor-authentication/factors/otp
+                hidden: true
 
               - title: SMS
                 url: /multifactor-authentication/factors/sms
+                hidden: true
 
               - title: Duo
                 url: /multifactor-authentication/factors/duo
+                hidden: true
 
               - title: Email
                 url: /multifactor-authentication/factors/email
+                hidden: true
 
           - title: Custom
             url: /multifactor-authentication/custom
@@ -149,21 +154,27 @@ articles:
 
               - title: "Trigger MFA"
                 url: "/multifactor-authentication/api/challenges"
+                hidden: true
 
               - title: "One-Time Password Challenge"
                 url: "/multifactor-authentication/api/otp"
+                hidden: true
 
               - title: "SMS Message Challenge"
                 url: "/multifactor-authentication/api/oob"
+                hidden: true
 
               - title: "Email Authenticator"
                 url: "/multifactor-authentication/api/email"
+                hidden: true
 
               - title: "Manage Authenticators"
                 url: "/multifactor-authentication/api/manage"
+                hidden: true
 
               - title: "FAQ"
                 url: "/multifactor-authentication/api/faq"
+                hidden: true
         
       - title: Silent Authentication
         url: /api-auth/tutorials/silent-authentication
@@ -307,6 +318,7 @@ articles:
 
               - title: Mitigate Replay Attacks
                 url: /api-auth/tutorials/nonce
+                hidden: true
 
       - title: "Role-based Access Control (RBAC)"
         url: "/authorization/concepts/rbac"
@@ -718,12 +730,15 @@ articles:
 
               - title: Credentials Exchange
                 url: /hooks/concepts/credentials-exchange-extensibility-point
+                hidden: true
 
               - title: Pre-User Registration
                 url: /hooks/concepts/pre-user-registration-extensibility-point
+                hidden: true
 
               - title: Post-User Registration
                 url: /hooks/concepts/post-user-registration-extensibility-point
+                hidden: true
 
           - title: Using the Auth0 CLI
             url: /hooks/guides/create-hooks-using-cli
@@ -731,18 +746,23 @@ articles:
 
               - title: Create Hooks
                 url: /hooks/guides/create-hooks-using-cli
+                hidden: true
 
               - title: Edit Hooks
                 url: /hooks/guides/edit-hooks-using-cli
+                hidden: true
 
               - title: Delete Hooks
                 url: /hooks/guides/delete-hooks-using-cli
+                hidden: true
 
               - title: Enable/Disable Hooks
                 url: /hooks/guides/enable-disable-hooks-using-cli
+                hidden: true
 
               - title: Get Log Info
                 url: /hooks/guides/logging-hooks-using-cli
+                hidden: true
 
           - title: Using the Dashboard
             url: /hooks/guides/create-hooks-using-dashboard
@@ -750,15 +770,19 @@ articles:
 
               - title: Create Hooks
                 url: /hooks/guides/create-hooks-using-dashboard
+                hidden: true
 
               - title: Edit Hooks
                 url: /hooks/guides/edit-hooks-using-dashboard
+                hidden: true
 
               - title: Delete Hooks
                 url: /hooks/guides/delete-hooks-using-dashboard
+                hidden: true
 
               - title: Enable/Disable Hooks
                 url: /hooks/guides/enable-disable-hooks-using-dashboard
+                hidden: true
 
       - title: Extensions
         url: /extensions
