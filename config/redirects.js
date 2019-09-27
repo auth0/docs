@@ -1561,6 +1561,10 @@ module.exports = [
     to: '/dashboard/dashboard-tenant-settings',
   },
   {
+    from: '/dashboard/dashboard-tenant-settings',
+    to: '/dashboard/reference/settings-tenant',  
+  },
+  {
     from: '/tutorials/manage-dashboard-admins',
     to: '/dashboard/manage-dashboard-admins',
   },

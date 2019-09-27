@@ -1,6 +1,6 @@
 ---
-title: Auth0 Dashboard Application Settings
-description: Learn about the Application Settings available through the Auth0 Dashboard.
+title: Application Settings
+description: Learn about the settings related to applications available in the Auth0 Dashboard.
 topics:
   - api-authentication
   - oidc
@@ -10,10 +10,9 @@ contentType: reference
 useCase:
   - add-login
 ---
-
 # Application Settings
 
-In the [Application](${manage_url}/#/applications) section, locate your Application, and click on its *Settings* to review the available settings.
+On the [Applications](${manage_url}/#/applications) page of the [Auth0 Dashboard](${manage_url}/, locate your Application and click its name to view the available settings.
 
 ## Basic Settings
 
