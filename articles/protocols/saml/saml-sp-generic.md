@@ -69,7 +69,7 @@ In the window that appears, metadata about this SAML  service provider  is displ
 
 The first bullet is the post-back URL or Assertion Consumer Service (ACS) URL.  This is the URL to which the Identity Provider will sent Authentication Assertions after authenticating a user.  Enter this value where the Identity Provider asks for Assertion Consumer Service URL.  It may just call this a Service Provider URL.
 
-The second bullet tells you the **"Entity ID"**.  It will be of the form __urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME__.  
+The second bullet tells you the **"Entity ID"**.  It will be of the form __urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME__.
 
 Copy and save this entire Entity ID field from "urn" all the way to the end of the connection name.  Use this value if the Identity Provider asks for Entity ID or SAML Audience.
 
@@ -79,7 +79,7 @@ The fourth bullet indicates that Auth0 expects the Identity Provider to respond 
 
 The nameid format is the format for the attribute that will be used to identify users.
 
-In that same window, near the bottom, there is a line that says, _"You can access the metadata for your connection in Auth0 here:"_.  
+In that same window, near the bottom, there is a line that says, _"You can access the metadata for your connection in Auth0 here:"_.
 
 In general, you can access the metadata for a SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME`.
 
@@ -172,10 +172,8 @@ We currently support the following algorithms for processing XML Digital Signatu
 
   * 'http://www.w3.org/2000/09/xmldsig#rsa-sha1'
   * 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'
-  * 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha512'
 
 * Digest
 
   * 'http://www.w3.org/2000/09/xmldsig#sha1'
   * 'http://www.w3.org/2001/04/xmlenc#sha256'
-  * 'http://www.w3.org/2001/04/xmlenc#sha512'
