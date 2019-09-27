@@ -78,8 +78,8 @@ listening on http://localhost:3000
 ❯ npm install cookie-session express-openid-connect
 # Ignore any warnings
 
-+ express-openid-connect@0.3.0
-+ cookie-session@1.3.3
++ express-openid-connect@0.X.X
++ cookie-session@1.X.X
 added XX packages in X.XXs
 ```
 
@@ -104,7 +104,7 @@ const { auth } = require('express-openid-connect');
 // lab-01/begin/server.js
 // ...
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 // Add the code below 👇
 app.use(session({
