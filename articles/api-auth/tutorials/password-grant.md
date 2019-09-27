@@ -23,7 +23,7 @@ You should use this flow **only if** the following apply:
 
 * Check that your application's [grant type property](/applications/concepts/application-grant-types) is set appropriately.
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0.
-* Check that the [Default Audience and/or Default Directory](dashboard/reference/settings-tenant#api-authorization-settings) has been set appropriately.
+* Check that the [Default Audience and/or Default Directory](/dashboard/reference/settings-tenant#api-authorization-settings) has been set appropriately.
 * Update or disable any [rules](/rules), such as rules that deny access based on an email domain whitelist, so they only impact specific connections. If you get an `'access_denied'` error when testing the Password Grant, this could be due to an access control rule.
 
 ## Configure your tenant
