@@ -25,7 +25,7 @@ The parameters listed in the comment at the top of the code indicate the Auth0 o
 ```js
 /**
 @param {object} user - The user being created
-@param {string} user.id - user id
+@param {string} user.id - user id (user GUID without "auth0|" database prefix)
 @param {string} user.tenant - Auth0 tenant name
 @param {string} user.username - user name
 @param {string} user.email - email
