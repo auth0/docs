@@ -36,7 +36,7 @@ To configure an Exact OAuth2 connection, you will need to register your Auth0 te
 
 8. Copy the `Client Id` and `Client Secret` from the **Manage App** page of your app in the Exact Online App Center into the fields on this page.
 
-![Exact Connection Settings](/media/articles/connections/social/exact/exact-register-6.png =50)
+![Exact Connection Settings](/media/articles/connections/social/exact/exact-register-6.png =50%)
 
 ::: note
 You can register applications in multiple regions with Exact. By default, Auth0 will use `https://start.exactonline.nl`, but this value can be overridden with the `Base URL` parameter.
