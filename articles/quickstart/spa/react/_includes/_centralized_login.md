@@ -1,7 +1,5 @@
 <!-- markdownlint-disable MD002 MD041 MD034 -->
 
-<%= include('../../_includes/_login_preamble', { library: 'React' }) %>
-
 ## Create a Sample Application
 
 ::: note
@@ -20,15 +18,16 @@ cd my-app
 
 (npx comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))
 
-### Install initial dependencies
+### Install dependencies
 
-After creating a new React app using `create-react-app` install `react-router`, which doesn't come as standard with the boilerplate project. The [Auth0 Client SDK](https://github.com/auth0/auth0-spa-js) should also be added.
-
-Install these two packages using the following command in the terminal:
+Install the following packages using `npm` in the terminal:
 
 ```bash
 npm install react-router-dom @auth0/auth0-spa-js
 ```
+
+- [`@auth0/auth0-spa-js`](https://github.com/auth0/auth0-spa-js) - Auth0's JavaScript SDK for Single Page Applications
+- [`react-router-dom`](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom) - React's router package for the browser. This will allow users to navigate between different pages with ease
 
 ### Install the Auth0 React wrapper
 
