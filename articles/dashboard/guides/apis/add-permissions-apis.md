@@ -28,7 +28,7 @@ By default, any user of any application can ask for any permission defined here.
 
 2. Click the **Permissions** tab, enter a permission name and description for the permission you want to add, and click **Add**.
 
-![Delete Permissions](/media/articles/authorization/api-def-permissions.png)
+![Add Permissions](/media/articles/authorization/api-def-permissions.png)
 
 ## Keep reading
 

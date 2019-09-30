@@ -72,8 +72,7 @@ To implement the Device Authorization Flow, you can follow our tutorial: [Call Y
 
 ::: whats-next
   * The device authorization flow works for native apps. Learn how to [Add Login to Your Native/Mobile App](/microsites/add-login/add-login-native-mobile-app)
-  * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).[;]
-  "
+  * Auth0 offers many ways to personalize your user's login experience and customize tokens using [rules](/rules) and [hooks](/hooks).
   * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect Your API](/microsites/protect-api/protect-api).
   * Learn more about the ways Auth0 can help you [manage user profiles](/microsites/manage-users/manage-users-and-user-profiles) and [maintain custom user data](/microsites/manage-users/define-maintain-custom-user-data).
 :::

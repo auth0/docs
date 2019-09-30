@@ -499,6 +499,95 @@ This is the OAuth 2.0 grant that input-constrained devices use to access an API.
 - [Call API using the Device Authorization Flow](/flows/guides/device-auth/call-api-device-auth)
 - [Setting up a Device Code Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard)
 
+## On-Behalf-Of Flow
+
+```http
+POST https://${account.namespace}/oauth/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=urn:ietf:params:oauth:grant-type:token-exchange&subject_token=SOURCE_API_TOKEN&subject_token_type=urn:ietf:params:oauth:token-type:access_token&client_id=SOURCE_API_CLIENT_ID&client_secret=SOURCE_API_CLIENT_SECRET&audience=TARGET_API_IDENTIFIER&scope=SCOPE
+```
+
+```shell
+curl --request POST \
+  --url 'https://${account.namespace}/oauth/token' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --data 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange&subject_token=SOURCE_API_TOKEN&subject_token_type=urn:ietf:params:oauth:token-type:access_token&client_id=SOURCE_API_CLIENT_ID&client_secret=SOURCE_API_CLIENT_SECRET&audience=TARGET_API_IDENTIFIER&scope=SCOPE'
+ }'
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://${account.namespace}/oauth/token',
+  headers: { 'content-type': 'application/x-www-form-urlencoded' },
+  form:
+   { grant_type: 'urn:ietf:params:oauth:grant-type:token-exchange',
+     subject_token: 'SOURCE_API_TOKEN',
+     subject_token_type: 'urn:ietf:params:oauth:token-type:access_token',
+     client_id: 'SOURCE_API_CLIENT_ID',
+     client_secret: 'SOURCE_API_CLIENT_SECRET',
+     audience: 'TARGET_API_IDENTIFIER',
+     scope: 'SCOPE',
+   };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+
+> RESPONSE SAMPLE:
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+{ 
+  "access_token": "eyJz93a...k4laUWw",
+  "id_token": "eyJ...0NE",
+  "refresh_token": "eyJ...MoQ",
+  "expires_in":86400,
+  "token_type":"Bearer"
+}
+```
+
+<%= include('../../../_includes/_http-method', {
+  "http_badge": "badge-success",
+  "http_method": "POST",
+  "path": "/oauth/token",
+  "link": "#on-behalf-of"
+}) %>
+
+With applications that access APIs via a middle-tier API, it can be useful to allow an API to get Access Tokens for other APIs using only the Access Token already issued for itself&mdash;and without additional user interaction. To do this, a source API uses a version of the Token Exchange flow (drafted in [OAuth 2.0](https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-19)) to initiate a second authorization process and get an Access Token for another, target API. 
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For On-Behalf-Of, use `urn:ietf:params:oauth:grant-type:token-exchange`. |
+| `subject_token` <br/><span class="label label-danger">Required</span> | The Access Token issued to the application by the Source API, representing the user. |
+| `subject_token_type` <br/><span class="label label-danger">Required</span> | Identifier that indicates the type of `subject_token`. Currently supported On-Behalf-Of values are: `urn:ietf:params:oauth:token-type:access_token`. |
+| `client_id` <br/><span class="label label-danger">Required</span> | Your Source API's Client ID. |
+| `client_secret` <br/><span class="label label-danger">Required</span> | Your Source API's Client Secret. |
+| `audience` | The unique identifier of the Target API you want to access. |
+| `scope` | String value of the different <dfn data-key="scope">scopes</dfn> the Source API is requesting. Multiple scopes are separated with whitespace. |
+
+### Remarks
+
+- The <dfn data-key="scope">scopes</dfn> issued to the application may differ from the scopes requested. In this case, a `scope` parameter will be included in the response JSON.
+- If you don't request specific scopes, all scopes defined for the audience will be returned due to the implied trust to the application in this grant. You can customize the scopes returned in a rule. For more information, refer to [Calling APIs from Highly Trusted Applications](/api-auth/grant/password).
+
+- If you don't request specific scopes, the scopes selected in the Source API/Target API pairing will be returned by default.
+- When no scopes are selected in when adding the Source API/Target API pairing, no scopes will be returned in the tokens.
+- If you request a scope that falls outside of the scopes selected when adding the Source API/Target API pairing, the request will fail.
+
+### More Information
+- [On-Behalf-Of Flow](/flows/concepts/on-behalf-of)
+- [Call API Using On-Behalf-Of Flow](/flows/guides/on-behalf-of/call-api-on-behalf-of)
+
+
 ## Refresh Token
 
 ```http
