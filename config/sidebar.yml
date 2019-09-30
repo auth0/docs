@@ -208,21 +208,18 @@ articles:
 ## Identity Providers / Connections
 ## ------------------------------------------------------------
 
-  - title: Connections (Identity Providers)
+  - title: Connections
     url: /connections
     children:
 
       - title: Social Identity Providers
-        url: "/connections#social"
-        hidden: true
+        url: "/connections/identity-providers-social"
 
       - title: Enterprise Identity Providers
-        url: "/connections#enterprise"
-        hidden: true
+        url: "/connections/identity-providers-enterprise"
 
       - title: Legal Identity Providers
-        url: "/connections#legal-identities"
-        hidden: true
+        url: "/connections/identity-providers-legal"
       
       - title: Database
         url: /connections/database
