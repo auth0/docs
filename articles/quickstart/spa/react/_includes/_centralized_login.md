@@ -260,8 +260,11 @@ export default App;
 
 This replaces the default content created by `create-react-app` and simply shows the `NavBar` component you created earlier.
 
-> **Checkpoint**: At this point, you should be able to go through a complete authentication cycle, logging in and loggin out. Start the application from the terminal using `yarn start` and browse to http://localhost:3000 (if the application does not open automatically). From there, clicking the **Log in** button should redirect you to the Auth0 Login Page where you will be given the opportunity to log in.
-> Once you are logged in, control returns to your application and you should see that the **Log out** button is now visible. Clicking this should log you out of the application and return you to an unauthenticated state.
+:::panel Checkpoint
+At this point, you should be able to go through a complete authentication cycle, logging in and loggin out. Start the application from the terminal using `yarn start` and browse to http://localhost:3000 (if the application does not open automatically). From there, clicking the **Log in** button should redirect you to the Auth0 Login Page where you will be given the opportunity to log in.
+
+Once you are logged in, control returns to your application and you should see that the **Log out** button is now visible. Clicking this should log you out of the application and return you to an unauthenticated state.
+:::
 
 ## Read the User Profile
 
@@ -370,7 +373,9 @@ const NavBar = () => {
 export default NavBar;
 ```
 
-> **Checkpoint**: Go ahead and run the project one more time. Now if the user is authenticated and you navigate to the `/profile` page, you will see their profile data. See how this content disappears when you log out.
+:::panel Checkpoint
+Go ahead and run the project one more time. Now if the user is authenticated and you navigate to the `/profile` page, you will see their profile data. See how this content disappears when you log out.
+:::
 
 ## Secure the Profile Page
 
@@ -440,4 +445,6 @@ function App() {
 export default App;
 ```
 
-> **Checkpoint**: Run the project again. Now if the user is not authenticated and you navigate to the `/profile` page through the URL bar in the browser, you will be sent through the authentication flow, and will see the Profile page upon your return.
+:::panel Checkpoint
+Run the project again. Now if the user is not authenticated and you navigate to the `/profile` page through the URL bar in the browser, you will be sent through the authentication flow, and will see the Profile page upon your return.
+:::
