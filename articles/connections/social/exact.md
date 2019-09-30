@@ -1,10 +1,9 @@
 ---
-title: Connect your app to Exact
+title: Connect Your App to Exact
 connection: Exact
 image: /media/connections/exact.png
 seo_alias: exact
-description: How to obtain a Client Id and Client Secret for Exact.
-toc: true
+description: Learn how to connect your application to Exact.
 topics:
   - connections
   - social
@@ -15,52 +14,32 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to Exact
+# Connect Your App to Exact
 
 To configure an Exact OAuth2 connection, you will need to register your Auth0 tenant on the [Exact Online App Center](https://apps.exactonline.com/).
 
-## 1. Register a new app
+1. Register a new app by logging into the Exact Online App Center and clicking on **Manage Apps**, then **Add a new application**.
 
-Log into the Exact Online App Center and click on **Manage Apps**:
+2. Enter your app name.
 
-![](/media/articles/connections/social/exact/exact-register-1.png)
+3. Enter your <dfn data-key="callback">callback URL</dfn>: `https://${account.namespace}/login/callback`.
 
-and then click **Add a new application**:
+    <%= include('../_find-auth0-domain-redirects') %>
 
-![](/media/articles/connections/social/exact/exact-register-2.png)
+4. Click **Save**.
 
-## 2. Edit your App Properties.
+5. Click **Edit** below your app. 
 
-Enter your app name:
+6. On the **Manage App** page, under the **Authorization** section, copy the `Client Id` and `Client Secret` provided.
 
-![](/media/articles/connections/social/exact/exact-register-3.png)
+7. In the Auth0 Dashboard, navigate to [Connections > Social](${manage_url}/#/connections/social), and choose **Exact**. 
 
-In the `Redirect URI` field, enter your <dfn data-key="callback">callback URL</dfn>:
+8. Copy the `Client Id` and `Client Secret` from the **Manage App** page of your app in the Exact Online App Center into the fields on this page.
 
-    https://${account.namespace}/login/callback
-
-  <%= include('../_find-auth0-domain-redirects') %>
-
-Click **Save**.
-
-## 3. Get your new app's *Client Id* and *Client Secret*
-
-On the following page, your new app will be listed. To retrieve the `Client Id` and `Client Secret`, click **Edit**:
-
-![](/media/articles/connections/social/exact/exact-register-4.png)
-
-On this page, from the **Authorization** section, copy the `Client Id` and `Client Secret` provided.
-
-![](/media/articles/connections/social/exact/exact-register-5.png)
-
-## 4. Copy the *Client Id* and *Client Secret* to the Auth0 dashbaord.
-
-Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Exact**. Copy the `Client Id` and `Client Secret` from the **Manage App** page of your app in the Exact Online App Center into the fields on this page on Auth0.
-
-![](/media/articles/connections/social/exact/exact-register-6.png)
+![Exact Connection Settings](/media/articles/connections/social/exact/exact-register-6.png)
 
 ::: note
-You can register applications in multiple regions with Exact. By default Auth0 will use `https://start.exactonline.nl`, but this value can be overridden with the `Base URL` parameter.
+You can register applications in multiple regions with Exact. By default, Auth0 will use `https://start.exactonline.nl`, but this value can be overridden with the `Base URL` parameter.
 :::
 
 <%= include('../_quickstart-links.md') %>
