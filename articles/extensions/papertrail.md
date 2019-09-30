@@ -42,7 +42,7 @@ To configure a new system for Auth0 logs and acquire the *PAPERTRAIL_HOST* and *
 1. Login to [Papertrail](https://papertrailapp.com). You'll be directed to the **quick start and tour** page. 
 2. Click the *Add your first system* button.
 
-You'll get redirected again, and at the top of the page, you will see a message that says something like **Your logs will go to logs4.papertrailapp.com:12345 and appear in Events.**. The log destination displayed is where your logs will go. The log and port information map to the *PAPERTRAIL_HOST* (i.e., `logs4.papertrailapp.com`) and *PAPERTRAIL_PORT* (i.e., `12345`)variables Auth0 asked for, respectively.
+You'll get redirected again, and at the top of the page, you will see a message that says something like **Your logs will go to logs4.papertrailapp.com:12345 and appear in Events.**. The log destination displayed is where your logs will go. The log and port information map to the *PAPERTRAIL_HOST* (i.e., `logs4.papertrailapp.com`) and *PAPERTRAIL_PORT* (i.e., `12345`) variables Auth0 asked for, respectively.
 
 Per Papertrail, "no explicit configuration is required...just start sending logs. When Papertrail receives a message from a hostname that is not already present in your account, the system will be automatically added."
 
