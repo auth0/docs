@@ -20,9 +20,7 @@ github:
 
 ### Add Dependencies
 
-Install the following dependencies using `go get`.
-
-${snippet(meta.snippets.dependencies)}
+This example uses Go Modules and will download automatically all the needed dependencies during build process.
 
 ::: note
 This example uses `mux` for routing but you can use whichever router you want.
@@ -119,8 +117,8 @@ import (
 
 	oidc "github.com/coreos/go-oidc"
 
-	"../../app"
-	"../../auth"
+	"app"
+	"auth"
 )
 
 func CallbackHandler(w http.ResponseWriter, r *http.Request) {
@@ -204,8 +202,8 @@ import (
 	"encoding/base64"
 	"net/http"
 
-	"../../app"
-	"../../auth"
+	"app"
+	"auth"
 )
 
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
@@ -360,13 +358,7 @@ This sample is using [js.cookie](https://github.com/js-cookie/js-cookie/tree/lat
 
 We can use [Negroni](https://github.com/codegangsta/negroni) to create a Middleware that will check if the user is Authenticated or not.
 
-First, we need to install it via `go get`:
-
-```bash
-go get github.com/codegangsta/negroni
-```
-
-Then, we should create a middleware that will check if the `profile` is in the session:
+We should create a middleware that will check if the `profile` is in the session:
 
 ```go
 // routes/middlewares/isAuthenticated.go
@@ -376,7 +368,7 @@ package middlewares
 import (
 	"net/http"
 
-	"../../app"
+	"app"
 )
 
 func IsAuthenticated(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
