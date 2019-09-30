@@ -261,7 +261,7 @@ export default App;
 This replaces the default content created by `create-react-app` and simply shows the `NavBar` component you created earlier.
 
 :::panel Checkpoint
-At this point, you should be able to go through a complete authentication cycle, logging in and loggin out. Start the application from the terminal using `yarn start` and browse to http://localhost:3000 (if the application does not open automatically). From there, clicking the **Log in** button should redirect you to the Auth0 Login Page where you will be given the opportunity to log in.
+At this point, you should be able to go through the complete authentication flow: logging in and logging out. Start the application from the terminal using `yarn start` and browse to [localhost:3000](http://localhost:3000) (if the application does not open automatically). From there, clicking the **Log in** button should redirect you to the Auth0 login page where you will be given the opportunity to log in.
 
 Once you are logged in, control returns to your application and you should see that the **Log out** button is now visible. Clicking this should log you out of the application and return you to an unauthenticated state.
 :::
