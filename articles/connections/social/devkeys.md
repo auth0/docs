@@ -38,7 +38,7 @@ The Auth0 developer keys are to be used for testing purposes so there are a few 
 
 2. [Single Sign-on](/sso) will not function properly when using the Auth0 developer keys. The reason for this is that the Auth0 developer applications with all the relevant Identity Providers are configured to call back to the URL `https://login.auth0.com/login/callback` instead of the <dfn data-key="callback">callback URL</dfn> for your own tenant, for example `https://${account.namespace}/login/callback`.
 
-    This results in the SSO cookie not being set on your own tenant domain, so the next time a user authenticates no SSO cookie will be detected, even if you configured your application to **Use Auth0 instead of the Identity Provider to do Single Sign-on**.
+    This results in the SSO cookie not being set on your own tenant domain, so the next time a user authenticates no SSO cookie will be detected, even if you configured your application to **Use Auth0 instead of the Identity Provider to do Single Sign-on** (legacy tenants only).
 
     ::: warning
     If you are using the [New Universal Login Experience](/universal-login), the remaining items on this list are not limitations that apply to you. If you are not using Universal Login, or are using the Classic Experience, read on.

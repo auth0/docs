@@ -54,7 +54,7 @@ You can provide up to 100 URLs in the **Allowed Callback URLs**, **Allowed Web O
 
 - **JWT Expiration (seconds)**: The amount of time (in seconds) before the Auth0 ID Token expires. The default value is `36000`, which maps to 10 hours.
 
-- **Use Auth0 instead of the IdP to do Single Sign-on**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook or ADFS).
+- **Use Auth0 instead of the IdP to do Single Sign-on**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook or ADFS). **Legacy tenants only.**
 
 ## Advanced Settings
 
