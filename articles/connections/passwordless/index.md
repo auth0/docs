@@ -141,11 +141,7 @@ When using passwordless authentication with email, users:
 
 ## Implement Passwordless
 
-::: warning
-We strongly recommend implementing passwordless with <dfn data-key="universal-login">[Universal Login](/universal-login)</dfn>, which redirects users to a central domain, through which authentication is performed, before redirecting users back to your application.
-
-If you are building a Native application, which uses device-specific hardware and software, Universal Login is the only way to go.
-:::
+We strongly recommend implementing passwordless with <dfn data-key="universal-login">[Universal Login](/universal-login)</dfn>, which redirects users to a central domain, through which authentication is performed, before redirecting users back to your application. If you are building a Native application, which uses device-specific hardware and software, Universal Login is the only way to go.
 
 Alternatively, you can use an embedded login form with the Lock (with Passwordless) widget. Using [Embedded Login](/login/embedded) with any application type leaves your application vulnerable to cross-origin resource sharing (CORS) attacks and requires the use of [Auth0 Custom Domains](/custom-domains), which is a paid feature.
 
