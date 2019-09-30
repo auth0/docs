@@ -67,7 +67,7 @@ Where:
   - You have performed a redirect via rules
   - Your app is using delegation (and you haven't set `scope = passthrough`)
   - Your app is using impersonation
-  - You have enabled the **Use Auth0 instead of the IdP to do Single Sign-On** setting
+  - You have enabled the **Use Auth0 instead of the IdP to do Single Sign-On** setting (legacy tenants only)
 - For <dfn data-key="security-assertion-markup-language">SAMLP</dfn> connections, if you enable Debug mode, your logs will contain information on the blacklisted attributes
 
 :::panel Working around the limitations

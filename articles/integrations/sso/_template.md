@@ -148,7 +148,7 @@ On the **Settings** page, configure the following values:
         </tr>
         <% } %>
         <tr>
-            <td>Use Auth0 instead of the IdP to do Single Sign-on (SSO)</td>
+            <td>Use Auth0 instead of the IdP to do Single Sign-on (SSO). **Legacy tenants only.**</td>
             <td>If enabled, Auth0 will handle SSO instead of ${service}.</td>
         </tr>
     </tbody>
