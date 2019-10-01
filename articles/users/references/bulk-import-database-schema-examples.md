@@ -31,7 +31,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
             "description": "The user's email address.",
             "format": "email"
         },
-            "email_verified": {
+        "email_verified": {
             "type": "boolean",
             "default": false,
             "description": "Indicates whether the user has verified their email address."
