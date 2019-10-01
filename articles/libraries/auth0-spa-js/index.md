@@ -134,7 +134,7 @@ document.getElementById('callApi').addEventListener('click', async () => {
 ```
 
 ```js
-// with promises
+// or with promises
 document.getElementById('callApi').addEventListener('click', () => {
   auth0
     .getTokenSilently()
