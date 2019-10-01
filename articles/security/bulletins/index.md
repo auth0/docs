@@ -27,6 +27,7 @@ Each bulletin contains a description of the vulnerability, how to identify if yo
 
 | **Date** | **Bulletin number** | **Title** | **Affected software** |
 |-|-|-|-|
+| September 05, 2019 | [Auth0 bulletin](/security/bulletins/2019-09-05_scopes) | Auth0 Security Bulletin for assigning scopes based on email address | Custom code within Auth0 rules |
 | July 23, 2019 | [CVE 2019-13483](/security/bulletins/cve-2019-13483) | Security Bulletin for Passport-SharePoint < 0.4.0 | [Passport-SharePoint](https://github.com/auth0/passport-sharepoint) |
 | February 15, 2019 | [CVE 2019-7644](/security/bulletins/cve-2019-7644) | Security Bulletin for Auth0-WCF-Service-JWT < 1.0.4 | [Auth0-WCF-Service-JWT](https://www.nuget.org/packages/Auth0-WCF-Service-JWT/) |
 | January 10, 2019 | [Auth0 bulletin](/security/bulletins/2019-01-10_rules) | Auth0 Security Bulletin for Vulnerable Patterns in Custom Rule Code | Custom code within Auth0 Rules |
