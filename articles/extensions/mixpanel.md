@@ -41,6 +41,8 @@ Set the following configuration variables:
 
 Once you have provided this information, click the **Install** button to finish installing the extension.
 
+<%= include('./_includes/_batch-size') %>
+
 ## Use your extension
 
 To view all jobs, navigate to [Dashboard > Extensions](${manage_url}/#/extensions), click on the **Installed Extensions** link, and select the **Auth0 Logs to Mixpanel** line. There you can see the alls job and failed jobs. You can also view the logs of these runs.

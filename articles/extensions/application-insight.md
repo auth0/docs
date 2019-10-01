@@ -26,6 +26,8 @@ At this point you should set the following configuration variables:
 
  Once you have provided the appropriate values for the above fields, click __Install__ to proceed.
 
+ <%= include('./_includes/_batch-size') %>
+
 ## Retrieve the required information from Application Insights
 
 Let's see how we can retrieve the __AppInsights_Instrumentation_Key__ information.
