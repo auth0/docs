@@ -22,13 +22,6 @@ If you plan to use global variables in your rule, be sure to [configure your rul
 
 1. Navigate to the [Rules](${manage_url}/#/rules) page in the [Auth0 Dashboard](${manage_url}/), and click **Create Rule**.
 
-![Click Create Rule](/media/articles/authorization/role-list.png)
-
 2. Select a rule template.
 
-![Select Rule Template](/media/articles/authorization/role-name-role.png)
-
 3. Name the rule, modify the script to suit your needs, and click **Save Changes**.
-
-![Add Rule](/media/articles/authorization/role-def-empty-permissions.png)
-
