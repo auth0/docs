@@ -119,7 +119,7 @@ To call your API, start by getting the user's Access Token. Then use the Access 
 ```
 
 ```js
-// with async/await
+// either with async/await
 document.getElementById('callApi').addEventListener('click', async () => {
   const accessToken = await auth0.getTokenSilently();
   const result = await fetch('https://exampleco.com/api', {
