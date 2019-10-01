@@ -14,7 +14,7 @@ The mappings allow you to do the following:
 
 * Use the same configuration file for all of your environments (e.g. dev, uat, staging, and prod).
 
-* Replace certain values in your configuration repo with environment specic values. There are two ways to use the keyword mappings: You can either wrap the key in `@@key@@` or `##key##`. 
+* Replace certain values in your configuration repo with environment-specific values. There are two ways to use the keyword mappings: You can either wrap the key in `@@key@@` or `##key##`. 
 
   - If you use the `@` symbols, it will do a `JSON.stringify` on your value before replacing it.  So if it is a string, it will add quotes. and if it is an array or object, it will add braces.  
 
