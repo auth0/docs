@@ -10,6 +10,8 @@ Auth0 makes it easy for your app to implement the Device Authorization flow usin
 
 **Before beginning this tutorial:**
 
+* Check [limitations](#limitations) to be sure the Device Authorization flow is suitable for your implementation.
+
 * [Register the Application with Auth0](/dashboard/guides/applications/register-app-native). 
   * Select an **Application Type** of **Native**.
   * If necessary, set **Allowed Web Origins**. You can use this to allow localhost as an origin for local development, or to set an allowed origin for specific TV software with architecture subject to CORS (eg: HTML5 + JS). Most applications will not use this setting.
