@@ -2256,5 +2256,9 @@ module.exports = [
     {
       from: '/private-saas-deployment/custom-domain-migration', 
       to: '/private-cloud/custom-domain-migration'
+    },
+    {
+      from: '/policies/requests',
+      to: '/policies/unsupported-requests'
     }
 ];

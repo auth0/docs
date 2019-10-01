@@ -38,7 +38,7 @@ The following tenants are NOT affected:
 You can search your tenant logs with the following to look for queries that would throw errors after you migrate to v3:
 
 ```
-type:depnote AND description:*logs migration*
+type:depnote AND description:*logs*
 ```
 
 These log entries include a `description` field that specifies the deprecated behavior you're using. You can also check the `details.request.path` and `client_name` fields to see what application is calling either `GET /api/v2/logs` or `GET /api/v2/users/{user_id}/logs`.
