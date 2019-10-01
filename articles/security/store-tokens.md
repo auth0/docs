@@ -45,6 +45,16 @@ Browser local storage (or session storage) is [not a secure place to store sensi
 
 If an attacker steals a token, they can gain access to and make requests to your API. Treat tokens like credit card numbers or passwords: don’t store them in local storage.
 
+### Using cookies
+
+Under certain circumstances, you can use cookies to authenticate a single-page application:
+
+* if your SPA is served to the client using your own backend
+* if your SPA has the same domain as your backend
+* if your SPA makes API calls that require authentication to your backend
+
+For an overview of this approach and an example implementation, see [Single-Page App Authentication Using Cookies](/login/spa/authenticate-with-cookies).
+
 ### If a backend is present
 
 If your single-page app has a backend server at all, then tokens should be handled server-side using the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), or [Hybrid Flow](/api-auth/grant/hybrid).
