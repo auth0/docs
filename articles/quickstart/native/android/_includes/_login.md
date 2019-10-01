@@ -33,7 +33,7 @@ Finally, create a `login` method and use the `WebAuthProvider` class to authenti
 After you call the `WebAuthProvider#start` function, the browser launches and shows the **Lock** widget. Once the user authenticates, the callback URL is called. The callback URL contains the final result of the authentication process.
 
 ```java
-// app/src/main/java/com/auth0/samples/MainActivity.java
+// app/src/main/java/com/auth0/samples/LoginActivity.java
 
 private void login() {
     WebAuthProvider.login(auth0)
@@ -113,3 +113,46 @@ There are many options to customize the authentication with the `WebAuthProvider
 <div class="phone-mockup">
   <img src="/media/articles/native-platforms/android/login-android.png" alt="Mobile example screenshot" />
 </div>
+
+## Logout
+
+Use WebAuthProvider to remove the cookie set by the Browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate.
+
+Check in the LoginActivity if a boolean extra is present in the Intent at the Activity launch. This scenario triggered by the MainActivity dictates that the user wants to log out.
+
+```java
+// app/src/main/java/com/auth0/samples/MainActivity.java
+private void logout() {
+    Intent intent = new Intent(this, LoginActivity.class);
+    intent.putExtra(LoginActivity.EXTRA_CLEAR_CREDENTIALS, true);
+    startActivity(intent);
+    finish();
+}
+// app/src/main/java/com/auth0/samples/LoginActivity.java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    // ...
+    if (getIntent().getBooleanExtra(EXTRA_CLEAR_CREDENTIALS, false)) {
+        logout();
+    }
+}
+private void logout() {
+    WebAuthProvider.logout(auth0)
+            .withScheme("demo")
+            .start(this, new VoidCallback() {
+                @Override
+                public void onSuccess(Void payload) {
+                }
+                @Override
+                public void onFailure(Auth0Exception error) {
+                    // Show error to user
+                }
+            });
+}
+```
+
+The logout is achieved by using the WebAuthProvider class. This call will open the Browser and navigate the user to the logout endpoint. If the log out is cancelled, you might want to take the user back to where they were before attempting to log out.
+
+::: note
+Future steps of this quickstart guide move the `VoidCallback` in-line instance into a class field named `logoutCallback`.
+:::
