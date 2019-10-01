@@ -33,6 +33,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
         },
             "email_verified": {
             "type": "boolean",
+            "default": false,
             "description": "Indicates whether the user has verified their email address."
         },
         "user_id": {
@@ -80,7 +81,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
             "description": "Data related to the user that does not affect the application's core functionality."
         }
     },
-    "required": ["email", "email_verified"],
+    "required": ["email"],
     "additionalProperties": false
 }
 ```
