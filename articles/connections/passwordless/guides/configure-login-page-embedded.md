@@ -16,7 +16,7 @@ useCase: customize-connections
 Lock's <dfn data-key="passwordless">Passwordless</dfn> mode is only available in Lock v11.2.0 and later. Please use the [latest release of Lock](https://github.com/auth0/lock/releases) for this feature!
 :::
 
-This guide gives an overview of how to set up an login page for use with [Passwordless](/connections/passwordless) authentication using our [Lock](/libraries/lock/v11) widget embedded in your own login page.
+This guide gives an overview of how to set up a login page for use with [Passwordless](/connections/passwordless) authentication using our [Lock](/libraries/lock/v11) widget embedded in your own login page.
 
 <%= include('../../../_includes/_embedded_login_warning') %>
 

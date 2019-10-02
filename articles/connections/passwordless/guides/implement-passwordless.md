@@ -15,11 +15,11 @@ useCase:
 ---
 # Implement Passwordless Authentication
 
-This tutorial will show you how to implement passwordless authentication.
+This guide will show you how to implement passwordless authentication.
 
 ## Prerequisites
 
-**Before beginning this tutorial:**
+**Before beginning this guide:**
 
 * [Register your Application with Auth0](/dashboard/guides/applications/register-app-regular-web). 
   * Select the appropriate **Application Type**.
@@ -30,7 +30,7 @@ This tutorial will show you how to implement passwordless authentication.
 
 1. [Set up the passwordless connection](#set-up-the-passwordless-connection): Set up the passwordless connection with which users can authenticate.
 
-2. [Configure the Login Screen](#configure-the-login-screen): Configure your login screen to work with passwordless.
+2. [Configure the login page](#configure-the-login-screen): Configure your login page to work with passwordless.
 
 3. [Configure your application](#configure-your-application): Configure your application to call the login page. 
 
@@ -43,17 +43,37 @@ Set up the passwordless connection. This includes choosing the authentication me
 
 To learn how, see [Set Up Passwordless Connections](/dashboard/guides/connections/set-up-connections-passwordless).
 
-## Configure the login screen
+## Configure the login page
 
-Configure your login screen to work with passwordless. 
+Configure your login page to work with passwordless. You have a few different options for this:
 
-We strongly recommend implementing passwordless with <dfn data-key="universal-login">[Universal Login](/universal-login)</dfn>, which redirects users to a central domain, through which authentication is performed, before redirecting users back to your application. To learn how to configure your login page for use with passwordless, see [Configure Universal Login with Passwordless](/dashboard/guides/universal-login/configure-login-page-passwordless).
+### Universal Login
+
+The best option is to use Auth0's Universal Login feature, which allows you to handle the various flavors of authentication without having to do any integration work. Better yet, your application will inherit all improvements Auth0 makes to its login flow without you needing to change a single line of code.
 
 ::: warning
-If you are building a Native application, which uses device-specific hardware and software, Universal Login is the only way to go.
+We strongly recommend implementing passwordless with <dfn data-key="universal-login">[Universal Login](/universal-login)</dfn>. In fact, if you are building a Native application, which uses device-specific hardware and software, Universal Login is the only way to go.
+
+To learn how to configure your login page for use with passwordless, see [Configure Universal Login with Passwordless](/dashboard/guides/universal-login/configure-login-page-passwordless).
 :::
 
-Alternatively, you can use an embedded login form with the Lock (with Passwordless) widget. Using [Embedded Login](/login/embedded) with any application type leaves your application vulnerable to cross-origin resource sharing (CORS) attacks and requires the use of [Auth0 Custom Domains](/custom-domains), which is a paid feature. To learn how to configure an embedded login page for use with passwordless, see [Configure Login Page for Passwordless: Embedded + Lock (with Passwordless)](/connections/passwordless/guides/configure-login-page-embedded).
+You can use Universal Login with Passwordless authentication in two ways:
+
+* **Universal Login + Lock (with Passwordless)**: Configure your login page using Universal Login with the Lock (with passwordless) template. The Lock (with passwordless) template provides a sample login page using Auth0's Lock widget with Passwordless mode. You can customize the template using [available Lock options](/libraries/lock/v11#passwordless). 
+
+* **Universal Login + Custom UI + Auth0.js**: Configure your login page using Universal Login with the Custom UI template. The Custom UI template provides a sample login page using HTML, CSS, and Auth0.js. You can customize the template to use your own HTML and CSS styling. You will also need to customize it to work with Passwordless by using available [Auth0.js options](/libraries/auth0js/v9#passwordless-login).
+
+To learn how to configure your login page for passwordless using Universal Login, see [Configure Universal Login with Passwordless](/dashboard/guides/universal-login/configure-login-page-passwordless).
+
+### Embedded Login
+
+An alternative option is to use an embedded login form with the Lock (with Passwordless) widget. Using [Embedded Login](/login/embedded) with any application type leaves your application vulnerable to cross-origin resource sharing (CORS) attacks and requires the use of [Auth0 Custom Domains](/custom-domains), which is a paid feature. 
+
+::: warning
+If you are building a Native application, which uses device-specific hardware and software,Embedded Login is not a viable option. In this case, to provide passwordless authentication to your users, you must use Universal Login.
+:::
+
+To learn how to configure an embedded login page for use with passwordless, see [Configure Login Page for Passwordless: Embedded + Lock (with Passwordless)](/connections/passwordless/guides/configure-login-page-embedded).
 
 ## Configure your application
 

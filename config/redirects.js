@@ -2258,6 +2258,10 @@ module.exports = [
       to: '/private-cloud/custom-domain-migration'
     },
     {
+      from: '/connections/passwordless/sms-gateway',
+      to: '/connections/passwordless/guides/use-sms-gateway-passwordless'
+    },
+    {
       from: '/policies/requests',
       to: '/policies/unsupported-requests'
     }

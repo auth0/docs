@@ -141,11 +141,16 @@ When using passwordless authentication with email, users:
 
 ## Implement Passwordless
 
-We strongly recommend implementing passwordless with <dfn data-key="universal-login">[Universal Login](/universal-login)</dfn>, which redirects users to a central domain, through which authentication is performed, before redirecting users back to your application. If you are building a Native application, which uses device-specific hardware and software, Universal Login is the only way to go.
+To implement passwordless authentication, you will need to:
 
-Alternatively, you can use an embedded login form with the Lock (with Passwordless) widget. Using [Embedded Login](/login/embedded) with any application type leaves your application vulnerable to cross-origin resource sharing (CORS) attacks and requires the use of [Auth0 Custom Domains](/custom-domains), which is a paid feature.
+1. Set up the passwordless connection in Auth0.
+2. Set up your login page to work with Passwordless.
+    * Universal Login + Lock (with passwordless)
+    * Universal Login + Custom UI + Auth0.js
+    * Embedded Login
+3. Configure your application.
 
-To learn how to set up a passwordless connection and configure your login page, see [Implement Passwordless Authentication](/connections/passwordless/guides/implement-passwordless).
+To learn how to set up a passwordless connection, configure your login page, and configure your application, see [Implement Passwordless Authentication](/connections/passwordless/guides/implement-passwordless).
 
 ## Limitations
 
