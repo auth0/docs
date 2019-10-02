@@ -1,5 +1,5 @@
 ---
-title: Set Up SMS Gateway for Passwordless Connections
+title: Set Up Custom SMS Gateway for Passwordless Connections
 topics:
     - connections
     - passwordless
@@ -7,9 +7,9 @@ topics:
 contentType: how-to
 useCase: customize-connections
 ---
-# Configure SMS Gateway for Passwordless Connections
+# Set Up Custom SMS Gateway for Passwordless Connections
 
-This guide will show you how to use a custom SMS gateway to send out your one-time use codes.
+This guide will show you how to use a custom SMS gateway to send out your one-time-use codes.
 
 By default, [Passwordless SMS connections](/connections/passwordless#supported-authentication-methods) use [Twilio](https://www.twilio.com/) to send out one-time use codes. However, if you have a custom SMS gateway, you can modify your connection to use that instead.
 
