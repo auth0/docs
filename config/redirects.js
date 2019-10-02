@@ -2260,5 +2260,9 @@ module.exports = [
     {
       from: '/policies/requests',
       to: '/policies/unsupported-requests'
+    },
+    {
+      from: '/rules/guides/create',
+      to: '/dashboard/guides/rules/create-rules'
     }
 ];

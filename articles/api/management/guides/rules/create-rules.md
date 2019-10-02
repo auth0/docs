@@ -21,7 +21,7 @@ This guide will show you how to create [rules](/rules) using Auth0's Management 
 ```har
 {
 	"method": "POST",
-	"url": "https://${account.namespace}/api/v2/roles",
+	"url": "https://${account.namespace}/api/v2/rules",
   "headers": [
   	{ "name": "Content-Type", "value": "application/json" },
   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
