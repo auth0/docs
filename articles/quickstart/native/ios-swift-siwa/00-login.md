@@ -26,6 +26,6 @@ This tutorial describes how to implement the native [Sign In With Apple](https:/
 
 Before you start, you'll need:
 * An [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. There is no free trial available unless you're in the [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).
-* To configure your Auth0 tenant and application client to enable **Sign In With Apple**. See [Add Sign In with Apple to Your Native App](/articles/connections/references/apple-native/guides/add-siwa-to-native-app) for details on how to do this.
+* To configure your Auth0 tenant and application client to enable **Sign In With Apple**. See [Add Sign In with Apple to Your Native App](/connections/apple-siwa/add-siwa-to-native-app) for details on how to do this.
 
 <%= include('_includes/_login_centralized') %>
