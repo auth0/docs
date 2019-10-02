@@ -198,10 +198,6 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 The following Auth0 Authentication API endpoints return rate limit-related headers.
 
-::: note
-For all endpoints, Enterprise subscribers are limited to 100 requests per second.
-:::
-
 <table class="table">
   <thead>
     <tr>
