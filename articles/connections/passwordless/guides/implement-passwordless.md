@@ -15,13 +15,13 @@ useCase:
 ---
 # Implement Passwordless Authentication
 
-This guide will show you how to implement passwordless authentication.
+This guide will show you how to implement [passwordless authentication](/connections/passwordless), which will allow your users to log in without a password. Instead, they will use a one-time-use code or magic link received via SMS or email.
 
 ## Prerequisites
 
 **Before beginning this guide:**
 
-* [Register your Application with Auth0](/dashboard/guides/applications/register-app-regular-web). 
+* [Register your Application with Auth0](/getting-started/set-up-app). 
   * Select the appropriate **Application Type**.
   * Add an **Allowed Callback URL**.
   * If you have chosen to use [embedded login](/login/embedded), [set up Cross-Origin Resource Sharing (CORS)](/dashboard/guides/applications/set-up-cors).
@@ -45,7 +45,7 @@ To learn how, see [Set Up Passwordless Connections](/dashboard/guides/connection
 
 ## Configure the login page
 
-Configure your login page to work with passwordless. You have a few different options for this:
+Configure your login page to work with passwordless. This includes setting up the passwordless fields on your login page and selecting user interface options.
 
 ### Universal Login
 
@@ -59,7 +59,7 @@ To learn how to configure your login page for use with passwordless, see [Config
 
 You can use Universal Login with Passwordless authentication in two ways:
 
-* **Universal Login + Lock (with Passwordless)**: Configure your login page using Universal Login with the Lock (with passwordless) template. The Lock (with passwordless) template provides a sample login page using Auth0's Lock widget with Passwordless mode. You can customize the template using [available Lock options](/libraries/lock/v11#passwordless). 
+* **Universal Login + Lock (passwordless)**: Configure your login page using Universal Login with the Lock (passwordless) template. The Lock (passwordless) template provides a sample login page using Auth0's Lock widget with Passwordless mode. You can customize the template using [available Lock options](/libraries/lock/v11#passwordless). 
 
 * **Universal Login + Custom UI + Auth0.js**: Configure your login page using Universal Login with the Custom UI template. The Custom UI template provides a sample login page using HTML, CSS, and Auth0.js. You can customize the template to use your own HTML and CSS styling. You will also need to customize it to work with Passwordless by using available [Auth0.js options](/libraries/auth0js/v9#passwordless-login).
 
