@@ -23,7 +23,7 @@ Then you can simplify your implementation by using cookies to authenticate your 
 
 The steps below show how tokens are retrieved and used. In this approach, the [Form Post Response Mode](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html) is used instead of a traditional [Authorization Code flow](/flows/concepts/auth-code). This is because Form Post Response Mode is a simpler way to implement login when it’s your own resource you are requesting access to.
 
-![SPA Cookie Authentication](media/articles/login/spa/image1.png)
+![SPA Cookie Authentication](/media/articles/login/spa/image1.png)
 
 1. The user accesses a protected route using the browser, or performs some action that requires an authentication step to be initiated (such as clicking on a Login button)
 2. The browser client redirects to a `/login` route on the backend, or to the protected route depending on what the user did
@@ -35,7 +35,7 @@ At this point, the user is authenticated and the backend has the required tokens
 
 From now on, this cookie is traded between the client and backend when API calls are made using an AJAX call. On each request, the backend verifies if the cookie is still valid and if so, allows the request to continue.
 
-![Cookie Exchange Between Client & Backend](media/articles/login/spa/image2.png)
+![Cookie Exchange Between Client & Backend](/media/articles/login/spa/image2.png)
 
 ### Dealing with invalid or missing cookies
 
@@ -72,7 +72,7 @@ The development server uses [`nodemon`](https://www.npmjs.com/package/nodemon), 
 :::
 ### Explore the application
 With the application open at [http://localhost:3000](http://localhost:3000), click the **Call API** button. You should see a message displayed on the screen.
-![Call API Message](media/articles/login/spa/image3.png)
+![Call API Message](/media/articles/login/spa/image3.png)
 Note that you were able to make the API call without being logged in. Let's fix that by adding authentication some middleware that requires the user to authenticate before the API call can be made.
 ### Adding authentication middleware
 Inside the terminal, run the following command to install the additional libraries:
@@ -193,7 +193,7 @@ BASE_URL=http://localhost:3000
 ### Setting up an Auth0 app
 If you don't already have an Auth0 account, you can [sign up for a free Auth0 account here](https://auth0.com/signup).
 Next, set up an Auth0 Client and API so Auth0 can interface with your app and API.
-![Create App Dashboard](media/articles/login/spa/image5.png)
+![Create App Dashboard](/media/articles/login/spa/image4.png)
 1. Go to your [Auth0 Dashboard](${manage_url}) and click the [Create Application](https://manage.auth0.com/#/applications/create) button.
 2. Name your new app, select **Regular Web Applications** and click the **Create** button.
 3. In the **Settings** for your new Auth0 app, add `http://localhost:3000/callback` to the **Allowed Callback URLs**.
@@ -201,7 +201,7 @@ Next, set up an Auth0 Client and API so Auth0 can interface with your app and AP
 5. Click the **Save Changes** button.
 6. If you'd like, you can [set up some social connections](${manage_url}/#/connections/social). You can then enable them for your app in the **Application** options under the **Connections** tab. The example shown in the screenshot above utilizes username/password database, Facebook, Google, and Twitter.
 On the **Settings** screen, note the domain and client ID settings at the top.
-![Application Settings](media/articles/login/spa/image5.png)
+![Application Settings](/media/articles/login/spa/image5.png)
 These are the two values that need to be configured as part of the application. Reopen the `.env` file and set these values:
 ```
 ISSUER_BASE_URL=${account.namespace}
@@ -214,8 +214,8 @@ With the server and environment configuration done, find your browser window tha
 $ npm run dev
 ```
 Then open [http://localhost:3000](http://localhost:3000) in the browser. From a user interface perspective, the application should look the same. However, this time when the **Call API** button is clicked, you should receive a warning that the user is not logged in. Also note that you do not see the "Hello, World" message as before, since the call to the API has been rejected.
-![User Is Not Logged In](media/articles/login/spa/image6.png)
+![User Is Not Logged In](/media/articles/login/spa/image6.png)
 Click the "Log in now" to login. Once you have been authenticated, you'll return to the application and see an updated UI that reflects your newly-logged in state. You should be able to press the **Call API** button once more to invoke an API call to the server, and it now works!
-![User Is Logged In](media/articles/login/spa/image7.png)
+![User Is Logged In](/media/articles/login/spa/image7.png)
 You can click the "Profile" link at the top of the page to show user information retrieved from the ID token.
-![User Profile](media/articles/login/spa/image8.png)
+![User Profile](/media/articles/login/spa/image8.png)
