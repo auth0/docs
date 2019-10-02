@@ -10,7 +10,7 @@ useCase:
 ---
 # Migration Guide for Resource Owner Password Credentials Exchange
 
-Support for Resource Owner Password was added to [oauth/token](/api/authentication#authorization-code) and usage of the [oauth/ro](/api/authentication#resource-owner) endpoint will be deprecated at some point in the future.
+Support for Resource Owner Password was added to [oauth/token](/api/authentication#authorization-code). Usage of the [oauth/ro](/api/authentication#resource-owner) endpoint was deprecated on July 08, 2017.
 
 ## Does this affect me ?
 
