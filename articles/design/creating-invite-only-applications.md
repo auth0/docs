@@ -58,13 +58,13 @@ Every user that exists in ExampleCo should be created in your Auth0 database con
 
 ### Email Verification
 
-Once you've created the user in Auth0, you'll send the appropriate `POST` call from your app to the [Create an Email Verification Ticket endpoint](/api/management/v2#!/Tickets/post_email_verification) to trigger an email that verifies the user's email.
+Once you've created the user in Auth0, send a `POST` request from your app to the [Send an email address verification email](/api/management/v2#!/Jobs/post_verification_email) endpoint that includes:
 
-Be sure to update the following placeholder values:
+* `user_id`: the Auth0 user ID to send the verification email to.
+* `client_id` (optional): the client ID of your app.
 
-* `MGMT_API_ACCESS_TOKEN`: replace with your [API Access Token](/api/management/v2/tokens)
-* `YOUR_APP_CALLBACK_URL`: replace with the callback/return URL for your app
-* `USER_ID`: replace with the Auth0 user ID for the end user
+Be sure to update the `MGMT_API_ACCESS_TOKEN` placeholder value below with your [API Access Token](/api/management/v2/tokens).
+
 ```har
 {
 	"method": "POST",
@@ -78,7 +78,7 @@ Be sure to update the following placeholder values:
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"result_url\": \"YOUR_APP_CALLBACK_URL\", \"user_id\": \"USER_ID\", \"ttl_sec\": 0 }"
+		"text": "{ \"user_id\": \"abcd|1234\", \"client_id\": \"xyz789" }"
 	},
 	"headersSize": -1,
 	"bodySize": -1,
