@@ -26,4 +26,6 @@ If a user has triggered a block as part of anomaly detection, you can unblock th
 
 To protect the health of the system overall, putting these restrictions in place help mitigate the load on our systems. Due to the high amount of customization Auth0 provides, we risk degradation of service from users that may perform high load stress or benchmark tests, as well as the possibility of bad code causing users to login multiple times.
 
+Requests are subject to limits as outlined in the Rate Limit Policy for Auth0 APIs.
+
 [Click here to learn more about API Rate Limits](/rate-limits)
