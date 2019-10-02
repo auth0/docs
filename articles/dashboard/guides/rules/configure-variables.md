@@ -18,10 +18,6 @@ This guide will show you how to configure global variables for [rules](/rules) u
 
 1. Navigate to the [Rules](${manage_url}/#/rules) page in the [Auth0 Dashboard](${manage_url}/), and locate the **Settings** section.
 
-![Locate Rules Settings](/media/articles/authorization/role-name-role.png)
-
 2. Enter a variable key/value pair, and click **Add**.
-
-![Add Global Variable for Rules](/media/articles/authorization/role-name-role.png)
 
 The entered value is now available to all rules via the global `configuration` object and can be referenced using the value in the **Code Snippet** column.
