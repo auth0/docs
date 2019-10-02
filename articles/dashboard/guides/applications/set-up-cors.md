@@ -25,5 +25,3 @@ For security purposes, your app's origin URL must be listed as an approved URL. 
 ![View Applications](/media/articles/dashboard/guides/app-list.png)
 
 2. Scroll down and locate **Allowed Origins (CORS)**, enter your app's origin URL, and click **Save Changes**
-
-![Enter Allowed Origin URL](/media/articles/clients/change-client-secret/client-settings.png)

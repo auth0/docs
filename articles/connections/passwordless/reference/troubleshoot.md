@@ -18,7 +18,7 @@ In this guide, you'll find some information for troubleshooting passwordless aut
 
 ## How long is the one-time use code/link valid?
 
-One-time use authetication codes or links are valid for an amount of time set in your app's [Passwordless Connection Settings](${manage_url}/connections/passwordless).
+One-time use authentication codes or magic links are valid for an amount of time set in your app's [Passwordless Connection Settings](${manage_url}/connections/passwordless).
 
 ## Can users share passwords with others?
 

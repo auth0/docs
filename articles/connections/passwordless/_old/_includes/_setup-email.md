@@ -18,7 +18,7 @@ You will need to use your own email provider to be able to modify the `From`, `S
 ![Configure Email Passwordless](/media/articles/connections/passwordless/connections-passwordless-email.png)
 
 ::: note
-You must change the **From** value to a non **@auth0com** address for your custom email to be sent. Otherwise the default email template will be sent.
+You must change the **From** value to a non **@auth0.com** address for your custom email to be sent. Otherwise the default email template will be sent.
 :::
 
 3. Enter any **Authentication Parameters** you would like to include in the generated sign-in link.
