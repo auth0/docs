@@ -78,7 +78,7 @@ Be sure to update the `MGMT_API_ACCESS_TOKEN` placeholder value below with your 
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"user_id\": \"abcd|1234\", \"client_id\": \"xyz789" }"
+		"text": "{ \"user_id\": \"abcd|1234\", \"client_id\": \"xyz789\" }"
 	},
 	"headersSize": -1,
 	"bodySize": -1,
