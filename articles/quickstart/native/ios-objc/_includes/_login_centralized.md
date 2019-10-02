@@ -84,7 +84,7 @@ Then, add the following `UIApplicationDelegate` method:
 }
 ```
 
-## Implement Login
+# Implement Login
 
 ${snippet(meta.snippets.setup)}
 
@@ -114,6 +114,21 @@ To learn more about the `credentials` object, read the [Credentials](https://git
 
 <%= include('../../../../_includes/_logout_url') %>
 
-::: note
-If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to whitelist in the Allowed Logout URLs field is the same as the callback URL.
-:::
+## Implement logout
+To clear the session on the server side you need to invoke the `clearSession` method. Add the following snippet:
+```swift
+// HybridAuth.swift
+@objc
+func logOutUser(callback: @escaping(Bool) -> Void){
+    Auth0
+        .webAuth()
+        .clearSession(federated: true){
+            callback($0)
+        }
+}
+```
+Go to your [Dashboard Settings](${manage_url}/#/applications/${account.clientId}/settings) and make sure that the **Allowed Logout URL** field contains the following logout callback URL:
+```text
+{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
+```
+After the call, the callback will receive a BOOL with the logout status.
