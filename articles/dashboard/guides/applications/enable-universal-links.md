@@ -40,7 +40,7 @@ To find your iOS application's `Bundle identifier`, go to its [Xcode project set
 
 3. Select the *Device Settings* tab, provide the **Team ID** and the **App bundler identifier** values for your iOS application, and click **Save Changes**.
 
-![](/media/articles/applications/mobile-settings.png)
+![](/media/articles/applications/device-settings.png)
 
 ## Test Your Universal Link
 

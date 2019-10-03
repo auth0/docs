@@ -37,7 +37,7 @@ keytool -list -v -keystore my-release-key.keystore
 For more info about signing certificates, see Android's [Sign Your App](https://developer.android.com/studio/publish/app-signing.html) developer doc.
 :::
 
-![Add Device Settings](/media/articles/applications/mobile-settings.png)
+![Add Device Settings](/media/articles/applications/device-settings.png)
 
 
 ## Test Your App Link
