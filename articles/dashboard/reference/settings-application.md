@@ -60,7 +60,7 @@ You can provide up to 100 URLs in the **Allowed Callback URLs**, **Allowed Web O
 
 The **Advanced Settings** section allows you to:
 
-* Manage or add Application Metadata, Mobile, OAuth, and WS-Federation settings 
+* Manage or add Application Metadata, Device, OAuth, and WS-Federation settings 
 * Obtain certificates and token endpoint information
 * Set the grant type(s) for the Application
 
@@ -72,7 +72,7 @@ Application metadata are custom string keys and values (each of which has a char
 
 You can create up to 10 sets of metadata.
 
-### Mobile Settings
+### Device Settings
 
 If you're developing a mobile application, you can provide the necessary iOS/Android parameters here.
 

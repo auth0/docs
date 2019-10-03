@@ -59,7 +59,7 @@ You can check for the latest version on the repository [Readme](https://github.c
 5. Complete the "Allowed Mobile Client IDs" field with the `CLIENT ID` obtained in the step 5 of the **Google Developers Console** section above.
 6. Click the Save button.
 7. Go to the Auth0 Dashboard and click [Applications](${manage_url}/#/applications). If you haven't created yet one, do that first and get into your application configuration page.
-8. At the bottom of the page, click the "Show Advanced Settings" link and go to the "Mobile Settings" tab.
+8. At the bottom of the page, click the "Show Advanced Settings" link and go to the "Device Settings" tab.
 9. In the Android section, complete the **Package Name** with your application's package name. Finally, complete the **Key Hashes** field with the SHA-256 of the certificate you're using to sign your application. If you need help obtaining the SHA-256 check [this](#certificate-fingerprints) section. Click the "Save Changes" button.
 
 #### Android application
@@ -247,7 +247,7 @@ _You can check for the latest version on the repository [Readme](https://github.
 4. Complete the "App Secret" field with the `APP SECRET` value obtained in the step 5 of the **Facebook Developers Console** section above.
 5. Click the Save button.
 6. Go to the Auth0 Dashboard and click [Applications](${manage_url}/#/applications). If you haven't created yet one, do that first and get into your application configuration page.
-7. At the bottom of the page, click the "Show Advanced Settings" link and go to the "Mobile Settings" tab.
+7. At the bottom of the page, click the "Show Advanced Settings" link and go to the "Device Settings" tab.
 8. In the Android section, complete the **Package Name** with your application's package name. Finally, complete the **Key Hashes** field with the SHA-256 of the certificate you're using to sign your application. If you need help obtaining the SHA-256 check [this](#certificate-fingerprints) section. Click the "Save Changes" button.
 
 #### Android application
