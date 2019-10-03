@@ -57,8 +57,8 @@ Certificate fingerprints:
 
 ## Using your key hashes
 
-Once you have your key hashes output, copy the resulting SHA256 value and go to your application's settings in the [Auth0 Dashboard](${manage_url}/#/applications). Click "Show Advanced Settings", and in the "Mobile Settings" tab, under "Android", fill the "App Package Name" with your application's package name, and the "Key Hashes" field with the SHA256 value you copied. Don't forget to save the changes.
+Once you have your key hashes output, copy the resulting SHA256 value and go to your application's settings in the [Auth0 Dashboard](${manage_url}/#/applications). Click "Show Advanced Settings", and in the "Device Settings" tab, under "Android", fill the "App Package Name" with your application's package name, and the "Key Hashes" field with the SHA256 value you copied. Don't forget to save the changes.
 
 ::: warning
-If you don't add the <dfn data-key="callback">Callback URL</dfn> to the application settings nor the Key Hashes to the application's mobile settings, the Auth0 server won't return the call result to your application.
+If you don't add the <dfn data-key="callback">Callback URL</dfn> to the application settings nor the Key Hashes to the application's device settings, the Auth0 server won't return the call result to your application.
 :::
