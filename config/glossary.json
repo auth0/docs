@@ -14,6 +14,36 @@
     "definition": "The URL to which Auth0 sends its response after authentication. It is often the same URL to which a user is redirected after authentication.",
     "short": "The URL to which Auth0 sends its response after an API call and sometimes where a user is redirected after authentication."
   },
+  "claim": {
+    "title": "Claim",
+    "definition": "An attribute packaged in a security token which represents a claim that the provider of the token is making about an entity.",
+    "short": "An attribute packaged in a security token which represents a claim that the provider of the token is making about an entity."
+  },
+  "confused-deputy": {
+    "title": "Confused Deputy",
+    "definition": "The term confused deputy refers to a situation in which an attacker tricks a client or service into performing an action on their behalf.",
+    "short": "The term confused deputy refers to a situation in which an attacker tricks a client or service into performing an action on their behalf."
+  },
+  "digital-identity": {
+    "title": "Digital Identity",
+    "definition": "The set of attributes that define a particular user in the context of a function which is delivered by a particular application.",
+    "short": "The set of attributes that define a particular user in the context of a function which is delivered by a particular application."
+  },
+  "digital-signature": {
+    "title": "Digital Signature",
+    "definition": "A digital signature protects bits in a token from tampering. If the bits are changed or tampered with, the signature will no longer be able to be verified and it will be rejected.",
+    "short": "A digital signature protects bits in a token from tampering."
+  },
+  "directory": {
+    "title": "Directory",
+    "definition": "A centralized repository of users (the most well-known of which is Active Directory) which centralizes credentials and attributes and makes it unnecessary for each application to have their own local identity setup and pool of users. Allows single sign on to all applications that use the same directory of users.",
+    "short": "A centralized repository of users that allows single sign on to all applications that use the same directory."
+  },
+  "id-token": {
+    "title": "ID Token",
+    "definition": "An ID Token is a token meant for the client itself, rather than for accessing a resource. It has a fixed format that clients can parse and validate.",
+    "short": "An ID Token is a token meant for the client itself, rather than for accessing a resource."
+  },
   "json-web-token": {
     "title": "JSON Web Token (JWT)",
     "definition": "An open, industry standard <a href='https://tools.ietf.org/html/rfc7519'>RFC 7519</a> method for representing claims securely between two parties. At Auth0, ID Tokens are always returned in JWT format, and Access Tokens are often in JWT format. You may decode well-formed JWTs at <a href='https://jwt.io'>JWT.io</a> to view their claims. See <a href='/docs/jwt'>JSON Web Tokens</a>.",
@@ -44,6 +74,16 @@
     "definition": "A form of authentication where the first factor is not a password. Instead, it could be a one-time password received by email or SMS, a push notification, or a biometric sensor. Passwordless uses one-time passwords, so users are less susceptible to the typical password-based attacks (e.g., dictionary or credential stuffing) than with traditional username/password logins. See <a href='/docs/connections/passwordless'>Passwordless</a>.",
     "short": "A form of authentication that does not rely on a password as the first factor."
   },
+  "perimeter": {
+    "title": "Perimeter",
+    "definition": "A set of boundaries that encompass a directory, all of its users, and all of the applications which use the directory. In some implementations, this perimeter is a physical location; in others, it is a set of networks or devices connected via VPN.",
+    "short": "A set of boundaries that encompass a directory, all of its users, and all of the applications which use the directory."
+  },
+  "raw-credentials": {
+    "title": "Raw Credentials",
+    "definition": "A shared secret or set of information that are agreed upon between the user and the resource that allow the resource to verify the identity of a user.",
+    "short": "A shared secret or set of information that are agreed upon between the user and the resource that allow the resource to verify the identity of a user."
+  },
   "refresh-token": {
     "title": "Refresh Token",
     "definition": "A special kind of token that can be used to obtain a renewed Access Token. It is useful for renewing expiring Access Tokens without forcing the user to log in again. Using the Refresh Token, you can request a new Access Token at any time until the Refresh Token is blacklisted. See <a href='/docs/tokens/refresh-token'>Refresh Tokens</a>.",
@@ -54,20 +94,40 @@
     "definition": "An aspect of a user’s identity assigned to the user to indicate the level of access they should have to the system. Roles are essentially collections of permissions. See <a href='/docs/authorization/concepts/rbac'>Role-based Access Control (RBAC)</a>.",
     "short": "An aspect of a user’s identity assigned to the user to give them a certain set of permissions."
   },
+  "scope": {
+    "title": "Scope",
+    "definition": "A mechanism that defines the specific actions applications can be allowed to do or information that they can request on a user’s behalf. Often, applications will want to make use of the information that has already been created in an online resource. To do so, the application must ask for authorization to access this information on a user’s behalf. When an app requests permission to access a resource through an authorization server, it uses the Scope parameter to specify what access it needs, and the authorization server uses the Scope parameter to respond with the access that was actually granted. See <a href='/docs/scopes'>Scopes</a>.",
+    "short": "A mechanism that determines actions applications can perform on a user's behalf with information previously created in an online resource."
+  },
   "security-assertion-markup-language": {
     "title": "Security Assertion Markup Language (SAML)",
     "definition": "An XML-based standardized protocol by which two parties can exchange authentication information without the use of a password. See <a href='/docs/protocols/saml'>SAML</a>.",
     "short": "A standardized protocol allowing two parties to exchange authentication information without a password."
   },
-  "scope": {
-    "title": "Scope",
-    "definition": "A mechanism that defines the specific actions applications can be allowed to do or information that they can request on a user’s behalf. Often, applications will want to make use of the information that has already been created in an online resource. To do so, the application must ask for authorization to access this information on a user’s behalf. When an app requests permission to access a resource through an authorization server, it uses the Scope parameter to specify what access it needs, and the authorization server uses the Scope parameter to respond with the access that was actually granted. See <a href='/docs/scopes'>Scopes</a>.",
-    "short": "A mechanism that determines actions applications can perform on a user’s behalf with information previously created in an online resource."
+  "security-token": {
+    "title": "Security Token",
+    "definition": "A digitally signed artifact which is used to prove that the user was successfully authenticated",
+    "short": "A digitally signed artifact which is used to prove that the user was successfully authenticated"
+  },
+  "session-cookie": {
+    "title": "Session Cookie",
+    "definition": "An entity emitted by a middleware after it establishes that the token it is receiving is signed, valid, and comes from a trusted source (the identity provider). This entity represents the fact that successful authentication occurred with the identity provider. This cookie prevents this process with tokens from needing to be continually repeated, by allowing the user to be considered authenticated as long as the cookie is present.",
+    "short": "An entity that, when present, allows the user to be considered authenticated."
+  },
+  "shadow-accounts": {
+    "title": "Shadow Accounts",
+    "definition": "A difficult to sustain practice of manually provisioning a user from a local directory separately in a remote directory (essentially creating a copy, or shadow, of the original account) when they need access to remote applications.",
+    "short": "A difficult to sustain practice of manually provisioning a user from a local directory separately in a remote directory."
   },
   "single-sign-on": {
     "title": "Single Sign-On (SSO)",
     "definition": "A service that, after a user logs into one application, automatically logs that user in to other applications, regardless of the platform, technology, or domain the user is using. The user signs in only one time (hence the name of the feature). Similarly, Single Logout (SLO) occurs when, after a user logs out from one application, they are logged out of each application or service where they were logged in. SSO and SLO are possible through the use of sessions. See <a href='/docs/sso'>Single Sign-On and Single Logout</a>.",
     "short": "A services that, after a user logs into one applicaton, automatically logs that user in to other applications."
+  },
+  "trust": {
+    "title": "Trust",
+    "definition": "A resource trusts an identity provider or authority when that resource is willing to believe what the authority says about its users.",
+    "short": "A resource trusts an identity provider or authority when that resource is willing to believe what the authority says about its users."
   },
  "universal-login": {
    "title": "Universal Login",
