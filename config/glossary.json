@@ -39,6 +39,11 @@
     "definition": "A centralized repository of users (the most well-known of which is Active Directory) which centralizes credentials and attributes and makes it unnecessary for each application to have their own local identity setup and pool of users. Allows single sign on to all applications that use the same directory of users.",
     "short": "A centralized repository of users that allows single sign on to all applications that use the same directory."
   },
+  "id-token": {
+    "title": "ID Token",
+    "definition": "An ID Token is a token meant for the client itself, rather than for accessing a resource. It has a fixed format that clients can parse and validate.",
+    "short": "An ID Token is a token meant for the client itself, rather than for accessing a resource."
+  },
   "json-web-token": {
     "title": "JSON Web Token (JWT)",
     "definition": "An open, industry standard <a href='https://tools.ietf.org/html/rfc7519'>RFC 7519</a> method for representing claims securely between two parties. At Auth0, ID Tokens are always returned in JWT format, and Access Tokens are often in JWT format. You may decode well-formed JWTs at <a href='https://jwt.io'>JWT.io</a> to view their claims. See <a href='/docs/jwt'>JSON Web Tokens</a>.",
