@@ -57,11 +57,9 @@ You can connect to any kind of database or web service with a properly-configure
     * Applications
     * Try Connection
 
-4. Select the **Custom Database** tab.
+4. Click the **Custom Database** tab, and enable the **Use my own database** option.
 
-5. Toggle the **Use my own database** switch to enable the feature.
-
-    ![Custom database tab](/media/articles/connections/database/custom-database.png)
+    ![Enable Use Own Database Option](/media/articles/dashboard/connections/database/connections-db-settings-custom-1.png)
 
 ## Create database action scripts
 
