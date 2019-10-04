@@ -40,5 +40,5 @@ We do not recommend using the Resource Owner Password Grant (ROPG) flow for nati
 Using Resource Owner Password Grant (ROPG) are less secure than the redirect-based options described above. ROPG is only for legacy. In the context of CLIs it only makes sense for things like connection strings, where you need to support legacy programs.
 
 ::: note
-If you must use ROPG in your native app instead of PKCE as we recommend, then you can use our [OIDC compliant ROPG endpoint](/api/authentication#resource-owner-password).
+If you must use ROPG in your native app instead of Device Flow as we recommend, then you can use our [OIDC compliant ROPG endpoint](/api/authentication#resource-owner-password).
 :::
