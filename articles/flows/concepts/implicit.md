@@ -41,7 +41,11 @@ For SPAs, you should use the Implicit Flow in which issued tokens are short-live
 
 The easiest way to implement the Implicit Flow is to follow our [Single-Page App Quickstarts](/quickstart/spa).
 
-You can also use our [SDKs](/libraries).
+You can also use our [Javascript SDKs](/libraries). Please ensure you are implementing mitigations that are appropriate for your SPA architecture.
+
+::: note
+The Auth0 Single-Page App SDK adheres to the new recommendations and uses the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce). Avoid this SDK if you want to implement traditional guidance using the Implicit Flow.
+:::
 
 Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Implicit Flow](/flows/guides/implicit/add-login-implicit) or [Call Your API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit).
 
