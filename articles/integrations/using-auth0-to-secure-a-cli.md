@@ -15,8 +15,8 @@ useCase:
 
 There are three ways to secure a CLI with Auth0 in order of most secure to least secure:
 
-* [Device Authorization Flow](/flows/concepts/device-auth)
-* [Client Credentials Grant Flow](#client-credentials-grant-flow) (for machines)
+* [Device Authorization Flow](#device-authorization-flow)
+* [Client Credentials Grant Flow](#client-credentials-grant-flow)
 * [Resource Owner Password Grant Flow](#resource-owner-password-grant-flow) (not recommended)
 
 The first two options are for user-based authentication, whereas the third option is only when you're attempting to authenticate the CLI client itself, which is a very rare situation.
@@ -25,7 +25,7 @@ The first two options are for user-based authentication, whereas the third optio
 
 With input-constrained devices that connect to the internet, rather than authenticate the user directly, the device asks the user to go to a link on their computer or smartphone and authorize the device. This avoids a poor user experience for devices that do not have an easy way to enter text. To do this, device apps use the Device Authorization Flow (drafted in [OAuth 2.0](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-15)), in which they pass along their Client ID to initiate the authorization process and get a token.
 
-The easiest way to implement the Device Authorization Flow is to follow the steps in [Call API Using Device Authorization Flow](/flows/guides/device-auth/call-api-device-auth).
+The easiest way to implement the [Device Authorization Flow](/flows/concepts/device-auth) is to follow the steps in [Call API Using Device Authorization Flow](/flows/guides/device-auth/call-api-device-auth).
 
 ## Client Credentials Grant Flow
 
