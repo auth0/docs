@@ -381,7 +381,7 @@ function login (username, password, callback) {
   function validatePassword(password, originalHash, callback) {
     var iterations = 1000;
     var hashBytes = Buffer.from(originalHash, 'base64');
-    var salt = hashBytes.slice(1, 17).toString('binary');
+    var salt = hashBytes.slice(1, 17);
     var hash = hashBytes.slice(17, 49);
     crypto.pbkdf2(password, salt, iterations, hash.length, function(err, hashed) {
       if (err) {
