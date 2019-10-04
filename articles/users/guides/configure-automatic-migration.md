@@ -18,29 +18,30 @@ After you create a database connection in the Dashboard, you enable user migrati
 
 These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. For more information on implementing these scripts, see [Authenticate Users using a Custom Database](/connections/database/mysql).
 
-1. Create a new database connection in the [Connections > Database](${manage_url}/#/connections/database) section of the Dashboard.
+1. Navigate to the [Connections > Database](${manage_url}/#/connections/database) page in the [Auth0 Dashboard](${manage_url}/), and click **Create DB Connection**.
 
-2. On the **Custom Database** page, enable the **Use my own database** option:
+![Dashboard: Database Connection List](/media/articles/dashboard/connections/database/connections-db-list.png)
 
-![DB Login Page in Dashboard](/media/articles/connections/database/custom-database.png)
+2. Click the **Custom Database** tab, and enable the **Use my own database** option:
 
-3. On the **Settings** page for your database, enable the **Import Users to Auth0** option:
+![Dashboard: Enable Use My Own Database Option](/media/articles/dashboard/connections/database/connections-db-settings-custom-1.png)
 
-![Dashboard Import Users Option](/media/articles/users/migrations/import-users.png)
+3. Click the **Settings** tab, and enable the **Import Users to Auth0** option:
+
+![Dashboard: Enable Import Users Option](/media/articles/dashboard/connections/database/connections-db-settings-main-2.png)
 
 ## Configure the scripts 
 
-On the **Custom Database** page, under *Database Action Scripts*, you will see the *Login* and *GetUser* scripts you need to configure.
+1. Click the **Custom Database** tab, and locate **Database Action Scripts** to see the scripts you need to configure.
 
-![Database Action Scripts page](/media/articles/connections/database/import-scripts.png)
+![Dashboard: Configure Database Action Scripts](/media/articles/dashboard/connections/database/connections-db-settings-custom-1.png)
 
-- The **Login** script executes each time a user that is not found in Auth0 database attempts to log in. It verifies that the user exists in the legacy database without prompting the user for their password again.
+- **Login**: Executes each time a user that is not found in the Auth0 database attempts to log in. Verifies that the user exists in the legacy database without re-prompting the user for their password.
 
-- The **Get User** script executes following any of these actions:
-
-* A user attempts to *sign-up*.
-* A user clicks on a valid [password change confirmation](/libraries/lock/customization#rememberlastlogin-boolean-) link.
-* The Management API receives a call to the [update a user's email or username](/api/v2#!/Users/patch_users_by_id) endpoint.
+- **Get User**: Executes following any of these actions:
+    * user attempts to *sign-up*.
+    * user clicks on valid [password change confirmation](/libraries/lock/customization#rememberlastlogin-boolean-) link.
+    * Management API receives a call to the [update a user's email or username](/api/v2#!/Users/patch_users_by_id) endpoint.
 
 :::panel-warning Passwords for Un-Migrated Users
 If an un-migrated user confirms a password change, their user profile will be created in Auth0 with the new password. This user profile will contain all the information returned in the **Get User** script. All subsequent logins of this user will be performed in Auth0 directly.
@@ -54,9 +55,9 @@ After you've enabled migration, you can verify the users that have migrated by d
 
 1. Use the [List or search users](/api/v2#!/Users/get_users) Management API endpoint.
 
-2. Review the [Users](${manage_url}/#/users) list on the Dashboard.
+2. Navigate to the [Users](${manage_url}/#/users) page in the [Auth0 Dashboard](${manage_url}/), and review the list of users.
 
-![Database Users](/media/articles/connections/database/migrated-users.png)
+![View Users](/media/articles/dashboard/users-roles/users-list.png)
 
 ## Convert the database 
 
