@@ -298,6 +298,7 @@ export class AuthService {
     // Authorize login request with Auth0: open login page and get auth results
     this.Client.authorize(options, (err, authResult) => {
       if (err) {
+        this.zone.run(() => this.loading = false);
         throw err;
       }
       // Set access token
@@ -392,8 +393,8 @@ The `AuthService` is now accessible in the view and its `login` method can be ca
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <p *ngIf="auth.loading" text-center>Loading...</p>
+<ion-content class="ion-padding">
+  <p *ngIf="auth.loading" class="ion-text-center">Loading...</p>
   <ng-template [ngIf]="!auth.loading">
     <!-- Not loading, not logged in: show login button -->
     <ion-button
