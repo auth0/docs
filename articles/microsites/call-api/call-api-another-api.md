@@ -28,6 +28,10 @@ When your app needs to fetch user data from your API:
 5. Auth0 responds with Access Token B.
 6. Access Token B can be used to call API B and retrieve requested data.
 
+For additional APIs, Auth0 uses the [On-Behalf-0f Flow](/flows/concepts/on-behalf-of).
+
+<img src="/media/articles/microsites/overview-flow-call-api-another-api.png" alt="Flow Overview for Another API" width="100%">
+
 ## Implementation overview
 
 ::: steps

@@ -18,7 +18,7 @@ With applications that access APIs via a middle-tier API, it can be useful to al
 
 ## How it works
 
-![On Behalf Of Flow](/media/articles/flows/concepts/on-behalf-of.png)
+![On Behalf Of Flow](/media/articles/flows/concepts/auth-sequence-on-behalf-of.png)
 
 1. The user clicks **Login** within the application.
 2. Your application requests tokens using whichever authentication flow is appropriate:
