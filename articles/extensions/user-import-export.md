@@ -83,8 +83,6 @@ You can click the **Add Default Fields** button to automatically select the defa
 
 You can remove extraneous attributes/expressions by clicking on its associated **trash can** icon.
 
-![](/media/articles/extensions/user-import-export/default-columns.png)
-
 Under **Settings**, you can:
 
 * Configure how your exported users are listed by providing a **User Attribute** by which users should be sorted (as well as whether the users should be sorted in ascending or descending order)
