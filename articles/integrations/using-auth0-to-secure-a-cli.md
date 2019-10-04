@@ -37,7 +37,7 @@ If your identity provider supports sending credentials, then you should use the 
 
 We do not recommend using the Resource Owner Password Grant (ROPG) flow for native applications. In the [RFC 8252 OAuth 2.0 for Native Apps](https://tools.ietf.org/html/rfc8252) from the Internet Engineering Task Force (IETF), it is recommended that “OAuth 2.0 authorization request from native apps should ONLY be made through external user-agents, primarily the user’s browser”. For details, see [RFC 8252 Embedded User-Agents](https://tools.ietf.org/html/rfc8252#section-8.12). There is also more information on this in our blog post [OAuth 2.0 Best Practices for Native Apps](https://auth0.com/blog/oauth-2-best-practices-for-native-apps/).
 
-Using Resource Owner Password Grant (ROPG) are less secure than the redirect-based options described above. ROPG is only for legacy. In the context of CLIs it only makes sense for things like connection strings, where you need to support legacy programs.
+Using Resource Owner Password Grant (ROPG) are less secure than the redirect-based options described above. ROPG is only for legacy. In the context of CLIs, it only makes sense for things like connection strings where you need to support legacy programs.
 
 ::: note
 If you must use ROPG in your native app instead of Device Flow as we recommend, then you can use our [OIDC compliant ROPG endpoint](/api/authentication#resource-owner-password).
