@@ -13,7 +13,7 @@ useCase: extensibility-extensions
 ---
 # Delegated Administration Hooks: The Settings Query Hook
 
-The **Settings Query** allows you to customize the look and feel of the Delegated Admin extension.
+The **Settings Query Hook** allows you to customize the look and feel of the Delegated Admin extension.
 
 ## The Hook Contract
 
