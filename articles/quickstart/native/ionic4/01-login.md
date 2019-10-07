@@ -136,9 +136,6 @@ ionic cordova plugin add cordova-plugin-safariviewcontroller
 
 # installation with npm
 npm install --save @ionic-native/safari-view-controller
-
-# installation with yarn
-yarn add @ionic-native/safari-view-controller
 ```
 
 The `CustomURLScheme` plugin from Cordova is also required to handle redirects properly. The sample project has it already, but if you're adding Auth0 to your own project, install this plugin as well.
@@ -422,15 +419,6 @@ The `AuthService` is now accessible in the view and its `login` method can be ca
 </ion-content>
 ```
 
-### Update Auth0 Dashboard Configuration
-
-1. After executing the `run` command, your `config.xml` file should contain `<allow-navigation>` tag(s).
-2. Make note of IP address URLs from any `<allow-navigation>` tags.
-3. In your [Auth0 Dashboard](https://manage.auth0.com), go to your Ionic app's **Settings**.
-4. Add the full allowed navigation addresses (including `http://` and ports) to the **Allowed Origins (CORS)** settings for your Auth0 application and click the **Save Changes** button.
-
-You should now be able to log into your app!
-
 ## Troubleshooting
 
 ### Cannot read property 'isAvailable' of undefined
@@ -446,3 +434,9 @@ This could also occur on iOS if you are running the app in a simulator and somet
 ### Profile doesn't show after successful login
 
 This is not actually an issue with your code, but is an Ionic quirk when running in an emulator (generally iOS). You can use a real device, or generally fix this by turning on live reload when you run your app in the emulator, and adding an alert in your `auth.service.ts` that simply creates a notification with the JSON stringified contents of the `authResult` in the `Client.authorize()` callback. This will generally fix the issue, and then you can remove the alert and everything should work normally.
+
+Also, if you changed [Ionic WebView](https://github.com/ionic-team/cordova-plugin-ionic-webview) default configuration:
+1. Open `config.xml` file and look for all `<allow-navigation>` tag(s).
+2. Make note of IP address URLs from any `<allow-navigation>` tags.
+3. In your [Auth0 Dashboard](https://manage.auth0.com), go to your Ionic app's **Settings**.
+4. Add the full allowed navigation addresses (including `http://` and ports) to the **Allowed Origins (CORS)** settings for your Auth0 application and click the **Save Changes** button.
