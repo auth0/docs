@@ -90,8 +90,8 @@ The IAM role has the required permissions to call Lambda functions; before we ca
 
 1. Log in to AWS and navigate to the [IAM Console](https://console.aws.amazon.com/iam). Click **Roles** in the left-hand navigation bar.
 2. Click **Create new role**.
-3. Under **AWS service** select **AWS Lambda** row and click the **Next: Permissions** button.
-4. On the **Attach permissions policy** screen, select the **AWSLambdaRole**. You can use the provided filter to narrow down the list of options. Click **Next: Tags** then click **Next: Review** to proceed.
+3. Under **AWS service** select the **AWS Lambda** row and click the **Next: Permissions** button.
+4. On the **Attach permissions policy** screen, select the **AWSLambdaRole**. You can use the provided filter to narrow down the list of options. Click **Next: Tags**, then click **Next: Review** to proceed.
 5. On the **Review** screen, provide a **Role name**, such as `Auth0Integration`. Leave the rest of the fields as is. Click **Create role**.
 6. Once AWS has created your role, you'll be directed back to the **Roles** page of IAM. Select your new role.
 7. On the **Summary** page for the role you've just created, click on to the **Trust relationships** tab.
