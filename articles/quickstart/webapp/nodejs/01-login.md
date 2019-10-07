@@ -14,6 +14,8 @@ useCase: quickstart
 github:
     path: 01-Login
 ---
+<!-- markdownlint-disable MD002 -->
+
 <%= include('../_includes/_getting_started', { library: 'Node.js', callback: 'http://localhost:3000/callback' }) %>
 
 <%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
@@ -41,7 +43,6 @@ If you are using git, create a `.gitignore` file (or edit your existing one, if 
 # .gitignore
 .env
 ```
-
 
 ### Install the dependencies
 
@@ -75,7 +76,12 @@ var sess = {
 };
 
 if (app.get('env') === 'production') {
-  sess.cookie.secure = true; // serve secure cookies, requires https
+  // Use secure cookies in production (requires SSL/TLS)
+  sess.cookie.secure = true;
+
+  // Uncomment the line below if your application is behind a proxy or if you're
+  // encountering the error message "Unable to verify authorization request state"
+  // app.set('trust proxy', 1);
 }
 
 app.use(session(sess));
@@ -118,6 +124,7 @@ passport.use(strategy);
 app.use(passport.initialize());
 app.use(passport.session());
 ```
+
 Please make sure these last two commands are in your code after the application of the express middleware (`app.use(session(sess)`).
 
 ### Storing and retrieving user data from the session
@@ -318,10 +325,9 @@ app.use('/', usersRouter);
 // ..
 ```
 
-### Implement navigation links 
+### Implement navigation links
 
 Use `locals.user`, as implemented in the middleware, to customize the views. For example, we can use it to conditionally render links related to the user session in the layout.
-
 
 ```pug
 //- views/layout.pug
@@ -334,12 +340,12 @@ Use `locals.user`, as implemented in the middleware, to customize the views. For
       a(href="/logout") Log Out
     else
       a(href="/login") Log In
-    
+
     // ...
     block content
 ```
 
-### Implement the user profile view 
+### Implement the user profile view
 
 Create a `views/user.pug` template. Use `locals.user` to access the user data in the session.
 
