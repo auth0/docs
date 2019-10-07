@@ -45,7 +45,7 @@ Before you can register your app in the Apple Developer Portal, you must:
 
 1. On the Apple Developer Portal, go to **Certificates, IDs, & Profiles > Identifiers** and click the **blue plus icon** next to **Identifiers** to create a new App ID.
 2. Choose **App IDs** as the identifier type and click **Continue**.
-3. Provide a description and a Bundle ID (reverse-domain name style, e.g., `com.customdomain`).
+3. Provide a description and a Bundle ID (reverse-domain name style, e.g., `com.acme`).
 4. Scroll down and check **Sign In with Apple**.
 5. Click **Continue**, and then click **Register**.
 
@@ -55,8 +55,8 @@ Before you can register your app in the Apple Developer Portal, you must:
 
     ![Register Services ID](/media/articles/connections/social/apple/apple-registerservicesid.jpg)
 
-2. Choose **Services IDs** and click **Continue**. Fill in the description and identifier (`com.customdomain.webapp`).
-3. After checking **Sign In with Apple**, click on **Configure** and define your **Web Domain** (`customdomain.com`) and your **Return URL**. Make sure that your Return URL follows this format: `https://customdomain.com/login/callback`.
+2. Choose **Services IDs** and click **Continue**. Fill in the description and identifier (`com.acme.webapp`).
+3. After checking **Sign In with Apple**, click on **Configure** and define your **Web Domain** (`acme.com`) and your **Return URL**. Make sure that your Return URL follows this format: `https://YOUR_AUTH0_CUSTOM_DOMAIN/login/callback`.
 
     ![Configure URLs](/media/articles/connections/social/apple/apple-configureurls.jpg)
 
