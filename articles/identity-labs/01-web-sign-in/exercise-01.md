@@ -35,7 +35,7 @@ If you've never cloned a repo before, please see [GitHub's instructions ](https:
 :::
 
 2. Review the `server.js` code. This is a generic Node.js HTTP server that uses `body-parser` to parse the JSON, buffer, string, and URL-encoded data received. It also includes `morgan` to log HTTP requests.
-3. The `.env-sample` file will be used for the environment variables you need for this lab. It’s populated with `PORT` (theport number where the app will run). You will set the rest of the values later on in the lab. For now, create a copy of the file in the same folder and name it `.env`. Run the following commands in your terminal:
+3. The `.env-sample` file will be used for the environment variables you need for this lab. It’s populated with `PORT` (the port number where the app will run). You will set the rest of the values later on in the lab. For now, create a copy of the file in the same folder and name it `.env`. Run the following commands in your terminal:
 
 ```bash
 # Make sure we're in the right directory
@@ -135,7 +135,7 @@ The middleware needs to be given some information to build a proper OpenID reque
 - **The URL of the authorization server.** This URL will be used to download the OpenID Connect configuration from the discovery document, available at the URL `https://{your-auth0-domain}/.well-known/openid-configuration` ([here is the configuration](https://auth0.auth0.com/.well-known/openid-configuration) for the main Auth0 tenant). The discovery document is a standard OpenID Connect mechanism used to publish relevant discovery metadata of the OpenID Connect provider, including a link to what keys should be used for validating the tokens it issues.
 - **The unique identifier for your application.** This is created on the authorization server and is a unique string that identifies your application. This identifier must be provided in each request, so the authorization server knows what application the authentication request is for.
 
-You will use the Auth0 Dashboard to register your application with Auth0. Afterwards, you’ll be able to retrieve the two values above and configure them as environment variables for your app. The middleware will read these environment variables and use them to build the request when a user tries to authenticate.
+You will use the Auth0 Dashboard to register your application with Auth0. Afterward, you’ll be able to retrieve the two values above and configure them as environment variables for your app. The middleware will read these environment variables and use them to build the request when a user tries to authenticate.
 
 9. Log into the Auth0 Dashboard, go to the [Applications page](${manage_url}/#/applications), and click the **Create Application** button.
 
