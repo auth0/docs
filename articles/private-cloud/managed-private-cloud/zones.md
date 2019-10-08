@@ -27,27 +27,27 @@ You can create new zones via the Private Cloud Dashboard.
 
 Go to **<manage_url>/psaas/dashboard** (replace **manage_url** with your specific URL). In the left-hand navigation bar, click ****Zones**.
 
-![](zones-1.png)
+![](/media/articles/private-cloud/zones/zones-1.png)
 
 In the top-right corner, click **Create Zone**. Auth0 will create for you a new, inactive zone.
 
-![](zones-2.png)
+![](/media/articles/private-cloud/zones/zones-2.png)
 
 Click on the downward pointing arrow to reveal the zones creation screen. You'll be asked to provide a **Name** for the zone, as well as the nodes you want to be **Members** of the zone.
 
-![](zones-3.png)
+![](/media/articles/private-cloud/zones/zones-3.png)
 
 Once you provide a **Name** and indicate the **Members** of the zone, you can click **Save Zones** to persist your changes. Your zone remains inactive until you switch the toggle to **Active** (only one zone may be active at any given time).
 
-![](zones-4.png)
+![](/media/articles/private-cloud/zones/zones-4.png)
 
 Once you have a zone created, you will see a new drop-down menu in the left-hand navigation bar.
 
-![](zones-6.png)
+![](/media/articles/private-cloud/zones/zones-6.png)
 
 This new drop-down menu allows you to switch between zones for configuration.
 
-![](zones-5.png)
+![](/media/articles/private-cloud/zones/zones-5.png)
 
 ## Configure zones
 
@@ -55,7 +55,7 @@ To change the configuration for your zone, go to **Cloud Resources** using the l
 
 Recall that the drop-down menu on the left-hand navigation bar allows you to switch between zones for configuration. Make sure that this area shows the zone for which you are adjusting the configuration.
 
-![](zones-7.png)
+![](/media/articles/private-cloud/zones/zones-7.png)
 
 Once you've made sure that you're adjusting the settings for the correct zone, you can change the **Credentials**, information about the **PostgreSQL instance**, and **Listener** information. 
 
