@@ -23,19 +23,7 @@ To change this behavior, you can make your web app take advantage of yet another
 
 ![Allow API to grant offline access](/media/articles/identity-labs/lab-02-api-allow-offline.png)
 
-2. Now, Open the `webapp/server.js` file and add a statement to import the `Issuer` class provided by the `openid-client library`:
-
-```js
-// webapp/server.js
-
-require('dotenv').config();
-// ... other required packages
-
-// Add the code below 👇
-const { Issuer } = require('openid-client');
-```
-
-3. Add `offline_access` to the `authorizationParams.scope` field passed to the `auth()` middleware:
+2. Now, Open the `webapp/server.js` file and add `offline_access` to the `authorizationParams.scope` field passed to the `auth()` middleware:
 
 ```js
 // webapp/server.js
@@ -53,7 +41,7 @@ app.use(auth({
 }));
 ```
 
-4. Find the following line in the `/expenses` endpoint code and replace it with the following:
+3. Now, find the following line in the `/expenses` endpoint code and replace it with the following:
 
 ```js
 // webapp/server.js
@@ -68,18 +56,13 @@ app.get('/expenses', requiresAuth(), async (req, res, next) => {
 
     // ... with this 👇
     let tokenSet = req.openid.tokens;
-    if (tokenSet.expired()) {
-      const issuer = await Issuer.discover(process.env.ISSUER_BASE_URL);
-      const client = new issuer.Client({
-        client_id: process.env.CLIENT_ID,
-        client_secret: process.env.CLIENT_SECRET
-      });
-      tokenSet = await client.refresh(tokenSet.refresh_token);
+    if(tokenSet.expired()) {
+      tokenSet = await req.openid.client.refresh(tokenSet);
       tokenSet.refresh_token = req.openid.tokens.refresh_token;
       req.openid.tokens = tokenSet;
     }
 
-    // ...
+    // ... keep the rest
   }
   // ...
 });
@@ -87,11 +70,11 @@ app.get('/expenses', requiresAuth(), async (req, res, next) => {
 
 This change will update your endpoint to check if the `tokenSet` is expired. If it is, the `Issuer` class will create a client that is capable of refreshing the `tokenSet`. To see the refreshing process in action, you will have to make a small change to your Auth0 API configuration.
 
-5. Navigate to the [APIs screen](${manage_url}/#/apis) in your Auth0 Dashboard and open the API created in the last exercise. Set both the **Token Expiration (Seconds)** and **Token Expiration For Browser Flows (Seconds)** values to 10 seconds or less and click **Save**:
+4. Navigate to the [APIs screen](${manage_url}/#/apis) in your Auth0 Dashboard and open the API created in the last exercise. Set both the **Token Expiration (Seconds)** and **Token Expiration For Browser Flows (Seconds)** values to 10 seconds or less and click **Save**:
 
 ![Access token expiration time](/media/articles/identity-labs/lab-02-api-token-expiration.png)
 
-6. Back in your editor, add a log statement to `api/api-server.js` to show when the new access token was issued:
+5. Back in your editor, add a log statement to `api/api-server.js` to show when the new access token was issued:
 
 ```js
 // api/api-server.js
@@ -105,9 +88,9 @@ app.get('/', requiredScopes('read:reports'), (req, res) => {
 });
 ```
 
-7. Restart both the application and API (`[CTRL]` + `[c]`, then `npm start`).
+6. Restart both the application and API (`[CTRL]` + `[c]`, then `npm start`).
 
-8. Log out and log in again. This will get you a complete set of tokens (ID token, access token, and refresh token). Note, at this point, you will see a new consent screen for the offline_access scope, which you need to accept.
+7. Log out and log in again. This will get you a complete set of tokens (ID token, access token, and refresh token). Note, at this point, you will see a new consent screen for the offline_access scope, which you need to accept.
 
 Open [localhost:3000/expenses](http://localhost:3000/expenses) in your browser and refresh the page. You will see that your API logs a timestamp in the terminal. The same timestamp will be logged every time you refresh the page as long as your token remains valid. Then, if you wait a few seconds (more than ten) and refresh the view again, you will see that your API starts logging a different timestamp, which corresponds to the new token retrieved. This shows that you are getting a different access token every ten seconds and that your web application uses the refresh token automatically to get them.
 
