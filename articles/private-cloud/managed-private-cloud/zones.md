@@ -25,7 +25,7 @@ Each zone has its own configuration, which informs the base configuration for a 
 
 You can create new zones via the Private Cloud Dashboard.
 
-Go to **<manage_url>/psaas/dashboard** (replace **manage_url** with your specific URL). In the left-hand navigation bar, click ****Zones**.
+Go to **<manage_url>/psaas/dashboard** (replace **manage_url** with your specific URL). In the left-hand navigation bar, click **Zones**.
 
 ![](/media/articles/private-cloud/zones/zones-1.png)
 
