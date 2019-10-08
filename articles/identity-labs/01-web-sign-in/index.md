@@ -21,7 +21,7 @@ The Node OIDC npm package that this lab uses has not been tested, licensed, or o
 
 ## Prerequisites
 
-- Read the introduction on the [main Identity Labs page](/labs/)
+- Read the introduction on the [main Identity Labs page](/identity-labs)
 - Watch the [Introduction to Identity video](/videos/learn-identity/01-introduction-to-identity)
 - Watch the [OIDC and OAuth video](/videos/learn-identity/02-oidc-and-oauth)
 - Watch the [Web Sign-In video](/videos/learn-identity/03-web-sign-in)
