@@ -1,6 +1,5 @@
 ---
 section: exercises
-classes: topic-page
 description: Auth0 digital identity Lab 4: Single Page App
 topics:
   - digital identity
@@ -15,7 +14,7 @@ contentType:
 
 ## Prerequisites
 
-- Read the introduction on the [main Identity Labs page](/labs/)
+- Read the introduction on the [main Identity Labs page](/identity-labs)
 - Watch the [Single Page Apps video](/videos/learn-identity/06-single-page-apps)
 
 ## What You'll Need
