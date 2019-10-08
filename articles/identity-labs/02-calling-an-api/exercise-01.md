@@ -1,6 +1,5 @@
 ---
 section: exercises
-classes: topic-page
 description: Auth0 digital identity Lab 2, Exercise 1: Consuming APIs
 topics:
   - digital identity
@@ -15,9 +14,9 @@ contentType:
 
 <%= include('../_includes/first-page-of-lab-note') %>
 
-After learning how to secure your web application with Auth0 in [lab 1](/identity-labs/01-web-sign-in), you will now learn how to make this application consume APIs on behalf of your users. You will start by running an unsecured API and a web application to see both working together, then you will secure your API with Auth0.
+After learning how to secure your web application with Auth0 in [lab 1](/identity-labs/01-web-sign-in), you will now learn how to make this application consume APIs on behalf of your users. You will start by running an unsecured API and a web application to see both working together, and then you will secure your API with Auth0.
 
-1. Open a new terminal and browse to `/lab-02/begin/api` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/). This is where the code for your API resides. The API is an Express backend that contains a single endpoint. This endpoint (served under the root path) returns expenses. Think about these expenses as data that belong to each user in particular (although they are actually static and the same for all).
+1. Open a new terminal and browse to `/lab-02/begin/api` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/). This is where the code for your API resides. The API is an Express backend that contains a single endpoint. This endpoint (served under the root path) returns expenses, which are data that belong to each user (though they are static and the same for all).
 
 <%= include('../_includes/git-clone-note') %>
 
@@ -92,11 +91,11 @@ If you changed the port for the API above, make sure to update the `API_URL` wit
 listening on http://localhost:3000
 ```
 
-8. Open [localhost:3000](http://localhost:3000) in your browser. There, you will see the homepage of the web application and, if you log in, you will be able to access the expenses report. The page might look similar to the Lab 1 solution, however the difference is that the Expenses information is provided by an external API instead of being hard-coded in the Web app.
+8. Open [localhost:3000](http://localhost:3000) in your browser. There, you will see the homepage of the web application and, if you log in, you will be able to access the expenses report. The page might look similar to the Lab 1 solution, however, the difference is that an external API provides the Expenses information instead of being hard-coded in the Web app.
 
 ![First page of the starter application](/media/articles/identity-labs/lab-02-starter-app-rendered.png)
 
-Right now, even though the application requires authentication, the API does not. That is, you are calling the API from the Web app, without any authentication information. In fact, if you browse to the API's URL at [localhost:3001](http://localhost:3001) without logging in, you will see the expenses. In the following steps, you will update your application to call the API with a token.
+Right now, even though the application requires authentication, the API does not. That is, you are calling the API from the Web app, without any authentication information. If you browse to the API's URL at [localhost:3001](http://localhost:3001) without logging in, you will see the expenses. In the following steps, you will update your application to call the API with a token.
 
 9. Open `webapp/server.js` in your code editor and replace this code:
 
@@ -196,6 +195,6 @@ The `API_AUDIENCE` value is the identifier for the API that will be created in t
 
 **And that's it!** You have just configured your web application to consume the API on behalf of the logged in user.
 
-If you restart the application in your terminal, logout, and try to log back in, you will see an error because no resource server with the identifier `https://expenses-api` has been registered yet. In the next exercise, you will learn how to create and secure APIs with Auth0 and this request will begin to work.
+If you restart the application in your terminal, logout, and try to log back in, you will see an error because no resource server with the identifier `https://expenses-api` has been registered yet. In the next exercise, you will learn how to create and secure APIs with Auth0, and this request will begin to work.
 
 <a href="/identity-labs/02-calling-an-api/exercise-02" class="btn btn-transparent">Next →</a>
