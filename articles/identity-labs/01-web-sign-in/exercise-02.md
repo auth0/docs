@@ -15,9 +15,9 @@ contentType:
 
 <%= include('../_includes/first-page-of-lab-note') %>
 
-In this exercise, you will sign up to your application (which will also log you in) while exploring some of the most relevant network traces of the authentication process.
+In this exercise, you will sign up for your application (which will also log you in) while exploring some of the relevant network traces of the authentication process.
 
-1. Open a new tab in Chrome, open **Developer Tools**, click the **Network** tab, and navigate to your localhost application.
+1. Using Chrome, open **Developer Tools**. Switch to the **Network** tab, and navigate to your localhost application.
 
 2. The first request you should see is a GET request to your application homepage:
 
@@ -35,9 +35,7 @@ https://${account.namespace}/authorize
 &redirect_uri=${account.callback}
 &response_mode=form_post
 ```
-
 ---
-
 The middleware sends several parameters. The important ones for this lab are:
 
 - `client_id`: the unique identifier of your app at the authorization server
@@ -56,7 +54,7 @@ If you scroll down while on the **Headers** tab in Chrome Developer Tools to the
 
 5. A consent dialog will be shown requesting access to your profile and email. Click the green button to accept and continue.
 
-6. The authorization server will log you in and POST the response - an error if something went wrong or the ID token if not - back to the callback URL for your application. Once you’ve successfully logged in, you should see your user name in the page. This means authentication has been configured properly!
+6. The authorization server will log you in and POST the response - an error if something went wrong or the ID token if not - back to the callback URL for your application. Once you’ve successfully logged in, you should see your user name on the page. This means authentication has been configured properly!
 
 ![Network request for application callback](/media/articles/identity-labs/lab-01-network-trace-03.png)
 
@@ -97,7 +95,7 @@ Note the following:
 
 - The token structure: it consists of the header (information about the token), the payload (the token’s claims and user profile information), and the signature.
 - The claim `iss` is for the issuer of the token. It denotes who created and signed it. The value should match your Auth0 Domain value with an `https://` prefixed.
-- The claim `sub` is the subject of the token. It denotes to whom the token refers. In our case the value matches the ID of the Auth0 user.
+- The claim `sub` is the subject of the token. It denotes to whom the token refers. In our case, the value matches the ID of the Auth0 user.
 - The claim `aud` is the audience of the token. It denotes for which app the token is intended. In our case, this matches the Client ID of the application that made the authentication request.
 - The claim `iat` shows when the token was issued (seconds since Unix epoch) and can be used to determine the token’s age.
 - The claim `exp` shows when the token expires (seconds since Unix epoch).
