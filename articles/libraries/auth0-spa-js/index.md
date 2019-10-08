@@ -246,6 +246,9 @@ $('#getUser').click(async () => {
 ```js
 $('#getIdTokenClaims').click(async () => {
   const claims = await auth0.getIdTokenClaims();
+  // if you need the raw id_token, you can access it
+  // using the __raw property
+  const id_token = claims.__raw;
 });
 ```
 
