@@ -25,7 +25,7 @@ After you register your application, you will be given the following IDs and key
   * Services ID (Client ID)
   * Apple Team ID (App ID)
   * Client Secret Signing Key
-  * Client Signing Key ID (optional)
+  * Client Signing Key ID (optional, except when you have more than one Signing Key configured in your Apple Developer account)
 
 ## Prerequisites
 
