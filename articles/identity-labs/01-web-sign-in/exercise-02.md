@@ -1,6 +1,5 @@
 ---
 section: exercises
-classes: topic-page
 description: Auth0 digital identity Lab 1, Exercise 2: Using Network Traces
 topics:
   - digital identity
