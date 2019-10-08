@@ -1242,6 +1242,10 @@ articles:
 
       - title: Managed Private Cloud
         url: /private-cloud/managed-private-cloud
+        children:
+
+          - title: Managed Private Cloud Zones
+            url: /private-cloud/managed-private-cloud/zones
 
       - title: Add-Ons for Private Cloud Deployments
         url: /private-cloud/add-ons

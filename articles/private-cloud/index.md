@@ -78,4 +78,9 @@ We are currently unable to offer deployments to China.
       </li>
     </ul>
   </li>
+    <li>
+    <i class="icon icon-budicon-715"></i>
+    <a href="/private-cloud/managed-private-cloud/zones">Zones</a>
+    <p>How to create and configure zones to group together multiple Managed Private Cloud nodes</p>
+  </li>
 </ul>
