@@ -1,6 +1,5 @@
 ---
 section: exercises
-classes: topic-page
 description: Auth0 digital identity Lab 2, Exercise 2: Securing APIs with Auth0
 topics:
   - digital identity
@@ -29,12 +28,12 @@ In this exercise, you will register the API with Auth0 so that tokens can be iss
 
 ![API consent screen on the authorization server](/media/articles/identity-labs/lab-02-api-consent-initial.png)
 
-6. Agree to this delegation by clicking the **Accept** button and Auth0 will redirect you back to the application. Now, you should still be able to see your expenses on the expenses page, [localhost:3000/expenses](http://localhost:3000/expenses):
+6. Agree to this delegation by clicking the **Accept** button, and Auth0 will redirect you back to the application. Now, you should still be able to see your expenses on the expenses page, [localhost:3000/expenses](http://localhost:3000/expenses):
 
 ![Application expenses page](/media/articles/identity-labs/lab-02-starter-app-rendered.png)
 
 ::: note
-If, at any point, you want to see the consent screen again when logging in, you can go to the Users screen in the Auth0 Dashboard, click on the user you'd like to modify, click the **Authorized Applications** tab, find the application you're using, and click **Revoke**. The next time you log in, the consent screen will appear again.
+If at any point, you want to see the consent screen again when logging in, you can go to the Users screen in the Auth0 Dashboard, click on the user you'd like to modify, click the **Authorized Applications** tab, find the application you're using, and click **Revoke**. The next time you log in, the consent screen will appear again.
 :::
 
 As mentioned earlier, the expenses API is still not secure. The next steps will change the API to require a properly-scoped access token to view.
@@ -108,6 +107,6 @@ ALLOWED_AUDIENCES=https://expenses-api
 listening on http://localhost:3001
 ```
 
-To test your secured API, refresh the expenses page in your application - [localhost:3000/expenses](http://localhost:3000/expenses). If everything works as expected, you will still be able to access this view (which means that the web app is consuming the API on your behalf). If you browse directly to the API at [localhost:3001](http://localhost:3001), however, you will get a error saying the the token is missing.
+To test your secured API, refresh the expenses page in your application - [localhost:3000/expenses](http://localhost:3000/expenses). If everything works as expected, you will still be able to access this view (which means that the web app is consuming the API on your behalf). If you browse directly to the API at [localhost:3001](http://localhost:3001), however, you will get an error saying the token is missing.
 
 <a href="/identity-labs/02-calling-an-api/exercise-03" class="btn btn-transparent">Next →</a>
