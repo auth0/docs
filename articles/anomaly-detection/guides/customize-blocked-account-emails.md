@@ -1,6 +1,6 @@
 ---
 title: Customize Blocked Account Emails
-description: Learn how to customize blocked account emails. 
+description: Learn how to customize blocked account emails.
 topics:
     - security
     - anomaly-detection
@@ -10,9 +10,9 @@ contentType: how-to
 useCase: customize-anomaly-detection
 v2: true
 ---
-# Customize Blocked Accoumt Emails
+# Customize Blocked Account Emails
 
-When Auth0 sends an email to a user to notify them of the [breached password block action](/anomaly-detection/references/breached-password-detection-triggers-actions), the message contains a link to re-enable the origin of the request. 
+When Auth0 sends an email to a user to notify them of the [breached password block action](/anomaly-detection/references/breached-password-detection-triggers-actions), the message contains a link to re-enable the origin of the request.
 
 ::: note
 Auth0 never blocks the user itself, just the attempts from the suspicious origin.
