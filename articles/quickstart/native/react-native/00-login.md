@@ -97,7 +97,7 @@ android:windowSoftInputMode="adjustResize">
 ```
 
 ::: note
-The value of `${applicationId}` dynamically matches the one defined in the `app/build.gradle` file. For the sample app, this value matches `com.auth0samples`.
+The value of `<%= "${applicationId}" %>` dynamically matches the one defined in the `app/build.gradle` file. For the sample app, this value matches `com.auth0samples`.
 :::
 
 ### Configure iOS
