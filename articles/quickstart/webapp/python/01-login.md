@@ -108,7 +108,7 @@ def callback_handling():
 
 ## Trigger Authentication
 
-Add a `/login` route that uses the `Authlib` client instance to redirect the user to the [login page](/hosted-pages/login). Replace `YOUR_CALLBACK_URL` in the snippet below with the **Allowed Callback URL** configured for your Application in Auth0.
+Add a `/login` route that uses the `Authlib` client instance to redirect the user to the [login page](/hosted-pages/login). Replace `YOUR_CALLBACK_URL` in the snippet below with the **Allowed Callback URL** configured for your Application in the Auth0 dashboard.
 
 ```python
 # /server.py
