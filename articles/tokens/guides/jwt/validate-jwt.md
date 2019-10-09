@@ -126,7 +126,7 @@ Before using the token, you should retrieve the following standard claims from t
 * **Token expiration** (`exp`, Unix timestamp): The expiration date/time must be after the current date/time and should match what you set for your token lifetime.
 * **Token issuer** (`iss`, string): The issuing authority inside the token must match the issuing authority (`issuer`) identified in your Auth0 tenant's discovery document, which exists at `https://${account.namespace}/.well-known/openid-configuration`.
 
-Additional checks are required depending on whether the JWT you are validating is an ID Token or an Access Token. To learn about the additional requirements, see [Validate an ID Token](/tokens/guides/id-token/validate-id-#check-additional-standard-claims) or [Validate an Access Token](/tokes/guides/access-token/validate-access-token#check-additional-standard-claims).
+Additional checks are required depending on whether the JWT you are validating is an ID Token or an Access Token. To learn about the additional requirements, see [Validate an ID Token](/tokens/guides/id-token/validate-id-token) or [Validate an Access Token](/tokens/guides/access-token/validate-access-token).
 
 If any of these checks fail, the token is considered invalid, and the request must be rejected.
 
