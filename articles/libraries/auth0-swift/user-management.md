@@ -60,7 +60,7 @@ Note that when accounts are linked, the secondary account's metadata is not merg
 
 ```swift
 Auth0
-   .users(token: "user-scoped access token")
+    .users(token: "user-scoped access token")
     .get(userId, fields: ["user_metadata"], include: true)
     .start { result in
         switch result {
@@ -78,7 +78,7 @@ When updating user metadata, you will create a `userMetadata` object, and then c
 
 ```swift
 Auth0
-   .users(token: "user-scoped access token")
+    .users(token: "user-scoped access token")
     .patch("user identifier", userMetadata: ["first_name": "John", "last_name": "Doe"])
     .start { result in
         switch result {
