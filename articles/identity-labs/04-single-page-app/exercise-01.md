@@ -1,6 +1,5 @@
 ---
 section: exercises
-classes: topic-page
 description: Auth0 digital identity Lab 4, Exercise 1: Adding Sign On
 topics:
   - digital identity
@@ -15,7 +14,7 @@ contentType:
 
 <%= include('../_includes/first-page-of-lab-note') %>
 
-In this lab, you will learn how to add sign on capabilities to a Single-Page Application (SPA) and how to make this app consume an API that is secured with Auth0. You will integrate the SPA with Auth0 so that your users are able to use the Auth0 Universal Login Page to authenticate.
+In this lab, you will learn how to add sign-on capabilities to a Single-Page Application (SPA) and how to make this app consume an API that is secured with Auth0. You will integrate the SPA with Auth0 so that your users are able to use the Auth0 Universal Login Page to authenticate.
 
 The SPA in question is a vanilla JavaScript application that consumes an API similar to the one you have used in previous labs (this API also exposes a secured endpoint that returns a list of expenses). The difference is that the API in this lab does two additional things:
 
@@ -78,10 +77,10 @@ Hit CTRL-C to stop the server
 ```
 
 ::: note
-On the command above, `-p 5000` makes the server listen on port 5000 and `-c-1` makes browsers ignore their own cache. This last parameter is important to facilitate the development process.
+On the command above, `-p 5000` makes the server listen on port 5000, and `-c-1` makes browsers ignore their own cache. This last parameter is important to facilitate the development process.
 :::
 
-6. Open [localhost:5000](http://localhost:5000) in a web browser and you should see the page below. If you do not see the App Summary section, make sure your API is properly running at port 3001.
+6. Open [localhost:5000](http://localhost:5000) in a web browser, and you should see the page below. If you do not see the App Summary section, make sure your API is properly running at port 3001.
 
 ![Initial load for single-page application](/media/articles/identity-labs/lab-04-initial-load.png)
 
@@ -109,7 +108,7 @@ Now that you have registered your SPA with Auth0, you can update your code to in
 - Add code to handle the authentication callback.
 - Add code to restrict content to authenticated users only.
 - Implement login and logout.
-- Obtain and display the user profile information.
+- Obtain and display user profile information.
 
 The [auth0-spa-js](https://github.com/auth0/auth0-spa-js) SDK is a simple, lightweight, and opinionated client developed by Auth0 that executes the OAuth 2.0 Authorization Code Grant Flow with PKCE. This client allows developers to quickly and securely implement authentication in their browser-based applications.
 
@@ -201,11 +200,11 @@ async function allowAccess() {
 }
 ```
 
-The goal of this function is to allow or deny access to whatever route calls it. This function is called from the `#expenses` route to ensure the user is logged in. Although you won't use that route on this exercise (only on the next one), you can check the code in the `spa/scripts/expenses.js` file. The previous version of this function was hardcoded to always deny access and redirect to the #home route because no authentication mechanism was in place yet.
+The goal of this function is to allow or deny access to whatever route calls it. This function is called from the `#expenses` route to ensure the user is logged in. Although you won't use that route on this exercise (only on the next one), you can check the code in the `spa/scripts/expenses.js` file. The previous version of this function was hardcoded always to deny access and redirect to the #home route because no authentication mechanism was in place yet.
 
 You are now making use of the `isAuthenticated()` method provided by the SPA SDK to block unauthenticated users from accessing the route calling this function. If an anonymous user tries to access it, the app will detect that they are not authenticated and will redirect them back to the homepage.
 
-20. To give users a way to log in and view restricted content, open the `spa/scripts/navbar.js` file. There, you will see the definition of a few constants within the `async function()` [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE). Below that, we'll add code to handle a click event on the log in button.
+20. To give users a way to log in and view restricted content, open the `spa/scripts/navbar.js` file. There, you will see the definition of a few constants within the `async function()` [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE). Below that, we'll add code to handle a click event on the login button.
 
 ```js
 // spa/scripts/navbar.js
@@ -276,12 +275,12 @@ The `isAuthenticated` flag also defines what button the app will show based on t
 
 ![Login button for single-page application](/media/articles/identity-labs/lab-04-login-button-showing.png)
 
-24. In this new screen, click the **Log In** button to start the authentication process. Login with your database user  and accept the consent request. After successful authentication, Auth0 will redirect you back to your app and your profile details (username and picture) will be shown near the upper-right corner:
+24. In this new screen, click the **Log In** button to start the authentication process. Log in with your database user and accept the consent request. After successful authentication, Auth0 will redirect you back to your app, and your profile details (username and picture) will be shown near the upper-right corner:
 
 ![Login complete on single-page application](/media/articles/identity-labs/lab-04-login-complete.png)
 
 ::: note
-If you log in using a social identity provider (Google, Facebook, etc), you will need to log in every time you refresh the SPA. This happens because you are using Auth0’s test development keys for the identity provider. To prevent this from happening, you would need to register your application with the relevant Identity Provider and replace the test development keys on the Auth0 dashboard with your own. However, for the purposes of this lab, you should log in with a username and password to avoid the aforementioned behavior.
+If you log in using a social identity provider (Google, Facebook, etc.), you will need to log in every time you refresh the SPA. This happens because you are using Auth0’s test development keys for the identity provider. To prevent this from happening, you would need to register your application with the relevant Identity Provider and replace the test development keys on the Auth0 dashboard with your own. However, for the purposes of this lab, you should log in with a username and password to avoid the aforementioned behavior.
 
 For more information, see [Test Social Connections with Auth0 Developer Keys](https://auth0.com/docs/connections/social/devkeys).
 :::
@@ -303,7 +302,7 @@ This request is created and triggered by the SPA SDK when a user clicks on the l
 - `scope` - a space-delimited list of permissions that the application requires. In this case, your app is requesting `openid profile email`. These are scopes defined by the [OpenID Connect specification](/scopes/current/oidc-scopes) and give your app access to specific data in the user profile.
 - `code_challenge` - this is a code that the authorization server will store and associate with the authorization request. In a future step, before issuing tokens to your application, the authorization server will use this code to verify (against another code called `code_verifier` that is handled internally by the SPA SDK) if it is secure to issue tokens. By using the code challenge and verifier, the SPA SDK is making the authorization process use a variant of the Authorization Code Grant Flow called PKCE.
 
-27. Log in again by clicking **Log In**. After Auth0 redirects back to your application, check the **Network** tab in  **Developer Tools** and you will see a list of requests, starting with the callback. Filter the requests and show only the XHR ones (those generated by an XMLHttpRequest JavaScript object).
+27. Log in again by clicking **Log In**. After Auth0 redirects back to your application, check the **Network** tab in  **Developer Tools**, and you will see a list of requests, starting with the callback. Filter the requests and show only the XHR ones (those generated by an XMLHttpRequest JavaScript object).
 
 28. Click on the "token" request (if there are two, click the second one). You will see that it is a `POST` request to the token endpoint of the authorization server. This request exchanges the code retrieved on the authentication process for the tokens needed in your application.
 
@@ -316,16 +315,16 @@ This request is created and triggered by the SPA SDK when a user clicks on the l
 ![Network response from token endpoint POST](/media/articles/identity-labs/lab-04-token-ep-response.png)
 
 ::: note
-If you are using a content blocker or browser setting that blocks third-party cookies, you will notice that in the step below, when authenticated, after refreshing the page you need to log in again. In that case, try changing your content blocker settings to allow your Auth0 domain (or turning it off altogether for localhost). Blocking all third-party cookies is not generally recommended as it is known to cause issues in some Web sites. This problem does not occur when [Custom Domains](/custom-domains) are used.
+If you are using a content blocker or browser setting that blocks third-party cookies, you will notice that in the step below, when authenticated, you need to log in again after refreshing the page. In that case, try changing your content blocker settings to allow your Auth0 domain (or turning it off altogether for localhost). Blocking all third-party cookies is not generally recommended as it is known to cause issues in some Web sites. This problem does not occur when [Custom Domains](/custom-domains) are used.
 :::
 
 31. If you refresh the SPA and change **Developer Tools** to filter requests by Doc (Documents), you will see a request called `authorize`. This request is similar to the one issued after the authentication process with a few differences:
 
 - The request uses a different `response_mode`, in this case `web_message`. This is part of a strategy used to [renew tokens silently](/api-auth/tutorials/silent-authentication#renew-expired-tokens).
-- The request defines a new query parameter called `prompt` set to `none`. As defined on the OpenID Connect protocol, this parameter is used on [authentication requests that must not display user interaction](https://auth0.com/docs/api-auth/tutorials/silent-authentication). This parameter is also part of the silent authentication process.
+- The request defines a new query parameter called `prompt` set to `none`. As defined in the OpenID Connect protocol, this parameter is used on [authentication requests that must not display user interaction](https://auth0.com/docs/api-auth/tutorials/silent-authentication). This parameter is also part of the silent authentication process.
 
 ![Silent authentication network request from single-page application](/media/articles/identity-labs/lab-04-silent-auth-request.png)
 
-For this to work properly, the silent authentication process requires the referrer URL to be whitelisted. This is why you added `http://localhost:5000` to the **Allowed Web Origins** field for your Auth0 Application. Otherwise, the silent authentication process would fail and your users would need to interactively log in again.
+For this to work properly, the silent authentication process requires the referrer URL to be whitelisted. This is why you added `http://localhost:5000` to the **Allowed Web Origins** field for your Auth0 Application. Otherwise, the silent authentication process would fail, and your users would need to log in again interactively.
 
 <a href="/identity-labs/04-single-page-app/exercise-02" class="btn btn-transparent">Next →</a>
