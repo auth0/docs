@@ -114,7 +114,7 @@ To do so, click on your user avatar in the top right of the Authorization Extens
 
 Make sure that **Permissions** are enabled and then click **Publish Rule**.
 
-![Pulish Rule](/media/articles/architecture-scenarios/spa-api/publish-rule.png)
+![Publish Rule](/media/articles/architecture-scenarios/spa-api/publish-rule.png)
 
 ### Create a Rule to validate token scopes
 
