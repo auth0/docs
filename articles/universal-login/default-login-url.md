@@ -56,7 +56,7 @@ The `login_url` should point to a route in the application that ends up redirect
 
 ### Users bookmarking the login page
 
-When an application initiates the login process, it navigates to `https://${account.namespace}/authorize` with a set of required parameters. Auth0 then redirects end-users to a `https://${account.namespace}/login` page, with a URL that looks like:
+When an application initiates the login process, it navigates to `https://${account.namespace}/authorize` with a set of [required parameters](/api/authentication#login). Auth0 then redirects end-users to a `https://${account.namespace}/login` page, with a URL that looks like:
 
 `https://${account.namespace}/login?state=g6Fo2SBjNTRyanlVa3ZqeHN4d1htTnh&...`
 
