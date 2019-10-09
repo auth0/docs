@@ -40,7 +40,7 @@ Before you configure Sign In with Apple for your native app in Auth0, you must:
   * App ID
   * Apple Team ID
   * Client Secret Signing Key
-  * Client Signing Key ID (optional)
+  * Client Signing Key ID. This is optional, except when you have more than one Signing Key with the "Sign In with Apple" service enabled in your Apple Developer Portal.
 
 ::: note
 If you are using the Classic Universal Login flow or embedding `Lock.js` in your application, make sure you are using `Lock.js` version 11.16 or later.
@@ -64,7 +64,7 @@ Once you have the credentials you need from your Apple Developer account, you ne
 
     * **Apple Team ID**
     * **Client Secret Signing Key**
-    * **Key ID** (Apple will accept the key without the ID)(optional)
+    * **Key ID** (This is optional, except when you have more than one Signing Key with the "Sign In with Apple" service enabled in your Apple Developer Portal)
 
     ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)
 
