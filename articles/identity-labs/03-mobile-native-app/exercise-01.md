@@ -1,6 +1,5 @@
 ---
 section: exercises
-classes: topic-page
 description: Auth0 digital identity Lab 3, Exercise 1: Adding Authentication
 topics:
   - digital identity
@@ -113,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-When another app requests a URL containing the custom scheme, the system will launch your app if necessary, bring it to the foreground, and call the method above. The iOS Framework provides the delegate method above for you to implement, so that you can parse the contents of the URL and take appropriate action. In this case, you need this information to continue the authentication flow process. You will see later in this exercise why this step is needed.
+When another app requests a URL containing the custom scheme, the system will launch your app if necessary, bring it to the foreground, and call the method above. The iOS Framework provides the delegate method above for you to implement so that you can parse the contents of the URL and take appropriate action. In this case, you need this information to continue the authentication flow process. You will see later in this exercise why this step is needed.
 
 Now that the iOS application is configured with your Auth0 application credentials and is able to receive and process callbacks, complete the following steps to see how to construct the OpenID Connect request to the authorization server.
 
@@ -148,7 +147,7 @@ Now that the iOS application is configured with your Auth0 application credentia
 
 ![Universal login page loaded](/media/articles/identity-labs/lab-03-login-confirmation.png)
 
-16. Log in using your database user and you will be taken back to the app. Nothing will have changed visually but if you take a look at the Debug Area in Xcode you will see something like this:
+16. Log in using your database user, and you will be taken back to the app. Nothing will have changed visually, but if you take a look at the Debug Area in Xcode you will see something like this:
 
 ```text
 Authentication Success
@@ -158,7 +157,7 @@ ID Token: eyJ0eX[..].eyJodH[..].kLtZDg[..]
 
 To view the contents of your ID Token, you can copy and paste it into [jwt.io](https://jwt.io/) to view the claims.
 
-Now that you have an ID token, it's important to validate it to ensure that it can be trusted. A helper method `isTokenValid` is already included in the project, you can review its code in `Extras/Utils.swift` to learn how the validation is performed. It should be called after obtaining the token, to illustrate how it is used.
+Now that you have an ID token, it's important to validate it to ensure that it can be trusted. A helper method `isTokenValid` is already included in the project; you can review its code in `Extras/Utils.swift` to learn how the validation is performed. It should be called after obtaining the token, to illustrate how it is used.
 
 17. Back in the `actionLogin` method in `ViewController.swift`, add the line below:
 
@@ -189,7 +188,7 @@ Congratulations! You have successfully added Auth0 authentication to your native
 
 The authorization code grant by itself has some security issues when implemented on native applications. For instance, a malicious attacker can intercept the authorization code returned by Auth0 and exchange it for an access token. The Proof Key for Code Exchange (PKCE) is a technique used to mitigate this authorization code interception attack.
 
-With PKCE, for every authorization request, the application creates a cryptographically random key called the **code verifier**, hashes that value into a **code challenge**, and sends it to the authorization server to get the authorization code. When the application receives the code after successful login, it will send the code and the code verifier to the token endpoint to exchange them for the requested tokens.
+With PKCE, for every authorization request, the application creates a cryptographically random key called the **code verifier**, hashes that value into a **code challenge**, and sends it to the authorization server to get the authorization code. When the application receives the code after a successful login, it will send the code and the code verifier to the token endpoint to exchange them for the requested tokens.
 
 Since you previously enabled logging in our `WebAuth` call with the `logging()` method, it is easy to see the process flow in the Debug Area.
 
