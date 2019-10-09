@@ -1,6 +1,5 @@
 ---
 section: exercises
-classes: topic-page
 description: Auth0 digital identity Lab 2, Exercise 3: Working with Refresh Tokens
 topics:
   - digital identity
@@ -15,7 +14,7 @@ contentType:
 
 <%= include('../_includes/first-page-of-lab-note') %>
 
-Right now, if your users stay logged in for too long and try to refresh the `/expenses` page, they will face a problem. Access tokens were conceived to be exchanged by different services through the network (which makes them more prone to leakage) so they should expire quickly. When an access token is expired, your API won't accept it anymore and your web application won't be able to fetch the data needed. A token expired error will be returned instead.
+Right now, if your users stay logged in for too long and try to refresh the `/expenses` page, they will face a problem. Access tokens were conceived to be exchanged by different services through the network (which makes them more prone to leakage), so they should expire quickly. When an access token is expired, your API won't accept it anymore, and your web application won't be able to fetch the data needed. A token expired error will be returned instead.
 
 To change this behavior, you can make your web app take advantage of yet another token: the refresh token. A refresh token is used to obtain new access tokens and/or ID tokens from the authorization server. In this exercise, we're going to modify the application to obtain a refresh token and use it to get a new access token when it expires.
 
@@ -95,7 +94,7 @@ app.get('/', requiredScopes('read:reports'), (req, res) => {
 Open [localhost:3000/expenses](http://localhost:3000/expenses) in your browser and refresh the page. You will see that your API logs a timestamp in the terminal. The same timestamp will be logged every time you refresh the page as long as your token remains valid. Then, if you wait a few seconds (more than ten) and refresh the view again, you will see that your API starts logging a different timestamp, which corresponds to the new token retrieved. This shows that you are getting a different access token every ten seconds and that your web application uses the refresh token automatically to get them.
 
 ::: note
-If you see an error in your console about an ID token used too early, this is likely a clock skew issue in your local environment. Try restarting your machine and walking through the login steps again from the beginning. You can also try going to "Date & Time" settings, unlock them if needed by clicking in the lock icon at the bottom, and disable and re-enable the "Set date and time automatically" option.
+If you see an error in your console about an ID token used too early, this is likely a clock skew issue in your local environment. Try restarting your machine and walking through the login steps again from the beginning. You can also try going to "Date & Time" settings, unlock them if needed by clicking on the lock icon at the bottom, and disable and re-enable the "Set date and time automatically" option.
 :::
 
 ::: note
@@ -103,7 +102,7 @@ If you don't see changes in the "Issued At" claim in the console, make sure you 
 :::
 
 ::: note
-If you are using PowerShell in Windows and you see blank lines instead of the timestamp logging in the terminal, it could be the font color of the logs is the same than the background. As an alternative, you can run the API server from the Windows command line, or change the background color in PowerShell.
+If you are using PowerShell in Windows and you see blank lines instead of the timestamp logging in the terminal, it could be the font color of the logs is the same as the background. As an alternative, you can run the API server from the Windows command line, or change the background color in PowerShell.
 :::
 
 🎉 **You have completed Lab 2 by building a web application that calls an API with refresh capability!** 🎉
