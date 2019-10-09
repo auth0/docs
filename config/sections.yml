@@ -29,3 +29,8 @@
   title: "Videos"
   url: "/videos"
   folder: "videos"
+
+- id: "identity-labs"
+  title: "Identity Labs"
+  url: "/identity-labs"
+  folder: "identity-labs"

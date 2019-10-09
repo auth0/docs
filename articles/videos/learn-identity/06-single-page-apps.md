@@ -9,6 +9,8 @@ Authentication and delegated authorization for single page applications.
 
 <div class="video-wrapper" data-video="0pi7bt90c9"></div>
 
+[<i class="icon icon-budicon-529"></i> Lab 4: Single-Page Applications](/identity-labs/04-single-page-app)
+
 ## Jump to Section
 
 Jump to a section in the video for explanation on a specific topic.
