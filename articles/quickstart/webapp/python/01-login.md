@@ -75,6 +75,10 @@ auth0 = oauth.register(
 )
 ```
 
+::: note
+The callback URL saved in your Application is used in the **Trigger Authentication** section below.
+:::
+
 ### Add the Callback Handler
 
 This handler exchanges the `code` that Auth0 sends to the callback URL for an Access Token and an ID Token.
@@ -104,14 +108,14 @@ def callback_handling():
 
 ## Trigger Authentication
 
-Add a `/login` route that uses the `Authlib` client instance to redirect the user to the [login page](/hosted-pages/login).
+Add a `/login` route that uses the `Authlib` client instance to redirect the user to the [login page](/hosted-pages/login). Replace `YOUR_CALLBACK_URL` in the snippet below with the **Allowed Callback URL** configured for your Application in Auth0.
 
 ```python
 # /server.py
 
 @app.route('/login')
 def login():
-    return auth0.authorize_redirect(redirect_uri='YOUR_CALLBACK_URL', audience='https://${account.namespace}/userinfo')
+    return auth0.authorize_redirect(redirect_uri='YOUR_CALLBACK_URL')
 ```
 
 Create a `home.html` file in a `/template` folder. Add a link to the `/login` route.
