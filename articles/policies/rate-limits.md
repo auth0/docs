@@ -46,6 +46,8 @@ If you exceed the provided rate limit for a given API endpoint, you will receive
 
 Actions such as rapidly updating configuration settings, aggressive polling, or making highly concurrent API calls may result in your app being rate limited.
 
+Please note that usage of the Management API for free and trial tenants is restricted to **two requests per second** (with bursts of up to **ten (10) requests**). Exceeding these values will also trigger the HTTP 429 error, but the error message states, "Global limit has been reached." These are in addition to those indicated in the rate limit response headers.
+
 If your app triggers the rate limit, please refrain from making additional requests until the appropriate amount of time has elapsed.
 
 ::: warning How to Handle Rate Limits when calling Auth0 APIs
