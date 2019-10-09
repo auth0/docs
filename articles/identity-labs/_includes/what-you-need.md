@@ -14,7 +14,7 @@
 
 ---
 
-**The Identity labs Git repo** - All the code you need to start, as well as the completed exercise for guidance, is located [here](https://github.com/auth0/identity-102-exercises). You need to clone that repo just once for all 4 labs. Use the correct folder relative to the lab you are working on. All file references in this lab are relative to `/begin` unless otherwise indicated. An `/end` folder for is included as well to help with troubleshooting and compare your work with a working sample.
+**The Identity Labs Git repo** - All the code you need to start, as well as the completed exercise for guidance, is located [here](https://github.com/auth0/identity-102-exercises). You need to clone that repo just once for all four labs. Use the correct folder relative to the lab you are working on. All file references in this lab are relative to `/begin` unless otherwise indicated. An `/end` folder is included as well to help with troubleshooting and compare your work with a working sample.
 
 ---
 
