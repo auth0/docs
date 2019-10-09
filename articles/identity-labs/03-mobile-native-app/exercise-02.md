@@ -1,6 +1,5 @@
 ---
 section: exercises
-classes: topic-page
 description: Auth0 digital identity Lab 3, Exercise 2: Calling a Secured API
 topics:
   - digital identity
@@ -8,7 +7,6 @@ topics:
   - OpenId Connect
   - OAuth2
 contentType:
-  - index
   - concept
 ---
 # Lab 3, Exercise 2: Calling a Secured API
@@ -19,7 +17,7 @@ In this exercise, you are going to enable the native application to authorize ag
 
 If you have already completed lab 2, you can use the same Auth0 configuration and local files to run the API needed for this lab. Just go to `/lab-02/begin/api` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/) and run `npm start` in your terminal before beginning this exercise. Make sure your token expiration times in Auth0 are back to normal (at least an hour for both).
 
-::: panel If you did not complete Lab 2 ...
+::: panel If you did not complete Lab 2
 If you are doing this lab by itself, you can use the completed exercise sample code:
 
 1. Go to `/lab-02/end/api` and run `npm install` in your terminal.
@@ -63,13 +61,13 @@ Regardless of which API codebase you're using, you should now be able to load [l
 
 ![iOS application Call API button](/media/articles/identity-labs/lab-03-call-api-button.png)
 
-8. Touch the **Call API** button and you should see a "Call API" message in the Debug area in Xcode.
+8. Touch the **Call API** button, and you should see a "Call API" message in the Debug area in Xcode.
 
 ![Call API debug message in Xcode console](/media/articles/identity-labs/lab-03-call-api-debug-area.png)
 
 You will now add code to make the API call from the mobile app. However, before doing so, you need to modify the authentication code to include the API's audience for authorization and the necessary scopes so that the required permissions are requested.
 
-9. In the `actionLogin` method which contains our authentication call, include the audience for the API we want to access. With this in place, there will be an additional audience inside the access token after successful authentication.
+9. In the `actionLogin` method, which contains our authentication call, include the audience for the API we want to access. With this in place, there will be an additional audience inside the access token after successful authentication.
 
 ```swift
 // exercise-02/ViewController.swift
@@ -308,6 +306,6 @@ The `Status Code: 200` (OK) lets us know the request was executed successfully. 
 {"date":"2019-08-27T15:02:04.838Z","description":"Coffee for a Coding Dojo session.","value":42}]
 ```
 
-You have now integrated your native application frontend with a protected API backend! In the next exercise, you will look at how the access token can be refreshed without having the user go through the web based authentication flow each time.
+You have now integrated your native application frontend with a protected API backend! In the next exercise, you will look at how the access token can be refreshed without having the user go through the web-based authentication flow each time.
 
 <a href="/identity-labs/03-mobile-native-app/exercise-03" class="btn btn-transparent">Next →</a>
