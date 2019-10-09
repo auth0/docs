@@ -1,6 +1,5 @@
 ---
 section: exercises
-classes: topic-page
 description: Auth0 digital identity Lab 3, Exercise 3: Working with Refresh Tokens
 topics:
   - digital identity
@@ -123,7 +122,7 @@ class ViewController: UIViewController {
 // ...   
 ```
 
-10. The Auth0.swift SDK makes available a `.renew()` method which takes a refresh token as a parameter and performs a call to the authorization server's token endpoint using the `refresh_token` grant. Add the following code to the `actionRefresh` method after the code from the previous step.
+10. The Auth0.swift SDK makes available a `.renew()` method, which takes a refresh token as a parameter and performs a call to the authorization server's token endpoint using the `refresh_token` grant. Add the following code to the `actionRefresh` method after the code from the previous step.
 
 ```swift
 // exercise-03/ViewController.swift
@@ -177,7 +176,7 @@ Content-Length: 1923
 "expires_in":3600,"token_type":"Bearer"}
 ```
 
-Notice that you don’t receive a new `refresh_token` in the response from the authorization server. The `refresh_token` from the initial authentication must be retained. Also note that in the code added to the `actionRefresh` method the `access_token` received is stored in the `self.accessToken` class property. This is so the new access token can be used in other methods. If you try calling the API again, the request will be made with your new access_token.
+Notice that you don’t receive a new `refresh_token` in the response from the authorization server. The `refresh_token` from the initial authentication must be retained. Also, note that in the code added to the `actionRefresh` method the `access_token` received is stored in the `self.accessToken` class property. This is so the new access token can be used in other methods. If you try calling the API again, the request will be made with your new access_token.
 
 Now that you are able to obtain a fresh access token by using the refresh token, it’s time to see what happens when a token expires.
 
@@ -198,7 +197,7 @@ Now that you are able to obtain a fresh access token by using the refresh token,
 } }
 ```
 
-16. Tap **Refresh Token** and check the debug area to see the refresh token grant happen, then tap **Call API** and you should get a `Status Code: 200` along with the the expenses data again.
+16. Tap **Refresh Token** and check the debug area to see the refresh token grant happen. Then, tap **Call API**, and you should get a `Status Code: 200` along with the expenses data again.
 
 🎉 **You have completed Lab 3 by building a native mobile application calling a secure API with refresh capability!** 🎉
 
