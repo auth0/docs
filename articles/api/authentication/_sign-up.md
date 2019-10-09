@@ -13,7 +13,7 @@ Content-Type: application/json
   "family_name": "Doe",
   "name": "John Doe",
   "nickname": "johnny",
-  "picture": "https://example.org/jdoe.png"
+  "picture": "http://example.org/jdoe.png"
   "user_metadata": { plan: 'silver', team_id: 'a111' }
 }
 ```
@@ -22,7 +22,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/dbconnections/signup' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "email":"test.account@signup.com", "password":"PASSWORD", "connection":"CONNECTION", "username": "johndoe", "given_name": "John", "family_name": "Doe", "name": "John Doe", "nickname": "johnny", "picture": "https://example.org/jdoe.png", "user_metadata":{ "plan": "silver", "team_id": "a111" }}'
+  --data '{"client_id":"${account.clientId}", "email":"test.account@signup.com", "password":"PASSWORD", "connection":"CONNECTION", "username": "johndoe", "given_name": "John", "family_name": "Doe", "name": "John Doe", "nickname": "johnny", "picture": "http://example.org/jdoe.png", "user_metadata":{ "plan": "silver", "team_id": "a111" }}'
 ```
 
 ```javascript
@@ -44,7 +44,7 @@ curl --request POST \
     family_name: "Doe",
     name: "John Doe",
     nickname: "johnny",
-    picture: "https://example.org/jdoe.png",
+    picture: "http://example.org/jdoe.png",
     user_metadata: { plan: 'silver', team_id: 'a111' }
   }, function (err) { 
     if (err) return alert('Something went wrong: ' + err.message); 
@@ -57,7 +57,7 @@ curl --request POST \
 
 ```json
 {
-  "user_id": "58457fe6b27...",
+  "_id": "58457fe6b27...",
   "email_verified": false,
   "email": "test.account@signup.com",
   "username": "johndoe",
@@ -65,7 +65,7 @@ curl --request POST \
   "family_name": "Doe",
   "name": "John Doe",
   "nickname": "johnny",
-  "picture": "https://example.org/jdoe.png"
+  "picture": "http://example.org/jdoe.png"
 }
 ```
 
