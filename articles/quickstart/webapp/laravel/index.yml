@@ -1,5 +1,7 @@
 title: PHP (Laravel)
 image: /media/platforms/php.png
+languages:
+  - PHP
 topics:
   - quickstart
 contentType: tutorial
@@ -8,10 +10,6 @@ author:
   name: Josh Cunningham
   email: josh.cunningham@auth0.com
   community: false
-snippets:
-  dependencies: server-platforms/laravel/dependencies
-  setup: server-platforms/laravel/setup
-  use: server-platforms/laravel/use
 seo_alias: laravel
 default_article: 01-login
 articles:
@@ -22,9 +20,9 @@ github:
   repo: auth0-laravel-php-web-app
   branch: master
 requirements:
-  - Composer 1.5
-  - PHP 7.0
-  - Laravel 5.7
+  - Composer 1.5 and up
+  - PHP 7.1.3 and up
+  - Laravel 5.7 and up
 next_steps:
   - path: 01-login
     list:
