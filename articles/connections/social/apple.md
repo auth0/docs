@@ -36,9 +36,10 @@ Once you have registered your application with Apple and configured your applica
 
 ![Apple Sign In with Apple Setup Flow](/media/articles/connections/social/apple/apple-siwa-setup-flow.png)
 
-When a user returns to your app, you can log them in automatically if their login session is still valid. To check, you can retrieve their credentials from the keychain and check if the access token is still valid. If the access token has expired, you can renew it using a refresh token. 
+Choose a guide to get started: 
 
-After you set up and configure SIWA and exchange the authorization code for Auth0 credentials, you can [assign roles to users](/dashboard/guides/users/assign-roles-users), and use the access tokens to [call APIs](/flows/guides/auth-code-pkce/call-api-auth-code-pkce) and [link user accounts](/link-accounts).
+* [Add Sign In with Apple to Native iOS Apps](/connections/apple-siwa/add-siwa-to-native-app)
+* [Add Sign In with Apple to Web or Other Apps](/connections/apple-siwa/add-siwa-to-web-app)
 
 ## Keep reading
 

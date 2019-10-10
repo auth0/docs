@@ -22,45 +22,46 @@ You can test the Apple connection with Auth0's developer credentials first by us
 
 After you register your application, you will be given the following IDs and keys to use in the application connection settings in the Dashboard:
 
-  * Services ID (Client ID)
-  * Apple Team ID (App ID)
-  * Client Secret Signing Key
-  * Client Signing Key ID (optional, except when you have more than one Signing Key configured in your Apple Developer account)
+* Services ID (Client ID)
+* Apple Team ID
+* Client Secret Signing Key
+* Key ID
 
 ## Prerequisites
 
-Before you can register your app in the Apple Developer Portal, you must:
-
-* Have an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).)
+Before you can register your app in the Apple Developer Portal, you must have an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).)
 
 ## Obtain Team ID
 
 1. Sign in to your [Apple Developer Account](https://developer.apple.com/account/#/overview/), and go to the [Membership page](https://developer.apple.com/account/#/membership/) of your Apple Developer account.
-
     ![Membership Page](/media/articles/connections/social/apple/apple-membership.jpg)
-
-2. Make note of your Team ID.
+1. Make note of your Team ID.
 
 ## Create App ID
 
 1. On the Apple Developer Portal, go to **Certificates, IDs, & Profiles > Identifiers** and click the **blue plus icon** next to **Identifiers** to create a new App ID.
-2. Choose **App IDs** as the identifier type and click **Continue**.
-3. Provide a description and a Bundle ID (reverse-domain name style, e.g., `com.acme`).
-4. Scroll down and check **Sign In with Apple**.
-5. Click **Continue**, and then click **Register**.
+1. Choose **App IDs** as the identifier type and click **Continue**.
+1. Provide a description and a Bundle ID (reverse-domain name style, e.g., `com.exampleco`).
+1. Scroll down and check **Sign In with Apple**.
+1. Click **Continue**, and then click **Register**.
 
 ## Create Services ID
 
 1. Return to the **Certificates, IDs, & Profiles** section and click the **blue plus icon** next to **Identifiers**.
-
     ![Register Services ID](/media/articles/connections/social/apple/apple-registerservicesid.jpg)
+1. Choose **Services IDs** and click **Continue**. Fill in the description and identifier (`com.exampleco.webapp`).
+1. After checking **Sign In with Apple**, click on **Configure** and define your **Web Domain** (`exampleco.com`) and your **Return URL**. Make sure that your Return URL is your Auth0 domain, such as `foo.auth0.com` (or your Auth0 custom domain if you have one) and follows this format: `https://YOUR_AUTH0_DOMAIN/login/callback`.
+    ![Configure URLs](/media/articles/connections/social/apple/apple-configureurls2.png)
+1. Click **Save**, **Continue**, and then click **Register**.
 
-2. Choose **Services IDs** and click **Continue**. Fill in the description and identifier (`com.acme.webapp`).
-3. After checking **Sign In with Apple**, click on **Configure** and define your **Web Domain** (`acme.com`) and your **Return URL**. Make sure that your Return URL follows this format: `https://YOUR_AUTH0_CUSTOM_DOMAIN/login/callback`.
+### Set up your Signing Key
 
-    ![Configure URLs](/media/articles/connections/social/apple/apple-configureurls.jpg)
-
-4. Click **Save**, **Continue**, and then click **Register**.
+1. Go to **Keys** under the **Certificates, Identifiers, & Profiles** section of your Apple developer dashboard.
+1. Click on the **blue plus icon** to add a new key.
+1. Enter a **Key Name** and check the **Sign In with Apple** option.
+1. Click **Configure** to make sure the **Choose a Primary App ID** field is filled with the correct App ID.
+1. Click **Save**, **Continue**, and then **Register**.
+1. On the page to which you're redirected after registering, make a note of the Key ID. Then, download the key, move it to its own directory, and rename the key file that you downloaded to `authkey.p8`. 
 
 Next, you will use these credentials on the [Auth0 Dashboard > Connections > Social](${manage_url}/#/connections/social) page to continue to configure your application. Depending on which type of application you want to configure, choose one of the following methods:
 
