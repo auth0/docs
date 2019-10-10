@@ -40,7 +40,7 @@ npm install react-native-auth0 --save
 
 ### Additional iOS step: Install the Module Pod
 
-CocoaPods is the package management tool for iOS that React Native framework uses to install itself into your project. For the iOS native module to work on your iOS app you must first install the library Pod. If you're familiar with older React Native SDK versions this is similar to what was called _linking a native module_. Currently, the process is simpler:
+CocoaPods is the package management tool for iOS that the React Native framework uses to install itself into your project. For the iOS native module to work with your iOS app you must first install the library Pod. If you're familiar with older React Native SDK versions, this is similar to what was called _linking a native module_. The process is now simplified:
 
 Change directory into the `ios` folder and run `pod install`.
 
@@ -148,7 +148,7 @@ If your application was generated using the React Native CLI, the default value 
 
 Take note of this value as you'll be using it to define the callback URLs below. If desired, you can change it using XCode in the following way:
 
-- Open the `ios/TestApp.xcodeproj` file replacing 'TestApp' with the name of your app or run `xed ios` on a Terminal from the app root.
+- Open the `ios/<YOUR PROJECT>.xcodeproj` file or run `xed ios` on a Terminal from the app root.
 - Open your project's or desired target's Build Settings tab and find the section that contains "Bundle Identifier".
 - Replace the "Bundle Identifier" value with your desired application's bundle identifier name.
 
