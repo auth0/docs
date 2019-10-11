@@ -13,54 +13,6 @@ useCase: quickstart
 ---
 <%= include('../_includes/_getting_started', { library: 'React Native'}) %>
 
-<%= include('../../../_includes/_callback_url') %>
-
-#### iOS Callback
-
-```text
-{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
-```
-
-Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
-
-Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundleIdentifier`. In the sample project the value is:
-
-```xml
-<key>CFBundleIdentifier</key>
-<string>auth0.samples.Auth0Samples</string>
-```
-
-#### Android Callback
-
-```text
-{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
-```
-
-Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
-
-You can find this at the top of your `AndroidManifest.xml` file located in the `android/app/src/main/` folder. In the sample project the value is:
-```xml
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.auth0samples"
-```
-
-<%= include('../../../_includes/_logout_url') %>
-
-#### iOS logout URL
-
-```text
-{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
-```
-
-Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
-
-#### Android logout URL
-
-```text
-{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
-```
-
-Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
 
 ## Install Dependencies 
 
@@ -69,12 +21,6 @@ How to install the React Native Auth0 module.
 ::: note
 Please refer to the [official documentation](https://facebook.github.io/react-native/) for additional details on React Native.
 :::
-
-### npm
-
-```bash
-npm install react-native-auth0 --save
-```
 
 ### yarn
 
@@ -86,17 +32,22 @@ yarn add react-native-auth0
 For further reference on yarn, check [their official documentation](https://yarnpkg.com/en/docs).
 :::
 
-### Link the native module
-
-To add the functionality of the React Native Auth0 module to your project you need to link it.
+### npm
 
 ```bash
-react-native link react-native-auth0
+npm install react-native-auth0 --save
 ```
 
-::: note
-For further reference on linking libraries, check [the official documentation](https://facebook.github.io/react-native/docs/linking-libraries-ios.html).
-:::
+### Additional iOS step: Install the Module Pod
+
+CocoaPods is the package management tool for iOS that the React Native framework uses to install itself into your project. For the iOS native module to work with your iOS app you must first install the library Pod. If you're familiar with older React Native SDK versions, this is similar to what was called _linking a native module_. The process is now simplified:
+
+Change directory into the `ios` folder and run `pod install`.
+
+```bash
+cd ios
+pod install
+```
 
 The first step in adding authentication to your application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the hosted [login page](/hosted-pages/login).
 
@@ -106,7 +57,7 @@ The first step in adding authentication to your application is to provide a way 
 
 ### Configure Android
 
-In the file `android/app/src/main/AndroidManifest.xml` you must make sure the **MainActivity** of the app has a **launchMode** value of `singleTask` and that it has the following intent filter:
+In the file `android/app/src/main/AndroidManifest.xml` you must make sure the activity you are going to receive the authentication on has a **launchMode** value of `singleTask` and that it declares the following intent filter:
 
 ```xml
 <intent-filter>
@@ -120,7 +71,7 @@ In the file `android/app/src/main/AndroidManifest.xml` you must make sure the **
 </intent-filter>
 ```
 
-So your **MainActivity** should look like this:
+The sample app declares this inside the **MainActivity** like this:
 
 ```xml
 <activity
@@ -145,6 +96,10 @@ android:windowSoftInputMode="adjustResize">
 </activity>
 ```
 
+::: note
+The value of `<%= "${applicationId}" %>` dynamically matches the one defined in the `app/build.gradle` file. For the sample app, this value matches `com.auth0samples`.
+:::
+
 ### Configure iOS
 
 In the file `ios/<YOUR PROJECT>/AppDelegate.m` add the following:
@@ -166,10 +121,10 @@ Inside the `ios` folder open the `Info.plist` and locate the value for `CFBundle
 
 ```xml
 <key>CFBundleIdentifier</key>
-<string>org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)</string>
+<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 ```
 
-and then register a URL type entry using the value of `CFBundleIdentifier` as the value for the `CFBundleURLSchemes`
+then below register a URL type entry using the value of `CFBundleIdentifier` as the value for the `CFBundleURLSchemes`
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -181,15 +136,63 @@ and then register a URL type entry using the value of `CFBundleIdentifier` as th
         <string>auth0</string>
         <key>CFBundleURLSchemes</key>
         <array>
-            <string>org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)</string>
+            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
         </array>
     </dict>
 </array>
 ```
 
 ::: note
-The value org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier) is the default for apps created with React Native CLI, you may have a different value.
+If your application was generated using the React Native CLI, the default value of `$(PRODUCT_BUNDLE_IDENTIFIER)` dynamically matches `org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)`. For the sample app, this value matches `com.auth0samples`.
 :::
+
+Take note of this value as you'll be using it to define the callback URLs below. If desired, you can change it using XCode in the following way:
+
+- Open the `ios/<YOUR PROJECT>.xcodeproj` file or run `xed ios` on a Terminal from the app root.
+- Open your project's or desired target's Build Settings tab and find the section that contains "Bundle Identifier".
+- Replace the "Bundle Identifier" value with your desired application's bundle identifier name.
+
+For additional information please read [react native docs](https://facebook.github.io/react-native/docs/linking.html).
+
+
+<%= include('../../../_includes/_callback_url') %>
+
+#### iOS Callback URL
+
+```text
+{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
+```
+
+Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
+
+
+#### Android Callback URL
+
+```text
+{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
+```
+
+Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+
+
+<%= include('../../../_includes/_logout_url') %>
+
+#### iOS logout URL
+
+```text
+{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
+```
+
+Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
+
+#### Android logout URL
+
+```text
+{YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
+```
+
+Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+
 
 ### Add Authentication with Auth0
 
@@ -202,11 +205,24 @@ To learn how to embed functionality using a custom login form in your applicatio
 
 First, import the `Auth0` module and create a new `Auth0` instance.
 
-${snippet(meta.snippets.setup)}
+```js
+import Auth0 from 'react-native-auth0';
+const auth0 = new Auth0({ domain: '${account.namespace}', clientId: '${account.clientId}' });
+```
 
 Then present the hosted login screen, like this:
 
-${snippet(meta.snippets.use)}
+```js
+auth0
+    .webAuth
+    .authorize({scope: 'openid profile email'})
+    .then(credentials =>
+      // Successfully authenticated
+      // Store the accessToken
+      this.setState({ accessToken: credentials.accessToken });
+    )
+    .catch(error => console.log(error));
+```
 
 Upon successful authentication the user's `credentials` will be returned, containing an `access_token`, an `id_token` and an `expires_in` value.
 
@@ -228,6 +244,6 @@ To log the user out, redirect them to the Auth0 log out endpoint by calling `cle
         this.setState({ accessToken: null });
     })
     .catch(error => {
-        console.log("Log out cancelled");
+        console.log('Log out cancelled');
     });
 ```
