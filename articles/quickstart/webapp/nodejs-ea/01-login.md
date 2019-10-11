@@ -129,7 +129,7 @@ app.get('/profile', requiresAuth(), (req, res) => {
 ## Login and Logout
 ### Login
 To log a user in you have 3 options:
-- Send a `GET` request to the `/login` route registered by the `express-oidc-connect.auth` middleware.
+- Redirect to the `/login` route registered by the `express-oidc-connect.auth` middleware.
 - Use the `express-oidc-connect.requiresAuth` middleware to protect a route, as described above.
 - When initializing the `express-oidc-connect.auth` middleware, pass in `required: true` to force authentication on all routes.
 
