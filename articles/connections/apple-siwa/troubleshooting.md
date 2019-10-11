@@ -14,24 +14,24 @@ useCase:
   - troubleshooting
 ---
 
-# Troubleshooting Sign in With Apple
+# Troubleshooting Sign in with Apple
 
-## Configuration Elements
+## Configuration elements
 
-Ensure that the correct configuration elements are in place - both in the Auth0 management dashboard, and in the Apple developer settings console.  Common mis-configurations include:
+Ensure that the correct configuration elements are in place, both in the Auth0 Management Dashboard and in the Apple Developer Settings Console. Common configuration problems include:
 
-- **Using the wrong type of identifier**: Remember that Apple App IDs, also known as App Bundle Identifiers, need to be [configured in Auth0's advanced application settings](/connections/apple-siwa/add-siwa-to-native-app).  Service IDs, which are used to configure web apps, need to be [configured in connection settings](/connections/apple-siwa/add-siwa-to-native-app).  Switching these identifiers will result in failures.
-- **Return URLS for Web Apps**: When using Sign In with Apple for web apps, the Auth0 callback endpoint must be added to the list of Return URLs in the Apple developer settings console.  When not using custom domains, this will take the format: `https://TENANT.auth0.com/login/callback`.
+- **Using the wrong identifier**: Remember that Apple App IDs (also known as App Bundle Identifiers) need to be [configured in Auth0's advanced application settings](/connections/apple-siwa/add-siwa-to-native-app).  Service IDs, which are used to configure web apps, need to be [configured in connection settings](/connections/apple-siwa/add-siwa-to-native-app).  Switching these identifiers will result in failures.
+- **Missing return URLS for Web Apps**: When using Sign In with Apple for web apps, the Auth0 callback endpoint must be added to the list of Return URLs in the Apple Developer Settings Console.  When not using custom domains, this will take the format: `https://TENANT.auth0.com/login/callback`.
 
 ::: warning
-Remember that it's not possible to test native apps from the Auth0 management dashboard.  The **Try** button in the Apple connection settings only tests the web app flow.  This is due to the fact that real devices are required for interaction with the Apple IdP using an App ID.
+Remember that it's not possible to test native apps from the Auth0 Management Dashboard.  The **Try** button in the Apple connection settings only tests the web app flow.  This is due to the fact that real devices are required for interaction with the Apple IdP using an App ID.
 :::
 
-## Tenant Logs
+## Tenant logs
 
 If your application successfully initiated the login flow with Auth0, the results will be reflected in the tenant logs.  Native social exchanges will use the `sens` and `fens` event types to indicate success and failure (respectively), while web flows will use the standard `s` and `f` event types.  All tenant logs interacting with the Apple IdP will use the connection value of `apple`.
 
-## Types of Errors
+## Types of errors
 
 The following errors may be returned from the Apple IdP.  Auth0 will relay both status codes and error messages from Apple should a request fail.
 
@@ -42,7 +42,7 @@ The following errors may be returned from the Apple IdP.  Auth0 will relay both 
 | `invalid_client` | 400 | Apple was unable to successfully authenticate the client with the provided credentials |
 | `server_error` | 500 | Other server-side issue inhibiting its ability to issue tokens |
 
-## Apple Nuances
+## Apple nuances
 Many identity providers have their own unique idiosyncrasies, and Apple is no exception.  When integrating, be mindful of a few of its particular choices in implementation.
 
 - **Requested Scopes Only Appear in the ID Token on First Authentication**: Apple has chosen to only return scopes like `email` the first time a user authenticates against and app and grants consent.  This means that if the token is consulted on any subsequent login attempt, it will not have this information.  However, Auth0 users have no need to fear: information will be stored in standard Auth0 user fields, and can be used at any time.
