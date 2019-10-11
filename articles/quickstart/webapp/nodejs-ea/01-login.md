@@ -104,7 +104,7 @@ app.use(auth({
   // baseURL - There is where your /callback, /login & /logout URLs will be registered
   baseURL: 'http://localhost:3000',
   // issuerBaseURL - This is your Auth0 Domain found in your Auth0 Application Settings
-  issuerBaseURL: '${account.namespace}',
+  issuerBaseURL: 'https://${account.namespace}',
   // clientID - This is your Auth0 Client ID found in your Auth0 Application Settings
   clientID: '${account.clientId}',
   // clientSecret - This is your Auth0 Client Secret found in your Auth0 Application Settings
