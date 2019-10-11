@@ -120,7 +120,7 @@ Add the `requiresAuth` middleware supplied from `express-openid-connect` for rou
 ```js
 const { requiresAuth } = require('express-openid-connect');
 
-app.get('/logged_in_user', requiresAuth(), (req, res) => {
+app.get('/profile', requiresAuth(), (req, res) => {
   // when a user is logged in you can access the user object via `req.openid.user`
   res.send(JSON.stringify(req.openid.user));
 });
