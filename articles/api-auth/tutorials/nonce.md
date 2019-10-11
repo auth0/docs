@@ -25,7 +25,7 @@ One way to generate a cryptographically random nonce is to use a tool like [Nano
 
 ```js
 function randomString(length) {
-    var charset = '0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._~'
+    var charset = '0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._'
     result = ''
 
     while (length > 0) {
