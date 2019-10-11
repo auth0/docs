@@ -105,7 +105,7 @@ app.use(auth({
   baseURL: 'http://localhost:3000',
   // issuerBaseURL - This is your Auth0 Domain found in your Auth0 Application Settings
   issuerBaseURL: 'https://${account.namespace}',
-  // clientID - This is your Auth0 Client ID found in your Auth0 Application Settings
+  // clientID - This is the Client ID found in your Auth0 Application settings
   clientID: '${account.clientId}',
   // clientSecret - This is your Auth0 Client Secret found in your Auth0 Application Settings
   clientSecret: '${account.clientSecret}'
