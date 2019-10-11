@@ -17,7 +17,7 @@ github:
 
 <!-- markdownlint-disable MD002 -->
 ## Getting Started
-In this quickstart you will learn how to implement authentication in an Express application using the OIDC Compliant library [Express OIDC](https://github.com/auth0/express-openid-connect) authored and maintained by Auth0.
+In this quickstart you will learn how to implement authentication in an Express application using the [Express OpenID Connect](https://github.com/auth0/express-openid-connect) library, authored and maintained by Auth0.
 
 ::: warning
 Express OIDC is still in an [early access stage](/).
