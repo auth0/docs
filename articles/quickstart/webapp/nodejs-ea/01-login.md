@@ -15,17 +15,16 @@ github:
   path: 01-Login
 ---
 
-<!-- markdownlint-disable MD002 -->
-<!-- markdownlint-disable MD034 -->
+<%= include('../../../_includes/_new_app', { hideDownloadSample: true, hideDashboardScreenshot: true }) %>
+<%= include('../../../_includes/_callback_url') %>
+<%= include('../../../_includes/_logout_url' }) %>
 
-## Getting Started
-In this quickstart you will learn how to implement authentication in an Express application using the [Express OpenID Connect](https://github.com/auth0/express-openid-connect) library, authored and maintained by Auth0.
-
-::: warning
-Express OIDC is still in an [early access stage](/).
-:::
-
+## Integrate Auth0
 ### Install Dependencies
+Install the following dependencies
+
+- [`express-session`](https://github.com/auth0/express-session) - simple session middleware for Express (any session middleware for express will work).
+- [`express-openid-connect`](https://github.com/auth0/express-openid-connect) - an [OIDC](/protocols/oidc) compliant authentication library.
 
 ```sh
 # Using NPM
@@ -35,45 +34,40 @@ npm install express-openid-connect express-session
 yarn add express-openid-connect express-session
 ```
 
-## Configure Auth0
-<%= include('../../../_includes/_callback_url') %>
-<%= include('../../../_includes/_logout_url' }) %>
-
-## Integrate Auth0
-### Express Middleware
-There are three middlewares required to integrate Auth0 in your application.
-
-- `express.urlencoded` - parses urlencoded payloads sent back from the Auth0 server.
-- `express-session` - simple session middleware for Express (this can be swapped with any session middleware for express).
-- `express-openid-connect.auth` - an [OIDC](/protocols/oidc) compliant authentication middleware.
-
-::: note
-To learn more about using middleware with Express view the [official documentation](https://expressjs.com/en/guide/using-middleware.html)
-:::
+### Handling server responses
+Your application will need to parse url-encoded payloads sent back from the Auth0 server.  Express provides a middleware for this `express.urlencoded`. You might already be using `body-parser`, this will work too.
 
 ```js
 const express = require('express');
-const session = require('express-session');
-const { auth } = require('express-openid-connect');
-
-// Example initialization of Express
 const app = express();
 
-// parses urlencoded payloads sent back from the Auth0 server
 app.use(express.urlencoded({
   extended: false
 }));
+```
 
-// session middleware required to handle user sessions
+### User sessions
+In order to keep the user logged in across requests you will need to use session middleware.  The session will allow you to recognize the user on concurrent requests. In this example, you will use `express-session` which stores the session in memory.
+
+```js
+const session = require('express-session');
+
 app.use(session({
   secret: 'this should be a secret',
   resave: true,
   saveUninitialized: false
 }));
+```
 
-// express-openid-connect.auth
+### Authentication
+The last part of integrating Auth0 into your application will be using the `auth` middleware supplied to you from the Auth0 library `express-opeinid-connect`.  View the official [Api Documentation](https://github.com/auth0/express-openid-connect/blob/4374c0502d4aedf8b3975e7c5f26929b305b32f6/API.md) for configuration options and information.
+
+```js
+const { auth } = require('express-openid-connect');
+
 app.use(auth({
   required: false,
+  auth0Logout: true,
   baseURL: 'http://localhost:3000',
   issuerBaseURL: 'https://${account.namespace}',
   clientID: '${account.clientId}'
