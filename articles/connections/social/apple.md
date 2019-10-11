@@ -48,3 +48,4 @@ After you set up and configure SIWA and exchange the authorization code for Auth
 * [Test Sign In with Apple Configuration](/connections/apple-siwa/test-siwa-connection)
 * [iOS Swift - Sign In with Apple Quickstart](/quickstart/native/ios-swift-siwa)
 * [Rate Limits on Native Social Logins](/policies/rate-limits#limits-on-native-social-logins)
+* [Troubleshooting Sign In with Apple](/connections/apple-siwa/troubleshooting)
