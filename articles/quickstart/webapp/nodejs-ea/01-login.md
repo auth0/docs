@@ -141,7 +141,7 @@ If you are testing your application locally, you can login by visiting `http://l
 Once a user is logged in it is attached to the `request` via the `req.openid` object. You can access the full user object via `req.openid.user`
 
 ### Logout
-To log a user out send a `GET` request to the `/logout` route registered by the `express-oidc-connect.auth` middleware.
+To log a user out, redirect them to the `/logout` route registered by the `express-oidc-connect.auth` middleware.
 
 ::: note
 If you are testing your application locally, you can logout by visiting `http://localhost:3000/logout`
