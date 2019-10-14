@@ -115,7 +115,7 @@ import (
 	"log"
 	"net/http"
 
-	oidc "github.com/coreos/go-oidc"
+	"github.com/coreos/go-oidc"
 
 	"app"
 	"auth"
@@ -309,20 +309,33 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 
 	domain := "${account.namespace}"
 
-	var Url *url.URL
-	Url, err := url.Parse("https://" + domain)
+	logoutUrl, err := url.Parse("https://" + domain)
 
 	if err != nil {
-		panic(err.Error())
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 
-	Url.Path += "/v2/logout"
+	logoutUrl.Path += "/v2/logout"
 	parameters := url.Values{}
-	parameters.Add("returnTo", "http://localhost:3000")
-	parameters.Add("client_id", "${account.clientId}")
-	Url.RawQuery = parameters.Encode()
 
-	http.Redirect(w, r, Url.String(), http.StatusTemporaryRedirect)
+	var scheme string
+	if r.TLS == nil {
+		scheme = "http"
+	} else {
+		scheme = "https"
+	}
+
+	returnTo, err := url.Parse(scheme + "://" +  r.Host)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	parameters.Add("returnTo", returnTo.String())
+	parameters.Add("client_id", "${account.clientId}")
+	logoutUrl.RawQuery = parameters.Encode()
+
+	http.Redirect(w, r, logoutUrl.String(), http.StatusTemporaryRedirect)
 }
 ```
 
