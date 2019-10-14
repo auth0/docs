@@ -13,7 +13,9 @@ The *Auth0 Logs to Application Insights* is a scheduled job takes all of your Au
 
 ## Configure the Extension
 
-To install and configure this extension, click on the __Auth0 Logs to Application Insights__ box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the [Dashboard](${manage_url}). The __Install Extension__ window pops open, and you will be asked to set the following configuration variables:
+To install and configure this extension, click on the __Auth0 Logs to Application Insights__ box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the [Dashboard](${manage_url}).
+
+The __Install Extension__ window pops open, and you will be asked to set the following configuration variables:
 
 - __Schedule__: The frequency with which logs should be exported.
 - __Batch_Size__: The amount of logs to be read on each execution. Maximum is 100.
@@ -38,10 +40,6 @@ To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensi
 
 There, you can see the job you just created, modify its state by toggling the __State__ switch, and see when the next run is due and what was the result of the last execution.
 
-![View Cron Jobs](/media/articles/extensions/appinsights/view-cron-jobs.png)
-
-You can view more details by clicking on the job you created. In this page you can view details for each execution, reschedule, access real-time logs, and more.
-
-![View Cron Details](/media/articles/extensions/appinsights/view-cron-details.png)
+You can view more details by clicking on the job you created. On this page you can view details for each execution, reschedule, access real-time logs, and more.
 
 At this point, you can navigate to your [Azure Portal](https://portal.azure.com/#) to view your [Auth0 Logs](${manage_url}/#/logs).
