@@ -84,31 +84,31 @@ These packaged offerings generally fall into two categories: Design and Implemen
 
 ### Design and Implement packages
 
-#### [Discovery Workshop](/media/articles/services/Auth0-Services-Discovery-Workshop-v2.pdf)
+#### [Discovery Workshop](/media/articles/services/Auth0-Services-Discovery-Workshop.pdf)
 * 2 days of services
 * On-site
 * Expires in 90 days
 * Terms and Conditions apply
 
-#### [Basic Package](/media/articles/services/Auth0-Services-Basic-v2.pdf)
+#### [Basic Package](/media/articles/services/Auth0-Services-Basic.pdf)
 * 5 days of services
 * Remote only
 * Expires in 90 days
 * Terms and Conditions apply
 
-#### [Standard Package](/media/articles/services/Auth0-Services-Standard-v2.pdf)
+#### [Standard Package](/media/articles/services/Auth0-Services-Standard.pdf)
 * 12 days of services
 * Remote/on-site, as mutually agreed
 * Expires in 180 days
 * Terms and Conditions apply
 
-#### [Advanced Package](/media/articles/services/Auth0-Services-Advanced-v2.pdf)
+#### [Advanced Package](/media/articles/services/Auth0-Services-Advanced.pdf)
 * 25 days of services
 * Remote/on-site, as mutually agreed
 * Expires in 180 days
 * Terms and Conditions apply
 
-#### [Custom Implementation Package](/media/articles/services/Auth0-Services-Custom-Implementation-v1.pdf)
+#### [Custom Implementation Package](/media/articles/services/Auth0-Services-Custom-Implementation.pdf)
 * 15 or more days of services
 * Remote only
 * Expires in 180 days
@@ -116,13 +116,13 @@ These packaged offerings generally fall into two categories: Design and Implemen
 
 ### Maintain and Improve packages
 
-#### [Implementation HealthCheck Package](/media/articles/services/Auth0-Services-HealthCheck-v2.pdf)
+#### [Implementation HealthCheck Package](/media/articles/services/Auth0-Services-HealthCheck.pdf)
  * 3 days of services
  * Remote/on-site, as mutually agreed
  * Expires in 365 days
  * Terms and Conditions apply
 
-#### [Premier Success Package](/media/articles/services/Auth0-Services-Premier-Success-v2.pdf)
+#### [Premier Success Package](/media/articles/services/Auth0-Services-Premier-Success.pdf)
 * 24 days of services
 * On-site
 * Expires in 365 days
