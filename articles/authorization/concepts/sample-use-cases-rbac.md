@@ -10,7 +10,8 @@ topics:
   - groups
   - policies
   - rules
-contentType:
+  - access-control
+contentType: 
     - concept
 useCase:
   - build-an-app

@@ -19,6 +19,8 @@ This guide will show you how to add permissions to <dfn data-key="role">[roles](
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
+<%= include('../../../../authorization/_includes/_view-limits') %>
+
 1. Make a `POST` call to the [Add Role Permissions endpoint](/api/management/v2#!/Roles/post_role_permission_assignment). Be sure to replace `ROLE_ID`, `MGMT_API_ACCESS_TOKEN`, `API_IDENTIFIER`, and `PERMISSION_NAME` placeholder values with your role ID, Management API Access Token, API identifier (audience), and permission name(s), respectively.
 
 ```har
