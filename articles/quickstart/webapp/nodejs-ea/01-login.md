@@ -95,6 +95,7 @@ app.get('/profile', requiresAuth(), (req, res) => {
   // when a user is logged in you can access the user object via `req.openid.user`
   res.send(JSON.stringify(req.openid.user));
 });
+```
 
 ## Login
 To log a user in visit the `/login` route registered by the `express-oidc-connect.auth` middleware, 
