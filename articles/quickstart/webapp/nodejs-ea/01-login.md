@@ -60,7 +60,7 @@ app.use(session({
 ```
 
 ### Authentication
-The last part of integrating Auth0 into your application will be using the `auth` middleware supplied to you from the Auth0 library `express-opeinid-connect`.  View the official [Api Documentation](https://github.com/auth0/express-openid-connect/blob/4374c0502d4aedf8b3975e7c5f26929b305b32f6/API.md) for configuration options and information.
+The last part of integrating Auth0 into your application will be using the `auth` middleware provided by Auth0's `express-openid-connect` installed above.  View the official [API Documentation](https://github.com/auth0/express-openid-connect/blob/master/API.md) for configuration options and information.
 
 ```js
 const { auth } = require('express-openid-connect');
