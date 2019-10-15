@@ -72,19 +72,21 @@ app.use(auth({
   issuerBaseURL: 'https://${account.namespace}',
   clientID: '${account.clientId}'
 }));
-
-app.get('/', (req, res) => {
-  if (req.openid.isAuthenticated()) {
-    // when a user is logged in you can access the user object via `req.openid.user`
-    res.send(JSON.stringify(req.openid.user));
-  } else {
-    res.send('No user is logged in');
-  }
-})
 ```
 
-## Protect a Route
-Now that your application has the required middleware to integrate Auth0 in your application, you can start protecting routes.
+Now that your application has the middleware installed, you can use [various helpers and values](https://github.com/auth0/express-openid-connect/blob/master/API.md#session-and-context) provided by the `express-openid-connect` library.  Here is an example of using `req.openid.isAuthenticated`
+
+```js
+app.get('/', (req, res) => {
+ res.send('You are logged ' + req.openid.isAuthenticated() ? 'In' : 'Out')
+});
+```
+
+## Login
+To log a user in visit the `/login` route provided by the library, or if you are testing your application locally [`localhost:3000/login`](http://localhost:3000/)
+
+## Profile
+To retrieve the user profile you will first want to protect the route where you display that users information.
 
 Add the `requiresAuth` middleware supplied from `express-openid-connect` for routes that require authentication.  Any route using this middleware will check for a valid user session and, if one does not exist, it will redirect the user to log in.
 
@@ -97,13 +99,8 @@ app.get('/profile', requiresAuth(), (req, res) => {
 });
 ```
 
-## Login
-To log a user in visit the `/login` route registered by the `express-oidc-connect.auth` middleware, 
-or if you are testing your application locally [`localhost:3000/login`](http://localhost:3000/)
-
 ## Logout
-To log a user out visit the `/logout` route registered by the `express-oidc-connect.auth` middleware, 
-or if you are testing your application locally [`localhost:3000/logout`](http://localhost:3000/)
+To log a user out visit the `/logout` route provided by the library, or if you are testing your application locally [`localhost:3000/logout`](http://localhost:3000/)
 
 ## What's next?
 This is an Early Access version of the Auth0 Express OIDC library.  You can further explore this library and its configuration options on [GitHub](https://github.com/auth0/express-openid-connect).
