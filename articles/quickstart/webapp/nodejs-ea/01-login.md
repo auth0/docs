@@ -27,11 +27,7 @@ Install the following dependencies
 - [`express-openid-connect`](https://github.com/auth0/express-openid-connect) - Auth0-maintained OIDC-compliant library for Express.
 
 ```sh
-# Using NPM
 npm install express-openid-connect express-session
-
-# Using Yarn
-yarn add express-openid-connect express-session
 ```
 
 ### Handling server responses
