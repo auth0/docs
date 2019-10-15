@@ -18,7 +18,7 @@ articles:
   - 01-login
 github:
   org: auth0-samples
-  repo: auth0-nodejs-webapp-sample
+  repo: auth0-express-webapp-sample
   branch: master
 requirements:
   - NodeJS 10.13+
