@@ -51,7 +51,7 @@ Before you can register your app in the Apple Developer Portal, you must have an
     ![Register Services ID](/media/articles/connections/social/apple/apple-registerservicesid.jpg)
 1. Choose **Services IDs** and click **Continue**. Fill in the description and identifier (`com.exampleco.webapp`).
 1. After checking **Sign In with Apple**, click on **Configure** and define your **Web Domain** (`exampleco.com`) and your **Return URL**. Make sure that your Return URL is your Auth0 domain, such as `foo.auth0.com` (or your Auth0 custom domain if you have one) and follows this format: `https://YOUR_AUTH0_DOMAIN/login/callback`.
-    ![Configure URLs](/media/articles/connections/social/apple/apple-configureurls2.png)
+    ![Configure URLs](/media/articles/connections/social/apple/apple-configurls2.png)
 1. Click **Save**, **Continue**, and then click **Register**.
 
 ### Set up your Signing Key

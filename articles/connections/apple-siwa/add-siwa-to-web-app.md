@@ -42,6 +42,7 @@ Once you have the credentials you need from your Apple Developer account, you ne
     * **Client Secret Signing Key**
     * **Apple Team ID**
     * **Key ID**
+
     ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)
 1. Click **Save**.
 1. [Test the connection](/connections/apple-siwa/test-siwa-connection). 
