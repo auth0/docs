@@ -24,7 +24,7 @@ github:
 Install the following dependencies
 
 - [`express-session`](https://github.com/auth0/express-session) - simple session middleware for Express (any session middleware for express will work).
-- [`express-openid-connect`](https://github.com/auth0/express-openid-connect) - an [OIDC](/protocols/oidc) compliant authentication library.
+- [`express-openid-connect`](https://github.com/auth0/express-openid-connect) - Auth0-maintained OIDC-compliant library for Express.
 
 ```sh
 # Using NPM
