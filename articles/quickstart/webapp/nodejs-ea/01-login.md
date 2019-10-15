@@ -35,7 +35,7 @@ yarn add express-openid-connect express-session
 ```
 
 ### Handling server responses
-Your application will need to parse url-encoded payloads sent back from the Auth0 server.  Express provides a middleware for this `express.urlencoded`. You might already be using `body-parser`, this will work too.
+Your application will need to parse URL-encoded data sent back from the Auth0 server.  Express provides a middleware for this called `express.urlencoded`. If you are integrating an existing application that uses `urlencoded ` from the `body-parser`module, that will work as well.
 
 ```js
 const express = require('express');
