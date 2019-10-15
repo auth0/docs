@@ -23,8 +23,8 @@ github:
 ### Install Dependencies
 Install the following dependencies
 
-- [`express-session`](https://github.com/auth0/express-session) - simple session middleware for Express (any session middleware for express will work).
 - [`express-openid-connect`](https://github.com/auth0/express-openid-connect) - Auth0-maintained OIDC-compliant library for Express.
+- [`express-session`](https://github.com/auth0/express-session) - simple session middleware for Express (any session middleware for express will work).
 
 ```sh
 npm install express-openid-connect express-session
@@ -99,4 +99,7 @@ app.get('/profile', requiresAuth(), (req, res) => {
 To log a user out visit the `/logout` route provided by the library, or if you are testing your application locally [`localhost:3000/logout`](http://localhost:3000/)
 
 ## What's next?
-This is an Early Access version of the Auth0 Express OIDC library.  You can further explore this library and its configuration options on [GitHub](https://github.com/auth0/express-openid-connect).
+The Auth0 team has put together a few different examples of using [`express-openid-connect`](https://github.com/auth0/express-openid-connect)
+* [Route Customization](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#2-route-customization)
+* [Using refresh tokens](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#4-using-refresh-tokens)
+* [Require auth for specific routes](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#3-require-auth-for-specific-routes)
