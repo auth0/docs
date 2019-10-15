@@ -83,14 +83,11 @@ app.get('/', (req, res) => {
 })
 ```
 
-## Login and Logout
-### Login
-To log a user in you have 3 options:
-- Visit the `/login` route registered by the `express-oidc-connect.auth` middleware, or if testing your application locally [`localhost:3000/login`](http://localhost:3000/login)
-- Use the `express-oidc-connect.requiresAuth` middleware to protect a route.
-- When initializing the `express-oidc-connect.auth` middleware, pass in `required: true` to force authentication on all routes.
+## Login
+To log a user in visit the `/login` route registered by the `express-oidc-connect.auth` middleware, 
+or if you are testing your application locally [`localhost:3000/login`](http://localhost:3000/)
 
-### Logout
+## Logout
 To log a user out visit the `/logout` route registered by the `express-oidc-connect.auth` middleware, 
 or if you are testing your application locally [`localhost:3000/logout`](http://localhost:3000/)
 
