@@ -35,7 +35,7 @@ yarn add express-openid-connect express-session
 ```
 
 ### Handling server responses
-Your application will need to parse URL-encoded data sent back from the Auth0 server.  Express provides a middleware for this called `express.urlencoded`. If you are integrating an existing application that uses `urlencoded ` from the `body-parser`module, that will work as well.
+Your application will need to parse URL-encoded data sent back from the Auth0 server.  Express provides a middleware for this called `express.urlencoded`. If you are integrating an existing application that uses `urlencoded` from the `body-parser`module, that will work as well.
 
 ```js
 const express = require('express');
@@ -88,7 +88,7 @@ To log a user in visit the `/login` route provided by the library, or if you are
 ## Profile
 To retrieve the user profile you will first want to protect the route where you display that users information.
 
-Add the `requiresAuth` middleware supplied from `express-openid-connect` for routes that require authentication.  Any route using this middleware will check for a valid user session and, if one does not exist, it will redirect the user to log in.
+Add the `requiresAuth` middleware for routes that require authentication.  Any route using this middleware will check for a valid user session and, if one does not exist, it will redirect the user to log in.
 
 ```js
 const { requiresAuth } = require('express-openid-connect');
