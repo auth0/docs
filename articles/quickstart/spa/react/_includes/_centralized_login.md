@@ -31,10 +31,10 @@ npm install react-router-dom @auth0/auth0-spa-js
 
 ### Install the Auth0 React wrapper
 
-Create a new file in the `src` directory called `react-auth0-wrapper.js` and populate it with the following content:
+Create a new file in the `src` directory called `react-auth0-spa.js` and populate it with the following content:
 
 ```js
-// src/react-auth0-wrapper.js
+// src/react-auth0-spa.js
 import React, { useState, useEffect, useContext } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
 
@@ -139,7 +139,7 @@ Create a new component in the `components` folder called `NavBar.js`. This compo
 // src/components/NavBar.js
 
 import React from "react";
-import { useAuth0 } from "../react-auth0-wrapper";
+import { useAuth0 } from "../react-auth0-spa";
 
 const NavBar = () => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
@@ -181,7 +181,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { Auth0Provider } from "./react-auth0-wrapper";
+import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
 
 // A function that routes the user to the right place
@@ -235,7 +235,7 @@ Next, open the `App.js` file in the `src` folder, populate it with the following
 
 import React from "react";
 import NavBar from "./components/NavBar";
-import { useAuth0 } from "./react-auth0-wrapper";
+import { useAuth0 } from "./react-auth0-spa";
 
 function App() {
   const { loading } = useAuth0();
@@ -276,7 +276,7 @@ To display this information to the user, create a new file called `Profile.js` i
 // src/components/Profile.js
 
 import React, { Fragment } from "react";
-import { useAuth0 } from "../react-auth0-wrapper";
+import { useAuth0 } from "../react-auth0-spa";
 
 const Profile = () => {
   const { loading, user } = useAuth0();
@@ -390,7 +390,7 @@ Start by creating a new component `components/PrivateRoute.js` that can wrap ano
 
 import React, { useEffect } from "react";
 import { Route } from "react-router-dom";
-import { useAuth0 } from "../react-auth0-wrapper";
+import { useAuth0 } from "../react-auth0-spa";
 
 const PrivateRoute = ({ component: Component, path, ...rest }) => {
   const { loading, isAuthenticated, loginWithRedirect } = useAuth0();
