@@ -72,27 +72,22 @@ app.use(auth({
   issuerBaseURL: 'https://${account.namespace}',
   clientID: '${account.clientId}'
 }));
-```
 
-## Protect a Route
-Now that your application has the required middleware to integrate Auth0 in your application, you can start protecting routes.
-
-Add the `requiresAuth` middleware supplied from `express-openid-connect` for routes that require authentication.  Any route using this middleware will check for a valid user session and, if one does not exist, it will redirect the user to log in.
-
-```js
-const { requiresAuth } = require('express-openid-connect');
-
-app.get('/profile', requiresAuth(), (req, res) => {
-  // when a user is logged in you can access the user object via `req.openid.user`
-  res.send(JSON.stringify(req.openid.user));
-});
+app.get('/', (req, res) => {
+  if (req.openid.isAuthenticated()) {
+    // when a user is logged in you can access the user object via `req.openid.user`
+    res.send(JSON.stringify(req.openid.user));
+  } else {
+    res.send('No user is logged in');
+  }
+})
 ```
 
 ## Login and Logout
 ### Login
 To log a user in you have 3 options:
-- Redirect to the `/login` route registered by the `express-oidc-connect.auth` middleware.
-- Use the `express-oidc-connect.requiresAuth` middleware to protect a route, as described above.
+- Visiting the route `/login` route registered by the `express-oidc-connect.auth` middleware
+- Use the `express-oidc-connect.requiresAuth` middleware to protect a route.
 - When initializing the `express-oidc-connect.auth` middleware, pass in `required: true` to force authentication on all routes.
 
 ::: note
@@ -100,7 +95,7 @@ If you are testing your application locally, you can login by visiting `http://l
 :::
 
 ### Logout
-To log a user out, redirect them to the `/logout` route registered by the `express-oidc-connect.auth` middleware.
+To log a user out visit the `/logout` route registered by the `express-oidc-connect.auth` middleware.
 
 ::: note
 If you are testing your application locally, you can logout by visiting `http://localhost:3000/logout`
