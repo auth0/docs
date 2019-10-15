@@ -34,13 +34,17 @@ If you are using the Classic Universal Login flow or embedding `Lock.js` in your
 
 ## Configure and enable the connection in Auth0
 
-Once you have the credentials you need from your Apple Developer account, you need to configure the connection settings and enable the connection for your application in Auth0.
+Once you have the credentials you need from your Apple Developer account, you need to configure the connection settings and enable the connection for your application in Auth0. 
+
+::: note
+The **Client Secret Signing Key** is the contents of the key file you downloaded when setting up the key on the Apple Developer site. You can copy and paste the content of that file into this field.
+:::
 
 1. On the Dashboard, go to [Connections > Social](${manage_url}/#/connections/social) and click on the **Apple** connection.
 1. On the **Settings** tab, fill in the following fields:
     * **Client ID** (Services ID)
-    * **Client Secret Signing Key**
     * **Apple Team ID**
+    * **Client Secret Signing Key**
     * **Key ID**
 
     ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)

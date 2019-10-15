@@ -54,6 +54,10 @@ Before you can register your app in the Apple Developer Portal, you must have an
     ![Configure URLs](/media/articles/connections/social/apple/apple-configurls2.png)
 1. Click **Save**, **Continue**, and then click **Register**.
 
+::: note
+At this time, Apple does not require validation of the redirect URL, and doing so is typically not necessary.
+:::
+
 ### Set up your Signing Key
 
 1. Go to **Keys** under the **Certificates, Identifiers, & Profiles** section of your Apple developer dashboard.
@@ -61,7 +65,7 @@ Before you can register your app in the Apple Developer Portal, you must have an
 1. Enter a **Key Name** and check the **Sign In with Apple** option.
 1. Click **Configure** to make sure the **Choose a Primary App ID** field is filled with the correct App ID.
 1. Click **Save**, **Continue**, and then **Register**.
-1. On the page to which you're redirected after registering, make a note of the Key ID. Then, download the key, move it to its own directory, and rename the key file that you downloaded to `authkey.p8`. 
+1. On the page to which you're redirected after registering, make a note of the Key ID. Then, download the key. 
 
 Next, you will use these credentials on the [Auth0 Dashboard > Connections > Social](${manage_url}/#/connections/social) page to continue to configure your application. Depending on which type of application you want to configure, choose one of the following methods:
 
