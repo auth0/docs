@@ -86,20 +86,13 @@ app.get('/', (req, res) => {
 ## Login and Logout
 ### Login
 To log a user in you have 3 options:
-- Visiting the route `/login` route registered by the `express-oidc-connect.auth` middleware
+- Visit the `/login` route registered by the `express-oidc-connect.auth` middleware, or if testing your application locally [`localhost:3000/login`](http://localhost:3000/login)
 - Use the `express-oidc-connect.requiresAuth` middleware to protect a route.
 - When initializing the `express-oidc-connect.auth` middleware, pass in `required: true` to force authentication on all routes.
 
-::: note
-If you are testing your application locally, you can login by visiting `http://localhost:3000/login`
-:::
-
 ### Logout
-To log a user out visit the `/logout` route registered by the `express-oidc-connect.auth` middleware.
-
-::: note
-If you are testing your application locally, you can logout by visiting `http://localhost:3000/logout`
-:::
+To log a user out visit the `/logout` route registered by the `express-oidc-connect.auth` middleware, 
+or if you are testing your application locally [`localhost:3000/logout`](http://localhost:3000/)
 
 ## What's next?
 This is an Early Access version of the Auth0 Express OIDC library.  You can further explore this library and its configuration options on [GitHub](https://github.com/auth0/express-openid-connect).
