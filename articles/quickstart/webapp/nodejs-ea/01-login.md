@@ -83,6 +83,19 @@ app.get('/', (req, res) => {
 })
 ```
 
+## Protect a Route
+Now that your application has the required middleware to integrate Auth0 in your application, you can start protecting routes.
+
+Add the `requiresAuth` middleware supplied from `express-openid-connect` for routes that require authentication.  Any route using this middleware will check for a valid user session and, if one does not exist, it will redirect the user to log in.
+
+```js
+const { requiresAuth } = require('express-openid-connect');
+
+app.get('/profile', requiresAuth(), (req, res) => {
+  // when a user is logged in you can access the user object via `req.openid.user`
+  res.send(JSON.stringify(req.openid.user));
+});
+
 ## Login
 To log a user in visit the `/login` route registered by the `express-oidc-connect.auth` middleware, 
 or if you are testing your application locally [`localhost:3000/login`](http://localhost:3000/)
