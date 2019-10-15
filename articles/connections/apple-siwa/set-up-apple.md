@@ -41,7 +41,7 @@ Before you can register your app in the Apple Developer Portal, you must have an
 
 1. On the Apple Developer Portal, go to **Certificates, IDs, & Profiles > Identifiers** and click the **blue plus icon** next to **Identifiers** to create a new App ID.
 1. Choose **App IDs** as the identifier type and click **Continue**.
-1. Provide a description and a Bundle ID (reverse-domain name style, e.g., `com.exampleco`).
+1. Provide a description and a Bundle ID (reverse-domain name style, e.g., `com.example`).
 1. Scroll down and check **Sign In with Apple**.
 1. Click **Continue**, and then click **Register**.
 
@@ -49,8 +49,8 @@ Before you can register your app in the Apple Developer Portal, you must have an
 
 1. Return to the **Certificates, IDs, & Profiles** section and click the **blue plus icon** next to **Identifiers**.
     ![Register Services ID](/media/articles/connections/social/apple/apple-registerservicesid.jpg)
-1. Choose **Services IDs** and click **Continue**. Fill in the description and identifier (`com.exampleco.webapp`).
-1. After checking **Sign In with Apple**, click on **Configure** and define your **Web Domain** (`exampleco.com`) and your **Return URL**. Make sure that your Return URL is your Auth0 domain, such as `foo.auth0.com` (or your Auth0 custom domain if you have one) and follows this format: `https://YOUR_AUTH0_DOMAIN/login/callback`.
+1. Choose **Services IDs** and click **Continue**. Fill in the description and identifier (`com.example.webapp`).
+1. After checking **Sign In with Apple**, click on **Configure** and define your **Web Domain** (`example.com`) and your **Return URL**. Make sure that your Return URL is your Auth0 domain, such as `foo.auth0.com` (or your Auth0 custom domain if you have one) and follows this format: `https://YOUR_AUTH0_DOMAIN/login/callback`.
     ![Configure URLs](/media/articles/connections/social/apple/apple-configurls2.png)
 1. Click **Save**, **Continue**, and then click **Register**.
 
