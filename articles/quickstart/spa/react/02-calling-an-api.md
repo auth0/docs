@@ -140,7 +140,7 @@ const ExternalApi = () => {
 export default ExternalApi;
 ```
 
-This component shows a button on the UI that allows the user to call the backend API. When clicked, the token is fetched from the Aut0 SDK client using `getTokenSilently()`. Notice that this function returns a `Promise` and is asyncronous. This function attempts to return the current access token. If the token is invalid, the token is refreshed silently before being returned from the function.
+This component shows a button on the UI that allows the user to call the backend API. When clicked, the token is fetched from the Aut0 SDK client using `getTokenSilently()`. Notice that this function returns a `Promise` and is asynchronous. This function attempts to return the current access token. If the token is invalid, the token is refreshed silently before being returned from the function.
 
 Once the token has been retrieved, it is used in a call using `fetch` as the bearer token in the Authorization header. The backend API will then validate this token and return either a `401 Unauthorized` response, or a `200` response with a JSON message. In this case, if a successful JSON message is received then it is displayed on the screen for the user.
 
