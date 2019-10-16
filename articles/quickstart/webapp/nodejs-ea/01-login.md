@@ -24,7 +24,7 @@ github:
 Install the following dependencies
 
 - [`express-openid-connect`](https://github.com/auth0/express-openid-connect) - Auth0-maintained OIDC-compliant library for Express.
-- [`express-session`](https://github.com/auth0/express-session) - simple session middleware for Express (any session middleware for express will work).
+- [`express-session`](https://github.com/auth0/express-session) - session middleware for Express.
 
 ```sh
 npm install express-openid-connect express-session
