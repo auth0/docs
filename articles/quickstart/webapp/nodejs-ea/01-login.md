@@ -27,7 +27,7 @@ Install the following dependencies
 - [`express-session`](https://github.com/auth0/express-session) - session middleware for Express.
 
 ```sh
-npm install express-openid-connect express-session
+npm install express express-openid-connect express-session
 ```
 
 ### Handling server responses
