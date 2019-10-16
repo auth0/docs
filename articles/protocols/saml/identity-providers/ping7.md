@@ -12,9 +12,7 @@ useCase:
 ---
 # Configure PingFederate as an Identity Provider
 
-PingFederate is a federation server that provides identity management, single sign-on, and API security for the enterprise.
-
-Most options are the default values (press __Next__ in most screens). If metadata import fails for some reason, keep these values on hand. These are the most important configuration parameters:
+PingFederate is a federation server that provides identity management, single sign-on, and API security for the enterprise. To configure Auth0 to use PingFederate as an identity provider, you will use primarily the default values and your Auth0 tenant metadata file to upload the required configuration parameter values for your Auth0 tenant. If the metadata upload fails for some reason, these are the most important configuration parameters:
 
 * __EntityID:__ `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME`
 * __Assertion Consumer Service URL:__ `https://${account.namespace}/login/callback`
@@ -22,11 +20,13 @@ Most options are the default values (press __Next__ in most screens). If metadat
 * __HTTP-Redirect__ binding for <dfn data-key="security-assertion-markup-language">SAML</dfn> Request
 * __HTTP-POST__ binding for SAML Response
 
-If you want **IdP-Initiated SSO** make sure to include the `connection` parameter in the Assertion Consumer Service URL: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`.
+::: panel IdP-Initiated SSO
+If you want to use **IdP-Initiated SSO**, make sure to include the `connection` parameter in the Assertion Consumer Service URL: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`.
+:::
 
-1. Download your Auth0 metadata file from `https://YOUR_DOMAIN/saml/metadata?connection=<the_connection_name`. Make sure that you use your custom domain if you have one configured. You will upload this file to import your Auth0 tenant information into the PingFederate configuration.
+1. Download your Auth0 metadata file from `https://YOUR_DOMAIN/saml/metadata?connection=YOUR_CONNECTION_NAME`. Make sure that you use your custom domain if you have one configured. You will upload this file to import your Auth0 tenant information into the PingFederate configuration.
 
-2. Select **Create New** from the **SP Connections** section.
+2. Sign on to your PingFederated account and select **Create New** from the **SP Connections** section.
 
 3. Configure the __SP Connection__. 
 
@@ -52,7 +52,11 @@ If you want **IdP-Initiated SSO** make sure to include the `connection` paramete
 
 9. Configure __Credentials__. On __Digital Signature Settings__, select your signing certificate and make sure you check the option to include it in the `<KeyInfo>` element.
 
-10. The last two options to configure are the certificate used to sign incoming requests. Auth0 signs `SAMLRequests` by default; you can change that when you configure the connection. You can download the Auth0 certificate (use `https://YOUR_TENANT.auth0.com/pem') and upload it here. 
+10. Configure the certificate used to sign incoming requests. You can download the Auth0 certificate (use `https://YOUR_TENANT.auth0.com/pem`) and upload it here. 
+
+    ::: note
+    Auth0 signs `SAMLRequests` by default; you can change that when you configure the connection. 
+    :::
 
 11. Review your settings and set as __Active__ or __Inactive__. 
 
@@ -61,4 +65,3 @@ If you want **IdP-Initiated SSO** make sure to include the `connection` paramete
 ## Keep reading
 
 * See the complete PingFederate instructions to [configure PingFederate as an identity provider](https://docs.pivotal.io/p-identity/1-5/pingfederate/config-pingfederate.html). 
-* 
