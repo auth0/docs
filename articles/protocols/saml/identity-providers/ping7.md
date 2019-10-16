@@ -1,6 +1,6 @@
 ---
 title: PingFederate
-description: How to configure PingFederate 7 as an identity provider.
+description: How to configure PingFederate as an identity provider.
 topics:
     - saml
     - identity-providers
@@ -10,7 +10,7 @@ contentType:
 useCase:
   - add-idp
 ---
-# Configure PingFederate 7 as an Identity Provider
+# Configure PingFederate as an Identity Provider
 
 PingFederate is a federation server that provides identity management, single sign-on, and API security for the enterprise.
 
@@ -24,7 +24,7 @@ Most options are the default values (press __Next__ in most screens). If metadat
 
 If you want **IdP-Initiated SSO** make sure to include the `connection` parameter in the Assertion Consumer Service URL: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`.
 
-1. Login to Auth0 and download the Auth0 [metadata file](https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME). You may also need to manually provide the name of the connection in the URL. This file will be used to automatically import information about your partner.
+1. Download your Auth0 metadata file from `https://<your_auth0_domain>/saml/metadata?connection=<the_connection_name`. Make sure that you use your custom domain if you have one configured. You will upload this file to import your Auth0 tenant information into the PingFederate configuration.
 
 2. Select **Create New** from the **SP Connections** section.
 
@@ -52,12 +52,13 @@ If you want **IdP-Initiated SSO** make sure to include the `connection` paramete
 
 9. Configure __Credentials__. On __Digital Signature Settings__, select your signing certificate and make sure you check the option to include it in the `<KeyInfo>` element.
 
-10. The last two options to configure are the certificate used to sign incoming requests. Auth0 will not sign `SAMLRequests` by default. 
-<a href="https://${account.tenant}.auth0.com/pem" rel="nofollow">Download the Auth0 certificate</a> and upload it here.
+10. The last two options to configure are the certificate used to sign incoming requests. Auth0 signs `SAMLRequests` by default; you can change that when you configure the connection. You can download the Auth0 certificate (use `https://YOUR_TENANT.auth0.com/pem') and upload it here. 
 
-11. Activation of the __SP Connection__. Review the summary of all your previous settings and set as __Active__ or __Inactive__. Click __Save__ at the bottom of the screen. You should see the new SP Connection on the __Main__ screen
+11. Review your settings and set as __Active__ or __Inactive__. 
+
+12. Click __Save__ at the bottom of the screen. You should see the new SP Connection on the __Main__ screen.
 
 ## Keep reading
 
-* See the complete instructions to [configure PingFederate as an identity provider](https://docs.pivotal.io/p-identity/1-5/pingfederate/config-pingfederate.html). 
-
+* See the complete PingFederate instructions to [configure PingFederate as an identity provider](https://docs.pivotal.io/p-identity/1-5/pingfederate/config-pingfederate.html). 
+* 
