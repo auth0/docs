@@ -43,7 +43,7 @@ app.use(express.urlencoded({
 ```
 
 ### User sessions
-In order to keep the user logged in across requests you will need to use session middleware.  The session will allow you to recognize the user on concurrent requests. In this example, you will use `express-session` which stores the session in memory.
+To keep the user logged in across multiple requests, your application will use the `express-session` middleware, which stores the user's data in memory. The user's session will allow your application to recognize them from request to request.
 
 ```js
 const session = require('express-session');
