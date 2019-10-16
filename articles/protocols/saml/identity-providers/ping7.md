@@ -24,7 +24,7 @@ Most options are the default values (press __Next__ in most screens). If metadat
 
 If you want **IdP-Initiated SSO** make sure to include the `connection` parameter in the Assertion Consumer Service URL: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`.
 
-1. Download your Auth0 metadata file from `https://<your_auth0_domain>/saml/metadata?connection=<the_connection_name`. Make sure that you use your custom domain if you have one configured. You will upload this file to import your Auth0 tenant information into the PingFederate configuration.
+1. Download your Auth0 metadata file from `https://YOUR_DOMAIN/saml/metadata?connection=<the_connection_name`. Make sure that you use your custom domain if you have one configured. You will upload this file to import your Auth0 tenant information into the PingFederate configuration.
 
 2. Select **Create New** from the **SP Connections** section.
 
