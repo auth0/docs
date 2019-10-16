@@ -32,10 +32,6 @@ When searching for users in Auth0, you can use multiple endpoints to search for 
 | Actions requiring user search as part of authentication processes | [Get Users by ID](/users/search/v3/get-users-by-id-endpoint) or [Get Users by Email](/users/search/v3/get-users-by-email-endpoint) |
 | Searching for users for account linking by email | [Get Users by Email](/users/search/v3/get-users-by-email-endpoint) |
 
-::: note
-User Search v3 is not available for the Private Cloud.
-:::
-
 ## Search Result Terminology
 
 We use the following terms to describe the user search results:

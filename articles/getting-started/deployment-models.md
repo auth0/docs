@@ -152,8 +152,8 @@ The following tables describe operational and feature differences between these 
         <tr>
             <th class="info"><strong>User Search</strong></th>
             <td><a href="/users/search/v3">v3</a></td>
-            <td><a href="/users/search/v2">v2</a></td>
-            <td><a href="/users/search/v2">v2</a></td>
+            <td><a href="/users/search/v3">v3</a></td>
+            <td><a href="/users/search/v3">v3</a></td>
         </tr>
         <tr>
             <th class="info"><strong>Tenant Log Search</strong></th>
