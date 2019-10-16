@@ -331,7 +331,7 @@ Under some configurations, Ruby may not be able to find certification authority 
 Download the CA certs bundle to the project directory:
 
 ```bash
-curl -o lib/ca-bundle.crt http://curl.haxx.se/ca/ca-bundle.crt
+curl -L -o lib/ca-bundle.crt http://curl.haxx.se/ca/ca-bundle.crt
 ```
 
 Add this initializer to `config/initializers/fix_ssl.rb`:
