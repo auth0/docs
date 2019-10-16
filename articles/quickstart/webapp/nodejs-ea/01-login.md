@@ -74,7 +74,7 @@ Now that your application has the middleware installed, you can use [various hel
 
 ```js
 app.get('/', (req, res) => {
- res.send('You are logged ' + req.openid.isAuthenticated() ? 'In' : 'Out')
+ res.send(req.isAuthenticated() ? 'Logged in' : 'Logged out'))
 });
 ```
 
