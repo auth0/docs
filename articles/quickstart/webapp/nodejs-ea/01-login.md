@@ -90,7 +90,6 @@ Add the `requiresAuth` middleware for routes that require authentication.  Any r
 const { requiresAuth } = require('express-openid-connect');
 
 app.get('/profile', requiresAuth(), (req, res) => {
-  // when a user is logged in you can access the user object via `req.openid.user`
   res.send(JSON.stringify(req.openid.user));
 });
 ```
