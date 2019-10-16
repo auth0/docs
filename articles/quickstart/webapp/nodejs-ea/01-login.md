@@ -96,7 +96,7 @@ app.get('/profile', requiresAuth(), (req, res) => {
 ```
 
 ## Logout
-To log a user out visit the `/logout` route provided by the library, or if you are testing your application locally [`localhost:3000/logout`](http://localhost:3000/)
+A user can log out of your application by visiting the `/logout` route provided by the library. If you are testing your application locally, that link is [`localhost:3000/logout`](http://localhost:3000/logout).
 
 ## What's next?
 We put together a few examples of how to use [Express OpenID Connect](https://github.com/auth0/express-openid-connect) in more advanced use cases:
