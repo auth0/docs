@@ -20,13 +20,25 @@ In SPAs you can use the [Auth0 SPA SDK](/libraries/auth0-spa-js) and can trigger
 
 ## Applications with a Backend
 
-In backend apps, you need to redirect to `/authorize` once per API, using `prompt=none&audience=YourAudienceValueHere`. To know which token you need to call for each API you'd need to use the `state` parameter as way to correlate requests and responses.
+In backend apps, you need to redirect to `/authorize` once per API, using `prompt=none&audience=YourAudience`. To know which token you need to call for each API you need to use the `state` parameter as way to correlate requests and responses.
 
 ```js
-const new_state = uniq_id()
-req.session.states[new_state] = { audience: 'YourAudienceValueHere' }
-auth0.authorize({..., state: new_state, audience: 'YourAudienceValueHere' }
+// First state + audience stored
+const state0 = uniq_id();
+req.session.states[0] = { state: state0, audience: 'YourAudience0' }
+
+// Second state + audience stored
+const state1 = uniq_id();
+req.session.states[1] = { state: state1, audience: 'YourAudience1' }
 ```
+
+Then, you need to make an authorize call, using the appropriate SDK method if you are using one, or just a regular GET request, with these values included:
+
+```
+auth0.authorize({..., state: req.session.states[0].state, audience: req.session.states[0].audience }
+```
+
+In this manner, you can be certain of which API to call for what purpose, and which returned response is from which API. Checking the state in the response and then comparing it to your stored states will tell you the audience that it was paired with, which will tell you the API that it is responding from.
 
 ## Read more
 
