@@ -31,7 +31,7 @@ If you are running this project on your local machine, the logout URL you need t
 
 ## Integrate Auth0
 ### Install Dependencies
-Install the following dependencies
+Your application will need the following packages:
 
 - [`express-openid-connect`](https://github.com/auth0/express-openid-connect) - Auth0-maintained OIDC-compliant library for Express.
 - [`express-session`](https://github.com/auth0/express-session) - session middleware for Express.
