@@ -30,13 +30,11 @@ There are two methods for doing this:
 * Using cookies and browser sessions
 * Using `state` parameters
 
-### Use cookies and browser sessions
+### Use cookies or browser sessions
 
-One method for accomplishing this is to use a cookie or the browser session to store a return to value. This is a fairly simple solution to implement, but could run into issues in cases where the cookie does not persist.
+You can use a cookie or the browser session to store a return URL value. This is a simple solution to implement, however it can cause issues in cases where a cookie does not persist.
 
-Keep in mind that there are now two separate user sessions that have been initiated. 
-
-The OIDC SSO session is maintained by Auth0 and is referenced as a cookie bound to your tenant domain (or `CNAME`) and a session specific to your application. Each serve a separate purpose and require some consideration to achieve the desired user experience.
+There are two separate user sessions initiated in this situation. Each serves a separate purpose and requires some consideration to achieve the desired user experience.
 
 * **Auth0-provided OIDC SSO Session**: Auth0 provides a session for enabling [OIDC Single Sign On (SSO)](/api-auth/tutorials/adoption/single-sign-on) to allow your user to maintain an authentication session without being prompted for credentials more than once. This session is maintained by Auth0 and referenced as a cookie bound to your tenant domain (or `CNAME`). There are two [tenant settings](/sso/current/configure-session-lifetime-limits) that determine the length of the Auth0 Session:
   - The `idle_session_lifetime` is how long the session will remain alive without interaction.  
@@ -50,7 +48,7 @@ Once your user has authenticated with Auth0 it is up to your application to dete
 
 ### Use `state` parameters
 
-An alternative method is to create a [deep link using the `state` parameter](/protocols/oauth2/redirect-users) which your callback would interpret to determine a forwarding path. This solution takes a little more owrk to implement but guarantees that the application has the information it needs once the redirect is complete. 
+As an alternative method, you can create a [deep link using the `state` parameter](/protocols/oauth2/redirect-users) which your callback would interpret to determine a forwarding path. This solution takes a little more work to implement but guarantees that the application has the information it needs once the redirect is complete. 
 
 ## Redirect users to other URLs
 
