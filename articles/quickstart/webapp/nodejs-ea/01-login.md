@@ -26,7 +26,7 @@ If you are running this project on your local machine, your application's callba
 <%= include('../../../_includes/_logout_url' }) %>
 
 :::note
-If you are running this project on your local machine, the logout URL you need to whitelist in the **Allowed Logout URLs** field is `http://localhost:3000/logout`.
+If you are running this project on your local machine, your application's logout URL is `http://localhost:3000`
 :::
 
 ## Integrate Auth0
