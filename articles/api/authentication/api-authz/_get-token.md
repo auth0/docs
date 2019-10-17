@@ -661,6 +661,7 @@ Artifacts returned by this flow (and the contents thereof) will be determined by
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `audience` | The unique identifier of the target API you want to access. |
 | `scope` | String value of the different <dfn data-key="scope">scopes</dfn> the application is requesting. Multiple scopes are separated with whitespace. |
+| `user_profile` <br/><span class="label label-info">Only For `apple-authz-code`</span>  | Optional element used for native iOS interactions for which profile updates can occur.  Expected parameter value will be JSON in the form of: `{ name: { firstName: 'John', lastName: 'Smith }}` |
 
 ### Request headers
 
