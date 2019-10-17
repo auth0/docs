@@ -16,8 +16,18 @@ github:
 ---
 
 <%= include('../../../_includes/_new_app', { hideDownloadSample: true, hideDashboardScreenshot: true }) %>
+
 <%= include('../../../_includes/_callback_url') %>
+
+:::note
+If you are running this project on your local machine, the callback URL you need to whitelist in the **Allowed Callback URLs** field is `http://localhost:3000/callback`.
+:::
+
 <%= include('../../../_includes/_logout_url' }) %>
+
+:::note
+If you are running this project on your local machine, the logout URL you need to whitelist in the **Allowed Logout URLs** field is `http://localhost:3000/logout`.
+:::
 
 ## Integrate Auth0
 ### Install Dependencies
