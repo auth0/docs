@@ -80,7 +80,7 @@ app.use(auth({
 }));
 ```
 
-Now that your application has the middleware installed, you can use [various helpers and values](https://github.com/auth0/express-openid-connect/blob/master/API.md#session-and-context) provided by the `express-openid-connect` library.  Here is an example of using `req.openid.isAuthenticated`
+Now that your application has the middleware installed, you can use [the helper functions and contextual data](https://github.com/auth0/express-openid-connect/blob/master/API.md#session-and-context) provided by the Express OpenID Connect library.  Here is an example of how to use `req.openid.isAuthenticated()`:
 
 ```js
 app.get('/', (req, res) => {
