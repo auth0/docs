@@ -11,7 +11,7 @@ useCase:
 ---
 # Redirect Users After Login Authentication
 
-You can return users to specific pages (URLs) within your application after validating their ID Tokens (authentication). 
+You can return users to specific pages (URLs) within your application after validating their ID Tokens (authentication). To see an example of how this works, try the [React: Login Quickstart](/quickstart/spa/react). 
 
 ## Redirect users to whitelisted callback URLs
 
