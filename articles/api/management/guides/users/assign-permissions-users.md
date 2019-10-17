@@ -24,6 +24,8 @@ Adding permissions directly to a user circumvents the benefits of [role-based ac
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
+<%= include('../../../../authorization/_includes/_view-limits') %>
+
 1. Make a `POST` call to the [Assign User Permissions endpoint](/api/management/v2#!/Users/post_permissions). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, `API_IDENTIFIER`, and `PERMISSION_NAME` placeholder values with your user ID, Management API Access Token, API Identifier(s), and permission name(s), respectively.
 
 ```har

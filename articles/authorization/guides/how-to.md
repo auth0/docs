@@ -21,11 +21,15 @@ To use the core functionality most efficiently, you should do the following:
 
 1. [Register API with Auth0](/getting-started/set-up-api)
 2. [Define permissions for API](/dashboard/guides/apis/add-permissions-apis)
-3. [Create roles](/dashboard/guides/roles/create-roles)
-4. [Assign roles to users](/dashboard/guides/users/assign-roles-users)
-5. [Assign permissions to users](/dashboard/guides/users/assign-permissions-users), if needed.
+3. [Create groups](/dashboard/guides/groups/create-groups)
+4. [Create roles](/dashboard/guides/roles/create-roles)
+5. [Assign roles to groups](/dashboard/guides/assign-group-roles)
+6. [Assign users to roles](/dashboard/guides/users/assign-roles-users)
+7. [Assign users to groups](/dashboard/guides/groups/assign-group-users), if needed
+8. [Assign permissions to users](/dashboard/guides/users/assign-permissions-users), if needed
 
 ## Keep reading
+- [Manage Groups](/authorization/guides/manage-groups)
 - [Manage Roles](/authorization/guides/manage-roles)
 - [Manage Role-Based Access Control Users](/authorization/guides/manage-users)
 - [Manage Role-Based Access Control Permissions](/authorization/guides/manage-permissions)

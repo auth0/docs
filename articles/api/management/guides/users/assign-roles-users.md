@@ -20,6 +20,8 @@ This guide will show you how to assign <dfn data-key="role">[roles](/authorizati
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
+<%= include('../../../../authorization/_includes/_view-limits') %>
+
 1. Make a `POST` call to the [Assign User Roles endpoint](/api/management/v2#!/Users/post_user_roles). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, and `ROLE_ID` placeholder values with your user ID, Management API Access Token, and role ID(s), respectively.
 
 ```har

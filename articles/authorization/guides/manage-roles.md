@@ -3,6 +3,7 @@ description: Learn how to manage roles using the Auth0 Management Dashboard. For
 topics:
   - authorization
   - dashboard
+  - mgmt-api
   - rbac
   - roles
 contentType: 
@@ -31,6 +32,7 @@ Using the Dashboard, you can:
 - [Remove permissions from roles](/dashboard/guides/roles/remove-role-permissions)
 - [View role users](/dashboard/guides/roles/view-role-users)
 - [Remove users from roles](/dashboard/guides/roles/remove-role-users)
+- [View role groups](/dashboard/guides/roles/view-role-groups)
 - [Delete roles](/dashboard/guides/roles/delete-roles)
 
 Using the Management API, you can:
@@ -42,12 +44,14 @@ Using the Management API, you can:
 - [Remove permissions from roles](/api/management/guides/roles/remove-role-permissions)
 - [View role users](/api/management/guides/roles/view-role-users)
 - [Remove users from roles](/api/management/guides/users/remove-user-roles)
+- [View role groups](/api/management/guides/roles/view-role-groups)
 - [Delete roles](/api/management/guides/roles/delete-roles)
 
 ## Keep reading
 
 - [Role-Based Access Control (RBAC)](/authorization/concepts/rbac)
 - [Assign Roles to Users](/dashboard/guides/users/assign-roles-users)
+- [Assign Roles to Groups](/dashboard/guides/groups/assign-group-roles)
 - [Register APIs with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
 - [Add API Permissions](/dashboard/guides/apis/add-permissions-apis)
 - [Troubleshooting: Role-Based Access Control and Authorization](/authorization/concepts/troubleshooting)

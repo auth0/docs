@@ -26,13 +26,15 @@ Adding permissions directly to a user circumvents the benefits of [role-based ac
 
 <%= include('../../../authorization/_includes/_predefine-permissions') %>
 
+<%= include('../../../authorization/_includes/_view-limits') %>
+
 1. Navigate to the [Users & Roles > Users](${manage_url}/#/users) page in the [Auth0 Dashboard](${manage_url}/). 
 
 ![View Users](/media/articles/authorization/user-list.png)
 
 2. Click **`...`** next to the user you want to modify, and select **Assign Permissions**.
 
-![Select Assign Permissions](/media/articles/authorization/user-list-assign-permissions.png)
+![Select Assign Permissions](/media/articles/authorization/user-list-menu.png)
 
 3. Select the API from which you want to assign permissions, then select the permissions to assign to the user, and click **Add Permissions**.
 

@@ -9,6 +9,7 @@ topics:
   - permissions
   - policies
   - rules
+  - access-control
 contentType: 
     - concept
 useCase:
@@ -82,6 +83,27 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 
+```
+
+## Add user groups to tokens
+
+If you [enable RBAC for APIs](/dashboard/guides/apis/enable-rbac) and set the **Token Dialect** appropriately, you will receive user permissions in your Access Tokens. To add user groups to tokens, you would use the `context.authorization` object in the following rule:
+
+```js
+function (user, context, callback) {
+  const namespace = 'http://demozero.net';
+  const assignedGroups = (context.authorization || {}).groups;
+
+  let idTokenClaims = context.idToken || {};
+  let accessTokenClaims = context.accessToken || {};
+
+  idTokenClaims[`<%= "${namespace}" %>/groups`] = assignedGroups;
+  accessTokenClaims[`<%= "${namespace}" %>/groups`] = assignedGroups;
+
+  context.idToken = idTokenClaims;
+  context.accessToken = accessTokenClaims;
+  callback(null, user, context);
+}
 ```
 
 ## Manage Delegated Administration Extension roles using the Authorization Core feature set
