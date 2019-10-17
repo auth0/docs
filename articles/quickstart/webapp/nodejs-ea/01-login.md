@@ -20,7 +20,7 @@ github:
 <%= include('../../../_includes/_callback_url') %>
 
 :::note
-If you are running this project on your local machine, the callback URL you need to whitelist in the **Allowed Callback URLs** field is `http://localhost:3000/callback`.
+If you are running this project on your local machine, your application's callback URL is `http://localhost:3000/callback`
 :::
 
 <%= include('../../../_includes/_logout_url' }) %>
