@@ -92,7 +92,7 @@ app.get('/', (req, res) => {
 A user can log into your application by visiting the `/login` route provided by the library. If you are testing your application locally, that link is [`localhost:3000/login`](http://localhost:3000/login).
 
 ## Profile
-To retrieve the user profile you will first want to protect the route where you display that users information.
+To display the user's profile, your application should provide a protected route.
 
 Add the `requiresAuth` middleware for routes that require authentication.  Any route using this middleware will check for a valid user session and, if one does not exist, it will redirect the user to log in.
 
