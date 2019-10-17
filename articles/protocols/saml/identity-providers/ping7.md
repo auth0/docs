@@ -33,7 +33,7 @@ If you want to use **IdP-Initiated SSO**, make sure to include the `connection` 
     - Select the __Browser SSO Profiles__ as the __Connection Type__.
     - Select __Browser SSO__ as the __Connection Options__.
 
-4. Upload the metadata file that you downloaded in step 1. The __Entity ID__, __Connection Name__ and the __Base URL__ will be automatically populated based on the information from the metadata file. You can also complete other relevant information from your partner.
+4. Upload the metadata file that you downloaded in step 1. The __Entity ID__, __Connection Name__ and the __Base URL__ will be automatically populated based on the information from the metadata file. 
 
 5. Configure __Browser SSO__. 
 
