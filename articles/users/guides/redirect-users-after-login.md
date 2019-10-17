@@ -50,6 +50,10 @@ Once your user has authenticated with Auth0 it is up to your application to dete
 
 As an alternative method, you can create a [deep link using the `state` parameter](/protocols/oauth2/redirect-users) which your callback would interpret to determine a forwarding path. This solution takes a little more work to implement but guarantees that the application has the information it needs once the redirect is complete. 
 
+In essence, you send a random value when starting an authentication request and validate the received value when processing the response (this implies you store something on the client application side, in session or other medium, that allows you to perform the validation). If you receive a response with a state that does not match, you were likely been target of an attack because this is either a response for an unsolicited request or someone trying to forge the real response.
+
+Your application type determines the best place to keep the data that allows your app to validate the response. For example, assuming a pregressive web app is leveraging a SPA framework then it could store this in local storage while a traditional web app framework would store it in server-side session.
+
 ## Redirect users to other URLs
 
 Sometimes, the callback URL is not necessarily where you want users redirected after authentication. For example, if a user intends to access a protected page in your application, and that action triggers the request to authenticate, you can store that URL to redirect the user back to their intended page after the authentication finishes.
