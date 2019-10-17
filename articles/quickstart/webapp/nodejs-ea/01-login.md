@@ -89,7 +89,7 @@ app.get('/', (req, res) => {
 ```
 
 ## Login
-To log a user in visit the `/login` route provided by the library, or if you are testing your application locally [`localhost:3000/login`](http://localhost:3000/)
+A user can log into your application by visiting the `/login` route provided by the library. If you are testing your application locally, that link is [`localhost:3000/login`](http://localhost:3000/login).
 
 ## Profile
 To retrieve the user profile you will first want to protect the route where you display that users information.
