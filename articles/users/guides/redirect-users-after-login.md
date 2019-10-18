@@ -50,10 +50,10 @@ Your application type determines the best place to keep the data that allows you
 
 Sometimes, the callback URL is not necessarily where you want users redirected after authentication. For example, if a user intends to access a protected page in your application, and that action triggers the request to authenticate, you can store that URL to redirect the user back to their intended page after the authentication finishes. Store the desired URL using the following methods:
 
-* [Redirect users with state parameters](/protocols/oauth2/redirect-users).
-* [Redirect users from rules](/rules/current/redirect). 
+* [Redirect users with state parameters](/protocols/oauth2/redirect-users)
+* [Redirect users from rules](/rules/current/redirect)
 
-Choose the option that works best for your application type and the [flow](/api-auth/which-oauth-flow-to-use) you are using. You can then create the necessary logic in your application to retrieve the stored URL and redirect your users where you want. The [Auth0 SDKs](/libraries/auth0js/v9#available-parameters) also includes support for redirect URLs.
+Choose the option that works best for your application type and the type of [flow](/api-auth/which-oauth-flow-to-use) that you are using. Create the necessary logic in your application to retrieve the stored URL and redirect your users where you want them to go. The [Auth0 SDKs](/libraries/auth0js/v9#available-parameters) also include support for redirect URLs.
   
 ## Keep reading
 
