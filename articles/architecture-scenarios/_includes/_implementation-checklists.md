@@ -1,13 +1,13 @@
 Use the links below to download a spreadsheet that includes tasks for each phase of an Software Development Lifecycle (SDLC) project.
 
-![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Analyze Checklist](/media/articles/architecture-scenarios/checklists/Analyze-Checklist.xlsx)
+<a data-trackOutbound href="/media/articles/architecture-scenarios/checklists/Analyze-Checklist.xlsx">Analyze Checklist</a>
 
-![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Design Checklist](/media/articles/architecture-scenarios/checklists/Design-Checklist.xlsx) 
+<a data-trackOutbound href="/media/articles/architecture-scenarios/checklists/Design-Checklist.xlsx">Design Checklist</a>
 
-![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Build Checklist](/media/articles/architecture-scenarios/checklists/Build-Checklist.xlsx) 
+<a data-trackOutbound href="/media/articles/architecture-scenarios/checklists/Build-Checklist.xlsx">Build Checklist</a>
 
-![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Test Checklist](/media/articles/architecture-scenarios/checklists/Test-Checklist.xlsx) 
+<a data-trackOutbound href="/media/articles/architecture-scenarios/checklists/Test-Checklist.xlsx">Test Checklist</a>
 
-![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Deploy Checklist](/media/articles/architecture-scenarios/checklists/Deploy-Checklist.xlsx) 
+<a data-trackOutbound href="/media/articles/architecture-scenarios/checklists/Deploy-Checklist.xlsx">Deploy Checklist</a>
 
-![](/media/articles/architecture-scenarios/checklists/file_type_icons-02.png) [Monitor Checklist](/media/articles/architecture-scenarios/checklists/Monitor-Checklist.xlsx) 
+<a data-trackOutbound href="/media/articles/architecture-scenarios/checklists/Monitor-Checklist.xlsx">Monitor Checklist</a>
