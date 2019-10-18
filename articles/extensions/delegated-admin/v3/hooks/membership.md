@@ -25,7 +25,7 @@ Users of the IT department should be able to create users in other departments. 
 
 ```js
 function(ctx, callback) {
-  var currentDepartment = ctx.payload.user.app_metadata.department;
+  var currentDepartment = ctx.payload.user.app_metadata && ctx.payload.user.app_metadata.department;
   if (!currentDepartment || !currentDepartment.length) {
     return callback(null, [ ]);
   }
