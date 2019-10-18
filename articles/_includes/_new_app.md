@@ -13,10 +13,14 @@ You need the following information:
 * **Client Secret**
 <% } %>
 
+<% if(typeof hideDownloadSample === 'undefined' || hideDownloadSample !== true) { %>
 ::: note
 If you download the sample from the top of this page these details are filled out for you.
 
 If you have more than one application in your account, the sample comes with the values for your **Default App**.
 :::
+<% } %>
 
+<% if(typeof hideDashboardScreenshot === 'undefined' || hideDashboardScreenshot !== true) { %>
 ![App Dashboard](/media/articles/dashboard/client_settings.png)
+<% } %>
