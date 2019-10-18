@@ -40,37 +40,13 @@ While setting up your app, make sure you use the following settings:
 | Authorized JavaScript origins | `https://${account.namespace}` |
 | Authorized redirect URIs | `https://${account.namespace}/login/callback` |
 
-  ![Web App Credentials Configuration](/media/articles/connections/social/google/create-client-id-config.png)
-
-  Click **Create** to proceed.
-
-5. Your `Client Id` and `Client Secret` will be displayed:
-
-  ![OAuth Client ID and Secret](/media/articles/connections/social/google/oauth-client-info.png)
-
-  Save your `Client Id` and `Client Secret` to enter into the Connection settings in Auth0.
-
-## 2. Enable the Admin SDK Service
-
-If you are planning to connect to G Suite enterprise domains, you will need to enable the **Admin SDK** service.
-
-1. Navigate to the **Library** page of the API Manager.
-
-2. Select **Admin SDK** from the list of APIs:
-
-  ![Google API Manager Library](/media/articles/connections/social/google/api-manager-library.png)
-
-3. On the **Admin SDK** page, click **Enable**. If successful, the **Enable** link turns into **Disable**.
-
-  ![API Manager Dashboard for Admin SDK](/media/articles/connections/social/google/enable-admin-sdk.png)
-
 <%= include('../_find-auth0-domain-redirects') %>
 
 ::: warning
 If your application requests sensitive OAuth <dfn data-key="scope">scopes</dfn>, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
 :::
 
-## 2. Enable the **Google Admin SDK Service**
+## 2. Enable the Admin SDK Service
 
 To learn how, follow Google's [Enable and disable APIs](https://support.google.com/googleapi/answer/6158841) doc.
 

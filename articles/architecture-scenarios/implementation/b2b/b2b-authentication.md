@@ -94,7 +94,7 @@ The other simple option is to allow your users to choose from a list, if you don
 
 ## Enterprise Login
 
-The “bring your own identity” scenario has become a must-have for almost all B2B applications.  Most enterprise companies expect to be able to integrate their IdP into your application so their employees don't need to store another set of credentials.  This is a valuable way of simplifying the user authentication experience without compromising security, and using [Universal Login](#universal-login) makes it easy to start adding support for [Enterprise Connections](https://auth0.com/docs/identityproviders#enterprise) with minimal disruption.
+The “bring your own identity” scenario has become a must-have for almost all B2B applications.  Most enterprise companies expect to be able to integrate their IdP into your application so their employees don't need to store another set of credentials.  This is a valuable way of simplifying the user authentication experience without compromising security, and using [Universal Login](#universal-login) makes it easy to start adding support for [Enterprise Connections](https://auth0.com/docs/connections/identity-providers-enterprise) with minimal disruption.
 
 ::: panel Best Practice
 Once you start supporting enterprise connections for users, you must do some form of [Home Realm Discovery](#home-realm-discovery) so that you can determine which connection to send the user to for authentication.

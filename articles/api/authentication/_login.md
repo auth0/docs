@@ -84,7 +84,7 @@ Social connections only support browser-based (passive) authentication because m
 
 ### More Information
 
-- [Supported Social Identity Providers](/identityproviders#social)
+- [Supported Social Identity Providers](/connections/identity-providers-social)
 - [Custom Social Connections](/connections/social/oauth2)
 - [State Parameter](/protocols/oauth2/oauth-state)
 - [Auth0.js /authorize Method Reference](/libraries/auth0js#webauth-authorize-)
