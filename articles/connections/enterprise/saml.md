@@ -11,7 +11,7 @@ topics:
     - connections
     - enterprise
     - saml
-	- saml-p
+    - saml-p
 contentType: how-to
 useCase:
     - customize-connections
@@ -206,7 +206,11 @@ To use your new SAML enterprise connection, you must first [enable the connectio
 If you're configuring a SAML enterprise connection for a non-standard PingFederate Server, you **must** update the attribute mappings.
 :::
 
-1. For non-standard PingFederate servers, click on the **Mappings** tab, enter the following between the `{}`, and click **Save**.
+1. If necessary, click on the **Mappings** tab, enter mappings between the `{}`, and click **Save**.
+
+![Configure SAML Mappings](/media/articles/dashboard/connections/enterprise/conn-enterprise-saml-mappings.png)
+
+**Mappings for non-standard PingFederate Servers:**
 
 ```json
 {
@@ -214,7 +218,16 @@ If you're configuring a SAML enterprise connection for a non-standard PingFedera
     "email": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
 }
 ```
-![Configure SAML Mappings](/media/articles/dashboard/connections/enterprise/conn-enterprise-saml-mappings.png)
+
+**Mappings for SSO Circle**
+
+```json
+{
+  "email": "EmailAddress",
+  "given_name": "FirstName",
+  "family_name": "LastName"
+}
+```
 
 ## Test the connection
 

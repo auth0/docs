@@ -1,6 +1,6 @@
 ---
 title: Connect Your App to OpenID Connect Identity Providers
-connection: OpenId Connect
+connection: OpenID Connect
 image: /media/connections/open-id.png
 public: true
 seo_alias: oidc

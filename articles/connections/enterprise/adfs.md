@@ -1,11 +1,11 @@
 ---
 title: Connect Your App to ADFS
 connection: ADFS
-image: /media/connections/ms.png
+image: /media/connections/adfs.png
 public: true
 alias:
-  - active-directory-federation-services
-  - adfs-2
+    - active-directory-federation-services
+    - adfs-2
 seo_alias: adfs
 description: Learn how to connect your application to Active Directory Federation Services (ADFS) using enterprise connections.
 crews: crew-2
@@ -18,7 +18,6 @@ topics:
     - ad-fs
 contentType: how-to
 toc: true
-useCase: customize-connections
 useCase:
     - customize-connections
     - add-idp

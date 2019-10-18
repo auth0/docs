@@ -70,9 +70,9 @@ To connect your application to Active Directory, you must:
 | Field | Description |
 | ----- | ----------- |
 | **Disable cache** | When enabled, disables caching. |
-| **Use client SSL certificate authentication**: When enabled, uses client SSL certificate authentication. |
-| **Use Windows Integrated Auth (Kerberos)**: When enabled, you will be asked to enter a range of IP addresses. When users log in through these IP addresses, Kerberos will be used; otherwise, AD/LDAP username/password will be requested. Typically, the IP range entered represent intranet addresses. |
-| **Sync user profile attributes at each login**: When enabled, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. |
+| **Use client SSL certificate authentication** | When enabled, uses client SSL certificate authentication. |
+| **Use Windows Integrated Auth (Kerberos)** | When enabled, you will be asked to enter a range of IP addresses. When users log in through these IP addresses, Kerberos will be used; otherwise, AD/LDAP username/password will be requested. Typically, the IP range entered represent intranet addresses. |
+| **Sync user profile attributes at each login** | When enabled, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. |
 
 ![Configure Advanced Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-ad-ldap-settings-2.png)
 
