@@ -327,23 +327,11 @@ class CustomUserRepository extends Auth0UserRepository
      *
      * @return User
      */
-    protected function upsertUser( $profile ) {
-
-        // See if we have a user that matches the Auth0 user_id
-        $user = User::where( 'sub', $profile['sub'] )->first();
-
-        // In not, add them to the database
-        if ( ! $user ) {
-            $user = new User();
-
-            // All are required, no default set
-            $user->setAttribute( 'email', $profile['email'] );
-            $user->setAttribute( 'sub', $profile['sub'] );
-            $user->setAttribute( 'name', isset( $profile['name'] ) ? $profile['name'] : '' );
-
-            $user->save();
-        }
-        return $user;
+    protected function upsertUser( $profile ) {  
+        return User::firstOrCreate(['sub' => $profile['sub']], [
+            'email' => $profile['email'] || '',
+            'name' => $profile['name'] || '',
+        ]);
     }
 
     /**
