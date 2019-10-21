@@ -1,4 +1,4 @@
-title: Node.js (OIDC)
+title: Express
 beta: true
 image: /media/platforms/node.png
 author:
@@ -12,7 +12,7 @@ useCase: quickstart
 alias:
   - node
   - express
-seo_alias: nodejs
+seo_alias: express
 default_article: 01-login
 articles:
   - 01-login
