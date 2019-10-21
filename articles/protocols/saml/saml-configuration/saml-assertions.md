@@ -56,7 +56,7 @@ function (user, context, callback) {
 ```js
 function (user, context, callback) {
   user.user_metadata = user.user_metadata || {};
-  user.user_metadata.color2 = "purple";
+  user.user_metadata.color = "purple";
   context.samlConfiguration.mappings = {
     //Attribute already in user_metadata
     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color": "user_metadata.color",
