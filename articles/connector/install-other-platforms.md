@@ -22,7 +22,9 @@ For most platforms, you will need to run the required commands with root privile
 
 1. Download the <a class="download-github" href=""></a> package to `/tmp`:
 
+    ```
     <code class="curl-example"></code>
+    ```
 
 2. Expand the <a class="download-github" href=""></a> package and install its dependencies:
 
@@ -75,7 +77,7 @@ For most platforms, you will need to run the required commands with root privile
     ExecStart=/usr/bin/node server.js
     ```
 
-    ```
+    ```text
     <script type="text/javascript">
       $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
        $('.download-github')
