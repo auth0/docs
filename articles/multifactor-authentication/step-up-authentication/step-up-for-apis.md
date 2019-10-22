@@ -39,7 +39,6 @@ A flow for this example is the following:
 Note that the API needs to do more validations than just check the scope. These are:
 - Verify the token's signature. The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
 - Validate the standard claims: `exp` (when the token expires), `iss` (who issued the token), `aud` (who is the intended recipient of the token)
-
 For details on how to do these validations, see [Validate an Access Token for Custom APIs](/tokens/guides/access-token/validate-access-token).
 :::
 
@@ -110,6 +109,9 @@ We assume that the following has already been set up:
         <div id="with-mfa" class="tab-pane">
           <pre class="text hljs">
             <code>
+    ```
+
+    ```text
     https://${account.namespace}/authorize?
       audience=https://my-banking-api
       &scope=openid%20view:balance%20transfer:funds
@@ -137,8 +139,8 @@ We assume that the following has already been set up:
 3. Finally, you need to make your API validate the incoming token and check the authorized permissions.
 
     For the purposes of this example we will configure two endpoints for our API:
-    - `GET /balance`: used to retrieve the current balance
-    - `POST /transfer`: used to transfer funds
+    - `GET /balance`: to retrieve the current balance
+    - `POST /transfer`: to transfer funds
 
     We will be using `Node.js` and a number of modules:
     - [express](https://expressjs.com/): adds the Express web application framework
@@ -148,11 +150,9 @@ We assume that the following has already been set up:
 
     Start with installing the dependencies.
 
-        ```text
-        npm install express express-jwt jwks-rsa express-jwt-authz --save
-        ```
+    `npm install express express-jwt jwks-rsa express-jwt-authz --save`
 
-        Next define the API endpoints, create a middleware function to validate the Access Token, and secure the endpoints using that middleware. The code in your `server.js` file should look like the following sample script.
+    Next define the API endpoints, create a middleware function to validate the Access Token, and secure the endpoints using that middleware. The code in your `server.js` file should look like the following sample script.
 
     ```js
     // set dependencies
