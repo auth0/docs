@@ -20,17 +20,19 @@ For instance, a user may be allowed to access views with sensitive data or reset
 
 When a user logs in you can get an [ID Token](/tokens/id-tokens) which is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> that contains information relevant to the user's session, in the form of claims.
 
-The claim that is relevant to this scenario is `amr`. If it contains the value `mfa` then you know that the user has authenticated using MFA. Note the following:
-- `amr` **must** be present in the ID Token's payload (if you log in with username/password the claim will not be included in the payload)
-- `amr` **must** contain the value `mfa` (`amr` can contain claims other than `mfa`, so its existence is not a sufficient test, its contents must be examined for the value `mfa`)
+The claim that is relevant in this scenario is `amr`. It **must** be present in the ID Token's payload (if you log in with username/password the claim will not be included in the payload). It **must** also contain the value `mfa` (It can contain claims other than `mfa` so its existence is not a sufficient test. It's contents must be examined for the value `mfa`.)
 
-If the token shows that the user has not authenticated with MFA, then you can trigger again authentication, and using a rule, trigger MFA. Once the user provides the second factor, a new ID Token, that contains the `amr` claim, is generated and sent to the app.
+::: panel Authentication Methods Reference
+The `amr` claim identifies the Authentication Methods References which are a JSON array of strings that are identifiers for specific methods used in the authentication. For instance, if the `amr` claim contains the value `mfa` then you know that the user has authenticated using MFA. See [Authentication Method Reference Values](https://tools.ietf.org/html/rfc8176) for more details. 
+:::
+
+If the token shows that the user has not authenticated with MFA, then you can again trigger  authentication, and using a rule, trigger MFA. Once the user provides the second factor, a new ID Token, that contains the `amr` claim, is generated and sent to the app.
 
 ## How to check the ID Token for MFA
 
 In order to check if a user logged in with MFA follow these steps:
 
-1. Retrieve the ID Token
+1. Retrieve the ID Token.
 1. Verify the token's signature. The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
 1. Validate the standard claims: `exp` (when the token expires), `iss` (who issued the token), `aud` (who is the intended recipient of the token)
 1. Verify that the token contains the `amr` claim.
@@ -43,6 +45,7 @@ For more information on the signature verification and claims validation, see [I
 
 In the snippet below you can see how an ID Token's payload is if the user has authenticated with MFA, and how it is if they have not.
 
+```js
 <div class="code-picker">
   <div class="languages-bar">
     <ul>
@@ -83,6 +86,7 @@ In the snippet below you can see how an ID Token's payload is if the user has au
     </div>
   </div>
 </div>
+```
 
 ## Example
 
@@ -92,9 +96,9 @@ Let's say that you have a web app that authenticates users with username and pas
 
 This tutorial assumes that you have already done the following:
 
-- [Register an application](/applications/concepts/app-types-auth0). For the purposes of this example we'll be using a regular web app
-- [Create a database connection](${manage_url}/#/connections/database)
-- [Enable Multi-factor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [push notifications](/multifactor-authentication/factors/push)
+- [Register an application](/applications/concepts/app-types-auth0). For the purposes of this example we'll be using a regular web app.
+- [Create a database connection](${manage_url}/#/connections/database).
+- [Enable Multi-factor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [push notifications](/multifactor-authentication/factors/push).
 
 ### 1. Create the rule
 
@@ -179,9 +183,7 @@ That's it, you are done!
 
 ## Keep reading
 
-::: next-steps
 * [Overview of ID Tokens](/tokens/id-tokens)
 * [Overview of JSON Web Tokens](/jwt)
 * [OpenID Connect (OIDC) specification](http://openid.net/specs/openid-connect-core-1_0.html)
 * [Step-up Authentication for APIs](/multifactor-authentication/developer/step-up-authentication/step-up-for-apis)
-:::
