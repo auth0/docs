@@ -20,7 +20,7 @@ For instance, a user may be allowed to access views with sensitive data or reset
 
 When a user logs in you can get an [ID Token](/tokens/id-tokens) which is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> that contains information relevant to the user's session, in the form of claims.
 
-The claim that is relevant in this scenario is `amr`. It **must** be present in the ID Token's payload (if you log in with username/password the claim will not be included in the payload). It **must** also contain the value `mfa` (It can contain claims other than `mfa` so its existence is not a sufficient test. It's contents must be examined for the value `mfa`.)
+The claim that is relevant in this scenario is `amr`. It **must** be present in the ID Token's payload (if you log in with username/password the claim will not be included in the payload). It **must** also contain the value `mfa`. It can contain claims other than `mfa` so its existence is not a sufficient test. It's contents must be examined for the value `mfa`.
 
 ::: panel Authentication Methods Reference
 The `amr` claim identifies the Authentication Methods References which are a JSON array of strings that are identifiers for specific methods used in the authentication. For instance, if the `amr` claim contains the value `mfa` then you know that the user has authenticated using MFA. See [Authentication Method Reference Values](https://tools.ietf.org/html/rfc8176) for more details. 
