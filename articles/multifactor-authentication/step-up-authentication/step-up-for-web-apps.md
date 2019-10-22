@@ -19,9 +19,8 @@ For instance, a user may be allowed to access views with sensitive data or reset
 
 To accomplish step-up authentication, you will do the following:
 1. Create a rule that challenges the user to authenticate with MFA when the web app asks for it. 
-2. Configure your web app to check the ID Token claims for MFA cif the user tries to access a restricted page. 
-3. Check the ID Token. 
-4. If the output of the previous validations is that the user has not authenticated with MFA, then trigger authentication again. 
+2. Configure your web app to check the ID Token claims for MFA if the user tries to access a restricted page. 
+3. If the output of the validation is that the user has not authenticated with MFA, then challenge the user again. 
 
 ## How it works
 
@@ -98,15 +97,15 @@ In the example below, you can see what an ID Token's payload may look like if th
 
 ## Sample scenario
 
-In the following scenario, there is a web app that authenticates users with username and password. When a user wants to access a specific screen with sensitive information, such as salary data, you want the user to authenticate with another factor, such as [Guardian push notifications](/multifactor-authentication#mfa-using-push-notifications-auth0-guardian-).
+In the following scenario, a web app authenticates users with username and password. When a user wants to access a specific screen with sensitive information, such as salary data, the user will authenticate with another factor, such as [Guardian push notifications](/multifactor-authentication#mfa-using-push-notifications-auth0-guardian-).
 
-We assume that you've already set up the following:
+We assume that the following has already been set up for the web app:
 
 - [Registered an application](/applications/concepts/app-types-auth0). (A regular web app in this case.)
 - [Created a database connection](${manage_url}/#/connections/database).
 - [Enabled Multi-factor Authentication](/multifactor-authentication) using [push notifications](/multifactor-authentication/factors/push).
 
-1. Create a rule that challenges the user to authenticate with MFA when the web app asks for it. Go to [Rules](${manage_url}/#/rules) and create a rule with the content below:
+1. First, we will create a rule that challenges the user to authenticate with MFA when the web app asks for it. To do that, we go to [Rules](${manage_url}/#/rules) and create a rule with the content below:
 
     ```js
     function (user, context, callback) {
@@ -131,9 +130,9 @@ We assume that you've already set up the following:
 
     - The `context.request.query.acr_values` property exists only if the web app included it in the authentication request, using the request parameter `acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor`. The web app will only include this parameter in the authentication request (as we will see in a while) if the user tries to access salary information and has not authenticated with MFA. In this case we ask for MFA using [Push](/multifactor-authentication/factors/push) by setting the `context.multifactor` property to the appropriate value.
 
-2. Configure your application. If the user tries to access the salary information screen, then the web app must check the ID Token claims for MFA. If the user has already authenticated with MFA, then the screen is displayed, otherwise the web app sends a new authentication request to Auth0. This time the request parameter `acr_values` is included so the rule we saw in the previous paragraph triggers MFA. Once the user authenticates, a new token is sent to the app.
+2. Next, we will configure the app so that if the user tries to access the salary information page, then the app checks the ID Token claims for MFA. If the user has already authenticated with MFA, then the screen is displayed, otherwise the web app sends a new authentication request to Auth0. This time the request parameter `acr_values` is included so the rule we created in the previous step triggers MFA. Once the user authenticates, a new token is sent to the app.
 
-3. Check the ID Token. The web app should validate the token as described in [How to check the ID Token for MFA](#check-the-id-token-for-mfa) above. In this scenario, do these validations using the [JSON Web Token Sample Code](https://github.com/auth0/node-jsonwebtoken). The code verifies the token's signature (`jwt.verify`), decodes the token, and checks whether the payload contains `amr` and if it does whether it contains the value `mfa`. The results are logged in the console.
+3. Check the ID Token. The web app should validate the token as described in [Check the ID Token for MFA](#check-the-id-token-for-mfa) above. In this scenario, we do these validations using the [JSON Web Token Sample Code](https://github.com/auth0/node-jsonwebtoken). The code verifies the token's signature (`jwt.verify`), decodes the token, and checks whether the payload contains `amr` and if it does, the results are logged in the console.
 
     ```js
     const AUTH0_CLIENT_SECRET = '${account.clientSecret}';
@@ -154,7 +153,7 @@ We assume that you've already set up the following:
     });
     ```
 
-4. If the output of the previous validations is that the user has not authenticated with MFA, then you must trigger authentication again. The request will include the `acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor` parameter, which as a result will trigger the rule we wrote at [the first step](#1-create-the-rule). The web app in this scenario uses the [Authorization Code Flow](/flows/concepts/auth-code) to authenticate, so the request is as follows.
+4. If the output of the previous validations is that the user has not authenticated with MFA, then the web app triggers authentication again. The request includes the `acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor` parameter, which triggers the rule we wrote in the first step. The web app in this scenario uses the [Authorization Code Flow](/flows/concepts/auth-code) to authenticate, so the request is as follows:
 
     ```text
     https://${account.namespace}/authorize?
@@ -167,7 +166,7 @@ We assume that you've already set up the following:
         acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor
     ```
 
-    Once the user authenticates with Guardian, the web app receives in the response the authorization code which must be exchanged for the new ID Token, using the [Token endpoint](/api/authentication#authorization-code). For more details, and sample requests, see our tutorial, [Add Login Using the Authorization Code Flow: Request Tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens).
+    Once the user authenticates with Guardian, the web app receives in the response the authorization code which must be exchanged for the new ID Token, using the [Token endpoint](/api/authentication#authorization-code). For more details, and sample requests, see [Add Login Using the Authorization Code Flow: Request Tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens).
 
 ## Keep reading
 
