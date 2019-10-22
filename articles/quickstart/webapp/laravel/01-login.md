@@ -329,8 +329,8 @@ class CustomUserRepository extends Auth0UserRepository
      */
     protected function upsertUser( $profile ) {  
         return User::firstOrCreate(['sub' => $profile['sub']], [
-            'email' => $profile['email'] || '',
-            'name' => $profile['name'] || '',
+            'email' => $profile['email'] ?? '',
+            'name' => $profile['name'] ?? '',
         ]);
     }
 
