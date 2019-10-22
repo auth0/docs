@@ -32,15 +32,11 @@ For a native app, the Sign in with Apple login flow works as follows:
 Before you configure Sign In with Apple for your native app in Auth0, you must:
 
 * Have an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).)
-
-* Have set up a [custom domain](/custom-domains) on your Auth0 tenant (because you must be able to do domain verification with Apple).
-
-* [Register Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple). Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
-
+* [Register Your App in the Apple Developer Portal](/connections/apple-siwa/set-up-apple) if you have not already done so. Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
   * App ID
   * Apple Team ID
   * Client Secret Signing Key
-  * Client Signing Key ID. This is optional, except when you have more than one Signing Key with the "Sign In with Apple" service enabled in your Apple Developer Portal.
+  * Key ID
 
 ::: note
 If you are using the Classic Universal Login flow or embedding `Lock.js` in your application, make sure you are using `Lock.js` version 11.16 or later.
@@ -51,30 +47,24 @@ If you are using the Classic Universal Login flow or embedding `Lock.js` in your
 Once you have the credentials you need from your Apple Developer account, you need to configure the application client and the connection settings in Auth0.
 
 1. On the Dashboard, go to [Applications](${manage_url}/#/applications), choose your application, and click the gear icon to view the settings page.  
-
-2. At the bottom of the page, click **Show Advanced Settings** and go to the **Device Settings** tab. Under **Native Social Login**, enable the **Enable Sign In with Apple** toggle. 
-
+1. At the bottom of the page, click **Show Advanced Settings** and go to the **Device Settings** tab. Under **Native Social Login**, enable the **Enable Sign In with Apple** toggle. 
     ![Application Client Settings: Advanced Device Settings](/media/articles/connections/social/apple/apple-app-mobile-settings.png)
-
-3. Under **iOS**, fill in the **App ID** field with the native app's App ID/Bundle Identifier.
-
-4. Go to [Connections > Social](${manage_url}/#/connections/social) and click on the **Apple** connection. 
-
-5. On the **Settings** tab, fill in the following fields:
-
+1. Under **iOS**, fill in the **App ID** field with the native app's App ID/Bundle Identifier.
+1. Go to [Connections > Social](${manage_url}/#/connections/social) and click on the **Apple** connection. 
+1. On the **Settings** tab, fill in the following fields:
     * **Apple Team ID**
     * **Client Secret Signing Key**
-    * **Key ID** (This is optional, except when you have more than one Signing Key with the "Sign In with Apple" service enabled in your Apple Developer Portal)
+    * **Key ID**
 
     ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)
-
-6. Click **Save**.
+1. Click **Save**.
 
 ::: note
 Native apps cannot be tested from the browser. This means that the **TRY** button on the Apple connection is used exclusively for testing web-based flows.
 :::
 
 ## Logout
+
 Since the Native iOS login implementation does not make use of standard browser-based flows, application owners must also take care to perform logout appropriately. When an application needs to perform a logout, it must take the following actions:
 
  * [Revoke the Auth0 Refresh Token](/api/authentication#revoke-refresh-token)

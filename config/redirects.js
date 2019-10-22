@@ -2268,5 +2268,9 @@ module.exports = [
     {
       from: '/rules/guides/create',
       to: '/dashboard/guides/rules/create-rules'
+    },
+    {
+      from: '/connections/apple-setup',
+      to: '/connections/apple-siwa/set-up-apple'
     }
 ];

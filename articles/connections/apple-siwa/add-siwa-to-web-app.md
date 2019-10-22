@@ -22,13 +22,11 @@ You can add functionality to your web application that allows your users to auth
 Before you configure Sign In with Apple (SIWA) for your native app in Auth0, you must:
 
 * Have an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).)
-
-* [Register Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple). Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
-
+* [Register Your App in the Apple Developer Portal](/connections/apple-siwa/set-up-apple) if you have not already done so. Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
   * **Services ID** (Client ID)
   * **Apple Team ID**
   * **Client Secret Signing Key**
-  * **Client Signing Key ID** (optional)
+  * **Key ID**
 
 ::: note
 If you are using the Classic Universal Login flow or embedding `Lock.js` in your application, make sure you are using `Lock.js` version 11.16 or later. 
@@ -36,22 +34,22 @@ If you are using the Classic Universal Login flow or embedding `Lock.js` in your
 
 ## Configure and enable the connection in Auth0
 
-Once you have the credentials you need from your Apple Developer account, you need to configure the connection settings and enable the connection for your application in Auth0.
+Once you have the credentials you need from your Apple Developer account, you need to configure the connection settings and enable the connection for your application in Auth0. 
+
+::: note
+The **Client Secret Signing Key** is the contents of the key file you downloaded when setting up the key on the Apple Developer site. You can copy and paste the content of that file into this field.
+:::
 
 1. On the Dashboard, go to [Connections > Social](${manage_url}/#/connections/social) and click on the **Apple** connection.
-
-2. On the **Settings** tab, fill in the following fields:
-
+1. On the **Settings** tab, fill in the following fields:
     * **Client ID** (Services ID)
+    * **Apple Team ID**
     * **Client Secret Signing Key**
-    * **Apple Team ID** (App ID)
-    * **Key ID** (Apple will accept the key without the ID)(optional) 
+    * **Key ID**
 
     ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)
-
-3. Click **Save**.
-
-4. [Test the connection](/connections/apple-siwa/test-siwa-connection). 
+1. Click **Save**.
+1. [Test the connection](/connections/apple-siwa/test-siwa-connection). 
 
 ## Keep reading
 
