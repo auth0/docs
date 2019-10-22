@@ -23,7 +23,7 @@ The default trigger amount of 10 cannot be changed.
 
 ### Actions
 
-* Send an email to the affected user. (You can [customize](#customize-the-blocked-account-email) the email.)
+* Send an email to the affected user. 
 * Block the suspicious IP address for that user.
 
 ### Remove block
