@@ -57,7 +57,7 @@ The first step in adding authentication to your application is to provide a way 
 
 ### Configure Android
 
-In the file `android/app/src/main/AndroidManifest.xml` you must make sure the activity you are going to receive the authentication on has a **launchMode** value of `singleTask` and that it declares the following intent filter:
+In the file `android/app/src/main/AndroidManifest.xml` you must make sure the activity you are going to receive the authentication on has a **launchMode** value of `singleTask` and that it declares the following intent filter (see the [React Native docs](https://facebook.github.io/react-native/docs/linking#basic-usage) for more information):
 
 ```xml
 <intent-filter>
