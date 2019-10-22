@@ -13,14 +13,11 @@ useCase:
 ---
 # Step-up Authentication for Web Apps
 
-With Step-up Authentication, applications that allow access to different types of resources can require users to authenticate with a stronger mechanism to access sensitive information or perform certain transactions.
+With step-up authentication, applications that allow access to different types of resources can require users to authenticate with a stronger mechanism to access sensitive information or perform certain transactions.
 
 For instance, a user may be allowed to access views with sensitive data or reset their password only after confirming their identity using <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
-To accomplish step-up authentication, you will do the following:
-1. Create a rule that challenges the user to authenticate with MFA when the web app asks for it. 
-2. Configure your web app to check the ID Token claims for MFA if the user tries to access a restricted page. 
-3. If the output of the validation is that the user has not authenticated with MFA, then challenge the user again. 
+To accomplish step-up authentication for your web app, you will create a rule that challenges the user to authenticate with MFA when the web app asks for it, check the ID Token claims for MFA if the user tries to access a restricted page, and then challenge the user if MFA is not included in the claim. 
 
 ## How it works
 
@@ -166,6 +163,7 @@ We assume that the following has already been set up for the web app:
 ## Keep reading
 
 * [ID Tokens](/tokens/id-tokens)
+* [Rules](/rules)
 * [JSON Web Tokens](/jwt)
 * [OpenID Connect (OIDC) specification](http://openid.net/specs/openid-connect-core-1_0.html)
 * [Step-up Authentication for APIs](/multifactor-authentication/developer/step-up-authentication/step-up-for-apis)
