@@ -36,64 +36,59 @@ If the token shows that the user has not authenticated with MFA, then you can ag
 
 1. Retrieve the ID Token.
 1. Verify the token's signature. The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
-1. Validate the standard claims: 
+1. Validate the following claims: 
 
 | Claim | Description |
 | --- | --- |
 | `exp` | Token expiration |
 | `iss` | Token issuer |
 | `aud` | Intended recipient of the token |
+| `amr` | If `amr` **is not** in the payload or it does not contain the value `mfa`, the user did not log in with MFA. If `amr` **is** in the payload and it contains the value `mfa`, then the user logged in with MFA. |
 
-1. Verify that the token contains the `amr` claim.
-    - If `amr` **is not** in the payload or it does not contain the value `mfa`, the user did not log in with MFA.
-    - If `amr` **is** in the payload and it contains the value `mfa`, then the user logged in with MFA.
+    In the example below, you can see what an ID Token's payload may look like if the user has authenticated with MFA, and how it may look if they have not.
 
-For more information on the signature verification and claims validation, see [ID Token](/tokens/id-tokens).
-
-In the example below, you can see what an ID Token's payload may look like if the user has authenticated with MFA, and how it may look if they have not.
-
-```js
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li class="active"><a href="#with-mfa" data-toggle="tab">ID Token with MFA</a></li>
-      <li><a href="#without-mfa" data-toggle="tab">ID Token without MFA</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="with-mfa" class="tab-pane active">
-      <pre class="text hljs">
-        <code>
-{
-  "iss": "https://${account.namespace}/",
-  "sub": "auth0|1a2b3c4d5e6f7g8h9i",
-  "aud": "${account.clientId}",
-  "iat": 1522838054,
-  "exp": 1522874054,
-  "acr": "http://schemas.openid.net/pape/policies/2007/06/multi-factor",
-  "amr": [
-    "mfa"
-  ]
-}
-        </code>
-      </pre>
+    ```js
+    <div class="code-picker">
+      <div class="languages-bar">
+        <ul>
+          <li class="active"><a href="#with-mfa" data-toggle="tab">ID Token with MFA</a></li>
+          <li><a href="#without-mfa" data-toggle="tab">ID Token without MFA</a></li>
+        </ul>
+      </div>
+      <div class="tab-content">
+        <div id="with-mfa" class="tab-pane active">
+          <pre class="text hljs">
+            <code>
+    {
+      "iss": "https://${account.namespace}/",
+      "sub": "auth0|1a2b3c4d5e6f7g8h9i",
+      "aud": "${account.clientId}",
+      "iat": 1522838054,
+      "exp": 1522874054,
+      "acr": "http://schemas.openid.net/pape/policies/2007/06/multi-factor",
+      "amr": [
+        "mfa"
+      ]
+    }
+            </code>
+          </pre>
+        </div>
+        <div id="without-mfa" class="tab-pane">
+          <pre class="text hljs">
+            <code>
+    {
+      "iss": "https://${account.namespace}/",
+      "sub": "auth0|1a2b3c4d5e6f7g8h9i",
+      "aud": "${account.clientId}",
+      "iat": 1522838197,
+      "exp": 1522874197
+    }
+            </code>
+          </pre>
+        </div>
+      </div>
     </div>
-    <div id="without-mfa" class="tab-pane">
-      <pre class="text hljs">
-        <code>
-{
-  "iss": "https://${account.namespace}/",
-  "sub": "auth0|1a2b3c4d5e6f7g8h9i",
-  "aud": "${account.clientId}",
-  "iat": 1522838197,
-  "exp": 1522874197
-}
-        </code>
-      </pre>
-    </div>
-  </div>
-</div>
-```
+    ```
 
 ## Sample scenario
 
