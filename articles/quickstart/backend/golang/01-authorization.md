@@ -200,7 +200,7 @@ type CustomClaims struct {
 
 func checkScope(scope string, tokenString string) bool {
 	token, _ := jwt.ParseWithClaims(tokenString, &CustomClaims{}, func (token *jwt.Token) (interface{}, error) {
-		cert, err := getPermCert(token)
+		cert, err := getPemCert(token)
 		if err != nil {
 			return nil, err
 		}
@@ -209,7 +209,7 @@ func checkScope(scope string, tokenString string) bool {
 	})
 
 	claims, ok := token.Claims.(*CustomClaims)
-	
+
 	hasScope := false
 	if ok && token.Valid {
 		result := strings.Split(claims.Scope, " ")
