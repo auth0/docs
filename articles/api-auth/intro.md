@@ -78,7 +78,7 @@ In order to add custom claims to ID Tokens or Access Tokens, they must [conform 
 To customize the tokens, use Hooks for the Client Credentials Flow, and Rules for the rest of the flows:
 - __Client Credentials Flow__: [Customize Tokens using Hooks](/flows/guides/client-credentials/call-api-client-credentials#customize-tokens)
 - __Trusted App Flow__: [Customize Tokens using Rules](/api-auth/grant/password#customizing-the-returned-tokens)
-- __Single-Page Flow__: [Customize Tokens using Rules](/flows/guides/implicit/call-api-implicit#customize-tokens)
+- __Single-Page Flow__: [Customize Tokens using Rules](/flows/guides/implicit/call-api-auth-code-pkce#customize-tokens)
 - __Regular Web App Flow__: [Customize Tokens using Rules](/flows/guides/auth-code/call-api-auth-code#customize-tokens)
 - __Native/Mobile Flow__: [Customize Tokens using Rules](/flows/guides/auth-code-pkce/call-api-auth-code-pkce#customize-tokens)
 

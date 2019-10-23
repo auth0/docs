@@ -62,16 +62,16 @@ In this page you can find a list of resources that can help you secure your APIs
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/flows/guides/implicit/call-api-implicit">Call Your API from a Single-Page App</a>
+    <i class="icon icon-budicon-715"></i><a href="/flows/guides/auth-code-pkce/call-api-auth-code-pkce">Call Your API from a Single-Page App</a>
     <p>
       If your application is a JavaScript-centric app executing on the browser, and you want to configure it to use OAuth 2.0 to access an API, read these docs.
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/implicit">Overview of the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/auth-code-pkce">Overview of the flow</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/flows/guides/implicit/call-api-implicit">Executing the flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/guides/auth-code-pkce/call-api-auth-code-pkce">Executing the flow</a>
       </li>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/api-auth/tutorials/silent-authentication">Silent authentication for SPAs</a>

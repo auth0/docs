@@ -19,10 +19,6 @@ Your user will authenticate, and Auth0 will generate an ID Token and Access Toke
 
 ## How it works
 
-For security in single-page apps, depending on your architecture, you may choose to use either the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) or the [Implicit Flow](/flows/concepts/implicit).
-
-### Authorization Code Flow with PKCE
-
 When your app needs to fetch user data from your API:
 
 1. If the user is not already authenticated, our SDK redirects the user to your Auth0 Authorization Server.
@@ -31,18 +27,9 @@ When your app needs to fetch user data from your API:
 4. Auth0 responds with the requested tokens.
 5. The Access Token can be used to call your API and retrieve requested data.
 
+For single-page apps, Auth0 uses the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce).
+
 <img src="/media/articles/microsites/overview-flow-call-api-single-page-app-pkce.png" alt="Flow Overview for Single-Page Apps with Auth Code Flow with PKCE" width="100%">
-
-### Implicit Flow
-
-When your app needs to fetch user data from your API:
-
-1. If the user is not already authenticated, our SDK redirects the user to your Auth0 Authorization Server, requesting tokens.
-2. The user authenticates with Auth0 using one of your configured login options (e.g., username/password, social identity provider, <dfn data-key="security-assertion-markup-language">SAML</dfn>), 
-3. Auth0 responds with the user's ID Token and Access Token.
-4. The Access Token can be used to call your API and retrieve requested data.
-
-<img src="/media/articles/microsites/overview-flow-call-api-single-page-app.png" alt="Flow Overview for Single-Page Apps with Implicit Flow" width="100%">
 
 ## Implementation overview
 
@@ -56,16 +43,13 @@ When your app needs to fetch user data from your API:
 
 The easiest way to implement the Authorization Code Flow with PKCE is to [follow our Single-Page App Quickstarts](/quickstart/spa). You can also use our [Auth0 Single-Page App SDK](/libraries/auth0-spa-js).
 
-For Implicit Flow, you can use our [Auth0.js](/libraries#auth0-sdks) SDK.
-
-Finally, to use our API endpoints, you can follow one of our tutorials: [Call Your API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce) or [Call Your API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit).
+Finally, to use our API endpoints, you can follow our tutorial: [Call Your API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce).
 
 :::: further-reading
 
 ::: guides
   * [Auth0 Single-Page App Quickstarts](/quickstart/spa)
   * [Call Your API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce)
-  * [Call Your API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit)
   * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
   * [Store Tokens](/tokens/guides/store-tokens)
 :::

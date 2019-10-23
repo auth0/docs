@@ -1,6 +1,6 @@
 ---
 title: Call API Using Authorization Code Flow with PKCE
-description: Learn how to call your API from a native or mobile application using the Authorization Code flow using Proof Key for Code Exchange (PKCE).
+description: Learn how to call your API from a native, mobile, or single-page application using the Authorization Code flow using Proof Key for Code Exchange (PKCE).
 toc: true
 topics:
   - api-authentication
@@ -9,6 +9,7 @@ topics:
   - pkce
   - native-apps
   - mobile-apps
+  - single-page-apps
 contentType: tutorial
 useCase:
   - secure-api
@@ -17,12 +18,12 @@ useCase:
 # Call Your API Using the Authorization Code Flow with PKCE
 
 ::: note
-This tutorial will help you call your own API from a native/mobile app using the Authorization Code Flow with PKCE. If you want to learn how the flow works and why you should use it, see [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce). If you want to learn to add login to your native/mobile app, see [Add Login Using Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce).
+This tutorial will help you call your own API from a native, mobile, or single-page app using the Authorization Code Flow with PKCE. If you want to learn how the flow works and why you should use it, see [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce). If you want to learn to add login to your native, mobile, or single-page app, see [Add Login Using Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce).
 :::
 
 Auth0 makes it easy for your app to implement the Authorization Code Flow with Proof Key for Code Exchange (PKCE) using:
 
-* [Auth0 Mobile SDKs](/libraries#auth0-sdks): The easiest way to implement the flow, which will do most of the heavy-lifting for you. Our [Mobile Quickstarts](/quickstart/native) will walk you through the process.
+* [Auth0 Mobile SDKs](/libraries#auth0-sdks) and [Auth0 Single-Page App SDK](/libraries/auth0-spa-js): The easiest way to implement the flow, which will do most of the heavy-lifting for you. Our [Mobile Quickstarts](/quickstart/native) and [Single-Page App Quickstarts](/quickstart/spa) will walk you through the process.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
 
@@ -31,8 +32,8 @@ Auth0 makes it easy for your app to implement the Authorization Code Flow with P
 **Before beginning this tutorial:**
 
 * [Register the Application with Auth0](/dashboard/guides/applications/register-app-native). 
-  * Select an **Application Type** of **Native**.
-  * Add an **Allowed Callback URL** of **`YOUR_CALLBACK_URL`**. Your callback URL format will vary depending on your platform. For details about the format for your platform, see our [Native/Mobile Quickstarts](/quickstart/native).
+  * Select an **Application Type** of **Native** or **Single-Page App**, depending on your application type.
+  * Add an **Allowed Callback URL** of **`YOUR_CALLBACK_URL`**. Your callback URL format will vary depending on your application type and platform. For details about the format for your application type and platform, see our [Native/Mobile Quickstarts](/quickstart/native) and [Single-Page App Quickstarts](/quickstart/spa).
   * Make sure the Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include **Authorization Code**.
   * If you want your Application to be able to use [Refresh Tokens](/tokens/concepts/refresh-tokens), make sure the Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include **Refresh Token**.
 

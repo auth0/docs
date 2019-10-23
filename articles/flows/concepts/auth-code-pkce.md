@@ -19,32 +19,20 @@ useCase:
 
 ## Mobile/native applications
 
-During authentication, mobile/native applications can use the OAuth 2.0 Authorization Code Flow, but they require additional security because they:
+During authentication, mobile/native applications and single-page applications have some special requirements; they require more security than the standard Authorization Code Flow because:
 
-* Cannot securely store a Client Secret. Decompiling the app will reveal the Client Secret. The Client Secret is bound to the app and is the same for all users and devices.
+**Mobile apps**
+
+* Cannot securely store a Client Secret. Decompiling the app will reveal the Client Secret, which is bound to the app and is the same for all users and devices.
 * May make use of a custom URL scheme to capture redirects (e.g., MyApp://) potentially allowing malicious applications to receive an Authorization Code from your Authorization Server.
+
+**Single-page apps**
+
+* Cannot securely store a Client Secret because their entire source is available to the browser.
 
 To mitigate this, OAuth 2.0 provides a version of the Authorization Code Flow which makes use of a Proof Key for Code Exchange (PKCE) (defined in [OAuth 2.0 RFC 7636](https://tools.ietf.org/html/rfc7636)). 
 
 The PKCE-enhanced Authorization Code Flow introduces a secret created by the calling application that can be verified by the authorization server; this secret is called the Code Verifier. Additionally, the calling app creates a transform value of the Code Verifier called the Code Challenge and sends this value over HTTPS to retrieve an Authorization Code. This way, a malicious attacker can only intercept the Authorization Code, and they cannot exchange it for a token without the Code Verifier.
-
-## Single-page applications
-
-During authentication, single-page applications (SPAs) have some special requirements. Since the SPA is a public client, it is unable to securely store information such as a Client Secret. As such, traditional guidance suggested using a special authentication flow called the OAuth 2.0 Implicit Flow (defined in [OAuth 2.0 RFC 6749, section 4.2](https://tools.ietf.org/html/rfc6749#section-4.2)). New guidance suggests using Authorization Code Flow with PKCE instead.
-
-Using the Implicit Flow streamlines authentication by returning tokens without introducing any unnecessary additional steps, but often returns tokens in the URL, which can be problematic in certain cases. In such cases, you should use Authorization Code Flow with PKCE. For a more detailed explanation, see our blog post [OAuth2 Implicit Grant and SPA: Everything you always wanted to know (but were afraid to ask)](https://auth0.com/blog/oauth2-implicit-grant-and-spa/).
-
-::: panel Should I use Authorization Code Flow with PKCE or Implicit Flow for my SPA?
-Use Authorization Code Flow with PKCE if:
-* you are building a brand new SPA; why not use the latest recommendation when starting from the beginning?
-* you are passing Access Tokens through the URL and have no steps in place to mitigate the known issues introduced by this approach.
-* you are passing Access Tokens through the URL and it's worth it to you to update your code to adhere to the new recommendations.
-
-Use Implicit Flow if:
-* your pre-built SPA retrieves ID Tokens and directly consumes them.
-* your pre-built SPA sends tokens to a server via a POST.
-* your pre-built SPA already includes steps to mitigate the known issues with passing Access Tokens via the URL.
-:::
 
 ## How it works
 
@@ -67,28 +55,18 @@ Because the PKCE-enhanced Authorization Code Flow builds upon the [standard Aut
 
 ## How to implement it
 
-### Mobile/native applications
+The easiest way to implement the Authorization Code Flow with PKCE is to follow our [Mobile/Native Quickstarts](/quickstart/native) or [Single-Page Quickstarts](/quickstart/spa).
 
-The easiest way to implement the Authorization Code Flow with PKCE is to follow our [Mobile/Native Quickstarts](/quickstart/native).
+Depending on your application type, you can also use our mobile or single-page app SDKs:
 
-You can also use our mobile SDKs:
+**Mobile**
 
 * [Auth0 Swift SDK](/libraries/auth0-swift)
 * [Auth0 Android SDK](/libraries/auth0-android)
 
-Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce) or [Call Your API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce).
-
-### Single-page applications
-
-The easiest way to implement the Authorization Code Flow with PKCE is to follow our [Single-Page Quickstarts](/quickstart/spa).
-
-You can also use our single-page app SDK:
+**Single-page**
 
 * [Auth0 Single-Page App SDK](/libraries/auth0-spa-js)
-
-::: note
-The existing Auth0 JavaScript SDKs are based on the traditional guidance using Implicit Flow. If you are using these rather than the Auth0 Single-Page App SDK, please ensure you are implementing mitigations that are appropriate for your SPA architecture.
-:::
 
 Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce) or [Call Your API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce).
 
