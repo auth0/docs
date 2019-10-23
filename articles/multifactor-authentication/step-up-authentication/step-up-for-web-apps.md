@@ -29,18 +29,18 @@ The `amr` claim identifies the Authentication Methods References which are a JSO
 
 If the token shows that the user has not authenticated with MFA, then you can again trigger  authentication, and using a rule, trigger MFA. Once the user provides the second factor, a new ID Token, that contains the `amr` claim, is generated and sent to the app.
 
-## Check the ID Token for MFA
+## Validate ID Tokens for MFA
 
 1. Retrieve the ID Token.
 1. Verify the token's signature. The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
 1. Validate the following claims: 
 
-| Claim | Description |
-| --- | --- |
-| `exp` | Token expiration |
-| `iss` | Token issuer |
-| `aud` | Intended recipient of the token |
-| `amr` | If `amr` **is not** in the payload or it does not contain the value `mfa`, the user did not log in with MFA. If `amr` **is** in the payload and it contains the value `mfa`, then the user logged in with MFA. |
+    | Claim | Description |
+    | --- | --- |
+    | `exp` | Token expiration |
+    | `iss` | Token issuer |
+    | `aud` | Intended recipient of the token |
+    | `amr` | If `amr` **is not** in the payload or it does not contain the value `mfa`, the user did not log in with MFA. If `amr` **is** in the payload and it contains the value `mfa`, then the user logged in with MFA. |
 
     In the example below, you can see what an ID Token's payload may look like if the user has authenticated with MFA, and how it may look if they have not.
 
@@ -124,7 +124,7 @@ We assume that the following has already been set up for the web app:
 
 2. Next, we will configure the app so that if the user tries to access the salary information page, then the app checks the ID Token claims for MFA. If the user has already authenticated with MFA, then the screen is displayed, otherwise the web app sends a new authentication request to Auth0. This time the request parameter `acr_values` is included so the rule we created in the previous step triggers MFA. Once the user authenticates, a new token is sent to the app.
 
-3. Check the ID Token. The web app should validate the token as described in [Check the ID Token for MFA](#check-the-id-token-for-mfa) above. In this scenario, we do these validations using the [JSON Web Token Sample Code](https://github.com/auth0/node-jsonwebtoken). The code verifies the token's signature (`jwt.verify`), decodes the token, and checks whether the payload contains `amr` and if it does, the results are logged in the console.
+3. Validate the ID Token. The web app should validate the token as described in [Validate ID Tokens for MFA](#validate-id-tokens-for-mfa) above. In this scenario, we do these validations using the [JSON Web Token Sample Code](https://github.com/auth0/node-jsonwebtoken). The code verifies the token's signature (`jwt.verify`), decodes the token, and checks whether the payload contains `amr` and if it does, the results are logged in the console.
 
     ```js
     const AUTH0_CLIENT_SECRET = '${account.clientSecret}';

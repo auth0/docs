@@ -35,12 +35,21 @@ A flow for this example is the following:
 1. The application sends again the transfer funds request using the new Access Token, which includes the `transfer:funds` scope.
 1. The API validates the token, discards it (thereby treating it like a single-use token) and proceeds with the operation
 
-::: note
-Note that the API needs to do more validations than just check the scope. These are:
-- Verify the token's signature. The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
-- Validate the standard claims: `exp` (when the token expires), `iss` (who issued the token), `aud` (who is the intended recipient of the token)
+## Validate Access Tokens
+
+The API needs to do more validations than just check the scope. 
+
+1. Verify the token's signature. The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way. 
+
+2. Validate the standard claims: 
+
+    | Claim | Description |
+    | --- | --- |
+    | `exp` | Token expiration |
+    | `iss` | Token issuer |
+    | `aud` | Intended recipient of the token |
+
 For details on how to do these validations, see [Validate an Access Token for Custom APIs](/tokens/guides/access-token/validate-access-token).
-:::
 
 ## Sample scenario
 
@@ -48,12 +57,12 @@ In the following scenario, we will see how to implement the flow described above
 
 We assume that the following has already been set up:
 
-- [Register an application](/applications/concepts/app-types-auth0). For the purposes of this example we'll be using a single-page web app
-- [Create a database connection](${manage_url}/#/connections/database)
-- [Register the API](/apis#how-to-configure-an-api-in-auth0). It should include two scopes: `view:balance` and `transfer:funds`
-- [Enable Multi-factor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [push notifications](/multifactor-authentication/factors/push)
+- [Register an application](/applications/concepts/app-types-auth0). For the purposes of this example we'll be using a single-page web app.
+- [Create a database connection](${manage_url}/#/connections/database).
+- [Register the API](/apis#how-to-configure-an-api-in-auth0). It should include two scopes: `view:balance` and `transfer:funds`.
+- [Enable Multi-factor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [push notifications](/multifactor-authentication/factors/push).
 
-1. First we will create a rule that will challenge the user to authenticate with MFA when the `transfer:funds` scope is requested. Go to [Dashboard > Multi-factor Auth](${manage_url}/#/rules) and create a rule with the content below.
+1. First we will create a rule that challenges the user to authenticate with MFA when the `transfer:funds` scope is requested. To do that, go to [Rules](${manage_url}/#/rules) and create a rule with the content below.
 
     ```js
     function (user, context, callback) {
@@ -74,13 +83,13 @@ We assume that the following has already been set up:
     }
     ```
 
-    - The `CLIENTS_WITH_MFA` variable holds the Client IDs of all the applications you want to use this rule. You can remove this (and the `if` statement that follows) if you don't need it.
+    - The `CLIENTS_WITH_MFA` variable holds the Client IDs of all the applications you want to use this rule. (You can remove this (and the `if` statement that follows) if you don't need it.)
 
     - The `context.request.query.scope` property contains all the scopes that the authentication request asked for. If it includes the value `transfer:funds` then we ask for MFA by setting the `context.multifactor` property to the appropriate value. In this case we are asking for MFA using [Push](/multifactor-authentication/factors/push).
 
-2. Next, we need to configure the application to send the appropriate authentication request, depending on the action that the user wants to perform. Notice that the only difference between the two authentication requests (with or without MFA) is the scope `transfer:funds`.
+2. Next, we will configure the app to send the appropriate authentication request, depending on the action that the user wants to perform. Notice that the only difference between the two authentication requests (with or without MFA) is the scope `transfer:funds`.
 
-    ```js
+    ```html
     <div class="code-picker">
       <div class="languages-bar">
         <ul>
@@ -136,13 +145,11 @@ We assume that the following has already been set up:
 | `nonce` | Set to a cryptographically-secure string value which will be included in the response from Auth0. This is [used to prevent token replay attacks](/api-auth/tutorials/nonce) and is required for `response_type=id_token token`. |
 | `state` | Set to an opaque value that Auth0 includes when redirecting back to the application. This value must be used by the application to [prevent CSRF attacks](/protocols/oauth2/oauth-state). | 
 
-3. Finally, you need to make your API validate the incoming token and check the authorized permissions.
-
-    For the purposes of this example we will configure two endpoints for our API:
+3. Validate the incoming token and check the authorized permissions. In this scenario, we will configure two endpoints for our API:
     - `GET /balance`: to retrieve the current balance
     - `POST /transfer`: to transfer funds
 
-    We will be using `Node.js` and a number of modules:
+    We will use `Node.js` and a number of modules:
     - [express](https://expressjs.com/): adds the Express web application framework
     - [jwks-rsa](https://github.com/auth0/node-jwks-rsa): retrieves RSA signing keys from a **JWKS** (JSON Web Key Set) endpoint. Using `expressJwtSecret` we can generate a secret provider that will provide the right signing key to `express-jwt` based on the `kid` in the JWT header
     - [express-jwt](https://github.com/auth0/express-jwt): lets you authenticate HTTP requests using JWT tokens in your Node.js applications. It provides several functions that make working with JWTs easier
@@ -196,14 +203,12 @@ We assume that the following has already been set up:
     console.log('Listening on http://localhost:8080');
     ```
 
-Each time the API receives a request the following will happen:
-1. The endpoint will call the `checkJwt` middleware
-1. `express-jwt` will decode the token and pass the request, the header and the payload to `jwksRsa.expressJwtSecret`
-1. `jwks-rsa` will then download all signing keys from the JWKS endpoint and see if a one of the signing keys matches the `kid` in the header of the Access Token. If none of the signing keys match the incoming `kid`, an error will be thrown. If we have a match, we will pass the right signing key to `express-jwt`
-1. `express-jwt` will the continue its own logic to validate the signature of the token, the expiration, audience and the issuer
-1. `jwtAuthz` will check if the scope that the endpoint requires is part of the Access Token
-
-Now your application allows access to different types of resources using a stronger mechanism to perform high-value transactions.
+Each time the API receives a request the following happens:
+1. The endpoint calls the `checkJwt` middleware.
+1. `express-jwt` decodes the token and passes the request, the header, and the payload to `jwksRsa.expressJwtSecret`.
+1. `jwks-rsa` then downloads all signing keys from the JWKS endpoint and checks if one of the signing keys matches the `kid` in the header of the Access Token. If none of the signing keys match the incoming `kid`, an error is thrown. If there is a match, we pass the right signing key to `express-jwt`.
+1. `express-jwt` continues its own logic to validate the signature of the token, the expiration, audience and the issuer.
+1. `jwtAuthz` checks if the scope that the endpoint requires is part of the Access Token.
 
 ## Keep reading
 
