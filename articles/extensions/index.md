@@ -46,6 +46,7 @@ Deploy [rules](/rules) and [database connection](/connections/database) scripts 
 - [Bitbucket Deployments Extension](/extensions/bitbucket-deploy)
 - [GitLab Deployments Extension](/extensions/gitlab-deploy)
 - [Visual Studio Team Services Deployments Extension](/extensions/visual-studio-team-services-deploy)
+- [Deploy CLI Tool Extension](/extensions/deploy-cli/index)
 
 ### Troubleshoot
 

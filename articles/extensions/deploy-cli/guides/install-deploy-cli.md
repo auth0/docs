@@ -16,7 +16,7 @@ There are three ways to install the Deploy CLI tool:
 2. Using the command-line interface
 3. Manually
 
-You can also upgrade from a previous version of the tool. The `auth0-deploy-cli` tool was completely rewritten from version 1 to version 2 which means it is not backwards compatible. Please consider the following when upgrading:
+You can also upgrade from a previous version of the tool. The `auth0-deploy-cli` tool was completely rewritten from version 1 to [version 2](/extenions/deploy-cli/references/what-new-v2) which means it is not backwards compatible. Please consider the following when upgrading:
 
 - The directory structure and format has changed to allow for additional object types.
 - The command line parameters have changed to allow for additional options such as export.
