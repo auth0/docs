@@ -38,15 +38,9 @@ With a Management API Token issued for a SPA, you can access the following scope
 | `create:current_user_device_credentials` | [POST /api/v2/device-credentials](/api/management/v2#!/Device_Credentials/post_device_credentials) |
 | `delete:current_user_device_credentials` | [DELETE /api/v2/device-credentials/{id}](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) |
 
-### Rate Limits
-
-Please note that the above scopes (and therefore limits) are rate limited. By default, the rate limit is **disabled** (that is, the controlling tenant-level flag `dedicated_rate_limit_for_current_user_scope` is set to `false`). When `dedicated_rate_limit_for_current_user_scope = false`, Auth0 makes a log entry whenever the rate limit is exceeded:
-
-```text
-log_type:"limits_exceed" AND result.limitDefinition.definition.code:"current_user_scope_limit"
-```
-
-Only with `dedicated_rate_limit_for_current_user_scope = true` will Auth0 fail additional calls until the rate limit resets.
+::: note
+Please note that the above scopes (and therefore limits) are rate limited.
+:::
 
 ## Using a Management API Token to call the Management API from a SPA
 

@@ -198,7 +198,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 ### Access tokens for SPAs
 
-If you obtain Access Tokens for your SPAs, please review the rate limits applicable when working with the (`current_user` scope)[/api/management/v2/get-access-tokens-for-spas#available-scopes-and-endpoints].
+If you obtain Access Tokens for your SPAs, note that there are rate limits that are applicable when working with the available (`current_user`-related scopes and endpoints)[/api/management/v2/get-access-tokens-for-spas#available-scopes-and-endpoints].
 
 ### Authentication API
 
