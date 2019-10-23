@@ -10,26 +10,31 @@ useCase: extensibility-extensions
 ---
 # Install the Deploy CLI Tool
 
-This article will walk you through installing Auth0's Deploy CLI tool.
-
-## Install the Deploy CLI tool
-
 There are three ways to install the Deploy CLI tool:
 
 1. Using the Dashboard
 2. Using the command-line interface
 3. Manually
 
-### Install the the Deploy CLI tool using the Dashboard
+You can also upgrade from a previous version of the tool. The `auth0-deploy-cli` tool was completely rewritten from version 1 to version 2 which means it is not backwards compatible. Please consider the following when upgrading:
+
+- The directory structure and format has changed to allow for additional object types.
+- The command line parameters have changed to allow for additional options such as export.
+
+## Prerequisites
+
+For this tool to function it must be authorized to the Auth0 Management API. You can do this by creating an application in your Auth0 service that has access to the management API with the following [scopes](#scopes-required) before.
+
+Use the Auth0 Deploy CLI Extension to create the application. At the bottom of the README are instructions for doing this by hand instead.
+
+## Install the the Deploy CLI tool using the Dashboard
 
 1. Go to the [Extensions](${manage_url}/#/extensions) tab in the Dashboard. 
 
    ![Entensions Tab](/media/articles/extensions/deploy-cli/step1-extensions-overview.png)
 
-2. Click **CREATE EXTENSION** and install the extension from the [Deploy CLI Extension repository](https://github.com/auth0-extensions/auth0-deploy-cli-extension).
+2. Search for the Auth0 Deploy CLI extension.
 
-   ![Extension Link](/media/articles/extensions/deploy-cli/step2-extension-link.png)
-   
 3. Click **Install**.
 
 4. Click the checkmark to allow the extension access to your data. 
@@ -38,29 +43,31 @@ There are three ways to install the Deploy CLI tool:
 
    ![Deploy CLI Homepage](/media/articles/extensions/deploy-cli/step3-auth0-deploy-cli-homepage.png)
 
-### Install the the Deploy CLI tool using the command-line interface
+   It should create a machine-to-machine application named `auth0-deploy-cli-extension`. This application contains the Client ID and Secret that you use to configure the cli.
 
-To install the the Deploy CLI tool using the command-line interface, run:
+## Install the Deploy CLI tool using the command-line interface
+
+To install the Deploy CLI tool using the command-line interface, run:
 
 ```bash
 npm i -g auth0-deploy-cli
 ```
 
-### Install the the Deploy CLI tool manually
+## Install the Deploy CLI tool manually
 
 To create the client application manually: 
 
 1. Log into your Dashboard.
-2.  Click the Applications tab.
-3.  Click **CREATE APPLICATION**.
+2. Click the Applications tab.
+3. Click **CREATE APPLICATION**.
     - Provide a name for your application (e.g. **Deploy Client**).
     - Select **Machine-to-Machine** as the application type.
     - Click **Create**.
-4.  Use the **Select an API** dropdown to choose **Auth0 Management API**.
-5.  Select the [scopes](#scopes-required) as defined below.
-6.  Click **Authorize**.
+4. Use the **Select an API** dropdown to choose **Auth0 Management API**.
+5. Select the [scopes](#scopes-required) as defined below.
+6. Click **Authorize**.
 
-#### Scopes required
+### Scopes required
 
 The Deploy CLI tool must be authorized to call the Management API. You can do this by creating an application that grants access to the Management API with the following scopes:
 
