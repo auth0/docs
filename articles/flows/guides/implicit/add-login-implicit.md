@@ -16,7 +16,9 @@ useCase:
 # Add Login Using the Implicit Flow
 
 ::: note
-This tutorial will help you add login to your single-page application (SPA) using the Implicit Flow. If you want to learn how the flow works and why you should use it, see [Implicit Flow](/flows/concepts/implicit). If you want to learn to call your API from a SPA, see [Call Your API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce).
+This tutorial will help you add login to your single-page application (SPA) using the Implicit Flow. If you want to learn how the flow works and why you should use it, see [Implicit Flow](/flows/concepts/implicit). 
+
+You can use the Implicit flow for login only use cases; if you need to request Access Tokens while logging the user in so you can call your API, use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce).
 :::
 
 Auth0 makes it easy to implement the Implicit Flow by using:

@@ -31,7 +31,7 @@ Using the Implicit Flow streamlines authentication by returning tokens without i
 In the Implicit Flow, issued tokens are short-lived, and <dfn data-key="refresh-token">Refresh Tokens</dfn> are not available.
 
 ::: warning
-You can use this flow for login only use cases; if you need to request Access Tokens while logging the user in, use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce).
+You can use this flow for login only use cases; if you need to request Access Tokens while logging the user in so you can call your API, use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce).
 :::
 
 ![Implicit Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-implicit.png)
