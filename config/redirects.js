@@ -2272,5 +2272,25 @@ module.exports = [
     {
       from: '/connections/apple-setup',
       to: '/connections/apple-siwa/set-up-apple'
+    },
+    {
+      from: '/connections/passwordless/email',
+      to: '/connections/passwordless/guides/implement-passwordless'
+    },
+    {
+      from: '/connections/passwordless/sms',
+      to: '/connections/passwordless/guides/implement-passwordless'
+    },
+    {
+      from: '/connections/passwordless/spa',
+      to: '/connections/passwordless/guides/implement-passwordless'
+    },
+    {
+      from: '/connections/passwordless/regular-web-app',
+      to: '/connections/passwordless/guides/implement-passwordless'
+    },
+    {
+      from: '/connections/passwordless/faq',
+      to: '/connections/passwordless/reference/troubleshoot'
     }
 ];

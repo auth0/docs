@@ -21,7 +21,7 @@ Watch our [Breached Password Detection 101 video tutorial](https://auth0.com/res
 
 ## Actions
 
-* Send an email to the affected user.
+* Send an email to the affected user. (You can [customize the email](/anomaly-detection/guides/customize-blocked-account-emails).)
 * Send an email to dashboard owners immediately, and/or have a daily/weekly/monthly summary.
 * Block login attempts for suspected user accounts using that username and password combination.
 
