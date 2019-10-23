@@ -49,7 +49,7 @@ You can use this flow for login only use cases; if you need to request Access To
 
 ## How to implement it
 
-You can use our [Express OpenID Connect SDK](https://www.npmjs.com/package/express-openid-connect) to securely implment the Implicit Flow. If you use our [Javascript SDKs](/libraries), please ensure you are implementing mitigations that are appropriate for your architecture.
+You can use our [Express OpenID Connect SDK](https://www.npmjs.com/package/express-openid-connect) to securely implement the Implicit Flow. If you use our [Javascript SDKs](/libraries), please ensure you are implementing mitigations that are appropriate for your architecture.
 
 ::: note
 The [Auth0 Single-Page App SDK](/libraries/auth0-spa-js) and [Single-Page Quickstarts](/quickstart/spa) adhere to the new recommendations and use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce).
