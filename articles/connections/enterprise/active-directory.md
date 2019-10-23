@@ -1,7 +1,7 @@
 ---
 title: Connect Your App to Active Directory
 connection: Active Directory
-image: /media/connections/ms.png
+image: /media/connections/ad.png
 public: true
 alias:
   - ad

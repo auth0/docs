@@ -1,7 +1,7 @@
 ---
 title: Connect Your App to Google G Suite
 connection: Google G Suite
-image: /media/connections/googleapps.png
+image: /media/connections/gsuite.png
 public: true
 seo_alias: g-suite
 description: Learn how to connect your app to Google G Suite using an enterprise connection.

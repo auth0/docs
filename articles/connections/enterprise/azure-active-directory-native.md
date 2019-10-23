@@ -1,5 +1,5 @@
 ---
-title: Connect Your Native App to Microsoft Azure Active Directory using Resource Owner flow
+title: Connect Your Native App to Microsoft Azure Active Directory Using Resource Owner Flow
 connection: Azure Active Directory Native
 image: /media/connections/azure.png
 public: true
@@ -25,7 +25,7 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Connect Your Native App to Microsoft Azure Active Directory using Resource Owner flow
+# Connect Your Native App to Microsoft Azure Active Directory Using Resource Owner Flow
 
 In addition to the **WS-Federation** and **OpenID Connect** flows, it's also possible to use the **Resource Owner** flow with Azure AD. This flow allows you to capture and validate a user's credentials (email and password) instead of showing the Azure AD login page. For security and <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> reasons, this is not the recommended approach; still, **Resource Owner** flow can be useful in Native mobile scenarios or to batch-process authentication with Azure AD.
 

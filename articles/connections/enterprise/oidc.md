@@ -1,7 +1,7 @@
 ---
 title: Connect Your App to OpenID Connect Identity Providers
 connection: OpenID Connect
-image: /media/connections/open-id.png
+image: /media/connections/oidc.png
 public: true
 seo_alias: oidc
 description: Learn how to connect to OpenID Connect (OIDC) Identity Providers using an enterprise connection.
