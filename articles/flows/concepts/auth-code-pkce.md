@@ -17,8 +17,6 @@ useCase:
 ---
 # Authorization Code Flow with Proof Key for Code Exchange (PKCE)
 
-## Mobile/native applications
-
 During authentication, mobile/native applications and single-page applications have some special requirements; they require more security than the standard Authorization Code Flow because:
 
 **Mobile apps**

@@ -57,17 +57,6 @@ The [Auth0 Single-Page App SDK](/libraries/auth0-spa-js) and [Single-Page Quicks
 
 Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Implicit Flow](/flows/guides/implicit/add-login-implicit).
 
-## SPAs and refresh tokens
-
-::: warning
-The Access Token is exposed on the client side. The implicit flow does not return a Refresh Token because the browser cannot keep it private.  
-:::
-
-While SPAs using the Implicit Grant cannot use [Refresh Tokens](/tokens/concepts/refresh-tokens), there are other ways to provide similar functionality. 
-
-- Use `prompt=none` when invoking the [/authorize](/api/authentication#implicit-grant) endpoint. The user will not see the login or consent dialogs. For more information, see [Silent Authentication](/api-auth/tutorials/silent-authentication). 
-- Call `/authorize` from a hidden iframe and extract the new [Access Token](/tokens/concepts/access-tokens) from the parent frame. The user will not see the redirects happening.
-
 ## Keep reading
 
 - Auth0 offers many ways to personalize your user's login experience using [rules](/rules) and [hooks](/hooks).

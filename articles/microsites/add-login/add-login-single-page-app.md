@@ -49,14 +49,8 @@ In a single-page application (SPA): 
 
   2. <h4>Customize the sign-in UI (optional)</h4>The default experience is demonstrated in the image below and can be completely customized in the dashboard, from changing the logo and primary colors to completely overriding it with your own login screen.<br/><br/><img src="/media/articles/microsites/login-screen-default-web.png" alt="Default Login Screen for Native/Mobile Apps" width="70%">
 
-  3. <h4>Use the Auth0 SDK to trigger the flow</h4>The SDK will take care of the details of redirecting to Auth0, parsing the response back, and validating the ID Token.<br/><br/>Your app can keep the ID Token in memory.
+  3. <h4>Use the Auth0 SDK to trigger the flow</h4>The SDK will take care of the details of redirecting to Auth0, parsing the response back, and validating the ID Token.<br/><br/>Your app can keep the ID Token in memory.<br/><br/>The easiest way to implement the Authorization Code Flow with PKCE is to follow our <a href="/quickstart/spa">Single-Page App Quickstarts</a>. You can also use our <a href="/libraries/auth0-spa-js">Auth0 Single-Page App SDK</a>.<br/><br/>To securely implement the Implicit Flow, you can use the <a href="https://www.npmjs.com/package/express-openid-connect">Express OpenID Connect SDK</a>. If you use our <a href="/libraries/auth0js">Javascript SDK</a>, please ensure you are implementing mitigations that are appropriate for your architecture.<br/><br/>Finally, to use our API endpoints, you can follow one of our tutorials: <a href="/flows/guides/auth-code-pkce/add-login-auth-code-pkce">Add Login Using the Authorization Code Flow with PKCE</a> or <a href="/flows/guides/implicit/add-login-implicit">Add Login Using the Implicit Flow</a>.
 :::
-
-The easiest way to implement the Authorization Code Flow with PKCE is to [follow our Single-Page App Quickstarts](/quickstart/spa). You can also use our [Auth0 Single-Page App SDK](/libraries/auth0-spa-js).
-
-To securely implement the Implicit Flow, you can use the [Express OpenID Connect SDK](https://www.npmjs.com/package/express-openid-connect). If you use our [Javascript SDK](/libraries/auth0js), please ensure you are implementing mitigations that are appropriate for your architecture.
-
-Finally, to use our API endpoints, you can follow one of our tutorials: [Add Login Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce) or [Add Login Using the Implicit Flow](/flows/guides/implicit/add-login-implicit).
 
 :::: further-reading
 
