@@ -55,9 +55,7 @@ If you attempt to send more than ten SMS messages to your device within one hour
 
 When you exceed your messaging limit, you'll need to wait at least an hour after your request for your first message before requesting another. You will receive an additional attempt after the passage of each additional hour.
 
-## OTP-related issues
-
-### Rejected Codes
+## Rejected Codes
 
 If the 6-digit code in the Guardian or the Google Authenticator app are being rejected for sign in (often with the message `Incorrect Code`), first check that you are selecting the right application from the list in your authenticator app. If you've verified that you're selecting the correct application, make sure that your mobile device's clock settings are correct. One-time passwords are generated using Coordinated Universal Time (UTC), so your device's time must be correct for your code to work.
 
@@ -66,12 +64,6 @@ To check your clock settings:
 * **Android Devices** - Go **Settings** > **Date & Time**. Make sure that the box next to **Automatic** is checked.
 
 * **iOS Devices** - Go to  **Settings** > **General** > **Date & Time**. Enable **Set Automatically**. If this setting was already enabled, you can disable it for a moment, then re-enable.
-
-### One-Time Password Limitations
-
-* Only the last one-time password issued will be accepted. Once the latest one is issued, any others are invalidated.
-* Only three failed attempts to input the one-time password are allowed.
-* The one-time password issued will be valid for three minutes before it expires.
 
 ## Duo-related issues
 
