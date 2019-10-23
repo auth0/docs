@@ -21,8 +21,8 @@ This tutorial will help you add login to your single-page application (SPA) usin
 
 Auth0 makes it easy to implement the Implicit Flow by using:
 
-* [Auth0.js](/libraries/auth0js): The easiest way to implement the flow, which will do most of the heavy-lifting for you. Our [Single-Page App Quickstarts](/quickstart/spa) will walk you through the process.
-* Authentication API: If you prefer to roll your own solution, keep reading to learn how to call our API directly.
+* [Express OpenID Connect SDK](https://www.npmjs.com/package/express-openid-connect): The easiest way to implement the flow, which will do most of the heavy-lifting for you. If you use our [Javascript SDK](/libraries/auth0js), please ensure you are implementing mitigations that are appropriate for your architecture.
+* Authentication API: If you prefer to roll your own solution, keep reading to learn how to call our API directly. 
 
 Following successful login, your application will have access to the user's [ID Token](/tokens/id-tokens). The ID Token will contain basic user profile information.
 

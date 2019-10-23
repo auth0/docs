@@ -19,7 +19,7 @@ Your user will authenticate, and Auth0 will generate an ID Token that will be pa
 
 ## How it works
 
-For security in SPAs, depending on your architecture, you may choose to use either the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) or the [Implicit Flow](/flows/concepts/implicit).
+For security in SPAs, depending on your architecture, you may choose to use either the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) or the [Implicit Flow](/flows/concepts/implicit). For a more detailed explanation, see our blog post: [OAuth2 Implicit Grant and SPA: Everything you always wanted to know (but were afraid to ask)](https://auth0.com/blog/oauth2-implicit-grant-and-spa/).
 
 ### Authorization Code Flow with PKCE
 
@@ -54,7 +54,7 @@ In a single-page application (SPA): 
 
 The easiest way to implement the Authorization Code Flow with PKCE is to [follow our Single-Page App Quickstarts](/quickstart/spa). You can also use our [Auth0 Single-Page App SDK](/libraries/auth0-spa-js).
 
-For Implicit Flow, you can use our [Auth0.js](/libraries#auth0-sdks) SDK.
+To securely implement the Implicit Flow, you can use the [Express OpenID Connect SDK](https://www.npmjs.com/package/express-openid-connect). If you use our [Javascript SDK](/libraries/auth0js), please ensure you are implementing mitigations that are appropriate for your architecture.
 
 Finally, to use our API endpoints, you can follow one of our tutorials: [Add Login Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce) or [Add Login Using the Implicit Flow](/flows/guides/implicit/add-login-implicit).
 
@@ -62,6 +62,7 @@ Finally, to use our API endpoints, you can follow one of our tutorials: [Add Log
 
 ::: guides
   * [Auth0 Single-Page App Quickstarts](/quickstart/spa)
+  * [Add login using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce)
   * [Add login using the Implicit Flow](/flows/guides/implicit/add-login-implicit)
   * [Customize the hosted login page](/hosted-pages/login#how-to-customize-your-login-page)
   * [Store Tokens](/tokens/guides/store-tokens)

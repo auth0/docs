@@ -47,7 +47,7 @@ ${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/wpf-winforms/wpf-winforms-step1.png)
 
-This will load the Auth0 login page into a web view. You can learn how to customize the login page in [this document](/hosted-pages/login#how-to-customize-your-login-page).
+This will load the Auth0 login page into a web view. You can learn how to customize the login page in [this document](/universal-login#simple-customization).
 
 ## Handle Authentication Tokens
 
