@@ -55,30 +55,30 @@ If a user attempts to access a restricted page and the token shows that the user
     <div id="with-mfa" class="tab-pane active">
       <pre class="text hljs">
         <code>
-    {
-      "iss": "https://${account.namespace}/",
-      "sub": "auth0|1a2b3c4d5e6f7g8h9i",
-      "aud": "${account.clientId}",
-      "iat": 1522838054,
-      "exp": 1522874054,
-      "acr": "http://schemas.openid.net/pape/policies/2007/06/multi-factor",
-      "amr": [
+{
+    "iss": "https://${account.namespace}/",
+    "sub": "auth0|1a2b3c4d5e6f7g8h9i",
+    "aud": "${account.clientId}",
+    "iat": 1522838054,
+    "exp": 1522874054,
+    "acr": "http://schemas.openid.net/pape/policies/2007/06/multi-factor",
+    "amr": [
         "mfa"
-      ]
-    }
+    ]
+}
         </code>
       </pre>
     </div>
     <div id="without-mfa" class="tab-pane">
       <pre class="text hljs">
         <code>
-    {
-      "iss": "https://${account.namespace}/",
-      "sub": "auth0|1a2b3c4d5e6f7g8h9i",
-      "aud": "${account.clientId}",
-      "iat": 1522838197,
-      "exp": 1522874197
-    }
+{
+    "iss": "https://${account.namespace}/",
+    "sub": "auth0|1a2b3c4d5e6f7g8h9i",
+    "aud": "${account.clientId}",
+    "iat": 1522838054,
+    "exp": 1522874054
+}
         </code>
       </pre>
     </div>
@@ -122,7 +122,7 @@ For this example, we assume that we have already done the following:
 
 2. Configure the app to check that the user has authenticated using MFA when a user tries to acces the restricted salary information page. (When a user has authenticated with MFA, the ID Token claims contain the `amr` claim with a value of `mfa`). If the user has already authenticated with MFA, then the web app will display the restricted page; otherwise, the web app will send a new authentication request that includes the `acr_values` parameter with a value of `http://schemas.openid.net/pape/policies/2007/06/multi-factor`, which will trigger our rule. 
 
-The web app in this scenario uses the [Authorization Code Flow](/flows/concepts/auth-code) to authenticate, so the request is as follows:
+    The web app in this scenario uses the [Authorization Code Flow](/flows/concepts/auth-code) to authenticate, so the request is as follows:
 
     ```text
     https://${account.namespace}/authorize?
@@ -135,7 +135,7 @@ The web app in this scenario uses the [Authorization Code Flow](/flows/concepts/
         acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor
     ```
 
-Once the user authenticates with MFA, the web app receives the authorization code, which must be exchanged for the new ID Token, which should now contain the `amr` claim with a value of `mfa`. To learn how to exchange the code for an ID Token, see [Add Login Using the Authorization Code Flow: Request Tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens). 
+    Once the user authenticates with MFA, the web app receives the authorization code, which must be exchanged for the new ID Token, which should now contain the `amr` claim with a value of `mfa`. To learn how to exchange the code for an ID Token, see [Add Login Using the Authorization Code Flow: Request Tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens). 
 
 3. Validate the incoming ID Token using the steps described in the [Validate ID Tokens for MFA](#validate-id-tokens-for-mfa) section. In this scenario, we perform these validations using the [JSON Web Token Sample Code](https://github.com/auth0/node-jsonwebtoken), which verifies the token's signature (`jwt.verify`), decodes the token, checks whether the payload contains `amr`, and if so, logs the results in the console.
 

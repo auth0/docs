@@ -101,28 +101,28 @@ For this example, we assume that we have already done the following:
     <div id="without-mfa" class="tab-pane active">
       <pre class="text hljs">
         <code>
-    https://${account.namespace}/authorize?
-      audience=https://my-banking-api
-      &scope=openid%20view:balance
-      &response_type=id_token%20token
-      &client_id=${account.clientId}
-      &redirect_uri=${account.callback}
-      &nonce=NONCE
-      &state=OPAQUE_VALUE
+        https://${account.namespace}/authorize?
+        audience=https://my-banking-api&
+        scope=openid%20view:balance&
+        response_type=id_token%20token&
+        client_id=${account.clientId}&
+        redirect_uri=${account.callback}&
+        nonce=NONCE&
+        state=OPAQUE_VALUE
         </code>
       </pre>
     </div>
     <div id="with-mfa" class="tab-pane">
       <pre class="text hljs">
         <code>
-    https://${account.namespace}/authorize?
-      audience=https://my-banking-api
-      &scope=openid%20view:balance%20transfer:funds
-      &response_type=id_token%20token
-      &client_id=${account.clientId}
-      &redirect_uri=${account.callback}
-      &nonce=NONCE
-      &state=OPAQUE_VALUE
+        https://${account.namespace}/authorize?
+        audience=https://my-banking-api&
+        scope=openid%20view:balance%20transfer:funds&
+        response_type=id_token%20token&
+        client_id=${account.clientId}&
+        redirect_uri=${account.callback}&
+        nonce=NONCE&
+        state=OPAQUE_VALUE
         </code>
       </pre>
     </div>
