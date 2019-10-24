@@ -1,5 +1,5 @@
 ---
-title: Install the Deploy CLI Tool
+title: Install and Configure the Deploy CLI Tool
 description: Learn how to install and configure the Deploy CLI Tool.
 topics:
   - extensions
