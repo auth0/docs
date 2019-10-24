@@ -146,7 +146,7 @@ The following RACI Matrix provides an in-depth summary of the roles and responsi
         <td>Issue Identification and Support Ticket Submission</td>
         <td>C</td>
         <td>R, A</td>
-        <td>The subscriber is responsible for submitting issues via the [Support Center](${env.DOMAIN_URL_SUPPORT})</td>
+        <td>The subscriber is responsible for submitting issues via the <a href="${env.DOMAIN_URL_SUPPORT}">Support Center</a></td>
     </tr>
     <tr>
         <td>Issue Resolution</td>
