@@ -37,7 +37,7 @@ If a user does not receive the requested email or SMS message, here are some thi
 
 ## What if a user receives multiple authentication emails/SMS messages?
 
-If a user accidentally requests more than one email or SMS message containing magic links or authentication codes, the last **five** codes will be valid. After successful log in using any of the codes/links, **all** of the existing codes/links will be invalidated.
+If a user accidentally requests more than one email or SMS message containing magic links or authentication codes, only the most recent code/link will be valid. After successful log in using any of the codes/links, **all** of the existing codes/links will be invalidated.
 
 ## One-Time Password Limitations
 
