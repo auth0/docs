@@ -98,7 +98,7 @@ For this example, we assume that we have already done the following:
 1. Create a rule that challenges the user to authenticate with MFA when the web app requests it. Navigate to [Rules](${manage_url}/#/rules), and create a rule that contains the following content:
 
     ```js
-    function (user, context, callback) {
+    function(user, context, callback) {
 
       var CLIENTS_WITH_MFA = ['${account.clientId}'];
       // run only for the specified clients
