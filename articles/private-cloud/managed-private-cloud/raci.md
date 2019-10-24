@@ -11,7 +11,7 @@ The customer-hosted Managed Private Cloud provides you with everything you need 
 
 ## Differences between the Auth0-Hosted and the Customer-Hosted Managed Private Cloud
 
-<table>
+<table class="table">
     <tr>
         <td></td>
         <td><b>Auth0-Hosted</b></td>
@@ -75,7 +75,7 @@ The following RACI Matrix provides an in-depth summary of the roles and responsi
 * **Consulted**: the party/parties whose opinions are requested and with whom there is two-way communication
 * **Informed**: the party/parties who are kept up-to-date with regards to progress and with whom there is one-way communication
 
-<table>
+<table class="table">
     <tr>
         <td><b>Private Cloud-Related Tasks or Deliverables</b></td>
         <td><b>Auth0</b></td>
