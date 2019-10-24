@@ -191,6 +191,17 @@ $('#loginRedirect').click(async () => {
 
 Redirect to the `/authorize` endpoint at Auth0, starting the [Universal Login](/universal-login) flow.
 
+### Build login URL
+
+```js
+$('#buildLoginUrl').click(async () => {
+  const url = await auth0.buildLoginUrl({ redirect_uri: 'http://localhost:3000/' });
+  window.location.assign(url);
+});
+```
+
+Generate a URL to the `/authorize` endpoint at Auth0 when you wish to control the redirect yourself.
+
 ### Login with redirect callback
 
 ```js
