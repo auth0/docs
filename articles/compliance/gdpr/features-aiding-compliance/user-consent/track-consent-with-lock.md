@@ -153,6 +153,8 @@ If you are using social logins, adding custom fields is not an option, but you c
 
 <%= include('./_redirect.md') %>
 
+<%= include('../../../../_includes/_parental-consent') %>
+
 We are done with the configuration part, let's test!
 
 ## Test the configuration
