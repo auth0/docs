@@ -23,7 +23,7 @@ You can also upgrade from a previous version of the tool. The `auth0-deploy-cli`
 - The directory structure and format has changed to allow for additional object types.
 - The command line parameters have changed to allow for additional options, such as export.
 
-### Install the Deploy CLI Tool
+## Install the Deploy CLI Tool
 
 To install the Deploy CLI Tool, use the command-line interface to run:
 
@@ -37,11 +37,11 @@ The Deploy CLI Tool must be authorized to call the Management API. To do this, y
 
 1. Navigate to the [Extensions](${manage_url}/#/extensions) page in the [Auth0 Dashboard](${manage_url}), search for the **Auth0 Deploy CLI** extension, and click the Extension to install.
 
-    ![Find Deploy CLI Extension](/media/articles/extensions/deploy-cli/deploy-cli-find-extension.png)
+![Find Deploy CLI Extension](/media/articles/extensions/deploy-cli/deploy-cli-find-extension.png)
 
 2. Click **Install**.
 
-    ![Install Deploy CLI Extension](/media/articles/extensions/deploy-cli/deploy-cli-install-extension.png)
+![Install Deploy CLI Extension](/media/articles/extensions/deploy-cli/deploy-cli-install-extension.png)
 
 3. From the list of installed extensions, click **Auth0 Deploy CLI**, then click **Accept** to consent to allow the extension to access your data. 
 
@@ -59,7 +59,7 @@ The Deploy CLI Application must be configured to grant it access to the Manageme
 
 4. Repeat step 1 to refresh the available Application options. Once refreshed, note that on the **APIs** tab, under **Auth0 Management API**, the [required scopes](#required-scopes) should already be enabled.
 
-    ![Enable Permissions](/media/articles/extensions/deploy-cli/deploy-cli-enable-permissions.png)
+![Enable Permissions](/media/articles/extensions/deploy-cli/deploy-cli-enable-permissions.png)
 
 ### Required Scopes
 
