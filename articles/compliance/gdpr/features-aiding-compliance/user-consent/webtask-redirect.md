@@ -5,6 +5,9 @@ contentType: how-to
 sitemap: false
 ---
 # Redirect Users to Consent Form Hosted Using Webtask
+:::warning
+Webtask is no longer accepting new signups. We recommend hosting this on another hosting service like Heroku. 
+::: 
 
 For simplicity, we will use this [sample consent form](https://wt-peter-auth0_com-0.run.webtask.io/simple-redirect-rule-consent-form). This is a form we have hosted for you using a [webtask](https://webtask.io/), but later on we will see how to host your own version of this form (with your own URL). You can find the webtask's code at [Auth0 Redirect Rules repo](https://github.com/auth0/rules/blob/master/redirect-rules/simple/webtask.js).
 
