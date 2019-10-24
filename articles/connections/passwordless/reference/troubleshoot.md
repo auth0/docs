@@ -35,10 +35,6 @@ If a user does not receive the requested email or SMS message, here are some thi
 * Did the email get filed into a junk or spam folder?
 * Has there been some type of server delay, latency, or connectivity issue preventing the user from email or SMS messages?
 
-## What if a user receives multiple authentication emails/SMS messages?
-
-If a user accidentally requests more than one email or SMS message containing magic links or authentication codes, only the most recent code/link will be valid. After successful log in using any of the codes/links, **all** of the existing codes/links will be invalidated.
-
 ## One-Time Password Limitations
 
 <%= include('../../_otp-limitations') %>
