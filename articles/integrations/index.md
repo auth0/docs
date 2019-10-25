@@ -22,16 +22,16 @@ useCase:
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-292"></i><a href="/analytics/integrations">Analytics Integrations</a>
+    <i class="icon icon-budicon-292"></i><a href="/analytics">Analytics Integrations</a>
     <p>
         Learn how to set up and configure analytics integrations with Auth0.
     </p>
     <ul>
       <li>
-        <img class="icon-logo" src="/img/icons/facebook.svg" /><a href="/analytics/integrations/facebook-analytics">Facebook Analytics Integration</a>
+        <img class="icon-logo" src="/img/icons/facebook.svg" /><a href="/analytics/guides/facebook-analytics">Integrate Facebook Analytics with Auth0</a>
       </li>
       <li>
-        <img class="icon-logo" src="/img/icons/google.svg" /><a href="/analytics/integrations/google-analytics">Google Analytics Integration</a>
+        <img class="icon-logo" src="/img/icons/google.svg" /><a href="/analytics/guides/google-analytics">Integrate Google Analytics with Auth0</a>
       </li>
     </ul>
   </li>

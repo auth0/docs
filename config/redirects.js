@@ -1713,6 +1713,18 @@ module.exports = [
     to: '/sso/current/integrations/zoom'
   },
   {
+    from: '/analytics/integrations',
+    to: '/analytics',
+  },
+  {
+    from: '/analytics/integrations/facebook-analytics',
+    to: '/analytics/guides/facebook-analytics',
+  },
+  {
+    from: '/analytics/integrations/google-analytics',
+    to: '/analytics/guides/google-analytics',
+  },
+  {
     from: '/clients/how-to-update-client-secret',
     to: '/dashboard/guides/applications/rotate-client-secret',
   },

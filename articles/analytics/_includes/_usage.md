@@ -1,6 +1,6 @@
 ## Usage
 
-After installation on your site there is nothing else you need to do to start collecting data. Auth0 Analytics will immediately begin sending events to <%- name %>.
+After installation on your site, you will start collecting data. Auth0 Analytics will immediately begin sending events to <%- name %>.
 
 You will see the following events being logged:
 
