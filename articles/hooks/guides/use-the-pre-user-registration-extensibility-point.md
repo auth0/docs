@@ -11,7 +11,7 @@ v2: true
 ---
 # Implement Custom Actions Using Pre-User Registration Extensibility Points
 
-For [Database Connections](/connections/database), the Pre-User Registration extensibility point allows you to add custom data points to a newly-created user's profile.
+For [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless), the Pre-User Registration extensibility point allows you to add custom data points to a newly-created user's profile.
 
 This allows you to implement scenarios such as setting conditional information (in the form of [metadata](/users/concepts/overview-user-metadata) on users that do not exist yet.
 
