@@ -170,9 +170,7 @@ Add the following methods to the `views.py` file to create a decorator that will
 # auth0authorization/views.py
 
 import jwt
-
-def get_token_auth_header(request):
-    """Obtains the Access Token from the Authorization Header
+    """Obtains the access token from the Authorization Header
     """
     auth = request.META.get("HTTP_AUTHORIZATION", None)
     parts = auth.split()
@@ -180,8 +178,9 @@ def get_token_auth_header(request):
 
     return token
 
+
 def requires_scope(required_scope):
-    """Determines if the required scope is present in the Access Token
+    """Determines if the required scope is present in the access token
     Args:
         required_scope (str): The scope required to access the resource
     """
@@ -189,11 +188,20 @@ def requires_scope(required_scope):
         @wraps(f)
         def decorated(*args, **kwargs):
             token = get_token_auth_header(args[0])
-            unverified_claims = jwt.get_unverified_claims(token)
-            token_scopes = unverified_claims["scope"].split()
-            for token_scope in token_scopes:
-                if token_scope == required_scope:
-                    return f(*args, **kwargs)
+            
+            jsonurl = req.urlopen('https://' + YOUR_DOMAIN + '/.well-known/jwks.json')
+            jwks = json.loads(jsonurl.read())
+            cert = '-----BEGIN CERTIFICATE-----\n' + jwks['keys'][0]['x5c'][0] + '\n-----END CERTIFICATE-----'
+            certificate = load_pem_x509_certificate(cert.encode('utf-8'), default_backend())
+            public_key = certificate.public_key()
+            
+            decoded = jwt.decode(token, public_key, audience=YOUR_API_IDENTIFIER, algorithms=['RS256'])
+
+            if decoded.get("scope"):
+                token_scopes = decoded["scope"].split()
+                for token_scope in token_scopes:
+                    if token_scope == required_scope:
+                        return f(*args, **kwargs)
             response = JsonResponse({'message': 'You don\'t have access to this resource'})
             response.status_code = 403
             return response
