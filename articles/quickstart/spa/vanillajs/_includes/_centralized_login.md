@@ -332,7 +332,7 @@ If you see any errors from the Auth0 server, check that you have not forgotten t
 
 ## Read the User Profile
 
-Everytime a user is logged in you get access both to the **access token** and the **ID token**. The user's profile information is then extracted from the ID token. Typically, the token is used to call your backend application and the profile information is used to display their name and profile picture. In this section you are going to display them in separate text areas so you can easily inspect them.
+Everytime a user is logged in you get access both to the **access token** and the **ID token**. The user's profile information is extracted from the ID token. The access token is used to call your backend application and the profile information is used to display their name and profile picture. In this section you are going to display them in separate text areas so you can easily inspect them.
 
 Open the `index.html` file and insert the following lines at the bottom of the body.
 
@@ -392,6 +392,6 @@ const updateUI = async () => {
 // ..
 ```
 
-Note that calls to the SDK instance can throw an exception if the authentication fails, if there is no user currently authenticated, or if the token needs to be refreshed and that request fails. You will need to put a try/catch block around them to correctly handle any errors. These error checks are not shown on the article but they are available on the final sample app that you can download.
+Note that calls to the SDK instance can throw an exception if the authentication fails, if there is no user currently authenticated, or if the access token needs to be refreshed and that request fails. You will need to put a try/catch block around them to correctly handle any errors. These error checks are not shown on the article but they are available on the final sample app that you can download.
 
 > **Checkpoint:** Go ahead and run the project for the last time. Now if the user is authenticated you will get to see their access token and profile data. See how this content disappears when you log out.
