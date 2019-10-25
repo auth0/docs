@@ -1,9 +1,10 @@
 ---
-title: Connecting to OpenID Connect Identity Providers
-connection: OpenId Connect
-image: /media/connections/open-id.png
+title: Connect Your App to OpenID Connect Identity Providers
+connection: OpenID Connect
+image: /media/connections/oidc.png
+public: true
 seo_alias: oidc
-description: Connecting to OpenID Connect Identity Providers
+description: Learn how to connect to OpenID Connect (OIDC) Identity Providers using an enterprise connection.
 crews: crew-2
 toc: true
 topics:
@@ -15,69 +16,82 @@ useCase:
     - customize-connections
     - add-idp
 ---
-
-::: warning
-If you are using Lock with an OpenID Connect (OIDC) connection, you must use Lock version 11.16 or higher.
-:::
-
 # Connect to an OpenID Connect Identity Provider
 
-Auth0 provides an OpenID Connect (OIDC) connection that enables you to connect to OIDC-compliant identity providers. 
+::: warning
+If you are using the Lock login widget with an OpenID Connect (OIDC) connection, you must use Lock version 11.16 or higher.
+:::
 
-To be configurable through the Auth0 Dashboard, the Open ID identity provider needs to support [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html). Otherwise, you can configure it using the [Management API](#configuring_the_connection_using_the_management_api).
+## Prerequisites
 
-To create a new OIDC connection, you'll need to complete the following fields:
+**Before beginning:**
 
-![](/media/articles/connections/enterprise/oidc/oidc-small.png)
+* [Register your Application with Auth0](/getting-started/set-up-app). 
+  * Select an appropriate **Application Type**.
+  * Add an **Allowed Callback URL** of **`${account.callback}`**.
+  * Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include the appropriate flows.
 
-* **Connection Name**: The logical identifier for your Connection. It cannot be changed and needs to be unique for the tenant.
+## Steps
 
-* **Issuer URL**: The URL where Auth0 can find the **OpenID Provider Configuration Document**, which should be available in the `/.well-known/openid-configuration` endpoint. You can enter the base URL or the full URL. You will see a green checkmark if it can be found at that location, a red mark if it cannot be found, or an error message if the file is found but the required information is not present in the configuration file.
+To connect your application to an OIDC Identity Provider, you must:
 
-* **Client ID**: The Client ID for the client that is defined in the target identity provider. It's different for each provider, so please check the provider's documentation.
+1. [Set up your app in the OpenID Connect Identity Provider](#set-up-your-app-in-the-openid-connect-identity-provider).
+2. [Create an enterprise connection in Auth0](#create-an-enterprise-connection-in-auth0) and download the installer.
+3. [Enable the enterprise connection for your Auth0 Application](#enable-the-enterprise-connection-for-your-auth0-application).
+4. [Test the connection](#test-the-connection).
 
-* **Client Secret**: In case the OIDC provider does not support front-channel authentication, Auth0 will prompt for the Client Secret. The client secret is usually available in the OIDC provider client configuration page.
+## Set up your app in the OpenID Connect Identity Provider
 
-You need to make sure that the **Callback URL** referenced is added as a valid callback URL in the client application that's referenced with the Client ID specified above. Note that if you are using a Custom Domain, the callback URL should point to it.
+To allow users to log in using an OIDC Identity Provider, you must register your application with the IdP. The process of doing this varies depending on the OIDC Identity Provider, so you will need to follow your IdP's documentation to complete this task.
 
-Click **Save**.
+Generally, you will want to make sure that at some point you enter your <dfn data-key="callback">callback URL</dfn>: `https://${account.namespace}/login/callback`.
 
-Next, you will see a list of your registered [applications](${manage_url}/#/applications) with the option to enable the new connection for any of them.
+<%= include('../_find-auth0-domain-redirects.md') %>
 
-That's it! You are now ready to test and start using your connection.
+During this process, your OIDC Identity Provider will generate a unique identifier for the registered API, usually called a **Client ID** or an **Application ID**. Make note of this value; you will need it later.
 
-## Additional customization options
+## Create an enterprise connection in Auth0
 
-If you edit the OIDC Connect Connection, you will see additional configuration options:
+Next, you will need to create and configure a OIDC Enterprise Connection in Auth0. Make sure you have the **Application (client) ID** and the **Client secret** generated when you set up your app in the OIDC provider.
 
-![](/media/articles/connections/enterprise/oidc/oidc-details.png)
+### Create an enterprise connection using the Dashboard
 
-* **Display Name**: The name that will be used in the Login screen for the New Universal Login Experience to identify the connection. In the Classic Universal Login Experience, the connection name will be used instead.
+::: warning
+To be configurable through the Auth0 Dashboard, the OpenID Connect (OIDC) Identity Provider (IdP) needs to support [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html). Otherwise, you can configure the connection using the [Management API](#configure-the-connection-using-the-management-api).
+:::
 
-* **Icon URL**: The icon that will be used in the Login screen for the New Universal Login Experience to identify the connection. In the Classic Universal Login Experience, a default icon will be used.
+1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click the `+` next to **OpenID Connect**.
 
-* **Type**: Determines what ODIC options will be used when authenticating with the OIDC provider. You could need to adjust it if the ODIC metadata claims to support both but a specific client only supports Back Channel.
+![Create Connection Type](/media/articles/dashboard/connections/enterprise/conn-enterprise-list.png)
 
-    * Front Channel: Auth0 will use `response_mode=form_post` and `response_type=id_token`. It's the preferred one as it does not require a client secret. 
-    * Back Channel: Auth0 will use the authorization code flow with `response_type=code`.
+2. Enter general information for your connection:
 
-* **IdP Domains**: The list of email domains that can be authenticated in the Identity Provider. This is only applicable when using Identifier First authentication in the Classic Universal Login Experience.
+| Field | Description |
+| ----- | ----------- |
+| **Connection name** | Logical identifier for your connection; it must be unique for your tenant. Once set, this name can't be changed. |
+| **Display name** (optional) | Text used to customize the login button for Universal Login. When set, the Universal Login login button reads: "Continue with {Display name}". |
+| **Logo URL** (optional) | URL of image used to customize the login button for Universal Login. When set, the Universal Login login button displays the image as a 20px by 20px square. |
+| **Issuer URL** | URL where Auth0 can find the **OpenID Provider Configuration Document**, which should be available in the `/.well-known/openid-configuration` endpoint. You can enter the base URL or the full URL. You will see a green checkmark if it can be found at that location, a red mark if it cannot be found, or an error message if the file is found but the required information is not present in the configuration file. |
+| **Client ID** | Unique identifier for your registered Azure AD application. Enter the saved value of the **Client ID** for the app you registered with the OIDC Identity Provider. |
 
-* **Scopes**: The list of OAuth scopes that will be requested when connecting to the identity provider. This will affect the data stored in the user profile. You are required to include at least the 'openid' scope. Note that the connection does not call `/userinfo` endpoint and expects the user claims to be present in the `id_token`.
+![Configure General OIDC Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-oidc-settings-1.png)
 
-## Manually configuring Issuer metadata 
+3. Enter additional information for your connection, and click **Create**:
 
-If you click `Show Issuer Details` you can see the data returned by the Issuer URL endpoint and adjust it in case you need to.
+| Field | Description |
+| ----- | ----------- |
+| **Callback URL** | URL to which Auth0 redirects users after they authenticate. Ensure that this value is configured for the app you registered with the OIDC Identity Provider.
+| **Sync user profile attributes at each login** | When enabled, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. |
 
-## Federating with Auth0
+<%= include('../_find-auth0-domain-redirects.md') %>
 
-The OpenID Connect connection is very useful when federating to another Auth0 tenant. Just enter your Auth0 tenant URL in the 'Issuer' field (such as `https://<tenant>.auth0.com`), and the Client ID for any application in that tenant in the 'Client ID' field.
+![Configure Advanced OIDC Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-oidc-settings-2.png)
 
-## Configuring the connection using the Management API
+### Create an enterprise connection using the Management API
 
-The examples below show can you can configure the connection by either providing a metadata URI or by setting the OIDC URLs explicitly. 
+These examples will show you the variety of ways you can create the [connection](/connections) using Auth0's Management API. You ca configure the connection by either providing a metadata URI or by setting the OIDC URLs explicitly.
 
-**Using Front Channel with discovery endpoint**
+**Use Front Channel with discovery endpoint**
 
 ```har
 {
@@ -100,7 +114,7 @@ The examples below show can you can configure the connection by either providing
 }
 ```
 
-**Using Back Channel with discovery endpoint**
+**Use Back Channel with discovery endpoint**
 
 ```har
 {
@@ -124,7 +138,7 @@ The examples below show can you can configure the connection by either providing
 }
 ```
 
-**Using Front Channel specifying issuer settings**
+**Use Front Channel specifying issuer settings**
 
 ```har
 {
@@ -147,7 +161,7 @@ The examples below show can you can configure the connection by either providing
 }
 ```
 
-**Using Back Channel specifying issuer settings**
+**Use Back Channel specifying issuer settings**
 
 ```har
 {
@@ -170,8 +184,22 @@ The examples below show can you can configure the connection by either providing
 }
 ```
 
-## Providing Feedback
+## Enable the enterprise connection for your Auth0 application
+
+To use your new Azure AD enterprise connection, you must first [enable the connection](/dashboard/guides/connections/enable-connections-enterprise) for your Auth0 Applications.
+
+## Test the connection
+
+Now you're ready to [test your connection](/dashboard/guides/connections/test-connections-enterprise).
+
+## Manually configure Issuer metadata 
+
+If you click `Show Issuer Details` on the Issuer URL endpoint, you can see the data and adjust it if you need to.
+
+## Federate with Auth0
+
+The OpenID Connect enterprise connection is extremely useful when federating to another Auth0 tenant. Just enter your Auth0 tenant URL (for example, `https://<tenant>.auth0.com` in the **Issuer** field, and enter the Client ID for any application in the tenant to which you want to federate in the **Client ID** field.
+
+## Provide Feedback
 
 While in Beta, we'll be answering questions and receiving feedback in our [Community Section for the OIDC Connection Beta Program](https://community.auth0.com/c/auth0-beta-programs/new-oidc-connection-beta).
-
-

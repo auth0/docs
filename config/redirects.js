@@ -358,6 +358,10 @@ module.exports = [
     to: '/connections/enterprise/azure-active-directory/v1'
   },
   {
+    from: '/connections/enterprise/samlp',
+    to: '/connections/enterprise/saml'
+  },
+  {
     from: '/dwolla-clientid',
     to: '/connections/social/dwolla'
   },

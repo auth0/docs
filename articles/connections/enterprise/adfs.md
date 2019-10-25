@@ -1,12 +1,13 @@
 ---
-title: Connect your app to ADFS
+title: Connect Your App to ADFS
 connection: ADFS
-image: /media/connections/ms.png
+image: /media/connections/adfs.png
+public: true
 alias:
-  - active-directory-federation-services
-  - adfs-2
+    - active-directory-federation-services
+    - adfs-2
 seo_alias: adfs
-description: How to connect ADFS with Auth0.
+description: Learn how to connect your application to Active Directory Federation Services (ADFS) using enterprise connections.
 crews: crew-2
 topics:
     - connections
@@ -17,12 +18,11 @@ topics:
     - ad-fs
 contentType: how-to
 toc: true
-useCase: customize-connections
 useCase:
     - customize-connections
     - add-idp
 ---
-# Connect Your Application to ADFS
+# Connect Your App to ADFS
 
 To connect your application to Microsoft's Active Directory Federation Services (ADFS), you will need to provide the following information to your ADFS administrator:
 

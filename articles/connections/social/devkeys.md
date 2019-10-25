@@ -12,7 +12,7 @@ useCase:
 
 # Test Social Connections with Auth0 Developer Keys
 
-When using any of the available [Social Identity Providers](/identityproviders#social), you need to register your application with the relevant Identity Provider in order to obtain a Client ID and Client Secret.
+When using any of the available [Social Identity Providers](/connections/identity-providers-social), you need to register your application with the relevant Identity Provider in order to obtain a Client ID and Client Secret.
 
 Auth0 allows you to test a Social Identity Provider without specifying your own Client ID and Client Secret by using Auth0 developer keys. This allows you to quickly enable and test a specific Social Identity Provider, but it should **not be used in production**. 
 
