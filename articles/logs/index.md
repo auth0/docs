@@ -102,6 +102,12 @@ For searching by criteria use the following parameters:
 
 For the list of fields that can be used in the search query and the `fields` and `sort` params, checkout the list of [searcheable fields](logs/query-syntax#searchable-fields).
 
+#### Limitations
+
+Besides the limitation of 100 logs per request to retrieve logs, you may only paginate through up to 1,000 search results.
+
+If you get the error `414 Request-URI Too Large` this means that your query string is larger than the supported length. In this case, refine your search.
+
 ::: panel Private Cloud Users
 For Private Cloud users searching tenant logs, note that only the following fields are searchable at this time: 
 
@@ -113,12 +119,6 @@ For Private Cloud users searching tenant logs, note that only the following fiel
 
 Use double quotes for exact searches (e.g., `application:"test"` will search for all log entries specific to the application named `test`, but `application:test` will search log entries for applications with test in their name.
 :::
-
-#### Limitations
-
-Besides the limitation of 100 logs per request to retrieve logs, you may only paginate through up to 1,000 search results.
-
-If you get the error `414 Request-URI Too Large` this means that your query string is larger than the supported length. In this case, refine your search.
 
 ## Other log endpoints
 
