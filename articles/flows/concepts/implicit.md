@@ -53,8 +53,8 @@ The Access Token is exposed on the client side. The implicit flow does not retur
 
 While SPAs using the Implicit Grant cannot use [Refresh Tokens](/tokens/refresh-token), there are other ways to provide similar functionality. 
 
-- Use `prompt=none` when invoking the [/authorize](/api/authentication#implicit-grant) endpoint. This won't display the login dialog or the consent dialog. For more information, see [Silent Authentication](/api-auth/tutorials/silent-authentication). 
-- Call `/authorize` from a hidden iframe and extract the new [Access Token](/tokens/access-tokens) from the parent frame, the user will not see the redirects happening.
+- Use `prompt=none` when invoking the [/authorize](/api/authentication#implicit-grant) endpoint. The user will not see the login or consent dialogs. For more information, see [Silent Authentication](/api-auth/tutorials/silent-authentication). 
+- Call `/authorize` from a hidden iframe and extract the new [Access Token](/tokens/access-tokens) from the parent frame. The user will not see the redirects happening.
 
 ## Keep reading
 
