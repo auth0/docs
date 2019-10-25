@@ -38,7 +38,11 @@ Below are some common causes of the invalid state error as well troubleshooting 
 
 The most common cause of the invalid state error is when the callback URL is cached on the server.
 
-Remove caching from all the URLs listed in the **Allowed Callback URLs** field for your Application in the Auth0 dashboard and test again. If that does not solve the issue, continue with the troubleshooting steps below. 
+Exclude caching on your server for all the URLs listed in the **Allowed Callback URLs** field for your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) in the Auth0 Dashboard and test again. In addition, exclude caching the site URL (`/index.php` on a regular install) if it has an Auth0 URL parameter. 
+
+Check to see if your server’s time is not set properly. The `BeforeValidException` error can occur when the token is perceived to have been generated before the current time, which can happen if the server times are off. You can check server time by using `echo current_time( 'c' )`. A temporary workaround may also be to modify the plugin to add a time offset if you cannot modify the server time, but it should be fixed for production.
+
+If that does not solve the issue, continue with the troubleshooting steps below. 
 
 ### Cached cookies and URL parameters. 
 
