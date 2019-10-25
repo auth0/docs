@@ -51,7 +51,10 @@ Finally, you can follow our tutorials to use our API endpoints to [Add Login Us
 The Access Token is exposed on the client side. The implicit flow does not return a Refresh Token because the browser cannot keep it private.  
 :::
 
-While SPAs using the Implicit Grant cannot use [Refresh Tokens](/tokens/refresh-token), there are other ways to provide the same function. One way is to use `prompt=none` when you invoke the [/authorize](/api/authentication#implicit-grant) endpoint. This will not display the login dialog or the consent dialog. For more information, see [Silent Authentication](/api-auth/tutorials/silent-authentication). Additionally, if you call `/authorize` from a hidden iframe and extract the new [Access Token](/tokens/access-tokens) from the parent frame, the user will not see the redirects happening.
+While SPAs using the Implicit Grant cannot use [Refresh Tokens](/tokens/refresh-token), there are other ways to provide similar functionality. 
+
+- Use `prompt=none` when invoking the [/authorize](/api/authentication#implicit-grant) endpoint. This won't display the login dialog or the consent dialog. For more information, see [Silent Authentication](/api-auth/tutorials/silent-authentication). 
+- Call `/authorize` from a hidden iframe and extract the new [Access Token](/tokens/access-tokens) from the parent frame, the user will not see the redirects happening.
 
 ## Keep reading
 
