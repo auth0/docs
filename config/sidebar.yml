@@ -787,8 +787,15 @@ articles:
       - title: Extensions
         url: /extensions
 
-      - title: Analytics Integrations
-        url: /analytics/integrations
+      - title: Analytics
+        url: /analytics
+        children:
+
+          - title: Facebook Analytics
+            url: /analytics/guides/facebook-analytics
+            
+          - title: Google Analytics
+            url: /analytics/guides/google-analytics
 
       - title: Single Sign-On Integrations
         url: /integrations/sso
