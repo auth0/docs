@@ -12,7 +12,7 @@ useCase:
 ---
 # Application Settings
 
-On the [Applications](${manage_url}/#/applications) page of the [Auth0 Dashboard](${manage_url}/, locate your Application and click its name to view the available settings.
+On the [Applications](${manage_url}/#/applications) page of the [Auth0 Dashboard](${manage_url}/), locate your Application and click its name to view the available settings.
 
 ## Basic Settings
 
