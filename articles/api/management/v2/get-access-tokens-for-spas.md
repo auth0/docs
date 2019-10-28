@@ -39,7 +39,7 @@ With a Management API Token issued for a SPA, you can access the following scope
 | `delete:current_user_device_credentials` | [DELETE /api/v2/device-credentials/{id}](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) |
 
 ::: note
-Please note that the above scopes (and therefore limits) are rate limited.
+Please note that the above scopes (and therefore limits) are [rate limited](/policies/rate-limits#access-tokens-for-spas).
 :::
 
 ## Using a Management API Token to call the Management API from a SPA
