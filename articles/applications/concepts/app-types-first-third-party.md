@@ -31,23 +31,17 @@ Third-party applications must be created through the [Auth0 Management API](/api
 
 <%= include('../../_includes/_enable-third-party-apps-info') %>
 
-### Characteristics of Third-Party Applications
+Third-party applications have the following unique characteristics:
 
-#### User Consent
+- **User Consent**: You must require user consent when consuming APIs because anyone can create an application. Requiring the user to provide consent improves security.
 
-Third-party applications cannot skip user consent when consuming APIs. Because anyone can create an application, requiring a final user to provide consent improves security.
+- **ID Tokens**: [ID Tokens](/tokens/id-tokens) generated for third-party applications hold only minimum user profile information.
 
-#### ID Tokens
+- **Connections**: You can only use tenant-level connections or *domain connections*. For more informations, see [Enable Third-party Applications](/applications/guides/enable-third-party-apps).
 
-[ID Tokens](/tokens/id-tokens) generated for third-party applications hold minimum user profile information.
-
-#### Connections
-
-Third-party applications can use only tenant-level connections (domain connections). Learn how to [enable third-party applications](/applications/guides/enable-third-party-apps).
-
-#### When used with the Management APIv2
+## Management APIv2
   
-Third-party applications cannot use [ID Tokens](/tokens/id-tokens) to invoke [Management API](/api/management/v2) endpoints. Instead, they should get a [Management API Access Token](/api/management/v2/tokens) with the `current_user_*` scopes required by each endpoint:
+Both first- and third-party applications cannot use [ID Tokens](/tokens/id-tokens) to invoke [Management API](/api/management/v2) endpoints. Instead, they should get a [Management API Access Token](/api/management/v2/tokens) with the `current_user_*` scopes required by each endpoint:
 
 - `read:current_user`: [List or search users](/api/management/v2#!/Users/get_users), [Get a user](/api/management/v2#!/Users/get_users_by_id), [Get user MFA enrollments](/api/management/v2#!/Users/get_enrollments)
 - `update:current_user_metadata`: [Update a user](/api/management/v2#!/Users/patch_users_by_id), [Delete a user's multi-factor provider](/api/management/v2#!/Users/delete_multifactor_by_provider)
