@@ -91,7 +91,7 @@ As `auth_config.json` is served publicly, this file should **never** contain sen
 
 In this section you will create a basic web server using [ExpressJS](https://expressjs.com). This will be used to serve our HTML page, along with any assets that it requires (JavaScript, CSS, etc).
 
-Run the following command in the same folder as the `index.html` file you created earlier:
+Run the following commend in the same folder as the `index.html` file you created earlier:
 
 ```bash
 $ npm init -y
@@ -258,7 +258,7 @@ const login = async () => {
 };
 ```
 
-Additionally, because this is a _single page application_, the result of this call needs to be handled in the same context. This means that when the page is loaded and the user is not authenticated you could be in one of the following two scenarios:
+Additionally, because this is a _single page application_, the result of this call needs to be handled on the same context. This means that when the page is loaded and the user is not authenticated you could be in one of the following two scenarios:
 
 1. The user does not want to authenticate and is just navigating through public content or
 2. The user has recently initiated the authentication process and is now looking to complete it.
@@ -328,11 +328,11 @@ const logout = () => {
 
 > **Checkpoint:** Being authenticated click the **Log out** button. You should be taken to the Universal Login Page configured for your application and then back to the page you were before. Now the authentication cookies were cleared and the user is logged out. The "Log in" button will be enabled back again.
 
-If you see any errors from the Auth0 server, check that you have not forgotten to whitelist the logout URL as explained initially.
+If you see any errors from the Auth0 server, check that you have not forgotten to whitelist the logout url as explained initially.
 
 ## Read the User Profile
 
-Every time a user is logged in you get access both to the **access token** and the **ID token**. The user's profile information is then extracted from the ID token. Typically, the token is used to call your backend application and the profile information is used to display their name and profile picture. In this section you are going to display them in separate text areas so you can easily inspect them.
+Everytime a user is logged in you get access both to the **access token** and the **ID token**. The user's profile information is then extracted from the ID token. Typically, the token is used to call your backend application and the profile information is used to display their name and profile picture. In this section you are going to display them in separate text areas so you can easily inspect them.
 
 Open the `index.html` file and insert the following lines at the bottom of the body.
 
@@ -392,6 +392,6 @@ const updateUI = async () => {
 // ..
 ```
 
-Note that calls to the SDK instance can throw an exception if the authentication fails, if there is no user currently authenticated, or if the token needs to be refreshed and that request fails. You will need to put a try/catch block around them to correctly handle any errors. These error checks are not shown in the article but they are available on the final sample app that you can download.
+Note that calls to the SDK instance can throw an exception if the authentication fails, if there is no user currently authenticated, or if the token needs to be refreshed and that request fails. You will need to put a try/catch block around them to correctly handle any errors. These error checks are not shown on the article but they are available on the final sample app that you can download.
 
 > **Checkpoint:** Go ahead and run the project for the last time. Now if the user is authenticated you will get to see their access token and profile data. See how this content disappears when you log out.

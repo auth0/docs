@@ -56,7 +56,7 @@ Use the CLI to generate a new service called `AuthService`:
 ng generate service auth
 ```
 
-Open the `src/app/auth/auth.service.ts` file inside your code editor and add the following content:
+Open the `src/app/auth.service.ts` file inside your code editor and add the following content:
 
 :::note
 Make sure that the domain and client ID values are correct for the application that you want to connect with. 
@@ -246,10 +246,10 @@ The `localAuthSetup()` method uses the `auth0-spa-js` SDK to check if the user i
 If you do not already have a logical place to house login and logout buttons within your application, create a new component to represent a navigation bar that can also hold some UI to log in and log out:
 
 ```bash
-ng generate component nav-bar
+ng generate component navbar
 ```
 
-Open the `src/app/components/nav-bar/nav-bar.component.ts` file and replace its contents with the following:
+Open the `src/app/navbar/navbar.component.ts` file and replace its contents with the following:
 
 ```js
 import { Component, OnInit } from '@angular/core';
@@ -257,8 +257,8 @@ import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
 
@@ -272,7 +272,7 @@ export class NavbarComponent implements OnInit {
 
 The `AuthService` class you created in the previous section is being provided in the component in the constructor. It is `public` to enable use of its methods in the component _template_.
 
-Next, configure the UI for the `navbar` component by opening the `src/app/components/nav-bar/nav-bar.component.html` file and replacing its contents with the following:
+Next, configure the UI for the `navbar` component by opening the `src/app/navbar/navbar.component.html` file and replacing its contents with the following:
 
 ```html
 <header>
@@ -302,7 +302,7 @@ Use the Angular CLI to create a new component called `Callback`:
 ng generate component callback
 ```
 
-Open the `src/app/pages/callback/callback.component.ts` file and replace its contents with the following:
+Open the `src/app/callback/callback.component.ts` file and replace its contents with the following:
 
 ```js
 import { Component, OnInit } from '@angular/core';
@@ -365,7 +365,7 @@ Create a new component called "Profile" using the Angular CLI:
 ng generate component profile
 ```
 
-Open `src/app/pages/profile/profile.component.ts` and replace its contents with the following:
+Open `src/app/profile/profile.component.ts` and replace its contents with the following:
 
 ```js
 import { Component, OnInit } from '@angular/core';
@@ -388,7 +388,7 @@ export class ProfileComponent implements OnInit {
 
 All we need to do here is publicly inject the `AuthService` so that it can be used in the template.
 
-Next, open `src/app/pages/profile/profile.component.html` and replace its contents with the following:
+Next, open `src/app/profile/profile.component.html` and replace its contents with the following:
 
 ```html
 <pre *ngIf="auth.userProfile$ | async as profile">
@@ -414,7 +414,7 @@ const routes: Routes = [
 ...
 ```
 
-Finally, the navigation bar should be updated to include navigation links. Open `src/app/components/nav-bar/nav-bar.component.html` and add route links below the login/logout buttons:
+Finally, the navigation bar should be updated to include navigation links. Open `src/app/navbar/navbar.component.html` and add route links below the login/logout buttons:
 
 ```html
 <header>
@@ -439,7 +439,7 @@ ng generate guard auth
 
 You will receive this prompt: "Which interfaces would you like to implement?" Select **CanActivate**.
 
-Open the `src/app/auth/auth.guard.ts` file and replace its contents with the following:
+Open the `src/app/auth.guard.ts` file and replace its contents with the following:
 
 ```ts
 import { Injectable } from '@angular/core';
