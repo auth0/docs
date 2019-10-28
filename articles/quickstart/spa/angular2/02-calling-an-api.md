@@ -83,7 +83,7 @@ In order for these changes to take effect, you will need to stop and restart the
 
 ## Update the Authentication Service
 
-We'll now make several updates in the `src/app/auth.service.ts` file.
+We'll now make several updates in the `src/app/auth/auth.service.ts` file.
 
 ### Add Audience
 
@@ -130,7 +130,7 @@ Create an interceptor service with the following CLI command:
 ng generate service interceptor
 ```
 
-Open the generated `src/app/interceptor.service.ts` file and add the following code:
+Open the generated `src/app/auth/interceptor.service.ts` file and add the following code:
 
 ```ts
 import { Injectable } from '@angular/core';
@@ -258,11 +258,11 @@ Now we need somewhere to call the API and display the results. Create a new page
 ng generate component external-api
 ```
 
-Open `src/app/external-api/external-api.component.ts` and add this code:
+Open `src/app/pages/external-api/external-api.component.ts` and add this code:
 
 ```ts
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
+import { ApiService } from '../../api.service';
 
 @Component({
   selector: 'app-external-api',
@@ -292,7 +292,7 @@ The API service is provided and a named subscription to `api.ping$()` is created
 We do _not_ need to unsubscribe from the `api.ping$()` observable because it completes once the HTTP request is finished.
 :::
 
-Open `src/app/external-api/external-api.component.html` and replace its contents with the following:
+Open `src/app/pages/external-api/external-api.component.html` and replace its contents with the following:
 
 ```html
 <button (click)="pingApi()">Ping API</button>
@@ -323,7 +323,7 @@ const routes: Routes = [
 
 The `/external-api` route is also guarded with `AuthGuard` since it requires an authenticated user with an access token.
 
-Finally, add a link to the navigation bar. Open `src/app/navbar/navbar.component.html` and add:
+Finally, add a link to the navigation bar. Open `src/app/components/nav-bar/nav-bar.component.html` and add:
 
 ```html
 <header>
