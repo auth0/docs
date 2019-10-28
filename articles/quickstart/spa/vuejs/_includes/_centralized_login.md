@@ -242,7 +242,7 @@ Notice that the configuration file created earlier has been imported and used to
 
 In this section, you will provide a way for the user to log in or log out, depending on their authentication status.
 
-Open the `views/Home.vue` file and modify the template to include two buttons that enable the user to log in and log out:
+Open the `src/views/Home.vue` file and modify the template to include two buttons that enable the user to log in and log out:
 
 ```html
 <template>
