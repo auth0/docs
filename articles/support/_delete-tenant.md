@@ -1,6 +1,6 @@
 ## Delete tenants
 
-This process deletes only one tenant. If you have other tenants that need to be removed, you will need to repeat these steps for each tenant. If you are an [enterprise customer](#for-enterprise-customers) or have a [paid subscription](for-paid-subscription-customers), please review our caveats before proceeding.
+This process deletes only one tenant. If you have other tenants that need to be removed, you will need to repeat these steps for each tenant. If you are an [enterprise customer](#for-enterprise-customers) or have a [paid subscription](#for-paid-subscription-customers), please review our caveats before proceeding.
 
 ::: warning
 You **cannot** restore a deleted tenant and you cannot reuse a tenant name when creating new tenants.
