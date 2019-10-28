@@ -76,6 +76,9 @@ articles:
           - title: "Multi-factor Authentication"
             url: "/universal-login/multifactor-authentication"
 
+          - title: Passwordless"
+            url: "/dashboard/guides/universal-login/configure-login-page-passwordless"
+            
           - title: "Error Pages"
             url: "/universal-login/error-pages"
 
