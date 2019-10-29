@@ -29,7 +29,7 @@ We support scenarios for server-side, mobile, desktop, client-side, machine-to-m
   <li>
       <i class="icon icon-budicon-715"></i><a href="/flows/concepts/auth-code">Authorization Code Flow</a>
     <p>
-      Because regular web apps are server-side apps where the source code is not publicly exposed, they can use the Authorization Code Flow (defined in defined in OAuth 2.0 RFC 6749, section 4.1), which exchanges an Authorization Code for a token.
+      Because regular web apps are server-side apps where the source code is not publicly exposed, they can use the Authorization Code Flow (defined in OAuth 2.0 RFC 6749, section 4.1), which exchanges an Authorization Code for a token.
     </p>
     <ul>
       <li>
